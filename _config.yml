@@ -2,16 +2,16 @@
 title: gankai Blog
 SEOTitle: gankai博客 | gankai Blog
 header-img: img/post-bg-desk.jpg
-email: GitHubGanKai@gmail.com
-description: "Every failure is leading towards success."
-keyword: "BY, BY Blog, gankai博客, GitHubGanKai, 甘凯, iOS, Apple, iPhone"
+email: gk1424301572@outlook.com
+description: "Things that can make you miserable will surely make you strong, grow up, and must experience what others can't!"
+keyword: "Java, JavaScript, 博客, GitHubGanKai, vue, web, blog, js"
 url: "http://GitHubGanKai.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/GitHubGanKai/GitHubGanKai.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Goals determine what you going to be!"
+sidebar-about-description: "Always optimistic about the future!"
 sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
@@ -19,7 +19,7 @@ sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's us
 # SNS settings
 RSS: false
 # weibo_username:     GitHubGanKai
-zhihu_username:     GitHubGanKai
+zhihu_username:     ren-qing-zi-ji-9
 github_username:    GitHubGanKai
 facebook_username:  baiying.qiu.7
 jianshu_username:   e71990ada2fd
