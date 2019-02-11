@@ -5,9 +5,9 @@ header-img: img/homePage.jpg
 email: gk1424301572@outlook.com
 description: "Things that can make you miserable will surely make you strong, grow up, and must experience what others can't!"
 keyword: "Java, JavaScript, 博客, GitHubGanKai, vue, web, blog, js"
-url: "http://GitHubGanKai.github.io"          # your host, for absolute URL
+url: "http://gankai.online/."          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/GitHubGanKai/GitHubGanKai.github.io.git" # you code repository
+github_repo: "https://github.com/GitHubGanKai/blog.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
