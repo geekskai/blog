@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      最全的JavaScript基础详解
+subtitle:   JavaScript基础 进阶
+date:       2018-10-28 11:04:11
+author:     gankai
+header-img: img/JavaScript.jpg
+catalog: true
+tags:
+    - git
+    - 函数式编程
+    - 开源框架
+---
 # JavaScript基础 #
 1.什么情况下是undifind:变量声明了,但是没有定义.
 如果一个undifind的数和一个数字进行计算,结果是:NaN,即not a number,不是一个数字,也没有什么意义.
