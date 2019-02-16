@@ -54,12 +54,12 @@
 ```
 # Site settings
 title: BY Blog                    # 你的博客网站标题
-SEOTitle: 柏荧的博客 | BY Blog		# SEO 标题
+SEOTitle: 甘凯的博客 | GK Blog		# SEO 标题
 description: "Hey"	   	   # 随便说点，描述一下
 
 # SNS settings      
-github_username: qiubaiying     # 你的github账号
-jianshu_username: e71990ada2fd  # 你的简书ID。
+github_username: GitHubGanKai     # 你的github账号
+jianshu_username: 4365773d2dd5  # 你的简书ID。
 
 # Build settings
 # paginate: 10              # 一页你准备放几篇文章
@@ -74,17 +74,17 @@ Jekyll官方网站还有很多的参数可以调，比如设置文章的链接�
 yaml 头文件长这样:
 
 ```
----
 layout:     post
-title:      定时器 你真的会使用吗？
-subtitle:   iOS定时器详解
-date:       2016-12-13
-author:     BY
+title:      最全的Git入门操作使用详解
+subtitle:   最全的Git入门操作使用详解 进阶
+date:       2019-1-27 12:03:16
+author:     gankai
 header-img: img/post-bg-ios9-web.jpg
-catalog: 	 true
+catalog: true
 tags:
-    - iOS
-    - 定时器
+    - git
+    - 函数式编程
+    - 开源框架
 ---
 
 ```
