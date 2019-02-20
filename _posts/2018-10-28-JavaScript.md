@@ -761,16 +761,34 @@ console.log('不能执行到这来');
 1.函数作为返回值;
 2.函数作为参数传递.
 
+**1.**
 `function Fu (){
   var a = 100 ;
   return function (){
-    console.log(a)
+    console.log(a)  // a 属于自由变量 会去父级作用域找
   }
   }
 var a=200
 var f=Fu();
 f();  //  100  
   `
+
+**2.**
+
+`
+function Fu(){
+  var a = 100;
+  return function (){
+    console.log(a)  // a 属于自由变量 会去父级作用域找
+  }
+}
+var f = Fu();
+function Fu2 (fu){
+  var a = 200 ;
+  fu();
+}
+Fu2(f);//  100 
+`
 
 ![](imgs/2018-08-26_110305.png)
 
