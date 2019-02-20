@@ -779,6 +779,7 @@ f();  //  100
 function Fu(){
   var a = 100;
   return function (){
+    //函数是在这时候声明定义的,那么这个a 就是这里作用域中的a 这个就是闭包;
     console.log(a)  // a 属于自由变量 会去父级作用域找
   }
 }
@@ -787,7 +788,7 @@ function Fu2 (fu){
   var a = 200 ;
   fu();
 }
-Fu2(f);//  100 
+Fu2(f);//  100
 `
 
 ![](imgs/2018-08-26_110305.png)
