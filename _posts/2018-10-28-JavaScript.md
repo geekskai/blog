@@ -757,17 +757,19 @@ console.log('不能执行到这来');
 
 **一个函数的作用域,是在他定义的时候确定的,并不是在他执行的时候确定的**
 
-闭包的使用场景,1.函数作为返回值,2.函数作为参数传递.
+闭包的使用场景
+1.函数作为返回值;
+2.函数作为参数传递.
 
 `function Fu (){
   var a = 100 ;
-  return funcrion (){
-    cancle.log(a)
+  return function (){
+    console.log(a)
   }
   }
 var a=200
 var f=Fu();
-f();
+f();  //  100  
   `
 
 ![](imgs/2018-08-26_110305.png)
