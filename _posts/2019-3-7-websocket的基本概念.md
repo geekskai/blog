@@ -13,6 +13,6 @@ tags:
 ---
 # websocket的基本概念
 
-### [查看源码戳这里 👆](https://github.com/GitHubGanKai/blog)
+### [查看源码戳这里 👆](https://github.com/GitHubGanKai/websocket-demo)
 
 ![demo](https://raw.githubusercontent.com/GitHubGanKai/blog/master/img/socketdemo.png)
