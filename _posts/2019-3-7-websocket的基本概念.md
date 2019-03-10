@@ -7,9 +7,9 @@ author:     gankai
 header-img: img/post-bg-websocket.jpg
 catalog: true
 tags:
-    - npm
-    - NPM 镜像
-    - 开源框架
+    - websocket
+    - websocket IO
+    - 简易聊天室
 ---
 # websocket的基本概念
 
