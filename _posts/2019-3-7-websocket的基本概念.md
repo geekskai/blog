@@ -15,4 +15,4 @@ tags:
 
 ### [查看源码戳这里 👆](https://github.com/GitHubGanKai/blog)
 
-![demo](../img/socketdemo.png)
+![demo](https://raw.githubusercontent.com/GitHubGanKai/blog/master/img/socketdemo.png)
