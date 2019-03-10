@@ -12,6 +12,6 @@ tags:
     - 开源框架
 ---
 # websocket的基本概念
-[demo](img/GIF.gif)
+![demo](../img/GIF.gif)
 
-github[地址](https://github.com/GitHubGanKai/blog)
+### [查看源码戳这里 👆](https://github.com/GitHubGanKai/blog)
