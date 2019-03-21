@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      web前端面试总结
-subtitle:   记录一下这几天的面试遇到的题目
+title:      Interview-summary
+subtitle:   Record the topics encountered during the interviews these days.
 date:       2019-3-21 20:59:21
 author:     gankai
 header-img: img/vue.jpg
@@ -13,7 +13,7 @@ tags:
     - http协议
 ---
 
-<h1> 每天一道面试题, 励志前行,未来可期!</h1>
+<h1> 每天进步一点点赢在别人休息时, 励志前行,未来可期!</h1>
 
  *** 坐标深圳,记录一下最近面试遇到的问题,分享出来给大家! ***
 
