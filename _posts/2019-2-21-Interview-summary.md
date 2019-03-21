@@ -31,7 +31,8 @@
    总结:请求优化,资源优化,以及缓存;
    <h4>金证股份</h4>
    <li>CSS选择符有哪些?哪些属性可以继承?优先级算法如何计算?内联和!important哪个优先级高?</li>
-   `答案:`通用(*),id(#),类别(.),标签(tag),后代(>),子代(div p),群组(ul,ul),相邻同胞(p+span),伪类(a:hover),属性([attr])
+   `答案:`
+          通用(*),id(#),类别(.),标签(tag),后代(>),子代(div p),群组(ul,ul),相邻同胞(p+span),伪类(a:hover),属性([attr])
    <li>行内元素有哪些？块级元素有哪些？ 空(void)元素有那些?</li>
    `答案:`行内元素有 a b i input img label textarea span strong  select;
    块级元素:div dir dl form h1-h6 hr menu ol ul p  
