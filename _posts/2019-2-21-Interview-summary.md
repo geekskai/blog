@@ -4,7 +4,7 @@ title:      Interview-summary
 subtitle:   Record the topics encountered during the interviews these days.
 date:       2019-3-21 20:59:21
 author:     gankai
-header-img: img/vue.jpg
+header-img: img/timg-2019-3-21.jpg
 catalog: true
 tags:
     - JavaScript
