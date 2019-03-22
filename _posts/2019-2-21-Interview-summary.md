@@ -51,15 +51,15 @@ tags:
 1.条件hack:
 
     <!--[if lt IE 7]>    // 小于IE7的
-    `<style>.....</style>`
+    html代码
     <![endif]-->
 
 2.属性级别的hack:
 
     color:red;
-    `_`color:bule;
-    `*`color:yellow;
-    `+`colr:white;
+    _color:bule;
+    *color:yellow;
+    +colr:white;
     color:red\0;
     color:red\9;
 
