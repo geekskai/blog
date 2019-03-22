@@ -40,6 +40,30 @@ tags:
 ####  什么是doctype?
 `答案:`百度百科:doctype标签是一种标准通用标记语言的文档类型申明,它的目的是告诉通用标准语言解析器,它应该使用什么样的文档类型定义来解析文档.  
 ####  至少写2种css hack
+`答案:`只有IE6能识别的`_`例如:`_background-color:red;`;`*`IE6和IE7能识别,IE8和Firefox不能识别;
+
+         lt   小于
+    　　 gt　 大于
+    　　 gte  大于或等于
+    　　 lte  小于或等于
+    　　 ！   非
+
+1.条件hack:
+
+    <!--[if lt IE 7]>    // 小于IE7的
+    `<style>.....</style>`
+    <![endif]-->
+
+2.属性级别的hack:
+
+    ```
+    color:red;
+    _color:bule;
+    *color:yellow;
+    +colr:white;
+    color:red\0;
+    color:red\9;
+    ```
 ####  如何让一个div水平垂直居中?
 ####  css是什么?css盒子模型有哪些属性?
 ####  你开发的项目一般是在哪个浏览器上,他们的内核是什么?你是如何优化的?
