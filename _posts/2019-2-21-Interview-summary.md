@@ -56,12 +56,29 @@ tags:
 
 2.属性级别的hack:
 
-    color:red;
-    _color:bule;
-    *color:yellow;
-    +colr:white;
-    color:red\0;
-    color:red\9;
+      #test{
+        color:#c30; /* For Firefox */
+        color:red\0; /* For Opera */
+        color:yellow\9; /* For IE8+ */
+        *color:blue; /* For IE7 */
+        _color:#ccc; /* For IE6 */
+      }
+
+3.选择符级别的hack
+
+`*` html .test{
+  color:red;   /* For IE6 and earlier */
+}
+
+`*` `+` html `.`test{
+  color:red;  // For IE7
+}
+.test:lang(zh-cn){
+  color:red;  // for IE8+ and not IE
+}
+.test:nth-child(1){
+  color:red;  // for IE9+ and not IE
+}  
 
 
 ####  如何让一个div水平垂直居中?
