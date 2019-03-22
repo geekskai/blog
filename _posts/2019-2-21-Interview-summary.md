@@ -56,14 +56,14 @@ tags:
 
 2.属性级别的hack:
 
-    ```
     color:red;
-    _color:bule;
-    *color:yellow;
-    +colr:white;
+    `_`color:bule;
+    `*`color:yellow;
+    `+`colr:white;
     color:red\0;
     color:red\9;
-    ```
+
+
 ####  如何让一个div水平垂直居中?
 ####  css是什么?css盒子模型有哪些属性?
 ####  你开发的项目一般是在哪个浏览器上,他们的内核是什么?你是如何优化的?
