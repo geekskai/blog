@@ -101,6 +101,26 @@ css:
     position:absolute;
     maigin:auto;
   }
+####  以下代码执行后,弹窗中依次弹出的内容是什么?请说明为什么?
+          +
+          function () {
+            alert(a)
+            a()
+            var a = function () {
+                console.log('1')
+            }
+
+            function a() {
+                console.log('2')
+            }
+            alert(a)
+            a()
+            var d = c = a
+          }()
+          alert(d)
+          alert(c)
+
+
 
 ####  css是什么?css盒子模型有哪些属性?
 ####  你开发的项目一般是在哪个浏览器上,他们的内核是什么?你是如何优化的?
