@@ -21,7 +21,7 @@ tags:
 
 `我的答案是:`闭包其实就是作用域内的函数,就是链接内部函数和外部函数之间的桥梁.
 
-`闭包的官方解释是：  闭包是指有权访问另一个函数作用域中的变量的函数。`  
+`闭包的官方解释是：  闭包是指有权访问另一个函数作用域中的变量的函数。`
 
 ####  js为什么是单线程的?
 
@@ -37,12 +37,12 @@ tags:
 
 ####  行内元素有哪些？块级元素有哪些？ 空(void)元素有那些?
 `我的答案是:`行内元素有 a b i input img label textarea span strong  select;
-块级元素:div dir dl form h1-h6 hr menu ol ul p  
+块级元素:div dir dl form h1-h6 hr menu ol ul p
 空元素:br hr input img link meta
 继承:css继承一般是指文本方面的继承 ,盒子模型相关的基本上没有继承的;
 块级元素可以继承的:text-indent;text-aline;行级别元素可以继承的:lettter-spacing,world-spacing,line-height,color,font相关
 ####  什么是doctype?
-`我的答案是:`百度百科:doctype标签是一种标准通用标记语言的文档类型申明,它的目的是告诉通用标准语言解析器,它应该使用什么样的文档类型定义来解析文档.  
+`我的答案是:`百度百科:doctype标签是一种标准通用标记语言的文档类型申明,它的目的是告诉通用标准语言解析器,它应该使用什么样的文档类型定义来解析文档.
 ####  至少写2种css hack
 `我的答案是:`只有IE6能识别的`_`例如:`_background-color:red;`;`*`IE6和IE7能识别,IE8和Firefox不能识别;
 
@@ -82,7 +82,7 @@ tags:
 }
 .test:nth-child(1){
   color:red;  // for IE9+ and not IE
-}  
+}
 **
 
 ####  如何让一个div水平垂直居中?
@@ -94,6 +94,7 @@ tags:
 css:
 
 `方法一`
+
         .outer{
           width:300px;
           height:300px;
@@ -112,6 +113,20 @@ css:
         }
 
 `方法二`
+
+        .outer {
+          width:300px;
+          height:300px;
+          background-color: blueviolet;
+          display:flex;
+        }
+        .inner {
+          width:120px;
+          height:120px;
+          background-color: aquamarine;
+          margin:auto;
+          flex:0 0 auto;
+        }
 
 ####  以下代码执行后,弹窗中依次弹出的内容是什么?请说明为什么?
           +
@@ -168,19 +183,18 @@ css:
 #### 什么是CDN,请说明使用CDN的好处?
 
 
-####  css是什么?css盒子模型有哪些属性?  
+####  css是什么?css盒子模型有哪些属性?
 
-`我的答案是:`:css中文叫做层叠样式表,盒子模型分为IE模型和标准w3模型两种,W3盒子模型中的属性width,height 不包括:border和padding,而IE盒子模型中的width和height包括了 border和padding   
+`我的答案是:`:css中文叫做层叠样式表,盒子模型分为IE模型和标准w3模型两种,W3盒子模型中的属性width,height 不包括:border和padding,而IE盒子模型中的width和height包括了 border和padding
 
 `box-sizing`相关:
 
-    标准w3盒模型: content-box  
+    标准w3盒模型: content-box
     IE盒模型:border-box
 
 ####  你开发的项目一般是在哪个浏览器上,他们的内核是什么?你是如何优化的?
 
 `我的答案是:`一般是在chrome和IE浏览器上比较多,
-
 
 ####  px和em的区别?
 ####  src和href的区别?
@@ -231,6 +245,6 @@ css:
 
 此时:又从红色油漆桶(这时候里面的油漆是红蓝混合的)中舀一勺油漆,容量也是`i`,放入蓝色油漆桶中,混合后:
 
-此时: 蓝色油漆桶中的油漆(也是红蓝混合的)为:`(i-x) + x`   
+此时: 蓝色油漆桶中的油漆(也是红蓝混合的)为:`(i-x) + x`
 
 红色油漆桶中的油漆(也是红蓝混合的)为: `i+x - x`
