@@ -93,7 +93,7 @@ tags:
 
 css:
 
-`方法一`
+`方法一`     // div绝对定位水平垂直居中【margin:auto实现绝对定位元素的居中】
 
         .outer{
           width:300px;
@@ -112,7 +112,7 @@ css:
           bottom:0;
         }
 
-`方法二`
+`方法二`  // 不支持IE
 
         .outer {
           width:300px;
@@ -127,6 +127,49 @@ css:
           margin:auto;
           flex:0 0 auto;
         }
+
+
+
+`方案三`   div绝对定位水平垂直居中【margin 负间距】
+
+    .outer {
+         width: 300px;
+         height: 300px;
+         background-color: blueviolet;
+         position: relative;
+     }
+
+     .inner {
+         height: 120px;
+         width: 120px;
+         background-color: aquamarine;
+         position: absolute;
+         left: 50%;
+         top: 50%;
+         margin-top: -60px;
+         margin-left: -60px;
+     }
+
+`方案四`  // div绝对定位水平垂直居中【Transforms 变形】
+
+    .outer {
+         width: 300px;
+         height: 300px;
+         background-color: blueviolet;
+         position: relative;
+     }
+
+     .inner {
+         height: 120px;
+         width: 120px;
+         background-color: aquamarine;
+         position: absolute;
+         left: 50%;
+         top: 50%;
+         transform: translate(-50%, -50%)
+     }
+
+
 
 ####  以下代码执行后,弹窗中依次弹出的内容是什么?请说明为什么?
           +
