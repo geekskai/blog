@@ -101,7 +101,7 @@ css:
           position:absolute;
           maigin:auto;
         }
-        
+
 ####  以下代码执行后,弹窗中依次弹出的内容是什么?请说明为什么?
           +
           function () {
@@ -120,6 +120,24 @@ css:
           }()
           alert(d)
           alert(c)
+
+`答案:`考察闭包和变量的提升的,依次出现的内容是:
+
+==> function a (){
+  console.log('2')
+}
+
+==> 2
+
+==> function (){
+  console.log('1')
+}
+
+==> 1
+
+==> VM49:16 Uncaught ReferenceError: d is not defined
+    at <anonymous>:16:17
+*注意:*其中变量c是全局变量,若将alert(d)注释掉,alert(c)将会打印出函数1
 
 
 
