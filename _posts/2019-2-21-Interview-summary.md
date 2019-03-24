@@ -79,7 +79,7 @@ tags:
 .test:nth-child(1){
   color:red;  // for IE9+ and not IE
 }  
-
+**
 
 ####  如何让一个div水平垂直居中?
 
@@ -137,10 +137,8 @@ css:
 
 ==> VM49:16 Uncaught ReferenceError: d is not defined
     at <anonymous>:16:17
-    
-*注意:*其中变量c是全局变量,若将alert(d)注释掉,alert(c)将会打印出函数1
 
-
+`注意`:其中变量c是全局变量,若将alert(d)注释掉,alert(c)将会打印出函数1
 
 ####  css是什么?css盒子模型有哪些属性?
 ####  你开发的项目一般是在哪个浏览器上,他们的内核是什么?你是如何优化的?
