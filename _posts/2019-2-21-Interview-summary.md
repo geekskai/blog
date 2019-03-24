@@ -137,6 +137,7 @@ css:
 
 ==> VM49:16 Uncaught ReferenceError: d is not defined
     at <anonymous>:16:17
+    
 *注意:*其中变量c是全局变量,若将alert(d)注释掉,alert(c)将会打印出函数1
 
 
