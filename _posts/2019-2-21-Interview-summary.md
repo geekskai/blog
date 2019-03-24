@@ -93,6 +93,7 @@ tags:
 
 css:
 
+`方法一`
         .outer{
           width:300px;
           height:300px;
@@ -104,7 +105,13 @@ css:
           height:130px;
           position:absolute;
           maigin:auto;
+          top:0;
+          right:0;
+          left:0;
+          bottom:0;
         }
+
+`方法二`
 
 ####  以下代码执行后,弹窗中依次弹出的内容是什么?请说明为什么?
           +
