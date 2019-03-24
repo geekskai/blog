@@ -89,18 +89,18 @@ tags:
 
 css:
 
-  .outer{
-    width:300px;
-    height:300px;
-    position:relative;
-    overflow:auto
-  }
-  .inner{
-    width:130px;
-    height:130px;
-    position:absolute;
-    maigin:auto;
-  }
+        .outer{
+          width:300px;
+          height:300px;
+          position:relative;
+          overflow:auto
+        }
+        .inner{
+          width:130px;
+          height:130px;
+          position:absolute;
+          maigin:auto;
+        }
 ####  以下代码执行后,弹窗中依次弹出的内容是什么?请说明为什么?
           +
           function () {
