@@ -158,9 +158,10 @@ css:
 
 `答案:`:css中文叫做层叠样式表,盒子模型分为IE模型和标准w3模型两种,W3盒子模型中的属性width,height 不包括:border和padding,而IE盒子模型中的width和height包括了 border和padding   
 
-    `box-sizing`中  
+`box-sizing`相关:
+
     标准w3盒模型: content-box  
-    IE盒模型:border-box 
+    IE盒模型:border-box
 
 ####  你开发的项目一般是在哪个浏览器上,他们的内核是什么?你是如何优化的?
 
