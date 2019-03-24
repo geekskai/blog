@@ -140,7 +140,21 @@ css:
 
 `注意`:其中变量c是全局变量,若将alert(d)注释掉,alert(c)将会打印出函数1
 
-####  css是什么?css盒子模型有哪些属性?
+#### 以下代码有什么问题,请说出改进的方法?
+
+    for (var i = 0; i < 10; i++) {
+        document.body.innerHTML += '<li></li>'
+    }
+
+`答案:`
+
+    var html = ''
+    for (var i = 0; i < 10; i++) {
+        html += '<li></li>'
+    }
+    document.body.innerHTML = html
+
+####  css是什么?css盒子模型有哪些属性?  
 ####  你开发的项目一般是在哪个浏览器上,他们的内核是什么?你是如何优化的?
 ####  px和em的区别?
 ####  src和href的区别?
