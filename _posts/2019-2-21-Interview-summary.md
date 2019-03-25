@@ -324,7 +324,7 @@ css:
 ####  cookie有哪些优点?
 ####  用css写出如下的样式?
 
-[如图](https://github.com/GitHubGanKai/blog/blob/master/img/user-right.png)
+![如图](../img/user-right.png)
 
 
 ## 算法题目:
