@@ -326,6 +326,39 @@ css:
 
 ![如图](../img/user-right.png)
 
+`答案:`
+
+      <div class="waper">
+        <div class="waper-inner">
+          <span>姓名</span>
+        </div>
+      </div>
+
+    .waper {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        background: #ccc;
+        overflow: hidden;
+    }
+
+    .waper .waper-inner {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        background: yellow;
+        top: -50px;
+        right: -50px;
+        transform: rotate(45deg);
+    }
+
+    .waper .waper-inner span {
+        position: absolute;
+        bottom: 0;
+        display: block;
+        width: 100px;
+        text-align: center;
+    }
 
 ## 算法题目:
 
