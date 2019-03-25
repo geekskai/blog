@@ -169,6 +169,62 @@ css:
          transform: translate(-50%, -50%)
      }
 
+`方案五`
+
+      .outer {
+          width: 300px;
+          height: 300px;
+          background-color: rgb(43, 198, 226);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .inner {
+          height: 120px;
+          width: 120px;
+          background-color: rgb(40, 119, 109);
+      }
+
+`方案六`  //  支持IE
+
+    .outer {
+          width: 300px;
+          height: 300px;
+          background-color: rgb(43, 198, 226);
+          display: table-cell;
+          text-align: center;
+          vertical-align: middle;
+      }
+
+      .inner {
+          display: inline-block;
+          height: 120px;
+          width: 120px;
+          background-color: rgb(63, 19, 221);
+      }
+
+`方法七`
+
+    .outer {
+        position: relative;
+        border: 1px solid rgb(240, 14, 82);
+        width: 400px;
+        height: 160px;
+    }
+
+    .inner {
+        position: absolute;
+        width: 200px;
+        height: 50px;
+        border: 1px solid rgb(24, 13, 177);
+        left: -webkit-calc((400px - 200px)/2);
+        top: -webkit-calc((160px - 50px)/2);
+        left: -moz-calc((400px - 200px)/2);
+        top: -moz-calc((160px - 50px)/2);
+        left: calc((400px - 200px)/2);
+        top: calc((160px - 50px)/2)
+    }
 
 
 ####  以下代码执行后,弹窗中依次弹出的内容是什么?请说明为什么?
