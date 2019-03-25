@@ -285,6 +285,7 @@ css:
 `优势在于:`
 
 (1)解决了夸运营商和夸地域访问的问题,使得访问延迟大大降低;
+
 (2)大部分请求内容在CDN内容边缘完成,CDN起到了分流的作用,减轻了源站的负载.
 
 ####  css是什么?css盒子模型有哪些属性?
@@ -307,11 +308,37 @@ css:
       Chrome 内核 : Blink    -webkit- ;
 
 ####  px和em的区别?
+
+
+
+
 ####  src和href的区别?
 ####  display:none和visibility: hidden的区别?
 ####  同步和异步的区别,他们的作用是什么?
 ####  如何截取一个URL = https://www.baidu.com/index.php?id=1&code=2中的参数?
 ####  什么是ajax,交互是什么?手写一个ajxa
+
+`我的答案是:`
+
+    var xhr
+
+    if(!xhr || xhr !== 'object'){
+      xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP')
+    }
+    xhr.open('post','http://www.baidu.com/user/login',true)
+    xhr.onreadystatechange = function(){
+      if (xhr.readyState === 4) {
+        if (xhr.state === 200) {
+          console.log(xhr.responseText)
+        }
+      }
+    }
+    xhr.send('params=' + Date().parse()); // // 发送请求,如果是get请求则无需传参.
+
+
+
+
+
 ####  <meta http-equiv="X-UA-Compatible" content="ie=edge">这句话的意思是什么?
 ####  jQuery如何增加 删除 修改 移动元素或者属性?
 ####  你常用的库有哪些?他们有哪些特点?
