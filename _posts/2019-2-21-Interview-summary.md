@@ -321,6 +321,10 @@ css:
 ####  setTimeout 和setInterval 的区别
 ####  什么是跨域,为什么话发生跨域,如何解决?
 ####  cookie有哪些优点?
+####  用css写出如下的样式?
+
+[如图](https://github.com/GitHubGanKai/blog/blob/master/img/user-right.png)
+
 
 ## 算法题目:
 
@@ -359,3 +363,6 @@ css:
 此时: 蓝色油漆桶中的油漆(也是红蓝混合的)为:`(i-x) + x`
 
 红色油漆桶中的油漆(也是红蓝混合的)为: `i+x - x`
+
+
+##  其他
