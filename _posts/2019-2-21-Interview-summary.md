@@ -299,6 +299,7 @@ css:
 ####  你开发的项目一般是在哪个浏览器上,他们的内核是什么?你是如何优化的?
 
 `我的答案是:`一般是在chrome和IE浏览器上比较多;
+
       IE浏览器 内核 : trident  -ms- ;
       Firefox 内核 : gecko    -moz- ;
       Safari 内核 : webkit    -webkit- ;
