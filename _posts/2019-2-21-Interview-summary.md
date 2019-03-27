@@ -309,10 +309,57 @@ css:
 
 ####  px和em的区别?
 
+### 基本类型和引用类型的区别简单介绍
+####  js typeof 的值有哪些?
+`我的答案是:`undefined, boolean, string, number, symbol,function ,object,
 
+基本类型有6种基本类型,undefined,null,string,number,boolean,symbol,
 
+![](../img/stack.png)
+
+      var a = 3;
+      var b = a;
+      a = 1;
+
+####  字符串为什么是不可变的?
+
+    当第一步var a = 3的时候,将地址中的1008改为a,然后存放3进去,之后var b = 3也是类似的
+    当再次赋值 a = 1 的时候,并不是将之前的1008地址覆盖了,而是将a从新放入1006的地址位置,然后放如1,
+    然后地址1008又返回为之前的了,但是其中的存放的值3 还是不变的,所以字符串是不变的的;
+
+#### 简单说下内存中的堆和栈?
+    var arr1 = [1,2,3,4];
+    var arr2 = arr1; // 在栈内存中开辟一块空间,存放的是堆内存的地址,指向对应的堆内存.
+    arr1.push(5);  // 此时的数组 arr1 和arr2 中都是[1,2,3,4,5],因为他们都指向同一个地址.
+
+如图所示:
+![](../img/heap.png)
+
+    var arr1 = [1,2,3,4];
+    var arr2 = arr1; // 在栈内存中开辟一块空间,存放的是堆内存的地址,指向对应的堆内存.
+    arr1.push(5);  // 此时的数组 arr1 和arr2 中都是[1,2,3,4,5],因为他们都指向同一个地址
+    arr1 = [1,2];  //这个时候,改变arr1的值,那么在栈内存中(地址为1003)又会重新开启一个新空间
+    用于存放arr1,存放的是堆内存的地址,将指针指向新的栈内存空间;
+
+如图所示:
+
+![](../img/2019-03-27_200138.png)
 
 ####  src和href的区别?
+
+####  ++a a++以及--a 和a--的区别?
+`我的答案:`
+
+可以理解成：
+
+    ++i，增加变量，返回一个新的值
+    i++，增加变量，返回旧的值
+    --i，减少变量，返回一个新的值
+    i--，减少变量，返回旧的值
+
+详情参考[这里](https://www.w3cplus.com/javascript/javascript-increment-and-decrement-operatorssass.html)
+
+
 ####  display:none和visibility: hidden的区别?
 ####  同步和异步的区别,他们的作用是什么?
 ####  如何截取一个URL = https://www.baidu.com/index.php?id=1&code=2中的参数?
