@@ -359,6 +359,61 @@ css:
 
 详情参考[这里](https://www.w3cplus.com/javascript/javascript-increment-and-decrement-operatorssass.html)
 
+####  以下代码执行的结果是什么?
+
+function test(){
+  var a = b = 3;
+}
+console.log(b)    //  test()未执行的问题
+
+#### 函数中的`AO`和`GO`的预编译情况
+
+`我的答案是:`
+
+    function test(a){
+      console.log(a)
+      var a = 1 ;
+      console.log(a)
+      function a() {}
+      console.log(a)
+      var b = function () {}
+      console.log(b)
+      function d() {}
+    }
+    test(2)
+
+`分析:` AO:activation object  活跃对象,函数上下文.
+
+    执行步骤如下:
+
+          1.寻找形参和变量申明,
+          2.将实参值赋值给形参,
+          3.找函数申明,
+          4.给变量赋值,
+          5.执行
+
+    AO = {
+      a:undefined-->
+        2-->
+        function a() {}-->
+        1
+      b:undefined-->
+        function () {}-->
+
+      d:undefined-->
+        function d() {}
+    }
+
+`结果是:`
+
+    function a() {}
+    1
+    1
+    function () {}
+
+GO:global object 全局上下文 执行步骤是:
+
+1.找变量----> 2.找函数申明----->3.给变量赋值----->4.执行函数
 
 ####  display:none和visibility: hidden的区别?
 ####  同步和异步的区别,他们的作用是什么?
