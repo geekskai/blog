@@ -415,6 +415,42 @@ GO:global object 全局上下文 执行步骤是:
 
 1.找变量----> 2.找函数申明----->3.给变量赋值----->4.执行函数
 
+####  以下代码的执行结果是什么?
+
+(一)
+
+    function test() {
+      a = 1 ;
+      function a() {}
+      var a = 2;
+      return a;
+    }
+    console.log(test())    //  2
+
+(二)
+
+    a = 1;
+    function test(e) {
+      function e() {}
+      arguments[0] = 2;
+      console.log(e)   //  2
+      if (a) {
+        var b = 3
+      }
+      var c;
+      a = 4;
+      var a;
+      console.log(b)  // undefined
+      f = 5;
+      console.log(c)  // undefined
+      console.log(a)  // 4
+    }
+    var a;
+    test(1);
+    console.log(k) // Uncaught ReferenceError: k is not defined
+
+
+
 ####  display:none和visibility: hidden的区别?
 ####  同步和异步的区别,他们的作用是什么?
 ####  如何截取一个URL = https://www.baidu.com/index.php?id=1&code=2中的参数?
