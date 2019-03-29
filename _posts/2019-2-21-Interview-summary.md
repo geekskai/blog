@@ -427,6 +427,14 @@ GO:global object 全局上下文 执行步骤是:
     }
     console.log(test())    //  2
 
+    function demo() {
+      return a;
+      a = 1 ;
+      function a() {}
+      var a = 2;
+    }
+    console.log(demo())  // ƒ a() {}
+
 (二)
 
     a = 1;
@@ -447,9 +455,28 @@ GO:global object 全局上下文 执行步骤是:
     }
     var a;
     test(1);
-    console.log(k) // Uncaught ReferenceError: k is not defined
+    console.log(a) // 1
+    console.log(f) // 5
+    console.log(d) // Uncaught ReferenceError: d is not defined
 
+AO再被执行的前一刻就会生成,GO在被声明的时候就生成.
 
+####  手写一个闭包
+
+    function test1(){
+        function test2(){}
+        var a = 1;
+        return test2;
+    }
+    var c = 3
+    test3 = test1()
+![](../img/2019-03-29_215542.png)
+`当函数test1声明的时候,就会产生它的全局作用域GO,当test1()执行的时候,就会产生它的执行期上下文AO,
+此时test2也在同时声明,这时候,test2的作用域链中就有GO(全局的)和AO(test1函数的).也就是说此时test1的作用域链的指向和test2作用域链的指向相同
+,都指向同一个地方;
+当test1执行完了return 出test2的时候,也就意味着test1执行完了,按理来说这个时候test1的执行上下文AO就应该销毁了,但是,此时test2还是在test1的AO中(他们都指向同一个AO),
+所以AO是不会被销毁,只是指向test1的AO的指针销毁了(看下图所示),没有指向AO了.但是此时test2的指向还是AO.`
+![](../img/2019-03-29_223554.png)
 
 ####  display:none和visibility: hidden的区别?
 ####  同步和异步的区别,他们的作用是什么?
@@ -480,7 +507,10 @@ GO:global object 全局上下文 执行步骤是:
 ####  <meta http-equiv="X-UA-Compatible" content="ie=edge">这句话的意思是什么?
 ####  jQuery如何增加 删除 修改 移动元素或者属性?
 ####  你常用的库有哪些?他们有哪些特点?
-####  手写一个闭包
+
+
+
+
 ####  js的基本类型有哪些?
 ####  如果你的工程会在不同分辨率上显示,你会怎么处理?
 ####  原生js实现斐波那契数列。
