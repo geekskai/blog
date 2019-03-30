@@ -558,11 +558,11 @@ Car.prototype.name = 'Benz';
 function Car(){}
 var car = new Car();
 Car.prototype = {
-  name:'Mazda'
+  name:'Mazda'   // 这个是直接重写原型,将破坏原型链.
 }
 
 console.log(car.name);  //  Benz
-
+Car.prototype.name = 'Mazda';//如果将Car的原型改成这样 结果为Mazda 这个是修改值
 ####  <meta http-equiv="X-UA-Compatible" content="ie=edge">这句话的意思是什么?
 ####  jQuery如何增加 删除 修改 移动元素或者属性?
 ####  你常用的库有哪些?他们有哪些特点?
