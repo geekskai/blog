@@ -520,9 +520,48 @@ test1的AO排第二位,全局GO排第三位.(看下图)当执行test2的时候,�
     }
     xhr.send('params=' + Date().parse()); // // 发送请求,如果是get请求则无需传参.
 
+####  以下代码允许的结果是什么?
 
+let num = (2 + 4, 9 - 1)
 
+`我的答案是:` 8 ,只会打印出最后的一个数;
 
+####  call,apply,bind以及apply()的使用拓展问题
+
+call()和apply()都能改变this的指向并且立即执行,而bind返回一个新的函数,但是不执行,而且当绑定的这个构造函数实例化的时候就失效了.
+
+`当一个构造函数A中的方法和一个构造函数B中的方法想要融合的时候(类似借用属性),可以使用apply(this).`
+![](../img/2019-03-30_161542.png)
+
+#### 简述一下arguments.callee和caller的用法.
+
+`就是调用自身的函数,当在匿名函数或者立即执行函数中使用非常有效.`
+
+![](../img/2019-03-30_162857.png)
+
+`补充:`caller在当严格模式下会报错.
+
+    test1()
+    function test1(){
+      test2()
+    }
+    test2 function(){
+      console.log(test2.caller);  // 返回当前被调用函数的函数引用,即检查哪个函数调用了test2.
+    }
+
+####  js圣杯模式?
+![](../img/2019-03-30_183901.png)
+
+####  对原型的一些补充
+
+Car.prototype.name = 'Benz';
+function Car(){}
+var car = new Car();
+Car.prototype = {
+  name:'Mazda'
+}
+
+console.log(car.name);  //  Benz
 
 ####  <meta http-equiv="X-UA-Compatible" content="ie=edge">这句话的意思是什么?
 ####  jQuery如何增加 删除 修改 移动元素或者属性?
