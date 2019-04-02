@@ -279,6 +279,52 @@ css:
     }
     document.body.innerHTML = html
 
+或者
+
+      var oFragment = document.createDocumentFragment()
+      for (var i = 0; i < 10; i++) {
+          html += '<li></li>'
+      }
+      document.body.innerHTML = oFragment
+
+####  回流和重绘技巧
+
+以下代码执行的时候只会回流2次,当然这个是在操作样式的时候.
+
+     var box = document.getElementsByClassName('box')[0],
+    boxStyle = box.style;   // 先用变量保存一次,避免多次操作样式,优化技巧.
+    像操作 width height,offset ,client ,scroll,等可以先用变量保存,下次同样操作的时候,系统会直接用变量.
+    特别是在做动画或者定时器的时候,要用position:absolute;将动画脱离文档流.避免在每次动画执行的时候,
+    尽量避免操作margin-top,否则会影响父级标签,都会执行一次回流和重绘产生的性能问题.
+    box.onmoseover = function(){
+      boxSty.display = 'none';
+      boxSty.border = '5px solid #ccc';
+      boxSty.weigh = '50px';
+      boxSty.height = '50px';
+      boxSty.display = 'block';
+    }
+
+####  异步加载的方法?
+
+在script标签中:
+
+    (function (){
+      function ascyncLoad(){
+      var script = document.createElement('script'),
+      firstScript =  document.getElementsByTagName('script')[0];
+        script.type = 'text/javascript';
+        script.src = './util.js';
+        script.async = true;
+        firstScript.parentNode.insertBefore(script,firstScript);
+      }
+      if (script.attachEvent) {
+        window.attachEvent('onload',ascyncLoad)
+      } else {
+        window.addEventListener('onload',asyncLoad,true)
+      }
+    })()
+
+
 #### 什么是CDN,请说明使用CDN的好处?
 `答案:`CDN的全称是 content delivery network 内容分发网络.
 
@@ -386,11 +432,11 @@ console.log(b)    //  test()未执行的问题
 
     执行步骤如下:
 
-          1.寻找形参和变量申明,
-          2.将实参值赋值给形参,
-          3.找函数申明,
-          4.给变量赋值,
-          5.执行
+          1、找到形参和变量声明，将变量和形参名作为AO属性名，值为underfined
+          2、将实参值赋值给形参,将实参值和形参值统一
+          3、找函数申明,在函数体里面找到函数声明，值作为跟AO属性对应的值
+          4、给变量赋值,
+          5、执行函数
 
     AO = {
       a:undefined-->
@@ -552,6 +598,9 @@ call()和apply()都能改变this的指向并且立即执行,而bind返回一个�
 ####  js圣杯模式?
 ![](../img/2019-03-30_183901.png)
 
+`补充:`
+![](../img/2019-03-31_133511.png)
+
 ####  对原型的一些补充
 
 Car.prototype.name = 'Benz';
@@ -563,12 +612,107 @@ Car.prototype = {
 
 console.log(car.name);  //  Benz
 Car.prototype.name = 'Mazda';//如果将Car的原型改成这样 结果为Mazda 这个是修改值
+
+####  什么叫做模块化开发?
+
+`以封装圣杯模式为例:`
+
+    var inher = (function(){
+      var Buffer = function(){}
+      return function(Target,Origin){
+        Buffer.prototype = Origin.prototype;
+        Target.prototype = new Buffer();
+        Target.prototype.construct = Target;
+        Target.prototype.sup_class = Origin;
+      }
+    })()
+以上代码称之为模块化开发,防止代码污染,利与开发!
+
+####  插件的写法
+
+;(function(){
+  var Test = function(){}
+  Test.prototype = {}
+  window.Test = Test
+})()
+
+####  三种判断是否为数组的方法
+`1:`
+
+var a = [],
+    str = Object.prototype.toString.call(a),
+    trueTip = '[object Array]',
+
+if(str === trueTip){
+  return '是数组'
+}else{
+  return '不是数组'
+}
+`2:`a.construct
+`3:`a instanceof Array  // 少用
+
+####  什么是类数组?
+
+      var obj = {
+        '0': 1,
+        '1': 2,
+        '2': 3,
+        '3': 4,
+        '4': 5,
+        '5': 6,
+        'length': 6
+        // 'push': Array.prototype.push
+      }
+      Object.prototype.push = Array.prototype.push
+      Object.prototype.splice = Array.prototype.splice
+    原理:
+      Array.prototype.push = function (elem) {
+        this[this.length] = elem
+        this.length++
+      }
+      obj.push(7)
+      console.log(obj)
+
+一道阿里的面试题:
+
+    var obj = {
+          '2': 3,
+          '3': 4,
+          'length': 2,
+          'splice': Array.prototype.splice,
+          'push': Array.prototype.push
+        }
+        obj.push(1)
+        obj.push(2)
+        console.log(obj)
+
+`答案:`
+
+      Object(4) [empty × 2, 1, 2, splice: ƒ, push: ƒ]
+      2: 1
+      3: 2
+      length: 4
+      push: ƒ push()
+      splice: ƒ splice()
+      __proto__: Object
+
+`分析:`
+
+    先要能看懂这个push的原理:
+    Array.prototype.push = function (elem) {
+      this[this.length] = elem
+      this.length++
+    }
+    当开始的时候,从obj[obj.length]开始push,执行push(2),即obj[2] = 1(那么obj.2 = 1),
+    然后length自增加1成为3,执行push(3),即obj[3] = 2(那么obj.3 = 3),然后length自增加1,成为4.
+    之前的key为2,3就被替换成为了现在的1,2所对应的值.
+
+    obj[2] = 1
+    obj[3] = 2
+
 ####  <meta http-equiv="X-UA-Compatible" content="ie=edge">这句话的意思是什么?
 ####  jQuery如何增加 删除 修改 移动元素或者属性?
 ####  你常用的库有哪些?他们有哪些特点?
-
-
-
 
 ####  js的基本类型有哪些?
 ####  如果你的工程会在不同分辨率上显示,你会怎么处理?
