@@ -554,24 +554,42 @@ test1的AO排第二位,全局GO排第三位.(看下图)当执行test2的时候,�
 ####  display:none和visibility: hidden的区别?
 ####  同步和异步的区别,他们的作用是什么?
 ####  如何截取一个URL = https://www.baidu.com/index.php?id=1&code=2中的参数?
+
+function splitUrl(url){
+  let obj = {}
+  url.split('?')[1].split('&').map(it=>{
+    obj[it.split('=')[0]] = obj[it.split('=')[1]]
+  })
+  return obj
+}
+
 ####  什么是ajax,交互是什么?手写一个ajxa
 
 `我的答案是:`
 
-    var xhr
-
-    if(!xhr || xhr !== 'object'){
-      xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP')
-    }
-    xhr.open('post','http://www.baidu.com/user/login',true)
-    xhr.onreadystatechange = function(){
-      if (xhr.readyState === 4) {
-        if (xhr.state === 200) {
-          console.log(xhr.responseText)
+    function AJAX(method,url,pragram){
+      return new Promise((resolve,reject)=>{
+        var xhr = new ActiveXObject('Microsoft.XMLHTTP')||new XMLHttpRequest()
+        if (method.toUpperCase() === 'POST') {
+          this.open(method,url,true)
+          this.responseType = 'json'
+          this.setRequestHeader('Content-Type','application/x-www-form-urlencode;charset=utf-8')
+          this.send(pragram)
+        }else{
+          this.open(method,url,true)
+          this.send()
         }
-      }
+        xhr.onreadystatechange = function(){
+          if (this.readyState === 4) {
+            if(this.status === 200||this.status ===304){
+              resolve(this.responseText)
+            }else{
+              reject(this.response)
+            }
+          }
+        }
+      })
     }
-    xhr.send('params=' + Date().parse()); // // 发送请求,如果是get请求则无需传参.
 
 ####  以下代码允许的结果是什么?
 
@@ -718,8 +736,29 @@ if(str === trueTip){
     obj[3] = 2
 
 ####  <meta http-equiv="X-UA-Compatible" content="ie=edge">这句话的意思是什么?
+`我的答案:`这意味着,系统将强制浏览器按照最高标准去渲染,添加chrome=1,将允许站点在使用了谷歌浏览器内嵌框架(Chrome Frame)的客户端渲染.
+
 ####  jQuery如何增加 删除 修改 移动元素或者属性?
+
+`我的答案:`
+
+    $('div').appendChild('span')
+    $('div').removeChild('span')
+    $('div').setAttribute('title','this is a title')
+
+
 ####  你常用的库有哪些?他们有哪些特点?
+
+`我的答案:` vue和jQuery偏多,vue的优点是,(1)双向数据绑定,(2)vue通过对虚拟dom技术,减少了对dom的操作.
+什么是虚拟dom?就是使用js对象模拟dom,在操作过程中,不会操作真实的dom,等待虚拟dom操作完成,
+仅仅对比开始状态的虚拟dom和结束状态的dom之间的差距(diff算法),最后根据结束状态的dom去操作dom.
+
+*什么是双向数据绑定?*
+
+
+
+
+
 
 ####  js的基本类型有哪些?
 ####  如果你的工程会在不同分辨率上显示,你会怎么处理?
@@ -771,7 +810,50 @@ if(str === trueTip){
 
 #### vue中 同名插槽是替换还是覆盖呢?
 
+#### Promise相关
 
+`Promise的构造函数中的代码是同步的,但是then中的是异步的.而且状态是不可逆的,如果前面是resolve(res),然后又reject(err),`
+
+      new Promise((resolve,reject)=>{
+        resolve('success')
+        reject('error')   // 会执行 但是状态不可逆转
+      }).then(
+        res =>{
+          console.log('then===>',res)
+        }
+      ).catch(err =>{
+        console.log(err)
+      })
+
+`面试:` 
+
+var a = new Promise( function(resolve,reject){
+  setTimeout(function(){
+    resolve(b) // b的执行结果是reject,所以哪怕a是resolve,返回的还是b的结果
+  },2000)
+})      
+
+var b = new Promise( function(resolve,reject){
+  setTimeout(function(){
+    reject(4)
+  },1000)
+})
+
+a.then(function(){
+  console.log('resovle');
+}).catch(function(){
+  console.log('reject');
+})
+
+
+####  原型高级写法拓展
+
+      function Human(){}
+      function Chinese(){}
+      Chinese.prototype = Object.setPrototypeOf({
+        constructor:Chinese,
+        say:function say(){}
+      },Human.prototype)
 
 
 ## 算法题目:
