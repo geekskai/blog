@@ -755,7 +755,7 @@ if(str === trueTip){
 
 *什么是双向数据绑定?*
 
-
+    vue是一个mvvm框架，即数据双向绑定，即当数据发生变化的时候，视图也就发生变化，当视图发生变化的时候，数据也会跟着同步变化。这也算是vue的精髓之处了
 
 
 
@@ -763,7 +763,11 @@ if(str === trueTip){
 ####  js的基本类型有哪些?
 ####  如果你的工程会在不同分辨率上显示,你会怎么处理?
 ####  原生js实现斐波那契数列。
-####  setTimeout 和setInterval 的区别
+####  setTimeout 和setInterval 的区别?
+`我的答案是:`
+
+    setTimeout只会执行传入函数一次,而且是在异步队列中执行的,而setInterval是只会执行一次传入的函数,而且这函数是在主线程的执行栈上执行的.
+
 ####  什么是跨域,为什么话发生跨域,如何解决?
 ####  cookie有哪些优点?
 ####  用css写出如下的样式?
@@ -924,6 +928,17 @@ a.then(function(){
 
 `411`  需要有效长度 服务器不接受不含有效内容长度标头字段的请求.
 
+####  如下输出的结果是什么?
+
+      try {
+        let res = new Promise((resolve,reject)=>{
+          throw new Error('001')
+        }).catch(error=>{
+          console.log('002')    //  走这里  002
+        })
+      } catch (error) {
+        console.log('003')
+      }
 
 
 
