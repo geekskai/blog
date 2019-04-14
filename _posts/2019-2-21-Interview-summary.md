@@ -755,6 +755,13 @@ if(str === trueTip){
     $('div').setAttribute('title','this is a title')
 
 
+####  js中symbol的原理是什么?
+
+Symbol 是一种特殊的、不可变的数据类型，可以作为对象属性的标识符使用，表示独一无二的值。Symbol 对象是一个 symbol primitive data type 的隐式对象包装器。
+
+它是JavaScript语言的第七种数据类型，前6种分别是：Undefined、Null、Boolean、String、Number、Object
+
+参考!(这里)[https://www.infoq.cn/article/es6-in-depth-symbols]    
 ####  你常用的库有哪些?他们有哪些特点?
 
 `我的答案:` vue和jQuery偏多,vue的优点是,(1)双向数据绑定,(2)vue通过对虚拟dom技术,减少了对dom的操作.
