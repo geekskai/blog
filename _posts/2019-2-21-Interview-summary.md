@@ -304,7 +304,43 @@ css:
       boxSty.display = 'block';
     }
 
+#### 请说出一下程序的执行结果
+
+function Foo(){
+  getName = function(){
+    console.log(1)
+  };
+  return this
+}
+
+
+Foo.getName = function(){
+  console.log(2)
+}
+
+Foo.prototype.getName = function(){
+  console.log(3)
+}
+var getName = function(){
+  console.log(4)
+}
+function getName(){
+  console.log(5)
+}
+
+请写出一下输出结果：
+
+Foo.getName();
+getName()  // 申明提前
+Foo().getName();
+getName();
+new Foo.getName();
+new Foo().getName();
+new new Foo().getName();
+
+
 ####  异步加载的方法?
+
 
 在script标签中:
 
