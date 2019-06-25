@@ -4,18 +4,10 @@
 
 <p align='center'>
 	<a href="https://github.com/GitHubGanKai/blog/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/GitHubGanKai/blog.svg"></a>
-
-
 	<a href="https://github.com/GitHubGanKai/blog/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/GitHubGanKai/blog.svg"></a>
-
 	<a href="https://github.com/GitHubGanKai/blog/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/GitHubGanKai/blog.svg"></a>
-
 	<a href="https://github.com/GitHubGanKai/blog/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/GitHubGanKai/blog.svg"></a>
-
 	<a href="https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FGitHubGanKai%2Fblog"><img alt="Twitter" src="https://img.shields.io/twitter/url/https/github.com/GitHubGanKai/blog.svg?style=social"></a>
-
-	[![Twitter](https://img.shields.io/twitter/url/https/github.com/GitHubGanKai/blog.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FGitHubGanKai%2Fblog)
-
 </p>
 <!-- [![Build Status](https://travis-ci.org/qiubaiying/qiubaiying.github.io.svg?branch=master)](https://travis-ci.org/qiubaiying/qiubaiying.github.io)
 [![codebeat badge](https://codebeat.co/badges/5f031df3-f6c1-4ec0-911a-ff6617ca50b9)](https://codebeat.co/projects/github-com-qiubaiying-qiubaiying-github-io-master)
