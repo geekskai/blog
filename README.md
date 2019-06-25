@@ -2,7 +2,7 @@
 
 ![](https://raw.githubusercontent.com/GitHubGanKai/blog/master/img/readme-home.png)
 
-<p align = 'center'>
+<p align='center'>
 	<a href="https://github.com/GitHubGanKai/blog/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/GitHubGanKai/blog.svg"></a>
 
 
