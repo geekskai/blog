@@ -1,0 +1,86 @@
+---
+title: How to remove milliseconds from timestamp in js
+date: '2024-09-15'
+tags: ['javascript', 'date', 'milliseconds', 'programming']
+draft: false
+summary: Learn how to effectively remove milliseconds from a timestamp in JavaScript using methods like toISOString(), setMilliseconds(0), and Math.floor().
+---
+
+
+## Date Object in JavaScript
+Handling dates in JavaScript often requires you to manipulate or format timestamps. In some cases, milliseconds are unnecessary, and removing them can simplify your date-handling tasks. This guide will show you several methods to remove milliseconds from a timestamp in JavaScript.
+
+To remove milliseconds from a `Date` object, you can use `toISOString()` and `slice()`, set milliseconds to zero using `setMilliseconds(0)`, or truncate the timestamp using `Math.floor()`.
+
+
+### 1. Using toISOString() and slice()
+
+The `toISOString()` method returns a date string in ISO format, but it includes milliseconds. You can remove them by slicing off the last part of the string.
+
+```javascript
+const date = new Date()
+const noMilliseconds = date.toISOString().slice(0, -5) + 'Z' // Remove milliseconds
+console.log(noMilliseconds) // Example: 2024-09-15T08:45:12Z
+```
+
+Explanation:
+
+toISOString() returns a string like 2024-09-15T08:45:12.345Z.
+slice(0, -5) removes the .345Z part, leaving the timestamp without milliseconds.
+
+### 2. Using setMilliseconds(0)
+
+You can also directly modify a Date object to remove milliseconds by setting them to 0.
+
+```javascript
+
+const date = new Date();
+date.setMilliseconds(0); // Set milliseconds to 0
+console.log(date.toISOString()); // Example: 2024-09-15T08:45:12.000Z
+```
+
+Explanation:
+
+`setMilliseconds(0)` resets the milliseconds to zero, which then reflects in the output when you format the date.
+
+### 3. Using Math.floor() and getTime()
+If you’re working with timestamps (which represent milliseconds), you can remove the milliseconds by truncating them.
+
+```javascript
+const timestamp = Date.now(); // Get current timestamp in milliseconds
+const noMilliseconds = Math.floor(timestamp / 1000) * 1000; // Remove milliseconds
+console.log(new Date(noMilliseconds)); // Convert back to Date object
+
+```
+Explanation:
+
+Date.now() returns the current timestamp in milliseconds.
+By dividing by 1000, you convert the timestamp to seconds, and Math.floor() removes any fractional milliseconds.
+
+
+### 4. Using Custom Libraries Like Day.js
+Libraries like Day.js and Moment.js can simplify date formatting tasks. Here’s an example using Day.js to remove milliseconds:
+
+```javascript
+
+const dayjs = require('dayjs');
+console.log(dayjs().format('YYYY-MM-DDTHH:mm:ssZ')); // No milliseconds
+    
+```
+When to Remove Milliseconds
+Removing milliseconds is useful in cases where:
+
+Logging: Precision down to seconds is often sufficient for logging events.
+Comparisons: If comparing dates without worrying about milliseconds, removing them simplifies the logic.
+Data storage: Omitting milliseconds reduces the complexity of timestamp data.
+
+
+
+
+
+
+
+
+
+
+
