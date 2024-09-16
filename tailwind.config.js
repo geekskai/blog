@@ -4,6 +4,7 @@ const colors = require('tailwindcss/colors')
 
 /** @type {import("tailwindcss/types").Config } */
 module.exports = {
+  trailingSlash: true,
   content: [
     './node_modules/pliny/**/*.js',
     './app/**/*.{js,ts,jsx,tsx}',
@@ -13,6 +14,16 @@ module.exports = {
     './data/**/*.mdx',
   ],
   darkMode: 'class',
+  // async redirects() {
+  //   return [
+  //     {
+  //       source:
+  //         'https://geekskai.com/2021/02/17/101-GitHub-Repos-Absolute-List-Of-Useful-Repos/LINK',
+  //       destination: '/404',
+  //       permanent: true,
+  //     },
+  //   ]
+  // },
   theme: {
     extend: {
       lineHeight: {
