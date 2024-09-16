@@ -208,8 +208,8 @@ Consider removing the following features that cannot be used in a static build:
 
 ## Support
 
-Using the template? Support this effort by giving a star on GitHub, sharing your own blog and giving a shoutout on Twitter or becoming a project [sponsor](https://github.com/sponsors/timlrx).
+Using the template? Support this effort by giving a star on GitHub, sharing your own blog and giving a shoutout on Twitter or becoming a project [sponsor](https://github.com/sponsors/geekskai).
 
 ## Licence
 
-[MIT](https://github.com/geekskai/blog/blob/main/LICENSE) © [Timothy Lin](https://www.timlrx.com)
+[MIT](https://github.com/geekskai/blog/blob/main/LICENSE) © [geeks kai](https://www.geekskai.com)
