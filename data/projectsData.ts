@@ -7,20 +7,10 @@ interface Project {
 
 const projectsData: Project[] = [
   {
-    title: 'A Search Engine',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
-  },
-  {
-    title: 'The Time Machine',
-    description: `Imagine being able to travel back in time or to the future. Simple turn the knob
-    to the desired date and press "Go". No more worrying about lost keys or
-    forgotten headphones with this simple yet affordable solution.`,
-    imgSrc: '/static/images/time-machine.jpg',
-    href: '/blog/the-time-machine',
+    title: 'vue3-jd-h5 is an e-commerce H5 page front-end project',
+    description: `Based on vue3.x,vite5.x, vant3.0.0, vue-router v4.0.0-0, vuex^4.0.0-0, vue-cli3, mockjs, imitating Jingdong Taobao, mobile H5 e-commerce platform`,
+    imgSrc: '/static/images/vue-jd-h5.png',
+    href: 'https://github.com/geekskai/vue3-jd-h5',
   },
 ]
 
