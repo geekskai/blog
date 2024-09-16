@@ -30,8 +30,8 @@ console.log(noMilliseconds) // Example: 2024-09-15T08:45:12Z
 
 Explanation:
 
-toISOString() returns a string like 2024-09-15T08:45:12.345Z.
-slice(0, -5) removes the .345Z part, leaving the timestamp without milliseconds.
+`toISOString()` returns a string like 2024-09-15T08:45:12.345Z.
+`slice(0, -5)` removes the `.345Z` part, leaving the timestamp without milliseconds.
 
 ### 2. Using setMilliseconds(0)
 
@@ -59,8 +59,8 @@ console.log(new Date(noMilliseconds)); // Convert back to Date object
 ```
 Explanation:
 
-Date.now() returns the current timestamp in milliseconds.
-By dividing by 1000, you convert the timestamp to seconds, and Math.floor() removes any fractional milliseconds.
+`Date.now()` returns the current timestamp in milliseconds.
+By dividing by 1000, you convert the timestamp to seconds, and `Math.floor()` removes any fractional milliseconds.
 
 
 ### 4. Using Custom Libraries Like Day.js
