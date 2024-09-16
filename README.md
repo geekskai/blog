@@ -1,6 +1,8 @@
-![tailwind-nextjs-banner](/public/static/images/twitter-card.png)
+![tailwind-nextjs-banner](/public/static/images/blog-header.png)
 
 # Tailwind Nextjs Blog
+
+![visit](www.geekskai.com/)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/geekskai/blog)
 
