@@ -122,9 +122,9 @@ Edit the layout in `app` or content in `data`. With live reloading, the pages au
 
 Content is modelled using [Contentlayer](https://www.contentlayer.dev/), which allows you to define your own content schema and use it to generate typed content objects. See [Contentlayer documentation](https://www.contentlayer.dev/docs/getting-started) for more information.
 
-### Frontmatter
+### Front matter
 
-Frontmatter follows [Hugo's standards](https://gohugo.io/content-management/front-matter/).
+Front matter follows [Hugo's standards](https://gohugo.io/content-management/front-matter/).
 
 Please refer to `contentlayer.config.ts` for an up to date list of supported fields. The following fields are supported:
 
