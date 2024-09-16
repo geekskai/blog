@@ -21,6 +21,7 @@ export default function Projects() {
             {projectsData.map((d) => (
               <Card
                 key={d.title}
+                hrefRel={d.hrefRel}
                 title={d.title}
                 description={d.description}
                 imgSrc={d.imgSrc}
