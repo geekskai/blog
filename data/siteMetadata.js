@@ -7,7 +7,7 @@ const siteMetadata = {
     'A blog by Geeks Kai focusing on JavaScript, web development, and programming insights.',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://geekskai.com/',
+  siteUrl: 'https://geekskai.com',
   siteRepo: 'https://github.com/geekskai',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
