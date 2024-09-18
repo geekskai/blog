@@ -12,7 +12,7 @@ export default function Home({ posts }) {
       <div className="divide-y divide-stone-200 dark:divide-stone-700">
         <div className="space-y-2 pb-8 pt-6 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-stone-900 dark:text-stone-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Latest
+             {siteMetadata.title}
           </h1>
           <p className="text-lg leading-7 text-stone-500 dark:text-stone-400">
             {siteMetadata.description}
