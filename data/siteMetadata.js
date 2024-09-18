@@ -8,7 +8,7 @@ const siteMetadata = {
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://geekskai.com',
-  siteRepo: 'https://github.com/geekskai',
+  siteRepo: 'https://github.com/geekskai/blog',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/blog-header.png`,
   mastodon: 'https://mastodon.social/@mastodonuser',
