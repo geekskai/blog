@@ -39,7 +39,7 @@ jobs:
           EXPORT: 1
           UNOPTIMIZED: 1
           BASE_PATH: ${{ steps.configurepages.outputs.base_path }}
-          NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ vars.googleAnalyticsId }}
+          NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ vars.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
