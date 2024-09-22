@@ -23,46 +23,46 @@ export default function Home({ posts }) {
           {posts.slice(0, MAX_DISPLAY).map((post) => {
             const { slug, date, title, summary, tags } = post
             return (
-              <li key={slug} className="py-12">
+              <li key={slug} className="py-12 pr-3">
                 <article>
-                  <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                    <dl>
-                      <dt className="sr-only">Published on</dt>
-                      <dd className="text-base font-medium leading-6 text-stone-500 dark:text-stone-400">
-                        <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-                      </dd>
-                    </dl>
-                    <div className="space-y-5 xl:col-span-3">
-                      <div className="space-y-6">
-                        <div>
-                          <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                            <Link
-                              href={`/blog/${slug}`}
-                              className="text-stone-900 dark:text-stone-100"
-                            >
-                              {title}
-                            </Link>
-                          </h2>
-                          <div className="flex flex-wrap">
-                            {tags.map((tag) => (
-                              <Tag key={tag} text={tag} />
-                            ))}
-                          </div>
-                        </div>
-                        <div className="prose max-w-none text-stone-500 dark:text-stone-400">
-                          {summary}
-                        </div>
-                      </div>
-                      <div className="text-right text-base font-medium leading-6">
-                        <Link
-                          href={`/blog/${slug}`}
-                          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                          aria-label={`Read more: "${title}"`}
-                        >
-                          Read more &rarr;
+                  {/* <Link
+                    href={`/blog/${slug}`}
+                    aria-label={title}
+                    className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0"
+                  > */}
+                  <dl>
+                    <dt className="sr-only">Published on</dt>
+                    <dd className="text-base font-medium leading-6 text-stone-500 dark:text-stone-400">
+                      <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
+                    </dd>
+                  </dl>
+                  <div className="space-y-5 xl:col-span-3">
+                    <div className="space-y-6">
+                      <h2 className="text-2xl font-bold leading-8 tracking-tight">
+                        <Link href={`/blog/${slug}`} className="text-stone-900 dark:text-stone-100">
+                          {title}
                         </Link>
+                      </h2>
+                      <h3 className="prose max-w-none text-stone-500 dark:text-stone-400">
+                        {summary}
+                      </h3>
+                    </div>
+
+                    <div className="flex items-center justify-between text-base font-medium leading-6">
+                      <div className="flex flex-wrap">
+                        {tags.map((tag) => (
+                          <Tag key={tag} text={tag} />
+                        ))}
                       </div>
                     </div>
+
+                    <Link
+                      href={`/blog/${slug}`}
+                      className=" inline-block w-full text-right text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                      aria-label={`Read more: "${title}"`}
+                    >
+                      Read more &rarr;
+                    </Link>
                   </div>
                 </article>
               </li>

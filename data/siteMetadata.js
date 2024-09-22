@@ -1,6 +1,6 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'geeks kai',
+  title: 'geekskai',
   author: 'Geeks Kai',
   headerTitle: 'geeks kai Blog',
   description:
