@@ -51,8 +51,7 @@ canonicalUrl: 'https://geekskai.com/blog/cloudflare-blog-setup/'
 推荐使用已经存在的Next.js模板，以便快速开始，您可以直接fork一个blog模版到自己的GitHub仓库中，这样就能直接使用，
 下面以我自己的[博客](https://github.com/geekskai/blog)为例：
 
-第一步：请点击[Fork me on GitHub][fork]
-[fork]: https://github.com/geekskai/blog/fork
+第一步：请点击👉[fork](https://github.com/geekskai/blog/fork)
 就能直接fork到自己的GitHub仓库中。
 
 第二步：Cloudflare Pages配置
@@ -84,6 +83,68 @@ canonicalUrl: 'https://geekskai.com/blog/cloudflare-blog-setup/'
 
 ![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project-5.png)
 
-7. 点击“保存并部署”之后，就能看到下面的页面，我们可以看到构建的进度，构建成功之后，就能看到下面的页面：
+7. 点击“保存并部署”之后，就能看到下面的页面，我们可以看到构建的进度，
+
+![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project-6.png)
+
+8. 构建成功之后，就能看到下面的页面：
+
+![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project-7.png)
+
+9. 成功之后会生成一个链接，例如我的：https://blog-24f.pages.dev/ ，点击该链接，就能看到您的博客已经部署成功的页面，恭喜您！
+
+
+注意：如果您的博客是fork我的blog的模板，访问链接的时候，会看到如下页面：
+
+![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project-8.png)
+
+
+### 添加兼容性标志nodejs_compat
+
+1. 在左侧菜单中点击 "Workers & Pages"
+2. 找到并点击您的项目（blog）
+
+![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project-9.png)
+
+3. 在项目设置中，找到 "Settings" 标签
+4. 向下滚动找到 "Functions" 部分
+5. 点击 "Compatibility flags"
+6. 添加 nodejs_compat 标志：
+7. 在生产环境和预览环境中也添加，然后点击 "保存" 
+
+![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project-10.png)
+
+8. 添加成功之后，需要重新部署，转到 "部署" 标签，点击 "重新部署" 重新部署您的站点。
+
+![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project-11.png)
+
+9. 重新部署成功之后，您的博客就能正常访问了。
+
+### 添加自定义域名
+
+1. 在左侧菜单中点击 "Workers & Pages"
+
+2. 找到并点击您的项目（blog）
+
+3. 找到 "自定义域名" 部分
+
+4. 点击 "添加自定义域名"的按钮
+
+![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project-12.png)
+
+
+
+5. 输入您的域名，然后点击 "继续"
+
+6. 在您的域名注册商中添加CNAME记录，指向您的Cloudflare Pages域名，例如：blog-24f.pages.dev
+
+7. 等待DNS生效，然后您的博客就能通过您的自定义域名访问了。
+
+
+
+
+
+
+
 
 
