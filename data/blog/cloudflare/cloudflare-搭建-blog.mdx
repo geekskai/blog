@@ -1,0 +1,88 @@
+---
+
+title: '2024最新 cloudflare 搭建 blog'
+date: '2024-10-08'
+lastmod: '2024-10-08'
+tags: ['cloudflare', 'blog', 'pages', 'web development']
+draft: false
+summary: '详细介绍如何使用Cloudflare Pages搭建个人博客，包括从项目设置到部署的完整流程，以及一些实用的优化技巧。'
+layout: 'PostLayout'
+canonicalUrl: 'https://geekskai.com/blog/cloudflare-blog-setup/'
+---
+
+## 使用Cloudflare Pages搭建个人博客
+在这篇文章中，我将详细介绍如何使用Cloudflare Pages搭建一个高性能、安全且免费的个人博客。Cloudflare Pages不仅提供了强大的静态网站托管服务，还能确保您的博客快速、安全地传递给全球读者。
+
+
+### 为什么选择Cloudflare Pages？
+
+1. 免费且强大
+
+- 无限的带宽
+- 自动化的CI/CD流程
+- 全球CDN加速
+
+2. 简单易用
+
+- 与GitHub无缝集成
+- 自动HTTPS
+- 自定义域名支持
+
+
+3. 开发者友好
+
+- 支持多种框架
+- 详细的部署日志
+- 预览部署功能
+
+## 准备工作
+
+在开始之前，您需要准备：
+
+1. 一个GitHub账号
+2. 一个Cloudflare账号
+3. 一个域名（可选）
+4. 本地开发环境（Node.js）
+
+## 步骤一：选择博客框架
+
+推荐使用Next.js作为博客框架，它与Cloudflare Pages完美兼容。
+
+推荐使用已经存在的Next.js模板，以便快速开始，您可以直接fork一个blog模版到自己的GitHub仓库中，这样就能直接使用，
+下面以我自己的[博客](https://github.com/geekskai/blog)为例：
+
+第一步：请点击[Fork me on GitHub][fork]
+[fork]: https://github.com/geekskai/blog/fork
+就能直接fork到自己的GitHub仓库中。
+
+第二步：Cloudflare Pages配置
+
+1. 登录[Cloudflare pages](https://pages.cloudflare.com/)控制台,如果没有账号请先注册一个，
+登录成功之后，默认的页面是英文的，我们可以点击右上角切换语言为中文：
+
+![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-dashboard.jpg)
+
+2. 按照图中的步骤，点击“开始构建”，就能看到下面的页面：
+
+![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project.png)
+
+
+3. 我们选择第一个选项的卡片，也就是：“构建应用程序”，然后点击可以看到下面的页面，可以看到有2个tabs选项，分别是Workers和Pages,我们选择Pages选项：
+
+![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project-2.png)
+
+4. 在创建应用程序页面，我们可以看到有2个选项，分别是：GitHub仓库和GitLab仓库，我们选择GitHub仓库，然后点击“继续”：
+
+![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project-3.png)
+
+5. 授权Cloudflare Pages访问您的GitHub仓库，有两个选项，分别是： “所有仓库”和“选择仓库”，我们选择“选择仓库”，然后选择刚才fork的blog的GitHub仓库，点击“安装并且授权”，之后就能看到下面的页面：
+
+![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project-4.png)
+
+6. 点击“开始设置”之后，你就能看到下面的页面，我们可以看到有项目名称，生产分支，构建设置等选项，我们可以根据自己的需求进行设置，框架预设选择Next.js，然后点击“保存并部署”：
+
+![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project-5.png)
+
+7. 点击“保存并部署”之后，就能看到下面的页面，我们可以看到构建的进度，构建成功之后，就能看到下面的页面：
+
+
