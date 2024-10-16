@@ -64,6 +64,15 @@ const unoptimized = process.env.UNOPTIMIZED ? true : undefined
 module.exports = () => {
   const plugins = [withContentlayer, withBundleAnalyzer]
   return plugins.reduce((acc, next) => next(acc), {
+    async redirects() {
+      return [
+        {
+          source: "/:path*/feed.xml/",
+          destination: "/:path*/feed.xml",
+          permanent: true,
+        },
+      ];
+    },
     output,
     basePath,
     trailingSlash: true,
