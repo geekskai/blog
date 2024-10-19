@@ -25,11 +25,6 @@ export default function Home({ posts }) {
             return (
               <li key={slug} className="py-12 pr-3">
                 <article>
-                  {/* <Link
-                    href={`/blog/${slug}`}
-                    aria-label={title}
-                    className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0"
-                  > */}
                   <dl>
                     <dt className="sr-only">Published on</dt>
                     <dd className="text-base font-medium leading-6 text-stone-500 dark:text-stone-400">
