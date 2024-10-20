@@ -22,10 +22,14 @@ export default function Footer() {
           <div>{` • `}</div>
           <div>{`© ${new Date().getFullYear()}`}</div>
           <div>{` • `}</div>
-          <Link href="/">{siteMetadata.title}</Link>
+          <Link href="/" className=" hover:text-primary-600 dark:hover:text-primary-400">
+            {siteMetadata.title}
+          </Link>
         </div>
         <div className="mb-8 text-sm text-stone-500 dark:text-stone-400">
-          <Link href="https://github.com/geekskai">Tailwind Nextjs Theme</Link>
+          <Link className=" hover:text-primary-600 dark:hover:text-primary-400" href="/privacy/">
+            Privacy
+          </Link>
         </div>
       </div>
     </footer>
