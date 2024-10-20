@@ -1,15 +1,19 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 'use client'
-
+import Image from '@/components/Image'
 import { usePathname } from 'next/navigation'
 import { slug } from 'github-slugger'
 import { formatDate } from 'pliny/utils/formatDate'
-import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog } from 'contentlayer/generated'
+import { coreContent, CoreContent } from 'pliny/utils/contentlayer'
+import { allAuthors, Authors, type Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import tagData from 'app/tag-data.json'
+import AuthorLayout from './AuthorLayout'
+import { MDXLayoutRenderer } from 'pliny/mdx-components'
+import React from 'react'
+import SocialIcon from '@/components/social-icons'
 
 interface PaginationProps {
   totalPages: number
@@ -18,6 +22,7 @@ interface PaginationProps {
 interface ListLayoutProps {
   posts: CoreContent<Blog>[]
   title: string
+  images?: string
   initialDisplayPosts?: CoreContent<Blog>[]
   pagination?: PaginationProps
 }
@@ -68,98 +73,85 @@ export default function ListLayoutWithTags({
   initialDisplayPosts = [],
   pagination,
 }: ListLayoutProps) {
-  const pathname = usePathname()
-  const tagCounts = tagData as Record<string, number>
-  const tagKeys = Object.keys(tagCounts)
-  const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
-
   const displayPosts = initialDisplayPosts.length > 0 ? initialDisplayPosts : posts
 
+  const author = allAuthors.find((p) => p.slug === 'default') as Authors
+  const { name, occupation } = coreContent(author)
   return (
-    <>
-      <div>
-        <div className="pb-6 pt-6">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-stone-900 dark:text-stone-100 sm:hidden sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            {title}
-          </h1>
+    <div className="flex flex-col gap-4">
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="mt-3 whitespace-pre-wrap text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl lg:text-5xl">
+              Hi 👋🏻, I'm {name} !!
+            </h1>
+            <h2 className="mt-6 whitespace-pre-wrap text-base font-medium text-stone-500 sm:text-lg lg:text-xl">
+              {occupation}
+            </h2>
+          </div>
         </div>
-        <div className="flex sm:space-x-24">
-          <div className="hidden h-full max-h-screen min-w-[280px] max-w-[280px] flex-wrap overflow-auto rounded bg-stone-50 pt-5 shadow-md dark:bg-stone-900/70 dark:shadow-stone-800/40 sm:flex">
-            <div className="px-6 py-4">
-              {pathname.startsWith('/blog') ? (
-                <h3 className="font-bold uppercase text-primary-500">All Posts</h3>
-              ) : (
-                <Link
-                  href={`/blog`}
-                  className="font-bold uppercase text-stone-700 hover:text-primary-500 dark:text-stone-300 dark:hover:text-primary-500"
-                >
-                  All Posts
-                </Link>
-              )}
-              <ul>
-                {sortedTags.map((t) => {
-                  return (
-                    <li key={t} className="my-3">
-                      {decodeURI(pathname.split('/tags/')[1]) === slug(t) ? (
-                        <h3 className="inline px-3 py-2 text-sm font-bold uppercase text-primary-500">
-                          {`${t} (${tagCounts[t]})`}
-                        </h3>
-                      ) : (
-                        <Link
-                          href={`/tags/${slug(t)}/`}
-                          className="px-3 py-2 text-sm font-medium uppercase text-stone-500 hover:text-primary-500 dark:text-stone-300 dark:hover:text-primary-500"
-                          aria-label={`View posts tagged ${t}`}
-                        >
-                          {`${t} (${tagCounts[t]})`}
-                        </Link>
+      </section>
+      <h1 className="text-2xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100 sm:text-2xl sm:leading-8 md:text-3xl md:leading-10">
+        {title}
+      </h1>
+      <div className="flex gap-4 sm:gap-6 xl:gap-8">
+        <div>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:gap-y-12 xl:grid-cols-3">
+            {displayPosts.map((post) => {
+              const { path, date, title, summary, tags, images } = post
+              const author = allAuthors.find((p) => p.slug === 'default') as Authors
+              const { avatar, name } = coreContent(author)
+              return (
+                <article key={path} className="flex flex-col gap-2 space-y-2 xl:space-y-0">
+                  <Link href={`/${path}`} className="flex flex-col gap-4 space-y-2 xl:space-y-0">
+                    {images && (
+                      <Image
+                        alt={title}
+                        src={images}
+                        priority
+                        className="h-[192px] w-[384px] rounded-lg object-cover object-center"
+                        width={384}
+                        height={192}
+                      />
+                    )}
+                    <div className="flex items-center gap-2">
+                      {avatar && (
+                        <Image
+                          src={avatar}
+                          alt="avatar"
+                          width={20}
+                          height={20}
+                          className="size-5 rounded-full"
+                        />
                       )}
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
+                      {name} &bull;
+                      <dd className="text-base font-medium leading-6 text-stone-500 dark:text-stone-400">
+                        <time dateTime={date} suppressHydrationWarning>
+                          {formatDate(date, siteMetadata.locale)}
+                        </time>
+                      </dd>
+                    </div>
+                    <div className="space-y-3">
+                      <h2 className="text-2xl font-bold leading-8 tracking-tight text-stone-900 dark:text-stone-100">
+                        {title}
+                      </h2>
+                      <p className="prose max-w-none text-stone-500 dark:text-stone-400">
+                        {summary}
+                      </p>
+                    </div>
+                  </Link>
+                  <div className="flex flex-wrap">
+                    {tags?.map((tag) => <Tag key={tag} text={tag} />)}
+                  </div>
+                </article>
+              )
+            })}
           </div>
-          <div>
-            <ul>
-              {displayPosts.map((post) => {
-                const { path, date, title, summary, tags } = post
-                return (
-                  <li key={path} className="py-5">
-                    <article className="flex flex-col space-y-2 xl:space-y-0">
-                      <dl>
-                        <dt className="sr-only">Published on</dt>
-                        <dd className="text-base font-medium leading-6 text-stone-500 dark:text-stone-400">
-                          <time dateTime={date} suppressHydrationWarning>
-                            {formatDate(date, siteMetadata.locale)}
-                          </time>
-                        </dd>
-                      </dl>
-                      <div className="space-y-3">
-                        <div>
-                          <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                            <Link href={`/${path}`} className="text-stone-900 dark:text-stone-100">
-                              {title}
-                            </Link>
-                          </h2>
-                          <div className="flex flex-wrap">
-                            {tags?.map((tag) => <Tag key={tag} text={tag} />)}
-                          </div>
-                        </div>
-                        <div className="prose max-w-none text-stone-500 dark:text-stone-400">
-                          {summary}
-                        </div>
-                      </div>
-                    </article>
-                  </li>
-                )
-              })}
-            </ul>
-            {pagination && pagination.totalPages > 1 && (
-              <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
-            )}
-          </div>
+          {pagination && pagination.totalPages > 1 && (
+            <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
+          )}
         </div>
       </div>
-    </>
+    </div>
   )
 }
