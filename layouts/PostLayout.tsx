@@ -96,7 +96,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </dd>
             </dl>
             <div className="divide-y divide-stone-200 dark:divide-stone-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pb-8 dark:prose-invert">{children}</div>
+              <div className="prose max-w-none p-8 dark:prose-invert">{children}</div>
               <div className="pb-6 pt-6 text-sm text-stone-700 dark:text-stone-300">
                 <Link href={discussUrl(path)} rel="nofollow">
                   Discuss on Twitter
