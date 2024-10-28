@@ -97,7 +97,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
       <script
         defer
-        src="https://cloud.umami.is/script.js" 
+        src="https://cloud.umami.is/script.js"
         data-website-id="b306c4da-fe77-4bdd-b38c-20db2f299b13"
       />
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-stone-950 dark:text-white">
