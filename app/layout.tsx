@@ -95,6 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
+      <script defer src="https://cloud.umami.is/script.js" data-website-id="b306c4da-fe77-4bdd-b38c-20db2f299b13"></script>
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-stone-950 dark:text-white">
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
