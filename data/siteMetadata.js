@@ -10,7 +10,7 @@ const siteMetadata = {
   siteUrl: 'https://geekskai.com',
   siteRepo: 'https://github.com/geekskai/blog',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
-  socialBanner: `${process.env.BASE_PATH || ''}/static/images/blog-header.png`,
+  socialBanner: `${process.env.BASE_PATH || ''}/static/images/geekskai-blog.png`,
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'geeks.kai@gmail.com',
   github: 'https://github.com/geekskai',
