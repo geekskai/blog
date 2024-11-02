@@ -2,18 +2,12 @@
 'use client'
 import Image from '@/components/Image'
 import { usePathname } from 'next/navigation'
-import { slug } from 'github-slugger'
 import { formatDate } from 'pliny/utils/formatDate'
 import { coreContent, CoreContent } from 'pliny/utils/contentlayer'
 import { allAuthors, Authors, type Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import tagData from 'app/tag-data.json'
-import AuthorLayout from './AuthorLayout'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import React from 'react'
-import SocialIcon from '@/components/social-icons'
 
 interface PaginationProps {
   totalPages: number
@@ -75,25 +69,19 @@ export default function ListLayoutWithTags({
 }: ListLayoutProps) {
   const displayPosts = initialDisplayPosts.length > 0 ? initialDisplayPosts : posts
 
-  const author = allAuthors.find((p) => p.slug === 'default') as Authors
-  const { name, occupation } = coreContent(author)
+  // const author = allAuthors.find((p) => p.slug === 'default') as Authors
+  // const { name, occupation } = coreContent(author)
   return (
     <div className="flex flex-col gap-4">
       <section className="py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="mt-3 whitespace-pre-wrap text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl lg:text-5xl">
-              Hi 👋🏻, I'm {name} !!
+              {title}
             </h1>
-            <h2 className="mt-6 whitespace-pre-wrap text-base font-medium text-stone-500 sm:text-lg lg:text-xl">
-              {occupation}
-            </h2>
           </div>
         </div>
       </section>
-      <h1 className="text-2xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100 sm:text-2xl sm:leading-8 md:text-3xl md:leading-10">
-        {title}
-      </h1>
       <div className="flex gap-4 sm:gap-6 xl:gap-8">
         <div>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:gap-y-12 xl:grid-cols-3">
