@@ -67,16 +67,16 @@ module.exports = () => {
     async redirects() {
       return [
         {
-          source: "/:path*/feed.xml/",
-          destination: "/:path*/feed.xml",
+          source: '/:path*/feed.xml/',
+          destination: '/:path*/feed.xml',
           permanent: true,
         },
         {
-          source: "/blog/primevue/how-to-change-css-of-primevue/",
-          destination: "/blog/css/how-to-change-css-of-primevue/",
+          source: '/blog/primevue/how-to-change-css-of-primevue/',
+          destination: '/blog/css/how-to-change-css-of-primevue/',
           permanent: true,
         },
-      ];
+      ]
     },
     output,
     basePath,
