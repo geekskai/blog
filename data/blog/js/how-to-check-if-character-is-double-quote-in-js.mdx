@@ -96,22 +96,22 @@ In this example, we use the `indexOf()` method to check if the character `char` 
 
 ## Summary
 
-- 🔥 **Using Comparison Operators:**
+1. 🔥 **Using Comparison Operators:**
     - Directly compare the character with the double quote character (`"`).
 
-- 🌟 **Using `charCodeAt()` Method:**
+2. 🌟 **Using `charCodeAt()` Method:**
     - Get the Unicode value of the character and compare it with the Unicode value of a double quote.
 
-- 🔄 **Using Regular Expressions:**
+3. 🔄 **Using Regular Expressions:**
   - Another approach suggested is using regex: `/['||"]/.test(str);`
 
-- 🔍 **Using `indexOf`:** 
+4. 🔍 **Using `indexOf`:** 
   - A common method is to use `indexOf` to check for both quotes.
   - Example: `if (str.indexOf('\'') >= 0 && str.indexOf('"') >= 0) { //do something }`
   
-- 📜 **Alternative Code Snippet:**
+5. 📜 **Alternative Code Snippet:**
   - A similar solution is provided with a slight variation: 
-    - `if((str.indexOf('\'') > -1) && (str.indexOf('"') > -1)) { //Code here }`
+  - `if((str.indexOf('\'') > -1) && (str.indexOf('"') > -1)) { //Code here }`
 
 ## Comparison
 
