@@ -12,6 +12,7 @@ const Github = () => {
       try {
         setLoading(true)
         const response = await fetch(`/api/contributions`, { next: { revalidate: 86400 } })
+
         const svgText = await response.text()
         const parser = new DOMParser()
         const xmlDoc = parser.parseFromString(svgText, 'image/svg+xml')
@@ -42,7 +43,7 @@ const Github = () => {
     <div className="dark:text-grey text-gray flex flex-col items-center justify-center pb-12">
       <p className="text-gray dark:text-gray  text-xs leading-7 md:mt-5">
         <Link
-          href="https://github.com/geekskai"
+          href="https://github.com/Vinnyaaaaa"
           className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
         >
           My Github Contributions
