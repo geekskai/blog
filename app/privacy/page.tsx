@@ -9,8 +9,7 @@ const PrivacyPolicy = () => {
       <div className="mx-auto max-w-4xl overflow-hidden rounded-lg bg-white shadow-xl">
         <div className="px-6 py-8">
           <h1 className="mb-6 text-center text-3xl font-bold text-gray-900">Privacy Policy</h1>
-          <p className="mb-8 text-center text-sm text-gray-600">Last updated: October 20, 2024</p>
-
+          <p className="mb-8 text-center text-sm text-gray-600">Last updated: January 08, 2025</p>
           <div className="space-y-6 text-gray-700">
             <p>
               This Privacy Policy describes Our policies and procedures on the collection, use and
@@ -23,7 +22,6 @@ const PrivacyPolicy = () => {
               Policy.
             </p>
           </div>
-
           <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">
             Interpretation and Definitions
           </h2>
@@ -33,7 +31,6 @@ const PrivacyPolicy = () => {
             following conditions. The following definitions shall have the same meaning regardless
             of whether they appear in singular or in plural.
           </p>
-
           <h3 className="mb-3 mt-8 text-xl font-semibold text-gray-900">Definitions</h3>
           <p className="mb-4 text-gray-700">For the purposes of this Privacy Policy:</p>
           <ul className="list-disc space-y-2 pl-6 text-gray-700">
@@ -125,7 +122,6 @@ const PrivacyPolicy = () => {
               </p>
             </li>
           </ul>
-
           <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">
             Collecting and Using Your Personal Data
           </h2>
@@ -148,8 +144,89 @@ const PrivacyPolicy = () => {
             </li>
           </ul>
 
-          {/* The rest of the content follows the same pattern... */}
+          {/* 
+**Third-party Services**
+We use the following third-party services:
 
+1. Google Analytics
+   - Purpose: Website traffic analysis
+   - Data collected: Usage patterns, device information, location data
+   - More information: [Google Analytics Privacy Policy link]
+
+2. Google Adsense
+   - Purpose: Display personalized advertisements
+   - Data collected: Browsing preferences, interests
+   - More information: [Google Adsense Privacy Policy link]
+
+**Cookie Policy**
+Our website uses cookies to enhance your browsing experience:
+- Essential cookies: Required for website functionality
+- Analytics cookies: Help us understand how visitors use our site
+- Advertising cookies: Used to deliver relevant advertisements
+
+You can manage your cookie preferences through your browser settings. */}
+
+          <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">Third-party Services</h2>
+
+          <p className="mb-4 text-gray-700">We use the following third-party services:</p>
+
+          <ul className="list-disc space-y-2 pl-6 text-gray-700">
+            <li>
+              <p>
+                <strong>Google Analytics</strong>
+                <br />
+                1. Purpose: Website traffic analysis
+                <br />
+                2. Data collected: Usage patterns, device information, location data
+                <br />
+                3. More information:{' '}
+                <Link
+                  href="https://policies.google.com/privacy?hl=en"
+                  rel="external nofollow noopener"
+                  target="_blank"
+                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                  aria-label="Google Analytics Privacy Policy link"
+                >
+                  Google Analytics Privacy Policy
+                </Link>
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Google Adsense</strong>
+                <br />
+                1. Purpose: Display personalized advertisements
+                <br />
+                2. Data collected: Browsing preferences, interests
+                <br />
+                3. More information:{' '}
+                <Link
+                  href="https://policies.google.com/privacy?hl=en"
+                  rel="external nofollow noopener"
+                  target="_blank"
+                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                  aria-label="Google Adsense Privacy Policy link"
+                >
+                  Google Adsense Privacy Policy
+                </Link>
+              </p>
+            </li>
+          </ul>
+
+          <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">Cookie Policy</h2>
+          <p className="mb-4 text-gray-700">
+            Our website uses cookies to enhance your browsing experience:
+          </p>
+          <ul className="list-disc space-y-2 pl-6 text-gray-700">
+            <li>Essential cookies: Required for website functionality</li>
+            <li>Analytics cookies: Help us understand how visitors use our site</li>
+            <li>Advertising cookies: Used to deliver relevant advertisements</li>
+          </ul>
+          <p className="mb-4 text-gray-700">
+            You can manage your cookie preferences through your browser settings.
+          </p>
+
+          {/* The rest of the content follows the same pattern... */}
           <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">Contact Us</h2>
           <p className="mb-4 text-gray-700">
             If you have any questions about this Privacy Policy, You can contact us:
