@@ -34,7 +34,7 @@ export default function Hero(): ReactElement {
         </h1>
         <div className="dark:text-grey text-gray mb-8  mt-4 text-base">
           <p className="text-gray dark:text-gray text-lg leading-7">{siteMetadata.description}</p>
-          <p>{occupation}</p>
+          <p className="mt-3">{occupation}</p>
           <Github />
           <p>
             <span className="mr-3 inline-block whitespace-nowrap pt-3">🛠️ JavaScript</span>
