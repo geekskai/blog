@@ -4,7 +4,7 @@ const siteMetadata = {
   author: 'Geeks Kai',
   headerTitle: 'geeks kai Blog',
   description:
-    'A blog by Geeks Kai focusing on JavaScript, web development, and programming insights.',
+    'A blog by Geeks Kai covering tech insights, lifestyle, and sustainable living. While specializing in JavaScript and web development, I also share thoughts on technology impact, environmental tech, and modern living.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://geekskai.com',
