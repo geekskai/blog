@@ -144,28 +144,6 @@ const PrivacyPolicy = () => {
             </li>
           </ul>
 
-          {/* 
-**Third-party Services**
-We use the following third-party services:
-
-1. Google Analytics
-   - Purpose: Website traffic analysis
-   - Data collected: Usage patterns, device information, location data
-   - More information: [Google Analytics Privacy Policy link]
-
-2. Google Adsense
-   - Purpose: Display personalized advertisements
-   - Data collected: Browsing preferences, interests
-   - More information: [Google Adsense Privacy Policy link]
-
-**Cookie Policy**
-Our website uses cookies to enhance your browsing experience:
-- Essential cookies: Required for website functionality
-- Analytics cookies: Help us understand how visitors use our site
-- Advertising cookies: Used to deliver relevant advertisements
-
-You can manage your cookie preferences through your browser settings. */}
-
           <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">Third-party Services</h2>
 
           <p className="mb-4 text-gray-700">We use the following third-party services:</p>
