@@ -1,10 +1,6 @@
 'use client'
 import {
-  EmailIcon,
-  EmailShareButton,
   FacebookIcon,
-  FacebookMessengerIcon,
-  FacebookMessengerShareButton,
   FacebookShareButton,
   LinkedinIcon,
   LinkedinShareButton,
@@ -12,7 +8,6 @@ import {
   RedditShareButton,
   TelegramIcon,
   TelegramShareButton,
-  TwitterIcon,
   TwitterShareButton,
   WhatsappIcon,
   WhatsappShareButton,
