@@ -36,8 +36,52 @@ module.exports = {
         sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
       },
       colors: {
-        primary: colors.purple,
-        stone: colors.stone,
+        primary: {
+          50: '#FFEEED', // Soft pink
+          100: '#FFD5D3',
+          200: '#FFABA8',
+          300: '#FF817C',
+          400: '#FF5751',
+          500: '#FF6B6B', // Base color
+          600: '#D95353',
+          700: '#B33A3A',
+          800: '#8C2222',
+          900: '#660A0A', // Deep burgundy
+          // 50: '#E6FFFC', // Lightest cyan (95% luminosity)
+          // 100: '#B3FFF5',
+          // 200: '#80FFEE',
+          // 300: '#4DFFE7',
+          // 400: '#1AFFE0',
+          // 500: '#00FFE0', // Base color
+          // 600: '#00CCB3',
+          // 700: '#009986',
+          // 800: '#006659',
+          // 900: '#00332C', // Deep teal
+        },
+        stone: {
+          50: '#F5F5F5', // Ultra-light gray
+          100: '#D9D9D9',
+          200: '#B3B3B3',
+          300: '#8C8C8C',
+          400: '#666666',
+          500: '#2A2A2A', // Base color
+          600: '#222222',
+          700: '#1A1A1A',
+          800: '#121212',
+          900: '#0A0A0A', // Near-black
+        },
+        coralred: {
+          50: '#FFEEED', // Soft pink
+          100: '#FFD5D3',
+          200: '#FFABA8',
+          300: '#FF817C',
+          400: '#FF5751',
+          500: '#FF6B6B', // Base color
+          600: '#D95353',
+          700: '#B33A3A',
+          800: '#8C2222',
+          900: '#660A0A', // Deep burgundy
+        },
       },
       zIndex: {
         60: '60',
