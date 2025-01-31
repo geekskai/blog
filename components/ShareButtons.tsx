@@ -4,6 +4,7 @@ import {
   EmailShareButton,
   FacebookIcon,
   FacebookShareButton,
+  FacebookShareCount,
   LinkedinIcon,
   LinkedinShareButton,
   RedditIcon,
@@ -12,6 +13,7 @@ import {
   TelegramShareButton,
   TwitterIcon,
   TwitterShareButton,
+  XIcon,
 } from 'react-share'
 import siteMetadata from '@/data/siteMetadata'
 
@@ -20,9 +22,9 @@ const shareUrl = typeof window !== 'undefined' ? window.location?.href : siteMet
 const title = typeof document !== 'undefined' ? document.title : siteMetadata.title
 
 const ReactShare = [
-  <FacebookShareButton key="facebook" url={shareUrl} title={title}>
-    <FacebookIcon size={32} round />
-  </FacebookShareButton>,
+  <FacebookShareCount key="facebook" url={shareUrl} title={title}>
+    {(count) => count}
+  </FacebookShareCount>,
   <LinkedinShareButton
     key="linkedin"
     url={shareUrl}
@@ -48,7 +50,7 @@ const ReactShare = [
     <EmailIcon size={32} round />
   </EmailShareButton>,
   <TwitterShareButton key="twitter" url={shareUrl} title={title}>
-    <TwitterIcon size={32} round />
+    <XIcon size={32} round />
   </TwitterShareButton>,
 ]
 
