@@ -3,6 +3,8 @@ import {
   EmailIcon,
   EmailShareButton,
   FacebookIcon,
+  FacebookMessengerIcon,
+  FacebookMessengerShareButton,
   FacebookShareButton,
   LinkedinIcon,
   LinkedinShareButton,
@@ -12,6 +14,8 @@ import {
   TelegramShareButton,
   TwitterIcon,
   TwitterShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
   XIcon,
 } from 'react-share'
 import siteMetadata from '@/data/siteMetadata'
@@ -24,6 +28,9 @@ const ReactShare = [
   <FacebookShareButton key="facebook" url={shareUrl} title={title}>
     <FacebookIcon size={32} round />
   </FacebookShareButton>,
+  <WhatsappShareButton key="WhatsApp" url={shareUrl} title={title} separator=":: ">
+    <WhatsappIcon size={32} round />
+  </WhatsappShareButton>,
   <LinkedinShareButton
     key="linkedin"
     url={shareUrl}
@@ -39,15 +46,6 @@ const ReactShare = [
   <TelegramShareButton key="telegram" title={title} url={shareUrl}>
     <TelegramIcon size={32} round />
   </TelegramShareButton>,
-  <EmailShareButton
-    key="email"
-    title={title}
-    url={shareUrl}
-    subject={siteMetadata.title}
-    body="body"
-  >
-    <EmailIcon size={32} round />
-  </EmailShareButton>,
   <TwitterShareButton key="twitter" url={shareUrl} title={title}>
     <XIcon size={32} round />
   </TwitterShareButton>,
