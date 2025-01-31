@@ -15,7 +15,7 @@ import {
 } from 'react-share'
 import siteMetadata from '@/data/siteMetadata'
 
-const shareUrl = window.location.href
+const shareUrl = typeof window !== 'undefined' ? window.location?.href : siteMetadata.siteUrl
 
 const ReactShare = [
   <FacebookShareButton key="facebook" url={shareUrl} title={document.title}>
