@@ -17,8 +17,10 @@ import siteMetadata from '@/data/siteMetadata'
 
 const shareUrl = typeof window !== 'undefined' ? window.location?.href : siteMetadata.siteUrl
 
+const title = typeof document !== 'undefined' ? document.title : siteMetadata.title
+
 const ReactShare = [
-  <FacebookShareButton key="facebook" url={shareUrl} title={document.title}>
+  <FacebookShareButton key="facebook" url={shareUrl} title={title}>
     <FacebookIcon size={32} round />
   </FacebookShareButton>,
   <LinkedinShareButton
@@ -26,26 +28,26 @@ const ReactShare = [
     url={shareUrl}
     summary={siteMetadata.description}
     source={siteMetadata.siteUrl}
-    title={document.title}
+    title={title}
   >
     <LinkedinIcon size={32} round />
   </LinkedinShareButton>,
-  <RedditShareButton key="reddit" url={shareUrl} title={document.title}>
+  <RedditShareButton key="reddit" url={shareUrl} title={title}>
     <RedditIcon size={32} round />
   </RedditShareButton>,
-  <TelegramShareButton key="telegram" title={document.title} url={shareUrl}>
+  <TelegramShareButton key="telegram" title={title} url={shareUrl}>
     <TelegramIcon size={32} round />
   </TelegramShareButton>,
   <EmailShareButton
     key="email"
-    title={document.title}
+    title={title}
     url={shareUrl}
     subject={siteMetadata.title}
     body="body"
   >
     <EmailIcon size={32} round />
   </EmailShareButton>,
-  <TwitterShareButton key="twitter" url={shareUrl} title={document.title}>
+  <TwitterShareButton key="twitter" url={shareUrl} title={title}>
     <TwitterIcon size={32} round />
   </TwitterShareButton>,
 ]
