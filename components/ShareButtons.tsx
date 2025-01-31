@@ -4,7 +4,6 @@ import {
   EmailShareButton,
   FacebookIcon,
   FacebookShareButton,
-  FacebookShareCount,
   LinkedinIcon,
   LinkedinShareButton,
   RedditIcon,
@@ -22,9 +21,9 @@ const shareUrl = typeof window !== 'undefined' ? window.location?.href : siteMet
 const title = typeof document !== 'undefined' ? document.title : siteMetadata.title
 
 const ReactShare = [
-  <FacebookShareCount key="facebook" url={shareUrl} title={title}>
-    {(count) => count}
-  </FacebookShareCount>,
+  <FacebookShareButton key="facebook" url={shareUrl} title={title}>
+    <FacebookIcon size={32} round />
+  </FacebookShareButton>,
   <LinkedinShareButton
     key="linkedin"
     url={shareUrl}
