@@ -1,0 +1,323 @@
+---
+title: 'Simplifying React Query with Expo SQLite Integration'
+date: '2025-02-1'
+lastmod: '2025-02-1'
+tags: ['react', 'react-native', 'expo', 'sqlite', 'react-query']
+draft: false
+images: '/static/images/blog/js/simplifying-react-query-with-expo-sqlite-integration.png'
+summary: 'Learn how to easily use React Query and Expo SQLite together for managing data in your React Native apps. This guide shows you how to set up Expo SQLite, configure React Query, and handle CRUD operations without difficulty.'
+layout: 'PostLayout'
+canonicalUrl: 'https://geekskai.com/blog/js/simplifying-react-query-with-expo-sqlite-integration/'
+---
+
+## DOffline React Native App with TypeORM, Expo SQLite, and React Query
+
+![react query with expo sqlite](/static/images/blog/js/simplifying-react-query-with-expo-sqlite-integration.png)
+
+## Introduction
+
+In React Native development, managing data well is very important. When making apps that need to work offline, using a local database is key. Expo
+is a strong React Native framework that provides Expo SQLite. This tool lets you use an SQLite database without needing to set up complex native
+code in bare React Native projects. This blog post will help you add Expo SQLite to your React Native project. It will make it easier for you to manage
+data locally. We will also use React Query, a fast library for fetching and storing data. This will help us organize our data better.
+
+## Understanding Expo SQLite and React Query Basics
+
+![Understanding Expo SQLite and React Query Basics](/static/images/blog/js/Understanding-Expo-SQLite-and-React-Query-Basics.png)
+
+Expo SQLite makes it easy to connect and work with an SQLite database in your React Native app. You won’t need to set up a different backend or
+use only storage options like AsyncStorage. With Expo SQLite, you can run SQL queries to manage data locally. This helps your app work smoothly,
+even when it is offline.
+
+On top of that, React Query is a strong library for fetching and caching data in Javascript and React applications. It simplifies fetching data, caching it,
+and managing state in its repository. This lets you focus more on creating great user experiences.
+
+### What is Expo SQLite?
+
+Expo SQLite is a part of the Expo SDK. It helps developers add an SQLite database to their React Native apps easily. This is great when your app
+needs to store data locally, especially when being offline is important. By using Expo SQLite, you can save and get data directly on users' mobile
+devices. This makes your app more reliable and responsive.
+
+Expo SQLite is helpful because it makes it easy to set up and manage a database connection. You don't have to write code that works on specific
+platforms or use extra libraries. With Expo SQLite, you can run SQL queries right in your Javascript code. This makes handling data simple and fast.
+
+Whether you want to save user settings, keep data for offline use, or create an app that works without the internet, Expo SQLite is a valuable tool in
+your React Native development toolbox.
+
+### Key Features of React Query
+
+React Query is a strong tool that helps you fetch and store data in your React apps. It simplifies how you manage data. Its easy-to-use API makes
+data management straightforward. With React Query, you don’t have to write a lot of repetitive code. This lets you focus more on creating a great user
+interface.
+
+One great feature of React Query is how it changes the way you work with APIs. Instead of handling API calls and responses with fetch or axios,
+React Query simplifies these tasks. It uses hooks to help you write the logic for fetching data. This makes your code neater and easier to maintain.
+
+React Query also offers more than just basic data fetching. It has features like optimistic updates, which means users see updates right away. It also
+reduces duplicate requests and has smart caching methods. These features help your app run faster by reducing network requests and making sure
+users see the latest data.
+
+## Setting Up Your Development Environment
+
+Before we start adding React Query to Expo SQLite, we need to make sure our development setup is ready. First, we will create a new React Native
+project using Expo CLI. After that, we will install the required tools, like Expo SQLite and React Query. These will help us manage data in our app.
+
+If you don't have an Expo project yet, begin by installing Expo CLI globally. You can do this by running npm install --global expo-cli. After setting
+up Expo CLI, create a new project with npx create-expo-app. Choose a blank template to keep it simple. Then, go to your project folder and run npx
+expo install expo-sqlite @tanstack/react-query to install the needed tools. This will prepare our environment!
+
+### Installing Expo SQLite
+
+
+Since we choose Expo CLI to start React Native projects, adding Expo SQLite is very easy. You won’t have to struggle with linking native libraries
+because Expo CLI makes it simple. We will use Expo CLI to install Expo SQLite easily. This gets us closer to handling local data.
+
+Expo CLI does a lot of the work to add Expo SQLite to your project. This makes sure the module is set up correctly and ready to use without extra
+steps. With Expo SQLite installed, you can move on to the next step. There, we will use React Query for fetching and managing data.
+
+Remember, the Expo CLI is a great help during development. It makes difficult tasks easier and allows you to build strong React Native applications.
+
+### Configuring React Query in a React Native Project
+
+After we set up Expo SQLite, the next step is to add React Query. Luckily, it's really easy to do. We just need to install the necessary packages and
+use the QueryClientProvider. This provider is the key part of how React Query handles data. With just a few steps, React Query will improve how our
+app fetches and saves data.
+
+React Query works well because it is a pure JavaScript library. It fits right into React Native projects without any issues. This means you can use its
+great features in your mobile apps. By adding the @tanstack/react-query package, your project gets tools that make working with data simpler,
+leading to a better development experience.
+
+When we wrap the main part of our app with QueryClientProvider, we create a main center for React Query to handle cached data and query states.
+This provider makes sure that all parts of your app can use the helpful functions of React Query.
+
+## Integrating React Query with Expo SQLite
+
+![Integrating React Query with Expo SQLite](/static/images/blog/js/Integrating-React-Query-with-Expo-SQLite.png)
+
+Now that we have set up both Expo SQLite and React Query, we can link them to create a strong data layer for our app. We will write functions to
+connect to the database and manage interactions with our SQLite database. These functions will link React Query's data fetching features with our
+local SQLite data.
+
+First, we will create a database instance with expo-sqlite. This will let us open a connection to our SQLite database. Through this connection, we can
+begin building the main functions to work with the database.
+
+### Creating a Database Instance
+
+Let's connect to our SQLite database using expo-sqlite. This will let us run SQL queries and manage our data at the same time. We'll make a
+function that gives us this database connection. This makes it easy to use with React Query later.
+
+Expo SQLite has a method called openDatabase(). This makes connecting to our database simple. It will create the database file if it does not exist
+yet. This ensures we can start using our database without issues.
+
+By keeping our database connection logic in a reusable function, we improve our code. It also makes it much easier to work with React Query for our
+data layer.
+
+```javascript
+
+import * as SQLite from 'expo-sqlite';
+
+const db = SQLite.openDatabase('your_database_name.db');
+
+export const getDatabaseConnection = () => {
+    return db;
+}
+
+```
+
+### Fetching Data with React Query Hooks
+
+React Query is great because of its easy-to-use hooks. They make getting data simple. We will use the useQuery hook, which is key to React Query,
+to work with our SQLite database using the defined functions. The useQuery hook manages getting data in a smart way. It gives us information about
+loading, errors, and the data we fetch.
+
+To keep things organized, we will write async functions for fetching the data. These functions will fit well with the useQuery hook. This plan helps keep
+our components focused on showing the data.
+
+The useQuery hook needs a special query key and an async function for getting the data. It takes care of the data fetching steps, including caching
+and updating our components with new data.
+
+
+```javascript
+import { useQuery } from '@tanstack/react-query'
+import { getDatabaseConnection } from './your-database-file' // Adjust path
+
+const fetchItems = async () => {
+  const db = getDatabaseConnection()
+  try {
+    const results = await db.transaction((tx) => {
+      tx.executeSql('SELECT * FROM your_table') // Adjust table name
+    })
+    return results.rows._array
+  } catch (error) {
+    console.error('Error fetching items:', error)
+    throw error
+  }
+}
+const YourComponent = () => {
+  // Assuming 'items' as the query key
+  const { isLoading, error, data: items } = useQuery(['items'], fetchItems)
+  // ... your component logic
+}
+
+```
+
+## Performing CRUD Operations
+
+No data management system can work well without strong CRUD (Create, Read, Update, Delete) operations. For our integration, we will make
+special functions for each CRUD task, using Expo SQLite’s features to connect with our local database. These functions will make it easier to handle
+data, which will help improve our data management.
+
+Each CRUD function we create will hold the logic for a specific SQL query, especially when retrieving a record by its id. This method helps make the
+code easier to read and manage, especially as our application becomes more complex.
+
+### Implementing Create, Read, Update, Delete Functions
+
+With our database connection set up, let’s create the main CRUD operations. CRUD stands for Create, Read, Update, and Delete. These will help us
+interact with our SQLite database. We will make reusable functions. Each function will take care of a specific SQL query. They will be important for our
+data manipulation tasks.
+
+For this example, we will use a 'tasks' table. The function createTask will help us add new task records to this table.
+
+```js
+// Example: Create a new task
+const createTask = async (task) => {
+  const db = getDatabaseConnection()
+  return new Promise((resolve, reject) => {
+    db.transaction(
+      (tx) => {
+        tx.executeSql(
+          'INSERT INTO tasks (title, description, isCompleted) values (?,?,?)',
+          [task.title, task.description, task.isCompleted],
+
+          // Success callback
+          (_, result) => resolve(result),
+
+          // Error callback
+          (_, error) => reject(error)
+        )
+      },
+      // Error callback for transaction
+      (error) => reject(error)
+    )
+  })
+}
+
+```
+
+Next, we will create functions for reading tasks called getTasks, updating tasks called updateTask, and deleting tasks called deleteTask. Each of these
+will use SQL queries designed for its task. These functions will help us manage the data in our database better.
+
+### Using Mutations to Modify Data
+
+React Query's useMutation hook helps us easily manage data changes like Create, Update, and Delete along with Expo SQLite. Mutations are ideal
+for these tasks. They show actions that alter data on the server or, in this case, in the local database.
+
+Here's how the useMutation hook makes CRUD operations easier:
+
+```
+Define a Mutation Function : You can create a function for useMutation that includes the changes you want to make. This could include SQL
+queries for updating, adding, or removing records. This function usually works with Expo SQLite.
+Trigger the Mutation : useMutation provides you with a function (commonly named mutate) that you can call in your components to start the
+mutation.
+```
+
+```
+Manage Mutation State : Just like useQuery, useMutation gives you states to track the progress of the mutation. This includes loading, error, and
+success states, which lets you control how your app responds.
+```
+By making the most of useMutation and following these steps, you can provide a smooth and effective data management system in your React Native
+app.
+
+## Advanced Techniques in Data Synchronization
+
+As we move ahead, let's look at advanced ways to improve our data syncing. It’s very important to make our queries work fast, especially with big
+data sets. We will find out how to speed up our data fetching. Also, we will discuss how to manage offline data syncing. This will help our app stay
+strong and quick, even when there is no internet.
+
+By learning these methods, we can create React Native apps that work really well. This will give users a smooth and friendly experience.
+
+### Optimizing Query Performance
+
+React Query, paired with Expo SQLite, provides a solid foundation for managing data in your React Native application. To unlock even greater
+performance and responsiveness, consider these optimization strategies.
+
+React Query's caching mechanisms can significantly reduce the number of database queries, especially for frequently accessed data. However, fine-
+tuning these mechanisms is key. By understanding and adjusting query staleness and cache invalidation rules, you can optimize how often data is
+refetched from your Expo SQLite database.
+
+Here's how you can leverage React Query's caching features:
+
+```
+Feature Description
+```
+```
+staleTime
+```
+```
+Control how long
+fetched data is
+considered fresh.
+Reduce re-fetching if
+data doesn't change
+frequently.
+```
+```
+cacheTime
+```
+```
+Determine how long
+data remains in the
+cache while inactive.
+Useful for persisting
+data even if the
+component unmounts.
+```
+```
+refetchOnWindowFocus
+```
+```
+Decide whether to re-
+fetch data when the
+window gains focus.
+Enable it only if you
+need real-time updates.
+```
+### Handling Offline Data Syncing
+
+Mobile apps often lose connection to the network sometimes. To help users have a smooth experience even when they are offline, it is important to
+have ways to manage offline data syncing. Luckily, using React Query with Expo SQLite makes this easier.
+
+You can use React Query's useMutation hook to save data change requests when you are offline. Once the device is back online, these saved
+requests can sync automatically with your backend. This method makes sure that data changes are not lost and are saved even if you are offline.
+
+You might also want to set up a retry system for network requests in your React Query settings. By automatically trying again for any failed data
+fetching or change requests, your app can handle temporary network problems better.
+
+## Conclusion
+
+In conclusion, knowing how React Query works well with Expo SQLite can improve your development process. By using the important features of
+React Query and setting up your environment correctly, you can make data fetching, syncing, and CRUD operations easier with this plugin. These
+smart methods help make your queries work better and allow you to handle offline data syncing easily. Use this integration to boost the efficiency and
+functionality of your React Native projects. If you want to explore what React Query and Expo SQLite can do, check out the detailed guide and start
+improving your data management and syncing skills.
+
+## Frequently Asked Questions
+
+### How does React Query enhance working with Expo SQLite?
+
+React Query makes it easy to fetch, store, and manage data when using Expo SQLite. You won't need to write manual event handlers or deal with
+tricky state management for SQL queries. Instead, you can use simple hooks like useQuery and useMutation.
+
+### Can I use React Query for real-time data updates with Expo SQLite?
+
+React Query does not come with real-time data syncing right away. However, you can set it up to refresh data at certain times or use web sockets for
+real-time changes. Pairing React Query with a real-time solution helps show updates in your UI right away.
+
+
+
+
+
+
+
+
+
