@@ -4,7 +4,7 @@ const siteMetadata = {
   author: 'Geeks Kai',
   headerTitle: 'geeks kai Blog',
   description:
-    'A blog by Geeks Kai covering tech insights, lifestyle, and sustainable living. While specializing in JavaScript and web development, I also share thoughts on technology impact, environmental tech, and modern living.',
+    "This blog is your go-to resource for tech insights, lifestyle trends, and sustainable living practices. While I specialize in JavaScript and web development, I also explore how technology impacts our world—from local innovations in China to global breakthroughs. Whether you're a developer or a tech enthusiast, you'll find practical guides, technical deep-dives, and thoughtful perspectives that highlight the unique interplay between technology, culture, and modern living.",
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://geekskai.com',
