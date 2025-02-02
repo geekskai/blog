@@ -1,0 +1,324 @@
+---
+title: 'Mastering React SWR with Vite Integration'
+date: '2025-02-03'
+lastmod: '2025-02-03'
+tags: ['react', 'swr', 'vite', 'data-fetching', 'web-development']
+draft: false
+images: '/static/images/blog/js/mastering-react-swr-with-vite-integration.png'
+summary: 'Learn how to efficiently integrate React SWR with Vite for optimal data fetching in your React applications. This comprehensive guide covers setup, configuration, and advanced usage patterns with practical code examples.'
+layout: 'PostLayout'
+canonicalUrl: 'https://geekskai.com/blog/js/mastering-react-swr-with-vite-integration/'
+---
+
+![Mastering React SWR with Vite Integration](/static/images/blog/js/mastering-react-swr-with-vite-integration.png)
+
+## Key Highlights
+- Make data fetching easier in your React projects with SWR and Vite
+- Enjoy features like built-in caching, request deduplication, and real-time updates
+- Learn different SWR methods for smart data handling, including SSR support
+- Improve your app's performance with better SWR settings and hooks
+- See how React SWR works well with Vite for a smooth development process
+
+## Introduction
+In the fast world of web development, it is very important to create efficient applications. This is where React SWR comes in. It is a powerful library for data fetching that implements the stale-while-revalidate caching strategy. When you use SWR with Vite, a very fast build tool, it really shows their power. Developers can make the user experience much better by simplifying how they fetch data.
+
+## Setting Up Your Project with Vite and React SWR
+
+First, let's create a new Vite project with React:
+
+```bash
+npm create vite@latest my-swr-app --template react
+cd my-swr-app
+npm install
+```
+
+Next, install SWR:
+
+```bash
+npm install swr
+```
+
+Update your `vite.config.js` for optimal performance:
+
+```javascript
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
+
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    port: 3000,
+    open: true
+  },
+  optimizeDeps: {
+    include: ['swr']
+  }
+})
+```
+
+## Understanding the Core Concepts of React SWR
+
+Let's create a basic example of using SWR to fetch data:
+
+```jsx
+// src/components/UserProfile.jsx
+import useSWR from 'swr'
+
+const fetcher = url => fetch(url).then(res => res.json())
+
+function UserProfile({ userId }) {
+  const { data, error, isLoading } = useSWR(
+    `/api/user/${userId}`,
+    fetcher
+  )
+
+  if (error) return <div>Failed to load user</div>
+  if (isLoading) return <div>Loading...</div>
+
+  return (
+    <div>
+      <h1>{data.name}</h1>
+      <p>{data.email}</p>
+    </div>
+  )
+}
+
+export default UserProfile
+```
+
+### Global Configuration
+
+You can set up global configuration for SWR in your app's entry point:
+
+```jsx
+// src/App.jsx
+import { SWRConfig } from 'swr'
+
+function App() {
+  return (
+    <SWRConfig 
+      value={{
+        fetcher: (url) => fetch(url).then(res => res.json()),
+        revalidateOnFocus: false,
+        revalidateOnReconnect: true,
+        dedupingInterval: 2000
+      }}
+    >
+      <YourApp />
+    </SWRConfig>
+  )
+}
+```
+
+## Advanced Features and Customization
+
+### Mutation Example
+
+```jsx
+// src/components/TodoList.jsx
+import useSWR, { mutate } from 'swr'
+
+function TodoList() {
+  const { data: todos } = useSWR('/api/todos')
+  
+  async function addTodo(text) {
+    // 乐观更新 UI
+    mutate('/api/todos', [...todos, { id: Date.now(), text }], false)
+    
+    // 发送请求到服务器
+    await fetch('/api/todos', {
+      method: 'POST',
+      body: JSON.stringify({ text })
+    })
+    
+    // 触发重新验证
+    mutate('/api/todos')
+  }
+
+  return (
+    <div>
+      <ul>
+        {todos?.map(todo => (
+          <li key={todo.id}>{todo.text}</li>
+        ))}
+      </ul>
+      <button onClick={() => addTodo('New Todo')}>Add Todo</button>
+    </div>
+  )
+}
+```
+
+### Conditional Fetching
+
+```jsx
+// src/components/ConditionalData.jsx
+import useSWR from 'swr'
+
+function ConditionalData({ shouldFetch, resource }) {
+  const { data } = useSWR(shouldFetch ? `/api/${resource}` : null)
+
+  return (
+    <div>
+      {data ? (
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      ) : (
+        'Not fetching data...'
+      )}
+    </div>
+  )
+}
+```
+
+### Custom Hook with SWR
+
+```jsx
+// src/hooks/useUser.js
+import useSWR from 'swr'
+
+export function useUser(id) {
+  const { data, error, isLoading, mutate } = useSWR(`/api/user/${id}`)
+
+  return {
+    user: data,
+    isLoading,
+    isError: error,
+    updateUser: async (updates) => {
+      try {
+        // 乐观更新
+        mutate({ ...data, ...updates }, false)
+        
+        // 发送实际请求
+        await fetch(`/api/user/${id}`, {
+          method: 'PATCH',
+          body: JSON.stringify(updates)
+        })
+        
+        // 重新验证
+        mutate()
+      } catch (error) {
+        // 回滚乐观更新
+        mutate(data)
+        throw error
+      }
+    }
+  }
+}
+
+// 使用示例
+function UserComponent({ userId }) {
+  const { user, isLoading, isError, updateUser } = useUser(userId)
+  
+  if (isLoading) return <div>Loading...</div>
+  if (isError) return <div>Error loading user</div>
+  
+  return (
+    <div>
+      <h1>{user.name}</h1>
+      <button onClick={() => updateUser({ name: 'New Name' })}>
+        Update Name
+      </button>
+    </div>
+  )
+}
+```
+
+### Error Handling and Retries
+
+```jsx
+// src/components/DataWithRetry.jsx
+import useSWR from 'swr'
+
+function DataWithRetry() {
+  const { data, error, isValidating } = useSWR('/api/data', fetcher, {
+    onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
+      // 404 错误不重试
+      if (error.status === 404) return
+      
+      // 最多重试 3 次
+      if (retryCount >= 3) return
+      
+      // 重试间隔增加
+      setTimeout(() => revalidate({ retryCount }), 
+        Math.min(1000 * (retryCount + 1), 30000))
+    }
+  })
+
+  return (
+    <div>
+      {error && <div>Error: {error.message}</div>}
+      {isValidating && <div>Validating...</div>}
+      {data && <div>Data: {JSON.stringify(data)}</div>}
+    </div>
+  )
+}
+```
+
+## Building a Responsive UI with SWR Hooks
+
+Here's an example of a component that shows different states during data fetching:
+
+```jsx
+// src/components/DataDisplay.jsx
+import useSWR from 'swr'
+
+function DataDisplay() {
+  const { data, error, isLoading, isValidating } = useSWR('/api/data')
+
+  return (
+    <div className="data-container">
+      {isLoading ? (
+        <LoadingSkeleton />
+      ) : error ? (
+        <ErrorMessage error={error} />
+      ) : (
+        <>
+          <div className="data-content">
+            {data && <DataView data={data} />}
+          </div>
+          {isValidating && (
+            <div className="refresh-indicator">
+              Refreshing...
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  )
+}
+
+// 骨架屏组件
+function LoadingSkeleton() {
+  return (
+    <div className="skeleton">
+      <div className="skeleton-header" />
+      <div className="skeleton-content" />
+    </div>
+  )
+}
+
+// 错误消息组件
+function ErrorMessage({ error }) {
+  return (
+    <div className="error-container">
+      <h3>Something went wrong</h3>
+      <p>{error.message}</p>
+      <button onClick={() => window.location.reload()}>
+        Retry
+      </button>
+    </div>
+  )
+}
+```
+
+## Conclusion
+
+React SWR with Vite provides a powerful combination for building modern web applications with efficient data fetching. By following the examples and patterns shown above, you can create responsive, user-friendly applications that handle data fetching elegantly.
+
+Remember to:
+- Configure SWR globally for consistent behavior across your application
+- Implement proper error handling and loading states
+- Use optimistic updates for better user experience
+- Consider implementing retry strategies for failed requests
+- Create custom hooks for reusable data fetching logic
+
+The code examples provided should give you a solid foundation for implementing these patterns in your own applications.
