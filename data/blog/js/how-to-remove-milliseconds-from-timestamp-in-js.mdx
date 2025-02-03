@@ -1,8 +1,8 @@
 ---
 title: how to remove milliseconds from timestamp in js
 date: '2024-09-15'
-lastmod: '2024-09-16'
-tags: ['javascript', 'date', 'milliseconds', 'programming']
+lastmod: '2025-02-03'
+tags: ['javascript', 'date', 'milliseconds', 'programming','toisostring without milliseconds']
 draft: false
 summary: 'Learn how to effectively remove milliseconds from a timestamp in JavaScript using methods like toISOString(), setMilliseconds(0), and Math.floor().'
 # images: ['/static/images/canada/mountains.jpg', '/static/images/canada/toronto.jpg']
@@ -21,7 +21,7 @@ To remove milliseconds from a `Date` object, you can use `toISOString()` and `sl
 
 ### 1. Using toISOString() and slice()
 
-The `toISOString()` method returns a date string in ISO format, but it includes milliseconds. You can remove them by slicing off the last part of the string.
+toisostring without milliseconds: The `toISOString()` method returns a date string in ISO format, but it includes milliseconds. You can remove them by slicing off the last part of the string.
 
 ```javascript
 const date = new Date()
