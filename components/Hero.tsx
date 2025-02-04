@@ -26,7 +26,7 @@ export default function Hero(): ReactElement {
     <div>
       <div className="space-y-2 pb-8 pt-6 md:space-y-5">
         <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
-          I'm{' '}
+          Welcome to{' '}
           <span className="dark:from-secondary-700 dark:to-secondary-400 mt-10 bg-gradient-to-r from-primary-700 to-primary-400 bg-clip-text text-center text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl lg:text-6xl">
             {name}
           </span>{' '}
