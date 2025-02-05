@@ -17,7 +17,7 @@ const siteMetadata = {
   x: 'https://twitter.com/GeeksKai',
   // twitter: 'https://twitter.com/Twitter',
   facebook: 'https://www.facebook.com/geekskai',
-  youtube: 'https://www.youtube.com/@@kaigan-is6ym',
+  youtube: 'https://www.youtube.com/@kaigan-is6ym',
   linkedin: 'https://www.linkedin.com/in/geekskai',
   threads: 'https://www.threads.net',
   instagram: 'https://www.instagram.com',
