@@ -3,7 +3,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
-  const title = 'Convert PDF to Markdown Online | Free&Instant Tool'
+  const title = 'PDF to Markdown - Fast & Free PDF to MD Converter'
   const description =
     'Convert PDFs to clean Markdown with formatting preserved. Free, secure, and no registration required. Perfect for developers and writers!'
   const publishedAt = new Date().toISOString()
