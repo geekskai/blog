@@ -4,7 +4,7 @@ const siteMetadata = {
   author: 'Geeks Kai',
   headerTitle: 'geekskai',
   description:
-    "This site is your go-to resource for tech insights, lifestyle trends, and sustainable living practices. While I specialize in JavaScript and web development, I also explore how technology impacts our world—from local innovations in China to global breakthroughs. Whether you're a developer or a tech enthusiast, you'll find practical guides, technical deep-dives, and thoughtful perspectives that highlight the unique interplay between technology, culture, and modern living.",
+    'A digital hub for web dev tools, tech insights, and sustainable living. Bridging Chinese and global tech perspectives through practical guides and thoughtful analysis.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://geekskai.com',
