@@ -1,8 +1,8 @@
 ---
-title: 'Mastering React SWR with Vite Integration'
+title: 'Mastering React SWR Vite Integration'
 date: '2025-02-03'
-lastmod: '2025-02-03'
-tags: ['react', 'swr', 'vite', 'data-fetching', 'web-development']
+lastmod: '2025-02-07'
+tags: ['react', 'swr', 'vite', 'data-fetching', 'web-development','React SWR Vite']
 draft: false
 images: '/static/images/blog/js/mastering-react-swr-with-vite-integration.png'
 summary: 'Learn how to efficiently integrate React SWR with Vite for optimal data fetching in your React applications. This comprehensive guide covers setup, configuration, and advanced usage patterns with practical code examples.'
@@ -322,3 +322,102 @@ Remember to:
 - Create custom hooks for reusable data fetching logic
 
 The code examples provided should give you a solid foundation for implementing these patterns in your own applications.
+
+
+The code examples provided should give you a solid foundation for implementing these patterns in your own applications.
+
+## Frequently Asked Questions (FAQ)
+
+### Q: What are the main benefits of using SWR with Vite?
+A: The main benefits include:
+- Faster development with Vite's quick build times and hot module replacement
+- Built-in caching and automatic revalidation with SWR
+- Reduced server load through request deduplication
+- Real-time data updates without manual refetching
+- Optimized performance through SWR's stale-while-revalidate strategy
+
+### Q: How does SWR's caching mechanism work?
+A: SWR uses a two-step process for data fetching:
+1. Returns cached data immediately (stale)
+2. Sends the fetch request to revalidate data
+3. Updates with the latest data once available
+This approach ensures users see immediate content while fresh data is being fetched in the background.
+
+### Q: Can I use SWR with TypeScript in a Vite project?
+A: Yes, SWR fully supports TypeScript. You can define types for your data and fetcher functions:
+
+```typescript
+interface User {
+  id: number
+  name: string
+  email: string
+}
+
+const { data, error } = useSWR<User>('/api/user', fetcher)
+```
+
+### Q: How can I handle authentication with SWR?
+A: You can handle authentication by:
+1. Creating a custom fetcher that includes authentication headers
+2. Using SWR's global configuration to set up authentication
+3. Implementing middleware for token refresh
+
+Example:
+```jsx
+const fetcher = (url) => fetch(url, {
+  headers: {
+    'Authorization': `Bearer ${getToken()}`
+  }
+}).then(res => res.json())
+
+<SWRConfig value={{ fetcher }}>
+  <App />
+</SWRConfig>
+```
+
+### Q: How do I prevent unnecessary revalidation?
+A: You can control revalidation behavior through SWR config:
+```jsx
+const { data } = useSWR('/api/data', fetcher, {
+  revalidateOnFocus: false,     // Disable revalidation on window focus
+  revalidateOnReconnect: false, // Disable revalidation on network recovery
+  refreshInterval: 0,           // Disable periodic polling
+  dedupingInterval: 2000        // Dedupe requests within 2 seconds
+})
+```
+
+### Q: Can SWR be used for infinite loading or pagination?
+A: Yes, SWR provides the `useSWRInfinite` hook for handling infinite loading:
+```jsx
+const { data, size, setSize } = useSWRInfinite(
+  (index) => `/api/posts?page=${index + 1}`,
+  fetcher
+)
+
+// Load more data
+const loadMore = () => setSize(size + 1)
+```
+
+### Q: How does SWR handle server-side rendering (SSR)?
+A: SWR works well with SSR through:
+1. Initial data population using `fallback` or `fallbackData`
+2. Hydration on the client side
+3. Revalidation after mount if needed
+
+Example:
+```jsx
+<SWRConfig value={{ 
+  fallback: { 
+    '/api/data': initialData 
+  } 
+}}>
+  <App />
+</SWRConfig>
+```
+
+### Q: What's the difference between mutate and trigger in SWR?
+A: 
+- `mutate`: Updates the cached data and optionally revalidates
+- `trigger`: Only revalidates the data without updating the cache
+
+Use `mutate` for optimistic updates and `trigger` for simple refetching.
