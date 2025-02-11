@@ -15,7 +15,7 @@
 
 <div align="center">
 
-由 [geeks kai](https://www.geekskai.com) 用 ❤️ 打造
+<!-- 由 [geeks kai](https://www.geekskai.com) 用 ❤️ 打造 -->
 
 ⭐ 如果这个项目对你有帮助，请给我们一个星星，这是对我们最大的鼓励！
 

@@ -16,7 +16,7 @@
 
 <div align="center">
 
-Made with ❤️ by [geeks kai](https://www.geekskai.com)
+<!-- Made with ❤️ by [geeks kai](https://www.geekskai.com) -->
 
 ⭐ Star us on GitHub — it motivates us a lot!
 
