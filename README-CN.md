@@ -7,9 +7,17 @@
 [![GitHub stars](https://img.shields.io/github/stars/geekskai/blog.svg?style=social&label=Stars)](https://github.com/geekskai/blog)
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/geekskai/blog)
 
-[在线演示](https://www.geekskai.com/) | [使用文档](#快速开始) | [特性介绍](#核心特性)
+[在线演示](https://www.geekskai.com/) | [English Docs](https://github.com/geekskai/blog/blob/main/README.md)
 
 *下一代高性能、SEO友好的博客解决方案*
+
+</div>
+
+<div align="center">
+
+由 [geeks kai](https://www.geekskai.com) 用 ❤️ 打造
+
+⭐ 如果这个项目对你有帮助，请给我们一个星星，这是对我们最大的鼓励！
 
 </div>
 
@@ -157,10 +165,4 @@ $ EXPORT=1 UNOPTIMIZED=1 yarn build
 
 ---
 
-<div align="center">
 
-由 [geeks kai](https://www.geekskai.com) 用 ❤️ 打造
-
-⭐ 如果这个项目对你有帮助，请给我们一个星星，这是对我们最大的鼓励！
-
-</div>
