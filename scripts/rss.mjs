@@ -14,50 +14,70 @@ const generateRssItem = (config, post) => `
     <guid>${config.siteUrl}/blog/${post.slug}</guid>
     <title>${escape(post.title)}</title>
     <link>${config.siteUrl}/blog/${post.slug}</link>
-    ${post.summary && `<description>${escape(post.summary)}</description>`}
+    ${post.summary ? `<description>${escape(post.summary)}</description>` : ''}
     <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-    <author>${config.email} (${config.author})</author>
-    ${post.tags && post.tags.map((t) => `<category>${t}</category>`).join('')}
+    <author>${escape(config.email)} (${escape(config.author)})</author>
+    ${post.tags ? post.tags.map((t) => `<category>${escape(t)}</category>`).join('') : ''}
   </item>
 `
 
-const generateRss = (config, posts, page = 'feed.xml') => `
+const generateRss = (config, posts, page = 'feed.xml') => `<?xml version="1.0" encoding="UTF-8"?>
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>${escape(config.title)}</title>
       <link>${config.siteUrl}/blog</link>
       <description>${escape(config.description)}</description>
       <language>${config.language}</language>
-      <managingEditor>${config.email} (${config.author})</managingEditor>
-      <webMaster>${config.email} (${config.author})</webMaster>
+      <managingEditor>${escape(config.email)} (${escape(config.author)})</managingEditor>
+      <webMaster>${escape(config.email)} (${escape(config.author)})</webMaster>
       <lastBuildDate>${new Date(posts[0].date).toUTCString()}</lastBuildDate>
       <atom:link href="${config.siteUrl}/${page}" rel="self" type="application/rss+xml"/>
-      ${posts.map((post) => generateRssItem(config, post)).join('')}
+      ${posts.map((post) => generateRssItem(config, post)).join('\n')}
     </channel>
   </rss>
 `
 
 async function generateRSS(config, allBlogs, page = 'feed.xml') {
-  const publishPosts = allBlogs.filter((post) => post.draft !== true)
-  // RSS for blog post
-  if (publishPosts.length > 0) {
-    const rss = generateRss(config, sortPosts(publishPosts))
-    writeFileSync(`./${outputFolder}/${page}`, rss)
-  }
+  try {
+    const publishPosts = allBlogs.filter((post) => post.draft !== true)
 
-  if (publishPosts.length > 0) {
-    for (const tag of Object.keys(tagData)) {
-      const filteredPosts = allBlogs.filter((post) => post.tags.map((t) => slug(t)).includes(tag))
-      const rss = generateRss(config, filteredPosts, `tags/${tag}/${page}`)
-      const rssPath = path.join(outputFolder, 'tags', tag)
-      mkdirSync(rssPath, { recursive: true })
-      writeFileSync(path.join(rssPath, page), rss)
+    // 确保有文章可以生成
+    if (!publishPosts.length) {
+      console.log('No posts to generate RSS feed')
+      return
     }
+
+    // 生成主 RSS feed
+    const sortedPosts = sortPosts(publishPosts)
+    const rss = generateRss(config, sortedPosts)
+    writeFileSync(`./${outputFolder}/${page}`, rss)
+
+    // 生成标签 RSS feeds
+    for (const tag of Object.keys(tagData)) {
+      const filteredPosts = publishPosts.filter((post) =>
+        post.tags.map((t) => slug(t)).includes(tag)
+      )
+
+      if (filteredPosts.length) {
+        const tagRss = generateRss(config, filteredPosts, `tags/${tag}/${page}`)
+        const rssPath = path.join(outputFolder, 'tags', tag)
+        mkdirSync(rssPath, { recursive: true })
+        writeFileSync(path.join(rssPath, page), tagRss)
+      }
+    }
+  } catch (error) {
+    console.error('Error generating RSS feed:', error)
+    throw error
   }
 }
 
 const rss = () => {
-  generateRSS(siteMetadata, allBlogs)
-  console.log('RSS feed generated...')
+  try {
+    generateRSS(siteMetadata, allBlogs)
+    console.log('RSS feed generated successfully')
+  } catch (error) {
+    console.error('Failed to generate RSS feed:', error)
+    process.exit(1)
+  }
 }
 export default rss
