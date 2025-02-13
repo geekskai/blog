@@ -18,11 +18,12 @@ const generateRssItem = (config, post) => `
     <pubDate>${new Date(post.date).toUTCString()}</pubDate>
     <author>${escape(config.email)} (${escape(config.author)})</author>
     ${post.tags ? post.tags.map((t) => `<category>${escape(t)}</category>`).join('') : ''}
+    ${post.body.raw ? `<content:encoded><![CDATA[${post.body.raw}]]></content:encoded>` : ''}
   </item>
 `
 
 const generateRss = (config, posts, page = 'feed.xml') => `<?xml version="1.0" encoding="UTF-8"?>
-  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
       <title>${escape(config.title)}</title>
       <link>${config.siteUrl}/blog/</link>
