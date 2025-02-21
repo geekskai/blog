@@ -107,21 +107,84 @@ export const Blog = defineDocumentType(() => ({
     layout: { type: 'string' },
     bibliography: { type: 'string' },
     canonicalUrl: { type: 'string' },
+    // 添加 FAQ 字段
+    faqs: {
+      type: 'json',
+      default: [],
+    },
   },
   computedFields: {
     ...computedFields,
     structuredData: {
       type: 'json',
-      resolve: (doc) => ({
-        '@context': 'https://schema.org',
-        '@type': 'BlogPosting',
-        headline: doc.title,
-        datePublished: doc.date,
-        dateModified: doc.lastmod || doc.date,
-        description: doc.summary,
-        image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
-        url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
-      }),
+      resolve: (doc) => {
+        const imageSrc = Array.isArray(doc.images)
+          ? doc.images[0]
+          : doc.images || siteMetadata.socialBanner
+        // 构建基础数据
+        const baseStructuredData = {
+          '@context': 'https://schema.org',
+          '@type': doc.faqs?.length > 0 ? ['BlogPosting', 'FAQPage'] : 'BlogPosting',
+          headline: doc.title,
+          datePublished: doc.date,
+          dateModified: doc.lastmod || doc.date,
+          description: doc.summary,
+          url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
+          // 优化图片结构
+          image: {
+            '@type': 'ImageObject',
+            url: siteMetadata.siteUrl + imageSrc,
+            width: 1200,
+            height: 630,
+          },
+          // 添加作者信息
+          author: doc.authors?.map((author) => ({
+            '@type': 'Person',
+            name: author,
+          })) || [
+            {
+              '@type': 'Person',
+              name: siteMetadata.author,
+            },
+          ],
+          // 添加发布者信息
+          publisher: {
+            '@type': 'Organization',
+            name: siteMetadata.title,
+            logo: {
+              '@type': 'ImageObject',
+              url: `${siteMetadata.siteUrl}/static/images/logo.png`,
+              width: 112,
+              height: 112,
+            },
+          },
+        }
+
+        // 检查 faqs 是否有数据
+        const hasFaqs =
+          doc.faqs &&
+          typeof doc.faqs === 'object' &&
+          Array.isArray(doc.faqs._array || doc.faqs) &&
+          (doc.faqs._array || doc.faqs).length > 0
+
+        if (hasFaqs) {
+          const faqsArray = doc.faqs._array || doc.faqs
+          return {
+            ...baseStructuredData,
+            '@type': ['BlogPosting', 'FAQPage'],
+            mainEntity: faqsArray.map((faq) => ({
+              '@type': 'Question',
+              name: faq.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: faq.answer,
+              },
+            })),
+          }
+        }
+
+        return baseStructuredData
+      },
     },
   },
 }))
