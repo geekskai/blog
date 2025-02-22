@@ -7,15 +7,13 @@
 [![GitHub stars](https://img.shields.io/github/stars/geekskai/blog.svg?style=social&label=Stars)](https://github.com/geekskai/blog)
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/geekskai/blog)
 
-[在线演示](https://www.geekskai.com/) | [English Docs](https://github.com/geekskai/blog/blob/main/README.md)
+[在线演示](https://geekskai.com/) | [English Docs](https://github.com/geekskai/blog/blob/main/README.md)
 
-*下一代高性能、SEO友好的博客解决方案*
+_下一代高性能、SEO友好的博客解决方案_
 
 </div>
 
 <div align="center">
-
-<!-- 由 [geeks kai](https://www.geekskai.com) 用 ❤️ 打造 -->
 
 ⭐ 如果这个项目对你有帮助，请给我们一个星星，这是对我们最大的鼓励！
 
@@ -53,7 +51,8 @@
 
 ![Performance](/public/static/images/performance.png)
 
-*Lighthouse 性能评分 - 展现卓越的性能指标*
+_Lighthouse 性能评分 - 展现卓越的性能指标_
+
 </div>
 
 ## 🛠️ 技术特点
@@ -69,12 +68,14 @@
 ## 📦 核心特性
 
 ### 📊 数据分析与互动
+
 - 多种数据分析方案（支持 Umami、Plausible、百度统计等）
 - 评论系统集成（支持 Giscus、Utterances、Disqus）
 - 订阅集成（支持主流邮件订阅服务）
 - 搜索功能（支持 Kbar、Algolia）
 
 ### 📝 内容创作增强
+
 - 服务端代码高亮
 - KaTeX 数学公式渲染
 - 文献引用与参考书目
@@ -86,13 +87,17 @@
 ## ⚡ 快速开始
 
 # 克隆项目
+
 ```bash
 npx degit 'geekskai/blog'
 ```
+
 # 安装依赖
+
 ```bash
 yarn
 ```
+
 请注意，如果您使用的是 Windows 操作系统，每次启动之前，需要提前运行：
 
 ```bash
@@ -100,6 +105,7 @@ $env:PWD = $(Get-Location).Path
 ```
 
 # 启动开发服务器
+
 ```bash
 yarn dev
 ```
@@ -131,9 +137,11 @@ summary: '文章摘要'
 ## 🚀 部署指南
 
 ### Vercel 部署
+
 一键部署到 Vercel，无需额外配置
 
 ### 静态部署
+
 ```bash
 $ EXPORT=1 UNOPTIMIZED=1 yarn build
 ```
@@ -141,6 +149,7 @@ $ EXPORT=1 UNOPTIMIZED=1 yarn build
 ## 🤝 参与贡献
 
 欢迎所有形式的贡献：
+
 - 🐛 问题修复
 - ✨ 新功能提案
 - 📚 文档改进
@@ -156,19 +165,18 @@ $ EXPORT=1 UNOPTIMIZED=1 yarn build
 
 ## 📱 联系我们
 
-- [博客](https://www.geekskai.com)
+- [博客](https://geekskai.com/)
 - [邮箱](geeks.kai@gmail.com)
 
 ## 📄 开源协议
 
-[MIT](https://github.com/geekskai/blog/blob/main/LICENSE) © [geeks kai](https://www.geekskai.com)
+[MIT](https://github.com/geekskai/blog/blob/main/LICENSE) © [geeks kai](https://geekskai.com)
 
 ---
 
-
 <div align="center">
 
-由 [geeks kai](https://www.geekskai.com) 用 ❤️ 打造
+由 [geeks kai](https://geekskai.com) 用 ❤️ 打造
 
 ⭐ 如果这个项目对你有帮助，请给我们一个星星，这是对我们最大的鼓励！
 

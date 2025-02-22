@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Blog Template Preview](/public/static/images/geekskai-blog.png)](https://www.geekskai.com/)
+[![Blog Template Preview](/public/static/images/geekskai-blog.png)](https://geekskai.com/)
 
 [![GitHub stars](https://img.shields.io/github/stars/geekskai/blog.svg?style=social&label=Stars)](https://github.com/geekskai/blog)
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/geekskai/blog)
@@ -10,12 +10,11 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-Ready-06B6D4.svg)](https://tailwindcss.com/)
 
-[Live Website](https://www.geekskai.com/) | [中文文档](https://github.com/geekskai/blog/blob/main/README-CN.md)
+[Live Website](https://geekskai.com/) | [中文文档](https://github.com/geekskai/blog/blob/main/README-CN.md)
 
-*Your next powerful, SEO-friendly, and lightning-fast blog template*
+_Your next powerful, SEO-friendly, and lightning-fast blog template_
 
 </div>
-
 
 <div align="center">
 
@@ -49,14 +48,14 @@
 </table>
 </div>
 
-
 ## ⚡ Performance That Speaks
 
 <div align="center">
 
-📈 **85kB** First Load JS  |  🏃‍♂️ **0.3s** First Contentful Paint  |  🎯 **100/100** Lighthouse Score
+📈 **85kB** First Load JS | 🏃‍♂️ **0.3s** First Contentful Paint | 🎯 **100/100** Lighthouse Score
 
 ![Performance Metrics](/public/static/images/performance.png)
+
 </div>
 
 ## 🛠️ Featured Technologies
@@ -72,12 +71,14 @@
 ## 📦 Key Features
 
 ### 📊 Analytics & Engagement
+
 - Multiple analytics options (Umami, Plausible, Google Analytics)
 - Comment systems (Giscus, Utterances, Disqus)
 - Newsletter integration (Mailchimp, Convertkit, etc.)
 - Command palette search (Kbar, Algolia)
 
 ### 📝 Content Creation
+
 - Server-side syntax highlighting
 - Math equations with KaTeX
 - Citations and bibliography support
@@ -89,26 +90,31 @@
 ## 🚀 Quick Start
 
 ### Get started in seconds
+
 ```bash
 git clone https://github.com/geekskai/blog.git
 ```
 
 ### or clone directly
+
 ```bash
 npx degit 'geekskai/blog'
 ```
 
 ### Install dependencies
+
 ```bash
 yarn
 ```
 
 ### Please note that if you are using a Windows operating system, you need to run it in advance before each startup:
+
 ```bash
 $env:PWD = $(Get-Location).Path
 ```
 
 ### Start development
+
 ```bash
 yarn dev
 ```
@@ -129,6 +135,7 @@ summary: 'A comprehensive guide to building a modern blog'
 ## Introduction
 
 Your content here with support for:
+
 - Math equations: $E = mc^2$
 - Code blocks with syntax highlighting
 - Interactive components
@@ -138,6 +145,7 @@ Your content here with support for:
 ## 🎨 Customization
 
 1. **Site Configuration**
+
    ```js
    // data/siteMetadata.js
    const siteMetadata = {
@@ -154,18 +162,20 @@ Your content here with support for:
      theme: {
        extend: {
          // Your custom theme
-       }
-     }
+       },
+     },
    }
    ```
 
 ## 🌐 Deployment Options
 
 ### One-Click Deployments
+
 - Vercel: [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/geekskai/blog)
 - Netlify: [![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/geekskai/blog)
 
 ### Static Hosting
+
 ```bash
 $ EXPORT=1 UNOPTIMIZED=1 yarn build
 ```
@@ -173,19 +183,19 @@ $ EXPORT=1 UNOPTIMIZED=1 yarn build
 ## 🤝 Contributing
 
 We welcome all contributions! Whether it's:
+
 - 🐛 Bug fixes
 - ✨ New features
 - 📚 Documentation improvements
 - 🎨 UI/UX enhancements
 
-
 ## 💫 Success Stories
 
 <div align="center">
 
-*"This template saved us weeks of development time"* - Tech Lead at StartupX
+_"This template saved us weeks of development time"_ - Tech Lead at StartupX
 
-*"Perfect balance of features and performance"* - Senior Developer at CompanyY
+_"Perfect balance of features and performance"_ - Senior Developer at CompanyY
 
 </div>
 
@@ -206,13 +216,13 @@ If this template helps you build your blog faster, please consider:
 
 ## 📄 License
 
-[MIT](https://github.com/geekskai/blog/blob/main/LICENSE) © [geeks kai](https://www.geekskai.com)
+[MIT](https://github.com/geekskai/blog/blob/main/LICENSE) © [geeks kai](https://geekskai.com)
 
 ---
 
 <div align="center">
 
-Made with ❤️ by [geeks kai](https://www.geekskai.com)
+Made with ❤️ by [geeks kai](https://geekskai.com)
 
 ⭐ Star us on GitHub — it motivates us a lot!
 
