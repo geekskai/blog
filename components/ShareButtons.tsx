@@ -49,8 +49,8 @@ const ReactShare = [
 export default function ShareButtons() {
   return (
     <ul className="flex flex-wrap items-center justify-center gap-4 xl:flex-row">
-      {ReactShare.map((shareButton) => (
-        <li className="flex items-center space-x-2" key={shareButton.key}>
+      {ReactShare.map((shareButton, index) => (
+        <li className="flex items-center space-x-2" key={index}>
           {shareButton}
         </li>
       ))}

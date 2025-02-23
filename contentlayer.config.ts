@@ -23,6 +23,7 @@ import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 import siteMetadata from './data/siteMetadata'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
+import { url } from 'inspector'
 
 const root = process.cwd()
 const isProduction = process.env.NODE_ENV === 'production'
@@ -137,16 +138,18 @@ export const Blog = defineDocumentType(() => ({
             width: 1200,
             height: 630,
           },
-          // 添加作者信息
-          author: doc.authors?.map((author) => ({
-            '@type': 'Person',
-            name: author,
-          })) || [
-            {
-              '@type': 'Person',
-              name: siteMetadata.author,
-            },
-          ],
+          // // 添加作者信息
+          // author: doc.authors?.map((author) => ({
+          //   '@type': 'Person111',
+          //   name: author,
+          //   url: `${siteMetadata.siteUrl}/authors/${slug(author)}`,
+          // })) || [
+          //   {
+          //     '@type': 'Person222',
+          //     url: `${siteMetadata.siteUrl}/authors/${slug(siteMetadata.author)}`,
+          //     name: siteMetadata.author,
+          //   },
+          // ],
           // 添加发布者信息
           publisher: {
             '@type': 'Organization',

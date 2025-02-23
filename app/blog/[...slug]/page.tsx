@@ -105,6 +105,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     return {
       '@type': 'Person',
       name: author.name,
+      url: siteMetadata.siteUrl + author.avatar,
     }
   })
 

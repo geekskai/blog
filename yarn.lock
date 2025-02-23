@@ -9691,15 +9691,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-share@npm:^5.1.2":
-  version: 5.2.0
-  resolution: "react-share@npm:5.2.0"
+"react-share@npm:5.1.2":
+  version: 5.1.2
+  resolution: "react-share@npm:5.1.2"
   dependencies:
     classnames: ^2.3.2
     jsonp: ^0.2.1
   peerDependencies:
     react: ^17 || ^18 || ^19
-  checksum: 9677151d986335c2554272809c441dc5efb7a2d326a08def46202f578382c7a18937f94801d65b233386c926b804a6cd0f6bac271011401bdbf367c6f30827e6
+  checksum: aec6e616b59596dd70bba94a623d1f91d9bf8e9d95354b423b14935bae356e2acf498dfa8cf63a0953ffb5ac065c30ed213029ccce719c1b82014cac96dfe60e
   languageName: node
   linkType: hard
 
@@ -11305,7 +11305,7 @@ __metadata:
     prettier-plugin-tailwindcss: ^0.5.11
     react: 18.3.1
     react-dom: 18.3.1
-    react-share: ^5.1.2
+    react-share: 5.1.2
     reading-time: 1.5.0
     rehype-autolink-headings: ^7.1.0
     rehype-citation: ^2.0.0
