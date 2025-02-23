@@ -172,6 +172,76 @@ Your content here with support for:
 ### One-Click Deployments
 
 - Vercel: [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/geekskai/blog)
+
+in `.env` file and set Vercel [environment variables](https://vercel.com/geekskais-projects/blog/settings/environment-variables)
+
+```bash
+# visit https://giscus.app to get your Giscus ids
+NEXT_PUBLIC_GISCUS_REPO=
+NEXT_PUBLIC_GISCUS_REPOSITORY_ID=
+NEXT_PUBLIC_GISCUS_CATEGORY=
+NEXT_PUBLIC_GISCUS_CATEGORY_ID=
+NEXT_PUBLIC_UTTERANCES_REPO=
+NEXT_PUBLIC_DISQUS_SHORTNAME=
+
+MAILCHIMP_API_KEY=
+MAILCHIMP_API_SERVER=
+MAILCHIMP_AUDIENCE_ID=
+
+BUTTONDOWN_API_KEY=
+
+CONVERTKIT_API_KEY=
+# curl https://api.convertkit.com/v3/forms?api_key=<your_public_api_key> to get your form ID
+CONVERTKIT_FORM_ID=
+
+KLAVIYO_API_KEY=
+KLAVIYO_LIST_ID=
+
+REVUE_API_KEY=
+
+# Create EmailOctopus API key at https://emailoctopus.com/api-documentation
+EMAILOCTOPUS_API_KEY=
+# List ID can be found in the URL as a UUID after clicking a list on https://emailoctopus.com/lists
+# or the settings page of your list https://emailoctopus.com/lists/{UUID}/settings
+EMAILOCTOPUS_LIST_ID=
+
+# Create Beehive API key at https://developers.beehiiv.com/docs/v2/bktd9a7mxo67n-create-an-api-key
+BEEHIVE_API_KEY=
+BEEHIVE_PUBLICATION_ID=# visit https://giscus.app to get your Giscus ids
+NEXT_PUBLIC_GISCUS_REPO=
+NEXT_PUBLIC_GISCUS_REPOSITORY_ID=
+NEXT_PUBLIC_GISCUS_CATEGORY=
+NEXT_PUBLIC_GISCUS_CATEGORY_ID=
+NEXT_PUBLIC_UTTERANCES_REPO=
+NEXT_PUBLIC_DISQUS_SHORTNAME=
+
+
+MAILCHIMP_API_KEY=
+MAILCHIMP_API_SERVER=
+MAILCHIMP_AUDIENCE_ID=
+
+BUTTONDOWN_API_KEY=
+
+CONVERTKIT_API_KEY=
+# curl https://api.convertkit.com/v3/forms?api_key=<your_public_api_key> to get your form ID
+CONVERTKIT_FORM_ID=
+
+KLAVIYO_API_KEY=
+KLAVIYO_LIST_ID=
+
+REVUE_API_KEY=
+
+# Create EmailOctopus API key at https://emailoctopus.com/api-documentation
+EMAILOCTOPUS_API_KEY=
+# List ID can be found in the URL as a UUID after clicking a list on https://emailoctopus.com/lists
+# or the settings page of your list https://emailoctopus.com/lists/{UUID}/settings
+EMAILOCTOPUS_LIST_ID=
+
+# Create Beehive API key at https://developers.beehiiv.com/docs/v2/bktd9a7mxo67n-create-an-api-key
+BEEHIVE_API_KEY=
+BEEHIVE_PUBLICATION_ID=
+```
+
 - Netlify: [![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/geekskai/blog)
 
 ### Static Hosting
