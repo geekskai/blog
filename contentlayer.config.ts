@@ -130,7 +130,7 @@ export const Blog = defineDocumentType(() => ({
           datePublished: doc.date,
           dateModified: doc.lastmod || doc.date,
           description: doc.summary,
-          url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
+          url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}/`,
           // 优化图片结构
           image: {
             '@type': 'ImageObject',
@@ -138,18 +138,6 @@ export const Blog = defineDocumentType(() => ({
             width: 1200,
             height: 630,
           },
-          // // 添加作者信息
-          // author: doc.authors?.map((author) => ({
-          //   '@type': 'Person111',
-          //   name: author,
-          //   url: `${siteMetadata.siteUrl}/authors/${slug(author)}`,
-          // })) || [
-          //   {
-          //     '@type': 'Person222',
-          //     url: `${siteMetadata.siteUrl}/authors/${slug(siteMetadata.author)}`,
-          //     name: siteMetadata.author,
-          //   },
-          // ],
           // 添加发布者信息
           publisher: {
             '@type': 'Organization',
