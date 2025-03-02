@@ -76,7 +76,7 @@ export default function ListLayoutWithTags({
       <section className="py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className="mt-3 whitespace-pre-wrap text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl lg:text-5xl">
+            <h1 className="mt-3 whitespace-pre-wrap text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               {title}
             </h1>
           </div>
@@ -113,19 +113,17 @@ export default function ListLayoutWithTags({
                         />
                       )}
                       {name} &bull;
-                      <dd className="text-base font-medium leading-6 text-stone-500 dark:text-stone-400">
+                      <dd className="text-base font-medium leading-6 text-stone-300">
                         <time dateTime={date} suppressHydrationWarning>
                           {formatDate(date, siteMetadata.locale)}
                         </time>
                       </dd>
                     </div>
                     <div className="space-y-3">
-                      <h2 className="text-2xl font-bold leading-8 tracking-tight text-stone-900 dark:text-stone-100">
+                      <h2 className="text-2xl font-bold leading-8 tracking-tight text-stone-100">
                         {title}
                       </h2>
-                      <p className="prose max-w-none text-stone-500 dark:text-stone-400">
-                        {summary}
-                      </p>
+                      <p className="prose max-w-none text-stone-300">{summary}</p>
                     </div>
                   </Link>
                   <div className="flex flex-wrap">

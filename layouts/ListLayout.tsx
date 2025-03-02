@@ -5,9 +5,9 @@ import { usePathname } from 'next/navigation'
 import { formatDate } from 'pliny/utils/formatDate'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
-import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
+import Link from '@/components/Link'
 
 interface PaginationProps {
   totalPages: number
@@ -20,52 +20,7 @@ interface ListLayoutProps {
   pagination?: PaginationProps
 }
 
-function Pagination({ totalPages, currentPage }: PaginationProps) {
-  const pathname = usePathname()
-  const basePath = pathname.split('/')[1]
-  const prevPage = currentPage - 1 > 0
-  const nextPage = currentPage + 1 <= totalPages
-
-  return (
-    <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-      <nav className="flex justify-between">
-        {!prevPage && (
-          <button className="cursor-auto disabled:opacity-50" disabled={!prevPage}>
-            Previous
-          </button>
-        )}
-        {prevPage && (
-          <Link
-            href={currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`}
-            rel="prev"
-          >
-            Previous
-          </Link>
-        )}
-        <span>
-          {currentPage} of {totalPages}
-        </span>
-        {!nextPage && (
-          <button className="cursor-auto disabled:opacity-50" disabled={!nextPage}>
-            Next
-          </button>
-        )}
-        {nextPage && (
-          <Link href={`/${basePath}/page/${currentPage + 1}`} rel="next">
-            Next
-          </Link>
-        )}
-      </nav>
-    </div>
-  )
-}
-
-export default function ListLayout({
-  posts,
-  title,
-  initialDisplayPosts = [],
-  pagination,
-}: ListLayoutProps) {
+export default function ListLayout({ posts, initialDisplayPosts = [] }: ListLayoutProps) {
   const [searchValue, setSearchValue] = useState('')
   const filteredBlogPosts = posts.filter((post) => {
     const searchContent = post.title + post.summary + post.tags?.join(' ')
@@ -78,12 +33,9 @@ export default function ListLayout({
 
   return (
     <>
-      <div className="divide-y divide-stone-200 dark:divide-stone-700">
+      <div className="divide-y divide-stone-700">
         <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-stone-900 dark:text-stone-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            {title}
-          </h1>
-          <div className="relative max-w-lg">
+          <div className="relative ml-auto max-w-lg">
             <label>
               <span className="sr-only">Search articles</span>
               <input
@@ -91,11 +43,11 @@ export default function ListLayout({
                 type="text"
                 onChange={(e) => setSearchValue(e.target.value)}
                 placeholder="Search articles"
-                className="block w-full rounded-md border border-stone-300 bg-white px-4 py-2 text-stone-900 focus:border-primary-500 focus:ring-primary-500 dark:border-stone-900 dark:bg-stone-800 dark:text-stone-100"
+                className="block w-full rounded-md border border-stone-300 bg-stone-900 px-4 py-2 text-stone-50 focus:border-primary-500 focus:ring-primary-500"
               />
             </label>
             <svg
-              className="absolute right-3 top-3 h-5 w-5 text-stone-400 dark:text-stone-300"
+              className="absolute right-3 top-3 h-5 w-5 text-stone-300"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -112,30 +64,47 @@ export default function ListLayout({
         </div>
         <ul>
           {!filteredBlogPosts.length && 'No posts found.'}
-          {displayPosts.map((post) => {
+          {displayPosts.map((post, key) => {
             const { path, date, title, summary, tags } = post
             return (
-              <li key={path} className="py-4">
+              <li key={key} className="py-4">
                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                   <dl>
                     <dt className="sr-only">Published on</dt>
-                    <dd className="text-base font-medium leading-6 text-stone-500 dark:text-stone-400">
+                    <dd className="text-base font-medium leading-6 text-[#16f2b3]">
                       <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                     </dd>
                   </dl>
                   <div className="space-y-3 xl:col-span-3">
-                    <div>
-                      <h3 className="text-2xl font-bold leading-8 tracking-tight">
-                        <Link href={`/${path}`} className="text-stone-900 dark:text-stone-100">
-                          {title}
-                        </Link>
-                      </h3>
-                      <div className="flex flex-wrap">
+                    <h3 className="text-2xl font-bold leading-8 tracking-tight">
+                      <Link href={`/${path}`} className="text-stone-100 hover:text-primary-500">
+                        {title}
+                      </Link>
+                    </h3>
+                    <p className="prose max-w-none text-stone-300">{summary}</p>
+
+                    <div className="flex justify-between text-center">
+                      <p className="flex flex-wrap">
                         {tags?.map((tag) => <Tag key={tag} text={tag} />)}
-                      </div>
-                    </div>
-                    <div className="prose max-w-none text-stone-500 dark:text-stone-400">
-                      {summary}
+                      </p>
+
+                      <Link
+                        href={`/${path}`}
+                        className="rounded-full bg-gradient-to-r from-violet-600 to-pink-500 p-[1px] transition-all duration-300 hover:from-pink-500 hover:to-violet-600"
+                      >
+                        <button className="flex items-center gap-1 rounded-full border-none bg-[#0d1224] px-3 py-3 text-center text-xs font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  hover:gap-3 md:px-8 md:py-4 md:text-sm md:font-semibold">
+                          Read more &rarr;
+                        </button>
+                      </Link>
+
+                      {/* <Link
+                        className="flex items-center gap-1 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-3 py-3 text-center text-xs font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:gap-3 hover:text-white hover:no-underline md:px-8 md:py-4 md:text-sm md:font-semibold"
+                        role="button"
+                        target="_blank"
+                        href={`/${path}`}
+                      >
+                        Read more &rarr;
+                      </Link> */}
                     </div>
                   </div>
                 </article>
@@ -144,9 +113,6 @@ export default function ListLayout({
           })}
         </ul>
       </div>
-      {pagination && pagination.totalPages > 1 && !searchValue && (
-        <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
-      )}
     </>
   )
 }

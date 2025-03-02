@@ -11,7 +11,7 @@ const SiteFooter = () => {
           <div>
             <h3 className="mb-4 text-lg font-semibold">Resources</h3>
             <div className="space-y-2">
-              <Link href="/blog" className="hover:text-primary-600 dark:hover:text-primary-400">
+              <Link href="/blog" className="hover:text-primary-400">
                 Blog
               </Link>
             </div>
@@ -19,10 +19,7 @@ const SiteFooter = () => {
           <div>
             <h3 className="mb-4 text-lg font-semibold">Free Tools</h3>
             <div className="space-y-2">
-              <Link
-                href="/tools/pdf-to-markdown"
-                className=" hover:text-primary-600 dark:hover:text-primary-400"
-              >
+              <Link href="/tools/pdf-to-markdown" className="hover:text-primary-400">
                 PDF to Markdown
               </Link>
             </div>
@@ -30,7 +27,7 @@ const SiteFooter = () => {
           <div>
             <h3 className="mb-4 text-lg font-semibold">Company</h3>
             <div className="space-y-2">
-              <Link href="/about" className=" hover:text-primary-600 dark:hover:text-primary-400">
+              <Link href="/about" className=" hover:text-primary-400">
                 About Us
               </Link>
             </div>
@@ -52,16 +49,13 @@ const SiteFooter = () => {
           <div className="flex flex-col items-center justify-between md:flex-row">
             <div className="flex items-center space-x-2">
               <div>{`© ${new Date().getFullYear()}`}</div>
-              <Link href="/" className=" hover:text-primary-600 dark:hover:text-primary-400">
+              <Link href="/" className=" hover:text-primary-400">
                 {siteMetadata.title}.
               </Link>
               <div>All rights reserved.</div>
             </div>
             <div className="mt-4 flex space-x-6 md:mt-0">
-              <Link
-                className=" hover:text-primary-600 dark:hover:text-primary-400"
-                href="/privacy/"
-              >
+              <Link className="hover:text-primary-400" href="/privacy/">
                 Privacy
               </Link>
             </div>

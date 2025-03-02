@@ -107,7 +107,7 @@ const PrivacyPolicy = () => {
                   href="https://geekskai.com/"
                   rel="external nofollow noopener"
                   target="_blank"
-                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                  className="text-primary-500 hover:text-primary-400"
                   aria-label="geekskai website link"
                 >
                   https://geekskai.com/
@@ -162,7 +162,7 @@ const PrivacyPolicy = () => {
                   href="https://policies.google.com/privacy?hl=en"
                   rel="external nofollow noopener"
                   target="_blank"
-                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                  className="text-primary-500 hover:text-primary-400"
                   aria-label="Google Analytics Privacy Policy link"
                 >
                   Google Analytics Privacy Policy
@@ -182,7 +182,7 @@ const PrivacyPolicy = () => {
                   href="https://policies.google.com/privacy?hl=en"
                   rel="external nofollow noopener"
                   target="_blank"
-                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                  className="text-primary-500 hover:text-primary-400"
                   aria-label="Google Adsense Privacy Policy link"
                 >
                   Google Adsense Privacy Policy

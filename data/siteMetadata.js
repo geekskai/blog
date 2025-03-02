@@ -6,7 +6,7 @@ const siteMetadata = {
   description:
     'A digital hub for web dev tools, tech insights, and sustainable living. Bridging Chinese and global tech perspectives through practical guides and thoughtful analysis.',
   language: 'en-us',
-  theme: 'system', // system, dark or light
+  theme: 'dark', // system, dark or light
   siteUrl: 'https://geekskai.com',
   siteRepo: 'https://github.com/geekskai/blog',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
@@ -15,7 +15,7 @@ const siteMetadata = {
   email: 'geeks.kai@gmail.com',
   github: 'https://github.com/geekskai',
   x: 'https://twitter.com/GeeksKai',
-  // twitter: 'https://twitter.com/Twitter',
+  leetcode: 'https://leetcode.cn/u/githubgankai/',
   facebook: 'https://www.facebook.com/geekskai',
   youtube: 'https://www.youtube.com/@kaigan-is6ym',
   linkedin: 'https://www.linkedin.com/in/geekskai',
@@ -72,7 +72,7 @@ const siteMetadata = {
       metadata: '0',
       // theme example: light, dark, dark_dimmed, dark_high_contrast
       // transparent_dark, preferred_color_scheme, custom
-      theme: 'light',
+      theme: 'dark',
       // theme when dark mode
       darkTheme: 'transparent_dark',
       // If the theme option above is set to 'custom`

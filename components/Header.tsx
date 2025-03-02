@@ -8,14 +8,9 @@ import SearchButton from './SearchButton'
 import Image from 'next/image'
 
 const Header = () => {
-  let headerClass = 'flex items-center w-full bg-white dark:bg-stone-950 justify-between py-4'
-  if (siteMetadata.stickyNav) {
-    headerClass += ' mx-auto max-w-7xl px-4 sm:px-6 xl:px-0'
-  }
-
   return (
-    <header className="sticky top-0 z-50 shadow-sm">
-      <div className={headerClass}>
+    <header className="sticky top-0 z-80 shadow-sm">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between bg-stone-950 px-4 py-4 sm:px-6 xl:px-0">
         <Link href="/" aria-label={siteMetadata.headerTitle}>
           <div className="flex items-center justify-between">
             <div className="mr-3">
@@ -44,14 +39,14 @@ const Header = () => {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="block font-medium text-stone-900 hover:text-primary-500 dark:text-stone-100 dark:hover:text-primary-400"
+                  className="block font-medium text-stone-100 hover:text-primary-400"
                 >
                   {link.title}
                 </Link>
               ))}
           </div>
           <SearchButton />
-          <ThemeSwitch />
+          {/* <ThemeSwitch /> */}
           <MobileNav />
         </div>
       </div>

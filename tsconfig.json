@@ -20,6 +20,7 @@
       "@/components/*": ["components/*"],
       "@/data/*": ["data/*"],
       "@/layouts/*": ["layouts/*"],
+      "@/utils/*": ["utils/*"],
       "@/css/*": ["css/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     },
@@ -33,6 +34,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.js",
+    "**/*.jsx",
     "**/*.mjs",
     "**/*.ts",
     "**/*.tsx",

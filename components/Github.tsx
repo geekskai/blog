@@ -39,11 +39,11 @@ const Github = () => {
   }
 
   return (
-    <div className="dark:text-grey text-gray flex flex-col items-center justify-center pb-12">
-      <p className="text-gray dark:text-gray  text-xs leading-7 md:mt-5">
+    <div className=" text-gray flex flex-col items-center justify-center pb-12">
+      <p className="text-gray  text-xs leading-7 md:mt-5">
         <Link
           href="https://github.com/geekskai"
-          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+          className="text-primary-500 hover:text-primary-400"
         >
           My Github Contributions
         </Link>

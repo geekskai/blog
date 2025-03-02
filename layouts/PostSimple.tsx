@@ -25,11 +25,11 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
       <article>
         <div>
           <header>
-            <div className="space-y-1 border-b border-stone-200 pb-10 text-center dark:border-stone-700">
+            <div className="space-y-1 border-b  border-stone-700 pb-10 text-center">
               <dl>
                 <div>
                   <dt className="sr-only">Published on</dt>
-                  <dd className="text-base font-medium leading-6 text-stone-500 dark:text-stone-400">
+                  <dd className="text-base font-medium leading-6 text-stone-400">
                     <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                   </dd>
                 </div>
@@ -39,15 +39,12 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
               </div>
             </div>
           </header>
-          <div className="grid-rows-[auto_1fr] divide-y divide-stone-200 pb-8 dark:divide-stone-700 xl:divide-y-0">
-            <div className="divide-y divide-stone-200 dark:divide-stone-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="xs:p-4 prose max-w-none dark:prose-invert md:p-8">{children}</div>
+          <div className="grid-rows-[auto_1fr] divide-y divide-stone-700 pb-8 xl:divide-y-0">
+            <div className="divide-y divide-stone-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
+              <div className="xs:p-4 prose prose-invert max-w-none md:p-8">{children}</div>
             </div>
             {siteMetadata.comments && (
-              <div
-                className="pb-6 pt-6 text-center text-stone-700 dark:text-stone-300"
-                id="comment"
-              >
+              <div className="pb-6 pt-6 text-center text-stone-300" id="comment">
                 <Comments slug={slug} />
               </div>
             )}
@@ -57,7 +54,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                   <div className="pt-4 xl:pt-8">
                     <Link
                       href={`/${prev.path}`}
-                      className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                      className="text-primary-500 hover:text-primary-400"
                       aria-label={`Previous post: ${prev.title}`}
                     >
                       &larr; {prev.title}
@@ -68,7 +65,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                   <div className="pt-4 xl:pt-8">
                     <Link
                       href={`/${next.path}`}
-                      className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                      className="text-primary-500 hover:text-primary-400"
                       aria-label={`Next post: ${next.title}`}
                     >
                       {next.title} &rarr;
