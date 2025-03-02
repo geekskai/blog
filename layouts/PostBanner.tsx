@@ -27,7 +27,7 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
       <ScrollTopAndComment />
       <article>
         <div>
-          <div className="space-y-1 pb-10 text-center dark:border-stone-700">
+          <div className="space-y-1 border-stone-700 pb-10 text-center">
             <div className="w-full">
               <Bleed>
                 <div className="relative aspect-[2/1] w-full">
@@ -39,9 +39,9 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
               <PageTitle>{title}</PageTitle>
             </div>
           </div>
-          <div className="prose max-w-none py-4 dark:prose-invert">{children}</div>
+          <div className="prose prose-invert max-w-none py-4">{children}</div>
           {siteMetadata.comments && (
-            <div className="pb-6 pt-6 text-center text-stone-700 dark:text-stone-300" id="comment">
+            <div className="pb-6 pt-6 text-center text-stone-300" id="comment">
               <Comments slug={slug} />
             </div>
           )}
@@ -51,7 +51,7 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                 <div className="pt-4 xl:pt-8">
                   <Link
                     href={`/${prev.path}`}
-                    className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                    className="text-primary-500 hover:text-primary-400"
                     aria-label={`Previous post: ${prev.title}`}
                   >
                     &larr; {prev.title}
@@ -62,7 +62,7 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                 <div className="pt-4 xl:pt-8">
                   <Link
                     href={`/${next.path}`}
-                    className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                    className="text-primary-500 hover:text-primary-400"
                     aria-label={`Next post: ${next.title}`}
                   >
                     {next.title} &rarr;

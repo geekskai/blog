@@ -1,4 +1,4 @@
-import ListLayout from '@/layouts/ListLayoutWithTags'
+import ListLayoutWithTags from '@/layouts/ListLayoutWithTags'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
 import { genPageMetadata } from 'app/seo'
@@ -21,7 +21,7 @@ export default function BlogPage() {
   }
 
   return (
-    <ListLayout
+    <ListLayoutWithTags
       posts={posts}
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}

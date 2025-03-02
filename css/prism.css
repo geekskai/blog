@@ -7,7 +7,7 @@
 
 /* Code title styles */
 .remark-code-title {
-  @apply rounded-t bg-stone-700 px-5 py-3 font-mono text-sm font-bold text-stone-200 dark:bg-stone-800;
+  @apply rounded-t bg-stone-800 px-5 py-3 font-mono text-sm font-bold text-stone-200;
 }
 
 .remark-code-title + div > pre {
