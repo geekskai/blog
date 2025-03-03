@@ -9,8 +9,8 @@ import Image from 'next/image'
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-80 shadow-sm">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between bg-stone-950 px-4 py-4 sm:px-6 xl:px-0">
+    <header className="bg-[rgba(0, 2, 18, 0.50)] sticky top-0 z-80 shadow-sm backdrop-blur-[20px]">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between  px-4 py-4 sm:px-6 xl:px-0">
         <Link href="/" aria-label={siteMetadata.headerTitle}>
           <div className="flex items-center justify-between">
             <div className="mr-3">
