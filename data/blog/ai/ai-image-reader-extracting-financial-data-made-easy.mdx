@@ -4,25 +4,33 @@ date: '2025-02-06'
 lastmod: '2025-02-27'
 tags: ['AI', 'Finance', 'OCR', 'Data Extraction']
 draft: false
-keywords: ['AI image reader', 'financial data extraction', 'AI in finance', 'AI-powered image reader', 'AI in financial data extraction']
+keywords:
+  [
+    'AI image reader',
+    'financial data extraction',
+    'AI in finance',
+    'AI-powered image reader',
+    'AI in financial data extraction',
+  ]
 summary: 'Extract financial data effortlessly with our AI-powered image reader. Learn how to make AI read pics of financial data on our blog!'
 images: '/static/images/blog/ai/how-to-make-ai-read-pic-of-financial-data.png'
 layout: 'PostLayout'
 canonicalUrl: 'https://geekskai.com/blog/ai/ai-image-reader-extracting-financial-data-made-easy/'
-faqs: [
-  {
-    question: 'Can AI image readers extract data from handwritten financial documents?',
-    answer: 'Yes, many advanced AI image readers use OCR to pull text from handwritten documents. However, accuracy can vary depending on the handwriting clarity and AI sophistication.'
-  },
-  {
-    question: 'How do AI-powered image readers ensure data privacy and security?',
-    answer: 'AI-powered image readers prioritize data privacy and security through: Encryption, Access controls, Secure data storage, Regular security audits'
-  },
-  {
-    question: 'What are the limitations of AI in financial data extraction?',
-    answer: 'While powerful, AI has some limitations: Complex layouts can be challenging, Multiple document formats may cause issues, Multi-language documents require specialized models, Handwriting recognition isn\'t perfect'
-  }
-]
+faqs:
+  [
+    {
+      question: 'Can AI image readers extract data from handwritten financial documents?',
+      answer: 'Yes, many advanced AI image readers use OCR to pull text from handwritten documents. However, accuracy can vary depending on the handwriting clarity and AI sophistication.',
+    },
+    {
+      question: 'How do AI-powered image readers ensure data privacy and security?',
+      answer: 'AI-powered image readers prioritize data privacy and security through: Encryption, Access controls, Secure data storage, Regular security audits',
+    },
+    {
+      question: 'What are the limitations of AI in financial data extraction?',
+      answer: "While powerful, AI has some limitations: Complex layouts can be challenging, Multiple document formats may cause issues, Multi-language documents require specialized models, Handwriting recognition isn't perfect",
+    },
+  ]
 ---
 
 {/* how to make ai read pic of financial data​ */}
@@ -64,39 +72,39 @@ import numpy as np
 def preprocess_image(image_path):
     # Read the image
     img = cv2.imread(image_path)
-    
+
     # Convert to grayscale
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    
+
     # Apply thresholding to preprocess the image
     gray = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
-    
+
     # Apply dilation to connect text components
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3,3))
     gray = cv2.dilate(gray, kernel, iterations=1)
-    
+
     return gray
 
 def extract_text_from_image(image_path):
     # Preprocess the image
     processed_image = preprocess_image(image_path)
-    
+
     # Extract text using Tesseract
     text = pytesseract.image_to_string(processed_image)
-    
+
     return text
 
 def parse_financial_data(text):
     # Add custom parsing logic for financial data
     # This is a simple example - you'd want to add more sophisticated parsing
     import re
-    
+
     # Find amounts
     amounts = re.findall(r'\$\d+(?:\.\d{2})?', text)
-    
+
     # Find dates
     dates = re.findall(r'\d{2}/\d{2}/\d{4}', text)
-    
+
     return {
         'amounts': amounts,
         'dates': dates
@@ -130,11 +138,11 @@ def create_document_classifier():
         layers.Dense(64, activation='relu'),
         layers.Dense(4, activation='softmax')  # For 4 document types
     ])
-    
+
     model.compile(optimizer='adam',
                  loss='sparse_categorical_crossentropy',
                  metrics=['accuracy'])
-    
+
     return model
 
 # Example document types: invoice, receipt, bank statement, financial report
@@ -155,22 +163,22 @@ from azure.core.credentials import AzureKeyCredential
 
 def analyze_financial_document(endpoint, key, document_path):
     document_analysis_client = DocumentAnalysisClient(
-        endpoint=endpoint, 
+        endpoint=endpoint,
         credential=AzureKeyCredential(key)
     )
-    
+
     with open(document_path, "rb") as f:
         poller = document_analysis_client.begin_analyze_document(
             "prebuilt-document", document=f
         )
     result = poller.result()
-    
+
     # Extract key-value pairs
     for kv_pair in result.key_value_pairs:
         key = kv_pair.key.content if kv_pair.key else ""
         value = kv_pair.value.content if kv_pair.value else ""
         print(f"Key: {key}, Value: {value}")
-        
+
     # Extract tables
     for table in result.tables:
         print("Table found:")
@@ -199,7 +207,7 @@ class InvoiceProcessor:
     def __init__(self):
         self.processor = LayoutLMv2Processor.from_pretrained("microsoft/layoutlmv2-base-uncased")
         self.model = LayoutLMv2ForTokenClassification.from_pretrained("microsoft/layoutlmv2-base-uncased")
-        
+
     def process_invoice(self, image_path):
         # Load and preprocess image
         image = Image.open(image_path).convert("RGB")
@@ -209,16 +217,16 @@ class InvoiceProcessor:
             padding="max_length",
             truncation=True
         )
-        
+
         # Make prediction
         outputs = self.model(**encoded_inputs)
         predictions = outputs.logits.argmax(-1).squeeze().tolist()
-        
+
         # Process predictions
         tokens = self.processor.tokenizer.convert_ids_to_tokens(encoded_inputs["input_ids"].squeeze().tolist())
-        
+
         return self._extract_invoice_data(tokens, predictions)
-    
+
     def _extract_invoice_data(self, tokens, predictions):
         # Add custom logic to extract specific fields like:
         # - Invoice number
@@ -236,16 +244,16 @@ result = invoice_processor.process_invoice("invoice.jpg")
 
 AI image readers have proven incredibly valuable in various financial processes. Here's a table of key financial metrics that can be automatically extracted:
 
-| Information | Description |
-|------------|-------------|
-| Revenue | Total income generated |
-| Gross Profit | Revenue minus the cost of goods sold |
-| Operating Expenses | Costs incurred through normal business operations |
-| Net Income | Profit after all expenses are deducted from revenue |
+| Information        | Description                                         |
+| ------------------ | --------------------------------------------------- |
+| Revenue            | Total income generated                              |
+| Gross Profit       | Revenue minus the cost of goods sold                |
+| Operating Expenses | Costs incurred through normal business operations   |
+| Net Income         | Profit after all expenses are deducted from revenue |
 
 ## Conclusion
 
-AI-powered image readers are changing how we extract financial data. They make the process faster and more accurate. Moving from manual work to automated data processing has made operations easier and better for decision-making in finance. 
+AI-powered image readers are changing how we extract financial data. They make the process faster and more accurate. Moving from manual work to automated data processing has made operations easier and better for decision-making in finance.
 
 ## Frequently Asked Questions
 
@@ -256,6 +264,7 @@ Yes, many advanced AI image readers use OCR to pull text from handwritten docume
 ### How do AI-powered image readers ensure data privacy and security?
 
 AI-powered image readers prioritize data privacy and security through:
+
 - Encryption
 - Access controls
 - Secure data storage
@@ -264,13 +273,8 @@ AI-powered image readers prioritize data privacy and security through:
 ### What are the limitations of AI in financial data extraction?
 
 While powerful, AI has some limitations:
+
 - Complex layouts can be challenging
 - Multiple document formats may cause issues
 - Multi-language documents require specialized models
 - Handwriting recognition isn't perfect
-
-
-
-
-
-
