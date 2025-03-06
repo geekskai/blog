@@ -101,13 +101,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {/* <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" /> */}
       {/* <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" /> */}
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
-      <body className="bg-gradient-to-b from-[#020617] via-[#0a0f1f] to-[#000D1A]/90 pl-[calc(100vw-100%)] text-white antialiased">
+      <body className="min-h-screen bg-gradient-to-b from-[#020617] via-[#0a0f1f] to-[#000D1A]/90 pl-[calc(100vw-100%)] text-white antialiased">
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SectionContainer>
             <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
               <Header />
-              <main className="mx-auto max-w-7xl px-4 sm:px-6 xl:px-0">{children}</main>
+              <main className="mx-auto min-h-[56vh] max-w-7xl px-4 sm:px-6 xl:px-0">
+                {children}
+              </main>
             </SearchProvider>
             {/* <Footer /> */}
             <SiteFooter />
