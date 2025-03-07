@@ -32,8 +32,9 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
-  const { filePath, path, slug, date, title, tags } = content
+  const { filePath, path, slug, date, title, tags, readingTime } = content
   const basePath = path.split('/')[0]
+  console.log(`🚀 ~ readingTime==>`, readingTime)
 
   return (
     <SectionContainer>
@@ -44,13 +45,12 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
           <header className="pt-6 xl:pb-6">
             <div className="space-y-1 text-center">
               <dl className="space-y-10">
-                <div>
-                  <dt className="sr-only">Published on</dt>
-                  <dd className="text-base font-medium leading-6 text-stone-300">
-                    <time dateTime={date}>
-                      {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
-                    </time>
-                  </dd>
+                <div className="flex justify-center  gap-4 text-base font-medium leading-6 text-[#16f2b3]">
+                  {/* <span>Published on: </span> */}
+                  <time dateTime={date}>
+                    {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
+                  </time>
+                  |<span>{readingTime.minutes}</span>Mins Read
                 </div>
               </dl>
               <div>

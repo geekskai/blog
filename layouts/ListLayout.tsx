@@ -65,16 +65,14 @@ export default function ListLayout({ posts, initialDisplayPosts = [] }: ListLayo
         <ul>
           {!filteredBlogPosts.length && 'No posts found.'}
           {displayPosts.map((post, key) => {
-            const { path, date, title, summary, tags } = post
+            const { path, date, title, summary, tags, readingTime } = post
             return (
               <li key={key} className="py-4">
                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                  <dl>
-                    <dt className="sr-only">Published on</dt>
-                    <dd className="text-base font-medium leading-6 text-[#16f2b3]">
-                      <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-                    </dd>
-                  </dl>
+                  <p className="flex flex-wrap">
+                    {tags?.map((tag) => <Tag key={tag} text={tag} />)}
+                  </p>
+
                   <div className="space-y-3 xl:col-span-3">
                     <h3 className="text-2xl font-bold leading-8 tracking-tight">
                       <Link href={`/${path}`} className="text-stone-100 hover:text-primary-500">
@@ -84,27 +82,18 @@ export default function ListLayout({ posts, initialDisplayPosts = [] }: ListLayo
                     <p className="prose max-w-none text-stone-300">{summary}</p>
 
                     <div className="flex justify-between text-center">
-                      <p className="flex flex-wrap">
-                        {tags?.map((tag) => <Tag key={tag} text={tag} />)}
-                      </p>
-
+                      <div className="flex flex-col gap-2 text-xs  font-medium leading-6 text-[#16f2b3] md:flex-row md:text-base">
+                        <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
+                        <span>{readingTime.minutes} Mins Read</span>
+                      </div>
                       <Link
                         href={`/${path}`}
-                        className="rounded-full bg-gradient-to-r from-violet-600 to-pink-500 p-[1px] transition-all duration-300 hover:from-pink-500 hover:to-violet-600"
+                        className="flex h-8 items-center rounded-full bg-gradient-to-r from-violet-600 to-pink-500 transition-all duration-300 hover:from-pink-500 hover:to-violet-600"
                       >
-                        <button className="flex items-center gap-1 rounded-full border-none bg-[#0d1224] px-3 py-3 text-center text-xs font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  hover:gap-3 md:px-8 md:py-4 md:text-sm md:font-semibold">
+                        <button className="flex h-[80%] items-center gap-1 rounded-full border-none px-3 py-0 text-center text-xs font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out hover:gap-3 md:text-sm md:font-semibold">
                           Read more &rarr;
                         </button>
                       </Link>
-
-                      {/* <Link
-                        className="flex items-center gap-1 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-3 py-3 text-center text-xs font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:gap-3 hover:text-white hover:no-underline md:px-8 md:py-4 md:text-sm md:font-semibold"
-                        role="button"
-                        target="_blank"
-                        href={`/${path}`}
-                      >
-                        Read more &rarr;
-                      </Link> */}
                     </div>
                   </div>
                 </article>
