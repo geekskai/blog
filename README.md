@@ -1,4 +1,4 @@
-# ✨ Next.js Tailwind Blog Template
+# ✨ Next.js Tailwind Blog Template | Please give a ⭐️ if this project helped you!
 
 <div align="center">
 

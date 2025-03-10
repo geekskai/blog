@@ -1,4 +1,4 @@
-# ✨ Next.js Tailwind 博客模板
+# ✨ Next.js Tailwind 博客模板 | 如果该项目对您有帮助，请给个 ⭐️谢谢！
 
 <div align="center">
 
