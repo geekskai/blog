@@ -67,7 +67,7 @@ const MobileNav = () => {
             leaveTo="translate-x-full opacity-0"
             unmount={false}
           >
-            <Dialog.Panel className="fixed left-0 top-0 z-70 h-full w-full  bg-[#0d1224] opacity-[0.98] duration-300">
+            <Dialog.Panel className="fixed left-0 top-0 z-80 h-full w-full  bg-[#0d1224] opacity-[0.98] duration-300">
               <nav
                 ref={navRef}
                 className="mt-8 flex h-full basis-0 flex-col items-start overflow-y-auto pl-12 pt-2 text-left"
