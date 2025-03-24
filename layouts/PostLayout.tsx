@@ -34,7 +34,6 @@ interface LayoutProps {
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
   const { filePath, path, slug, date, title, tags, readingTime } = content
   const basePath = path.split('/')[0]
-  console.log(`🚀 ~ readingTime==>`, readingTime)
 
   return (
     <SectionContainer>
