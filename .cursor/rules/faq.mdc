@@ -1,0 +1,13 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# faq Directory Guide
+
+The [faq/](mdc:faq) directory contains Markdown documentation for custom features and components:
+
+- [custom-mdx-component.md](mdc:faq/custom-mdx-component.md): Guide to custom MDX components.
+- [customize-kbar-search.md](mdc:faq/customize-kbar-search.md): Guide to customizing the kbar search feature.
+
+Use these files for reference on extending or customizing the blog's features.

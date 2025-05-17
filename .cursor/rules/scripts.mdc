@@ -1,0 +1,13 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# scripts Directory Guide
+
+The [scripts/](mdc:scripts) directory contains Node.js scripts for build and post-build tasks:
+
+- [rss.mjs](mdc:scripts/rss.mjs): Generates the RSS feed for the blog.
+- [postbuild.mjs](mdc:scripts/postbuild.mjs): Post-build script (details in file).
+
+Use these scripts for automating content generation and deployment tasks.

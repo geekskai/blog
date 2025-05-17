@@ -1,0 +1,28 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# app Directory Guide
+
+The [app/](mdc:app) directory is the main entry point for routing and page structure in this Next.js project. It contains:
+
+- Route segments as subdirectories:
+  - [blog/](mdc:app/blog): Blog post routes, including dynamic routes ([...slug], pagination, etc.).
+  - [about/](mdc:app/about): About page.
+  - [projects/](mdc:app/projects): Projects listing page.
+  - [privacy/](mdc:app/privacy): Privacy policy page.
+  - [tags/](mdc:app/tags): Tag listing and tag-specific pages.
+  - [tools/](mdc:app/tools): Tools section (e.g., PDF to Markdown converter).
+  - [api/](mdc:app/api): API route handlers (e.g., contributions).
+  - [assets/](mdc:app/assets): Static assets (SVGs, Lottie animations, etc.).
+- Shared files:
+  - [layout.tsx](mdc:app/layout.tsx): Root layout for the app.
+  - [theme-providers.tsx](mdc:app/theme-providers.tsx): Theme context providers.
+  - [seo.tsx](mdc:app/seo.tsx): SEO configuration.
+  - [sitemap.ts](mdc:app/sitemap.ts): Sitemap generation.
+  - [robots.ts](mdc:app/robots.ts): Robots.txt handler.
+  - [not-found.tsx](mdc:app/not-found.tsx): 404 page.
+  - [Main.tsx](mdc:app/Main.tsx): Main content wrapper.
+
+Each route segment may contain its own [page.tsx](mdc:app/blog/page.tsx) or dynamic route handlers. See subdirectory rules for more details.

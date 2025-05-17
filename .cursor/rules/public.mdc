@@ -1,0 +1,16 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# public Directory Guide
+
+The [public/](mdc:public) directory contains static assets served directly by Next.js:
+
+- Images (e.g., [me.jpg](mdc:public/me.jpg), [card.png](mdc:public/card.png)).
+- SVG graphics (e.g., [top-bg.svg](mdc:public/top-bg.svg), [section.svg](mdc:public/section.svg), [grid.svg](mdc:public/grid.svg), [hero.svg](mdc:public/hero.svg), [blur-23.svg](mdc:public/blur-23.svg)).
+- JSON data (e.g., [search.json](mdc:public/search.json)).
+- [ads.txt](mdc:public/ads.txt): Ads.txt file for ad networks.
+- [static/](mdc:public/static): Additional static resources.
+
+Files in this directory are accessible at the root URL of the site.

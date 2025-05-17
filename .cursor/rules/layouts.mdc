@@ -1,0 +1,15 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# layouts Directory Guide
+
+The [layouts/](mdc:layouts) directory contains layout components for different types of pages:
+
+- [AuthorLayout.tsx](mdc:layouts/AuthorLayout.tsx): Layout for author profile pages.
+- [ListLayout.tsx](mdc:layouts/ListLayout.tsx): Layout for listing blog posts or other items.
+- [ListLayoutWithTags.tsx](mdc:layouts/ListLayoutWithTags.tsx): List layout with tag filtering support.
+- [PostLayout.tsx](mdc:layouts/PostLayout.tsx): Layout for individual blog post pages.
+
+Use these layouts to wrap content and provide consistent structure across the site.

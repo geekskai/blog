@@ -1,0 +1,23 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Project Structure Guide
+
+This project is a Next.js-based blog with the following key directories and files:
+
+- [app/](mdc:app): Main application directory, containing route segments (e.g., blog, about, projects, privacy, tags, tools, api) and supporting files (e.g., layout.tsx, theme-providers.tsx).
+- [components/](mdc:components): Reusable React components, including UI elements, helpers, and social icons.
+- [layouts/](mdc:layouts): Layout components for different page types (e.g., posts, lists, authors).
+- [data/](mdc:data): Static data files, site metadata, navigation links, and author information.
+- [utils/](mdc:utils): Utility functions and data helpers.
+- [public/](mdc:public): Static assets such as images, SVGs, and JSON files for search and graphics.
+- [scripts/](mdc:scripts): Build and post-build scripts (e.g., RSS generation).
+- [faq/](mdc:faq): Markdown documentation for custom components and features.
+- [contentlayer.config.ts](mdc:contentlayer.config.ts): Contentlayer configuration for content processing.
+- [next.config.js](mdc:next.config.js): Next.js configuration.
+- [tailwind.config.js](mdc:tailwind.config.js): Tailwind CSS configuration.
+- [package.json](mdc:package.json): Project dependencies and scripts.
+
+Refer to the respective rule files for more details on each directory or file.

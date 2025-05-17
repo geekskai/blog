@@ -1,0 +1,13 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# utils Directory Guide
+
+The [utils/](mdc:utils) directory contains utility functions and data helpers:
+
+- General utilities (e.g., [skill-image.js](mdc:utils/skill-image.js), [time-converter.js](mdc:utils/time-converter.js), [check-email.js](mdc:utils/check-email.js)).
+- [data/](mdc:utils/data): Contains structured data for skills, contacts, education, experience, and projects.
+
+Use these utilities and data helpers throughout the app for common logic and data access.

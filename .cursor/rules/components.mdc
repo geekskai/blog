@@ -1,0 +1,17 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# components Directory Guide
+
+The [components/](mdc:components) directory contains reusable React components for the UI, including:
+
+- General UI components (e.g., [Tag.tsx](mdc:components/Tag.tsx), [Card.tsx](mdc:components/Card.tsx), [PageTitle.tsx](mdc:components/PageTitle.tsx), [LayoutWrapper.tsx](mdc:components/LayoutWrapper.tsx)).
+- Navigation and layout (e.g., [Header.tsx](mdc:components/Header.tsx), [SiteFooter.tsx](mdc:components/SiteFooter.tsx), [MobileNav.tsx](mdc:components/MobileNav.tsx)).
+- Utility and helper components (e.g., [ScrollTopAndComment.tsx](mdc:components/ScrollTopAndComment.tsx), [ProgressBar.tsx](mdc:components/ProgressBar.tsx), [SearchButton.tsx](mdc:components/SearchButton.tsx)).
+- Social and sharing (e.g., [ShareButtons.tsx](mdc:components/ShareButtons.tsx), [social-icons/](mdc:components/social-icons)).
+- MDX and content rendering (e.g., [MDXComponents.tsx](mdc:components/MDXComponents.tsx), [renderCanvas.js](mdc:components/renderCanvas.js)).
+- Helper subdirectory ([helper/](mdc:components/helper)): Additional utility components.
+
+Use these components to build pages and layouts throughout the app.

@@ -1,0 +1,18 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# data Directory Guide
+
+The [data/](mdc:data) directory contains static data and configuration for the site:
+
+- [siteMetadata.js](mdc:data/siteMetadata.js): Main site metadata (title, description, social links, etc.).
+- [headerNavLinks.ts](mdc:data/headerNavLinks.ts): Navigation links for the header.
+- [projectsData.ts](mdc:data/projectsData.ts): Data for the projects page.
+- [references-data.bib](mdc:data/references-data.bib): Bibliography data.
+- [authors/](mdc:data/authors): Author profile data in MDX format.
+- [blog/](mdc:data/blog): Blog post content (not listed, but likely contains MDX or Markdown files).
+- [logo.png](mdc:data/logo.png), [logo.svg](mdc:data/logo.svg), [geekskai-logo.png](mdc:data/geekskai-logo.png): Logo images.
+
+Use this directory for site-wide data, content, and configuration.
