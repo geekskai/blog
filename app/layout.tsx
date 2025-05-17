@@ -95,6 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2108246014001009"
         crossOrigin="anonymous"
       ></script>
+      <meta name="msvalidate.01" content="58567D271AD7C1B504E10F5DC587BD0B" />
       <meta name="google-adsense-account" content="ca-pub-2108246014001009"></meta>
       <meta name="google-site-verification" content="QBYZptmNADcvd2h8ZZVSZIJUlv5RnI8yYmHtEld1mKk" />
       <meta name="msapplication-TileColor" content="#000000" />
