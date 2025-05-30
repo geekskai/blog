@@ -45,7 +45,7 @@ const SiteFooter = () => {
             </div>
           </div>
         </div>
-        <div className="flex-center gap-4 border-t border-gray-200 py-4 text-center">
+        {/* <div className="flex-center gap-4 border-t border-gray-200 py-4 text-center">
           Yahoo Finance Is A Website That Provides Financial News, Press Release, Market Data, And
           Tools To Help Users Make Informed Investment Decisions. Please Contact Us
           {` `}
@@ -55,9 +55,9 @@ const SiteFooter = () => {
           >
             financeyahoocompany@gmail.com
           </Link>
-        </div>
-        {/* <div className="mt-12 border-t border-gray-200 pt-8"> */}
-        <div className="border-t border-gray-200 pt-8">
+        </div> */}
+        <div className="mt-12 border-t border-gray-200 pt-8">
+          {/* <div className="border-t border-gray-200 pt-8"> */}
           <div className="flex flex-col items-center justify-between md:flex-row">
             <div className="flex items-center space-x-2">
               <div>{`© ${new Date().getFullYear()}`}</div>
