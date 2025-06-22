@@ -1,7 +1,7 @@
-import { genPageMetadata } from 'app/seo'
-import Link from '@/components/Link'
+import { genPageMetadata } from "app/seo"
+import Link from "@/components/Link"
 
-export const metadata = genPageMetadata({ title: 'Privacy' })
+export const metadata = genPageMetadata({ title: "Privacy" })
 
 const PrivacyPolicy = () => {
   return (
@@ -102,7 +102,7 @@ const PrivacyPolicy = () => {
             </li>
             <li>
               <p>
-                <strong>Website</strong> refers to geeks kai, accessible from{' '}
+                <strong>Website</strong> refers to geeks kai, accessible from{" "}
                 <Link
                   href="https://geekskai.com/"
                   rel="external nofollow noopener"
@@ -157,7 +157,7 @@ const PrivacyPolicy = () => {
                 <br />
                 2. Data collected: Usage patterns, device information, location data
                 <br />
-                3. More information:{' '}
+                3. More information:{" "}
                 <Link
                   href="https://policies.google.com/privacy?hl=en"
                   rel="external nofollow noopener"
@@ -177,7 +177,7 @@ const PrivacyPolicy = () => {
                 <br />
                 2. Data collected: Browsing preferences, interests
                 <br />
-                3. More information:{' '}
+                3. More information:{" "}
                 <Link
                   href="https://policies.google.com/privacy?hl=en"
                   rel="external nofollow noopener"

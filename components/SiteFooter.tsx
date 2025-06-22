@@ -1,7 +1,7 @@
-import React from 'react'
-import Link from './Link'
-import SocialIcon from './social-icons'
-import siteMetadata from '@/data/siteMetadata'
+import React from "react"
+import Link from "./Link"
+import SocialIcon from "./social-icons"
+import siteMetadata from "@/data/siteMetadata"
 
 const SiteFooter = () => {
   return (

@@ -1,39 +1,39 @@
 ---
 title: "JavaScript String Capitalization: The Developer's Cheat Sheet"
-date: '2024-12-31'
-lastmod: '2025-06-02'
-tags: ['javascript', 'programming', 'string manipulation', 'coding tips', 'performance', 'web development']
+date: "2024-12-31"
+lastmod: "2025-06-02"
+tags: ["javascript", "programming", "string manipulation", "coding tips", "performance", "web development"]
 draft: false
-summary: 'Master JavaScript string capitalization with the methods that actually work. From quick wins to pro-level performance tricks—here's everything you need to handle strings like a boss.'
-layout: 'PostLayout'
-images: '/static/images/blog/js/how-to-capitalize-first-letter.webp'
-canonicalUrl: 'https://geekskai.com/blog/js/how-to-capitalize-first-letter/'
-author: 'GeeksKai Development Team'
-expertise: 'JavaScript Development & String Processing'
+summary: "Master JavaScript string capitalization with the methods that actually work. From quick wins to pro-level performance tricks—here's everything you need to handle strings like a boss."
+layout: "PostLayout"
+images: "/static/images/blog/js/how-to-capitalize-first-letter.webp"
+canonicalUrl: "https://geekskai.com/blog/js/how-to-capitalize-first-letter/"
+author: "GeeksKai Development Team"
+expertise: "JavaScript Development & String Processing"
 faqs:
   [
     {
       question: "What's the fastest way to capitalize strings in JavaScript?",
-      answer: 'For most cases, `str.charAt(0).toUpperCase() + str.slice(1)` is your best bet. It\'s fast, readable, and works everywhere. For heavy-duty performance, character code manipulation can give you that extra edge.'
+      answer: "For most cases, `str.charAt(0).toUpperCase() + str.slice(1)` is your best bet. It\'s fast, readable, and works everywhere. For heavy-duty performance, character code manipulation can give you that extra edge."
     },
     {
-      question: 'How do I handle international characters when capitalizing?',
-      answer: 'Use `toLocaleUpperCase()` instead of `toUpperCase()` and consider the user\'s locale. Some languages have tricky capitalization rules that can break your app if you\'re not careful.'
+      question: "How do I handle international characters when capitalizing?",
+      answer: "Use `toLocaleUpperCase()` instead of `toUpperCase()` and consider the user\'s locale. Some languages have tricky capitalization rules that can break your app if you\'re not careful."
     },
     {
-      question: 'Should I use regex for string capitalization?',
-      answer: 'Regex is overkill for simple capitalization and slower than basic methods. Save it for complex patterns like capitalizing multiple words or handling special cases.'
+      question: "Should I use regex for string capitalization?",
+      answer: "Regex is overkill for simple capitalization and slower than basic methods. Save it for complex patterns like capitalizing multiple words or handling special cases."
     },
     {
-      question: 'What about Unicode and emoji in strings?',
-      answer: 'Modern JavaScript handles most Unicode just fine with standard methods. For complex cases with emoji or special characters, you might need the `Intl.Segmenter` API.'
+      question: "What about Unicode and emoji in strings?",
+      answer: "Modern JavaScript handles most Unicode just fine with standard methods. For complex cases with emoji or special characters, you might need the `Intl.Segmenter` API."
     }
   ]
 ---
 
 ![JavaScript String Capitalization Methods](/static/images/blog/js/how-to-capitalize-first-letter.webp)
 
-*That moment when a simple string operation becomes way more complex than you expected.*
+_That moment when a simple string operation becomes way more complex than you expected._
 
 ## Why String Capitalization Actually Matters
 
@@ -49,16 +49,17 @@ For 90% of your capitalization needs, this is your cheat code:
 
 ```javascript
 function capitalize(str) {
-    if (!str) return str;
-    return str.charAt(0).toUpperCase() + str.slice(1);
+  if (!str) return str
+  return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
 // Clean and simple
-console.log(capitalize('hello world')); // 'Hello world'
-console.log(capitalize('already Good')); // 'Already Good'
+console.log(capitalize("hello world")) // 'Hello world'
+console.log(capitalize("already Good")) // 'Already Good'
 ```
 
 **Why this works:**
+
 - `charAt(0)` grabs the first character (handles empty strings gracefully)
 - `toUpperCase()` does exactly what you think
 - `slice(1)` gets everything after the first character
@@ -71,10 +72,10 @@ This method is like that reliable friend who always shows up—not flashy, but g
 ### Template Literals (For the Modern Dev)
 
 ```javascript
-const capitalize = str => str ? `${str.charAt(0).toUpperCase()}${str.slice(1)}` : str;
+const capitalize = (str) => (str ? `${str.charAt(0).toUpperCase()}${str.slice(1)}` : str)
 
 // Same result, cleaner syntax
-console.log(capitalize('javascript rocks')); // 'Javascript rocks'
+console.log(capitalize("javascript rocks")) // 'Javascript rocks'
 ```
 
 Template literals make your code look more modern, but performance-wise? Pretty much identical. Choose based on your team's style preferences.
@@ -83,11 +84,11 @@ Template literals make your code look more modern, but performance-wise? Pretty 
 
 ```javascript
 function titleCase(str) {
-    return str.replace(/\b\w/g, char => char.toUpperCase());
+  return str.replace(/\b\w/g, (char) => char.toUpperCase())
 }
 
-console.log(titleCase('hello world')); // 'Hello World'
-console.log(titleCase('the quick brown fox')); // 'The Quick Brown Fox'
+console.log(titleCase("hello world")) // 'Hello World'
+console.log(titleCase("the quick brown fox")) // 'The Quick Brown Fox'
 ```
 
 This regex approach finds word boundaries (`\b`) and capitalizes the first letter of each word. Perfect for names, titles, or any time you need that professional polish.
@@ -100,16 +101,16 @@ When you're processing thousands of strings and every millisecond counts:
 
 ```javascript
 function fastCapitalize(str) {
-    if (!str) return str;
-    
-    const firstChar = str.charCodeAt(0);
-    
-    // Check if it's a lowercase letter (a-z: 97-122)
-    if (firstChar >= 97 && firstChar <= 122) {
-        return String.fromCharCode(firstChar - 32) + str.slice(1);
-    }
-    
-    return str; // Already capitalized or not a letter
+  if (!str) return str
+
+  const firstChar = str.charCodeAt(0)
+
+  // Check if it's a lowercase letter (a-z: 97-122)
+  if (firstChar >= 97 && firstChar <= 122) {
+    return String.fromCharCode(firstChar - 32) + str.slice(1)
+  }
+
+  return str // Already capitalized or not a letter
 }
 ```
 
@@ -120,14 +121,14 @@ This method works directly with character codes—think of it as the assembly la
 ### International Characters (Don't Break Other Languages)
 
 ```javascript
-function internationalCapitalize(str, locale = 'en-US') {
-    if (!str) return str;
-    return str.charAt(0).toLocaleUpperCase(locale) + str.slice(1);
+function internationalCapitalize(str, locale = "en-US") {
+  if (!str) return str
+  return str.charAt(0).toLocaleUpperCase(locale) + str.slice(1)
 }
 
 // This matters more than you think
-console.log(internationalCapitalize('istanbul', 'tr-TR')); // 'İstanbul' (Turkish)
-console.log(internationalCapitalize('istanbul', 'en-US')); // 'Istanbul' (English)
+console.log(internationalCapitalize("istanbul", "tr-TR")) // 'İstanbul' (Turkish)
+console.log(internationalCapitalize("istanbul", "en-US")) // 'Istanbul' (English)
 ```
 
 See that dot over the 'İ'? In Turkish, that's not optional—it's a completely different letter. Using `toLocaleUpperCase()` respects these language-specific rules.
@@ -141,8 +142,8 @@ See that dot over the 'İ'? In Turkish, that's not optional—it's a completely 
 ```javascript
 // Looks cool, performs terribly
 function slowCapitalize(str) {
-    const [first, ...rest] = str;
-    return first.toUpperCase() + rest.join('');
+  const [first, ...rest] = str
+  return first.toUpperCase() + rest.join("")
 }
 ```
 
@@ -153,7 +154,7 @@ This creates an array, spreads it, then joins it back. It's like taking apart yo
 ```javascript
 // Don't do this for simple capitalization
 function overengineered(str) {
-    return str.replace(/^./, match => match.toUpperCase());
+  return str.replace(/^./, (match) => match.toUpperCase())
 }
 ```
 
@@ -164,10 +165,10 @@ Regex has overhead. For simple first-letter capitalization, you're paying a perf
 ```javascript
 // This will break your app
 function unsafe(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
+  return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
-unsafe(null); // TypeError: Cannot read property 'charAt' of null
+unsafe(null) // TypeError: Cannot read property 'charAt' of null
 ```
 
 Always check your inputs. Empty strings, null, undefined—they're all waiting to crash your party.
@@ -176,13 +177,13 @@ Always check your inputs. Empty strings, null, undefined—they're all waiting t
 
 Here's the real talk on performance (tested with 100k iterations):
 
-| Method | Speed | Use Case |
-|--------|-------|----------|
-| Character codes | Fastest | High-volume processing |
-| charAt + slice | Fast | General use (recommended) |
-| Template literals | Fast | Modern codebases |
-| Regex | Slower | Complex patterns only |
-| Destructuring | Slowest | Never for performance |
+| Method            | Speed   | Use Case                  |
+| ----------------- | ------- | ------------------------- |
+| Character codes   | Fastest | High-volume processing    |
+| charAt + slice    | Fast    | General use (recommended) |
+| Template literals | Fast    | Modern codebases          |
+| Regex             | Slower  | Complex patterns only     |
+| Destructuring     | Slowest | Never for performance     |
 
 **Bottom line:** For most apps, the difference is negligible. Pick the method that makes your code readable and maintainable.
 
@@ -192,40 +193,38 @@ Here's how you'd actually use this in a real app:
 
 ```javascript
 class InputFormatter {
-    constructor(input, options = {}) {
-        this.input = input;
-        this.mode = options.mode || 'first-letter'; // 'first-letter', 'words'
-        this.locale = options.locale || 'en-US';
-        
-        this.setupFormatting();
+  constructor(input, options = {}) {
+    this.input = input
+    this.mode = options.mode || "first-letter" // 'first-letter', 'words'
+    this.locale = options.locale || "en-US"
+
+    this.setupFormatting()
+  }
+
+  setupFormatting() {
+    this.input.addEventListener("blur", (e) => {
+      const formatted = this.format(e.target.value)
+      if (formatted !== e.target.value) {
+        e.target.value = formatted
+      }
+    })
+  }
+
+  format(str) {
+    if (!str) return str
+
+    switch (this.mode) {
+      case "words":
+        return str.replace(/\b\w/g, (char) => char.toLocaleUpperCase(this.locale))
+      default:
+        return str.charAt(0).toLocaleUpperCase(this.locale) + str.slice(1)
     }
-    
-    setupFormatting() {
-        this.input.addEventListener('blur', (e) => {
-            const formatted = this.format(e.target.value);
-            if (formatted !== e.target.value) {
-                e.target.value = formatted;
-            }
-        });
-    }
-    
-    format(str) {
-        if (!str) return str;
-        
-        switch (this.mode) {
-            case 'words':
-                return str.replace(/\b\w/g, char => 
-                    char.toLocaleUpperCase(this.locale)
-                );
-            default:
-                return str.charAt(0).toLocaleUpperCase(this.locale) + str.slice(1);
-        }
-    }
+  }
 }
 
 // Usage
-const nameInput = document.getElementById('name');
-new InputFormatter(nameInput, { mode: 'words' });
+const nameInput = document.getElementById("name")
+new InputFormatter(nameInput, { mode: "words" })
 ```
 
 This gives you real-time formatting that feels natural and doesn't interfere with typing.
@@ -246,5 +245,4 @@ The key is knowing when to use what. Master these methods, and you'll handle str
 
 ---
 
-*Want more JavaScript tips that actually matter? Check out our guide on [string manipulation best practices] or dive into [performance optimization techniques] that make a real difference.*
-
+_Want more JavaScript tips that actually matter? Check out our guide on [string manipulation best practices] or dive into [performance optimization techniques] that make a real difference._

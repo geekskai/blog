@@ -1,13 +1,13 @@
 ---
-title: 'How to convert CSV to DynamoDB JSON in JavaScript'
-date: '2025-01-27'
-lastmod: '2025-06-02'
-tags: ['DynamoDB', 'JavaScript', 'CSV', 'Data Conversion', 'AWS']
+title: "How to convert CSV to DynamoDB JSON in JavaScript"
+date: "2025-01-27"
+lastmod: "2025-06-02"
+tags: ["DynamoDB", "JavaScript", "CSV", "Data Conversion", "AWS"]
 draft: false
 summary: "Your CSV files and DynamoDB aren't exactly best friends. Here's how to convert CSV to DynamoDB JSON in JavaScript like a pro—no headaches, just clean code that works."
-layout: 'PostLayout'
-images: '/static/images/blog/js/convert-CSV-to-DynamoDB.webp'
-canonicalUrl: 'https://geekskai.com/blog/js/how-to-convert-csv-to-dynamodb-json-in-javascript/'
+layout: "PostLayout"
+images: "/static/images/blog/js/convert-CSV-to-DynamoDB.webp"
+canonicalUrl: "https://geekskai.com/blog/js/how-to-convert-csv-to-dynamodb-json-in-javascript/"
 ---
 
 Ever stared at a CSV file knowing it needs to live in DynamoDB, but feeling like you're trying to plug a USB cable in upside down? Yeah, we've all been there. Your spreadsheet data and Amazon's NoSQL database speak different languages, and someone needs to play translator.
@@ -41,32 +41,33 @@ npm install csvtojson
 Create a new file called `convert.js` (or whatever makes you happy) and drop this code in:
 
 ```javascript
-const csv = require('csvtojson');
-const fs = require('fs');
+const csv = require("csvtojson")
+const fs = require("fs")
 
-const csvFilePath = 'data.csv'; // Your CSV file path
-const jsonFilePath = 'output.json'; // Where the magic happens
+const csvFilePath = "data.csv" // Your CSV file path
+const jsonFilePath = "output.json" // Where the magic happens
 
 csv()
   .fromFile(csvFilePath)
   .then((jsonObj) => {
-    const dynamoDBJson = jsonObj.map(item => ({
+    const dynamoDBJson = jsonObj.map((item) => ({
       Item: {
         col1_str: { S: item.col1_str },
         col2_num: { N: item.col2_num.toString() },
-        col3_bool: { BOOL: item.col3_bool === 'true' }
-      }
-    }));
+        col3_bool: { BOOL: item.col3_bool === "true" },
+      },
+    }))
 
-    fs.writeFileSync(jsonFilePath, JSON.stringify(dynamoDBJson, null, 2));
-    console.log('Conversion completed. Check output.json for results.');
+    fs.writeFileSync(jsonFilePath, JSON.stringify(dynamoDBJson, null, 2))
+    console.log("Conversion completed. Check output.json for results.")
   })
-  .catch(err => {
-    console.error('Error converting CSV to JSON:', err);
-  });
+  .catch((err) => {
+    console.error("Error converting CSV to JSON:", err)
+  })
 ```
 
 **What's happening here?** We're reading your CSV, mapping each row to DynamoDB's format, and saving it as clean JSON. The key is those data type indicators:
+
 - `S` for strings
 - `N` for numbers (converted to strings, because DynamoDB is weird like that)
 - `BOOL` for booleans
@@ -135,6 +136,7 @@ Or if you're feeling fancy, use the AWS SDK in your application. Either way, you
 ## Pro Tips for Smooth Conversions
 
 **Data Type Mapping Cheat Sheet:**
+
 - Text → `{ S: "value" }`
 - Numbers → `{ N: "123" }`
 - Booleans → `{ BOOL: true/false }`
@@ -142,12 +144,14 @@ Or if you're feeling fancy, use the AWS SDK in your application. Either way, you
 - Maps → `{ M: {...} }`
 
 **Common Gotchas to Avoid:**
+
 - Always validate your CSV structure first
 - Handle empty cells gracefully
 - Test with small datasets before going full scale
 - Double-check your primary key mappings
 
 **Performance Hacks:**
+
 - Process large files in chunks
 - Use batch operations for imports
 - Monitor your DynamoDB write capacity
@@ -161,10 +165,3 @@ Think of it as the difference between throwing ingredients in a pot versus follo
 **Ready to flex your data conversion skills?** Take this code, adapt it to your specific CSV structure, and watch your data flow into DynamoDB like it was always meant to be there. Your future self will thank you for the clean, properly typed data.
 
 Got questions about handling complex CSV structures or need to scale this up? Drop a comment below—let's figure it out together.
-
-
-
-
-
-
-

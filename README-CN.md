@@ -124,11 +124,11 @@ yarn dev
 
 ```md
 ---
-title: '文章标题'
-date: '2024-02-11'
-tags: ['next-js', 'tailwind', '教程']
+title: "文章标题"
+date: "2024-02-11"
+tags: ["next-js", "tailwind", "教程"]
 draft: false
-summary: '文章摘要'
+summary: "文章摘要"
 ---
 
 文章内容...

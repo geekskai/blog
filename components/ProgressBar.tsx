@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import React from 'react'
-import { useEffect, useState } from 'react'
+import React from "react"
+import { useEffect, useState } from "react"
 
 export function useReadingProgress() {
   const [progress, setProgress] = useState(0)
@@ -17,10 +17,10 @@ export function useReadingProgress() {
       }
     }
     // add a global scroll event listener
-    window.addEventListener('scroll', updateScroll)
+    window.addEventListener("scroll", updateScroll)
 
     return () => {
-      window.removeEventListener('scroll', updateScroll)
+      window.removeEventListener("scroll", updateScroll)
     }
   }, [])
   return progress

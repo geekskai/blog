@@ -1,13 +1,13 @@
 ---
-title: 'react dev only displays: Troubleshooting Rendering Issues'
-date: '2025-01-26'
-lastmod: '2025-01-26'
-tags: ['react', 'web development', 'debugging', 'frontend', 'performance']
+title: "react dev only displays: Troubleshooting Rendering Issues"
+date: "2025-01-26"
+lastmod: "2025-01-26"
+tags: ["react", "web development", "debugging", "frontend", "performance"]
 draft: false
-summary: 'An in-depth exploration of React rendering challenges, focusing on diagnosing and resolving issues where applications only partially display content during development.'
-layout: 'PostLayout'
-images: '/static/images/blog/js/react-dev-only-displays.webp'
-canonicalUrl: 'https://geekskai.com/blog/js/react-dev-only-displays-comprehensive-guide/'
+summary: "An in-depth exploration of React rendering challenges, focusing on diagnosing and resolving issues where applications only partially display content during development."
+layout: "PostLayout"
+images: "/static/images/blog/js/react-dev-only-displays.webp"
+canonicalUrl: "https://geekskai.com/blog/js/react-dev-only-displays-comprehensive-guide/"
 ---
 
 ![React Dev Only Displays](/static/images/blog/js/react-dev-only-displays.webp)
@@ -31,7 +31,7 @@ function UserDashboard({ user }) {
       <AdvancedReporting />
       {user.hasSpecialAccess && <SuperAdminTools />}
     </div>
-  ) : null;
+  ) : null
 }
 ```
 
@@ -47,34 +47,35 @@ Improper state management frequently causes partial rendering:
 
 ```javascript
 function DataVisualizationComponent() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const result = await apiService.getData();
-        setData(result);
-        setLoading(false);
+        const result = await apiService.getData()
+        setData(result)
+        setLoading(false)
       } catch (error) {
         // Critical: Handle error state
-        setLoading(false);
-        setData([]);
+        setLoading(false)
+        setData([])
       }
     }
 
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   // Potential rendering issues
-  if (loading) return <Spinner />;
-  if (!data || data.length === 0) return <NoDataMessage />;
+  if (loading) return <Spinner />
+  if (!data || data.length === 0) return <NoDataMessage />
 
-  return <ComplexVisualization data={data} />;
+  return <ComplexVisualization data={data} />
 }
 ```
 
 Observations:
+
 - Explicit error handling prevents "black hole" rendering
 - Multiple state conditions control component visibility
 - Proper loading and empty states are crucial
@@ -88,31 +89,30 @@ function AsyncContentLoader() {
   const [content, setContent] = useState({
     articles: [],
     user: null,
-    permissions: []
-  });
+    permissions: [],
+  })
 
   useEffect(() => {
-    Promise.all([
-      fetchArticles(),
-      fetchUserProfile(),
-      fetchPermissions()
-    ]).then(([articles, user, permissions]) => {
-      setContent({ articles, user, permissions });
-    });
-  }, []);
+    Promise.all([fetchArticles(), fetchUserProfile(), fetchPermissions()]).then(
+      ([articles, user, permissions]) => {
+        setContent({ articles, user, permissions })
+      }
+    )
+  }, [])
 
   // Complex conditional rendering
   return (
     <div>
       {content.user && <UserHeader user={content.user} />}
       {content.articles.length > 0 && <ArticleList articles={content.articles} />}
-      {content.permissions.includes('admin') && <AdminDashboard />}
+      {content.permissions.includes("admin") && <AdminDashboard />}
     </div>
-  );
+  )
 }
 ```
 
 Key Considerations:
+
 - Parallel data fetching using `Promise.all()`
 - Granular rendering based on specific data availability
 - Potential for partial or incomplete rendering
@@ -122,6 +122,7 @@ Key Considerations:
 ### React Developer Tools Techniques
 
 1. **Component Inspection**
+
    - Use React DevTools to examine component hierarchy
    - Verify props and state at each rendering stage
    - Identify components that aren't rendering as expected
@@ -134,23 +135,25 @@ Key Considerations:
 ### Performance Optimization Approaches
 
 1. **Memoization Techniques**
+
    ```javascript
    const MemoizedComponent = React.memo(ExpensiveComponent, (prevProps, nextProps) => {
      // Custom comparison logic
-     return prevProps.criticalData === nextProps.criticalData;
-   });
+     return prevProps.criticalData === nextProps.criticalData
+   })
    ```
 
 2. **Code Splitting and Lazy Loading**
+
    ```javascript
-   const AdminPanel = React.lazy(() => import('./AdminPanel'));
+   const AdminPanel = React.lazy(() => import("./AdminPanel"))
 
    function App() {
      return (
        <Suspense fallback={<LoadingIndicator />}>
          <AdminPanel />
        </Suspense>
-     );
+     )
    }
    ```
 
@@ -171,4 +174,3 @@ Resolving "React dev only displays" issues requires a multifaceted approach comb
 - State management is crucial for complete rendering
 - Asynchronous operations demand comprehensive handling
 - React DevTools are indispensable for thorough debugging
-

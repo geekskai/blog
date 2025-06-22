@@ -88,11 +88,11 @@ function onMousemove(e) {
   function l(e) {
     1 == e.touches.length && ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY))
   }
-  document.removeEventListener('mousemove', onMousemove),
-    document.removeEventListener('touchstart', onMousemove),
-    document.addEventListener('mousemove', c),
-    document.addEventListener('touchmove', c),
-    document.addEventListener('touchstart', l),
+  document.removeEventListener("mousemove", onMousemove),
+    document.removeEventListener("touchstart", onMousemove),
+    document.addEventListener("mousemove", c),
+    document.addEventListener("touchmove", c),
+    document.addEventListener("touchstart", l),
     c(e),
     o(),
     render()
@@ -100,10 +100,10 @@ function onMousemove(e) {
 
 function render() {
   if (ctx.running) {
-    ctx.globalCompositeOperation = 'source-over'
+    ctx.globalCompositeOperation = "source-over"
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-    ctx.globalCompositeOperation = 'lighter'
-    ctx.strokeStyle = 'hsla(' + Math.round(f.update()) + ',90%,50%,0.25)'
+    ctx.globalCompositeOperation = "lighter"
+    ctx.strokeStyle = "hsla(" + Math.round(f.update()) + ",90%,50%,0.25)"
     ctx.lineWidth = 1
     for (var e, t = 0; t < E.trails; t++) {
       ;(e = lines[t]).update()
@@ -140,7 +140,7 @@ function Node() {
 }
 
 export const renderCanvas = function () {
-  ctx = document.getElementById('canvas').getContext('2d')
+  ctx = document.getElementById("canvas").getContext("2d")
   ctx.running = true
   ctx.frame = 1
   f = new n({
@@ -149,17 +149,17 @@ export const renderCanvas = function () {
     frequency: 0.0015,
     offset: 285,
   })
-  document.addEventListener('mousemove', onMousemove)
-  document.addEventListener('touchstart', onMousemove)
-  document.body.addEventListener('orientationchange', resizeCanvas)
-  window.addEventListener('resize', resizeCanvas)
-  window.addEventListener('focus', () => {
+  document.addEventListener("mousemove", onMousemove)
+  document.addEventListener("touchstart", onMousemove)
+  document.body.addEventListener("orientationchange", resizeCanvas)
+  window.addEventListener("resize", resizeCanvas)
+  window.addEventListener("focus", () => {
     if (!ctx.running) {
       ctx.running = true
       render()
     }
   })
-  window.addEventListener('blur', () => {
+  window.addEventListener("blur", () => {
     ctx.running = true
   })
   resizeCanvas()

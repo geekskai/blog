@@ -1,26 +1,26 @@
-import { ReactNode } from 'react'
-import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog, Authors } from 'contentlayer/generated'
-import Comments from '@/components/Comments'
-import Link from '@/components/Link'
-import PageTitle from '@/components/PageTitle'
-import SectionContainer from '@/components/SectionContainer'
-import Image from '@/components/Image'
-import Tag from '@/components/Tag'
-import siteMetadata from '@/data/siteMetadata'
-import ScrollTopAndComment from '@/components/ScrollTopAndComment'
-import ProgressBar from '@/components/ProgressBar'
-import ShareButtons from '@/components/ShareButtons'
+import { ReactNode } from "react"
+import { CoreContent } from "pliny/utils/contentlayer"
+import type { Blog, Authors } from "contentlayer/generated"
+import Comments from "@/components/Comments"
+import Link from "@/components/Link"
+import PageTitle from "@/components/PageTitle"
+import SectionContainer from "@/components/SectionContainer"
+import Image from "@/components/Image"
+import Tag from "@/components/Tag"
+import siteMetadata from "@/data/siteMetadata"
+import ScrollTopAndComment from "@/components/ScrollTopAndComment"
+import ProgressBar from "@/components/ProgressBar"
+import ShareButtons from "@/components/ShareButtons"
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(`${siteMetadata.siteUrl}/${path}`)}`
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
-  weekday: 'long',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
 }
 
 interface LayoutProps {
@@ -33,7 +33,7 @@ interface LayoutProps {
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
   const { filePath, path, slug, date, title, tags, readingTime } = content
-  const basePath = path.split('/')[0]
+  const basePath = path.split("/")[0]
 
   return (
     <SectionContainer>
@@ -84,8 +84,8 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                               className="text-primary-500 hover:text-primary-400"
                             >
                               {author.twitter
-                                .replace('https://twitter.com/', '@')
-                                .replace('https://x.com/', '@')}
+                                .replace("https://twitter.com/", "@")
+                                .replace("https://x.com/", "@")}
                             </Link>
                           )}
                         </dd>

@@ -125,11 +125,11 @@ Create engaging blog posts with rich features:
 
 ```mdx
 ---
-title: 'Building a Modern Blog'
-date: '2024-02-11'
-tags: ['next-js', 'tailwind', 'guide']
+title: "Building a Modern Blog"
+date: "2024-02-11"
+tags: ["next-js", "tailwind", "guide"]
 draft: false
-summary: 'A comprehensive guide to building a modern blog'
+summary: "A comprehensive guide to building a modern blog"
 ---
 
 ## Introduction
@@ -149,8 +149,8 @@ Your content here with support for:
    ```js
    // data/siteMetadata.js
    const siteMetadata = {
-     title: 'Your Blog',
-     author: 'Your Name',
+     title: "Your Blog",
+     author: "Your Name",
      // ...more options
    }
    ```

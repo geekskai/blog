@@ -1,8 +1,8 @@
 const handler = async () => {
-  const res = await fetch('https://ghchart.rshah.org/178942/geekskai', {
+  const res = await fetch("https://ghchart.rshah.org/178942/geekskai", {
     headers: {
-      'Content-Type': 'image/svg+xml',
-      'Cache-Control': 'public, max-age=86400',
+      "Content-Type": "image/svg+xml",
+      "Cache-Control": "public, max-age=86400",
     },
   })
 

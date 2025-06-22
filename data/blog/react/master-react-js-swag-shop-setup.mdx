@@ -1,16 +1,17 @@
 ---
-title: 'Master React JS Swag Shop Setup: Expert Guide'
-date: '2025-02-13'
-lastmod: '2025-02-13'
-tags: ['react', 'e-commerce', 'web-development', 'javascript', 'online-shop']
+title: "Master React JS Swag Shop Setup: Expert Guide"
+date: "2025-02-13"
+lastmod: "2025-02-13"
+tags: ["react", "e-commerce", "web-development", "javascript", "online-shop"]
 draft: false
-images: '/static/images/blog/react/master-react-js-swag-shop-setup.png'
-summary: 'A comprehensive guide for setting up a React JS swag shop, covering everything from initial setup to responsive design and security best practices.'
-layout: 'PostLayout'
-canonicalUrl: 'https://geekskai.com/blog/react/master-react-js-swag-shop-setup/'
+images: "/static/images/blog/react/master-react-js-swag-shop-setup.png"
+summary: "A comprehensive guide for setting up a React JS swag shop, covering everything from initial setup to responsive design and security best practices."
+layout: "PostLayout"
+canonicalUrl: "https://geekskai.com/blog/react/master-react-js-swag-shop-setup/"
 ---
 
 ![Master React JS Swag Shop Setup: Expert Guide](/static/images/blog/react/master-react-js-swag-shop-setup.png)
+
 ## Key Highlights
 
 - **Quick and Easy Setup**: Find out how to set up a swag shop using React JS without much trouble.
@@ -68,7 +69,7 @@ swag-shop/
 ### Sample Product Component
 
 ```jsx
-import React from 'react';
+import React from "react"
 
 const ProductCard = ({ product }) => {
   return (
@@ -76,14 +77,12 @@ const ProductCard = ({ product }) => {
       <img src={product.image} alt={product.name} />
       <h3>{product.name}</h3>
       <p className="price">${product.price}</p>
-      <button onClick={() => addToCart(product)}>
-        Add to Cart
-      </button>
+      <button onClick={() => addToCart(product)}>Add to Cart</button>
     </div>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default ProductCard
 ```
 
 ## Designing Your Swag Shop's User Interface
@@ -112,31 +111,29 @@ A good-looking and easy-to-use interface is very important for any online shop. 
 ### Shopping Cart Implementation
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react"
 
 const Cart = () => {
-  const [items, setItems] = useState([]);
-  
+  const [items, setItems] = useState([])
+
   const removeItem = (id) => {
-    setItems(items.filter(item => item.id !== id));
-  };
-  
+    setItems(items.filter((item) => item.id !== id))
+  }
+
   const updateQuantity = (id, quantity) => {
-    setItems(items.map(item => 
-      item.id === id ? { ...item, quantity } : item
-    ));
-  };
-  
+    setItems(items.map((item) => (item.id === id ? { ...item, quantity } : item)))
+  }
+
   return (
     <div className="cart">
-      {items.map(item => (
+      {items.map((item) => (
         <div key={item.id} className="cart-item">
           <img src={item.image} alt={item.name} />
           <div className="item-details">
             <h4>{item.name}</h4>
             <p>${item.price}</p>
-            <input 
-              type="number" 
+            <input
+              type="number"
               value={item.quantity}
               onChange={(e) => updateQuantity(item.id, e.target.value)}
               min="1"
@@ -146,10 +143,10 @@ const Cart = () => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart
 ```
 
 ## Tips for Crafting an Engaging Shopping Experience
@@ -191,6 +188,7 @@ Efficient product management is all about arranging and showing your swag in a s
 ### Tips for Enhancing the Checkout Process in React JS
 
 To make the checkout experience better, you should:
+
 - Simplify your forms.
 - Use React components to design a clear checkout process.
 - Offer real-time order updates.

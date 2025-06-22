@@ -1,13 +1,13 @@
 ---
-title: 'how to check if character is double quote in js'
-date: '2024-11-14'
-lastmod: '2024-11-14'
-tags: ['javascript', 'character', 'double quote', 'programming techniques']
+title: "how to check if character is double quote in js"
+date: "2024-11-14"
+lastmod: "2024-11-14"
+tags: ["javascript", "character", "double quote", "programming techniques"]
 draft: false
-summary: 'Learn how to check if a character is a double quote in JavaScript using various methods, including comparison operators, charCodeAt(), and regular expressions.'
-layout: 'PostLayout'
-images: '/static/images/blog/js/check-if-a-character-is-a-double-quote-in-js.png'
-canonicalUrl: 'https://geekskai.com/blog/js/how-to-check-if-character-is-double-quote-javascript/'
+summary: "Learn how to check if a character is a double quote in JavaScript using various methods, including comparison operators, charCodeAt(), and regular expressions."
+layout: "PostLayout"
+images: "/static/images/blog/js/check-if-a-character-is-a-double-quote-in-js.png"
+canonicalUrl: "https://geekskai.com/blog/js/how-to-check-if-character-is-double-quote-javascript/"
 ---
 
 ![How to Check if a Character is a Double Quote in JavaScript](/static/images/blog/js/check-if-a-character-is-a-double-quote-in-js.png)
@@ -19,11 +19,11 @@ In JavaScript, a double quote (`"`) is a common character used to denote strings
 One of the simplest ways to check if a character is a double quote is by using comparison operators. You can compare the character directly with the double quote character (`"`).
 
 ```javascript
-const char = '"';
+const char = '"'
 if (char === '"') {
-  console.log('The character is a double quote.');
+  console.log("The character is a double quote.")
 } else {
-  console.log('The character is not a double quote.');
+  console.log("The character is not a double quote.")
 }
 ```
 
@@ -34,12 +34,12 @@ In this example, we compare the character `char` with the double quote character
 Another method to check if a character is a double quote is by using the `charCodeAt()` method. This method returns the Unicode value of the character at a specified index in a string. The Unicode value of a double quote character (`"`) is 34.
 
 ```javascript
-const char = '"';
+const char = '"'
 
 if (char.charCodeAt(0) === 34) {
-  console.log('The character is a double quote.');
+  console.log("The character is a double quote.")
 } else {
-  console.log('The character is not a double quote.');
+  console.log("The character is not a double quote.")
 }
 ```
 
@@ -50,45 +50,44 @@ In this example, we use the `charCodeAt()` method to get the Unicode value of th
 Regular expressions provide a powerful way to match patterns in strings, including specific characters like double quotes. You can use a regular expression to check if a character is a double quote.
 
 ```javascript
-const char = '"';
+const char = '"'
 
 if (/"/.test(char)) {
-  console.log('The character is a double quote.');
+  console.log("The character is a double quote.")
 } else {
-  console.log('The character is not a double quote.');
+  console.log("The character is not a double quote.")
 }
 ```
 
 In this example, we use a regular expression `/"/` to test if the character `char` is a double quote. If the character is a double quote, the message "The character is a double quote." is displayed; otherwise, the message "The character is not a double quote." is displayed.
-
 
 ## 4. Using the match() method with a regular expression:
 
 You can also use the `match()` method with a regular expression to check if a character is a double quote.
 
 ```javascript
-const char = '"';
+const char = '"'
 
 if (char.match(/"/)) {
-  console.log('The character is a double quote.');
+  console.log("The character is a double quote.")
 } else {
-  console.log('The character is not a double quote.');
+  console.log("The character is not a double quote.")
 }
 ```
 
 In this example, we use the `match()` method with a regular expression `/"/` to check if the character `char` is a double quote. If the character is a double quote, the message "The character is a double quote." is displayed; otherwise, the message "The character is not a double quote." is displayed.
 
-
 ## 5. `indexOf()` method
+
 You can also use the `indexOf()` method to check if a character is a double quote.
 
 ```javascript
-const char = '"';
+const char = '"'
 
 if (char.indexOf('"') !== -1) {
-  console.log('The character is a double quote.');
+  console.log("The character is a double quote.")
 } else {
-  console.log('The character is not a double quote.');
+  console.log("The character is not a double quote.")
 }
 ```
 
@@ -97,27 +96,32 @@ In this example, we use the `indexOf()` method to check if the character `char` 
 ## Summary
 
 1. 🔥 **Using Comparison Operators:**
-    - Directly compare the character with the double quote character (`"`).
+
+   - Directly compare the character with the double quote character (`"`).
 
 2. 🌟 **Using `charCodeAt()` Method:**
-    - Get the Unicode value of the character and compare it with the Unicode value of a double quote.
+
+   - Get the Unicode value of the character and compare it with the Unicode value of a double quote.
 
 3. 🔄 **Using Regular Expressions:**
-  - Another approach suggested is using regex: `/['||"]/.test(str);`
 
-4. 🔍 **Using `indexOf`:** 
-  - A common method is to use `indexOf` to check for both quotes.
-  - Example: `if (str.indexOf('\'') >= 0 && str.indexOf('"') >= 0) { //do something }`
-  
+- Another approach suggested is using regex: `/['||"]/.test(str);`
+
+4. 🔍 **Using `indexOf`:**
+
+- A common method is to use `indexOf` to check for both quotes.
+- Example: `if (str.indexOf('\'') >= 0 && str.indexOf('"') >= 0) { //do something }`
+
 5. 📜 **Alternative Code Snippet:**
-  - A similar solution is provided with a slight variation: 
-  - `if((str.indexOf('\'') > -1) && (str.indexOf('"') > -1)) { //Code here }`
+
+- A similar solution is provided with a slight variation:
+- `if((str.indexOf('\'') > -1) && (str.indexOf('"') > -1)) { //Code here }`
 
 ## Comparison
 
-| Method                | Description                                                                 |
-|-----------------------|-----------------------------------------------------------------------------|
-| `indexOf` Method      | Checks if both quotes exist using `indexOf` function.  |
-|` charCodeAt` Method  | Utilizes the `charCodeAt` method to check for the Unicode value of the character. |
-| Regular Expression     | Utilizes regex to test for the presence of both quotes in the string.     |
-| Alternative Snippet   | Offers a slightly different implementation using `indexOf`.                |
+| Method               | Description                                                                       |
+| -------------------- | --------------------------------------------------------------------------------- |
+| `indexOf` Method     | Checks if both quotes exist using `indexOf` function.                             |
+| ` charCodeAt` Method | Utilizes the `charCodeAt` method to check for the Unicode value of the character. |
+| Regular Expression   | Utilizes regex to test for the presence of both quotes in the string.             |
+| Alternative Snippet  | Offers a slightly different implementation using `indexOf`.                       |

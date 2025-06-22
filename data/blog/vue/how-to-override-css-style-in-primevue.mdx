@@ -1,13 +1,13 @@
 ---
 title: how to override css style in primevue
-date: '2024-09-17'
-lastmod: '2024-09-17'
-tags: ['primevue', 'css', 'vue', 'override', 'programming']
+date: "2024-09-17"
+lastmod: "2024-09-17"
+tags: ["primevue", "css", "vue", "override", "programming"]
 draft: false
-images: '/static/images/blog/js/blog.png'
-summary: 'Learn different ways to override CSS styles in PrimeVue using methods like scoped styles, global styles, inline styles, and higher specificity selectors.'
-layout: 'PostLayout'
-canonicalUrl: 'https://geekskai.com/blog/vue/how-to-override-css-style-in-primevue/'
+images: "/static/images/blog/js/blog.png"
+summary: "Learn different ways to override CSS styles in PrimeVue using methods like scoped styles, global styles, inline styles, and higher specificity selectors."
+layout: "PostLayout"
+canonicalUrl: "https://geekskai.com/blog/vue/how-to-override-css-style-in-primevue/"
 ---
 
 ## How to Override CSS Style in PrimeVue
@@ -48,12 +48,12 @@ If you need to apply a style override globally across your entire application, y
   background-color: red !important;
   border-radius: 10px !important;
 }
-
 ```
+
 Finally, import this CSS file in your main entry file, typically `main.js` or `App.vue`:
 
 ```javascript
-import './assets/custom.css';
+import "./assets/custom.css"
 ```
 
 ### Method 3: Inline Style Overrides
@@ -89,7 +89,3 @@ Adding more classes or IDs increases the specificity, ensuring your styles overr
 ### Conclusion
 
 Overriding CSS in PrimeVue can be done in several ways depending on the scope of your changes. Whether you're modifying styles on a single component or across the entire application, choosing the right method helps you maintain clean and organized code. By using scoped styles, global overrides, inline styles, or higher specificity selectors, you can customize PrimeVue to fit your design needs.
-
-
-
-

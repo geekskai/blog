@@ -1,6 +1,6 @@
-import ListLayoutWithTags from '@/layouts/ListLayoutWithTags'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
-import { allBlogs } from 'contentlayer/generated'
+import ListLayoutWithTags from "@/layouts/ListLayoutWithTags"
+import { allCoreContent, sortPosts } from "pliny/utils/contentlayer"
+import { allBlogs } from "contentlayer/generated"
 
 const POSTS_PER_PAGE = 9
 

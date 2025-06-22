@@ -1,21 +1,20 @@
 ---
-
-title: 'cloudflare搭建blog | 2024最新版'
-date: '2024-10-08'
-lastmod: '2024-10-08'
-tags: ['cloudflare', 'blog', 'pages', 'web development']
+title: "cloudflare搭建blog | 2024最新版"
+date: "2024-10-08"
+lastmod: "2024-10-08"
+tags: ["cloudflare", "blog", "pages", "web development"]
 draft: false
-summary: '详细介绍如何使用Cloudflare Pages搭建博客，包括从项目设置到部署的完整流程，以及一些实用的优化技巧。'
-layout: 'PostLayout'
-images: '/static/images/blog/js/image.png'
-canonicalUrl: 'https://geekskai.com/blog/cloudflare-blog-setup/'
+summary: "详细介绍如何使用Cloudflare Pages搭建博客，包括从项目设置到部署的完整流程，以及一些实用的优化技巧。"
+layout: "PostLayout"
+images: "/static/images/blog/js/image.png"
+canonicalUrl: "https://geekskai.com/blog/cloudflare-blog-setup/"
 ---
 
 ![Cloudflare Pages](/static/images/cloudflare/cloudflare-hero.png)
 
 ## 使用Cloudflare搭建博客，2024年最新版
-在这篇文章中，我将详细介绍如何使用Cloudflare 搭建一个高性能、安全且免费的个人blog。Cloudflare Pages不仅提供了强大的静态网站托管服务，还能确保您的博客快速、安全地传递给全球读者。
 
+在这篇文章中，我将详细介绍如何使用Cloudflare 搭建一个高性能、安全且免费的个人blog。Cloudflare Pages不仅提供了强大的静态网站托管服务，还能确保您的博客快速、安全地传递给全球读者。
 
 ### 为什么选择Cloudflare Pages？
 
@@ -30,7 +29,6 @@ canonicalUrl: 'https://geekskai.com/blog/cloudflare-blog-setup/'
 - 与GitHub无缝集成
 - 自动HTTPS
 - 自定义域名支持
-
 
 3. 开发者友好
 
@@ -56,21 +54,19 @@ canonicalUrl: 'https://geekskai.com/blog/cloudflare-blog-setup/'
 
 ![Cloudflare Pages](/static/images/geekskai-blog.png)
 
-
 第一步：请点击👉[fork](https://github.com/geekskai/blog/fork)
 就能直接fork到自己的GitHub仓库中。
 
 第二步：Cloudflare Pages配置
 
 1. 登录[Cloudflare pages](https://pages.cloudflare.com/)控制台,如果没有账号请先注册一个，
-登录成功之后，默认的页面是英文的，我们可以点击右上角切换语言为中文：
+   登录成功之后，默认的页面是英文的，我们可以点击右上角切换语言为中文：
 
 ![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-dashboard.jpg)
 
 2. 按照图中的步骤，点击“开始构建”，就能看到下面的页面：
 
 ![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project.png)
-
 
 3. 我们选择第一个选项的卡片，也就是：“构建应用程序”，然后点击可以看到下面的页面，可以看到有2个tabs选项，分别是Workers和Pages,我们选择Pages选项：
 
@@ -85,7 +81,7 @@ canonicalUrl: 'https://geekskai.com/blog/cloudflare-blog-setup/'
 ![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project-4.png)
 
 6. 点击“开始设置”之后，你就能看到下面的页面，我们可以看到有项目名称，生产分支，构建设置等选项，我们可以根据自己的需求进行设置，框架预设选择Next.js，
-然后点击“保存并部署”：
+   然后点击“保存并部署”：
 
 ![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project-5.png)
 
@@ -99,11 +95,9 @@ canonicalUrl: 'https://geekskai.com/blog/cloudflare-blog-setup/'
 
 9. 成功之后会生成一个链接，例如我的：https://blog-24f.pages.dev/ ，点击该链接，就能看到您的博客已经部署成功的页面，恭喜您！
 
-
 注意：如果您的博客是fork我的blog的模板，访问链接的时候，会看到如下页面：
 
 ![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project-8.png)
-
 
 ### 添加兼容性标志nodejs_compat
 
@@ -116,7 +110,7 @@ canonicalUrl: 'https://geekskai.com/blog/cloudflare-blog-setup/'
 4. 向下滚动找到 "Functions" 部分
 5. 点击 "Compatibility flags"
 6. 添加 nodejs_compat 标志：
-7. 在生产环境和预览环境中也添加，然后点击 "保存" 
+7. 在生产环境和预览环境中也添加，然后点击 "保存"
 
 ![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project-10.png)
 
@@ -138,19 +132,8 @@ canonicalUrl: 'https://geekskai.com/blog/cloudflare-blog-setup/'
 
 ![Cloudflare Pages](/static/images/cloudflare/cloudflare-pages-create-project-12.png)
 
-
-
 5. 输入您的域名，然后点击 "继续"
 
 6. 在您的域名注册商中添加CNAME记录，指向您的Cloudflare Pages域名，例如：blog-24f.pages.dev
 
 7. 等待DNS生效，然后您的博客就能通过您的自定义域名访问了。
-
-
-
-
-
-
-
-
-

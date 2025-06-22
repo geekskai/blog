@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import siteMetadata from '@/data/siteMetadata'
-import { useEffect, useState } from 'react'
+import siteMetadata from "@/data/siteMetadata"
+import { useEffect, useState } from "react"
 
 const ScrollTopAndComment = () => {
   const [show, setShow] = useState(false)
@@ -12,19 +12,19 @@ const ScrollTopAndComment = () => {
       else setShow(false)
     }
 
-    window.addEventListener('scroll', handleWindowScroll)
-    return () => window.removeEventListener('scroll', handleWindowScroll)
+    window.addEventListener("scroll", handleWindowScroll)
+    return () => window.removeEventListener("scroll", handleWindowScroll)
   }, [])
 
   const handleScrollTop = () => {
     window.scrollTo({ top: 0 })
   }
   const handleScrollToComment = () => {
-    document.getElementById('comment')?.scrollIntoView()
+    document.getElementById("comment")?.scrollIntoView()
   }
   return (
     <div
-      className={`fixed bottom-8 right-8 hidden flex-col gap-3 ${show ? 'md:flex' : 'md:hidden'}`}
+      className={`fixed bottom-8 right-8 hidden flex-col gap-3 ${show ? "md:flex" : "md:hidden"}`}
     >
       {siteMetadata.comments?.provider && (
         <button

@@ -1,13 +1,13 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import { usePathname } from 'next/navigation'
-import { formatDate } from 'pliny/utils/formatDate'
-import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog } from 'contentlayer/generated'
-import Tag from '@/components/Tag'
-import siteMetadata from '@/data/siteMetadata'
-import Link from '@/components/Link'
+import { useState } from "react"
+import { usePathname } from "next/navigation"
+import { formatDate } from "pliny/utils/formatDate"
+import { CoreContent } from "pliny/utils/contentlayer"
+import type { Blog } from "contentlayer/generated"
+import Tag from "@/components/Tag"
+import siteMetadata from "@/data/siteMetadata"
+import Link from "@/components/Link"
 
 interface PaginationProps {
   totalPages: number
@@ -21,9 +21,9 @@ interface ListLayoutProps {
 }
 
 export default function ListLayout({ posts, initialDisplayPosts = [] }: ListLayoutProps) {
-  const [searchValue, setSearchValue] = useState('')
+  const [searchValue, setSearchValue] = useState("")
   const filteredBlogPosts = posts.filter((post) => {
-    const searchContent = post.title + post.summary + post.tags?.join(' ')
+    const searchContent = post.title + post.summary + post.tags?.join(" ")
     return searchContent.toLowerCase().includes(searchValue.toLowerCase())
   })
 
@@ -63,7 +63,7 @@ export default function ListLayout({ posts, initialDisplayPosts = [] }: ListLayo
           </div>
         </div>
         <ul>
-          {!filteredBlogPosts.length && 'No posts found.'}
+          {!filteredBlogPosts.length && "No posts found."}
           {displayPosts.map((post, key) => {
             const { path, date, title, summary, tags, readingTime } = post
             return (

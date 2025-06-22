@@ -1,13 +1,13 @@
 ---
-title: 'Utilizing NavLink for State Passing in React Router'
-date: '2025-02-13'
-lastmod: '2025-02-13'
-tags: ['react', 'react-router', 'navigation', 'web-development', 'frontend']
+title: "Utilizing NavLink for State Passing in React Router"
+date: "2025-02-13"
+lastmod: "2025-02-13"
+tags: ["react", "react-router", "navigation", "web-development", "frontend"]
 draft: false
-images: '/static/images/blog/react/react-router-navlink.jpg'
-summary: 'A comprehensive guide on using NavLink to pass state in React Router, including setup instructions, implementation examples, and best practices for efficient state management.'
-layout: 'PostLayout'
-canonicalUrl: 'https://geekskai.com/blog/react/utilizing-navlink-for-state-passing-in-react-router/'
+images: "/static/images/blog/react/react-router-navlink.jpg"
+summary: "A comprehensive guide on using NavLink to pass state in React Router, including setup instructions, implementation examples, and best practices for efficient state management."
+layout: "PostLayout"
+canonicalUrl: "https://geekskai.com/blog/react/utilizing-navlink-for-state-passing-in-react-router/"
 ---
 
 ![Utilizing NavLink for State Passing in React Router](/static/images/blog/react/react-router-navlink.jpg)
@@ -71,10 +71,10 @@ cd my-react-app
 First, you need to import some important parts from react-router-dom. Here's a complete example of implementing NavLink:
 
 ```jsx
-import React from 'react';
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
-import Home from './components/Home';
-import About from './components/About';
+import React from "react"
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom"
+import Home from "./components/Home"
+import About from "./components/About"
 
 function App() {
   return (
@@ -91,15 +91,15 @@ function App() {
           </ul>
         </nav>
         <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/about" element={<About />}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 ## Conclusion
@@ -111,9 +111,13 @@ In conclusion, learning how to use NavLink in React Router can greatly improve n
 ### How do I pass state using NavLink in React Router?
 
 To pass state, you need to use the `state` prop in your `NavLink` component. Here's an example:
+
 ```jsx
-<NavLink to="/profile" state={{ from: 'homepage' }}>Profile</NavLink>
+<NavLink to="/profile" state={{ from: "homepage" }}>
+  Profile
+</NavLink>
 ```
+
 You can access this state data in the `Profile` component.
 
 ### Can NavLink be used to navigate to external links?

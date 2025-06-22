@@ -1,10 +1,10 @@
-import Link from '@/components/Link'
-import Tag from '@/components/Tag'
-import siteMetadata from '@/data/siteMetadata'
-import { formatDate } from 'pliny/utils/formatDate'
-import NewsletterForm from 'pliny/ui/NewsletterForm'
-import Hero from '@/components/Hero'
-import ListLayout from '@/layouts/ListLayout'
+import Link from "@/components/Link"
+import Tag from "@/components/Tag"
+import siteMetadata from "@/data/siteMetadata"
+import { formatDate } from "pliny/utils/formatDate"
+import NewsletterForm from "pliny/ui/NewsletterForm"
+import Hero from "@/components/Hero"
+import ListLayout from "@/layouts/ListLayout"
 
 const MAX_DISPLAY = 5
 const POSTS_PER_PAGE = 6

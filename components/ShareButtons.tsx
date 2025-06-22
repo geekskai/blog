@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import {
   FacebookIcon,
   FacebookShareButton,
@@ -12,12 +12,12 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
   XIcon,
-} from 'react-share'
-import siteMetadata from '@/data/siteMetadata'
+} from "react-share"
+import siteMetadata from "@/data/siteMetadata"
 
-const shareUrl = typeof window !== 'undefined' ? window.location?.href : siteMetadata.siteUrl
+const shareUrl = typeof window !== "undefined" ? window.location?.href : siteMetadata.siteUrl
 
-const title = typeof document !== 'undefined' ? document.title : siteMetadata.title
+const title = typeof document !== "undefined" ? document.title : siteMetadata.title
 
 const ReactShare = [
   <FacebookShareButton key="facebook" url={shareUrl} title={title}>

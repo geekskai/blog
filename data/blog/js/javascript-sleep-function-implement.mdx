@@ -1,39 +1,40 @@
 ---
 title: "JavaScript Sleep Functions: The Developer's Guide to Async Delays That Actually Work"
-date: '2024-12-30'
-lastmod: '2025-06-02'
-tags: ['javascript', 'async', 'promises', 'setTimeout', 'programming', 'performance', 'web development']
+date: "2024-12-30"
+lastmod: "2025-06-02"
+tags:
+  ["javascript", "async", "promises", "setTimeout", "programming", "performance", "web development"]
 draft: false
-summary: 'Learn how to implement JavaScript sleep functions the right way. Master async delays, avoid common pitfalls, and build responsive applications with expert-level techniques and real-world examples.'
-layout: 'PostLayout'
-images: '/static/images/blog/js/javascript-sleep-function-implement.webp'
-canonicalUrl: 'https://geekskai.com/blog/js/javascript-sleep-function-implement/'
-author: 'GeeksKai Development Team'
-expertise: 'JavaScript Development & Performance Optimization'
+summary: "Learn how to implement JavaScript sleep functions the right way. Master async delays, avoid common pitfalls, and build responsive applications with expert-level techniques and real-world examples."
+layout: "PostLayout"
+images: "/static/images/blog/js/javascript-sleep-function-implement.webp"
+canonicalUrl: "https://geekskai.com/blog/js/javascript-sleep-function-implement/"
+author: "GeeksKai Development Team"
+expertise: "JavaScript Development & Performance Optimization"
 faqs:
   [
     {
       question: "Why doesn't JavaScript have a built-in sleep function?",
-      answer: 'JavaScript is designed to be non-blocking to maintain UI responsiveness. A synchronous sleep function would freeze the browser, making web pages unresponsive. Instead, JavaScript uses asynchronous patterns with setTimeout and Promises to achieve delays without blocking the main thread.'
+      answer: "JavaScript is designed to be non-blocking to maintain UI responsiveness. A synchronous sleep function would freeze the browser, making web pages unresponsive. Instead, JavaScript uses asynchronous patterns with setTimeout and Promises to achieve delays without blocking the main thread.",
     },
     {
       question: "What's the difference between setTimeout and a custom sleep function?",
-      answer: "setTimeout schedules code execution after a delay but doesn't pause subsequent code. A custom sleep function using Promises and async/await allows you to pause execution within async functions while keeping the main thread responsive."
+      answer: "setTimeout schedules code execution after a delay but doesn't pause subsequent code. A custom sleep function using Promises and async/await allows you to pause execution within async functions while keeping the main thread responsive.",
     },
     {
-      question: 'Can I use sleep functions in production applications?',
-      answer: 'Yes, when implemented correctly using async/await patterns. However, avoid overuse as excessive delays can impact user experience. Use sleep functions for rate limiting, animation timing, polling intervals, and testing scenarios.'
+      question: "Can I use sleep functions in production applications?",
+      answer: "Yes, when implemented correctly using async/await patterns. However, avoid overuse as excessive delays can impact user experience. Use sleep functions for rate limiting, animation timing, polling intervals, and testing scenarios.",
     },
     {
-      question: 'How do JavaScript sleep functions affect performance?',
-      answer: "Properly implemented async sleep functions don't block the main thread, so they don't directly impact performance. However, they can affect perceived performance if overused. Always consider alternatives like requestAnimationFrame for animations or debouncing for user input."
-    }
+      question: "How do JavaScript sleep functions affect performance?",
+      answer: "Properly implemented async sleep functions don't block the main thread, so they don't directly impact performance. However, they can affect perceived performance if overused. Always consider alternatives like requestAnimationFrame for animations or debouncing for user input.",
+    },
   ]
 ---
 
 ![JavaScript Sleep Function Implementation](/static/images/blog/js/javascript-sleep-function-implement.webp)
 
-*Ever wondered why JavaScript doesn't have a simple `sleep()` function like Python? There's actually a brilliant reason behind it — and once you understand it, you'll write better async code.*
+_Ever wondered why JavaScript doesn't have a simple `sleep()` function like Python? There's actually a brilliant reason behind it — and once you understand it, you'll write better async code._
 
 ## Why JavaScript Ditched the Traditional Sleep Function
 
@@ -60,14 +61,14 @@ This architecture is why modern web apps feel smooth and interactive, even when 
 
 ```javascript
 function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 // Usage that feels natural
 async function delayedGreeting() {
-    console.log('Starting...');
-    await sleep(2000); // 2-second pause
-    console.log('Hello after delay!');
+  console.log("Starting...")
+  await sleep(2000) // 2-second pause
+  console.log("Hello after delay!")
 }
 ```
 
@@ -79,28 +80,28 @@ For production code, you'll want something more robust:
 
 ```javascript
 function robustSleep(ms) {
-    return new Promise((resolve, reject) => {
-        if (typeof ms !== 'number' || ms < 0) {
-            reject(new Error('Sleep duration must be a positive number'));
-            return;
-        }
-        
-        const startTime = performance.now();
-        setTimeout(() => {
-            const actualDelay = performance.now() - startTime;
-            resolve(actualDelay);
-        }, ms);
-    });
+  return new Promise((resolve, reject) => {
+    if (typeof ms !== "number" || ms < 0) {
+      reject(new Error("Sleep duration must be a positive number"))
+      return
+    }
+
+    const startTime = performance.now()
+    setTimeout(() => {
+      const actualDelay = performance.now() - startTime
+      resolve(actualDelay)
+    }, ms)
+  })
 }
 
 // Now with bulletproof error handling
 async function safeDelay() {
-    try {
-        const actualTime = await robustSleep(1000);
-        console.log(`Actually delayed for ${actualTime.toFixed(2)}ms`);
-    } catch (error) {
-        console.error('Sleep failed:', error.message);
-    }
+  try {
+    const actualTime = await robustSleep(1000)
+    console.log(`Actually delayed for ${actualTime.toFixed(2)}ms`)
+  } catch (error) {
+    console.error("Sleep failed:", error.message)
+  }
 }
 ```
 
@@ -110,36 +111,36 @@ Sometimes you need to cancel a delay mid-flight:
 
 ```javascript
 function cancelableSleep(ms) {
-    let timeoutId;
-    let rejectFn;
-    
-    const promise = new Promise((resolve, reject) => {
-        rejectFn = reject;
-        timeoutId = setTimeout(resolve, ms);
-    });
-    
-    return {
-        promise,
-        cancel: () => {
-            clearTimeout(timeoutId);
-            rejectFn(new Error('Sleep cancelled'));
-        }
-    };
+  let timeoutId
+  let rejectFn
+
+  const promise = new Promise((resolve, reject) => {
+    rejectFn = reject
+    timeoutId = setTimeout(resolve, ms)
+  })
+
+  return {
+    promise,
+    cancel: () => {
+      clearTimeout(timeoutId)
+      rejectFn(new Error("Sleep cancelled"))
+    },
+  }
 }
 
 // Usage in components that might unmount
 async function cancellableOperation() {
-    const sleepOp = cancelableSleep(5000);
-    
-    // Cancel if component unmounts
-    window.addEventListener('beforeunload', () => sleepOp.cancel());
-    
-    try {
-        await sleepOp.promise;
-        console.log('Operation completed');
-    } catch (error) {
-        console.log('Operation was cancelled');
-    }
+  const sleepOp = cancelableSleep(5000)
+
+  // Cancel if component unmounts
+  window.addEventListener("beforeunload", () => sleepOp.cancel())
+
+  try {
+    await sleepOp.promise
+    console.log("Operation completed")
+  } catch (error) {
+    console.log("Operation was cancelled")
+  }
 }
 ```
 
@@ -149,22 +150,22 @@ async function cancellableOperation() {
 
 ```javascript
 class RateLimitedClient {
-    constructor(requestsPerSecond = 5) {
-        this.delay = 1000 / requestsPerSecond;
-        this.lastRequest = 0;
+  constructor(requestsPerSecond = 5) {
+    this.delay = 1000 / requestsPerSecond
+    this.lastRequest = 0
+  }
+
+  async makeRequest(url) {
+    const now = Date.now()
+    const timeSinceLastRequest = now - this.lastRequest
+
+    if (timeSinceLastRequest < this.delay) {
+      await sleep(this.delay - timeSinceLastRequest)
     }
-    
-    async makeRequest(url) {
-        const now = Date.now();
-        const timeSinceLastRequest = now - this.lastRequest;
-        
-        if (timeSinceLastRequest < this.delay) {
-            await sleep(this.delay - timeSinceLastRequest);
-        }
-        
-        this.lastRequest = Date.now();
-        return fetch(url);
-    }
+
+    this.lastRequest = Date.now()
+    return fetch(url)
+  }
 }
 ```
 
@@ -174,14 +175,14 @@ This pattern prevents you from hitting API rate limits while keeping your code c
 
 ```javascript
 async function smoothSlide(element, distance, duration) {
-    const steps = 60; // 60 FPS
-    const stepDistance = distance / steps;
-    const stepDuration = duration / steps;
-    
-    for (let i = 0; i < steps; i++) {
-        element.style.transform = `translateX(${stepDistance * i}px)`;
-        await sleep(stepDuration);
-    }
+  const steps = 60 // 60 FPS
+  const stepDistance = distance / steps
+  const stepDuration = duration / steps
+
+  for (let i = 0; i < steps; i++) {
+    element.style.transform = `translateX(${stepDistance * i}px)`
+    await sleep(stepDuration)
+  }
 }
 ```
 
@@ -189,27 +190,27 @@ async function smoothSlide(element, distance, duration) {
 
 ```javascript
 class TestingUtils {
-    static async simulateNetworkDelay(min = 100, max = 500) {
-        const delay = Math.random() * (max - min) + min;
-        console.log(`Simulating network delay: ${delay.toFixed(0)}ms`);
-        await sleep(delay);
+  static async simulateNetworkDelay(min = 100, max = 500) {
+    const delay = Math.random() * (max - min) + min
+    console.log(`Simulating network delay: ${delay.toFixed(0)}ms`)
+    await sleep(delay)
+  }
+
+  static async runPerformanceTest(testFn, iterations = 100) {
+    const results = []
+
+    for (let i = 0; i < iterations; i++) {
+      const start = performance.now()
+      await testFn()
+      const duration = performance.now() - start
+      results.push(duration)
+
+      await sleep(10) // Prevent overwhelming the system
     }
-    
-    static async runPerformanceTest(testFn, iterations = 100) {
-        const results = [];
-        
-        for (let i = 0; i < iterations; i++) {
-            const start = performance.now();
-            await testFn();
-            const duration = performance.now() - start;
-            results.push(duration);
-            
-            await sleep(10); // Prevent overwhelming the system
-        }
-        
-        const avg = results.reduce((a, b) => a + b) / results.length;
-        return { average: avg, results };
-    }
+
+    const avg = results.reduce((a, b) => a + b) / results.length
+    return { average: avg, results }
+  }
 }
 ```
 
@@ -222,23 +223,23 @@ Here's where things get interesting. Creating thousands of promises in tight loo
 ```javascript
 // ❌ Creates unnecessary promise overhead
 async function inefficientBatch() {
-    for (let i = 0; i < 1000; i++) {
-        await sleep(10); // New promise each iteration
-        processItem(i);
-    }
+  for (let i = 0; i < 1000; i++) {
+    await sleep(10) // New promise each iteration
+    processItem(i)
+  }
 }
 
 // ✅ Batch processing with controlled delays
 async function efficientBatch() {
-    const batchSize = 50;
-    for (let i = 0; i < 1000; i += batchSize) {
-        // Process batch
-        for (let j = i; j < Math.min(i + batchSize, 1000); j++) {
-            processItem(j);
-        }
-        // Single delay per batch
-        await sleep(100);
+  const batchSize = 50
+  for (let i = 0; i < 1000; i += batchSize) {
+    // Process batch
+    for (let j = i; j < Math.min(i + batchSize, 1000); j++) {
+      processItem(j)
     }
+    // Single delay per batch
+    await sleep(100)
+  }
 }
 ```
 
@@ -246,21 +247,21 @@ async function efficientBatch() {
 
 ```javascript
 function precisionSleep(ms) {
-    const startTime = performance.now();
-    
-    return new Promise(resolve => {
-        setTimeout(() => {
-            const endTime = performance.now();
-            const actualDelay = endTime - startTime;
-            const accuracy = ((ms - Math.abs(actualDelay - ms)) / ms) * 100;
-            
-            resolve({
-                requested: ms,
-                actual: actualDelay,
-                accuracy: accuracy.toFixed(2) + '%'
-            });
-        }, ms);
-    });
+  const startTime = performance.now()
+
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const endTime = performance.now()
+      const actualDelay = endTime - startTime
+      const accuracy = ((ms - Math.abs(actualDelay - ms)) / ms) * 100
+
+      resolve({
+        requested: ms,
+        actual: actualDelay,
+        accuracy: accuracy.toFixed(2) + "%",
+      })
+    }, ms)
+  })
 }
 ```
 
@@ -271,10 +272,10 @@ function precisionSleep(ms) {
 ```javascript
 // ❌ NEVER do this - it'll freeze everything
 function blockingSleep(ms) {
-    const start = Date.now();
-    while (Date.now() - start < ms) {
-        // This blocks the entire thread!
-    }
+  const start = Date.now()
+  while (Date.now() - start < ms) {
+    // This blocks the entire thread!
+  }
 }
 ```
 
@@ -285,33 +286,33 @@ This approach is like putting a brick wall in the middle of a highway. Don't do 
 ```javascript
 // ❌ Potential memory leak
 class BadSleepManager {
-    constructor() {
-        this.activeSleeps = [];
-    }
-    
-    async sleep(ms) {
-        const promise = new Promise(resolve => setTimeout(resolve, ms));
-        this.activeSleeps.push(promise); // Never cleaned up!
-        return promise;
-    }
+  constructor() {
+    this.activeSleeps = []
+  }
+
+  async sleep(ms) {
+    const promise = new Promise((resolve) => setTimeout(resolve, ms))
+    this.activeSleeps.push(promise) // Never cleaned up!
+    return promise
+  }
 }
 
 // ✅ Proper cleanup
 class GoodSleepManager {
-    constructor() {
-        this.activeSleeps = new Set();
-    }
-    
-    async sleep(ms) {
-        const promise = new Promise(resolve => setTimeout(resolve, ms));
-        this.activeSleeps.add(promise);
-        
-        promise.finally(() => {
-            this.activeSleeps.delete(promise);
-        });
-        
-        return promise;
-    }
+  constructor() {
+    this.activeSleeps = new Set()
+  }
+
+  async sleep(ms) {
+    const promise = new Promise((resolve) => setTimeout(resolve, ms))
+    this.activeSleeps.add(promise)
+
+    promise.finally(() => {
+      this.activeSleeps.delete(promise)
+    })
+
+    return promise
+  }
 }
 ```
 
@@ -321,36 +322,36 @@ class GoodSleepManager {
 
 ```javascript
 function universalSleep(ms) {
-    // Feature detection for older browsers
-    if (typeof Promise === 'undefined') {
-        return {
-            then: function(callback) {
-                setTimeout(callback, ms);
-                return this;
-            }
-        };
+  // Feature detection for older browsers
+  if (typeof Promise === "undefined") {
+    return {
+      then: function (callback) {
+        setTimeout(callback, ms)
+        return this
+      },
     }
-    
-    // Modern implementation with optimization
-    return new Promise(resolve => {
-        // Use requestAnimationFrame for sub-16ms delays
-        if (ms < 16 && typeof requestAnimationFrame !== 'undefined') {
-            requestAnimationFrame(resolve);
-        } else {
-            setTimeout(resolve, ms);
-        }
-    });
+  }
+
+  // Modern implementation with optimization
+  return new Promise((resolve) => {
+    // Use requestAnimationFrame for sub-16ms delays
+    if (ms < 16 && typeof requestAnimationFrame !== "undefined") {
+      requestAnimationFrame(resolve)
+    } else {
+      setTimeout(resolve, ms)
+    }
+  })
 }
 ```
 
 ### Environment-Specific Implementations
 
-| Environment | Best Practice | Reason |
-|-------------|---------------|---------|
-| Browser | `setTimeout` + `requestAnimationFrame` for animations | Optimized for UI responsiveness |
-| Node.js | `setTimeout` + `setImmediate` for zero delays | Better event loop integration |
-| Web Workers | Standard `setTimeout` | Isolated thread, blocking concerns don't apply |
-| React Native | `setTimeout` with InteractionManager | Respects native animation priorities |
+| Environment  | Best Practice                                         | Reason                                         |
+| ------------ | ----------------------------------------------------- | ---------------------------------------------- |
+| Browser      | `setTimeout` + `requestAnimationFrame` for animations | Optimized for UI responsiveness                |
+| Node.js      | `setTimeout` + `setImmediate` for zero delays         | Better event loop integration                  |
+| Web Workers  | Standard `setTimeout`                                 | Isolated thread, blocking concerns don't apply |
+| React Native | `setTimeout` with InteractionManager                  | Respects native animation priorities           |
 
 ## Production-Ready Implementation
 
@@ -366,67 +367,67 @@ Here's a sleep function that's ready for real-world use:
  * @returns {Promise<void>} Promise that resolves after delay
  */
 async function productionSleep(ms, options = {}) {
-    const { signal, precise = false, maxDelay = 300000 } = options;
-    
-    // Input validation
-    if (typeof ms !== 'number' || ms < 0 || ms > maxDelay) {
-        throw new Error(`Delay must be between 0 and ${maxDelay}ms`);
+  const { signal, precise = false, maxDelay = 300000 } = options
+
+  // Input validation
+  if (typeof ms !== "number" || ms < 0 || ms > maxDelay) {
+    throw new Error(`Delay must be between 0 and ${maxDelay}ms`)
+  }
+
+  // Check for immediate cancellation
+  if (signal?.aborted) {
+    throw new Error("Operation was aborted")
+  }
+
+  return new Promise((resolve, reject) => {
+    let timeoutId
+    const startTime = precise ? performance.now() : null
+
+    const cleanup = () => {
+      if (signal) {
+        signal.removeEventListener("abort", abortHandler)
+      }
     }
-    
-    // Check for immediate cancellation
-    if (signal?.aborted) {
-        throw new Error('Operation was aborted');
+
+    const abortHandler = () => {
+      clearTimeout(timeoutId)
+      cleanup()
+      reject(new Error("Operation was aborted"))
     }
-    
-    return new Promise((resolve, reject) => {
-        let timeoutId;
-        const startTime = precise ? performance.now() : null;
-        
-        const cleanup = () => {
-            if (signal) {
-                signal.removeEventListener('abort', abortHandler);
-            }
-        };
-        
-        const abortHandler = () => {
-            clearTimeout(timeoutId);
-            cleanup();
-            reject(new Error('Operation was aborted'));
-        };
-        
-        if (signal) {
-            signal.addEventListener('abort', abortHandler);
-        }
-        
-        timeoutId = setTimeout(() => {
-            cleanup();
-            
-            if (precise) {
-                const actualDelay = performance.now() - startTime;
-                console.debug(`Sleep completed: ${actualDelay.toFixed(2)}ms`);
-            }
-            
-            resolve();
-        }, ms);
-    });
+
+    if (signal) {
+      signal.addEventListener("abort", abortHandler)
+    }
+
+    timeoutId = setTimeout(() => {
+      cleanup()
+
+      if (precise) {
+        const actualDelay = performance.now() - startTime
+        console.debug(`Sleep completed: ${actualDelay.toFixed(2)}ms`)
+      }
+
+      resolve()
+    }, ms)
+  })
 }
 
 // Usage with AbortController
 async function cancellableExample() {
-    const controller = new AbortController();
-    
-    // Cancel after 2 seconds
-    setTimeout(() => controller.abort(), 2000);
-    
-    try {
-        await productionSleep(5000, { 
-            signal: controller.signal,
-            precise: true 
-        });
-        console.log('Sleep completed');
-    } catch (error) {
-        console.log('Sleep was cancelled:', error.message);
-    }
+  const controller = new AbortController()
+
+  // Cancel after 2 seconds
+  setTimeout(() => controller.abort(), 2000)
+
+  try {
+    await productionSleep(5000, {
+      signal: controller.signal,
+      precise: true,
+    })
+    console.log("Sleep completed")
+  } catch (error) {
+    console.log("Sleep was cancelled:", error.message)
+  }
 }
 ```
 
@@ -436,18 +437,18 @@ async function cancellableExample() {
 
 ```javascript
 function useSleep() {
-    const [isSleeping, setIsSleeping] = useState(false);
-    
-    const sleep = useCallback(async (ms) => {
-        setIsSleeping(true);
-        try {
-            await productionSleep(ms);
-        } finally {
-            setIsSleeping(false);
-        }
-    }, []);
-    
-    return { sleep, isSleeping };
+  const [isSleeping, setIsSleeping] = useState(false)
+
+  const sleep = useCallback(async (ms) => {
+    setIsSleeping(true)
+    try {
+      await productionSleep(ms)
+    } finally {
+      setIsSleeping(false)
+    }
+  }, [])
+
+  return { sleep, isSleeping }
 }
 ```
 
@@ -455,18 +456,18 @@ function useSleep() {
 
 ```javascript
 function useSleep() {
-    const isSleeping = ref(false);
-    
-    const sleep = async (ms) => {
-        isSleeping.value = true;
-        try {
-            await productionSleep(ms);
-        } finally {
-            isSleeping.value = false;
-        }
-    };
-    
-    return { sleep, isSleeping: readonly(isSleeping) };
+  const isSleeping = ref(false)
+
+  const sleep = async (ms) => {
+    isSleeping.value = true
+    try {
+      await productionSleep(ms)
+    } finally {
+      isSleeping.value = false
+    }
+  }
+
+  return { sleep, isSleeping: readonly(isSleeping) }
 }
 ```
 
@@ -474,17 +475,17 @@ function useSleep() {
 
 Sometimes the best sleep function is no sleep function at all. Consider these alternatives:
 
-| Instead of Sleep | Use This | Why |
-|------------------|----------|-----|
-| Polling APIs | WebSockets or Server-Sent Events | Real-time updates without delays |
-| Animation delays | CSS transitions or `requestAnimationFrame` | Hardware-accelerated, smoother |
-| User input debouncing | Debounce utilities | More responsive, cancellable |
-| Loading states | Skeleton screens or progressive loading | Better perceived performance |
-| Retry logic | Exponential backoff libraries | More sophisticated error handling |
+| Instead of Sleep      | Use This                                   | Why                               |
+| --------------------- | ------------------------------------------ | --------------------------------- |
+| Polling APIs          | WebSockets or Server-Sent Events           | Real-time updates without delays  |
+| Animation delays      | CSS transitions or `requestAnimationFrame` | Hardware-accelerated, smoother    |
+| User input debouncing | Debounce utilities                         | More responsive, cancellable      |
+| Loading states        | Skeleton screens or progressive loading    | Better perceived performance      |
+| Retry logic           | Exponential backoff libraries              | More sophisticated error handling |
 
 ## Expert Insights and Industry Best Practices
 
-According to **Google's Web Performance Team**, delays over 100ms start to feel sluggish to users. **Jake Archibald**, a Google Developer Advocate, notes: *"The best sleep function is often no sleep function at all. Consider whether you really need a delay, or if there's a more event-driven approach."*
+According to **Google's Web Performance Team**, delays over 100ms start to feel sluggish to users. **Jake Archibald**, a Google Developer Advocate, notes: _"The best sleep function is often no sleep function at all. Consider whether you really need a delay, or if there's a more event-driven approach."_
 
 ### Performance Guidelines from the Pros
 
@@ -509,36 +510,45 @@ Based on industry standards from companies like Google, Facebook, and Netflix:
 
 ```javascript
 class WorkerSleep {
-    constructor() {
-        this.worker = new Worker(URL.createObjectURL(new Blob([`
+  constructor() {
+    this.worker = new Worker(
+      URL.createObjectURL(
+        new Blob(
+          [
+            `
             self.onmessage = function(e) {
                 const { id, delay } = e.data;
                 setTimeout(() => {
                     self.postMessage({ id, completed: true });
                 }, delay);
             };
-        `], { type: 'application/javascript' })));
-        
-        this.pendingPromises = new Map();
-        this.messageId = 0;
-        
-        this.worker.onmessage = (e) => {
-            const { id } = e.data;
-            const resolve = this.pendingPromises.get(id);
-            if (resolve) {
-                resolve();
-                this.pendingPromises.delete(id);
-            }
-        };
+        `,
+          ],
+          { type: "application/javascript" }
+        )
+      )
+    )
+
+    this.pendingPromises = new Map()
+    this.messageId = 0
+
+    this.worker.onmessage = (e) => {
+      const { id } = e.data
+      const resolve = this.pendingPromises.get(id)
+      if (resolve) {
+        resolve()
+        this.pendingPromises.delete(id)
+      }
     }
-    
-    sleep(ms) {
-        return new Promise(resolve => {
-            const id = ++this.messageId;
-            this.pendingPromises.set(id, resolve);
-            this.worker.postMessage({ id, delay: ms });
-        });
-    }
+  }
+
+  sleep(ms) {
+    return new Promise((resolve) => {
+      const id = ++this.messageId
+      this.pendingPromises.set(id, resolve)
+      this.worker.postMessage({ id, delay: ms })
+    })
+  }
 }
 ```
 
@@ -558,4 +568,4 @@ Whether you're building the next viral app or just trying to make your code more
 
 ---
 
-*Ready to level up your JavaScript game? Check out the [MDN Promise documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and Google's [Web Fundamentals guide](https://developers.google.com/web/fundamentals/performance) for more advanced async patterns.*
+_Ready to level up your JavaScript game? Check out the [MDN Promise documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and Google's [Web Fundamentals guide](https://developers.google.com/web/fundamentals/performance) for more advanced async patterns._

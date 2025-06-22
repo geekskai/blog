@@ -1,75 +1,75 @@
-'use client'
+"use client"
 // import { motion } from 'framer-motion'
 // import Link from 'next/link'
-import Link from './Link'
-import siteMetadata from '@/data/siteMetadata'
+import Link from "./Link"
+import siteMetadata from "@/data/siteMetadata"
 
 // import { skillsData } from '@/utils/data/skills'
-import { skillsImage } from '@/utils/skill-image'
+import { skillsImage } from "@/utils/skill-image"
 // import Image from 'next/image'
-import Marquee from 'react-fast-marquee'
+import Marquee from "react-fast-marquee"
 
-import { ReactElement, useEffect } from 'react'
-import { renderCanvas } from './renderCanvas'
-import Github from './Github'
-import { allAuthors, Authors } from 'contentlayer/generated'
-import { coreContent } from 'pliny/utils/contentlayer'
+import { ReactElement, useEffect } from "react"
+import { renderCanvas } from "./renderCanvas"
+import Github from "./Github"
+import { allAuthors, Authors } from "contentlayer/generated"
+import { coreContent } from "pliny/utils/contentlayer"
 
 // import Link from 'next/link'
-import { BsGithub, BsLinkedin } from 'react-icons/bs'
-import { FaFacebook, FaTwitterSquare } from 'react-icons/fa'
-import { MdDownload } from 'react-icons/md'
-import { RiContactsFill } from 'react-icons/ri'
-import { SiLeetcode } from 'react-icons/si'
+import { BsGithub, BsLinkedin } from "react-icons/bs"
+import { FaFacebook, FaTwitterSquare } from "react-icons/fa"
+import { MdDownload } from "react-icons/md"
+import { RiContactsFill } from "react-icons/ri"
+import { SiLeetcode } from "react-icons/si"
 
 // import { experiences } from '@/utils/data/experience'
-import Image from 'next/image'
-import { BsPersonWorkspace } from 'react-icons/bs'
-import experience from '../app/assets/lottie/code.json'
-import AnimationLottie from './helper/animation-lottie'
-import GlowCard from './helper/glow-card'
+import Image from "next/image"
+import { BsPersonWorkspace } from "react-icons/bs"
+import experience from "../app/assets/lottie/code.json"
+import AnimationLottie from "./helper/animation-lottie"
+import GlowCard from "./helper/glow-card"
 
 const skillsData = [
-  'HTML',
-  'CSS',
-  'Javascript',
-  'Typescript',
-  'React',
-  'Next JS',
-  'Tailwind',
-  'MongoDB',
-  'MySQL',
-  'PostgreSQL',
-  'Git',
-  'AWS',
-  'Bootstrap',
-  'Docker',
-  'Go',
-  'Figma',
-  'Firebase',
-  'MaterialUI',
-  'Nginx',
-  'Strapi',
+  "HTML",
+  "CSS",
+  "Javascript",
+  "Typescript",
+  "React",
+  "Next JS",
+  "Tailwind",
+  "MongoDB",
+  "MySQL",
+  "PostgreSQL",
+  "Git",
+  "AWS",
+  "Bootstrap",
+  "Docker",
+  "Go",
+  "Figma",
+  "Firebase",
+  "MaterialUI",
+  "Nginx",
+  "Strapi",
 ]
 
 export const experiences = [
   {
     id: 1,
-    title: 'Software Engineer I',
-    company: 'Teton Private Ltd.',
-    duration: '(Jan 2022 - Present)',
+    title: "Software Engineer I",
+    company: "Teton Private Ltd.",
+    duration: "(Jan 2022 - Present)",
   },
   {
     id: 2,
-    title: 'FullStack Developer',
-    company: 'Fiverr (freelance)',
-    duration: '(Jun 2021 - Jan 2022)',
+    title: "FullStack Developer",
+    company: "Fiverr (freelance)",
+    duration: "(Jun 2021 - Jan 2022)",
   },
   {
     id: 3,
-    title: 'Self Employed',
-    company: 'Code and build something in everyday.',
-    duration: '(Jan 2018 - Present)',
+    title: "Self Employed",
+    company: "Code and build something in everyday.",
+    duration: "(Jan 2018 - Present)",
   },
 ]
 
@@ -102,14 +102,14 @@ function HeroSection() {
               <BsGithub size={30} />
             </Link>
             <Link
-              href={siteMetadata.linkedin || ''}
+              href={siteMetadata.linkedin || ""}
               target="_blank"
               className="text-pink-500 transition-all duration-300 hover:scale-125"
             >
               <BsLinkedin size={30} />
             </Link>
             <Link
-              href={siteMetadata.facebook || ''}
+              href={siteMetadata.facebook || ""}
               target="_blank"
               className="text-pink-500 transition-all duration-300 hover:scale-125"
             >
@@ -123,7 +123,7 @@ function HeroSection() {
               <SiLeetcode size={30} />
             </Link>
             <Link
-              href={siteMetadata.x || ''}
+              href={siteMetadata.x || ""}
               target="_blank"
               className="text-pink-500 transition-all duration-300 hover:scale-125"
             >
@@ -171,7 +171,7 @@ function HeroSection() {
                 <span className="mr-2 text-pink-500">const</span>
                 <span className="mr-2 text-white">coder</span>
                 <span className="mr-2 text-pink-500">=</span>
-                <span className="text-gray-400">{'{'}</span>
+                <span className="text-gray-400">{"{"}</span>
               </div>
               <div>
                 <span className="ml-4 mr-2 text-white lg:ml-8">name:</span>
@@ -219,7 +219,7 @@ function HeroSection() {
               <div>
                 <span className="ml-4 mr-2 text-green-400 lg:ml-8">hireable:</span>
                 <span className="text-orange-400">function</span>
-                <span className="text-gray-400">{'() {'}</span>
+                <span className="text-gray-400">{"() {"}</span>
               </div>
               <div>
                 <span className="ml-8 mr-2 text-orange-400 lg:ml-16">return</span>
@@ -421,7 +421,7 @@ function Skills() {
 }
 
 export default function Hero(): ReactElement {
-  const author = allAuthors.find((p) => p.slug === 'default') as Authors
+  const author = allAuthors.find((p) => p.slug === "default") as Authors
   const { name, occupation } = coreContent(author)
 
   useEffect(() => {

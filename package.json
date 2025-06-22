@@ -7,6 +7,7 @@
     "start": "next dev",
     "build": "cross-env INIT_CWD=$PWD next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
     "serve": "next start",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,mdx}\"",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
     "prepare": "husky"

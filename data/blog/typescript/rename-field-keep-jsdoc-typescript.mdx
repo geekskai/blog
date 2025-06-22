@@ -1,28 +1,27 @@
 ---
-title: 'TypeScript Tips: Rename Fields and Preserve JSDoc'
-date: '2024-09-22'
-lastmod: '2024-09-22'
-tags: ['typescript', 'refactoring', 'jsdoc', 'code maintenance', 'programming']
+title: "TypeScript Tips: Rename Fields and Preserve JSDoc"
+date: "2024-09-22"
+lastmod: "2024-09-22"
+tags: ["typescript", "refactoring", "jsdoc", "code maintenance", "programming"]
 draft: false
-images: '/static/images/blog/js/image.png'
-summary: 'Learn effective techniques to rename fields in TypeScript while maintaining valuable JSDoc comments, ensuring code clarity and preserving documentation integrity.'
-layout: 'PostLayout'
-canonicalUrl: 'https://geekskai.com/blog/typescript/rename-field-keep-jsdoc-typescript/'
+images: "/static/images/blog/js/image.png"
+summary: "Learn effective techniques to rename fields in TypeScript while maintaining valuable JSDoc comments, ensuring code clarity and preserving documentation integrity."
+layout: "PostLayout"
+canonicalUrl: "https://geekskai.com/blog/typescript/rename-field-keep-jsdoc-typescript/"
 ---
 
 When refactoring TypeScript code, developers often need to rename fields while preserving the associated JSDoc comments. This process can be challenging, as TypeScript doesn't provide a built-in mechanism to automatically transfer JSDoc comments during field renaming. In this article, we'll explore several approaches to tackle this issue, ensuring that your code remains well-documented even after refactoring.
-## The Challenge of Renaming Fields with JSDoc
 
+## The Challenge of Renaming Fields with JSDoc
 
 Consider the following TypeScript interface with JSDoc comments:
 
 ```typescript
-
 interface Person {
   /** The person's first name */
-  firstName: string;
+  firstName: string
   /** The person's last name */
-  lastName: string;
+  lastName: string
 }
 ```
 
@@ -31,20 +30,19 @@ If we want to rename firstName to givenName, we'd like to preserve the JSDoc com
 ### Approaches to Preserve JSDoc Comments
 
 #### 1. Manual Duplication
+
 The simplest, albeit tedious, approach is to manually copy the JSDoc comment when renaming a field:
 
 ```typescript
 interface Person {
   /** The person's first name */
-  givenName: string;
+  givenName: string
   /** The person's last name */
-  lastName: string;
+  lastName: string
 }
-
 ```
 
 While this method works, it's prone to human error and can be time-consuming for large codebases.
-
 
 #### 2. Using @see Annotation
 
@@ -53,11 +51,12 @@ A more elegant solution involves using the @see JSDoc annotation to reference th
 ```typescript
 interface Person {
   /** @see Person.firstName */
-  givenName: string;
+  givenName: string
   /** The person's last name */
-  lastName: string;
+  lastName: string
 }
 ```
+
 This approach maintains a link to the original documentation, allowing developers to easily trace the field's history.
 
 #### 3. Leveraging TypeScript's Pick and Mapped Types
@@ -65,9 +64,9 @@ This approach maintains a link to the original documentation, allowing developer
 In some cases, using TypeScript's Pick or other homomorphic mapped types can preserve JSDoc comments:
 
 ```typescript
-type PersonWithGivenName = Pick<Person, 'lastName'> & {
-  givenName: Person['firstName'];
-};
+type PersonWithGivenName = Pick<Person, "lastName"> & {
+  givenName: Person["firstName"]
+}
 ```
 
 This method works well when you're creating new types based on existing ones, but it doesn't directly solve the renaming issue within the same interface.
@@ -84,20 +83,19 @@ For large-scale refactoring, consider developing custom tooling to automatically
 4. IDE Support: Leverage IDE features that support JSDoc. Many modern IDEs can display JSDoc comments even for renamed fields if properly referenced.
 
 #### Future Improvements
+
 The TypeScript team is aware of the challenges surrounding JSDoc preservation during refactoring. There's an open issue (microsoft/TypeScript#50715) discussing potential improvements for preserving JSDoc comments in mapped types. Keep an eye on future TypeScript releases for possible enhancements in this area.
 
-
 ### Conclusion
+
 While renaming fields in TypeScript while preserving JSDoc comments isn't straightforward, several workable solutions exist. By employing techniques like the @see annotation, leveraging TypeScript's type system, or developing custom tooling, developers can maintain valuable documentation during refactoring processes. As the TypeScript ecosystem evolves, we can hope for more native support for these operations in the future.
 Remember, clear and up-to-date documentation is crucial for maintaining large codebases. Taking the time to properly handle JSDoc comments during refactoring will pay dividends in code clarity and maintainability in the long run.
-
 
 1. **Code Readability**: JSDoc provides crucial context, helping other developers understand the code's purpose and behavior.
 2. **Documentation Accuracy**: Updating field names without updating related documentation can lead to confusion and errors.
 3. **Tool and IDE Support**: Many IDEs and tools rely on JSDoc for intelligent suggestions and type inference.
 
 According to the [official TypeScript documentation](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html), JSDoc comments play a significant role in type checking and code analysis.
-
 
 ## References
 

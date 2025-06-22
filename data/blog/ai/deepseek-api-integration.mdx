@@ -1,13 +1,13 @@
 ---
-title: 'DeepSeek API Integration: Mastering the Process'
-date: '2025-02-05'
-lastmod: '2025-02-05'
-tags: ['api', 'deepseek', 'ai', 'integration', 'development']
+title: "DeepSeek API Integration: Mastering the Process"
+date: "2025-02-05"
+lastmod: "2025-02-05"
+tags: ["api", "deepseek", "ai", "integration", "development"]
 draft: false
-images: '/static/images/blog/ai/deepseek-api.jpg'
-summary: 'A comprehensive guide to integrating DeepSeek API for seamless data retrieval and AI model implementation. Learn step-by-step integration processes and best practices.'
-layout: 'PostLayout'
-canonicalUrl: 'https://geekskai.com/blog/api/deepseek-api-integration/'
+images: "/static/images/blog/ai/deepseek-api.jpg"
+summary: "A comprehensive guide to integrating DeepSeek API for seamless data retrieval and AI model implementation. Learn step-by-step integration processes and best practices."
+layout: "PostLayout"
+canonicalUrl: "https://geekskai.com/blog/api/deepseek-api-integration/"
 ---
 
 {/* # Mastering DeepSeek API Integration */}
@@ -43,19 +43,19 @@ def make_deepseek_request(api_key, prompt):
         'Authorization': f'Bearer {api_key}',
         'Content-Type': 'application/json'
     }
-    
+
     data = {
         'model': 'deepseek-r1',
         'messages': [{'role': 'user', 'content': prompt}],
         'stream': False
     }
-    
+
     response = requests.post(
         'https://api.deepseek.ai/v1/chat/completions',
         headers=headers,
         json=data
     )
-    
+
     return response.json()
 ```
 
@@ -65,13 +65,13 @@ One great thing about the DeepSeek API is its wide range of features. It allows 
 
 ### Configuration Parameters
 
-| Parameter | Description |
-|-----------|-------------|
-| `base_url` | DeepSeek API endpoint URL |
-| `api_key` | Your unique DeepSeek API key |
-| `model` | Specifies the DeepSeek model you want to use |
-| `messages` | An array of messages comprising the conversation history |
-| `stream` | Controls whether to receive a stream of responses(True/False) |
+| Parameter  | Description                                                   |
+| ---------- | ------------------------------------------------------------- |
+| `base_url` | DeepSeek API endpoint URL                                     |
+| `api_key`  | Your unique DeepSeek API key                                  |
+| `model`    | Specifies the DeepSeek model you want to use                  |
+| `messages` | An array of messages comprising the conversation history      |
+| `stream`   | Controls whether to receive a stream of responses(True/False) |
 
 ### How DeepSeek API Enhances AI Applications
 
@@ -88,20 +88,20 @@ def stream_deepseek_response(api_key, prompt):
         'Content-Type': 'application/json',
         'Accept': 'text/event-stream'
     }
-    
+
     data = {
         'model': 'deepseek-r1',
         'messages': [{'role': 'user', 'content': prompt}],
         'stream': True
     }
-    
+
     response = requests.post(
         'https://api.deepseek.ai/v1/chat/completions',
         headers=headers,
         json=data,
         stream=True
     )
-    
+
     client = sseclient.SSEClient(response)
     for event in client.events():
         yield event.data
@@ -153,6 +153,7 @@ def handle_deepseek_request(api_key, prompt):
 ### Common Issues and Solutions
 
 1. **Invalid API Key**
+
    - Check API key format
    - Verify key hasn't expired
    - Ensure proper key permissions

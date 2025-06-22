@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import Lottie from 'lottie-react'
+import Lottie from "lottie-react"
 
-const AnimationLottie = ({ animationPath, width = '95%' }) => {
+const AnimationLottie = ({ animationPath, width = "95%" }) => {
   const defaultOptions = {
     loop: true,
     autoplay: true,

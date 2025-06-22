@@ -2,42 +2,54 @@
 title: "Ultimate Cursor AI IDE Guide: Team Collaboration & Best Practices 2025"
 date: "2025-05-24"
 lastmod: "2025-05-24"
-tags: ["Cursor", "AI", "IDE", "Development", "Productivity", "Team Collaboration", "AI-Powered Development", "Code Editor", "Enterprise"]
+tags:
+  [
+    "Cursor",
+    "AI",
+    "IDE",
+    "Development",
+    "Productivity",
+    "Team Collaboration",
+    "AI-Powered Development",
+    "Code Editor",
+    "Enterprise",
+  ]
 draft: false
 images: "/static/images/ai/cursor-ide-tutorial-ai-powered-development-best-practices.png"
 summary: "Comprehensive guide to Cursor AI IDE covering installation, configuration, team collaboration, advanced features, and best practices for AI-powered development in 2025."
 layout: "PostLayout"
 canonicalUrl: "https://geekskai.com/blog/ai/cursor-ide-tutorial-ai-powered-development-best-practices/"
-faqs: [
-  {
-    question: "What is Cursor AI IDE and how does it differ from VS Code?",
-    answer: "Cursor is an AI-first code editor built on Visual Studio Code that adds powerful AI features like context-aware code completion, natural-language editing, and an integrated AI assistant while maintaining VS Code compatibility."
-  },
-  {
-    question: "Can I import my existing VS Code extensions and settings to Cursor?",
-    answer: "Yes, Cursor allows you to import your existing VS Code extensions, themes, and keybindings in one click, making the transition seamless."
-  },
-  {
-    question: "Is Cursor suitable for enterprise use and team collaboration?",
-    answer: "Absolutely. Cursor offers enterprise features including Privacy Mode, SOC 2 certification, SAML/OIDC single sign-on, team management tools, and analytics for measuring developer productivity."
-  },
-  {
-    question: "What are the key keyboard shortcuts for Cursor AI features?",
-    answer: "The main shortcuts are: Ctrl/Cmd+K for inline chat and natural language editing, Ctrl/Cmd+L for the AI chat panel, and Ctrl/Cmd+K in terminal for AI command generation."
-  },
-  {
-    question: "How does Cursor handle code privacy and security?",
-    answer: "Cursor offers Privacy Mode where no code is stored remotely, is SOC 2 certified, and supports enterprise security requirements with zero data retention options."
-  },
-  {
-    question: "What AI models does Cursor support?",
-    answer: "Cursor supports multiple AI models including Claude 3.5 Sonnet, GPT-4 Turbo, Gemini Pro, and offers auto-selection to choose the best model for each task."
-  },
-  {
-    question: "How do I set up MCP servers with Cursor?",
-    answer: "MCP servers are configured through .cursor/mcp.json files, allowing Cursor to integrate with external tools, databases, and APIs for enhanced functionality."
-  }
-]
+faqs:
+  [
+    {
+      question: "What is Cursor AI IDE and how does it differ from VS Code?",
+      answer: "Cursor is an AI-first code editor built on Visual Studio Code that adds powerful AI features like context-aware code completion, natural-language editing, and an integrated AI assistant while maintaining VS Code compatibility.",
+    },
+    {
+      question: "Can I import my existing VS Code extensions and settings to Cursor?",
+      answer: "Yes, Cursor allows you to import your existing VS Code extensions, themes, and keybindings in one click, making the transition seamless.",
+    },
+    {
+      question: "Is Cursor suitable for enterprise use and team collaboration?",
+      answer: "Absolutely. Cursor offers enterprise features including Privacy Mode, SOC 2 certification, SAML/OIDC single sign-on, team management tools, and analytics for measuring developer productivity.",
+    },
+    {
+      question: "What are the key keyboard shortcuts for Cursor AI features?",
+      answer: "The main shortcuts are: Ctrl/Cmd+K for inline chat and natural language editing, Ctrl/Cmd+L for the AI chat panel, and Ctrl/Cmd+K in terminal for AI command generation.",
+    },
+    {
+      question: "How does Cursor handle code privacy and security?",
+      answer: "Cursor offers Privacy Mode where no code is stored remotely, is SOC 2 certified, and supports enterprise security requirements with zero data retention options.",
+    },
+    {
+      question: "What AI models does Cursor support?",
+      answer: "Cursor supports multiple AI models including Claude 3.5 Sonnet, GPT-4 Turbo, Gemini Pro, and offers auto-selection to choose the best model for each task.",
+    },
+    {
+      question: "How do I set up MCP servers with Cursor?",
+      answer: "MCP servers are configured through .cursor/mcp.json files, allowing Cursor to integrate with external tools, databases, and APIs for enhanced functionality.",
+    },
+  ]
 ---
 
 ![Cursor AI IDE](/static/images/ai/cursor-ide-tutorial-ai-powered-development-best-practices.png)
@@ -48,15 +60,15 @@ Cursor is an AI-first code editor built on Visual Studio Code, designed to make 
 
 Cursor integrates a full suite of AI-powered development tools while preserving a familiar editor experience. Its key features include:
 
-* **Predictive Code Completion (Tab-Tab):** Cursor constantly predicts your next code edits. By pressing Tab, you can accept multi-line code completions or edits. The editor “breeze\[s] through changes by predicting your next edit” and learns from your context. This works across languages and frameworks, significantly speeding up coding and reducing repetitive typing.
-* **Natural-Language Editing (Ctrl+K):** You can use **Ctrl+K (Cmd+K)** to write or edit code via plain-English instructions. For example, select a code block and invoke Ctrl+K, then instruct Cursor to modify it. Or press Ctrl+K on an empty space to generate a new function by describing its behavior. This inline edit mode is like asking an AI teammate to make precise code changes for you.
-* **AI Chat Assistant (Ctrl+L):** The Chat panel provides a conversational AI assistant that “lives in your sidebar”. Open it with **Ctrl+L**, type a question or request, and the model will answer or perform edits. Cursor’s assistant can **understand code** (answer questions, explain functions) and **edit code** (make multi-file changes). It can even suggest terminal commands (e.g. “generate a curl command to …”) right in the CLI. Because Cursor “knows your codebase,” you can ask targeted questions about any file or symbol.
-* **Integrated Tools:** Cursor supports standard development workflows with built-in Git integration, debugging, and performance analysis. You can manage version control (commit, branch, review) from the IDE, debug with breakpoints and variable watches, and profile performance. It also includes a **terminal with AI** – pressing **Ctrl+K in the terminal** lets you type plain-English tasks, and Cursor generates the corresponding shell command (e.g. “open file README.md in Vim”).
-* **Codebase Indexing:** Cursor can index large repositories for fast search and context. You can use the `@` symbol or **Ctrl+Enter** in chat to query your codebase. For example, typing `@ModuleName` or `@code` inserts references to files or symbols into the conversation. This lets the AI assistant locate relevant code or docs instantly.
-* **Contextual Understanding:** Cursor maintains an AI context window that includes recent prompts, code, and file attachments. It “actively optimizes” this context by pruning irrelevant history. In practice, this means Cursor will keep the most important code snippets in memory while older chatter is dropped, so your AI queries stay on track.
-* **AI-Powered Documentation:** The editor can fetch and display documentation for libraries. You can reference popular libraries with `@LibraryName` or add custom docs via `@Docs`. Cursor also surfaces code examples and API snippets as you code.
-* **AI Refactoring and Error Detection:** Cursor continuously analyzes your code, highlighting errors and formatting issues in real time. It can automatically reformat code to maintain style consistency, and help with refactors. For instance, you might ask “rename function foo to calculateTotal” and Cursor will update all references.
-* **Security & Privacy:** Designed for enterprise use, Cursor offers features like **Privacy Mode**, which ensures code is never stored remotely. It is SOC 2 certified and supports SAML/OIDC single sign-on for corporate deployments. These capabilities make Cursor suitable for organizations concerned about code security and compliance.
+- **Predictive Code Completion (Tab-Tab):** Cursor constantly predicts your next code edits. By pressing Tab, you can accept multi-line code completions or edits. The editor “breeze\[s] through changes by predicting your next edit” and learns from your context. This works across languages and frameworks, significantly speeding up coding and reducing repetitive typing.
+- **Natural-Language Editing (Ctrl+K):** You can use **Ctrl+K (Cmd+K)** to write or edit code via plain-English instructions. For example, select a code block and invoke Ctrl+K, then instruct Cursor to modify it. Or press Ctrl+K on an empty space to generate a new function by describing its behavior. This inline edit mode is like asking an AI teammate to make precise code changes for you.
+- **AI Chat Assistant (Ctrl+L):** The Chat panel provides a conversational AI assistant that “lives in your sidebar”. Open it with **Ctrl+L**, type a question or request, and the model will answer or perform edits. Cursor’s assistant can **understand code** (answer questions, explain functions) and **edit code** (make multi-file changes). It can even suggest terminal commands (e.g. “generate a curl command to …”) right in the CLI. Because Cursor “knows your codebase,” you can ask targeted questions about any file or symbol.
+- **Integrated Tools:** Cursor supports standard development workflows with built-in Git integration, debugging, and performance analysis. You can manage version control (commit, branch, review) from the IDE, debug with breakpoints and variable watches, and profile performance. It also includes a **terminal with AI** – pressing **Ctrl+K in the terminal** lets you type plain-English tasks, and Cursor generates the corresponding shell command (e.g. “open file README.md in Vim”).
+- **Codebase Indexing:** Cursor can index large repositories for fast search and context. You can use the `@` symbol or **Ctrl+Enter** in chat to query your codebase. For example, typing `@ModuleName` or `@code` inserts references to files or symbols into the conversation. This lets the AI assistant locate relevant code or docs instantly.
+- **Contextual Understanding:** Cursor maintains an AI context window that includes recent prompts, code, and file attachments. It “actively optimizes” this context by pruning irrelevant history. In practice, this means Cursor will keep the most important code snippets in memory while older chatter is dropped, so your AI queries stay on track.
+- **AI-Powered Documentation:** The editor can fetch and display documentation for libraries. You can reference popular libraries with `@LibraryName` or add custom docs via `@Docs`. Cursor also surfaces code examples and API snippets as you code.
+- **AI Refactoring and Error Detection:** Cursor continuously analyzes your code, highlighting errors and formatting issues in real time. It can automatically reformat code to maintain style consistency, and help with refactors. For instance, you might ask “rename function foo to calculateTotal” and Cursor will update all references.
+- **Security & Privacy:** Designed for enterprise use, Cursor offers features like **Privacy Mode**, which ensures code is never stored remotely. It is SOC 2 certified and supports SAML/OIDC single sign-on for corporate deployments. These capabilities make Cursor suitable for organizations concerned about code security and compliance.
 
 Overall, Cursor is **AI-powered** but retains the familiarity of VS Code: you can import your existing extensions, themes, and keybindings in one click. This combination of smart AI features with a known editor interface makes it accessible to individual developers and large teams alike.
 
@@ -64,12 +76,12 @@ Overall, Cursor is **AI-powered** but retains the familiarity of VS Code: you ca
 
 Cursor shines in collaborative and team scenarios. Here are key use cases where **AI IDE collaboration** boosts team productivity:
 
-* **Shared Code Reviews:** In pull request reviews, team members can leverage Cursor to get AI suggestions on code quality. For example, a reviewer can ask Cursor to “suggest optimizations for this function” or “identify potential bugs in this diff.” This helps catch issues and maintain coding standards as part of code review.
-* **Pair Programming and Knowledge Sharing:** Cursor acts like an AI pair-programmer. Senior developers can set up a `.cursorrules` file or project docs to encapsulate architectural context and coding guidelines (more on this below). Junior devs then use the assistant to learn the codebase faster. They can query “how does this module work?” or “generate an example usage of this API,” turning onboarding into a self-service Q\&A session. This democratizes knowledge across the team.
-* **Standardizing Practices:** Teams can agree on `.cursorrules` or code style documents so that Cursor’s suggestions align with the project’s conventions. Cursor can be configured with project-specific rules (via `@CursorRules`) so that all developers get consistent AI guidance. This is especially useful for large teams where consistency is critical.
-* **Multi-Developer Projects:** Cursor handles large codebases well, using “large-scale indexing to get the most out of complex codebases”. Whether a team is working on tens of millions of lines of enterprise code or a small microservice, Cursor’s AI can traverse the whole project. Team members can attach different files or symbols to the chat as context (using `@`), share code snippets in conversation, and even run collaborative AI workflows.
-* **Integrated Analytics and Management:** From an enterprise perspective, Cursor includes team management and analytics tools. Administrators can see how developers use AI in their workflows to measure productivity gains. Features like enforced privacy mode and zero data retention (no code is used for training) meet enterprise security requirements. SSO integration (SAML/OIDC) lets organizations centrally manage user access.
-* **Remote and Asynchronous Collaboration:** Because Cursor’s AI chat can reference and edit code by natural language, remote teams can document decisions directly in chat history. For example, one developer can propose a refactoring via Cursor and another can review the AI-generated diff, all within the chat logs. This archives team reasoning alongside code changes.
+- **Shared Code Reviews:** In pull request reviews, team members can leverage Cursor to get AI suggestions on code quality. For example, a reviewer can ask Cursor to “suggest optimizations for this function” or “identify potential bugs in this diff.” This helps catch issues and maintain coding standards as part of code review.
+- **Pair Programming and Knowledge Sharing:** Cursor acts like an AI pair-programmer. Senior developers can set up a `.cursorrules` file or project docs to encapsulate architectural context and coding guidelines (more on this below). Junior devs then use the assistant to learn the codebase faster. They can query “how does this module work?” or “generate an example usage of this API,” turning onboarding into a self-service Q\&A session. This democratizes knowledge across the team.
+- **Standardizing Practices:** Teams can agree on `.cursorrules` or code style documents so that Cursor’s suggestions align with the project’s conventions. Cursor can be configured with project-specific rules (via `@CursorRules`) so that all developers get consistent AI guidance. This is especially useful for large teams where consistency is critical.
+- **Multi-Developer Projects:** Cursor handles large codebases well, using “large-scale indexing to get the most out of complex codebases”. Whether a team is working on tens of millions of lines of enterprise code or a small microservice, Cursor’s AI can traverse the whole project. Team members can attach different files or symbols to the chat as context (using `@`), share code snippets in conversation, and even run collaborative AI workflows.
+- **Integrated Analytics and Management:** From an enterprise perspective, Cursor includes team management and analytics tools. Administrators can see how developers use AI in their workflows to measure productivity gains. Features like enforced privacy mode and zero data retention (no code is used for training) meet enterprise security requirements. SSO integration (SAML/OIDC) lets organizations centrally manage user access.
+- **Remote and Asynchronous Collaboration:** Because Cursor’s AI chat can reference and edit code by natural language, remote teams can document decisions directly in chat history. For example, one developer can propose a refactoring via Cursor and another can review the AI-generated diff, all within the chat logs. This archives team reasoning alongside code changes.
 
 In short, **Cursor enables AI IDE collaboration** by blending team communication, AI assistance, and code editing in one interface. Teams report much higher adoption compared to other tools – in one case, a team hit nearly 100% usage of Cursor after rollout, boosting shipping velocity by \~50%. These collaborative gains make Cursor compelling for tech leads and enterprise buyers who want measurable improvements in developer throughput.
 
@@ -86,9 +98,10 @@ Getting Cursor up and running for your team is straightforward. Follow these ins
 7. **Set Up .cursorrules (Optional):** For team consistency, maintain a `.cursorrules` file at your project root. This optional file can guide the AI’s behavior (e.g. coding style rules, architecture notes, etc.). See best practices below for more on `.cursorrules`.
 8. **Performance Tuning:** If users encounter networking or performance issues, apply these fixes:
 
-   * **HTTP/2 Proxy Issues:** Some corporate networks block HTTP/2 (used for streaming AI responses). In Cursor Settings, search for `HTTP/2` and enable “Disable HTTP/2” to fall back to HTTP/1.1. This will make AI features work (at slightly lower speed).
-   * **Extensions Audit:** High CPU/RAM usage can be caused by extensions. To diagnose, run `cursor --disable-extensions` from a terminal and see if performance improves. Use the built-in Process Explorer (`Cmd+Shift+P` → “Developer: Open Process Explorer”) to identify which process (extensionHost, terminal, etc.) is using resources. Disable or remove offending extensions.
-   * **Disk Space:** Ensure machines have ample free disk space. Low disk can cause Cursor to purge chat history during updates.
+   - **HTTP/2 Proxy Issues:** Some corporate networks block HTTP/2 (used for streaming AI responses). In Cursor Settings, search for `HTTP/2` and enable “Disable HTTP/2” to fall back to HTTP/1.1. This will make AI features work (at slightly lower speed).
+   - **Extensions Audit:** High CPU/RAM usage can be caused by extensions. To diagnose, run `cursor --disable-extensions` from a terminal and see if performance improves. Use the built-in Process Explorer (`Cmd+Shift+P` → “Developer: Open Process Explorer”) to identify which process (extensionHost, terminal, etc.) is using resources. Disable or remove offending extensions.
+   - **Disk Space:** Ensure machines have ample free disk space. Low disk can cause Cursor to purge chat history during updates.
+
 9. **User Training:** Spend time teaching developers the key shortcuts and modes (below). Quick start guides or an internal wiki can help a lot.
 
 By following these steps, you’ll have Cursor installed consistently across your team. The enterprise plan can be deployed via a managed installer or systems management tool if needed for large organizations.
@@ -97,19 +110,19 @@ By following these steps, you’ll have Cursor installed consistently across you
 
 Make the most of Cursor with these developer productivity tricks and workflows:
 
-* **Inline Chat (`Ctrl+K` or `Cmd+K`):** For quick context-sensitive edits, use the inline chat. Select some code and press **Ctrl+K** to open an AI prompt attached to that block. You can then ask for small changes, comments, or documentation related to that snippet. For example, select a React component and say “add PropTypes to this component,” or highlight a function and say “document this function with a descriptive comment.” Cursor will insert the edits in-place. If you press Ctrl+K with no selection, you can generate new code from scratch using natural language.
-* **AI Chat Panel (`Ctrl+L`):** For larger discussions with the AI, open the Chat sidebar (**Ctrl+L**). You can attach code context by using `@filename` or `@symbol`, or even pasting code into the chat. Then ask broad questions or commands, such as “Refactor the User class to use dependency injection,” or “How can we improve the performance of this loop?” Cursor will respond in the chat, often with editable code suggestions.
-* **Terminal Automation:** In the integrated terminal, pressing **Ctrl+K** brings up a prompt. Describe what you want (e.g. “list all files modified in last commit”), and Cursor will generate a shell command. Hit Enter to run it. This is handy when you forget a command syntax.
-* **Use `@` for Context:** Within chat, type `@` to reference parts of your codebase or external docs. You can insert a file path, a symbol (function/class name), or even a URL. For example, type `@MyComponent` to pull in that component’s code as context. You can also drag images or link web docs (Cursor supports `@Web` to fetch live info, and `@Docs` to add custom documentation). This rich referencing makes AI conversations very powerful.
-* **Chat Memory:** Although each chat resets context when closed, Cursor offers a “Memory” MCP (when enabled) that can let AI remember key facts across sessions. Use it to store project-specific knowledge (e.g. database schema) so you don’t have to re-explain each time.
-* **Focus Chats on Single Tasks:** Keep chats task-focused. As context windows grow, Cursor prunes irrelevant details, but it’s still a good practice to start a fresh chat for a new feature or bug. That way the model doesn’t get confused by earlier unrelated messages.
-* **Version Control & Branching:** When asking Cursor to make changes, have your branch setup ready. For instance, create a new feature branch, then ask Cursor to implement a series of commits. After Cursor provides code edits, review and test them before merging.
-* **Code Reviews with AI:** In Pull Request reviews, team members can trigger Cursor on diff snippets. Even if you don’t use it directly in the IDE, you can copy a block of code from GitHub into a chat and ask for feedback. This embeds AI into your existing review workflow.
-* **.cursorrules for Team Guidelines:** Store project rules (coding guidelines, design patterns, common libraries) in a `.cursorrules` file or docs directory. Include high-level system architecture diagrams or descriptions. When you prompt the AI, refer it to these documents (`@/docs/architecture.mermaid`) so Cursor understands the big picture.
-* **Use Agents Judiciously:** When facing a multi-step task, switch the Chat to **Agent mode** and let Cursor plan and execute. For example, tell it “convert this MVC app to use dependency injection and update all instantiations accordingly.” Agent mode will attempt to break that into steps, run commands, and edit files autonomously. Review each step it suggests or applies.
-* **Ask for Explanations:** If you inherit unfamiliar code, try **Ask mode** (read-only) with queries like “Explain what `process_data()` does” or “Which component renders the login form?” This is a risk-free way to explore the codebase since Ask mode won’t modify anything.
-* **Leverage Quick Questions:** In the editor, right-click a symbol or selection and choose “Quick Question” (if available). Cursor will answer about that code inline, speeding up simple inquiries.
-* **Terminal and Code History:** Cursor keeps a chat history. You can copy command outputs or code from the terminal and continue chat threads. After an update, if your chat history disappears, it usually means low disk space cleared it.
+- **Inline Chat (`Ctrl+K` or `Cmd+K`):** For quick context-sensitive edits, use the inline chat. Select some code and press **Ctrl+K** to open an AI prompt attached to that block. You can then ask for small changes, comments, or documentation related to that snippet. For example, select a React component and say “add PropTypes to this component,” or highlight a function and say “document this function with a descriptive comment.” Cursor will insert the edits in-place. If you press Ctrl+K with no selection, you can generate new code from scratch using natural language.
+- **AI Chat Panel (`Ctrl+L`):** For larger discussions with the AI, open the Chat sidebar (**Ctrl+L**). You can attach code context by using `@filename` or `@symbol`, or even pasting code into the chat. Then ask broad questions or commands, such as “Refactor the User class to use dependency injection,” or “How can we improve the performance of this loop?” Cursor will respond in the chat, often with editable code suggestions.
+- **Terminal Automation:** In the integrated terminal, pressing **Ctrl+K** brings up a prompt. Describe what you want (e.g. “list all files modified in last commit”), and Cursor will generate a shell command. Hit Enter to run it. This is handy when you forget a command syntax.
+- **Use `@` for Context:** Within chat, type `@` to reference parts of your codebase or external docs. You can insert a file path, a symbol (function/class name), or even a URL. For example, type `@MyComponent` to pull in that component’s code as context. You can also drag images or link web docs (Cursor supports `@Web` to fetch live info, and `@Docs` to add custom documentation). This rich referencing makes AI conversations very powerful.
+- **Chat Memory:** Although each chat resets context when closed, Cursor offers a “Memory” MCP (when enabled) that can let AI remember key facts across sessions. Use it to store project-specific knowledge (e.g. database schema) so you don’t have to re-explain each time.
+- **Focus Chats on Single Tasks:** Keep chats task-focused. As context windows grow, Cursor prunes irrelevant details, but it’s still a good practice to start a fresh chat for a new feature or bug. That way the model doesn’t get confused by earlier unrelated messages.
+- **Version Control & Branching:** When asking Cursor to make changes, have your branch setup ready. For instance, create a new feature branch, then ask Cursor to implement a series of commits. After Cursor provides code edits, review and test them before merging.
+- **Code Reviews with AI:** In Pull Request reviews, team members can trigger Cursor on diff snippets. Even if you don’t use it directly in the IDE, you can copy a block of code from GitHub into a chat and ask for feedback. This embeds AI into your existing review workflow.
+- **.cursorrules for Team Guidelines:** Store project rules (coding guidelines, design patterns, common libraries) in a `.cursorrules` file or docs directory. Include high-level system architecture diagrams or descriptions. When you prompt the AI, refer it to these documents (`@/docs/architecture.mermaid`) so Cursor understands the big picture.
+- **Use Agents Judiciously:** When facing a multi-step task, switch the Chat to **Agent mode** and let Cursor plan and execute. For example, tell it “convert this MVC app to use dependency injection and update all instantiations accordingly.” Agent mode will attempt to break that into steps, run commands, and edit files autonomously. Review each step it suggests or applies.
+- **Ask for Explanations:** If you inherit unfamiliar code, try **Ask mode** (read-only) with queries like “Explain what `process_data()` does” or “Which component renders the login form?” This is a risk-free way to explore the codebase since Ask mode won’t modify anything.
+- **Leverage Quick Questions:** In the editor, right-click a symbol or selection and choose “Quick Question” (if available). Cursor will answer about that code inline, speeding up simple inquiries.
+- **Terminal and Code History:** Cursor keeps a chat history. You can copy command outputs or code from the terminal and continue chat threads. After an update, if your chat history disappears, it usually means low disk space cleared it.
 
 By incorporating these workflows, developers can treat Cursor as a versatile AI assistant: part search engine, part pair programmer, part documentarian. Remember to keep the human in the loop by reviewing AI suggestions. In practice, teams find that using Cursor doubles throughput over tools like Copilot, because the AI can tackle whole tasks end-to-end, not just line completions.
 
@@ -117,13 +130,13 @@ By incorporating these workflows, developers can treat Cursor as a versatile AI 
 
 Cursor supports multiple AI models for different scenarios. Understanding how to select and manage models will help maximize performance and cost-efficiency:
 
-* **Auto-Select vs Manual:** In the **Settings → Models & Pricing**, you can toggle **Auto-select**. When enabled, Cursor “select\[s] the premium model best fit for the immediate task”. This is recommended for most users, as it dynamically picks a high-powered model (e.g. Claude 3.7) or a suitable open-source model depending on availability. If you prefer more control, you can manually pin a model per chat (e.g. always use GPT-4o or Claude).
-* **Thinking vs Agentic Models:** Cursor categorizes models by capability. *Thinking* models (e.g. Claude Sonnet) are optimized for step-by-step reasoning. Enabling **Thinking** mode filters to these models, which “think through problems step-by-step” and often yield better results on complex logic. *Agentic* models (e.g. Claude Instant) are geared to interact with tools; enabling **Agentic** ensures Cursor picks a model adept at making tool calls, ideal for Agent mode tasks.
-* **Max Mode:** For the hardest tasks (deep analysis, long-term planning), Cursor offers **Max Mode**. Only certain models support it, but it provides the largest context windows and slower but more thorough reasoning. Use Max mode sparingly due to higher resource use.
-* **Context Windows:** Each chat has a token limit for context. Cursor automatically prunes less important conversation history to keep within this limit. However, if a chat gets too long or unfocused, start a new session to avoid loss of context. As a rule of thumb, use separate chats for independent features or bug fixes.
-* **Privacy Mode:** When Privacy Mode is on, Cursor ensures that no code or prompts are stored by the service. This is important for sensitive projects. Note that in Privacy Mode, Cursor still uses the AI, but all data is discarded after processing.
-* **Manual Model Switching:** At the top of the chat window you can switch modes and models manually. For quick tests, try an “Auto” model selection, or explicitly pick “Claude Sonnet 3.7” for heavy coding tasks, or “Gemini Pro” for knowledge lookup. Cursor will display the current model in the chat header, as set in Settings.
-* **Billing and Usage:** Models are billed by request. Cursor’s pricing page explains that each message (including context) counts as one “request” charge. Keep this in mind when using the chat heavily. Auto mode tends to optimize cost vs performance. There is also a free-tier fallback at lower priority if you exceed paid usage, though it’s slower.
+- **Auto-Select vs Manual:** In the **Settings → Models & Pricing**, you can toggle **Auto-select**. When enabled, Cursor “select\[s] the premium model best fit for the immediate task”. This is recommended for most users, as it dynamically picks a high-powered model (e.g. Claude 3.7) or a suitable open-source model depending on availability. If you prefer more control, you can manually pin a model per chat (e.g. always use GPT-4o or Claude).
+- **Thinking vs Agentic Models:** Cursor categorizes models by capability. _Thinking_ models (e.g. Claude Sonnet) are optimized for step-by-step reasoning. Enabling **Thinking** mode filters to these models, which “think through problems step-by-step” and often yield better results on complex logic. _Agentic_ models (e.g. Claude Instant) are geared to interact with tools; enabling **Agentic** ensures Cursor picks a model adept at making tool calls, ideal for Agent mode tasks.
+- **Max Mode:** For the hardest tasks (deep analysis, long-term planning), Cursor offers **Max Mode**. Only certain models support it, but it provides the largest context windows and slower but more thorough reasoning. Use Max mode sparingly due to higher resource use.
+- **Context Windows:** Each chat has a token limit for context. Cursor automatically prunes less important conversation history to keep within this limit. However, if a chat gets too long or unfocused, start a new session to avoid loss of context. As a rule of thumb, use separate chats for independent features or bug fixes.
+- **Privacy Mode:** When Privacy Mode is on, Cursor ensures that no code or prompts are stored by the service. This is important for sensitive projects. Note that in Privacy Mode, Cursor still uses the AI, but all data is discarded after processing.
+- **Manual Model Switching:** At the top of the chat window you can switch modes and models manually. For quick tests, try an “Auto” model selection, or explicitly pick “Claude Sonnet 3.7” for heavy coding tasks, or “Gemini Pro” for knowledge lookup. Cursor will display the current model in the chat header, as set in Settings.
+- **Billing and Usage:** Models are billed by request. Cursor’s pricing page explains that each message (including context) counts as one “request” charge. Keep this in mind when using the chat heavily. Auto mode tends to optimize cost vs performance. There is also a free-tier fallback at lower priority if you exceed paid usage, though it’s slower.
 
 Choosing the right model and chat mode for the task is key: use high-accuracy models for critical coding work, and reserve max mode for evaluation or prototyping where cost is less of an issue. For day-to-day development, the default settings (Auto-select, Normal requests) balance performance and cost.
 
@@ -131,11 +144,11 @@ Choosing the right model and chat mode for the task is key: use high-accuracy mo
 
 Cursor’s chat supports multiple modes to tailor the AI’s behavior:
 
-* **Ask Mode:** Think of Ask mode as a **read-only search mode**. It’s great for exploring a codebase without risk. In Ask mode, the AI cannot write any files or make edits – it only searches and answers questions. Use it to understand unfamiliar code (“How does this service API work?”), or to plan solutions verbally (“What classes are involved in authentication?”). This is useful for knowledge gathering, documentation, or confirming understanding before making changes. Since it won’t apply any changes, it’s safe for demos or training.
-* **Agent Mode:** This is the **fully autonomous mode**. Agent mode enables the AI to actively navigate and modify your project. It can browse files, run commands, and iteratively plan tasks. When you give it a high-level goal (e.g. “Add error logging to all API endpoints”), the agent will *independently explore your codebase, identify relevant files, plan multi-step edits, and execute them*. The workflow is: understand your request, search and analyze the code, plan the steps, then apply changes across files. This is like having an AI co-developer who can take a task from start to finish. It uses all available tools (code search, web, terminal) as needed.
-* **Manual Mode (Edit Mode):** In Manual mode, Cursor follows your explicit instructions only. It will edit code as you tell it, but it **will not autonomously search or run commands**. This is useful when you know exactly what change you want (e.g. “find and replace `foo` with `bar` in these files”). It can handle multiple files if you specify them, but it won’t walk the codebase on its own.
-* **Switching Modes:** You can select the mode via the drop-down at the top of the Chat pane. Normally, Agent mode is the default. To try Ask mode, pick “Ask” which will gray out edit buttons (indicating read-only). To do precise edits, choose Manual/Edit mode. Cursor’s documentation recommends reading the *Chat overview* to understand these distinctions.
-* **Best Use Cases:** Use Ask for learning and planning, Agent for implementation, and Manual for precision edits. For example, a typical workflow might be: Chat in Ask mode to outline a solution, then switch to Agent to let the AI implement it. Or start in Agent mode and use `@Ask` within the chat to double-check logic. You can even have multiple chats: one in Ask mode to gather info, another in Agent mode to execute changes.
+- **Ask Mode:** Think of Ask mode as a **read-only search mode**. It’s great for exploring a codebase without risk. In Ask mode, the AI cannot write any files or make edits – it only searches and answers questions. Use it to understand unfamiliar code (“How does this service API work?”), or to plan solutions verbally (“What classes are involved in authentication?”). This is useful for knowledge gathering, documentation, or confirming understanding before making changes. Since it won’t apply any changes, it’s safe for demos or training.
+- **Agent Mode:** This is the **fully autonomous mode**. Agent mode enables the AI to actively navigate and modify your project. It can browse files, run commands, and iteratively plan tasks. When you give it a high-level goal (e.g. “Add error logging to all API endpoints”), the agent will _independently explore your codebase, identify relevant files, plan multi-step edits, and execute them_. The workflow is: understand your request, search and analyze the code, plan the steps, then apply changes across files. This is like having an AI co-developer who can take a task from start to finish. It uses all available tools (code search, web, terminal) as needed.
+- **Manual Mode (Edit Mode):** In Manual mode, Cursor follows your explicit instructions only. It will edit code as you tell it, but it **will not autonomously search or run commands**. This is useful when you know exactly what change you want (e.g. “find and replace `foo` with `bar` in these files”). It can handle multiple files if you specify them, but it won’t walk the codebase on its own.
+- **Switching Modes:** You can select the mode via the drop-down at the top of the Chat pane. Normally, Agent mode is the default. To try Ask mode, pick “Ask” which will gray out edit buttons (indicating read-only). To do precise edits, choose Manual/Edit mode. Cursor’s documentation recommends reading the _Chat overview_ to understand these distinctions.
+- **Best Use Cases:** Use Ask for learning and planning, Agent for implementation, and Manual for precision edits. For example, a typical workflow might be: Chat in Ask mode to outline a solution, then switch to Agent to let the AI implement it. Or start in Agent mode and use `@Ask` within the chat to double-check logic. You can even have multiple chats: one in Ask mode to gather info, another in Agent mode to execute changes.
 
 Using the right mode maximizes efficiency. Treat Agent mode like giving the AI “ownership” of a task, while Ask mode is like a consultative Q\&A. The **cursor community notes** that Agent is for “complex tasks with minimal guidance” and Ask is for “learning about a codebase without changes”.
 
@@ -143,17 +156,18 @@ Using the right mode maximizes efficiency. Treat Agent mode like giving the AI �
 
 While Cursor is robust, teams may encounter some common issues during deployment. Here are troubleshooting tips:
 
-* **Networking/Proxy (HTTP/2):** Cursor uses HTTP/2 for streaming AI responses, which may be blocked by corporate proxies (e.g. Zscaler). If AI features fail (e.g. chat never loads, code indexing stalls), go to System Settings (`Cmd/Ctrl+,`), search for “HTTP/2,” and enable **“Disable HTTP/2”** to force HTTP/1.1. This solves most network issues in restricted environments. The trade-off is slightly slower responses.
-* **High CPU/RAM Usage:** On large projects, Cursor can be resource-intensive. If you see slowdowns or high memory warnings:
+- **Networking/Proxy (HTTP/2):** Cursor uses HTTP/2 for streaming AI responses, which may be blocked by corporate proxies (e.g. Zscaler). If AI features fail (e.g. chat never loads, code indexing stalls), go to System Settings (`Cmd/Ctrl+,`), search for “HTTP/2,” and enable **“Disable HTTP/2”** to force HTTP/1.1. This solves most network issues in restricted environments. The trade-off is slightly slower responses.
+- **High CPU/RAM Usage:** On large projects, Cursor can be resource-intensive. If you see slowdowns or high memory warnings:
 
-  * **Disable Extensions:** Launch `cursor --disable-extensions` and see if performance improves. Some VS Code extensions may not be optimized for Cursor. Use the built-in **Process Explorer** (`Cmd+Shift+P` → “Open Process Explorer”) to pinpoint heavy processes. If an extension process is using lots of CPU, try updating or disabling it.
-  * **Close Unused Terminals:** Terminal sessions (esp. long-running commands) can consume CPU. Use the Process Explorer to identify and kill idle terminals if needed.
-  * **Minimal Workspace:** If problems persist, try launching Cursor with a minimal configuration (`cursor --disable-extensions`) and gradually re-enable features to isolate issues.
-* **GitHub Login Issues:** If you have trouble connecting to GitHub (or need to switch accounts), use the command palette (`Ctrl+Shift+P`) and run **“Sign Out of GitHub”**, then log back in. This refreshes tokens and can fix sync problems.
-* **SSH Connections:** Cursor does not support SSH into Mac/Windows hosts yet. On Windows, if you see “SSH is only supported in Microsoft versions of VS Code,” uninstall your current Remote-SSH extension and install v0.113 from the Cursor marketplace.
-* **Updates and History:** Cursor updates roll out in stages. If you see a new version on the changelog but it hasn’t updated yet, don’t worry – it will come to you soon. Also, if after an update your chat history is empty, it likely cleared data due to low disk space. To avoid this, ensure ample free storage before updating. You can back up important chats by copying them out if needed.
-* **Proxy/Corporate Tab Issues:** Some corporate proxies may also block Cursor’s custom Tab and Cmd+K shortcuts (since they use HTTP/2). The same HTTP/2 disable workaround often fixes this.
-* **Plan and Usage Questions:** If someone just subscribed but their app is still on Free, have them log out and log back in. Usage resets monthly from the signup date, and Pro plan details are on the dashboard.
+  - **Disable Extensions:** Launch `cursor --disable-extensions` and see if performance improves. Some VS Code extensions may not be optimized for Cursor. Use the built-in **Process Explorer** (`Cmd+Shift+P` → “Open Process Explorer”) to pinpoint heavy processes. If an extension process is using lots of CPU, try updating or disabling it.
+  - **Close Unused Terminals:** Terminal sessions (esp. long-running commands) can consume CPU. Use the Process Explorer to identify and kill idle terminals if needed.
+  - **Minimal Workspace:** If problems persist, try launching Cursor with a minimal configuration (`cursor --disable-extensions`) and gradually re-enable features to isolate issues.
+
+- **GitHub Login Issues:** If you have trouble connecting to GitHub (or need to switch accounts), use the command palette (`Ctrl+Shift+P`) and run **“Sign Out of GitHub”**, then log back in. This refreshes tokens and can fix sync problems.
+- **SSH Connections:** Cursor does not support SSH into Mac/Windows hosts yet. On Windows, if you see “SSH is only supported in Microsoft versions of VS Code,” uninstall your current Remote-SSH extension and install v0.113 from the Cursor marketplace.
+- **Updates and History:** Cursor updates roll out in stages. If you see a new version on the changelog but it hasn’t updated yet, don’t worry – it will come to you soon. Also, if after an update your chat history is empty, it likely cleared data due to low disk space. To avoid this, ensure ample free storage before updating. You can back up important chats by copying them out if needed.
+- **Proxy/Corporate Tab Issues:** Some corporate proxies may also block Cursor’s custom Tab and Cmd+K shortcuts (since they use HTTP/2). The same HTTP/2 disable workaround often fixes this.
+- **Plan and Usage Questions:** If someone just subscribed but their app is still on Free, have them log out and log back in. Usage resets monthly from the signup date, and Pro plan details are on the dashboard.
 
 For unresolved problems, Cursor’s **Troubleshooting Guide** and forums are helpful. In many cases, workarounds (like disabling HTTP/2 or extensions) resolve the issue. Keeping Cursor up to date also ensures you have the latest stability fixes.
 
@@ -161,19 +175,21 @@ For unresolved problems, Cursor’s **Troubleshooting Guide** and forums are hel
 
 The **Model Context Protocol (MCP)** opens up advanced integration scenarios. MCP allows Cursor’s AI to interact with external tools and data sources as plugins. In practice, you can run or connect small services (MCP servers) that expose your company’s resources to the AI. Here’s how MCP enriches Cursor:
 
-* **What is MCP?** MCP is an open protocol (standardized by Anthropic) for connecting AI assistants to external systems. Think of it as a plugin interface: you write or install MCP servers (scripts or services) that Cursor can call. These servers might access databases, internal APIs, documentation, or any data source.
-* **Extending Cursor:** With MCP, Cursor’s Agent can do things beyond static code analysis. For example:
+- **What is MCP?** MCP is an open protocol (standardized by Anthropic) for connecting AI assistants to external systems. Think of it as a plugin interface: you write or install MCP servers (scripts or services) that Cursor can call. These servers might access databases, internal APIs, documentation, or any data source.
+- **Extending Cursor:** With MCP, Cursor’s Agent can do things beyond static code analysis. For example:
 
-  * **Databases:** An MCP connector can let Cursor query your SQL/NoSQL databases directly. Instead of manually copying schema or data, Cursor can ask the MCP server to run queries (“Find customers with open invoices”).
-  * **Notion or Wiki:** You can connect to a knowledge base (e.g. Notion) so Cursor can retrieve design docs, product specs, or meeting notes. Then you can prompt the AI with `@MyDesignDoc` and it will fetch content via the MCP.
-  * **GitHub/GitLab:** MCP can integrate with Git hosting. Cursor could create PRs, open issues, or search code remotely by invoking a GitHub API server. For instance, “create a branch `bugfix/login` and open a PR with these changes” could be handled via GitHub MCP.
-  * **Memory/State:** A “memory” MCP (as shown in docs) lets Cursor recall information across sessions, effectively giving it long-term memory. This can be used to store developer preferences or project facts.
-  * **Third-Party APIs:** Any public or internal API (Stripe, internal microservices, etc.) can be accessed. The docs show examples like a Stripe MCP to manage payments.
-* **Architecture of MCP:** MCP servers can be local (spawned as a process) or remote (accessed over HTTP). Cursor supports two transports:
+  - **Databases:** An MCP connector can let Cursor query your SQL/NoSQL databases directly. Instead of manually copying schema or data, Cursor can ask the MCP server to run queries (“Find customers with open invoices”).
+  - **Notion or Wiki:** You can connect to a knowledge base (e.g. Notion) so Cursor can retrieve design docs, product specs, or meeting notes. Then you can prompt the AI with `@MyDesignDoc` and it will fetch content via the MCP.
+  - **GitHub/GitLab:** MCP can integrate with Git hosting. Cursor could create PRs, open issues, or search code remotely by invoking a GitHub API server. For instance, “create a branch `bugfix/login` and open a PR with these changes” could be handled via GitHub MCP.
+  - **Memory/State:** A “memory” MCP (as shown in docs) lets Cursor recall information across sessions, effectively giving it long-term memory. This can be used to store developer preferences or project facts.
+  - **Third-Party APIs:** Any public or internal API (Stripe, internal microservices, etc.) can be accessed. The docs show examples like a Stripe MCP to manage payments.
 
-  * **stdio (local):** Runs on your machine via command line. Cursor runs the process and communicates with it via standard I/O. This is useful for simple local tools.
-  * **Server-Sent Events (SSE):** Runs as a standalone service (e.g. on a cloud server). Cursor connects via an HTTP URL to `/sse` on that service. SSE works cross-machine, so teams can share MCP servers.
-* **Configuration:** You define MCP servers in `.cursor/mcp.json`. For example, to run a Node.js MCP, your config might have:
+- **Architecture of MCP:** MCP servers can be local (spawned as a process) or remote (accessed over HTTP). Cursor supports two transports:
+
+  - **stdio (local):** Runs on your machine via command line. Cursor runs the process and communicates with it via standard I/O. This is useful for simple local tools.
+  - **Server-Sent Events (SSE):** Runs as a standalone service (e.g. on a cloud server). Cursor connects via an HTTP URL to `/sse` on that service. SSE works cross-machine, so teams can share MCP servers.
+
+- **Configuration:** You define MCP servers in `.cursor/mcp.json`. For example, to run a Node.js MCP, your config might have:
 
   ```
   "mcpServers": {
@@ -186,8 +202,9 @@ The **Model Context Protocol (MCP)** opens up advanced integration scenarios. MC
   ```
 
   Cursor will start that process and talk to it. You can put this file in your project or globally (in `~/.cursor/mcp.json`) to use across projects.
-* **Usage in Chat:** Once configured, you can ask the AI to invoke MCP tools by name. For example, in chat you might say “use the weather mcp” or include special instructions. The MCP protocol allows the AI to make structured calls (`@MCP ToolName {...}`) and parse the results.
-* **Benefits:** MCP integration means Cursor is not limited to your local code; it can interact with your entire tech stack. For enterprise workflows, this is powerful: connect it to CI/CD pipelines, monitoring dashboards, or internal data lakes. Your AI assistant becomes an orchestrator, not just a code helper.
+
+- **Usage in Chat:** Once configured, you can ask the AI to invoke MCP tools by name. For example, in chat you might say “use the weather mcp” or include special instructions. The MCP protocol allows the AI to make structured calls (`@MCP ToolName {...}`) and parse the results.
+- **Benefits:** MCP integration means Cursor is not limited to your local code; it can interact with your entire tech stack. For enterprise workflows, this is powerful: connect it to CI/CD pipelines, monitoring dashboards, or internal data lakes. Your AI assistant becomes an orchestrator, not just a code helper.
 
 In summary, **MCP servers** turn Cursor into a hub for advanced automations. They require extra setup, but for companies that need AI agents to do complex tasks (like managing cloud resources or aggregating metrics), MCP is a game-changer. (See Cursor docs for detailed examples and the MCP specification at modelcontextprotocol.io.)
 
@@ -195,9 +212,9 @@ In summary, **MCP servers** turn Cursor into a hub for advanced automations. The
 
 Finally, here are overarching best practices when using any AI coding assistant:
 
-* **Provide Clear Context:** AI models behave like junior developers – they do best when given explicit instructions and background. Always give enough context in prompts. For example, include relevant code snippets, link to architecture diagrams, or state requirements up front. In Cursor, using `.cursorrules` or attaching docs via `@` helps keep context clear.
-* **Break Tasks into Steps:** Don’t ask the AI to “build the entire feature” in one prompt. Instead, decompose tasks logically. Have the AI plan steps: “First, create the API endpoint, then add input validation, then write tests”. This matches the human workflow and avoids overwhelming the model.
-* **Use .cursorrules or Docs for Architecture:** Maintain a `.cursorrules` file (or similar) at project root that outlines your system’s architecture and conventions. For instance:
+- **Provide Clear Context:** AI models behave like junior developers – they do best when given explicit instructions and background. Always give enough context in prompts. For example, include relevant code snippets, link to architecture diagrams, or state requirements up front. In Cursor, using `.cursorrules` or attaching docs via `@` helps keep context clear.
+- **Break Tasks into Steps:** Don’t ask the AI to “build the entire feature” in one prompt. Instead, decompose tasks logically. Have the AI plan steps: “First, create the API endpoint, then add input validation, then write tests”. This matches the human workflow and avoids overwhelming the model.
+- **Use .cursorrules or Docs for Architecture:** Maintain a `.cursorrules` file (or similar) at project root that outlines your system’s architecture and conventions. For instance:
 
   ```
   SYSTEM_CONTEXT:
@@ -209,30 +226,19 @@ Finally, here are overarching best practices when using any AI coding assistant:
   ```
 
   This way, when Cursor starts, it can load that context. Cursor’s AI will “parse and understand system architecture” from such docs before editing, improving accuracy.
-* **Human-in-the-Loop:** Always review and test AI-generated code. Treat AI suggestions as drafts. Cursor’s Agent mode is powerful, but it can sometimes make mistakes or unsafe choices. Keep an eye on security (no secrets in prompts), correctness, and style.
-* **Iterate and Feedback:** Use the chat history to refine the AI’s output. If it makes an error, point it out (“The endpoint should be `/v2/pay` instead of `/pay`”) and ask it to correct it. This back-and-forth improves results and educates the AI on your codebase.
-* **Keep Prompts Precise:** Vague prompts yield vague answers. Instead of “optimize this function”, say “Replace the loop with a list comprehension to improve performance.” The latter is more concrete. As Cursor’s guide notes, “AI needs to understand your system holistically” with clear guidelines.
-* **Context Management:** As you work, manage your chats. If a conversation derails, start fresh. Close out old chats to free up context window. For each new feature or bug, spawn a new chat session.
-* **Document the AI’s Work:** When Cursor makes non-trivial changes, it can annotate code. Ask it to add comments explaining major changes or to draft a section of the CHANGELOG. This way the AI’s reasoning is preserved.
-* **Privacy and Compliance:** Verify that no private data (passwords, keys) ever go to the AI. Use environment variables or Cursor’s API key management. Use Privacy Mode if required. For regulated environments, check audit logs and only feed necessary data.
-* **Training and Conventions:** Educate developers on how to prompt effectively. Share examples of good queries (with context) vs. poor ones. Encourage the use of the `!` or `?` syntax for help. Consistent usage patterns (e.g. always prefixing with a clear action verb) help the AI learn your style.
 
-By following these guidelines, teams can turn Cursor into a reliable “AI pair programmer.” As one user noted, adopting best practices transforms Cursor from a “buggy code generator” into a “most reliable pair programmer”. The key insight from community experience is that *“the secret isn’t in the AI’s capabilities — it’s in how we instruct it.”* Use Cursor deliberately, with good context and structure, and it will dramatically accelerate development.
+- **Human-in-the-Loop:** Always review and test AI-generated code. Treat AI suggestions as drafts. Cursor’s Agent mode is powerful, but it can sometimes make mistakes or unsafe choices. Keep an eye on security (no secrets in prompts), correctness, and style.
+- **Iterate and Feedback:** Use the chat history to refine the AI’s output. If it makes an error, point it out (“The endpoint should be `/v2/pay` instead of `/pay`”) and ask it to correct it. This back-and-forth improves results and educates the AI on your codebase.
+- **Keep Prompts Precise:** Vague prompts yield vague answers. Instead of “optimize this function”, say “Replace the loop with a list comprehension to improve performance.” The latter is more concrete. As Cursor’s guide notes, “AI needs to understand your system holistically” with clear guidelines.
+- **Context Management:** As you work, manage your chats. If a conversation derails, start fresh. Close out old chats to free up context window. For each new feature or bug, spawn a new chat session.
+- **Document the AI’s Work:** When Cursor makes non-trivial changes, it can annotate code. Ask it to add comments explaining major changes or to draft a section of the CHANGELOG. This way the AI’s reasoning is preserved.
+- **Privacy and Compliance:** Verify that no private data (passwords, keys) ever go to the AI. Use environment variables or Cursor’s API key management. Use Privacy Mode if required. For regulated environments, check audit logs and only feed necessary data.
+- **Training and Conventions:** Educate developers on how to prompt effectively. Share examples of good queries (with context) vs. poor ones. Encourage the use of the `!` or `?` syntax for help. Consistent usage patterns (e.g. always prefixing with a clear action verb) help the AI learn your style.
+
+By following these guidelines, teams can turn Cursor into a reliable “AI pair programmer.” As one user noted, adopting best practices transforms Cursor from a “buggy code generator” into a “most reliable pair programmer”. The key insight from community experience is that _“the secret isn’t in the AI’s capabilities — it’s in how we instruct it.”_ Use Cursor deliberately, with good context and structure, and it will dramatically accelerate development.
 
 ---
 
 In summary, this **Cursor IDE tutorial** has covered everything from installation to advanced integrations. Cursor is a powerful **AI-powered development tool** that, when used properly, elevates developer productivity and team collaboration. By leveraging its key features, collaborating through its chat modes, and following best practices, developers and enterprise teams can code faster and smarter. For more details, consult the official [Cursor documentation](https://docs.cursor.com) and community forums. Happy coding with AI!
 
 **Sources:** Cursor’s official documentation and features page; Cursor Enterprise page; Common issues guide; and community best practices.
-
-
-
-
-
-
-
-
-
-
-
-

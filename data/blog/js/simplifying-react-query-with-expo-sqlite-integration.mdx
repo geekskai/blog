@@ -1,13 +1,13 @@
 ---
-title: 'Simplifying React Query with Expo SQLite Integration'
-date: '2025-02-1'
-lastmod: '2025-02-1'
-tags: ['react', 'react-native', 'expo', 'sqlite', 'react-query']
+title: "Simplifying React Query with Expo SQLite Integration"
+date: "2025-02-1"
+lastmod: "2025-02-1"
+tags: ["react", "react-native", "expo", "sqlite", "react-query"]
 draft: false
-images: '/static/images/blog/js/simplifying-react-query-with-expo-sqlite-integration.png'
-summary: 'Learn how to easily use React Query and Expo SQLite together for managing data in your React Native apps. This guide shows you how to set up Expo SQLite, configure React Query, and handle CRUD operations without difficulty.'
-layout: 'PostLayout'
-canonicalUrl: 'https://geekskai.com/blog/js/simplifying-react-query-with-expo-sqlite-integration/'
+images: "/static/images/blog/js/simplifying-react-query-with-expo-sqlite-integration.png"
+summary: "Learn how to easily use React Query and Expo SQLite together for managing data in your React Native apps. This guide shows you how to set up Expo SQLite, configure React Query, and handle CRUD operations without difficulty."
+layout: "PostLayout"
+canonicalUrl: "https://geekskai.com/blog/js/simplifying-react-query-with-expo-sqlite-integration/"
 ---
 
 ## DOffline React Native App with TypeORM, Expo SQLite, and React Query
@@ -68,7 +68,6 @@ expo install expo-sqlite @tanstack/react-query to install the needed tools. This
 
 ### Installing Expo SQLite
 
-
 Since we choose Expo CLI to start React Native projects, adding Expo SQLite is very easy. You won’t have to struggle with linking native libraries
 because Expo CLI makes it simple. We will use Expo CLI to install Expo SQLite easily. This gets us closer to handling local data.
 
@@ -113,15 +112,13 @@ By keeping our database connection logic in a reusable function, we improve our 
 data layer.
 
 ```javascript
+import * as SQLite from "expo-sqlite"
 
-import * as SQLite from 'expo-sqlite';
-
-const db = SQLite.openDatabase('your_database_name.db');
+const db = SQLite.openDatabase("your_database_name.db")
 
 export const getDatabaseConnection = () => {
-    return db;
+  return db
 }
-
 ```
 
 ### Fetching Data with React Query Hooks
@@ -136,29 +133,27 @@ our components focused on showing the data.
 The useQuery hook needs a special query key and an async function for getting the data. It takes care of the data fetching steps, including caching
 and updating our components with new data.
 
-
 ```javascript
-import { useQuery } from '@tanstack/react-query'
-import { getDatabaseConnection } from './your-database-file' // Adjust path
+import { useQuery } from "@tanstack/react-query"
+import { getDatabaseConnection } from "./your-database-file" // Adjust path
 
 const fetchItems = async () => {
   const db = getDatabaseConnection()
   try {
     const results = await db.transaction((tx) => {
-      tx.executeSql('SELECT * FROM your_table') // Adjust table name
+      tx.executeSql("SELECT * FROM your_table") // Adjust table name
     })
     return results.rows._array
   } catch (error) {
-    console.error('Error fetching items:', error)
+    console.error("Error fetching items:", error)
     throw error
   }
 }
 const YourComponent = () => {
   // Assuming 'items' as the query key
-  const { isLoading, error, data: items } = useQuery(['items'], fetchItems)
+  const { isLoading, error, data: items } = useQuery(["items"], fetchItems)
   // ... your component logic
 }
-
 ```
 
 ## Performing CRUD Operations
@@ -186,7 +181,7 @@ const createTask = async (task) => {
     db.transaction(
       (tx) => {
         tx.executeSql(
-          'INSERT INTO tasks (title, description, isCompleted) values (?,?,?)',
+          "INSERT INTO tasks (title, description, isCompleted) values (?,?,?)",
           [task.title, task.description, task.isCompleted],
 
           // Success callback
@@ -201,7 +196,6 @@ const createTask = async (task) => {
     )
   })
 }
-
 ```
 
 Next, we will create functions for reading tasks called getTasks, updating tasks called updateTask, and deleting tasks called deleteTask. Each of these
@@ -225,6 +219,7 @@ mutation.
 Manage Mutation State : Just like useQuery, useMutation gives you states to track the progress of the mutation. This includes loading, error, and
 success states, which lets you control how your app responds.
 ```
+
 By making the most of useMutation and following these steps, you can provide a smooth and effective data management system in your React Native
 app.
 
@@ -250,9 +245,11 @@ Here's how you can leverage React Query's caching features:
 ```
 Feature Description
 ```
+
 ```
 staleTime
 ```
+
 ```
 Control how long
 fetched data is
@@ -261,9 +258,11 @@ Reduce re-fetching if
 data doesn't change
 frequently.
 ```
+
 ```
 cacheTime
 ```
+
 ```
 Determine how long
 data remains in the
@@ -272,9 +271,11 @@ Useful for persisting
 data even if the
 component unmounts.
 ```
+
 ```
 refetchOnWindowFocus
 ```
+
 ```
 Decide whether to re-
 fetch data when the
@@ -282,6 +283,7 @@ window gains focus.
 Enable it only if you
 need real-time updates.
 ```
+
 ### Handling Offline Data Syncing
 
 Mobile apps often lose connection to the network sometimes. To help users have a smooth experience even when they are offline, it is important to
@@ -312,12 +314,3 @@ tricky state management for SQL queries. Instead, you can use simple hooks like 
 
 React Query does not come with real-time data syncing right away. However, you can set it up to refresh data at certain times or use web sockets for
 real-time changes. Pairing React Query with a real-time solution helps show updates in your UI right away.
-
-
-
-
-
-
-
-
-

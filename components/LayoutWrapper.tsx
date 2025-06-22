@@ -1,15 +1,15 @@
-import { Inter } from 'next/font/google'
-import SectionContainer from './SectionContainer'
-import { ReactNode } from 'react'
-import Header from './Header'
-import SiteFooter from './SiteFooter'
+import { Inter } from "next/font/google"
+import SectionContainer from "./SectionContainer"
+import { ReactNode } from "react"
+import Header from "./Header"
+import SiteFooter from "./SiteFooter"
 
 interface Props {
   children: ReactNode
 }
 
 const inter = Inter({
-  subsets: ['latin'],
+  subsets: ["latin"],
 })
 
 const LayoutWrapper = ({ children }: Props) => {

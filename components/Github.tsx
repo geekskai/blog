@@ -1,10 +1,10 @@
-'use client'
-import { useState, useEffect } from 'react'
-import Image from './Image'
-import Link from '@/components/Link'
+"use client"
+import { useState, useEffect } from "react"
+import Image from "./Image"
+import Link from "@/components/Link"
 
 const Github = () => {
-  const [svgContent, setSvgContent] = useState('')
+  const [svgContent, setSvgContent] = useState("")
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -14,19 +14,19 @@ const Github = () => {
         const response = await fetch(`/api/contributions`, { next: { revalidate: 86400 } })
         const svgText = await response.text()
         const parser = new DOMParser()
-        const xmlDoc = parser.parseFromString(svgText, 'image/svg+xml')
+        const xmlDoc = parser.parseFromString(svgText, "image/svg+xml")
 
         const rectElements = xmlDoc.querySelectorAll('rect[style*="fill:#EEEEEE;"]')
 
         rectElements.forEach((rectElement) => {
-          rectElement.setAttribute('style', 'fill:#161b22;shape-rendering:crispedges;')
+          rectElement.setAttribute("style", "fill:#161b22;shape-rendering:crispedges;")
         })
 
         const modifiedSvgText = new XMLSerializer().serializeToString(xmlDoc)
 
         setSvgContent(`data:image/svg+xml;base64,${btoa(modifiedSvgText)}`)
       } catch (error) {
-        console.error('Error fetching SVG:', error)
+        console.error("Error fetching SVG:", error)
       }
       setLoading(false)
     }
@@ -34,7 +34,7 @@ const Github = () => {
     fetchSVGContent()
   }, [])
 
-  if (loading || svgContent === '') {
+  if (loading || svgContent === "") {
     return null
   }
 

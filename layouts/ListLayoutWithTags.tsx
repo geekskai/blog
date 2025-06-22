@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-'use client'
-import Image from '@/components/Image'
-import { usePathname } from 'next/navigation'
-import { formatDate } from 'pliny/utils/formatDate'
-import { coreContent, CoreContent } from 'pliny/utils/contentlayer'
-import { allAuthors, Authors, type Blog } from 'contentlayer/generated'
-import Link from '@/components/Link'
-import Tag from '@/components/Tag'
-import siteMetadata from '@/data/siteMetadata'
+"use client"
+import Image from "@/components/Image"
+import { usePathname } from "next/navigation"
+import { formatDate } from "pliny/utils/formatDate"
+import { coreContent, CoreContent } from "pliny/utils/contentlayer"
+import { allAuthors, Authors, type Blog } from "contentlayer/generated"
+import Link from "@/components/Link"
+import Tag from "@/components/Tag"
+import siteMetadata from "@/data/siteMetadata"
 
 interface PaginationProps {
   totalPages: number
@@ -23,7 +23,7 @@ interface ListLayoutProps {
 
 function Pagination({ totalPages, currentPage }: PaginationProps) {
   const pathname = usePathname()
-  const basePath = pathname.split('/')[1]
+  const basePath = pathname.split("/")[1]
   const prevPage = currentPage - 1 > 0
   const nextPage = currentPage + 1 <= totalPages
 
@@ -87,7 +87,7 @@ export default function ListLayoutWithTags({
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:gap-y-12 xl:grid-cols-3">
             {displayPosts.map((post) => {
               const { path, date, title, summary, tags, images } = post
-              const author = allAuthors.find((p) => p.slug === 'default') as Authors
+              const author = allAuthors.find((p) => p.slug === "default") as Authors
               const { avatar, name } = coreContent(author)
               return (
                 <article key={path} className="flex flex-col gap-2 space-y-2 xl:space-y-0">

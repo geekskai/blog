@@ -1,32 +1,32 @@
-import { defineDocumentType, ComputedFields, makeSource } from 'contentlayer2/source-files'
-import { writeFileSync } from 'fs'
-import readingTime from 'reading-time'
-import { slug } from 'github-slugger'
-import path from 'path'
-import { fromHtmlIsomorphic } from 'hast-util-from-html-isomorphic'
+import { defineDocumentType, ComputedFields, makeSource } from "contentlayer2/source-files"
+import { writeFileSync } from "fs"
+import readingTime from "reading-time"
+import { slug } from "github-slugger"
+import path from "path"
+import { fromHtmlIsomorphic } from "hast-util-from-html-isomorphic"
 // Remark packages
-import remarkGfm from 'remark-gfm'
-import remarkMath from 'remark-math'
-import { remarkAlert } from 'remark-github-blockquote-alert'
+import remarkGfm from "remark-gfm"
+import remarkMath from "remark-math"
+import { remarkAlert } from "remark-github-blockquote-alert"
 import {
   remarkExtractFrontmatter,
   remarkCodeTitles,
   remarkImgToJsx,
   extractTocHeadings,
-} from 'pliny/mdx-plugins/index.js'
+} from "pliny/mdx-plugins/index.js"
 // Rehype packages
-import rehypeSlug from 'rehype-slug'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypeKatex from 'rehype-katex'
-import rehypeCitation from 'rehype-citation'
-import rehypePrismPlus from 'rehype-prism-plus'
-import rehypePresetMinify from 'rehype-preset-minify'
-import siteMetadata from './data/siteMetadata'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
-import { url } from 'inspector'
+import rehypeSlug from "rehype-slug"
+import rehypeAutolinkHeadings from "rehype-autolink-headings"
+import rehypeKatex from "rehype-katex"
+import rehypeCitation from "rehype-citation"
+import rehypePrismPlus from "rehype-prism-plus"
+import rehypePresetMinify from "rehype-preset-minify"
+import siteMetadata from "./data/siteMetadata"
+import { allCoreContent, sortPosts } from "pliny/utils/contentlayer.js"
+import { url } from "inspector"
 
 const root = process.cwd()
-const isProduction = process.env.NODE_ENV === 'production'
+const isProduction = process.env.NODE_ENV === "production"
 
 // heroicon mini link
 const icon = fromHtmlIsomorphic(
@@ -42,20 +42,20 @@ const icon = fromHtmlIsomorphic(
 )
 
 const computedFields: ComputedFields = {
-  readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
+  readingTime: { type: "json", resolve: (doc) => readingTime(doc.body.raw) },
   slug: {
-    type: 'string',
-    resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ''),
+    type: "string",
+    resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ""),
   },
   path: {
-    type: 'string',
+    type: "string",
     resolve: (doc) => doc._raw.flattenedPath,
   },
   filePath: {
-    type: 'string',
+    type: "string",
     resolve: (doc) => doc._raw.sourceFilePath,
   },
-  toc: { type: 'json', resolve: (doc) => extractTocHeadings(doc.body.raw) },
+  toc: { type: "json", resolve: (doc) => extractTocHeadings(doc.body.raw) },
 }
 
 /**
@@ -75,57 +75,57 @@ function createTagCount(allBlogs) {
       })
     }
   })
-  writeFileSync('./app/tag-data.json', JSON.stringify(tagCount))
+  writeFileSync("./app/tag-data.json", JSON.stringify(tagCount))
 }
 
 function createSearchIndex(allBlogs) {
   if (
-    siteMetadata?.search?.provider === 'kbar' &&
+    siteMetadata?.search?.provider === "kbar" &&
     siteMetadata.search.kbarConfig.searchDocumentsPath
   ) {
     writeFileSync(
       `public/${path.basename(siteMetadata.search.kbarConfig.searchDocumentsPath)}`,
       JSON.stringify(allCoreContent(sortPosts(allBlogs)))
     )
-    console.log('Local search index generated...')
+    console.log("Local search index generated...")
   }
 }
 
 export const Blog = defineDocumentType(() => ({
-  name: 'Blog',
-  filePathPattern: 'blog/**/*.mdx',
-  contentType: 'mdx',
+  name: "Blog",
+  filePathPattern: "blog/**/*.mdx",
+  contentType: "mdx",
   fields: {
-    title: { type: 'string', required: true },
-    date: { type: 'date', required: true },
-    tags: { type: 'list', of: { type: 'string' }, default: [] },
-    keywords: { type: 'list', of: { type: 'string' }, default: [] },
-    lastmod: { type: 'date' },
-    draft: { type: 'boolean' },
-    summary: { type: 'string' },
-    images: { type: 'json' },
-    authors: { type: 'list', of: { type: 'string' } },
-    layout: { type: 'string' },
-    bibliography: { type: 'string' },
-    canonicalUrl: { type: 'string' },
+    title: { type: "string", required: true },
+    date: { type: "date", required: true },
+    tags: { type: "list", of: { type: "string" }, default: [] },
+    keywords: { type: "list", of: { type: "string" }, default: [] },
+    lastmod: { type: "date" },
+    draft: { type: "boolean" },
+    summary: { type: "string" },
+    images: { type: "json" },
+    authors: { type: "list", of: { type: "string" } },
+    layout: { type: "string" },
+    bibliography: { type: "string" },
+    canonicalUrl: { type: "string" },
     // 添加 FAQ 字段
     faqs: {
-      type: 'json',
+      type: "json",
       default: [],
     },
   },
   computedFields: {
     ...computedFields,
     structuredData: {
-      type: 'json',
+      type: "json",
       resolve: (doc) => {
         const imageSrc = Array.isArray(doc.images)
           ? doc.images[0]
           : doc.images || siteMetadata.socialBanner
         // 构建基础数据
         const baseStructuredData = {
-          '@context': 'https://schema.org',
-          '@type': doc.faqs?.length > 0 ? ['BlogPosting', 'FAQPage'] : 'BlogPosting',
+          "@context": "https://schema.org",
+          "@type": doc.faqs?.length > 0 ? ["BlogPosting", "FAQPage"] : "BlogPosting",
           headline: doc.title,
           datePublished: doc.date,
           dateModified: doc.lastmod || doc.date,
@@ -133,17 +133,17 @@ export const Blog = defineDocumentType(() => ({
           url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}/`,
           // 优化图片结构
           image: {
-            '@type': 'ImageObject',
+            "@type": "ImageObject",
             url: siteMetadata.siteUrl + imageSrc,
             width: 1200,
             height: 630,
           },
           // 添加发布者信息
           publisher: {
-            '@type': 'Organization',
+            "@type": "Organization",
             name: siteMetadata.title,
             logo: {
-              '@type': 'ImageObject',
+              "@type": "ImageObject",
               url: `${siteMetadata.siteUrl}/static/images/logo.png`,
               width: 112,
               height: 112,
@@ -154,7 +154,7 @@ export const Blog = defineDocumentType(() => ({
         // 检查 faqs 是否有数据
         const hasFaqs =
           doc.faqs &&
-          typeof doc.faqs === 'object' &&
+          typeof doc.faqs === "object" &&
           Array.isArray(doc.faqs._array || doc.faqs) &&
           (doc.faqs._array || doc.faqs).length > 0
 
@@ -162,12 +162,12 @@ export const Blog = defineDocumentType(() => ({
           const faqsArray = doc.faqs._array || doc.faqs
           return {
             ...baseStructuredData,
-            '@type': ['BlogPosting', 'FAQPage'],
+            "@type": ["BlogPosting", "FAQPage"],
             mainEntity: faqsArray.map((faq) => ({
-              '@type': 'Question',
+              "@type": "Question",
               name: faq.question,
               acceptedAnswer: {
-                '@type': 'Answer',
+                "@type": "Answer",
                 text: faq.answer,
               },
             })),
@@ -181,25 +181,25 @@ export const Blog = defineDocumentType(() => ({
 }))
 
 export const Authors = defineDocumentType(() => ({
-  name: 'Authors',
-  filePathPattern: 'authors/**/*.mdx',
-  contentType: 'mdx',
+  name: "Authors",
+  filePathPattern: "authors/**/*.mdx",
+  contentType: "mdx",
   fields: {
-    name: { type: 'string', required: true },
-    avatar: { type: 'string' },
-    occupation: { type: 'string' },
-    company: { type: 'string' },
-    email: { type: 'string' },
-    twitter: { type: 'string' },
-    linkedin: { type: 'string' },
-    github: { type: 'string' },
-    layout: { type: 'string' },
+    name: { type: "string", required: true },
+    avatar: { type: "string" },
+    occupation: { type: "string" },
+    company: { type: "string" },
+    email: { type: "string" },
+    twitter: { type: "string" },
+    linkedin: { type: "string" },
+    github: { type: "string" },
+    layout: { type: "string" },
   },
   computedFields,
 }))
 
 export default makeSource({
-  contentDirPath: 'data',
+  contentDirPath: "data",
   documentTypes: [Blog, Authors],
   mdx: {
     cwd: process.cwd(),
@@ -216,16 +216,16 @@ export default makeSource({
       [
         rehypeAutolinkHeadings,
         {
-          behavior: 'prepend',
+          behavior: "prepend",
           headingProperties: {
-            className: ['content-header'],
+            className: ["content-header"],
           },
           content: icon,
         },
       ],
       rehypeKatex,
-      [rehypeCitation, { path: path.join(root, 'data') }],
-      [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
+      [rehypeCitation, { path: path.join(root, "data") }],
+      [rehypePrismPlus, { defaultLanguage: "js", ignoreMissing: true }],
       rehypePresetMinify,
     ],
   },

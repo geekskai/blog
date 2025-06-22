@@ -1,18 +1,19 @@
 ---
-title: 'Mastering React SWR Vite Integration'
-date: '2025-02-03'
-lastmod: '2025-02-07'
-tags: ['react', 'swr', 'vite', 'data-fetching', 'web-development','React SWR Vite']
+title: "Mastering React SWR Vite Integration"
+date: "2025-02-03"
+lastmod: "2025-02-07"
+tags: ["react", "swr", "vite", "data-fetching", "web-development", "React SWR Vite"]
 draft: false
-images: '/static/images/blog/js/react-swr-vite-guide.png'
-summary: 'Learn how to efficiently integrate React SWR with Vite for optimal data fetching in your React applications. This comprehensive guide covers setup, configuration, and advanced usage patterns with practical code examples.'
-layout: 'PostLayout'
-canonicalUrl: 'https://geekskai.com/blog/js/react-swr-vite-guide/'
+images: "/static/images/blog/js/react-swr-vite-guide.png"
+summary: "Learn how to efficiently integrate React SWR with Vite for optimal data fetching in your React applications. This comprehensive guide covers setup, configuration, and advanced usage patterns with practical code examples."
+layout: "PostLayout"
+canonicalUrl: "https://geekskai.com/blog/js/react-swr-vite-guide/"
 ---
 
 ![Mastering React SWR with Vite Integration](/static/images/blog/js/react-swr-vite-guide.png)
 
 ## Key Highlights
+
 - Make data fetching easier in your React projects with SWR and Vite
 - Enjoy features like built-in caching, request deduplication, and real-time updates
 - Learn different SWR methods for smart data handling, including SSR support
@@ -20,6 +21,7 @@ canonicalUrl: 'https://geekskai.com/blog/js/react-swr-vite-guide/'
 - See how React SWR works well with Vite for a smooth development process
 
 ## Introduction
+
 In the fast world of web development, it is very important to create efficient applications. This is where React SWR comes in. It is a powerful library for data fetching that implements the stale-while-revalidate caching strategy. When you use SWR with Vite, a very fast build tool, it really shows their power. Developers can make the user experience much better by simplifying how they fetch data.
 
 ## Setting Up Your Project with Vite and React SWR
@@ -41,18 +43,18 @@ npm install swr
 Update your `vite.config.js` for optimal performance:
 
 ```javascript
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react-swc"
 
 export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
-    open: true
+    open: true,
   },
   optimizeDeps: {
-    include: ['swr']
-  }
+    include: ["swr"],
+  },
 })
 ```
 
@@ -62,15 +64,12 @@ Let's create a basic example of using SWR to fetch data:
 
 ```jsx
 // src/components/UserProfile.jsx
-import useSWR from 'swr'
+import useSWR from "swr"
 
-const fetcher = url => fetch(url).then(res => res.json())
+const fetcher = (url) => fetch(url).then((res) => res.json())
 
 function UserProfile({ userId }) {
-  const { data, error, isLoading } = useSWR(
-    `/api/user/${userId}`,
-    fetcher
-  )
+  const { data, error, isLoading } = useSWR(`/api/user/${userId}`, fetcher)
 
   if (error) return <div>Failed to load user</div>
   if (isLoading) return <div>Loading...</div>
@@ -92,16 +91,16 @@ You can set up global configuration for SWR in your app's entry point:
 
 ```jsx
 // src/App.jsx
-import { SWRConfig } from 'swr'
+import { SWRConfig } from "swr"
 
 function App() {
   return (
-    <SWRConfig 
+    <SWRConfig
       value={{
-        fetcher: (url) => fetch(url).then(res => res.json()),
+        fetcher: (url) => fetch(url).then((res) => res.json()),
         revalidateOnFocus: false,
         revalidateOnReconnect: true,
-        dedupingInterval: 2000
+        dedupingInterval: 2000,
       }}
     >
       <YourApp />
@@ -116,33 +115,33 @@ function App() {
 
 ```jsx
 // src/components/TodoList.jsx
-import useSWR, { mutate } from 'swr'
+import useSWR, { mutate } from "swr"
 
 function TodoList() {
-  const { data: todos } = useSWR('/api/todos')
-  
+  const { data: todos } = useSWR("/api/todos")
+
   async function addTodo(text) {
     // 乐观更新 UI
-    mutate('/api/todos', [...todos, { id: Date.now(), text }], false)
-    
+    mutate("/api/todos", [...todos, { id: Date.now(), text }], false)
+
     // 发送请求到服务器
-    await fetch('/api/todos', {
-      method: 'POST',
-      body: JSON.stringify({ text })
+    await fetch("/api/todos", {
+      method: "POST",
+      body: JSON.stringify({ text }),
     })
-    
+
     // 触发重新验证
-    mutate('/api/todos')
+    mutate("/api/todos")
   }
 
   return (
     <div>
       <ul>
-        {todos?.map(todo => (
+        {todos?.map((todo) => (
           <li key={todo.id}>{todo.text}</li>
         ))}
       </ul>
-      <button onClick={() => addTodo('New Todo')}>Add Todo</button>
+      <button onClick={() => addTodo("New Todo")}>Add Todo</button>
     </div>
   )
 }
@@ -152,20 +151,12 @@ function TodoList() {
 
 ```jsx
 // src/components/ConditionalData.jsx
-import useSWR from 'swr'
+import useSWR from "swr"
 
 function ConditionalData({ shouldFetch, resource }) {
   const { data } = useSWR(shouldFetch ? `/api/${resource}` : null)
 
-  return (
-    <div>
-      {data ? (
-        <pre>{JSON.stringify(data, null, 2)}</pre>
-      ) : (
-        'Not fetching data...'
-      )}
-    </div>
-  )
+  return <div>{data ? <pre>{JSON.stringify(data, null, 2)}</pre> : "Not fetching data..."}</div>
 }
 ```
 
@@ -173,7 +164,7 @@ function ConditionalData({ shouldFetch, resource }) {
 
 ```jsx
 // src/hooks/useUser.js
-import useSWR from 'swr'
+import useSWR from "swr"
 
 export function useUser(id) {
   const { data, error, isLoading, mutate } = useSWR(`/api/user/${id}`)
@@ -186,13 +177,13 @@ export function useUser(id) {
       try {
         // 乐观更新
         mutate({ ...data, ...updates }, false)
-        
+
         // 发送实际请求
         await fetch(`/api/user/${id}`, {
-          method: 'PATCH',
-          body: JSON.stringify(updates)
+          method: "PATCH",
+          body: JSON.stringify(updates),
         })
-        
+
         // 重新验证
         mutate()
       } catch (error) {
@@ -200,23 +191,21 @@ export function useUser(id) {
         mutate(data)
         throw error
       }
-    }
+    },
   }
 }
 
 // 使用示例
 function UserComponent({ userId }) {
   const { user, isLoading, isError, updateUser } = useUser(userId)
-  
+
   if (isLoading) return <div>Loading...</div>
   if (isError) return <div>Error loading user</div>
-  
+
   return (
     <div>
       <h1>{user.name}</h1>
-      <button onClick={() => updateUser({ name: 'New Name' })}>
-        Update Name
-      </button>
+      <button onClick={() => updateUser({ name: "New Name" })}>Update Name</button>
     </div>
   )
 }
@@ -226,21 +215,20 @@ function UserComponent({ userId }) {
 
 ```jsx
 // src/components/DataWithRetry.jsx
-import useSWR from 'swr'
+import useSWR from "swr"
 
 function DataWithRetry() {
-  const { data, error, isValidating } = useSWR('/api/data', fetcher, {
+  const { data, error, isValidating } = useSWR("/api/data", fetcher, {
     onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
       // 404 错误不重试
       if (error.status === 404) return
-      
+
       // 最多重试 3 次
       if (retryCount >= 3) return
-      
+
       // 重试间隔增加
-      setTimeout(() => revalidate({ retryCount }), 
-        Math.min(1000 * (retryCount + 1), 30000))
-    }
+      setTimeout(() => revalidate({ retryCount }), Math.min(1000 * (retryCount + 1), 30000))
+    },
   })
 
   return (
@@ -259,10 +247,10 @@ Here's an example of a component that shows different states during data fetchin
 
 ```jsx
 // src/components/DataDisplay.jsx
-import useSWR from 'swr'
+import useSWR from "swr"
 
 function DataDisplay() {
-  const { data, error, isLoading, isValidating } = useSWR('/api/data')
+  const { data, error, isLoading, isValidating } = useSWR("/api/data")
 
   return (
     <div className="data-container">
@@ -272,14 +260,8 @@ function DataDisplay() {
         <ErrorMessage error={error} />
       ) : (
         <>
-          <div className="data-content">
-            {data && <DataView data={data} />}
-          </div>
-          {isValidating && (
-            <div className="refresh-indicator">
-              Refreshing...
-            </div>
-          )}
+          <div className="data-content">{data && <DataView data={data} />}</div>
+          {isValidating && <div className="refresh-indicator">Refreshing...</div>}
         </>
       )}
     </div>
@@ -302,9 +284,7 @@ function ErrorMessage({ error }) {
     <div className="error-container">
       <h3>Something went wrong</h3>
       <p>{error.message}</p>
-      <button onClick={() => window.location.reload()}>
-        Retry
-      </button>
+      <button onClick={() => window.location.reload()}>Retry</button>
     </div>
   )
 }
@@ -315,6 +295,7 @@ function ErrorMessage({ error }) {
 React SWR with Vite provides a powerful combination for building modern web applications with efficient data fetching. By following the examples and patterns shown above, you can create responsive, user-friendly applications that handle data fetching elegantly.
 
 Remember to:
+
 - Configure SWR globally for consistent behavior across your application
 - Implement proper error handling and loading states
 - Use optimistic updates for better user experience
@@ -323,13 +304,14 @@ Remember to:
 
 The code examples provided should give you a solid foundation for implementing these patterns in your own applications.
 
-
 The code examples provided should give you a solid foundation for implementing these patterns in your own applications.
 
 ## Frequently Asked Questions (FAQ)
 
 ### Q: What are the main benefits of using SWR with Vite?
+
 A: The main benefits include:
+
 - Faster development with Vite's quick build times and hot module replacement
 - Built-in caching and automatic revalidation with SWR
 - Reduced server load through request deduplication
@@ -337,13 +319,16 @@ A: The main benefits include:
 - Optimized performance through SWR's stale-while-revalidate strategy
 
 ### Q: How does SWR's caching mechanism work?
+
 A: SWR uses a two-step process for data fetching:
+
 1. Returns cached data immediately (stale)
 2. Sends the fetch request to revalidate data
 3. Updates with the latest data once available
-This approach ensures users see immediate content while fresh data is being fetched in the background.
+   This approach ensures users see immediate content while fresh data is being fetched in the background.
 
 ### Q: Can I use SWR with TypeScript in a Vite project?
+
 A: Yes, SWR fully supports TypeScript. You can define types for your data and fetcher functions:
 
 ```typescript
@@ -353,16 +338,19 @@ interface User {
   email: string
 }
 
-const { data, error } = useSWR<User>('/api/user', fetcher)
+const { data, error } = useSWR<User>("/api/user", fetcher)
 ```
 
 ### Q: How can I handle authentication with SWR?
+
 A: You can handle authentication by:
+
 1. Creating a custom fetcher that includes authentication headers
 2. Using SWR's global configuration to set up authentication
 3. Implementing middleware for token refresh
 
 Example:
+
 ```jsx
 const fetcher = (url) => fetch(url, {
   headers: {
@@ -376,47 +364,55 @@ const fetcher = (url) => fetch(url, {
 ```
 
 ### Q: How do I prevent unnecessary revalidation?
+
 A: You can control revalidation behavior through SWR config:
+
 ```jsx
-const { data } = useSWR('/api/data', fetcher, {
-  revalidateOnFocus: false,     // Disable revalidation on window focus
+const { data } = useSWR("/api/data", fetcher, {
+  revalidateOnFocus: false, // Disable revalidation on window focus
   revalidateOnReconnect: false, // Disable revalidation on network recovery
-  refreshInterval: 0,           // Disable periodic polling
-  dedupingInterval: 2000        // Dedupe requests within 2 seconds
+  refreshInterval: 0, // Disable periodic polling
+  dedupingInterval: 2000, // Dedupe requests within 2 seconds
 })
 ```
 
 ### Q: Can SWR be used for infinite loading or pagination?
+
 A: Yes, SWR provides the `useSWRInfinite` hook for handling infinite loading:
+
 ```jsx
-const { data, size, setSize } = useSWRInfinite(
-  (index) => `/api/posts?page=${index + 1}`,
-  fetcher
-)
+const { data, size, setSize } = useSWRInfinite((index) => `/api/posts?page=${index + 1}`, fetcher)
 
 // Load more data
 const loadMore = () => setSize(size + 1)
 ```
 
 ### Q: How does SWR handle server-side rendering (SSR)?
+
 A: SWR works well with SSR through:
+
 1. Initial data population using `fallback` or `fallbackData`
 2. Hydration on the client side
 3. Revalidation after mount if needed
 
 Example:
+
 ```jsx
-<SWRConfig value={{ 
-  fallback: { 
-    '/api/data': initialData 
-  } 
-}}>
+<SWRConfig
+  value={{
+    fallback: {
+      "/api/data": initialData,
+    },
+  }}
+>
   <App />
 </SWRConfig>
 ```
 
 ### Q: What's the difference between mutate and trigger in SWR?
-A: 
+
+A:
+
 - `mutate`: Updates the cached data and optionally revalidates
 - `trigger`: Only revalidates the data without updating the cache
 
