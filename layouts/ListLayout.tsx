@@ -70,7 +70,9 @@ export default function ListLayout({ posts, initialDisplayPosts = [] }: ListLayo
               <li key={key} className="py-4">
                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                   <p className="flex flex-wrap">
-                    {tags?.map((tag) => <Tag key={tag} text={tag} />)}
+                    {tags?.map((tag) => (
+                      <Tag key={tag} text={tag} />
+                    ))}
                   </p>
 
                   <div className="space-y-3 xl:col-span-3">
