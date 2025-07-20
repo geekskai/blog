@@ -445,9 +445,22 @@ const PdfToMarkdown = () => {
             /* Success State */
             <div className="overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
               {/* Success Header */}
-              <div className="border-b border-slate-200 bg-gradient-to-r from-green-50 to-emerald-50 p-6 dark:border-slate-700 dark:from-green-900/20 dark:to-emerald-900/20">
+              <div className="gap-5 border-b border-slate-200 bg-gradient-to-r from-green-50 to-emerald-50 p-6 dark:border-slate-700 dark:from-green-900/20 dark:to-emerald-900/20">
+                {/* File Information */}
+                {file && (
+                  <h3 className="mb-4 flex w-full flex-1 items-center justify-center gap-4 px-4 text-center text-2xl">
+                    <span className="truncate font-medium text-slate-700 dark:text-slate-300">
+                      📄 {file.name}
+                    </span>
+                    <span className="text-sm text-slate-500">
+                      {(file.size / 1024 / 1024).toFixed(2)} MB
+                    </span>
+                  </h3>
+                )}
+
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
+                  {/* Left: Success Message */}
+                  <div className="flex flex-1 items-center space-x-3">
                     <div className="rounded-full bg-green-100 p-2 dark:bg-green-900">
                       <FileCheck className="h-6 w-6 text-green-600 dark:text-green-400" />
                     </div>
@@ -460,18 +473,9 @@ const PdfToMarkdown = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    {file && (
-                      <div className="mr-4 text-right">
-                        <p className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                          {file.name}
-                        </p>
-                        <p className="text-xs text-slate-500">
-                          {(file.size / 1024 / 1024).toFixed(2)} MB
-                        </p>
-                      </div>
-                    )}
-                    {/* Action Buttons moved to header */}
+
+                  {/* Right: Action Buttons */}
+                  <div className="flex flex-1 flex-col items-center justify-end">
                     <div className="flex flex-col space-y-2 sm:flex-row sm:space-x-3 sm:space-y-0">
                       <button
                         onClick={resetState}
