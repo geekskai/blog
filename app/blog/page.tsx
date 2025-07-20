@@ -6,7 +6,12 @@ import { genPageMetadata } from "app/seo"
 // blog page size is 12
 const POSTS_PER_PAGE = 12
 
-export const metadata = genPageMetadata({ title: "Blog" })
+export const metadata = genPageMetadata({
+  title: "Latest Insights on AI Tools, Productivity Hacks & Online Utilities | GeeksKai",
+  description:
+    "Explore expert-written guides and insights on AI tools, online utilities, and productivity tips. Stay updated with the latest articles from GeeksKai Blog.",
+  keywords: ["AI tools", "online utilities", "productivity tips", "GeeksKai Blog"],
+})
 
 export default function BlogPage() {
   const posts = allCoreContent(sortPosts(allBlogs))
