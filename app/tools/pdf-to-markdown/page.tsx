@@ -38,7 +38,7 @@ const PdfToMarkdown = () => {
   return (
     <div className="flex flex-col gap-10">
       <div className="flex w-full flex-col gap-4 rounded-lg p-3 shadow-lg">
-        <h1 className="text-center text-xl font-bold text-gray-800 md:text-2xl">
+        <h1 className="text-center text-xl font-bold text-white md:text-2xl">
           PDF to Markdown Converter: Extract Text, Code & Tables with Formatting
         </h1>
 
