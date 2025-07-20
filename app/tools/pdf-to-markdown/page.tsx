@@ -460,16 +460,37 @@ const PdfToMarkdown = () => {
                       </p>
                     </div>
                   </div>
-                  {file && (
-                    <div className="text-right">
-                      <p className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                        {file.name}
-                      </p>
-                      <p className="text-xs text-slate-500">
-                        {(file.size / 1024 / 1024).toFixed(2)} MB
-                      </p>
+                  <div className="flex items-center space-x-3">
+                    {file && (
+                      <div className="mr-4 text-right">
+                        <p className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                          {file.name}
+                        </p>
+                        <p className="text-xs text-slate-500">
+                          {(file.size / 1024 / 1024).toFixed(2)} MB
+                        </p>
+                      </div>
+                    )}
+                    {/* Action Buttons moved to header */}
+                    <div className="flex flex-col space-y-2 sm:flex-row sm:space-x-3 sm:space-y-0">
+                      <button
+                        onClick={resetState}
+                        className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600"
+                      >
+                        <RefreshCw className="mr-2 h-4 w-4" />
+                        Convert Another PDF
+                      </button>
+
+                      <button
+                        onClick={downloadMarkdown}
+                        className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-lg hover:from-blue-700 hover:to-indigo-700"
+                      >
+                        <Download className="mr-2 h-4 w-4" />
+                        Download Markdown
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </button>
                     </div>
-                  )}
+                  </div>
                 </div>
               </div>
 
@@ -552,28 +573,6 @@ const PdfToMarkdown = () => {
                   </div>
                 </div>
               )}
-
-              {/* Action Buttons */}
-              <div className="border-t border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800">
-                <div className="flex flex-col space-y-3 sm:flex-row sm:justify-between sm:space-y-0">
-                  <button
-                    onClick={resetState}
-                    className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600"
-                  >
-                    <RefreshCw className="mr-2 h-4 w-4" />
-                    Convert Another PDF
-                  </button>
-
-                  <button
-                    onClick={downloadMarkdown}
-                    className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-2 text-sm font-medium text-white shadow-lg hover:from-blue-700 hover:to-indigo-700"
-                  >
-                    <Download className="mr-2 h-4 w-4" />
-                    Download Markdown
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </button>
-                </div>
-              </div>
             </div>
           )}
         </div>
