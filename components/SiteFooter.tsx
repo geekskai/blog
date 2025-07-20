@@ -23,6 +23,11 @@ const SiteFooter = () => {
                 PDF to Markdown
               </Link>
             </div>
+            <div className="space-y-2">
+              <Link href="/tools/job-worth-calculator" className="hover:text-primary-400">
+                Job Worth Calculator
+              </Link>
+            </div>
           </div>
           <div>
             <h3 className="mb-4 text-lg font-semibold">Company</h3>

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.task-list-item::before {
+.task-list-item:before {
   @apply hidden;
 }
 
@@ -11,15 +11,58 @@
 }
 
 .footnotes {
-  @apply mt-12 border-t  border-stone-700 pt-8;
+  @apply mt-12 border-t border-gray-200 pt-8 dark:border-gray-700;
+}
+
+.csl-entry {
+  @apply mb-2;
+}
+
+/* Grid pattern for background */
+.bg-grid-pattern {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bg-grid-pattern {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  }
+}
+
+/* Custom animations for tools page */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Gradient text utilities */
+.gradient-text {
+  @apply bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px) scale(1.02);
 }
 
 .data-footnote-backref {
   @apply no-underline;
-}
-
-.csl-entry {
-  @apply my-5;
 }
 
 .no-scrollbar::-webkit-scrollbar {
