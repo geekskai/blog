@@ -1501,12 +1501,27 @@ const translations: Record<Language, Record<string, string>> = {
   },
 }
 
+// 获取浏览器语言的函数
+const getBrowserLanguage = (): Language => {
+  if (typeof window === "undefined") return "zh" // 服务端渲染时默认中文
+
+  const browserLang = navigator.language.toLowerCase()
+
+  // 检查浏览器语言
+  if (browserLang.startsWith("en")) return "en"
+  if (browserLang.startsWith("ja")) return "ja"
+  if (browserLang.startsWith("zh")) return "zh"
+
+  // 默认返回中文
+  return "zh"
+}
+
 // 提供上下文的组件
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  // 从本地存储初始化语言，默认为中文
+  // 从浏览器语言或本地存储初始化语言
   const [language, setLanguageState] = useState<Language>("zh")
 
-  // 首次渲染时检查本地存储的语言设置
+  // 首次渲染时检查本地存储的语言设置，如果没有则使用浏览器语言
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language") as Language
     if (
@@ -1514,6 +1529,11 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
       (savedLanguage === "zh" || savedLanguage === "en" || savedLanguage === "ja")
     ) {
       setLanguageState(savedLanguage)
+    } else {
+      // 如果没有保存的语言设置，使用浏览器语言
+      const browserLanguage = getBrowserLanguage()
+      setLanguageState(browserLanguage)
+      localStorage.setItem("language", browserLanguage)
     }
   }, [])
 

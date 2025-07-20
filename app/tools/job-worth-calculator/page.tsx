@@ -185,231 +185,256 @@ const SalaryCalculator = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-10 text-center">
-          <div className="mb-6 inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 text-sm font-medium text-white shadow-lg">
-            <Calculator className="mr-2 h-4 w-4" />
-            {t("job_worth_calculator")}
+        <div className="mb-8">
+          {/* 顶部工具栏 - 语言、历史记录和访问统计 */}
+          <div className="mb-6 flex items-center justify-between">
+            {/* 左侧语言切换器 */}
+            <div className="flex items-center">
+              <LanguageSwitcher />
+            </div>
+
+            {/* 右侧控制区域 */}
+            <div className="flex items-center gap-3">
+              {/* 访问统计 - 紧凑徽章设计 */}
+              {isBrowser && (
+                <div className="flex items-center gap-3 rounded-xl bg-white/60 px-4 py-2 text-xs text-slate-600 backdrop-blur-sm dark:bg-slate-800/60 dark:text-slate-400">
+                  <div
+                    id="busuanzi_container_site_pv"
+                    className={`flex items-center gap-1.5 transition-all duration-500 ${
+                      visitorVisible ? "scale-100 opacity-100" : "scale-95 opacity-0"
+                    }`}
+                  >
+                    <Eye className="h-3.5 w-3.5 text-blue-500" />
+                    <span id="busuanzi_value_site_pv" className="font-medium"></span>
+                  </div>
+
+                  <div className="h-3 w-px bg-slate-300 dark:bg-slate-600"></div>
+
+                  <div
+                    id="busuanzi_container_site_uv"
+                    className={`flex items-center gap-1.5 transition-all delay-75 duration-500 ${
+                      visitorVisible ? "scale-100 opacity-100" : "scale-95 opacity-0"
+                    }`}
+                  >
+                    <Users className="h-3.5 w-3.5 text-emerald-500" />
+                    <span id="busuanzi_value_site_uv" className="font-medium"></span>
+                  </div>
+                </div>
+              )}
+
+              {/* 历史记录按钮 */}
+              {isBrowser && (
+                <button
+                  onClick={() => setShowHistory(!showHistory)}
+                  className="group relative flex items-center gap-2 rounded-xl bg-white/80 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm backdrop-blur-sm transition-all hover:bg-white hover:shadow-md dark:bg-slate-800/80 dark:text-slate-300 dark:hover:bg-slate-800"
+                >
+                  <History className="h-4 w-4 transition-transform group-hover:rotate-12" />
+                  <span className="hidden sm:inline">{t("history")}</span>
+                  {history.length > 0 && (
+                    <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-xs font-bold text-white">
+                      {history.length > 9 ? "9+" : history.length}
+                    </span>
+                  )}
+                </button>
+              )}
+            </div>
           </div>
 
-          <h1 className="mb-4 bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-4xl font-bold text-transparent dark:from-white dark:to-slate-300">
-            {t("title")}
-          </h1>
+          {/* 主标题区域 - 紧凑设计 */}
+          <div className="text-center">
+            {/* 工具徽章 */}
+            <div className="mb-4 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 px-6 py-3 text-white shadow-lg shadow-blue-500/25 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/30">
+              <div className="rounded-full bg-white/20 p-1">
+                <Calculator className="h-4 w-4" />
+              </div>
+              <span className="font-semibold">{t("job_worth_calculator")}</span>
+            </div>
 
-          <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-300">
-            {t("subtitle_description")}
-          </p>
+            {/* 主标题 */}
+            <h1 className="mb-4 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-4xl font-bold leading-tight text-transparent dark:from-white dark:via-slate-100 dark:to-white lg:text-5xl">
+              {t("title")}
+            </h1>
 
-          <div className="mt-6 flex justify-center">
-            <LanguageSwitcher />
-          </div>
-
-          <div className="mt-4 flex items-center justify-center gap-4">
-            {/* 历史记录按钮 */}
-            {isBrowser && (
-              <button
-                onClick={() => setShowHistory(!showHistory)}
-                className="flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition-colors hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600"
-              >
-                <History className="h-4 w-4" />
-                {t("history")}
-                {history.length > 0 && (
-                  <span className="ml-1 rounded-full bg-blue-100 px-2 py-0.5 text-xs text-blue-600 dark:bg-blue-900 dark:text-blue-300">
-                    {history.length}
-                  </span>
-                )}
-              </button>
-            )}
+            {/* 副标题描述 */}
+            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+              {t("subtitle_description")}
+            </p>
           </div>
 
           {/* 历史记录下拉面板 */}
           {isBrowser && showHistory && (
-            <div className="relative z-10 mt-4">
-              <div className="absolute left-1/2 w-96 -translate-x-1/2 transform overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
-                <div className="border-b border-slate-200 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-800/50">
-                  <div className="flex items-center justify-between">
-                    <h3 className="flex items-center text-lg font-semibold text-slate-900 dark:text-white">
-                      <History className="mr-2 h-5 w-5" />
-                      {t("history")}
-                    </h3>
-                    <div className="flex gap-2">
-                      {history.length > 0 && (
+            <div className="relative z-50 mt-6">
+              <div className="animate-in fade-in slide-in-from-top-4 absolute left-1/2 w-96 -translate-x-1/2 transform duration-200">
+                <div className="overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-slate-200/50 backdrop-blur-xl dark:bg-slate-800/95 dark:ring-slate-700/50">
+                  <div className="border-b border-slate-200 bg-gradient-to-r from-slate-50 to-blue-50 p-6 dark:border-slate-700 dark:from-slate-800 dark:to-slate-700">
+                    <div className="flex items-center justify-between">
+                      <h3 className="flex items-center text-lg font-semibold text-slate-900 dark:text-white">
+                        <div className="mr-3 rounded-full bg-blue-100 p-2 dark:bg-blue-900/30">
+                          <History className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                        </div>
+                        {t("history")}
+                      </h3>
+                      <div className="flex gap-2">
+                        {history.length > 0 && (
+                          <button
+                            onClick={clearAllHistory}
+                            className="rounded-xl bg-red-50 px-4 py-2 text-xs font-medium text-red-700 transition-all hover:scale-105 hover:bg-red-100 dark:bg-red-900/20 dark:text-red-400 dark:hover:bg-red-900/40"
+                          >
+                            {t("clear_all")}
+                          </button>
+                        )}
                         <button
-                          onClick={clearAllHistory}
-                          className="rounded-lg bg-red-100 px-3 py-1 text-xs font-medium text-red-700 transition-colors hover:bg-red-200 dark:bg-red-900/20 dark:text-red-400 dark:hover:bg-red-900/40"
+                          onClick={() => setShowHistory(false)}
+                          className="flex h-9 w-9 items-center justify-center rounded-xl text-slate-500 transition-all hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-slate-700 dark:hover:text-slate-300"
                         >
-                          {t("clear_all")}
+                          ×
                         </button>
-                      )}
-                      <button
-                        onClick={() => setShowHistory(false)}
-                        className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-slate-700 dark:hover:text-slate-300"
-                      >
-                        ×
-                      </button>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="max-h-80 overflow-y-auto p-4">
-                  {history.length > 0 ? (
-                    <div className="space-y-3">
-                      {history.map((item) => (
-                        <div
-                          key={item.id}
-                          className="group flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50 p-3 transition-all hover:border-blue-200 hover:bg-blue-50 dark:border-slate-600 dark:bg-slate-700 dark:hover:bg-slate-600"
-                        >
-                          <div className="flex-1">
-                            <div className="mb-1 flex items-center gap-2">
-                              <span className={`text-lg font-bold ${item.assessmentColor}`}>
-                                {item.value}
-                              </span>
-                              <span className="rounded-full bg-white px-2 py-0.5 text-xs font-medium text-slate-700 dark:bg-slate-600 dark:text-slate-300">
-                                {item.countryCode !== "CN" ? "$" : "¥"}
-                                {item.salary}
-                              </span>
-                            </div>
-                            <div className="text-xs text-slate-500">
-                              {formatDate(item.timestamp)}
+                  <div className="max-h-80 overflow-y-auto p-6">
+                    {history.length > 0 ? (
+                      <div className="space-y-4">
+                        {history.map((item, index) => (
+                          <div
+                            key={item.id}
+                            className="group relative overflow-hidden rounded-xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 p-4 transition-all hover:border-blue-200 hover:shadow-md dark:border-slate-600 dark:from-slate-700 dark:to-slate-600 dark:hover:border-blue-400"
+                            style={{
+                              animationDelay: `${index * 50}ms`,
+                            }}
+                          >
+                            <div className="flex items-center justify-between">
+                              <div className="flex-1">
+                                <div className="mb-2 flex items-center gap-3">
+                                  <span className={`text-xl font-bold ${item.assessmentColor}`}>
+                                    {item.value}
+                                  </span>
+                                  <span className="rounded-lg bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-sm dark:bg-slate-600 dark:text-slate-300">
+                                    {item.countryCode !== "CN" ? "$" : "¥"}
+                                    {item.salary}
+                                  </span>
+                                </div>
+                                <div className="text-xs text-slate-500 dark:text-slate-400">
+                                  {formatDate(item.timestamp)}
+                                </div>
+                              </div>
+                              <div className="flex gap-1 opacity-0 transition-all group-hover:opacity-100">
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation()
+                                    e.preventDefault()
+                                    const restoredFormData = restoreFromHistory(item)
+                                    calculator.setFormData(restoredFormData)
+                                    handleCountryChange(item.countryCode)
+                                    setShowHistory(false)
+                                  }}
+                                  className="rounded-lg p-2 text-blue-500 transition-all hover:scale-110 hover:bg-blue-50 dark:hover:bg-blue-900/20"
+                                  title={t("restore_history")}
+                                >
+                                  <svg
+                                    className="h-4 w-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth={2}
+                                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                                    />
+                                  </svg>
+                                </button>
+                                <Link
+                                  href={{
+                                    pathname: "/tools/job-worth-calculator/share",
+                                    query: {
+                                      value: item.value,
+                                      assessment: item.assessment,
+                                      assessmentColor: item.assessmentColor,
+                                      cityFactor: item.cityFactor,
+                                      workHours: item.workHours,
+                                      commuteHours: item.commuteHours,
+                                      restTime: item.restTime,
+                                      dailySalary: item.dailySalary,
+                                      isYuan: item.countryCode !== "CN" ? "false" : "true",
+                                      workDaysPerYear: item.workDaysPerYear,
+                                      workDaysPerWeek: item.workDaysPerWeek,
+                                      wfhDaysPerWeek: item.wfhDaysPerWeek,
+                                      annualLeave: item.annualLeave,
+                                      paidSickLeave: item.paidSickLeave,
+                                      publicHolidays: item.publicHolidays,
+                                      workEnvironment: item.workEnvironment,
+                                      leadership: item.leadership,
+                                      teamwork: item.teamwork,
+                                      degreeType: item.degreeType,
+                                      schoolType: item.schoolType,
+                                      education: item.education,
+                                      homeTown: item.homeTown,
+                                      shuttle: item.shuttle,
+                                      canteen: item.canteen,
+                                      workYears: item.workYears,
+                                      jobStability: item.jobStability,
+                                      bachelorType: item.bachelorType,
+                                      countryCode: item.countryCode,
+                                      countryName: getCountryName(item.countryCode, language),
+                                      hasShuttle: item.hasShuttle,
+                                      hasCanteen: item.hasCanteen,
+                                    },
+                                  }}
+                                  className="rounded-lg p-2 text-blue-500 transition-all hover:scale-110 hover:bg-blue-50 dark:hover:bg-blue-900/20"
+                                >
+                                  <Eye className="h-4 w-4" />
+                                </Link>
+                                <button
+                                  onClick={(e) => deleteHistoryItem(item.id, e)}
+                                  className="rounded-lg p-2 text-red-500 transition-all hover:scale-110 hover:bg-red-50 dark:hover:bg-red-900/20"
+                                  title={t("delete_history")}
+                                >
+                                  <svg
+                                    className="h-4 w-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth={2}
+                                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                    />
+                                  </svg>
+                                </button>
+                              </div>
                             </div>
                           </div>
-                          <div className="flex gap-1 opacity-0 transition-opacity group-hover:opacity-100">
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation()
-                                e.preventDefault()
-                                const restoredFormData = restoreFromHistory(item)
-                                calculator.setFormData(restoredFormData)
-                                handleCountryChange(item.countryCode)
-                                setShowHistory(false)
-                              }}
-                              className="rounded-lg p-2 text-blue-500 hover:bg-blue-100 dark:hover:bg-blue-900/20"
-                              title={t("restore_history")}
-                            >
-                              <svg
-                                className="h-4 w-4"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                                />
-                              </svg>
-                            </button>
-                            <Link
-                              href={{
-                                pathname: "/tools/job-worth-calculator/share",
-                                query: {
-                                  value: item.value,
-                                  assessment: item.assessment,
-                                  assessmentColor: item.assessmentColor,
-                                  cityFactor: item.cityFactor,
-                                  workHours: item.workHours,
-                                  commuteHours: item.commuteHours,
-                                  restTime: item.restTime,
-                                  dailySalary: item.dailySalary,
-                                  isYuan: item.countryCode !== "CN" ? "false" : "true",
-                                  workDaysPerYear: item.workDaysPerYear,
-                                  workDaysPerWeek: item.workDaysPerWeek,
-                                  wfhDaysPerWeek: item.wfhDaysPerWeek,
-                                  annualLeave: item.annualLeave,
-                                  paidSickLeave: item.paidSickLeave,
-                                  publicHolidays: item.publicHolidays,
-                                  workEnvironment: item.workEnvironment,
-                                  leadership: item.leadership,
-                                  teamwork: item.teamwork,
-                                  degreeType: item.degreeType,
-                                  schoolType: item.schoolType,
-                                  education: item.education,
-                                  homeTown: item.homeTown,
-                                  shuttle: item.shuttle,
-                                  canteen: item.canteen,
-                                  workYears: item.workYears,
-                                  jobStability: item.jobStability,
-                                  bachelorType: item.bachelorType,
-                                  countryCode: item.countryCode,
-                                  countryName: getCountryName(item.countryCode, language),
-                                  hasShuttle: item.hasShuttle,
-                                  hasCanteen: item.hasCanteen,
-                                },
-                              }}
-                              className="rounded-lg p-2 text-blue-500 hover:bg-blue-100 dark:hover:bg-blue-900/20"
-                            >
-                              <Eye className="h-4 w-4" />
-                            </Link>
-                            <button
-                              onClick={(e) => deleteHistoryItem(item.id, e)}
-                              className="rounded-lg p-2 text-red-500 hover:bg-red-100 dark:hover:bg-red-900/20"
-                              title={t("delete_history")}
-                            >
-                              <svg
-                                className="h-4 w-4"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                                />
-                              </svg>
-                            </button>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="py-8 text-center">
-                      <div className="mb-3 text-slate-400">
-                        <Clock className="mx-auto h-12 w-12 opacity-30" />
+                        ))}
                       </div>
-                      <p className="text-sm text-slate-500 dark:text-slate-400">
-                        {t("no_history")}
-                      </p>
-                      <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">
-                        {t("history_notice")}
-                      </p>
-                    </div>
-                  )}
+                    ) : (
+                      <div className="py-12 text-center">
+                        <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-100 dark:bg-slate-700">
+                          <Clock className="h-8 w-8 text-slate-400" />
+                        </div>
+                        <h4 className="mb-2 text-lg font-medium text-slate-900 dark:text-white">
+                          {t("no_history")}
+                        </h4>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">
+                          {t("history_notice")}
+                        </p>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </div>
-          )}
-
-          {/* 访问统计 */}
-          {isBrowser && (
-            <div className="mt-6 flex justify-center gap-6 text-sm text-slate-500 dark:text-slate-400">
-              <div
-                id="busuanzi_container_site_pv"
-                className={`flex items-center gap-1 transition-opacity duration-300 ${
-                  visitorVisible ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <Eye className="h-4 w-4" />
-                {t("visits")}: <span id="busuanzi_value_site_pv" className="font-medium"></span>
-              </div>
-              <div
-                id="busuanzi_container_site_uv"
-                className={`flex items-center gap-1 transition-opacity duration-300 ${
-                  visitorVisible ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <Users className="h-4 w-4" />
-                {t("visitors")}: <span id="busuanzi_value_site_uv" className="font-medium"></span>
               </div>
             </div>
           )}
         </div>
 
         {/* 步骤导航 */}
-        <div className="mb-8">
+        <div className="mb-6">
           <div className="flex justify-center">
-            <div className="flex items-center space-x-4 overflow-x-auto pb-4">
+            <div className="flex items-center space-x-3 overflow-x-auto pb-2">
               {steps.map((step, index) => {
                 const Icon = step.icon
                 const isCompleted = isStepCompleted(step.id)
@@ -421,12 +446,12 @@ const SalaryCalculator = () => {
                     <button
                       onClick={() => isClickable && setCurrentStep(step.id)}
                       disabled={!isClickable}
-                      className={`group flex flex-col items-center p-3 transition-all ${
+                      className={`group flex flex-col items-center p-2 transition-all ${
                         isClickable ? "cursor-pointer" : "cursor-not-allowed opacity-50"
                       }`}
                     >
                       <div
-                        className={`mb-2 flex h-12 w-12 items-center justify-center rounded-full transition-all ${
+                        className={`mb-1.5 flex h-10 w-10 items-center justify-center rounded-full transition-all ${
                           isCompleted
                             ? "bg-green-100 text-green-600 dark:bg-green-900 dark:text-green-400"
                             : isCurrent
@@ -434,7 +459,7 @@ const SalaryCalculator = () => {
                               : "bg-slate-200 text-slate-500 dark:bg-slate-700 dark:text-slate-400"
                         } ${isClickable ? "group-hover:scale-105" : ""}`}
                       >
-                        <Icon className="h-6 w-6" />
+                        <Icon className="h-5 w-5" />
                       </div>
                       <div className="text-center">
                         <div
@@ -450,7 +475,7 @@ const SalaryCalculator = () => {
                     </button>
                     {index < steps.length - 1 && (
                       <div
-                        className={`mx-2 h-px w-8 transition-colors ${
+                        className={`mx-2 h-px w-6 transition-colors ${
                           isStepCompleted(step.id)
                             ? "bg-green-300 dark:bg-green-700"
                             : "bg-slate-300 dark:bg-slate-600"
