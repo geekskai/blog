@@ -4,8 +4,8 @@ import React, { useRef, useState, useEffect } from "react"
 import { ArrowLeft, Download } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { useLanguage } from "./LanguageContext"
-import { countryNames } from "./LanguageContext" // 导入countryNames对象
+import { useLanguage } from "./components/LanguageContext"
+import { countryNames } from "./components/LanguageContext" // 导入countryNames对象
 
 // 扩展接口，支持更多属性
 interface ShareCardProps {

@@ -1,4 +1,4 @@
-import { LanguageProvider } from "./LanguageContext"
+import { LanguageProvider } from "./components/LanguageContext"
 
 export const metadata = {
   title: "Job Worth Calculator",

@@ -1,536 +1,84 @@
 "use client"
 
-import React, { useState, useCallback, useEffect, useRef } from "react"
-import { Wallet, Github, FileText, Book, History, Eye, Star } from "lucide-react" // 添加新图标
-import Link from "next/link" // 导入Link组件用于导航
-// import { useLanguage } from './LanguageContext';
-import { LanguageSwitcher } from "./LanguageSwitcher"
-import { countryNames, useLanguage } from "./LanguageContext"
-
-// 定义PPP转换因子映射表
-const pppFactors: Record<string, number> = {
-  AF: 18.71,
-  AO: 167.66,
-  AL: 41.01,
-  AR: 28.67,
-  AM: 157.09,
-  AG: 2.06,
-  AU: 1.47,
-  AT: 0.76,
-  AZ: 0.5,
-  BI: 680.41,
-  BE: 0.75,
-  BJ: 211.97,
-  BF: 209.84,
-  BD: 32.81,
-  BG: 0.7,
-  BH: 0.18,
-  BS: 0.88,
-  BA: 0.66,
-  BY: 0.77,
-  BZ: 1.37,
-  BO: 2.6,
-  BR: 2.36,
-  BB: 2.24,
-  BN: 0.58,
-  BT: 20.11,
-  BW: 4.54,
-  CF: 280.19,
-  CA: 1.21,
-  CH: 1.14,
-  CL: 418.43,
-  CN: 4.19,
-  CI: 245.25,
-  CM: 228.75,
-  CD: 911.27,
-  CG: 312.04,
-  CO: 1352.79,
-  KM: 182.34,
-  CV: 46.51,
-  CR: 335.86,
-  CY: 0.61,
-  CZ: 12.66,
-  DE: 0.75,
-  DJ: 105.29,
-  DM: 1.69,
-  DK: 6.6,
-  DO: 22.9,
-  DZ: 37.24,
-  EC: 0.51,
-  EG: 4.51,
-  ES: 0.62,
-  EE: 0.53,
-  ET: 12.11,
-  FI: 0.84,
-  FJ: 0.91,
-  FR: 0.73,
-  GA: 265.46,
-  GB: 0.7,
-  GE: 0.9,
-  GH: 2.33,
-  GN: 4053.64,
-  GM: 17.79,
-  GW: 214.86,
-  GQ: 229.16,
-  GR: 0.54,
-  GD: 1.64,
-  GT: 4.01,
-  GY: 73.6,
-  HK: 6.07,
-  HN: 10.91,
-  HR: 3.21,
-  HT: 40.2,
-  HU: 148.01,
-  ID: 4673.65,
-  IN: 21.99,
-  IE: 0.78,
-  IR: 30007.63,
-  IQ: 507.58,
-  IS: 145.34,
-  IL: 3.59,
-  IT: 0.66,
-  JM: 72.03,
-  JO: 0.29,
-  JP: 102.84,
-  KZ: 139.91,
-  KE: 43.95,
-  KG: 18.28,
-  KH: 1400.09,
-  KI: 1.0,
-  KN: 1.92,
-  KR: 861.82,
-  LA: 2889.36,
-  LB: 1414.91,
-  LR: 0.41,
-  LY: 0.48,
-  LC: 1.93,
-  LK: 51.65,
-  LS: 5.9,
-  LT: 0.45,
-  LU: 0.86,
-  LV: 0.48,
-  MO: 5.18,
-  MA: 3.92,
-  MD: 6.06,
-  MG: 1178.1,
-  MV: 8.35,
-  MX: 9.52,
-  MK: 18.83,
-  ML: 211.41,
-  MT: 0.57,
-  MM: 417.35,
-  ME: 0.33,
-  MN: 931.67,
-  MZ: 24.05,
-  MR: 12.01,
-  MU: 16.52,
-  MW: 298.82,
-  MY: 1.57,
-  NA: 7.4,
-  NE: 257.6,
-  NG: 144.27,
-  NI: 11.75,
-  NL: 0.77,
-  NO: 10.03,
-  NP: 33.52,
-  NZ: 1.45,
-  PK: 38.74,
-  PA: 0.46,
-  PE: 1.8,
-  PH: 19.51,
-  PG: 2.11,
-  PL: 1.78,
-  PR: 0.92,
-  PT: 0.57,
-  PY: 2575.54,
-  PS: 0.57,
-  QA: 2.06,
-  RO: 1.71,
-  RU: 25.88,
-  RW: 339.88,
-  SA: 1.61,
-  SD: 21.85,
-  SN: 245.98,
-  SG: 0.84,
-  SB: 7.08,
-  SL: 2739.26,
-  SV: 0.45,
-  SO: 9107.78,
-  RS: 41.13,
-  ST: 10.94,
-  SR: 3.55,
-  SK: 0.53,
-  SI: 0.56,
-  SE: 8.77,
-  SZ: 6.36,
-  SC: 7.82,
-  TC: 1.07,
-  TD: 220.58,
-  TG: 236.83,
-  TH: 12.34,
-  TJ: 2.3,
-  TL: 0.41,
-  TT: 4.15,
-  TN: 0.91,
-  TR: 2.13,
-  TV: 1.29,
-  TW: 13.85,
-  TZ: 888.32,
-  UG: 1321.35,
-  UA: 7.69,
-  UY: 28.45,
-  US: 1.0,
-  UZ: 2297.17,
-  VC: 1.54,
-  VN: 7473.67,
-  VU: 110.17,
-  XK: 0.33,
-  ZA: 6.93,
-  ZM: 5.59,
-  ZW: 24.98,
-}
-
-// 添加各国货币符号映射
-const currencySymbols: Record<string, string> = {
-  AF: "؋", // 阿富汗尼
-  AL: "L", // 阿尔巴尼亚列克
-  DZ: "د.ج", // 阿尔及利亚第纳尔
-  AO: "Kz", // 安哥拉宽扎
-  AR: "$", // 阿根廷比索
-  AM: "֏", // 亚美尼亚德拉姆
-  AU: "A$", // 澳大利亚元
-  AT: "€", // 欧元
-  AZ: "₼", // 阿塞拜疆马纳特
-  BI: "FBu", // 布隆迪法郎
-  BE: "€", // 欧元
-  BJ: "CFA", // 西非法郎
-  BF: "CFA", // 西非法郎
-  BD: "৳", // 孟加拉塔卡
-  BG: "лв", // 保加利亚列弗
-  BH: ".د.ب", // 巴林第纳尔
-  BS: "B$", // 巴哈马元
-  BA: "KM", // 波黑可兑换马克
-  BY: "Br", // 白俄罗斯卢布
-  BZ: "BZ$", // 伯利兹元
-  BO: "Bs", // 玻利维亚诺
-  BR: "R$", // 巴西雷亚尔
-  BB: "Bds$", // 巴巴多斯元
-  BN: "B$", // 文莱元
-  BT: "Nu.", // 不丹努扎姆
-  BW: "P", // 博茨瓦纳普拉
-  CA: "C$", // 加拿大元
-  CH: "CHF", // 瑞士法郎
-  CL: "CLP$", // 智利比索
-  CN: "¥", // 人民币
-  CI: "CFA", // 西非法郎
-  CM: "FCFA", // 中非法郎
-  CD: "FC", // 刚果法郎
-  CG: "FCFA", // 中非法郎
-  CO: "Col$", // 哥伦比亚比索
-  CR: "₡", // 哥斯达黎加科朗
-  CY: "€", // 欧元
-  CZ: "Kč", // 捷克克朗
-  DE: "€", // 欧元
-  DK: "kr", // 丹麦克朗
-  DO: "RD$", // 多米尼加比索
-  EC: "$", // 美元（厄瓜多尔使用美元）
-  EG: "E£", // 埃及镑
-  ES: "€", // 欧元
-  EE: "€", // 欧元
-  ET: "Br", // 埃塞俄比亚比尔
-  FI: "€", // 欧元
-  FJ: "FJ$", // 斐济元
-  FR: "€", // 欧元
-  GB: "£", // 英镑
-  GE: "₾", // 格鲁吉亚拉里
-  GH: "₵", // 加纳塞地
-  GR: "€", // 欧元
-  GT: "Q", // 危地马拉格查尔
-  HK: "HK$", // 港元
-  HN: "L", // 洪都拉斯伦皮拉
-  HR: "€", // 欧元（克罗地亚自2023年加入欧元区）
-  HU: "Ft", // 匈牙利福林
-  ID: "Rp", // 印尼盾
-  IN: "₹", // 印度卢比
-  IE: "€", // 欧元
-  IR: "﷼", // 伊朗里亚尔
-  IQ: "ع.د", // 伊拉克第纳尔
-  IS: "kr", // 冰岛克朗
-  IL: "₪", // 以色列新谢克尔
-  IT: "€", // 欧元
-  JM: "J$", // 牙买加元
-  JO: "JD", // 约旦第纳尔
-  JP: "¥", // 日元
-  KE: "KSh", // 肯尼亚先令
-  KR: "₩", // 韩元
-  KW: "د.ك", // 科威特第纳尔
-  LB: "L£", // 黎巴嫩镑
-  LK: "Rs", // 斯里兰卡卢比
-  LT: "€", // 欧元
-  LU: "€", // 欧元
-  LV: "€", // 欧元
-  MA: "د.م.", // 摩洛哥迪拉姆
-  MX: "Mex$", // 墨西哥比索
-  MY: "RM", // 马来西亚林吉特
-  NG: "₦", // 尼日利亚奈拉
-  NL: "€", // 欧元
-  NO: "kr", // 挪威克朗
-  NP: "रू", // 尼泊尔卢比
-  NZ: "NZ$", // 新西兰元
-  PK: "₨", // 巴基斯坦卢比
-  PA: "B/.", // 巴拿马巴波亚
-  PE: "S/.", // 秘鲁索尔
-  PH: "₱", // 菲律宾比索
-  PL: "zł", // 波兰兹罗提
-  PT: "€", // 欧元
-  QA: "ر.ق", // 卡塔尔里亚尔
-  RO: "lei", // 罗马尼亚列伊
-  RU: "₽", // 俄罗斯卢布
-  SA: "ر.س", // 沙特里亚尔
-  SG: "S$", // 新加坡元
-  SK: "€", // 欧元
-  SI: "€", // 欧元
-  SE: "kr", // 瑞典克朗
-  TH: "฿", // 泰铢
-  TR: "₺", // 土耳其里拉
-  TW: "NT$", // 新台币
-  UA: "₴", // 乌克兰格里夫纳
-  US: "$", // 美元
-  UY: "$U", // 乌拉圭比索
-  VN: "₫", // 越南盾
-  ZA: "R", // 南非兰特
-  // 默认其他国家使用美元符号
-}
-
-// 定义历史记录项的接口
-interface HistoryItem {
-  id: string
-  timestamp: number
-  value: string
-  assessment: string
-  assessmentColor: string
-  salary: string
-  countryCode: string
-  countryName: string
-
-  // 添加所有需要在分享页面展示的字段
-  cityFactor: string
-  workHours: string
-  commuteHours: string
-  restTime: string
-  dailySalary: string
-  workDaysPerYear: string
-  workDaysPerWeek: string
-  wfhDaysPerWeek: string
-  annualLeave: string
-  paidSickLeave: string
-  publicHolidays: string
-  workEnvironment: string
-  leadership: string
-  teamwork: string
-  degreeType: string
-  schoolType: string
-  education: string
-  homeTown: string
-  shuttle: string
-  canteen: string
-  workYears: string
-  jobStability: string
-  bachelorType: string
-  hasShuttle: boolean
-  hasCanteen: boolean
-}
-
-// 定义表单数据接口
-interface FormData {
-  salary: string
-  nonChinaSalary: boolean
-  workDaysPerWeek: string
-  wfhDaysPerWeek: string
-  annualLeave: string
-  paidSickLeave: string
-  publicHolidays: string
-  workHours: string
-  commuteHours: string
-  restTime: string
-  cityFactor: string
-  workEnvironment: string
-  leadership: string
-  teamwork: string
-  homeTown: string
-  degreeType: string
-  schoolType: string
-  bachelorType: string
-  workYears: string
-  shuttle: string
-  canteen: string
-  jobStability: string
-  education: string
-  hasShuttle: boolean
-  hasCanteen: boolean
-}
-
-// 定义计算结果接口
-interface Result {
-  value: number
-  workDaysPerYear: number
-  dailySalary: number
-  assessment: string
-  assessmentColor: string
-}
+import React, { useState, useEffect, useRef } from "react"
+import { Wallet, History, Eye, FileText } from "lucide-react"
+import Link from "next/link"
+import { LanguageSwitcher } from "./components/LanguageSwitcher"
+import { useLanguage } from "./components/LanguageContext"
+import { RadioGroup } from "./components/RadioGroup"
+import { useCalculator } from "./hooks/useCalculator"
+import { useHistory } from "./hooks/useHistory"
+import { pppFactors } from "./constants"
+import { getCountryName } from "./utils/country"
 
 const SalaryCalculator = () => {
   // 获取语言上下文
   const { t, language } = useLanguage()
 
-  // 添加客户端检测
-  const [isBrowser, setIsBrowser] = useState(false)
+  // 使用自定义hooks
+  const calculator = useCalculator(t)
+  const historyManager = useHistory()
 
-  // 添加滚动位置保存的引用
-  const scrollPositionRef = useRef(0)
+  // 解构calculator
+  const {
+    formData,
+    selectedCountry,
+    isBrowser,
+    setIsBrowser,
+    handleInputChange,
+    handleCountryChange,
+    updateEducationFactor,
+    getWorkingDays,
+    getDisplayDailySalary,
+    getValue,
+    getAssessment,
+    getAssessmentKey,
+    getCurrentCurrencySymbol,
+  } = calculator
 
-  // 添加历史记录状态
-  const [history, setHistory] = useState<HistoryItem[]>([])
-  const [showHistory, setShowHistory] = useState(false)
+  // 解构historyManager
+  const {
+    history,
+    showHistory,
+    setShowHistory,
+    saveToHistory,
+    deleteHistoryItem,
+    clearAllHistory,
+    restoreFromHistory,
+    formatDate,
+  } = historyManager
 
-  // 在组件挂载时标记为浏览器环境
-  useEffect(() => {
-    setIsBrowser(true)
-  }, [])
+  // 访问统计状态
+  const [visitorVisible, setVisitorVisible] = useState(false)
 
   // 添加用于创建分享图片的引用
   const shareResultsRef = useRef<HTMLDivElement>(null)
 
-  // 状态管理 - 基础表单和选项
-  const [formData, setFormData] = useState<FormData>({
-    salary: "",
-    nonChinaSalary: false,
-    workDaysPerWeek: "5",
-    wfhDaysPerWeek: "0",
-    annualLeave: "5",
-    paidSickLeave: "3",
-    publicHolidays: "13",
-    workHours: "10",
-    commuteHours: "2",
-    restTime: "2",
-    cityFactor: "1.0",
-    workEnvironment: "1.0",
-    leadership: "1.0",
-    teamwork: "1.0",
-    homeTown: "no",
-    degreeType: "bachelor",
-    schoolType: "firstTier",
-    bachelorType: "firstTier",
-    workYears: "0",
-    shuttle: "1.0",
-    canteen: "1.0",
-    jobStability: "private", // 新增：工作稳定度/类型
-    education: "1.0",
-    hasShuttle: false, // 确保这是一个明确的布尔值
-    hasCanteen: false, // 确保这是一个明确的布尔值
-  })
-
-  const [showPPPInput, setShowPPPInput] = useState(false)
-  // 修改为国家代码，默认为中国
-  const [selectedCountry, setSelectedCountry] = useState<string>("CN")
+  // 在组件挂载时标记为浏览器环境
+  useEffect(() => {
+    setIsBrowser(true)
+  }, [setIsBrowser])
 
   // 初始化时从localStorage加载国家设置
   useEffect(() => {
-    // 从本地存储读取国家设置
     if (typeof window !== "undefined") {
       const savedCountry = localStorage.getItem("selectedCountry")
       if (savedCountry) {
-        setSelectedCountry(savedCountry)
+        handleCountryChange(savedCountry)
       }
     }
-  }, [])
-
-  // 当国家选择改变时保存到localStorage
-  const handleCountryChange = (countryCode: string) => {
-    setSelectedCountry(countryCode)
-    if (typeof window !== "undefined") {
-      localStorage.setItem("selectedCountry", countryCode)
-    }
-  }
-
-  const [result, setResult] = useState<Result | null>(null)
-  const [showPPPList, setShowPPPList] = useState(false)
-  const [assessment, setAssessment] = useState("")
-  const [assessmentColor, setAssessmentColor] = useState("text-gray-500")
-  const [visitorVisible, setVisitorVisible] = useState(false)
-
-  // 添加检查document对象存在的逻辑
-  useEffect(() => {
-    // 确保在客户端环境中执行
-    if (typeof window !== "undefined" && typeof document !== "undefined") {
-      const savedHistory = localStorage.getItem("jobValueHistory")
-      if (savedHistory) {
-        try {
-          const parsedHistory = JSON.parse(savedHistory) as Partial<HistoryItem>[]
-
-          // 处理历史记录，为可能缺失的字段添加默认值
-          const normalizedHistory: HistoryItem[] = parsedHistory.map(
-            (item: Partial<HistoryItem>) => ({
-              id: item.id || Date.now().toString(),
-              timestamp: item.timestamp || Date.now(),
-              value: item.value || "0",
-              assessment: item.assessment || "rating_enter_salary",
-              assessmentColor: item.assessmentColor || "text-gray-500",
-              salary: item.salary || "",
-              countryCode: item.countryCode || "CN",
-              countryName: item.countryName || "中国",
-
-              // 为缺失的分享页面字段添加默认值
-              cityFactor: item.cityFactor || formData.cityFactor,
-              workHours: item.workHours || formData.workHours,
-              commuteHours: item.commuteHours || formData.commuteHours,
-              restTime: item.restTime || formData.restTime,
-              dailySalary: item.dailySalary || "0", // 简化，不使用函数
-              workDaysPerYear: item.workDaysPerYear || "250", // 简化，使用默认值
-              workDaysPerWeek: item.workDaysPerWeek || formData.workDaysPerWeek,
-              wfhDaysPerWeek: item.wfhDaysPerWeek || formData.wfhDaysPerWeek,
-              annualLeave: item.annualLeave || formData.annualLeave,
-              paidSickLeave: item.paidSickLeave || formData.paidSickLeave,
-              publicHolidays: item.publicHolidays || formData.publicHolidays,
-              workEnvironment: item.workEnvironment || formData.workEnvironment,
-              leadership: item.leadership || formData.leadership,
-              teamwork: item.teamwork || formData.teamwork,
-              degreeType: item.degreeType || formData.degreeType,
-              schoolType: item.schoolType || formData.schoolType,
-              education: item.education || formData.education,
-              homeTown: item.homeTown || formData.homeTown,
-              shuttle: item.shuttle || formData.shuttle,
-              canteen: item.canteen || formData.canteen,
-              workYears: item.workYears || formData.workYears,
-              jobStability: item.jobStability || formData.jobStability,
-              bachelorType: item.bachelorType || formData.bachelorType,
-              // 确保 hasShuttle 和 hasCanteen 有合法的布尔值，即使历史记录中没有这些字段
-              hasShuttle: typeof item.hasShuttle === "boolean" ? item.hasShuttle : false,
-              hasCanteen: typeof item.hasCanteen === "boolean" ? item.hasCanteen : false,
-            })
-          )
-
-          setHistory(normalizedHistory)
-        } catch (e) {
-          console.error("加载历史记录失败", e)
-        }
-      }
-    }
-  }, [formData])
+  }, [handleCountryChange])
 
   // 监听访客统计加载
   useEffect(() => {
-    // 延迟检查busuanzi是否已加载
     const timer = setTimeout(() => {
       const pv = document.getElementById("busuanzi_value_site_pv")
       const uv = document.getElementById("busuanzi_value_site_uv")
 
       if (pv && pv.innerText !== "") {
-        // 直接在现有数字上加上1700000（原seeyoufarm统计数据）
         const currentCount = parseInt(pv.innerText, 10) || 0
         pv.innerText = (currentCount + 1700000).toString()
 
-        // 同时增加访客数的历史数据
         if (uv && uv.innerText !== "") {
           const currentUV = parseInt(uv.innerText, 10) || 0
           uv.innerText = (currentUV + 250000).toString()
@@ -538,17 +86,14 @@ const SalaryCalculator = () => {
 
         setVisitorVisible(true)
       } else {
-        // 如果未加载，再次尝试
         const retryTimer = setTimeout(() => {
           const pv = document.getElementById("busuanzi_value_site_pv")
           const uv = document.getElementById("busuanzi_value_site_uv")
 
           if (pv && pv.innerText !== "") {
-            // 直接在现有数字上加上1700000（原seeyoufarm统计数据）
             const currentCount = parseInt(pv.innerText, 10) || 0
             pv.innerText = (currentCount + 1700000).toString()
 
-            // 同时增加访客数的历史数据
             if (uv && uv.innerText !== "") {
               const currentUV = parseInt(uv.innerText, 10) || 0
               uv.innerText = (currentUV + 1300000).toString()
@@ -564,464 +109,12 @@ const SalaryCalculator = () => {
     return () => clearTimeout(timer)
   }, [])
 
-  // 添加滚动位置保存和恢复逻辑
-  useEffect(() => {
-    const handleBeforeStateChange = () => {
-      // 保存当前滚动位置
-      if (typeof window !== "undefined") {
-        scrollPositionRef.current = window.scrollY
-      }
-    }
-
-    const handleAfterStateChange = () => {
-      // 恢复滚动位置
-      if (typeof window !== "undefined") {
-        setTimeout(() => {
-          window.scrollTo(0, scrollPositionRef.current)
-        }, 0)
-      }
-    }
-
-    // 添加到全局事件
-    window.addEventListener("beforeStateChange", handleBeforeStateChange)
-    window.addEventListener("afterStateChange", handleAfterStateChange)
-
-    return () => {
-      // 清理事件监听器
-      window.removeEventListener("beforeStateChange", handleBeforeStateChange)
-      window.removeEventListener("afterStateChange", handleAfterStateChange)
-    }
-  }, [])
-
-  const calculateWorkingDays = useCallback(() => {
-    const weeksPerYear = 52
-    const totalWorkDays = weeksPerYear * Number(formData.workDaysPerWeek) // 确保转换为数字
-    const totalLeaves =
-      Number(formData.annualLeave) +
-      Number(formData.publicHolidays) +
-      Number(formData.paidSickLeave) * 0.6 // 带薪病假按70%权重计算
-    return Math.max(totalWorkDays - totalLeaves, 0)
-  }, [
-    formData.workDaysPerWeek,
-    formData.annualLeave,
-    formData.publicHolidays,
-    formData.paidSickLeave,
-  ])
-
-  const calculateDailySalary = useCallback(() => {
-    if (!formData.salary) return 0
-    const workingDays = calculateWorkingDays()
-
-    // 应用PPP转换因子标准化薪资
-    // 如果选择了非中国地区，使用选定国家的PPP；否则使用中国默认值4.19
-    const isNonChina = selectedCountry !== "CN"
-    const pppFactor = isNonChina ? pppFactors[selectedCountry] || 4.19 : 4.19
-    const standardizedSalary = Number(formData.salary) * (4.19 / pppFactor)
-
-    return standardizedSalary / workingDays // 除 0 不管, Infinity(爽到爆炸)!
-  }, [formData.salary, selectedCountry, calculateWorkingDays])
-
-  // 新增：获取显示用的日薪（转回原始货币）
-  const getDisplaySalary = useCallback(() => {
-    const dailySalaryInCNY = calculateDailySalary()
-    const isNonChina = selectedCountry !== "CN"
-    if (isNonChina) {
-      // 非中国地区，转回本地货币
-      const pppFactor = pppFactors[selectedCountry] || 4.19
-      return ((dailySalaryInCNY * pppFactor) / 4.19).toFixed(2)
-    } else {
-      return dailySalaryInCNY.toFixed(2)
-    }
-  }, [calculateDailySalary, selectedCountry])
-
-  const handleInputChange = useCallback((name: string, value: string | boolean) => {
-    // 触发自定义事件，保存滚动位置
-    if (typeof window !== "undefined") {
-      window.dispatchEvent(new Event("beforeStateChange"))
-    }
-
-    // 直接设置值，不进行任何验证
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-
-    // 在状态更新后，触发恢复滚动位置事件
-    setTimeout(() => {
-      if (typeof window !== "undefined") {
-        window.dispatchEvent(new Event("afterStateChange"))
-      }
-    }, 0)
-  }, [])
-
-  const calculateValue = () => {
-    if (!formData.salary) return 0
-
-    const dailySalary = calculateDailySalary()
-    const workHours = Number(formData.workHours)
-    const commuteHours = Number(formData.commuteHours)
-    const restTime = Number(formData.restTime)
-
-    // 确保正确转换为数字，使用parseFloat可以更可靠地处理字符串转数字
-    const workDaysPerWeek = parseFloat(formData.workDaysPerWeek) || 5
-
-    // 允许wfhDaysPerWeek为空字符串，计算时才处理为0
-    const wfhInput = formData.wfhDaysPerWeek.trim()
-    const wfhDaysPerWeek =
-      wfhInput === "" ? 0 : Math.min(parseFloat(wfhInput) || 0, workDaysPerWeek)
-
-    // 确保有办公室工作天数时才计算比例，否则设为0
-    const officeDaysRatio =
-      workDaysPerWeek > 0 ? (workDaysPerWeek - wfhDaysPerWeek) / workDaysPerWeek : 0
-
-    // 在计算结果中添加一个小的日志输出，以便调试
-    console.log("WFH计算:", {
-      workDaysPerWeek,
-      wfhDaysPerWeek,
-      officeDaysRatio,
-      effectiveCommute: commuteHours * officeDaysRatio,
-    })
-
-    // 班车系数只在勾选时使用，否则为1.0
-    const shuttleFactor = formData.hasShuttle ? Number(formData.shuttle) : 1.0
-    const effectiveCommuteHours = commuteHours * officeDaysRatio * shuttleFactor
-
-    // 食堂系数只在勾选时使用，否则为1.0
-    const canteenFactor = formData.hasCanteen ? Number(formData.canteen) : 1.0
-
-    // 工作环境因素，包含食堂和家乡因素
-    const environmentFactor =
-      Number(formData.workEnvironment) *
-      Number(formData.leadership) *
-      Number(formData.teamwork) *
-      Number(formData.cityFactor) *
-      canteenFactor
-
-    // 根据工作年限计算经验薪资倍数
-    const workYears = Number(formData.workYears)
-    let experienceSalaryMultiplier = 1.0
-
-    if (workYears === 0) {
-      // 应届生：直接根据工作类型设定初始调整系数，反映稳定性/风险价值
-      // 注意：这些系数在分母中，系数越小，最终价值越高
-      if (formData.jobStability === "government") {
-        experienceSalaryMultiplier = 0.8 // 体制内稳定性高，价值相对高
-      } else if (formData.jobStability === "state") {
-        experienceSalaryMultiplier = 0.9 // 央/国企较稳定，价值相对高
-      } else if (formData.jobStability === "foreign") {
-        experienceSalaryMultiplier = 0.95 // 外企，较为稳定
-      } else if (formData.jobStability === "private") {
-        experienceSalaryMultiplier = 1.0 // 私企作为基准
-      } else if (formData.jobStability === "dispatch") {
-        experienceSalaryMultiplier = 1.1 // 派遣社员风险高，价值相对低
-      } else if (formData.jobStability === "freelance") {
-        experienceSalaryMultiplier = 1.1 // 自由职业风险高，价值相对低
-      }
-    } else {
-      // 非应届生：使用基于增长预期的模型
-
-      // 基准薪资增长曲线（适用于私企）
-      let baseSalaryMultiplier = 1.0
-      if (workYears === 1)
-        baseSalaryMultiplier = 1.5 // 1年：1.50-2.00，取中间值
-      else if (workYears <= 3)
-        baseSalaryMultiplier = 2.2 // 2-3年：2.20-2.50，取中间值
-      else if (workYears <= 5)
-        baseSalaryMultiplier = 2.7 // 4-5年：2.70-3.00，取中间值
-      else if (workYears <= 8)
-        baseSalaryMultiplier = 3.2 // 6-8年：3.20-3.50，取中间值
-      else if (workYears <= 10)
-        baseSalaryMultiplier = 3.6 // 9-10年：3.60-3.80，取中间值
-      else baseSalaryMultiplier = 3.9 // 11-13年：3.90-4.20，取中间值
-
-      // 工作单位类型对涨薪幅度的影响系数
-      let salaryGrowthFactor = 1.0 // 私企基准
-      if (formData.jobStability === "foreign") {
-        salaryGrowthFactor = 0.8 // 外企涨薪幅度为私企的80%
-      } else if (formData.jobStability === "state") {
-        salaryGrowthFactor = 0.4 // 央/国企涨薪幅度为私企的40%
-      } else if (formData.jobStability === "government") {
-        salaryGrowthFactor = 0.2 // 体制内涨薪幅度为私企的20%
-      } else if (formData.jobStability === "dispatch") {
-        salaryGrowthFactor = 1.2 // 派遣社员涨薪幅度为私企的120%（体现不稳定性）
-      } else if (formData.jobStability === "freelance") {
-        salaryGrowthFactor = 1.2 // 自由职业涨薪幅度为私企的120%（体现不稳定性）
-      }
-
-      // 根据公式: 1 + (对应幅度-1) * 工作单位系数，计算最终薪资倍数
-      experienceSalaryMultiplier = 1 + (baseSalaryMultiplier - 1) * salaryGrowthFactor
-    }
-
-    // 薪资满意度应该受到经验薪资倍数的影响
-    // 相同薪资，对于高经验者来说价值更低，对应的计算公式需要考虑经验倍数
-    return (
-      (dailySalary * environmentFactor) /
-      (35 *
-        (workHours + effectiveCommuteHours - 0.5 * restTime) *
-        Number(formData.education) *
-        experienceSalaryMultiplier)
-    )
-  }
-
-  const value = calculateValue()
-
-  const getValueAssessment = useCallback(() => {
-    if (!formData.salary) return { text: t("rating_enter_salary"), color: "text-gray-500" }
-    if (value < 0.6) return { text: t("rating_terrible"), color: "text-pink-800" }
-    if (value < 1.0) return { text: t("rating_poor"), color: "text-red-500" }
-    if (value <= 1.8) return { text: t("rating_average"), color: "text-orange-500" }
-    if (value <= 2.5) return { text: t("rating_good"), color: "text-blue-500" }
-    if (value <= 3.2) return { text: t("rating_great"), color: "text-green-500" }
-    if (value <= 4.0) return { text: t("rating_excellent"), color: "text-purple-500" }
-    return { text: t("rating_perfect"), color: "text-yellow-400" }
-  }, [formData.salary, value, t])
-
-  // 获取评级的翻译键，用于分享链接
-  const getValueAssessmentKey = useCallback(() => {
-    if (!formData.salary) return "rating_enter_salary"
-    if (value < 0.6) return "rating_terrible"
-    if (value < 1.0) return "rating_poor"
-    if (value <= 1.8) return "rating_average"
-    if (value <= 2.5) return "rating_good"
-    if (value <= 3.2) return "rating_great"
-    if (value <= 4.0) return "rating_excellent"
-    return "rating_perfect"
-  }, [formData.salary, value])
-
-  const RadioGroup = ({
-    label,
-    name,
-    value,
-    onChange,
-    options,
-  }: {
-    label: string
-    name: string
-    value: string
-    onChange: (name: string, value: string | boolean) => void
-    options: Array<{ label: string; value: string }>
-  }) => (
-    <div className="space-y-2">
-      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">{label}</label>
-      <div className={`grid ${language === "en" ? "grid-cols-3" : "grid-cols-4"} gap-2`}>
-        {options.map((option) => (
-          <button
-            key={option.value}
-            className={`rounded-md px-3 py-2 text-sm transition-colors
-              ${
-                value === option.value
-                  ? "bg-blue-100 font-medium text-blue-700 dark:bg-blue-900 dark:text-blue-300"
-                  : "bg-gray-50 hover:bg-gray-100 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
-              }`}
-            onClick={(e) => {
-              e.preventDefault() // 阻止默认行为
-              e.stopPropagation() // 阻止事件冒泡
-              onChange(name, option.value)
-            }}
-            type="button"
-          >
-            {option.label}
-          </button>
-        ))}
-      </div>
-    </div>
-  )
-
-  // 根据学位类型和学校类型计算教育系数
-  const calculateEducationFactor = useCallback(() => {
-    const degreeType = formData.degreeType
-    const schoolType = formData.schoolType
-    const bachelorType = formData.bachelorType
-
-    // 使用更简单的方式计算系数，避免复杂的索引类型问题
-    let factor = 1.0 // 默认值
-
-    // 专科及以下固定为0.8
-    if (degreeType === "belowBachelor") {
-      factor = 0.8
-    }
-    // 本科学历
-    else if (degreeType === "bachelor") {
-      if (schoolType === "secondTier")
-        factor = 0.9 // 二本三本
-      else if (schoolType === "firstTier")
-        factor = 1.0 // 双非/QS100/USnews50
-      else if (schoolType === "elite") factor = 1.2 // 985/211/QS30/USnews20
-    }
-    // 硕士学历 - 考虑本科背景
-    else if (degreeType === "masters") {
-      // 先获取本科背景的基础系数
-      let bachelorBaseCoefficient = 0
-      if (bachelorType === "secondTier")
-        bachelorBaseCoefficient = 0.9 // 二本三本
-      else if (bachelorType === "firstTier")
-        bachelorBaseCoefficient = 1.0 // 双非/QS100/USnews50
-      else if (bachelorType === "elite") bachelorBaseCoefficient = 1.2 // 985/211/QS30/USnews20
-
-      // 再计算硕士学校的加成系数
-      let mastersBonus = 0
-      if (schoolType === "secondTier")
-        mastersBonus = 0.4 // 二本三本硕士
-      else if (schoolType === "firstTier")
-        mastersBonus = 0.5 // 双非/QS100/USnews50硕士
-      else if (schoolType === "elite") mastersBonus = 0.6 // 985/211/QS30/USnews20硕士
-
-      // 最终学历系数 = 本科基础 + 硕士加成
-      factor = bachelorBaseCoefficient + mastersBonus
-    }
-    // 博士学历
-    else if (degreeType === "phd") {
-      if (schoolType === "secondTier")
-        factor = 1.6 // 二本三本博士
-      else if (schoolType === "firstTier")
-        factor = 1.8 // 双非/QS100/USnews50博士
-      else if (schoolType === "elite") factor = 2.0 // 985/211/QS30/USnews20博士
-    }
-
-    // 更新education字段
-    if (formData.education !== String(factor)) {
-      // 这里不使用handleInputChange以避免触发滚动保存/恢复逻辑
-      setFormData((prev) => ({
-        ...prev,
-        education: String(factor),
-      }))
-    }
-
-    return factor
-  }, [formData.degreeType, formData.schoolType, formData.bachelorType, formData.education])
-
   // 在组件初始化和学历选择变化时计算教育系数
   useEffect(() => {
-    calculateEducationFactor()
-  }, [formData.degreeType, formData.schoolType, calculateEducationFactor])
+    updateEducationFactor()
+  }, [formData.degreeType, formData.schoolType, updateEducationFactor])
 
-  // 获取当前选择的国家名称（根据语言）
-  const getCountryName = useCallback(
-    (countryCode: string) => {
-      if (language === "en") {
-        return countryNames.en[countryCode] || countryCode || "Unknown"
-      }
-      if (language === "ja") {
-        return countryNames.ja[countryCode] || countryCode || "不明"
-      }
-      return countryNames.zh[countryCode] || countryCode || "未知"
-    },
-    [language]
-  )
-
-  // 保存当前记录到历史中
-  const saveToHistory = useCallback(() => {
-    if (!formData.salary || typeof window === "undefined") return
-
-    const newHistoryItem: HistoryItem = {
-      id: Date.now().toString(),
-      timestamp: Date.now(),
-      value: value.toFixed(2),
-      assessment: getValueAssessmentKey(), // 使用翻译键而不是已翻译的文本
-      assessmentColor: getValueAssessment().color,
-      salary: formData.salary,
-      countryCode: selectedCountry,
-      countryName: getCountryName(selectedCountry),
-
-      // 添加所有需要在分享页面展示的字段
-      cityFactor: formData.cityFactor,
-      workHours: formData.workHours,
-      commuteHours: formData.commuteHours,
-      restTime: formData.restTime,
-      dailySalary: getDisplaySalary(),
-      workDaysPerYear: calculateWorkingDays().toString(),
-      workDaysPerWeek: formData.workDaysPerWeek,
-      wfhDaysPerWeek: formData.wfhDaysPerWeek,
-      annualLeave: formData.annualLeave,
-      paidSickLeave: formData.paidSickLeave,
-      publicHolidays: formData.publicHolidays,
-      workEnvironment: formData.workEnvironment,
-      leadership: formData.leadership,
-      teamwork: formData.teamwork,
-      degreeType: formData.degreeType,
-      schoolType: formData.schoolType,
-      education: formData.education,
-      homeTown: formData.homeTown,
-      shuttle: formData.hasShuttle ? formData.shuttle : "1.0",
-      canteen: formData.hasCanteen ? formData.canteen : "1.0",
-      workYears: formData.workYears,
-      jobStability: formData.jobStability,
-      bachelorType: formData.bachelorType,
-      hasShuttle: formData.hasShuttle,
-      hasCanteen: formData.hasCanteen,
-    }
-
-    try {
-      const updatedHistory = [newHistoryItem, ...history.slice(0, 9)] // 限制保存10条记录
-      setHistory(updatedHistory)
-      localStorage.setItem("jobValueHistory", JSON.stringify(updatedHistory))
-      console.log("保存历史记录成功", newHistoryItem)
-    } catch (e) {
-      console.error("保存历史记录失败", e)
-    }
-
-    return newHistoryItem
-  }, [
-    formData,
-    value,
-    getValueAssessmentKey,
-    getValueAssessment,
-    selectedCountry,
-    history,
-    getCountryName,
-    calculateWorkingDays,
-    getDisplaySalary,
-    formData.hasShuttle,
-    formData.hasCanteen,
-  ])
-
-  // 删除单条历史记录
-  const deleteHistoryItem = useCallback(
-    (id: string, e: React.MouseEvent) => {
-      e.stopPropagation() // 阻止事件冒泡
-      e.preventDefault() // 阻止默认行为
-
-      try {
-        const updatedHistory = history.filter((item) => item.id !== id)
-        setHistory(updatedHistory)
-        localStorage.setItem("jobValueHistory", JSON.stringify(updatedHistory))
-        console.log("删除历史记录成功", id)
-      } catch (e) {
-        console.error("删除历史记录失败", e)
-      }
-    },
-    [history]
-  )
-
-  // 清空所有历史记录
-  const clearAllHistory = useCallback((e: React.MouseEvent) => {
-    e.stopPropagation() // 阻止事件冒泡
-    e.preventDefault() // 阻止默认行为
-
-    try {
-      setHistory([])
-      localStorage.removeItem("jobValueHistory")
-      console.log("清空所有历史记录成功")
-    } catch (e) {
-      console.error("清空历史记录失败", e)
-    }
-  }, [])
-
-  // 格式化日期
-  const formatDate = (timestamp: number) => {
-    const date = new Date(timestamp)
-    return `${date.getFullYear()}-${(date.getMonth() + 1)
-      .toString()
-      .padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")} ${date
-      .getHours()
-      .toString()
-      .padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`
-  }
-
-  // 获取当前选择国家的货币符号
-  const getCurrencySymbol = useCallback((countryCode: string) => {
-    return currencySymbols[countryCode] || "$" // 如果没有找到对应货币符号，默认使用美元符号
-  }, [])
+  const value = getValue()
 
   return (
     <div className="mx-auto max-w-2xl p-4 sm:p-6">
@@ -1068,7 +161,7 @@ const SalaryCalculator = () => {
                     )}
                     <button
                       onClick={(e) => {
-                        e.stopPropagation() // 阻止事件冒泡
+                        e.stopPropagation()
                         setShowHistory(false)
                       }}
                       className="flex h-6 w-6 items-center justify-center rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-gray-300"
@@ -1102,45 +195,12 @@ const SalaryCalculator = () => {
                         <div className="flex gap-1">
                           <button
                             onClick={(e) => {
-                              e.stopPropagation() // 阻止事件冒泡
-                              e.preventDefault() // 阻止默认行为
+                              e.stopPropagation()
+                              e.preventDefault()
 
-                              // 恢复历史记录中的值到当前表单
-                              setFormData({
-                                ...formData,
-                                salary: item.salary,
-                                cityFactor: item.cityFactor,
-                                workHours: item.workHours,
-                                commuteHours: item.commuteHours,
-                                restTime: item.restTime,
-                                workDaysPerWeek: item.workDaysPerWeek,
-                                wfhDaysPerWeek: item.wfhDaysPerWeek,
-                                annualLeave: item.annualLeave,
-                                paidSickLeave: item.paidSickLeave,
-                                publicHolidays: item.publicHolidays,
-                                workEnvironment: item.workEnvironment,
-                                leadership: item.leadership,
-                                teamwork: item.teamwork,
-                                degreeType: item.degreeType,
-                                schoolType: item.schoolType,
-                                education: item.education,
-                                homeTown: item.homeTown,
-                                shuttle: item.shuttle,
-                                canteen: item.canteen,
-                                workYears: item.workYears,
-                                jobStability: item.jobStability,
-                                bachelorType: item.bachelorType,
-                                // 确保 hasShuttle 和 hasCanteen 有合法的布尔值
-                                hasShuttle:
-                                  typeof item.hasShuttle === "boolean" ? item.hasShuttle : false,
-                                hasCanteen:
-                                  typeof item.hasCanteen === "boolean" ? item.hasCanteen : false,
-                              })
-
-                              // 设置国家
+                              const restoredFormData = restoreFromHistory(item)
+                              calculator.setFormData(restoredFormData)
                               handleCountryChange(item.countryCode)
-
-                              // 关闭历史记录面板
                               setShowHistory(false)
                             }}
                             className="rounded p-1.5 text-blue-500 hover:bg-blue-50 hover:text-blue-700 dark:text-blue-400 dark:hover:bg-blue-900/20 dark:hover:text-blue-300"
@@ -1166,7 +226,7 @@ const SalaryCalculator = () => {
                               pathname: "/tools/job-worth-calculator/share",
                               query: {
                                 value: item.value,
-                                assessment: item.assessment, // 传递翻译键而不是文本
+                                assessment: item.assessment,
                                 assessmentColor: item.assessmentColor,
                                 cityFactor: item.cityFactor,
                                 workHours: item.workHours,
@@ -1193,7 +253,7 @@ const SalaryCalculator = () => {
                                 jobStability: item.jobStability,
                                 bachelorType: item.bachelorType,
                                 countryCode: item.countryCode,
-                                countryName: getCountryName(item.countryCode),
+                                countryName: getCountryName(item.countryCode, language),
                                 hasShuttle: item.hasShuttle,
                                 hasCanteen: item.hasCanteen,
                               },
@@ -1285,7 +345,7 @@ const SalaryCalculator = () => {
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                 {selectedCountry !== "CN"
-                  ? `${t("annual_salary")}(${getCurrencySymbol(selectedCountry)})`
+                  ? `${t("annual_salary")}(${getCurrentCurrencySymbol()})`
                   : t("annual_salary_cny")}
               </label>
               <div className="mt-1 flex items-center gap-2">
@@ -1296,7 +356,7 @@ const SalaryCalculator = () => {
                   onChange={(e) => handleInputChange("salary", e.target.value)}
                   placeholder={
                     selectedCountry !== "CN"
-                      ? `${t("salary_placeholder")} ${getCurrencySymbol(selectedCountry)}`
+                      ? `${t("salary_placeholder")} ${getCurrentCurrencySymbol()}`
                       : t("salary_placeholder_cny")
                   }
                   className="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
@@ -1323,17 +383,16 @@ const SalaryCalculator = () => {
               >
                 {Object.keys(pppFactors)
                   .sort((a, b) => {
-                    // 确保中国始终排在第一位
                     if (a === "CN") return -1
                     if (b === "CN") return 1
                     return new Intl.Collator(["zh", "ja", "en"]).compare(
-                      getCountryName(a),
-                      getCountryName(b)
+                      getCountryName(a, language),
+                      getCountryName(b, language)
                     )
                   })
                   .map((code) => (
                     <option key={code} value={code}>
-                      {getCountryName(code)} ({pppFactors[code].toFixed(2)})
+                      {getCountryName(code, language)} ({pppFactors[code].toFixed(2)})
                     </option>
                   ))}
               </select>
@@ -1717,7 +776,7 @@ const SalaryCalculator = () => {
               {t("working_days_per_year")}
             </div>
             <div className="mt-1 text-2xl font-semibold text-gray-900 dark:text-white">
-              {calculateWorkingDays()}
+              {getWorkingDays()}
               {t("days_unit")}
             </div>
           </div>
@@ -1726,17 +785,17 @@ const SalaryCalculator = () => {
               {t("average_daily_salary")}
             </div>
             <div className="mt-1 text-2xl font-semibold text-gray-900 dark:text-white">
-              {getCurrencySymbol(selectedCountry)}
-              {getDisplaySalary()}
+              {getCurrentCurrencySymbol()}
+              {getDisplayDailySalary()}
             </div>
           </div>
           <div>
             <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
               {t("job_value")}
             </div>
-            <div className={`mt-1 text-2xl font-semibold ${getValueAssessment().color}`}>
+            <div className={`mt-1 text-2xl font-semibold ${getAssessment().color}`}>
               {value.toFixed(2)}
-              <span className="ml-2 text-base">({getValueAssessment().text})</span>
+              <span className="ml-2 text-base">({getAssessment().text})</span>
             </div>
           </div>
         </div>
@@ -1748,15 +807,15 @@ const SalaryCalculator = () => {
               pathname: "/share",
               query: {
                 value: value.toFixed(2),
-                assessment: getValueAssessmentKey(),
-                assessmentColor: getValueAssessment().color,
+                assessment: getAssessmentKey(),
+                assessmentColor: getAssessment().color,
                 cityFactor: formData.cityFactor,
                 workHours: formData.workHours,
                 commuteHours: formData.commuteHours,
                 restTime: formData.restTime,
-                dailySalary: getDisplaySalary(),
+                dailySalary: getDisplayDailySalary(),
                 isYuan: selectedCountry !== "CN" ? "false" : "true",
-                workDaysPerYear: calculateWorkingDays().toString(),
+                workDaysPerYear: getWorkingDays().toString(),
                 workDaysPerWeek: formData.workDaysPerWeek,
                 wfhDaysPerWeek: formData.wfhDaysPerWeek,
                 annualLeave: formData.annualLeave,
@@ -1775,8 +834,8 @@ const SalaryCalculator = () => {
                 jobStability: formData.jobStability,
                 bachelorType: formData.bachelorType,
                 countryCode: selectedCountry,
-                countryName: getCountryName(selectedCountry),
-                currencySymbol: getCurrencySymbol(selectedCountry),
+                countryName: getCountryName(selectedCountry, language),
+                currencySymbol: getCurrentCurrencySymbol(),
                 hasShuttle: formData.hasShuttle,
                 hasCanteen: formData.hasCanteen,
               },
@@ -1787,7 +846,11 @@ const SalaryCalculator = () => {
                   ? "bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-300 dark:hover:bg-blue-800"
                   : "cursor-not-allowed bg-gray-100 text-gray-400 dark:bg-gray-800 dark:text-gray-600"
               }`}
-            onClick={() => (formData.salary ? saveToHistory() : null)}
+            onClick={() =>
+              formData.salary
+                ? saveToHistory(formData, value, selectedCountry, getAssessment().color, language)
+                : null
+            }
           >
             <FileText className="h-4 w-4" />
             {t("view_report")}
