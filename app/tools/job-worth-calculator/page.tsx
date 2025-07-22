@@ -199,7 +199,10 @@ const SalaryCalculator = () => {
               {/* 访问统计 - 紧凑徽章设计 */}
               {isBrowser && (
                 <div className="flex items-center gap-3 rounded-xl bg-white/60 px-4 py-2 text-xs text-slate-600 backdrop-blur-sm dark:bg-slate-800/60 dark:text-slate-400">
-                  <div id="busuanzi_container_site_pv" className="flex items-center gap-1.5">
+                  <div
+                    id="busuanzi_container_site_pv"
+                    className="flex items-center justify-center gap-1.5"
+                  >
                     <Eye className="h-3.5 w-3.5 text-blue-500" />
                     <span
                       id="busuanzi_value_site_pv"
@@ -211,7 +214,10 @@ const SalaryCalculator = () => {
 
                   <div className="h-3 w-px bg-slate-300 dark:bg-slate-600"></div>
 
-                  <div id="busuanzi_container_site_uv" className="flex items-center gap-1.5">
+                  <div
+                    id="busuanzi_container_site_uv"
+                    className="flex items-center justify-center gap-1.5"
+                  >
                     <Users className="h-3.5 w-3.5 text-emerald-500" />
                     <span
                       id="busuanzi_value_site_uv"
