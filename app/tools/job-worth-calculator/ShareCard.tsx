@@ -6,6 +6,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "./components/LanguageContext"
 import { countryNames } from "./components/LanguageContext" // 导入countryNames对象
+import ShareButtons from "@/components/ShareButtons"
 
 // 扩展接口，支持更多属性
 interface ShareCardProps {
@@ -784,7 +785,8 @@ const ShareCard: React.FC<ShareCardProps> = (props) => {
       </div>
 
       {/* 操作按钮 - 更小的按钮 */}
-      <div className="mt-4 flex justify-center gap-4 md:mt-8">
+      <div className="mt-4 flex flex-col items-center justify-center gap-4 md:mt-8">
+        <ShareButtons />
         <button
           onClick={handleDownload}
           disabled={isDownloading}

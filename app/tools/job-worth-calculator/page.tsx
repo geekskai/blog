@@ -22,6 +22,7 @@ import { useCalculator } from "./hooks/useCalculator"
 import { useHistory } from "./hooks/useHistory"
 import { pppFactors } from "./constants"
 import { getCountryName } from "./utils/country"
+import ShareButtons from "@/components/ShareButtons"
 
 const SalaryCalculator = () => {
   // 获取语言上下文
@@ -185,9 +186,9 @@ const SalaryCalculator = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-4">
           {/* 顶部工具栏 - 语言、历史记录和访问统计 */}
-          <div className="mb-6 flex items-center justify-between">
+          <div className="mb-4 flex items-center justify-between md:mb-0">
             {/* 左侧语言切换器 */}
             <div className="flex items-center">
               <LanguageSwitcher />
@@ -251,14 +252,17 @@ const SalaryCalculator = () => {
             </div>
 
             {/* 主标题 */}
-            <h1 className="mb-4 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-4xl font-bold leading-tight text-transparent dark:from-white dark:via-slate-100 dark:to-white lg:text-5xl">
+            <h1 className="my-4 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-2xl font-bold leading-tight text-transparent dark:from-white dark:via-slate-100 dark:to-white md:text-4xl lg:text-5xl">
               {t("title")}
             </h1>
 
             {/* 副标题描述 */}
-            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+            <p className="text-md mx-auto mb-4 max-w-2xl leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
               {t("subtitle_description")}
             </p>
+
+            {/* 分享按钮 */}
+            <ShareButtons />
           </div>
 
           {/* 历史记录下拉面板 */}
@@ -347,6 +351,7 @@ const SalaryCalculator = () => {
                                   </svg>
                                 </button>
                                 <Link
+                                  target="_blank"
                                   href={{
                                     pathname: "/tools/job-worth-calculator/share",
                                     query: {
@@ -432,7 +437,7 @@ const SalaryCalculator = () => {
         </div>
 
         {/* 步骤导航 */}
-        <div className="mb-6">
+        <div className="mb-4">
           <div className="flex justify-center">
             <div className="flex items-center space-x-3 overflow-x-auto pb-2">
               {steps.map((step, index) => {
@@ -451,7 +456,7 @@ const SalaryCalculator = () => {
                       }`}
                     >
                       <div
-                        className={`mb-1.5 flex h-10 w-10 items-center justify-center rounded-full transition-all ${
+                        className={`mb-1.5 flex h-12 w-12 items-center justify-center rounded-full transition-all ${
                           isCompleted
                             ? "bg-green-100 text-green-600 dark:bg-green-900 dark:text-green-400"
                             : isCurrent
