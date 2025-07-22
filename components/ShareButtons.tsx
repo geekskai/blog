@@ -12,6 +12,8 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
   XIcon,
+  WeiboIcon,
+  WeiboShareButton,
 } from "react-share"
 import siteMetadata from "@/data/siteMetadata"
 
@@ -44,6 +46,9 @@ const ReactShare = [
   <TwitterShareButton key="twitter" url={shareUrl} title={title}>
     <XIcon size={32} round />
   </TwitterShareButton>,
+  <WeiboShareButton key="weibo" url={shareUrl} title={title}>
+    <WeiboIcon size={32} round />
+  </WeiboShareButton>,
 ]
 
 export default function ShareButtons() {
