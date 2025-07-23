@@ -91,11 +91,11 @@ const SalaryCalculator = () => {
 
       if (pv && pv.innerText !== "") {
         const currentCount = parseInt(pv.innerText, 10) || 0
-        pv.innerText = (currentCount + 1700000).toString()
+        pv.innerText = currentCount.toLocaleString()
 
         if (uv && uv.innerText !== "") {
           const currentUV = parseInt(uv.innerText, 10) || 0
-          uv.innerText = (currentUV + 250000).toString()
+          uv.innerText = currentUV.toLocaleString()
         }
 
         setVisitorVisible(true)
@@ -106,11 +106,11 @@ const SalaryCalculator = () => {
 
           if (pv && pv.innerText !== "") {
             const currentCount = parseInt(pv.innerText, 10) || 0
-            pv.innerText = (currentCount + 1700000).toString()
+            pv.innerText = currentCount.toLocaleString()
 
             if (uv && uv.innerText !== "") {
               const currentUV = parseInt(uv.innerText, 10) || 0
-              uv.innerText = (currentUV + 1300000).toString()
+              uv.innerText = currentUV.toLocaleString()
             }
 
             setVisitorVisible(true)
@@ -201,7 +201,7 @@ const SalaryCalculator = () => {
                 <div className="flex items-center gap-3 rounded-xl bg-white/60 px-4 py-2 text-xs text-slate-600 backdrop-blur-sm dark:bg-slate-800/60 dark:text-slate-400">
                   <div
                     id="busuanzi_container_site_pv"
-                    className="flex items-center justify-center gap-1.5"
+                    className="!flex items-center justify-center gap-1.5"
                   >
                     <Eye className="h-3.5 w-3.5 text-blue-500" />
                     <span
@@ -216,7 +216,7 @@ const SalaryCalculator = () => {
 
                   <div
                     id="busuanzi_container_site_uv"
-                    className="flex items-center justify-center gap-1.5"
+                    className="!flex items-center justify-center gap-1.5"
                   >
                     <Users className="h-3.5 w-3.5 text-emerald-500" />
                     <span
