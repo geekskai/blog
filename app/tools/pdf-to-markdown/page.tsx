@@ -15,7 +15,10 @@ import {
   Loader2,
   FileCheck,
   ArrowRight,
+  Home,
+  ChevronRight,
 } from "lucide-react"
+import ShareButtons from "@/components/ShareButtons"
 
 // Dynamic import for pdfjs-dist to avoid SSR issues
 let pdfjsLib: typeof import("pdfjs-dist") | null = null
@@ -352,6 +355,29 @@ const PdfToMarkdown = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+      {/* Breadcrumb Navigation */}
+      <nav className="mx-auto max-w-5xl px-4 pt-4 sm:px-6 lg:px-8" aria-label="Breadcrumb">
+        <ol className="flex items-center space-x-2 text-sm text-slate-600 dark:text-slate-400">
+          <li>
+            <a
+              href="/"
+              className="flex items-center hover:text-slate-900 dark:hover:text-slate-200"
+            >
+              <Home className="h-4 w-4" />
+              <span className="ml-1">Home</span>
+            </a>
+          </li>
+          <ChevronRight className="h-4 w-4" />
+          <li>
+            <a href="/tools" className="hover:text-slate-900 dark:hover:text-slate-200">
+              Tools
+            </a>
+          </li>
+          <ChevronRight className="h-4 w-4" />
+          <li className="font-medium text-slate-900 dark:text-slate-100">PDF to Markdown</li>
+        </ol>
+      </nav>
+
       <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-10 text-center">
@@ -368,6 +394,16 @@ const PdfToMarkdown = () => {
             Transform your PDF documents into clean, editable Markdown format. Fast, secure, and
             completely browser-based.
           </p>
+
+          {/* Share Button */}
+          <div className="mt-6 flex justify-center">
+            <div className="rounded-lg bg-white/50 p-4 backdrop-blur-sm dark:bg-slate-800/50">
+              <p className="mb-3 text-center text-sm font-medium text-slate-700 dark:text-slate-300">
+                Share this tool:
+              </p>
+              <ShareButtons />
+            </div>
+          </div>
         </div>
 
         {/* Main Content - Single Flow */}
@@ -621,6 +657,206 @@ const PdfToMarkdown = () => {
                   device.
                 </p>
               </div>
+            </div>
+
+            {/* Detailed Content Sections for SEO */}
+            <div className="mt-20 space-y-16">
+              {/* How to Use Section */}
+              <section className="rounded-xl bg-white p-8 shadow-lg dark:bg-slate-800">
+                <h2 className="mb-6 text-2xl font-bold text-slate-900 dark:text-white">
+                  How to Convert PDF to Markdown: Step-by-Step Guide
+                </h2>
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-3">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 text-sm font-medium text-blue-600 dark:bg-blue-900 dark:text-blue-400">
+                        1
+                      </span>
+                      <div>
+                        <h3 className="font-semibold text-slate-900 dark:text-white">
+                          Upload Your PDF
+                        </h3>
+                        <p className="text-slate-600 dark:text-slate-400">
+                          Click the upload area or drag and drop your PDF file. Our converter
+                          supports files up to 50MB.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 text-sm font-medium text-blue-600 dark:bg-blue-900 dark:text-blue-400">
+                        2
+                      </span>
+                      <div>
+                        <h3 className="font-semibold text-slate-900 dark:text-white">
+                          Automatic Conversion
+                        </h3>
+                        <p className="text-slate-600 dark:text-slate-400">
+                          Our PDF to Markdown converter automatically processes your document,
+                          extracting text and preserving formatting.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-3">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 text-sm font-medium text-blue-600 dark:bg-blue-900 dark:text-blue-400">
+                        3
+                      </span>
+                      <div>
+                        <h3 className="font-semibold text-slate-900 dark:text-white">
+                          Edit & Preview
+                        </h3>
+                        <p className="text-slate-600 dark:text-slate-400">
+                          Fine-tune the converted Markdown content using our built-in editor with
+                          live preview functionality.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 text-sm font-medium text-blue-600 dark:bg-blue-900 dark:text-blue-400">
+                        4
+                      </span>
+                      <div>
+                        <h3 className="font-semibold text-slate-900 dark:text-white">
+                          Download Result
+                        </h3>
+                        <p className="text-slate-600 dark:text-slate-400">
+                          Download your converted Markdown file ready for use in documentation,
+                          GitHub, or any Markdown-compatible platform.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Use Cases Section */}
+              <section className="rounded-xl bg-slate-50 p-8 dark:bg-slate-800">
+                <h2 className="mb-6 text-2xl font-bold text-slate-900 dark:text-white">
+                  Why Convert PDF to Markdown?
+                </h2>
+                <div className="grid gap-6 md:grid-cols-3">
+                  <div className="rounded-lg bg-white p-6 dark:bg-slate-700">
+                    <h3 className="mb-3 font-semibold text-slate-900 dark:text-white">
+                      Documentation
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400">
+                      Convert PDF documentation to Markdown for easier editing, version control, and
+                      integration with documentation platforms like GitBook or Notion.
+                    </p>
+                  </div>
+                  <div className="rounded-lg bg-white p-6 dark:bg-slate-700">
+                    <h3 className="mb-3 font-semibold text-slate-900 dark:text-white">
+                      Content Management
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400">
+                      Transform PDF reports, articles, and guides into editable Markdown format for
+                      content management systems and static site generators.
+                    </p>
+                  </div>
+                  <div className="rounded-lg bg-white p-6 dark:bg-slate-700">
+                    <h3 className="mb-3 font-semibold text-slate-900 dark:text-white">
+                      GitHub Integration
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400">
+                      Convert PDF files to Markdown for README files, project documentation, and
+                      GitHub wikis with proper formatting preserved.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              {/* FAQ Section */}
+              <section className="rounded-xl bg-white p-8 shadow-lg dark:bg-slate-800">
+                <h2 className="mb-6 text-2xl font-bold text-slate-900 dark:text-white">
+                  Frequently Asked Questions
+                </h2>
+                <div className="space-y-6">
+                  <div className="border-b border-slate-200 pb-4 dark:border-slate-700">
+                    <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
+                      Is this PDF to Markdown converter free to use?
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400">
+                      Yes, our PDF to Markdown converter is completely free. There are no
+                      registration requirements, subscription fees, or usage limits. Convert as many
+                      PDFs as you need.
+                    </p>
+                  </div>
+                  <div className="border-b border-slate-200 pb-4 dark:border-slate-700">
+                    <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
+                      How accurate is the PDF to Markdown conversion?
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400">
+                      Our converter uses advanced parsing algorithms to maintain document structure,
+                      including headers, lists, and formatting. While accuracy depends on the
+                      original PDF's complexity, most conversions preserve 95%+ of the content
+                      structure.
+                    </p>
+                  </div>
+                  <div className="border-b border-slate-200 pb-4 dark:border-slate-700">
+                    <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
+                      Is my PDF data secure during conversion?
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400">
+                      Absolutely. All PDF processing happens locally in your browser using
+                      client-side JavaScript. Your files never leave your device, ensuring complete
+                      privacy and security.
+                    </p>
+                  </div>
+                  <div className="border-b border-slate-200 pb-4 dark:border-slate-700">
+                    <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
+                      What file size limits exist for PDF conversion?
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400">
+                      Our PDF to Markdown converter supports files up to 50MB. For larger files,
+                      consider splitting them into smaller sections before conversion.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
+                      Can I convert scanned PDFs to Markdown?
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400">
+                      This tool works best with text-based PDFs. For scanned documents or
+                      image-based PDFs, the conversion may not extract text accurately as it doesn't
+                      include OCR (Optical Character Recognition) functionality.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Technical Benefits */}
+              <section className="rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 p-8 dark:from-slate-800 dark:to-slate-700">
+                <h2 className="mb-6 text-2xl font-bold text-slate-900 dark:text-white">
+                  Advanced PDF to Markdown Conversion Features
+                </h2>
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                      Smart Format Detection
+                    </h3>
+                    <ul className="space-y-2 text-slate-600 dark:text-slate-400">
+                      <li>
+                        • Automatically detects headers and converts to Markdown heading syntax
+                      </li>
+                      <li>• Preserves bullet points and numbered lists</li>
+                      <li>• Maintains paragraph structure and spacing</li>
+                      <li>• Handles multiple column layouts intelligently</li>
+                    </ul>
+                  </div>
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                      Browser-Based Processing
+                    </h3>
+                    <ul className="space-y-2 text-slate-600 dark:text-slate-400">
+                      <li>• No server uploads required for privacy</li>
+                      <li>• Works offline once page is loaded</li>
+                      <li>• Compatible with all modern browsers</li>
+                      <li>• Real-time conversion progress tracking</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
             </div>
           </div>
         )}
