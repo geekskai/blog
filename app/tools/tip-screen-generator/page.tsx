@@ -297,7 +297,7 @@ const TipScreenGenerator = () => {
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-10 text-center">
-          <div className="mb-6 inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-lg">
+          <div className="mb-6 inline-flex items-center rounded-full bg-gradient-to-r from-orange-500 to-red-600 px-4 py-2 text-sm font-medium text-white shadow-lg">
             <DollarSign className="mr-2 h-4 w-4" />
             Free Online Tool
           </div>
@@ -311,17 +311,6 @@ const TipScreenGenerator = () => {
             POS interfaces, viral memes, and educational content about tipping culture. No app
             download required - works in any browser.
           </p>
-
-          <div className="mt-6 flex justify-center">
-            <div className="rounded-lg border border-yellow-200 bg-yellow-50 p-4 backdrop-blur-sm dark:border-yellow-800 dark:bg-yellow-900/20">
-              <div className="flex items-center space-x-2 text-yellow-800 dark:text-yellow-200">
-                <AlertTriangle className="h-5 w-5" />
-                <p className="text-sm font-medium">
-                  For entertainment and educational purposes only
-                </p>
-              </div>
-            </div>
-          </div>
 
           {/* Share Button */}
           <div className="mt-6 flex justify-center">
