@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     description: "Convert PDF to MD format instantly. Free, secure, browser-based tool.",
   },
   alternates: {
-    canonical: "https://geekskai.com/tools/pdf-to-markdown",
+    canonical: "https://geekskai.com/tools/pdf-to-markdown/",
   },
   robots: {
     index: true,

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Calculator, FileText, Zap, Users, Globe, Download } from "lucide-react"
+import { Calculator, FileText, DollarSign, Zap, Users, Globe, Download } from "lucide-react"
 
 export default function ToolsPage() {
   const tools = [
@@ -39,6 +39,22 @@ export default function ToolsPage() {
       badge: "New",
       badgeColor: "bg-green-500",
       gradient: "from-green-500 to-teal-600",
+    },
+    {
+      id: "tip-screen-generator",
+      title: "Tip Screen Generator",
+      subtitle: "小费界面生成器",
+      description:
+        "Generate satirical tip screens that expose dark UX patterns. Create viral memes and educate others about manipulative design in POS systems.",
+      descriptionCN:
+        "生成讽刺性小费界面，揭露暗黑UX模式。创建病毒式传播的表情包，教育他人了解POS系统中的操纵性设计。",
+      icon: DollarSign,
+      href: "/tools/tip-screen-generator",
+      features: ["Multiple Themes", "Dark Pattern Toggles", "Screenshot Export", "Social Sharing"],
+      featuresCN: ["多种主题", "暗黑模式切换", "截图导出", "社交分享"],
+      badge: "Satirical",
+      badgeColor: "bg-orange-500",
+      gradient: "from-orange-500 to-red-600",
     },
   ]
 
