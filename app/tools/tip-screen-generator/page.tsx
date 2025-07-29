@@ -270,27 +270,24 @@ const TipScreenGenerator = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Breadcrumb Navigation */}
       <nav className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8" aria-label="Breadcrumb">
-        <ol className="flex items-center space-x-2 text-sm text-slate-600 dark:text-slate-400">
+        <ol className="flex items-center space-x-2 text-sm text-slate-400">
           <li>
-            <a
-              href="/"
-              className="flex items-center hover:text-slate-900 dark:hover:text-slate-200"
-            >
+            <a href="/" className="flex items-center hover:text-slate-200">
               <Home className="h-4 w-4" />
               <span className="ml-1">Home</span>
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
           <li>
-            <a href="/tools" className="hover:text-slate-900 dark:hover:text-slate-200">
+            <a href="/tools" className="hover:text-slate-200">
               Tools
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
-          <li className="font-medium text-slate-900 dark:text-slate-100">Tip Screen Generator</li>
+          <li className="font-medium text-slate-100">Tip Screen Generator</li>
         </ol>
       </nav>
 
@@ -302,11 +299,11 @@ const TipScreenGenerator = () => {
             Free Online Tool
           </div>
 
-          <h1 className="mb-4 bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-4xl font-bold text-transparent dark:from-white dark:to-slate-300">
+          <h1 className="mb-4 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-4xl font-bold text-transparent">
             Tip Screen Generator
           </h1>
 
-          <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-300">
+          <p className="mx-auto max-w-2xl text-lg text-slate-300">
             Create realistic tip screens for iPhone, iPad, and Android devices. Generate satirical
             POS interfaces, viral memes, and educational content about tipping culture. No app
             download required - works in any browser.
@@ -314,8 +311,8 @@ const TipScreenGenerator = () => {
 
           {/* Share Button */}
           <div className="mt-6 flex justify-center">
-            <div className="rounded-lg bg-white/50 p-4 backdrop-blur-sm dark:bg-slate-800/50">
-              <p className="mb-3 text-center text-sm font-medium text-slate-700 dark:text-slate-300">
+            <div className="rounded-lg bg-slate-800/50 p-4 backdrop-blur-sm">
+              <p className="mb-3 text-center text-sm font-medium text-slate-300">
                 Share this tool:
               </p>
               <ShareButtons />
@@ -327,13 +324,13 @@ const TipScreenGenerator = () => {
         <div className="grid gap-8 lg:grid-cols-12">
           {/* Settings Panel */}
           <div className={`space-y-6 lg:col-span-4 ${!showSettings && "lg:col-span-2"}`}>
-            <div className="overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
-              <div className="border-b border-slate-200 px-6 py-4 dark:border-slate-700">
+            <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
+              <div className="border-b border-slate-700 px-6 py-4">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Settings</h2>
+                  <h2 className="text-lg font-semibold text-white">Settings</h2>
                   <button
                     onClick={() => setShowSettings(!showSettings)}
-                    className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700"
+                    className="rounded-lg p-2 text-slate-500 hover:bg-slate-700"
                   >
                     <Settings className="h-5 w-5" />
                   </button>
@@ -346,7 +343,7 @@ const TipScreenGenerator = () => {
                   <div>
                     <label
                       htmlFor="bill-amount"
-                      className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300"
+                      className="mb-2 block text-sm font-medium text-slate-300"
                     >
                       Bill Amount
                     </label>
@@ -357,7 +354,7 @@ const TipScreenGenerator = () => {
                         type="number"
                         value={billAmountInput}
                         onChange={(e) => handleBillAmountChange(e.target.value)}
-                        className="w-full rounded-lg border border-slate-300 py-3 pl-10 pr-4 text-sm text-black focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700"
+                        className="w-full rounded-lg border border-slate-600 bg-slate-700 py-3 pl-10 pr-4 text-sm text-white focus:border-blue-500 focus:ring-blue-500"
                         step="0.01"
                         min="0"
                         placeholder="25.75"
@@ -367,7 +364,7 @@ const TipScreenGenerator = () => {
 
                   {/* Theme Selection */}
                   <div>
-                    <div className="mb-3 block text-sm font-medium text-slate-700 dark:text-slate-300">
+                    <div className="mb-3 block text-sm font-medium text-slate-300">
                       Interface Theme
                     </div>
                     <div className="space-y-2">
@@ -381,8 +378,8 @@ const TipScreenGenerator = () => {
                           onClick={() => setTheme(value as TipTheme)}
                           className={`flex w-full items-center space-x-3 rounded-lg border px-4 py-3 text-left transition-colors ${
                             theme === value
-                              ? "border-blue-500 bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300"
-                              : "border-slate-200 text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700"
+                              ? "border-blue-500 bg-blue-900/20 text-blue-300"
+                              : "border-slate-600 text-slate-300 hover:bg-slate-700"
                           }`}
                         >
                           <Icon className="h-5 w-5" />
@@ -394,7 +391,7 @@ const TipScreenGenerator = () => {
 
                   {/* Dark Pattern Toggles */}
                   <div>
-                    <div className="mb-3 block text-sm font-medium text-slate-700 dark:text-slate-300">
+                    <div className="mb-3 block text-sm font-medium text-slate-300">
                       Dark Pattern Elements
                     </div>
                     <div className="space-y-3">
@@ -416,9 +413,9 @@ const TipScreenGenerator = () => {
                                 [key]: e.target.checked,
                               }))
                             }
-                            className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 dark:border-slate-600"
+                            className="rounded border-slate-600 text-blue-600 focus:ring-blue-500"
                           />
-                          <span className="text-sm text-slate-700 dark:text-slate-300">
+                          <span className="text-sm text-slate-300">
                             {icon} {label}
                           </span>
                         </label>
@@ -438,7 +435,7 @@ const TipScreenGenerator = () => {
 
                     <button
                       onClick={copyToClipboard}
-                      className="flex w-full items-center justify-center space-x-2 rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600"
+                      className="flex w-full items-center justify-center space-x-2 rounded-lg border border-slate-600 bg-slate-700 px-4 py-3 text-sm font-medium text-slate-300 hover:bg-slate-600"
                     >
                       <Copy className="h-4 w-4" />
                       <span>Copy to Clipboard</span>
@@ -446,7 +443,7 @@ const TipScreenGenerator = () => {
 
                     <button
                       onClick={resetSettings}
-                      className="flex w-full items-center justify-center space-x-2 rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600"
+                      className="flex w-full items-center justify-center space-x-2 rounded-lg border border-slate-600 bg-slate-700 px-4 py-3 text-sm font-medium text-slate-300 hover:bg-slate-600"
                     >
                       <RotateCcw className="h-4 w-4" />
                       <span>Reset Settings</span>
@@ -459,12 +456,10 @@ const TipScreenGenerator = () => {
 
           {/* Tip Screen Preview */}
           <div className={`${showSettings ? "lg:col-span-8" : "lg:col-span-10"}`}>
-            <div className="overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
-              <div className="border-b border-slate-200 px-6 py-4 dark:border-slate-700">
+            <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
+              <div className="border-b border-slate-700 px-6 py-4">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
-                    Tip Screen Preview
-                  </h2>
+                  <h2 className="text-lg font-semibold text-white">Tip Screen Preview</h2>
                   <div className="flex items-center space-x-2">
                     <Eye className="h-5 w-5 text-slate-400" />
                     <span className="text-sm capitalize text-slate-500">
@@ -494,10 +489,8 @@ const TipScreenGenerator = () => {
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-orange-500 to-red-500 text-white">
                 <Zap className="h-8 w-8" />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
-                Satirical Design
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400">
+              <h3 className="mb-2 text-lg font-semibold text-white">Satirical Design</h3>
+              <p className="text-slate-400">
                 Expose manipulative UX patterns with humor and create viral content for social
                 media.
               </p>
@@ -507,10 +500,8 @@ const TipScreenGenerator = () => {
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white">
                 <Shield className="h-8 w-8" />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
-                Educational Tool
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400">
+              <h3 className="mb-2 text-lg font-semibold text-white">Educational Tool</h3>
+              <p className="text-slate-400">
                 Perfect for UX designers, educators, and anyone interested in dark pattern
                 awareness.
               </p>
@@ -520,10 +511,8 @@ const TipScreenGenerator = () => {
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 text-white">
                 <Users className="h-8 w-8" />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
-                Social Sharing
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400">
+              <h3 className="mb-2 text-lg font-semibold text-white">Social Sharing</h3>
+              <p className="text-slate-400">
                 Generate shareable screenshots and memes to spark conversations about tipping
                 culture.
               </p>
@@ -534,34 +523,28 @@ const TipScreenGenerator = () => {
         {/* Content Sections for SEO */}
         <div className="mt-20 space-y-16">
           {/* Mobile Optimization Section */}
-          <section className="rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 p-8 dark:from-slate-800 dark:to-slate-700">
-            <h2 className="mb-6 text-2xl font-bold text-slate-900 dark:text-white">
+          <section className="rounded-xl bg-gradient-to-r from-slate-800 to-slate-700 p-8">
+            <h2 className="mb-6 text-2xl font-bold text-white">
               Create Tip Screens for iPhone, iPad & Android
             </h2>
             <div className="grid gap-6 md:grid-cols-3">
-              <div className="rounded-lg bg-white p-6 shadow-md dark:bg-slate-800">
-                <h3 className="mb-3 text-lg font-semibold text-slate-900 dark:text-white">
-                  📱 iPhone Tip Screens
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400">
+              <div className="rounded-lg bg-slate-800 p-6 shadow-md">
+                <h3 className="mb-3 text-lg font-semibold text-white">📱 iPhone Tip Screens</h3>
+                <p className="text-slate-400">
                   Generate realistic iPhone POS tip screens with iOS-style interface. Perfect for
                   creating viral TikTok and Instagram content.
                 </p>
               </div>
-              <div className="rounded-lg bg-white p-6 shadow-md dark:bg-slate-800">
-                <h3 className="mb-3 text-lg font-semibold text-slate-900 dark:text-white">
-                  📟 iPad POS Systems
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400">
+              <div className="rounded-lg bg-slate-800 p-6 shadow-md">
+                <h3 className="mb-3 text-lg font-semibold text-white">📟 iPad POS Systems</h3>
+                <p className="text-slate-400">
                   Create professional-looking iPad point-of-sale tip screens commonly seen in
                   restaurants and cafes.
                 </p>
               </div>
-              <div className="rounded-lg bg-white p-6 shadow-md dark:bg-slate-800">
-                <h3 className="mb-3 text-lg font-semibold text-slate-900 dark:text-white">
-                  🤖 Android Interfaces
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400">
+              <div className="rounded-lg bg-slate-800 p-6 shadow-md">
+                <h3 className="mb-3 text-lg font-semibold text-white">🤖 Android Interfaces</h3>
+                <p className="text-slate-400">
                   Design Android-style tip screens with material design elements for delivery apps
                   and mobile payments.
                 </p>
@@ -570,35 +553,31 @@ const TipScreenGenerator = () => {
           </section>
 
           {/* How to Use Section */}
-          <section className="rounded-xl bg-white p-8 shadow-lg dark:bg-slate-800">
-            <h2 className="mb-6 text-2xl font-bold text-slate-900 dark:text-white">
+          <section className="rounded-xl bg-slate-800 p-8 shadow-lg">
+            <h2 className="mb-6 text-2xl font-bold text-white">
               How to Create Tip Screen Images and Memes
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-orange-100 text-sm font-medium text-orange-600 dark:bg-orange-900 dark:text-orange-400">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-orange-900 text-sm font-medium text-orange-400">
                     1
                   </span>
                   <div>
-                    <h3 className="font-semibold text-slate-900 dark:text-white">
-                      Set Your Bill Amount
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
+                    <h3 className="font-semibold text-white">Set Your Bill Amount</h3>
+                    <p className="text-slate-400">
                       Enter any bill amount to see how manipulative tip calculations work in real
                       POS systems.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-orange-100 text-sm font-medium text-orange-600 dark:bg-orange-900 dark:text-orange-400">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-orange-900 text-sm font-medium text-orange-400">
                     2
                   </span>
                   <div>
-                    <h3 className="font-semibold text-slate-900 dark:text-white">
-                      Choose Interface Theme
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
+                    <h3 className="font-semibold text-white">Choose Interface Theme</h3>
+                    <p className="text-slate-400">
                       Select from iPad POS, food delivery, or extreme dark pattern interfaces.
                     </p>
                   </div>
@@ -606,28 +585,24 @@ const TipScreenGenerator = () => {
               </div>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-orange-100 text-sm font-medium text-orange-600 dark:bg-orange-900 dark:text-orange-400">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-orange-900 text-sm font-medium text-orange-400">
                     3
                   </span>
                   <div>
-                    <h3 className="font-semibold text-slate-900 dark:text-white">
-                      Enable Dark Patterns
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
+                    <h3 className="font-semibold text-white">Enable Dark Patterns</h3>
+                    <p className="text-slate-400">
                       Toggle manipulative design elements to show how businesses guilt customers
                       into higher tips.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-orange-100 text-sm font-medium text-orange-600 dark:bg-orange-900 dark:text-orange-400">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-orange-900 text-sm font-medium text-orange-400">
                     4
                   </span>
                   <div>
-                    <h3 className="font-semibold text-slate-900 dark:text-white">
-                      Screenshot & Share
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
+                    <h3 className="font-semibold text-white">Screenshot & Share</h3>
+                    <p className="text-slate-400">
                       Download or copy your fake tip screen to share on social media and educate
                       others.
                     </p>
@@ -638,46 +613,44 @@ const TipScreenGenerator = () => {
           </section>
 
           {/* FAQ Section */}
-          <section className="rounded-xl bg-slate-50 p-8 dark:bg-slate-800">
-            <h2 className="mb-6 text-2xl font-bold text-slate-900 dark:text-white">
-              Frequently Asked Questions
-            </h2>
+          <section className="rounded-xl bg-slate-800 p-8">
+            <h2 className="mb-6 text-2xl font-bold text-white">Frequently Asked Questions</h2>
             <div className="space-y-6">
-              <div className="border-b border-slate-200 pb-4 dark:border-slate-700">
-                <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
+              <div className="border-b border-slate-700 pb-4">
+                <h3 className="mb-2 text-lg font-semibold text-white">
                   Is this a free tip screen generator app?
                 </h3>
-                <p className="text-slate-600 dark:text-slate-400">
+                <p className="text-slate-400">
                   Yes! This is completely free and doesn't require any app download. It works
                   directly in your browser on iPhone, iPad, Android, and desktop devices. Create
                   unlimited tip screen images and memes without any restrictions.
                 </p>
               </div>
-              <div className="border-b border-slate-200 pb-4 dark:border-slate-700">
-                <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
+              <div className="border-b border-slate-700 pb-4">
+                <h3 className="mb-2 text-lg font-semibold text-white">
                   Can I create tip screen images for iPhone and Android?
                 </h3>
-                <p className="text-slate-600 dark:text-slate-400">
+                <p className="text-slate-400">
                   Absolutely! Our generator creates realistic tip screens that mimic iPhone, iPad,
                   and Android interfaces. Perfect for creating viral content, memes, or educational
                   materials about tipping culture.
                 </p>
               </div>
-              <div className="border-b border-slate-200 pb-4 dark:border-slate-700">
-                <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
+              <div className="border-b border-slate-700 pb-4">
+                <h3 className="mb-2 text-lg font-semibold text-white">
                   Is this tool meant to be used for real transactions?
                 </h3>
-                <p className="text-slate-600 dark:text-slate-400">
+                <p className="text-slate-400">
                   No, this is purely a satirical and educational tool. The generated screens are
                   fake and should only be used for entertainment, social commentary, or educational
                   purposes about dark UX patterns.
                 </p>
               </div>
-              <div className="border-b border-slate-200 pb-4 dark:border-slate-700">
-                <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
+              <div className="border-b border-slate-700 pb-4">
+                <h3 className="mb-2 text-lg font-semibold text-white">
                   What are dark patterns in tip screens?
                 </h3>
-                <p className="text-slate-600 dark:text-slate-400">
+                <p className="text-slate-400">
                   Dark patterns are design techniques that manipulate users into making decisions
                   they wouldn't normally make. In tip screens, this includes auto-selecting high
                   percentages, hiding "no tip" options, using guilt-inducing language, and making it
@@ -685,10 +658,10 @@ const TipScreenGenerator = () => {
                 </p>
               </div>
               <div>
-                <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
+                <h3 className="mb-2 text-lg font-semibold text-white">
                   Can I share my generated tip screens?
                 </h3>
-                <p className="text-slate-600 dark:text-slate-400">
+                <p className="text-slate-400">
                   Yes! The tool includes screenshot and sharing functionality. Generated images are
                   perfect for social media posts, memes, or educational content about tipping
                   culture and UX design ethics.
@@ -714,24 +687,20 @@ const IPadPOSScreen: React.FC<TipScreenProps> = ({
   handleContinue,
 }) => {
   return (
-    <div className="aspect-[3/4] w-full rounded-2xl bg-slate-100 p-6 shadow-xl dark:bg-slate-900">
+    <div className="aspect-[3/4] w-full rounded-2xl bg-slate-900 p-6 shadow-xl">
       {/* Header */}
       <div className="mb-6 text-center">
-        <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200">Add Tip</h3>
+        <h3 className="text-xl font-bold text-slate-200">Add Tip</h3>
         {darkPatterns.watchingEyes && (
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-            👀 Your server is watching...
-          </p>
+          <p className="mt-2 text-sm text-slate-400">👀 Your server is watching...</p>
         )}
       </div>
 
       {/* Bill Amount */}
-      <div className="mb-6 rounded-lg bg-white p-4 dark:bg-slate-800">
+      <div className="mb-6 rounded-lg bg-slate-800 p-4">
         <div className="flex justify-between">
-          <span className="text-slate-600 dark:text-slate-400">Subtotal:</span>
-          <span className="font-medium text-slate-800 dark:text-slate-200">
-            ${billAmount.toFixed(2)}
-          </span>
+          <span className="text-slate-400">Subtotal:</span>
+          <span className="font-medium text-slate-200">${billAmount.toFixed(2)}</span>
         </div>
       </div>
 
@@ -743,30 +712,28 @@ const IPadPOSScreen: React.FC<TipScreenProps> = ({
             onClick={() => setSelectedTip(option.percentage)}
             className={`rounded-lg border-2 p-4 text-center transition-colors ${
               selectedTip === option.percentage
-                ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
-                : "border-slate-300 bg-white hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-700 dark:hover:bg-slate-600"
+                ? "border-blue-500 bg-blue-900/20"
+                : "border-slate-600 bg-slate-700 hover:bg-slate-600"
             }`}
           >
-            <div className="text-lg font-bold text-slate-800 dark:text-slate-200">
+            <div className="text-lg font-bold text-slate-200">
               {darkPatterns.tipFirst ? `$${option.amount.toFixed(2)}` : `${option.percentage}%`}
             </div>
-            <div className="text-sm text-slate-600 dark:text-slate-400">
+            <div className="text-sm text-slate-400">
               {darkPatterns.tipFirst ? `${option.percentage}%` : `$${option.amount.toFixed(2)}`}
             </div>
-            <div className="text-xs font-medium text-blue-600 dark:text-blue-400">
-              {option.label}
-            </div>
+            <div className="text-xs font-medium text-blue-400">{option.label}</div>
           </button>
         ))}
       </div>
 
       {/* Total */}
-      <div className="mb-4 rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
+      <div className="mb-4 rounded-lg bg-green-900/20 p-4">
         <div className="flex justify-between text-lg font-bold">
-          <span className="text-green-800 dark:text-green-200">Total:</span>
-          <span className="text-green-800 dark:text-green-200">${calculateTotal().toFixed(2)}</span>
+          <span className="text-green-200">Total:</span>
+          <span className="text-green-200">${calculateTotal().toFixed(2)}</span>
         </div>
-        <div className="flex justify-between text-sm text-green-600 dark:text-green-400">
+        <div className="flex justify-between text-sm text-green-400">
           <span>Tip:</span>
           <span>${getCurrentTipAmount().toFixed(2)}</span>
         </div>
@@ -783,7 +750,7 @@ const IPadPOSScreen: React.FC<TipScreenProps> = ({
 
         {!darkPatterns.hideSkip && (
           <button
-            className={`w-full rounded-lg border py-2 text-slate-600 hover:bg-slate-50 dark:border-slate-600 dark:text-slate-400 dark:hover:bg-slate-700 ${
+            className={`w-full rounded-lg border border-slate-600 py-2 text-slate-400 hover:bg-slate-700 ${
               darkPatterns.smallSkip ? "py-1 text-xs" : "py-2"
             }`}
           >
@@ -812,15 +779,13 @@ const UberEatsScreen: React.FC<TipScreenProps> = ({
   handleContinue,
 }) => {
   return (
-    <div className="aspect-[9/16] w-full rounded-3xl bg-white p-6 shadow-xl dark:bg-slate-900">
+    <div className="aspect-[9/16] w-full rounded-3xl bg-slate-900 p-6 shadow-xl">
       {/* Header */}
       <div className="mb-6 text-center">
-        <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-200">Add tip</h3>
-        <p className="text-slate-600 dark:text-slate-400">Help support your delivery partner</p>
+        <h3 className="text-2xl font-bold text-slate-200">Add tip</h3>
+        <p className="text-slate-400">Help support your delivery partner</p>
         {darkPatterns.watchingEyes && (
-          <p className="mt-2 text-sm text-red-600 dark:text-red-400">
-            👀 Driver can see your tip amount
-          </p>
+          <p className="mt-2 text-sm text-red-400">👀 Driver can see your tip amount</p>
         )}
       </div>
 
@@ -832,21 +797,19 @@ const UberEatsScreen: React.FC<TipScreenProps> = ({
             onClick={() => setSelectedTip(option.percentage)}
             className={`w-full rounded-xl border-2 p-4 text-left transition-colors ${
               selectedTip === option.percentage
-                ? "border-green-500 bg-green-50 dark:bg-green-900/20"
-                : "border-slate-200 bg-white hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:hover:bg-slate-700"
+                ? "border-green-500 bg-green-900/20"
+                : "border-slate-600 bg-slate-800 hover:bg-slate-700"
             }`}
           >
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-lg font-bold text-slate-800 dark:text-slate-200">
+                <div className="text-lg font-bold text-slate-200">
                   {darkPatterns.tipFirst ? `$${option.amount.toFixed(2)}` : `${option.percentage}%`}
                 </div>
-                <div className="text-sm text-slate-600 dark:text-slate-400">
-                  {option.label} service
-                </div>
+                <div className="text-sm text-slate-400">{option.label} service</div>
               </div>
               <div className="text-right">
-                <div className="text-sm text-slate-600 dark:text-slate-400">
+                <div className="text-sm text-slate-400">
                   {darkPatterns.tipFirst ? `${option.percentage}%` : `$${option.amount.toFixed(2)}`}
                 </div>
               </div>
@@ -860,16 +823,14 @@ const UberEatsScreen: React.FC<TipScreenProps> = ({
         {!showCustomTipInput ? (
           <button
             onClick={handleCustomTipSelect}
-            className="w-full rounded-xl border-2 border-slate-200 bg-white p-4 text-left hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:hover:bg-slate-700"
+            className="w-full rounded-xl border-2 border-slate-600 bg-slate-800 p-4 text-left hover:bg-slate-700"
           >
-            <div className="font-medium text-slate-800 dark:text-slate-200">Custom amount</div>
-            <div className="text-sm text-slate-600 dark:text-slate-400">Enter your own tip</div>
+            <div className="font-medium text-slate-200">Custom amount</div>
+            <div className="text-sm text-slate-400">Enter your own tip</div>
           </button>
         ) : (
-          <div className="rounded-xl border-2 border-blue-500 bg-blue-50 p-4 dark:bg-blue-900/20">
-            <div className="mb-2 font-medium text-slate-800 dark:text-slate-200">
-              Custom tip amount
-            </div>
+          <div className="rounded-xl border-2 border-blue-500 bg-blue-900/20 p-4">
+            <div className="mb-2 font-medium text-slate-200">Custom tip amount</div>
             <div className="flex items-center space-x-2">
               <div className="relative flex-1">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">$</span>
@@ -877,7 +838,7 @@ const UberEatsScreen: React.FC<TipScreenProps> = ({
                   type="number"
                   value={customTip}
                   onChange={(e) => handleCustomTipChange && handleCustomTipChange(e.target.value)}
-                  className="w-full rounded-lg border border-slate-300 py-2 pl-8 pr-4 text-sm focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+                  className="w-full rounded-lg border border-slate-600 bg-slate-700 py-2 pl-8 pr-4 text-sm text-white focus:border-blue-500 focus:ring-blue-500"
                   placeholder="0.00"
                   step="0.01"
                   min="0"
@@ -885,7 +846,7 @@ const UberEatsScreen: React.FC<TipScreenProps> = ({
               </div>
               <button
                 onClick={() => setShowCustomTipInput && setShowCustomTipInput(false)}
-                className="rounded-lg bg-slate-100 px-3 py-2 text-sm text-slate-600 hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-400 dark:hover:bg-slate-600"
+                className="rounded-lg bg-slate-700 px-3 py-2 text-sm text-slate-400 hover:bg-slate-600"
               >
                 Cancel
               </button>
@@ -895,24 +856,20 @@ const UberEatsScreen: React.FC<TipScreenProps> = ({
       </div>
 
       {/* Total Summary */}
-      <div className="mb-6 rounded-xl bg-slate-50 p-4 dark:bg-slate-800">
+      <div className="mb-6 rounded-xl bg-slate-800 p-4">
         <div className="space-y-2">
           <div className="flex justify-between">
-            <span className="text-slate-600 dark:text-slate-400">Subtotal</span>
-            <span className="text-slate-800 dark:text-slate-200">${billAmount.toFixed(2)}</span>
+            <span className="text-slate-400">Subtotal</span>
+            <span className="text-slate-200">${billAmount.toFixed(2)}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-slate-600 dark:text-slate-400">Tip</span>
-            <span className="text-slate-800 dark:text-slate-200">
-              ${getCurrentTipAmount().toFixed(2)}
-            </span>
+            <span className="text-slate-400">Tip</span>
+            <span className="text-slate-200">${getCurrentTipAmount().toFixed(2)}</span>
           </div>
-          <div className="border-t border-slate-200 pt-2 dark:border-slate-600">
+          <div className="border-t border-slate-600 pt-2">
             <div className="flex justify-between font-bold">
-              <span className="text-slate-800 dark:text-slate-200">Total</span>
-              <span className="text-slate-800 dark:text-slate-200">
-                ${calculateTotal().toFixed(2)}
-              </span>
+              <span className="text-slate-200">Total</span>
+              <span className="text-slate-200">${calculateTotal().toFixed(2)}</span>
             </div>
           </div>
         </div>
@@ -929,7 +886,7 @@ const UberEatsScreen: React.FC<TipScreenProps> = ({
 
         {!darkPatterns.hideSkip && (
           <button
-            className={`w-full text-center text-slate-600 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 ${
+            className={`w-full text-center text-slate-400 hover:text-slate-200 ${
               darkPatterns.smallSkip ? "text-xs" : "text-sm"
             }`}
           >
@@ -955,15 +912,13 @@ const DarkPatternScreen: React.FC<TipScreenProps> = ({
   handleContinue,
 }) => {
   return (
-    <div className="aspect-[3/4] w-full rounded-2xl border-2 border-red-200 bg-gradient-to-b from-red-50 to-orange-50 p-6 shadow-xl dark:border-red-800 dark:from-red-900/20 dark:to-orange-900/20">
+    <div className="aspect-[3/4] w-full rounded-2xl border-2 border-red-800 bg-gradient-to-b from-red-900/20 to-orange-900/20 p-6 shadow-xl">
       {/* Manipulative Header */}
       <div className="mb-6 text-center">
-        <h3 className="text-2xl font-bold text-red-800 dark:text-red-200">🚨 TIP REQUIRED 🚨</h3>
-        <p className="font-medium text-red-600 dark:text-red-400">
-          Our hardworking staff depends on your generosity
-        </p>
+        <h3 className="text-2xl font-bold text-red-200">🚨 TIP REQUIRED 🚨</h3>
+        <p className="font-medium text-red-400">Our hardworking staff depends on your generosity</p>
         {darkPatterns.watchingEyes && (
-          <p className="mt-2 animate-pulse text-sm text-red-700 dark:text-red-300">
+          <p className="mt-2 animate-pulse text-sm text-red-300">
             👀👀👀 Everyone is watching your choice 👀👀👀
           </p>
         )}
@@ -972,48 +927,42 @@ const DarkPatternScreen: React.FC<TipScreenProps> = ({
       {/* Exaggerated Tip Options */}
       <div className="mb-6 grid grid-cols-2 gap-2">
         {[
-          { percentage: 25, label: "Minimum Decent", color: "bg-yellow-200 border-yellow-400" },
-          { percentage: 30, label: "Fair", color: "bg-orange-200 border-orange-400" },
-          { percentage: 40, label: "Good Person", color: "bg-green-200 border-green-400" },
-          { percentage: 50, label: "HERO! ⭐", color: "bg-purple-200 border-purple-400" },
+          { percentage: 25, label: "Minimum Decent", color: "bg-yellow-700 border-yellow-500" },
+          { percentage: 30, label: "Fair", color: "bg-orange-700 border-orange-500" },
+          { percentage: 40, label: "Good Person", color: "bg-green-700 border-green-500" },
+          { percentage: 50, label: "HERO! ⭐", color: "bg-purple-700 border-purple-500" },
         ].map((option) => (
           <button
             key={option.percentage}
             onClick={() => setSelectedTip(option.percentage)}
             className={`rounded-lg border-2 p-3 text-center transition-colors ${
               selectedTip === option.percentage
-                ? "border-red-500 bg-red-100 dark:bg-red-900/30"
+                ? "border-red-500 bg-red-900/30"
                 : `${option.color} hover:opacity-80`
             }`}
           >
-            <div className="text-lg font-bold text-slate-800 dark:text-slate-200">
+            <div className="text-lg font-bold text-slate-200">
               {darkPatterns.tipFirst
                 ? `$${(billAmount * (option.percentage / 100)).toFixed(2)}`
                 : `${option.percentage}%`}
             </div>
-            <div className="text-xs font-medium text-slate-700 dark:text-slate-300">
-              {option.label}
-            </div>
+            <div className="text-xs font-medium text-slate-300">{option.label}</div>
           </button>
         ))}
       </div>
 
       {/* Guilt Trip Section */}
-      <div className="mb-4 rounded-lg border border-red-300 bg-red-100 p-3 dark:border-red-700 dark:bg-red-900/30">
-        <p className="text-center text-sm font-medium text-red-800 dark:text-red-200">
+      <div className="mb-4 rounded-lg border border-red-700 bg-red-900/30 p-3">
+        <p className="text-center text-sm font-medium text-red-200">
           💔 Low tips hurt our team's ability to pay rent 💔
         </p>
       </div>
 
       {/* Total with Emphasis */}
-      <div className="mb-4 rounded-lg border-2 border-green-400 bg-green-100 p-4 dark:border-green-600 dark:bg-green-900/30">
+      <div className="mb-4 rounded-lg border-2 border-green-600 bg-green-900/30 p-4">
         <div className="text-center">
-          <div className="text-2xl font-bold text-green-800 dark:text-green-200">
-            ${calculateTotal().toFixed(2)}
-          </div>
-          <div className="text-sm text-green-600 dark:text-green-400">
-            Thank you for being generous! 🙏
-          </div>
+          <div className="text-2xl font-bold text-green-200">${calculateTotal().toFixed(2)}</div>
+          <div className="text-sm text-green-400">Thank you for being generous! 🙏</div>
         </div>
       </div>
 
@@ -1030,8 +979,8 @@ const DarkPatternScreen: React.FC<TipScreenProps> = ({
           <button
             className={`w-full text-center transition-all hover:opacity-80 ${
               darkPatterns.smallSkip
-                ? "py-1 text-[8px] text-gray-400 hover:text-gray-500 dark:text-gray-600 dark:hover:text-gray-500"
-                : "py-2 text-xs text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                ? "py-1 text-[8px] text-gray-600 hover:text-gray-500"
+                : "py-2 text-xs text-gray-400 hover:text-gray-200"
             }`}
           >
             {darkPatterns.guiltyText ? "I don't care about workers 😢" : "Skip"}
@@ -1041,16 +990,14 @@ const DarkPatternScreen: React.FC<TipScreenProps> = ({
 
       {/* Fake Social Pressure */}
       <div className="mt-4 space-y-2 text-center">
-        <p className="text-xs text-gray-600 dark:text-gray-400">
-          💡 99% of customers tip at least 30%
-        </p>
+        <p className="text-xs text-gray-400">💡 99% of customers tip at least 30%</p>
         {darkPatterns.watchingEyes && (
-          <div className="animate-pulse text-[10px] text-red-600 dark:text-red-400">
+          <div className="animate-pulse text-[10px] text-red-400">
             ⚠️ Low tips are publicly displayed on social media
           </div>
         )}
         {darkPatterns.guiltyText && (
-          <div className="text-[10px] text-orange-600 dark:text-orange-400">
+          <div className="text-[10px] text-orange-400">
             💸 Your tip directly affects our rent payments
           </div>
         )}
