@@ -18,7 +18,6 @@ import {
   Home,
   ChevronRight,
 } from "lucide-react"
-import ShareButtons from "@/components/ShareButtons"
 
 // Dynamic import for pdfjs-dist to avoid SSR issues
 let pdfjsLib: typeof import("pdfjs-dist") | null = null
@@ -338,13 +337,13 @@ const PdfToMarkdown = () => {
   }
 
   const renderPreview = () => {
-    if (!markdown) return <p className="text-gray-400">Converted markdown will appear here...</p>
+    if (!markdown) return <p className="text-slate-400">Converted markdown will appear here...</p>
 
     try {
       const html = remarkable.render(markdown)
       return (
         <div
-          className="prose prose-sm prose-gray max-w-none dark:prose-invert"
+          className="prose prose-sm prose-invert max-w-none"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       )
@@ -354,27 +353,24 @@ const PdfToMarkdown = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Breadcrumb Navigation */}
       <nav className="mx-auto max-w-5xl px-4 pt-4 sm:px-6 lg:px-8" aria-label="Breadcrumb">
-        <ol className="flex items-center space-x-2 text-sm text-slate-600 dark:text-slate-400">
+        <ol className="flex items-center space-x-2 text-sm text-slate-400">
           <li>
-            <a
-              href="/"
-              className="flex items-center hover:text-slate-900 dark:hover:text-slate-200"
-            >
+            <a href="/" className="flex items-center hover:text-slate-200">
               <Home className="h-4 w-4" />
               <span className="ml-1">Home</span>
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
           <li>
-            <a href="/tools" className="hover:text-slate-900 dark:hover:text-slate-200">
+            <a href="/tools" className="hover:text-slate-200">
               Tools
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
-          <li className="font-medium text-slate-900 dark:text-slate-100">PDF to Markdown</li>
+          <li className="font-medium text-slate-100">PDF to Markdown</li>
         </ol>
       </nav>
 
@@ -386,37 +382,27 @@ const PdfToMarkdown = () => {
             PDF to Markdown
           </div>
 
-          <h1 className="mb-4 bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-4xl font-bold text-transparent dark:from-white dark:to-slate-300">
+          <h1 className="mb-4 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-4xl font-bold text-transparent">
             Convert PDF to Markdown
           </h1>
 
-          <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-300">
+          <p className="mx-auto max-w-2xl text-lg text-slate-300">
             Transform your PDF documents into clean, editable Markdown format. Fast, secure, and
             completely browser-based.
           </p>
-
-          {/* Share Button */}
-          <div className="mt-6 flex justify-center">
-            <div className="rounded-lg bg-white/50 p-4 backdrop-blur-sm dark:bg-slate-800/50">
-              <p className="mb-3 text-center text-sm font-medium text-slate-700 dark:text-slate-300">
-                Share this tool:
-              </p>
-              <ShareButtons />
-            </div>
-          </div>
         </div>
 
         {/* Main Content - Single Flow */}
         <div className="space-y-6">
           {/* Upload or Show Success */}
           {!parseResult ? (
-            <div className="overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+            <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
               {/* Upload Section */}
               <div className="p-8">
                 <div
                   role="button"
                   tabIndex={0}
-                  className="group relative flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-slate-300 bg-slate-50 transition-all duration-200 hover:border-blue-400 hover:bg-blue-50 dark:border-slate-600 dark:bg-slate-700 dark:hover:border-blue-500 dark:hover:bg-slate-600"
+                  className="group relative flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-slate-600 bg-slate-700 transition-all duration-200 hover:border-blue-500 hover:bg-slate-600"
                   onDrop={handleDrop}
                   onDragOver={handleDragOver}
                   onClick={() => document.getElementById("file-input")?.click()}
@@ -444,23 +430,19 @@ const PdfToMarkdown = () => {
                         </div>
                       </div>
                       <div className="text-center">
-                        <p className="text-lg font-medium text-slate-700 dark:text-slate-300">
-                          {loadingStage}
-                        </p>
+                        <p className="text-lg font-medium text-slate-300">{loadingStage}</p>
                         <p className="text-sm text-slate-500">{Math.round(progress)}% complete</p>
                       </div>
                     </div>
                   ) : (
                     <div className="flex flex-col items-center space-y-4 text-center">
-                      <div className="rounded-full bg-blue-100 p-4 group-hover:bg-blue-200 dark:bg-blue-900 dark:group-hover:bg-blue-800">
-                        <Upload className="h-8 w-8 text-blue-600 dark:text-blue-400" />
+                      <div className="rounded-full bg-blue-900 p-4 group-hover:bg-blue-800">
+                        <Upload className="h-8 w-8 text-blue-400" />
                       </div>
 
                       <div className="space-y-2">
-                        <h3 className="text-xl font-semibold text-slate-700 dark:text-slate-300">
-                          Upload your PDF
-                        </h3>
-                        <p className="text-slate-500 dark:text-slate-400">
+                        <h3 className="text-xl font-semibold text-slate-300">Upload your PDF</h3>
+                        <p className="text-slate-400">
                           Click to browse or drag and drop your file here
                         </p>
                         <p className="text-xs text-slate-400">Maximum file size: 50MB</p>
@@ -470,7 +452,7 @@ const PdfToMarkdown = () => {
                 </div>
 
                 {error && (
-                  <div className="mt-4 flex items-center space-x-2 rounded-lg bg-red-50 p-3 text-red-700 dark:bg-red-900/20 dark:text-red-400">
+                  <div className="mt-4 flex items-center space-x-2 rounded-lg bg-red-900/20 p-3 text-red-400">
                     <AlertCircle className="h-5 w-5" />
                     <span className="text-sm">{error}</span>
                   </div>
@@ -479,15 +461,13 @@ const PdfToMarkdown = () => {
             </div>
           ) : (
             /* Success State */
-            <div className="overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+            <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
               {/* Success Header */}
-              <div className="gap-5 border-b border-slate-200 bg-gradient-to-r from-green-50 to-emerald-50 p-6 dark:border-slate-700 dark:from-green-900/20 dark:to-emerald-900/20">
+              <div className="gap-5 border-b border-slate-700 bg-gradient-to-r from-green-900/20 to-emerald-900/20 p-6">
                 {/* File Information */}
                 {file && (
                   <h3 className="mb-4 flex w-full flex-1 items-center justify-center gap-4 px-4 text-center text-2xl">
-                    <span className="truncate font-medium text-slate-700 dark:text-slate-300">
-                      📄 {file.name}
-                    </span>
+                    <span className="truncate font-medium text-slate-300">📄 {file.name}</span>
                     <span className="text-sm text-slate-500">
                       {(file.size / 1024 / 1024).toFixed(2)} MB
                     </span>
@@ -497,14 +477,12 @@ const PdfToMarkdown = () => {
                 <div className="flex items-center justify-between">
                   {/* Left: Success Message */}
                   <div className="flex flex-1 items-center space-x-3">
-                    <div className="rounded-full bg-green-100 p-2 dark:bg-green-900">
-                      <FileCheck className="h-6 w-6 text-green-600 dark:text-green-400" />
+                    <div className="rounded-full bg-green-900 p-2">
+                      <FileCheck className="h-6 w-6 text-green-400" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                        Conversion Complete
-                      </h3>
-                      <p className="text-sm text-slate-600 dark:text-slate-400">
+                      <h3 className="text-lg font-semibold text-white">Conversion Complete</h3>
+                      <p className="text-sm text-slate-400">
                         Your PDF has been successfully converted to Markdown
                       </p>
                     </div>
@@ -515,7 +493,7 @@ const PdfToMarkdown = () => {
                     <div className="flex flex-col space-y-2 sm:flex-row sm:space-x-3 sm:space-y-0">
                       <button
                         onClick={resetState}
-                        className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600"
+                        className="inline-flex items-center justify-center rounded-lg border border-slate-600 bg-slate-700 px-4 py-2 text-sm font-medium text-slate-300 shadow-sm hover:bg-slate-600"
                       >
                         <RefreshCw className="mr-2 h-4 w-4" />
                         Convert Another PDF
@@ -535,14 +513,14 @@ const PdfToMarkdown = () => {
               </div>
 
               {/* Tab Navigation */}
-              <div className="border-b border-slate-200 dark:border-slate-700">
+              <div className="border-b border-slate-700">
                 <nav className="flex space-x-8 px-6" aria-label="Tabs">
                   <button
                     onClick={() => setActiveTab("edit")}
                     className={`border-b-2 px-1 py-4 text-sm font-medium ${
                       activeTab === "edit"
-                        ? "border-blue-500 text-blue-600 dark:border-blue-400 dark:text-blue-400"
-                        : "border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"
+                        ? "border-blue-400 text-blue-400"
+                        : "border-transparent text-slate-400 hover:text-slate-300"
                     }`}
                   >
                     <Edit3 className="mr-2 inline h-4 w-4" />
@@ -552,8 +530,8 @@ const PdfToMarkdown = () => {
                     onClick={() => setActiveTab("preview")}
                     className={`border-b-2 px-1 py-4 text-sm font-medium ${
                       activeTab === "preview"
-                        ? "border-blue-500 text-blue-600 dark:border-blue-400 dark:text-blue-400"
-                        : "border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"
+                        ? "border-blue-400 text-blue-400"
+                        : "border-transparent text-slate-400 hover:text-slate-300"
                     }`}
                   >
                     <Eye className="mr-2 inline h-4 w-4" />
@@ -568,7 +546,7 @@ const PdfToMarkdown = () => {
                   <textarea
                     value={markdown}
                     onChange={(e) => setMarkdown(e.target.value)}
-                    className="h-full w-full resize-none border-none bg-transparent p-6 font-mono text-sm text-slate-800 outline-none dark:text-slate-200"
+                    className="h-full w-full resize-none border-none bg-transparent p-6 font-mono text-sm text-slate-200 outline-none"
                     placeholder="Your converted markdown will appear here..."
                   />
                 ) : (
@@ -578,34 +556,30 @@ const PdfToMarkdown = () => {
 
               {/* Document Stats */}
               {parseResult.metadata && (
-                <div className="border-t border-slate-200 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-800/50">
+                <div className="border-t border-slate-700 bg-slate-800/50 p-4">
                   <div className="grid grid-cols-2 gap-4 text-sm md:grid-cols-5">
                     <div className="text-center">
-                      <p className="font-medium text-slate-900 dark:text-white">
-                        {parseResult.pages.length}
-                      </p>
+                      <p className="font-medium text-white">{parseResult.pages.length}</p>
                       <p className="text-slate-500">Pages</p>
                     </div>
                     <div className="text-center">
-                      <p className="font-medium text-slate-900 dark:text-white">
+                      <p className="font-medium text-white">
                         {markdown.split(/\s+/).length.toLocaleString()}
                       </p>
                       <p className="text-slate-500">Words</p>
                     </div>
                     <div className="text-center">
-                      <p className="font-medium text-slate-900 dark:text-white">
-                        {markdown.length.toLocaleString()}
-                      </p>
+                      <p className="font-medium text-white">{markdown.length.toLocaleString()}</p>
                       <p className="text-slate-500">Characters</p>
                     </div>
                     <div className="text-center">
-                      <p className="font-medium text-slate-900 dark:text-white">
+                      <p className="font-medium text-white">
                         {markdown.split("\n").length.toLocaleString()}
                       </p>
                       <p className="text-slate-500">Lines</p>
                     </div>
                     <div className="text-center">
-                      <p className="font-medium text-slate-900 dark:text-white">
+                      <p className="font-medium text-white">
                         {(markdown.length / 1024).toFixed(1)}KB
                       </p>
                       <p className="text-slate-500">Size</p>
@@ -625,10 +599,8 @@ const PdfToMarkdown = () => {
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 text-white">
                   <Zap className="h-8 w-8" />
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
-                  Lightning Fast
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400">
+                <h3 className="mb-2 text-lg font-semibold text-white">Lightning Fast</h3>
+                <p className="text-slate-400">
                   Advanced parsing algorithms ensure rapid conversion without compromising quality.
                 </p>
               </div>
@@ -637,10 +609,8 @@ const PdfToMarkdown = () => {
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 text-white">
                   <CheckCircle className="h-8 w-8" />
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
-                  Format Preserved
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400">
+                <h3 className="mb-2 text-lg font-semibold text-white">Format Preserved</h3>
+                <p className="text-slate-400">
                   Intelligent parsing maintains document structure, headers, and formatting.
                 </p>
               </div>
@@ -649,10 +619,8 @@ const PdfToMarkdown = () => {
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white">
                   <FileText className="h-8 w-8" />
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
-                  Privacy First
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400">
+                <h3 className="mb-2 text-lg font-semibold text-white">Privacy First</h3>
+                <p className="text-slate-400">
                   All processing happens locally in your browser. Your files never leave your
                   device.
                 </p>
@@ -662,35 +630,31 @@ const PdfToMarkdown = () => {
             {/* Detailed Content Sections for SEO */}
             <div className="mt-20 space-y-16">
               {/* How to Use Section */}
-              <section className="rounded-xl bg-white p-8 shadow-lg dark:bg-slate-800">
-                <h2 className="mb-6 text-2xl font-bold text-slate-900 dark:text-white">
+              <section className="rounded-xl bg-slate-800 p-8 shadow-lg">
+                <h2 className="mb-6 text-2xl font-bold text-white">
                   How to Convert PDF to Markdown: Step-by-Step Guide
                 </h2>
                 <div className="grid gap-6 md:grid-cols-2">
                   <div className="space-y-4">
                     <div className="flex items-start space-x-3">
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 text-sm font-medium text-blue-600 dark:bg-blue-900 dark:text-blue-400">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-900 text-sm font-medium text-blue-400">
                         1
                       </span>
                       <div>
-                        <h3 className="font-semibold text-slate-900 dark:text-white">
-                          Upload Your PDF
-                        </h3>
-                        <p className="text-slate-600 dark:text-slate-400">
+                        <h3 className="font-semibold text-white">Upload Your PDF</h3>
+                        <p className="text-slate-400">
                           Click the upload area or drag and drop your PDF file. Our converter
                           supports files up to 50MB.
                         </p>
                       </div>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 text-sm font-medium text-blue-600 dark:bg-blue-900 dark:text-blue-400">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-900 text-sm font-medium text-blue-400">
                         2
                       </span>
                       <div>
-                        <h3 className="font-semibold text-slate-900 dark:text-white">
-                          Automatic Conversion
-                        </h3>
-                        <p className="text-slate-600 dark:text-slate-400">
+                        <h3 className="font-semibold text-white">Automatic Conversion</h3>
+                        <p className="text-slate-400">
                           Our PDF to Markdown converter automatically processes your document,
                           extracting text and preserving formatting.
                         </p>
@@ -699,28 +663,24 @@ const PdfToMarkdown = () => {
                   </div>
                   <div className="space-y-4">
                     <div className="flex items-start space-x-3">
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 text-sm font-medium text-blue-600 dark:bg-blue-900 dark:text-blue-400">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-900 text-sm font-medium text-blue-400">
                         3
                       </span>
                       <div>
-                        <h3 className="font-semibold text-slate-900 dark:text-white">
-                          Edit & Preview
-                        </h3>
-                        <p className="text-slate-600 dark:text-slate-400">
+                        <h3 className="font-semibold text-white">Edit & Preview</h3>
+                        <p className="text-slate-400">
                           Fine-tune the converted Markdown content using our built-in editor with
                           live preview functionality.
                         </p>
                       </div>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 text-sm font-medium text-blue-600 dark:bg-blue-900 dark:text-blue-400">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-900 text-sm font-medium text-blue-400">
                         4
                       </span>
                       <div>
-                        <h3 className="font-semibold text-slate-900 dark:text-white">
-                          Download Result
-                        </h3>
-                        <p className="text-slate-600 dark:text-slate-400">
+                        <h3 className="font-semibold text-white">Download Result</h3>
+                        <p className="text-slate-400">
                           Download your converted Markdown file ready for use in documentation,
                           GitHub, or any Markdown-compatible platform.
                         </p>
@@ -731,34 +691,26 @@ const PdfToMarkdown = () => {
               </section>
 
               {/* Use Cases Section */}
-              <section className="rounded-xl bg-slate-50 p-8 dark:bg-slate-800">
-                <h2 className="mb-6 text-2xl font-bold text-slate-900 dark:text-white">
-                  Why Convert PDF to Markdown?
-                </h2>
+              <section className="rounded-xl bg-slate-800 p-8">
+                <h2 className="mb-6 text-2xl font-bold text-white">Why Convert PDF to Markdown?</h2>
                 <div className="grid gap-6 md:grid-cols-3">
-                  <div className="rounded-lg bg-white p-6 dark:bg-slate-700">
-                    <h3 className="mb-3 font-semibold text-slate-900 dark:text-white">
-                      Documentation
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
+                  <div className="rounded-lg bg-slate-700 p-6">
+                    <h3 className="mb-3 font-semibold text-white">Documentation</h3>
+                    <p className="text-slate-400">
                       Convert PDF documentation to Markdown for easier editing, version control, and
                       integration with documentation platforms like GitBook or Notion.
                     </p>
                   </div>
-                  <div className="rounded-lg bg-white p-6 dark:bg-slate-700">
-                    <h3 className="mb-3 font-semibold text-slate-900 dark:text-white">
-                      Content Management
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
+                  <div className="rounded-lg bg-slate-700 p-6">
+                    <h3 className="mb-3 font-semibold text-white">Content Management</h3>
+                    <p className="text-slate-400">
                       Transform PDF reports, articles, and guides into editable Markdown format for
                       content management systems and static site generators.
                     </p>
                   </div>
-                  <div className="rounded-lg bg-white p-6 dark:bg-slate-700">
-                    <h3 className="mb-3 font-semibold text-slate-900 dark:text-white">
-                      GitHub Integration
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
+                  <div className="rounded-lg bg-slate-700 p-6">
+                    <h3 className="mb-3 font-semibold text-white">GitHub Integration</h3>
+                    <p className="text-slate-400">
                       Convert PDF files to Markdown for README files, project documentation, and
                       GitHub wikis with proper formatting preserved.
                     </p>
@@ -767,56 +719,54 @@ const PdfToMarkdown = () => {
               </section>
 
               {/* FAQ Section */}
-              <section className="rounded-xl bg-white p-8 shadow-lg dark:bg-slate-800">
-                <h2 className="mb-6 text-2xl font-bold text-slate-900 dark:text-white">
-                  Frequently Asked Questions
-                </h2>
+              <section className="rounded-xl bg-slate-800 p-8 shadow-lg">
+                <h2 className="mb-6 text-2xl font-bold text-white">Frequently Asked Questions</h2>
                 <div className="space-y-6">
-                  <div className="border-b border-slate-200 pb-4 dark:border-slate-700">
-                    <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
+                  <div className="border-b border-slate-700 pb-4">
+                    <h3 className="mb-2 text-lg font-semibold text-white">
                       Is this PDF to Markdown converter free to use?
                     </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
+                    <p className="text-slate-400">
                       Yes, our PDF to Markdown converter is completely free. There are no
                       registration requirements, subscription fees, or usage limits. Convert as many
                       PDFs as you need.
                     </p>
                   </div>
-                  <div className="border-b border-slate-200 pb-4 dark:border-slate-700">
-                    <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
+                  <div className="border-b border-slate-700 pb-4">
+                    <h3 className="mb-2 text-lg font-semibold text-white">
                       How accurate is the PDF to Markdown conversion?
                     </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
+                    <p className="text-slate-400">
                       Our converter uses advanced parsing algorithms to maintain document structure,
                       including headers, lists, and formatting. While accuracy depends on the
                       original PDF's complexity, most conversions preserve 95%+ of the content
                       structure.
                     </p>
                   </div>
-                  <div className="border-b border-slate-200 pb-4 dark:border-slate-700">
-                    <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
+                  <div className="border-b border-slate-700 pb-4">
+                    <h3 className="mb-2 text-lg font-semibold text-white">
                       Is my PDF data secure during conversion?
                     </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
+                    <p className="text-slate-400">
                       Absolutely. All PDF processing happens locally in your browser using
                       client-side JavaScript. Your files never leave your device, ensuring complete
                       privacy and security.
                     </p>
                   </div>
-                  <div className="border-b border-slate-200 pb-4 dark:border-slate-700">
-                    <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
+                  <div className="border-b border-slate-700 pb-4">
+                    <h3 className="mb-2 text-lg font-semibold text-white">
                       What file size limits exist for PDF conversion?
                     </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
+                    <p className="text-slate-400">
                       Our PDF to Markdown converter supports files up to 50MB. For larger files,
                       consider splitting them into smaller sections before conversion.
                     </p>
                   </div>
                   <div>
-                    <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-white">
+                    <h3 className="mb-2 text-lg font-semibold text-white">
                       Can I convert scanned PDFs to Markdown?
                     </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
+                    <p className="text-slate-400">
                       This tool works best with text-based PDFs. For scanned documents or
                       image-based PDFs, the conversion may not extract text accurately as it doesn't
                       include OCR (Optical Character Recognition) functionality.
@@ -826,16 +776,14 @@ const PdfToMarkdown = () => {
               </section>
 
               {/* Technical Benefits */}
-              <section className="rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 p-8 dark:from-slate-800 dark:to-slate-700">
-                <h2 className="mb-6 text-2xl font-bold text-slate-900 dark:text-white">
+              <section className="rounded-xl bg-gradient-to-r from-slate-800 to-slate-700 p-8">
+                <h2 className="mb-6 text-2xl font-bold text-white">
                   Advanced PDF to Markdown Conversion Features
                 </h2>
                 <div className="grid gap-6 md:grid-cols-2">
                   <div className="space-y-4">
-                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                      Smart Format Detection
-                    </h3>
-                    <ul className="space-y-2 text-slate-600 dark:text-slate-400">
+                    <h3 className="text-lg font-semibold text-white">Smart Format Detection</h3>
+                    <ul className="space-y-2 text-slate-400">
                       <li>
                         • Automatically detects headers and converts to Markdown heading syntax
                       </li>
@@ -845,10 +793,8 @@ const PdfToMarkdown = () => {
                     </ul>
                   </div>
                   <div className="space-y-4">
-                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                      Browser-Based Processing
-                    </h3>
-                    <ul className="space-y-2 text-slate-600 dark:text-slate-400">
+                    <h3 className="text-lg font-semibold text-white">Browser-Based Processing</h3>
+                    <ul className="space-y-2 text-slate-400">
                       <li>• No server uploads required for privacy</li>
                       <li>• Works offline once page is loaded</li>
                       <li>• Compatible with all modern browsers</li>
