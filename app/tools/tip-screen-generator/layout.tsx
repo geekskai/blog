@@ -1,56 +1,28 @@
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Tip Screen Generator - Create iPhone/iPad POS Tip Screens Free | Meme Tool",
+  title: "Tip Screen - Create & Understand POS Tip Screens | Free Generator Tool",
   description:
-    "Free tip screen generator for iPhone, iPad, and Android. Create realistic POS tip screens, satirical tipping interfaces, and viral memes. No app download required - works in browser.",
-  keywords: [
-    "tip screen generator",
-    "tip screen",
-    "tip screen simulator",
-    "tip screen app free",
-    "tip screen image iphone",
-    "tip screen for phone",
-    "tip screen app android",
-    "tip screen 100%",
-    "leave a tip screen meme",
-    "tipping screen meme",
-    "pos tip screen",
-    "fake tip screen",
-    "tip screen parody",
-    "pos interface mockup",
-    "tip guilt simulator",
-    "fake payment screen",
-    "satirical tip screen",
-    "dark pattern generator",
-    "manipulative ux",
-    "forced tipping simulator",
-    "tip screen meme generator",
-    "dark ux patterns",
-    "satirical pos",
-    "tip screen comedy",
-    "ux design parody",
-    "tipping culture meme",
-  ],
+    "Everything about tip screens - what they are, how they work, and why they matter. Create realistic tip screens for iPhone, iPad, and Android. Free online tip screen generator and educational resource.",
+  keywords: ["tip screen", "tip screen generator", "pos tip screen", "tip screen image"],
   openGraph: {
-    title: "Tip Screen Generator - Create Realistic POS Tip Screens for Memes",
+    title: "Tip Screen - Complete Guide & Free Generator Tool",
     description:
-      "Generate realistic tip screens for iPhone, iPad, and Android. Create viral memes and educational content about tipping culture. Free online tool - no app download required.",
+      "Learn everything about tip screens - from understanding their psychology to creating your own. Free tip screen generator for educational and satirical purposes.",
     type: "website",
     images: [
       {
         url: "/static/images/tip-screen-generator.png",
         width: 1200,
         height: 630,
-        alt: "Tip Screen Generator - Create POS Interface Tool",
+        alt: "Tip Screen Guide and Generator Tool",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tip Screen Generator - Free Online Tool",
-    description:
-      "Create realistic tip screens for iPhone, iPad & Android. Free tool for memes and education.",
+    title: "Tip Screen - Guide & Free Generator",
+    description: "Complete resource for understanding tip screens + free tool to create your own.",
   },
   alternates: {
     canonical: "https://geekskai.com/tools/tip-screen-generator/",
@@ -72,9 +44,9 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "Tip Screen Generator",
+  name: "Tip Screen Guide & Generator",
   description:
-    "A free online tool to generate realistic tip screens for iPhone, iPad, and Android devices. Create satirical POS interfaces, viral memes, and educational content about tipping culture.",
+    "Comprehensive resource about tip screens including their psychology, design patterns, and cultural impact. Features a free tool to create realistic tip screens for educational and satirical purposes.",
   url: "https://geekskai.com/tools/tip-screen-generator",
   applicationCategory: "Entertainment",
   operatingSystem: "Any",
@@ -85,10 +57,12 @@ const jsonLd = {
     priceCurrency: "USD",
   },
   featureList: [
+    "Understand tip screen psychology",
+    "Learn about tip screen design patterns",
     "Generate realistic tip screens",
     "Multiple device themes (iPhone, iPad, Android)",
-    "Customizable amounts and percentages",
-    "Dark pattern examples for education",
+    "Educational content about tipping culture",
+    "Dark pattern examples and analysis",
     "Screenshot and share functionality",
     "Meme creation tools",
     "No registration required",
@@ -101,8 +75,9 @@ const jsonLd = {
     name: "GeeksKai",
     url: "https://geekskai.com",
   },
-  keywords: "tip screen generator, pos interface, tipping culture, viral memes, educational tool",
-  educationalUse: "UX Design Education, Tipping Culture Awareness, Social Commentary",
+  keywords: "tip screen, pos interface, tipping culture, digital payments, user experience",
+  educationalUse:
+    "UX Design Education, Tipping Culture Awareness, Social Commentary, Digital Psychology",
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {

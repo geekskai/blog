@@ -296,24 +296,24 @@ const TipScreenGenerator = () => {
         <div className="mb-10 text-center">
           <div className="mb-6 inline-flex items-center rounded-full bg-gradient-to-r from-orange-500 to-red-600 px-4 py-2 text-sm font-medium text-white shadow-lg">
             <DollarSign className="mr-2 h-4 w-4" />
-            Free Online Tool
+            Free Tip Screen Tool
           </div>
 
           <h1 className="mb-4 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-4xl font-bold text-transparent">
-            Tip Screen Generator
+            Tip Screen Guide & Generator
           </h1>
 
           <p className="mx-auto max-w-2xl text-lg text-slate-300">
-            Create realistic tip screens for iPhone, iPad, and Android devices. Generate satirical
-            POS interfaces, viral memes, and educational content about tipping culture. No app
-            download required - works in any browser.
+            Understanding tip screens: Learn how digital tip screens work, their psychological
+            impact, and create realistic tip screen examples for iPhone, iPad, and Android devices.
+            Free tip screen generator for educational and satirical purposes.
           </p>
 
           {/* Share Button */}
           <div className="mt-6 flex justify-center">
             <div className="rounded-lg bg-slate-800/50 p-4 backdrop-blur-sm">
               <p className="mb-3 text-center text-sm font-medium text-slate-300">
-                Share this tool:
+                Share this tip screen resource:
               </p>
               <ShareButtons />
             </div>
@@ -327,7 +327,7 @@ const TipScreenGenerator = () => {
             <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
               <div className="border-b border-slate-700 px-6 py-4">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-white">Settings</h2>
+                  <h2 className="text-lg font-semibold text-white">Tip Screen Settings</h2>
                   <button
                     onClick={() => setShowSettings(!showSettings)}
                     className="rounded-lg p-2 text-slate-500 hover:bg-slate-700"
@@ -459,7 +459,7 @@ const TipScreenGenerator = () => {
             <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
               <div className="border-b border-slate-700 px-6 py-4">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-white">Tip Screen Preview</h2>
+                  <h2 className="text-lg font-semibold text-white">Live Tip Screen Preview</h2>
                   <div className="flex items-center space-x-2">
                     <Eye className="h-5 w-5 text-slate-400" />
                     <span className="text-sm capitalize text-slate-500">
@@ -522,31 +522,103 @@ const TipScreenGenerator = () => {
 
         {/* Content Sections for SEO */}
         <div className="mt-20 space-y-16">
+          {/* What is Tip Screen Section */}
+          <section className="rounded-xl bg-gradient-to-r from-blue-800 to-indigo-700 p-8">
+            <h2 className="mb-6 text-2xl font-bold text-white">
+              What is a Tip Screen? Understanding Digital Tipping
+            </h2>
+            <div className="grid gap-6 md:grid-cols-2">
+              <div>
+                <p className="mb-4 text-slate-200">
+                  A tip screen is a digital interface that appears during payment transactions,
+                  prompting customers to add a gratuity. These tip screens have become ubiquitous in
+                  modern commerce, appearing on tablets, smartphones, and point-of-sale (POS)
+                  systems across restaurants, coffee shops, delivery services, and retail
+                  establishments.
+                </p>
+                <p className="text-slate-200">
+                  The evolution of tip screens reflects the digitization of payments and changing
+                  social expectations around tipping culture. What started as simple percentage
+                  options has evolved into sophisticated interfaces that leverage psychological
+                  principles to influence customer behavior.
+                </p>
+              </div>
+              <div className="rounded-lg bg-blue-900/30 p-6">
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  Common Tip Screen Features
+                </h3>
+                <ul className="space-y-2 text-slate-200">
+                  <li>• Percentage-based tip options (15%, 18%, 20%, 25%)</li>
+                  <li>• Custom tip amount input</li>
+                  <li>• "No tip" or "Skip" option (sometimes hidden)</li>
+                  <li>• Pre-calculated total amounts</li>
+                  <li>• Visual design elements to influence choice</li>
+                  <li>• Social pressure messaging</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Tip Screen Psychology Section */}
+          <section className="rounded-xl bg-gradient-to-r from-purple-800 to-pink-700 p-8">
+            <h2 className="mb-6 text-2xl font-bold text-white">
+              The Psychology Behind Tip Screens
+            </h2>
+            <div className="grid gap-6 md:grid-cols-3">
+              <div className="rounded-lg bg-purple-900/30 p-6">
+                <h3 className="mb-3 text-lg font-semibold text-white">🧠 Cognitive Bias</h3>
+                <p className="text-slate-200">
+                  Tip screens exploit cognitive biases like anchoring (high default percentages),
+                  social proof (suggested amounts), and loss aversion (framing no tip as
+                  "skipping").
+                </p>
+              </div>
+              <div className="rounded-lg bg-purple-900/30 p-6">
+                <h3 className="mb-3 text-lg font-semibold text-white">👥 Social Pressure</h3>
+                <p className="text-slate-200">
+                  Digital tip screens create artificial social pressure through public displays,
+                  employee visibility, and guilt-inducing language that makes customers feel
+                  obligated to tip.
+                </p>
+              </div>
+              <div className="rounded-lg bg-purple-900/30 p-6">
+                <h3 className="mb-3 text-lg font-semibold text-white">🎯 Default Effects</h3>
+                <p className="text-slate-200">
+                  Pre-selected high tip percentages and prominent placement of higher amounts
+                  leverage the default effect, where people tend to stick with suggested options.
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* Mobile Optimization Section */}
           <section className="rounded-xl bg-gradient-to-r from-slate-800 to-slate-700 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              Create Tip Screens for iPhone, iPad & Android
+              Tip Screens Across Different Devices
             </h2>
             <div className="grid gap-6 md:grid-cols-3">
               <div className="rounded-lg bg-slate-800 p-6 shadow-md">
                 <h3 className="mb-3 text-lg font-semibold text-white">📱 iPhone Tip Screens</h3>
                 <p className="text-slate-400">
-                  Generate realistic iPhone POS tip screens with iOS-style interface. Perfect for
-                  creating viral TikTok and Instagram content.
+                  iPhone tip screens feature iOS-style design elements with smooth animations and
+                  Apple Pay integration. Common in mobile payment apps and delivery services like
+                  UberEats and DoorDash.
                 </p>
               </div>
               <div className="rounded-lg bg-slate-800 p-6 shadow-md">
-                <h3 className="mb-3 text-lg font-semibold text-white">📟 iPad POS Systems</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">📟 iPad POS Tip Screens</h3>
                 <p className="text-slate-400">
-                  Create professional-looking iPad point-of-sale tip screens commonly seen in
-                  restaurants and cafes.
+                  iPad tip screens dominate restaurant and retail environments. These larger
+                  displays allow for more elaborate designs and clear visibility to both customers
+                  and staff.
                 </p>
               </div>
               <div className="rounded-lg bg-slate-800 p-6 shadow-md">
-                <h3 className="mb-3 text-lg font-semibold text-white">🤖 Android Interfaces</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">🤖 Android Tip Screens</h3>
                 <p className="text-slate-400">
-                  Design Android-style tip screens with material design elements for delivery apps
-                  and mobile payments.
+                  Android tip screens incorporate Material Design principles and are prevalent in
+                  various payment terminals and mobile applications across different Android
+                  devices.
                 </p>
               </div>
             </div>
@@ -614,36 +686,43 @@ const TipScreenGenerator = () => {
 
           {/* FAQ Section */}
           <section className="rounded-xl bg-slate-800 p-8">
-            <h2 className="mb-6 text-2xl font-bold text-white">Frequently Asked Questions</h2>
+            <h2 className="mb-6 text-2xl font-bold text-white">
+              Frequently Asked Questions About Tip Screens
+            </h2>
             <div className="space-y-6">
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  Is this a free tip screen generator app?
+                  What is a tip screen and how does it work?
                 </h3>
                 <p className="text-slate-400">
-                  Yes! This is completely free and doesn't require any app download. It works
-                  directly in your browser on iPhone, iPad, Android, and desktop devices. Create
-                  unlimited tip screen images and memes without any restrictions.
+                  A tip screen is a digital interface that appears during payment transactions,
+                  typically on tablets or smartphones. It prompts customers to add a gratuity by
+                  presenting percentage options (usually 15%, 18%, 20%, 25% or higher) or allowing
+                  custom amounts. The tip screen calculates the total automatically and processes
+                  the payment including the tip.
                 </p>
               </div>
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  Can I create tip screen images for iPhone and Android?
+                  Why are tip screens everywhere now?
                 </h3>
                 <p className="text-slate-400">
-                  Absolutely! Our generator creates realistic tip screens that mimic iPhone, iPad,
-                  and Android interfaces. Perfect for creating viral content, memes, or educational
-                  materials about tipping culture.
+                  Tip screens have proliferated due to the shift to digital payments, especially
+                  accelerated by the COVID-19 pandemic. They're easier to implement than traditional
+                  tip jars, automatically calculate amounts, and can increase tip amounts through
+                  psychological design elements. Many businesses adopted them to help staff
+                  compensation during economic uncertainty.
                 </p>
               </div>
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  Is this tool meant to be used for real transactions?
+                  Is this tip screen generator free to use?
                 </h3>
                 <p className="text-slate-400">
-                  No, this is purely a satirical and educational tool. The generated screens are
-                  fake and should only be used for entertainment, social commentary, or educational
-                  purposes about dark UX patterns.
+                  Yes! This tip screen generator is completely free and doesn't require any app
+                  download. It works directly in your browser on iPhone, iPad, Android, and desktop
+                  devices. Create unlimited tip screen examples and educational content without any
+                  restrictions.
                 </p>
               </div>
               <div className="border-b border-slate-700 pb-4">
@@ -651,20 +730,34 @@ const TipScreenGenerator = () => {
                   What are dark patterns in tip screens?
                 </h3>
                 <p className="text-slate-400">
-                  Dark patterns are design techniques that manipulate users into making decisions
-                  they wouldn't normally make. In tip screens, this includes auto-selecting high
-                  percentages, hiding "no tip" options, using guilt-inducing language, and making it
-                  difficult to skip tipping.
+                  Dark patterns in tip screens are manipulative design techniques that pressure
+                  customers into tipping more. These include auto-selecting high percentages, hiding
+                  "no tip" options, using guilt-inducing language, making skip buttons tiny, and
+                  displaying tips prominently to create social pressure. Our tool demonstrates these
+                  patterns for educational purposes.
+                </p>
+              </div>
+              <div className="border-b border-slate-700 pb-4">
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  How do tip screens affect tipping behavior?
+                </h3>
+                <p className="text-slate-400">
+                  Studies show tip screens generally increase both tip frequency and amounts. The
+                  suggested percentages often anchor customers to higher amounts than they might
+                  leave otherwise. The public nature of the interaction and preset options also
+                  reduce the cognitive effort required to calculate tips, making customers more
+                  likely to tip.
                 </p>
               </div>
               <div>
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  Can I share my generated tip screens?
+                  Can I use generated tip screens for educational purposes?
                 </h3>
                 <p className="text-slate-400">
-                  Yes! The tool includes screenshot and sharing functionality. Generated images are
-                  perfect for social media posts, memes, or educational content about tipping
-                  culture and UX design ethics.
+                  Absolutely! The generated tip screens are perfect for educational content about UX
+                  design, consumer psychology, digital ethics, and tipping culture. They're ideal
+                  for blog posts, social media content, academic presentations, or training
+                  materials about dark patterns and user experience design.
                 </p>
               </div>
             </div>

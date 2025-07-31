@@ -42,17 +42,22 @@ export default function ToolsPage() {
     },
     {
       id: "tip-screen-generator",
-      title: "Tip Screen Generator",
-      subtitle: "小费界面生成器",
+      title: "Tip Screen Guide & Generator",
+      subtitle: "小费界面指南与生成器",
       description:
-        "Generate satirical tip screens that expose dark UX patterns. Create viral memes and educate others about manipulative design in POS systems.",
+        "Complete guide to tip screens - understand their psychology, design patterns, and social impact. Create realistic tip screen examples for iPhone, iPad, and Android devices for educational purposes.",
       descriptionCN:
-        "生成讽刺性小费界面，揭露暗黑UX模式。创建病毒式传播的表情包，教育他人了解POS系统中的操纵性设计。",
+        "小费界面完整指南 - 了解其心理学、设计模式和社会影响。为教育目的创建逼真的iPhone、iPad和Android设备小费界面示例。",
       icon: DollarSign,
       href: "/tools/tip-screen-generator",
-      features: ["Multiple Themes", "Dark Pattern Toggles", "Screenshot Export", "Social Sharing"],
-      featuresCN: ["多种主题", "暗黑模式切换", "截图导出", "社交分享"],
-      badge: "Satirical",
+      features: [
+        "Tip Screen Education",
+        "Psychology Analysis",
+        "Multiple Device Themes",
+        "Screenshot Export",
+      ],
+      featuresCN: ["小费界面教育", "心理学分析", "多设备主题", "截图导出"],
+      badge: "Educational",
       badgeColor: "bg-orange-500",
       gradient: "from-orange-500 to-red-600",
     },
@@ -225,6 +230,45 @@ export default function ToolsPage() {
             <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
               更多工具即将推出，敬请期待！
             </p>
+          </div>
+        </div>
+
+        {/* Featured Tool Spotlight - Tip Screen */}
+        <div className="mt-16">
+          <div className="rounded-2xl bg-gradient-to-r from-orange-500 to-red-600 p-8 text-white">
+            <div className="grid gap-8 md:grid-cols-2">
+              <div>
+                <h2 className="mb-4 text-2xl font-bold">Understanding Tip Screens</h2>
+                <p className="mb-4 text-orange-100">
+                  Our Tip Screen Guide & Generator is more than just a tool—it's an educational
+                  resource that helps you understand the psychology behind digital tipping
+                  interfaces. Learn how tip screens influence consumer behavior and create your own
+                  examples for educational purposes.
+                </p>
+                <p className="text-orange-100">
+                  From iPad POS systems to mobile payment apps, tip screens have become ubiquitous
+                  in modern commerce. Our tool demonstrates various design patterns and their
+                  psychological impact.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <div className="rounded-lg bg-white/10 p-4">
+                  <h3 className="mb-2 font-semibold">What You'll Learn:</h3>
+                  <ul className="space-y-1 text-sm text-orange-100">
+                    <li>• Psychology of tip screen design</li>
+                    <li>• Dark pattern recognition</li>
+                    <li>• Device-specific interfaces</li>
+                    <li>• Consumer behavior analysis</li>
+                  </ul>
+                </div>
+                <Link
+                  href="/tools/tip-screen-generator"
+                  className="inline-flex items-center rounded-lg bg-white px-4 py-2 font-medium text-orange-600 transition-colors hover:bg-orange-50"
+                >
+                  Explore Tip Screens →
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
