@@ -1,42 +1,53 @@
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Free PDF to Markdown Converter Online | Convert PDF to MD Fast & Secure",
+  title: "PDF to Markdown Converter - Free Online PDF to MD Converter Tool",
   description:
-    "Convert PDF files to Markdown (MD) format instantly with our free online tool. Preserve formatting, extract text accurately, and download clean MD files. No registration required, 100% browser-based processing for maximum privacy.",
+    "Best free PDF to Markdown converter online. Convert PDF to MD format instantly with our PDF markdown converter. Extract text from PDF documents and transform to clean Markdown files. No registration required.",
   keywords: [
-    "pdf to markdown",
+    "pdf to markdown converter",
     "pdf to md converter",
     "convert pdf to markdown",
+    "pdf to markdown",
+    "pdf to md",
+    "converting pdf to markdown",
     "pdf markdown converter",
-    "free pdf converter",
-    "online pdf to markdown",
+    "free pdf to markdown",
+    "online pdf to markdown converter",
     "pdf to md online",
-    "markdown converter tool",
-    "pdf text extraction",
-    "document converter",
-    "pdf parser online",
-    "markdown generator",
-    "pdf to text markdown",
+    "pdf to readme md",
+    "pdf text to markdown",
+    "pdf markdown conversion tool",
+    "extract text from pdf to markdown",
+    "pdf document to markdown",
+    "convert pdf document to md",
+    "pdf file to markdown converter",
+    "transform pdf to markdown",
+    "pdf to markdown online free",
+    "best pdf to markdown converter",
+    "accurate pdf to md conversion",
+    "pdf markdown extraction",
+    "pdf to markdown generator",
+    "convert pdf files to markdown",
   ],
   openGraph: {
     title: "Free PDF to Markdown Converter - Convert PDF to MD Online",
     description:
-      "Transform PDF documents into clean Markdown format instantly. Free, secure, and no registration required. Perfect for developers, writers, and content creators.",
+      "Professional PDF to Markdown converter. Transform PDF documents into clean MD format instantly. Free, secure, and accurate PDF to markdown conversion.",
     type: "website",
     images: [
       {
         url: "/static/images/pdf-to-markdown-converter.png",
         width: 1200,
         height: 630,
-        alt: "PDF to Markdown Converter Tool",
+        alt: "PDF to Markdown Converter Tool - Convert PDF to MD",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Free PDF to Markdown Converter Online",
-    description: "Convert PDF to MD format instantly. Free, secure, browser-based tool.",
+    description: "Convert PDF to MD format instantly with our free PDF to markdown converter.",
   },
   alternates: {
     canonical: "https://geekskai.com/tools/pdf-to-markdown/",
@@ -60,7 +71,7 @@ const jsonLd = {
   "@type": "WebApplication",
   name: "PDF to Markdown Converter",
   description:
-    "Free online tool to convert PDF documents to Markdown format with formatting preserved",
+    "Professional free online PDF to Markdown converter tool. Convert PDF documents to MD format with formatting preserved. Best PDF to markdown conversion solution.",
   url: "https://geekskai.com/tools/pdf-to-markdown",
   applicationCategory: "Utility",
   operatingSystem: "Any",
@@ -71,12 +82,14 @@ const jsonLd = {
     priceCurrency: "USD",
   },
   featureList: [
-    "Convert PDF to Markdown format",
-    "Preserve document formatting",
-    "Browser-based processing",
-    "No file upload to servers",
-    "Free unlimited usage",
+    "Convert PDF to Markdown format instantly",
+    "Preserve document formatting and structure",
+    "Browser-based PDF to MD conversion",
+    "No file upload to servers required",
+    "Free unlimited PDF to markdown conversion",
     "Support for large PDF files up to 50MB",
+    "Extract text from PDF to clean markdown",
+    "Professional PDF markdown converter",
   ],
   softwareRequirements: "Modern web browser with JavaScript enabled",
   author: {
@@ -84,6 +97,7 @@ const jsonLd = {
     name: "GeeksKai",
     url: "https://geekskai.com",
   },
+  keywords: "pdf to markdown converter, pdf to md, convert pdf to markdown, pdf markdown converter",
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {
