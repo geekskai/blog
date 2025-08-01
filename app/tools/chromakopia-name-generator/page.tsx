@@ -362,6 +362,125 @@ const ChromakopiaNameGenerator = () => {
 
         {/* Main Content */}
         <div className="grid gap-8 lg:grid-cols-12">
+          {/* Persona Display */}
+          <div className={`${showSettings ? "lg:col-span-8" : "lg:col-span-10"}`}>
+            <div className="overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
+              <div className="border-b border-slate-700 px-6 py-4">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-lg font-semibold text-white">Your Chromakopia Persona</h2>
+                  <div className="flex items-center space-x-2">
+                    <Sparkles className="h-5 w-5 text-slate-400" />
+                    <span className="text-sm text-slate-500">St. Chroma Style</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6">
+                {generatedPersona ? (
+                  <div ref={personaRef} className="space-y-6">
+                    {/* Persona Card */}
+                    <div
+                      className="rounded-2xl p-8 text-center shadow-xl"
+                      style={{
+                        background: `linear-gradient(135deg, ${generatedPersona.color}20, ${generatedPersona.color}40)`,
+                        border: `2px solid ${generatedPersona.color}60`,
+                      }}
+                    >
+                      {/* Color Circle */}
+                      <div
+                        className="mx-auto mb-6 h-24 w-24 rounded-full border-4 border-white shadow-lg"
+                        style={{ backgroundColor: generatedPersona.color }}
+                      ></div>
+
+                      {/* Name */}
+                      <h3 className="mb-2 text-3xl font-bold text-white">
+                        {generatedPersona.name}
+                      </h3>
+
+                      {/* Color Name */}
+                      <p
+                        className="mb-4 text-lg font-medium"
+                        style={{ color: generatedPersona.color }}
+                      >
+                        Radiating in {generatedPersona.colorName}
+                      </p>
+
+                      {/* Trait */}
+                      <div className="mb-6 rounded-lg bg-black/20 p-4">
+                        <p className="font-medium text-white">{generatedPersona.trait}</p>
+                      </div>
+
+                      {/* Description */}
+                      <p className="mb-6 text-lg text-slate-200">{generatedPersona.description}</p>
+
+                      {/* Superpower */}
+                      <div className="mb-6 rounded-lg bg-white/10 p-4">
+                        <h4 className="mb-2 text-sm font-semibold uppercase tracking-wide text-white">
+                          Chromatic Superpower
+                        </h4>
+                        <p className="text-slate-200">{generatedPersona.superpower}</p>
+                      </div>
+
+                      {/* Quote */}
+                      <blockquote className="text-xl font-bold italic text-white">
+                        {generatedPersona.quote}
+                      </blockquote>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="py-20 text-center">
+                    <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-purple-600">
+                      <Palette className="h-12 w-12 text-white" />
+                    </div>
+                    <h3 className="mb-4 text-xl font-semibold text-white">
+                      Ready to discover your Chromakopia persona?
+                    </h3>
+                    <p className="mb-8 text-slate-400">
+                      Click "Generate Persona" to reveal your colorful alter ego inspired by Tyler,
+                      the Creator's artistic vision.
+                    </p>
+                    <button
+                      onClick={generatePersona}
+                      className="rounded-lg bg-gradient-to-r from-green-600 to-purple-600 px-8 py-3 font-medium text-white shadow-lg hover:from-green-700 hover:to-purple-700"
+                    >
+                      Generate Your Persona
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Favorites Section */}
+            {favoritePersonas.length > 0 && (
+              <div className="mt-8 overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
+                <div className="border-b border-slate-700 px-6 py-4">
+                  <h3 className="text-lg font-semibold text-white">
+                    Favorite Personas ({favoritePersonas.length})
+                  </h3>
+                </div>
+                <div className="p-6">
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    {favoritePersonas.map((persona, index) => (
+                      <div
+                        key={index}
+                        className="rounded-lg border border-slate-600 bg-slate-700/50 p-4"
+                      >
+                        <div className="mb-2 flex items-center space-x-3">
+                          <div
+                            className="h-6 w-6 rounded-full border border-white/20"
+                            style={{ backgroundColor: persona.color }}
+                          ></div>
+                          <h4 className="text-sm font-medium text-white">{persona.name}</h4>
+                        </div>
+                        <p className="text-xs text-slate-400">{persona.trait}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
           {/* Settings Panel */}
           <div className={`space-y-6 lg:col-span-4 ${!showSettings && "lg:col-span-2"}`}>
             <div className="overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
@@ -502,125 +621,6 @@ const ChromakopiaNameGenerator = () => {
                 </div>
               )}
             </div>
-          </div>
-
-          {/* Persona Display */}
-          <div className={`${showSettings ? "lg:col-span-8" : "lg:col-span-10"}`}>
-            <div className="overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
-              <div className="border-b border-slate-700 px-6 py-4">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-white">Your Chromakopia Persona</h2>
-                  <div className="flex items-center space-x-2">
-                    <Sparkles className="h-5 w-5 text-slate-400" />
-                    <span className="text-sm text-slate-500">St. Chroma Style</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6">
-                {generatedPersona ? (
-                  <div ref={personaRef} className="space-y-6">
-                    {/* Persona Card */}
-                    <div
-                      className="rounded-2xl p-8 text-center shadow-xl"
-                      style={{
-                        background: `linear-gradient(135deg, ${generatedPersona.color}20, ${generatedPersona.color}40)`,
-                        border: `2px solid ${generatedPersona.color}60`,
-                      }}
-                    >
-                      {/* Color Circle */}
-                      <div
-                        className="mx-auto mb-6 h-24 w-24 rounded-full border-4 border-white shadow-lg"
-                        style={{ backgroundColor: generatedPersona.color }}
-                      ></div>
-
-                      {/* Name */}
-                      <h3 className="mb-2 text-3xl font-bold text-white">
-                        {generatedPersona.name}
-                      </h3>
-
-                      {/* Color Name */}
-                      <p
-                        className="mb-4 text-lg font-medium"
-                        style={{ color: generatedPersona.color }}
-                      >
-                        Radiating in {generatedPersona.colorName}
-                      </p>
-
-                      {/* Trait */}
-                      <div className="mb-6 rounded-lg bg-black/20 p-4">
-                        <p className="font-medium text-white">{generatedPersona.trait}</p>
-                      </div>
-
-                      {/* Description */}
-                      <p className="mb-6 text-lg text-slate-200">{generatedPersona.description}</p>
-
-                      {/* Superpower */}
-                      <div className="mb-6 rounded-lg bg-white/10 p-4">
-                        <h4 className="mb-2 text-sm font-semibold uppercase tracking-wide text-white">
-                          Chromatic Superpower
-                        </h4>
-                        <p className="text-slate-200">{generatedPersona.superpower}</p>
-                      </div>
-
-                      {/* Quote */}
-                      <blockquote className="text-xl font-bold italic text-white">
-                        {generatedPersona.quote}
-                      </blockquote>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="py-20 text-center">
-                    <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-green-500 to-purple-600">
-                      <Palette className="h-12 w-12 text-white" />
-                    </div>
-                    <h3 className="mb-4 text-xl font-semibold text-white">
-                      Ready to discover your Chromakopia persona?
-                    </h3>
-                    <p className="mb-8 text-slate-400">
-                      Click "Generate Persona" to reveal your colorful alter ego inspired by Tyler,
-                      the Creator's artistic vision.
-                    </p>
-                    <button
-                      onClick={generatePersona}
-                      className="rounded-lg bg-gradient-to-r from-green-600 to-purple-600 px-8 py-3 font-medium text-white shadow-lg hover:from-green-700 hover:to-purple-700"
-                    >
-                      Generate Your Persona
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Favorites Section */}
-            {favoritePersonas.length > 0 && (
-              <div className="mt-8 overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
-                <div className="border-b border-slate-700 px-6 py-4">
-                  <h3 className="text-lg font-semibold text-white">
-                    Favorite Personas ({favoritePersonas.length})
-                  </h3>
-                </div>
-                <div className="p-6">
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    {favoritePersonas.map((persona, index) => (
-                      <div
-                        key={index}
-                        className="rounded-lg border border-slate-600 bg-slate-700/50 p-4"
-                      >
-                        <div className="mb-2 flex items-center space-x-3">
-                          <div
-                            className="h-6 w-6 rounded-full border border-white/20"
-                            style={{ backgroundColor: persona.color }}
-                          ></div>
-                          <h4 className="text-sm font-medium text-white">{persona.name}</h4>
-                        </div>
-                        <p className="text-xs text-slate-400">{persona.trait}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         </div>
 
