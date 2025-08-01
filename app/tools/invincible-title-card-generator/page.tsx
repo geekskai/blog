@@ -13,11 +13,8 @@ import {
   ChevronRight,
   Zap,
   Monitor,
-  Users,
   Heart,
-  Share2,
   Type,
-  Image as ImageIcon,
   Sliders,
   Eye,
   EyeOff,
@@ -26,7 +23,7 @@ import {
   Star,
   Play,
 } from "lucide-react"
-import ShareButtons from "@/components/ShareButtons"
+// import ShareButtons from "@/components/ShareButtons"
 
 // Character presets from the original project
 const characterPresets = [
@@ -242,14 +239,23 @@ const InvincibleTitleCardGenerator = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-red-900 to-slate-900">
-      {/* Enhanced animated background */}
-      <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -right-40 -top-40 h-80 w-80 animate-pulse rounded-full bg-red-500 opacity-10 mix-blend-multiply blur-xl filter"></div>
-        <div className="absolute -bottom-40 -left-40 h-80 w-80 animate-pulse rounded-full bg-yellow-500 opacity-10 mix-blend-multiply blur-xl filter"></div>
-        <div className="absolute left-1/2 top-40 h-80 w-80 animate-pulse rounded-full bg-blue-500 opacity-10 mix-blend-multiply blur-xl filter"></div>
-        <div className="absolute bottom-1/4 right-1/4 h-60 w-60 animate-pulse rounded-full bg-purple-500 opacity-5 mix-blend-multiply blur-xl filter"></div>
+    <div className="relative min-h-screen bg-slate-950">
+      {/* Subtle geometric background pattern */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+          `,
+            backgroundSize: "60px 60px",
+          }}
+        ></div>
       </div>
+
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 opacity-80"></div>
 
       {/* Breadcrumb Navigation */}
       <nav className="relative mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8" aria-label="Breadcrumb">
@@ -272,36 +278,39 @@ const InvincibleTitleCardGenerator = () => {
       </nav>
 
       <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        {/* Enhanced Header with Quick Actions */}
-        <div className="mb-12 text-center">
-          <div className="mb-6 inline-flex items-center rounded-full bg-gradient-to-r from-red-500 to-yellow-600 px-6 py-3 text-sm font-medium text-white shadow-lg">
-            <Monitor className="mr-2 h-4 w-4" />
-            Free Title Card Generator
-            <Sparkles className="ml-2 h-4 w-4" />
+        {/* Clean Header with Professional Design */}
+        <div className="relative mb-16 text-center">
+          <div className="mb-8 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-slate-300 shadow-xl backdrop-blur-sm">
+            <Monitor className="mr-2 h-4 w-4 text-blue-400" />
+            Professional Title Card Generator
+            <Sparkles className="ml-2 h-4 w-4 text-yellow-400" />
           </div>
 
-          <h1 className="mb-6 bg-gradient-to-r from-red-400 via-yellow-400 to-blue-400 bg-clip-text text-5xl font-bold text-transparent sm:text-6xl">
-            Invincible Title Card Generator
+          <h1 className="mb-8 text-5xl font-bold text-white sm:text-6xl lg:text-7xl">
+            <span className="block">Invincible</span>
+            <span className="block bg-gradient-to-r from-red-500 via-yellow-500 to-orange-500 bg-clip-text text-transparent">
+              Title Card Generator
+            </span>
           </h1>
 
-          <p className="mx-auto mb-8 max-w-3xl text-xl leading-relaxed text-slate-300">
-            Create stunning title cards inspired by the Invincible animated series. Design
-            professional-looking graphics with an intuitive interface and powerful customization
-            options.
+          <p className="mx-auto mb-12 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
+            Create professional-grade title cards inspired by the acclaimed animated series.
+            Featuring authentic typography, character presets, and studio-quality export options for
+            creators and content producers.
           </p>
 
-          {/* Quick Action Buttons */}
-          <div className="mb-8 flex flex-wrap justify-center gap-4">
+          {/* Clean Action Buttons */}
+          <div className="mb-12 flex flex-wrap justify-center gap-3">
             <button
               onClick={randomizeAll}
-              className="inline-flex items-center rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-3 text-sm font-medium text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl"
+              className="inline-flex items-center rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-medium text-white shadow-lg backdrop-blur-sm transition-all hover:scale-105 hover:bg-white/15 hover:shadow-xl"
             >
               <Shuffle className="mr-2 h-4 w-4" />
               Randomize
             </button>
             <button
               onClick={() => setIsFullscreen(!isFullscreen)}
-              className="inline-flex items-center rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-3 text-sm font-medium text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl"
+              className="inline-flex items-center rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-medium text-white shadow-lg backdrop-blur-sm transition-all hover:scale-105 hover:bg-white/15 hover:shadow-xl"
             >
               {isFullscreen ? (
                 <Minimize2 className="mr-2 h-4 w-4" />
@@ -313,43 +322,33 @@ const InvincibleTitleCardGenerator = () => {
             <button
               onClick={downloadTitleCard}
               disabled={state.generating}
-              className="inline-flex items-center rounded-lg bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-3 text-sm font-medium text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl disabled:opacity-50"
+              className="inline-flex items-center rounded-xl bg-gradient-to-r from-red-500 to-orange-500 px-8 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-50"
             >
               <Download className="mr-2 h-4 w-4" />
-              {state.generating ? "Generating..." : "Quick Download"}
+              {state.generating ? "Generating..." : "Download"}
             </button>
-          </div>
-
-          {/* Share Section */}
-          <div className="flex justify-center">
-            <div className="rounded-xl border border-slate-700/50 bg-slate-800/30 p-6 backdrop-blur-sm">
-              <p className="mb-4 text-center text-sm font-medium text-slate-300">
-                Share this creative tool:
-              </p>
-              <ShareButtons />
-            </div>
           </div>
         </div>
 
         {/* Main Content with Improved Layout */}
         <div className={`grid gap-8 ${isFullscreen ? "grid-cols-1" : "lg:grid-cols-12"}`}>
-          {/* Enhanced Preview Area */}
+          {/* Modern Preview Area */}
           <div className={`${isFullscreen ? "col-span-1" : "lg:col-span-8"}`}>
-            <div className="overflow-hidden rounded-xl bg-slate-800/90 shadow-2xl ring-1 ring-slate-700/50 backdrop-blur-sm">
-              <div className="border-b border-slate-700/50 px-6 py-5">
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
+              <div className="border-b border-white/10 px-6 py-5">
                 <div className="flex items-center justify-between">
                   <h2 className="flex items-center text-xl font-semibold text-white">
-                    <Monitor className="mr-2 h-5 w-5" />
+                    <Monitor className="mr-3 h-5 w-5 text-blue-400" />
                     Live Preview
                   </h2>
                   <div className="flex items-center space-x-4">
                     <div className="flex items-center space-x-2 text-sm text-slate-400">
-                      <div className="h-2 w-2 rounded-full bg-green-500"></div>
-                      <span>1920×1080</span>
+                      <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-400"></div>
+                      <span className="font-mono">1920×1080</span>
                     </div>
                     <button
                       onClick={() => setIsFullscreen(!isFullscreen)}
-                      className="rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-700 hover:text-white"
+                      className="rounded-xl p-2 text-slate-400 transition-all hover:bg-white/10 hover:text-white"
                     >
                       {isFullscreen ? (
                         <Minimize2 className="h-5 w-5" />
@@ -435,13 +434,59 @@ const InvincibleTitleCardGenerator = () => {
                 </div>
               </div>
             </div>
+            {/* Modern Action Buttons */}
+            <div className="mt-8 space-y-4 border-t border-white/10 pt-8">
+              <button
+                onClick={downloadTitleCard}
+                disabled={state.generating}
+                className="w-full rounded-xl bg-gradient-to-r from-red-500 to-orange-500 px-6 py-4 text-lg font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-2xl disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
+              >
+                {state.generating ? (
+                  <div className="flex items-center justify-center space-x-2">
+                    <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                    <span>Generating...</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center space-x-2">
+                    <Download className="h-5 w-5" />
+                    <span>Download Title Card</span>
+                  </div>
+                )}
+              </button>
 
-            {/* Favorites Section with improved design */}
+              <div className="grid grid-cols-2 gap-3">
+                <button
+                  onClick={addToFavorites}
+                  className="flex items-center justify-center space-x-2 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-3 text-sm font-medium text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl"
+                >
+                  <Heart className="h-4 w-4" />
+                  <span>Save</span>
+                </button>
+
+                <button
+                  onClick={copySettings}
+                  className="flex items-center justify-center space-x-2 rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm font-medium text-slate-300 backdrop-blur-sm transition-all hover:scale-105 hover:bg-white/15"
+                >
+                  <Copy className="h-4 w-4" />
+                  <span>Copy</span>
+                </button>
+              </div>
+
+              <button
+                onClick={resetAll}
+                className="flex w-full items-center justify-center space-x-2 rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-sm font-medium text-slate-300 backdrop-blur-sm transition-all hover:scale-105 hover:bg-white/10"
+              >
+                <RotateCcw className="h-4 w-4" />
+                <span>Reset All</span>
+              </button>
+            </div>
+
+            {/* Modern Favorites Section */}
             {favorites.length > 0 && !isFullscreen && (
-              <div className="mt-8 overflow-hidden rounded-xl bg-slate-800/90 shadow-2xl ring-1 ring-slate-700/50 backdrop-blur-sm">
-                <div className="border-b border-slate-700/50 px-6 py-4">
+              <div className="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
+                <div className="border-b border-white/10 px-6 py-4">
                   <h3 className="flex items-center text-lg font-semibold text-white">
-                    <Star className="mr-2 h-5 w-5 text-yellow-500" />
+                    <Star className="mr-3 h-5 w-5 text-yellow-400" />
                     Saved Configurations ({favorites.length})
                   </h3>
                 </div>
@@ -450,12 +495,12 @@ const InvincibleTitleCardGenerator = () => {
                     {favorites.map((favorite, index) => (
                       <button
                         key={index}
-                        className="group relative overflow-hidden rounded-lg border border-slate-600 bg-gradient-to-br from-slate-700/50 to-slate-800/50 p-4 text-left transition-all hover:scale-105 hover:border-slate-500"
+                        className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-4 text-left backdrop-blur-sm transition-all hover:scale-105 hover:border-white/20 hover:bg-white/10"
                         onClick={() => setState(favorite)}
                       >
                         <div className="mb-3 flex items-center space-x-3">
                           <div
-                            className="h-8 w-8 rounded border-2 border-white/20"
+                            className="h-8 w-8 rounded-lg border border-white/20 shadow-sm"
                             style={{ background: favorite.background }}
                           ></div>
                           <div>
@@ -470,8 +515,8 @@ const InvincibleTitleCardGenerator = () => {
                             className="h-3 w-3 rounded-full border border-white/20"
                             style={{ backgroundColor: favorite.color }}
                           />
-                          <span className="text-xs text-slate-400">
-                            Size: {favorite.fontSize}px
+                          <span className="font-mono text-xs text-slate-400">
+                            {favorite.fontSize}px
                           </span>
                         </div>
                       </button>
@@ -482,20 +527,20 @@ const InvincibleTitleCardGenerator = () => {
             )}
           </div>
 
-          {/* Enhanced Settings Panel */}
+          {/* Modern Settings Panel */}
           {!isFullscreen && (
             <div className="space-y-6 lg:col-span-4">
-              <div className="overflow-hidden rounded-xl bg-slate-800/90 shadow-2xl ring-1 ring-slate-700/50 backdrop-blur-sm">
-                <div className="border-b border-slate-700/50 px-6 py-5">
+              <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
+                <div className="border-b border-white/10 px-6 py-5">
                   <div className="flex items-center justify-between">
                     <h2 className="flex items-center text-xl font-semibold text-white">
-                      <Settings className="mr-2 h-5 w-5" />
+                      <Settings className="mr-3 h-5 w-5 text-slate-400" />
                       Customization
                     </h2>
                     <div className="flex items-center space-x-2">
                       <button
                         onClick={() => setShowSettings(!showSettings)}
-                        className="rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-700 hover:text-white"
+                        className="rounded-xl p-2 text-slate-400 transition-all hover:bg-white/10 hover:text-white"
                       >
                         {showSettings ? (
                           <EyeOff className="h-5 w-5" />
@@ -509,16 +554,16 @@ const InvincibleTitleCardGenerator = () => {
 
                 {showSettings && (
                   <div className="p-6">
-                    {/* Tab Navigation */}
-                    <div className="mb-6 flex rounded-lg bg-slate-700/50 p-1">
+                    {/* Modern Tab Navigation */}
+                    <div className="mb-8 flex rounded-xl border border-white/10 bg-white/10 p-1.5 backdrop-blur-sm">
                       {(["presets", "text", "colors", "effects"] as const).map((tab) => (
                         <button
                           key={tab}
                           onClick={() => setActiveTab(tab)}
-                          className={`flex-1 rounded-md px-3 py-2 text-sm font-medium capitalize transition-all ${
+                          className={`flex-1 rounded-lg px-4 py-2.5 text-sm font-medium capitalize transition-all ${
                             activeTab === tab
-                              ? "bg-red-600 text-white shadow-sm"
-                              : "text-slate-300 hover:bg-slate-600 hover:text-white"
+                              ? "bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-lg"
+                              : "text-slate-300 hover:bg-white/10 hover:text-white"
                           }`}
                         >
                           {tab}
@@ -540,9 +585,9 @@ const InvincibleTitleCardGenerator = () => {
                               <button
                                 key={preset.name}
                                 onClick={() => applyPreset(preset)}
-                                className="group relative overflow-hidden rounded-lg border border-slate-600 p-4 text-left transition-all hover:border-slate-500 hover:bg-slate-700/30"
+                                className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-4 text-left backdrop-blur-sm transition-all hover:scale-105 hover:border-white/20 hover:bg-white/10"
                                 style={{
-                                  background: `linear-gradient(135deg, ${preset.background}15, ${preset.background}25)`,
+                                  background: `linear-gradient(135deg, ${preset.background}10, ${preset.background}20)`,
                                 }}
                               >
                                 <div className="flex items-center justify-between">
@@ -554,11 +599,11 @@ const InvincibleTitleCardGenerator = () => {
                                   </div>
                                   <div className="flex space-x-2">
                                     <div
-                                      className="h-4 w-4 rounded border border-white/20"
+                                      className="h-4 w-4 rounded-md border border-white/20 shadow-sm"
                                       style={{ backgroundColor: preset.background }}
                                     />
                                     <div
-                                      className="h-4 w-4 rounded border border-white/20"
+                                      className="h-4 w-4 rounded-md border border-white/20 shadow-sm"
                                       style={{ backgroundColor: preset.color }}
                                     />
                                   </div>
@@ -589,7 +634,7 @@ const InvincibleTitleCardGenerator = () => {
                                 onChange={(e) =>
                                   setState((prev) => ({ ...prev, text: e.target.value }))
                                 }
-                                className="w-full rounded-lg border border-slate-600 bg-slate-700/50 px-4 py-3 text-white placeholder-slate-400 transition-colors focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                                className="w-full rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-red-500 focus:bg-white/10 focus:ring-2 focus:ring-red-500/50"
                                 placeholder="Enter title text..."
                               />
                             </div>
@@ -604,7 +649,7 @@ const InvincibleTitleCardGenerator = () => {
                                 onChange={(e) =>
                                   setState((prev) => ({ ...prev, smallSubtitle: e.target.value }))
                                 }
-                                className="w-full rounded-lg border border-slate-600 bg-slate-700/50 px-4 py-3 text-white placeholder-slate-400 transition-colors focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                                className="w-full rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-red-500 focus:bg-white/10 focus:ring-2 focus:ring-red-500/50"
                                 placeholder="Small subtitle..."
                               />
                             </div>
@@ -619,7 +664,7 @@ const InvincibleTitleCardGenerator = () => {
                                 onChange={(e) =>
                                   setState((prev) => ({ ...prev, subtitle: e.target.value }))
                                 }
-                                className="w-full rounded-lg border border-slate-600 bg-slate-700/50 px-4 py-3 text-white placeholder-slate-400 transition-colors focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                                className="w-full rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-red-500 focus:bg-white/10 focus:ring-2 focus:ring-red-500/50"
                                 placeholder="Credits subtitle..."
                               />
                             </div>
@@ -633,7 +678,7 @@ const InvincibleTitleCardGenerator = () => {
                                   <Sliders className="mr-2 h-4 w-4" />
                                   Font Size
                                 </label>
-                                <span className="rounded bg-slate-700 px-2 py-1 text-xs text-slate-300">
+                                <span className="rounded-lg border border-white/10 bg-white/10 px-3 py-1 font-mono text-xs text-slate-300 backdrop-blur-sm">
                                   {state.fontSize}
                                 </span>
                               </div>
@@ -657,7 +702,7 @@ const InvincibleTitleCardGenerator = () => {
                                 <label className="text-sm font-medium text-slate-300">
                                   Text Outline
                                 </label>
-                                <span className="rounded bg-slate-700 px-2 py-1 text-xs text-slate-300">
+                                <span className="rounded-lg border border-white/10 bg-white/10 px-3 py-1 font-mono text-xs text-slate-300 backdrop-blur-sm">
                                   {state.outline}px
                                 </span>
                               </div>
@@ -681,7 +726,7 @@ const InvincibleTitleCardGenerator = () => {
                                 <label className="text-sm font-medium text-slate-300">
                                   Subtitle Offset
                                 </label>
-                                <span className="rounded bg-slate-700 px-2 py-1 text-xs text-slate-300">
+                                <span className="rounded-lg border border-white/10 bg-white/10 px-3 py-1 font-mono text-xs text-slate-300 backdrop-blur-sm">
                                   {state.subtitleOffset}%
                                 </span>
                               </div>
@@ -719,10 +764,10 @@ const InvincibleTitleCardGenerator = () => {
                                   onClick={() =>
                                     setState((prev) => ({ ...prev, background: preset.value }))
                                   }
-                                  className={`group relative overflow-hidden rounded-lg border-2 p-4 text-xs font-medium transition-all hover:scale-105 ${
+                                  className={`group relative overflow-hidden rounded-xl border-2 p-4 text-xs font-medium transition-all hover:scale-105 ${
                                     state.background === preset.value
-                                      ? "border-white shadow-lg"
-                                      : "border-slate-600 hover:border-slate-500"
+                                      ? "border-white shadow-xl"
+                                      : "border-white/20 hover:border-white/40"
                                   }`}
                                   style={{ background: preset.value }}
                                   title={preset.name}
@@ -748,10 +793,10 @@ const InvincibleTitleCardGenerator = () => {
                                   onClick={() =>
                                     setState((prev) => ({ ...prev, color: preset.value }))
                                   }
-                                  className={`aspect-square rounded-lg border-2 transition-all hover:scale-110 ${
+                                  className={`aspect-square rounded-xl border-2 transition-all hover:scale-110 ${
                                     state.color === preset.value
-                                      ? "border-white shadow-lg"
-                                      : "border-slate-600"
+                                      ? "border-white shadow-xl"
+                                      : "border-white/20 hover:border-white/40"
                                   }`}
                                   style={{ backgroundColor: preset.value }}
                                   title={preset.name}
@@ -772,14 +817,14 @@ const InvincibleTitleCardGenerator = () => {
 
                           {/* Checkboxes with improved styling */}
                           <div className="space-y-4">
-                            <label className="flex cursor-pointer items-center space-x-3 rounded-lg border border-slate-600 p-3 transition-colors hover:bg-slate-700/30">
+                            <label className="flex cursor-pointer items-center space-x-3 rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/10">
                               <input
                                 type="checkbox"
                                 checked={state.showCredits}
                                 onChange={(e) =>
                                   setState((prev) => ({ ...prev, showCredits: e.target.checked }))
                                 }
-                                className="h-5 w-5 rounded border-slate-500 bg-slate-600 text-red-500 focus:ring-red-500"
+                                className="h-5 w-5 rounded-lg border-white/20 bg-white/10 text-red-500 focus:ring-red-500 focus:ring-offset-slate-900"
                               />
                               <div>
                                 <span className="text-sm font-medium text-white">Show Credits</span>
@@ -789,14 +834,14 @@ const InvincibleTitleCardGenerator = () => {
                               </div>
                             </label>
 
-                            <label className="flex cursor-pointer items-center space-x-3 rounded-lg border border-slate-600 p-3 transition-colors hover:bg-slate-700/30">
+                            <label className="flex cursor-pointer items-center space-x-3 rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/10">
                               <input
                                 type="checkbox"
                                 checked={state.showWatermark}
                                 onChange={(e) =>
                                   setState((prev) => ({ ...prev, showWatermark: e.target.checked }))
                                 }
-                                className="h-5 w-5 rounded border-slate-500 bg-slate-600 text-red-500 focus:ring-red-500"
+                                className="h-5 w-5 rounded-lg border-white/20 bg-white/10 text-red-500 focus:ring-red-500 focus:ring-offset-slate-900"
                               />
                               <div>
                                 <span className="text-sm font-medium text-white">
@@ -810,53 +855,6 @@ const InvincibleTitleCardGenerator = () => {
                           </div>
                         </div>
                       )}
-
-                      {/* Action Buttons */}
-                      <div className="mt-8 space-y-3 border-t border-slate-700 pt-6">
-                        <button
-                          onClick={downloadTitleCard}
-                          disabled={state.generating}
-                          className="w-full rounded-lg bg-gradient-to-r from-red-600 to-yellow-600 px-6 py-4 text-lg font-bold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-50"
-                        >
-                          {state.generating ? (
-                            <div className="flex items-center justify-center space-x-2">
-                              <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
-                              <span>Generating...</span>
-                            </div>
-                          ) : (
-                            <div className="flex items-center justify-center space-x-2">
-                              <Download className="h-5 w-5" />
-                              <span>Download Title Card</span>
-                            </div>
-                          )}
-                        </button>
-
-                        <div className="grid grid-cols-2 gap-3">
-                          <button
-                            onClick={addToFavorites}
-                            className="flex items-center justify-center space-x-2 rounded-lg bg-pink-600 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-pink-700"
-                          >
-                            <Heart className="h-4 w-4" />
-                            <span>Save</span>
-                          </button>
-
-                          <button
-                            onClick={copySettings}
-                            className="flex items-center justify-center space-x-2 rounded-lg border border-slate-600 bg-slate-700 px-4 py-3 text-sm font-medium text-slate-300 transition-colors hover:bg-slate-600"
-                          >
-                            <Copy className="h-4 w-4" />
-                            <span>Copy</span>
-                          </button>
-                        </div>
-
-                        <button
-                          onClick={resetAll}
-                          className="flex w-full items-center justify-center space-x-2 rounded-lg border border-slate-600 bg-slate-700 px-4 py-3 text-sm font-medium text-slate-300 transition-colors hover:bg-slate-600"
-                        >
-                          <RotateCcw className="h-4 w-4" />
-                          <span>Reset All</span>
-                        </button>
-                      </div>
                     </div>
                   </div>
                 )}
@@ -865,97 +863,104 @@ const InvincibleTitleCardGenerator = () => {
           )}
         </div>
 
-        {/* Features Section - only show when not in fullscreen */}
+        {/* Modern Features Section */}
         {!isFullscreen && (
           <>
-            <div className="mt-24">
+            <div className="mt-32">
+              <div className="mb-16 text-center">
+                <h2 className="mb-4 text-3xl font-bold text-white">Professional-Grade Features</h2>
+                <p className="mx-auto max-w-2xl text-xl text-slate-400">
+                  Everything you need to create stunning title cards with studio-quality results
+                </p>
+              </div>
+
               <div className="grid gap-8 md:grid-cols-3">
                 <div className="group text-center">
-                  <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-lg transition-transform group-hover:scale-110">
-                    <Type className="h-10 w-10" />
+                  <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10">
+                    <Type className="h-12 w-12 text-blue-400" />
                   </div>
-                  <h3 className="mb-4 text-xl font-semibold text-white">Custom Typography</h3>
-                  <p className="leading-relaxed text-slate-400">
-                    Create title cards with customizable text, fonts, sizes, and outline effects
-                    that perfectly match the Invincible series aesthetic with professional quality.
+                  <h3 className="mb-6 text-xl font-semibold text-white">Advanced Typography</h3>
+                  <p className="text-lg leading-relaxed text-slate-400">
+                    Professional text customization with authentic Invincible styling, outline
+                    effects, and precise typography controls for pixel-perfect results.
                   </p>
                 </div>
 
                 <div className="group text-center">
-                  <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-r from-yellow-500 to-red-500 text-white shadow-lg transition-transform group-hover:scale-110">
-                    <Palette className="h-10 w-10" />
+                  <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10">
+                    <Palette className="h-12 w-12 text-yellow-400" />
                   </div>
-                  <h3 className="mb-4 text-xl font-semibold text-white">Character Presets</h3>
-                  <p className="leading-relaxed text-slate-400">
-                    Quick-start with pre-configured color schemes and styles for popular Invincible
-                    characters like Mark, Omni-Man, Atom Eve, and many more heroes and villains.
+                  <h3 className="mb-6 text-xl font-semibold text-white">Character Presets</h3>
+                  <p className="text-lg leading-relaxed text-slate-400">
+                    Instantly apply authentic color schemes for Mark, Omni-Man, Atom Eve, and other
+                    beloved characters with one-click preset configurations.
                   </p>
                 </div>
 
                 <div className="group text-center">
-                  <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg transition-transform group-hover:scale-110">
-                    <Download className="h-10 w-10" />
+                  <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10">
+                    <Download className="h-12 w-12 text-red-400" />
                   </div>
-                  <h3 className="mb-4 text-xl font-semibold text-white">Professional Export</h3>
-                  <p className="leading-relaxed text-slate-400">
-                    Download your title cards in ultra-high resolution PNG format, perfect for video
-                    projects, social media content, presentations, and professional productions.
+                  <h3 className="mb-6 text-xl font-semibold text-white">Studio Export Quality</h3>
+                  <p className="text-lg leading-relaxed text-slate-400">
+                    Export in ultra-high resolution 1920×1080 PNG format, optimized for professional
+                    video production, social media, and presentation use.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Content Sections for SEO - Enhanced Design */}
-            <div className="mt-32 space-y-20">
+            {/* Content Sections for SEO - Modern Design */}
+            <div className="mt-40 space-y-24">
               {/* About Section */}
-              <section className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-red-800 via-red-700 to-yellow-700 p-10 shadow-2xl">
-                <div className="absolute inset-0 bg-black/20"></div>
+              <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-orange-500/5 to-yellow-500/10"></div>
                 <div className="relative z-10">
                   <h2 className="mb-8 text-3xl font-bold text-white">
                     Create Professional Invincible-Style Title Cards
                   </h2>
                   <div className="grid gap-8 md:grid-cols-2">
                     <div>
-                      <p className="mb-6 text-lg leading-relaxed text-slate-100">
+                      <p className="mb-6 text-lg leading-relaxed text-slate-300">
                         Our advanced Invincible Title Card Generator empowers creators to produce
                         studio-quality title cards that capture the essence of the beloved animated
                         series. With intuitive controls and professional-grade output, bring your
                         creative vision to life.
                       </p>
-                      <p className="text-lg leading-relaxed text-slate-100">
+                      <p className="text-lg leading-relaxed text-slate-300">
                         Whether you're creating fan videos, YouTube content, educational materials,
                         or professional presentations, our tool provides the flexibility and quality
                         you need to stand out from the crowd.
                       </p>
                     </div>
-                    <div className="rounded-xl border border-red-400/30 bg-red-900/40 p-8 backdrop-blur-sm">
+                    <div className="rounded-2xl border border-white/20 bg-white/5 p-8 backdrop-blur-sm">
                       <h3 className="mb-6 flex items-center text-xl font-semibold text-white">
-                        <Sparkles className="mr-3 h-6 w-6 text-yellow-300" />
+                        <Sparkles className="mr-3 h-6 w-6 text-yellow-400" />
                         Premium Features
                       </h3>
-                      <ul className="space-y-3 text-slate-100">
+                      <ul className="space-y-3 text-slate-300">
                         <li className="flex items-center">
-                          <div className="mr-3 h-2 w-2 rounded-full bg-yellow-300"></div>
+                          <div className="mr-3 h-2 w-2 rounded-full bg-yellow-400"></div>
                           Character-based color presets and themes
                         </li>
                         <li className="flex items-center">
-                          <div className="mr-3 h-2 w-2 rounded-full bg-yellow-300"></div>
+                          <div className="mr-3 h-2 w-2 rounded-full bg-yellow-400"></div>
                           Advanced text customization and typography
                         </li>
                         <li className="flex items-center">
-                          <div className="mr-3 h-2 w-2 rounded-full bg-yellow-300"></div>
+                          <div className="mr-3 h-2 w-2 rounded-full bg-yellow-400"></div>
                           Professional gradient backgrounds
                         </li>
                         <li className="flex items-center">
-                          <div className="mr-3 h-2 w-2 rounded-full bg-yellow-300"></div>
+                          <div className="mr-3 h-2 w-2 rounded-full bg-yellow-400"></div>
                           High-resolution export (1920×1080)
                         </li>
                         <li className="flex items-center">
-                          <div className="mr-3 h-2 w-2 rounded-full bg-yellow-300"></div>
+                          <div className="mr-3 h-2 w-2 rounded-full bg-yellow-400"></div>
                           Real-time preview and editing
                         </li>
                         <li className="flex items-center">
-                          <div className="mr-3 h-2 w-2 rounded-full bg-yellow-300"></div>
+                          <div className="mr-3 h-2 w-2 rounded-full bg-yellow-400"></div>
                           Save and manage favorite configurations
                         </li>
                       </ul>
@@ -965,8 +970,8 @@ const InvincibleTitleCardGenerator = () => {
               </section>
 
               {/* How to Use Section */}
-              <section className="rounded-2xl bg-slate-800/90 p-10 shadow-2xl backdrop-blur-sm">
-                <h2 className="mb-8 text-center text-3xl font-bold text-white">
+              <section className="rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
+                <h2 className="mb-12 text-center text-3xl font-bold text-white">
                   How to Create Your Perfect Title Card
                 </h2>
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
