@@ -17,7 +17,7 @@ import {
   Heart,
   Wand2,
 } from "lucide-react"
-import ShareButtons from "@/components/ShareButtons"
+// import ShareButtons from "@/components/ShareButtons"
 
 // Color themes inspired by Chromakopia
 const chromaColors = [
@@ -358,16 +358,6 @@ const ChromakopiaNameGenerator = () => {
             unique personas that embody the spirit of bringing color back to life and breaking free
             from black and white thinking.
           </p>
-
-          {/* Share Button */}
-          <div className="mt-6 flex justify-center">
-            <div className="rounded-lg bg-slate-800/50 p-4 backdrop-blur-sm">
-              <p className="mb-3 text-center text-sm font-medium text-slate-300">
-                Share this creative tool:
-              </p>
-              <ShareButtons />
-            </div>
-          </div>
         </div>
 
         {/* Main Content */}
