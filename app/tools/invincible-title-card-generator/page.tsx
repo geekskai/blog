@@ -333,6 +333,155 @@ const InvincibleTitleCardGenerator = () => {
 
         {/* Main Content with Improved Layout */}
         <div className={`grid gap-8 ${isFullscreen ? "grid-cols-1" : "lg:grid-cols-12"}`}>
+          {/* Enhanced Preview Area */}
+          <div className={`${isFullscreen ? "col-span-1" : "lg:col-span-8"}`}>
+            <div className="overflow-hidden rounded-xl bg-slate-800/90 shadow-2xl ring-1 ring-slate-700/50 backdrop-blur-sm">
+              <div className="border-b border-slate-700/50 px-6 py-5">
+                <div className="flex items-center justify-between">
+                  <h2 className="flex items-center text-xl font-semibold text-white">
+                    <Monitor className="mr-2 h-5 w-5" />
+                    Live Preview
+                  </h2>
+                  <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-2 text-sm text-slate-400">
+                      <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                      <span>1920×1080</span>
+                    </div>
+                    <button
+                      onClick={() => setIsFullscreen(!isFullscreen)}
+                      className="rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-700 hover:text-white"
+                    >
+                      {isFullscreen ? (
+                        <Minimize2 className="h-5 w-5" />
+                      ) : (
+                        <Maximize2 className="h-5 w-5" />
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6">
+                <div
+                  ref={canvasRef}
+                  className={`relative overflow-hidden rounded-xl shadow-2xl transition-all duration-300 ${
+                    isFullscreen ? "aspect-video w-full" : "aspect-video w-full"
+                  }`}
+                  style={{
+                    background: state.background,
+                    minHeight: isFullscreen ? "70vh" : "400px",
+                  }}
+                >
+                  {/* Title Card Content */}
+                  <div className="flex h-full flex-col items-center justify-center px-8">
+                    <div
+                      className="select-none text-center font-black transition-all duration-300"
+                      style={{
+                        color: state.color,
+                        fontSize: `${state.fontSize * (isFullscreen ? 3 : 2)}px`,
+                        textShadow:
+                          state.outline > 0
+                            ? `${state.outline * 2}px ${state.outline * 2}px 0px ${state.outlineColor}, -${state.outline}px -${state.outline}px 0px ${state.outlineColor}, ${state.outline}px -${state.outline}px 0px ${state.outlineColor}, -${state.outline}px ${state.outline}px 0px ${state.outlineColor}`
+                            : "4px 4px 8px rgba(0,0,0,0.5)",
+                        fontFamily: 'Impact, "Arial Black", sans-serif',
+                        letterSpacing: "3px",
+                        lineHeight: "0.9",
+                      }}
+                    >
+                      {state.text || "Enter Your Title"}
+                    </div>
+
+                    {/* Credits */}
+                    {state.showCredits && (state.smallSubtitle || state.subtitle) && (
+                      <div
+                        className="mt-6 text-center transition-all duration-300"
+                        style={{
+                          color: state.color,
+                          marginTop: `${state.subtitleOffset + 3}%`,
+                          filter: "drop-shadow(2px 2px 4px rgba(0,0,0,0.7))",
+                        }}
+                      >
+                        {state.smallSubtitle && (
+                          <div
+                            className="font-bold uppercase tracking-wider"
+                            style={{
+                              fontSize: `${state.fontSize * (isFullscreen ? 0.6 : 0.4)}px`,
+                              marginBottom: "8px",
+                            }}
+                          >
+                            {state.smallSubtitle}
+                          </div>
+                        )}
+                        {state.subtitle && (
+                          <div
+                            className="font-bold"
+                            style={{
+                              fontSize: `${state.fontSize * (isFullscreen ? 0.8 : 0.6)}px`,
+                            }}
+                          >
+                            {state.subtitle}
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Watermark */}
+                    {state.showWatermark && (
+                      <div className="absolute bottom-4 right-4 text-sm font-medium text-white/40">
+                        Made with geekskai.com
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Favorites Section with improved design */}
+            {favorites.length > 0 && !isFullscreen && (
+              <div className="mt-8 overflow-hidden rounded-xl bg-slate-800/90 shadow-2xl ring-1 ring-slate-700/50 backdrop-blur-sm">
+                <div className="border-b border-slate-700/50 px-6 py-4">
+                  <h3 className="flex items-center text-lg font-semibold text-white">
+                    <Star className="mr-2 h-5 w-5 text-yellow-500" />
+                    Saved Configurations ({favorites.length})
+                  </h3>
+                </div>
+                <div className="p-6">
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {favorites.map((favorite, index) => (
+                      <button
+                        key={index}
+                        className="group relative overflow-hidden rounded-lg border border-slate-600 bg-gradient-to-br from-slate-700/50 to-slate-800/50 p-4 text-left transition-all hover:scale-105 hover:border-slate-500"
+                        onClick={() => setState(favorite)}
+                      >
+                        <div className="mb-3 flex items-center space-x-3">
+                          <div
+                            className="h-8 w-8 rounded border-2 border-white/20"
+                            style={{ background: favorite.background }}
+                          ></div>
+                          <div>
+                            <h4 className="font-medium text-white transition-colors group-hover:text-yellow-300">
+                              {favorite.text}
+                            </h4>
+                            <p className="text-xs text-slate-400">Click to apply</p>
+                          </div>
+                        </div>
+                        <div className="flex space-x-2">
+                          <div
+                            className="h-3 w-3 rounded-full border border-white/20"
+                            style={{ backgroundColor: favorite.color }}
+                          />
+                          <span className="text-xs text-slate-400">
+                            Size: {favorite.fontSize}px
+                          </span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
           {/* Enhanced Settings Panel */}
           {!isFullscreen && (
             <div className="space-y-6 lg:col-span-4">
@@ -714,155 +863,6 @@ const InvincibleTitleCardGenerator = () => {
               </div>
             </div>
           )}
-
-          {/* Enhanced Preview Area */}
-          <div className={`${isFullscreen ? "col-span-1" : "lg:col-span-8"}`}>
-            <div className="overflow-hidden rounded-xl bg-slate-800/90 shadow-2xl ring-1 ring-slate-700/50 backdrop-blur-sm">
-              <div className="border-b border-slate-700/50 px-6 py-5">
-                <div className="flex items-center justify-between">
-                  <h2 className="flex items-center text-xl font-semibold text-white">
-                    <Monitor className="mr-2 h-5 w-5" />
-                    Live Preview
-                  </h2>
-                  <div className="flex items-center space-x-4">
-                    <div className="flex items-center space-x-2 text-sm text-slate-400">
-                      <div className="h-2 w-2 rounded-full bg-green-500"></div>
-                      <span>1920×1080</span>
-                    </div>
-                    <button
-                      onClick={() => setIsFullscreen(!isFullscreen)}
-                      className="rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-700 hover:text-white"
-                    >
-                      {isFullscreen ? (
-                        <Minimize2 className="h-5 w-5" />
-                      ) : (
-                        <Maximize2 className="h-5 w-5" />
-                      )}
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <div
-                  ref={canvasRef}
-                  className={`relative overflow-hidden rounded-xl shadow-2xl transition-all duration-300 ${
-                    isFullscreen ? "aspect-video w-full" : "aspect-video w-full"
-                  }`}
-                  style={{
-                    background: state.background,
-                    minHeight: isFullscreen ? "70vh" : "400px",
-                  }}
-                >
-                  {/* Title Card Content */}
-                  <div className="flex h-full flex-col items-center justify-center px-8">
-                    <div
-                      className="select-none text-center font-black transition-all duration-300"
-                      style={{
-                        color: state.color,
-                        fontSize: `${state.fontSize * (isFullscreen ? 3 : 2)}px`,
-                        textShadow:
-                          state.outline > 0
-                            ? `${state.outline * 2}px ${state.outline * 2}px 0px ${state.outlineColor}, -${state.outline}px -${state.outline}px 0px ${state.outlineColor}, ${state.outline}px -${state.outline}px 0px ${state.outlineColor}, -${state.outline}px ${state.outline}px 0px ${state.outlineColor}`
-                            : "4px 4px 8px rgba(0,0,0,0.5)",
-                        fontFamily: 'Impact, "Arial Black", sans-serif',
-                        letterSpacing: "3px",
-                        lineHeight: "0.9",
-                      }}
-                    >
-                      {state.text || "Enter Your Title"}
-                    </div>
-
-                    {/* Credits */}
-                    {state.showCredits && (state.smallSubtitle || state.subtitle) && (
-                      <div
-                        className="mt-6 text-center transition-all duration-300"
-                        style={{
-                          color: state.color,
-                          marginTop: `${state.subtitleOffset + 3}%`,
-                          filter: "drop-shadow(2px 2px 4px rgba(0,0,0,0.7))",
-                        }}
-                      >
-                        {state.smallSubtitle && (
-                          <div
-                            className="font-bold uppercase tracking-wider"
-                            style={{
-                              fontSize: `${state.fontSize * (isFullscreen ? 0.6 : 0.4)}px`,
-                              marginBottom: "8px",
-                            }}
-                          >
-                            {state.smallSubtitle}
-                          </div>
-                        )}
-                        {state.subtitle && (
-                          <div
-                            className="font-bold"
-                            style={{
-                              fontSize: `${state.fontSize * (isFullscreen ? 0.8 : 0.6)}px`,
-                            }}
-                          >
-                            {state.subtitle}
-                          </div>
-                        )}
-                      </div>
-                    )}
-
-                    {/* Watermark */}
-                    {state.showWatermark && (
-                      <div className="absolute bottom-4 right-4 text-sm font-medium text-white/40">
-                        Made with geekskai.com
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Favorites Section with improved design */}
-            {favorites.length > 0 && !isFullscreen && (
-              <div className="mt-8 overflow-hidden rounded-xl bg-slate-800/90 shadow-2xl ring-1 ring-slate-700/50 backdrop-blur-sm">
-                <div className="border-b border-slate-700/50 px-6 py-4">
-                  <h3 className="flex items-center text-lg font-semibold text-white">
-                    <Star className="mr-2 h-5 w-5 text-yellow-500" />
-                    Saved Configurations ({favorites.length})
-                  </h3>
-                </div>
-                <div className="p-6">
-                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {favorites.map((favorite, index) => (
-                      <button
-                        key={index}
-                        className="group relative overflow-hidden rounded-lg border border-slate-600 bg-gradient-to-br from-slate-700/50 to-slate-800/50 p-4 text-left transition-all hover:scale-105 hover:border-slate-500"
-                        onClick={() => setState(favorite)}
-                      >
-                        <div className="mb-3 flex items-center space-x-3">
-                          <div
-                            className="h-8 w-8 rounded border-2 border-white/20"
-                            style={{ background: favorite.background }}
-                          ></div>
-                          <div>
-                            <h4 className="font-medium text-white transition-colors group-hover:text-yellow-300">
-                              {favorite.text}
-                            </h4>
-                            <p className="text-xs text-slate-400">Click to apply</p>
-                          </div>
-                        </div>
-                        <div className="flex space-x-2">
-                          <div
-                            className="h-3 w-3 rounded-full border border-white/20"
-                            style={{ backgroundColor: favorite.color }}
-                          />
-                          <span className="text-xs text-slate-400">
-                            Size: {favorite.fontSize}px
-                          </span>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
         </div>
 
         {/* Features Section - only show when not in fullscreen */}
