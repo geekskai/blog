@@ -15,7 +15,6 @@ import {
   Music,
   Users,
   Heart,
-  Share2,
   Wand2,
 } from "lucide-react"
 import ShareButtons from "@/components/ShareButtons"
