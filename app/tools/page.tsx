@@ -1,200 +1,266 @@
 import Link from "next/link"
-import { Calculator, FileText, DollarSign, Zap, Users, Globe, Download } from "lucide-react"
+import {
+  Calculator,
+  FileText,
+  DollarSign,
+  Zap,
+  Users,
+  Globe,
+  Download,
+  Palette,
+  Monitor,
+  Star,
+  Sparkles,
+} from "lucide-react"
 
 export default function ToolsPage() {
+  // Professional gradient color palette for tool cards
+  const gradients = {
+    productivity: "from-blue-500 to-purple-600",
+    development: "from-emerald-500 to-teal-600",
+    creative: "from-orange-500 to-red-500",
+    entertainment: "from-purple-500 to-pink-500",
+    professional: "from-pink-500 to-rose-500",
+    analytics: "from-indigo-500 to-blue-600",
+    education: "from-yellow-500 to-orange-500",
+    utility: "from-teal-500 to-cyan-500",
+    security: "from-red-500 to-pink-500",
+    finance: "from-green-500 to-emerald-600",
+  }
+
   const tools = [
     {
       id: "job-worth-calculator",
       title: "Job Worth Calculator",
-      subtitle: "工作价值计算器",
       description:
-        "Calculate your job's value with our comprehensive salary analyzer. Compare work-life balance, benefits, and compensation across different countries.",
-      descriptionCN:
-        "通过我们的综合薪资分析器计算您的工作价值。比较不同国家的工作与生活平衡、福利和薪酬。",
+        "Calculate your job's true value with comprehensive salary analysis. Compare compensation, benefits, and work-life balance across different countries using PPP conversion.",
       icon: Calculator,
       href: "/tools/job-worth-calculator",
       features: [
-        "Multi-language Support",
         "PPP Conversion",
         "Work-Life Balance Analysis",
+        "Benefits Calculator",
         "History Tracking",
       ],
-      featuresCN: ["多语言支持", "购买力平价转换", "工作生活平衡分析", "历史记录追踪"],
       badge: "Popular",
       badgeColor: "bg-blue-500",
-      gradient: "from-blue-500 to-purple-600",
+      gradient: gradients.productivity,
+      category: "Productivity",
     },
     {
       id: "pdf-to-markdown",
       title: "PDF to Markdown Converter",
-      subtitle: "PDF转Markdown转换器",
       description:
-        "Professional PDF to Markdown converter online. Convert PDF to MD format instantly with our free PDF markdown converter. Extract text from PDF documents and transform to clean Markdown files.",
-      descriptionCN:
-        "专业的在线PDF转Markdown转换器。使用我们的免费PDF markdown转换器即可将PDF文档转换为MD格式。从PDF文档中提取文本并转换为干净的Markdown文件。",
+        "Professional PDF to Markdown converter. Extract text from PDF documents and transform them into clean, properly formatted Markdown files instantly.",
       icon: FileText,
       href: "/tools/pdf-to-markdown",
       features: [
-        "PDF to MD Conversion",
+        "Instant Conversion",
         "Format Preservation",
-        "Browser-Based",
-        "Free Unlimited Use",
+        "Browser-Based Processing",
+        "Unlimited Usage",
       ],
-      featuresCN: ["PDF转MD转换", "格式保持", "浏览器处理", "免费无限使用"],
       badge: "Professional",
-      badgeColor: "bg-green-500",
-      gradient: "from-green-500 to-teal-600",
+      badgeColor: "bg-emerald-500",
+      gradient: gradients.development,
+      category: "Development",
     },
     {
       id: "tip-screen-generator",
       title: "Tip Screen Guide & Generator",
-      subtitle: "小费界面指南与生成器",
       description:
-        "Complete guide to tip screens - understand their psychology, design patterns, and social impact. Create realistic tip screen examples for iPhone, iPad, and Android devices for educational purposes.",
-      descriptionCN:
-        "小费界面完整指南 - 了解其心理学、设计模式和社会影响。为教育目的创建逼真的iPhone、iPad和Android设备小费界面示例。",
+        "Understand the psychology behind tip screens and their impact on consumer behavior. Create realistic examples for educational purposes and UX research.",
       icon: DollarSign,
       href: "/tools/tip-screen-generator",
       features: [
-        "Tip Screen Education",
         "Psychology Analysis",
         "Multiple Device Themes",
+        "Educational Content",
         "Screenshot Export",
       ],
-      featuresCN: ["小费界面教育", "心理学分析", "多设备主题", "截图导出"],
       badge: "Educational",
       badgeColor: "bg-orange-500",
-      gradient: "from-orange-500 to-red-600",
+      gradient: gradients.creative,
+      category: "Design",
+    },
+    {
+      id: "chromakopia-name-generator",
+      title: "Chromakopia Name Generator",
+      description:
+        "Create your colorful alter ego inspired by Tyler, the Creator's Chromakopia. Generate unique personas that embody creativity and self-expression.",
+      icon: Palette,
+      href: "/tools/chromakopia-name-generator",
+      features: [
+        "Music-Inspired Personas",
+        "Colorful Character Traits",
+        "Creative Expression",
+        "Social Sharing",
+      ],
+      badge: "Creative",
+      badgeColor: "bg-purple-500",
+      gradient: gradients.entertainment,
+      category: "Entertainment",
+    },
+    {
+      id: "invincible-title-card-generator",
+      title: "Invincible Title Card Generator",
+      description:
+        "Create professional-grade title cards inspired by the acclaimed animated series. Features authentic typography and studio-quality export options.",
+      icon: Monitor,
+      href: "/tools/invincible-title-card-generator",
+      features: [
+        "Character Presets",
+        "Advanced Typography",
+        "HD Export Quality",
+        "Real-time Preview",
+      ],
+      badge: "Professional",
+      badgeColor: "bg-pink-500",
+      gradient: gradients.professional,
+      category: "Creative",
     },
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       {/* Hero Section */}
-      <div className="relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="bg-grid-pattern absolute inset-0 opacity-5"></div>
+      <div className="relative overflow-hidden bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-800">
+        {/* Decorative Background */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]"></div>
 
-        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="mb-6 flex justify-center">
-              <div className="flex items-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-4 py-2 text-white shadow-lg">
-                <Zap className="h-5 w-5" />
-                <span className="text-sm font-medium">Free Tools</span>
+            {/* Badge */}
+            <div className="mb-8 flex justify-center">
+              <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 text-white shadow-lg backdrop-blur-sm">
+                <Sparkles className="h-5 w-5" />
+                <span className="font-medium">Free Developer Tools</span>
               </div>
             </div>
 
-            <h1 className="mb-6 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-4xl font-bold text-transparent dark:from-white dark:to-gray-300 md:text-6xl">
-              Free Online Tools for
+            {/* Main Heading */}
+            <h1 className="mb-8 text-5xl font-bold tracking-tight text-slate-900 dark:text-white lg:text-7xl">
+              Professional Tools for
               <br />
-              <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-                Developers & Creators
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+                Modern Workflows
               </span>
             </h1>
 
-            <p className="mx-auto max-w-3xl text-lg text-gray-600 dark:text-gray-300 md:text-xl">
-              Discover a growing set of fast, free online tools designed for developers, writers,
-              and digital workers. From PDF converters to job worth calculators — power up your
-              workflow with GeeksKai.
+            {/* Description */}
+            <p className="mx-auto mb-12 max-w-2xl text-xl leading-relaxed text-slate-600 dark:text-slate-300">
+              A curated collection of powerful, free online tools designed to enhance productivity
+              for developers, creators, and digital professionals.
             </p>
 
-            <div className="mt-8 flex items-center justify-center space-x-6 text-sm text-gray-500 dark:text-gray-400">
-              <div className="flex items-center space-x-2">
-                <Users className="h-4 w-4" />
-                <span>10,000+ Users</span>
+            {/* Stats */}
+            <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-slate-500 dark:text-slate-400">
+              <div className="flex items-center gap-2 rounded-lg bg-white/50 px-4 py-2 backdrop-blur-sm dark:bg-slate-800/50">
+                <Users className="h-4 w-4 text-blue-500" />
+                <span className="font-medium">15,000+ Active Users</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Globe className="h-4 w-4" />
-                <span>Multi-language</span>
+              <div className="flex items-center gap-2 rounded-lg bg-white/50 px-4 py-2 backdrop-blur-sm dark:bg-slate-800/50">
+                <Zap className="h-4 w-4 text-green-500" />
+                <span className="font-medium">Lightning Fast</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Download className="h-4 w-4" />
-                <span>No Registration</span>
+              <div className="flex items-center gap-2 rounded-lg bg-white/50 px-4 py-2 backdrop-blur-sm dark:bg-slate-800/50">
+                <Download className="h-4 w-4 text-purple-500" />
+                <span className="font-medium">No Registration Required</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Tools Grid */}
-      <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-        <div className="grid gap-8 md:grid-cols-2">
-          {tools.map((tool) => {
-            const IconComponent = tool.icon
-            return (
-              <Link
-                key={tool.id}
-                href={tool.href}
-                className="group relative overflow-hidden rounded-2xl bg-white shadow-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl dark:bg-gray-800"
-              >
-                {/* Card Header */}
-                <div className={`relative h-32 bg-gradient-to-r ${tool.gradient} p-6`}>
-                  {/* Badge */}
-                  <div className="absolute right-4 top-4">
-                    <span
-                      className={`${tool.badgeColor} rounded-full px-3 py-1 text-xs font-medium text-white shadow-lg`}
-                    >
-                      {tool.badge}
-                    </span>
+      {/* Tools Section */}
+      <div className="relative py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white lg:text-4xl">
+              Featured Tools
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
+              Carefully crafted tools to streamline your workflow and boost productivity
+            </p>
+          </div>
+
+          {/* Tools Grid */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {tools.map((tool) => {
+              const IconComponent = tool.icon
+              return (
+                <Link
+                  key={tool.id}
+                  href={tool.href}
+                  className="group relative overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-slate-200 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:ring-slate-300 dark:bg-slate-800 dark:ring-slate-700 dark:hover:ring-slate-600"
+                >
+                  {/* Gradient Header */}
+                  <div className={`relative h-40 bg-gradient-to-br ${tool.gradient} p-6`}>
+                    {/* Category Badge */}
+                    <div className="absolute right-4 top-4">
+                      <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+                        {tool.category}
+                      </span>
+                    </div>
+
+                    {/* Badge */}
+                    <div className="absolute left-4 top-4">
+                      <div
+                        className={`inline-flex items-center gap-1 rounded-full ${tool.badgeColor} px-3 py-1 text-xs font-medium text-white shadow-lg`}
+                      >
+                        <Star className="h-3 w-3" />
+                        {tool.badge}
+                      </div>
+                    </div>
+
+                    {/* Icon */}
+                    <div className="absolute bottom-6 left-6">
+                      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+                        <IconComponent className="h-8 w-8 text-white" />
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Icon */}
-                  <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
-                    <IconComponent className="h-8 w-8 text-white" />
-                  </div>
-                </div>
-
-                {/* Card Content */}
-                <div className="p-6">
-                  <div className="mb-4">
-                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+                  {/* Card Content */}
+                  <div className="p-8">
+                    {/* Title */}
+                    <h3 className="mb-3 text-xl font-bold text-slate-900 transition-colors duration-300 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
                       {tool.title}
                     </h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{tool.subtitle}</p>
-                  </div>
 
-                  <p className="mb-6 text-gray-600 dark:text-gray-300">{tool.description}</p>
+                    {/* Description */}
+                    <p className="mb-6 leading-relaxed text-slate-600 dark:text-slate-300">
+                      {tool.description}
+                    </p>
 
-                  <p className="mb-6 text-sm text-gray-500 dark:text-gray-400">
-                    {tool.descriptionCN}
-                  </p>
-
-                  {/* Features */}
-                  <div className="mb-6">
-                    <h4 className="mb-3 text-sm font-semibold text-gray-900 dark:text-white">
-                      Features / 功能特性:
-                    </h4>
-                    <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                      {tool.features.map((feature, index) => (
-                        <div key={feature} className="flex items-center space-x-2">
-                          <div className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-600"></div>
-                          <span className="text-sm text-gray-600 dark:text-gray-300">
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
+                    {/* Features */}
+                    <div className="mb-8">
+                      <h4 className="mb-4 text-sm font-semibold text-slate-900 dark:text-white">
+                        Key Features
+                      </h4>
+                      <div className="space-y-2">
+                        {tool.features.map((feature, index) => (
+                          <div key={feature} className="flex items-center gap-3">
+                            <div
+                              className={`h-2 w-2 rounded-full bg-gradient-to-r ${tool.gradient}`}
+                            ></div>
+                            <span className="text-sm text-slate-600 dark:text-slate-300">
+                              {feature}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
-                      {tool.featuresCN.map((feature, index) => (
-                        <div key={feature} className="flex items-center space-x-2">
-                          <div className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-green-500 to-teal-600"></div>
-                          <span className="text-xs text-gray-500 dark:text-gray-400">
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
 
-                  {/* CTA */}
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-blue-600 group-hover:text-blue-700 dark:text-blue-400 dark:group-hover:text-blue-300">
-                      Try it now →
-                    </span>
-                    <div className="opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      <div className="rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-2">
+                    {/* CTA */}
+                    <div className="flex items-center justify-between">
+                      <span className="font-medium text-blue-600 transition-colors duration-300 group-hover:text-blue-700 dark:text-blue-400 dark:group-hover:text-blue-300">
+                        Launch Tool
+                      </span>
+                      <div className="rounded-full bg-slate-100 p-2 transition-all duration-300 group-hover:bg-blue-500 group-hover:text-white dark:bg-slate-700 dark:group-hover:bg-blue-500">
                         <svg
-                          className="h-4 w-4 text-white"
+                          className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -209,69 +275,40 @@ export default function ToolsPage() {
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Hover Effect Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-600/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-              </Link>
-            )
-          })}
-        </div>
-
-        {/* Coming Soon Section */}
-        <div className="mt-16 text-center">
-          <div className="mx-auto max-w-md rounded-2xl border-2 border-dashed border-gray-300 bg-gray-50 p-8 dark:border-gray-600 dark:bg-gray-800">
-            <div className="mb-4 flex justify-center">
-              <div className="rounded-full bg-gradient-to-r from-gray-400 to-gray-600 p-3">
-                <Zap className="h-6 w-6 text-white" />
-              </div>
-            </div>
-            <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
-              More Tools Coming Soon
-            </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
-              We're constantly adding new tools to help boost your productivity. Stay tuned!
-            </p>
-            <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-              更多工具即将推出，敬请期待！
-            </p>
+                  {/* Hover Glow Effect */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-r ${tool.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-5`}
+                  ></div>
+                </Link>
+              )
+            })}
           </div>
         </div>
+      </div>
 
-        {/* Featured Tool Spotlight - Tip Screen */}
-        <div className="mt-16">
-          <div className="rounded-2xl bg-gradient-to-r from-orange-500 to-red-600 p-8 text-white">
-            <div className="grid gap-8 md:grid-cols-2">
-              <div>
-                <h2 className="mb-4 text-2xl font-bold">Understanding Tip Screens</h2>
-                <p className="mb-4 text-orange-100">
-                  Our Tip Screen Guide & Generator is more than just a tool—it's an educational
-                  resource that helps you understand the psychology behind digital tipping
-                  interfaces. Learn how tip screens influence consumer behavior and create your own
-                  examples for educational purposes.
-                </p>
-                <p className="text-orange-100">
-                  From iPad POS systems to mobile payment apps, tip screens have become ubiquitous
-                  in modern commerce. Our tool demonstrates various design patterns and their
-                  psychological impact.
-                </p>
-              </div>
-              <div className="space-y-4">
-                <div className="rounded-lg bg-white/10 p-4">
-                  <h3 className="mb-2 font-semibold">What You'll Learn:</h3>
-                  <ul className="space-y-1 text-sm text-orange-100">
-                    <li>• Psychology of tip screen design</li>
-                    <li>• Dark pattern recognition</li>
-                    <li>• Device-specific interfaces</li>
-                    <li>• Consumer behavior analysis</li>
-                  </ul>
+      {/* Coming Soon Section */}
+      <div className="relative py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="mx-auto max-w-lg rounded-3xl border-2 border-dashed border-slate-300 bg-slate-50/50 p-12 backdrop-blur-sm dark:border-slate-600 dark:bg-slate-800/50">
+              <div className="mb-6 flex justify-center">
+                <div className="rounded-2xl bg-gradient-to-r from-slate-400 to-slate-600 p-4">
+                  <Sparkles className="h-8 w-8 text-white" />
                 </div>
-                <Link
-                  href="/tools/tip-screen-generator"
-                  className="inline-flex items-center rounded-lg bg-white px-4 py-2 font-medium text-orange-600 transition-colors hover:bg-orange-50"
-                >
-                  Explore Tip Screens →
-                </Link>
+              </div>
+              <h3 className="mb-4 text-2xl font-bold text-slate-900 dark:text-white">
+                More Tools Coming Soon
+              </h3>
+              <p className="text-slate-600 dark:text-slate-300">
+                We're constantly building new tools to enhance your workflow. Stay tuned for
+                exciting updates and powerful new features.
+              </p>
+              <div className="mt-6 flex justify-center">
+                <div className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-600 shadow-sm dark:bg-slate-700 dark:text-slate-300">
+                  <div className="h-2 w-2 animate-pulse rounded-full bg-green-500"></div>
+                  In Development
+                </div>
               </div>
             </div>
           </div>
@@ -279,30 +316,44 @@ export default function ToolsPage() {
       </div>
 
       {/* Bottom CTA */}
-      <div className="bg-gradient-to-r from-blue-500 to-purple-600">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_80%,rgba(255,255,255,0.1),transparent_50%)]"></div>
+
+        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="mb-4 text-2xl font-bold text-white md:text-3xl">
-              Have a tool suggestion?
+            <h2 className="mb-6 text-3xl font-bold text-white lg:text-4xl">
+              Have a Tool Suggestion?
             </h2>
-            <p className="mb-6 text-blue-100">
-              Let us know what tools you'd like to see next. We're always looking to add value for
-              our community.
+            <p className="mx-auto mb-10 max-w-2xl text-lg text-blue-100">
+              We're always looking to build tools that solve real problems. Share your ideas and
+              help us create something amazing together.
             </p>
-            <Link
-              href="mailto:geeks.kai@gmail.com"
-              className="inline-flex items-center rounded-full bg-white px-6 py-3 font-medium text-blue-600 shadow-lg transition-all duration-300 hover:bg-gray-50 hover:shadow-xl"
-            >
-              Contact Us
-              <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-            </Link>
+            <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+              <Link
+                href="mailto:geeks.kai@gmail.com"
+                className="inline-flex items-center gap-2 rounded-2xl bg-white px-8 py-4 font-semibold text-blue-600 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-blue-50 hover:shadow-xl"
+              >
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                Contact Us
+              </Link>
+              <div className="text-blue-200">or</div>
+              <Link
+                href="https://github.com"
+                className="inline-flex items-center gap-2 rounded-2xl border-2 border-white/20 px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
+              >
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+                GitHub
+              </Link>
+            </div>
           </div>
         </div>
       </div>
