@@ -9,19 +9,19 @@ import {
   Plus,
   Minus,
   CheckCircle,
-  Settings,
-  Info,
-  ExternalLink,
   Sparkles,
   Monitor,
   Home,
   ChevronRight,
   Zap,
-  Eye,
-  EyeOff,
   Star,
   Heart,
-  Type,
+  Timer,
+  CalendarDays,
+  MessageSquare,
+  BookmarkPlus,
+  RotateCw,
+  ArrowUpDown,
 } from "lucide-react"
 
 // Type definitions
@@ -120,11 +120,16 @@ export default function DiscordTimestampGenerator() {
   const [generatedTimestamp, setGeneratedTimestamp] = useState<string>("")
   const [copySuccess, setCopySuccess] = useState<boolean>(false)
   const [previewText, setPreviewText] = useState<string>("")
-  const [showSettings, setShowSettings] = useState(true)
-  const [activeTab, setActiveTab] = useState<"input" | "formats" | "preview">("input")
+  const [showAdvanced, setShowAdvanced] = useState(false)
   const [favorites, setFavorites] = useState<
     Array<{ name: string; timestamp: string; config: any }>
   >([])
+  const [quickPresets] = useState([
+    { label: "In 1 hour", hours: 1 },
+    { label: "Tomorrow", days: 1 },
+    { label: "Next week", weeks: 1 },
+    { label: "In 1 month", days: 30 },
+  ])
 
   // Refs for smooth interactions
   const copyTimeoutRef = useRef<NodeJS.Timeout>()
@@ -286,6 +291,17 @@ export default function DiscordTimestampGenerator() {
     }
   }
 
+  // Apply quick preset
+  const applyQuickPreset = (preset: any) => {
+    setMode("timeframe")
+    setTimeAdjustment({
+      weeks: preset.weeks || 0,
+      days: preset.days || 0,
+      hours: preset.hours || 0,
+      minutes: preset.minutes || 0,
+    })
+  }
+
   // Add to favorites
   const addToFavorites = () => {
     const config = { mode, format, timeAdjustment, dateInput }
@@ -381,123 +397,394 @@ export default function DiscordTimestampGenerator() {
           </p>
         </div>
 
-        {/* Main Content with Improved Layout */}
-        <div className="grid gap-8 lg:grid-cols-12">
-          {/* Modern Preview Area */}
-          <div className="lg:col-span-8">
+        {/* Main content area with responsive dual-column layout */}
+        <div className="grid gap-6 lg:grid-cols-5 lg:gap-8">
+          {/* Left control panel - 40% */}
+          <div className="space-y-6 lg:col-span-2">
+            {/* Mode selection card */}
             <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
-              <div className="border-b border-white/10 px-6 py-5">
-                <div className="flex items-center justify-between">
-                  <h2 className="flex items-center text-xl font-semibold text-white">
-                    <Monitor className="mr-3 h-5 w-5 text-blue-400" />
-                    Live Preview
-                  </h2>
-                  <div className="flex items-center space-x-4">
-                    <div className="flex items-center space-x-2 text-sm text-slate-400">
-                      <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-400"></div>
-                      <span className="font-mono">Real-time</span>
-                    </div>
+              <div className="border-b border-white/10 px-6 py-4">
+                <h2 className="flex items-center text-lg font-semibold text-white">
+                  <ArrowUpDown className="mr-3 h-5 w-5 text-blue-400" />
+                  Input Mode
+                </h2>
+              </div>
+              <div className="p-6">
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    onClick={() => setMode("timeframe")}
+                    className={`rounded-xl p-4 text-center transition-all duration-300 ${
+                      mode === "timeframe"
+                        ? "scale-105 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
+                        : "border border-white/20 bg-white/5 text-slate-300 hover:scale-105 hover:bg-white/10"
+                    }`}
+                  >
+                    <Timer className="mx-auto mb-2 h-6 w-6" />
+                    <div className="text-sm font-medium">Relative Time</div>
+                    <div className="text-xs opacity-75">e.g., "in 2 hours"</div>
+                  </button>
+                  <button
+                    onClick={() => setMode("date")}
+                    className={`rounded-xl p-4 text-center transition-all duration-300 ${
+                      mode === "date"
+                        ? "scale-105 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
+                        : "border border-white/20 bg-white/5 text-slate-300 hover:scale-105 hover:bg-white/10"
+                    }`}
+                  >
+                    <CalendarDays className="mx-auto mb-2 h-6 w-6" />
+                    <div className="text-sm font-medium">Absolute Time</div>
+                    <div className="text-xs opacity-75">Specific date & time</div>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick presets */}
+            {mode === "timeframe" && (
+              <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
+                <div className="border-b border-white/10 px-6 py-4">
+                  <h3 className="flex items-center text-lg font-semibold text-white">
+                    <Zap className="mr-3 h-5 w-5 text-yellow-400" />
+                    Quick Presets
+                  </h3>
+                </div>
+                <div className="p-6">
+                  <div className="grid grid-cols-2 gap-3">
+                    {quickPresets.map((preset, index) => (
+                      <button
+                        key={index}
+                        onClick={() => applyQuickPreset(preset)}
+                        className="rounded-lg border border-white/20 bg-white/5 p-3 text-sm font-medium text-slate-300 transition-all hover:scale-105 hover:bg-white/10 hover:text-white"
+                      >
+                        {preset.label}
+                      </button>
+                    ))}
                   </div>
                 </div>
               </div>
+            )}
 
+            {/* Time adjustment section */}
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
+              <div className="border-b border-white/10 px-6 py-4">
+                <h3 className="flex items-center text-lg font-semibold text-white">
+                  {mode === "timeframe" ? (
+                    <>
+                      <Clock className="mr-3 h-5 w-5 text-green-400" />
+                      Time Adjustment
+                    </>
+                  ) : (
+                    <>
+                      <Calendar className="mr-3 h-5 w-5 text-purple-400" />
+                      Date & Time Settings
+                    </>
+                  )}
+                </h3>
+              </div>
               <div className="p-6">
-                <div
-                  className="relative aspect-video w-full overflow-hidden rounded-xl shadow-2xl transition-all duration-300"
-                  style={{
-                    background: "linear-gradient(135deg, #36393f, #2f3136)",
-                    minHeight: "300px",
-                  }}
-                >
-                  {/* Discord Message Preview */}
-                  <div className="flex h-full flex-col p-8">
-                    {/* Discord Message Header */}
-                    <div className="mb-4 flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <span className="font-medium text-white">GeeksKai</span>
-                          <span className="rounded bg-blue-600 px-1.5 py-0.5 text-xs font-bold text-white">
-                            BOT
+                {mode === "timeframe" ? (
+                  <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-2">
+                    {(["weeks", "days", "hours", "minutes"] as const).map((unit) => (
+                      <div
+                        key={unit}
+                        className="rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm"
+                      >
+                        <div className="mb-3 text-center">
+                          <span className="text-xs font-medium uppercase tracking-wide text-slate-300">
+                            {unit === "weeks"
+                              ? "Weeks"
+                              : unit === "days"
+                                ? "Days"
+                                : unit === "hours"
+                                  ? "Hours"
+                                  : "Minutes"}
                           </span>
                         </div>
-                        <div className="text-xs text-slate-400">
-                          Today at{" "}
+                        <div className="flex items-center justify-center gap-2">
+                          <button
+                            onClick={() => adjustTime(unit, -1)}
+                            className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-700 text-slate-300 transition-all duration-200 hover:scale-110 hover:bg-red-500 hover:text-white"
+                          >
+                            <Minus className="h-3 w-3" />
+                          </button>
+                          <div className="flex-1 text-center">
+                            <span className="text-lg font-semibold text-white">
+                              {timeAdjustment[unit]}
+                            </span>
+                          </div>
+                          <button
+                            onClick={() => adjustTime(unit, 1)}
+                            className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-700 text-slate-300 transition-all duration-200 hover:scale-110 hover:bg-blue-500 hover:text-white"
+                          >
+                            <Plus className="h-3 w-3" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="mb-2 block text-xs font-medium text-slate-400">
+                          Year
+                        </label>
+                        <input
+                          type="number"
+                          value={dateInput.year}
+                          onChange={(e) =>
+                            setDateInput((prev) => ({
+                              ...prev,
+                              year: parseInt(e.target.value) || 0,
+                            }))
+                          }
+                          className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50"
+                        />
+                      </div>
+                      <div>
+                        <label className="mb-2 block text-xs font-medium text-slate-400">
+                          Month
+                        </label>
+                        <input
+                          type="number"
+                          min="1"
+                          max="12"
+                          value={dateInput.month}
+                          onChange={(e) =>
+                            setDateInput((prev) => ({
+                              ...prev,
+                              month: parseInt(e.target.value) || 1,
+                            }))
+                          }
+                          className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50"
+                        />
+                      </div>
+                      <div>
+                        <label className="mb-2 block text-xs font-medium text-slate-400">Day</label>
+                        <input
+                          type="number"
+                          min="1"
+                          max="31"
+                          value={dateInput.day}
+                          onChange={(e) =>
+                            setDateInput((prev) => ({
+                              ...prev,
+                              day: parseInt(e.target.value) || 1,
+                            }))
+                          }
+                          className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50"
+                        />
+                      </div>
+                      <div>
+                        <label className="mb-2 block text-xs font-medium text-slate-400">
+                          Hour
+                        </label>
+                        <input
+                          type="number"
+                          min="0"
+                          max="23"
+                          value={dateInput.hour}
+                          onChange={(e) =>
+                            setDateInput((prev) => ({
+                              ...prev,
+                              hour: parseInt(e.target.value) || 0,
+                            }))
+                          }
+                          className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50"
+                        />
+                      </div>
+                    </div>
+                    <div className="rounded-lg bg-blue-500/10 p-3 text-center">
+                      <span className="text-xs text-blue-300">Timezone: UTC{timezoneString}</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Format selection - always visible */}
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
+              <div className="border-b border-white/10 px-6 py-4">
+                <h3 className="flex items-center text-lg font-semibold text-white">
+                  <MessageSquare className="mr-3 h-5 w-5 text-pink-400" />
+                  Display Format
+                </h3>
+              </div>
+              <div className="p-6">
+                <div className="space-y-3">
+                  {TIMESTAMP_FORMATS.slice(0, 4).map((fmt) => (
+                    <button
+                      key={fmt.id}
+                      onClick={() => setFormat(fmt.id)}
+                      className={`w-full rounded-xl p-3 text-left transition-all duration-300 ${
+                        format === fmt.id
+                          ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
+                          : "border border-white/20 bg-white/5 text-slate-300 hover:bg-white/10"
+                      }`}
+                    >
+                      <div className="font-medium">{fmt.label}</div>
+                      <div className="text-xs opacity-75">{fmt.description}</div>
+                    </button>
+                  ))}
+                  <button
+                    onClick={() => setShowAdvanced(!showAdvanced)}
+                    className="w-full rounded-xl border border-white/20 bg-white/5 p-3 text-center text-sm text-slate-300 transition-all hover:bg-white/10"
+                  >
+                    {showAdvanced ? "Show Common Formats" : "Show More Formats"}
+                  </button>
+                  {showAdvanced && (
+                    <div className="space-y-3">
+                      {TIMESTAMP_FORMATS.slice(4).map((fmt) => (
+                        <button
+                          key={fmt.id}
+                          onClick={() => setFormat(fmt.id)}
+                          className={`w-full rounded-xl p-3 text-left transition-all duration-300 ${
+                            format === fmt.id
+                              ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
+                              : "border border-white/20 bg-white/5 text-slate-300 hover:bg-white/10"
+                          }`}
+                        >
+                          <div className="font-medium">{fmt.label}</div>
+                          <div className="text-xs opacity-75">{fmt.description}</div>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right preview and output area - 60% */}
+          <div className="space-y-6 lg:col-span-3">
+            {/* Discord preview */}
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
+              <div className="border-b border-white/10 px-6 py-4">
+                <div className="flex items-center justify-between">
+                  <h2 className="flex items-center text-lg font-semibold text-white">
+                    <Monitor className="mr-3 h-5 w-5 text-blue-400" />
+                    Discord Preview
+                  </h2>
+                  <div className="flex items-center space-x-2 text-sm text-slate-400">
+                    <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-400"></div>
+                    <span className="font-mono">Real-time</span>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6">
+                <div
+                  className="rounded-xl p-6 shadow-inner"
+                  style={{
+                    background: "linear-gradient(135deg, #36393f, #2f3136)",
+                    minHeight: "200px",
+                  }}
+                >
+                  {/* Discord 消息 */}
+                  <div className="flex items-start gap-3">
+                    <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
+                    <div className="flex-1">
+                      <div className="mb-2 flex items-center gap-2">
+                        <span className="font-medium text-white">GeeksKai</span>
+                        <span className="rounded bg-blue-600 px-1.5 py-0.5 text-xs font-bold text-white">
+                          BOT
+                        </span>
+                        <span className="text-xs text-slate-400">
+                          Today{" "}
                           {new Date().toLocaleTimeString([], {
                             hour: "2-digit",
                             minute: "2-digit",
                           })}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Message Content */}
-                    <div className="rounded-lg bg-slate-700/50 p-4 backdrop-blur-sm">
-                      <div className="mb-3 text-lg font-medium text-white">🎉 Event Reminder</div>
-                      <div className="text-slate-300">
-                        The big event starts{" "}
-                        <span className="rounded bg-blue-600/20 px-2 py-1 font-mono text-sm text-blue-300 transition-all duration-300">
-                          {previewText || "in 2 hours"}
                         </span>
                       </div>
-
-                      {/* Generated Timestamp Display */}
-                      <div className="mt-4 rounded border border-slate-600/50 bg-slate-800/50 p-3">
-                        <div className="mb-2 text-xs text-slate-400">Generated timestamp code:</div>
-                        <div className="break-all font-mono text-green-400">
-                          {generatedTimestamp}
+                      <div className="rounded-lg bg-slate-700/50 p-3">
+                        <div className="mb-2 text-white">🎉 Event Reminder</div>
+                        <div className="text-slate-300">
+                          The big event starts{" "}
+                          <span className="rounded bg-blue-600/20 px-2 py-1 font-mono text-sm text-blue-300">
+                            {previewText || "in 2 hours"}
+                          </span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Modern Action Buttons */}
-
-              <div className="flex flex-col gap-3 px-6 pb-6 sm:flex-row sm:justify-center">
-                <button
-                  onClick={addToFavorites}
-                  className="flex items-center justify-center space-x-2 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-3 text-sm font-medium text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] sm:min-w-[140px]"
-                >
-                  <Heart className="h-4 w-4 flex-shrink-0" />
-                  <span className="whitespace-nowrap">Save</span>
-                </button>
-
-                <button
-                  onClick={resetValues}
-                  className="flex items-center justify-center space-x-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-medium text-slate-300 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:bg-white/10 active:scale-[0.98] sm:min-w-[140px]"
-                >
-                  <RotateCcw className="h-4 w-4 flex-shrink-0" />
-                  <span className="whitespace-nowrap">Reset</span>
-                </button>
-
-                <button
-                  onClick={copyToClipboard}
-                  className={`w-full max-w-md rounded-2xl px-8 py-5 text-lg font-bold shadow-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl active:scale-[0.98] ${
-                    copySuccess
-                      ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white"
-                      : "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
-                  }`}
-                >
-                  {copySuccess ? (
-                    <div className="flex items-center justify-center space-x-3">
-                      <CheckCircle className="h-6 w-6 flex-shrink-0" />
-                      <span className="whitespace-nowrap">Copied!</span>
+            {/* Generated result and actions */}
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
+              <div className="border-b border-white/10 px-6 py-4">
+                <h3 className="flex items-center text-lg font-semibold text-white">
+                  <RotateCw className="mr-3 h-5 w-5 text-green-400" />
+                  Generated Result
+                </h3>
+              </div>
+              <div className="p-6">
+                <div className="space-y-4">
+                  {/* Generated code */}
+                  <div>
+                    <label className="mb-2 block text-sm font-medium text-slate-300">
+                      Discord Timestamp Code
+                    </label>
+                    <div className="rounded-lg border border-slate-600/50 bg-slate-800/50 p-4">
+                      <div className="break-all font-mono text-lg text-green-400">
+                        {generatedTimestamp}
+                      </div>
                     </div>
-                  ) : (
-                    <div className="flex items-center justify-center space-x-3">
-                      <Copy className="h-6 w-6 flex-shrink-0" />
-                      <span className="whitespace-nowrap">Copy Code</span>
+                  </div>
+
+                  {/* Preview effect */}
+                  <div>
+                    <label className="mb-2 block text-sm font-medium text-slate-300">
+                      Display Effect
+                    </label>
+                    <div className="rounded-lg bg-blue-500/10 p-4 text-lg text-blue-300">
+                      {previewText || "Preview will appear here"}
                     </div>
-                  )}
-                </button>
+                  </div>
+
+                  {/* Action buttons */}
+                  <div className="flex gap-3">
+                    <button
+                      onClick={copyToClipboard}
+                      className={`flex-1 rounded-xl px-6 py-4 text-lg font-semibold shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] ${
+                        copySuccess
+                          ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white"
+                          : "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
+                      }`}
+                    >
+                      {copySuccess ? (
+                        <div className="flex items-center justify-center space-x-2">
+                          <CheckCircle className="h-5 w-5" />
+                          <span>Copied!</span>
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-center space-x-2">
+                          <Copy className="h-5 w-5" />
+                          <span>Copy Code</span>
+                        </div>
+                      )}
+                    </button>
+                    <button
+                      onClick={addToFavorites}
+                      className="rounded-xl border border-white/20 bg-white/5 px-6 py-4 text-slate-300 transition-all hover:bg-white/10"
+                    >
+                      <BookmarkPlus className="h-5 w-5" />
+                    </button>
+                    <button
+                      onClick={resetValues}
+                      className="rounded-xl border border-white/20 bg-white/5 px-6 py-4 text-slate-300 transition-all hover:bg-white/10"
+                    >
+                      <RotateCcw className="h-5 w-5" />
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Modern Favorites Section */}
+            {/* Saved configurations */}
             {favorites.length > 0 && (
-              <div className="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
+              <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
                 <div className="border-b border-white/10 px-6 py-4">
                   <h3 className="flex items-center text-lg font-semibold text-white">
                     <Star className="mr-3 h-5 w-5 text-yellow-400" />
@@ -505,11 +792,11 @@ export default function DiscordTimestampGenerator() {
                   </h3>
                 </div>
                 <div className="p-6">
-                  <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="grid gap-3">
                     {favorites.map((favorite, index) => (
                       <button
                         key={index}
-                        className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-4 text-left backdrop-blur-sm transition-all hover:scale-105 hover:border-white/20 hover:bg-white/10"
+                        className="group rounded-xl border border-white/10 bg-white/5 p-4 text-left transition-all hover:bg-white/10"
                         onClick={() => {
                           const config = favorite.config
                           setMode(config.mode)
@@ -518,323 +805,17 @@ export default function DiscordTimestampGenerator() {
                           setDateInput(config.dateInput)
                         }}
                       >
-                        <div className="mb-3 flex items-center justify-between">
-                          <h4 className="font-medium text-white transition-colors group-hover:text-blue-300">
-                            {favorite.name}
-                          </h4>
+                        <div className="mb-2 flex items-center justify-between">
+                          <span className="font-medium text-white">{favorite.name}</span>
                           <span className="text-xs text-slate-400">Click to apply</span>
                         </div>
-                        <div className="break-all font-mono text-xs text-slate-300">
-                          {favorite.timestamp}
-                        </div>
+                        <div className="font-mono text-xs text-slate-300">{favorite.timestamp}</div>
                       </button>
                     ))}
                   </div>
                 </div>
               </div>
             )}
-          </div>
-
-          {/* Modern Settings Panel */}
-          <div className="space-y-6 lg:col-span-4">
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
-              <div className="border-b border-white/10 px-6 py-5">
-                <div className="flex items-center justify-between">
-                  <h2 className="flex items-center text-xl font-semibold text-white">
-                    <Settings className="mr-3 h-5 w-5 text-slate-400" />
-                    Customization
-                  </h2>
-                  <div className="flex items-center space-x-2">
-                    <button
-                      onClick={() => setShowSettings(!showSettings)}
-                      className="rounded-xl p-2 text-slate-400 transition-all hover:bg-white/10 hover:text-white"
-                    >
-                      {showSettings ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {showSettings && (
-                <div className="p-6">
-                  {/* Modern Tab Navigation */}
-                  <div className="mb-8 flex rounded-xl border border-white/10 bg-white/10 p-1.5 backdrop-blur-sm">
-                    {(["input", "formats", "preview"] as const).map((tab) => (
-                      <button
-                        key={tab}
-                        onClick={() => setActiveTab(tab)}
-                        className={`flex-1 rounded-lg px-4 py-2.5 text-sm font-medium capitalize transition-all ${
-                          activeTab === tab
-                            ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
-                            : "text-slate-300 hover:bg-white/10 hover:text-white"
-                        }`}
-                      >
-                        {tab}
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* Tab Content */}
-                  <div className="space-y-6">
-                    {/* Input Tab */}
-                    {activeTab === "input" && (
-                      <div className="space-y-6">
-                        <h3 className="flex items-center text-sm font-medium text-slate-300">
-                          <Type className="mr-2 h-4 w-4" />
-                          Input Configuration
-                        </h3>
-
-                        {/* Mode Selection */}
-                        <div>
-                          <label className="mb-3 block text-sm font-medium text-slate-300">
-                            Input Mode
-                          </label>
-                          <div className="flex rounded-xl border border-white/20 bg-white/5 p-1 backdrop-blur-sm">
-                            <button
-                              onClick={() => setMode("timeframe")}
-                              className={`flex-1 rounded-lg px-4 py-3 text-sm font-medium transition-all duration-300 ${
-                                mode === "timeframe"
-                                  ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
-                                  : "text-slate-300 hover:bg-white/10 hover:text-white"
-                              }`}
-                            >
-                              <div className="flex items-center justify-center gap-2">
-                                <Clock className="h-4 w-4" />
-                                Relative
-                              </div>
-                            </button>
-                            <button
-                              onClick={() => setMode("date")}
-                              className={`flex-1 rounded-lg px-4 py-3 text-sm font-medium transition-all duration-300 ${
-                                mode === "date"
-                                  ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
-                                  : "text-slate-300 hover:bg-white/10 hover:text-white"
-                              }`}
-                            >
-                              <div className="flex items-center justify-center gap-2">
-                                <Calendar className="h-4 w-4" />
-                                Absolute
-                              </div>
-                            </button>
-                          </div>
-                        </div>
-
-                        {/* Timeframe Mode */}
-                        {mode === "timeframe" && (
-                          <div className="space-y-4">
-                            <h4 className="text-sm font-medium text-slate-300">Time Adjustment</h4>
-                            <div className="grid grid-cols-2 gap-4">
-                              {(["weeks", "days", "hours", "minutes"] as const).map((unit) => (
-                                <div
-                                  key={unit}
-                                  className="rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm"
-                                >
-                                  <div className="mb-3 text-center">
-                                    <span className="text-xs font-medium uppercase tracking-wide text-slate-300">
-                                      {unit}
-                                    </span>
-                                  </div>
-                                  <div className="flex items-center justify-center gap-2">
-                                    <button
-                                      onClick={() => adjustTime(unit, -1)}
-                                      className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-700 text-slate-300 transition-all duration-200 hover:scale-110 hover:bg-red-500 hover:text-white"
-                                    >
-                                      <Minus className="h-3 w-3" />
-                                    </button>
-                                    <div className="flex-1 text-center">
-                                      <span className="text-lg font-semibold text-white">
-                                        {timeAdjustment[unit]}
-                                      </span>
-                                    </div>
-                                    <button
-                                      onClick={() => adjustTime(unit, 1)}
-                                      className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-700 text-slate-300 transition-all duration-200 hover:scale-110 hover:bg-blue-500 hover:text-white"
-                                    >
-                                      <Plus className="h-3 w-3" />
-                                    </button>
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Date Mode */}
-                        {mode === "date" && (
-                          <div className="space-y-4">
-                            <h4 className="text-sm font-medium text-slate-300">
-                              Specific Date & Time
-                              <span className="ml-2 text-xs font-normal text-slate-500">
-                                (UTC{timezoneString})
-                              </span>
-                            </h4>
-                            <div className="grid grid-cols-2 gap-4">
-                              <div>
-                                <label className="mb-2 block text-xs font-medium text-slate-400">
-                                  Year
-                                </label>
-                                <input
-                                  type="number"
-                                  value={dateInput.year}
-                                  onChange={(e) =>
-                                    setDateInput((prev) => ({
-                                      ...prev,
-                                      year: parseInt(e.target.value) || 0,
-                                    }))
-                                  }
-                                  className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50"
-                                />
-                              </div>
-                              <div>
-                                <label className="mb-2 block text-xs font-medium text-slate-400">
-                                  Month
-                                </label>
-                                <input
-                                  type="number"
-                                  min="1"
-                                  max="12"
-                                  value={dateInput.month}
-                                  onChange={(e) =>
-                                    setDateInput((prev) => ({
-                                      ...prev,
-                                      month: parseInt(e.target.value) || 1,
-                                    }))
-                                  }
-                                  className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50"
-                                />
-                              </div>
-                              <div>
-                                <label className="mb-2 block text-xs font-medium text-slate-400">
-                                  Day
-                                </label>
-                                <input
-                                  type="number"
-                                  min="1"
-                                  max="31"
-                                  value={dateInput.day}
-                                  onChange={(e) =>
-                                    setDateInput((prev) => ({
-                                      ...prev,
-                                      day: parseInt(e.target.value) || 1,
-                                    }))
-                                  }
-                                  className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50"
-                                />
-                              </div>
-                              <div>
-                                <label className="mb-2 block text-xs font-medium text-slate-400">
-                                  Hour
-                                </label>
-                                <input
-                                  type="number"
-                                  min="0"
-                                  max="23"
-                                  value={dateInput.hour}
-                                  onChange={(e) =>
-                                    setDateInput((prev) => ({
-                                      ...prev,
-                                      hour: parseInt(e.target.value) || 0,
-                                    }))
-                                  }
-                                  className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    )}
-
-                    {/* Formats Tab */}
-                    {activeTab === "formats" && (
-                      <div className="space-y-6">
-                        <h3 className="flex items-center text-sm font-medium text-slate-300">
-                          <Zap className="mr-2 h-4 w-4" />
-                          Display Formats
-                        </h3>
-                        <div className="grid gap-3">
-                          {TIMESTAMP_FORMATS.map((fmt) => (
-                            <button
-                              key={fmt.id}
-                              onClick={() => setFormat(fmt.id)}
-                              className={`rounded-xl p-4 text-left transition-all duration-300 ${
-                                format === fmt.id
-                                  ? "scale-105 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
-                                  : "border border-white/20 bg-white/5 text-slate-300 backdrop-blur-sm hover:scale-105 hover:bg-white/10"
-                              }`}
-                            >
-                              <div className="font-medium">{fmt.label}</div>
-                              <div
-                                className={`text-xs ${
-                                  format === fmt.id ? "text-blue-100" : "text-slate-400"
-                                }`}
-                              >
-                                {fmt.description}
-                              </div>
-                              <div
-                                className={`mt-1 font-mono text-xs ${
-                                  format === fmt.id ? "text-blue-200" : "text-slate-500"
-                                }`}
-                              >
-                                e.g., {fmt.example}
-                              </div>
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Preview Tab */}
-                    {activeTab === "preview" && (
-                      <div className="space-y-6">
-                        <h3 className="flex items-center text-sm font-medium text-slate-300">
-                          <Monitor className="mr-2 h-4 w-4" />
-                          Preview Options
-                        </h3>
-
-                        <div className="space-y-4">
-                          <div className="rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm">
-                            <h4 className="mb-3 font-medium text-white">Current Configuration</h4>
-                            <div className="space-y-2 text-sm text-slate-300">
-                              <div>
-                                Mode:{" "}
-                                <span className="text-blue-300">
-                                  {mode === "timeframe" ? "Relative" : "Absolute Date"}
-                                </span>
-                              </div>
-                              <div>
-                                Format:{" "}
-                                <span className="text-purple-300">
-                                  {TIMESTAMP_FORMATS.find((f) => f.id === format)?.label}
-                                </span>
-                              </div>
-                              <div>
-                                Timezone:{" "}
-                                <span className="text-green-300">UTC{timezoneString}</span>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm">
-                            <h4 className="mb-3 font-medium text-white">Generated Code</h4>
-                            <div className="break-all rounded-lg bg-slate-800/50 p-3 font-mono text-xs text-green-400">
-                              {generatedTimestamp}
-                            </div>
-                          </div>
-
-                          <div className="rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm">
-                            <h4 className="mb-3 font-medium text-white">Live Preview</h4>
-                            <div className="rounded-lg bg-slate-800/50 p-3 text-sm text-blue-300">
-                              {previewText || "Preview will appear here"}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
-            </div>
           </div>
         </div>
       </div>
