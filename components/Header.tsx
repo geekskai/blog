@@ -125,7 +125,9 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-800/50 bg-slate-950/80 shadow-xl backdrop-blur-xl">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6 xl:px-0">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-purple-500/5"></div>
+      <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6 xl:px-0">
         {/* Logo Section */}
         <Link href="/" aria-label={siteMetadata.headerTitle}>
           <div className="group flex items-center gap-3">
@@ -178,7 +180,9 @@ const Header = () => {
 
               {/* Dropdown Menu */}
               <div className="invisible absolute left-1/2 top-full mt-2 w-80 -translate-x-1/2 transform opacity-0 transition-all duration-300 group-hover/dropdown:visible group-hover/dropdown:opacity-100">
-                <div className="rounded-2xl border border-slate-700/50 bg-slate-900/95 p-4 shadow-2xl backdrop-blur-xl">
+                {/* Subtle glow effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 blur-xl transition-opacity duration-300 group-hover/dropdown:opacity-50"></div>
+                <div className="relative rounded-2xl border border-slate-700/50 bg-slate-900/95 p-4 shadow-2xl backdrop-blur-xl">
                   {/* Header */}
                   <div className="mb-4 flex items-center justify-between border-b border-slate-700/50 pb-3">
                     <div className="flex items-center gap-2">

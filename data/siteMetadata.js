@@ -15,6 +15,7 @@ const siteMetadata = {
   email: "geeks.kai@gmail.com",
   github: "https://github.com/geekskai",
   x: "https://twitter.com/GeeksKai",
+  twitter: "https://twitter.com/GeeksKai",
   leetcode: "https://leetcode.cn/u/githubgankai/",
   facebook: "https://www.facebook.com/geekskai",
   youtube: "https://www.youtube.com/@kaigan-is6ym",
