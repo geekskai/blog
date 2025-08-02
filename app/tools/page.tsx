@@ -226,13 +226,15 @@ export default function ToolsPage() {
       }
     `
     document.head.appendChild(style)
-    return () => document.head.removeChild(style)
+    return () => {
+      document.head.removeChild(style)
+    }
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30 dark:from-slate-900 dark:via-blue-950/30 dark:to-purple-950/30">
+      <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950/30 to-purple-950/30">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-gradient-to-br from-blue-400/20 to-purple-400/20 blur-3xl"></div>
@@ -252,7 +254,7 @@ export default function ToolsPage() {
           <div className="text-center">
             {/* Animated Badge */}
             <div className="mb-8 flex justify-center">
-              <div className="group relative inline-flex items-center gap-2 rounded-full bg-white/80 px-6 py-3 text-sm font-medium text-slate-700 shadow-lg ring-1 ring-slate-200/50 backdrop-blur-sm transition-all duration-300 hover:bg-white hover:shadow-xl dark:bg-slate-800/80 dark:text-slate-200 dark:ring-slate-700/50 dark:hover:bg-slate-800">
+              <div className="group relative inline-flex items-center gap-2 rounded-full bg-slate-800/80 px-6 py-3 text-sm font-medium text-slate-200 shadow-lg ring-1 ring-slate-700/50 backdrop-blur-sm transition-all duration-300 hover:bg-slate-800 hover:shadow-xl">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-blue-500/0 opacity-0 transition-opacity duration-300 group-hover:opacity-10"></div>
                 <div className="flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-600">
                   <Grid className="h-3 w-3 text-white" />
@@ -264,7 +266,7 @@ export default function ToolsPage() {
 
             {/* Main Heading with Staggered Animation */}
             <div className="mb-6 space-y-2">
-              <h1 className="text-5xl font-bold tracking-tight text-slate-900 dark:text-white lg:text-7xl">
+              <h1 className="text-5xl font-bold tracking-tight text-white lg:text-7xl">
                 <span className="block">Tools that</span>
                 <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
                   supercharge
@@ -274,17 +276,14 @@ export default function ToolsPage() {
             </div>
 
             {/* Enhanced Description */}
-            <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed text-slate-600 dark:text-slate-300">
+            <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed text-slate-300">
               Discover powerful, free online tools crafted for{" "}
-              <span className="font-semibold text-blue-600 dark:text-blue-400">developers</span>,{" "}
-              <span className="font-semibold text-purple-600 dark:text-purple-400">creators</span>,
-              and{" "}
-              <span className="font-semibold text-emerald-600 dark:text-emerald-400">
-                innovators
-              </span>
+              <span className="font-semibold text-blue-400">developers</span>,{" "}
+              <span className="font-semibold text-purple-400">creators</span>, and{" "}
+              <span className="font-semibold text-emerald-400">innovators</span>
               .
               <br />
-              <span className="text-lg text-slate-500 dark:text-slate-400">
+              <span className="text-lg text-slate-400">
                 No signup required. Always free. Built with care.
               </span>
             </p>
@@ -644,7 +643,7 @@ export default function ToolsPage() {
       </div>
 
       {/* Interactive CTA Section */}
-      <div className="relative mt-20 overflow-hidden">
+      <div className="relative overflow-hidden">
         {/* Dynamic Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.1),transparent_50%)]"></div>
