@@ -11,6 +11,7 @@ import {
   Monitor,
   Star,
   Sparkles,
+  Clock,
 } from "lucide-react"
 
 export default function ToolsPage() {
@@ -29,6 +30,19 @@ export default function ToolsPage() {
   }
 
   const tools = [
+    {
+      id: "discord-timestamp-generator",
+      title: "Discord Timestamp Generator",
+      description:
+        "Create dynamic timestamps that automatically update in Discord messages. Perfect for events, deadlines, and countdowns that work across all timezones.",
+      icon: Clock,
+      href: "/tools/discord-timestamp-generator",
+      features: ["Real-time Updates", "Multiple Formats", "Timezone Aware", "Easy Copy & Paste"],
+      badge: "Popular",
+      badgeColor: "bg-purple-500",
+      gradient: gradients.professional,
+      category: "Communication",
+    },
     {
       id: "job-worth-calculator",
       title: "Job Worth Calculator",
