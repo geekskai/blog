@@ -77,6 +77,7 @@ const jsonLd = {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
   },
   featureList: [
     "Dynamic Discord timestamp generation",
@@ -105,7 +106,7 @@ const jsonLd = {
     "discord timestamp generator, create discord timestamp, generate discord timestamp, discord event generator, discord countdown generator, discord reminder timestamp, discord bot timestamp creation, dynamic discord timestamps, discord event scheduling, discord timestamp maker, discord time generator, discord community tools",
   educationalUse:
     "Discord Event Planning, Discord Community Management, Discord Bot Development, Discord Event Coordination, Discord Reminder Systems, Discord Server Administration",
-  targetAudience: {
+  audience: {
     "@type": "Audience",
     audienceType:
       "Discord Community Managers, Discord Bot Developers, Event Organizers, Discord Server Administrators, Gaming Communities, Content Creators",

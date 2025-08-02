@@ -75,6 +75,7 @@ const jsonLd = {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
   },
   featureList: [
     "Bidirectional Discord timestamp conversion",
@@ -102,7 +103,7 @@ const jsonLd = {
     "discord time converter, discord timestamp generator, discord timestamp converter, unix timestamp discord, discord bot timestamp, discord timezone conversion, discord community tools, discord server management, discord event scheduling, discord coordination tool, discord timestamp formats",
   educationalUse:
     "Discord Community Management, Discord Bot Development, Event Planning, Global Coordination, Team Collaboration, Discord Server Administration",
-  targetAudience: {
+  audience: {
     "@type": "Audience",
     audienceType:
       "Discord Community Managers, Discord Bot Developers, Event Organizers, Global Teams, Gaming Communities, Discord Server Administrators",
