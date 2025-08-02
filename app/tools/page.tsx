@@ -290,38 +290,38 @@ export default function ToolsPage() {
 
             {/* Interactive Stats */}
             <div className="mb-12 flex flex-wrap items-center justify-center gap-6">
-              <div className="group cursor-pointer rounded-2xl bg-white/60 px-6 py-4 shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-white hover:shadow-lg dark:bg-slate-800/60 dark:hover:bg-slate-800">
+              <div className="group cursor-pointer rounded-2xl bg-slate-800/60 px-6 py-4 shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-slate-800 hover:shadow-lg">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-blue-600">
                     <Users className="h-5 w-5 text-white" />
                   </div>
                   <div className="text-left">
-                    <div className="text-2xl font-bold text-slate-900 dark:text-white">25K+</div>
-                    <div className="text-sm text-slate-600 dark:text-slate-400">Happy Users</div>
+                    <div className="text-2xl font-bold text-white">25K+</div>
+                    <div className="text-sm text-slate-400">Happy Users</div>
                   </div>
                 </div>
               </div>
 
-              <div className="group cursor-pointer rounded-2xl bg-white/60 px-6 py-4 shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-white hover:shadow-lg dark:bg-slate-800/60 dark:hover:bg-slate-800">
+              <div className="group cursor-pointer rounded-2xl bg-slate-800/60 px-6 py-4 shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-slate-800 hover:shadow-lg">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600">
                     <Zap className="h-5 w-5 text-white" />
                   </div>
                   <div className="text-left">
-                    <div className="text-2xl font-bold text-slate-900 dark:text-white">100%</div>
-                    <div className="text-sm text-slate-600 dark:text-slate-400">Free Forever</div>
+                    <div className="text-2xl font-bold text-white">100%</div>
+                    <div className="text-sm text-slate-400">Free Forever</div>
                   </div>
                 </div>
               </div>
 
-              <div className="group cursor-pointer rounded-2xl bg-white/60 px-6 py-4 shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-white hover:shadow-lg dark:bg-slate-800/60 dark:hover:bg-slate-800">
+              <div className="group cursor-pointer rounded-2xl bg-slate-800/60 px-6 py-4 shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-slate-800 hover:shadow-lg">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-600">
                     <Download className="h-5 w-5 text-white" />
                   </div>
                   <div className="text-left">
-                    <div className="text-2xl font-bold text-slate-900 dark:text-white">0</div>
-                    <div className="text-sm text-slate-600 dark:text-slate-400">Setup Required</div>
+                    <div className="text-2xl font-bold text-white">0</div>
+                    <div className="text-sm text-slate-400">Setup Required</div>
                   </div>
                 </div>
               </div>
@@ -351,9 +351,7 @@ export default function ToolsPage() {
                   </div>
                 </button>
 
-                <div className="text-sm text-slate-500 dark:text-slate-400">
-                  or scroll down to browse
-                </div>
+                <div className="text-sm text-slate-400">or scroll down to browse</div>
               </div>
 
               {/* Scroll Indicator */}
