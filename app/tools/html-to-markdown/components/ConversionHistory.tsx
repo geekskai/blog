@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import {
   History,
   Download,
@@ -41,6 +41,19 @@ export default function ConversionHistory({
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc")
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set())
   const [copiedItems, setCopiedItems] = useState<Set<string>>(new Set())
+  const [showClearConfirm, setShowClearConfirm] = useState(false)
+
+  // Handle escape key for modal
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && showClearConfirm) {
+        setShowClearConfirm(false)
+      }
+    }
+
+    document.addEventListener("keydown", handleEscape)
+    return () => document.removeEventListener("keydown", handleEscape)
+  }, [showClearConfirm])
 
   // Filter and sort history
   const filteredHistory = history
@@ -98,6 +111,12 @@ export default function ConversionHistory({
     } else {
       onDownload()
     }
+  }
+
+  const handleClearConfirm = () => {
+    onClear()
+    setShowClearConfirm(false)
+    setSelectedItems(new Set()) // Clear selections after clearing history
   }
 
   const toggleExpanded = (id: string) => {
@@ -181,7 +200,7 @@ export default function ConversionHistory({
               </span>
             </button>
             <button
-              onClick={onClear}
+              onClick={() => setShowClearConfirm(true)}
               className="inline-flex items-center space-x-1 rounded-lg bg-red-600 px-3 py-2 text-sm font-medium text-white hover:bg-red-700"
             >
               <Trash2 className="h-4 w-4" />
@@ -367,6 +386,44 @@ export default function ConversionHistory({
           </div>
         )}
       </div>
+
+      {/* Clear Confirmation Modal */}
+      {showClearConfirm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="mx-4 w-full max-w-md rounded-xl bg-slate-800 shadow-2xl ring-1 ring-slate-700">
+            <div className="p-6">
+              <div className="mb-4 flex items-center space-x-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100">
+                  <Trash2 className="h-5 w-5 text-red-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-white">Clear History</h3>
+                  <p className="text-sm text-slate-400">This action cannot be undone</p>
+                </div>
+              </div>
+              <p className="mb-6 text-slate-300">
+                Are you sure you want to clear all conversion history? This will permanently delete{" "}
+                <span className="font-semibold text-white">{history.length}</span> conversion
+                {history.length === 1 ? "" : "s"}.
+              </p>
+              <div className="flex space-x-3">
+                <button
+                  onClick={() => setShowClearConfirm(false)}
+                  className="flex-1 rounded-lg border border-slate-600 bg-slate-700 px-4 py-2 text-sm font-medium text-white hover:bg-slate-600"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleClearConfirm}
+                  className="flex-1 rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700"
+                >
+                  Clear All
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

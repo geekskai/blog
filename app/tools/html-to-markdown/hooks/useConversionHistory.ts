@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react"
 import { ConversionResult } from "../types"
-import { downloadBatchResults } from "../utils/downloadHelper"
+import { downloadBatchResults, downloadSelectedResults } from "../utils/downloadHelper"
 
 const STORAGE_KEY = "html-to-markdown-history"
 const MAX_HISTORY_ITEMS = 50
@@ -81,7 +81,7 @@ export const useConversionHistory = () => {
   )
 
   const downloadHistory = useCallback(
-    (selectedIds?: string[]) => {
+    async (selectedIds?: string[]) => {
       const itemsToDownload = selectedIds
         ? history.filter((item) => selectedIds.includes(item.id))
         : history
@@ -91,10 +91,20 @@ export const useConversionHistory = () => {
         return
       }
 
-      downloadBatchResults(itemsToDownload, {
-        format: "md",
-        includeMetadata: true,
-      })
+      try {
+        // Use new smart download function for better UX
+        await downloadSelectedResults(itemsToDownload, {
+          format: "md",
+          includeMetadata: true,
+        })
+      } catch (error) {
+        console.error("Download failed:", error)
+        // Fallback to batch download
+        downloadBatchResults(itemsToDownload, {
+          format: "md",
+          includeMetadata: true,
+        })
+      }
     },
     [history]
   )

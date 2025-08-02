@@ -1,4 +1,5 @@
 import { saveAs } from "file-saver"
+import JSZip from "jszip"
 import { ConversionResult, DownloadOptions } from "../types"
 
 export function downloadMarkdown(
@@ -196,4 +197,85 @@ export function estimateReadingTime(wordCount: number): string {
   }
 
   return `${hours}h ${remainingMinutes}m`
+}
+
+/**
+ * Download selected conversion results - single file directly, multiple files compressed
+ */
+export async function downloadSelectedResults(
+  results: ConversionResult[],
+  options: Partial<DownloadOptions> = {}
+): Promise<void> {
+  if (results.length === 0) return
+
+  // Single file - download directly
+  if (results.length === 1) {
+    const result = results[0]
+    const filename = generateFilename(result.input, result.inputType)
+    downloadMarkdown(result.markdown, filename, options)
+    return
+  }
+
+  // Multiple files - create zip
+  const zip = new JSZip()
+  const timestamp = new Date().toISOString().split("T")[0]
+  const folderName = `markdown-exports-${timestamp}`
+  const folder = zip.folder(folderName)
+
+  if (!folder) {
+    throw new Error("Failed to create zip folder")
+  }
+
+  // Add metadata file
+  const metadata = {
+    exportedAt: new Date().toISOString(),
+    totalFiles: results.length,
+    exportedBy: "GeeksKai HTML to Markdown Converter",
+    files: results.map((result, index) => ({
+      index: index + 1,
+      title: result.title,
+      source: result.inputType === "url" ? result.input : "HTML Input",
+      wordCount: result.wordCount,
+      processedAt: result.timestamp,
+      processingTime: result.processingTime,
+    })),
+  }
+
+  folder.file("export-metadata.json", JSON.stringify(metadata, null, 2))
+
+  // Add each markdown file
+  results.forEach((result, index) => {
+    const filename = generateFilename(result.input, result.inputType)
+    const safeFilename = `${String(index + 1).padStart(2, "0")}-${filename}.md`
+
+    let content = result.markdown
+
+    // Add frontmatter if metadata is enabled
+    if (options.includeMetadata !== false) {
+      const frontmatter = [
+        "---",
+        `title: "${result.title || `Conversion ${index + 1}`}"`,
+        `source: ${result.inputType === "url" ? result.input : "HTML Input"}`,
+        `exported_at: ${new Date().toISOString()}`,
+        `word_count: ${result.wordCount}`,
+        `processing_time: ${result.processingTime}ms`,
+        `original_timestamp: ${result.timestamp}`,
+        "---",
+        "",
+        content,
+      ].join("\n")
+      content = frontmatter
+    }
+
+    folder.file(safeFilename, content)
+  })
+
+  // Generate and download zip file
+  try {
+    const blob = await zip.generateAsync({ type: "blob" })
+    saveAs(blob, `${folderName}.zip`)
+  } catch (error) {
+    console.error("Error creating zip file:", error)
+    throw new Error("Failed to create zip file")
+  }
 }
