@@ -367,10 +367,7 @@ export default function ToolsPage() {
       </div>
 
       {/* Tools Section */}
-      <div
-        id="tools-section"
-        className="relative bg-gradient-to-b from-slate-50/50 to-white dark:from-slate-900/50 dark:to-slate-950"
-      >
+      <div id="tools-section" className="relative bg-gradient-to-b from-slate-900/50 to-slate-950">
         {/* Subtle Background Pattern */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute left-1/4 top-20 h-px w-20 bg-gradient-to-r from-transparent via-blue-300/50 to-transparent"></div>
@@ -381,16 +378,16 @@ export default function ToolsPage() {
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="mb-16 text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/60 px-4 py-2 text-sm font-medium text-slate-700 shadow-lg ring-1 ring-slate-200/50 backdrop-blur-sm dark:bg-slate-800/60 dark:text-slate-200 dark:ring-slate-700/50">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-slate-800/60 px-4 py-2 text-sm font-medium text-slate-200 shadow-lg ring-1 ring-slate-700/50 backdrop-blur-sm">
               <Filter className="h-4 w-4 text-blue-500" />
               <span>Discover & Explore</span>
             </div>
-            <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white lg:text-4xl">
-              <span className="bg-gradient-to-r from-slate-900 via-blue-800 to-purple-800 bg-clip-text text-transparent dark:from-white dark:via-blue-200 dark:to-purple-200">
+            <h2 className="mb-4 text-3xl font-bold text-white lg:text-4xl">
+              <span className="bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">
                 Professional Tools
               </span>
             </h2>
-            <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-300">
+            <p className="mx-auto max-w-2xl text-lg text-slate-300">
               Hand-picked tools designed to streamline your workflow and boost productivity
             </p>
           </div>
@@ -401,7 +398,7 @@ export default function ToolsPage() {
               {/* Search Bar Container */}
               <div className="group relative mx-auto mb-8 max-w-4xl">
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-emerald-500/10 opacity-0 transition-opacity duration-300 group-focus-within:opacity-100"></div>
-                <div className="relative rounded-2xl bg-white/80 p-1 shadow-xl ring-1 ring-slate-200/50 backdrop-blur-sm transition-all duration-300 group-focus-within:ring-blue-500/50 dark:bg-slate-800/80 dark:ring-slate-700/50">
+                <div className="relative rounded-2xl bg-slate-800/80 p-1 shadow-xl ring-1 ring-slate-700/50 backdrop-blur-sm transition-all duration-300 group-focus-within:ring-blue-500/50">
                   <div className="relative">
                     <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-6">
                       <Search className="h-5 w-5 text-slate-400 transition-colors duration-300 group-focus-within:text-blue-500" />
@@ -411,12 +408,12 @@ export default function ToolsPage() {
                       placeholder="Search tools by name, description, or feature..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full rounded-xl border-0 bg-transparent py-4 pl-14 pr-6 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-0 dark:text-white dark:placeholder-slate-400"
+                      className="w-full rounded-xl border-0 bg-transparent py-4 pl-14 pr-6 text-white placeholder-slate-400 focus:outline-none focus:ring-0"
                     />
                     {searchTerm && (
                       <button
                         onClick={() => setSearchTerm("")}
-                        className="absolute inset-y-0 right-0 flex items-center pr-6 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+                        className="absolute inset-y-0 right-0 flex items-center pr-6 text-slate-400 hover:text-slate-300"
                       >
                         <svg
                           className="h-5 w-5"
@@ -458,7 +455,7 @@ export default function ToolsPage() {
                       className={`group relative overflow-hidden rounded-full px-6 py-3 text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg ${
                         isSelected
                           ? `bg-gradient-to-r ${gradient} text-white shadow-lg`
-                          : "bg-white/60 text-slate-700 shadow-md ring-1 ring-slate-200/50 backdrop-blur-sm hover:bg-white hover:text-slate-900 dark:bg-slate-800/60 dark:text-slate-200 dark:ring-slate-700/50 dark:hover:bg-slate-700"
+                          : "bg-slate-800/60 text-slate-200 shadow-md ring-1 ring-slate-700/50 backdrop-blur-sm hover:bg-slate-700 hover:text-slate-100"
                       }`}
                     >
                       <span className="relative z-10">{category}</span>
@@ -477,7 +474,7 @@ export default function ToolsPage() {
           {/* Results Info with Animation */}
           {(searchTerm || selectedCategory !== "All") && (
             <div className="mb-12 text-center">
-              <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 text-sm text-blue-700 dark:bg-blue-900/20 dark:text-blue-300">
+              <div className="inline-flex items-center gap-2 rounded-full bg-blue-900/20 px-4 py-2 text-sm text-blue-300">
                 <div className="h-2 w-2 animate-pulse rounded-full bg-blue-500"></div>
                 {filteredTools.length === 0 ? (
                   <span>No tools found matching your criteria</span>
@@ -502,7 +499,7 @@ export default function ToolsPage() {
                   href={tool.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group relative overflow-hidden rounded-3xl bg-white/70 shadow-lg ring-1 ring-slate-200/50 backdrop-blur-sm transition-all duration-500 hover:scale-[1.05] hover:shadow-2xl hover:ring-slate-300/50 dark:bg-slate-800/70 dark:ring-slate-700/50 dark:hover:ring-slate-600/50 ${delay}`}
+                  className={`group relative overflow-hidden rounded-3xl bg-slate-800/70 shadow-lg ring-1 ring-slate-700/50 backdrop-blur-sm transition-all duration-500 hover:scale-[1.05] hover:shadow-2xl hover:ring-slate-600/50 ${delay}`}
                   style={{
                     animationDelay: `${(index % 8) * 100}ms`,
                     animation: "fadeInUp 0.6s ease-out forwards",
@@ -547,12 +544,12 @@ export default function ToolsPage() {
                   {/* Enhanced Card Content */}
                   <div className="p-6">
                     {/* Title with Gradient on Hover */}
-                    <h3 className="mb-3 text-xl font-bold text-slate-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
+                    <h3 className="mb-3 text-xl font-bold text-white transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent">
                       {tool.title}
                     </h3>
 
                     {/* Enhanced Description */}
-                    <p className="mb-6 line-clamp-2 text-sm leading-relaxed text-slate-600 transition-colors duration-300 group-hover:text-slate-700 dark:text-slate-300 dark:group-hover:text-slate-200">
+                    <p className="mb-6 line-clamp-2 text-sm leading-relaxed text-slate-300 transition-colors duration-300 group-hover:text-slate-200">
                       {tool.description}
                     </p>
 
@@ -575,15 +572,15 @@ export default function ToolsPage() {
                                 className={`absolute inset-0 h-2 w-2 rounded-full bg-gradient-to-r ${tool.gradient} opacity-0 blur-sm transition-opacity duration-300 group-hover:opacity-50`}
                               ></div>
                             </div>
-                            <span className="text-sm text-slate-600 transition-colors duration-300 group-hover:text-slate-800 dark:text-slate-300 dark:group-hover:text-slate-200">
+                            <span className="text-sm text-slate-300 transition-colors duration-300 group-hover:text-slate-200">
                               {feature}
                             </span>
                           </div>
                         ))}
                         {tool.features.length > 2 && (
                           <div className="flex items-center gap-3 opacity-60 transition-opacity duration-300 group-hover:opacity-80">
-                            <div className="h-2 w-2 rounded-full bg-slate-300 dark:bg-slate-600"></div>
-                            <span className="text-sm text-slate-500 dark:text-slate-400">
+                            <div className="h-2 w-2 rounded-full bg-slate-600"></div>
+                            <span className="text-sm text-slate-400">
                               +{tool.features.length - 2} more features
                             </span>
                           </div>
@@ -593,12 +590,12 @@ export default function ToolsPage() {
 
                     {/* Enhanced CTA Button */}
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-semibold text-blue-600 transition-all duration-300 group-hover:text-blue-700 dark:text-blue-400 dark:group-hover:text-blue-300">
+                      <span className="text-sm font-semibold text-blue-400 transition-all duration-300 group-hover:text-blue-300">
                         Launch Tool
                       </span>
                       <div className="relative">
                         <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-                        <div className="relative rounded-xl bg-slate-100 p-2.5 transition-all duration-300 group-hover:bg-white group-hover:text-blue-600 group-hover:shadow-lg dark:bg-slate-700 dark:group-hover:bg-white">
+                        <div className="relative rounded-xl bg-slate-700 p-2.5 transition-all duration-300 group-hover:bg-white group-hover:text-blue-600 group-hover:shadow-lg">
                           <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
                         </div>
                       </div>
@@ -617,15 +614,11 @@ export default function ToolsPage() {
           {/* No Results State */}
           {filteredTools.length === 0 && (searchTerm || selectedCategory !== "All") && (
             <div className="py-20 text-center">
-              <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800">
+              <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-slate-800">
                 <Search className="h-8 w-8 text-slate-400" />
               </div>
-              <h3 className="mb-2 text-xl font-semibold text-slate-900 dark:text-white">
-                No tools found
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400">
-                Try adjusting your search or filter criteria
-              </p>
+              <h3 className="mb-2 text-xl font-semibold text-white">No tools found</h3>
+              <p className="text-slate-400">Try adjusting your search or filter criteria</p>
               <button
                 onClick={() => {
                   setSearchTerm("")
