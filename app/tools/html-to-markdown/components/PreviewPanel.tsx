@@ -23,6 +23,7 @@ import {
   formatFileSize,
   estimateReadingTime,
 } from "../utils/downloadHelper"
+import Image from "next/image"
 
 interface PreviewPanelProps {
   result: ConversionResult | null
@@ -391,7 +392,7 @@ export default function PreviewPanel({ result, options, onOptionsChange }: Previ
                   ),
                   hr: () => <hr className="my-6 border-slate-600" />,
                   img: ({ src, alt }) => (
-                    <img src={src} alt={alt} className="h-auto max-w-full rounded-lg" />
+                    <Image src={src} alt={alt} className="h-auto max-w-full rounded-lg" />
                   ),
                 }}
               >
