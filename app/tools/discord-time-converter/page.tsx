@@ -919,6 +919,62 @@ export default function DiscordTimeConverter() {
           </div>
         </div>
 
+        {/* Usage guide */}
+        <div className="mt-32 rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-white">
+              How to Use Discord Timestamp Converter - Complete Guide
+            </h2>
+            <p className="mx-auto max-w-2xl text-xl text-slate-400">
+              Master Discord timestamp conversion for your server, bot development, and global
+              community coordination
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div className="text-center">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-blue-500 text-2xl font-bold text-white">
+                1
+              </div>
+              <h3 className="mb-3 text-lg font-semibold text-white">Choose Conversion Direction</h3>
+              <p className="text-slate-400">
+                Select between converting regular time to Discord timestamp format or converting
+                Discord timestamps back to readable time for analysis and debugging.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-purple-500 text-2xl font-bold text-white">
+                2
+              </div>
+              <h3 className="mb-3 text-lg font-semibold text-white">Input Time Data</h3>
+              <p className="text-slate-400">
+                Enter your date and time or paste a Discord timestamp. Our converter accepts all
+                Discord timestamp formats and handles Unix epoch time conversion automatically.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-pink-600 to-pink-500 text-2xl font-bold text-white">
+                3
+              </div>
+              <h3 className="mb-3 text-lg font-semibold text-white">Configure Timezone</h3>
+              <p className="text-slate-400">
+                Select your timezone from our comprehensive list for accurate Discord timestamp
+                generation. Essential for global Discord communities and international event
+                planning.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-green-600 to-green-500 text-2xl font-bold text-white">
+                4
+              </div>
+              <h3 className="mb-3 text-lg font-semibold text-white">Copy & Implement</h3>
+              <p className="text-slate-400">
+                Copy the generated Discord timestamp in your preferred format and paste it into
+                Discord messages, bot code, or webhook content for automatic timezone display.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Content Sections for SEO */}
         <div className="mt-20 space-y-16">
           {/* What is Discord Timestamp Section */}
@@ -1215,6 +1271,57 @@ export default function DiscordTimeConverter() {
             </div>
           </section>
 
+          {/* Features section */}
+          <div className="mt-32">
+            <div className="mb-16 text-center">
+              <h2 className="mb-4 text-3xl font-bold text-white">
+                Professional Discord Timestamp Features
+              </h2>
+              <p className="mx-auto max-w-2xl text-xl text-slate-400">
+                Everything you need for Discord timestamp conversion and coordination
+              </p>
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-3">
+              <div className="group text-center">
+                <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10">
+                  <ArrowLeftRight className="h-12 w-12 text-blue-400" />
+                </div>
+                <h3 className="mb-6 text-xl font-semibold text-white">
+                  Bidirectional Discord Timestamp Conversion
+                </h3>
+                <p className="text-lg leading-relaxed text-slate-400">
+                  Convert from regular time to Discord timestamps and convert Discord timestamps
+                  back to readable time with full format support for all Discord timestamp types.
+                </p>
+              </div>
+
+              <div className="group text-center">
+                <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10">
+                  <Globe className="h-12 w-12 text-green-400" />
+                </div>
+                <h3 className="mb-6 text-xl font-semibold text-white">Complete Timezone Support</h3>
+                <p className="text-lg leading-relaxed text-slate-400">
+                  Handle all global timezones with automatic conversion and offset calculations.
+                  Perfect for international Discord communities and worldwide event coordination.
+                </p>
+              </div>
+
+              <div className="group text-center">
+                <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10">
+                  <Zap className="h-12 w-12 text-purple-400" />
+                </div>
+                <h3 className="mb-6 text-xl font-semibold text-white">
+                  Batch Discord Timestamp Processing
+                </h3>
+                <p className="text-lg leading-relaxed text-slate-400">
+                  Convert multiple timestamps simultaneously for efficient bulk operations, Discord
+                  bot development, and large-scale event scheduling across time zones.
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* FAQ Section */}
           <section className="rounded-xl bg-slate-800 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
@@ -1341,113 +1448,6 @@ export default function DiscordTimeConverter() {
               </div>
             </div>
           </section>
-        </div>
-
-        {/* Features section */}
-        <div className="mt-32">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-white">
-              Professional Discord Timestamp Features
-            </h2>
-            <p className="mx-auto max-w-2xl text-xl text-slate-400">
-              Everything you need for Discord timestamp conversion and coordination
-            </p>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-3">
-            <div className="group text-center">
-              <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10">
-                <ArrowLeftRight className="h-12 w-12 text-blue-400" />
-              </div>
-              <h3 className="mb-6 text-xl font-semibold text-white">
-                Bidirectional Discord Timestamp Conversion
-              </h3>
-              <p className="text-lg leading-relaxed text-slate-400">
-                Convert from regular time to Discord timestamps and convert Discord timestamps back
-                to readable time with full format support for all Discord timestamp types.
-              </p>
-            </div>
-
-            <div className="group text-center">
-              <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10">
-                <Globe className="h-12 w-12 text-green-400" />
-              </div>
-              <h3 className="mb-6 text-xl font-semibold text-white">Complete Timezone Support</h3>
-              <p className="text-lg leading-relaxed text-slate-400">
-                Handle all global timezones with automatic conversion and offset calculations.
-                Perfect for international Discord communities and worldwide event coordination.
-              </p>
-            </div>
-
-            <div className="group text-center">
-              <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10">
-                <Zap className="h-12 w-12 text-purple-400" />
-              </div>
-              <h3 className="mb-6 text-xl font-semibold text-white">
-                Batch Discord Timestamp Processing
-              </h3>
-              <p className="text-lg leading-relaxed text-slate-400">
-                Convert multiple timestamps simultaneously for efficient bulk operations, Discord
-                bot development, and large-scale event scheduling across time zones.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Usage guide */}
-        <div className="mt-32 rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-white">
-              How to Use Discord Timestamp Converter - Complete Guide
-            </h2>
-            <p className="mx-auto max-w-2xl text-xl text-slate-400">
-              Master Discord timestamp conversion for your server, bot development, and global
-              community coordination
-            </p>
-          </div>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-blue-500 text-2xl font-bold text-white">
-                1
-              </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Choose Conversion Direction</h3>
-              <p className="text-slate-400">
-                Select between converting regular time to Discord timestamp format or converting
-                Discord timestamps back to readable time for analysis and debugging.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-purple-500 text-2xl font-bold text-white">
-                2
-              </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Input Time Data</h3>
-              <p className="text-slate-400">
-                Enter your date and time or paste a Discord timestamp. Our converter accepts all
-                Discord timestamp formats and handles Unix epoch time conversion automatically.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-pink-600 to-pink-500 text-2xl font-bold text-white">
-                3
-              </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Configure Timezone</h3>
-              <p className="text-slate-400">
-                Select your timezone from our comprehensive list for accurate Discord timestamp
-                generation. Essential for global Discord communities and international event
-                planning.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-green-600 to-green-500 text-2xl font-bold text-white">
-                4
-              </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Copy & Implement</h3>
-              <p className="text-slate-400">
-                Copy the generated Discord timestamp in your preferred format and paste it into
-                Discord messages, bot code, or webhook content for automatic timezone display.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </div>
