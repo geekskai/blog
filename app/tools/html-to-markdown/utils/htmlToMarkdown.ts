@@ -31,8 +31,8 @@ export class HtmlToMarkdownConverter {
           // Try to extract language from class names
           const classList = Array.from(codeElement.classList)
           const langClass = classList.find(
-            (cls) => cls.startsWith("language-") || cls.startsWith("lang-")
-          )
+            (cls: string) => cls.startsWith("language-") || cls.startsWith("lang-")
+          ) as string | undefined
           if (langClass) {
             language = langClass.replace(/^(language-|lang-)/, "")
           }
