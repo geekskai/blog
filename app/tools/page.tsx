@@ -152,6 +152,24 @@ export default function ToolsPage() {
       gradient: gradients.professional,
       category: "Creative",
     },
+    {
+      id: "html-to-markdown",
+      title: "HTML to Markdown Converter",
+      description:
+        "Convert HTML content to clean Markdown format with advanced customization. Support for URLs, batch processing, and intelligent content extraction.",
+      icon: FileText,
+      href: "/tools/html-to-markdown",
+      features: [
+        "URL Content Extraction",
+        "Batch Processing",
+        "Custom Formatting",
+        "Real-time Preview",
+      ],
+      badge: "New",
+      badgeColor: "bg-emerald-500",
+      gradient: gradients.development,
+      category: "Development",
+    },
   ]
 
   return (
