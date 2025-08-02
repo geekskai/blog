@@ -12,6 +12,7 @@ import {
   Star,
   Sparkles,
   Clock,
+  ArrowLeftRight,
 } from "lucide-react"
 
 export default function ToolsPage() {
@@ -30,6 +31,24 @@ export default function ToolsPage() {
   }
 
   const tools = [
+    {
+      id: "discord-time-converter",
+      title: "Discord Time Converter",
+      description:
+        "Professional bidirectional Discord time converter with timezone support and batch processing. Convert between Discord timestamps and regular time formats effortlessly.",
+      icon: ArrowLeftRight,
+      href: "/tools/discord-time-converter",
+      features: [
+        "Bidirectional Conversion",
+        "Timezone Support",
+        "Batch Processing",
+        "History Tracking",
+      ],
+      badge: "New",
+      badgeColor: "bg-emerald-500",
+      gradient: gradients.professional,
+      category: "Communication",
+    },
     {
       id: "discord-timestamp-generator",
       title: "Discord Timestamp Generator",
