@@ -171,6 +171,30 @@ export function generateFilename(input: string, inputType: "url" | "html"): stri
   }
 }
 
+/**
+ * Generate GeeksKai branded title based on conversion type
+ */
+export function generateGeeksKaiTitle(
+  input: string,
+  inputType: "url" | "html",
+  websiteTitle?: string
+): string {
+  const timestamp = new Date().toISOString().slice(0, 16).replace(/[T:]/g, "-")
+
+  if (inputType === "url" && websiteTitle) {
+    // Clean website title
+    const cleanTitle = websiteTitle
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/\s+/g, " ")
+      .slice(0, 50) // Limit length
+    return `geekskai-${cleanTitle}-${timestamp}`
+  } else {
+    // For HTML input or URL without title
+    return `geekskai-${timestamp}`
+  }
+}
+
 export function formatFileSize(bytes: number): string {
   if (bytes === 0) return "0 B"
 

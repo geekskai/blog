@@ -244,6 +244,8 @@ export default function ToolsPage() {
                 <Link
                   key={tool.id}
                   href={tool.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group relative overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-slate-200 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:ring-slate-300 dark:bg-slate-800 dark:ring-slate-700 dark:hover:ring-slate-600"
                 >
                   {/* Gradient Header */}

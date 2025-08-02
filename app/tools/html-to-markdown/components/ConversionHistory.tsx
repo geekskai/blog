@@ -19,7 +19,12 @@ import {
   ExternalLink,
 } from "lucide-react"
 import { ConversionResult } from "../types"
-import { formatFileSize, estimateReadingTime, copyToClipboard } from "../utils/downloadHelper"
+import {
+  formatFileSize,
+  estimateReadingTime,
+  copyToClipboard,
+  generateGeeksKaiTitle,
+} from "../utils/downloadHelper"
 
 interface ConversionHistoryProps {
   history: ConversionResult[]
@@ -78,11 +83,12 @@ export default function ConversionHistory({
         case "wordCount":
           comparison = a.wordCount - b.wordCount
           break
-        case "title":
+        case "title": {
           const titleA = a.title || ""
           const titleB = b.title || ""
           comparison = titleA.localeCompare(titleB)
           break
+        }
       }
       return sortOrder === "asc" ? comparison : -comparison
     })
@@ -308,7 +314,7 @@ export default function ConversionHistory({
                               <Code className="h-4 w-4 flex-shrink-0 text-green-400" />
                             )}
                             <h4 className="truncate text-sm font-medium text-white">
-                              {item.title || "Untitled Conversion"}
+                              {item.title || generateGeeksKaiTitle(item.input, item.inputType)}
                             </h4>
                           </div>
                           <p className="truncate text-xs text-slate-400">

@@ -25,13 +25,23 @@ import {
 // Tools data for dropdown menu
 const toolsData = [
   {
+    id: "html-to-markdown",
+    title: "HTML to Markdown Converter",
+    description: "Convert HTML content to clean Markdown format with advanced customization",
+    icon: FileText,
+    href: "/tools/html-to-markdown",
+    badge: "New",
+    badgeColor: "bg-emerald-500",
+    category: "Development",
+  },
+  {
     id: "discord-time-converter",
     title: "Discord Time Converter",
     description: "Professional bidirectional Discord time converter with timezone support",
     icon: ArrowLeftRight,
     href: "/tools/discord-time-converter",
-    badge: "New",
-    badgeColor: "bg-emerald-500",
+    badge: "Popular",
+    badgeColor: "bg-blue-500",
     category: "Communication",
   },
   {
@@ -191,6 +201,8 @@ const Header = () => {
                         <Link
                           key={tool.id}
                           href={tool.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="group flex items-start gap-3 rounded-xl border border-transparent bg-slate-800/50 p-3 transition-all duration-300 hover:border-slate-600/50 hover:bg-slate-700/50"
                         >
                           <div className="flex-shrink-0 rounded-lg bg-slate-700/50 p-2 transition-transform duration-300 group-hover:scale-110">
@@ -225,6 +237,8 @@ const Header = () => {
                   <div className="mt-4 border-t border-slate-700/50 pt-3">
                     <Link
                       href="/tools"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="group flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:from-blue-600 hover:to-purple-600"
                     >
                       <Sparkles className="h-4 w-4" />

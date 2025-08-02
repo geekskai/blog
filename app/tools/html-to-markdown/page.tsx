@@ -65,9 +65,9 @@ export default function HtmlToMarkdownConverter() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
       {/* Background Effects */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -right-40 -top-40 h-80 w-80 animate-pulse rounded-full bg-blue-500 opacity-10 mix-blend-multiply blur-xl filter"></div>
-        <div className="absolute -bottom-40 -left-40 h-80 w-80 animate-pulse rounded-full bg-purple-500 opacity-10 mix-blend-multiply blur-xl filter"></div>
-        <div className="absolute left-1/2 top-40 h-80 w-80 animate-pulse rounded-full bg-green-500 opacity-10 mix-blend-multiply blur-xl filter"></div>
+        <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-blue-500 opacity-10 mix-blend-multiply blur-xl filter"></div>
+        <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-purple-500 opacity-10 mix-blend-multiply blur-xl filter"></div>
+        <div className="absolute left-1/2 top-40 h-80 w-80 rounded-full bg-green-500 opacity-10 mix-blend-multiply blur-xl filter"></div>
       </div>
 
       {/* Breadcrumb Navigation */}

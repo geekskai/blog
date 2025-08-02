@@ -7,6 +7,7 @@ import {
 } from "../types"
 import { HtmlToMarkdownConverter, defaultConversionOptions } from "../utils/htmlToMarkdown"
 import { validateUrl } from "../utils/urlValidator"
+import { generateGeeksKaiTitle } from "../utils/downloadHelper"
 import { generateFilename } from "../utils/downloadHelper"
 
 export const useHtmlConverter = () => {
@@ -30,7 +31,12 @@ export const useHtmlConverter = () => {
   }, [options])
 
   const convertHtml = useCallback(
-    async (html: string, inputType: "html" | "url" = "html"): Promise<ConversionResult | null> => {
+    async (
+      html: string,
+      inputType: "html" | "url" = "html",
+      originalUrl?: string,
+      websiteTitle?: string
+    ): Promise<ConversionResult | null> => {
       const converter = getConverter()
       const startTime = Date.now()
 
@@ -41,13 +47,20 @@ export const useHtmlConverter = () => {
           throw new Error(processingResult.error || "Conversion failed")
         }
 
+        // Generate GeeksKai branded title
+        const displayTitle = generateGeeksKaiTitle(
+          originalUrl || html,
+          inputType,
+          websiteTitle || processingResult.title
+        )
+
         const result: ConversionResult = {
           id: `conv_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
           timestamp: Date.now(),
-          input: inputType === "url" ? html : html.substring(0, 100) + "...",
+          input: originalUrl || (inputType === "url" ? html : html.substring(0, 100) + "..."),
           inputType,
           markdown: processingResult.markdown || "",
-          title: processingResult.title,
+          title: displayTitle,
           wordCount: processingResult.wordCount || 0,
           size: new Blob([processingResult.markdown || ""]).size,
           processingTime: processingResult.processingTime,
@@ -83,7 +96,7 @@ export const useHtmlConverter = () => {
         }
 
         const data = await response.json()
-        return await convertHtml(data.html, "url")
+        return await convertHtml(data.html, "url", validation.normalizedUrl, data.title)
       } catch (error) {
         throw new Error(error instanceof Error ? error.message : "Failed to fetch URL")
       }
