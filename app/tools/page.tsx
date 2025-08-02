@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import {
   Calculator,
   FileText,
@@ -210,6 +210,25 @@ export default function ToolsPage() {
     })
   }, [tools, searchTerm, selectedCategory])
 
+  // Add CSS animation styles
+  useEffect(() => {
+    const style = document.createElement("style")
+    style.textContent = `
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    `
+    document.head.appendChild(style)
+    return () => document.head.removeChild(style)
+  }, [])
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       {/* Hero Section */}
@@ -351,127 +370,223 @@ export default function ToolsPage() {
       </div>
 
       {/* Tools Section */}
-      <div id="tools-section" className="relative py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Search and Filter Section */}
-          <div className="mb-12">
-            <div className="mx-auto flex flex-col items-center gap-4">
-              {/* Search Bar */}
-              <div className="relative mb-6 w-full max-w-2xl">
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-                  <Search className="h-5 w-5 text-slate-400" />
+      <div
+        id="tools-section"
+        className="relative bg-gradient-to-b from-slate-50/50 to-white dark:from-slate-900/50 dark:to-slate-950"
+      >
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute left-1/4 top-20 h-px w-20 bg-gradient-to-r from-transparent via-blue-300/50 to-transparent"></div>
+          <div className="absolute right-1/3 top-40 h-px w-16 bg-gradient-to-r from-transparent via-purple-300/50 to-transparent"></div>
+          <div className="absolute bottom-32 left-1/3 h-px w-24 bg-gradient-to-r from-transparent via-emerald-300/50 to-transparent"></div>
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="mb-16 text-center">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/60 px-4 py-2 text-sm font-medium text-slate-700 shadow-lg ring-1 ring-slate-200/50 backdrop-blur-sm dark:bg-slate-800/60 dark:text-slate-200 dark:ring-slate-700/50">
+              <Filter className="h-4 w-4 text-blue-500" />
+              <span>Discover & Explore</span>
+            </div>
+            <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white lg:text-4xl">
+              <span className="bg-gradient-to-r from-slate-900 via-blue-800 to-purple-800 bg-clip-text text-transparent dark:from-white dark:via-blue-200 dark:to-purple-200">
+                Professional Tools
+              </span>
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-300">
+              Hand-picked tools designed to streamline your workflow and boost productivity
+            </p>
+          </div>
+
+          {/* Enhanced Search and Filter Section */}
+          <div className="mb-16">
+            <div className="mx-auto w-full">
+              {/* Search Bar Container */}
+              <div className="group relative mx-auto mb-8 max-w-4xl">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-emerald-500/10 opacity-0 transition-opacity duration-300 group-focus-within:opacity-100"></div>
+                <div className="relative rounded-2xl bg-white/80 p-1 shadow-xl ring-1 ring-slate-200/50 backdrop-blur-sm transition-all duration-300 group-focus-within:ring-blue-500/50 dark:bg-slate-800/80 dark:ring-slate-700/50">
+                  <div className="relative">
+                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-6">
+                      <Search className="h-5 w-5 text-slate-400 transition-colors duration-300 group-focus-within:text-blue-500" />
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="Search tools by name, description, or feature..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="w-full rounded-xl border-0 bg-transparent py-4 pl-14 pr-6 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-0 dark:text-white dark:placeholder-slate-400"
+                    />
+                    {searchTerm && (
+                      <button
+                        onClick={() => setSearchTerm("")}
+                        className="absolute inset-y-0 right-0 flex items-center pr-6 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+                      >
+                        <svg
+                          className="h-5 w-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </button>
+                    )}
+                  </div>
                 </div>
-                <input
-                  type="text"
-                  placeholder="Search tools..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full rounded-xl border border-slate-200 bg-white py-3 pl-12 pr-4 text-slate-900 placeholder-slate-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-400 dark:focus:border-blue-400"
-                />
               </div>
 
-              {/* Category Filter */}
-              <div className="flex flex-wrap justify-center gap-2">
-                {categories.map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
-                      selectedCategory === category
-                        ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
-                        : "bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
-                    }`}
-                  >
-                    {category}
-                  </button>
-                ))}
+              {/* Enhanced Category Filter */}
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                {categories.map((category, index) => {
+                  const isSelected = selectedCategory === category
+                  const gradients = [
+                    "from-blue-500 to-blue-600",
+                    "from-purple-500 to-purple-600",
+                    "from-emerald-500 to-emerald-600",
+                    "from-orange-500 to-orange-600",
+                    "from-pink-500 to-pink-600",
+                    "from-indigo-500 to-indigo-600",
+                  ]
+                  const gradient = gradients[index % gradients.length]
+
+                  return (
+                    <button
+                      key={category}
+                      onClick={() => setSelectedCategory(category)}
+                      className={`group relative overflow-hidden rounded-full px-6 py-3 text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg ${
+                        isSelected
+                          ? `bg-gradient-to-r ${gradient} text-white shadow-lg`
+                          : "bg-white/60 text-slate-700 shadow-md ring-1 ring-slate-200/50 backdrop-blur-sm hover:bg-white hover:text-slate-900 dark:bg-slate-800/60 dark:text-slate-200 dark:ring-slate-700/50 dark:hover:bg-slate-700"
+                      }`}
+                    >
+                      <span className="relative z-10">{category}</span>
+                      {!isSelected && (
+                        <div
+                          className={`absolute inset-0 bg-gradient-to-r ${gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
+                        ></div>
+                      )}
+                    </button>
+                  )
+                })}
               </div>
             </div>
           </div>
 
-          {/* Results Info */}
+          {/* Results Info with Animation */}
           {(searchTerm || selectedCategory !== "All") && (
-            <div className="mb-8 text-center">
-              <p className="text-slate-600 dark:text-slate-400">
+            <div className="mb-12 text-center">
+              <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 text-sm text-blue-700 dark:bg-blue-900/20 dark:text-blue-300">
+                <div className="h-2 w-2 animate-pulse rounded-full bg-blue-500"></div>
                 {filteredTools.length === 0 ? (
-                  <span>No tools found matching your search.</span>
+                  <span>No tools found matching your criteria</span>
                 ) : (
                   <span>
-                    Showing {filteredTools.length} of {tools.length} tools
+                    Found {filteredTools.length} of {tools.length} tools
                   </span>
                 )}
-              </p>
+              </div>
             </div>
           )}
 
-          {/* Tools Grid */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {filteredTools.map((tool) => {
+          {/* Enhanced Tools Grid */}
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {filteredTools.map((tool, index) => {
               const IconComponent = tool.icon
+              const delay = `delay-${(index % 8) * 100}`
+
               return (
                 <Link
                   key={tool.id}
                   href={tool.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-slate-200 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:ring-slate-300 dark:bg-slate-800 dark:ring-slate-700 dark:hover:ring-slate-600"
+                  className={`group relative overflow-hidden rounded-3xl bg-white/70 shadow-lg ring-1 ring-slate-200/50 backdrop-blur-sm transition-all duration-500 hover:scale-[1.05] hover:shadow-2xl hover:ring-slate-300/50 dark:bg-slate-800/70 dark:ring-slate-700/50 dark:hover:ring-slate-600/50 ${delay}`}
+                  style={{
+                    animationDelay: `${(index % 8) * 100}ms`,
+                    animation: "fadeInUp 0.6s ease-out forwards",
+                  }}
                 >
-                  {/* Gradient Header */}
-                  <div className={`relative h-24 bg-gradient-to-br ${tool.gradient} p-4`}>
-                    {/* Badge */}
-                    <div className="absolute right-3 top-3">
+                  {/* Enhanced Gradient Header */}
+                  <div className={`relative h-32 bg-gradient-to-br ${tool.gradient} p-6`}>
+                    {/* Floating Particles */}
+                    <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                      <div className="absolute right-4 top-6 h-1 w-1 animate-pulse rounded-full bg-white/40 delay-700"></div>
+                      <div className="absolute left-6 top-4 h-0.5 w-0.5 animate-pulse rounded-full bg-white/30 delay-1000"></div>
+                    </div>
+
+                    {/* Enhanced Badge */}
+                    <div className="absolute right-4 top-4">
                       <div
-                        className={`inline-flex items-center gap-1 rounded-full ${tool.badgeColor} px-2 py-1 text-xs font-medium text-white`}
+                        className={`inline-flex items-center gap-1.5 rounded-full ${tool.badgeColor} px-3 py-1.5 text-xs font-semibold text-white shadow-xl backdrop-blur-sm`}
                       >
-                        <Star className="h-3 w-3" />
+                        <Star className="h-3 w-3 animate-pulse" />
                         {tool.badge}
                       </div>
                     </div>
 
-                    {/* Icon */}
-                    <div className="absolute bottom-3 left-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
-                        <IconComponent className="h-5 w-5 text-white" />
+                    {/* Enhanced Icon with Glow */}
+                    <div className="absolute bottom-4 left-4">
+                      <div className="relative">
+                        <div className="absolute inset-0 rounded-2xl bg-white/20 blur-md"></div>
+                        <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-white/25 backdrop-blur-sm transition-all duration-500 group-hover:scale-110 group-hover:bg-white/30">
+                          <IconComponent className="h-7 w-7 text-white transition-transform duration-300 group-hover:scale-110" />
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Card Content */}
-                  <div className="p-5">
-                    {/* Category */}
-                    <div className="mb-2">
-                      <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                    {/* Category Pill */}
+                    <div className="absolute bottom-4 right-4">
+                      <span className="rounded-full bg-white/20 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm">
                         {tool.category}
                       </span>
                     </div>
+                  </div>
 
-                    {/* Title */}
-                    <h3 className="mb-2 text-lg font-bold text-slate-900 transition-colors duration-300 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+                  {/* Enhanced Card Content */}
+                  <div className="p-6">
+                    {/* Title with Gradient on Hover */}
+                    <h3 className="mb-3 text-xl font-bold text-slate-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent dark:text-white">
                       {tool.title}
                     </h3>
 
-                    {/* Description */}
-                    <p className="mb-4 line-clamp-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                    {/* Enhanced Description */}
+                    <p className="mb-6 line-clamp-2 text-sm leading-relaxed text-slate-600 transition-colors duration-300 group-hover:text-slate-700 dark:text-slate-300 dark:group-hover:text-slate-200">
                       {tool.description}
                     </p>
 
-                    {/* Key Features (show only first 2) */}
-                    <div className="mb-4">
-                      <div className="space-y-1">
-                        {tool.features.slice(0, 2).map((feature) => (
-                          <div key={feature} className="flex items-center gap-2">
-                            <div
-                              className={`h-1.5 w-1.5 rounded-full bg-gradient-to-r ${tool.gradient}`}
-                            ></div>
-                            <span className="text-xs text-slate-600 dark:text-slate-300">
+                    {/* Interactive Features List */}
+                    <div className="mb-6">
+                      <div className="space-y-2">
+                        {tool.features.slice(0, 2).map((feature, featureIndex) => (
+                          <div
+                            key={feature}
+                            className="flex items-center gap-3 opacity-80 transition-all duration-300 group-hover:opacity-100"
+                            style={{
+                              transitionDelay: `${featureIndex * 100}ms`,
+                            }}
+                          >
+                            <div className="relative">
+                              <div
+                                className={`h-2 w-2 rounded-full bg-gradient-to-r ${tool.gradient} shadow-sm`}
+                              ></div>
+                              <div
+                                className={`absolute inset-0 h-2 w-2 rounded-full bg-gradient-to-r ${tool.gradient} opacity-0 blur-sm transition-opacity duration-300 group-hover:opacity-50`}
+                              ></div>
+                            </div>
+                            <span className="text-sm text-slate-600 transition-colors duration-300 group-hover:text-slate-800 dark:text-slate-300 dark:group-hover:text-slate-200">
                               {feature}
                             </span>
                           </div>
                         ))}
                         {tool.features.length > 2 && (
-                          <div className="flex items-center gap-2">
-                            <div className="h-1.5 w-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></div>
-                            <span className="text-xs text-slate-500 dark:text-slate-400">
+                          <div className="flex items-center gap-3 opacity-60 transition-opacity duration-300 group-hover:opacity-80">
+                            <div className="h-2 w-2 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+                            <span className="text-sm text-slate-500 dark:text-slate-400">
                               +{tool.features.length - 2} more features
                             </span>
                           </div>
@@ -479,13 +594,16 @@ export default function ToolsPage() {
                       </div>
                     </div>
 
-                    {/* CTA */}
+                    {/* Enhanced CTA Button */}
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-blue-600 transition-colors duration-300 group-hover:text-blue-700 dark:text-blue-400 dark:group-hover:text-blue-300">
+                      <span className="text-sm font-semibold text-blue-600 transition-all duration-300 group-hover:text-blue-700 dark:text-blue-400 dark:group-hover:text-blue-300">
                         Launch Tool
                       </span>
-                      <div className="rounded-full bg-slate-100 p-1.5 transition-all duration-300 group-hover:bg-blue-500 group-hover:text-white dark:bg-slate-700 dark:group-hover:bg-blue-500">
-                        <ExternalLink className="h-3 w-3" />
+                      <div className="relative">
+                        <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                        <div className="relative rounded-xl bg-slate-100 p-2.5 transition-all duration-300 group-hover:bg-white group-hover:text-blue-600 group-hover:shadow-lg dark:bg-slate-700 dark:group-hover:bg-white">
+                          <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+                        </div>
                       </div>
                     </div>
                   </div>
