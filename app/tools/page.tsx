@@ -378,7 +378,7 @@ export default function ToolsPage() {
               </Link>
               <div className="text-blue-200">or</div>
               <Link
-                href="https://github.com"
+                href="https://github.com/geekskai"
                 className="inline-flex items-center gap-2 rounded-2xl border-2 border-white/20 px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">

@@ -18,10 +18,32 @@ import {
   Sparkles,
   Star,
   Zap,
+  ArrowLeftRight,
+  Clock,
 } from "lucide-react"
 
 // Tools data for dropdown menu
 const toolsData = [
+  {
+    id: "discord-time-converter",
+    title: "Discord Time Converter",
+    description: "Professional bidirectional Discord time converter with timezone support",
+    icon: ArrowLeftRight,
+    href: "/tools/discord-time-converter",
+    badge: "New",
+    badgeColor: "bg-emerald-500",
+    category: "Communication",
+  },
+  {
+    id: "discord-timestamp-generator",
+    title: "Discord Timestamp Generator",
+    description: "Create dynamic timestamps for Discord messages and events",
+    icon: Clock,
+    href: "/tools/discord-timestamp-generator",
+    badge: "Popular",
+    badgeColor: "bg-purple-500",
+    category: "Communication",
+  },
   {
     id: "job-worth-calculator",
     title: "Job Worth Calculator",
@@ -44,8 +66,8 @@ const toolsData = [
   },
   {
     id: "tip-screen-generator",
-    title: "Tip Screen Generator",
-    description: "Educational tip screen psychology and generator",
+    title: "Tip Screen Guide & Generator",
+    description: "Understand tip screen psychology and create educational examples",
     icon: DollarSign,
     href: "/tools/tip-screen-generator",
     badge: "Educational",
@@ -55,7 +77,7 @@ const toolsData = [
   {
     id: "chromakopia-name-generator",
     title: "Chromakopia Name Generator",
-    description: "Create colorful personas inspired by creativity",
+    description: "Create colorful personas inspired by Tyler, the Creator's Chromakopia",
     icon: Palette,
     href: "/tools/chromakopia-name-generator",
     badge: "Creative",
@@ -65,7 +87,7 @@ const toolsData = [
   {
     id: "invincible-title-card-generator",
     title: "Invincible Title Card Generator",
-    description: "Professional title cards with authentic styling",
+    description: "Create professional title cards inspired by the animated series",
     icon: Monitor,
     href: "/tools/invincible-title-card-generator",
     badge: "Professional",
