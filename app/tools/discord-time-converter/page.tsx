@@ -1175,37 +1175,44 @@ export default function DiscordTimeConverter() {
             </div>
           </section>
 
-          {/* Discord Alternatives and Related Tools Section */}
+          {/* Discord Tools Ecosystem & Related Solutions */}
           <section className="rounded-xl bg-gradient-to-r from-orange-800 to-red-700 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              Discord Tools Ecosystem & Alternative Solutions
+              Complete Discord Time Tools Ecosystem
             </h2>
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               <div className="rounded-lg bg-orange-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">🤖 Discord Bot Tools</h3>
-                <p className="text-slate-200">
-                  Complement your Discord bot development with our timestamp converter. Perfect for
-                  bots that handle scheduling, reminders, and event management across global Discord
-                  communities.
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  🆕 Discord Timestamp Generator
+                </h3>
+                <p className="mb-4 text-slate-200">
+                  Need to create new Discord timestamps for events? Use our timestamp generator to
+                  build dynamic countdowns, event reminders, and timezone-aware timestamps from
+                  scratch.
                 </p>
+                <a
+                  href="/tools/discord-timestamp-generator"
+                  className="inline-flex items-center text-orange-300 transition-colors hover:text-orange-200"
+                >
+                  Try Discord Timestamp Generator →
+                </a>
               </div>
               <div className="rounded-lg bg-orange-900/30 p-6">
                 <h3 className="mb-3 text-lg font-semibold text-white">
-                  🔧 Discord Management Tools
+                  🤖 Discord Bot Integration
                 </h3>
                 <p className="text-slate-200">
-                  Essential Discord server management tools for administrators. Coordinate events,
-                  manage schedules, and ensure proper timezone handling for international Discord
-                  communities.
+                  Perfect for Discord bot development with timestamp conversion capabilities. Handle
+                  scheduling, reminders, and event management across global Discord communities with
+                  precise time handling.
                 </p>
               </div>
               <div className="rounded-lg bg-orange-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">
-                  ⚡ Discord Integration APIs
-                </h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">⚡ Discord API Tools</h3>
                 <p className="text-slate-200">
-                  API-ready timestamp generation for Discord webhook integrations, custom Discord
-                  applications, and third-party tools that interact with Discord's timestamp system.
+                  Complete timestamp solution for Discord webhook integrations, custom Discord
+                  applications, and third-party tools that interact with Discord's timestamp and
+                  time conversion systems.
                 </p>
               </div>
             </div>

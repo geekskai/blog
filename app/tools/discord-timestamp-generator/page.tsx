@@ -390,11 +390,31 @@ export default function DiscordTimestampGenerator() {
             </span>
           </h1>
 
-          <p className="mx-auto mb-12 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
-            Create dynamic timestamps that automatically update in Discord messages. Perfect for
-            events, deadlines, and countdowns that work seamlessly across all timezones with
-            professional precision.
+          <p className="mx-auto mb-8 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
+            Create dynamic Discord timestamps that automatically update in Discord messages. Perfect
+            for events, deadlines, and countdowns that work seamlessly across all timezones with
+            professional precision. Generate Discord timestamps from scratch with real-time preview.
           </p>
+
+          {/* Quick Stats */}
+          <div className="mb-12 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500">
+            <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
+              <Clock className="h-4 w-4 text-green-500" />
+              <span className="font-medium">Real-time Generation</span>
+            </div>
+            <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
+              <Zap className="h-4 w-4 text-purple-500" />
+              <span className="font-medium">Dynamic Timestamps</span>
+            </div>
+            <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
+              <Star className="h-4 w-4 text-yellow-500" />
+              <span className="font-medium">Event Creation</span>
+            </div>
+            <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
+              <Timer className="h-4 w-4 text-blue-500" />
+              <span className="font-medium">Free Generator</span>
+            </div>
+          </div>
         </div>
 
         {/* Main content area with responsive dual-column layout */}
@@ -867,9 +887,11 @@ export default function DiscordTimestampGenerator() {
         {/* Usage Instructions */}
         <div className="mt-32 rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-white">How to Create Perfect Timestamps</h2>
+            <h2 className="mb-4 text-3xl font-bold text-white">
+              How to Create Perfect Discord Timestamps
+            </h2>
             <p className="mx-auto max-w-2xl text-xl text-slate-400">
-              Follow these simple steps to generate professional Discord timestamps
+              Follow these simple steps to generate professional Discord timestamps from scratch
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -877,41 +899,265 @@ export default function DiscordTimestampGenerator() {
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-blue-500 text-2xl font-bold text-white">
                 1
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Choose Input Mode</h3>
+              <h3 className="mb-3 text-lg font-semibold text-white">Choose Creation Mode</h3>
               <p className="text-slate-400">
-                Select between relative time adjustments or absolute date input based on your needs.
+                Select between relative time adjustments or absolute date input for timestamp
+                creation.
               </p>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-purple-500 text-2xl font-bold text-white">
                 2
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Set Your Time</h3>
+              <h3 className="mb-3 text-lg font-semibold text-white">Configure Time Settings</h3>
               <p className="text-slate-400">
-                Adjust time values or enter specific dates. Watch the live preview update in
-                real-time.
+                Set your desired time values or dates. Watch the live preview update in real-time as
+                you generate timestamps.
               </p>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-pink-600 to-pink-500 text-2xl font-bold text-white">
                 3
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Choose Format</h3>
+              <h3 className="mb-3 text-lg font-semibold text-white">Select Display Format</h3>
               <p className="text-slate-400">
-                Select from seven different display formats to match your message context perfectly.
+                Choose from seven dynamic Discord timestamp formats to match your event or message
+                context.
               </p>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-green-600 to-green-500 text-2xl font-bold text-white">
                 4
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Copy & Use</h3>
+              <h3 className="mb-3 text-lg font-semibold text-white">Generate & Copy</h3>
               <p className="text-slate-400">
-                Copy the generated code and paste it into any Discord message for automatic timezone
-                conversion.
+                Copy the generated Discord timestamp code and paste it into messages for automatic
+                timezone conversion.
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Content Sections for SEO */}
+        <div className="mt-20 space-y-16">
+          {/* What is Discord Timestamp Generation Section */}
+          <section className="rounded-xl bg-gradient-to-r from-blue-800 to-indigo-700 p-8">
+            <h2 className="mb-6 text-2xl font-bold text-white">
+              What is Discord Timestamp Generation? Creating Dynamic Time Displays
+            </h2>
+            <div className="grid gap-6 md:grid-cols-2">
+              <div>
+                <p className="mb-4 text-slate-200">
+                  Discord timestamp generation is the process of creating dynamic time displays that
+                  automatically update based on each user's local timezone. Unlike static time
+                  messages, generated Discord timestamps use the format
+                  &lt;t:UNIX_TIMESTAMP:FORMAT&gt; to create countdowns, event reminders, and
+                  relative time displays that work perfectly for global Discord communities.
+                </p>
+                <p className="text-slate-200">
+                  Our Discord timestamp generator helps you create these dynamic timestamps from
+                  scratch, perfect for scheduling events, creating countdowns, and building
+                  automated reminder systems that coordinate seamlessly across international Discord
+                  servers and communities.
+                </p>
+              </div>
+              <div className="rounded-lg bg-blue-900/30 p-6">
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  Discord Timestamp Generation Benefits
+                </h3>
+                <ul className="space-y-2 text-slate-200">
+                  <li>• Create dynamic event countdowns</li>
+                  <li>• Generate timezone-aware reminders</li>
+                  <li>• Build automated scheduling systems</li>
+                  <li>• Perfect for global Discord communities</li>
+                  <li>• Real-time preview during creation</li>
+                  <li>• Multiple format options available</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Discord Timestamp Creation Best Practices */}
+          <section className="rounded-xl bg-gradient-to-r from-purple-800 to-pink-700 p-8">
+            <h2 className="mb-6 text-2xl font-bold text-white">
+              Discord Timestamp Creation Best Practices
+            </h2>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="rounded-lg bg-purple-900/30 p-6">
+                <h3 className="mb-3 text-lg font-semibold text-white">🎯 Event Scheduling</h3>
+                <div className="space-y-2 text-slate-200">
+                  <p>
+                    For events, use{" "}
+                    <code className="rounded bg-black/30 px-2 py-1 text-sm">:F</code> format for
+                    announcements
+                  </p>
+                  <p>
+                    Use <code className="rounded bg-black/30 px-2 py-1 text-sm">:R</code> format for
+                    countdowns and reminders
+                  </p>
+                  <p>Perfect for gaming sessions, community meetings, and live streams.</p>
+                </div>
+              </div>
+              <div className="rounded-lg bg-purple-900/30 p-6">
+                <h3 className="mb-3 text-lg font-semibold text-white">⏰ Countdown Creation</h3>
+                <div className="space-y-2 text-slate-200">
+                  <p>Relative timestamps automatically update in real-time</p>
+                  <p>Shows "in 2 hours", "tomorrow", "next week" dynamically</p>
+                  <p>Ideal for deadline reminders and event anticipation.</p>
+                </div>
+              </div>
+              <div className="rounded-lg bg-purple-900/30 p-6">
+                <h3 className="mb-3 text-lg font-semibold text-white">🤖 Bot Integration</h3>
+                <div className="space-y-2 text-slate-200">
+                  <p>Generate timestamps for Discord bot responses</p>
+                  <p>Perfect for scheduled commands and automation</p>
+                  <p>Compatible with all Discord API integrations.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Discord Timestamp Generator vs Converter */}
+          <section className="rounded-xl bg-gradient-to-r from-green-800 to-emerald-700 p-8">
+            <h2 className="mb-6 text-2xl font-bold text-white">
+              Discord Timestamp Generator vs Converter: Choose the Right Tool
+            </h2>
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="rounded-lg bg-green-900/30 p-6">
+                <h3 className="mb-4 text-lg font-semibold text-white">
+                  🆕 Discord Timestamp Generator (This Tool)
+                </h3>
+                <p className="mb-4 text-slate-200">
+                  Perfect for <strong>creating new</strong> Discord timestamps from scratch. Ideal
+                  when you need to generate timestamps for upcoming events, countdowns, or reminder
+                  systems.
+                </p>
+                <ul className="space-y-2 text-slate-200">
+                  <li>• Create timestamps for future events</li>
+                  <li>• Generate dynamic countdowns</li>
+                  <li>• Build event reminder systems</li>
+                  <li>• Real-time preview as you create</li>
+                  <li>• Quick preset configurations</li>
+                </ul>
+              </div>
+              <div className="rounded-lg bg-green-900/30 p-6">
+                <h3 className="mb-4 text-lg font-semibold text-white">🔄 Discord Time Converter</h3>
+                <p className="mb-4 text-slate-200">
+                  Perfect for <strong>converting existing</strong> Discord timestamps and analyzing
+                  time data. Ideal when you need to understand or modify existing timestamps.
+                </p>
+                <ul className="space-y-2 text-slate-200">
+                  <li>• Convert Discord timestamps to readable time</li>
+                  <li>• Analyze existing timestamp formats</li>
+                  <li>• Debug timestamp issues</li>
+                  <li>• Batch conversion capabilities</li>
+                  <li>• Timezone conversion analysis</li>
+                </ul>
+                <div className="mt-4">
+                  <a
+                    href="/tools/discord-time-converter"
+                    className="inline-flex items-center text-green-300 transition-colors hover:text-green-200"
+                  >
+                    Try our Discord Time Converter →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ Section */}
+          <section className="rounded-xl bg-slate-800 p-8">
+            <h2 className="mb-6 text-2xl font-bold text-white">
+              Frequently Asked Questions About Discord Timestamp Generation
+            </h2>
+            <div className="space-y-6">
+              <div className="border-b border-slate-700 pb-4">
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  How do I create a Discord timestamp for an event?
+                </h3>
+                <p className="text-slate-400">
+                  Use our Discord timestamp generator to create event timestamps. Select "Absolute
+                  Time" mode, enter your event date and time, choose the appropriate format (:F for
+                  announcements, :R for countdowns), then copy the generated code into your Discord
+                  message.
+                </p>
+              </div>
+              <div className="border-b border-slate-700 pb-4">
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  What's the difference between Discord timestamp generator and converter?
+                </h3>
+                <p className="text-slate-400">
+                  Our Discord timestamp generator creates new timestamps from scratch for events and
+                  countdowns. The Discord time converter analyzes and converts existing timestamps.
+                  Use the generator for creating new events, use the converter for analyzing
+                  existing timestamps.
+                </p>
+              </div>
+              <div className="border-b border-slate-700 pb-4">
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  Which Discord timestamp format is best for events?
+                </h3>
+                <p className="text-slate-400">
+                  For event announcements, use the Long Date/Time format (:F) to show complete
+                  information. For reminders and countdowns, use the Relative format (:R) which
+                  shows "in 2 hours" or "tomorrow" and updates automatically as time passes.
+                </p>
+              </div>
+              <div className="border-b border-slate-700 pb-4">
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  Can I use generated Discord timestamps in Discord bots?
+                </h3>
+                <p className="text-slate-400">
+                  Yes! Generated Discord timestamps work perfectly in Discord bots. Use our
+                  generator to create timestamps for bot responses, scheduled messages, event
+                  reminders, and automated announcements. The timestamps integrate seamlessly with
+                  Discord's API and webhook systems.
+                </p>
+              </div>
+              <div className="border-b border-slate-700 pb-4">
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  Do generated Discord timestamps work across all timezones?
+                </h3>
+                <p className="text-slate-400">
+                  Absolutely! Generated Discord timestamps automatically display in each user's
+                  local timezone. When you create a timestamp, it works perfectly for global Discord
+                  communities, showing the correct time for users in New York, London, Tokyo,
+                  Sydney, and everywhere else.
+                </p>
+              </div>
+              <div className="border-b border-slate-700 pb-4">
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  How do I create countdown timers for Discord?
+                </h3>
+                <p className="text-slate-400">
+                  Use our "Relative Time" mode to create countdown timers. Set the time adjustment
+                  (hours, days, weeks ahead), select the Relative format (:R), and copy the
+                  generated timestamp. It will show as "in 2 hours", "tomorrow", etc., and update
+                  automatically in Discord.
+                </p>
+              </div>
+              <div className="border-b border-slate-700 pb-4">
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  Is this Discord timestamp generator free to use?
+                </h3>
+                <p className="text-slate-400">
+                  Yes! Our Discord timestamp generator is completely free with no registration
+                  required. Create unlimited timestamps, save configurations, use all formats, and
+                  access real-time preview features without any restrictions or hidden costs.
+                </p>
+              </div>
+              <div>
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  Can I save my Discord timestamp configurations?
+                </h3>
+                <p className="text-slate-400">
+                  Yes! Our generator includes a favorites system where you can save frequently used
+                  timestamp configurations. Perfect for recurring events, regular meeting schedules,
+                  or commonly used countdown formats that you can quickly apply and generate again.
+                </p>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>
