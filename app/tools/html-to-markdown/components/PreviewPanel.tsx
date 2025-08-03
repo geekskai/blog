@@ -392,7 +392,11 @@ export default function PreviewPanel({ result, options, onOptionsChange }: Previ
                   ),
                   hr: () => <hr className="my-6 border-slate-600" />,
                   img: ({ src, alt }) => (
-                    <Image src={src} alt={alt} className="h-auto max-w-full rounded-lg" />
+                    <Image
+                      src={src || ""}
+                      alt={alt || ""}
+                      className="h-auto max-w-full rounded-lg"
+                    />
                   ),
                 }}
               >
