@@ -3,7 +3,7 @@ import { Metadata } from "next"
 export const metadata: Metadata = {
   title: "PERM Processing Time Tracker - Free Real-time DOL Immigration Status Checker",
   description:
-    "Best free PERM processing time tracker with real-time DOL data. Track PERM application status, get processing estimates, queue position analysis, and historical trends. Official DOL data integration for accurate immigration timelines.",
+    "PERM processing time tracker with real-time DOL data. Official DOL data integration for accurate immigration timelines.",
   keywords: [
     "perm processing time",
     "perm processing time tracker",
