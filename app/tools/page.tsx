@@ -203,6 +203,24 @@ export default function ToolsPage() {
         gradient: gradients.productivity,
         category: "Productivity",
       },
+      {
+        id: "snow-day-calculator",
+        title: "Snow Day Calculator",
+        description:
+          "Professional snow day prediction using real-time weather data and advanced algorithms. Get accurate school closure probability with detailed weather factor analysis.",
+        icon: Star,
+        href: "/tools/snow-day-calculator/",
+        features: [
+          "Real-time Weather Data",
+          "AI-Powered Analysis",
+          "Accurate Predictions",
+          "Detailed Factor Breakdown",
+        ],
+        badge: "New",
+        badgeColor: "bg-emerald-500",
+        gradient: gradients.utility,
+        category: "Utility",
+      },
     ],
     [gradients]
   )

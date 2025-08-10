@@ -32,33 +32,14 @@
   }
 }
 
-/* Custom animations for tools page */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-/* Gradient text utilities */
-.gradient-text {
-  @apply bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent;
-}
-
-/* Card hover effects */
+/* Simple card hover effects */
 .card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
 }
 
 .card-hover:hover {
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .data-footnote-backref {

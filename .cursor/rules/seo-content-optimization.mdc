@@ -1,0 +1,448 @@
+---
+globs: *.tsx,*.ts,*.mdx,*.md
+description: SEO optimization and content strategy guidelines for top-tier products
+---
+
+# 📈 SEO内容优化标准 - SEO Content Optimization Standards
+
+## 🎯 关键词策略 (Keyword Strategy)
+
+### 🔍 关键词研究与分析
+
+```tsx
+// 关键词密度控制 (推荐 1-3%)
+const keywordOptimization = {
+  primary: "snow day calculator", // 主关键词
+  secondary: [
+    "snow day predictor",
+    "school closure predictor",
+    "will school be closed",
+    "snow day probability",
+  ],
+  longTail: [
+    "snow day calculator for [city name]",
+    "school closure probability calculator",
+    "weather-based school closure forecast",
+  ],
+}
+
+// 语义化关键词集成
+const SemanticContent = () => (
+  <div>
+    <h1>
+      Will School Be Closed Tomorrow? <strong>Snow Day Calculator</strong>
+    </h1>
+    <p>
+      Get instant <strong>snow day predictions</strong> for any location using our advanced{" "}
+      <strong>school closure predictor</strong>. Our <strong>snow day probability</strong> algorithm
+      analyzes real-time weather data.
+    </p>
+  </div>
+)
+```
+
+### 📝 内容结构优化
+
+```tsx
+// H1-H6 层级结构
+const ContentHierarchy = () => (
+  <>
+    {/* H1: 主标题 - 包含核心关键词 */}
+    <h1>Will School Be Closed Tomorrow? Snow Day Calculator</h1>
+
+    {/* H2: 功能区域标题 */}
+    <h2>Choose Your Location Search Method</h2>
+
+    {/* H3: 子功能标题 */}
+    <h3>Enter Your Zip Code</h3>
+
+    {/* H4: 详细说明 */}
+    <h4>How Our Snow Day Calculator Works</h4>
+  </>
+)
+
+// 结构化数据集成
+const StructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Snow Day Calculator",
+  description:
+    "Free snow day calculator predicts school closure probability using real-time weather data",
+  applicationCategory: "UtilityApplication",
+  keywords: "snow day calculator, school closure predictor, snow day probability",
+}
+```
+
+## 🎨 SEO友好的UI组件设计
+
+### 📋 标题组件优化
+
+```tsx
+// SEO优化的标题组件
+const SEOTitle = ({ level = 1, keywords, children }) => {
+  const Tag = `h${level}` as keyof JSX.IntrinsicElements
+
+  return (
+    <Tag
+      className={`
+      ${level === 1 ? "text-5xl font-bold" : ""}
+      ${level === 2 ? "text-3xl font-bold" : ""}
+      ${level === 3 ? "text-2xl font-bold" : ""}
+      text-white
+    `}
+    >
+      {keywords ? (
+        <>
+          {children.split(keywords).map((part, index) => (
+            <React.Fragment key={index}>
+              {part}
+              {index < children.split(keywords).length - 1 && (
+                <strong className="text-blue-300">{keywords}</strong>
+              )}
+            </React.Fragment>
+          ))}
+        </>
+      ) : (
+        children
+      )}
+    </Tag>
+  )
+}
+
+// 使用示例
+;<SEOTitle level={1} keywords="Snow Day Calculator">
+  Will School Be Closed Tomorrow? Snow Day Calculator
+</SEOTitle>
+```
+
+### 🔖 关键词高亮组件
+
+```tsx
+// 智能关键词高亮
+const KeywordHighlight = ({ text, keywords = [] }) => {
+  let highlightedText = text
+
+  keywords.forEach((keyword) => {
+    const regex = new RegExp(`(${keyword})`, "gi")
+    highlightedText = highlightedText.replace(regex, '<strong className="text-white">$1</strong>')
+  })
+
+  return <span dangerouslySetInnerHTML={{ __html: highlightedText }} />
+}
+
+// SEO内容组件
+const SEOContent = () => (
+  <div className="mx-auto max-w-4xl text-slate-300">
+    <KeywordHighlight
+      text="Our advanced meteorological algorithm analyzes snow day predictions with scientific precision"
+      keywords={["snow day predictions", "meteorological algorithm"]}
+    />
+  </div>
+)
+```
+
+### 📊 特性展示优化
+
+```tsx
+// SEO优化的特性列表
+const SEOFeatures = () => {
+  const features = [
+    {
+      icon: "🌡️",
+      title: "Real-time Weather API",
+      description: "Live temperature and snowfall data integration",
+      keywords: ["real-time weather", "snowfall data"],
+    },
+    {
+      icon: "🧠",
+      title: "Scientific Algorithm",
+      description: "Advanced machine learning models for school closure prediction",
+      keywords: ["scientific algorithm", "school closure prediction"],
+    },
+    {
+      icon: "🌍",
+      title: "Worldwide Locations",
+      description: "Global coverage for any city, zip code, or coordinates",
+      keywords: ["worldwide locations", "global coverage"],
+    },
+  ]
+
+  return (
+    <div className="grid gap-6 md:grid-cols-3">
+      {features.map(({ icon, title, description, keywords }) => (
+        <div key={title} className="text-center">
+          <div className="mb-2 text-2xl">{icon}</div>
+          <h3 className="mb-2 text-lg font-bold text-white">
+            <KeywordHighlight text={title} keywords={keywords} />
+          </h3>
+          <p className="text-slate-300">
+            <KeywordHighlight text={description} keywords={keywords} />
+          </p>
+        </div>
+      ))}
+    </div>
+  )
+}
+```
+
+## 📄 页面元数据优化
+
+### 🎯 Meta标签模板
+
+```tsx
+// SEO Meta组件
+const SEOMeta = ({
+  title,
+  description,
+  keywords,
+  canonical,
+  ogImage = "/snow-day-calculator-og.jpg"
+}) => (
+  <Head>
+    {/* 基础SEO */}
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(", ")} />
+    <link rel="canonical" href={canonical} />
+
+    {/* Open Graph */}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+
+    {/* Twitter Cards */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {/* 结构化数据 */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(StructuredData)
+      }}
+    />
+  </Head>
+)
+
+// 使用示例
+<SEOMeta
+  title="Snow Day Calculator - Predict School Closures | Free Tool"
+  description="Free snow day calculator predicts school closure probability using real-time weather data. Get instant predictions for your location."
+  keywords={[
+    "snow day calculator",
+    "snow day predictor",
+    "school closure predictor",
+    "snow day probability"
+  ]}
+  canonical="https://geekskai.com/tools/snow-day-calculator"
+/>
+```
+
+### 🏷️ Schema.org 结构化数据
+
+```tsx
+// 工具应用Schema
+const WebApplicationSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Snow Day Calculator",
+  description:
+    "Free snow day calculator predicts school closure probability using real-time weather data",
+  url: "https://geekskai.com/tools/snow-day-calculator",
+  applicationCategory: "UtilityApplication",
+  operatingSystem: "Any",
+  permissions: "location",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  provider: {
+    "@type": "Organization",
+    name: "GeeksKai",
+    url: "https://geekskai.com",
+  },
+  featureList: [
+    "Real-time weather data integration",
+    "School closure probability calculation",
+    "Location-based predictions",
+    "Multiple weather factors analysis",
+  ],
+}
+
+// FAQ Schema
+const FAQSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How accurate are snow day predictions?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Our snow day calculator uses real-time weather data and proven meteorological factors to provide reliable predictions.",
+      },
+    },
+  ],
+}
+```
+
+## 📊 内容营销优化
+
+### 📝 长尾内容策略
+
+```tsx
+// 教育性内容组件
+const EducationalContent = () => (
+  <section className="mx-auto mt-20 max-w-6xl">
+    <div className="grid gap-12 lg:grid-cols-2">
+      <div>
+        <h2 className="mb-6 text-3xl font-bold text-white">How Our Snow Day Calculator Works</h2>
+        <div className="space-y-4 text-slate-300">
+          <p>
+            Our <strong className="text-white">snow day predictor</strong> uses advanced
+            meteorological algorithms to analyze real-time weather conditions and determine the
+            likelihood of <strong className="text-white">school closures</strong>.
+          </p>
+          <p>
+            Perfect for <strong className="text-white">students, parents, and educators</strong> who
+            need to plan ahead, our tool answers the crucial question:
+            <strong className="text-white">"Will school be closed tomorrow?"</strong>
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h2 className="mb-6 text-3xl font-bold text-white">Why Use Our Snow Day Forecast Tool?</h2>
+        <div className="space-y-4">
+          <FeatureItem
+            icon="⚡"
+            title="Instant Results"
+            description="Get your snow day probability in seconds"
+          />
+          <FeatureItem
+            icon="🌍"
+            title="Global Coverage"
+            description="Works for any location worldwide"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+)
+```
+
+### 🎯 信任信号优化
+
+```tsx
+// 社会证明组件
+const TrustSignals = () => (
+  <section className="mt-12 text-center">
+    <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-2">
+      <span className="text-2xl">🎓</span>
+      <h3 className="text-xl font-semibold text-white">
+        Trusted by Millions of Students, Parents & Educators
+      </h3>
+    </div>
+
+    <p className="mx-auto mt-4 max-w-3xl text-slate-300">
+      Join millions who rely on our <strong className="text-blue-300">snow day calculator</strong>{" "}
+      for accurate school closure predictions.
+    </p>
+
+    <div className="mt-6 flex flex-wrap justify-center gap-4">
+      <TrustBadge text="✓ Free Forever" />
+      <TrustBadge text="✓ No Registration Required" />
+      <TrustBadge text="✓ Instant Predictions" />
+      <TrustBadge text="✓ Mobile & Desktop" />
+    </div>
+  </section>
+)
+
+const TrustBadge = ({ text }) => (
+  <div className="rounded-full border border-green-500/30 bg-gradient-to-r from-green-500/10 to-emerald-500/10 px-4 py-2 text-sm text-green-300">
+    {text}
+  </div>
+)
+```
+
+## 🚀 技术SEO优化
+
+### ⚡ 性能优化
+
+```tsx
+// 图片懒加载组件
+const OptimizedImage = ({ src, alt, className }) => (
+  <img src={src} alt={alt} className={className} loading="lazy" decoding="async" />
+)
+
+// 代码分割
+const LazyComponent = lazy(() => import("./HeavyComponent"))
+
+const App = () => (
+  <Suspense fallback={<LoadingSpinner />}>
+    <LazyComponent />
+  </Suspense>
+)
+```
+
+### 📱 Core Web Vitals 优化
+
+```tsx
+// 性能监控Hook
+const useWebVitals = () => {
+  useEffect(() => {
+    import("web-vitals").then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+      getCLS(console.log)
+      getFID(console.log)
+      getFCP(console.log)
+      getLCP(console.log)
+      getTTFB(console.log)
+    })
+  }, [])
+}
+
+// 预加载关键资源
+;<Head>
+  <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossOrigin="" />
+  <link rel="preconnect" href="https://api.openweathermap.org" />
+</Head>
+```
+
+### 🎯 内部链接策略
+
+```tsx
+// 智能内部链接组件
+const InternalLink = ({ href, children, keywords = [] }) => (
+  <Link
+    href={href}
+    className="text-blue-300 transition-colors hover:text-blue-200"
+    title={`Learn more about ${keywords.join(", ")}`}
+  >
+    {children}
+  </Link>
+)
+
+// 面包屑导航
+const Breadcrumbs = ({ items }) => (
+  <nav aria-label="Breadcrumb" className="mb-8">
+    <ol className="flex items-center space-x-2 text-sm text-slate-400">
+      {items.map((item, index) => (
+        <li key={index} className="flex items-center">
+          {index > 0 && <span className="mx-2">›</span>}
+          {item.href ? (
+            <InternalLink href={item.href}>{item.label}</InternalLink>
+          ) : (
+            <span className="text-slate-200">{item.label}</span>
+          )}
+        </li>
+      ))}
+    </ol>
+  </nav>
+)
+```
+
+这套SEO优化标准确保内容既对搜索引擎友好，又能为用户提供优质体验。

@@ -1,0 +1,321 @@
+---
+alwaysApply: true
+description: Top-tier product design standards and UI/UX optimization guidelines
+---
+
+# 🎨 顶级产品设计标准 - Design System Standards
+
+## 核心设计原则 (Core Design Principles)
+
+### 🌈 色彩系统 (Color System)
+
+- **渐变设计**: 使用多层渐变创造深度感
+
+  - 主容器: `bg-gradient-to-br from-[color]/25 via-[color]/20 to-[color]/25`
+  - 卡片背景: `bg-gradient-to-br from-[color]/15 to-[color]/10`
+  - 按钮: `bg-gradient-to-r from-[color] via-[color] to-[color]`
+
+- **透明度层级**:
+
+  - 主要元素: 15-25% 透明度
+  - 次要元素: 5-15% 透明度
+  - 悬停状态: 增加 5-10% 透明度
+
+- **色彩主题**: 为不同功能分配独特色彩
+  - 蓝色系: 数据/输入 (`blue-500`, `cyan-500`)
+  - 绿色系: 成功/位置 (`emerald-500`, `teal-500`)
+  - 紫色系: 创新/坐标 (`purple-500`, `pink-500`)
+  - 橙红系: 算法/警告 (`orange-500`, `red-500`)
+
+### ✨ 动画与交互 (Animation & Interaction)
+
+- **过渡时长标准**:
+
+  - 快速交互: `duration-300` (按钮悬停)
+  - 标准交互: `duration-500` (卡片状态变化)
+  - 复杂动画: `duration-700` (光线扫过效果)
+
+- **交互反馈层级**:
+  1. **边框变化**: `border-[color]/30` → `border-[color]/50`
+  2. **背景渐变**: 透明度从 10% → 20%
+  3. **阴影效果**: `shadow-lg shadow-[color]/25`
+  4. **发光效果**: `ring-4 ring-[color]/20`
+
+### 🎯 视觉层次 (Visual Hierarchy)
+
+- **标题系统**:
+
+  - 主标题: `text-5xl font-bold` + 渐变文字
+  - 二级标题: `text-3xl font-bold`
+  - 三级标题: `text-2xl font-bold`
+  - 四级标题: `text-xl font-semibold`
+
+- **间距系统**:
+  - 大间距: `mb-12`, `mt-16`
+  - 标准间距: `mb-8`, `mt-8`
+  - 小间距: `mb-4`, `mt-4`
+  - 微间距: `mb-2`, `mt-2`
+
+## 🧩 组件设计模式 (Component Design Patterns)
+
+### 📦 卡片容器 (Card Container)
+
+```tsx
+// 标准卡片模板
+<div className="from-[theme-color]/25 via-[theme-color]/20 to-[theme-color]/25 relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br p-8 shadow-2xl backdrop-blur-xl">
+  {/* 装饰性背景元素 */}
+  <div className="from-[color]/15 to-[color]/15 absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br blur-3xl"></div>
+
+  <div className="relative">{/* 内容区域 */}</div>
+</div>
+```
+
+### 🎭 徽章设计 (Badge Design)
+
+```tsx
+// 功能徽章模板
+<div className="border-[color]/30 from-[color]/10 to-[color]/10 inline-flex items-center gap-3 rounded-full border bg-gradient-to-r px-6 py-3 backdrop-blur-sm">
+  <span className="text-2xl">{icon}</span>
+  <h2 className="bg-gradient-to-r from-[color] via-[color] to-[color] bg-clip-text text-2xl font-bold text-transparent">
+    {title}
+  </h2>
+</div>
+```
+
+### 🔘 按钮设计 (Button Design)
+
+```tsx
+// 主要按钮
+<button className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30">
+  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
+  <span className="relative">{content}</span>
+</button>
+
+// 次要按钮
+<button className="group relative overflow-hidden rounded-2xl border border-[color]/30 bg-gradient-to-br from-[color]/15 to-[color]/10 px-6 py-4 transition-all duration-300 hover:shadow-lg hover:shadow-[color]/25">
+  <div className="absolute inset-0 bg-gradient-to-br from-[color]/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+  <span className="relative">{content}</span>
+</button>
+```
+
+### 📝 输入框设计 (Input Field Design)
+
+```tsx
+// 动态主题输入框
+<div className="relative">
+  <input
+    className={`w-full rounded-2xl border py-4 pl-16 pr-24 text-lg backdrop-blur-sm transition-all duration-300 focus:outline-none ${
+      theme === "blue"
+        ? "border-blue-500/30 bg-blue-500/10 focus:border-blue-400 focus:ring-4 focus:ring-blue-500/20"
+        : theme === "emerald"
+          ? "border-emerald-500/30 bg-emerald-500/10 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/20"
+          : "border-purple-500/30 bg-purple-500/10 focus:border-purple-400 focus:ring-4 focus:ring-purple-500/20"
+    }`}
+  />
+
+  {/* 图标容器 */}
+  <div
+    className={`absolute left-4 top-1/2 -translate-y-1/2 rounded-lg backdrop-blur-sm ${
+      theme === "blue"
+        ? "bg-blue-500/20"
+        : theme === "emerald"
+          ? "bg-emerald-500/20"
+          : "bg-purple-500/20"
+    }`}
+  >
+    {icon}
+  </div>
+</div>
+```
+
+## 🎨 高级视觉效果 (Advanced Visual Effects)
+
+### ✨ 玻璃态设计 (Glassmorphism)
+
+- **背景模糊**: `backdrop-blur-xl`
+- **边框**: `border border-white/10`
+- **多层透明**: 主背景 + 装饰元素 + 内容遮罩
+- **阴影系统**: `shadow-2xl` + 彩色阴影
+
+### 🌟 发光效果 (Glow Effects)
+
+```css
+/* 卡片发光 */
+.glow-card {
+  box-shadow:
+    0 0 20px rgba(color, 0.15),
+    0 0 40px rgba(color, 0.1),
+    0 0 80px rgba(color, 0.05);
+}
+
+/* 按钮发光 */
+.glow-button:hover {
+  box-shadow:
+    0 0 30px rgba(color, 0.3),
+    0 0 60px rgba(color, 0.2);
+}
+```
+
+### 🎭 动态背景 (Dynamic Backgrounds)
+
+```tsx
+// 装饰性背景球体
+<div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-blue-500/15 to-purple-500/15 blur-3xl"></div>
+<div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/15 blur-3xl"></div>
+<div className="absolute right-1/4 top-1/3 h-20 w-20 rounded-full bg-gradient-to-br from-cyan-500/10 to-blue-500/10 blur-2xl"></div>
+```
+
+## 🚀 性能与优化 (Performance & Optimization)
+
+### ⚡ CSS 优化
+
+- **使用 Tailwind CSS** 原子化类名
+- **渐变复用**: 定义标准渐变组合
+- **动画优化**: 使用 `transform` 和 `opacity`
+- **GPU 加速**: `transform3d(0,0,0)` 或 `will-change`
+
+### 🎯 用户体验优化
+
+- **加载状态**: 所有异步操作提供视觉反馈
+- **错误处理**: 友好的错误提示设计
+- **无障碍**: 符合 WCAG 2.1 AA 标准
+- **响应式**: Mobile-first 设计原则
+
+## 📱 响应式设计标准 (Responsive Design Standards)
+
+### 📐 断点系统
+
+- **sm**: 640px+ (手机横屏)
+- **md**: 768px+ (平板)
+- **lg**: 1024px+ (桌面)
+- **xl**: 1280px+ (大桌面)
+
+### 🎛️ 布局适配
+
+```tsx
+// 网格布局示例
+<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+// 弹性布局示例
+<div className="flex flex-col gap-4 lg:flex-row">
+
+// 间距适配
+<div className="px-4 py-8 sm:px-6 lg:px-8">
+```
+
+## 🎪 特殊效果库 (Special Effects Library)
+
+### 🌈 渐变色彩库
+
+```css
+/* 蓝色系渐变 */
+.gradient-blue {
+  @apply bg-gradient-to-br from-blue-500/15 to-cyan-500/10;
+}
+.gradient-blue-intense {
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600;
+}
+
+/* 绿色系渐变 */
+.gradient-emerald {
+  @apply bg-gradient-to-br from-emerald-500/15 to-teal-500/10;
+}
+.gradient-emerald-intense {
+  @apply bg-gradient-to-r from-emerald-600 to-teal-600;
+}
+
+/* 紫色系渐变 */
+.gradient-purple {
+  @apply bg-gradient-to-br from-purple-500/15 to-pink-500/10;
+}
+.gradient-purple-intense {
+  @apply bg-gradient-to-r from-purple-600 to-pink-600;
+}
+```
+
+### ⚡ 动画效果库
+
+```css
+/* 光线扫过效果 */
+.shine-effect {
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.7s ease;
+}
+.shine-effect:hover {
+  transform: translateX(100%);
+}
+
+/* 脉冲发光 */
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+@keyframes pulse-glow {
+  from {
+    box-shadow: 0 0 20px rgba(color, 0.2);
+  }
+  to {
+    box-shadow:
+      0 0 30px rgba(color, 0.4),
+      0 0 40px rgba(color, 0.2);
+  }
+}
+```
+
+## 📋 代码质量标准 (Code Quality Standards)
+
+### 🏗️ 组件结构
+
+```tsx
+// 标准组件结构
+export default function ComponentName() {
+  // 1. 状态管理
+  const [state, setState] = useState()
+
+  // 2. 副作用
+  useEffect(() => {}, [])
+
+  // 3. 事件处理
+  const handleEvent = useCallback(() => {}, [])
+
+  // 4. 渲染函数
+  return (
+    <div className="relative">
+      {/* 背景装饰 */}
+      {/* 主要内容 */}
+      {/* 交互元素 */}
+    </div>
+  )
+}
+```
+
+### 🎯 命名规范
+
+- **组件**: PascalCase (`SnowDayCalculator`)
+- **函数**: camelCase (`calculateProbability`)
+- **常量**: SCREAMING_SNAKE_CASE (`API_BASE_URL`)
+- **CSS类**: kebab-case (`search-section`)
+
+### 📝 注释标准
+
+```tsx
+{
+  /* === 主要功能区域 === */
+}
+{
+  /* 搜索类型选择器 */
+}
+{
+  /* Enhanced input field with dynamic styling */
+}
+{
+  /* Animated background overlay */
+}
+```
+
+这套设计标准确保所有UI组件都能达到顶级产品的视觉效果和用户体验标准。

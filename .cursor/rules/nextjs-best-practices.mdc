@@ -1,0 +1,580 @@
+---
+globs: *.tsx,*.ts,app/**/*,pages/**/*
+description: Next.js best practices and optimization guidelines for production-ready applications
+---
+
+# ⚡ Next.js 最佳实践标准 - Next.js Best Practices
+
+## 🏗️ 项目结构标准 (Project Structure Standards)
+
+### 📁 App Router 架构
+
+```
+app/
+├── layout.tsx                 # 根布局
+├── page.tsx                   # 首页
+├── loading.tsx                # 全局加载组件
+├── error.tsx                  # 全局错误组件
+├── not-found.tsx              # 404页面
+├── globals.css                # 全局样式
+├── api/                       # API路由
+│   └── weather/
+│       └── route.ts           # RESTful API端点
+├── tools/                     # 工具页面
+│   └── snow-day-calculator/
+│       ├── layout.tsx         # 工具布局
+│       ├── page.tsx           # 主页面
+│       └── components/        # 组件目录
+└── components/                # 共享组件
+    ├── ui/                    # UI组件
+    └── forms/                 # 表单组件
+```
+
+### 🎯 组件组织原则
+
+```tsx
+// 页面组件结构标准
+// app/tools/[tool-name]/page.tsx
+export default function ToolPage() {
+  return (
+    <div className="min-h-screen bg-slate-950">
+      <Navigation />
+      <HeroSection />
+      <MainContent />
+      <Footer />
+    </div>
+  )
+}
+
+// 布局组件结构
+// app/tools/[tool-name]/layout.tsx
+export const metadata: Metadata = {
+  title: "Tool Name - Description",
+  description: "Detailed description for SEO",
+}
+
+export default function ToolLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <StructuredData />
+      {children}
+    </>
+  )
+}
+```
+
+## 🚀 性能优化策略 (Performance Optimization)
+
+### ⚡ 代码分割与懒加载
+
+```tsx
+// 动态导入大型组件
+const HeavyChart = dynamic(() => import("./HeavyChart"), {
+  loading: () => <ChartSkeleton />,
+  ssr: false, // 仅客户端渲染
+})
+
+// 条件性加载
+const ConditionalComponent = dynamic(() => import("./ConditionalComponent"), {
+  loading: () => <div>Loading...</div>,
+})
+
+// 使用示例
+export default function Dashboard() {
+  const [showChart, setShowChart] = useState(false)
+
+  return (
+    <div>
+      <button onClick={() => setShowChart(true)}>Show Chart</button>
+      {showChart && <HeavyChart />}
+    </div>
+  )
+}
+```
+
+### 🖼️ 图片优化
+
+```tsx
+import Image from "next/image"
+
+// 优化图片组件
+const OptimizedImage = ({ src, alt, priority = false }) => (
+  <Image
+    src={src}
+    alt={alt}
+    width={1200}
+    height={630}
+    priority={priority}
+    placeholder="blur"
+    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+    className="rounded-lg object-cover"
+    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+  />
+)
+
+// 响应式图片
+const ResponsiveHero = () => (
+  <div className="relative h-96 w-full">
+    <Image
+      src="/hero-image.jpg"
+      alt="Hero Image"
+      fill
+      className="object-cover"
+      priority
+      sizes="100vw"
+    />
+  </div>
+)
+```
+
+### 📦 字体优化
+
+```tsx
+// app/layout.tsx
+import { Inter, Roboto_Mono } from "next/font/google"
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+})
+
+const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto-mono",
+})
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className={`${inter.variable} ${robotoMono.variable}`}>
+      <body className="font-sans">{children}</body>
+    </html>
+  )
+}
+
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-inter)"],
+        mono: ["var(--font-roboto-mono)"],
+      },
+    },
+  },
+}
+```
+
+## 🔄 状态管理最佳实践 (State Management)
+
+### 🪝 Hooks 优化
+
+```tsx
+// 自定义Hook模板
+const useWeatherData = (location: string) => {
+  const [data, setData] = useState<WeatherData | null>(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string>("")
+
+  const fetchWeather = useCallback(async (query: string) => {
+    setLoading(true)
+    setError("")
+
+    try {
+      const response = await fetch(`/api/weather?q=${encodeURIComponent(query)}`)
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to fetch weather data")
+      }
+
+      setData(result)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An error occurred")
+    } finally {
+      setLoading(false)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (location) {
+      fetchWeather(location)
+    }
+  }, [location, fetchWeather])
+
+  return { data, loading, error, refetch: fetchWeather }
+}
+
+// 使用示例
+const WeatherComponent = () => {
+  const [location, setLocation] = useState("")
+  const { data, loading, error, refetch } = useWeatherData(location)
+
+  if (loading) return <LoadingSpinner />
+  if (error) return <ErrorDisplay error={error} onRetry={() => refetch(location)} />
+  if (!data) return <EmptyState />
+
+  return <WeatherDisplay data={data} />
+}
+```
+
+### 💾 本地存储管理
+
+```tsx
+// 安全的localStorage Hook
+const useLocalStorage = <T>(key: string, initialValue: T) => {
+  const [storedValue, setStoredValue] = useState<T>(() => {
+    if (typeof window === 'undefined') {
+      return initialValue
+    }
+
+    try {
+      const item = window.localStorage.getItem(key)
+      return item ? JSON.parse(item) : initialValue
+    } catch (error) {
+      console.warn(`Error reading localStorage key "${key}":`, error)
+      return initialValue
+    }
+  })
+
+  const setValue = useCallback((value: T | ((val: T) => T)) => {
+    try {
+      const valueToStore = value instanceof Function ? value(storedValue) : value
+      setStoredValue(valueToStore)
+
+      if (typeof window !== 'undefined') {
+        window.localStorage.setItem(key, JSON.stringify(valueToStore))
+      }
+    } catch (error) {
+      console.warn(`Error setting localStorage key "${key}":`, error)
+    }
+  }, [key, storedValue])
+
+  return [storedValue, setValue] as const
+}
+
+// 搜索历史管理
+const useSearchHistory = () => {
+  const [history, setHistory] = useLocalStorage<string[]>('search-history', [])
+
+  const addToHistory = useCallback((item: string) => {
+    setHistory(prev => {
+      const filtered = prev.filter(historyItem => historyItem !== item)
+      return [item, ...filtered].slice(0, 5) // 保持最新5条
+    })
+  }, [setHistory])
+
+  const clearHistory = useCallback(() => {
+    setHistory([])
+  }, [setHistory])
+
+  return { history, addToHistory, clearHistory }
+}
+```
+
+## 🌐 API 设计模式 (API Design Patterns)
+
+### 🛣️ API 路由结构
+
+```tsx
+// app/api/weather/route.ts
+import { NextRequest, NextResponse } from "next/server"
+import { z } from "zod"
+
+// 输入验证Schema
+const WeatherRequestSchema = z.object({
+  type: z.enum(["city", "coords", "zip"]),
+  q: z.string().optional(),
+  lat: z.string().optional(),
+  lon: z.string().optional(),
+  zip: z.string().optional(),
+})
+
+export async function GET(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url)
+    const params = Object.fromEntries(searchParams)
+
+    // 验证输入
+    const validatedParams = WeatherRequestSchema.parse(params)
+
+    // 业务逻辑
+    const weatherData = await fetchWeatherData(validatedParams)
+
+    // 返回结果
+    return NextResponse.json(weatherData, {
+      headers: {
+        "Cache-Control": "public, s-maxage=300, stale-while-revalidate=60",
+      },
+    })
+  } catch (error) {
+    console.error("Weather API error:", error)
+
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        { error: "Invalid request parameters", details: error.errors },
+        { status: 400 }
+      )
+    }
+
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+  }
+}
+
+// 辅助函数
+async function fetchWeatherData(params: z.infer<typeof WeatherRequestSchema>) {
+  // API调用逻辑
+  const response = await fetch(buildWeatherURL(params))
+
+  if (!response.ok) {
+    throw new Error(`Weather API error: ${response.status}`)
+  }
+
+  const data = await response.json()
+  return transformWeatherData(data)
+}
+```
+
+### 🔒 错误处理模式
+
+```tsx
+// app/error.tsx - 全局错误边界
+"use client"
+
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string }
+  reset: () => void
+}) {
+  useEffect(() => {
+    console.error("Application error:", error)
+  }, [error])
+
+  return (
+    <div className="flex min-h-screen items-center justify-center">
+      <div className="text-center">
+        <h2 className="mb-4 text-2xl font-bold text-red-600">Something went wrong!</h2>
+        <button
+          onClick={reset}
+          className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+        >
+          Try again
+        </button>
+      </div>
+    </div>
+  )
+}
+
+// 组件级错误边界
+class ComponentErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true }
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error("Component error:", error, errorInfo)
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="p-4 text-center">
+          <h3 className="text-lg font-semibold text-red-600">Component Error</h3>
+          <button
+            onClick={() => this.setState({ hasError: false })}
+            className="mt-2 rounded bg-blue-500 px-3 py-1 text-white"
+          >
+            Retry
+          </button>
+        </div>
+      )
+    }
+
+    return this.props.children
+  }
+}
+```
+
+## 🔍 SEO 与 Meta 优化
+
+### 📄 动态Metadata
+
+```tsx
+// app/tools/[slug]/page.tsx
+import type { Metadata } from "next"
+
+interface PageProps {
+  params: { slug: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const tool = await getToolData(params.slug)
+
+  return {
+    title: `${tool.name} - ${tool.description}`,
+    description: tool.longDescription,
+    keywords: tool.keywords,
+    openGraph: {
+      title: tool.name,
+      description: tool.description,
+      images: [`/tools/${params.slug}/og-image.jpg`],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: tool.name,
+      description: tool.description,
+      images: [`/tools/${params.slug}/twitter-image.jpg`],
+    },
+    alternates: {
+      canonical: `https://example.com/tools/${params.slug}`,
+    },
+  }
+}
+
+export default function ToolPage({ params }: PageProps) {
+  return <ToolComponent slug={params.slug} />
+}
+```
+
+### 🗺️ Sitemap 生成
+
+```tsx
+// app/sitemap.ts
+import { MetadataRoute } from "next"
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const tools = ["snow-day-calculator", "tip-calculator", "password-generator"]
+
+  const toolUrls = tools.map((tool) => ({
+    url: `https://example.com/tools/${tool}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }))
+
+  return [
+    {
+      url: "https://example.com",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 1,
+    },
+    {
+      url: "https://example.com/tools",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    ...toolUrls,
+  ]
+}
+```
+
+## 🧪 测试策略 (Testing Strategy)
+
+### 🎯 组件测试
+
+```tsx
+// __tests__/SnowDayCalculator.test.tsx
+import { render, screen, fireEvent, waitFor } from "@testing-library/react"
+import { jest } from "@jest/globals"
+import SnowDayCalculator from "../page"
+
+// Mock API调用
+global.fetch = jest.fn()
+
+describe("SnowDayCalculator", () => {
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
+
+  it("renders search form correctly", () => {
+    render(<SnowDayCalculator />)
+
+    expect(screen.getByText("Snow Day Calculator")).toBeInTheDocument()
+    expect(screen.getByPlaceholderText(/enter zip code/i)).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: /calculate/i })).toBeInTheDocument()
+  })
+
+  it("handles search submission", async () => {
+    const mockResponse = {
+      location: { name: "New York", country: "US" },
+      snowDay: { probability: 75, level: "High" },
+    }
+
+    ;(fetch as jest.MockedFunction<typeof fetch>).mockResolvedValue({
+      ok: true,
+      json: async () => mockResponse,
+    } as Response)
+
+    render(<SnowDayCalculator />)
+
+    const input = screen.getByPlaceholderText(/enter zip code/i)
+    const button = screen.getByRole("button", { name: /calculate/i })
+
+    fireEvent.change(input, { target: { value: "10001" } })
+    fireEvent.click(button)
+
+    await waitFor(() => {
+      expect(screen.getByText("75%")).toBeInTheDocument()
+      expect(screen.getByText("High Chance")).toBeInTheDocument()
+    })
+  })
+})
+```
+
+### 🔄 E2E 测试
+
+```tsx
+// e2e/snow-day-calculator.spec.ts
+import { test, expect } from "@playwright/test"
+
+test.describe("Snow Day Calculator", () => {
+  test("complete user journey", async ({ page }) => {
+    await page.goto("/tools/snow-day-calculator")
+
+    // 检查页面加载
+    await expect(page.getByText("Snow Day Calculator")).toBeVisible()
+
+    // 选择搜索类型
+    await page.getByLabel("Zip Code").click()
+
+    // 输入zip code
+    await page.getByPlaceholder("Enter zip code").fill("10001")
+
+    // 提交表单
+    await page.getByRole("button", { name: "Calculate Snow Day" }).click()
+
+    // 等待结果
+    await expect(page.getByText(/%/)).toBeVisible({ timeout: 10000 })
+
+    // 检查结果显示
+    await expect(page.getByText(/chance/i)).toBeVisible()
+  })
+
+  test("handles geolocation", async ({ page, context }) => {
+    // 模拟地理位置
+    await context.grantPermissions(["geolocation"])
+    await context.setGeolocation({ latitude: 40.7128, longitude: -74.006 })
+
+    await page.goto("/tools/snow-day-calculator")
+
+    // 点击GPS按钮
+    await page.getByTitle("Use my current location").click()
+
+    // 验证位置被自动填入
+    await expect(page.getByDisplayValue(/40.7128/)).toBeVisible()
+  })
+})
+```
+
+这套Next.js最佳实践确保应用具备生产级别的性能、SEO优化和用户体验。
