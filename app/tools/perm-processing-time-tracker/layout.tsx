@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     "accurate perm processing data",
   ],
   alternates: {
-    canonical: "https://geekskai.com/tools/perm-processing-time/",
+    canonical: "https://geekskai.com/tools/perm-processing-time-tracker/",
   },
   other: {
     "google-site-verification": "your-verification-code", // 添加您的Google验证码
@@ -99,7 +99,7 @@ const jsonLd = {
   name: "PERM Processing Time Tracker",
   description:
     "Professional free PERM processing time tracker with real-time DOL data integration. Track PERM application status, get processing estimates, queue position analysis, and historical trends. Best PERM immigration timeline tracking solution.",
-  url: "https://geekskai.com/tools/perm-processing-time",
+  url: "https://geekskai.com/tools/perm-processing-time-tracker/",
   applicationCategory: "Utility",
   operatingSystem: "Any",
   permissions: "none",
@@ -160,7 +160,7 @@ const jsonLd = {
       description: "Monitor your PERM application processing status and get real-time estimates",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://geekskai.com/tools/perm-processing-time/",
+        urlTemplate: "https://geekskai.com/tools/perm-processing-time-tracker/",
         actionPlatform: [
           "http://schema.org/DesktopWebPlatform",
           "http://schema.org/MobileWebPlatform",
@@ -193,7 +193,7 @@ const howToStructuredData = {
       "@type": "HowToStep",
       name: "Access the PERM Tracker",
       text: "Open the PERM Processing Time Tracker tool in your web browser",
-      url: "https://geekskai.com/tools/perm-processing-time",
+      url: "https://geekskai.com/tools/perm-processing-time-tracker/",
     },
     {
       "@type": "HowToStep",

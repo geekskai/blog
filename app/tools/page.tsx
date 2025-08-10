@@ -186,12 +186,12 @@ export default function ToolsPage() {
         category: "Development",
       },
       {
-        id: "perm-processing-time",
+        id: "perm-processing-time-tracker",
         title: "PERM Processing Time Tracker",
         description:
           "Track your PERM application processing times with real-time DOL data. Get personalized estimates, queue position tracking, and historical trend analysis for your immigration case.",
         icon: Clock,
-        href: "/tools/perm-processing-time",
+        href: "/tools/perm-processing-time-tracker/",
         features: [
           "Real-time DOL Data",
           "Personal Case Tracking",

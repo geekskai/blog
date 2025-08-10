@@ -105,11 +105,11 @@ const toolsData = [
     category: "Creative",
   },
   {
-    id: "perm-processing-time",
+    id: "perm-processing-time-tracker",
     title: "PERM Processing Time Tracker",
     description: "Track your PERM application with real-time DOL data and personalized estimates",
     icon: Clock,
-    href: "/tools/perm-processing-time",
+    href: "/tools/perm-processing-time-tracker/",
     badge: "New",
     badgeColor: "bg-blue-500",
     category: "Productivity",

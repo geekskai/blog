@@ -37,7 +37,7 @@ A comprehensive tool for tracking PERM (Program Electronic Review Management) ap
 ### File Structure
 
 ```
-app/tools/perm-processing-time/
+app/tools/perm-processing-time-tracker/
 ├── types/
 │   └── index.ts                 # TypeScript type definitions
 ├── utils/
