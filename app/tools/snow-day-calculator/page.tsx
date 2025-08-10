@@ -10,6 +10,7 @@ import {
   CloudSnow,
   AlertCircle,
   Info,
+  ChevronRight,
 } from "lucide-react"
 
 interface WeatherData {
@@ -323,13 +324,13 @@ export default function SnowDayCalculator() {
               <span className="ml-1">Home</span>
             </a>
           </li>
-          <AlertCircle className="h-4 w-4" />
+          <ChevronRight className="h-4 w-4" />
           <li>
             <a href="/tools" className="transition-colors hover:text-slate-200">
               Tools
             </a>
           </li>
-          <AlertCircle className="h-4 w-4" />
+          <ChevronRight className="h-4 w-4" />
           <li className="font-medium text-slate-100">Snow Day Calculator</li>
         </ol>
       </nav>
