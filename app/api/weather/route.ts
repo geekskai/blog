@@ -348,9 +348,3 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }
-
-// Rate limiting headers for security
-export async function middleware(request: NextRequest) {
-  // Add rate limiting logic here if needed
-  return NextResponse.next()
-}

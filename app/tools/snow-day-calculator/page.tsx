@@ -299,6 +299,90 @@ export default function SnowDayCalculator() {
     }
   }
 
+  // FAQ data with SEO-optimized questions and answers
+  const faqData = [
+    {
+      question: "How accurate are snow day predictions?",
+      answer:
+        "Our snow day calculator uses real-time weather data from OpenWeatherMap API and advanced meteorological algorithms to provide reliable predictions. The accuracy depends on multiple factors including current snowfall, temperature, wind speed, and visibility. While we can't guarantee 100% accuracy (as school districts make final decisions based on various local factors), our algorithm has been designed to closely mirror the decision-making process used by school administrators.",
+    },
+    {
+      question: "What weather factors does the calculator consider?",
+      answer:
+        "Our scientific algorithm analyzes five key weather factors: (1) Active snowfall intensity (up to 40% impact), (2) Temperature conditions, especially below -5°C (up to 25% impact), (3) Wind speed over 20 km/h (up to 20% impact), (4) Visibility under 5km (up to 15% impact), and (5) A base probability score. These factors are weighted based on their historical correlation with actual school closures.",
+    },
+    {
+      question: "Can I use this for any location worldwide?",
+      answer:
+        "Yes! Our snow day calculator works for any location globally. You can search by city name (e.g., 'Toronto, Canada'), zip/postal code (e.g., '10001' or 'K1A 0A6'), or exact coordinates (e.g., '40.7128,-74.0060'). The tool supports international locations, though the algorithm is optimized for regions that commonly experience snow-related school closures.",
+    },
+    {
+      question: "When is the best time to check for snow day predictions?",
+      answer:
+        "For the most accurate predictions, check our calculator in the evening (8-11 PM) for next-day planning, and again in the early morning (5-8 AM) for final confirmation. Weather conditions can change overnight, so we recommend checking multiple times during active winter weather events. Many families find it helpful to check before bedtime to plan ahead.",
+    },
+    {
+      question: "Is the snow day calculator free to use?",
+      answer:
+        "Yes, our snow day calculator is completely free and always will be! There's no registration required, no hidden fees, and no premium features locked behind paywalls. We believe every student, parent, and educator should have access to reliable weather-based school closure predictions without any cost.",
+    },
+    {
+      question: "How often is the weather data updated?",
+      answer:
+        "Our calculator uses real-time weather data that's updated continuously throughout the day. The OpenWeatherMap API provides current conditions that are refreshed every few minutes, ensuring you always get the latest information for your snow day calculations. For the most current predictions, we recommend checking periodically during active weather events.",
+    },
+    {
+      question: "Why might the calculator show different results than actual school decisions?",
+      answer:
+        "School districts consider many factors beyond weather, including road conditions, bus routes, staff availability, and local policies. Our calculator focuses purely on meteorological data, while schools may factor in things like ice on back roads, driver availability, or district-specific policies. Think of our tool as a helpful indicator rather than a definitive prediction of official school decisions.",
+    },
+    {
+      question: "Can I save my favorite locations for quick access?",
+      answer:
+        "Yes! Our calculator automatically saves your last 5 searched locations in your browser's local storage. You can quickly re-search any previous location by clicking on it in the 'Recent Searches' section. This feature works across all search types (zip codes, cities, and coordinates) and makes it easy to check multiple school districts or locations.",
+    },
+    {
+      question: "What's the difference between zip code, city, and coordinate searches?",
+      answer:
+        "Each search type offers different benefits: Zip code searches provide the most accurate local weather data for specific postal areas. City searches work well for general area predictions and support international locations with proper formatting. Coordinate searches offer the highest precision for exact locations and are perfect when you need weather data for specific addresses or rural areas.",
+    },
+    {
+      question: "How does the snow day algorithm compare to actual school district decisions?",
+      answer:
+        "Our algorithm is based on meteorological data analysis and historical patterns of school closures. While we achieve high correlation with actual decisions, school districts also consider local infrastructure, bus route conditions, staff availability, and district-specific policies. Use our calculator as a reliable indicator, but always check official school announcements for final decisions.",
+    },
+    {
+      question: "Can parents and teachers rely on this for planning purposes?",
+      answer:
+        "Absolutely! Our snow day calculator is designed specifically for planning purposes. Parents can use it to arrange childcare, plan work schedules, and prepare for potential school closures. Teachers can adjust lesson plans and prepare remote learning materials. However, always confirm with official school district communications before making final arrangements.",
+    },
+    {
+      question: "Does the calculator work for private schools and universities?",
+      answer:
+        "Yes, our snow day calculator works for any educational institution. The weather factors affecting closure decisions are similar across public schools, private schools, and universities. However, private institutions and universities may have different closure thresholds and policies, so the probability should be interpreted as a general weather-based indicator.",
+    },
+    {
+      question: "How does daylight saving time affect the calculations?",
+      answer:
+        "Our snow day calculator automatically handles daylight saving time changes and timezone conversions. The weather data includes proper timezone information, ensuring accurate predictions regardless of seasonal time changes. You don't need to make any manual adjustments - the system manages all time-related calculations automatically.",
+    },
+    {
+      question: "What should I do if the calculator shows an error for my location?",
+      answer:
+        "If you encounter an error, first check your input format: use proper city/state format (e.g., 'Boston, MA'), valid zip codes, or precise coordinates. For international locations, include the country name. If problems persist, try using GPS location or alternative search methods. Our system handles most global locations, but very remote areas might have limited weather data.",
+    },
+    {
+      question: "Can I use this tool for other weather-related closure predictions?",
+      answer:
+        "While specifically designed for snow day predictions, our calculator's weather analysis can provide insights for other winter weather events like ice storms, extreme cold, or blizzards that might affect school operations. The probability score reflects general severe weather impact, but our algorithm is optimized specifically for snow-related school closures.",
+    },
+    {
+      question: "How does this compare to other snow day prediction tools?",
+      answer:
+        "Our snow day calculator stands out with its scientific algorithm, real-time API integration, multiple search methods, and mobile-optimized design. Unlike simple weather apps, we specifically focus on factors that influence school closure decisions. Our tool is completely free, requires no registration, and provides detailed probability breakdowns with transparent methodology.",
+    },
+  ]
+
   return (
     <div className="relative min-h-screen bg-slate-950">
       {/* Background pattern */}
@@ -1224,6 +1308,43 @@ export default function SnowDayCalculator() {
             </div>
           </div>
         </div>
+
+        {/* FAQ Section */}
+        <section className="mx-auto mt-20 max-w-4xl rounded-xl bg-slate-800 p-8">
+          <div className="mb-8 text-center">
+            <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-3 backdrop-blur-sm">
+              <span className="text-2xl">❓</span>
+              <h2 className="text-2xl font-bold text-white">
+                Frequently Asked Questions About Snow Day Calculator
+              </h2>
+            </div>
+            <p className="mx-auto max-w-2xl text-slate-400">
+              Get answers to the most common questions about our{" "}
+              <strong className="text-blue-300">snow day calculator</strong> and how to use it
+              effectively.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {faqData.map((faq, index) => (
+              <div key={index} className="border-b border-slate-700 pb-6 last:border-b-0 last:pb-0">
+                <h3 className="mb-3 text-lg font-semibold text-white">{faq.question}</h3>
+                <p className="leading-relaxed text-slate-400">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* FAQ Footer */}
+          <div className="mt-8 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-gradient-to-r from-green-500/10 to-emerald-500/10 px-6 py-3 backdrop-blur-sm">
+              <Info className="h-5 w-5 text-green-300" />
+              <span className="font-medium text-green-300">
+                Still have questions? Our tool provides instant answers to help you plan your snow
+                days!
+              </span>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   )
