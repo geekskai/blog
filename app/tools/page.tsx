@@ -185,6 +185,24 @@ export default function ToolsPage() {
         gradient: gradients.development,
         category: "Development",
       },
+      {
+        id: "perm-processing-time",
+        title: "PERM Processing Time Tracker",
+        description:
+          "Track your PERM application processing times with real-time DOL data. Get personalized estimates, queue position tracking, and historical trend analysis for your immigration case.",
+        icon: Clock,
+        href: "/tools/perm-processing-time",
+        features: [
+          "Real-time DOL Data",
+          "Personal Case Tracking",
+          "Queue Position Estimates",
+          "Historical Trend Analysis",
+        ],
+        badge: "New",
+        badgeColor: "bg-blue-500",
+        gradient: gradients.productivity,
+        category: "Productivity",
+      },
     ],
     [gradients]
   )

@@ -104,6 +104,16 @@ const toolsData = [
     badgeColor: "bg-pink-500",
     category: "Creative",
   },
+  {
+    id: "perm-processing-time",
+    title: "PERM Processing Time Tracker",
+    description: "Track your PERM application with real-time DOL data and personalized estimates",
+    icon: Clock,
+    href: "/tools/perm-processing-time",
+    badge: "New",
+    badgeColor: "bg-blue-500",
+    category: "Productivity",
+  },
 ]
 
 const Header = () => {
