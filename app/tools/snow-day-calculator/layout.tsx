@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     creator: "@geekskai",
   },
   alternates: {
-    canonical: "https://www.geekskai.com/tools/snow-day-calculator",
+    canonical: "https://geekskai.com/tools/snow-day-calculator/",
   },
   other: {
     "application-name": "Snow Day Calculator",
