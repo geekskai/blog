@@ -20,6 +20,8 @@ import {
   Filter,
   Grid,
   ExternalLink,
+  Shield,
+  Car,
 } from "lucide-react"
 
 export default function ToolsPage() {
@@ -220,6 +222,42 @@ export default function ToolsPage() {
         badgeColor: "bg-emerald-500",
         gradient: gradients.utility,
         category: "Utility",
+      },
+      {
+        id: "random-ssn-generator",
+        title: "Random SSN Generator",
+        description:
+          "Generate valid format Social Security Numbers for software testing and development. Educational tool with SSN structure guide and batch processing capabilities.",
+        icon: Shield,
+        href: "/tools/random-ssn-generator",
+        features: [
+          "Valid SSN Format Generation",
+          "Educational Structure Guide",
+          "Batch Processing & Export",
+          "Developer-Focused Design",
+        ],
+        badge: "New",
+        badgeColor: "bg-blue-500",
+        gradient: gradients.development,
+        category: "Development",
+      },
+      {
+        id: "random-vin-generator",
+        title: "Random VIN Generator",
+        description:
+          "Generate ISO 3779 compliant Vehicle Identification Numbers for automotive software testing. Professional tool with valid check digits and manufacturer codes.",
+        icon: Car,
+        href: "/tools/random-vin-generator",
+        features: [
+          "ISO 3779 Compliant Format",
+          "Valid Check Digit Calculation",
+          "Manufacturer Code Database",
+          "Bulk Generation & Export",
+        ],
+        badge: "Professional",
+        badgeColor: "bg-emerald-500",
+        gradient: gradients.development,
+        category: "Development",
       },
     ],
     [gradients]
