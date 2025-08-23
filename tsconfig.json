@@ -33,6 +33,10 @@
   },
   "include": [
     "next-env.d.ts",
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "components/**/*.ts",
+    "components/**/*.tsx",
     "**/*.js",
     "**/*.jsx",
     "**/*.mjs",
