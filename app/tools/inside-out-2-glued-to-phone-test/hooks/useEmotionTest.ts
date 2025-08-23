@@ -43,7 +43,7 @@ export const useEmotionTest = () => {
         const isComplete = nextIndex >= questions.length
 
         // 如果测试完成，计算结果
-        let result = null
+        let result: TestResult | null = null
         if (isComplete) {
           const validation = validateTestAnswers(newAnswers)
           if (validation.isValid) {

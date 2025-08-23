@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server"
 
 // Server-side API key (secure)
-const API_KEY = process.env.OPENWEATHER_API_KEY
+const API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY
 const BASE_URL = "https://api.openweathermap.org/data/2.5"
 
 if (!API_KEY) {
-  throw new Error("OPENWEATHER_API_KEY environment variable is required")
+  throw new Error("NEXT_PUBLIC_OPENWEATHER_API_KEY environment variable is required")
 }
 
 // Helper function to format city names for OpenWeatherMap API

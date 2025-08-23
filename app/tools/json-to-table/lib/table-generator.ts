@@ -1,17 +1,11 @@
-import {
-  type TableData,
-  type TableCell,
-  type TableConfig,
-  OutputFormat,
-  DEFAULT_TABLE_CONFIG,
-} from "../types"
-import { isPrimitive, getDataType, formatJSON } from "./json-parser"
+import { type TableData, type TableCell, type TableConfig, DEFAULT_TABLE_CONFIG } from "../types"
+import { formatJSON } from "./json-parser"
 
-// Import @json-table/core core functionality
-
-// Ignore this error as json-table/core type definitions are not properly generated
+// @ts-ignore
 import { makeBlockFactory } from "@json-table/core/json-to-table"
+// @ts-ignore
 import { blockToHTML } from "@json-table/core/block-to-html"
+// @ts-ignore
 import { blockToASCII } from "@json-table/core/block-to-ascii"
 
 // Core type definitions

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useCallback, useEffect } from "react"
+import { useState, useCallback } from "react"
 import DataSourceSelector from "./DataSourceSelector"
 import ConfigPanel from "./ConfigPanel"
 import TableResultModal from "./TableResultModal"
