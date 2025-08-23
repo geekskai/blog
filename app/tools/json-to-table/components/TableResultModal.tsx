@@ -200,13 +200,23 @@ Visit geekskai.com for more awesome tools!
       <div
         className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
         onClick={onClose}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            onClose()
+          }
+        }}
+        role="button"
+        tabIndex={0}
+        aria-label="Close modal"
       />
 
       {/* Modal content */}
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
         <div
           className="animate-in fade-in-0 zoom-in-95 relative max-h-[90vh] w-full max-w-6xl overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-orange-500/25 via-red-500/20 to-pink-500/25 shadow-2xl backdrop-blur-xl duration-300"
-          onClick={(e) => e.stopPropagation()}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
         >
           {/* Decorative background elements */}
           <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-orange-500/15 to-red-500/15 blur-3xl"></div>
@@ -217,7 +227,10 @@ Visit geekskai.com for more awesome tools!
             <div className="mb-8 flex items-center justify-between">
               <div className="inline-flex items-center gap-3 rounded-full border border-orange-500/30 bg-gradient-to-r from-orange-500/10 to-red-500/10 px-6 py-3 backdrop-blur-sm">
                 <span className="text-2xl">📋</span>
-                <h2 className="bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-2xl font-bold text-transparent">
+                <h2
+                  id="modal-title"
+                  className="bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-2xl font-bold text-transparent"
+                >
                   Generated Table
                 </h2>
               </div>

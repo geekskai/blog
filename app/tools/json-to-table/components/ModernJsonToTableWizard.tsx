@@ -25,32 +25,7 @@ export default function ModernJsonToTableWizard() {
   const [error, setError] = useState<string>("")
   const [showResultModal, setShowResultModal] = useState(false)
 
-  // 处理数据源变化 - 自动转换
-  const handleDataSourceChange = useCallback((source: DataSource) => {
-    setDataSource(source)
-    setError("")
-
-    if (source.data.trim()) {
-      // 自动处理数据
-      processData(source)
-    } else {
-      setTableData(null)
-    }
-  }, [])
-
-  // 处理配置变化
-  const handleConfigChange = useCallback(
-    (newConfig: TableConfig) => {
-      setConfig(newConfig)
-      // 如果有数据，重新生成表格
-      if (dataSource && dataSource.data.trim()) {
-        processData(dataSource, newConfig)
-      }
-    },
-    [dataSource]
-  )
-
-  // 处理数据
+  // Process data
   const processData = useCallback(
     async (source: DataSource, tableConfig: TableConfig = config) => {
       if (!source.data.trim()) {
@@ -73,7 +48,7 @@ export default function ModernJsonToTableWizard() {
         const table = jsonToTable(parseResult.data, tableConfig)
         setTableData(table)
 
-        // 自动打开结果弹窗
+        // Auto open result modal
         setTimeout(() => {
           setShowResultModal(true)
         }, 300)
@@ -95,7 +70,35 @@ export default function ModernJsonToTableWizard() {
     [config]
   )
 
-  // 重置所有状态
+  // Handle data source changes - auto conversion
+  const handleDataSourceChange = useCallback(
+    (source: DataSource) => {
+      setDataSource(source)
+      setError("")
+
+      if (source.data.trim()) {
+        // Auto process data
+        processData(source)
+      } else {
+        setTableData(null)
+      }
+    },
+    [processData]
+  )
+
+  // Handle configuration changes
+  const handleConfigChange = useCallback(
+    (newConfig: TableConfig) => {
+      setConfig(newConfig)
+      // If there's data, regenerate table
+      if (dataSource && dataSource.data.trim()) {
+        processData(dataSource, newConfig)
+      }
+    },
+    [dataSource, processData]
+  )
+
+  // Reset all states
   const handleReset = useCallback(() => {
     setDataSource(null)
     setTableData(null)
@@ -104,12 +107,12 @@ export default function ModernJsonToTableWizard() {
     setConfig(DEFAULT_TABLE_CONFIG)
   }, [])
 
-  // 状态指示器
+  // Status indicator
   const StatusIndicator = () => {
     return (
       <div className="mb-8 text-center">
         <div className="inline-flex items-center gap-6 rounded-2xl border border-white/10 bg-white/5 px-8 py-4 backdrop-blur-sm">
-          {/* 数据源状态 */}
+          {/* Data source status */}
           <div className="flex items-center gap-2">
             <div
               className={`h-3 w-3 rounded-full transition-colors duration-300 ${
@@ -119,13 +122,13 @@ export default function ModernJsonToTableWizard() {
             <span className="text-sm text-slate-300">Data Source</span>
           </div>
 
-          {/* 配置状态 */}
+          {/* Configuration status */}
           <div className="flex items-center gap-2">
             <div className="h-3 w-3 rounded-full bg-blue-500" />
             <span className="text-sm text-slate-300">Configuration</span>
           </div>
 
-          {/* 结果状态 */}
+          {/* Result status */}
           <div className="flex items-center gap-2">
             <div
               className={`h-3 w-3 rounded-full transition-colors duration-300 ${
@@ -145,11 +148,11 @@ export default function ModernJsonToTableWizard() {
     )
   }
 
-  // 浮动操作按钮
+  // Floating action buttons
   const FloatingActions = () => {
     return (
       <div className="fixed bottom-8 right-8 z-40 flex flex-col gap-3">
-        {/* 查看结果按钮 */}
+        {/* View result button */}
         {tableData && (
           <Tooltip content="View Generated Table" position="left">
             <button
@@ -159,13 +162,13 @@ export default function ModernJsonToTableWizard() {
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
               <span className="relative text-2xl">📋</span>
 
-              {/* 脉冲动画 */}
+              {/* Pulse animation */}
               <div className="absolute inset-0 animate-ping rounded-full bg-green-500/30"></div>
             </button>
           </Tooltip>
         )}
 
-        {/* 重置按钮 */}
+        {/* Reset button */}
         {(dataSource || tableData) && (
           <Tooltip content="Reset All Data" position="left">
             <button
@@ -181,7 +184,7 @@ export default function ModernJsonToTableWizard() {
     )
   }
 
-  // 状态反馈区域
+  // Status feedback area
   const StatusFeedback = () => {
     if (loading) {
       return (
