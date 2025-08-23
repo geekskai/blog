@@ -2465,6 +2465,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@json-table/core@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "@json-table/core@npm:0.1.0"
+  checksum: 9766be0df856a087c30d81128bac91610a5031dccd2b42fcea649f914da4ddcd028861489e1229ba59a44c10e931fcf3f1ad2de941f77a0831081e43d7fefc7a
+  languageName: node
+  linkType: hard
+
 "@jsonjoy.com/base64@npm:^1.1.2":
   version: 1.1.2
   resolution: "@jsonjoy.com/base64@npm:1.1.2"
@@ -12113,6 +12120,7 @@ __metadata:
   resolution: "tailwind-nextjs-starter-blog@workspace:."
   dependencies:
     "@headlessui/react": 1.7.19
+    "@json-table/core": ^0.1.0
     "@next/bundle-analyzer": 14.2.3
     "@svgr/webpack": ^8.0.1
     "@tailwindcss/forms": ^0.5.7
