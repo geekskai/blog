@@ -36,12 +36,12 @@ export default function ConfigPanel({ config, onConfigChange }: ConfigPanelProps
 
   return (
     <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/25 via-teal-500/20 to-cyan-500/25 p-8 shadow-2xl backdrop-blur-xl">
-      {/* 装饰性背景元素 */}
+      {/* Decorative background elements */}
       <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-emerald-500/15 to-teal-500/15 blur-3xl"></div>
       <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-teal-500/15 to-cyan-500/15 blur-3xl"></div>
 
       <div className="relative space-y-8">
-        {/* 标题 */}
+        {/* Title */}
         <div className="text-center">
           <div className="inline-flex items-center gap-3 rounded-full border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 px-6 py-3 backdrop-blur-sm">
             <span className="text-2xl">⚙️</span>
@@ -51,7 +51,7 @@ export default function ConfigPanel({ config, onConfigChange }: ConfigPanelProps
           </div>
         </div>
 
-        {/* 输出格式选择 */}
+        {/* Output format selection */}
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-white">Output Format</h3>
           <div className="grid gap-4 md:grid-cols-3">
@@ -78,12 +78,12 @@ export default function ConfigPanel({ config, onConfigChange }: ConfigPanelProps
           </div>
         </div>
 
-        {/* 表格选项 */}
+        {/* Table options */}
         <div className="space-y-6">
           <h3 className="text-lg font-semibold text-white">Table Options</h3>
 
           <div className="grid gap-6 md:grid-cols-2">
-            {/* 显示行号 */}
+            {/* Show line numbers */}
             <div className="space-y-3">
               <label className="flex items-center gap-3">
                 <input
@@ -97,7 +97,7 @@ export default function ConfigPanel({ config, onConfigChange }: ConfigPanelProps
               <p className="text-sm text-slate-400">Add row numbers to the table</p>
             </div>
 
-            {/* 紧凑模式 */}
+            {/* Compact mode */}
             <div className="space-y-3">
               <label className="flex items-center gap-3">
                 <input
@@ -111,7 +111,7 @@ export default function ConfigPanel({ config, onConfigChange }: ConfigPanelProps
               <p className="text-sm text-slate-400">Reduce object details for cleaner view</p>
             </div>
 
-            {/* 合并数组值 */}
+            {/* Join array values */}
             <div className="space-y-3">
               <label className="flex items-center gap-3">
                 <input
@@ -125,7 +125,7 @@ export default function ConfigPanel({ config, onConfigChange }: ConfigPanelProps
               <p className="text-sm text-slate-400">Combine primitive array values with commas</p>
             </div>
 
-            {/* 最大深度 */}
+            {/* Maximum depth */}
             <div className="space-y-3">
               <label className="block">
                 <span className="font-medium text-white">Max Depth: {config.maxDepth}</span>
@@ -142,7 +142,7 @@ export default function ConfigPanel({ config, onConfigChange }: ConfigPanelProps
             </div>
           </div>
 
-          {/* 角落单元格值 */}
+          {/* Corner cell value */}
           <div className="space-y-3">
             <label className="block">
               <span className="font-medium text-white">Corner Cell Value</span>
@@ -158,7 +158,7 @@ export default function ConfigPanel({ config, onConfigChange }: ConfigPanelProps
           </div>
         </div>
 
-        {/* 重置按钮 */}
+        {/* Reset button */}
         <div className="flex justify-center">
           <button
             onClick={() => onConfigChange(DEFAULT_TABLE_CONFIG)}

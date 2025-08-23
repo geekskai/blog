@@ -1,5 +1,5 @@
-import JsonToTableMain from "./components/JsonToTableMain"
+import ModernJsonToTableWizard from "./components/ModernJsonToTableWizard"
 
 export default function JsonToTablePage() {
-  return <JsonToTableMain />
+  return <ModernJsonToTableWizard />
 }

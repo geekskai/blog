@@ -26,7 +26,7 @@ export default function DataSourceSelector({
   const [uploadedFile, setUploadedFile] = useState<File | null>(null)
   const [fileUploadProgress, setFileUploadProgress] = useState(0)
 
-  // 处理文本输入
+  // Handle text input
   const handleTextChange = useCallback(
     (value: string) => {
       setTextData(value)
@@ -37,7 +37,7 @@ export default function DataSourceSelector({
     [onDataChange]
   )
 
-  // 处理 URL 输入
+  // Handle URL input
   const handleUrlChange = useCallback(
     (value: string) => {
       setUrlData(value)
@@ -48,10 +48,10 @@ export default function DataSourceSelector({
     [onDataChange]
   )
 
-  // 处理文件上传
+  // Handle file upload
   const handleFileUpload = useCallback(
     async (file: File) => {
-      // 文件大小检查 (最大 10MB)
+      // File size check (max 10MB)
       const maxSize = 10 * 1024 * 1024 // 10MB
       if (file.size > maxSize) {
         alert("File size too large. Please upload files smaller than 10MB.")
@@ -67,12 +67,12 @@ export default function DataSourceSelector({
       setFileUploadProgress(0)
 
       try {
-        // 显示进度
+        // Show progress
         setFileUploadProgress(50)
 
         const content = await readFileAsText(file)
 
-        // 完成进度
+        // Complete progress
         setFileUploadProgress(100)
 
         const source = createDataSource(SourceType.File)
@@ -82,7 +82,7 @@ export default function DataSourceSelector({
         }
         onDataChange(source)
 
-        // 重置进度
+        // Reset progress
         setTimeout(() => setFileUploadProgress(0), 1000)
       } catch (error) {
         console.error("File reading error:", error)
@@ -94,7 +94,7 @@ export default function DataSourceSelector({
     [onDataChange]
   )
 
-  // 拖拽处理
+  // Drag and drop handling
   const handleDrag = useCallback((e: React.DragEvent) => {
     e.preventDefault()
     e.stopPropagation()
@@ -119,7 +119,7 @@ export default function DataSourceSelector({
     [handleFileUpload]
   )
 
-  // 清除上传的文件
+  // Clear uploaded file
   const handleClearFile = useCallback(() => {
     setUploadedFile(null)
     setFileUploadProgress(0)
@@ -127,7 +127,7 @@ export default function DataSourceSelector({
     onDataChange(source)
   }, [onDataChange])
 
-  // 示例数据
+  // Example data
   const loadExample = useCallback(() => {
     const exampleData = {
       company: "TechCorp",
@@ -211,12 +211,12 @@ export default function DataSourceSelector({
 
   return (
     <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/25 via-purple-500/20 to-pink-500/25 p-8 shadow-2xl backdrop-blur-xl">
-      {/* 装饰性背景元素 */}
+      {/* Decorative background elements */}
       <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-blue-500/15 to-purple-500/15 blur-3xl"></div>
       <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/15 blur-3xl"></div>
 
       <div className="relative">
-        {/* 标题 */}
+        {/* Title */}
         <div className="mb-8 text-center">
           <div className="inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-3 backdrop-blur-sm">
             <span className="text-2xl">📊</span>
@@ -226,7 +226,7 @@ export default function DataSourceSelector({
           </div>
         </div>
 
-        {/* 标签页 */}
+        {/* Tab Navigation */}
         <div className="mb-6 flex justify-center">
           <div className="flex rounded-2xl border border-white/10 bg-white/5 p-1 backdrop-blur-sm">
             {tabs.map(({ type, label, icon }) => (
@@ -246,7 +246,7 @@ export default function DataSourceSelector({
           </div>
         </div>
 
-        {/* 内容区域 */}
+        {/* Content Area */}
         <div className="space-y-6">
           {/* Text Input */}
           {activeTab === SourceType.Text && (
@@ -273,7 +273,7 @@ export default function DataSourceSelector({
           {/* File Upload */}
           {activeTab === SourceType.File && (
             <div className="space-y-6">
-              {/* 文件上传区域 */}
+              {/* File upload area */}
               {!uploadedFile && (
                 <div
                   className={`relative rounded-2xl border-2 border-dashed p-12 text-center transition-all duration-300 ${
@@ -312,7 +312,7 @@ export default function DataSourceSelector({
                 </div>
               )}
 
-              {/* 文件信息和进度 */}
+              {/* File information and progress */}
               {uploadedFile && (
                 <div className="rounded-2xl border border-purple-500/30 bg-purple-500/10 p-6">
                   <div className="mb-4 flex items-center justify-between">
@@ -335,7 +335,7 @@ export default function DataSourceSelector({
                     </button>
                   </div>
 
-                  {/* 进度条 */}
+                  {/* Progress bar */}
                   {fileUploadProgress > 0 && fileUploadProgress < 100 && (
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm">
@@ -351,7 +351,7 @@ export default function DataSourceSelector({
                     </div>
                   )}
 
-                  {/* 完成状态 */}
+                  {/* Completion status */}
                   {fileUploadProgress === 100 && (
                     <div className="flex items-center gap-2 text-green-400">
                       <span className="text-lg">✅</span>

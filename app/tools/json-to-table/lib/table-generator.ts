@@ -7,14 +7,14 @@ import {
 } from "../types"
 import { isPrimitive, getDataType, formatJSON } from "./json-parser"
 
-// 导入 @json-table/core 核心功能
+// Import @json-table/core core functionality
 
-// 不用管这个报错，因为json-table/core 的类型定义文件没有正确生成
+// Ignore this error as json-table/core type definitions are not properly generated
 import { makeBlockFactory } from "@json-table/core/json-to-table"
 import { blockToHTML } from "@json-table/core/block-to-html"
 import { blockToASCII } from "@json-table/core/block-to-ascii"
 
-// 核心类型定义
+// Core type definitions
 interface CoreBlock {
   height: number
   width: number
@@ -37,12 +37,12 @@ interface CoreCell {
 }
 
 /**
- * JSON 数据转换为表格 - 使用 @json-table/core 的正确实现
+ * Convert JSON data to table - Correct implementation using @json-table/core
  */
 export function jsonToTable(data: unknown, config: Partial<TableConfig> = {}): TableData {
   const finalConfig = { ...DEFAULT_TABLE_CONFIG, ...config }
 
-  // 转换配置为 @json-table/core 格式
+  // Convert configuration to @json-table/core format
   const coreOptions = {
     cornerCellValue: finalConfig.cornerCellValue,
     joinPrimitiveArrayValues: finalConfig.joinArrayValues,
@@ -52,17 +52,17 @@ export function jsonToTable(data: unknown, config: Partial<TableConfig> = {}): T
     collapseIndexes: false,
   }
 
-  // 使用 @json-table/core 的正确算法
+  // Use @json-table/core correct algorithm
   const makeBlock = makeBlockFactory(coreOptions)
   const block = makeBlock(data as any) as CoreBlock
 
   return blockToTableData(block, finalConfig)
 }
 
-// 核心转换逻辑由 @json-table/core 处理
+// Core conversion logic handled by @json-table/core
 
 /**
- * 创建表格矩阵并跟踪单元格占位
+ * Create table matrix and track cell placeholders
  */
 function createTableMatrix(block: CoreBlock): {
   matrix: (TableCell | null)[][]
@@ -75,7 +75,7 @@ function createTableMatrix(block: CoreBlock): {
   const cellMap = new Map<string, TableCell>()
   const placed = new Set<CoreCell>()
 
-  // 遍历所有行和单元格
+  // Iterate through all rows and cells
   for (let rowIndex = 0; rowIndex < block.data.rows.length; rowIndex++) {
     const row = block.data.rows[rowIndex]
     const absoluteRowIndex = block.data.indexes[rowIndex]
@@ -84,11 +84,11 @@ function createTableMatrix(block: CoreBlock): {
       const cell = row.cells[cellIndex]
       const absoluteColIndex = row.columns[cellIndex]
 
-      // 避免重复放置同一个单元格
+      // Avoid placing the same cell multiple times
       if (placed.has(cell)) continue
       placed.add(cell)
 
-      // 创建TableCell，处理类型转换
+      // Create TableCell, handle type conversion
       const tableCell: TableCell = {
         type:
           cell.type === "header" || cell.type === "corner" || cell.type === "index"
@@ -102,7 +102,7 @@ function createTableMatrix(block: CoreBlock): {
       const cellId = `${absoluteRowIndex}-${absoluteColIndex}`
       cellMap.set(cellId, tableCell)
 
-      // 在矩阵中标记占位
+      // Mark placeholders in matrix
       for (let r = absoluteRowIndex; r < absoluteRowIndex + cell.height && r < block.height; r++) {
         for (let c = absoluteColIndex; c < absoluteColIndex + cell.width && c < block.width; c++) {
           if (matrix[r][c] === null) {
@@ -118,12 +118,12 @@ function createTableMatrix(block: CoreBlock): {
 }
 
 /**
- * 将 Block 转换为 TableData
+ * Convert Block to TableData
  */
 function blockToTableData(block: CoreBlock, config: TableConfig): TableData {
   const { matrix } = createTableMatrix(block)
 
-  // 转换矩阵为行数组，过滤掉占位符
+  // Convert matrix to row arrays, filter out placeholders
   const rows: TableCell[][] = matrix.map(
     (row) =>
       row.filter(
@@ -131,7 +131,7 @@ function blockToTableData(block: CoreBlock, config: TableConfig): TableData {
       ) as TableCell[]
   )
 
-  // 提取表头（第一行的实际单元格）
+  // Extract headers (actual cells from first row)
   const headers = rows.length > 0 ? rows[0].map((cell) => cell.value) : []
 
   return {
@@ -142,59 +142,48 @@ function blockToTableData(block: CoreBlock, config: TableConfig): TableData {
       totalColumns: block.width,
       dataType: "nested-structure",
     },
-    originalBlock: block, // 保存原始 Block 数据用于正确渲染
+    originalBlock: block, // Save original Block data for correct rendering
   }
 }
 
 /**
- * 格式化值为字符串
- */
-function formatValue(value: unknown): string {
-  if (value === null) return "null"
-  if (value === undefined) return "undefined"
-  if (typeof value === "string") return value
-  if (typeof value === "number" || typeof value === "boolean") return String(value)
-  return JSON.stringify(value)
-}
-
-/**
- * 渲染 HTML 表格 - 使用 @json-table/core 的正确实现
+ * Render HTML table - Correct implementation using @json-table/core
  */
 export function renderHTMLTable(data: TableData): string {
-  // 如果有原始 Block 数据，直接使用 @json-table/core 渲染（保持合并表格功能）
+  // If original Block data exists, use @json-table/core rendering directly (maintain merged table functionality)
   if (data.originalBlock) {
     const coreHTML = blockToHTML(data.originalBlock)
-    // 为 @json-table/core 生成的HTML添加基本的Tailwind样式
+    // Add basic Tailwind styles to HTML generated by @json-table/core
     return addTailwindStylesToCoreHTML(coreHTML)
   }
 
-  // 否则使用 Tailwind CSS 渲染
+  // Otherwise use Tailwind CSS rendering
   return renderHTMLTableWithTailwind(data)
 }
 
 /**
- * 为 @json-table/core 生成的HTML添加Tailwind样式
+ * Add complete style support to HTML generated by @json-table/core
  */
 function addTailwindStylesToCoreHTML(html: string): string {
-  // 为table标签添加Tailwind类名
+  // Add Tailwind class names to table tags
   let styledHTML = html.replace(
     /<table[^>]*>/g,
     `<table class="w-full border-separate border-spacing-0 border-2 border-orange-500/40 rounded-2xl overflow-hidden shadow-2xl shadow-black/30 bg-gradient-to-br from-slate-900/95 to-slate-800/90 backdrop-blur-xl">`
   )
 
-  // 为th标签添加样式
+  // Add styles to th tags
   styledHTML = styledHTML.replace(
     /<th([^>]*)>/g,
     `<th$1 class="bg-gradient-to-r from-orange-500/30 via-red-500/25 to-pink-500/30 text-white font-bold text-sm uppercase tracking-wider px-6 py-4 text-center border-b-2 border-orange-500/40 border-r border-orange-500/20 sticky top-0 z-10">`
   )
 
-  // 为td标签添加样式
+  // Add styles to td tags
   styledHTML = styledHTML.replace(
     /<td([^>]*)>/g,
     `<td$1 class="px-6 py-4 text-white/90 text-sm border-b border-orange-500/10 border-r border-orange-500/8 transition-all duration-300">`
   )
 
-  // 为tr标签添加样式和交替背景色
+  // Add styles and alternating background colors to tr tags
   let rowIndex = 0
   styledHTML = styledHTML.replace(/<tr([^>]*)>/g, (match, attrs) => {
     const isEven = rowIndex % 2 === 0
@@ -206,11 +195,187 @@ function addTailwindStylesToCoreHTML(html: string): string {
     return `<tr${attrs} class="${bgClass} hover:bg-gradient-to-r hover:from-orange-500/15 hover:via-red-500/10 hover:to-pink-500/12 hover:transform hover:-translate-y-0.5 hover:shadow-lg hover:shadow-orange-500/20 cursor-pointer transition-all duration-300 border-b border-orange-500/8">`
   })
 
-  return styledHTML
+  // Wrap as complete HTML document
+  return createCompleteHTMLDocument(styledHTML)
 }
 
 /**
- * 使用 Tailwind CSS 渲染现代化表格
+ * Create complete HTML document with all necessary styles
+ */
+function createCompleteHTMLDocument(tableHTML: string): string {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Table</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS styles */
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        /* Scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(51, 65, 85, 0.3);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: rgba(249, 115, 22, 0.6);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(249, 115, 22, 0.8);
+        }
+        
+        /* Table container styles */
+        .table-container {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            border-radius: 24px;
+            padding: 2rem;
+            margin: 2rem;
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(249, 115, 22, 0.1);
+        }
+        
+        /* Title styles */
+        .table-title {
+            background: linear-gradient(135deg, #f97316, #ef4444, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        /* Table responsive */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 16px;
+        }
+        
+        /* Animation effects */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .table-container {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        /* Enhanced table hover effects */
+        table tr:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 25px rgba(249, 115, 22, 0.15) !important;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .table-container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            
+            .table-title {
+                font-size: 1.875rem;
+            }
+            
+            table {
+                font-size: 0.75rem;
+            }
+            
+            td, th {
+                padding: 0.5rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <h1 class="table-title">Generated Table</h1>
+        <div class="table-wrapper">
+            ${tableHTML}
+        </div>
+        
+        <!-- Table information and website promotion -->
+        <div class="mt-8 space-y-4 text-center">
+            <div class="inline-flex items-center gap-4 rounded-2xl border border-orange-500/20 bg-orange-500/10 px-6 py-3 backdrop-blur-sm">
+                <span class="text-orange-300">📊 Generated by JSON to Table Converter</span>
+            </div>
+            
+            <!-- Website promotion information -->
+            <div class="rounded-2xl border border-blue-500/20 bg-gradient-to-r from-blue-500/5 to-purple-500/5 p-6 backdrop-blur-sm">
+                <div class="space-y-3">
+                    <h3 class="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-xl font-bold text-transparent">
+                        🚀 Powered by GeeksKai
+                    </h3>
+                    <p class="text-slate-300">
+                        Discover more amazing developer tools and resources at 
+                        <a href="https://geekskai.com" target="_blank" rel="noopener noreferrer" 
+                           class="font-semibold text-blue-400 hover:text-blue-300 transition-colors duration-300 underline decoration-blue-500/50 hover:decoration-blue-400">
+                            geekskai.com
+                        </a>
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-3 text-sm">
+                        <span class="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-emerald-300">
+                            ✨ Free Developer Tools
+                        </span>
+                        <span class="rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1 text-purple-300">
+                            🛠️ Code Utilities
+                        </span>
+                        <span class="rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1 text-orange-300">
+                            📚 Tech Resources
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Add interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Table row click effects
+            const rows = document.querySelectorAll('tr');
+            rows.forEach(row => {
+                row.addEventListener('click', function() {
+                    // Remove highlight from other rows
+                    rows.forEach(r => r.classList.remove('ring-2', 'ring-orange-500/50'));
+                    // Add highlight to current row
+                    this.classList.add('ring-2', 'ring-orange-500/50');
+                });
+            });
+            
+            // Add keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    rows.forEach(r => r.classList.remove('ring-2', 'ring-orange-500/50'));
+                }
+            });
+        });
+    </script>
+</body>
+</html>`
+}
+
+/**
+ * Render modern table using Tailwind CSS
  */
 function renderHTMLTableWithTailwind(data: TableData): string {
   const { rows, metadata } = data
@@ -219,7 +384,7 @@ function renderHTMLTableWithTailwind(data: TableData): string {
     return '<div class="text-center text-slate-400 py-8">No data to display</div>'
   }
 
-  // 构建表格HTML
+  // Build table HTML
   const tableClasses = [
     "w-full",
     "border-separate",
@@ -294,7 +459,7 @@ function renderHTMLTableWithTailwind(data: TableData): string {
     "cursor-pointer",
   ].join(" ")
 
-  // 生成表头
+  // Generate table headers
   const headers = rows[0]?.map((cell) => cell.value) || []
   const headerRow = headers
     .map(
@@ -303,7 +468,7 @@ function renderHTMLTableWithTailwind(data: TableData): string {
     )
     .join("")
 
-  // 生成数据行
+  // Generate data rows
   const dataRows = rows
     .slice(1)
     .map((row, rowIndex) => {
@@ -322,7 +487,7 @@ function renderHTMLTableWithTailwind(data: TableData): string {
     })
     .join("")
 
-  return `
+  const tableHTML = `
     <table class="${tableClasses}">
       <thead>
         <tr>${headerRow}</tr>
@@ -332,114 +497,63 @@ function renderHTMLTableWithTailwind(data: TableData): string {
       </tbody>
     </table>
   `
+
+  return createCompleteHTMLDocument(tableHTML)
 }
 
 /**
- * 从矩阵数据渲染HTML表格 (备用方法)
- */
-function renderHTMLTableFromMatrix(data: TableData): string {
-  const { metadata } = data
-  const { totalRows, totalColumns } = metadata
-
-  // 创建表格矩阵来跟踪单元格占位
-  const matrix: (TableCell | "occupied" | null)[][] = Array(totalRows)
-    .fill(null)
-    .map(() => Array(totalColumns).fill(null))
-
-  // 收集所有单元格并按位置排序
-  const allCells: Array<{ cell: TableCell; row: number; col: number }> = []
-
-  let currentRow = 0
-  let currentCol = 0
-
-  // 遍历所有行的单元格
-  for (const row of data.rows) {
-    currentCol = 0
-    for (const cell of row) {
-      // 找到下一个可用位置
-      while (
-        currentCol < totalColumns &&
-        matrix[currentRow] &&
-        matrix[currentRow][currentCol] !== null
-      ) {
-        currentCol++
-      }
-
-      if (currentCol < totalColumns && currentRow < totalRows) {
-        allCells.push({ cell, row: currentRow, col: currentCol })
-
-        // 标记占位区域
-        const rowSpan = cell.rowSpan || 1
-        const colSpan = cell.colSpan || 1
-
-        for (let r = currentRow; r < Math.min(currentRow + rowSpan, totalRows); r++) {
-          for (let c = currentCol; c < Math.min(currentCol + colSpan, totalColumns); c++) {
-            if (matrix[r] && matrix[r][c] === null) {
-              matrix[r][c] = r === currentRow && c === currentCol ? cell : "occupied"
-            }
-          }
-        }
-
-        currentCol += colSpan
-      }
-    }
-    currentRow++
-  }
-
-  // 生成HTML
-  const htmlRows: string[] = []
-
-  for (let r = 0; r < totalRows; r++) {
-    const rowCells: string[] = []
-
-    for (let c = 0; c < totalColumns; c++) {
-      const cellData = matrix[r][c]
-
-      if (cellData && cellData !== "occupied") {
-        const cell = cellData as TableCell
-        const tag =
-          cell.type === "header" || cell.type === "corner" || cell.type === "index" ? "th" : "td"
-        const rowSpanAttr = cell.rowSpan && cell.rowSpan > 1 ? ` rowspan="${cell.rowSpan}"` : ""
-        const colSpanAttr = cell.colSpan && cell.colSpan > 1 ? ` colspan="${cell.colSpan}"` : ""
-        const cssClass = `cell-${cell.type}`
-        const content = cell.value || "&nbsp;"
-
-        rowCells.push(`<${tag} class="${cssClass}"${rowSpanAttr}${colSpanAttr}>${content}</${tag}>`)
-      }
-    }
-
-    if (rowCells.length > 0) {
-      htmlRows.push(`<tr>${rowCells.join("")}</tr>`)
-    }
-  }
-
-  return `<table class="json-table">${htmlRows.join("")}</table>`
-}
-
-/**
- * 渲染 ASCII 表格 - 使用 @json-table/core 的正确实现
+ * Render ASCII table - Correct implementation using @json-table/core
  */
 export function renderASCIITable(data: TableData): string {
-  // 如果有原始 Block 数据，直接使用 @json-table/core 渲染
+  let asciiContent = ""
+
+  // If original Block data exists, use @json-table/core rendering directly
   if (data.originalBlock) {
-    return blockToASCII(data.originalBlock)
+    asciiContent = blockToASCII(data.originalBlock)
+  } else {
+    // Otherwise use simplified ASCII rendering
+    const { rows } = data
+    const lines: string[] = []
+
+    for (const row of rows) {
+      const line = row.map((cell) => cell.value || "").join(" | ")
+      lines.push(`| ${line} |`)
+    }
+
+    asciiContent = lines.join("\n")
   }
 
-  // 否则使用简化的 ASCII 渲染
-  const { rows } = data
-  const lines: string[] = []
+  // Add website promotion information
+  const promotionText = `
 
-  for (const row of rows) {
-    const line = row.map((cell) => cell.value || "").join(" | ")
-    lines.push(`| ${line} |`)
-  }
+═══════════════════════════════════════════════════════════════
+📊 Generated by JSON to Table Converter
+🚀 Powered by GeeksKai - https://geekskai.com
 
-  return lines.join("\n")
+Discover more amazing developer tools:
+✨ Free Developer Tools  🛠️ Code Utilities  📚 Tech Resources
+
+Visit geekskai.com for more awesome tools and resources!
+═══════════════════════════════════════════════════════════════`
+
+  return asciiContent + promotionText
 }
 
 /**
- * 渲染 JSON 格式
+ * Render JSON format
  */
 export function renderJSON(data: TableData): string {
-  return formatJSON(data, 2)
+  // Create complete JSON object with promotion information
+  const jsonWithPromotion = {
+    ...data,
+    _generatedBy: {
+      tool: "JSON to Table Converter",
+      website: "https://geekskai.com",
+      description: "Powered by GeeksKai - Discover more amazing developer tools",
+      features: ["✨ Free Developer Tools", "🛠️ Code Utilities", "📚 Tech Resources"],
+      message: "Visit geekskai.com for more awesome tools and resources!",
+    },
+  }
+
+  return formatJSON(jsonWithPromotion, 2)
 }
