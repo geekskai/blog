@@ -22,6 +22,7 @@ import {
   ExternalLink,
   Shield,
   Car,
+  Table,
 } from "lucide-react"
 
 export default function ToolsPage() {
@@ -274,6 +275,24 @@ export default function ToolsPage() {
         ],
         badge: "Professional",
         badgeColor: "bg-emerald-500",
+        gradient: gradients.development,
+        category: "Development",
+      },
+      {
+        id: "json-to-table",
+        title: "JSON to Table Converter",
+        description:
+          "Professional JSON to Table converter online. Convert JSON to HTML, ASCII, Excel tables instantly with advanced customization and structure preservation.",
+        icon: Table,
+        href: "/tools/json-to-table/",
+        features: [
+          "Multiple Output Formats",
+          "Structure Preservation",
+          "Advanced Customization",
+          "Real-time Preview",
+        ],
+        badge: "New",
+        badgeColor: "bg-blue-500",
         gradient: gradients.development,
         category: "Development",
       },
