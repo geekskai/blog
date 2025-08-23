@@ -134,6 +134,24 @@ export default function ToolsPage() {
         category: "Design",
       },
       {
+        id: "inside-out-2-glued-to-phone-test",
+        title: "Inside Out 2 Glued to Phone Test",
+        description:
+          "Are you glued to your phone? Take the viral Inside Out 2 emotion test to discover which Disney character controls your phone addiction. Analyze Joy, Anxiety, Sadness & 6 more emotions driving your screen time habits.",
+        icon: Sparkles,
+        href: "/tools/inside-out-2-glued-to-phone-test",
+        features: [
+          "9 Inside Out 2 Emotions",
+          "Phone Addiction Analysis",
+          "Personalized Insights",
+          "Shareable Results",
+        ],
+        badge: "Viral",
+        badgeColor: "bg-pink-500",
+        gradient: gradients.entertainment,
+        category: "Entertainment",
+      },
+      {
         id: "chromakopia-name-generator",
         title: "Chromakopia Name Generator",
         description:
