@@ -11,6 +11,7 @@ import {
   Shield,
   Car,
   Table,
+  Ruler,
 } from "lucide-react"
 
 export interface ToolData {
@@ -41,6 +42,24 @@ export const gradients = {
 }
 
 export const toolsData: ToolData[] = [
+  {
+    id: "cm-to-tommer-converter",
+    title: "CM to Tommer Converter",
+    description:
+      "Professional centimeter to tommer (Danish/Norwegian inch) converter with precision control. Perfect for furniture shopping, construction projects, and international commerce.",
+    icon: Ruler,
+    href: "/tools/cm-to-tommer-converter/",
+    features: [
+      "Bidirectional Conversion",
+      "Precision Control (0-3 decimals)",
+      "Quick Reference Table",
+      "Educational Content",
+    ],
+    badge: "New",
+    badgeColor: "bg-blue-500",
+    gradient: gradients.utility,
+    category: "Utility",
+  },
   {
     id: "discord-time-converter",
     title: "Discord Time Converter",
