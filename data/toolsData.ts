@@ -12,6 +12,7 @@ import {
   Car,
   Table,
   Ruler,
+  Zap,
 } from "lucide-react"
 
 export interface ToolData {
@@ -42,6 +43,24 @@ export const gradients = {
 }
 
 export const toolsData: ToolData[] = [
+  {
+    id: "ccm-to-hp-converter",
+    title: "CCM to HP Converter",
+    description:
+      "Professional engine displacement to horsepower converter with 2-stroke/4-stroke and turbocharged/naturally aspirated support. Perfect for motorcycles, cars, boats, and racing applications.",
+    icon: Zap,
+    href: "/tools/ccm-to-hp-converter/",
+    features: [
+      "Bidirectional CCM ↔ HP Conversion",
+      "2-Stroke & 4-Stroke Engine Support",
+      "Turbocharged & Natural Aspiration",
+      "Real Vehicle Examples",
+    ],
+    badge: "New",
+    badgeColor: "bg-orange-500",
+    gradient: gradients.creative,
+    category: "Utility",
+  },
   {
     id: "cm-to-tommer-converter",
     title: "CM to Tommer Converter",

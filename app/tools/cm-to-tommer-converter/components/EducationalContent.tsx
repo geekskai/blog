@@ -1,5 +1,5 @@
-"use client";
-import { Info, Globe, Calculator } from "lucide-react";
+"use client"
+import { Info, Globe, Calculator } from "lucide-react"
 
 export default function EducationalContent() {
   const useCases = [
