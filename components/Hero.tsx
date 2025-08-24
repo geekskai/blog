@@ -9,11 +9,9 @@ import { skillsImage } from "@/utils/skill-image"
 // import Image from 'next/image'
 import Marquee from "react-fast-marquee"
 
-import { ReactElement, useEffect } from "react"
+import { ReactElement } from "react"
 // import { renderCanvas } from "./renderCanvas"
 import Github from "./Github"
-import { allAuthors, Authors } from "contentlayer/generated"
-import { coreContent } from "pliny/utils/contentlayer"
 
 // import Link from 'next/link'
 import { BsGithub, BsLinkedin } from "react-icons/bs"
