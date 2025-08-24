@@ -240,6 +240,8 @@ EMAILOCTOPUS_LIST_ID=
 # Create Beehive API key at https://developers.beehiiv.com/docs/v2/bktd9a7mxo67n-create-an-api-key
 BEEHIVE_API_KEY=
 BEEHIVE_PUBLICATION_ID=
+
+NEXT_PUBLIC_OPENWEATHER_API_KEY=
 ```
 
 - Netlify: [![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/geekskai/blog)
