@@ -10,7 +10,7 @@ import { skillsImage } from "@/utils/skill-image"
 import Marquee from "react-fast-marquee"
 
 import { ReactElement, useEffect } from "react"
-import { renderCanvas } from "./renderCanvas"
+// import { renderCanvas } from "./renderCanvas"
 import Github from "./Github"
 import { allAuthors, Authors } from "contentlayer/generated"
 import { coreContent } from "pliny/utils/contentlayer"
@@ -421,12 +421,12 @@ function Skills() {
 }
 
 export default function Hero(): ReactElement {
-  const author = allAuthors.find((p) => p.slug === "default") as Authors
-  const { name, occupation } = coreContent(author)
+  // const author = allAuthors.find((p) => p.slug === "default") as Authors
+  // const { name, occupation } = coreContent(author)
 
-  useEffect(() => {
-    renderCanvas()
-  }, [])
+  // useEffect(() => {
+  //   renderCanvas()
+  // }, [])
 
   return (
     <div>
@@ -436,7 +436,7 @@ export default function Hero(): ReactElement {
       <Experience />
       <Skills />
 
-      <canvas className="bg-skin-base pointer-events-none absolute inset-0" id="canvas"></canvas>
+      {/* <canvas className="bg-skin-base pointer-events-none absolute inset-0" id="canvas"></canvas> */}
     </div>
   )
 }
