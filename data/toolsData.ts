@@ -13,6 +13,7 @@ import {
   Table,
   Ruler,
   Zap,
+  Music,
 } from "lucide-react"
 
 export interface ToolData {
@@ -43,6 +44,24 @@ export const gradients = {
 }
 
 export const toolsData: ToolData[] = [
+  {
+    id: "bpm-ms-converter",
+    title: "BPM ↔︎ MS Converter",
+    description:
+      "Professional BPM to milliseconds converter for music producers, DJs, and audio engineers. Convert beats per minute to delay times, LFO rates, and sync parameters instantly with all note values.",
+    icon: Music,
+    href: "/tools/bpm-ms-converter/",
+    features: [
+      "Bidirectional BPM ↔ MS Conversion",
+      "All Note Values (Quarter, Eighth, Sixteenth)",
+      "Dotted Notes & Triplets Support",
+      "DAW Integration Ready",
+    ],
+    badge: "New",
+    badgeColor: "bg-purple-500",
+    gradient: gradients.creative,
+    category: "Creative",
+  },
   {
     id: "ccm-to-hp-converter",
     title: "CCM to HP Converter",
