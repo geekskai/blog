@@ -11,20 +11,6 @@ export const metadata: Metadata = {
     "discord event generator",
     "discord countdown generator",
     "discord reminder timestamp",
-    "discord bot timestamp creation",
-    "dynamic discord timestamps",
-    "discord event scheduling",
-    "discord countdown timer",
-    "discord timestamp maker",
-    "discord time generator",
-    "discord event timer",
-    "discord reminder generator",
-    "discord timestamp builder",
-    "discord community tools",
-    "discord server management",
-    "discord timestamp creation",
-    "discord event coordination",
-    "discord timestamp formats",
   ],
   openGraph: {
     title: "Discord Timestamp Generator - Create Dynamic Discord Timestamps",
@@ -42,9 +28,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/static/images/og/discord-timestamp-generator-og.png"],
     title: "Discord Timestamp Generator - Create Dynamic Discord Timestamps",
     description:
       "Generate dynamic Discord timestamps with real-time preview, multiple formats, and Discord bot integration. Perfect for events and countdowns.",
+  },
+  icons: {
+    icon: "/static/images/favicon.ico",
   },
   alternates: {
     canonical: "https://geekskai.com/tools/discord-timestamp-generator/",

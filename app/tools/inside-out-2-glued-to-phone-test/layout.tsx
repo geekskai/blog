@@ -12,12 +12,6 @@ const quizStructuredData = {
   applicationCategory: "UtilityApplication",
   operatingSystem: "Any",
   permissions: "none",
-  og: {
-    title: "Inside Out 2 Glued to Phone Test | Free Emotion Quiz",
-    description:
-      "Are you glued to your phone? Take our Inside Out 2 test to discover which emotion controls your phone addiction. Get instant results with Joy, Anxiety & Sadness!",
-    image: "https://geekskai.com/static/images/og/inside-out-2-glued-to-phone-test-og.png",
-  },
   offers: {
     "@type": "Offer",
     price: "0",
@@ -103,7 +97,14 @@ export const metadata: Metadata = {
     title: "Inside Out 2 Glued to Phone Test | Free Emotion Quiz",
     description:
       "Are you glued to your phone? Take our Inside Out 2 test to discover which emotion controls your phone addiction. Get instant results with Joy, Anxiety & Sadness!",
-    images: ["/static/images/inside-out-2-glued-to-phone-test-og.jpg"],
+    images: [
+      {
+        url: "/static/images/og/inside-out-2-glued-to-phone-test-og.png",
+        width: 1200,
+        height: 630,
+        alt: "Inside Out 2 Glued to Phone Test | Free Emotion Quiz",
+      },
+    ],
     type: "website",
   },
   twitter: {
@@ -111,7 +112,10 @@ export const metadata: Metadata = {
     title: "Inside Out 2 Glued to Phone Test | Free Emotion Quiz",
     description:
       "Are you glued to your phone? Take our Inside Out 2 test to discover which emotion controls your phone addiction. Get instant results with Joy, Anxiety & Sadness!",
-    images: ["/static/images/inside-out-2-glued-to-phone-test-twitter.jpg"],
+    images: ["/static/images/og/inside-out-2-glued-to-phone-test-og.png"],
+  },
+  icons: {
+    icon: "/static/images/favicon.ico",
   },
   alternates: {
     canonical: "https://geekskai.com/tools/inside-out-2-glued-to-phone-test/",
