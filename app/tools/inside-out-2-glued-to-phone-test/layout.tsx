@@ -8,10 +8,16 @@ const quizStructuredData = {
   description:
     "Are you glued to your phone? Take our viral Inside Out 2 test to discover which emotion controls your phone addiction. Free interactive quiz featuring Joy, Anxiety, Sadness and all 9 Inside Out 2 characters.",
   url: "https://geekskai.com/tools/inside-out-2-glued-to-phone-test/",
-  image: "https://geekskai.com/static/images/inside-out-2-glued-to-phone-test-og.jpg",
+  image: "https://geekskai.com/static/images/og/inside-out-2-glued-to-phone-test-og.png",
   applicationCategory: "UtilityApplication",
   operatingSystem: "Any",
   permissions: "none",
+  og: {
+    title: "Inside Out 2 Glued to Phone Test | Free Emotion Quiz",
+    description:
+      "Are you glued to your phone? Take our Inside Out 2 test to discover which emotion controls your phone addiction. Get instant results with Joy, Anxiety & Sadness!",
+    image: "https://geekskai.com/static/images/og/inside-out-2-glued-to-phone-test-og.png",
+  },
   offers: {
     "@type": "Offer",
     price: "0",
