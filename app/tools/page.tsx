@@ -84,7 +84,22 @@ export default function ToolsPage() {
           <div className="absolute bottom-20 right-1/4 h-1 w-1 animate-pulse rounded-full bg-pink-400 opacity-30 delay-500"></div>
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+        <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6">
+          {/* Product Hunt Badge */}
+
+          <a
+            href="https://www.producthunt.com/products/geekskai-toolbox/reviews?utm_source=badge-product_review&utm_medium=badge&utm_source=badge-geekskai&#0045;toolbox"
+            target="_blank"
+            className=" relative top-[-25px] flex justify-center"
+          >
+            <img
+              src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=1098584&theme=light"
+              alt="GeeksKai&#0032;Toolbox - Free&#0032;online&#0032;tools&#0032;for&#0032;developers&#0032;&#0038;&#0032;creators | Product Hunt"
+              style={{ width: "250px", height: "54px" }}
+              width="250"
+              height="54"
+            />
+          </a>
           <div className="text-center">
             {/* Animated Badge */}
             <div className="mb-8 flex justify-center">

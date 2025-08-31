@@ -96,6 +96,10 @@ module.exports = () => {
           protocol: "https",
           hostname: "openweathermap.org",
         },
+        {
+          protocol: "https",
+          hostname: "api.producthunt.com",
+        },
       ],
       unoptimized,
     },
