@@ -1,0 +1,161 @@
+import type { CopyStatus, ConversionResult } from "../types"
+
+/**
+ * 复制文本到剪贴板
+ */
+export async function copyToClipboard(text: string): Promise<boolean> {
+  try {
+    // 优先使用现代 Clipboard API
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text)
+      return true
+    }
+
+    // 降级到传统方法
+    return fallbackCopyToClipboard(text)
+  } catch (error) {
+    console.warn("Failed to copy to clipboard:", error)
+    return false
+  }
+}
+
+/**
+ * 传统的复制到剪贴板方法（降级方案）
+ */
+function fallbackCopyToClipboard(text: string): boolean {
+  try {
+    const textArea = document.createElement("textarea")
+    textArea.value = text
+    textArea.style.position = "fixed"
+    textArea.style.left = "-999999px"
+    textArea.style.top = "-999999px"
+
+    document.body.appendChild(textArea)
+    textArea.focus()
+    textArea.select()
+
+    const successful = document.execCommand("copy")
+    document.body.removeChild(textArea)
+
+    return successful
+  } catch (error) {
+    console.warn("Fallback copy failed:", error)
+    return false
+  }
+}
+
+/**
+ * 格式化单个转换结果的复制文本
+ */
+export function formatCopyText(
+  input: number,
+  output: number,
+  inputUnit: string,
+  outputUnit: string,
+  includeFormula: boolean = false
+): string {
+  let text = `${input} ${inputUnit} = ${output} ${outputUnit}`
+
+  if (includeFormula) {
+    const formula = inputUnit === "cm" ? "1 cm = 0.3937 tommer" : "1 tommer = 2.54 cm"
+    text += `\nFormel: ${formula}`
+  }
+
+  return text
+}
+
+/**
+ * 格式化批量转换结果的复制文本
+ */
+export function formatBatchCopyText(results: ConversionResult[]): string {
+  if (results.length === 0) return ""
+
+  const header = `CM til Tommer Konvertering (${results.length} værdier)\n${"=".repeat(40)}\n`
+
+  const conversions = results
+    .map(
+      (result, index) =>
+        `${index + 1}. ${result.input} ${result.inputUnit} = ${result.output} ${result.outputUnit}`
+    )
+    .join("\n")
+
+  const footer = `\n${"=".repeat(40)}\nGenereret af CM til Tommer Konverter`
+
+  return header + conversions + footer
+}
+
+/**
+ * 格式化详细转换信息的复制文本
+ */
+export function formatDetailedCopyText(result: ConversionResult): string {
+  return [
+    `CM til Tommer Konvertering`,
+    `${"=".repeat(30)}`,
+    `Input: ${result.input} ${result.inputUnit}`,
+    `Output: ${result.output} ${result.outputUnit}`,
+    `Præcision: ${result.precision} decimaler`,
+    `Formel: ${result.formula}`,
+    `${"=".repeat(30)}`,
+    `Genereret af CM til Tommer Konverter`,
+  ].join("\n")
+}
+
+/**
+ * 创建复制状态管理 Hook 的工具函数
+ */
+export function createCopyStatusManager() {
+  let timeoutId: NodeJS.Timeout | null = null
+
+  return {
+    setCopyStatus: (
+      status: CopyStatus,
+      callback: (status: CopyStatus) => void,
+      resetDelay: number = 2000
+    ) => {
+      callback(status)
+
+      // 清除之前的定时器
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+      }
+
+      // 如果是成功或错误状态，设置自动重置
+      if (status === "copied" || status === "error") {
+        timeoutId = setTimeout(() => {
+          callback("idle")
+          timeoutId = null
+        }, resetDelay)
+      }
+    },
+
+    cleanup: () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+        timeoutId = null
+      }
+    },
+  }
+}
+
+/**
+ * 复制转换结果到剪贴板（简化版）
+ */
+export async function copyConversionResult(
+  result: ConversionResult,
+  format: "simple" | "detailed" = "simple"
+): Promise<boolean> {
+  const text =
+    format === "simple"
+      ? formatCopyText(result.input, result.output, result.inputUnit, result.outputUnit)
+      : formatDetailedCopyText(result)
+
+  return copyToClipboard(text)
+}
+
+/**
+ * 复制批量转换结果到剪贴板
+ */
+export async function copyBatchResults(results: ConversionResult[]): Promise<boolean> {
+  const text = formatBatchCopyText(results)
+  return copyToClipboard(text)
+}
