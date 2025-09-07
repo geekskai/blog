@@ -345,6 +345,24 @@ export const toolsData: ToolData[] = [
     gradient: gradients.development,
     category: "Development",
   },
+  {
+    id: "cm-til-tommer",
+    title: "CM til Tommer Konverter",
+    description:
+      "Gratis CM til Tommer konverter for danske og norske brugere. Konverter centimeter til tommer øjeblikkeligt med præcision til møbler, byggeri og IKEA dimensioner.",
+    icon: Ruler,
+    href: "/tools/cm-til-tommer/",
+    features: [
+      "Tovejs CM ↔ Tommer Konvertering",
+      "Nordiske Målestandard",
+      "IKEA Møbeldimensioner",
+      "Præcisionskontrol (0-3 decimaler)",
+    ],
+    badge: "Dansk/Norsk",
+    badgeColor: "bg-red-500",
+    gradient: gradients.utility,
+    category: "Utility",
+  },
 ]
 
 export default toolsData
