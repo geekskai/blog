@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useCallback, useEffect } from "react"
-import { ArrowUpDown, Copy, Check, AlertCircle, Ruler, Calculator, Zap } from "lucide-react"
+import { useState, useCallback } from "react"
+import { ArrowUpDown, Copy, Check, AlertCircle, Ruler, Calculator } from "lucide-react"
 import type { ConversionUnit, PrecisionOption, CopyStatus, ConversionMode } from "../types"
 import {
   convert,
