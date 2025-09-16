@@ -1,3 +1,13 @@
+/**
+ * Language Context and Multi-language Support
+ *
+ * Enhanced version of the original Job Worth Calculator
+ * Original work by Zippland (https://github.com/Zippland/worth-calculator)
+ *
+ * @copyright 2024 Zippland (Original), GeeksKai (Modifications)
+ * @license MIT
+ */
+
 "use client"
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react"

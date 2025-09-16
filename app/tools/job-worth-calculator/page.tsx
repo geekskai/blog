@@ -1,3 +1,19 @@
+/**
+ * Job Worth Calculator - Main Page Component
+ *
+ * Based on the original work by Zippland (https://github.com/Zippland/worth-calculator)
+ * Licensed under MIT License
+ *
+ * Enhanced and modified by GeeksKai Team
+ * - Added multi-language support (Chinese, English, Japanese)
+ * - Redesigned with step-by-step interface
+ * - Enhanced calculation algorithms
+ * - Added history management and sharing features
+ *
+ * @copyright 2024 Zippland (Original), GeeksKai (Modifications)
+ * @license MIT
+ */
+
 "use client"
 
 import React, { useState, useEffect, useRef } from "react"

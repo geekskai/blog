@@ -1,3 +1,13 @@
+/**
+ * Job Worth Calculator - Layout Component
+ *
+ * Based on the original work by Zippland (https://github.com/Zippland/worth-calculator)
+ * Licensed under MIT License
+ *
+ * @copyright 2024 Zippland (Original), GeeksKai (Modifications)
+ * @license MIT
+ */
+
 import { LanguageProvider } from "./components/LanguageContext"
 
 export const metadata = {
