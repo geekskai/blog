@@ -34,7 +34,7 @@ export function getDisplayValue(value: string | undefined, fallback = "Not avail
  * Format engine displacement for display
  */
 export function formatEngineDisplacement(cc?: string, liters?: string): string {
-  const parts = []
+  const parts: string[] = []
 
   if (liters && liters !== "Not Applicable") {
     parts.push(`${liters}L`)
@@ -51,7 +51,7 @@ export function formatEngineDisplacement(cc?: string, liters?: string): string {
  * Format vehicle summary for sharing
  */
 export function formatVehicleSummary(vehicle: DecodedVehicle): string {
-  const parts = []
+  const parts: string[] = []
 
   // Year Make Model
   if (vehicle.year || vehicle.make || vehicle.model) {
@@ -71,7 +71,7 @@ export function formatVehicleSummary(vehicle: DecodedVehicle): string {
 
   // Engine
   if (vehicle.engine) {
-    const engineParts = []
+    const engineParts: string[] = []
 
     if (vehicle.engine.cylinders) {
       engineParts.push(`${vehicle.engine.cylinders} cylinders`)
@@ -249,7 +249,7 @@ export function exportAsText(vehicle: DecodedVehicle): string {
  * Get vehicle title for display
  */
 export function getVehicleTitle(vehicle: DecodedVehicle): string {
-  const parts = []
+  const parts: string[] = []
 
   if (vehicle.year) parts.push(vehicle.year)
   if (vehicle.make) parts.push(vehicle.make)
@@ -266,7 +266,7 @@ export function getVehicleTitle(vehicle: DecodedVehicle): string {
  * Get vehicle subtitle for display
  */
 export function getVehicleSubtitle(vehicle: DecodedVehicle): string {
-  const parts = []
+  const parts: string[] = []
 
   if (vehicle.trim) {
     parts.push(vehicle.trim)
