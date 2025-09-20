@@ -363,6 +363,24 @@ export const toolsData: ToolData[] = [
     gradient: gradients.utility,
     category: "Utility",
   },
+  {
+    id: "cm-to-pm-converter",
+    title: "CM to PM Converter",
+    description:
+      "Professional scientific converter for centimeters to picometers with atomic-scale precision. Perfect for nanotechnology research, atomic physics, and materials science applications.",
+    icon: Ruler,
+    href: "/tools/cm-to-pm-converter/",
+    features: [
+      "Scientific Precision (0-6 decimals)",
+      "Bidirectional CM ↔ PM Conversion",
+      "Scientific Notation Support",
+      "Atomic Scale Visualization",
+    ],
+    badge: "Scientific",
+    badgeColor: "bg-purple-500",
+    gradient: gradients.education,
+    category: "Utility",
+  },
 ]
 
 export default toolsData
