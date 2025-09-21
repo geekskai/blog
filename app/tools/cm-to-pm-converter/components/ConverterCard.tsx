@@ -123,11 +123,12 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-3 backdrop-blur-sm">
             <Microscope className="h-5 w-5 text-blue-400" />
             <h2 className="bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-xl font-bold text-transparent">
-              CM ↔ PM Scientific Converter
+              PM to CM & CM to PM Scientific Converter
             </h2>
           </div>
           <p className="text-slate-300">
-            Convert between centimeters and picometers with scientific precision
+            Convert PM to CM and CM to PM with our picometer to centimeter tool - scientific
+            precision guaranteed
           </p>
         </div>
 
