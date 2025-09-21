@@ -2,13 +2,17 @@ import type { Metadata } from "next"
 
 // SEO 优化的 metadata (基于PRD文档的关键词策略)
 export const metadata: Metadata = {
-  title: "CM to PM Converter | Scientific Centimeter to Picometer Calculator | Free Tool",
+  title: "PM to CM & CM to PM Converter | Free Picometer Centimeter Calculator | Scientific Tool",
   description:
-    "Professional CM to PM converter for scientists and researchers. Convert centimeters to picometers with scientific precision up to 6 decimal places. Perfect for nanotechnology, atomic physics, and materials science research.",
+    "Professional PM to CM and CM to PM converter for scientists and researchers. Convert picometers to centimeters and centimeters to picometers with scientific precision up to 6 decimal places. Perfect for nanotechnology, atomic physics, and materials science research.",
   keywords: [
+    "pm to cm converter",
     "cm to pm converter",
-    "centimeter to picometer",
     "picometer to centimeter",
+    "centimeter to picometer",
+    "pm to cm calculator",
+    "cm to pm calculator",
+    "picometer centimeter converter",
     "scientific unit converter",
     "atomic scale measurements",
     "nanotechnology calculator",
@@ -24,6 +28,8 @@ export const metadata: Metadata = {
     "molecular scale calculator",
     "free scientific converter",
     "accurate measurement tool",
+    "bidirectional unit converter",
+    "pm cm conversion tool",
   ],
   authors: [{ name: "GeeksKai" }],
   creator: "GeeksKai",
@@ -31,9 +37,9 @@ export const metadata: Metadata = {
 
   // Open Graph
   openGraph: {
-    title: "CM to PM Converter | Scientific Measurement Tool",
+    title: "PM to CM & CM to PM Converter | Scientific Measurement Tool",
     description:
-      "Professional centimeter to picometer converter with scientific precision. Essential for nanotechnology, atomic physics, and materials science research.",
+      "Professional PM to CM and CM to PM converter with scientific precision. Convert picometers to centimeters and centimeters to picometers. Essential for nanotechnology, atomic physics, and materials science research.",
     url: "https://geekskai.com/tools/cm-to-pm-converter/",
     siteName: "GeeksKai Scientific Tools",
     images: [
@@ -51,9 +57,9 @@ export const metadata: Metadata = {
   // Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: "CM to PM Converter | Scientific Measurement Tool",
+    title: "PM to CM & CM to PM Converter | Scientific Tool",
     description:
-      "Professional centimeter to picometer converter with scientific precision. Perfect for nanotechnology and atomic physics research.",
+      "Professional PM to CM and CM to PM converter with scientific precision. Convert picometers to centimeters and vice versa. Perfect for nanotechnology and atomic physics research.",
     images: ["/static/tools/cm-to-pm-converter-twitter.jpg"],
     creator: "@geekskai",
   },
@@ -95,9 +101,9 @@ export const metadata: Metadata = {
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "CM to PM Scientific Converter",
+  name: "PM to CM & CM to PM Scientific Converter",
   description:
-    "Professional tool for converting centimeters to picometers with scientific precision up to 6 decimal places",
+    "Professional bidirectional tool for converting PM to CM and CM to PM with scientific precision up to 6 decimal places. Convert picometers to centimeters and centimeters to picometers instantly.",
   url: "https://geekskai.com/tools/cm-to-pm-converter/",
   applicationCategory: "UtilityApplication",
   operatingSystem: "Any",
@@ -118,14 +124,16 @@ const structuredData = {
     },
   },
   featureList: [
-    "Bidirectional conversion (CM ↔ PM)",
+    "PM to CM conversion with scientific precision",
+    "CM to PM conversion with scientific precision",
+    "Bidirectional conversion (PM ↔ CM)",
     "Scientific precision control (0-6 decimal places)",
     "Scientific notation support",
-    "Real-time conversion calculations",
+    "Real-time PM to CM and CM to PM calculations",
     "Atomic scale visualization",
-    "Educational content about picometer scale",
+    "Educational content about picometer and centimeter scale",
     "Copy results to clipboard",
-    "Quick reference tables",
+    "Quick reference tables for PM to CM conversions",
     "Mobile-friendly interface",
     "No registration required",
     "Batch conversion capability",
@@ -135,7 +143,7 @@ const structuredData = {
     "@type": "ImageObject",
     url: "https://geekskai.com/static/tools/cm-to-pm-converter-screenshot.jpg",
     caption:
-      "CM to PM Converter interface showing scientific conversion from centimeters to picometers",
+      "PM to CM & CM to PM Converter interface showing bidirectional scientific conversion between picometers and centimeters",
   },
   softwareVersion: "1.0",
   datePublished: "2024-01-24",
@@ -156,9 +164,9 @@ const structuredData = {
   },
   usageInfo: {
     "@type": "CreativeWork",
-    name: "How to use CM to PM Converter",
+    name: "How to use PM to CM & CM to PM Converter",
     description:
-      "Enter a value in centimeters or picometers, select precision level, and get instant scientific conversion results with formula display",
+      "Enter a value in picometers or centimeters, select precision level, and get instant bidirectional scientific conversion results with formula display for both PM to CM and CM to PM conversions",
   },
 }
 
@@ -169,18 +177,26 @@ const faqStructuredData = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What is a picometer and how does it relate to centimeters?",
+      name: "How do I convert PM to CM and CM to PM accurately?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A picometer (pm) is a unit of length equal to one trillionth of a meter (10⁻¹² m). One centimeter equals exactly 10,000,000,000 (10¹⁰) picometers. This scale is used in atomic physics, nanotechnology, and molecular measurements.",
+        text: "Use our PM to CM and CM to PM converter by entering your value in either picometers or centimeters. For PM to CM conversion: divide by 10¹⁰. For CM to PM conversion: multiply by 10¹⁰. Our tool handles both conversions automatically with scientific precision up to 6 decimal places.",
       },
     },
     {
       "@type": "Question",
-      name: "How accurate is this CM to PM converter for scientific research?",
+      name: "What is a picometer and how does it relate to centimeters?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Our converter provides precision up to 6 decimal places and maintains accuracy for values up to 10¹⁵ picometers, making it suitable for professional scientific research, nanotechnology applications, and academic studies.",
+        text: "A picometer (pm) is a unit of length equal to one trillionth of a meter (10⁻¹² m). One centimeter equals exactly 10,000,000,000 (10¹⁰) picometers. For PM to CM conversion: 1 pm = 1 × 10⁻¹⁰ cm. For CM to PM conversion: 1 cm = 1 × 10¹⁰ pm. This scale is used in atomic physics, nanotechnology, and molecular measurements.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How accurate is this PM to CM and CM to PM converter for scientific research?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Our PM to CM and CM to PM converter provides precision up to 6 decimal places and maintains accuracy for values up to 10¹⁵ picometers, making it suitable for professional scientific research, nanotechnology applications, and academic studies. Both PM to CM and CM to PM conversions are equally accurate.",
       },
     },
     {
@@ -193,18 +209,18 @@ const faqStructuredData = {
     },
     {
       "@type": "Question",
-      name: "What scientific applications use CM to PM conversion?",
+      name: "What scientific applications use PM to CM and CM to PM conversion?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "CM to PM conversion is essential in nanotechnology research, atomic physics calculations, molecular biology measurements, materials science analysis, and quantum mechanics studies where atomic-scale precision is required.",
+        text: "PM to CM and CM to PM conversions are essential in nanotechnology research, atomic physics calculations, molecular biology measurements, materials science analysis, and quantum mechanics studies where atomic-scale precision is required. Both PM to CM and CM to PM conversions are used for bridging macroscopic and atomic scale measurements.",
       },
     },
     {
       "@type": "Question",
-      name: "Is this converter free to use for research purposes?",
+      name: "Is this PM to CM and CM to PM converter free to use for research purposes?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, our CM to PM converter is completely free for all users, including researchers, students, and professionals. No registration or subscription is required.",
+        text: "Yes, our PM to CM and CM to PM converter is completely free for all users, including researchers, students, and professionals. No registration or subscription is required for unlimited PM to CM and CM to PM conversions.",
       },
     },
     {
@@ -222,24 +238,25 @@ const faqStructuredData = {
 const scientificApplicationData = {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  name: "How to Convert Centimeters to Picometers for Scientific Research",
-  description: "Step-by-step guide for accurate CM to PM conversion in scientific applications",
+  name: "How to Convert PM to CM and CM to PM for Scientific Research",
+  description:
+    "Step-by-step guide for accurate PM to CM and CM to PM bidirectional conversion in scientific applications",
   totalTime: "PT2M",
   supply: [
     {
       "@type": "HowToSupply",
-      name: "CM to PM Converter Tool",
+      name: "PM to CM & CM to PM Converter Tool",
     },
     {
       "@type": "HowToSupply",
-      name: "Measurement value in centimeters or picometers",
+      name: "Measurement value in picometers or centimeters",
     },
   ],
   step: [
     {
       "@type": "HowToStep",
       name: "Enter measurement value",
-      text: "Input your measurement in centimeters or picometers using decimal or scientific notation",
+      text: "Input your measurement in picometers or centimeters using decimal or scientific notation for both PM to CM and CM to PM conversions",
       image: "https://geekskai.com/static/tools/cm-to-pm-step1.jpg",
     },
     {
@@ -251,7 +268,7 @@ const scientificApplicationData = {
     {
       "@type": "HowToStep",
       name: "Get conversion results",
-      text: "View results in standard or scientific notation with conversion formula",
+      text: "View PM to CM and CM to PM results in standard or scientific notation with conversion formula",
       image: "https://geekskai.com/static/tools/cm-to-pm-step3.jpg",
     },
     {
