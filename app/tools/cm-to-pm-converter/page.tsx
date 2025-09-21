@@ -250,7 +250,10 @@ export default function CmToPmConverter() {
               <div className="rounded-lg bg-emerald-900/30 p-6">
                 <h3 className="mb-3 text-lg font-semibold text-white">🔄 PM to CM Conversion</h3>
                 <p className="text-slate-200">
-                  Convert <strong>PM to CM</strong> instantly with our advanced calculator. Simply enter your picometer value and get precise centimeter results. Our <strong>PM to CM</strong> tool handles scientific notation and provides formula explanations for educational purposes.
+                  Convert <strong>PM to CM</strong> instantly with our advanced calculator. Simply
+                  enter your picometer value and get precise centimeter results. Our{" "}
+                  <strong>PM to CM</strong> tool handles scientific notation and provides formula
+                  explanations for educational purposes.
                 </p>
                 <div className="mt-3 rounded bg-emerald-800/50 p-2 text-sm">
                   <strong>Formula:</strong> PM ÷ 10¹⁰ = CM
@@ -259,16 +262,24 @@ export default function CmToPmConverter() {
               <div className="rounded-lg bg-teal-900/30 p-6">
                 <h3 className="mb-3 text-lg font-semibold text-white">🔄 CM to PM Conversion</h3>
                 <p className="text-slate-200">
-                  Convert <strong>CM to PM</strong> with laboratory-grade precision. Our <strong>CM to PM</strong> converter multiplies your centimeter input by 10¹⁰ to deliver accurate picometer measurements essential for nanotechnology and atomic physics research.
+                  Convert <strong>CM to PM</strong> with laboratory-grade precision. Our{" "}
+                  <strong>CM to PM</strong> converter multiplies your centimeter input by 10¹⁰ to
+                  deliver accurate picometer measurements essential for nanotechnology and atomic
+                  physics research.
                 </p>
                 <div className="mt-3 rounded bg-teal-800/50 p-2 text-sm">
                   <strong>Formula:</strong> CM × 10¹⁰ = PM
                 </div>
               </div>
               <div className="rounded-lg bg-cyan-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">⚗️ Picometer to Centimeter</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  ⚗️ Picometer to Centimeter
+                </h3>
                 <p className="text-slate-200">
-                  Our comprehensive <strong>picometer to centimeter</strong> tool bridges the gap between atomic and macroscopic scales. Perfect for students and researchers who need reliable <strong>picometer to centimeter</strong> conversions with educational context.
+                  Our comprehensive <strong>picometer to centimeter</strong> tool bridges the gap
+                  between atomic and macroscopic scales. Perfect for students and researchers who
+                  need reliable <strong>picometer to centimeter</strong> conversions with
+                  educational context.
                 </p>
                 <div className="mt-3 rounded bg-cyan-800/50 p-2 text-sm">
                   <strong>Scale:</strong> 1 cm = 10,000,000,000 pm
@@ -276,6 +287,7 @@ export default function CmToPmConverter() {
               </div>
             </div>
           </section>
+        </div>
 
         {/* Content Sections for SEO */}
         <div className="space-y-16">
