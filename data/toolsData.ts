@@ -423,6 +423,24 @@ export const toolsData: ToolData[] = [
     category: "Utility",
   },
   {
+    id: "board-foot-calculator",
+    title: "Board Foot Calculator",
+    description:
+      "Professional board foot calculator for lumber and wood projects. Calculate board feet, estimate costs, and manage materials for construction, woodworking, and furniture making with precision control and project management features.",
+    icon: Calculator,
+    href: "/tools/board-foot-calculator/",
+    features: [
+      "Board Foot Formula Calculator (L×W×T÷144)",
+      "Imperial & Metric Unit Support",
+      "Lumber Cost Estimation & Wood Species Database",
+      "Multi-Piece Project Management & CSV Export",
+    ],
+    badge: "Professional",
+    badgeColor: "bg-amber-500",
+    gradient: gradients.utility,
+    category: "Utility",
+  },
+  {
     id: "pund-til-nok-kalkulator",
     title: "Pund til NOK Kalkulator",
     description:
