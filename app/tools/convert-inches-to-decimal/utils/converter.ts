@@ -150,22 +150,23 @@ export function generateRulerMarks(
   decimal: number
   size: "major" | "minor" | "tiny"
 }> {
-  const marks = []
+  const marks = [] as Array<{
+    position: number
+    fraction: string
+    decimal: number
+    size: "major" | "minor" | "tiny"
+  }>
 
   for (let i = 0; i <= maxValue; i += increment) {
     const decimal = Math.round(i / increment) * increment
 
     // Determine mark size based on fraction
-    let size: "major" | "minor" | "tiny" = "tiny"
+    let size: "major" | "minor" | "tiny" = "minor"
 
     if (decimal % 1 === 0) {
-      size = "major" // Whole numbers
+      size = "major"
     } else if (decimal % 0.5 === 0) {
-      size = "major" // Half inches
-    } else if (decimal % 0.25 === 0) {
-      size = "minor" // Quarter inches
-    } else if (decimal % 0.125 === 0) {
-      size = "minor" // Eighth inches
+      size = "major"
     }
 
     // Convert to fraction representation
