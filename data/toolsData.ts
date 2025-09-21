@@ -14,6 +14,11 @@ import {
   Ruler,
   Zap,
   Music,
+  Snowflake,
+  Search,
+  CreditCard,
+  Banknote,
+  Microscope,
 } from "lucide-react"
 
 export interface ToolData {
@@ -44,6 +49,24 @@ export const gradients = {
 }
 
 export const toolsData: ToolData[] = [
+  {
+    id: "convert-inches-to-decimal",
+    title: "Convert Inches to Decimal",
+    description:
+      "Professional inches to decimal converter for construction, woodworking, and manufacturing. Convert fractional inches (5 3/4) to decimal inches (5.75) instantly with visual ruler and precision control.",
+    icon: Ruler,
+    href: "/tools/convert-inches-to-decimal/",
+    features: [
+      "Bidirectional Fraction ↔ Decimal Conversion",
+      "Visual Ruler with Measurements",
+      "Mobile-Optimized for Job Sites",
+      "Conversion History & Export",
+    ],
+    badge: "Professional",
+    badgeColor: "bg-orange-500",
+    gradient: gradients.utility,
+    category: "Utility",
+  },
   {
     id: "bpm-ms-converter",
     title: "BPM ↔︎ MS Converter",
@@ -169,19 +192,19 @@ export const toolsData: ToolData[] = [
     id: "tip-screen-generator",
     title: "Tip Screen Guide & Generator",
     description:
-      "Understand the psychology behind tip screens and their impact on consumer behavior. Create realistic examples for educational purposes and UX research.",
-    icon: DollarSign,
+      "Understand the psychology behind tip screens and their impact on consumer behavior. Create realistic examples for educational purposes, UX research, and business analysis with multiple device themes.",
+    icon: CreditCard,
     href: "/tools/tip-screen-generator/",
     features: [
-      "Psychology Analysis",
-      "Multiple Device Themes",
-      "Educational Content",
-      "Screenshot Export",
+      "Consumer Psychology Analysis",
+      "Multiple Device Themes & Styles",
+      "Educational Content & Research",
+      "High-Quality Screenshot Export",
     ],
     badge: "Educational",
     badgeColor: "bg-orange-500",
-    gradient: gradients.creative,
-    category: "Design",
+    gradient: gradients.education,
+    category: "Education",
   },
   {
     id: "inside-out-2-glued-to-phone-test",
@@ -277,17 +300,17 @@ export const toolsData: ToolData[] = [
     id: "snow-day-calculator",
     title: "Snow Day Calculator",
     description:
-      "Professional snow day prediction using real-time weather data and advanced algorithms. Get accurate school closure probability with detailed weather factor analysis.",
-    icon: Star,
+      "Professional snow day prediction using real-time weather data and advanced algorithms. Get accurate school closure probability with detailed weather factor analysis for any location worldwide.",
+    icon: Snowflake,
     href: "/tools/snow-day-calculator/",
     features: [
-      "Real-time Weather Data",
-      "AI-Powered Analysis",
-      "Accurate Predictions",
-      "Detailed Factor Breakdown",
+      "Real-time Weather API Integration",
+      "AI-Powered Prediction Algorithm",
+      "Location-Based Analysis",
+      "Detailed Weather Factor Breakdown",
     ],
-    badge: "New",
-    badgeColor: "bg-emerald-500",
+    badge: "Popular",
+    badgeColor: "bg-blue-500",
     gradient: gradients.utility,
     category: "Utility",
   },
@@ -368,7 +391,7 @@ export const toolsData: ToolData[] = [
     title: "CM to PM Converter",
     description:
       "Professional scientific converter for centimeters to picometers with atomic-scale precision. Perfect for nanotechnology research, atomic physics, and materials science applications.",
-    icon: Ruler,
+    icon: Microscope,
     href: "/tools/cm-to-pm-converter/",
     features: [
       "Scientific Precision (0-6 decimals)",
@@ -380,6 +403,42 @@ export const toolsData: ToolData[] = [
     badgeColor: "bg-purple-500",
     gradient: gradients.education,
     category: "Utility",
+  },
+  {
+    id: "vin-decoder",
+    title: "VIN Decoder & Lookup",
+    description:
+      "Professional Vehicle Identification Number decoder with comprehensive vehicle information. Decode VIN numbers to get detailed vehicle specifications, manufacturer data, and history insights.",
+    icon: Search,
+    href: "/tools/vin-decoder/",
+    features: [
+      "Complete VIN Decoding",
+      "Manufacturer Database",
+      "Vehicle Specifications",
+      "Brand-Specific Pages",
+    ],
+    badge: "Professional",
+    badgeColor: "bg-blue-500",
+    gradient: gradients.utility,
+    category: "Utility",
+  },
+  {
+    id: "pund-til-nok-kalkulator",
+    title: "Pund til NOK Kalkulator",
+    description:
+      "Gratis britiske pund til norske kroner kalkulator med sanntids valutakurser. Konverter GBP til NOK øyeblikkelig med historiske kurser og trendanalyse for handel og reiser.",
+    icon: Banknote,
+    href: "/tools/pund-til-nok-kalkulator/",
+    features: [
+      "Sanntids Valutakurser",
+      "Historisk Kursutvikling",
+      "Tovejs GBP ↔ NOK Konvertering",
+      "Norsk Språkstøtte",
+    ],
+    badge: "Norsk",
+    badgeColor: "bg-red-500",
+    gradient: gradients.finance,
+    category: "Finance",
   },
 ]
 
