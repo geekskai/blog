@@ -146,7 +146,15 @@ export default function ConversionHistory({
                   {/* Conversion details */}
                   <div
                     className="flex-1 cursor-pointer"
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        onSelectConversion?.(result)
+                      }
+                    }}
                     onClick={() => onSelectConversion?.(result)}
+                    aria-label="Select conversion"
                   >
                     <div className="flex items-center gap-3">
                       <span className="font-mono text-white">{result.input}</span>
