@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { ReactNode, Suspense } from "react"
 import { CoreContent } from "pliny/utils/contentlayer"
 import type { Blog, Authors } from "contentlayer/generated"
 import Comments from "@/components/Comments"
@@ -93,7 +93,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     </li>
                   ))}
                 </ul>
-                <ShareButtons />
+                <Suspense fallback={<div>Loading share buttons...</div>}>
+                  <ShareButtons />
+                </Suspense>
               </dd>
             </dl>
             <div className="divide-y divide-stone-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
@@ -107,7 +109,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </div>
               {siteMetadata.comments && (
                 <div className="pb-6 pt-6 text-center text-stone-300" id="comment">
-                  <Comments slug={slug} />
+                  <Suspense fallback={<div>Loading comments...</div>}>
+                    <Comments slug={slug} />
+                  </Suspense>
                 </div>
               )}
             </div>

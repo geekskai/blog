@@ -2614,6 +2614,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mesmotronic/next-adsense@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@mesmotronic/next-adsense@npm:1.0.0"
+  peerDependencies:
+    next: ^15.0.3
+    react: ^18.3.1
+    react-dom: ^18.3.1
+  checksum: 00065bd02c1af8ade41e2b3974dc19dbcf298bdc209a308cb50f61d6b0247251a99fccaacc321f1cd2bfc02e542f5750d347e2f0894a894180747e052242442b
+  languageName: node
+  linkType: hard
+
 "@mixmark-io/domino@npm:^2.2.0":
   version: 2.2.0
   resolution: "@mixmark-io/domino@npm:2.2.0"
@@ -12124,6 +12135,7 @@ __metadata:
   dependencies:
     "@headlessui/react": 1.7.19
     "@json-table/core": ^0.1.0
+    "@mesmotronic/next-adsense": ^1.0.0
     "@next/bundle-analyzer": 14.2.3
     "@shaggytools/nhtsa-api-wrapper": ^3.0.4
     "@svgr/webpack": ^8.0.1

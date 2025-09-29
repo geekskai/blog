@@ -10,6 +10,7 @@ import PostLayout from "@/layouts/PostLayout"
 import { Metadata } from "next"
 import siteMetadata from "@/data/siteMetadata"
 import { notFound } from "next/navigation"
+import { Suspense } from "react"
 
 export async function generateMetadata({
   params,
@@ -106,7 +107,9 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <PostLayout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
-        <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
+        <Suspense fallback={<div>Loading content...</div>}>
+          <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
+        </Suspense>
       </PostLayout>
     </>
   )

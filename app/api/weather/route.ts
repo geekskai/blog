@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server"
 
+// 强制动态渲染
+export const dynamic = "force-dynamic"
+
 // Server-side API key (secure)
 const API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY
 const BASE_URL = "https://api.openweathermap.org/data/2.5"
@@ -215,7 +218,7 @@ function getRecommendation(probability: number): string {
 
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url)
+    const searchParams = request.nextUrl.searchParams
     const type = searchParams.get("type") // 'city', 'coords', 'zip'
 
     let apiUrl: string
