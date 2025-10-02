@@ -306,7 +306,7 @@ export default function VinDecoder() {
         handleDecode()
       }, 500)
     }
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [handleVinChange, handleDecode])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
