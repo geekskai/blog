@@ -1,6 +1,28 @@
 import { TitleCardState } from "./types"
 import { characterPresets, backgroundPresets } from "./constants"
 
+// 绘制圆角矩形路径
+const drawRoundedRect = (
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+  radius: number
+) => {
+  ctx.beginPath()
+  ctx.moveTo(x + radius, y)
+  ctx.lineTo(x + width - radius, y)
+  ctx.quadraticCurveTo(x + width, y, x + width, y + radius)
+  ctx.lineTo(x + width, y + height - radius)
+  ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height)
+  ctx.lineTo(x + radius, y + height)
+  ctx.quadraticCurveTo(x, y + height, x, y + height - radius)
+  ctx.lineTo(x, y + radius)
+  ctx.quadraticCurveTo(x, y, x + radius, y)
+  ctx.closePath()
+}
+
 // 解析CSS渐变并创建Canvas渐变
 const parseGradientToCanvas = (
   ctx: CanvasRenderingContext2D,
@@ -64,6 +86,11 @@ export const downloadTitleCard = async (
     const ctx = finalCanvas.getContext("2d")
 
     if (ctx) {
+      // 创建圆角裁剪路径
+      const borderRadius = 24 // 对应 rounded-xl 的圆角大小，按比例放大
+      drawRoundedRect(ctx, 0, 0, outputWidth, outputHeight, borderRadius)
+      ctx.clip()
+
       // 绘制背景
       if (state.background.includes("gradient")) {
         // 使用渐变解析函数
