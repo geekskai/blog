@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/static/images/discord-timestamp-generator.png",
+        url: "/static/images/og/discord-timestamp-generator-og.png",
         width: 1200,
         height: 630,
         alt: "Discord Timestamp Generator - Create Dynamic Discord Timestamps",
@@ -60,6 +60,7 @@ const jsonLd = {
   description:
     "Free Discord timestamp generator for creating dynamic Discord timestamps, event countdowns, and reminder systems. Generate all Discord timestamp formats with real-time preview, timezone support, and Discord bot integration. Perfect for Discord event scheduling, community management, and automated reminder systems.",
   url: "https://geekskai.com/tools/discord-timestamp-generator",
+  image: "https://geekskai.com/static/images/og/discord-timestamp-generator-og.png",
   applicationCategory: "Communication",
   operatingSystem: "Any",
   permissions: "none",
