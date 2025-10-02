@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/static/images/invincible-title-card-generator.png",
+        url: "/static/images/og/invincible-title-card-generator.png",
         width: 1200,
         height: 630,
         alt: "Invincible Title Card Generator Tool",
