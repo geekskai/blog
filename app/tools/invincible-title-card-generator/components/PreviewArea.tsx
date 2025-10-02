@@ -57,17 +57,23 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
 
         <div className="p-6">
           <div
-            ref={canvasRef}
             className={`relative overflow-hidden rounded-xl shadow-2xl transition-all duration-300 ${
               isFullscreen ? "aspect-video w-full" : "aspect-video w-full"
             }`}
             style={{
-              background: state.background,
               minHeight: isFullscreen ? "70vh" : "400px",
             }}
           >
-            {/* Title Card Content */}
-            <div className="flex h-full flex-col items-center justify-center px-8">
+            {/* Title Card Content - This is what gets exported */}
+            <div
+              ref={canvasRef}
+              className="flex h-full w-full flex-col items-center justify-center px-8"
+              style={{
+                background: state.background,
+                aspectRatio: "16 / 9",
+                minHeight: "100%",
+              }}
+            >
               <div
                 className="select-none text-center font-black transition-all duration-300"
                 style={{
@@ -75,11 +81,15 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
                   fontSize: `${state.fontSize * (isFullscreen ? 3 : 2)}px`,
                   textShadow:
                     state.outline > 0
-                      ? `${state.outline * 2}px ${state.outline * 2}px 0px ${state.outlineColor}, -${state.outline}px -${state.outline}px 0px ${state.outlineColor}, ${state.outline}px -${state.outline}px 0px ${state.outlineColor}, -${state.outline}px ${state.outline}px 0px ${state.outlineColor}`
-                      : "4px 4px 8px rgba(0,0,0,0.5)",
-                  fontFamily: 'Impact, "Arial Black", sans-serif',
-                  letterSpacing: "3px",
-                  lineHeight: "0.9",
+                      ? `${state.outline}px ${state.outline}px 0px ${state.outlineColor}, -${state.outline}px -${state.outline}px 0px ${state.outlineColor}, ${state.outline}px -${state.outline}px 0px ${state.outlineColor}, -${state.outline}px ${state.outline}px 0px ${state.outlineColor}`
+                      : "2px 2px 4px rgba(0,0,0,0.5)",
+                  fontFamily: '"Inter", "Arial Black", Arial, sans-serif',
+                  fontWeight: "900",
+                  letterSpacing: "2px",
+                  lineHeight: "1.1",
+                  textTransform: "uppercase",
+                  WebkitTextStroke:
+                    state.outline > 0 ? `${state.outline}px ${state.outlineColor}` : "none",
                 }}
               >
                 {state.text || "Enter Your Title"}
@@ -101,6 +111,8 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
                       style={{
                         fontSize: `${state.fontSize * (isFullscreen ? 0.6 : 0.4)}px`,
                         marginBottom: "8px",
+                        fontFamily: '"Inter", Arial, sans-serif',
+                        fontWeight: "700",
                       }}
                     >
                       {state.smallSubtitle}
@@ -111,6 +123,8 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
                       className="font-bold"
                       style={{
                         fontSize: `${state.fontSize * (isFullscreen ? 0.8 : 0.6)}px`,
+                        fontFamily: '"Inter", Arial, sans-serif',
+                        fontWeight: "600",
                       }}
                     >
                       {state.subtitle}
