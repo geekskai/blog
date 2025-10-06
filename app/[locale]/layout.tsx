@@ -22,6 +22,10 @@ const space_grotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
 })
 
+type Props = {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}
 const supportedLocales = ["en", "ja", "ko", "no", "zh-cn"] // Add more as you implement them
 
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
