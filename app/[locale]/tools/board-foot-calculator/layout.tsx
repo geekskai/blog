@@ -1,100 +1,111 @@
 import type { Metadata } from "next"
+import { getTranslations } from "next-intl/server"
+import { supportedLocales } from "../../../i18n/routing"
 
-// SEO 优化的 metadata
-export const metadata: Metadata = {
-  title: "Board Foot Calculator – Free Lumber Calculator & Wood Cost Estimator | Professional Tool",
-  description:
-    "Free online board foot calculator for lumber and wood projects. Calculate board feet, estimate costs, and plan materials for construction, woodworking, and furniture making. Professional-grade accuracy with project management features.",
-  keywords: [
-    "board foot calculator",
-    "lumber calculator",
-    "wood calculator",
-    "board feet calculator",
-    "lumber cost calculator",
-    "woodworking calculator",
-    "construction calculator",
-    "timber calculator",
-    "wood cost estimator",
-    "lumber estimator",
-    "board foot formula",
-    "lumber measurement tool",
-    "wood project calculator",
-    "construction material calculator",
-    "furniture wood calculator",
-    "cabinet lumber calculator",
-    "framing lumber calculator",
-    "hardwood calculator",
-    "softwood calculator",
-    "lumber pricing tool",
-    "wood volume calculator",
-    "timber volume calculator",
-    "lumber project planner",
-    "wood material estimator",
-  ],
-  authors: [{ name: "GeeksKai" }],
-  creator: "GeeksKai",
-  publisher: "GeeksKai",
+// 动态生成多语言 metadata
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string }
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "BoardFootCalculator" })
 
-  // Open Graph
-  openGraph: {
-    title: "Board Foot Calculator – Free Lumber & Wood Calculator Tool",
-    description:
-      "Professional board foot calculator for lumber projects. Calculate board feet, estimate costs, and manage wood materials for construction and woodworking. Free, accurate, and easy to use.",
-    url: "https://geekskai.com/tools/board-foot-calculator/",
-    siteName: "GeeksKai Tools",
-    images: [
-      {
-        url: "/static/tools/board-foot-calculator-og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Board Foot Calculator Tool - Calculate lumber board feet and costs instantly",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
+  // 语言映射
+  const localeMap: Record<string, string> = {
+    en: "en_US",
+    ja: "ja_JP",
+    ko: "ko_KR",
+    no: "no_NO",
+    "zh-cn": "zh_CN",
+    da: "da_DK",
+  }
 
-  // Twitter Card
-  twitter: {
-    card: "summary_large_image",
-    title: "Board Foot Calculator – Free Lumber Calculator Tool",
-    description:
-      "Professional board foot calculator for lumber projects. Calculate board feet, estimate costs, and manage materials for construction and woodworking.",
-    images: ["/static/tools/board-foot-calculator-twitter.jpg"],
-    creator: "@geekskai",
-  },
+  const ogLocale = localeMap[locale] || "en_US"
+  const baseUrl = "https://geekskai.com"
+  const path = `/tools/board-foot-calculator/`
+  const url = `${baseUrl}${locale === "en" ? "" : `/${locale}`}${path}`
 
-  // Additional SEO
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+  const isDefaultLocale = locale === "en"
+  const languages = {
+    "x-default": "https://geekskai.com/tools/board-foot-calculator/",
+  }
+
+  supportedLocales.forEach((locale) => {
+    languages[locale] = `https://geekskai.com/${locale}/tools/board-foot-calculator/`
+  })
+
+  return {
+    title: t("seo_title"),
+    description: t("seo_description"),
+    keywords: t("seo_keywords").split(", "),
+    authors: [{ name: "GeeksKai" }],
+    creator: "GeeksKai",
+    publisher: "GeeksKai",
+
+    // Open Graph
+    openGraph: {
+      title: t("seo_title"),
+      description: t("seo_description"),
+      url,
+      siteName: "GeeksKai Tools",
+      images: [
+        {
+          url: "/static/tools/board-foot-calculator-og.jpg",
+          width: 1200,
+          height: 630,
+          alt: t("seo_title"),
+        },
+      ],
+      locale: ogLocale,
+      type: "website",
+    },
+
+    // Twitter Card
+    twitter: {
+      card: "summary_large_image",
+      title: t("seo_title"),
+      description: t("seo_description"),
+      images: ["/static/tools/board-foot-calculator-twitter.jpg"],
+      creator: "@geekskai",
+    },
+
+    // Additional SEO
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
 
-  // Canonical URL
-  alternates: {
-    canonical: "https://geekskai.com/tools/board-foot-calculator/",
-  },
+    // Canonical URL and alternates
+    alternates: {
+      canonical: isDefaultLocale
+        ? "https://geekskai.com/tools/board-foot-calculator/"
+        : `https://geekskai.com/${locale}/tools/board-foot-calculator/`,
+      languages: {
+        ...languages,
+      },
+    },
 
-  // Additional metadata
-  category: "Tools",
-  classification: "Construction Calculator",
+    // Additional metadata
+    category: "Tools",
+    classification: "Construction Calculator",
 
-  // Verification and other meta tags
-  other: {
-    "application-name": "Board Foot Calculator",
-    "apple-mobile-web-app-title": "Board Foot Calc",
-    "format-detection": "telephone=no",
-    "mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-status-bar-style": "black-translucent",
-  },
+    // Verification and other meta tags
+    other: {
+      "application-name": t("page_title"),
+      "apple-mobile-web-app-title": t("page_title"),
+      "format-detection": "telephone=no",
+      "mobile-web-app-capable": "yes",
+      "apple-mobile-web-app-capable": "yes",
+      "apple-mobile-web-app-status-bar-style": "black-translucent",
+    },
+  }
 }
 
 // 结构化数据 (JSON-LD)
@@ -319,14 +330,95 @@ const educationalStructuredData = {
   },
 }
 
-export default function BoardFootCalculatorLayout({ children }: { children: React.ReactNode }) {
+export default async function BoardFootCalculatorLayout({
+  children,
+  params: { locale },
+}: {
+  children: React.ReactNode
+  params: { locale: string }
+}) {
+  const t = await getTranslations({ locale, namespace: "BoardFootCalculator" })
+
+  const baseUrl = "https://geekskai.com"
+  const path = `/tools/board-foot-calculator/`
+  const url = `${baseUrl}${locale === "en" ? "" : `/${locale}`}${path}`
+
+  // 动态生成结构化数据
+  const dynamicStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: t("page_title"),
+    description: t("seo_description"),
+    url,
+    applicationCategory: "UtilityApplication",
+    operatingSystem: "Any",
+    permissions: "none",
+    isAccessibleForFree: true,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    provider: {
+      "@type": "Organization",
+      name: "GeeksKai",
+      url: "https://geekskai.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://geekskai.com/static/logo.png",
+      },
+    },
+    featureList: [
+      "Board foot calculation (Length × Width × Thickness ÷ 144)",
+      "Imperial and metric unit support",
+      "Lumber cost estimation",
+      "Multi-piece project management",
+      "Precision control (0-3 decimal places)",
+      "Wood species pricing database",
+      "Waste factor calculations",
+      "Project export (CSV, PDF)",
+      "Copy results to clipboard",
+      "Common lumber dimensions reference",
+      "Educational content and tutorials",
+      "Mobile-friendly interface",
+      "No registration required",
+      "Professional-grade accuracy",
+    ],
+    screenshot: {
+      "@type": "ImageObject",
+      url: "https://geekskai.com/static/tools/board-foot-calculator-screenshot.jpg",
+      caption: "Board Foot Calculator interface showing lumber calculation and cost estimation",
+    },
+    softwareVersion: "1.0",
+    datePublished: "2024-01-24",
+    dateModified: "2024-01-24",
+    inLanguage: locale,
+    audience: {
+      "@type": "Audience",
+      audienceType: [
+        "Woodworkers",
+        "Construction contractors",
+        "Furniture makers",
+        "Cabinet makers",
+        "Architects",
+        "Engineers",
+        "Lumber dealers",
+        "DIY enthusiasts",
+        "Construction students",
+        "Home builders",
+        "Carpenters",
+        "Project managers",
+      ],
+    },
+  }
+
   return (
     <>
       {/* 结构化数据 */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
+          __html: JSON.stringify(dynamicStructuredData),
         }}
       />
       <script

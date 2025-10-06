@@ -157,18 +157,24 @@ export function getUnitSymbol(unit: ConversionUnit): string {
 /**
  * 生成转换公式说明
  */
-export function getConversionFormula(fromUnit: ConversionUnit, toUnit: ConversionUnit): string {
-  if (fromUnit === toUnit) return "Samme enhed"
+export function getConversionFormula(
+  fromUnit: ConversionUnit,
+  toUnit: ConversionUnit,
+  t?: (key: string) => string
+): string {
+  if (fromUnit === toUnit) {
+    return t ? t("converter.same_unit") : "Same unit"
+  }
 
   if (fromUnit === "cm" && toUnit === "tommer") {
-    return `1 cm = ${CONVERSION_CONSTANTS.CM_TO_TOMMER} tommer`
+    return `1 cm = ${CONVERSION_CONSTANTS.CM_TO_TOMMER} ${t ? t("converter.inches") : "inches"}`
   }
 
   if (fromUnit === "tommer" && toUnit === "cm") {
-    return `1 tommer = ${CONVERSION_CONSTANTS.TOMMER_TO_CM} cm`
+    return `1 ${t ? t("converter.inches") : "inches"} = ${CONVERSION_CONSTANTS.TOMMER_TO_CM} cm`
   }
 
-  return "Ugyldig konvertering"
+  return t ? t("converter.invalid_conversion") : "Invalid conversion"
 }
 
 /**
@@ -236,28 +242,42 @@ export function getConversionSteps(
   value: number,
   fromUnit: ConversionUnit,
   toUnit: ConversionUnit,
-  precision: PrecisionOption
+  precision: PrecisionOption,
+  t?: (key: string) => string
 ): string[] {
   if (fromUnit === toUnit) {
-    return [`Værdi: ${value} ${getUnitSymbol(fromUnit)}`, "Ingen konvertering nødvendig"]
+    return [
+      `${t ? t("converter.value") : "Value"}: ${value} ${getUnitSymbol(fromUnit)}`,
+      t ? t("converter.no_conversion_needed") : "No conversion needed",
+    ]
   }
 
   const steps: string[] = []
 
   if (fromUnit === "cm" && toUnit === "tommer") {
-    steps.push(`Start værdi: ${value} cm`)
-    steps.push(`Formel: cm × 0.3937 = tommer`)
+    steps.push(`${t ? t("converter.start_value") : "Start value"}: ${value} cm`)
     steps.push(
-      `Beregning: ${value} × 0.3937 = ${formatNumber(value * CONVERSION_CONSTANTS.CM_TO_TOMMER, precision)}`
+      `${t ? t("converter.formula") : "Formula"}: cm × 0.3937 = ${t ? t("converter.inches") : "inches"}`
     )
-    steps.push(`Resultat: ${formatNumber(cmToTommer(value, precision), precision)} tommer`)
+    steps.push(
+      `${t ? t("converter.calculation") : "Calculation"}: ${value} × 0.3937 = ${formatNumber(value * CONVERSION_CONSTANTS.CM_TO_TOMMER, precision)}`
+    )
+    steps.push(
+      `${t ? t("converter.result") : "Result"}: ${formatNumber(cmToTommer(value, precision), precision)} ${t ? t("converter.inches") : "inches"}`
+    )
   } else if (fromUnit === "tommer" && toUnit === "cm") {
-    steps.push(`Start værdi: ${value} tommer`)
-    steps.push(`Formel: tommer × 2.54 = cm`)
     steps.push(
-      `Beregning: ${value} × 2.54 = ${formatNumber(value * CONVERSION_CONSTANTS.TOMMER_TO_CM, precision)}`
+      `${t ? t("converter.start_value") : "Start value"}: ${value} ${t ? t("converter.inches") : "inches"}`
     )
-    steps.push(`Resultat: ${formatNumber(tommerToCm(value, precision), precision)} cm`)
+    steps.push(
+      `${t ? t("converter.formula") : "Formula"}: ${t ? t("converter.inches") : "inches"} × 2.54 = cm`
+    )
+    steps.push(
+      `${t ? t("converter.calculation") : "Calculation"}: ${value} × 2.54 = ${formatNumber(value * CONVERSION_CONSTANTS.TOMMER_TO_CM, precision)}`
+    )
+    steps.push(
+      `${t ? t("converter.result") : "Result"}: ${formatNumber(tommerToCm(value, precision), precision)} cm`
+    )
   }
 
   return steps

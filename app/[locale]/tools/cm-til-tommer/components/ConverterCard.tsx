@@ -11,12 +11,15 @@ import {
   getConversionSteps,
 } from "../utils/converter"
 import { copyConversionResult } from "../utils/clipboard"
+import { useTranslations } from "../hooks/useTranslations"
 
 interface ConverterCardProps {
   className?: string
 }
 
 export default function ConverterCard({ className = "" }: ConverterCardProps) {
+  const t = useTranslations()
+
   // 状态管理
   const [inputValue, setInputValue] = useState<string>("1")
   const [inputUnit, setInputUnit] = useState<ConversionUnit>("cm")
@@ -64,25 +67,25 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           icon: (
             <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
           ),
-          text: "Kopierer...",
+          text: t("converter_card.copying"),
           className: "bg-blue-500 hover:bg-blue-600",
         }
       case "copied":
         return {
           icon: <Check className="h-4 w-4" />,
-          text: "Kopieret!",
+          text: t("converter_card.copied"),
           className: "bg-green-500 hover:bg-green-600",
         }
       case "error":
         return {
           icon: <AlertCircle className="h-4 w-4" />,
-          text: "Fejl",
+          text: t("converter_card.failed"),
           className: "bg-red-500 hover:bg-red-600",
         }
       default:
         return {
           icon: <Copy className="h-4 w-4" />,
-          text: "Kopier Resultat",
+          text: t("converter_card.copy_result"),
           className:
             "bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600",
         }
@@ -137,25 +140,37 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
             <h2
               className={`bg-gradient-to-r from-${colors.primary} via-${colors.secondary} to-${colors.primary} bg-clip-text text-xl font-bold text-transparent`}
             >
-              CM til Tommer Konverter
+              {t("converter_card.title")}
             </h2>
           </div>
-          <p className="text-slate-300">
-            Konverter mellem centimeter og tommer (danske/norske tommer) øjeblikkeligt
-          </p>
+          <p className="text-slate-300">{t("converter_card.description")}</p>
         </div>
 
         {/* 快速预设值 */}
         <div className="mb-6">
-          <label className="mb-3 block text-sm font-medium text-slate-300">Hurtige Værdier</label>
+          <label className="mb-3 block text-sm font-medium text-slate-300">
+            {t("converter_card.quick_values")}
+          </label>
           <div className="flex flex-wrap gap-2">
             {[
-              { value: 1, unit: "cm" as ConversionUnit, label: "1 cm" },
-              { value: 2.54, unit: "cm" as ConversionUnit, label: "1 tommer" },
-              { value: 10, unit: "cm" as ConversionUnit, label: "10 cm" },
-              { value: 30, unit: "cm" as ConversionUnit, label: "30 cm" },
-              { value: 12, unit: "tommer" as ConversionUnit, label: "1 fod" },
-              { value: 24, unit: "tommer" as ConversionUnit, label: "2 fod" },
+              { value: 1, unit: "cm" as ConversionUnit, label: t("converter_card.presets.1_cm") },
+              {
+                value: 2.54,
+                unit: "cm" as ConversionUnit,
+                label: t("converter_card.presets.1_inch"),
+              },
+              { value: 10, unit: "cm" as ConversionUnit, label: t("converter_card.presets.10_cm") },
+              { value: 30, unit: "cm" as ConversionUnit, label: t("converter_card.presets.30_cm") },
+              {
+                value: 12,
+                unit: "tommer" as ConversionUnit,
+                label: t("converter_card.presets.1_foot"),
+              },
+              {
+                value: 24,
+                unit: "tommer" as ConversionUnit,
+                label: t("converter_card.presets.2_foot"),
+              },
             ].map(({ value, unit, label }) => (
               <button
                 key={`${value}-${unit}`}
@@ -173,7 +188,10 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           {/* 输入区域 */}
           <div className="space-y-4">
             <label className="block text-sm font-medium text-slate-300">
-              Indtast værdi i {inputUnit === "cm" ? "Centimeter" : "Tommer"}
+              {t("converter_card.enter_value_in")}{" "}
+              {inputUnit === "cm"
+                ? t("converter_card.units.centimeters")
+                : t("converter_card.units.inches")}
             </label>
 
             <div className="relative">
@@ -181,7 +199,7 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Indtast værdi..."
+                placeholder={t("converter_card.enter_value_placeholder")}
                 className={`w-full rounded-2xl border py-4 pl-6 pr-20 text-lg backdrop-blur-sm transition-all duration-300 focus:outline-none focus:ring-4 ${colors.border} ${colors.bg} ${colors.focus} text-white placeholder-slate-400`}
               />
 
@@ -208,7 +226,10 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           {/* 输出区域 */}
           <div className="space-y-4">
             <label className="block text-sm font-medium text-slate-300">
-              Resultat i {outputUnit === "cm" ? "Centimeter" : "Tommer"}
+              {t("converter_card.result_in")}{" "}
+              {outputUnit === "cm"
+                ? t("converter_card.units.centimeters")
+                : t("converter_card.units.inches")}
             </label>
 
             <div className="relative">

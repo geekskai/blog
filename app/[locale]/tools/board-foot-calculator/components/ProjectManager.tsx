@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from "react"
 import { Plus, Trash2, Edit3, Download, Copy, Check, AlertCircle, Package } from "lucide-react"
+import { useTranslations } from "next-intl"
 import type { Project, LumberPiece, LengthUnit, CopyStatus } from "../types"
 import {
   calculateBoardFeet,
@@ -17,10 +18,11 @@ interface ProjectManagerProps {
 }
 
 export default function ProjectManager({ className = "", defaultProject }: ProjectManagerProps) {
+  const t = useTranslations("BoardFootCalculator.project_manager")
   // 项目状态
   const [project, setProject] = useState<Project>({
     id: crypto.randomUUID(),
-    name: defaultProject?.name || "New Project",
+    name: defaultProject?.name || t("project_name"),
     pieces: defaultProject?.pieces || [],
     totalBoardFeet: 0,
     totalCost: 0,
@@ -57,28 +59,31 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
   }, [])
 
   // 创建木材件
-  const createLumberPiece = useCallback((pieceData: Partial<LumberPiece>): LumberPiece => {
-    const dimensions = pieceData.dimensions!
-    const quantity = pieceData.quantity || 1
-    const pricePerBoardFoot = pieceData.pricePerBoardFoot || 0
+  const createLumberPiece = useCallback(
+    (pieceData: Partial<LumberPiece>): LumberPiece => {
+      const dimensions = pieceData.dimensions!
+      const quantity = pieceData.quantity || 1
+      const pricePerBoardFoot = pieceData.pricePerBoardFoot || 0
 
-    const boardFeet = calculateBoardFeet(dimensions, 3)
-    const totalBoardFeet = boardFeet * quantity
-    const cost = boardFeet * pricePerBoardFoot
-    const totalCost = cost * quantity
+      const boardFeet = calculateBoardFeet(dimensions, 3)
+      const totalBoardFeet = boardFeet * quantity
+      const cost = boardFeet * pricePerBoardFoot
+      const totalCost = cost * quantity
 
-    return {
-      id: crypto.randomUUID(),
-      name: pieceData.name || "Untitled Piece",
-      dimensions,
-      quantity,
-      pricePerBoardFoot,
-      boardFeet,
-      totalBoardFeet,
-      cost,
-      totalCost,
-    }
-  }, [])
+      return {
+        id: crypto.randomUUID(),
+        name: pieceData.name || t("untitled_piece"),
+        dimensions,
+        quantity,
+        pricePerBoardFoot,
+        boardFeet,
+        totalBoardFeet,
+        cost,
+        totalCost,
+      }
+    },
+    [t]
+  )
 
   // 添加木材件
   const handleAddPiece = useCallback(() => {
@@ -190,14 +195,14 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
           icon: (
             <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
           ),
-          text: "Copying...",
+          text: t("copying"),
         }
       case "copied":
-        return { icon: <Check className="h-4 w-4" />, text: "Copied!" }
+        return { icon: <Check className="h-4 w-4" />, text: t("copied") }
       case "error":
-        return { icon: <AlertCircle className="h-4 w-4" />, text: "Failed" }
+        return { icon: <AlertCircle className="h-4 w-4" />, text: t("failed") }
       default:
-        return { icon: <Copy className="h-4 w-4" />, text: "Copy Project" }
+        return { icon: <Copy className="h-4 w-4" />, text: t("copy_project") }
     }
   }
 
@@ -217,17 +222,19 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
           <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 px-6 py-3 backdrop-blur-sm">
             <Package className="h-5 w-5 text-blue-400" />
             <h3 className="bg-gradient-to-r from-blue-300 via-indigo-300 to-purple-300 bg-clip-text text-xl font-bold text-transparent">
-              Project Manager
+              {t("title")}
             </h3>
           </div>
-          <p className="text-slate-300">Manage multiple lumber pieces for your project</p>
+          <p className="text-slate-300">{t("description")}</p>
         </div>
 
         {/* 项目信息 */}
         <div className="mb-6 space-y-4">
           {/* 项目名称 */}
           <div>
-            <label className="mb-2 block text-sm font-medium text-slate-300">Project Name</label>
+            <label className="mb-2 block text-sm font-medium text-slate-300">
+              {t("project_name")}
+            </label>
             <input
               type="text"
               value={project.name}
@@ -242,7 +249,7 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
           <div className="grid gap-4 md:grid-cols-2">
             <div>
               <label className="mb-2 block text-sm font-medium text-slate-300">
-                Waste Percentage (%)
+                {t("waste_percentage")}
               </label>
               <input
                 type="number"
@@ -261,7 +268,9 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
               />
             </div>
             <div>
-              <label className="mb-2 block text-sm font-medium text-slate-300">Tax Rate (%)</label>
+              <label className="mb-2 block text-sm font-medium text-slate-300">
+                {t("tax_rate")}
+              </label>
               <input
                 type="number"
                 min="0"
@@ -289,7 +298,7 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
           >
             <div className="flex items-center justify-center gap-2">
               <Plus className="h-5 w-5" />
-              <span>Add Lumber Piece</span>
+              <span>{t("add_lumber_piece")}</span>
             </div>
           </button>
         )}
@@ -297,17 +306,19 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
         {/* 添加木材件表单 */}
         {isAddingPiece && (
           <div className="mb-6 rounded-2xl bg-slate-800/30 p-6 backdrop-blur-sm">
-            <h4 className="mb-4 text-lg font-semibold text-white">Add New Lumber Piece</h4>
+            <h4 className="mb-4 text-lg font-semibold text-white">{t("add_new_lumber_piece")}</h4>
 
             <div className="space-y-4">
               {/* 名称 */}
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-300">Piece Name</label>
+                <label className="mb-2 block text-sm font-medium text-slate-300">
+                  {t("piece_name")}
+                </label>
                 <input
                   type="text"
                   value={newPiece.name || ""}
                   onChange={(e) => setNewPiece((prev) => ({ ...prev, name: e.target.value }))}
-                  placeholder="e.g., Table Top, Leg, Support Beam"
+                  placeholder={t("piece_name_placeholder")}
                   className="w-full rounded-xl border border-slate-500/30 bg-slate-700/30 px-4 py-2 text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
                 />
               </div>
@@ -315,7 +326,9 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
               {/* 尺寸 */}
               <div className="grid gap-4 md:grid-cols-4">
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-300">Length</label>
+                  <label className="mb-2 block text-sm font-medium text-slate-300">
+                    {t("length")}
+                  </label>
                   <input
                     type="number"
                     step="0.01"
@@ -333,7 +346,9 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
                   />
                 </div>
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-300">Width</label>
+                  <label className="mb-2 block text-sm font-medium text-slate-300">
+                    {t("width")}
+                  </label>
                   <input
                     type="number"
                     step="0.01"
@@ -348,7 +363,9 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
                   />
                 </div>
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-300">Thickness</label>
+                  <label className="mb-2 block text-sm font-medium text-slate-300">
+                    {t("thickness")}
+                  </label>
                   <input
                     type="number"
                     step="0.01"
@@ -366,7 +383,9 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
                   />
                 </div>
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-300">Unit</label>
+                  <label className="mb-2 block text-sm font-medium text-slate-300">
+                    {t("unit")}
+                  </label>
                   <select
                     value={newPiece.dimensions?.unit || "inches"}
                     onChange={(e) =>
@@ -377,10 +396,10 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
                     }
                     className="w-full rounded-xl border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-white backdrop-blur-sm transition-all duration-300 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
                   >
-                    <option value="inches">Inches</option>
-                    <option value="feet">Feet</option>
-                    <option value="cm">Centimeters</option>
-                    <option value="meters">Meters</option>
+                    <option value="inches">{t("inches")}</option>
+                    <option value="feet">{t("feet")}</option>
+                    <option value="cm">{t("centimeters")}</option>
+                    <option value="meters">{t("meters")}</option>
                   </select>
                 </div>
               </div>
@@ -388,7 +407,9 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
               {/* 数量和价格 */}
               <div className="grid gap-4 md:grid-cols-2">
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-300">Quantity</label>
+                  <label className="mb-2 block text-sm font-medium text-slate-300">
+                    {t("quantity")}
+                  </label>
                   <input
                     type="number"
                     min="1"
@@ -402,7 +423,7 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
                 </div>
                 <div>
                   <label className="mb-2 block text-sm font-medium text-slate-300">
-                    Price per Board Foot ($)
+                    {t("price_per_board_foot_label")}
                   </label>
                   <input
                     type="number"
@@ -426,13 +447,13 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
                   disabled={!newPiece.name || !newPiece.dimensions}
                   className="flex-1 rounded-xl bg-gradient-to-r from-green-600 to-emerald-600 px-4 py-2 font-medium text-white transition-all duration-300 hover:from-green-700 hover:to-emerald-700 disabled:cursor-not-allowed disabled:opacity-50"
                 >
-                  Add Piece
+                  {t("add_piece")}
                 </button>
                 <button
                   onClick={() => setIsAddingPiece(false)}
                   className="flex-1 rounded-xl bg-slate-600 px-4 py-2 font-medium text-white transition-all duration-300 hover:bg-slate-700"
                 >
-                  Cancel
+                  {t("cancel")}
                 </button>
               </div>
             </div>
@@ -443,7 +464,7 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
         {project.pieces.length > 0 && (
           <div className="mb-6 space-y-3">
             <h4 className="text-lg font-semibold text-white">
-              Lumber Pieces ({project.pieces.length})
+              {t("lumber_pieces_count", { count: project.pieces.length })}
             </h4>
 
             {project.pieces.map((piece) => (
@@ -459,9 +480,13 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
                         {getUnitSymbol(piece.dimensions.unit)}
                       </span>
                       <span className="mx-2">•</span>
-                      <span>Qty: {piece.quantity}</span>
+                      <span>
+                        {t("qty_label")} {piece.quantity}
+                      </span>
                       <span className="mx-2">•</span>
-                      <span>{formatNumber(piece.totalBoardFeet, 3)} bf</span>
+                      <span>
+                        {formatNumber(piece.totalBoardFeet, 3)} {t("bf_unit")}
+                      </span>
                       {piece.pricePerBoardFoot !== undefined && piece.pricePerBoardFoot > 0 && (
                         <>
                           <span className="mx-2">•</span>
@@ -494,11 +519,11 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
         {/* 项目总计 */}
         {project.pieces.length > 0 && (
           <div className="mb-6 rounded-2xl bg-slate-800/30 p-6 backdrop-blur-sm">
-            <h4 className="mb-4 text-lg font-semibold text-white">Project Totals</h4>
+            <h4 className="mb-4 text-lg font-semibold text-white">{t("project_totals")}</h4>
 
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-slate-300">Total Board Feet:</span>
+                <span className="text-slate-300">{t("total_board_feet")}</span>
                 <span className="text-xl font-bold text-white">
                   {formatNumber(project.totalBoardFeet, 3)}
                 </span>
@@ -506,15 +531,17 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
 
               {project.wastePercentage > 0 && (
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-300">With {project.wastePercentage}% Waste:</span>
+                  <span className="text-slate-300">
+                    {t("with_waste", { percentage: project.wastePercentage })}
+                  </span>
                   <span className="text-lg font-semibold text-orange-400">
-                    {formatNumber(totalWithWaste, 3)} bf
+                    {formatNumber(totalWithWaste, 3)} {t("bf_unit")}
                   </span>
                 </div>
               )}
 
               <div className="flex items-center justify-between">
-                <span className="text-slate-300">Total Cost:</span>
+                <span className="text-slate-300">{t("total_cost")}</span>
                 <span className="text-xl font-bold text-green-400">
                   {formatCurrency(project.totalCost)}
                 </span>
@@ -522,7 +549,9 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
 
               {project.taxRate > 0 && (
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-300">With {project.taxRate}% Tax:</span>
+                  <span className="text-slate-300">
+                    {t("with_tax", { percentage: project.taxRate })}
+                  </span>
                   <span className="text-lg font-semibold text-green-400">
                     {formatCurrency(totalWithTax)}
                   </span>
@@ -549,7 +578,7 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
               className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-green-600 to-emerald-600 px-4 py-3 font-medium text-white transition-all duration-300 hover:from-green-700 hover:to-emerald-700"
             >
               <Download className="h-4 w-4" />
-              <span>Download CSV</span>
+              <span>{t("download_csv")}</span>
             </button>
           </div>
         )}
@@ -558,8 +587,8 @@ export default function ProjectManager({ className = "", defaultProject }: Proje
         {project.pieces.length === 0 && !isAddingPiece && (
           <div className="py-12 text-center">
             <Package className="mx-auto mb-4 h-16 w-16 text-slate-500" />
-            <h4 className="mb-2 text-lg font-semibold text-slate-400">No lumber pieces yet</h4>
-            <p className="text-slate-500">Add your first piece to start building your project</p>
+            <h4 className="mb-2 text-lg font-semibold text-slate-400">{t("no_lumber_pieces")}</h4>
+            <p className="text-slate-500">{t("add_first_piece")}</p>
           </div>
         )}
       </div>

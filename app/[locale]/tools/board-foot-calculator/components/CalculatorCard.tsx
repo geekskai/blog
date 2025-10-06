@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from "react"
 import { Calculator, Copy, Check, AlertCircle, ArrowUpDown, Ruler, DollarSign } from "lucide-react"
+import { useTranslations } from "next-intl"
 import type {
   LumberDimensions,
   BoardFootResult,
@@ -28,6 +29,7 @@ interface CalculatorCardProps {
 }
 
 export default function CalculatorCard({ className = "", onCalculate }: CalculatorCardProps) {
+  const t = useTranslations("BoardFootCalculator.calculator_card")
   // 状态管理
   const [dimensions, setDimensions] = useState<LumberDimensions>({
     length: 8,
@@ -105,25 +107,25 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
           icon: (
             <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
           ),
-          text: "Copying...",
+          text: t("copying"),
           className: "bg-blue-500 hover:bg-blue-600",
         }
       case "copied":
         return {
           icon: <Check className="h-4 w-4" />,
-          text: "Copied!",
+          text: t("copied"),
           className: "bg-green-500 hover:bg-green-600",
         }
       case "error":
         return {
           icon: <AlertCircle className="h-4 w-4" />,
-          text: "Failed",
+          text: t("failed"),
           className: "bg-red-500 hover:bg-red-600",
         }
       default:
         return {
           icon: <Copy className="h-4 w-4" />,
-          text: "Copy Result",
+          text: t("copy_result"),
           className:
             "bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700",
         }
@@ -147,10 +149,10 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
           <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-amber-500/30 bg-gradient-to-r from-amber-500/10 to-orange-500/10 px-6 py-3 backdrop-blur-sm">
             <Calculator className="h-5 w-5 text-amber-400" />
             <h2 className="bg-gradient-to-r from-amber-300 via-orange-300 to-red-300 bg-clip-text text-xl font-bold text-transparent">
-              Board Foot Calculator
+              {t("title")}
             </h2>
           </div>
-          <p className="text-slate-300">Calculate lumber board feet and costs with precision</p>
+          <p className="text-slate-300">{t("description")}</p>
         </div>
 
         {/* 计算器主体 */}
@@ -165,7 +167,7 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
               <div className="relative flex items-center gap-2">
                 <ArrowUpDown className="h-4 w-4 text-white" />
                 <span className="text-sm font-medium text-white">
-                  Switch to {unitSystem === "imperial" ? "Metric" : "Imperial"}
+                  {unitSystem === "imperial" ? t("switch_to_metric") : t("switch_to_imperial")}
                 </span>
               </div>
             </button>
@@ -176,14 +178,14 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
             {/* 长度输入 */}
             <div className="space-y-2">
               <label className="block text-sm font-medium text-slate-300">
-                Length ({getUnitSymbol(dimensions.unit)})
+                {t("length_label")} ({getUnitSymbol(dimensions.unit)})
               </label>
               <div className="relative">
                 <input
                   type="text"
                   value={dimensions.length}
                   onChange={(e) => handleDimensionChange("length", e.target.value)}
-                  placeholder="Enter length..."
+                  placeholder={t("enter_length")}
                   className="w-full rounded-2xl border border-amber-500/30 bg-amber-500/10 py-3 pl-4 pr-16 text-lg text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-amber-400 focus:outline-none focus:ring-4 focus:ring-amber-500/20"
                 />
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 rounded-lg bg-amber-500/20 px-2 py-1 text-xs font-medium text-amber-300 backdrop-blur-sm">
@@ -195,14 +197,14 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
             {/* 宽度输入 */}
             <div className="space-y-2">
               <label className="block text-sm font-medium text-slate-300">
-                Width ({getUnitSymbol(dimensions.unit)})
+                {t("width_label")} ({getUnitSymbol(dimensions.unit)})
               </label>
               <div className="relative">
                 <input
                   type="text"
                   value={dimensions.width}
                   onChange={(e) => handleDimensionChange("width", e.target.value)}
-                  placeholder="Enter width..."
+                  placeholder={t("enter_width")}
                   className="w-full rounded-2xl border border-orange-500/30 bg-orange-500/10 py-3 pl-4 pr-16 text-lg text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-orange-400 focus:outline-none focus:ring-4 focus:ring-orange-500/20"
                 />
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 rounded-lg bg-orange-500/20 px-2 py-1 text-xs font-medium text-orange-300 backdrop-blur-sm">
@@ -214,14 +216,14 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
             {/* 厚度输入 */}
             <div className="space-y-2">
               <label className="block text-sm font-medium text-slate-300">
-                Thickness ({getUnitSymbol(dimensions.unit)})
+                {t("thickness_label")} ({getUnitSymbol(dimensions.unit)})
               </label>
               <div className="relative">
                 <input
                   type="text"
                   value={dimensions.thickness}
                   onChange={(e) => handleDimensionChange("thickness", e.target.value)}
-                  placeholder="Enter thickness..."
+                  placeholder={t("enter_thickness")}
                   className="w-full rounded-2xl border border-red-500/30 bg-red-500/10 py-3 pl-4 pr-16 text-lg text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-red-400 focus:outline-none focus:ring-4 focus:ring-red-500/20"
                 />
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 rounded-lg bg-red-500/20 px-2 py-1 text-xs font-medium text-red-300 backdrop-blur-sm">
@@ -233,7 +235,7 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
 
           {/* 单位选择 */}
           <div className="space-y-2">
-            <label className="block text-sm font-medium text-slate-300">Unit System</label>
+            <label className="block text-sm font-medium text-slate-300">{t("unit_system")}</label>
             <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
               {(["inches", "feet", "cm", "meters"] as LengthUnit[]).map((unit) => (
                 <button
@@ -254,7 +256,7 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
           {/* 价格输入 */}
           <div className="space-y-2">
             <label className="block text-sm font-medium text-slate-300">
-              Price per Board Foot (Optional)
+              {t("price_per_board_foot")}
             </label>
             <div className="relative">
               <DollarSign className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-green-400" />
@@ -262,7 +264,7 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
                 type="text"
                 value={pricePerBoardFoot}
                 onChange={(e) => setPricePerBoardFoot(e.target.value)}
-                placeholder="3.50"
+                placeholder={t("price_placeholder")}
                 className="w-full rounded-2xl border border-green-500/30 bg-green-500/10 py-3 pl-12 pr-4 text-lg text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-500/20"
               />
             </div>
@@ -270,7 +272,9 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
 
           {/* 精度控制 */}
           <div className="space-y-2">
-            <label className="block text-sm font-medium text-slate-300">Decimal Precision</label>
+            <label className="block text-sm font-medium text-slate-300">
+              {t("decimal_precision")}
+            </label>
             <div className="flex gap-2">
               {[0, 1, 2, 3].map((p) => (
                 <button
@@ -282,7 +286,7 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
                       : "bg-slate-700/50 text-slate-300 hover:bg-slate-600/50"
                   }`}
                 >
-                  {p} decimal{p !== 1 ? "s" : ""}
+                  {p} {p !== 1 ? t("decimals") : t("decimal")}
                 </button>
               ))}
             </div>
@@ -290,14 +294,14 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
 
           {/* 结果显示 */}
           <div className="rounded-2xl bg-slate-800/30 p-6 backdrop-blur-sm">
-            <h3 className="mb-4 text-lg font-semibold text-white">Calculation Results</h3>
+            <h3 className="mb-4 text-lg font-semibold text-white">{t("calculation_results")}</h3>
 
             <div className="space-y-4">
               {/* 板英尺结果 */}
               <div className="flex items-center justify-between rounded-xl bg-slate-700/30 p-4">
                 <div className="flex items-center gap-3">
                   <Ruler className="h-5 w-5 text-amber-400" />
-                  <span className="text-slate-300">Board Feet:</span>
+                  <span className="text-slate-300">{t("board_feet")}</span>
                 </div>
                 <span className="text-2xl font-bold text-white">
                   {formatNumber(result.boardFeet, precision)}
@@ -309,7 +313,7 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
                 <div className="flex items-center justify-between rounded-xl bg-slate-700/30 p-4">
                   <div className="flex items-center gap-3">
                     <DollarSign className="h-5 w-5 text-green-400" />
-                    <span className="text-slate-300">Total Cost:</span>
+                    <span className="text-slate-300">{t("total_cost")}</span>
                   </div>
                   <span className="text-2xl font-bold text-green-400">
                     {formatCurrency(result.cost)}
@@ -320,7 +324,7 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
               {/* 公式显示 */}
               <div className="rounded-xl bg-slate-700/20 p-4 text-center">
                 <p className="text-sm text-slate-400">
-                  Formula:{" "}
+                  {t("formula")}{" "}
                   <span className="font-mono text-slate-300">
                     {getBoardFootFormula(dimensions.unit)}
                   </span>
@@ -334,7 +338,7 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
             <div className="rounded-xl border border-yellow-500/30 bg-yellow-900/20 p-4">
               {!validation.isValid && (
                 <div className="mb-2">
-                  <h4 className="mb-1 text-sm font-medium text-red-400">Errors:</h4>
+                  <h4 className="mb-1 text-sm font-medium text-red-400">{t("errors")}</h4>
                   <ul className="space-y-1 text-sm text-red-300">
                     {validation.errors.map((error, index) => (
                       <li key={index}>• {error}</li>
@@ -344,7 +348,7 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
               )}
               {validation.warnings.length > 0 && (
                 <div>
-                  <h4 className="mb-1 text-sm font-medium text-yellow-400">Warnings:</h4>
+                  <h4 className="mb-1 text-sm font-medium text-yellow-400">{t("warnings")}</h4>
                   <ul className="space-y-1 text-sm text-yellow-300">
                     {validation.warnings.map((warning, index) => (
                       <li key={index}>• {warning}</li>
