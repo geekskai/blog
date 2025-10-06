@@ -344,41 +344,7 @@
       "bf_unit": "bf",
       "untitled_piece": "Untitled Piece"
     },
-    "quick_reference": {
-      "common_dimensions_title": "Common Lumber Dimensions",
-      "common_dimensions_description": "Standard lumber sizes and their board foot calculations",
-      "nominal_size": "Nominal Size",
-      "actual_size": "Actual Size",
-      "board_feet": "Board Feet",
-      "common_uses": "Common Uses",
-      "per_8_ft": "per 8 ft",
-      "applications": "applications",
-      "inches": "inches",
-      "pro_tip": "Pro Tip",
-      "nominal_vs_actual": "Nominal sizes are the traditional lumber names, while actual sizes are the true dimensions after planing and drying. Always use actual dimensions for board foot calculations.",
-      "wood_species_title": "Wood Species & Pricing",
-      "wood_species_description": "Common wood types and their typical price ranges per board foot",
-      "average_price": "Average Price:",
-      "price_range": "Price Range:",
-      "density": "Density:",
-      "common_uses_label": "Common Uses:",
-      "hardwood": "hardwood",
-      "softwood": "softwood",
-      "pricing_notes": "Pricing Notes",
-      "pricing_note_1": "• Prices vary significantly by region, supplier, grade, and market conditions",
-      "pricing_note_2": "• Hardwoods (oak, maple, walnut) are typically more expensive than softwoods (pine, cedar)",
-      "pricing_note_3": "• Specialty woods and exotic species can cost $20-100+ per board foot",
-      "pricing_note_4": "• Always get current quotes from local suppliers for accurate project budgeting",
-      "formula_reference_title": "Board Foot Formula Reference",
-      "formula_reference_description": "Essential formulas and conversions for lumber calculations",
-      "basic_formula": "Basic Board Foot Formula",
-      "formula_explanation": "The standard formula where 144 represents the cubic inches in one board foot (12\" × 12\" × 1\").",
-      "unit_conversions": "Unit Conversions",
-      "example_calculation": "Example Calculation",
-      "example_description": "For a 2×4 that's 8 feet long:",
-      "cost_calculation": "Cost Calculation",
-      "cost_formula_note": "Don't forget to add waste percentage (typically 5-15%) and applicable taxes for accurate project budgeting."
-    },
+
     "educational_content": {
       "professional_use_cases": "Professional Use Cases",
       "use_cases_description": "Discover how professionals across industries use board foot calculations",
@@ -406,8 +372,7 @@
       "quality_efficiency": "Quality & Efficiency",
       "material_selection": "Material Selection",
       "waste_reduction": "Waste Reduction",
-      "professional_tip": "Professional Tip",
-      "professional_tip_text": "Successful lumber projects require accurate calculations, quality material selection, and efficient planning. Use this calculator as part of a comprehensive project management approach that includes proper storage, handling, and installation techniques. Always consult with local suppliers for current pricing and availability, and consider environmental factors that may affect material performance in your specific application."
+      "professional_tip": "Professional Tip"
     },
     "usage_guide": {
       "title": "How to Use Board Foot Calculator - Complete Professional Guide",
@@ -621,22 +586,7 @@
       },
       "enter_value_in": "Enter value in",
       "enter_value_placeholder": "Enter value...",
-      "result_in": "Result in",
-      "nordic_sizes": {
-        "1_inch_standard": "1 inch standard",
-        "1_foot": "1 foot (12 inches)",
-        "1_yard": "1 yard (3 feet)",
-        "cabinet_depth": "Standard cabinet depth",
-        "table_width": "Standard table width",
-        "bed_length": "Standard bed length"
-      },
-      "nordic_standard_sizes": "Nordic Standard Sizes",
-      "common_size_denmark_norway": "Common size in Denmark/Norway",
-      "professional_tip": "Professional Tip",
-      "professional_tip_content": "Inches is the Danish and Norwegian word for \"inch\". 1 inch is exactly equal to 2.54 centimeters, the same as the international inch.",
-      "quick_rule": "Quick Rule of Thumb",
-      "quick_rule_content": "For quick estimates: 1 cm ≈ 0.4 inches, or 2.5 cm ≈ 1 inch. Use our converter for precise calculations.",
-      "inches_unit": "inches"
+      "result_in": "Result in"
     },
     "converter": {
       "same_unit": "Same unit",
@@ -659,6 +609,7 @@
     },
     "quick_reference": {
       "title": "Quick Reference",
+
       "description": "Common centimeter to inches conversions for quick reference",
       "basic_conversions": "Basic Conversions",
       "centimeter": "Centimeter",
@@ -668,7 +619,16 @@
       "professional_tip": "Professional Tip",
       "professional_tip_text": "Inches is the Danish and Norwegian word for \"inch\". 1 inch equals exactly 2.54 centimeters, the same as the international inch.",
       "quick_memory_rule": "Quick Memory Rule",
-      "quick_memory_rule_text": "For quick estimates: 1 cm ≈ 0.4 inches, or 2.5 cm ≈ 1 inch. Use our converter for precise calculations."
+      "quick_memory_rule_text": "For quick estimates: 1 cm ≈ 0.4 inches, or 2.5 cm ≈ 1 inch. Use our converter for precise calculations.",
+      "inches_unit": "inches",
+      "nordic_sizes": {
+        "1_inch_standard": "1 inch standard",
+        "1_foot": "1 foot (12 inches)",
+        "1_yard": "1 yard (3 feet)",
+        "cabinet_depth": "Standard cabinet depth",
+        "table_width": "Standard table width",
+        "bed_length": "Standard bed length"
+      }
     },
     "educational_content": {
       "common_use_cases": "Common Use Cases",

@@ -344,41 +344,6 @@
       "bf_unit": "bf",
       "untitled_piece": "未命名部件"
     },
-    "quick_reference": {
-      "common_dimensions_title": "常见木材尺寸",
-      "common_dimensions_description": "标准木材尺寸及其板英尺计算",
-      "nominal_size": "标称尺寸",
-      "actual_size": "实际尺寸",
-      "board_feet": "板英尺",
-      "common_uses": "常见用途",
-      "per_8_ft": "每8英尺",
-      "applications": "应用",
-      "inches": "英寸",
-      "pro_tip": "专业提示",
-      "nominal_vs_actual": "标称尺寸是传统的木材名称，而实际尺寸是刨削和干燥后的真实尺寸。板英尺计算始终使用实际尺寸。",
-      "wood_species_title": "木材种类和价格",
-      "wood_species_description": "常见木材类型及其每板英尺的典型价格范围",
-      "average_price": "平均价格：",
-      "price_range": "价格范围：",
-      "density": "密度：",
-      "common_uses_label": "常见用途：",
-      "hardwood": "硬木",
-      "softwood": "软木",
-      "pricing_notes": "价格说明",
-      "pricing_note_1": "• 价格因地区、供应商、等级和市场条件而有显著差异",
-      "pricing_note_2": "• 硬木（橡木、枫木、胡桃木）通常比软木（松木、雪松）更昂贵",
-      "pricing_note_3": "• 特种木材和异国木材每板英尺可能花费$20-100+",
-      "pricing_note_4": "• 为准确的项目预算，请始终从当地供应商获取最新报价",
-      "formula_reference_title": "板英尺公式参考",
-      "formula_reference_description": "木材计算的基本公式和转换",
-      "basic_formula": "基本板英尺公式",
-      "formula_explanation": "标准公式，其中144代表一板英尺（12\" × 12\" × 1\"）的立方英寸。",
-      "unit_conversions": "单位转换",
-      "example_calculation": "计算示例",
-      "example_description": "对于8英尺长的2×4：",
-      "cost_calculation": "成本计算",
-      "cost_formula_note": "不要忘记添加废料百分比（通常5-15%）和适用税收以进行准确的项目预算。"
-    },
     "educational_content": {
       "professional_use_cases": "专业用例",
       "use_cases_description": "了解各行业专业人士如何使用板英尺计算",
@@ -406,8 +371,7 @@
       "quality_efficiency": "质量和效率",
       "material_selection": "材料选择",
       "waste_reduction": "废料减少",
-      "professional_tip": "专业提示",
-      "professional_tip_text": "成功的木材项目需要准确的计算、优质的材料选择和高效的规划。将此计算器作为综合项目管理方法的一部分使用，包括适当的存储、处理和安装技术。始终咨询当地供应商了解当前价格和可用性，并考虑可能影响材料在您特定应用中性能的环境因素。"
+      "professional_tip": "专业提示"
     },
     "usage_guide": {
       "title": "如何使用板英尺计算器 - 完整专业指南",
@@ -549,6 +513,263 @@
       "home": "首页",
       "tools": "工具",
       "board_foot_calculator": "板英尺计算器"
+    }
+  },
+  "CmTilTommerConverter": {
+    "seo_title": "厘米转英寸转换器 – 免费厘米转英寸在线工具 | 精确快速",
+    "seo_description": "免费在线厘米转英寸转换器。将厘米转换为英寸（丹麦/挪威英寸），精确到小数点后3位。完美适用于家具、建筑和国际贸易。",
+    "seo_keywords": "厘米转英寸, 厘米转换器, 英寸转厘米, 丹麦英寸转换器, 挪威英寸转换器, 北欧测量转换器",
+    "page_title": "厘米转英寸",
+    "page_subtitle": "转换器和计算器",
+    "page_description": "免费厘米转英寸转换器和北欧测量计算器。将厘米转换为英寸（丹麦/挪威英寸），英寸转换为厘米，并以小数精度计算精确测量。完美适用于家具购物、建筑项目、宜家尺寸和北欧国家的国际贸易。",
+    "free_calculator_badge": "免费厘米转英寸转换器和北欧测量工具",
+    "feature_badges": {
+      "measurement_calculator": "厘米转英寸计算器",
+      "nordic_converter": "丹麦挪威英寸转换器",
+      "ikea_tool": "宜家家具尺寸工具",
+      "construction_measurement": "北欧建筑测量"
+    },
+    "keywords_tags": {
+      "cm_to_inches": "厘米转英寸",
+      "inches_to_cm": "英寸转厘米",
+      "danish_inches_converter": "丹麦英寸转换器",
+      "norwegian_measurement": "挪威测量",
+      "nordic_units": "北欧单位",
+      "scandinavian_converter": "斯堪的纳维亚转换器"
+    },
+    "breadcrumb": {
+      "home": "首页",
+      "tools": "工具",
+      "cm_to_inches_converter": "厘米转英寸转换器"
+    },
+    "converter_card": {
+      "title": "厘米转英寸转换器",
+      "description": "在厘米和英寸（丹麦/挪威英寸）之间即时转换",
+      "quick_values": "快速值",
+      "presets": {
+        "1_cm": "1厘米",
+        "1_inch": "1英寸",
+        "10_cm": "10厘米",
+        "30_cm": "30厘米",
+        "1_foot": "1英尺",
+        "2_foot": "2英尺"
+      },
+      "from": "从",
+      "to": "到",
+      "enter_value": "输入值",
+      "result": "结果",
+      "units": {
+        "cm": "厘米",
+        "inches": "英寸",
+        "centimeters": "厘米",
+        "inches_full": "英寸"
+      },
+      "enter_value_in": "输入值",
+      "enter_value_placeholder": "请输入值...",
+      "result_in": "结果",
+      "copying": "复制中...",
+      "copied": "已复制！",
+      "failed": "失败",
+      "copy_result": "复制结果"
+    },
+    "converter": {
+      "same_unit": "相同单位",
+      "inches": "英寸",
+      "invalid_conversion": "无效转换",
+      "value": "值",
+      "no_conversion_needed": "无需转换",
+      "start_value": "起始值",
+      "formula": "公式",
+      "calculation": "计算",
+      "result": "结果",
+      "batch_title": "厘米转英寸转换",
+      "values": "值",
+      "generated_by": "由厘米转英寸转换器生成",
+      "detailed_title": "厘米转英寸转换",
+      "input": "输入",
+      "output": "输出",
+      "precision": "精度",
+      "decimals": "小数位"
+    },
+    "quick_reference": {
+      "quick_memory_rule": "快速经验法则",
+      "professional_tip_text": "成功的木材项目需要准确的计算、优质的材料选择和高效的规划。将此计算器作为综合项目管理方法的一部分使用，包括适当的存储、处理和安装技术。始终咨询当地供应商了解当前价格和可用性，并考虑可能影响材料在您特定应用中性能的环境因素。",
+      "title": "快速参考",
+      "quick_memory_rule_text": "快速估算：1厘米 ≈ 0.4英寸，或2.5厘米 ≈ 1英寸。精确计算请使用我们的转换器。",
+      "description": "常用厘米转英寸转换快速参考",
+      "basic_conversions": "基本转换",
+      "centimeter": "厘米",
+      "inches": "英寸",
+      "nordic_standard_sizes": "北欧标准尺寸",
+      "common_size_in_denmark_norway": "丹麦/挪威常用尺寸",
+      "professional_tip": "专业提示",
+      "professional_tip_content": "英寸是丹麦语和挪威语中\"inch\"的意思。1英寸正好等于2.54厘米，与国际英寸相同。",
+      "quick_rule": "快速经验法则",
+      "quick_rule_content": "快速估算：1厘米 ≈ 0.4英寸，或2.5厘米 ≈ 1英寸。精确计算请使用我们的转换器。",
+      "inches_unit": "英寸",
+      "nordic_sizes": {
+        "1_inch_standard": "1英寸标准",
+        "1_foot": "1英尺（12英寸）",
+        "1_yard": "1码（3英尺）",
+        "cabinet_depth": "标准橱柜深度",
+        "table_width": "标准桌子宽度",
+        "bed_length": "标准床长度"
+      }
+    },
+    "educational_content": {
+      "common_uses": {
+        "title": "常见用途",
+        "description": "发现何时以及为什么需要在厘米和英寸之间转换"
+      },
+      "examples": "示例",
+      "use_cases": {
+        "furniture": {
+          "title": "家具和室内设计",
+          "description": "从北欧国家或国际零售商购买时转换家具尺寸。",
+          "examples": {
+            "ikea": "宜家产品尺寸",
+            "scandinavian": "斯堪的纳维亚家具目录",
+            "renovation": "家居装修项目",
+            "kitchen": "厨房橱柜和配件"
+          }
+        },
+        "construction": {
+          "title": "建筑和建设",
+          "description": "需要在不同单位系统中进行精确测量的专业建筑项目。",
+          "examples": {
+            "drawings": "建筑图纸",
+            "materials": "建筑材料",
+            "specifications": "技术规格",
+            "standards": "建筑标准"
+          }
+        },
+        "electronics": {
+          "title": "电子产品和购物",
+          "description": "从国际在线商店购买时了解产品尺寸。",
+          "examples": {
+            "tv": "电视和屏幕尺寸",
+            "laptop": "笔记本电脑尺寸",
+            "tablet": "平板电脑尺寸",
+            "shipping": "运输包装箱"
+          }
+        },
+        "engineering": {
+          "title": "工程和设计",
+          "description": "需要在公制和北欧测量系统之间转换的技术工作。",
+          "examples": {
+            "cad": "CAD图纸",
+            "product_specs": "产品规格",
+            "tolerances": "制造公差",
+            "quality": "质量控制"
+          }
+        }
+      },
+      "about_units": {
+        "title": "关于英寸和厘米",
+        "description": "了解这些测量单位的历史和实际应用"
+      },
+      "facts": {
+        "historical": {
+          "title": "历史背景",
+          "content": "英寸（在丹麦语/挪威语中意为\"拇指\"）在北欧国家使用了几个世纪，最初基于拇指的宽度。"
+        },
+        "modern": {
+          "title": "现代标准化",
+          "content": "今天，1英寸正好等于2.54厘米，与国际英寸相同，确保全球兼容性。"
+        },
+        "regional": {
+          "title": "地区使用",
+          "content": "虽然公制是北欧国家的官方系统，但英寸在建筑、家具和传统工艺中仍然常用。"
+        },
+        "precision": {
+          "title": "精度的重要性",
+          "content": "在专业应用中，即使是小的转换错误也可能累积。我们的工具提供最多3位小数以获得最大精度。"
+        }
+      },
+      "conversion_formulas": "转换公式",
+      "cm_to_inches": "厘米转英寸",
+      "inches_to_cm": "英寸转厘米",
+      "nordic_tradition": {
+        "title": "北欧测量传统",
+        "denmark": {
+          "title": "丹麦",
+          "content": "在丹麦，英寸仍在建筑、家具工业和传统工艺中使用。丹麦家具制造商经常为国际市场以英寸规格标注尺寸。"
+        },
+        "norway": {
+          "title": "挪威",
+          "content": "挪威的建筑和木材工业经常使用英寸测量。我们的转换器有助于挪威建筑标准和建筑规格。"
+        }
+      }
+    },
+    "usage_guide": {
+      "title": "厘米转英寸转换器使用方法 - 完整专业指南",
+      "description": "掌握北欧家具购物、建筑项目和国际测量的厘米转英寸转换。我们的丹麦挪威英寸转换器为您的所有测量需求提供准确结果。",
+      "step_1_title": "输入测量值",
+      "step_1_description": "以厘米或英寸输入您的测量值。我们的转换器接受小数值并自动在单位间切换以进行即时转换。",
+      "step_2_title": "选择精度级别",
+      "step_2_description": "根据您的转换需求选择0到3位小数精度。完美适用于建筑精度或一般家具测量。",
+      "step_3_title": "获得即时结果",
+      "step_3_description": "查看使用精确公式的实时转换结果。完美理解北欧测量标准和国际贸易。",
+      "step_4_title": "复制和使用结果",
+      "step_4_description": "一键复制转换结果，用于购物清单、建筑计划或国际产品规格。"
+    },
+    "content_sections": {
+      "what_is_inches_title": "什么是英寸？理解北欧测量单位",
+      "what_is_inches_description": "英寸是丹麦语和挪威语中\"inch\"的意思，代表传统的北欧测量单位。在现代使用中，1英寸正好等于2.54厘米，与国际英寸标准相同。这个厘米转英寸转换器帮助您导航北欧测量，用于家具购物、建筑项目和国际贸易。",
+      "inches_conversion_benefits": "英寸转换的好处",
+      "benefit_1": "精确的北欧测量转换",
+      "benefit_2": "完美适用于宜家家具尺寸",
+      "benefit_3": "建筑项目必需",
+      "benefit_4": "国际贸易兼容性",
+      "benefit_5": "精确到小数点后3位",
+      "benefit_6": "免费即时转换",
+      "formula_guide_title": "厘米转英寸转换公式和计算器指南",
+      "conversion_formula": "转换公式",
+      "precision_control": "精度控制",
+      "quick_examples": "快速示例",
+      "precision_control_content": {
+        "decimals_0": "0位小数：一般测量",
+        "decimals_1_2": "1-2位小数：家具尺寸",
+        "decimals_3": "3位小数：建筑精度",
+        "precision_note": "为您的特定需求选择合适的精度。"
+      },
+      "quick_examples_content": {
+        "example_1": "10厘米 = 3.94英寸",
+        "example_2": "25.4厘米 = 10英寸",
+        "example_3": "100厘米 = 39.37英寸",
+        "examples_note": "完美适用于常见测量转换。"
+      },
+      "inches_usage_across_nordic_countries": "北欧国家的英寸使用",
+      "denmark_usage": "丹麦",
+      "denmark_usage_text": "在丹麦，英寸在建筑、家具生产和传统工艺中普遍使用。丹麦家具公司经常为国际市场以英寸规格标注尺寸。",
+      "norway_usage": "挪威",
+      "norway_usage_text": "挪威的建筑和木材工业经常使用英寸测量。我们的转换器有助于挪威建筑标准和建筑规格。",
+      "international_usage": "国际",
+      "international_usage_text": "与北欧供应商合作的全球公司需要准确的英寸转换，用于产品规格、运输尺寸和质量控制标准。",
+      "features_title": "专业厘米转英寸转换器功能",
+      "features_subtitle": "精确北欧测量转换所需的一切",
+      "two_way_conversion": "双向厘米转英寸转换",
+      "two_way_conversion_description": "从厘米转英寸和英寸转厘米，即时结果和精度控制，满足您所有的北欧测量需求。",
+      "precision_control_feature": "精度控制",
+      "precision_control_description": "根据您的转换需求选择0到3位小数。完美适用于建筑精度、家具测量和专业应用。",
+      "professional_tools": "专业工具",
+      "professional_tools_description": "复制结果、查看转换公式，并访问快速参考表，实现高效的工作流程集成和专业使用。",
+      "faq_title": "厘米转英寸转换常见问题",
+      "faq_how_convert": "如何准确地将厘米转换为英寸？",
+      "faq_how_convert_answer": "通过输入厘米值使用我们的厘米转英寸转换器。工具使用精确公式自动计算英寸等值：厘米 × 0.3937 = 英寸。您可以根据特定需求调整0到3位小数精度。",
+      "faq_conversion_formula": "厘米转英寸的精确转换公式是什么？",
+      "faq_conversion_formula_answer": "转换公式为：1厘米 = 0.3937英寸，1英寸 = 2.54厘米。这些基于国际英寸标准，因为现代英寸与国际英寸测量相同。",
+      "faq_inches_same_as_international": "北欧国家的英寸与国际英寸相同吗？",
+      "faq_inches_same_as_international_answer": "是的，现代英寸与国际英寸相同。两者都正好等于2.54厘米。\"英寸\"这个词只是丹麦语和挪威语中\"inch\"的术语，使我们的转换器完美适用于北欧测量。",
+      "faq_why_need_converter": "为什么宜家家具需要厘米转英寸转换器？",
+      "faq_why_need_converter_answer": "宜家和其他北欧家具公司经常在国际市场的规格中使用英寸。我们的转换器帮助您在购买斯堪的纳维亚家具或比较尺寸时理解精确尺寸。",
+      "faq_is_free": "这个厘米转英寸转换器免费使用吗？",
+      "faq_is_free_answer": "是的！我们的厘米转英寸转换器完全免费，无需注册。无限制测量转换，访问所有精度级别，使用所有功能无限制或隐藏费用。"
+    },
+    "final_cta": {
+      "title": "准备好转换厘米到英寸了吗？",
+      "description": "开始使用我们免费、准确、专业的厘米转英寸转换器，满足您所有的北欧测量需求。",
+      "button_text": "使用厘米转英寸转换器"
     }
   }
 }

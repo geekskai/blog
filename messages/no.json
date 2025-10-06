@@ -344,41 +344,7 @@
       "bf_unit": "bf",
       "untitled_piece": "Navnløs del"
     },
-    "quick_reference": {
-      "common_dimensions_title": "Vanlige Trelastdimensjoner",
-      "common_dimensions_description": "Standard trelaststr og deres board foot beregninger",
-      "nominal_size": "Nominell Størrelse",
-      "actual_size": "Faktisk Størrelse",
-      "board_feet": "Board Feet",
-      "common_uses": "Vanlige Bruksområder",
-      "per_8_ft": "per 8 fot",
-      "applications": "anvendelser",
-      "inches": "tommer",
-      "pro_tip": "Proff Tips",
-      "nominal_vs_actual": "Nominelle størrelser er tradisjonelle trelastnavn, mens faktiske størrelser er de sanne dimensjonene etter høvling og tørking. Bruk alltid faktiske dimensjoner for board foot beregninger.",
-      "wood_species_title": "Treslag & Priser",
-      "wood_species_description": "Vanlige tretyper og deres typiske prisklasser per board foot",
-      "average_price": "Gjennomsnittspris:",
-      "price_range": "Prisklasse:",
-      "density": "Tetthet:",
-      "common_uses_label": "Vanlige Bruksområder:",
-      "hardwood": "hardtre",
-      "softwood": "bartre",
-      "pricing_notes": "Prisnotater",
-      "pricing_note_1": "• Prisene varierer betydelig etter region, leverandør, kvalitet og markedsforhold",
-      "pricing_note_2": "• Hardtre (eik, lønn, valnøtt) er vanligvis dyrere enn bartre (furu, seder)",
-      "pricing_note_3": "• Spesialtre og eksotiske arter kan koste $20-100+ per board foot",
-      "pricing_note_4": "• Få alltid aktuelle tilbud fra lokale leverandører for nøyaktig prosjektbudsjettering",
-      "formula_reference_title": "Board Foot Formel Referanse",
-      "formula_reference_description": "Essensielle formler og konverteringer for trelastberegninger",
-      "basic_formula": "Grunnleggende Board Foot Formel",
-      "formula_explanation": "Standardformelen hvor 144 representerer kubikktommene i én board foot (12\" × 12\" × 1\").",
-      "unit_conversions": "Enhetskonverteringer",
-      "example_calculation": "Eksempelberegning",
-      "example_description": "For en 2×4 som er 8 fot lang:",
-      "cost_calculation": "Kostnadsberegning",
-      "cost_formula_note": "Ikke glem å legge til avfallsprosent (vanligvis 5-15%) og gjeldende skatter for nøyaktig prosjektbudsjettering."
-    },
+
     "educational_content": {
       "professional_use_cases": "Profesjonelle Brukstilfeller",
       "use_cases_description": "Oppdag hvordan fagfolk på tvers av bransjer bruker board foot beregninger",
@@ -406,8 +372,7 @@
       "quality_efficiency": "Kvalitet & Effektivitet",
       "material_selection": "Materialvalg",
       "waste_reduction": "Avfallsreduksjon",
-      "professional_tip": "Profesjonelt Tips",
-      "professional_tip_text": "Vellykkede trelastprosjekter krever nøyaktige beregninger, kvalitetsmaterialvalg og effektiv planlegging. Bruk denne kalkulatoren som en del av en omfattende prosjektstyringstilnærming som inkluderer riktig lagring, håndtering og installasjonstekniker. Rådfør deg alltid med lokale leverandører for aktuelle priser og tilgjengelighet, og vurder miljøfaktorer som kan påvirke materialytelsen i din spesifikke anvendelse."
+      "professional_tip": "Profesjonelt Tips"
     },
     "usage_guide": {
       "title": "Hvordan Bruke Board Foot Kalkulator - Komplett Profesjonell Guide",
@@ -631,12 +596,10 @@
         "bed_length": "Standard sengelengde"
       },
       "nordic_standard_sizes": "Nordiske Standardstørrelser",
-      "common_size_denmark_norway": "Vanlig størrelse i Danmark/Norge",
       "professional_tip": "Profesjonelt Tips",
       "professional_tip_content": "Tommer er det danske og norske ordet for \"inch\". 1 tomme er nøyaktig lik 2,54 centimeter, det samme som den internasjonale inch.",
       "quick_rule": "Hurtig Tommelfingerregel",
-      "quick_rule_content": "For raske estimater: 1 cm ≈ 0,4 tommer, eller 2,5 cm ≈ 1 tomme. Bruk vår konverter for presise beregninger.",
-      "inches_unit": "tommer"
+      "quick_rule_content": "For raske estimater: 1 cm ≈ 0,4 tommer, eller 2,5 cm ≈ 1 tomme. Bruk vår konverter for presise beregninger."
     },
     "converter": {
       "same_unit": "Samme enhet",
@@ -658,6 +621,7 @@
       "decimals": "desimaler"
     },
     "quick_reference": {
+      "inches_unit": "tommer",
       "title": "Rask Referanse",
       "description": "Vanlige centimeter til tommer konverteringer for rask referanse",
       "basic_conversions": "Grunnleggende Konverteringer",
@@ -668,7 +632,15 @@
       "professional_tip": "Profesjonelt Tips",
       "professional_tip_text": "Tommer er det danske og norske ordet for \"inch\". 1 tommer er nøyaktig lik 2,54 centimeter, det samme som den internasjonale inch.",
       "quick_memory_rule": "Rask Huskeregel",
-      "quick_memory_rule_text": "For raske estimater: 1 cm ≈ 0,4 tommer, eller 2,5 cm ≈ 1 tommer. Bruk vår konverter for presise beregninger."
+      "quick_memory_rule_text": "For raske estimater: 1 cm ≈ 0,4 tommer, eller 2,5 cm ≈ 1 tommer. Bruk vår konverter for presise beregninger.",
+      "nordic_sizes": {
+        "1_inch_standard": "1 tomme standard",
+        "1_foot": "1 fot (12 tommer)",
+        "1_yard": "1 yard (3 fot)",
+        "cabinet_depth": "Standard skapdybde",
+        "table_width": "Standard bordbredde",
+        "bed_length": "Standard sengelengde"
+      }
     },
     "educational_content": {
       "common_use_cases": "Vanlige Bruksområder",
