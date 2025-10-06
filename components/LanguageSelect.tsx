@@ -3,6 +3,7 @@ import { usePathname, useRouter } from "../app/i18n/navigation"
 import { useState, useRef, useEffect } from "react"
 import { ChevronDown, Check } from "lucide-react"
 import { useLocale } from "next-intl"
+import { supportedLocales } from "../app/i18n/routing"
 
 interface LanguageOption {
   value: string
@@ -321,7 +322,7 @@ const hiddenSwitchLang = ["/blog/", "/privacy/", "/tags/"]
 // Filter languages based on currently supported locales
 // You can expand this list as you add more language support
 // const supportedLocales = ["en", "zh-cn", "no", "zh-hk", "zh-tw"] // Add more as you implement them
-export const supportedLocales = ["en", "ja", "ko", "no", "zh-cn"] // Add more as you implement them
+// export const supportedLocales = ["en", "ja", "ko", "no", "zh-cn"] // Add more as you implement them
 // const supportedLocales = languageOptions.map((lang) => lang.value) // Add more as you implement them
 
 // Get only supported languages for display

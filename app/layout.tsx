@@ -1,6 +1,7 @@
 import { ReactNode } from "react"
 import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
+import { supportedLocales } from "./i18n/routing"
 // import { supportedLocales } from "@/components/LanguageSelect"
 
 type Props = {
@@ -47,7 +48,7 @@ type Props = {
 //     images: [siteMetadata.socialBanner],
 //   },
 // }
-const supportedLocales = ["en", "ja", "ko", "no", "zh-cn"] // Add more as you implement them
+// const supportedLocales = ["en", "ja", "ko", "no", "zh-cn"] // Add more as you implement them
 
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
   const { locale } = await params

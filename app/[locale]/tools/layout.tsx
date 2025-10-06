@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import { hasLocale } from "next-intl"
-import { routing } from "../../i18n/routing"
+import { routing, supportedLocales } from "../../i18n/routing"
 import { notFound } from "next/navigation"
 import { getTranslations } from "next-intl/server"
 // import { supportedLocales as supportedLocalesList } from "@/components/LanguageSelect"
@@ -10,7 +10,7 @@ type Props = {
   params: Promise<{ locale: string }>
 }
 // const supportedLocales = supportedLocalesList
-const supportedLocales = ["en", "ja", "ko", "no", "zh-cn"] // Add more as you implement them
+// const supportedLocales = ["en", "ja", "ko", "no", "zh-cn"] // Add more as you implement them
 
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
   const { locale } = await params

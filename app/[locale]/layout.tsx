@@ -12,7 +12,7 @@ import { Metadata } from "next"
 import SiteFooter from "@/components/SiteFooter"
 import { NextIntlClientProvider } from "next-intl"
 import { hasLocale } from "next-intl"
-import { routing } from "../i18n/routing"
+import { routing, supportedLocales } from "../i18n/routing"
 import { notFound } from "next/navigation"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 
@@ -26,7 +26,7 @@ type Props = {
   children: React.ReactNode
   params: Promise<{ locale: string }>
 }
-const supportedLocales = ["en", "ja", "ko", "no", "zh-cn"] // Add more as you implement them
+// const supportedLocales = ["en", "ja", "ko", "no", "zh-cn"] // Add more as you implement them
 
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
   const { locale } = await params
