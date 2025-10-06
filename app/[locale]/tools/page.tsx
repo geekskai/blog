@@ -14,9 +14,11 @@ import {
   ExternalLink,
 } from "lucide-react"
 import { toolsData } from "@/data/toolsData"
+import { useTranslations } from "next-intl"
 
 export default function ToolsPage() {
   // State management for search and filtering
+  const t = useTranslations("ToolsPage")
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("All")
 
@@ -108,7 +110,9 @@ export default function ToolsPage() {
                 <div className="flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-600">
                   <Grid className="h-3 w-3 text-white" />
                 </div>
-                <span className="relative">{tools.length} Free Tools • Always Updated</span>
+                <span className="relative">
+                  {tools.length} {t("tools_free_tools")} • {t("tools_always_updated")}
+                </span>
                 <Sparkles className="h-4 w-4 text-blue-500" />
               </div>
             </div>
@@ -116,24 +120,24 @@ export default function ToolsPage() {
             {/* Main Heading with Staggered Animation */}
             <div className="mb-6 space-y-2">
               <h1 className="text-5xl font-bold tracking-tight text-white lg:text-7xl">
-                <span className="block">Tools that</span>
+                <span className="block">{t("tools_tools_that")}</span>
                 <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
                   supercharge
                 </span>
-                <span className="block">your workflow</span>
+                <span className="block">{t("tools_your_workflow")}</span>
               </h1>
             </div>
 
             {/* Enhanced Description */}
             <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed text-slate-300">
-              Discover powerful, free online tools crafted for{" "}
-              <span className="font-semibold text-blue-400">developers</span>,{" "}
-              <span className="font-semibold text-purple-400">creators</span>, and{" "}
-              <span className="font-semibold text-emerald-400">innovators</span>
+              {t("tools_discover_powerful_free_online_tools_crafted_for")}
+              <span className="font-semibold text-blue-400">{t("tools_developers")}</span>,{" "}
+              <span className="font-semibold text-purple-400">{t("tools_creators")}</span>, and{" "}
+              <span className="font-semibold text-emerald-400">{t("tools_innovators")}</span>
               .
               <br />
               <span className="text-lg text-slate-400">
-                No signup required. Always free. Built with care.
+                {t("tools_no_signup_required_always_free_built_with_care")}
               </span>
             </p>
 
@@ -145,8 +149,9 @@ export default function ToolsPage() {
                     <Users className="h-5 w-5 text-white" />
                   </div>
                   <div className="text-left">
-                    <div className="text-2xl font-bold text-white">25K+</div>
-                    <div className="text-sm text-slate-400">Happy Users</div>
+                    <div className="text-2xl font-bold text-white">25K+</div>{" "}
+                    {/* TODO: Replace with actual number */}
+                    <div className="text-sm text-slate-400">{t("tools_happy_users")}</div>
                   </div>
                 </div>
               </div>
@@ -157,8 +162,9 @@ export default function ToolsPage() {
                     <Zap className="h-5 w-5 text-white" />
                   </div>
                   <div className="text-left">
-                    <div className="text-2xl font-bold text-white">100%</div>
-                    <div className="text-sm text-slate-400">Free Forever</div>
+                    <div className="text-2xl font-bold text-white">100%</div>{" "}
+                    {/* TODO: Replace with actual number */}
+                    <div className="text-sm text-slate-400">{t("tools_free_forever")}</div>
                   </div>
                 </div>
               </div>
@@ -169,8 +175,9 @@ export default function ToolsPage() {
                     <Download className="h-5 w-5 text-white" />
                   </div>
                   <div className="text-left">
-                    <div className="text-2xl font-bold text-white">0</div>
-                    <div className="text-sm text-slate-400">Setup Required</div>
+                    <div className="text-2xl font-bold text-white">0</div>{" "}
+                    {/* TODO: Replace with actual number */}
+                    <div className="text-sm text-slate-400">{t("tools_setup_required")}</div>
                   </div>
                 </div>
               </div>
@@ -187,7 +194,7 @@ export default function ToolsPage() {
                   }}
                   className="group relative inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
                 >
-                  <span>Explore Tools</span>
+                  <span>{t("tools_explore_tools")}</span>
                   <div className="transition-transform duration-300 group-hover:translate-x-1">
                     <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
@@ -200,7 +207,7 @@ export default function ToolsPage() {
                   </div>
                 </button>
 
-                <div className="text-sm text-slate-400">or scroll down to browse</div>
+                <div className="text-sm text-slate-400">{t("tools_or_scroll_down_to_browse")}</div>
               </div>
 
               {/* Scroll Indicator */}
@@ -229,15 +236,17 @@ export default function ToolsPage() {
           <div className="mb-16 text-center">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-slate-800/60 px-4 py-2 text-sm font-medium text-slate-200 shadow-lg ring-1 ring-slate-700/50 backdrop-blur-sm">
               <Filter className="h-4 w-4 text-blue-500" />
-              <span>Discover & Explore</span>
+              <span>{t("tools_discover_explore")}</span>
             </div>
             <h2 className="mb-4 text-3xl font-bold text-white lg:text-4xl">
               <span className="bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">
-                Professional Tools
+                {t("tools_professional_tools")}
               </span>
             </h2>
             <p className="mx-auto max-w-2xl text-lg text-slate-300">
-              Hand-picked tools designed to streamline your workflow and boost productivity
+              {t(
+                "tools_hand_picked_tools_designed_to_streamline_your_workflow_and_boost_productivity"
+              )}
             </p>
           </div>
 
@@ -254,7 +263,7 @@ export default function ToolsPage() {
                     </div>
                     <input
                       type="text"
-                      placeholder="Search tools by name, description, or feature..."
+                      placeholder={t("tools_search_tools_by_name_description_or_feature")}
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
                       className="w-full rounded-xl border-0 bg-transparent py-4 pl-14 pr-6 text-white placeholder-slate-400 focus:outline-none focus:ring-0"
@@ -326,10 +335,13 @@ export default function ToolsPage() {
               <div className="inline-flex items-center gap-2 rounded-full bg-blue-900/20 px-4 py-2 text-sm text-blue-300">
                 <div className="h-2 w-2 animate-pulse rounded-full bg-blue-500"></div>
                 {filteredTools.length === 0 ? (
-                  <span>No tools found matching your criteria</span>
+                  <span>{t("tools_no_tools_found_matching_your_criteria")}</span>
                 ) : (
                   <span>
-                    Found {filteredTools.length} of {tools.length} tools
+                    {t("tools_found_tools_of_tools", {
+                      filteredToolsLength: filteredTools.length,
+                      toolsLength: tools.length,
+                    })}
                   </span>
                 )}
               </div>
@@ -440,7 +452,7 @@ export default function ToolsPage() {
                     {/* Enhanced CTA Button */}
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-semibold text-blue-400 transition-all duration-300 group-hover:text-blue-300">
-                        Launch Tool
+                        {t("tools_launch_tool")}
                       </span>
                       <div className="relative">
                         <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
@@ -466,8 +478,10 @@ export default function ToolsPage() {
               <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-slate-800">
                 <Search className="h-8 w-8 text-slate-400" />
               </div>
-              <h3 className="mb-2 text-xl font-semibold text-white">No tools found</h3>
-              <p className="text-slate-400">Try adjusting your search or filter criteria</p>
+              <h3 className="mb-2 text-xl font-semibold text-white">{t("tools_no_tools_found")}</h3>
+              <p className="text-slate-400">
+                {t("tools_try_adjusting_your_search_or_filter_criteria")}
+              </p>
               <button
                 onClick={() => {
                   setSearchTerm("")
@@ -518,20 +532,25 @@ export default function ToolsPage() {
 
             {/* Main CTA Heading */}
             <h2 className="mb-6 text-4xl font-bold text-white lg:text-5xl">
-              <span className="block">Got an idea for a</span>
+              <span className="block">{t("tools_got_an_idea_for_a_game_changing_tool")}</span>
               <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
-                game-changing tool?
+                {t("tools_game_changing_tool")}
               </span>
             </h2>
 
             {/* Enhanced Description */}
             <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-slate-300">
-              Join our mission to build tools that{" "}
-              <span className="font-semibold text-blue-400">empower creators</span> and{" "}
-              <span className="font-semibold text-purple-400">solve real problems</span>.
+              {t(
+                "tools_join_our_mission_to_build_tools_that_empower_creators_and_solve_real_problems"
+              )}
+              <span className="font-semibold text-blue-400">{t("tools_empower_creators")}</span> and{" "}
+              <span className="font-semibold text-purple-400">
+                {t("tools_solve_real_problems")}
+              </span>
+              .
               <br />
               <span className="text-slate-400">
-                Your suggestion could be the next tool thousands of people love.
+                {t("tools_your_suggestion_could_be_the_next_tool_thousands_of_people_love")}
               </span>
             </p>
 
@@ -558,9 +577,11 @@ export default function ToolsPage() {
                       />
                     </svg>
                   </div>
-                  <h3 className="mb-2 text-lg font-semibold text-white">Send us an Email</h3>
+                  <h3 className="mb-2 text-lg font-semibold text-white">
+                    {t("tools_send_us_an_email")}
+                  </h3>
                   <p className="text-sm text-slate-400">
-                    Drop us a line with your tool idea. We read every message!
+                    {t("tools_drop_us_a_line_with_your_tool_idea_we_read_every_message")}
                   </p>
                 </div>
               </Link>
@@ -578,9 +599,11 @@ export default function ToolsPage() {
                       <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                   </div>
-                  <h3 className="mb-2 text-lg font-semibold text-white">Contribute on GitHub</h3>
+                  <h3 className="mb-2 text-lg font-semibold text-white">
+                    {t("tools_contribute_on_github")}
+                  </h3>
                   <p className="text-sm text-slate-400">
-                    Join our open source journey. Code, ideas, feedback welcome!
+                    {t("tools_join_our_open_source_journey_code_ideas_feedback_welcome")}
                   </p>
                 </div>
               </Link>
@@ -603,9 +626,11 @@ export default function ToolsPage() {
                       />
                     </svg>
                   </div>
-                  <h3 className="mb-2 text-lg font-semibold text-white">Coming Soon</h3>
+                  <h3 className="mb-2 text-lg font-semibold text-white">
+                    {t("tools_coming_soon")}
+                  </h3>
                   <p className="text-sm text-slate-400">
-                    Community voting and tool request board. Stay tuned!
+                    {t("tools_community_voting_and_tool_request_board_stay_tuned")}
                   </p>
                 </div>
               </div>
@@ -622,11 +647,11 @@ export default function ToolsPage() {
                     +
                   </div>
                 </div>
-                <span>Join 25,000+ happy users worldwide</span>
+                <span>{t("tools_join_25000_happy_users_worldwide")}</span>
               </div>
 
               <div className="text-xs text-slate-500">
-                Built with ❤️ by developers, for developers
+                {t("tools_built_with_by_developers_for_developers")}
               </div>
             </div>
           </div>

@@ -1,4 +1,6 @@
 const { withContentlayer } = require("next-contentlayer2")
+const createNextIntlPlugin = require("next-intl/plugin")
+const withNextIntl = createNextIntlPlugin("./app/i18n/request.ts")
 
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
@@ -7,13 +9,13 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app analytics.umami.is https://www.googletagmanager.com https://graph.facebook.com https://googleads.g.doubleclick.net https://doubleclick.net http://busuanzi.ibruce.info;
-  style-src 'self' 'unsafe-inline';
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app analytics.umami.is https://www.googletagmanager.com https://graph.facebook.com https://*.doubleclick.net https://*.googlesyndication.com https://*.google.com https://*.gstatic.com http://busuanzi.ibruce.info;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.gstatic.com;
   img-src * blob: data:;
   media-src *.s3.amazonaws.com;
   connect-src *;
-  font-src 'self';
-  frame-src giscus.app https://td.doubleclick.net https://www.youtube.com;
+  font-src 'self' https://fonts.gstatic.com https://*.gstatic.com;
+  frame-src giscus.app https://*.doubleclick.net https://www.youtube.com https://*.googlesyndication.com https://*.google.com;
 `
 
 const securityHeaders = [
@@ -62,7 +64,7 @@ const unoptimized = process.env.UNOPTIMIZED ? true : undefined
  * @type {import('next/dist/next-server/server/config').NextConfig}
  **/
 module.exports = () => {
-  const plugins = [withContentlayer, withBundleAnalyzer]
+  const plugins = [withContentlayer, withBundleAnalyzer, withNextIntl]
   return plugins.reduce((acc, next) => next(acc), {
     async redirects() {
       return [
@@ -103,14 +105,14 @@ module.exports = () => {
       ],
       unoptimized,
     },
-    async headers() {
-      return [
-        {
-          source: "/(.*)",
-          headers: securityHeaders,
-        },
-      ]
-    },
+    // async headers() {
+    //   return [
+    //     {
+    //       source: "/(.*)",
+    //       headers: securityHeaders,
+    //     },
+    //   ]
+    // },
     webpack: (config, options) => {
       config.module.rules.push({
         test: /\.svg$/,

@@ -7,6 +7,7 @@ import Link from "./Link"
 import headerNavLinks from "@/data/headerNavLinks"
 import { ChevronDown, Zap, Menu, X } from "lucide-react"
 import { toolsData } from "@/data/toolsData"
+import LanguageSelect from "./LanguageSelect"
 
 // Use imported tools data for mobile dropdown
 
@@ -88,7 +89,7 @@ const MobileNav = () => {
               </div>
 
               {/* Navigation */}
-              <nav ref={navRef} className="flex-1 overflow-y-auto p-6">
+              <nav ref={navRef} className="flex-1 p-6">
                 <div className="space-y-2">
                   {headerNavLinks
                     .filter((link) => link.href !== "/" && link.title !== "Tools")
@@ -168,6 +169,9 @@ const MobileNav = () => {
                       </div>
                     </Transition>
                   </div>
+
+                  {/* Language Select */}
+                  <LanguageSelect />
                 </div>
               </nav>
             </Dialog.Panel>

@@ -26,6 +26,7 @@ import { BsPersonWorkspace } from "react-icons/bs"
 import experience from "../app/assets/lottie/code.json"
 import AnimationLottie from "./helper/animation-lottie"
 import GlowCard from "./helper/glow-card"
+import { useTranslations } from "next-intl"
 
 const skillsData = [
   "HTML",
@@ -72,6 +73,8 @@ export const experiences = [
 ]
 
 function HeroSection() {
+  const t = useTranslations("HomePage")
+
   return (
     <section className="relative flex flex-col items-center justify-between py-4 lg:py-12">
       <Image
@@ -85,10 +88,12 @@ function HeroSection() {
       <div className="grid grid-cols-1 items-start gap-y-8 lg:grid-cols-2 lg:gap-12">
         <div className="order-2 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:order-1 lg:pt-10">
           <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
-            Hello, <br />
-            This is <span className=" text-pink-500">{siteMetadata.author}</span>
-            {` , I'm a Professional `}
-            <span className=" text-[#16f2b3]">Software Developer.</span>
+            {t("hero_hello")} <br />
+            {t.rich("hero_h1_0", {
+              name: siteMetadata.author,
+              rich: (chunks) => <span className="text-pink-500">{chunks}</span>,
+              rich1: (chunks) => <span className="text-[#16f2b3]">{chunks}</span>,
+            })}
           </h1>
 
           <div className="my-12 flex items-center gap-5">
@@ -135,7 +140,7 @@ function HeroSection() {
               className="rounded-full bg-gradient-to-r from-violet-600 to-pink-500 p-[1px] transition-all duration-300 hover:from-pink-500 hover:to-violet-600"
             >
               <button className="flex items-center gap-1 rounded-full border-none bg-[#0d1224] px-3 py-3 text-center text-xs font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  hover:gap-3 md:px-8 md:py-4 md:text-sm md:font-semibold">
-                <span>Contact me</span>
+                <span>{t("hero_contact_me")}</span>
                 <RiContactsFill size={16} />
               </button>
             </Link>
@@ -146,7 +151,7 @@ function HeroSection() {
               target="_blank"
               href="https://github.com/geekskai/geekskai"
             >
-              <span>Get Resume</span>
+              <span>{t("hero_get_resume")}</span>
               <MdDownload size={16} />
             </Link>
           </div>
@@ -190,13 +195,13 @@ function HeroSection() {
                 <span className="text-gray-400">{"', '"}</span>
                 <span className="text-amber-300">NestJS</span>
                 <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">MySql</span>
+                <span className="text-amber-300">Rust</span>
                 <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">MongoDB</span>
+                <span className="text-amber-300">VueJS</span>
                 <span className="text-gray-400">{"', '"}</span>
                 <span className="text-amber-300">Docker</span>
                 <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">AWS</span>
+                <span className="text-amber-300">Python</span>
                 <span className="text-gray-400">{"'],"}</span>
               </div>
               <div>
@@ -257,25 +262,19 @@ function HeroSection() {
 }
 
 function AboutSection() {
+  const t = useTranslations("HomePage")
   return (
     <div id="about" className="relative my-12 lg:my-16">
       <div className="absolute -right-8 top-16 hidden flex-col items-center lg:flex">
-        <span className="w-fit rotate-90 rounded-md bg-[#1a1443] p-2 px-5 text-xl text-white">
-          ABOUT ME
-        </span>
+        <h2 className="w-fit rotate-90 rounded-md bg-[#1a1443] p-2 px-5 text-xl text-white">
+          {t("hero_about_me")}
+        </h2>
         <span className="h-36 w-[2px] bg-[#1a1443]"></span>
       </div>
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
         <div className="order-2 lg:order-1">
-          <p className="mb-5 text-xl font-medium uppercase text-[#16f2b3]">Who I am?</p>
-          <p className="text-sm text-gray-200 lg:text-lg">
-            My name is Geeks kai. I am a professional and enthusiastic programmer in my daily life.
-            I am a quick learner with a self-learning attitude. I love to learn and explore new
-            technologies and am passionate about problem-solving. I love almost all the stacks of
-            web application development and love to make the web more open to the world. My core
-            skill is based on JavaScript and I love to do most of the things using JavaScript. I am
-            available for any kind of job opportunity that suits my skills and interests.
-          </p>
+          <p className="mb-5 text-xl font-medium uppercase text-[#16f2b3]">{t("hero_who_i_am")}</p>
+          <p className="text-sm text-gray-200 lg:text-lg">{t("hero_who_i_am_description")}</p>
         </div>
         <div className="order-1 flex justify-center lg:order-2">
           <Image
@@ -292,6 +291,7 @@ function AboutSection() {
 }
 
 function Experience() {
+  const t = useTranslations("HomePage")
   return (
     <div id="experience" className="relative z-50 my-12 border-t border-[#25213b] lg:my-24">
       <Image
@@ -306,7 +306,7 @@ function Experience() {
         <div className="flex  items-center">
           <span className="h-[2px] w-24 bg-[#1a1443]"></span>
           <span className="w-fit rounded-md bg-[#1a1443] p-2 px-5 text-xl text-white">
-            Experiences
+            {t("hero_experiences")}
           </span>
           <span className="h-[2px] w-24 bg-[#1a1443]"></span>
         </div>
@@ -358,8 +358,9 @@ function Experience() {
 }
 
 function Skills() {
+  const t = useTranslations("HomePage")
   return (
-    <div id="skills" className="relative z-50 my-12 border-t border-[#25213b] lg:my-24">
+    <div id="skills" className="relative z-10 my-12 border-t border-[#25213b] lg:my-24">
       <div className="absolute left-[42%] top-6 h-[100px] w-[100px] translate-x-1/2 rounded-full bg-violet-100 opacity-20 blur-3xl  filter"></div>
 
       <div className="flex -translate-y-[1px] justify-center">
@@ -371,7 +372,9 @@ function Skills() {
       <div className="my-5 flex justify-center lg:py-8">
         <div className="flex  items-center">
           <span className="h-[2px] w-24 bg-[#1a1443]"></span>
-          <span className="w-fit rounded-md bg-[#1a1443] p-2 px-5 text-xl text-white">Skills</span>
+          <span className="w-fit rounded-md bg-[#1a1443] p-2 px-5 text-xl text-white">
+            {t("hero_skills")}
+          </span>
           <span className="h-[2px] w-24 bg-[#1a1443]"></span>
         </div>
       </div>
@@ -419,13 +422,6 @@ function Skills() {
 }
 
 export default function Hero(): ReactElement {
-  // const author = allAuthors.find((p) => p.slug === "default") as Authors
-  // const { name, occupation } = coreContent(author)
-
-  // useEffect(() => {
-  //   renderCanvas()
-  // }, [])
-
   return (
     <div>
       <HeroSection />
@@ -433,8 +429,6 @@ export default function Hero(): ReactElement {
       <Github />
       <Experience />
       <Skills />
-
-      {/* <canvas className="bg-skin-base pointer-events-none absolute inset-0" id="canvas"></canvas> */}
     </div>
   )
 }

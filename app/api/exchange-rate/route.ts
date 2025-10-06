@@ -61,13 +61,8 @@ export async function GET(request: NextRequest) {
         originalAmount,
         fromCache: true, // 标记数据来源
       }
-
-      console.log(`📦 Serving cached data for ${validatedParams.base}-${validatedParams.target}`)
     } else {
       // 缓存未命中，从 API 获取新数据
-      console.log(
-        `🌐 Fetching fresh data from API for ${validatedParams.base}-${validatedParams.target}`
-      )
       exchangeRateData = await fetchExchangeRateFromAPI(
         validatedParams.base,
         validatedParams.target,
@@ -90,8 +85,6 @@ export async function GET(request: NextRequest) {
       },
     })
   } catch (error) {
-    console.error("Exchange rate API error:", error)
-
     if (error instanceof z.ZodError) {
       return NextResponse.json(
         {
@@ -126,8 +119,6 @@ async function fetchExchangeRateFromAPI(
   target: string,
   amount: string
 ): Promise<any> {
-  console.log(`🚀 ~ Converting ${amount} ${base} to ${target}`)
-
   try {
     // Primary API: Open Exchange Rates latest endpoint (Free plan - USD base only)
     // We'll calculate GBP ↔ NOK using USD as the base currency
@@ -147,7 +138,6 @@ async function fetchExchangeRateFromAPI(
     }
 
     const data: OpenExchangeRatesLatestResponse = await response.json()
-    console.log(`🚀 ~ USD-based API data:`, data)
 
     if (!data.rates || !data.rates[base] || !data.rates[target]) {
       throw new Error("Invalid API response or missing currency rates")
@@ -182,9 +172,7 @@ async function fetchExchangeRateFromAPI(
     }
 
     // 保存到缓存（异步，不阻塞响应）
-    setCachedExchangeRate(base, target, data, exchangeRateData).catch((err) => {
-      console.error("Failed to cache exchange rate:", err)
-    })
+    setCachedExchangeRate(base, target, data, exchangeRateData).catch((err) => {})
 
     return exchangeRateData
   } catch (error) {

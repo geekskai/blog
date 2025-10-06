@@ -10,11 +10,13 @@ import SearchButton from "./SearchButton"
 import Image from "next/image"
 import { ChevronDown, Zap, Star, Sparkles } from "lucide-react"
 import { toolsData } from "@/data/toolsData"
-
-// Use imported tools data for dropdown menu
+import LanguageSelect from "./LanguageSelect"
+import { useTranslations } from "next-intl"
 
 const Header = () => {
   // Close dropdown on escape key
+  const t = useTranslations("HomePage")
+
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -31,7 +33,7 @@ const Header = () => {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-800/50 bg-slate-950/80 shadow-xl backdrop-blur-xl">
+    <header className="sticky top-0 z-80 border-b border-slate-800/50 bg-slate-950/80 shadow-xl backdrop-blur-xl">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-purple-500/5"></div>
       <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6 xl:px-0">
@@ -62,14 +64,14 @@ const Header = () => {
         <div className="hidden items-center space-x-8 lg:flex">
           <nav className="flex items-center space-x-2">
             {headerNavLinks
-              .filter((link) => link.href !== "/" && link.title !== "Tools")
+              .filter((link) => link.href !== "/" && link.title !== "nav_tools")
               .map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}
                   className="group relative px-3 py-2 text-sm font-medium text-slate-300 transition-all duration-300 hover:text-white md:text-lg"
                 >
-                  {link.title}
+                  {t(link.title)}
                   <div className="absolute inset-x-0 bottom-0 h-0.5 scale-x-0 transform bg-gradient-to-r from-blue-500 to-purple-500 transition-transform duration-300 group-hover:scale-x-100" />
                 </Link>
               ))}
@@ -80,7 +82,7 @@ const Header = () => {
                 className="flex cursor-pointer items-center gap-2 px-3 py-2 text-sm font-medium text-slate-300 transition-all duration-300 hover:text-white group-hover/dropdown:text-white md:text-lg"
                 aria-haspopup="true"
               >
-                Tools
+                {t("header_nav_tools")}
                 <ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover/dropdown:rotate-180" />
                 <div className="absolute inset-x-0 bottom-0 h-0.5 scale-x-0 transform bg-gradient-to-r from-blue-500 to-purple-500 transition-transform duration-300 group-hover/dropdown:scale-x-100" />
               </div>
@@ -94,12 +96,12 @@ const Header = () => {
                   <div className="mb-4 flex items-center justify-between border-b border-slate-700/50 pb-3">
                     <div className="flex items-center gap-2">
                       <Zap className="h-5 w-5 text-blue-400" />
-                      <span className="font-semibold text-white">Developer Tools</span>
+                      <span className="font-semibold text-white">{t("header_nav_tools")}</span>
                     </div>
                     <div className="flex items-center gap-1 rounded-full bg-blue-500/20 px-2 py-1">
                       <Star className="h-3 w-3 text-blue-400" />
                       <span className="text-xs font-medium text-blue-300">
-                        {toolsData.length} Tools
+                        {toolsData.length} {t("header_nav_tools")}
                       </span>
                     </div>
                   </div>
@@ -153,13 +155,17 @@ const Header = () => {
                       className="group flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:from-blue-600 hover:to-purple-600"
                     >
                       <Sparkles className="h-4 w-4" />
-                      View All Tools
+                      {t("header_nav_tools")}
                       <ChevronDown className="h-4 w-4 rotate-[-90deg] transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* Language Select */}
+
+            <LanguageSelect />
           </nav>
 
           <div className="flex items-center space-x-4">

@@ -2,10 +2,12 @@
 import { useState, useEffect } from "react"
 import Image from "./Image"
 import Link from "@/components/Link"
+import { useTranslations } from "next-intl"
 
 const Github = () => {
   const [svgContent, setSvgContent] = useState("")
   const [loading, setLoading] = useState(false)
+  const t = useTranslations("HomePage")
 
   useEffect(() => {
     const fetchSVGContent = async () => {
@@ -45,7 +47,7 @@ const Github = () => {
           href="https://github.com/geekskai"
           className="text-primary-500 hover:text-primary-400"
         >
-          My Github Contributions
+          {t("hero_github_contributions")}
         </Link>
       </p>
       <Image width={900} height={504} src={svgContent} alt="My Github Contributions" />

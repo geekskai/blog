@@ -1,0 +1,19 @@
+{
+  "HomePage": {
+    "hero_hello": "Hei,",
+    "hero_h1_0": "Dette er <rich>{name}</rich>, jeg er en profesjonell <rich1>programvareutvikler.</rich1>",
+    "hero_contact_me": "Kontakt meg",
+    "hero_get_resume": "Få CV",
+    "hero_about_me": "Om meg",
+    "hero_who_i_am": "Hvem er jeg?",
+    "hero_who_i_am_description": "Mitt navn er Geeks kai. Jeg er en profesjonell og entusiastisk programmerer i mitt daglige liv.\nJeg er en rask lærer med en selvlærende holdning. Jeg elsker å lære og utforske nye\nteknologier og er lidenskapelig opptatt av problemløsning. Jeg elsker nesten alle stackene av\nwebutviklingsapplikasjoner og elsker å gjøre nettet mer åpent for verden. Min kjernekompetanse er basert på JavaScript og jeg elsker å gjøre det meste ved hjelp av JavaScript. Jeg er\ntilgjengelig for alle typer jobbmuligheter som passer mine ferdigheter og interesser.",
+    "hero_github_contributions": "Mine Github-bidrag",
+    "hero_experiences": "Erfaringer",
+    "hero_skills": "Ferdigheter",
+    "hero_blogs_list": "Bloggliste"
+  },
+  "Projects": {
+    "title": "Prosjekter",
+    "description": "Vis frem prosjektene dine med et heltebilde (16 x 9)"
+  }
+}

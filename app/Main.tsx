@@ -1,16 +1,15 @@
 import Link from "@/components/Link"
-import Tag from "@/components/Tag"
 import siteMetadata from "@/data/siteMetadata"
-import { formatDate } from "pliny/utils/formatDate"
 import NewsletterForm from "pliny/ui/NewsletterForm"
 import Hero from "@/components/Hero"
 import ListLayout from "@/layouts/ListLayout"
+import { useTranslations } from "next-intl"
 
 const MAX_DISPLAY = 5
 const POSTS_PER_PAGE = 6
 
 export default function Home({ posts }) {
-  // const posts = allCoreContent(sortPosts(allBlogs))
+  const t = useTranslations("HomePage")
   const pageNumber = 1
   const initialDisplayPosts = posts.slice(
     POSTS_PER_PAGE * (pageNumber - 1),
@@ -36,7 +35,7 @@ export default function Home({ posts }) {
           <div className="flex  items-center">
             <span className="h-[2px] w-24 bg-[#1a1443]"></span>
             <span className="w-fit rounded-md bg-[#1a1443] p-2 px-5 text-xl text-white">
-              Blogs List
+              {t("hero_blogs_list")}
             </span>
             <span className="h-[2px] w-24 bg-[#1a1443]"></span>
           </div>
@@ -46,7 +45,7 @@ export default function Home({ posts }) {
         posts={posts.slice(0, MAX_DISPLAY)}
         initialDisplayPosts={initialDisplayPosts}
         pagination={pagination}
-        title="All Posts"
+        title={t("blog_all_posts")}
       />
 
       {posts.length > MAX_DISPLAY && (
@@ -57,7 +56,7 @@ export default function Home({ posts }) {
             target="_blank"
             href="/blog"
           >
-            All Posts &rarr;
+            {t("blog_all_posts")} &rarr;
           </Link>
         </div>
       )}

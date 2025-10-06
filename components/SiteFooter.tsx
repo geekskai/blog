@@ -5,6 +5,7 @@ import siteMetadata from "@/data/siteMetadata"
 import Logo from "@/data/logo.png"
 import Image from "next/image"
 import { FileText, Calculator, Zap, Heart, ExternalLink, ArrowLeftRight } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 // Popular tools data for footer
 const popularTools = [
@@ -39,6 +40,7 @@ const popularTools = [
 ]
 
 const SiteFooter = () => {
+  const t = useTranslations("HomePage")
   return (
     <footer className="relative mt-20 overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-black">
       {/* Background Effects */}
@@ -73,19 +75,18 @@ const SiteFooter = () => {
                 <div className="text-xl font-bold text-white">geekskai</div>
               </Link>
             </div>
-            <p className="mb-6 text-sm leading-relaxed text-slate-400">
-              Empowering developers and creators with powerful, free online tools. No signup
-              required. Always free. Built with care.
-            </p>
+            <p className="mb-6 text-sm leading-relaxed text-slate-400">{t("footer_description")}</p>
             <div className="flex items-center gap-2 rounded-full bg-slate-800/50 px-4 py-2 backdrop-blur-sm">
               <Zap className="h-4 w-4 text-emerald-400" />
-              <span className="text-sm font-medium text-emerald-300">100% Free Forever</span>
+              <span className="text-sm font-medium text-emerald-300">
+                {t("footer_100_free_forever")}
+              </span>
             </div>
           </div>
 
           {/* Popular Tools */}
           <div className="lg:col-span-1">
-            <h3 className="mb-6 text-lg font-semibold text-white">Popular Tools</h3>
+            <h3 className="mb-6 text-lg font-semibold text-white">{t("footer_popular_tools")}</h3>
             <div className="space-y-3">
               {popularTools.map((tool) => {
                 const IconComponent = tool.icon
@@ -121,42 +122,49 @@ const SiteFooter = () => {
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-blue-400 transition-colors duration-300 hover:text-blue-300"
             >
-              <span>View All Tools</span>
+              <span>{t("footer_view_all_tools")}</span>
               <ExternalLink className="h-4 w-4" />
             </Link>
           </div>
 
           {/* Resources */}
           <div className="lg:col-span-1">
-            <h3 className="mb-6 text-lg font-semibold text-white">Resources</h3>
+            <h3 className="mb-6 text-lg font-semibold text-white">{t("footer_resources")}</h3>
             <div className="space-y-3">
               <Link
                 href="/blog"
                 className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
               >
                 <div className="h-1 w-1 rounded-full bg-blue-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-blue-300"></div>
-                <span>Blog</span>
+                <span>{t("footer_blog")}</span>
               </Link>
               <Link
-                href="/about"
+                href="/tags"
+                className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
+              >
+                <div className="h-1 w-1 rounded-full bg-blue-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-blue-300"></div>
+                <span>{t("footer_tags")}</span>
+              </Link>
+              <Link
+                href="/projects"
                 className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
               >
                 <div className="h-1 w-1 rounded-full bg-purple-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-purple-300"></div>
-                <span>About Us</span>
+                <span>{t("footer_projects")}</span>
               </Link>
               <Link
                 href="/privacy"
                 className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
               >
                 <div className="h-1 w-1 rounded-full bg-emerald-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-emerald-300"></div>
-                <span>Privacy Policy</span>
+                <span>{t("footer_privacy_policy")}</span>
               </Link>
             </div>
           </div>
 
           {/* Connect */}
           <div className="lg:col-span-1">
-            <h3 className="mb-6 text-lg font-semibold text-white">Connect With Us</h3>
+            <h3 className="mb-6 text-lg font-semibold text-white">{t("footer_connect_with_us")}</h3>
             <div className="mb-6 grid grid-cols-4 gap-3">
               <div className="rounded-xl bg-slate-800/50 p-3 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-slate-700">
                 <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
@@ -174,11 +182,12 @@ const SiteFooter = () => {
             <div className="rounded-xl border border-slate-700/50 bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-4 backdrop-blur-sm">
               <div className="mb-2 flex items-center gap-2">
                 <Heart className="h-4 w-4 text-red-400" />
-                <span className="text-sm font-medium text-slate-200">Built with Love</span>
+                <span className="text-sm font-medium text-slate-200">
+                  {t("footer_built_with_love")}
+                </span>
               </div>
               <p className="text-xs leading-relaxed text-slate-400">
-                Created by developers, for developers. Join our community and help us build amazing
-                tools together.
+                {t("footer_built_with_love_description")}
               </p>
             </div>
           </div>
@@ -196,13 +205,13 @@ const SiteFooter = () => {
                 >
                   geekskai
                 </Link>
-                <span>• All rights reserved</span>
+                <span>• {t("footer_all_rights_reserved")}</span>
               </div>
             </div>
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2 text-xs text-slate-500">
                 <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-400"></div>
-                <span>Status: All systems operational</span>
+                <span>{t("footer_status_all_systems_operational")}</span>
               </div>
             </div>
           </div>
