@@ -123,7 +123,7 @@ export default function ListLayoutWithTags({
                       <h2 className="text-2xl font-bold leading-8 tracking-tight text-stone-100">
                         {title}
                       </h2>
-                      <p className="prose max-w-none text-stone-300">{summary}</p>
+                      <p className="prose max-w-none overflow-scroll text-stone-300">{summary}</p>
                     </div>
                   </Link>
                   <div className="flex flex-wrap">

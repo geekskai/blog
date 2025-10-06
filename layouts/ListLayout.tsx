@@ -81,7 +81,7 @@ export default function ListLayout({ posts, initialDisplayPosts = [] }: ListLayo
                         {title}
                       </Link>
                     </h3>
-                    <p className="prose max-w-none text-stone-300">{summary}</p>
+                    <p className="prose max-w-none overflow-scroll text-stone-300">{summary}</p>
 
                     <div className="flex justify-between text-center">
                       <div className="flex flex-col gap-2 text-xs  font-medium leading-6 text-[#16f2b3] md:flex-row md:text-base">
