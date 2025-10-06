@@ -14,10 +14,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .map((post) => ({
       url: `${siteUrl}/${post.path}/`,
       lastModified: post.lastmod || post.date,
+      priority: 0.7,
+      changeFrequency: "monthly" as const,
     }))
 
   // Generate static routes for all locales
-  const staticRoutes = ["", "projects/", "tools/", "about/"]
+  const staticRoutes = ["", "blog/", "projects/", "tools/", "tags/", "about/"]
   const routes = staticRoutes.flatMap((route) => {
     return supportedLocales.map((locale) => ({
       url: `${siteUrl}${locale === defaultLocale ? "" : `/${locale}`}/${route}`,
@@ -62,51 +64,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }
     })
   })
-
-  // Generate language-specific routes for special tools
-  const specialToolRoutes: MetadataRoute.Sitemap = []
-
-  // // Add Danish/Norwegian specific tool
-  // const cmTilTommerTool = toolsData.find((tool) => tool.id === "cm-til-tommer")
-  // if (cmTilTommerTool) {
-  //   // This tool is specifically for Danish/Norwegian users
-  //   const danishNorwegianLocales = ["da", "no"]
-  //   danishNorwegianLocales.forEach((locale) => {
-  //     const toolPath = cmTilTommerTool.href.startsWith("/")
-  //       ? cmTilTommerTool.href.slice(1)
-  //       : cmTilTommerTool.href
-  //     specialToolRoutes.push({
-  //       url: `${siteUrl}/${locale}/${toolPath}`,
-  //       lastModified: new Date().toISOString().split("T")[0],
-  //       priority: 0.9, // Higher priority for locale-specific tools
-  //       changeFrequency: "weekly" as const,
-  //     })
-  //   })
-  // }
-
-  // // Add Norwegian specific tool
-  // const pundTilNokTool = toolsData.find((tool) => tool.id === "pund-til-nok-kalkulator")
-  // if (pundTilNokTool) {
-  //   // This tool is specifically for Norwegian users
-  //   const toolPath = pundTilNokTool.href.startsWith("/")
-  //     ? pundTilNokTool.href.slice(1)
-  //     : pundTilNokTool.href
-  //   specialToolRoutes.push({
-  //     url: `${siteUrl}/no/${toolPath}`,
-  //     lastModified: new Date().toISOString().split("T")[0],
-  //     priority: 0.9, // Higher priority for locale-specific tools
-  //     changeFrequency: "weekly" as const,
-  //   })
-  // }
-
   // Generate robots.txt friendly sitemap
-  const allRoutes = [...routes, ...blogRoutes, ...toolRoutes, ...specialToolRoutes]
+  const allRoutes = [...routes, ...blogRoutes, ...toolRoutes]
 
   // Remove duplicates and sort by priority
-  const uniqueRoutes = allRoutes.filter(
-    (route, index, self) => index === self.findIndex((r) => r.url === route.url)
-  )
-  // .sort((a, b) => (b.priority || 0.5) - (a.priority || 0.5))
+  const uniqueRoutes = allRoutes
+    .filter((route, index, self) => index === self.findIndex((r) => r.url === route.url))
+    .sort((a, b) => (b.priority || 0.5) - (a.priority || 0.5))
 
   return uniqueRoutes
 }
