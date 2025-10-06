@@ -1,6 +1,6 @@
 import React from "react"
 import { RadioGroupProps } from "../types"
-import { useLanguage } from "./LanguageContext"
+import { useLocale } from "next-intl"
 
 export const RadioGroup: React.FC<RadioGroupProps> = ({
   label,
@@ -9,7 +9,8 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
   onChange,
   options,
 }) => {
-  const { language } = useLanguage()
+  const locale = useLocale()
+  const language = locale === "zh-cn" ? "zh" : locale === "en" ? "en" : "ja"
 
   return (
     <div className="space-y-2">

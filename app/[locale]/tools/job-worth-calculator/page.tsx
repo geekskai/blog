@@ -31,8 +31,7 @@ import {
   TrendingUp,
 } from "lucide-react"
 import Link from "next/link"
-import { LanguageSwitcher } from "./components/LanguageSwitcher"
-import { useLanguage } from "./components/LanguageContext"
+import { useTranslations, useLocale } from "next-intl"
 import { RadioGroup } from "./components/RadioGroup"
 import { useCalculator } from "./hooks/useCalculator"
 import { useHistory } from "./hooks/useHistory"
@@ -41,8 +40,12 @@ import { getCountryName } from "./utils/country"
 import ShareButtons from "@/components/ShareButtons"
 
 const SalaryCalculator = () => {
-  // 获取语言上下文
-  const { t, language } = useLanguage()
+  // 获取翻译函数
+  const t = useTranslations("JobWorthCalculator")
+
+  // 获取当前语言
+  const locale = useLocale()
+  const language = locale === "zh-cn" ? "zh" : locale === "en" ? "en" : "ja"
 
   // 使用自定义hooks
   const calculator = useCalculator(t)
@@ -205,10 +208,8 @@ const SalaryCalculator = () => {
         <div className="mb-4">
           {/* 顶部工具栏 - 语言、历史记录和访问统计 */}
           <div className="mb-4 flex items-center justify-between md:mb-0">
-            {/* 左侧语言切换器 */}
-            <div className="flex items-center">
-              <LanguageSwitcher />
-            </div>
+            {/* 左侧空白区域 */}
+            <div className="flex items-center">{/* 语言切换器已移至全站导航 */}</div>
 
             {/* 右侧控制区域 */}
             <div className="flex items-center gap-3">

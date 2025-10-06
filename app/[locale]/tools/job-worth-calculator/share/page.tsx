@@ -3,8 +3,7 @@
 import { useSearchParams } from "next/navigation"
 import dynamic from "next/dynamic"
 import React, { Suspense } from "react"
-import { LanguageProvider } from "../components/LanguageContext"
-import { LanguageSwitcher } from "../components/LanguageSwitcher"
+// 已移除本地语言系统，使用全站多语言
 
 // 动态导入ShareCard组件，禁用SSR
 const ShareCard = dynamic(() => import("../ShareCard"), { ssr: false })
@@ -110,17 +109,13 @@ function ShareLoading() {
 // 主页面组件
 export default function SharePage() {
   return (
-    <LanguageProvider>
-      <main className="min-h-screen bg-gray-50 py-6 dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          <div className="mb-4 flex justify-center">
-            <LanguageSwitcher />
-          </div>
-          <Suspense fallback={<ShareLoading />}>
-            <ShareCardWrapper />
-          </Suspense>
-        </div>
-      </main>
-    </LanguageProvider>
+    <main className="min-h-screen bg-gray-50 py-6 dark:bg-gray-900">
+      <div className="container mx-auto px-4">
+        {/* 语言切换器已移至全站导航 */}
+        <Suspense fallback={<ShareLoading />}>
+          <ShareCardWrapper />
+        </Suspense>
+      </div>
+    </main>
   )
 }

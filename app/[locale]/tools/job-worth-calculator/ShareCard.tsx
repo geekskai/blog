@@ -4,9 +4,51 @@ import React, { useRef, useState, useEffect } from "react"
 import { ArrowLeft, Download } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { useLanguage } from "./components/LanguageContext"
-import { countryNames } from "./components/LanguageContext" // 导入countryNames对象
+import { useTranslations, useLocale } from "next-intl"
 import ShareButtons from "@/components/ShareButtons"
+
+// 国家名称映射
+const countryNames: Record<string, Record<string, string>> = {
+  zh: {
+    CN: "中国",
+    US: "美国",
+    JP: "日本",
+    GB: "英国",
+    DE: "德国",
+    FR: "法国",
+    CA: "加拿大",
+    AU: "澳大利亚",
+    SG: "新加坡",
+    KR: "韩国",
+    // 添加更多国家...
+  },
+  en: {
+    CN: "China",
+    US: "United States",
+    JP: "Japan",
+    GB: "United Kingdom",
+    DE: "Germany",
+    FR: "France",
+    CA: "Canada",
+    AU: "Australia",
+    SG: "Singapore",
+    KR: "South Korea",
+    // 添加更多国家...
+  },
+  ja: {
+    CN: "中国",
+    US: "アメリカ合衆国",
+    JP: "日本",
+    GB: "イギリス",
+    DE: "ドイツ",
+    FR: "フランス",
+    CA: "カナダ",
+    AU: "オーストラリア",
+    SG: "シンガポール",
+    KR: "韓国",
+    // 添加更多国家...
+  },
+}
 
 // 扩展接口，支持更多属性
 interface ShareCardProps {
@@ -235,7 +277,9 @@ const ShareCard: React.FC<ShareCardProps> = (props) => {
   const simpleReportRef = useRef<HTMLDivElement>(null) // 添加简化版报告的引用
   const [isDownloading, setIsDownloading] = useState(false)
   const [fadeIn, setFadeIn] = useState(false)
-  const { t, language } = useLanguage()
+  const t = useTranslations("JobWorthCalculator")
+  const locale = useLocale()
+  const language = locale === "zh-cn" ? "zh" : locale === "en" ? "en" : "ja"
 
   // 客户端渲染标志
   const [isClient, setIsClient] = useState(false)
