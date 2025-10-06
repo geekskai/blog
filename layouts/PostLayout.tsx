@@ -44,7 +44,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
           <header className="pt-6 xl:pb-6">
             <div className="space-y-1 text-center">
               <dl className="space-y-10">
-                <div className="flex justify-center  gap-4 text-base font-medium leading-6 text-[#16f2b3]">
+                <div className="flex justify-center gap-1 text-base font-medium leading-6 text-[#16f2b3] md:gap-4">
                   {/* <span>Published on: </span> */}
                   <time dateTime={date}>
                     {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
