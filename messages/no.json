@@ -760,7 +760,7 @@
       "description": "Begynn å bruke vår gratis, nøyaktige og profesjonelle CM til Tommer konverter for alle dine nordiske målebehov.",
       "button_text": "Bruk CM til Tommer Konverter"
     },
-    "educational_content": {
+    "additional_content": {
       "common_uses": {
         "title": "Vanlige Bruksområder",
         "description": "Oppdag når og hvorfor du kanskje trenger å konvertere mellom cm og tommer"
@@ -1297,67 +1297,6 @@
       "pro_tip_text": "Motor slagvolum (CCM) er bare én faktor i å bestemme hestekraft. Faktisk effekt utgang avhenger av kompressjonsforhold, drivstoffsystem, tuning og mange andre faktorer. Bruk disse estimatene som utgangspunkt."
     },
 
-    "educational_content": {
-      "title": "Forstå CCM til HP Konvertering",
-      "description": "Lær om motor slagvolum, hestekraft beregninger og faktorer som påvirker motor effekt utgang",
-
-      "engine_types_title": "Motor Typer & Effekt Karakteristikker",
-      "engine_types_description": "Forstå hvordan forskjellige motor design påvirker effekt utgang",
-
-      "2_stroke_title": "2-Takt Motorer",
-      "2_stroke_description": "Høyere effekt-til-vekt forhold, vanlig i dirt bikes, motorsager og racing anvendelser.",
-      "2_stroke_characteristics": "Effekt slag hver omdreining|Lettere og mer kompakt|Høyere effekt utgang per cc|Vanlig i motorsykler og små motorer",
-      "2_stroke_power_factor": "1.2-1.4x koeffisient",
-
-      "4_stroke_title": "4-Takt Motorer",
-      "4_stroke_description": "Mer drivstoffeffektiv og renere, standard i de fleste biler og moderne motorsykler.",
-      "4_stroke_characteristics": "Effekt slag hver andre omdreining|Bedre drivstoffeffektivitet|Lavere utslipp|Mer holdbar og pålitelig",
-      "4_stroke_power_factor": "0.8-1.0x koeffisient",
-
-      "fuel_systems_title": "Drivstoffsystem Påvirkning på Effekt",
-      "fuel_systems_description": "Hvordan forskjellige induksjonssystemer påvirker hestekraft utgang",
-
-      "naturally_aspirated_title": "Naturlig Aspirert",
-      "naturally_aspirated_description": "Luft kommer inn i motoren ved atmosfærisk trykk gjennom normal inntak prosess.",
-      "naturally_aspirated_advantages": "Enklere design og vedlikehold|Mer forutsigbar effekt levering|Lavere kostnad|Bedre pålitelighet",
-      "naturally_aspirated_power_range": "Lavere effekt tetthet",
-
-      "turbocharged_title": "Turbolader",
-      "turbocharged_description": "Tvunget induksjonssystem som komprimerer luft for høyere effekt utgang.",
-      "turbocharged_advantages": "Høyere effekt fra mindre slagvolum|Bedre effekt-til-vekt forhold|Forbedret effektivitet ved høye belastninger|Mer effekt per cc",
-      "turbocharged_power_range": "25-40% mer effekt",
-
-      "applications_title": "Virkelige Anvendelser",
-      "applications_description": "Vanlige CCM til HP forhold på tvers av forskjellige kjøretøy kategorier",
-
-      "motorcycles_title": "Motorsykler & Scootere",
-      "motorcycles_description": "Fra små pendler sykler til høytytende superbikes.",
-      "motorcycles_examples": "125cc scooter: ~10-15 hp|600cc sportbike: ~100-120 hp|1000cc superbike: ~180-200 hp",
-
-      "cars_title": "Biler & Lastebiler",
-      "cars_description": "Passasjerkjøretøyer og kommersielle anvendelser.",
-      "cars_examples": "1000cc by bil: ~70-80 hp|2000cc sedan: ~150-180 hp|3000cc SUV: ~250-300 hp",
-
-      "racing_title": "Racing & Ytelse",
-      "racing_description": "Høytytende anvendelser med spesialisert tuning.",
-      "racing_examples": "125cc karting: ~30-35 hp|250cc motocross: ~45-50 hp|Formel racing: varierer mye",
-
-      "marine_title": "Marine & Påhengsmotor",
-      "marine_description": "Båtmotorer og marine anvendelser.",
-      "marine_examples": "25hp påhengsmotor: ~500-750cc|150hp påhengsmotor: ~2500-3000cc|Høytytende marine motorer",
-
-      "key_characteristics": "Nøkkel Karakteristikker:",
-      "advantages": "Fordeler:",
-      "typical_examples": "Typiske Eksempler:",
-      "power_factor": "Effekt Faktor:",
-      "power_output": "Effekt Utgang:",
-
-      "disclaimer_title": "Viktig Ansvarsfraskrivelse",
-      "disclaimer_text": "CCM til HP konverteringen levert av dette verktøyet er et estimat basert på empiriske data og industri gjennomsnitt. Faktisk hestekraft utgang kan variere betydelig basert på faktorer som:",
-      "disclaimer_factors": "Kompressjonsforhold og motor tuning|Drivstoffkvalitet og oktan rating|Luftinntak og eksossystem design|Motor styring og tenning timing|Produksjonstolerancer og bygge kvalitet",
-      "disclaimer_footer": "Konsulter alltid produsent spesifikasjoner for nøyaktige effekt ratings."
-    },
-
     "faq": {
       "title": "Ofte Stilte Spørsmål",
       "description": "Alt du trenger å vite om CCM til HP konvertering og motor effekt beregninger",
@@ -1492,6 +1431,299 @@
       "copy_text": "🎨 Min Chromakopia Persona 🎨\n\nNavn: {name}\nFarge: {colorName}\nTrekk: {trait}\nBeskrivelse: {description}\nSuperkraft: {superpower}\nSitat: {quote}\n\nGenerert på: https://geekskai.com/tools/chromakopia-name-generator",
       "copied_message": "Persona kopiert til utklippstavle! 🎨",
       "download_failed": "Nedlasting mislyktes. Prøv igjen."
+    }
+  },
+  "CmToPmConverter": {
+    "seo_title": "PM til CM & CM til PM Konverter | Gratis Pikometer til Centimeter Kalkulatorverktøy",
+    "seo_description": "Profesjonell PM til CM og CM til PM konverter for forskere og vitenskapsmenn. Vårt pikometer til centimeter verktøy konverterer PM til CM og CM til PM med vitenskapelig presisjon opp til 6 desimaler. Perfekt for nanoteknologi, atomfysikk og materialforskning.",
+    "seo_keywords": "pm til cm, cm til pm, pikometer centimeter, pm til cm konverter, cm til pm konverter, PM til CM kalkulator, CM til PM kalkulator, pikometer centimeter konverter",
+    "breadcrumb": {
+      "label": "Navigasjon",
+      "home": "Hjem",
+      "tools": "Verktøy",
+      "cm_to_pm_converter": "Pikometer Centimeter Konverter"
+    },
+    "header": {
+      "badge_text": "Profesjonell Pikometer Centimeter Vitenskapelig Konverter & Kalkulator",
+      "main_title": "PM til CM & CM til PM",
+      "subtitle": "Pikometer Centimeter Konverter",
+      "description": "Profesjonell PM til CM og CM til PM konverter for forskere, vitenskapsmenn og studenter. Vårt pikometer centimeter verktøy utfører toveis konvertering med vitenskapelig presisjon opp til 6 desimaler. Perfekt for nanoteknologiforskning, atomfysikkberegninger, materialforskning og molekylære målinger.",
+      "feature_badges": {
+        "scientific_precision": "Vitenskapelig Presisjonskonverter",
+        "atomic_scale": "Atomskala Målinger",
+        "nanotechnology": "Nanoteknologi Forskningsverktøy",
+        "molecular_biology": "Molekylærbiologi Kalkulator"
+      },
+      "seo_keywords": "pm til cm, cm til pm, pikometer centimeter, pm til cm konverter, cm til pm konverter, PM til CM kalkulator, CM til PM kalkulator, pikometer centimeter konverter"
+    },
+    "converter_card": {
+      "title": "PM til CM & CM til PM Vitenskapelig Konverter",
+      "description": "Konverter PM til CM og CM til PM med vårt pikometer centimeter verktøy - vitenskapelig presisjon garantert",
+      "input_label_cm": "Skriv inn centimeter verdi",
+      "input_label_pm": "Skriv inn pikometer verdi",
+      "input_placeholder_cm": "Skriv inn centimeter...",
+      "input_placeholder_pm": "Skriv inn pikometer...",
+      "output_label_cm": "Centimeter resultat",
+      "output_label_pm": "Pikometer resultat",
+      "precision_label": "Desimal presisjon",
+      "precision_auto": "Auto",
+      "display_format": {
+        "standard": "Standard",
+        "scientific": "Vitenskapelig notasjon"
+      },
+      "formula_label": "Konverteringsformel:",
+      "formula_cm_to_pm": "1 cm = 1 × 10¹⁰ pm",
+      "formula_pm_to_cm": "1 pm = 1 × 10⁻¹⁰ cm",
+      "input_label": "Skriv inn verdi i",
+      "result_label": "Resultat i",
+      "units": {
+        "centimeters": "Centimeter",
+        "picometers": "Pikometer"
+      },
+      "placeholders": {
+        "enter_cm": "Skriv inn centimeter...",
+        "enter_pm": "Skriv inn pikometer..."
+      },
+      "display_formats": {
+        "standard": "Standard",
+        "scientific": "Vitenskapelig"
+      },
+      "auto_precision": "Auto",
+      "copy_button": {
+        "idle": "Kopier resultat",
+        "copying": "Kopierer...",
+        "copied": "Kopiert!",
+        "failed": "Kopiering mislyktes"
+      },
+      "scale_reference": "Skala referanse:",
+      "validation_errors": {
+        "invalid_number": "Input må være et gyldig tall",
+        "not_finite": "Input må være et endelig tall",
+        "too_small": "Verdi må være større enn eller lik 0",
+        "too_large": "Verdi overstiger maksimal grense",
+        "reduced_precision_large": "Svært store verdier kan ha redusert presisjon",
+        "reduced_precision_small": "Svært små verdier kan ha redusert presisjon"
+      }
+    },
+    "quick_reference": {
+      "reference_table": {
+        "title": "Hurtig Referanse Tabell",
+        "description": "Vanlige centimeter til pikometer konverteringer",
+        "headers": {
+          "centimeters": "Centimeter",
+          "picometers": "Pikometer",
+          "scientific": "Vitenskapelig",
+          "notation": "Notasjon"
+        }
+      },
+      "conversion_tips": {
+        "title": "Konverteringstips",
+        "description": "Nyttige tips for presise konverteringer",
+        "scientific_notation": {
+          "title": "Vitenskapelig Notasjon",
+          "tip": "Bruk vitenskapelig notasjon for svært små verdier",
+          "example": "1.5e-8 cm = 150 pm"
+        },
+        "precision_selection": {
+          "title": "Presisjonsvalg",
+          "tip": "Velg passende desimaler basert på ditt behov",
+          "example": "Atomforskning: 6 desimaler, Generell bruk: 2-3 desimaler"
+        },
+        "scale_context": {
+          "title": "Skala Kontekst",
+          "tip": "Forstå størrelsesordenen av dine målinger",
+          "example": "1 cm = 10.000.000.000 pm (10 milliarder)"
+        },
+        "input_formats": {
+          "title": "Input Formater",
+          "tip": "Støtter både desimal og vitenskapelig notasjon input",
+          "example": "1.5e-8 eller 0.000000015"
+        }
+      },
+      "scientific_constants": {
+        "title": "Vitenskapelige Konstanter",
+        "description": "Viktige atom- og molekylære skala målinger",
+        "hydrogen_atom": {
+          "name": "Hydrogen Atom Radius",
+          "description": "Bohr radius (a₀)"
+        },
+        "carbon_bond": {
+          "name": "Karbon-Karbon Binding",
+          "description": "Enkelt binding lengde"
+        },
+        "dna_helix": {
+          "name": "DNA Helix Bredde",
+          "description": "Dobbel helix diameter"
+        },
+        "xray_wavelength": {
+          "name": "Røntgen Bølgelengde",
+          "description": "Typisk medisinsk røntgen"
+        },
+        "labels": {
+          "centimeters": "Centimeter:",
+          "picometers": "Pikometer:"
+        }
+      }
+    },
+    "faq": {
+      "title": "Ofte Stilte Spørsmål om PM til CM, CM til PM & Pikometer til Centimeter Konvertering",
+      "questions": {
+        "how_to_convert": {
+          "question": "Hvordan konverterer jeg PM til CM og CM til PM nøyaktig?",
+          "answer": "Bruk vår PM til CM og CM til PM konverter ved å skrive inn din verdi i enten pikometer eller centimeter. For PM til CM konvertering: del med 10¹⁰ (pm ÷ 10¹⁰ = cm). For CM til PM konvertering: gang med 10¹⁰ (cm × 10¹⁰ = pm). Du kan justere presisjon fra 0 til 6 desimaler for dine spesifikke forskningsbehov."
+        },
+        "conversion_formulas": {
+          "question": "Hva er de nøyaktige konverteringsformlene for PM til CM og CM til PM?",
+          "answer": "De toveis konverteringsformlene er: CM til PM: 1 cm = 1 × 10¹⁰ pm og PM til CM: 1 pm = 1 × 10⁻¹⁰ cm. Disse er basert på den internasjonale standarden hvor 1 meter = 10¹² pikometer og 1 meter = 100 centimeter. Vår konverter håndterer både PM til CM og CM til PM konverteringer automatisk."
+        },
+        "importance": {
+          "question": "Hvorfor er PM til CM og CM til PM konverteringer viktige i vitenskapelig forskning?",
+          "answer": "PM til CM og CM til PM konverteringer forbinder makroskopiske og atomære skalaer, essensielle for nanoteknologi, atomfysikk og materialforskning. Både PM til CM og CM til PM konverteringer gjør det mulig for forskere å arbeide med atomære dimensjoner mens de relaterer dem til målbare størrelser."
+        }
+      }
+    },
+    "usage_guide": {
+      "title": "Hvordan bruke PM til CM & CM til PM Konverter - Komplett Pikometer til Centimeter Guide",
+      "description": "Mester PM til CM konvertering og CM til PM konvertering for vitenskapelig forskning, nanoteknologi applikasjoner og atomfysikk beregninger. Vår profesjonelle pikometer til centimeter konverter gir laboratoriekvalitets nøyaktighet for alle dine PM til CM og CM til PM målingsbehovet.",
+      "steps": {
+        "step1": {
+          "title": "Skriv inn Vitenskapelig Verdi",
+          "description": "Skriv inn din måling i pikometer eller centimeter for PM til CM og CM til PM konvertering. Vårt pikometer til centimeter verktøy støtter både desimal notasjon og vitenskapelig notasjon (f.eks. 1.5e-8) for presise vitenskapelige beregninger."
+        },
+        "step2": {
+          "title": "Velg Presisjonsnivå",
+          "description": "Velg desimal presisjon fra 0 til 6 desimaler for både PM til CM og CM til PM konverteringer. Vår pikometer til centimeter konverter bruker høyere presisjon (4-6) for forskningsberegninger og lavere presisjon (0-2) for generelle målinger."
+        },
+        "step3": {
+          "title": "Se Vitenskapelige Resultater",
+          "description": "Få øyeblikkelige PM til CM og CM til PM konverteringsresultater med vitenskapelig notasjon, konverteringsformel og atomskala sammenligninger. Vårt pikometer til centimeter verktøy gir bedre forståelse av målingene."
+        },
+        "step4": {
+          "title": "Eksporter for Forskning",
+          "description": "Kopier formaterte resultater med formler til utklippstavle for bruk i forskningsartikler, laboratorierap porter eller vitenskapelige beregninger og dokumentasjon."
+        }
+      }
+    },
+    "content_sections": {
+      "conversion_methods": {
+        "title": "PM til CM, CM til PM & Pikometer til Centimeter Konvertering Gjort Enkelt",
+        "pm_to_cm": {
+          "title": "PM til CM Konvertering",
+          "description": "Konverter PM til CM øyeblikkelig med vår avanserte kalkulator. Skriv bare inn din pikometer verdi og få presise centimeter resultater. Vårt PM til CM verktøy håndterer vitenskapelig notasjon og gir formelforklaringer for utdanningsformål.",
+          "formula": "PM ÷ 10¹⁰ = CM"
+        },
+        "cm_to_pm": {
+          "title": "CM til PM Konvertering",
+          "description": "Konverter CM til PM med laboratoriekvalitets presisjon. Vår CM til PM konverter multipliserer din centimeter input med 10¹⁰ for å levere nøyaktige pikometer målinger essensielle for nanoteknologi og atomfysikk forskning.",
+          "formula": "CM × 10¹⁰ = PM"
+        },
+        "picometer_to_centimeter": {
+          "title": "Pikometer til Centimeter",
+          "description": "Vårt omfattende pikometer til centimeter verktøy bygger bro mellom atomære og makroskopiske skalaer. Perfekt for studenter og forskere som trenger pålitelige pikometer til centimeter konverteringer med utdanningsmessig kontekst.",
+          "scale": "1 cm = 10.000.000.000 pm"
+        },
+        "formula_label": "Formel:",
+        "scale_label": "Skala:"
+      },
+      "understanding_scale": {
+        "title": "PM til CM & CM til PM Konvertering: Forståelse av Atomskala Målinger",
+        "description": "En pikometer (pm) er en lengdeenhet lik en trilliontedel av en meter (10⁻¹² m). Denne utrolig lille enheten er essensiell for måling av atomære dimensjoner, molekylære bindinger og kvantefenomener. Vår PM til CM og CM til PM konverter gir den vitenskapelige presisjonen som er nødvendig for nanoteknologi forskning, atomfysikk og materialvitenskap applikasjoner.",
+        "conversion_info": "PM til CM konvertering: 1 pm = 1 × 10⁻¹⁰ cm. CM til PM konvertering: 1 cm = 1 × 10¹⁰ pm. Denne toveis konverteringen er kritisk for å bygge bro mellom makroskopiske og atomære skala målinger i vitenskapelig forskning og ingeniør applikasjoner.",
+        "applications": {
+          "title": "Pikometer Applikasjoner",
+          "list": [
+            "Atomradius målinger",
+            "Molekylær bindingslengde beregninger",
+            "Nanoteknologi presisjonsingeniørarbeid",
+            "Kvantemekanikk forskning",
+            "Krystallgitter parameter analyse",
+            "Røntgenkrystallografi studier"
+          ]
+        }
+      },
+      "scientific_precision": {
+        "title": "Vitenskapelig Presisjon i PM til CM og CM til PM Konvertering",
+        "precision_levels": {
+          "title": "Presisjonsnivåer",
+          "general": "0-1 desimaler: Generelle målinger",
+          "standard": "2-3 desimaler: Standard forskning",
+          "high": "4-6 desimaler: Høypresisjon beregninger",
+          "note": "Velg presisjon basert på dine forskningskrav."
+        },
+        "scientific_notation": {
+          "title": "Vitenskapelig Notasjon",
+          "cm_to_pm": "1 cm = 1.00 × 10¹⁰ pm",
+          "pm_to_cm": "1 pm = 1.00 × 10⁻¹⁰ cm",
+          "note": "Automatisk vitenskapelig notasjon for store verdier."
+        },
+        "accuracy_standards": {
+          "title": "Nøyaktighetsstandarder",
+          "digits": "Opprettholder 15 signifikante siffer",
+          "range": "Støtter verdier opp til 10¹⁵ pm",
+          "grade": "Laboratoriekvalitets presisjon",
+          "note": "Perfekt for profesjonelle forskningsapplikasjoner."
+        }
+      },
+      "research_applications": {
+        "title": "Forskningsapplikasjoner av PM til CM og CM til PM Konvertering",
+        "nanotechnology": {
+          "title": "Nanoteknologi",
+          "description": "Essensiell for design av nanomaterialer, kvanteprikker og molekylære maskiner. Presise målinger er kritiske for nanopartikkel syntese og karakterisering i avansert materialforskning."
+        },
+        "atomic_physics": {
+          "title": "Atomfysikk",
+          "description": "Fundamental for atomradius beregninger, elektronorbital målinger og kvantemekanisk modellering. Kritisk for forståelse av atomstruktur og adferd på kvantenivå."
+        },
+        "molecular_biology": {
+          "title": "Molekylærbiologi",
+          "description": "Vital for proteinstruktur analyse, DNA målinger og cellulære komponent studier. Muliggjør presis karakterisering av biologiske molekyler og deres interaksjoner."
+        }
+      }
+    },
+    "features": {
+      "title": "Profesjonelle PM til CM & CM til PM Konverter Funksjoner",
+      "description": "Alt du trenger for nøyaktig PM til CM og CM til PM vitenskapelig måling konvertering",
+      "bidirectional": {
+        "title": "Toveis PM til CM & CM til PM Konvertering",
+        "description": "Konverter PM til CM og CM til PM med vårt avanserte pikometer til centimeter verktøy. Funksjoner vitenskapelig presisjon og automatisk formelvisning for forskningsdokumentasjon og laboratorieberegninger."
+      },
+      "precision": {
+        "title": "Ultra-Høy Presisjon",
+        "description": "Velg fra 0 til 6 desimaler med automatiske presisjonsanbefalinger. Perfekt for forskningsberegninger som krever laboratoriekvalitets nøyaktighet."
+      },
+      "research_grade": {
+        "title": "Forskningskvalitets Verktøy",
+        "description": "Vitenskapelig notasjon støtte, atomskala visualisering og utdanningsinnhold designet spesifikt for forskere og studenter."
+      },
+      "pm_to_cm_precision": "PM til CM konvertering med vitenskapelig presisjon",
+      "cm_to_pm_precision": "CM til PM konvertering med vitenskapelig presisjon",
+      "bidirectional_conversion": "Pikometer til centimeter konvertering (PM ↔ CM)",
+      "precision_control": "Vitenskapelig presisjonskontroll (0-6 desimaler)",
+      "scientific_notation": "Vitenskapelig notasjon støtte",
+      "realtime_calculations": "Sanntids PM til CM og CM til PM beregninger",
+      "atomic_visualization": "Atomskala visualisering",
+      "educational_content": "Utdanningsinnhold om PM til CM og CM til PM skala",
+      "copy_results": "Kopier resultater til utklippstavle",
+      "quick_reference": "Hurtig referanse tabeller for PM til CM og CM til PM konverteringer",
+      "mobile_friendly": "Mobilvennlig grensesnitt",
+      "no_registration": "Ingen registrering påkrevd",
+      "batch_conversion": "Batch konverteringskapasitet",
+      "formula_display": "Formelvisning og beregningssteg"
+    },
+    "final_cta": {
+      "title": "Klar til å konvertere PM til CM & CM til PM?",
+      "description": "Begynn å bruke vår profesjonelle, nøyaktige og gratis PM til CM og CM til PM konverter for alle dine vitenskapelige forsknings- og utdanningsbehov. Vårt pikometer centimeter verktøy gir øyeblikkelige toveis konverteringer med vitenskapelig presisjon.",
+      "button_text": "Bruk PM til CM & CM til PM Vitenskapelig Konverter"
+    },
+    "screenshot_caption": "PM til CM & CM til PM Konverter grensesnitt som viser toveis vitenskapelig konvertering. Vårt pikometer centimeter verktøy håndterer PM til CM og CM til PM beregninger.",
+    "audience_types": "Vitenskapsmenn, Forskere, PhD Studenter, Nanoteknologi Ingeniører, Fysikk Studenter, Materialvitenskapsmenn, Kjemi Forskere, Akademiske Profesjonelle",
+    "usage_info": {
+      "name": "Hvordan bruke Pikometer til Centimeter & CM til PM Konverter",
+      "description": "Skriv inn en verdi i pikometer eller centimeter, velg presisjonsnivå og få øyeblikkelige toveis vitenskapelige konverteringsresultater med formelvisning for både pikometer til centimeter og CM til PM konverteringer"
+    },
+    "supply": {
+      "converter_tool": "Pikometer til Centimeter & CM til PM Konverter Verktøy",
+      "measurement_value": "Måleverdi i pikometer eller centimeter"
     }
   }
 }

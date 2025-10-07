@@ -1201,67 +1201,6 @@
       "pro_tip_text": "エンジン排気量（CCM）は馬力を決定する要因の一つに過ぎません。実際のパワー出力は圧縮比、燃料システム、チューニング、その他多くの要因に依存します。これらの推定値を出発点として使用してください。"
     },
 
-    "educational_content": {
-      "title": "CCMからHP変換の理解",
-      "description": "エンジン排気量、馬力計算、エンジンパワー出力に影響する要因について学ぶ",
-
-      "engine_types_title": "エンジンタイプ・パワー特性",
-      "engine_types_description": "異なるエンジン設計がパワー出力にどのように影響するかの理解",
-
-      "2_stroke_title": "2ストロークエンジン",
-      "2_stroke_description": "より高いパワー対重量比、ダートバイク、チェーンソー、レーシング用途で一般的。",
-      "2_stroke_characteristics": "毎回転でパワーストローク|軽量でコンパクト|ccあたりの高いパワー出力|バイクと小型エンジンで一般的",
-      "2_stroke_power_factor": "1.2-1.4x係数",
-
-      "4_stroke_title": "4ストロークエンジン",
-      "4_stroke_description": "より燃費が良くクリーン、ほとんどの自動車と現代のバイクで標準。",
-      "4_stroke_characteristics": "2回転でパワーストローク|より良い燃費|低排出|より耐久性があり信頼性が高い",
-      "4_stroke_power_factor": "0.8-1.0x係数",
-
-      "fuel_systems_title": "燃料システムのパワーへの影響",
-      "fuel_systems_description": "異なる吸気システムが馬力出力にどのように影響するか",
-
-      "naturally_aspirated_title": "自然吸気",
-      "naturally_aspirated_description": "空気が通常の吸気プロセスを通じて大気圧でエンジンに入る。",
-      "naturally_aspirated_advantages": "シンプルな設計とメンテナンス|より予測可能なパワー供給|低コスト|より良い信頼性",
-      "naturally_aspirated_power_range": "低いパワー密度",
-
-      "turbocharged_title": "ターボチャージド",
-      "turbocharged_description": "より高いパワー出力のために空気を圧縮する強制吸気システム。",
-      "turbocharged_advantages": "小排気量からより高いパワー|より良いパワー対重量比|高負荷での効率改善|ccあたりのより多いパワー",
-      "turbocharged_power_range": "25-40%多いパワー",
-
-      "applications_title": "実世界の用途",
-      "applications_description": "異なる車両カテゴリーでの一般的なCCMからHP比",
-
-      "motorcycles_title": "バイク・スクーター",
-      "motorcycles_description": "小型通勤バイクから高性能スーパーバイクまで。",
-      "motorcycles_examples": "125ccスクーター：~10-15 hp|600ccスポーツバイク：~100-120 hp|1000ccスーパーバイク：~180-200 hp",
-
-      "cars_title": "自動車・トラック",
-      "cars_description": "乗用車と商用用途。",
-      "cars_examples": "1000cc市街地車：~70-80 hp|2000ccセダン：~150-180 hp|3000cc SUV：~250-300 hp",
-
-      "racing_title": "レーシング・パフォーマンス",
-      "racing_description": "専門チューニングによる高性能用途。",
-      "racing_examples": "125ccカート：~30-35 hp|250ccモトクロス：~45-50 hp|フォーミュラレーシング：大きく変動",
-
-      "marine_title": "船舶・船外機",
-      "marine_description": "ボートエンジンと船舶用途。",
-      "marine_examples": "25hp船外機：~500-750cc|150hp船外機：~2500-3000cc|高性能船舶エンジン",
-
-      "key_characteristics": "主要特性：",
-      "advantages": "利点：",
-      "typical_examples": "典型例：",
-      "power_factor": "パワー係数：",
-      "power_output": "パワー出力：",
-
-      "disclaimer_title": "重要な免責事項",
-      "disclaimer_text": "このツールが提供するCCMからHP変換は、経験的データと業界平均に基づく推定値です。実際の馬力出力は以下のような要因により大きく変動する可能性があります：",
-      "disclaimer_factors": "圧縮比とエンジンチューニング|燃料品質とオクタン価|吸気・排気システム設計|エンジン管理と点火タイミング|製造公差と構築品質",
-      "disclaimer_footer": "正確なパワー定格については常にメーカー仕様を参照してください。"
-    },
-
     "faq": {
       "title": "よくある質問",
       "description": "CCMからHP変換とエンジンパワー計算について知っておくべきすべて",
@@ -1396,6 +1335,347 @@
       "copy_text": "🎨 私の Chromakopia ペルソナ 🎨\n\n名前：{name}\n色：{colorName}\n特徴：{trait}\n説明：{description}\n超能力：{superpower}\n名言：{quote}\n\n生成場所：https://geekskai.com/tools/chromakopia-name-generator",
       "copied_message": "ペルソナがクリップボードにコピーされました！🎨",
       "download_failed": "ダウンロードに失敗しました。もう一度お試しください。"
+    }
+  },
+  "CmToPmConverter": {
+    "seo_title": "PM to CM & CM to PM 変換器 | 無料ピコメートル・センチメートル計算ツール",
+    "seo_description": "科学者と研究者のための専門的なPM to CMとCM to PM変換器。私たちのピコメートル・センチメートルツールは、最大6桁の科学的精度でPM to CMとCM to PMを変換します。ナノテクノロジー、原子物理学、材料科学研究に最適です。",
+    "seo_keywords": "pm to cm, cm to pm, ピコメートル センチメートル, pm to cm 変換器, cm to pm 変換器, PM to CM 計算機, CM to PM 計算機, ピコメートル センチメートル 変換器",
+    "breadcrumb": {
+      "label": "ナビゲーション",
+      "home": "ホーム",
+      "tools": "ツール",
+      "cm_to_pm_converter": "ピコメートル・センチメートル変換器"
+    },
+    "header": {
+      "badge_text": "専門的ピコメートル・センチメートル科学変換器・計算機",
+      "main_title": "PM to CM & CM to PM",
+      "subtitle": "ピコメートル・センチメートル変換器",
+      "description": "科学者、研究者、学生のための専門的なPM to CMとCM to PM変換器。私たちのピコメートル・センチメートルツールは、最大6桁の科学的精度で双方向変換を行います。ナノテクノロジー研究、原子物理学計算、材料科学、分子測定に最適です。双方向PM to CMとCM to PM変換、科学記数法サポート、原子スケール可視化機能を備えています。",
+      "feature_badges": {
+        "scientific_precision": "科学的精度変換器",
+        "atomic_scale": "原子スケール測定",
+        "nanotechnology": "ナノテクノロジー研究ツール",
+        "molecular_biology": "分子生物学計算機"
+      },
+      "seo_keywords": "pm to cm, cm to pm, ピコメートル センチメートル, pm to cm 変換器, cm to pm 変換器, PM to CM 計算機, CM to PM 計算機, ピコメートル センチメートル 変換器"
+    },
+    "converter_card": {
+      "title": "PM to CM & CM to PM 科学変換器",
+      "description": "私たちのピコメートル・センチメートルツールでPM to CMとCM to PMを変換 - 科学的精度を保証",
+      "input_label_cm": "センチメートル値を入力",
+      "input_label_pm": "ピコメートル値を入力",
+      "input_placeholder_cm": "センチメートルを入力...",
+      "input_placeholder_pm": "ピコメートルを入力...",
+      "output_label_cm": "センチメートル結果",
+      "output_label_pm": "ピコメートル結果",
+      "precision_label": "小数点精度",
+      "precision_auto": "自動",
+      "display_format": {
+        "standard": "標準",
+        "scientific": "科学記数法"
+      },
+      "formula_label": "変換公式：",
+      "formula_cm_to_pm": "1 cm = 1 × 10¹⁰ pm",
+      "formula_pm_to_cm": "1 pm = 1 × 10⁻¹⁰ cm",
+      "input_label": "値を入力",
+      "result_label": "結果",
+      "units": {
+        "centimeters": "センチメートル",
+        "picometers": "ピコメートル"
+      },
+      "placeholders": {
+        "enter_cm": "センチメートルを入力...",
+        "enter_pm": "ピコメートルを入力..."
+      },
+      "display_formats": {
+        "standard": "標準",
+        "scientific": "科学記数法"
+      },
+      "auto_precision": "自動",
+      "copy_button": {
+        "idle": "結果をコピー",
+        "copying": "コピー中...",
+        "copied": "コピー完了！",
+        "failed": "コピー失敗"
+      },
+      "scale_reference": "スケール参照：",
+      "validation_errors": {
+        "invalid_number": "入力は有効な数値である必要があります",
+        "not_finite": "入力は有限数である必要があります",
+        "too_small": "値は0以上である必要があります",
+        "too_large": "値が最大制限を超えています",
+        "reduced_precision_large": "非常に大きな値は精度が低下する可能性があります",
+        "reduced_precision_small": "非常に小さな値は精度が低下する可能性があります"
+      }
+    },
+
+    "quick_reference": {
+      "reference_table": {
+        "title": "クイックリファレンステーブル",
+        "description": "一般的なセンチメートル・ピコメートル変換のクイックリファレンス",
+        "headers": {
+          "centimeters": "センチメートル",
+          "picometers": "ピコメートル",
+          "scientific": "科学",
+          "notation": "記数法"
+        }
+      },
+      "conversion_tips": {
+        "title": "プロのヒントとベストプラクティス",
+        "description": "正確な科学変換のための専門的アドバイス",
+        "scientific_notation": {
+          "title": "科学記数法",
+          "tip": "非常に大きな結果には、読みやすくするために科学記数法形式を使用",
+          "example": "1 cm = 1.00 × 10¹⁰ pm"
+        },
+        "precision_selection": {
+          "title": "精度選択",
+          "tip": "研究計算には高精度（4-6桁）を使用",
+          "example": "分子モデリングに重要"
+        },
+        "scale_context": {
+          "title": "スケールの概念",
+          "tip": "覚えておく：1cmには100億ピコメートルが含まれる",
+          "example": "それは10,000,000,000 pm！"
+        },
+        "input_formats": {
+          "title": "入力形式",
+          "tip": "小数と科学記数法の両方の入力をサポート",
+          "example": "1.5e-8 または 0.000000015"
+        }
+      },
+      "scientific_constants": {
+        "title": "科学定数",
+        "description": "重要な原子・分子スケール測定",
+        "hydrogen_atom": {
+          "name": "水素原子半径",
+          "description": "ボーア半径 (a₀)"
+        },
+        "carbon_bond": {
+          "name": "炭素-炭素結合",
+          "description": "単結合長"
+        },
+        "dna_helix": {
+          "name": "DNAヘリックス幅",
+          "description": "二重らせん直径"
+        },
+        "xray_wavelength": {
+          "name": "X線波長",
+          "description": "典型的医療用X線"
+        },
+        "labels": {
+          "centimeters": "センチメートル：",
+          "picometers": "ピコメートル："
+        }
+      },
+      "pro_tips": {
+        "title": "プロのヒントとベストプラクティス",
+        "description": "正確な科学変換のための専門家アドバイス",
+        "tips": {
+          "scientific_notation": {
+            "title": "科学記数法",
+            "tip": "非常に大きな結果には、読みやすさのために科学記数法形式を使用",
+            "example": "1 cm = 1.00 × 10¹⁰ pm"
+          },
+          "precision_selection": {
+            "title": "精度選択",
+            "tip": "研究計算にはより高い精度（4-6桁）を使用",
+            "example": "分子モデリングに重要"
+          },
+          "scale_context": {
+            "title": "スケールコンテキスト",
+            "tip": "覚えておいてください：1cmには100億ピコメートルが含まれます",
+            "example": "それは10,000,000,000 pm！"
+          },
+          "input_formats": {
+            "title": "入力形式",
+            "tip": "小数と科学記数法の両方の入力をサポート",
+            "example": "1.5e-8 または 0.000000015"
+          }
+        },
+        "example_label": "例：",
+        "remember": {
+          "title": "覚えておいてください",
+          "description": "ピコメートルは非常に小さいです - 1cmには100億ピコメートルが含まれています！科学的正確性のために常に変換を再確認してください。"
+        }
+      }
+    },
+    "usage_guide": {
+      "title": "PM to CM & CM to PM変換器の使用方法 - 完全ピコメートル・センチメートルガイド",
+      "description": "科学研究、ナノテクノロジー応用、原子物理学計算のためのPM to CM変換とCM to PM変換をマスター。私たちの専門的ピコメートル・センチメートル変換器は、すべてのPM to CMとCM to PM測定ニーズに実験室グレードの精度を提供します。",
+      "steps": {
+        "step1": {
+          "title": "科学的値を入力",
+          "description": "PM to CMとCM to PM変換のためにピコメートルまたはセンチメートルの測定値を入力。私たちのピコメートル・センチメートルツールは、精密な科学計算のために小数記数法と科学記数法（例：1.5e-8）の両方をサポートします。"
+        },
+        "step2": {
+          "title": "精度レベルを選択",
+          "description": "PM to CMとCM to PM変換のために0から6桁の小数精度を選択。私たちのピコメートル・センチメートル変換器は、研究計算にはより高い精度（4-6桁）を、一般測定にはより低い精度（0-2桁）を使用します。"
+        },
+        "step3": {
+          "title": "科学的結果を表示",
+          "description": "科学記数法、変換公式、原子スケール比較を含む即座のPM to CMとCM to PM変換結果を取得。私たちのピコメートル・センチメートルツールは測定のより良い理解を提供します。"
+        },
+        "step4": {
+          "title": "研究用にエクスポート",
+          "description": "研究論文、実験室レポート、または科学計算と文書化で使用するために、公式付きのフォーマットされた結果をクリップボードにコピー。"
+        }
+      }
+    },
+    "content_sections": {
+      "conversion_methods": {
+        "title": "PM to CM、CM to PM、ピコメートル・センチメートル変換を簡単に",
+        "pm_to_cm": {
+          "title": "PM to CM変換",
+          "description": "高度な計算機でPM to CMを瞬時に変換します。ピコメートル値を入力するだけで、正確なセンチメートル結果を取得できます。PM to CMツールは科学記数法を処理し、教育目的の公式説明を提供します。",
+          "formula": "PM ÷ 10¹⁰ = CM"
+        },
+        "cm_to_pm": {
+          "title": "CM to PM変換",
+          "description": "実験室級精度でCM to PMを変換します。CM to PM変換器はセンチメートル入力に10¹⁰を掛けて、ナノテクノロジーと原子物理学研究に不可欠な正確なピコメートル測定を提供します。",
+          "formula": "CM × 10¹⁰ = PM"
+        },
+        "picometer_to_centimeter": {
+          "title": "ピコメートル・センチメートル",
+          "description": "包括的なピコメートル・センチメートルツールは原子とマクロスケールを橋渡しします。教育的背景を持つ信頼できるピコメートル・センチメートル変換が必要な学生と研究者に最適です。",
+          "scale": "1 cm = 10,000,000,000 pm"
+        },
+        "formula_label": "公式：",
+        "scale_label": "スケール："
+      },
+      "understanding_scale": {
+        "title": "PM to CMとCM to PM変換：原子スケール測定の理解",
+        "description": "ピコメートル（pm）は1兆分の1メートル（10⁻¹²m）に等しい長度の単位です。この非常に小さな単位は、原子寸法、分子結合、量子現象の測定に不可欠です。PM to CMとCM to PM変換器は、ナノテクノロジー研究、原子物理学、材料科学応用に必要な科学的精度を提供します。",
+        "conversion_info": "PM to CM変換：1 pm = 1 × 10⁻¹⁰ cm。CM to PM変換：1 cm = 1 × 10¹⁰ pm。この双方向変換は、科学研究と工学応用でマクロスコピックと原子スケール測定を橋渡しするために重要です。",
+        "applications": {
+          "title": "ピコメートル応用",
+          "list": [
+            "原子半径測定",
+            "分子結合長計算",
+            "ナノテクノロジー精密工学",
+            "量子力学研究",
+            "結晶格子パラメータ解析",
+            "X線結晶学研究"
+          ]
+        }
+      },
+      "scientific_precision": {
+        "title": "PM to CMとCM to PM変換における科学的精度",
+        "precision_levels": {
+          "title": "精度レベル",
+          "general": "0-1桁小数：一般測定",
+          "standard": "2-3桁小数：標準研究",
+          "high": "4-6桁小数：高精度計算",
+          "note": "研究要件に基づいて精度を選択してください。"
+        },
+        "scientific_notation": {
+          "title": "科学記数法",
+          "cm_to_pm": "1 cm = 1.00 × 10¹⁰ pm",
+          "pm_to_cm": "1 pm = 1.00 × 10⁻¹⁰ cm",
+          "note": "大きな値には自動科学記数法。"
+        },
+        "accuracy_standards": {
+          "title": "精度基準",
+          "digits": "15桁の有効数字を維持",
+          "range": "最大10¹⁵ pmの値をサポート",
+          "grade": "実験室級精度",
+          "note": "専門研究応用に最適。"
+        }
+      },
+      "research_applications": {
+        "title": "PM to CMとCM to PM変換の研究応用",
+        "nanotechnology": {
+          "title": "ナノテクノロジー",
+          "description": "ナノ材料、量子ドット、分子機械の設計に不可欠。精密測定は、先進材料研究におけるナノ粒子合成と特性評価に重要です。"
+        },
+        "atomic_physics": {
+          "title": "原子物理学",
+          "description": "原子半径計算、電子軌道測定、量子力学モデリングの基礎。量子レベルでの原子構造と挙動の理解に重要です。"
+        },
+        "molecular_biology": {
+          "title": "分子生物学",
+          "description": "タンパク質構造解析、DNA測定、細胞成分研究に不可欠。生物学的分子とその相互作用の精密特性評価を可能にします。"
+        }
+      }
+    },
+    "faq": {
+      "title": "PM to CM、CM to PM、ピコメートル・センチメートル変換に関するよくある質問",
+      "questions": {
+        "how_to_convert": {
+          "question": "PM to CMとCM to PMを正確に変換するにはどうすればよいですか？",
+          "answer": "ピコメートルまたはセンチメートルの値を入力して、私たちのPM to CMとCM to PM変換器を使用してください。PM to CM変換：10¹⁰で割る（pm ÷ 10¹⁰ = cm）。CM to PM変換：10¹⁰を掛ける（cm × 10¹⁰ = pm）。特定の研究ニーズに合わせて0から6桁の小数精度を調整できます。"
+        },
+        "conversion_formulas": {
+          "question": "PM to CMとCM to PMの正確な変換公式は何ですか？",
+          "answer": "双方向変換公式は：CM to PM：1 cm = 1 × 10¹⁰ pm、PM to CM：1 pm = 1 × 10⁻¹⁰ cm。これらは1メートル = 10¹²ピコメートル、1メートル = 100センチメートルの国際標準に基づいています。私たちの変換器はPM to CMとCM to PM変換の両方を自動的に処理します。"
+        },
+        "importance": {
+          "question": "なぜPM to CMとCM to PM変換が科学研究で重要なのですか？",
+          "answer": "PM to CMとCM to PM変換は、ナノテクノロジー、原子物理学、材料科学に不可欠なマクロスケールと原子スケールを橋渡しします。PM to CMとCM to PM変換の両方により、研究者は原子寸法を扱いながら測定可能な量と関連付けることができます。"
+        },
+        "scientific_notation": {
+          "question": "この変換器で科学記数法を使用できますか？",
+          "answer": "はい、私たちの変換器は標準小数入力と科学記数法（例：1.5e-8）の両方をサポートしています。結果は両方の形式で表示でき、1×10⁶を超える非常に大きな数値には自動的に科学記数法が使用されます。"
+        },
+        "accuracy": {
+          "question": "このPM to CMとCM to PM変換器は研究目的にどの程度正確ですか？",
+          "answer": "私たちのPM to CMとCM to PM変換器は15桁の有効数字の精度を維持し、最大10¹⁵ピコメートルの値をサポートします。この精度レベルは、ナノテクノロジーと原子物理学応用を含む専門的科学研究に適しています。PM to CMとCM to PM変換は同様に正確です。"
+        },
+        "free_use": {
+          "question": "このPM to CMとCM to PM変換器は学術使用に無料ですか？",
+          "answer": "はい！私たちのPM to CMとCM to PM変換器は、研究者、学生、学術機関を含むすべてのユーザーに完全に無料です。無制限のPM to CMとCM to PM変換に登録やサブスクリプションは必要ありません。"
+        },
+        "applications": {
+          "question": "どの科学応用でPM to CMとCM to PM変換が一般的に使用されますか？",
+          "answer": "一般的な応用には、ナノテクノロジー研究、原子半径計算、分子結合長測定、X線結晶学、量子力学研究、原子スケール精度が必要な材料科学解析が含まれます。PM to CMとCM to PM変換の両方は、異なる測定スケールを橋渡しするために不可欠です。"
+        }
+      }
+    },
+    "features": {
+      "title": "プロフェッショナルPM to CM & CM to PM変換器機能",
+      "description": "正確なPM to CMおよびCM to PM科学測定変換に必要なすべて",
+      "bidirectional": {
+        "title": "双方向PM to CM & CM to PM変換",
+        "description": "高度なピコメートル・センチメートルツールでPM to CMとCM to PMを変換します。研究文書化と実験室計算のための科学的精度と自動公式表示機能を備えています。"
+      },
+      "precision": {
+        "title": "超高精度",
+        "description": "自動精度推奨機能付きで0から6桁の小数点から選択。実験室級精度が必要な研究計算に最適です。"
+      },
+      "research_grade": {
+        "title": "研究グレードツール",
+        "description": "研究者と学生のために特別に設計された科学記数法サポート、原子スケール可視化、教育コンテンツ。"
+      },
+      "pm_to_cm_precision": "科学的精度を持つPM to CM変換",
+      "cm_to_pm_precision": "科学的精度を持つCM to PM変換",
+      "bidirectional_conversion": "ピコメートル・センチメートル変換 (PM ↔ CM)",
+      "precision_control": "科学的精度制御 (0-6桁小数点)",
+      "scientific_notation": "科学記数法サポート",
+      "realtime_calculations": "リアルタイムPM to CMおよびCM to PM計算",
+      "atomic_visualization": "原子スケール可視化",
+      "educational_content": "PM to CMおよびCM to PMスケールに関する教育コンテンツ",
+      "copy_results": "クリップボードに結果をコピー",
+      "quick_reference": "PM to CMおよびCM to PM変換のクイックリファレンステーブル",
+      "mobile_friendly": "モバイルフレンドリーインターフェース",
+      "no_registration": "登録不要",
+      "batch_conversion": "バッチ変換機能",
+      "formula_display": "公式表示と計算ステップ"
+    },
+    "final_cta": {
+      "title": "PM to CM & CM to PM変換の準備はできましたか？",
+      "description": "すべての科学研究と教育ニーズに対して、私たちの専門的で正確で無料のPM to CMとCM to PM変換器の使用を開始してください。私たちのピコメートル・センチメートルツールは、科学的精度を持つ即座の双方向変換を提供します。",
+      "button_text": "PM to CM & CM to PM科学変換器を使用"
+    },
+    "screenshot_caption": "PM to CM & CM to PM変換器インターフェース、双方向科学変換を表示。私たちのピコメートル・センチメートルツールはPM to CMとCM to PM計算を処理します。",
+    "audience_types": "科学者、研究者、博士課程学生、ナノテクノロジーエンジニア、物理学生、材料科学者、化学研究者、学術専門家",
+    "usage_info": {
+      "name": "ピコメートル・センチメートル & CM to PM変換器の使用方法",
+      "description": "ピコメートルまたはセンチメートルの値を入力し、精度レベルを選択して、ピコメートル・センチメートルとCM to PM変換の公式表示付きで即座の双方向科学変換結果を取得"
+    },
+    "supply": {
+      "converter_tool": "ピコメートル・センチメートル & CM to PM変換器ツール",
+      "measurement_value": "ピコメートルまたはセンチメートルの測定値"
     }
   }
 }

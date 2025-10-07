@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useCallback, useMemo } from "react"
+import { useTranslations } from "next-intl"
 import { ArrowUpDown, Copy, Check, AlertCircle, Microscope, Calculator, Zap } from "lucide-react"
 import type { ConversionUnit, PrecisionOption, CopyStatus, DisplayFormat } from "../types"
 import {
@@ -20,6 +21,8 @@ interface ConverterCardProps {
 }
 
 export default function ConverterCard({ className = "" }: ConverterCardProps) {
+  const t = useTranslations("CmToPmConverter")
+
   // 状态管理
   const [inputValue, setInputValue] = useState<string>("1")
   const [inputUnit, setInputUnit] = useState<ConversionUnit>("cm")
@@ -81,25 +84,25 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           icon: (
             <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
           ),
-          text: "Copying...",
+          text: t("converter_card.copy_button.copying"),
           className: "bg-blue-500 hover:bg-blue-600",
         }
       case "copied":
         return {
           icon: <Check className="h-4 w-4" />,
-          text: "Copied!",
+          text: t("converter_card.copy_button.copied"),
           className: "bg-green-500 hover:bg-green-600",
         }
       case "error":
         return {
           icon: <AlertCircle className="h-4 w-4" />,
-          text: "Failed",
+          text: t("converter_card.copy_button.failed"),
           className: "bg-red-500 hover:bg-red-600",
         }
       default:
         return {
           icon: <Copy className="h-4 w-4" />,
-          text: "Copy Result",
+          text: t("converter_card.copy_button.idle"),
           className:
             "bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600",
         }
@@ -123,13 +126,10 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-3 backdrop-blur-sm">
             <Microscope className="h-5 w-5 text-blue-400" />
             <h2 className="bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-xl font-bold text-transparent">
-              PM to CM & CM to PM Scientific Converter
+              {t("converter_card.title")}
             </h2>
           </div>
-          <p className="text-slate-300">
-            Convert PM to CM and CM to PM with our picometer to centimeter tool - scientific
-            precision guaranteed
-          </p>
+          <p className="text-slate-300">{t("converter_card.description")}</p>
         </div>
 
         {/* 转换器主体 */}
@@ -137,7 +137,10 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           {/* 输入区域 */}
           <div className="space-y-4">
             <label className="block text-sm font-medium text-slate-300">
-              Enter value in {inputUnit === "cm" ? "Centimeters" : "Picometers"}
+              {t("converter_card.input_label")}{" "}
+              {inputUnit === "cm"
+                ? t("converter_card.units.centimeters")
+                : t("converter_card.units.picometers")}
             </label>
 
             <div className="relative">
@@ -145,7 +148,11 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder={inputUnit === "cm" ? "Enter centimeters..." : "Enter picometers..."}
+                placeholder={
+                  inputUnit === "cm"
+                    ? t("converter_card.placeholders.enter_cm")
+                    : t("converter_card.placeholders.enter_pm")
+                }
                 className={`w-full rounded-2xl border py-4 pl-6 pr-20 text-lg backdrop-blur-sm transition-all duration-300 focus:outline-none ${
                   !validation.isValid
                     ? "border-red-500/50 bg-red-500/10 focus:border-red-400 focus:ring-4 focus:ring-red-500/20"
@@ -199,7 +206,10 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <label className="block text-sm font-medium text-slate-300">
-                Result in {outputUnit === "cm" ? "Centimeters" : "Picometers"}
+                {t("converter_card.result_label")}{" "}
+                {outputUnit === "cm"
+                  ? t("converter_card.units.centimeters")
+                  : t("converter_card.units.picometers")}
               </label>
 
               {/* 显示格式切换 */}
@@ -212,7 +222,7 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
                       : "text-slate-400 hover:text-slate-200"
                   }`}
                 >
-                  Standard
+                  {t("converter_card.display_formats.standard")}
                 </button>
                 <button
                   onClick={() => setDisplayFormat("scientific")}
@@ -222,7 +232,7 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
                       : "text-slate-400 hover:text-slate-200"
                   }`}
                 >
-                  Scientific
+                  {t("converter_card.display_formats.scientific")}
                 </button>
               </div>
             </div>
@@ -258,7 +268,8 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
             {scaleComparison && (
               <div className="rounded-xl bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-3 backdrop-blur-sm">
                 <p className="text-sm text-cyan-300">
-                  <span className="font-medium">Scale reference:</span> {scaleComparison}
+                  <span className="font-medium">{t("converter_card.scale_reference")}</span>{" "}
+                  {scaleComparison}
                 </p>
               </div>
             )}
@@ -267,7 +278,9 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           {/* 精度控制 */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <label className="block text-sm font-medium text-slate-300">Decimal Precision</label>
+              <label className="block text-sm font-medium text-slate-300">
+                {t("converter_card.precision_label")}
+              </label>
               <button
                 type="button"
                 onClick={(e) => {
@@ -278,7 +291,7 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
                 className="relative z-10 flex items-center gap-1 rounded-lg bg-slate-700/50 px-3 py-1 text-xs text-slate-300 transition-colors hover:bg-slate-600/50"
               >
                 <Zap className="h-3 w-3" />
-                Auto
+                {t("converter_card.auto_precision")}
               </button>
             </div>
 
@@ -309,7 +322,9 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
             <div className="flex items-start gap-3">
               <Calculator className="mt-0.5 h-5 w-5 flex-shrink-0 text-slate-400" />
               <div>
-                <p className="text-sm font-medium text-slate-300">Conversion Formula:</p>
+                <p className="text-sm font-medium text-slate-300">
+                  {t("converter_card.formula_label")}
+                </p>
                 <p className="mt-1 font-mono text-sm text-slate-400">
                   {conversionResult.formula ||
                     (inputUnit === "cm" ? "1 cm = 1 × 10¹⁰ pm" : "1 pm = 1 × 10⁻¹⁰ cm")}

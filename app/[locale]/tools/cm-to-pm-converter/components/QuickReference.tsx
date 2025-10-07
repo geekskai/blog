@@ -1,59 +1,61 @@
 "use client"
 
 import React from "react"
+import { useTranslations } from "next-intl"
 import { BookOpen, TrendingUp, Zap, Calculator } from "lucide-react"
 import { getCommonConversions, formatNumber, toScientificNotation } from "../utils/converter"
 
 export default function QuickReference() {
+  const t = useTranslations("CmToPmConverter")
   const commonConversions = getCommonConversions()
 
   const scientificConstants = [
     {
-      name: "Hydrogen Atom Radius",
+      name: t("quick_reference.scientific_constants.hydrogen_atom.name"),
       cm: 5.3e-9,
       pm: 53,
-      description: "Bohr radius (a₀)",
+      description: t("quick_reference.scientific_constants.hydrogen_atom.description"),
     },
     {
-      name: "Carbon-Carbon Bond",
+      name: t("quick_reference.scientific_constants.carbon_bond.name"),
       cm: 1.54e-8,
       pm: 154,
-      description: "Single bond length",
+      description: t("quick_reference.scientific_constants.carbon_bond.description"),
     },
     {
-      name: "DNA Helix Width",
+      name: t("quick_reference.scientific_constants.dna_helix.name"),
       cm: 2e-7,
       pm: 2000,
-      description: "Double helix diameter",
+      description: t("quick_reference.scientific_constants.dna_helix.description"),
     },
     {
-      name: "X-ray Wavelength",
+      name: t("quick_reference.scientific_constants.xray_wavelength.name"),
       cm: 1e-8,
       pm: 100,
-      description: "Typical medical X-ray",
+      description: t("quick_reference.scientific_constants.xray_wavelength.description"),
     },
   ]
 
   const conversionTips = [
     {
-      title: "Scientific Notation",
-      tip: "For very large results, use scientific notation format for easier reading",
-      example: "1 cm = 1.00 × 10¹⁰ pm",
+      title: t("quick_reference.conversion_tips.scientific_notation.title"),
+      tip: t("quick_reference.conversion_tips.scientific_notation.tip"),
+      example: t("quick_reference.conversion_tips.scientific_notation.example"),
     },
     {
-      title: "Precision Selection",
-      tip: "Use higher precision (4-6 decimals) for research calculations",
-      example: "Critical for molecular modeling",
+      title: t("quick_reference.conversion_tips.precision_selection.title"),
+      tip: t("quick_reference.conversion_tips.precision_selection.tip"),
+      example: t("quick_reference.conversion_tips.precision_selection.example"),
     },
     {
-      title: "Scale Context",
-      tip: "Remember: 1 cm contains 10 billion picometers",
-      example: "That's 10,000,000,000 pm!",
+      title: t("quick_reference.conversion_tips.scale_context.title"),
+      tip: t("quick_reference.conversion_tips.scale_context.tip"),
+      example: t("quick_reference.conversion_tips.scale_context.example"),
     },
     {
-      title: "Input Formats",
-      tip: "Supports both decimal and scientific notation input",
-      example: "1.5e-8 or 0.000000015",
+      title: t("quick_reference.conversion_tips.input_formats.title"),
+      tip: t("quick_reference.conversion_tips.input_formats.tip"),
+      example: t("quick_reference.conversion_tips.input_formats.example"),
     },
   ]
 
@@ -71,28 +73,34 @@ export default function QuickReference() {
             <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 px-6 py-3 backdrop-blur-sm">
               <BookOpen className="h-5 w-5 text-emerald-400" />
               <h3 className="bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text text-xl font-bold text-transparent">
-                Quick Reference Table
+                {t("quick_reference.reference_table.title")}
               </h3>
             </div>
-            <p className="text-slate-300">
-              Common centimeter to picometer conversions for quick reference
-            </p>
+            <p className="text-slate-300">{t("quick_reference.reference_table.description")}</p>
           </div>
 
           {/* 转换表格 */}
           <div className="space-y-4">
             <div className="grid grid-cols-3 gap-4 rounded-xl bg-slate-800/30 p-4 backdrop-blur-sm">
               <div className="text-center">
-                <div className="text-sm font-medium text-emerald-400">Centimeters</div>
+                <div className="text-sm font-medium text-emerald-400">
+                  {t("quick_reference.reference_table.headers.centimeters")}
+                </div>
                 <div className="text-xs text-slate-400">cm</div>
               </div>
               <div className="text-center">
-                <div className="text-sm font-medium text-teal-400">Picometers</div>
+                <div className="text-sm font-medium text-teal-400">
+                  {t("quick_reference.reference_table.headers.picometers")}
+                </div>
                 <div className="text-xs text-slate-400">pm</div>
               </div>
               <div className="text-center">
-                <div className="text-sm font-medium text-cyan-400">Scientific</div>
-                <div className="text-xs text-slate-400">notation</div>
+                <div className="text-sm font-medium text-cyan-400">
+                  {t("quick_reference.reference_table.headers.scientific")}
+                </div>
+                <div className="text-xs text-slate-400">
+                  {t("quick_reference.reference_table.headers.notation")}
+                </div>
               </div>
             </div>
 
@@ -139,10 +147,12 @@ export default function QuickReference() {
             <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 px-6 py-3 backdrop-blur-sm">
               <Calculator className="h-5 w-5 text-blue-400" />
               <h3 className="bg-gradient-to-r from-blue-300 via-indigo-300 to-purple-300 bg-clip-text text-xl font-bold text-transparent">
-                Scientific Constants
+                {t("quick_reference.scientific_constants.title")}
               </h3>
             </div>
-            <p className="text-slate-300">Important atomic and molecular scale measurements</p>
+            <p className="text-slate-300">
+              {t("quick_reference.scientific_constants.description")}
+            </p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">
@@ -200,10 +210,10 @@ export default function QuickReference() {
             <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-purple-500/30 bg-gradient-to-r from-purple-500/10 to-pink-500/10 px-6 py-3 backdrop-blur-sm">
               <TrendingUp className="h-5 w-5 text-purple-400" />
               <h3 className="bg-gradient-to-r from-purple-300 via-pink-300 to-rose-300 bg-clip-text text-xl font-bold text-transparent">
-                Pro Tips & Best Practices
+                {t("quick_reference.conversion_tips.title")}
               </h3>
             </div>
-            <p className="text-slate-300">Expert advice for accurate scientific conversions</p>
+            <p className="text-slate-300">{t("quick_reference.conversion_tips.description")}</p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">

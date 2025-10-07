@@ -1199,67 +1199,6 @@
       "pro_tip_text": "发动机排量（CCM）只是决定马力的因素之一。实际功率输出取决于压缩比、燃油系统、调校和许多其他因素。将这些估算值作为起点使用。"
     },
 
-    "educational_content": {
-      "title": "理解CCM转HP转换",
-      "description": "了解发动机排量、马力计算和影响发动机功率输出的因素",
-
-      "engine_types_title": "发动机类型和功率特性",
-      "engine_types_description": "理解不同发动机设计如何影响功率输出",
-
-      "2_stroke_title": "2冲程发动机",
-      "2_stroke_description": "更高的功率重量比，常见于越野车、链锯和赛车应用。",
-      "2_stroke_characteristics": "每转一次功率冲程|更轻更紧凑|每cc更高的功率输出|常见于摩托车和小型发动机",
-      "2_stroke_power_factor": "1.2-1.4x系数",
-
-      "4_stroke_title": "4冲程发动机",
-      "4_stroke_description": "更省油更清洁，是大多数汽车和现代摩托车的标准。",
-      "4_stroke_characteristics": "每两转一次功率冲程|更好的燃油效率|更低排放|更耐用更可靠",
-      "4_stroke_power_factor": "0.8-1.0x系数",
-
-      "fuel_systems_title": "燃油系统对功率的影响",
-      "fuel_systems_description": "不同进气系统如何影响马力输出",
-
-      "naturally_aspirated_title": "自然吸气",
-      "naturally_aspirated_description": "空气通过正常进气过程在大气压下进入发动机。",
-      "naturally_aspirated_advantages": "更简单的设计和维护|更可预测的功率输出|更低成本|更好的可靠性",
-      "naturally_aspirated_power_range": "较低的功率密度",
-
-      "turbocharged_title": "涡轮增压",
-      "turbocharged_description": "强制进气系统，压缩空气以获得更高的功率输出。",
-      "turbocharged_advantages": "从更小排量获得更高功率|更好的功率重量比|高负荷下效率提升|每cc更多功率",
-      "turbocharged_power_range": "25-40%更多功率",
-
-      "applications_title": "实际应用",
-      "applications_description": "不同车辆类别的常见CCM转HP比率",
-
-      "motorcycles_title": "摩托车和踏板车",
-      "motorcycles_description": "从小型通勤车到高性能超级跑车。",
-      "motorcycles_examples": "125cc踏板车：~10-15 hp|600cc运动车：~100-120 hp|1000cc超级跑车：~180-200 hp",
-
-      "cars_title": "汽车和卡车",
-      "cars_description": "乘用车和商用应用。",
-      "cars_examples": "1000cc城市车：~70-80 hp|2000cc轿车：~150-180 hp|3000cc SUV：~250-300 hp",
-
-      "racing_title": "赛车和性能",
-      "racing_description": "专业调校的高性能应用。",
-      "racing_examples": "125cc卡丁车：~30-35 hp|250cc越野车：~45-50 hp|方程式赛车：变化很大",
-
-      "marine_title": "船用和舷外机",
-      "marine_description": "船用发动机和海洋应用。",
-      "marine_examples": "25hp舷外机：~500-750cc|150hp舷外机：~2500-3000cc|高性能船用发动机",
-
-      "key_characteristics": "主要特征：",
-      "advantages": "优势：",
-      "typical_examples": "典型示例：",
-      "power_factor": "功率系数：",
-      "power_output": "功率输出：",
-
-      "disclaimer_title": "重要免责声明",
-      "disclaimer_text": "此工具提供的CCM转HP转换是基于经验数据和行业平均值的估算。实际马力输出可能因以下因素而显著变化：",
-      "disclaimer_factors": "压缩比和发动机调校|燃料质量和辛烷值|进气和排气系统设计|发动机管理和点火正时|制造公差和构建质量",
-      "disclaimer_footer": "请始终参考制造商规格以获得准确的功率额定值。"
-    },
-
     "faq": {
       "title": "常见问题",
       "description": "关于CCM转HP转换和发动机功率计算您需要了解的一切",
@@ -1394,6 +1333,316 @@
       "copy_text": "🎨 我的 Chromakopia 人格 🎨\n\n名字：{name}\n颜色：{colorName}\n特征：{trait}\n描述：{description}\n超能力：{superpower}\n名言：{quote}\n\n生成于：https://geekskai.com/tools/chromakopia-name-generator",
       "copied_message": "人格已复制到剪贴板！🎨",
       "download_failed": "下载失败。请重试。"
+    }
+  },
+  "CmToPmConverter": {
+    "seo_title": "皮米厘米转换器 | 免费PM到CM和CM到PM科学计算工具",
+    "seo_description": "专业的皮米厘米转换器，为科学家和研究人员提供PM到CM和CM到PM转换服务。我们的皮米厘米工具支持高达6位小数的科学精度转换，完美适用于纳米技术、原子物理学和材料科学研究。",
+    "seo_keywords": "皮米厘米转换器, pm到cm, cm到pm, 皮米转厘米, 厘米转皮米, PM到CM计算器, CM到PM计算器, 皮米厘米计算器, 科学计算工具",
+    "breadcrumb": {
+      "label": "导航",
+      "home": "首页",
+      "tools": "工具",
+      "cm_to_pm_converter": "皮米厘米转换器"
+    },
+    "header": {
+      "badge_text": "专业皮米厘米科学转换器和计算器",
+      "main_title": "PM到CM和CM到PM",
+      "subtitle": "皮米厘米转换器",
+      "description": "专业的PM到CM和CM到PM转换器，为科学家、研究人员和学生提供服务。我们的皮米厘米工具支持高达6位小数的科学精度双向转换。完美适用于纳米技术研究、原子物理计算、材料科学和分子测量。具备双向PM到CM和CM到PM转换、科学记数法支持和原子尺度可视化功能。",
+      "feature_badges": {
+        "scientific_precision": "科学精度转换器",
+        "atomic_scale": "原子尺度测量",
+        "nanotechnology": "纳米技术研究工具",
+        "molecular_biology": "分子生物学计算器"
+      },
+      "seo_keywords": "皮米厘米转换器, pm到cm, cm到pm, 皮米转厘米, 厘米转皮米, PM到CM计算器, CM到PM计算器, 皮米厘米计算器, 科学计算工具"
+    },
+    "converter_card": {
+      "title": "PM到CM和CM到PM科学转换器",
+      "description": "使用我们的皮米厘米工具进行PM到CM和CM到PM转换 - 保证科学精度",
+      "input_label_cm": "输入厘米值",
+      "input_label_pm": "输入皮米值",
+      "input_placeholder_cm": "输入厘米...",
+      "input_placeholder_pm": "输入皮米...",
+      "output_label_cm": "厘米结果",
+      "output_label_pm": "皮米结果",
+      "precision_label": "小数精度",
+      "precision_auto": "自动",
+      "display_format": {
+        "standard": "标准",
+        "scientific": "科学记数法"
+      },
+      "formula_label": "转换公式：",
+      "formula_cm_to_pm": "1 cm = 1 × 10¹⁰ pm",
+      "formula_pm_to_cm": "1 pm = 1 × 10⁻¹⁰ cm",
+      "input_label": "输入值",
+      "result_label": "结果",
+      "units": {
+        "centimeters": "厘米",
+        "picometers": "皮米"
+      },
+      "placeholders": {
+        "enter_cm": "输入厘米...",
+        "enter_pm": "输入皮米..."
+      },
+      "display_formats": {
+        "standard": "标准",
+        "scientific": "科学记数法"
+      },
+      "auto_precision": "自动",
+      "copy_button": {
+        "idle": "复制结果",
+        "copying": "复制中...",
+        "copied": "已复制！",
+        "failed": "复制失败"
+      },
+      "scale_reference": "尺度参考：",
+      "validation_errors": {
+        "invalid_number": "输入必须是有效数字",
+        "not_finite": "输入必须是有限数字",
+        "too_small": "值必须大于或等于0",
+        "too_large": "值超过最大限制",
+        "reduced_precision_large": "非常大的值可能精度降低",
+        "reduced_precision_small": "非常小的值可能精度降低"
+      }
+    },
+
+    "quick_reference": {
+      "reference_table": {
+        "title": "快速参考表",
+        "description": "常用厘米到皮米转换的快速参考",
+        "headers": {
+          "centimeters": "厘米",
+          "picometers": "皮米",
+          "scientific": "科学",
+          "notation": "记数法"
+        }
+      },
+      "conversion_tips": {
+        "title": "专业技巧和最佳实践",
+        "description": "准确科学转换的专家建议",
+        "scientific_notation": {
+          "title": "科学记数法",
+          "tip": "对于非常大的结果，使用科学记数法格式更易读",
+          "example": "1 cm = 1.00 × 10¹⁰ pm"
+        },
+        "precision_selection": {
+          "title": "精度选择",
+          "tip": "研究计算使用更高精度（4-6位小数）",
+          "example": "对分子建模至关重要"
+        },
+        "scale_context": {
+          "title": "尺度概念",
+          "tip": "记住：1厘米包含100亿皮米",
+          "example": "那就是10,000,000,000 pm！"
+        },
+        "input_formats": {
+          "title": "输入格式",
+          "tip": "支持小数和科学记数法输入",
+          "example": "1.5e-8 或 0.000000015"
+        }
+      },
+      "scientific_constants": {
+        "title": "科学常数",
+        "description": "重要的原子和分子尺度测量",
+        "hydrogen_atom": {
+          "name": "氢原子半径",
+          "description": "玻尔半径 (a₀)"
+        },
+        "carbon_bond": {
+          "name": "碳-碳键",
+          "description": "单键长度"
+        },
+        "dna_helix": {
+          "name": "DNA螺旋宽度",
+          "description": "双螺旋直径"
+        },
+        "xray_wavelength": {
+          "name": "X射线波长",
+          "description": "典型医用X射线"
+        },
+        "labels": {
+          "centimeters": "厘米：",
+          "picometers": "皮米："
+        }
+      }
+    },
+    "usage_guide": {
+      "title": "如何使用PM到CM和CM到PM转换器 - 完整皮米厘米转换指南",
+      "description": "掌握PM到CM转换和CM到PM转换，用于科学研究、纳米技术应用和原子物理计算。我们的专业皮米厘米转换器为您的所有PM到CM和CM到PM测量需求提供实验室级精度。",
+      "steps": {
+        "step1": {
+          "title": "输入科学数值",
+          "description": "输入您的皮米或厘米测量值进行PM到CM和CM到PM转换。我们的皮米厘米工具支持小数记数法和科学记数法（如1.5e-8）进行精确科学计算。"
+        },
+        "step2": {
+          "title": "选择精度级别",
+          "description": "为PM到CM和CM到PM转换选择0到6位小数精度。我们的皮米厘米转换器对研究计算使用更高精度（4-6位），对一般测量使用较低精度（0-2位）。"
+        },
+        "step3": {
+          "title": "查看科学结果",
+          "description": "获得即时PM到CM和CM到PM转换结果，包含科学记数法、转换公式和原子尺度比较。我们的皮米厘米工具提供更好的测量理解。"
+        },
+        "step4": {
+          "title": "导出用于研究",
+          "description": "将带有公式的格式化结果复制到剪贴板，用于研究论文、实验室报告或科学计算和文档。"
+        }
+      }
+    },
+    "content_sections": {
+      "conversion_methods": {
+        "title": "PM到CM、CM到PM和皮米厘米转换变得简单",
+        "pm_to_cm": {
+          "title": "PM到CM转换",
+          "description": "使用我们的高级计算器即时将PM转换为CM。只需输入您的皮米值即可获得精确的厘米结果。我们的PM到CM工具处理科学记数法并提供教育用途的公式解释。",
+          "formula": "PM ÷ 10¹⁰ = CM"
+        },
+        "cm_to_pm": {
+          "title": "CM到PM转换",
+          "description": "以实验室级精度将CM转换为PM。我们的CM到PM转换器将您的厘米输入乘以10¹⁰，提供纳米技术和原子物理研究必需的精确皮米测量。",
+          "formula": "CM × 10¹⁰ = PM"
+        },
+        "picometer_to_centimeter": {
+          "title": "皮米到厘米",
+          "description": "我们的综合皮米厘米工具连接原子和宏观尺度。完美适用于需要可靠皮米厘米转换和教育背景的学生和研究人员。",
+          "scale": "1 cm = 10,000,000,000 pm"
+        },
+        "formula_label": "公式：",
+        "scale_label": "比例："
+      },
+      "understanding_scale": {
+        "title": "PM到CM和CM到PM转换：理解原子尺度测量",
+        "description": "皮米（pm）是长度单位，等于一万亿分之一米（10⁻¹²米）。这个极小的单位对于测量原子尺寸、分子键和量子现象至关重要。我们的PM到CM和CM到PM转换器为纳米技术研究、原子物理学和材料科学应用提供所需的科学精度。",
+        "conversion_info": "PM到CM转换：1 pm = 1 × 10⁻¹⁰ cm。CM到PM转换：1 cm = 1 × 10¹⁰ pm。这种双向转换对于在科学研究和工程应用中连接宏观和原子尺度测量至关重要。",
+        "applications": {
+          "title": "皮米应用",
+          "list": [
+            "原子半径测量",
+            "分子键长计算",
+            "纳米技术精密工程",
+            "量子力学研究",
+            "晶格参数分析",
+            "X射线晶体学研究"
+          ]
+        }
+      },
+      "scientific_precision": {
+        "title": "PM到CM和CM到PM转换中的科学精度",
+        "precision_levels": {
+          "title": "精度级别",
+          "general": "0-1位小数：一般测量",
+          "standard": "2-3位小数：标准研究",
+          "high": "4-6位小数：高精度计算",
+          "note": "根据您的研究要求选择精度。"
+        },
+        "scientific_notation": {
+          "title": "科学记数法",
+          "cm_to_pm": "1 cm = 1.00 × 10¹⁰ pm",
+          "pm_to_cm": "1 pm = 1.00 × 10⁻¹⁰ cm",
+          "note": "大数值自动使用科学记数法。"
+        },
+        "accuracy_standards": {
+          "title": "精度标准",
+          "digits": "保持15位有效数字",
+          "range": "支持高达10¹⁵ pm的值",
+          "grade": "实验室级精度",
+          "note": "完美适用于专业研究应用。"
+        }
+      },
+      "research_applications": {
+        "title": "PM到CM和CM到PM转换的研究应用",
+        "nanotechnology": {
+          "title": "纳米技术",
+          "description": "设计纳米材料、量子点和分子机器的必备工具。精确测量对于先进材料研究中的纳米粒子合成和表征至关重要。"
+        },
+        "atomic_physics": {
+          "title": "原子物理学",
+          "description": "原子半径计算、电子轨道测量和量子力学建模的基础。对于理解量子级别的原子结构和行为至关重要。"
+        },
+        "molecular_biology": {
+          "title": "分子生物学",
+          "description": "蛋白质结构分析、DNA测量和细胞组分研究的重要工具。能够精确表征生物分子及其相互作用。"
+        }
+      }
+    },
+    "features": {
+      "title": "专业PM到CM和CM到PM转换器功能",
+      "description": "准确PM到CM和CM到PM科学测量转换所需的一切",
+      "bidirectional": {
+        "title": "双向PM到CM和CM到PM转换",
+        "description": "使用我们的高级皮米厘米工具进行PM到CM和CM到PM转换。具备科学精度和自动公式显示功能，用于研究文档和实验室计算。"
+      },
+      "precision": {
+        "title": "超高精度",
+        "description": "从0到6位小数中选择，带有自动精度推荐。完美适用于需要实验室级精度的研究计算。"
+      },
+      "research_grade": {
+        "title": "研究级工具",
+        "description": "科学记数法支持、原子尺度可视化和专为研究人员和学生设计的教育内容。"
+      },
+      "pm_to_cm_precision": "具有科学精度的PM到CM转换",
+      "cm_to_pm_precision": "具有科学精度的CM到PM转换",
+      "bidirectional_conversion": "皮米厘米转换 (PM ↔ CM)",
+      "precision_control": "科学精度控制 (0-6位小数)",
+      "scientific_notation": "科学记数法支持",
+      "realtime_calculations": "实时PM到CM和CM到PM计算",
+      "atomic_visualization": "原子尺度可视化",
+      "educational_content": "关于PM到CM和CM到PM尺度的教育内容",
+      "copy_results": "将结果复制到剪贴板",
+      "quick_reference": "PM到CM和CM到PM转换快速参考表",
+      "mobile_friendly": "移动友好界面",
+      "no_registration": "无需注册",
+      "batch_conversion": "批量转换功能",
+      "formula_display": "公式显示和计算步骤"
+    },
+    "faq": {
+      "title": "关于PM到CM、CM到PM和皮米厘米转换的常见问题",
+      "questions": {
+        "how_to_convert": {
+          "question": "如何准确进行PM到CM和CM到PM转换？",
+          "answer": "使用我们的PM到CM和CM到PM转换器，输入皮米或厘米值。PM到CM转换：除以10¹⁰（pm ÷ 10¹⁰ = cm）。CM到PM转换：乘以10¹⁰（cm × 10¹⁰ = pm）。您可以根据具体研究需求调整0到6位小数的精度。"
+        },
+        "conversion_formulas": {
+          "question": "PM到CM和CM到PM的确切转换公式是什么？",
+          "answer": "双向转换公式为：CM到PM：1 cm = 1 × 10¹⁰ pm，PM到CM：1 pm = 1 × 10⁻¹⁰ cm。这些基于国际标准，其中1米 = 10¹²皮米，1米 = 100厘米。我们的转换器自动处理PM到CM和CM到PM转换。"
+        },
+        "importance": {
+          "question": "为什么PM到CM和CM到PM转换在科学研究中很重要？",
+          "answer": "PM到CM和CM到PM转换连接宏观和原子尺度，对纳米技术、原子物理学和材料科学至关重要。PM到CM和CM到PM转换使研究人员能够处理原子尺寸，同时将其与可测量的量联系起来。"
+        },
+        "scientific_notation": {
+          "question": "我可以在这个转换器中使用科学记数法吗？",
+          "answer": "是的，我们的转换器支持标准小数输入和科学记数法（如1.5e-8）。结果可以两种格式显示，超过1×10⁶的非常大数字自动使用科学记数法。"
+        },
+        "accuracy": {
+          "question": "这个PM到CM和CM到PM转换器对研究目的有多准确？",
+          "answer": "我们的PM到CM和CM到PM转换器保持15位有效数字的精度，支持高达10¹⁵皮米的值。这个精度级别适用于专业科学研究，包括纳米技术和原子物理应用。PM到CM和CM到PM转换同样准确。"
+        },
+        "free_use": {
+          "question": "这个PM到CM和CM到PM转换器对学术使用免费吗？",
+          "answer": "是的！我们的PM到CM和CM到PM转换器对所有用户完全免费，包括研究人员、学生和学术机构。无需注册或订阅即可进行无限次PM到CM和CM到PM转换。"
+        },
+        "applications": {
+          "question": "哪些科学应用常用PM到CM和CM到PM转换？",
+          "answer": "常见应用包括纳米技术研究、原子半径计算、分子键长测量、X射线晶体学、量子力学研究和需要原子尺度精度的材料科学分析。PM到CM和CM到PM转换对于连接不同测量尺度至关重要。"
+        }
+      }
+    },
+    "final_cta": {
+      "title": "准备好进行PM到CM和CM到PM转换了吗？",
+      "description": "开始使用我们专业、准确且免费的PM到CM和CM到PM转换器，满足您所有的科学研究和教育需求。我们的皮米厘米工具提供具有科学精度的即时双向转换。",
+      "button_text": "使用PM到CM和CM到PM科学转换器"
+    },
+    "screenshot_caption": "PM到CM和CM到PM转换器界面，显示双向科学转换。我们的皮米厘米工具处理PM到CM和CM到PM计算。",
+    "audience_types": "科学家, 研究人员, 博士生, 纳米技术工程师, 物理学生, 材料科学家, 化学研究员, 学术专业人士",
+    "usage_info": {
+      "name": "如何使用皮米厘米和CM到PM转换器",
+      "description": "输入皮米或厘米值，选择精度级别，获得即时双向科学转换结果，包含皮米厘米和CM到PM转换的公式显示"
+    },
+    "supply": {
+      "converter_tool": "皮米厘米和CM到PM转换器工具",
+      "measurement_value": "皮米或厘米测量值"
     }
   }
 }
