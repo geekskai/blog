@@ -563,9 +563,6 @@
       "copied": "Kopiert!",
       "failed": "Feil",
       "conversion_formula": "Konverteringsformel:",
-      "title": "CM til Tommer Konverter",
-      "description": "Konverter mellom centimeter og tommer (danske/norske tommer) øyeblikkelig",
-      "quick_values": "Hurtige Verdier",
       "presets": {
         "1_cm": "1 cm",
         "1_inch": "1 tomme",
@@ -576,7 +573,6 @@
       },
       "from": "Fra",
       "to": "Til",
-      "enter_value": "Skriv inn verdi",
       "result": "Resultat",
       "units": {
         "cm": "cm",
@@ -584,9 +580,7 @@
         "centimeters": "Centimeter",
         "inches_full": "Tommer"
       },
-      "enter_value_in": "Skriv inn verdi i",
       "enter_value_placeholder": "Skriv inn verdi...",
-      "result_in": "Resultat i",
       "nordic_sizes": {
         "1_inch_standard": "1 tomme standard",
         "1_foot": "1 fot (12 tommer)",
@@ -1391,6 +1385,113 @@
       "title": "Klar til å Beregne Motor Effekt?",
       "description": "Bruk vår gratis CCM til HP konverter for å estimere motorens hestekraft øyeblikkelig",
       "button_text": "Start Konvertering Nå"
+    }
+  },
+  "ChromakopiaNamGenerator": {
+    "seo_title": "Chromakopia Navngenerator - Lag Din St. Chroma Persona | Gratis Verktøy",
+    "seo_description": "Generer unike Chromakopia-inspirerte navn og personaer med vårt gratis online verktøy. Lag fargerike alter egoer inspirert av Tyler, the Creator's Chromakopia album. Perfekt for kreative prosjekter og selvuttrykk.",
+    "seo_keywords": "chromakopia, navngenerator, tyler the creator, st chroma, persona generator, chromakopia navn",
+    "page_title": "Chromakopia Navngenerator",
+    "page_subtitle": "Lag Din Fargerike Persona",
+    "page_description": "Slipp kreativiteten løs med vår Chromakopia navngenerator. Lag unike personaer inspirert av Tyler, the Creator's kunstneriske visjon om å bringe farge tilbake til livet.",
+    "free_tool_badge": "Gratis Chromakopia Verktøy",
+
+    "breadcrumb": {
+      "home": "Hjem",
+      "tools": "Verktøy",
+      "chromakopia_name_generator": "Chromakopia Navngenerator"
+    },
+
+    "header": {
+      "main_title": "Chromakopia Navngenerator",
+      "description": "Lag ditt fargerike alter ego inspirert av Tyler, the Creator's Chromakopia. Generer unike personaer som legemliggjør ånden i å bringe farge tilbake til livet og bryte fri fra svart-hvitt tenkning."
+    },
+
+    "persona_display": {
+      "title": "Din Chromakopia Persona",
+      "st_chroma_style": "St. Chroma Stil",
+      "ready_title": "Klar til å oppdage din Chromakopia persona?",
+      "ready_description": "Klikk \"Generer Persona\" for å avsløre ditt fargerike alter ego inspirert av Tyler, the Creator's kunstneriske visjon.",
+      "generate_button": "Generer Din Persona",
+      "radiating_in": "Utstråler i",
+      "chromatic_superpower": "Kromatisk Superkraft"
+    },
+
+    "favorites": {
+      "title": "Favoritt Personaer",
+      "no_personas": "Ingen personaer ennå",
+      "add_first": "Generer din første persona for å starte samlingen din"
+    },
+
+    "settings": {
+      "title": "Generator Innstillinger",
+      "generation_style": "Genereringsstil",
+      "random_persona": "Tilfeldig Persona",
+      "random_description": "Helt tilfeldig kromatisk persona",
+      "name_inspired": "Navn-Inspirert",
+      "name_inspired_description": "Basert på ditt inntastede navn",
+      "custom_mix": "Tilpasset Miks",
+      "custom_mix_description": "Ditt navn med tilfeldige trekk",
+      "input_name_label": "Ditt Navn eller Inspirasjon",
+      "input_name_placeholder": "Skriv inn navnet ditt...",
+      "generate_persona": "Generer Persona",
+      "generating": "Genererer...",
+      "copy_persona": "Kopier Persona",
+      "download_image": "Last ned Bilde",
+      "add_to_favorites": "Legg til Favoritter",
+      "reset_all": "Tilbakestill Alt"
+    },
+
+    "features": {
+      "music_inspired": "Musikk-Inspirert",
+      "music_description": "Generer personaer inspirert av Tyler, the Creator's Chromakopia album og dets temaer om autentisitet og fargerik uttrykk.",
+      "creative_expression": "Kreativt Uttrykk",
+      "creative_description": "Bryt fri fra svart-hvitt tenkning. Lag fargerike alter egoer som representerer ditt sanne selv og kunstneriske visjon.",
+      "share_connect": "Del & Koble",
+      "share_description": "Del dine genererte personaer med venner og oppdag hvordan forskjellige mennesker uttrykker sine fargerike identiteter."
+    },
+
+    "about_chromakopia": {
+      "title": "Hva er Chromakopia? Forstå Tyler, the Creator's Visjon",
+      "description_1": "Chromakopia er Tyler, the Creator's åttende studioalbum som utforsker temaer om å bringe farge tilbake til livet og bryte fri fra samfunnets svart-hvite forventninger. Albumet sentrerer seg rundt hans alter ego St. Chroma, som representerer autentisk selvuttrykk og motet til å leve fargerikt.",
+      "description_2": "Vår navngenerator fanger denne ånden ved å skape unike personaer som legemliggjør albummets temaer om autentisitet, kreativt uttrykk og avvisning av konformitet. Hver genererte karakter representerer et annet aspekt av kromatisk liv.",
+      "core_themes": "Kjernetemaer i Genererte Navn",
+      "theme_1": "Fargesymbolikk og vitalitet",
+      "theme_2": "Autentisk selvuttrykk",
+      "theme_3": "Bryte samfunnsmessige forventninger",
+      "theme_4": "Kreativ fryktløshet",
+      "theme_5": "Emosjonell åpenhet",
+      "theme_6": "Kunstnerisk opprør"
+    },
+
+    "how_to_use": {
+      "title": "Hvordan Lage Din Chromakopia Persona",
+      "step_1_title": "Velg Din Stil",
+      "step_1_description": "Velg mellom tilfeldig generering, navn-inspirerte personaer eller tilpasset miks for å matche dine kreative preferanser.",
+      "step_2_title": "Generer Din Persona",
+      "step_2_description": "Klikk generer for å lage en unik kromatisk karakter med personlighetstrekk, farger og superkrefter.",
+      "step_3_title": "Tilpass & Lagre",
+      "step_3_description": "Legg favorittene dine til samlingen din og regenerer til du finner det perfekte fargerike alter egoet.",
+      "step_4_title": "Del & Uttrykk",
+      "step_4_description": "Last ned bilder eller kopier tekst for å dele din kromatiske persona på sosiale medier og inspirere andre."
+    },
+
+    "faq": {
+      "title": "Ofte Stilte Spørsmål",
+      "q1": "Hva inspirerte Chromakopia navngeneratoren?",
+      "a1": "Dette verktøyet er inspirert av Tyler, the Creator's album \"Chromakopia\" og dets temaer om å bringe farge tilbake til livet, autentisk selvuttrykk og å bryte fri fra svart-hvitt tenkning. Hver genererte persona legemliggjør disse kunstneriske og filosofiske konseptene.",
+      "q2": "Hvordan fungerer navngenerering?",
+      "a2": "Vår algoritme kombinerer kromatiske prefikser, meningsfulle suffikser og personlighetstrekk inspirert av albummets temaer. Du kan velge tilfeldig generering, skrive inn navnet ditt for personaliserte resultater eller lage en tilpasset miks av navnet ditt med tilfeldige kromatiske elementer.",
+      "q3": "Kan jeg bruke genererte personaer til kreative prosjekter?",
+      "a3": "Absolutt! Disse personaene er perfekte for kreativ skriving, karakterutvikling, kunstneriske prosjekter, sosiale medier innhold eller enhver form for kreativt uttrykk. De er designet for å inspirere autentisk selvuttrykk og fargerik tenkning.",
+      "q4": "Er Chromakopia navngeneratoren gratis?",
+      "a4": "Ja! Dette verktøyet er helt gratis uten registrering påkrevd. Generer ubegrensede personaer, lagre favorittene dine og del skapelsene dine uten begrensninger. Det fungerer på alle enheter inkludert mobiltelefoner og nettbrett."
+    },
+
+    "persona_card": {
+      "copy_text": "🎨 Min Chromakopia Persona 🎨\n\nNavn: {name}\nFarge: {colorName}\nTrekk: {trait}\nBeskrivelse: {description}\nSuperkraft: {superpower}\nSitat: {quote}\n\nGenerert på: https://geekskai.com/tools/chromakopia-name-generator",
+      "copied_message": "Persona kopiert til utklippstavle! 🎨",
+      "download_failed": "Nedlasting mislyktes. Prøv igjen."
     }
   }
 }

@@ -1290,5 +1290,112 @@
       "description": "無料CCMからHP変換器を使用してエンジンの馬力を瞬時に推定",
       "button_text": "今すぐ変換開始"
     }
+  },
+  "ChromakopiaNamGenerator": {
+    "seo_title": "Chromakopia ネームジェネレーター - St. Chroma ペルソナを作成 | 無料ツール",
+    "seo_description": "無料のオンラインツールでユニークなChromakopia風の名前とペルソナを生成。Tyler, the CreatorのChromakopiアルバムにインスパイアされたカラフルなアルターエゴを作成。創造的なプロジェクトと自己表現に最適。",
+    "seo_keywords": "chromakopia, ネームジェネレーター, tyler the creator, st chroma, ペルソナジェネレーター, chromakopia 名前",
+    "page_title": "Chromakopia ネームジェネレーター",
+    "page_subtitle": "カラフルなペルソナを作成",
+    "page_description": "Chromakopiネームジェネレーターで創造性を解き放ちましょう。Tyler, the Creatorの芸術的ビジョンにインスパイアされたユニークなペルソナを作成し、人生に色を取り戻します。",
+    "free_tool_badge": "無料 Chromakopia ツール",
+
+    "breadcrumb": {
+      "home": "ホーム",
+      "tools": "ツール",
+      "chromakopia_name_generator": "Chromakopia ネームジェネレーター"
+    },
+
+    "header": {
+      "main_title": "Chromakopia ネームジェネレーター",
+      "description": "Tyler, the CreatorのChromakopiにインスパイアされたカラフルなアルターエゴを作成。人生に色を取り戻し、白黒思考から解放される精神を体現するユニークなペルソナを生成します。"
+    },
+
+    "persona_display": {
+      "title": "あなたの Chromakopia ペルソナ",
+      "st_chroma_style": "St. Chroma スタイル",
+      "ready_title": "Chromakopia ペルソナを発見する準備はできましたか？",
+      "ready_description": "「ペルソナを生成」をクリックして、Tyler, the Creatorの芸術的ビジョンにインスパイアされたカラフルなアルターエゴを明らかにしましょう。",
+      "generate_button": "ペルソナを生成",
+      "radiating_in": "放射する",
+      "chromatic_superpower": "クロマティック超能力"
+    },
+
+    "favorites": {
+      "title": "お気に入りのペルソナ",
+      "no_personas": "まだペルソナがありません",
+      "add_first": "最初のペルソナを生成してコレクションを始めましょう"
+    },
+
+    "settings": {
+      "title": "ジェネレーター設定",
+      "generation_style": "生成スタイル",
+      "random_persona": "ランダムペルソナ",
+      "random_description": "完全にランダムなクロマティックペルソナ",
+      "name_inspired": "名前インスパイア",
+      "name_inspired_description": "入力した名前に基づく",
+      "custom_mix": "カスタムミックス",
+      "custom_mix_description": "あなたの名前とランダムな特徴",
+      "input_name_label": "あなたの名前またはインスピレーション",
+      "input_name_placeholder": "名前を入力...",
+      "generate_persona": "ペルソナを生成",
+      "generating": "生成中...",
+      "copy_persona": "ペルソナをコピー",
+      "download_image": "画像をダウンロード",
+      "add_to_favorites": "お気に入りに追加",
+      "reset_all": "すべてリセット"
+    },
+
+    "features": {
+      "music_inspired": "音楽インスパイア",
+      "music_description": "Tyler, the CreatorのChromakopiアルバムとその真正性とカラフルな表現のテーマにインスパイアされたペルソナを生成。",
+      "creative_expression": "創造的表現",
+      "creative_description": "白黒思考から解放されましょう。あなたの真の自己と芸術的ビジョンを表すカラフルなアルターエゴを作成。",
+      "share_connect": "共有と接続",
+      "share_description": "生成したペルソナを友達と共有し、異なる人々がどのようにカラフルなアイデンティティを表現するかを発見しましょう。"
+    },
+
+    "about_chromakopia": {
+      "title": "Chromakopiaとは？Tyler, the Creatorのビジョンを理解する",
+      "description_1": "Chromakopiaは、Tyler, the Creatorの8枚目のスタジオアルバムで、人生に色を取り戻し、社会の白黒の期待から解放されるテーマを探求しています。アルバムは彼のアルターエゴSt. Chromaを中心に展開し、真正な自己表現とカラフルに生きる勇気を表しています。",
+      "description_2": "私たちのネームジェネレーターは、アルバムの真正性、創造的表現、そして順応の拒否というテーマを体現するユニークなペルソナを作成することで、この精神を捉えています。生成される各キャラクターは、クロマティックな生活の異なる側面を表しています。",
+      "core_themes": "生成される名前の核心テーマ",
+      "theme_1": "色彩の象徴と活力",
+      "theme_2": "真正な自己表現",
+      "theme_3": "社会的期待の打破",
+      "theme_4": "創造的な恐れ知らず",
+      "theme_5": "感情的透明性",
+      "theme_6": "芸術的反逆"
+    },
+
+    "how_to_use": {
+      "title": "Chromakopia ペルソナの作成方法",
+      "step_1_title": "スタイルを選択",
+      "step_1_description": "ランダム生成、名前インスパイアペルソナ、またはカスタムミックスから選択して、創造的な好みに合わせます。",
+      "step_2_title": "ペルソナを生成",
+      "step_2_description": "生成をクリックして、個性特徴、色、超能力を持つユニークなクロマティックキャラクターを作成します。",
+      "step_3_title": "カスタマイズと保存",
+      "step_3_description": "お気に入りをコレクションに追加し、完璧なカラフルなアルターエゴを見つけるまで再生成します。",
+      "step_4_title": "共有と表現",
+      "step_4_description": "画像をダウンロードしたりテキストをコピーして、ソーシャルメディアでクロマティックペルソナを共有し、他の人にインスピレーションを与えます。"
+    },
+
+    "faq": {
+      "title": "よくある質問",
+      "q1": "Chromakopia ネームジェネレーターのインスピレーションは何ですか？",
+      "a1": "このツールは、Tyler, the Creatorのアルバム「Chromakopia」と、人生に色を取り戻し、真正な自己表現、白黒思考からの解放というテーマにインスパイアされています。生成される各ペルソナは、これらの芸術的・哲学的概念を体現しています。",
+      "q2": "名前生成はどのように機能しますか？",
+      "a2": "私たちのアルゴリズムは、アルバムのテーマにインスパイアされたクロマティックな接頭辞、意味のある接尾辞、個性特徴を組み合わせます。ランダム生成を選択したり、パーソナライズされた結果のために名前を入力したり、名前とランダムなクロマティック要素のカスタムミックスを作成できます。",
+      "q3": "生成されたペルソナを創造的なプロジェクトに使用できますか？",
+      "a3": "もちろんです！これらのペルソナは、創造的な執筆、キャラクター開発、芸術プロジェクト、ソーシャルメディアコンテンツ、またはあらゆる形の創造的表現に最適です。真正な自己表現とカラフルな思考を刺激するように設計されています。",
+      "q4": "Chromakopia ネームジェネレーターは無料ですか？",
+      "a4": "はい！このツールは完全に無料で、登録は不要です。無制限にペルソナを生成し、お気に入りを保存し、制限なしで作品を共有できます。携帯電話やタブレットを含むすべてのデバイスで動作します。"
+    },
+
+    "persona_card": {
+      "copy_text": "🎨 私の Chromakopia ペルソナ 🎨\n\n名前：{name}\n色：{colorName}\n特徴：{trait}\n説明：{description}\n超能力：{superpower}\n名言：{quote}\n\n生成場所：https://geekskai.com/tools/chromakopia-name-generator",
+      "copied_message": "ペルソナがクリップボードにコピーされました！🎨",
+      "download_failed": "ダウンロードに失敗しました。もう一度お試しください。"
+    }
   }
 }

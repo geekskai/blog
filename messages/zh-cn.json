@@ -1288,5 +1288,112 @@
       "description": "使用我们的免费CCM转HP转换器即时估算您的发动机马力",
       "button_text": "立即开始转换"
     }
+  },
+  "ChromakopiaNamGenerator": {
+    "seo_title": "Chromakopia 名字生成器 - 创建你的 St. Chroma 人格 | 免费工具",
+    "seo_description": "使用我们的免费在线工具生成独特的 Chromakopia 风格名字和人格。创建受 Tyler, the Creator 的 Chromakopia 专辑启发的彩色化身。完美适用于创意项目和自我表达。",
+    "seo_keywords": "chromakopia, 名字生成器, tyler the creator, st chroma, 人格生成器, chromakopia 名字",
+    "page_title": "Chromakopia 名字生成器",
+    "page_subtitle": "创建你的彩色人格",
+    "page_description": "释放你的创造力，使用我们的 Chromakopia 名字生成器。创建受 Tyler, the Creator 艺术愿景启发的独特人格，将色彩带回生活。",
+    "free_tool_badge": "免费 Chromakopia 工具",
+
+    "breadcrumb": {
+      "home": "首页",
+      "tools": "工具",
+      "chromakopia_name_generator": "Chromakopia 名字生成器"
+    },
+
+    "header": {
+      "main_title": "Chromakopia 名字生成器",
+      "description": "创建受 Tyler, the Creator 的 Chromakopia 启发的彩色化身。生成体现将色彩带回生活精神的独特人格，摆脱黑白思维。"
+    },
+
+    "persona_display": {
+      "title": "你的 Chromakopia 人格",
+      "st_chroma_style": "St. Chroma 风格",
+      "ready_title": "准备好发现你的 Chromakopia 人格了吗？",
+      "ready_description": "点击'生成人格'来揭示受 Tyler, the Creator 艺术愿景启发的彩色化身。",
+      "generate_button": "生成你的人格",
+      "radiating_in": "散发着",
+      "chromatic_superpower": "色彩超能力"
+    },
+
+    "favorites": {
+      "title": "收藏的人格",
+      "no_personas": "还没有人格",
+      "add_first": "生成你的第一个人格来开始收藏"
+    },
+
+    "settings": {
+      "title": "生成器设置",
+      "generation_style": "生成风格",
+      "random_persona": "随机人格",
+      "random_description": "完全随机的色彩人格",
+      "name_inspired": "名字启发",
+      "name_inspired_description": "基于你输入的名字",
+      "custom_mix": "自定义混合",
+      "custom_mix_description": "你的名字配随机特征",
+      "input_name_label": "你的名字或灵感",
+      "input_name_placeholder": "输入你的名字...",
+      "generate_persona": "生成人格",
+      "generating": "生成中...",
+      "copy_persona": "复制人格",
+      "download_image": "下载图片",
+      "add_to_favorites": "添加到收藏",
+      "reset_all": "重置全部"
+    },
+
+    "features": {
+      "music_inspired": "音乐启发",
+      "music_description": "生成受 Tyler, the Creator 的 Chromakopia 专辑及其真实性和彩色表达主题启发的人格。",
+      "creative_expression": "创意表达",
+      "creative_description": "摆脱黑白思维。创建代表你真实自我和艺术愿景的彩色化身。",
+      "share_connect": "分享与连接",
+      "share_description": "与朋友分享你生成的人格，发现不同的人如何表达他们的彩色身份。"
+    },
+
+    "about_chromakopia": {
+      "title": "什么是 Chromakopia？理解 Tyler, the Creator 的愿景",
+      "description_1": "Chromakopia 是 Tyler, the Creator 的第八张录音室专辑，探索将色彩带回生活和摆脱社会黑白期望的主题。专辑围绕他的化身 St. Chroma 展开，代表真实的自我表达和彩色生活的勇气。",
+      "description_2": "我们的名字生成器捕捉了这种精神，创建体现专辑真实性、创意表达和拒绝从众主题的独特人格。每个生成的角色代表色彩生活的不同方面。",
+      "core_themes": "生成名字的核心主题",
+      "theme_1": "色彩象征和活力",
+      "theme_2": "真实的自我表达",
+      "theme_3": "打破社会期望",
+      "theme_4": "创意无畏",
+      "theme_5": "情感透明",
+      "theme_6": "艺术叛逆"
+    },
+
+    "how_to_use": {
+      "title": "如何创建你的 Chromakopia 人格",
+      "step_1_title": "选择你的风格",
+      "step_1_description": "从随机生成、名字启发的人格或自定义混合中选择，以匹配你的创意偏好。",
+      "step_2_title": "生成你的人格",
+      "step_2_description": "点击生成来创建具有个性特征、颜色和超能力的独特色彩角色。",
+      "step_3_title": "自定义和保存",
+      "step_3_description": "将你的收藏添加到收藏夹，重新生成直到找到完美的彩色化身。",
+      "step_4_title": "分享和表达",
+      "step_4_description": "下载图片或复制文本，在社交媒体上分享你的色彩人格并启发他人。"
+    },
+
+    "faq": {
+      "title": "常见问题",
+      "q1": "Chromakopia 名字生成器的灵感来源是什么？",
+      "a1": "这个工具受到 Tyler, the Creator 的专辑《Chromakopia》及其将色彩带回生活、真实自我表达和摆脱黑白思维主题的启发。每个生成的人格都体现了这些艺术和哲学概念。",
+      "q2": "名字生成是如何工作的？",
+      "a2": "我们的算法结合了受专辑主题启发的色彩前缀、有意义的后缀和个性特征。你可以选择随机生成、输入你的名字获得个性化结果，或创建你的名字与随机色彩元素的自定义混合。",
+      "q3": "我可以将生成的人格用于创意项目吗？",
+      "a3": "当然可以！这些人格非常适合创意写作、角色开发、艺术项目、社交媒体内容或任何形式的创意表达。它们旨在激发真实的自我表达和彩色思维。",
+      "q4": "Chromakopia 名字生成器是免费的吗？",
+      "a4": "是的！这个工具完全免费，无需注册。生成无限人格，保存你的收藏，分享你的创作，没有任何限制。它适用于包括手机和平板电脑在内的所有设备。"
+    },
+
+    "persona_card": {
+      "copy_text": "🎨 我的 Chromakopia 人格 🎨\n\n名字：{name}\n颜色：{colorName}\n特征：{trait}\n描述：{description}\n超能力：{superpower}\n名言：{quote}\n\n生成于：https://geekskai.com/tools/chromakopia-name-generator",
+      "copied_message": "人格已复制到剪贴板！🎨",
+      "download_failed": "下载失败。请重试。"
+    }
   }
 }

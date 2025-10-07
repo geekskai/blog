@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useRef, useCallback, useEffect } from "react"
+import { useTranslations } from "next-intl"
 import {
   Palette,
   Settings,
@@ -150,6 +151,9 @@ interface GeneratedPersona {
 }
 
 const ChromakopiaNameGenerator = () => {
+  const t = useTranslations("ChromakopiaNamGenerator")
+  const tCommon = useTranslations("HomePage")
+
   const [generatedPersona, setGeneratedPersona] = useState<GeneratedPersona | null>(null)
   const [inputName, setInputName] = useState("")
   const [generationStyle, setGenerationStyle] = useState<"random" | "inspired" | "custom">("random")
@@ -264,19 +268,18 @@ const ChromakopiaNameGenerator = () => {
   const copyPersona = async () => {
     if (!generatedPersona) return
 
-    const text =
-      `🎨 My Chromakopia Persona 🎨\n\n` +
-      `Name: ${generatedPersona.name}\n` +
-      `Color: ${generatedPersona.colorName}\n` +
-      `Trait: ${generatedPersona.trait}\n` +
-      `Description: ${generatedPersona.description}\n` +
-      `Superpower: ${generatedPersona.superpower}\n` +
-      `Quote: ${generatedPersona.quote}\n\n` +
-      `Generated at: https://geekskai.com/tools/chromakopia-name-generator`
+    const text = t("persona_card.copy_text", {
+      name: generatedPersona.name,
+      colorName: generatedPersona.colorName,
+      trait: generatedPersona.trait,
+      description: generatedPersona.description,
+      superpower: generatedPersona.superpower,
+      quote: generatedPersona.quote,
+    })
 
     try {
       await navigator.clipboard.writeText(text)
-      alert("Persona copied to clipboard! 🎨")
+      alert(t("persona_card.copied_message"))
     } catch (err) {
       console.error("Copy failed:", err)
     }
@@ -300,7 +303,7 @@ const ChromakopiaNameGenerator = () => {
       link.click()
     } catch (error) {
       console.error("Download failed:", error)
-      alert("Download failed. Please try again.")
+      alert(t("persona_card.download_failed"))
     }
   }
 
@@ -327,17 +330,19 @@ const ChromakopiaNameGenerator = () => {
           <li>
             <a href="/" className="flex items-center hover:text-slate-200">
               <Home className="h-4 w-4" />
-              <span className="ml-1">Home</span>
+              <span className="ml-1">{t("breadcrumb.home")}</span>
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
           <li>
             <a href="/tools" className="hover:text-slate-200">
-              Tools
+              {t("breadcrumb.tools")}
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
-          <li className="font-medium text-slate-100">Chromakopia Name Generator</li>
+          <li className="font-medium text-slate-100">
+            {t("breadcrumb.chromakopia_name_generator")}
+          </li>
         </ol>
       </nav>
 
@@ -346,18 +351,14 @@ const ChromakopiaNameGenerator = () => {
         <div className="mb-10 text-center">
           <div className="mb-6 inline-flex items-center rounded-full bg-gradient-to-r from-green-500 to-purple-600 px-4 py-2 text-sm font-medium text-white shadow-lg">
             <Palette className="mr-2 h-4 w-4" />
-            Free Chromakopia Tool
+            {t("free_tool_badge")}
           </div>
 
           <h1 className="mb-4 bg-gradient-to-r from-green-400 via-purple-400 to-pink-400 bg-clip-text text-4xl font-bold text-transparent">
-            Chromakopia Name Generator
+            {t("header.main_title")}
           </h1>
 
-          <p className="mx-auto max-w-2xl text-lg text-slate-300">
-            Create your colorful alter ego inspired by Tyler, the Creator's Chromakopia. Generate
-            unique personas that embody the spirit of bringing color back to life and breaking free
-            from black and white thinking.
-          </p>
+          <p className="mx-auto max-w-2xl text-lg text-slate-300">{t("header.description")}</p>
         </div>
 
         {/* Main Content */}
@@ -367,10 +368,12 @@ const ChromakopiaNameGenerator = () => {
             <div className="overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
               <div className="border-b border-slate-700 px-6 py-4">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-white">Your Chromakopia Persona</h2>
+                  <h2 className="text-lg font-semibold text-white">{t("persona_display.title")}</h2>
                   <div className="flex items-center space-x-2">
                     <Sparkles className="h-5 w-5 text-slate-400" />
-                    <span className="text-sm text-slate-500">St. Chroma Style</span>
+                    <span className="text-sm text-slate-500">
+                      {t("persona_display.st_chroma_style")}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -402,7 +405,7 @@ const ChromakopiaNameGenerator = () => {
                         className="mb-4 text-lg font-medium"
                         style={{ color: generatedPersona.color }}
                       >
-                        Radiating in {generatedPersona.colorName}
+                        {t("persona_display.radiating_in")} {generatedPersona.colorName}
                       </p>
 
                       {/* Trait */}
@@ -416,7 +419,7 @@ const ChromakopiaNameGenerator = () => {
                       {/* Superpower */}
                       <div className="mb-6 rounded-lg bg-white/10 p-4">
                         <h4 className="mb-2 text-sm font-semibold uppercase tracking-wide text-white">
-                          Chromatic Superpower
+                          {t("persona_display.chromatic_superpower")}
                         </h4>
                         <p className="text-slate-200">{generatedPersona.superpower}</p>
                       </div>
@@ -433,17 +436,14 @@ const ChromakopiaNameGenerator = () => {
                       <Palette className="h-12 w-12 text-white" />
                     </div>
                     <h3 className="mb-4 text-xl font-semibold text-white">
-                      Ready to discover your Chromakopia persona?
+                      {t("persona_display.ready_title")}
                     </h3>
-                    <p className="mb-8 text-slate-400">
-                      Click "Generate Persona" to reveal your colorful alter ego inspired by Tyler,
-                      the Creator's artistic vision.
-                    </p>
+                    <p className="mb-8 text-slate-400">{t("persona_display.ready_description")}</p>
                     <button
                       onClick={generatePersona}
                       className="rounded-lg bg-gradient-to-r from-green-600 to-purple-600 px-8 py-3 font-medium text-white shadow-lg hover:from-green-700 hover:to-purple-700"
                     >
-                      Generate Your Persona
+                      {t("persona_display.generate_button")}
                     </button>
                   </div>
                 )}
@@ -455,7 +455,7 @@ const ChromakopiaNameGenerator = () => {
               <div className="mt-8 overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
                 <div className="border-b border-slate-700 px-6 py-4">
                   <h3 className="text-lg font-semibold text-white">
-                    Favorite Personas ({favoritePersonas.length})
+                    {t("favorites.title")} ({favoritePersonas.length})
                   </h3>
                 </div>
                 <div className="p-6">
@@ -486,7 +486,7 @@ const ChromakopiaNameGenerator = () => {
             <div className="overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
               <div className="border-b border-slate-700 px-6 py-4">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-white">Generator Settings</h2>
+                  <h2 className="text-lg font-semibold text-white">{t("settings.title")}</h2>
                   <button
                     onClick={() => setShowSettings(!showSettings)}
                     className="rounded-lg p-2 text-slate-500 hover:bg-slate-700"
@@ -501,27 +501,27 @@ const ChromakopiaNameGenerator = () => {
                   {/* Generation Style */}
                   <div>
                     <div className="mb-3 block text-sm font-medium text-slate-300">
-                      Generation Style
+                      {t("settings.generation_style")}
                     </div>
                     <div className="space-y-2">
                       {[
                         {
                           value: "random",
-                          label: "Random Persona",
+                          label: t("settings.random_persona"),
                           icon: Shuffle,
-                          desc: "Completely random chromatic persona",
+                          desc: t("settings.random_description"),
                         },
                         {
                           value: "inspired",
-                          label: "Name-Inspired",
+                          label: t("settings.name_inspired"),
                           icon: Sparkles,
-                          desc: "Based on your input name",
+                          desc: t("settings.name_inspired_description"),
                         },
                         {
                           value: "custom",
-                          label: "Custom Mix",
+                          label: t("settings.custom_mix"),
                           icon: Wand2,
-                          desc: "Your name with random traits",
+                          desc: t("settings.custom_mix_description"),
                         },
                       ].map(({ value, label, icon: Icon, desc }) => (
                         <button
@@ -550,7 +550,7 @@ const ChromakopiaNameGenerator = () => {
                         htmlFor="input-name"
                         className="mb-2 block text-sm font-medium text-slate-300"
                       >
-                        Your Name or Inspiration
+                        {t("settings.input_name_label")}
                       </label>
                       <input
                         id="input-name"
@@ -558,7 +558,7 @@ const ChromakopiaNameGenerator = () => {
                         value={inputName}
                         onChange={(e) => setInputName(e.target.value)}
                         className="w-full rounded-lg border border-slate-600 bg-slate-700 px-4 py-3 text-sm text-white focus:border-green-500 focus:ring-green-500"
-                        placeholder="Enter your name..."
+                        placeholder={t("settings.input_name_placeholder")}
                       />
                     </div>
                   )}
@@ -572,12 +572,12 @@ const ChromakopiaNameGenerator = () => {
                     {isGenerating ? (
                       <div className="flex items-center justify-center space-x-2">
                         <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
-                        <span>Generating...</span>
+                        <span>{t("settings.generating")}</span>
                       </div>
                     ) : (
                       <div className="flex items-center justify-center space-x-2">
                         <Palette className="h-5 w-5" />
-                        <span>Generate Persona</span>
+                        <span>{t("settings.generate_persona")}</span>
                       </div>
                     )}
                   </button>
@@ -590,7 +590,7 @@ const ChromakopiaNameGenerator = () => {
                         className="flex w-full items-center justify-center space-x-2 rounded-lg border border-slate-600 bg-slate-700 px-4 py-3 text-sm font-medium text-slate-300 hover:bg-slate-600"
                       >
                         <Copy className="h-4 w-4" />
-                        <span>Copy Persona</span>
+                        <span>{t("settings.copy_persona")}</span>
                       </button>
 
                       <button
@@ -598,7 +598,7 @@ const ChromakopiaNameGenerator = () => {
                         className="flex w-full items-center justify-center space-x-2 rounded-lg border border-slate-600 bg-slate-700 px-4 py-3 text-sm font-medium text-slate-300 hover:bg-slate-600"
                       >
                         <Download className="h-4 w-4" />
-                        <span>Download Image</span>
+                        <span>{t("settings.download_image")}</span>
                       </button>
 
                       <button
@@ -606,7 +606,7 @@ const ChromakopiaNameGenerator = () => {
                         className="flex w-full items-center justify-center space-x-2 rounded-lg bg-pink-600 px-4 py-3 text-sm font-medium text-white hover:bg-pink-700"
                       >
                         <Heart className="h-4 w-4" />
-                        <span>Add to Favorites</span>
+                        <span>{t("settings.add_to_favorites")}</span>
                       </button>
                     </div>
                   )}
@@ -616,7 +616,7 @@ const ChromakopiaNameGenerator = () => {
                     className="flex w-full items-center justify-center space-x-2 rounded-lg border border-slate-600 bg-slate-700 px-4 py-3 text-sm font-medium text-slate-300 hover:bg-slate-600"
                   >
                     <RotateCcw className="h-4 w-4" />
-                    <span>Reset All</span>
+                    <span>{t("settings.reset_all")}</span>
                   </button>
                 </div>
               )}
@@ -631,33 +631,30 @@ const ChromakopiaNameGenerator = () => {
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 text-white">
                 <Music className="h-8 w-8" />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-white">Music-Inspired</h3>
-              <p className="text-slate-400">
-                Generate personas inspired by Tyler, the Creator's Chromakopia album and its themes
-                of authenticity and colorful expression.
-              </p>
+              <h3 className="mb-2 text-lg font-semibold text-white">
+                {t("features.music_inspired")}
+              </h3>
+              <p className="text-slate-400">{t("features.music_description")}</p>
             </div>
 
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white">
                 <Zap className="h-8 w-8" />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-white">Creative Expression</h3>
-              <p className="text-slate-400">
-                Break free from black and white thinking. Create colorful alter egos that represent
-                your true self and artistic vision.
-              </p>
+              <h3 className="mb-2 text-lg font-semibold text-white">
+                {t("features.creative_expression")}
+              </h3>
+              <p className="text-slate-400">{t("features.creative_description")}</p>
             </div>
 
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white">
                 <Users className="h-8 w-8" />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-white">Share & Connect</h3>
-              <p className="text-slate-400">
-                Share your generated personas with friends and discover how different people express
-                their colorful identities.
-              </p>
+              <h3 className="mb-2 text-lg font-semibold text-white">
+                {t("features.share_connect")}
+              </h3>
+              <p className="text-slate-400">{t("features.share_description")}</p>
             </div>
           </div>
         </div>
@@ -666,35 +663,23 @@ const ChromakopiaNameGenerator = () => {
         <div className="mt-20 space-y-16">
           {/* About Chromakopia Section */}
           <section className="rounded-xl bg-gradient-to-r from-green-800 to-purple-700 p-8">
-            <h2 className="mb-6 text-2xl font-bold text-white">
-              What is Chromakopia? Understanding Tyler, the Creator's Vision
-            </h2>
+            <h2 className="mb-6 text-2xl font-bold text-white">{t("about_chromakopia.title")}</h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div>
-                <p className="mb-4 text-slate-200">
-                  Chromakopia is Tyler, the Creator's eighth studio album that explores themes of
-                  bringing color back to life and breaking free from society's black and white
-                  expectations. The album centers around his alter ego St. Chroma, who represents
-                  authentic self-expression and the courage to live colorfully.
-                </p>
-                <p className="text-slate-200">
-                  Our name generator captures this spirit by creating unique personas that embody
-                  the album's themes of authenticity, creative expression, and the rejection of
-                  conformity. Each generated character represents a different aspect of chromatic
-                  living.
-                </p>
+                <p className="mb-4 text-slate-200">{t("about_chromakopia.description_1")}</p>
+                <p className="text-slate-200">{t("about_chromakopia.description_2")}</p>
               </div>
               <div className="rounded-lg bg-green-900/30 p-6">
                 <h3 className="mb-3 text-lg font-semibold text-white">
-                  Core Themes in Generated Names
+                  {t("about_chromakopia.core_themes")}
                 </h3>
                 <ul className="space-y-2 text-slate-200">
-                  <li>• Color symbolism and vibrancy</li>
-                  <li>• Authentic self-expression</li>
-                  <li>• Breaking societal expectations</li>
-                  <li>• Creative fearlessness</li>
-                  <li>• Emotional transparency</li>
-                  <li>• Artistic rebellion</li>
+                  <li>• {t("about_chromakopia.theme_1")}</li>
+                  <li>• {t("about_chromakopia.theme_2")}</li>
+                  <li>• {t("about_chromakopia.theme_3")}</li>
+                  <li>• {t("about_chromakopia.theme_4")}</li>
+                  <li>• {t("about_chromakopia.theme_5")}</li>
+                  <li>• {t("about_chromakopia.theme_6")}</li>
                 </ul>
               </div>
             </div>
@@ -702,9 +687,7 @@ const ChromakopiaNameGenerator = () => {
 
           {/* How to Use Section */}
           <section className="rounded-xl bg-slate-800 p-8 shadow-lg">
-            <h2 className="mb-6 text-2xl font-bold text-white">
-              How to Create Your Chromakopia Persona
-            </h2>
+            <h2 className="mb-6 text-2xl font-bold text-white">{t("how_to_use.title")}</h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
@@ -712,11 +695,8 @@ const ChromakopiaNameGenerator = () => {
                     1
                   </span>
                   <div>
-                    <h3 className="font-semibold text-white">Choose Your Style</h3>
-                    <p className="text-slate-400">
-                      Select from random generation, name-inspired personas, or custom mix to match
-                      your creative preferences.
-                    </p>
+                    <h3 className="font-semibold text-white">{t("how_to_use.step_1_title")}</h3>
+                    <p className="text-slate-400">{t("how_to_use.step_1_description")}</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
@@ -724,11 +704,8 @@ const ChromakopiaNameGenerator = () => {
                     2
                   </span>
                   <div>
-                    <h3 className="font-semibold text-white">Generate Your Persona</h3>
-                    <p className="text-slate-400">
-                      Click generate to create a unique chromatic character with personality traits,
-                      colors, and superpowers.
-                    </p>
+                    <h3 className="font-semibold text-white">{t("how_to_use.step_2_title")}</h3>
+                    <p className="text-slate-400">{t("how_to_use.step_2_description")}</p>
                   </div>
                 </div>
               </div>
@@ -738,11 +715,8 @@ const ChromakopiaNameGenerator = () => {
                     3
                   </span>
                   <div>
-                    <h3 className="font-semibold text-white">Customize & Save</h3>
-                    <p className="text-slate-400">
-                      Add your favorites to your collection and regenerate until you find the
-                      perfect colorful alter ego.
-                    </p>
+                    <h3 className="font-semibold text-white">{t("how_to_use.step_3_title")}</h3>
+                    <p className="text-slate-400">{t("how_to_use.step_3_description")}</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
@@ -750,11 +724,8 @@ const ChromakopiaNameGenerator = () => {
                     4
                   </span>
                   <div>
-                    <h3 className="font-semibold text-white">Share & Express</h3>
-                    <p className="text-slate-400">
-                      Download images or copy text to share your chromatic persona on social media
-                      and inspire others.
-                    </p>
+                    <h3 className="font-semibold text-white">{t("how_to_use.step_4_title")}</h3>
+                    <p className="text-slate-400">{t("how_to_use.step_4_description")}</p>
                   </div>
                 </div>
               </div>
@@ -763,50 +734,23 @@ const ChromakopiaNameGenerator = () => {
 
           {/* FAQ Section */}
           <section className="rounded-xl bg-slate-800 p-8">
-            <h2 className="mb-6 text-2xl font-bold text-white">Frequently Asked Questions</h2>
+            <h2 className="mb-6 text-2xl font-bold text-white">{t("faq.title")}</h2>
             <div className="space-y-6">
               <div className="border-b border-slate-700 pb-4">
-                <h3 className="mb-2 text-lg font-semibold text-white">
-                  What inspired the Chromakopia name generator?
-                </h3>
-                <p className="text-slate-400">
-                  This tool is inspired by Tyler, the Creator's album "Chromakopia" and its themes
-                  of bringing color back to life, authentic self-expression, and breaking free from
-                  black and white thinking. Each generated persona embodies these artistic and
-                  philosophical concepts.
-                </p>
+                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q1")}</h3>
+                <p className="text-slate-400">{t("faq.a1")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
-                <h3 className="mb-2 text-lg font-semibold text-white">
-                  How does the name generation work?
-                </h3>
-                <p className="text-slate-400">
-                  Our algorithm combines chromatic prefixes, meaningful suffixes, and personality
-                  traits inspired by the album's themes. You can choose random generation, input
-                  your name for personalized results, or create a custom mix of your name with
-                  random chromatic elements.
-                </p>
+                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q2")}</h3>
+                <p className="text-slate-400">{t("faq.a2")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
-                <h3 className="mb-2 text-lg font-semibold text-white">
-                  Can I use generated personas for creative projects?
-                </h3>
-                <p className="text-slate-400">
-                  Absolutely! These personas are perfect for creative writing, character
-                  development, artistic projects, social media content, or any form of creative
-                  expression. They're designed to inspire authentic self-expression and colorful
-                  thinking.
-                </p>
+                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q3")}</h3>
+                <p className="text-slate-400">{t("faq.a3")}</p>
               </div>
               <div>
-                <h3 className="mb-2 text-lg font-semibold text-white">
-                  Is the Chromakopia name generator free?
-                </h3>
-                <p className="text-slate-400">
-                  Yes! This tool is completely free with no registration required. Generate
-                  unlimited personas, save your favorites, and share your creations without any
-                  restrictions. It works on all devices including mobile phones and tablets.
-                </p>
+                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q4")}</h3>
+                <p className="text-slate-400">{t("faq.a4")}</p>
               </div>
             </div>
           </section>

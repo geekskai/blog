@@ -563,9 +563,6 @@
       "copied": "Kopieret!",
       "failed": "Fejl",
       "conversion_formula": "Konverteringsformel:",
-      "title": "CM til Tommer Konverter",
-      "description": "Konverter mellem centimeter og tommer (danske/norske tommer) øjeblikkeligt",
-      "quick_values": "Hurtige Værdier",
       "presets": {
         "1_cm": "1 cm",
         "1_inch": "1 tommer",
@@ -576,7 +573,6 @@
       },
       "from": "Fra",
       "to": "Til",
-      "enter_value": "Indtast værdi",
       "result": "Resultat",
       "units": {
         "cm": "cm",
@@ -584,9 +580,7 @@
         "centimeters": "Centimeter",
         "inches_full": "Tommer"
       },
-      "enter_value_in": "Indtast værdi i",
       "enter_value_placeholder": "Indtast værdi...",
-      "result_in": "Resultat i",
       "nordic_sizes": {
         "1_inch_standard": "1 tommer standard",
         "1_foot": "1 fod (12 tommer)",
@@ -765,91 +759,6 @@
       "title": "Klar til at Konvertere CM til Tommer?",
       "description": "Begynd at bruge vores gratis, nøjagtige og professionelle CM til Tommer konverter til alle dine nordiske målebehov.",
       "button_text": "Brug CM til Tommer Konverter"
-    },
-    "educational_content": {
-      "common_uses": {
-        "title": "Almindelige Anvendelsesområder",
-        "description": "Opdag hvornår og hvorfor du måske skal konvertere mellem cm og tommer"
-      },
-      "examples": "Eksempler",
-      "use_cases": {
-        "furniture": {
-          "title": "Møbler & Boligindretning",
-          "description": "Konvertering af møbeldimensioner ved indkøb fra nordiske lande eller internationale forhandlere.",
-          "examples": {
-            "ikea": "IKEA produktdimensioner",
-            "scandinavian": "Skandinaviske møbelkataloger",
-            "renovation": "Boligrenovering projekter",
-            "kitchen": "Køkkenskabe og indretning"
-          }
-        },
-        "construction": {
-          "title": "Byggeri & Arkitektur",
-          "description": "Professionelle byggeprojekter der kræver præcise målinger i forskellige enhedssystemer.",
-          "examples": {
-            "drawings": "Arkitekttegninger",
-            "materials": "Byggematerialer",
-            "specifications": "Tekniske specifikationer",
-            "standards": "Konstruktionsstandarder"
-          }
-        },
-        "electronics": {
-          "title": "Elektronik & Shopping",
-          "description": "Forståelse af produktstørrelser ved køb fra internationale online butikker.",
-          "examples": {
-            "tv": "TV og skærmstørrelser",
-            "laptop": "Laptop dimensioner",
-            "tablet": "Tablet størrelser",
-            "shipping": "Forsendelseskasser"
-          }
-        },
-        "engineering": {
-          "title": "Ingeniørarbejde & Design",
-          "description": "Teknisk arbejde der kræver konvertering mellem metriske og nordiske målesystemer.",
-          "examples": {
-            "cad": "CAD tegninger",
-            "product_specs": "Produktspecifikationer",
-            "tolerances": "Produktionstolerancer",
-            "quality": "Kvalitetskontrol"
-          }
-        }
-      },
-      "about_units": {
-        "title": "Om Tommer & Centimeter",
-        "description": "Lær om historien og praktiske anvendelser af disse måleenheder"
-      },
-      "facts": {
-        "historical": {
-          "title": "Historisk Baggrund",
-          "content": "Tommer (betyder \"tommelfinger\" på dansk/norsk) har været brugt i nordiske lande i århundreder, oprindeligt baseret på bredden af en tommelfinger."
-        },
-        "modern": {
-          "title": "Moderne Standardisering",
-          "content": "I dag er 1 tommer lig med præcis 2,54 cm, identisk med den internationale inch, hvilket sikrer global kompatibilitet."
-        },
-        "regional": {
-          "title": "Regional Brug",
-          "content": "Selvom det metriske system er officielt i nordiske lande, bruges tommer stadig almindeligt i byggeri, møbler og traditionelle håndværk."
-        },
-        "precision": {
-          "title": "Præcision Betyder Noget",
-          "content": "I professionelle anvendelser kan selv små konverteringsfejl sammensættes. Vores værktøj giver op til 3 decimaler for maksimal nøjagtighed."
-        }
-      },
-      "conversion_formulas": "Konverteringsformler",
-      "cm_to_inches": "Centimeter til Tommer",
-      "inches_to_cm": "Tommer til Centimeter",
-      "nordic_tradition": {
-        "title": "Nordisk Måletradition",
-        "denmark": {
-          "title": "Danmark",
-          "content": "I Danmark bruges tommer stadig i byggeri, møbelindustrien og traditionelle håndværk. Danske møbelproducenter angiver ofte dimensioner i tommer til internationale markeder."
-        },
-        "norway": {
-          "title": "Norge",
-          "content": "Norske bygge- og træindustrier bruger ofte tommer-målinger. Vores konverter hjælper med norske byggerstandarder og arkitektoniske specifikationer."
-        }
-      }
     }
   },
   "InvincibleTitleCardGenerator": {
@@ -1367,6 +1276,113 @@
       "title": "Klar til at Beregne Motor Effekt?",
       "description": "Brug vores gratis CCM til HP konverter til at estimere din motors hestekraft øjeblikkeligt",
       "button_text": "Start Konvertering Nu"
+    }
+  },
+  "ChromakopiaNamGenerator": {
+    "seo_title": "Chromakopia Navnegenerator - Skab Din St. Chroma Persona | Gratis Værktøj",
+    "seo_description": "Generer unikke Chromakopia-inspirerede navne og personaer med vores gratis online værktøj. Skab farverige alter egoer inspireret af Tyler, the Creator's Chromakopia album. Perfekt til kreative projekter og selvudtryk.",
+    "seo_keywords": "chromakopia, navnegenerator, tyler the creator, st chroma, persona generator, chromakopia navne",
+    "page_title": "Chromakopia Navnegenerator",
+    "page_subtitle": "Skab Din Farverige Persona",
+    "page_description": "Slip din kreativitet løs med vores Chromakopia navnegenerator. Skab unikke personaer inspireret af Tyler, the Creator's kunstneriske vision om at bringe farve tilbage til livet.",
+    "free_tool_badge": "Gratis Chromakopia Værktøj",
+
+    "breadcrumb": {
+      "home": "Hjem",
+      "tools": "Værktøjer",
+      "chromakopia_name_generator": "Chromakopia Navnegenerator"
+    },
+
+    "header": {
+      "main_title": "Chromakopia Navnegenerator",
+      "description": "Skab dit farverige alter ego inspireret af Tyler, the Creator's Chromakopia. Generer unikke personaer der legemliggør ånden i at bringe farve tilbage til livet og bryde fri fra sort-hvid tænkning."
+    },
+
+    "persona_display": {
+      "title": "Din Chromakopia Persona",
+      "st_chroma_style": "St. Chroma Stil",
+      "ready_title": "Klar til at opdage din Chromakopia persona?",
+      "ready_description": "Klik \"Generer Persona\" for at afsløre dit farverige alter ego inspireret af Tyler, the Creator's kunstneriske vision.",
+      "generate_button": "Generer Din Persona",
+      "radiating_in": "Udstråler i",
+      "chromatic_superpower": "Kromatisk Superkraft"
+    },
+
+    "favorites": {
+      "title": "Favorit Personaer",
+      "no_personas": "Ingen personaer endnu",
+      "add_first": "Generer din første persona for at starte din samling"
+    },
+
+    "settings": {
+      "title": "Generator Indstillinger",
+      "generation_style": "Genereringsstil",
+      "random_persona": "Tilfældig Persona",
+      "random_description": "Helt tilfældig kromatisk persona",
+      "name_inspired": "Navn-Inspireret",
+      "name_inspired_description": "Baseret på dit indtastede navn",
+      "custom_mix": "Brugerdefineret Mix",
+      "custom_mix_description": "Dit navn med tilfældige træk",
+      "input_name_label": "Dit Navn eller Inspiration",
+      "input_name_placeholder": "Indtast dit navn...",
+      "generate_persona": "Generer Persona",
+      "generating": "Genererer...",
+      "copy_persona": "Kopier Persona",
+      "download_image": "Download Billede",
+      "add_to_favorites": "Tilføj til Favoritter",
+      "reset_all": "Nulstil Alt"
+    },
+
+    "features": {
+      "music_inspired": "Musik-Inspireret",
+      "music_description": "Generer personaer inspireret af Tyler, the Creator's Chromakopia album og dets temaer om autenticitet og farverig udtryk.",
+      "creative_expression": "Kreativt Udtryk",
+      "creative_description": "Bryd fri fra sort-hvid tænkning. Skab farverige alter egoer der repræsenterer dit sande selv og kunstneriske vision.",
+      "share_connect": "Del & Forbind",
+      "share_description": "Del dine genererede personaer med venner og opdag hvordan forskellige mennesker udtrykker deres farverige identiteter."
+    },
+
+    "about_chromakopia": {
+      "title": "Hvad er Chromakopia? Forståelse af Tyler, the Creator's Vision",
+      "description_1": "Chromakopia er Tyler, the Creator's ottende studiealbum der udforsker temaer om at bringe farve tilbage til livet og bryde fri fra samfundets sort-hvide forventninger. Albummet centrerer sig omkring hans alter ego St. Chroma, som repræsenterer autentisk selvudtryk og modet til at leve farverigt.",
+      "description_2": "Vores navnegenerator fanger denne ånd ved at skabe unikke personaer der legemliggør albummets temaer om autenticitet, kreativt udtryk og afvisning af konformitet. Hver genereret karakter repræsenterer et forskelligt aspekt af kromatisk liv.",
+      "core_themes": "Kernetemaer i Genererede Navne",
+      "theme_1": "Farvesymbolik og vitalitet",
+      "theme_2": "Autentisk selvudtryk",
+      "theme_3": "Bryde samfundsmæssige forventninger",
+      "theme_4": "Kreativ frygtløshed",
+      "theme_5": "Følelsesmæssig gennemsigtighed",
+      "theme_6": "Kunstnerisk oprør"
+    },
+
+    "how_to_use": {
+      "title": "Sådan Skaber Du Din Chromakopia Persona",
+      "step_1_title": "Vælg Din Stil",
+      "step_1_description": "Vælg mellem tilfældig generering, navn-inspirerede personaer eller brugerdefineret mix for at matche dine kreative præferencer.",
+      "step_2_title": "Generer Din Persona",
+      "step_2_description": "Klik generer for at skabe en unik kromatisk karakter med personlighedstræk, farver og superkræfter.",
+      "step_3_title": "Tilpas & Gem",
+      "step_3_description": "Tilføj dine favoritter til din samling og regenerer indtil du finder det perfekte farverige alter ego.",
+      "step_4_title": "Del & Udtryk",
+      "step_4_description": "Download billeder eller kopier tekst for at dele din kromatiske persona på sociale medier og inspirere andre."
+    },
+
+    "faq": {
+      "title": "Ofte Stillede Spørgsmål",
+      "q1": "Hvad inspirerede Chromakopia navnegeneratoren?",
+      "a1": "Dette værktøj er inspireret af Tyler, the Creator's album \"Chromakopia\" og dets temaer om at bringe farve tilbage til livet, autentisk selvudtryk og at bryde fri fra sort-hvid tænkning. Hver genereret persona legemliggør disse kunstneriske og filosofiske koncepter.",
+      "q2": "Hvordan fungerer navnegenerering?",
+      "a2": "Vores algoritme kombinerer kromatiske præfikser, meningsfulde suffikser og personlighedstræk inspireret af albummets temaer. Du kan vælge tilfældig generering, indtaste dit navn for personaliserede resultater eller skabe et brugerdefineret mix af dit navn med tilfældige kromatiske elementer.",
+      "q3": "Kan jeg bruge genererede personaer til kreative projekter?",
+      "a3": "Absolut! Disse personaer er perfekte til kreativ skrivning, karakterudvikling, kunstneriske projekter, sociale medier indhold eller enhver form for kreativt udtryk. De er designet til at inspirere autentisk selvudtryk og farverig tænkning.",
+      "q4": "Er Chromakopia navnegeneratoren gratis?",
+      "a4": "Ja! Dette værktøj er helt gratis uden registrering påkrævet. Generer ubegrænsede personaer, gem dine favoritter og del dine kreationer uden begrænsninger. Det virker på alle enheder inklusive mobiltelefoner og tablets."
+    },
+
+    "persona_card": {
+      "copy_text": "🎨 Min Chromakopia Persona 🎨\n\nNavn: {name}\nFarve: {colorName}\nTræk: {trait}\nBeskrivelse: {description}\nSuperkraft: {superpower}\nCitat: {quote}\n\nGenereret på: https://geekskai.com/tools/chromakopia-name-generator",
+      "copied_message": "Persona kopieret til udklipsholder! 🎨",
+      "download_failed": "Download mislykkedes. Prøv igen."
     }
   }
 }

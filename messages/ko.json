@@ -1313,5 +1313,112 @@
       "description": "무료 CCM에서 HP 변환기를 사용하여 엔진의 마력을 즉시 추정하세요",
       "button_text": "지금 변환 시작"
     }
+  },
+  "ChromakopiaNamGenerator": {
+    "seo_title": "Chromakopia 이름 생성기 - St. Chroma 페르소나 만들기 | 무료 도구",
+    "seo_description": "무료 온라인 도구로 독특한 Chromakopia 스타일 이름과 페르소나를 생성하세요. Tyler, the Creator의 Chromakopia 앨범에서 영감을 받은 컬러풀한 분신을 만드세요. 창의적 프로젝트와 자기 표현에 완벽합니다.",
+    "seo_keywords": "chromakopia, 이름 생성기, tyler the creator, st chroma, 페르소나 생성기, chromakopia 이름",
+    "page_title": "Chromakopia 이름 생성기",
+    "page_subtitle": "컬러풀한 페르소나 만들기",
+    "page_description": "Chromakopia 이름 생성기로 창의력을 발휘하세요. Tyler, the Creator의 예술적 비전에서 영감을 받은 독특한 페르소나를 만들어 삶에 색을 되돌려 보세요.",
+    "free_tool_badge": "무료 Chromakopia 도구",
+
+    "breadcrumb": {
+      "home": "홈",
+      "tools": "도구",
+      "chromakopia_name_generator": "Chromakopia 이름 생성기"
+    },
+
+    "header": {
+      "main_title": "Chromakopia 이름 생성기",
+      "description": "Tyler, the Creator의 Chromakopia에서 영감을 받은 컬러풀한 분신을 만드세요. 삶에 색을 되돌리고 흑백 사고에서 벗어나는 정신을 구현하는 독특한 페르소나를 생성합니다."
+    },
+
+    "persona_display": {
+      "title": "당신의 Chromakopia 페르소나",
+      "st_chroma_style": "St. Chroma 스타일",
+      "ready_title": "Chromakopia 페르소나를 발견할 준비가 되셨나요?",
+      "ready_description": "\"페르소나 생성\"을 클릭하여 Tyler, the Creator의 예술적 비전에서 영감을 받은 컬러풀한 분신을 공개하세요.",
+      "generate_button": "페르소나 생성하기",
+      "radiating_in": "발산하는",
+      "chromatic_superpower": "크로매틱 초능력"
+    },
+
+    "favorites": {
+      "title": "즐겨찾는 페르소나",
+      "no_personas": "아직 페르소나가 없습니다",
+      "add_first": "첫 번째 페르소나를 생성하여 컬렉션을 시작하세요"
+    },
+
+    "settings": {
+      "title": "생성기 설정",
+      "generation_style": "생성 스타일",
+      "random_persona": "랜덤 페르소나",
+      "random_description": "완전히 랜덤한 크로매틱 페르소나",
+      "name_inspired": "이름 영감",
+      "name_inspired_description": "입력한 이름을 기반으로",
+      "custom_mix": "커스텀 믹스",
+      "custom_mix_description": "당신의 이름과 랜덤 특성",
+      "input_name_label": "당신의 이름 또는 영감",
+      "input_name_placeholder": "이름을 입력하세요...",
+      "generate_persona": "페르소나 생성",
+      "generating": "생성 중...",
+      "copy_persona": "페르소나 복사",
+      "download_image": "이미지 다운로드",
+      "add_to_favorites": "즐겨찾기에 추가",
+      "reset_all": "모두 재설정"
+    },
+
+    "features": {
+      "music_inspired": "음악 영감",
+      "music_description": "Tyler, the Creator의 Chromakopia 앨범과 진정성 및 컬러풀한 표현의 테마에서 영감을 받은 페르소나를 생성합니다.",
+      "creative_expression": "창의적 표현",
+      "creative_description": "흑백 사고에서 벗어나세요. 당신의 진정한 자아와 예술적 비전을 나타내는 컬러풀한 분신을 만드세요.",
+      "share_connect": "공유 및 연결",
+      "share_description": "생성한 페르소나를 친구들과 공유하고 다른 사람들이 어떻게 컬러풀한 정체성을 표현하는지 발견하세요."
+    },
+
+    "about_chromakopia": {
+      "title": "Chromakopia란? Tyler, the Creator의 비전 이해하기",
+      "description_1": "Chromakopia는 Tyler, the Creator의 8번째 스튜디오 앨범으로, 삶에 색을 되돌리고 사회의 흑백 기대에서 벗어나는 테마를 탐구합니다. 앨범은 그의 분신 St. Chroma를 중심으로 전개되며, 진정한 자기 표현과 컬러풀하게 살아가는 용기를 나타냅니다.",
+      "description_2": "우리의 이름 생성기는 앨범의 진정성, 창의적 표현, 순응 거부라는 테마를 구현하는 독특한 페르소나를 만들어 이 정신을 포착합니다. 생성되는 각 캐릭터는 크로매틱한 삶의 다른 측면을 나타냅니다.",
+      "core_themes": "생성된 이름의 핵심 테마",
+      "theme_1": "색상 상징과 활력",
+      "theme_2": "진정한 자기 표현",
+      "theme_3": "사회적 기대 깨뜨리기",
+      "theme_4": "창의적 두려움 없음",
+      "theme_5": "감정적 투명성",
+      "theme_6": "예술적 반항"
+    },
+
+    "how_to_use": {
+      "title": "Chromakopia 페르소나 만드는 방법",
+      "step_1_title": "스타일 선택",
+      "step_1_description": "랜덤 생성, 이름 영감 페르소나, 또는 커스텀 믹스 중에서 선택하여 창의적 선호도에 맞추세요.",
+      "step_2_title": "페르소나 생성",
+      "step_2_description": "생성을 클릭하여 성격 특성, 색상, 초능력을 가진 독특한 크로매틱 캐릭터를 만드세요.",
+      "step_3_title": "커스터마이즈 및 저장",
+      "step_3_description": "즐겨찾기를 컬렉션에 추가하고 완벽한 컬러풀한 분신을 찾을 때까지 재생성하세요.",
+      "step_4_title": "공유 및 표현",
+      "step_4_description": "이미지를 다운로드하거나 텍스트를 복사하여 소셜 미디어에서 크로매틱 페르소나를 공유하고 다른 사람들에게 영감을 주세요."
+    },
+
+    "faq": {
+      "title": "자주 묻는 질문",
+      "q1": "Chromakopia 이름 생성기의 영감은 무엇인가요?",
+      "a1": "이 도구는 Tyler, the Creator의 앨범 \"Chromakopia\"와 삶에 색을 되돌리고, 진정한 자기 표현, 흑백 사고에서 벗어나는 테마에서 영감을 받았습니다. 생성되는 각 페르소나는 이러한 예술적이고 철학적인 개념을 구현합니다.",
+      "q2": "이름 생성은 어떻게 작동하나요?",
+      "a2": "우리의 알고리즘은 앨범의 테마에서 영감을 받은 크로매틱 접두사, 의미 있는 접미사, 성격 특성을 결합합니다. 랜덤 생성을 선택하거나, 개인화된 결과를 위해 이름을 입력하거나, 이름과 랜덤 크로매틱 요소의 커스텀 믹스를 만들 수 있습니다.",
+      "q3": "생성된 페르소나를 창의적 프로젝트에 사용할 수 있나요?",
+      "a3": "물론입니다! 이러한 페르소나는 창의적 글쓰기, 캐릭터 개발, 예술 프로젝트, 소셜 미디어 콘텐츠 또는 모든 형태의 창의적 표현에 완벽합니다. 진정한 자기 표현과 컬러풀한 사고를 자극하도록 설계되었습니다.",
+      "q4": "Chromakopia 이름 생성기는 무료인가요?",
+      "a4": "네! 이 도구는 등록 없이 완전히 무료입니다. 무제한으로 페르소나를 생성하고, 즐겨찾기를 저장하고, 제한 없이 창작물을 공유하세요. 휴대폰과 태블릿을 포함한 모든 기기에서 작동합니다."
+    },
+
+    "persona_card": {
+      "copy_text": "🎨 나의 Chromakopia 페르소나 🎨\n\n이름: {name}\n색상: {colorName}\n특성: {trait}\n설명: {description}\n초능력: {superpower}\n명언: {quote}\n\n생성 위치: https://geekskai.com/tools/chromakopia-name-generator",
+      "copied_message": "페르소나가 클립보드에 복사되었습니다! 🎨",
+      "download_failed": "다운로드에 실패했습니다. 다시 시도해 주세요."
+    }
   }
 }
