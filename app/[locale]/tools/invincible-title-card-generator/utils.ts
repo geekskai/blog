@@ -166,7 +166,7 @@ export const downloadTitleCard = async (
 }
 
 // Copy title card settings
-export const copySettings = async (state: TitleCardState) => {
+export const copySettings = async (state: TitleCardState, t?: any) => {
   const settings = {
     text: state.text,
     color: state.color,
@@ -178,9 +178,12 @@ export const copySettings = async (state: TitleCardState) => {
 
   try {
     await navigator.clipboard.writeText(JSON.stringify(settings, null, 2))
-    alert("Settings copied to clipboard! 🎬")
+    const message = t ? t("messages.settings_copied") : "Settings copied to clipboard! 🎬"
+    alert(message)
   } catch (err) {
     console.error("Copy failed:", err)
+    const errorMessage = t ? t("messages.copy_failed") : "Copy failed"
+    alert(errorMessage)
   }
 }
 

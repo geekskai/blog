@@ -9,6 +9,7 @@ import {
   Home,
   ChevronRight,
 } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 interface HeaderProps {
   onRandomize: () => void
@@ -25,6 +26,8 @@ export const Header: React.FC<HeaderProps> = ({
   isFullscreen,
   isGenerating,
 }) => {
+  const t = useTranslations("InvincibleTitleCardGenerator")
+
   return (
     <>
       {/* Breadcrumb Navigation */}
@@ -33,17 +36,19 @@ export const Header: React.FC<HeaderProps> = ({
           <li>
             <a href="/" className="flex items-center transition-colors hover:text-slate-200">
               <Home className="h-4 w-4" />
-              <span className="ml-1">Home</span>
+              <span className="ml-1">{t("breadcrumb.home")}</span>
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
           <li>
             <a href="/tools" className="transition-colors hover:text-slate-200">
-              Tools
+              {t("breadcrumb.tools")}
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
-          <li className="font-medium text-slate-100">Invincible Title Card Generator</li>
+          <li className="font-medium text-slate-100">
+            {t("breadcrumb.invincible_title_card_generator")}
+          </li>
         </ol>
       </nav>
 
@@ -51,21 +56,19 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="relative mb-16 text-center">
         <div className="mb-8 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-slate-300 shadow-xl backdrop-blur-sm">
           <Monitor className="mr-2 h-4 w-4 text-blue-400" />
-          Professional Title Card Generator
+          {t("header.professional_badge")}
           <Sparkles className="ml-2 h-4 w-4 text-yellow-400" />
         </div>
 
         <h1 className="mb-8 text-5xl font-bold text-white sm:text-6xl lg:text-7xl">
-          <span className="block">Invincible</span>
+          <span className="block">{t("header.main_title")}</span>
           <span className="block bg-gradient-to-r from-red-500 via-yellow-500 to-orange-500 bg-clip-text text-transparent">
-            Title Card Generator
+            {t("header.subtitle")}
           </span>
         </h1>
 
         <p className="mx-auto mb-12 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
-          Create professional-grade title cards inspired by the acclaimed animated series. Featuring
-          authentic typography, character presets, and studio-quality export options for creators
-          and content producers.
+          {t("header.description")}
         </p>
 
         {/* Clean Action Buttons */}
@@ -75,7 +78,7 @@ export const Header: React.FC<HeaderProps> = ({
             className="inline-flex items-center rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-medium text-white shadow-lg backdrop-blur-sm transition-all hover:scale-105 hover:bg-white/15 hover:shadow-xl"
           >
             <Shuffle className="mr-2 h-4 w-4" />
-            Randomize
+            {t("header.randomize_button")}
           </button>
           <button
             onClick={onToggleFullscreen}
@@ -86,7 +89,7 @@ export const Header: React.FC<HeaderProps> = ({
             ) : (
               <Maximize2 className="mr-2 h-4 w-4" />
             )}
-            {isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
+            {isFullscreen ? t("header.exit_fullscreen_button") : t("header.fullscreen_button")}
           </button>
           <button
             onClick={onDownload}
@@ -94,7 +97,7 @@ export const Header: React.FC<HeaderProps> = ({
             className="inline-flex items-center rounded-xl bg-gradient-to-r from-red-500 to-orange-500 px-8 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-50"
           >
             <Download className="mr-2 h-4 w-4" />
-            {isGenerating ? "Generating..." : "Download"}
+            {isGenerating ? t("header.generating") : t("header.download_button")}
           </button>
         </div>
       </div>

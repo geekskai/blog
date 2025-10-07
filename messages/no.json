@@ -851,5 +851,189 @@
         }
       }
     }
+  },
+  "InvincibleTitleCardGenerator": {
+    "seo_title": "Invincible Titelkort Generator - Lag Tilpassede TV-Show Titelkort | Gratis Verktøy",
+    "seo_description": "Generer tilpassede titelkort inspirert av Invincible animasjonsserien. Lag profesjonelle titelkort med tilpassbar tekst, farger, bakgrunner og effekter. Perfekt for fan-innhold og kreative prosjekter.",
+    "seo_keywords": "invincible, titelkort generator, animasjonsserie, tv-show, titelkort, tilpasset grafikk, fan-innhold, invincible generator",
+    "page_title": "Invincible Titelkort Generator",
+    "page_subtitle": "Lag Tilpassede TV-Show Titelkort",
+    "page_description": "Generer tilpassede titelkort inspirert av Invincible animasjonsserien. Lag profesjonelle titelkort med tilpassbar tekst, farger, bakgrunner og effekter. Perfekt for fan-innhold og kreative prosjekter.",
+
+    "breadcrumb": {
+      "home": "Hjem",
+      "tools": "Verktøy",
+      "invincible_title_card_generator": "Invincible Titelkort Generator"
+    },
+
+    "header": {
+      "professional_badge": "Profesjonell Titelkort Generator",
+      "main_title": "Invincible",
+      "subtitle": "Titelkort Generator",
+      "description": "Lag profesjonelle titelkort inspirert av den anerkjente animasjonsserien. Med autentisk typografi, karakterforhåndsinnstillinger og studiokvalitets eksportmuligheter for skapere og innholdsprodusenter.",
+      "randomize_button": "Tilfeldig",
+      "fullscreen_button": "Fullskjerm",
+      "exit_fullscreen_button": "Avslutt Fullskjerm",
+      "download_button": "Last ned",
+      "generating": "Genererer..."
+    },
+
+    "preview": {
+      "live_preview": "Direkteforhåndsvisning",
+      "resolution": "1920×1080",
+      "default_title": "Skriv inn tittelen din",
+      "watermark": "Laget med geekskai.com",
+      "download_title_card": "Last ned Titelkort",
+      "save_button": "Lagre",
+      "copy_button": "Kopier",
+      "reset_all": "Tilbakestill Alt",
+      "saved_configurations": "Lagrede Konfigurasjoner",
+      "click_to_apply": "Klikk for å bruke"
+    },
+
+    "settings": {
+      "customization": "Tilpasning",
+      "presets_tab": "forhåndsinnstillinger",
+      "text_tab": "tekst",
+      "colors_tab": "farger",
+      "effects_tab": "effekter",
+
+      "character_presets": "Karakterforhåndsinnstillinger",
+      "text_settings": "Tekstinnstillinger",
+      "main_title_label": "Hovedtittel",
+      "main_title_placeholder": "Skriv inn titteltekst...",
+      "small_subtitle_label": "Liten Undertittel",
+      "small_subtitle_placeholder": "Liten undertittel...",
+      "credits_subtitle_label": "Credits Undertittel",
+      "credits_subtitle_placeholder": "Credits undertittel...",
+
+      "font_size": "Skriftstørrelse",
+      "text_outline": "Tekstkontur",
+      "subtitle_offset": "Undertittel Forskyvning",
+
+      "background_style": "Bakgrunnsstil",
+      "text_color": "Tekstfarge",
+
+      "display_options": "Visningsalternativer",
+      "show_credits": "Vis Credits",
+      "show_credits_description": "Vis undertittelinformasjon under tittelen",
+      "show_watermark": "Vis Vannmerke",
+      "show_watermark_description": "Legg til attribusjon til det genererte bildet"
+    },
+
+    "presets": {
+      "invincible": {
+        "name": "Invincible",
+        "description": "Hovedpersonen"
+      },
+      "invinciboy": {
+        "name": "Invinciboy",
+        "description": "Unge Mark Grayson"
+      },
+      "atom_eve": {
+        "name": "Atom Eve",
+        "description": "Samantha Eve Wilkins"
+      },
+      "omni_man": {
+        "name": "Omni-Man",
+        "description": "Nolan Grayson"
+      },
+      "allen_the_alien": {
+        "name": "Allen the Alien",
+        "description": "Coalition of Planets"
+      },
+      "immortal": {
+        "name": "Immortal",
+        "description": "Abraham Lincoln"
+      },
+      "oliver": {
+        "name": "Oliver",
+        "description": "Marks halvbror"
+      }
+    },
+
+    "backgrounds": {
+      "classic_blue": "Klassisk Blå",
+      "hero_gradient": "Helt Gradient",
+      "villain_red": "Skurk Rød",
+      "atom_pink": "Atom Rosa",
+      "space_black": "Rom Svart",
+      "cosmic_purple": "Kosmisk Lilla",
+      "sunset_orange": "Solnedgang Oransje",
+      "forest_green": "Skog Grønn"
+    },
+
+    "text_colors": {
+      "invincible_yellow": "Invincible Gul",
+      "hero_blue": "Helt Blå",
+      "danger_red": "Fare Rød",
+      "royal_purple": "Kongelig Lilla",
+      "pure_black": "Ren Svart",
+      "pure_white": "Ren Hvit",
+      "bright_orange": "Lys Oransje",
+      "steel_gray": "Stål Grå",
+      "atom_pink": "Atom Rosa",
+      "alien_cyan": "Alien Cyan"
+    },
+
+    "content": {
+      "professional_features": "Profesjonelle Funksjoner",
+      "features_description": "Alt du trenger for å lage fantastiske titelkort med studiokvalitets resultater",
+
+      "advanced_typography": "Avansert Typografi",
+      "typography_description": "Profesjonell teksttilpasning med autentisk Invincible-styling, kontureffekter og presis typografisk kontroll for piksel-perfekte resultater.",
+
+      "character_presets_feature": "Karakterforhåndsinnstillinger",
+      "presets_description": "Bruk øyeblikkelig autentiske fargeskjemaer for Mark, Omni-Man, Atom Eve og andre elskede karakterer med ett-klikk forhåndsinnstillingskonfigurasjoner.",
+
+      "studio_export_quality": "Studio Eksportkvalitet",
+      "export_description": "Eksporter i ultra-høy oppløsning 1920×1080 PNG-format, optimalisert for profesjonell videoproduksjon, sosiale medier og presentasjonsbruk.",
+
+      "create_professional_title": "Lag Profesjonelle Invincible-Stil Titelkort",
+      "about_description_1": "Vår avanserte Invincible Titelkort Generator gir skapere mulighet til å produsere studiokvalitets titelkort som fanger essensen av den elskede animasjonsserien. Med intuitive kontroller og profesjonell utgang, bring din kreative visjon til live.",
+      "about_description_2": "Enten du lager fan-videoer, YouTube-innhold, undervisningsmateriell eller profesjonelle presentasjoner, gir vårt verktøy fleksibiliteten og kvaliteten du trenger for å skille deg ut fra mengden.",
+
+      "premium_features": "Premium Funksjoner",
+      "feature_character_presets": "Karakterbaserte fargeforhåndsinnstillinger og temaer",
+      "feature_text_customization": "Avansert teksttilpasning og typografi",
+      "feature_gradient_backgrounds": "Profesjonelle gradientbakgrunner",
+      "feature_high_resolution": "Høy oppløsning eksport (1920×1080)",
+      "feature_real_time_preview": "Sanntids forhåndsvisning og redigering",
+      "feature_save_configurations": "Lagre og administrer favorittkonfigurasjoner",
+
+      "how_to_create_title": "Hvordan Lage Ditt Perfekte Titelkort",
+      "step_1_title": "Velg Din Stil",
+      "step_1_description": "Velg fra karakterforhåndsinnstillinger eller start med et blankt lerret. Hver forhåndsinnstilling inkluderer optimaliserte farger og styling for autentiske resultater.",
+      "step_2_title": "Tilpass Tekst",
+      "step_2_description": "Skriv inn tittelen din og juster typografiinnstillinger. Finjuster skriftstørrelse, kontur og posisjonering for det perfekte utseendet.",
+      "step_3_title": "Design & Forhåndsvis",
+      "step_3_description": "Juster farger, bakgrunner og effekter mens du ser endringene dine i sanntid. Bruk fullskjermmodus for detaljert redigering.",
+      "step_4_title": "Eksporter & Del",
+      "step_4_description": "Last ned titelkortet ditt i profesjonell kvalitet og del det på tvers av prosjektene dine, sosiale medier eller kreative plattformer.",
+
+      "faq_title": "Ofte Stilte Spørsmål",
+      "faq_1_question": "Hva gjør denne titelkort generatoren spesiell?",
+      "faq_1_answer": "Vår generator er spesifikt designet for å replikere det autentiske utseendet og følelsen av Invincible animasjonsserien. Vi har nøye studert showets typografi, fargeskjemaer og visuelle stil for å levere karakterspesifikke forhåndsinnstillinger og profesjonelle tilpasningsmuligheter som produserer studiokvalitets resultater.",
+      "faq_2_question": "Kan jeg bruke disse titelkortene til kommersielle prosjekter?",
+      "faq_2_answer": "Titelkortene du lager er dine å bruke til personlige prosjekter og fan-innhold. For kommersiell bruk, sørg for at du har de nødvendige rettighetene og tillatelsene. Vårt verktøy er designet for kreativt uttrykk og utdanningsformål.",
+      "faq_3_question": "Hvilken oppløsning og format har de eksporterte bildene?",
+      "faq_3_answer": "Alle titelkort eksporteres i høy kvalitet PNG-format ved 1920×1080 oppløsning (Full HD), perfekt for videoprosjekter, presentasjoner og sosiale medier. Filene bevarer gjennomsiktighet der relevant og er optimalisert for både digital og trykt bruk.",
+      "faq_4_question": "Hvordan lagrer jeg mine favorittkonfigurasjoner?",
+      "faq_4_answer": "Bruk \"Lagre\" knappen for å legge til din nåværende konfigurasjon til favorittene dine. Du kan lagre flere konfigurasjoner og raskt bytte mellom dem ved å klikke på enhver lagret forhåndsinnstilling i favorittavsnittet. Denne funksjonen hjelper deg med å opprettholde konsistens på tvers av flere titelkort eller raskt eksperimentere med forskjellige stiler.",
+      "faq_5_question": "Er verktøyet helt gratis?",
+      "faq_5_answer": "Ja! Vår Invincible Titelkort Generator er helt gratis uten registrering påkrevd, ingen skjulte gebyrer og ingen vannmerker (med mindre du velger å beholde attribusjonen). Lag ubegrensede titelkort og last dem ned i full oppløsning uten noen begrensninger."
+    },
+
+    "default_state": {
+      "text": "Invincible",
+      "small_subtitle": "BASERT PÅ TEGNESERIEN AV",
+      "subtitle": "Robert Kirkman, Cory Walker, & Ryan Ottley"
+    },
+
+    "messages": {
+      "settings_copied": "Innstillinger kopiert til utklippstavle! 🎬",
+      "copy_failed": "Kopiering mislyktes",
+      "download_failed": "Nedlasting mislyktes. Prøv igjen."
+    }
   }
 }

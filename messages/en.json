@@ -839,5 +839,189 @@
         }
       }
     }
+  },
+  "InvincibleTitleCardGenerator": {
+    "seo_title": "Invincible Title Card Generator - Create Custom TV Show Title Cards | Free Tool",
+    "seo_description": "Generate custom title cards inspired by the Invincible animated series. Create professional title cards with customizable text, colors, backgrounds, and effects. Perfect for fan content and creative projects.",
+    "seo_keywords": "invincible, title card generator, animated series, tv show, title cards, custom graphics, fan content, invincible generator",
+    "page_title": "Invincible Title Card Generator",
+    "page_subtitle": "Create Custom TV Show Title Cards",
+    "page_description": "Generate custom title cards inspired by the Invincible animated series. Create professional title cards with customizable text, colors, backgrounds, and effects. Perfect for fan content and creative projects.",
+
+    "breadcrumb": {
+      "home": "Home",
+      "tools": "Tools",
+      "invincible_title_card_generator": "Invincible Title Card Generator"
+    },
+
+    "header": {
+      "professional_badge": "Professional Title Card Generator",
+      "main_title": "Invincible",
+      "subtitle": "Title Card Generator",
+      "description": "Create professional-grade title cards inspired by the acclaimed animated series. Featuring authentic typography, character presets, and studio-quality export options for creators and content producers.",
+      "randomize_button": "Randomize",
+      "fullscreen_button": "Fullscreen",
+      "exit_fullscreen_button": "Exit Fullscreen",
+      "download_button": "Download",
+      "generating": "Generating..."
+    },
+
+    "preview": {
+      "live_preview": "Live Preview",
+      "resolution": "1920×1080",
+      "default_title": "Enter Your Title",
+      "watermark": "Made with geekskai.com",
+      "download_title_card": "Download Title Card",
+      "save_button": "Save",
+      "copy_button": "Copy",
+      "reset_all": "Reset All",
+      "saved_configurations": "Saved Configurations",
+      "click_to_apply": "Click to apply"
+    },
+
+    "settings": {
+      "customization": "Customization",
+      "presets_tab": "presets",
+      "text_tab": "text",
+      "colors_tab": "colors",
+      "effects_tab": "effects",
+
+      "character_presets": "Character Presets",
+      "text_settings": "Text Settings",
+      "main_title_label": "Main Title",
+      "main_title_placeholder": "Enter title text...",
+      "small_subtitle_label": "Small Subtitle",
+      "small_subtitle_placeholder": "Small subtitle...",
+      "credits_subtitle_label": "Credits Subtitle",
+      "credits_subtitle_placeholder": "Credits subtitle...",
+
+      "font_size": "Font Size",
+      "text_outline": "Text Outline",
+      "subtitle_offset": "Subtitle Offset",
+
+      "background_style": "Background Style",
+      "text_color": "Text Color",
+
+      "display_options": "Display Options",
+      "show_credits": "Show Credits",
+      "show_credits_description": "Display subtitle information below the title",
+      "show_watermark": "Show Watermark",
+      "show_watermark_description": "Add attribution to the generated image"
+    },
+
+    "presets": {
+      "invincible": {
+        "name": "Invincible",
+        "description": "The main character"
+      },
+      "invinciboy": {
+        "name": "Invinciboy",
+        "description": "Young Mark Grayson"
+      },
+      "atom_eve": {
+        "name": "Atom Eve",
+        "description": "Samantha Eve Wilkins"
+      },
+      "omni_man": {
+        "name": "Omni-Man",
+        "description": "Nolan Grayson"
+      },
+      "allen_the_alien": {
+        "name": "Allen the Alien",
+        "description": "Coalition of Planets"
+      },
+      "immortal": {
+        "name": "Immortal",
+        "description": "Abraham Lincoln"
+      },
+      "oliver": {
+        "name": "Oliver",
+        "description": "Mark's half-brother"
+      }
+    },
+
+    "backgrounds": {
+      "classic_blue": "Classic Blue",
+      "hero_gradient": "Hero Gradient",
+      "villain_red": "Villain Red",
+      "atom_pink": "Atom Pink",
+      "space_black": "Space Black",
+      "cosmic_purple": "Cosmic Purple",
+      "sunset_orange": "Sunset Orange",
+      "forest_green": "Forest Green"
+    },
+
+    "text_colors": {
+      "invincible_yellow": "Invincible Yellow",
+      "hero_blue": "Hero Blue",
+      "danger_red": "Danger Red",
+      "royal_purple": "Royal Purple",
+      "pure_black": "Pure Black",
+      "pure_white": "Pure White",
+      "bright_orange": "Bright Orange",
+      "steel_gray": "Steel Gray",
+      "atom_pink": "Atom Pink",
+      "alien_cyan": "Alien Cyan"
+    },
+
+    "content": {
+      "professional_features": "Professional-Grade Features",
+      "features_description": "Everything you need to create stunning title cards with studio-quality results",
+
+      "advanced_typography": "Advanced Typography",
+      "typography_description": "Professional text customization with authentic Invincible styling, outline effects, and precise typography controls for pixel-perfect results.",
+
+      "character_presets_feature": "Character Presets",
+      "presets_description": "Instantly apply authentic color schemes for Mark, Omni-Man, Atom Eve, and other beloved characters with one-click preset configurations.",
+
+      "studio_export_quality": "Studio Export Quality",
+      "export_description": "Export in ultra-high resolution 1920×1080 PNG format, optimized for professional video production, social media, and presentation use.",
+
+      "create_professional_title": "Create Professional Invincible-Style Title Cards",
+      "about_description_1": "Our advanced Invincible Title Card Generator empowers creators to produce studio-quality title cards that capture the essence of the beloved animated series. With intuitive controls and professional-grade output, bring your creative vision to life.",
+      "about_description_2": "Whether you're creating fan videos, YouTube content, educational materials, or professional presentations, our tool provides the flexibility and quality you need to stand out from the crowd.",
+
+      "premium_features": "Premium Features",
+      "feature_character_presets": "Character-based color presets and themes",
+      "feature_text_customization": "Advanced text customization and typography",
+      "feature_gradient_backgrounds": "Professional gradient backgrounds",
+      "feature_high_resolution": "High-resolution export (1920×1080)",
+      "feature_real_time_preview": "Real-time preview and editing",
+      "feature_save_configurations": "Save and manage favorite configurations",
+
+      "how_to_create_title": "How to Create Your Perfect Title Card",
+      "step_1_title": "Choose Your Style",
+      "step_1_description": "Select from character presets or start with a blank canvas. Each preset includes optimized colors and styling for authentic results.",
+      "step_2_title": "Customize Text",
+      "step_2_description": "Enter your title and adjust typography settings. Fine-tune font size, outline, and positioning for the perfect look.",
+      "step_3_title": "Design & Preview",
+      "step_3_description": "Adjust colors, backgrounds, and effects while watching your changes in real-time. Use the fullscreen mode for detailed editing.",
+      "step_4_title": "Export & Share",
+      "step_4_description": "Download your title card in professional quality and share it across your projects, social media, or creative platforms.",
+
+      "faq_title": "Frequently Asked Questions",
+      "faq_1_question": "What makes this title card generator special?",
+      "faq_1_answer": "Our generator is specifically designed to replicate the authentic look and feel of the Invincible animated series. We've carefully studied the show's typography, color schemes, and visual style to provide character-specific presets and professional-grade customization options that produce studio-quality results.",
+      "faq_2_question": "Can I use these title cards for commercial projects?",
+      "faq_2_answer": "The title cards you create are yours to use for personal projects and fan content. For commercial use, please ensure you have the necessary rights and permissions. Our tool is designed for creative expression and educational purposes.",
+      "faq_3_question": "What resolution and format are the exported images?",
+      "faq_3_answer": "All title cards are exported in high-quality PNG format at 1920×1080 resolution (Full HD), perfect for video projects, presentations, and social media. The files maintain transparency where applicable and are optimized for both digital and print use.",
+      "faq_4_question": "How do I save my favorite configurations?",
+      "faq_4_answer": "Use the \"Save\" button to add your current configuration to your favorites. You can save multiple configurations and quickly switch between them by clicking on any saved preset in the favorites section. This feature helps you maintain consistency across multiple title cards or quickly experiment with different styles.",
+      "faq_5_question": "Is the tool completely free?",
+      "faq_5_answer": "Yes! Our Invincible Title Card Generator is completely free with no registration required, no hidden fees, and no watermarks (unless you choose to keep the attribution). Create unlimited title cards and download them at full resolution without any restrictions."
+    },
+
+    "default_state": {
+      "text": "Invincible",
+      "small_subtitle": "BASED ON THE COMIC BOOK BY",
+      "subtitle": "Robert Kirkman, Cory Walker, & Ryan Ottley"
+    },
+
+    "messages": {
+      "settings_copied": "Settings copied to clipboard! 🎬",
+      "copy_failed": "Copy failed",
+      "download_failed": "Download failed. Please try again."
+    }
   }
 }

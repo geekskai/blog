@@ -772,5 +772,189 @@
       "description": "모든 북유럽 측정 요구사항을 위한 무료, 정확하고 전문적인 CM에서 인치 변환기 사용을 시작하세요.",
       "button_text": "CM에서 인치 변환기 사용"
     }
+  },
+  "InvincibleTitleCardGenerator": {
+    "seo_title": "인빈시블 타이틀 카드 생성기 - 맞춤형 TV 쇼 타이틀 카드 제작 | 무료 도구",
+    "seo_description": "인빈시블 애니메이션 시리즈에서 영감을 받은 맞춤형 타이틀 카드를 생성하세요. 사용자 정의 가능한 텍스트, 색상, 배경 및 효과로 전문적인 타이틀 카드를 제작하세요. 팬 콘텐츠와 창작 프로젝트에 완벽합니다.",
+    "seo_keywords": "인빈시블, 타이틀 카드 생성기, 애니메이션 시리즈, TV 쇼, 타이틀 카드, 맞춤형 그래픽, 팬 콘텐츠, 인빈시블 생성기",
+    "page_title": "인빈시블 타이틀 카드 생성기",
+    "page_subtitle": "맞춤형 TV 쇼 타이틀 카드 제작",
+    "page_description": "인빈시블 애니메이션 시리즈에서 영감을 받은 맞춤형 타이틀 카드를 생성하세요. 사용자 정의 가능한 텍스트, 색상, 배경 및 효과로 전문적인 타이틀 카드를 제작하세요. 팬 콘텐츠와 창작 프로젝트에 완벽합니다.",
+
+    "breadcrumb": {
+      "home": "홈",
+      "tools": "도구",
+      "invincible_title_card_generator": "인빈시블 타이틀 카드 생성기"
+    },
+
+    "header": {
+      "professional_badge": "전문 타이틀 카드 생성기",
+      "main_title": "인빈시블",
+      "subtitle": "타이틀 카드 생성기",
+      "description": "찬사를 받은 애니메이션 시리즈에서 영감을 받은 스튜디오 품질의 타이틀 카드를 제작하세요. 정통 타이포그래피, 캐릭터 프리셋, 스튜디오 품질 내보내기 옵션으로 크리에이터와 콘텐츠 제작자를 지원합니다.",
+      "randomize_button": "무작위화",
+      "fullscreen_button": "전체화면",
+      "exit_fullscreen_button": "전체화면 종료",
+      "download_button": "다운로드",
+      "generating": "생성 중..."
+    },
+
+    "preview": {
+      "live_preview": "실시간 미리보기",
+      "resolution": "1920×1080",
+      "default_title": "제목을 입력하세요",
+      "watermark": "geekskai.com에서 제작",
+      "download_title_card": "타이틀 카드 다운로드",
+      "save_button": "저장",
+      "copy_button": "복사",
+      "reset_all": "모두 재설정",
+      "saved_configurations": "저장된 구성",
+      "click_to_apply": "클릭하여 적용"
+    },
+
+    "settings": {
+      "customization": "사용자 정의",
+      "presets_tab": "프리셋",
+      "text_tab": "텍스트",
+      "colors_tab": "색상",
+      "effects_tab": "효과",
+
+      "character_presets": "캐릭터 프리셋",
+      "text_settings": "텍스트 설정",
+      "main_title_label": "메인 제목",
+      "main_title_placeholder": "제목 텍스트를 입력하세요...",
+      "small_subtitle_label": "작은 부제목",
+      "small_subtitle_placeholder": "작은 부제목...",
+      "credits_subtitle_label": "크레딧 부제목",
+      "credits_subtitle_placeholder": "크레딧 부제목...",
+
+      "font_size": "글꼴 크기",
+      "text_outline": "텍스트 윤곽선",
+      "subtitle_offset": "부제목 오프셋",
+
+      "background_style": "배경 스타일",
+      "text_color": "텍스트 색상",
+
+      "display_options": "표시 옵션",
+      "show_credits": "크레딧 표시",
+      "show_credits_description": "제목 아래에 부제목 정보 표시",
+      "show_watermark": "워터마크 표시",
+      "show_watermark_description": "생성된 이미지에 출처 추가"
+    },
+
+    "presets": {
+      "invincible": {
+        "name": "인빈시블",
+        "description": "주인공"
+      },
+      "invinciboy": {
+        "name": "인빈시보이",
+        "description": "젊은 마크 그레이슨"
+      },
+      "atom_eve": {
+        "name": "아톰 이브",
+        "description": "사만다 이브 윌킨스"
+      },
+      "omni_man": {
+        "name": "옴니맨",
+        "description": "놀란 그레이슨"
+      },
+      "allen_the_alien": {
+        "name": "외계인 앨런",
+        "description": "행성 연합"
+      },
+      "immortal": {
+        "name": "불멸자",
+        "description": "에이브러햄 링컨"
+      },
+      "oliver": {
+        "name": "올리버",
+        "description": "마크의 이복형제"
+      }
+    },
+
+    "backgrounds": {
+      "classic_blue": "클래식 블루",
+      "hero_gradient": "히어로 그라데이션",
+      "villain_red": "빌런 레드",
+      "atom_pink": "아톰 핑크",
+      "space_black": "스페이스 블랙",
+      "cosmic_purple": "코스믹 퍼플",
+      "sunset_orange": "선셋 오렌지",
+      "forest_green": "포레스트 그린"
+    },
+
+    "text_colors": {
+      "invincible_yellow": "인빈시블 옐로우",
+      "hero_blue": "히어로 블루",
+      "danger_red": "데인저 레드",
+      "royal_purple": "로열 퍼플",
+      "pure_black": "퓨어 블랙",
+      "pure_white": "퓨어 화이트",
+      "bright_orange": "브라이트 오렌지",
+      "steel_gray": "스틸 그레이",
+      "atom_pink": "아톰 핑크",
+      "alien_cyan": "에일리언 시안"
+    },
+
+    "content": {
+      "professional_features": "전문 기능",
+      "features_description": "스튜디오 품질의 결과로 멋진 타이틀 카드를 만드는 데 필요한 모든 것",
+
+      "advanced_typography": "고급 타이포그래피",
+      "typography_description": "정통 인빈시블 스타일링, 윤곽선 효과, 픽셀 완벽한 결과를 위한 정밀한 타이포그래피 제어로 전문적인 텍스트 사용자 정의.",
+
+      "character_presets_feature": "캐릭터 프리셋",
+      "presets_description": "마크, 옴니맨, 아톰 이브 및 기타 사랑받는 캐릭터의 정통 색상 구성표를 원클릭 프리셋 구성으로 즉시 적용하세요.",
+
+      "studio_export_quality": "스튜디오 내보내기 품질",
+      "export_description": "전문 비디오 제작, 소셜 미디어 및 프레젠테이션 사용에 최적화된 초고해상도 1920×1080 PNG 형식으로 내보내기.",
+
+      "create_professional_title": "전문적인 인빈시블 스타일 타이틀 카드 제작",
+      "about_description_1": "우리의 고급 인빈시블 타이틀 카드 생성기는 크리에이터가 사랑받는 애니메이션 시리즈의 본질을 담은 스튜디오 품질의 타이틀 카드를 제작할 수 있게 해줍니다. 직관적인 제어와 전문급 출력으로 창작 비전을 실현하세요.",
+      "about_description_2": "팬 비디오, YouTube 콘텐츠, 교육 자료 또는 전문 프레젠테이션을 제작하든, 우리 도구는 군중에서 돋보이는 데 필요한 유연성과 품질을 제공합니다.",
+
+      "premium_features": "프리미엄 기능",
+      "feature_character_presets": "캐릭터 기반 색상 프리셋 및 테마",
+      "feature_text_customization": "고급 텍스트 사용자 정의 및 타이포그래피",
+      "feature_gradient_backgrounds": "전문 그라데이션 배경",
+      "feature_high_resolution": "고해상도 내보내기 (1920×1080)",
+      "feature_real_time_preview": "실시간 미리보기 및 편집",
+      "feature_save_configurations": "즐겨찾기 구성 저장 및 관리",
+
+      "how_to_create_title": "완벽한 타이틀 카드 만드는 방법",
+      "step_1_title": "스타일 선택",
+      "step_1_description": "캐릭터 프리셋에서 선택하거나 빈 캔버스로 시작하세요. 각 프리셋에는 정통한 결과를 위한 최적화된 색상과 스타일링이 포함되어 있습니다.",
+      "step_2_title": "텍스트 사용자 정의",
+      "step_2_description": "제목을 입력하고 타이포그래피 설정을 조정하세요. 완벽한 모양을 위해 글꼴 크기, 윤곽선 및 위치를 미세 조정하세요.",
+      "step_3_title": "디자인 및 미리보기",
+      "step_3_description": "실시간으로 변경 사항을 보면서 색상, 배경 및 효과를 조정하세요. 자세한 편집을 위해 전체화면 모드를 사용하세요.",
+      "step_4_title": "내보내기 및 공유",
+      "step_4_description": "전문 품질로 타이틀 카드를 다운로드하고 프로젝트, 소셜 미디어 또는 창작 플랫폼에서 공유하세요.",
+
+      "faq_title": "자주 묻는 질문",
+      "faq_1_question": "이 타이틀 카드 생성기의 특별한 점은 무엇인가요?",
+      "faq_1_answer": "우리 생성기는 인빈시블 애니메이션 시리즈의 정통한 모양과 느낌을 재현하도록 특별히 설계되었습니다. 쇼의 타이포그래피, 색상 구성표 및 시각적 스타일을 신중히 연구하여 스튜디오 품질의 결과를 생성하는 캐릭터별 프리셋과 전문급 사용자 정의 옵션을 제공합니다.",
+      "faq_2_question": "이 타이틀 카드를 상업적 프로젝트에 사용할 수 있나요?",
+      "faq_2_answer": "제작한 타이틀 카드는 개인 프로젝트와 팬 콘텐츠에 사용할 수 있습니다. 상업적 사용의 경우 필요한 권리와 허가를 보유하고 있는지 확인하세요. 우리 도구는 창작적 표현과 교육 목적을 위해 설계되었습니다.",
+      "faq_3_question": "내보낸 이미지의 해상도와 형식은 무엇인가요?",
+      "faq_3_answer": "모든 타이틀 카드는 1920×1080 해상도(Full HD)의 고품질 PNG 형식으로 내보내지며, 비디오 프로젝트, 프레젠테이션 및 소셜 미디어에 완벽합니다. 파일은 해당하는 경우 투명도를 유지하며 디지털 및 인쇄 사용 모두에 최적화되어 있습니다.",
+      "faq_4_question": "즐겨찾기 구성을 어떻게 저장하나요?",
+      "faq_4_answer": "\"저장\" 버튼을 사용하여 현재 구성을 즐겨찾기에 추가하세요. 여러 구성을 저장하고 즐겨찾기 섹션의 저장된 프리셋을 클릭하여 빠르게 전환할 수 있습니다. 이 기능은 여러 타이틀 카드 간의 일관성을 유지하거나 다양한 스타일을 빠르게 실험하는 데 도움이 됩니다.",
+      "faq_5_question": "이 도구는 완전히 무료인가요?",
+      "faq_5_answer": "네! 우리의 인빈시블 타이틀 카드 생성기는 등록 불필요, 숨겨진 수수료 없음, 워터마크 없음(출처 표시를 유지하기로 선택하지 않는 한)으로 완전히 무료입니다. 제한 없이 무제한 타이틀 카드를 만들고 전체 해상도로 다운로드하세요."
+    },
+
+    "default_state": {
+      "text": "인빈시블",
+      "small_subtitle": "만화책 원작",
+      "subtitle": "로버트 커크먼, 코리 워커, 라이언 오틀리"
+    },
+
+    "messages": {
+      "settings_copied": "설정이 클립보드에 복사되었습니다! 🎬",
+      "copy_failed": "복사 실패",
+      "download_failed": "다운로드 실패. 다시 시도하세요."
+    }
   }
 }

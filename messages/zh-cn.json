@@ -771,5 +771,189 @@
       "description": "开始使用我们免费、准确、专业的厘米转英寸转换器，满足您所有的北欧测量需求。",
       "button_text": "使用厘米转英寸转换器"
     }
+  },
+  "InvincibleTitleCardGenerator": {
+    "seo_title": "无敌标题卡生成器 - 创建自定义电视剧标题卡 | 免费工具",
+    "seo_description": "生成受无敌动画系列启发的自定义标题卡。创建具有可自定义文本、颜色、背景和效果的专业标题卡。完美适用于粉丝内容和创意项目。",
+    "seo_keywords": "无敌, 标题卡生成器, 动画系列, 电视剧, 标题卡, 自定义图形, 粉丝内容, 无敌生成器",
+    "page_title": "无敌标题卡生成器",
+    "page_subtitle": "创建自定义电视剧标题卡",
+    "page_description": "生成受无敌动画系列启发的自定义标题卡。创建具有可自定义文本、颜色、背景和效果的专业标题卡。完美适用于粉丝内容和创意项目。",
+
+    "breadcrumb": {
+      "home": "首页",
+      "tools": "工具",
+      "invincible_title_card_generator": "无敌标题卡生成器"
+    },
+
+    "header": {
+      "professional_badge": "专业标题卡生成器",
+      "main_title": "无敌",
+      "subtitle": "标题卡生成器",
+      "description": "创建受赞誉动画系列启发的专业级标题卡。具有真实字体、角色预设和工作室质量导出选项，为创作者和内容制作者提供服务。",
+      "randomize_button": "随机化",
+      "fullscreen_button": "全屏",
+      "exit_fullscreen_button": "退出全屏",
+      "download_button": "下载",
+      "generating": "生成中..."
+    },
+
+    "preview": {
+      "live_preview": "实时预览",
+      "resolution": "1920×1080",
+      "default_title": "输入您的标题",
+      "watermark": "由 geekskai.com 制作",
+      "download_title_card": "下载标题卡",
+      "save_button": "保存",
+      "copy_button": "复制",
+      "reset_all": "重置全部",
+      "saved_configurations": "已保存配置",
+      "click_to_apply": "点击应用"
+    },
+
+    "settings": {
+      "customization": "自定义",
+      "presets_tab": "预设",
+      "text_tab": "文本",
+      "colors_tab": "颜色",
+      "effects_tab": "效果",
+
+      "character_presets": "角色预设",
+      "text_settings": "文本设置",
+      "main_title_label": "主标题",
+      "main_title_placeholder": "输入标题文本...",
+      "small_subtitle_label": "小副标题",
+      "small_subtitle_placeholder": "小副标题...",
+      "credits_subtitle_label": "制作人员副标题",
+      "credits_subtitle_placeholder": "制作人员副标题...",
+
+      "font_size": "字体大小",
+      "text_outline": "文本轮廓",
+      "subtitle_offset": "副标题偏移",
+
+      "background_style": "背景样式",
+      "text_color": "文本颜色",
+
+      "display_options": "显示选项",
+      "show_credits": "显示制作人员",
+      "show_credits_description": "在标题下方显示副标题信息",
+      "show_watermark": "显示水印",
+      "show_watermark_description": "在生成的图像上添加署名"
+    },
+
+    "presets": {
+      "invincible": {
+        "name": "无敌",
+        "description": "主角"
+      },
+      "invinciboy": {
+        "name": "无敌少年",
+        "description": "年轻的马克·格雷森"
+      },
+      "atom_eve": {
+        "name": "原子夏娃",
+        "description": "萨曼莎·伊芙·威尔金斯"
+      },
+      "omni_man": {
+        "name": "全能侠",
+        "description": "诺兰·格雷森"
+      },
+      "allen_the_alien": {
+        "name": "外星人艾伦",
+        "description": "行星联盟"
+      },
+      "immortal": {
+        "name": "不朽者",
+        "description": "亚伯拉罕·林肯"
+      },
+      "oliver": {
+        "name": "奥利弗",
+        "description": "马克的同父异母兄弟"
+      }
+    },
+
+    "backgrounds": {
+      "classic_blue": "经典蓝",
+      "hero_gradient": "英雄渐变",
+      "villain_red": "反派红",
+      "atom_pink": "原子粉",
+      "space_black": "太空黑",
+      "cosmic_purple": "宇宙紫",
+      "sunset_orange": "日落橙",
+      "forest_green": "森林绿"
+    },
+
+    "text_colors": {
+      "invincible_yellow": "无敌黄",
+      "hero_blue": "英雄蓝",
+      "danger_red": "危险红",
+      "royal_purple": "皇家紫",
+      "pure_black": "纯黑",
+      "pure_white": "纯白",
+      "bright_orange": "亮橙",
+      "steel_gray": "钢灰",
+      "atom_pink": "原子粉",
+      "alien_cyan": "外星青"
+    },
+
+    "content": {
+      "professional_features": "专业级功能",
+      "features_description": "创建令人惊叹的标题卡所需的一切，具有工作室质量的效果",
+
+      "advanced_typography": "高级排版",
+      "typography_description": "专业文本自定义，具有真实的无敌风格、轮廓效果和精确的排版控制，实现像素完美的效果。",
+
+      "character_presets_feature": "角色预设",
+      "presets_description": "一键应用马克、全能侠、原子夏娃和其他受喜爱角色的真实配色方案和预设配置。",
+
+      "studio_export_quality": "工作室导出质量",
+      "export_description": "以超高分辨率1920×1080 PNG格式导出，针对专业视频制作、社交媒体和演示使用进行优化。",
+
+      "create_professional_title": "创建专业的无敌风格标题卡",
+      "about_description_1": "我们先进的无敌标题卡生成器使创作者能够制作工作室质量的标题卡，捕捉受喜爱动画系列的精髓。通过直观的控制和专业级输出，将您的创意愿景变为现实。",
+      "about_description_2": "无论您是创建粉丝视频、YouTube内容、教育材料还是专业演示，我们的工具都提供了从人群中脱颖而出所需的灵活性和质量。",
+
+      "premium_features": "高级功能",
+      "feature_character_presets": "基于角色的配色预设和主题",
+      "feature_text_customization": "高级文本自定义和排版",
+      "feature_gradient_backgrounds": "专业渐变背景",
+      "feature_high_resolution": "高分辨率导出（1920×1080）",
+      "feature_real_time_preview": "实时预览和编辑",
+      "feature_save_configurations": "保存和管理喜爱的配置",
+
+      "how_to_create_title": "如何创建完美的标题卡",
+      "step_1_title": "选择您的风格",
+      "step_1_description": "从角色预设中选择或从空白画布开始。每个预设都包含优化的颜色和样式，以获得真实的效果。",
+      "step_2_title": "自定义文本",
+      "step_2_description": "输入您的标题并调整排版设置。微调字体大小、轮廓和位置以获得完美的外观。",
+      "step_3_title": "设计和预览",
+      "step_3_description": "调整颜色、背景和效果，同时实时观看您的更改。使用全屏模式进行详细编辑。",
+      "step_4_title": "导出和分享",
+      "step_4_description": "以专业质量下载您的标题卡，并在您的项目、社交媒体或创意平台上分享。",
+
+      "faq_title": "常见问题",
+      "faq_1_question": "是什么让这个标题卡生成器特别？",
+      "faq_1_answer": "我们的生成器专门设计用于复制无敌动画系列的真实外观和感觉。我们仔细研究了该剧的排版、配色方案和视觉风格，以提供角色特定的预设和专业级自定义选项，产生工作室质量的效果。",
+      "faq_2_question": "我可以将这些标题卡用于商业项目吗？",
+      "faq_2_answer": "您创建的标题卡可用于个人项目和粉丝内容。对于商业用途，请确保您拥有必要的权利和许可。我们的工具专为创意表达和教育目的而设计。",
+      "faq_3_question": "导出图像的分辨率和格式是什么？",
+      "faq_3_answer": "所有标题卡都以1920×1080分辨率（全高清）的高质量PNG格式导出，非常适合视频项目、演示和社交媒体。文件在适用的地方保持透明度，并针对数字和印刷用途进行了优化。",
+      "faq_4_question": "如何保存我喜爱的配置？",
+      "faq_4_answer": "使用'保存'按钮将您当前的配置添加到收藏夹。您可以保存多个配置，并通过点击收藏夹部分中的任何保存预设在它们之间快速切换。此功能有助于您在多个标题卡之间保持一致性或快速尝试不同的风格。",
+      "faq_5_question": "该工具完全免费吗？",
+      "faq_5_answer": "是的！我们的无敌标题卡生成器完全免费，无需注册，无隐藏费用，无水印（除非您选择保留署名）。创建无限制的标题卡并以全分辨率下载，没有任何限制。"
+    },
+
+    "default_state": {
+      "text": "无敌",
+      "small_subtitle": "根据漫画改编",
+      "subtitle": "罗伯特·柯克曼、科里·沃克和瑞安·奥特利"
+    },
+
+    "messages": {
+      "settings_copied": "设置已复制到剪贴板！🎬",
+      "copy_failed": "复制失败",
+      "download_failed": "下载失败。请重试。"
+    }
   }
 }

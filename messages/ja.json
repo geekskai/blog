@@ -773,5 +773,189 @@
       "description": "すべての北欧測定ニーズに対応する無料で正確、プロフェッショナルなCMからインチ変換器の使用を開始してください。",
       "button_text": "CMからインチ変換器を使用"
     }
+  },
+  "InvincibleTitleCardGenerator": {
+    "seo_title": "インビンシブル タイトルカード ジェネレーター - カスタムTVショータイトルカードを作成 | 無料ツール",
+    "seo_description": "インビンシブル アニメシリーズにインスパイアされたカスタムタイトルカードを生成。カスタマイズ可能なテキスト、色、背景、エフェクトでプロフェッショナルなタイトルカードを作成。ファンコンテンツやクリエイティブプロジェクトに最適。",
+    "seo_keywords": "インビンシブル, タイトルカードジェネレーター, アニメシリーズ, TVショー, タイトルカード, カスタムグラフィック, ファンコンテンツ, インビンシブルジェネレーター",
+    "page_title": "インビンシブル タイトルカード ジェネレーター",
+    "page_subtitle": "カスタムTVショータイトルカードを作成",
+    "page_description": "インビンシブル アニメシリーズにインスパイアされたカスタムタイトルカードを生成。カスタマイズ可能なテキスト、色、背景、エフェクトでプロフェッショナルなタイトルカードを作成。ファンコンテンツやクリエイティブプロジェクトに最適。",
+
+    "breadcrumb": {
+      "home": "ホーム",
+      "tools": "ツール",
+      "invincible_title_card_generator": "インビンシブル タイトルカード ジェネレーター"
+    },
+
+    "header": {
+      "professional_badge": "プロフェッショナル タイトルカード ジェネレーター",
+      "main_title": "インビンシブル",
+      "subtitle": "タイトルカード ジェネレーター",
+      "description": "称賛されたアニメシリーズにインスパイアされたスタジオ品質のタイトルカードを作成。本格的なタイポグラフィ、キャラクタープリセット、スタジオ品質のエクスポートオプションでクリエイターとコンテンツプロデューサーをサポート。",
+      "randomize_button": "ランダム化",
+      "fullscreen_button": "フルスクリーン",
+      "exit_fullscreen_button": "フルスクリーン終了",
+      "download_button": "ダウンロード",
+      "generating": "生成中..."
+    },
+
+    "preview": {
+      "live_preview": "ライブプレビュー",
+      "resolution": "1920×1080",
+      "default_title": "タイトルを入力",
+      "watermark": "geekskai.com で作成",
+      "download_title_card": "タイトルカードをダウンロード",
+      "save_button": "保存",
+      "copy_button": "コピー",
+      "reset_all": "すべてリセット",
+      "saved_configurations": "保存された設定",
+      "click_to_apply": "クリックして適用"
+    },
+
+    "settings": {
+      "customization": "カスタマイズ",
+      "presets_tab": "プリセット",
+      "text_tab": "テキスト",
+      "colors_tab": "色",
+      "effects_tab": "エフェクト",
+
+      "character_presets": "キャラクタープリセット",
+      "text_settings": "テキスト設定",
+      "main_title_label": "メインタイトル",
+      "main_title_placeholder": "タイトルテキストを入力...",
+      "small_subtitle_label": "小サブタイトル",
+      "small_subtitle_placeholder": "小サブタイトル...",
+      "credits_subtitle_label": "クレジットサブタイトル",
+      "credits_subtitle_placeholder": "クレジットサブタイトル...",
+
+      "font_size": "フォントサイズ",
+      "text_outline": "テキストアウトライン",
+      "subtitle_offset": "サブタイトルオフセット",
+
+      "background_style": "背景スタイル",
+      "text_color": "テキスト色",
+
+      "display_options": "表示オプション",
+      "show_credits": "クレジット表示",
+      "show_credits_description": "タイトル下にサブタイトル情報を表示",
+      "show_watermark": "ウォーターマーク表示",
+      "show_watermark_description": "生成された画像に帰属を追加"
+    },
+
+    "presets": {
+      "invincible": {
+        "name": "インビンシブル",
+        "description": "主人公"
+      },
+      "invinciboy": {
+        "name": "インビンシボーイ",
+        "description": "若きマーク・グレイソン"
+      },
+      "atom_eve": {
+        "name": "アトム・イヴ",
+        "description": "サマンサ・イヴ・ウィルキンス"
+      },
+      "omni_man": {
+        "name": "オムニマン",
+        "description": "ノーラン・グレイソン"
+      },
+      "allen_the_alien": {
+        "name": "エイリアン・アレン",
+        "description": "惑星連合"
+      },
+      "immortal": {
+        "name": "イモータル",
+        "description": "エイブラハム・リンカーン"
+      },
+      "oliver": {
+        "name": "オリバー",
+        "description": "マークの異母兄弟"
+      }
+    },
+
+    "backgrounds": {
+      "classic_blue": "クラシックブルー",
+      "hero_gradient": "ヒーローグラデーション",
+      "villain_red": "ヴィランレッド",
+      "atom_pink": "アトムピンク",
+      "space_black": "スペースブラック",
+      "cosmic_purple": "コズミックパープル",
+      "sunset_orange": "サンセットオレンジ",
+      "forest_green": "フォレストグリーン"
+    },
+
+    "text_colors": {
+      "invincible_yellow": "インビンシブルイエロー",
+      "hero_blue": "ヒーローブルー",
+      "danger_red": "デンジャーレッド",
+      "royal_purple": "ロイヤルパープル",
+      "pure_black": "ピュアブラック",
+      "pure_white": "ピュアホワイト",
+      "bright_orange": "ブライトオレンジ",
+      "steel_gray": "スチールグレー",
+      "atom_pink": "アトムピンク",
+      "alien_cyan": "エイリアンシアン"
+    },
+
+    "content": {
+      "professional_features": "プロフェッショナル機能",
+      "features_description": "スタジオ品質の結果で素晴らしいタイトルカードを作成するために必要なすべて",
+
+      "advanced_typography": "高度なタイポグラフィ",
+      "typography_description": "本格的なインビンシブルスタイリング、アウトラインエフェクト、ピクセルパーフェクトな結果のための精密なタイポグラフィコントロールでプロフェッショナルなテキストカスタマイズ。",
+
+      "character_presets_feature": "キャラクタープリセット",
+      "presets_description": "マーク、オムニマン、アトム・イヴ、その他愛されるキャラクターの本格的なカラースキームをワンクリックプリセット設定で瞬時に適用。",
+
+      "studio_export_quality": "スタジオエクスポート品質",
+      "export_description": "プロフェッショナルなビデオ制作、ソーシャルメディア、プレゼンテーション使用に最適化された超高解像度1920×1080 PNG形式でエクスポート。",
+
+      "create_professional_title": "プロフェッショナルなインビンシブルスタイルのタイトルカードを作成",
+      "about_description_1": "当社の高度なインビンシブル タイトルカード ジェネレーターは、愛されるアニメシリーズのエッセンスを捉えたスタジオ品質のタイトルカードを制作することをクリエイターに可能にします。直感的なコントロールとプロフェッショナルグレードの出力で、あなたのクリエイティブビジョンを実現します。",
+      "about_description_2": "ファン動画、YouTubeコンテンツ、教育資料、プロフェッショナルプレゼンテーションのいずれを作成する場合でも、当ツールは群衆から際立つために必要な柔軟性と品質を提供します。",
+
+      "premium_features": "プレミアム機能",
+      "feature_character_presets": "キャラクターベースのカラープリセットとテーマ",
+      "feature_text_customization": "高度なテキストカスタマイズとタイポグラフィ",
+      "feature_gradient_backgrounds": "プロフェッショナルグラデーション背景",
+      "feature_high_resolution": "高解像度エクスポート（1920×1080）",
+      "feature_real_time_preview": "リアルタイムプレビューと編集",
+      "feature_save_configurations": "お気に入り設定の保存と管理",
+
+      "how_to_create_title": "完璧なタイトルカードの作成方法",
+      "step_1_title": "スタイルを選択",
+      "step_1_description": "キャラクタープリセットから選択するか、白紙のキャンバスから開始。各プリセットには本格的な結果のための最適化された色とスタイリングが含まれています。",
+      "step_2_title": "テキストをカスタマイズ",
+      "step_2_description": "タイトルを入力し、タイポグラフィ設定を調整。完璧な外観のためにフォントサイズ、アウトライン、位置を微調整。",
+      "step_3_title": "デザインとプレビュー",
+      "step_3_description": "リアルタイムで変更を確認しながら色、背景、エフェクトを調整。詳細編集にはフルスクリーンモードを使用。",
+      "step_4_title": "エクスポートと共有",
+      "step_4_description": "プロフェッショナル品質でタイトルカードをダウンロードし、プロジェクト、ソーシャルメディア、クリエイティブプラットフォームで共有。",
+
+      "faq_title": "よくある質問",
+      "faq_1_question": "このタイトルカードジェネレーターの特別な点は何ですか？",
+      "faq_1_answer": "当ジェネレーターは、インビンシブル アニメシリーズの本格的な外観と感触を再現するために特別に設計されています。番組のタイポグラフィ、カラースキーム、ビジュアルスタイルを注意深く研究し、スタジオ品質の結果を生み出すキャラクター固有のプリセットとプロフェッショナルグレードのカスタマイズオプションを提供しています。",
+      "faq_2_question": "これらのタイトルカードを商用プロジェクトに使用できますか？",
+      "faq_2_answer": "作成したタイトルカードは個人プロジェクトやファンコンテンツにご使用いただけます。商用利用については、必要な権利と許可をお持ちであることを確認してください。当ツールはクリエイティブな表現と教育目的のために設計されています。",
+      "faq_3_question": "エクスポートされる画像の解像度と形式は何ですか？",
+      "faq_3_answer": "すべてのタイトルカードは1920×1080解像度（フルHD）の高品質PNG形式でエクスポートされ、ビデオプロジェクト、プレゼンテーション、ソーシャルメディアに最適です。ファイルは該当する場合に透明度を維持し、デジタルと印刷の両方の用途に最適化されています。",
+      "faq_4_question": "お気に入りの設定を保存するにはどうすればよいですか？",
+      "faq_4_answer": "「保存」ボタンを使用して現在の設定をお気に入りに追加。複数の設定を保存し、お気に入りセクションの保存されたプリセットをクリックして素早く切り替えることができます。この機能は複数のタイトルカード間で一貫性を保つか、異なるスタイルを素早く試すのに役立ちます。",
+      "faq_5_question": "このツールは完全に無料ですか？",
+      "faq_5_answer": "はい！当インビンシブル タイトルカード ジェネレーターは完全に無料で、登録不要、隠れた料金なし、ウォーターマークなし（帰属を保持することを選択しない限り）。制限なく無制限のタイトルカードを作成し、フル解像度でダウンロードできます。"
+    },
+
+    "default_state": {
+      "text": "インビンシブル",
+      "small_subtitle": "コミックブック原作",
+      "subtitle": "ロバート・カークマン、コリー・ウォーカー、ライアン・オットリー"
+    },
+
+    "messages": {
+      "settings_copied": "設定がクリップボードにコピーされました！🎬",
+      "copy_failed": "コピーに失敗しました",
+      "download_failed": "ダウンロードに失敗しました。再試行してください。"
+    }
   }
 }

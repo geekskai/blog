@@ -2,8 +2,8 @@ import { useState, useCallback } from "react"
 import { TitleCardState } from "./types"
 import { DEFAULT_STATE, characterPresets, backgroundPresets } from "./constants"
 
-export const useTitleCardState = () => {
-  const [state, setState] = useState<TitleCardState>(DEFAULT_STATE)
+export const useTitleCardState = (initialState?: TitleCardState) => {
+  const [state, setState] = useState<TitleCardState>(initialState || DEFAULT_STATE)
   const [favorites, setFavorites] = useState<TitleCardState[]>([])
   const [showSettings, setShowSettings] = useState(true)
   const [isFullscreen, setIsFullscreen] = useState(false)

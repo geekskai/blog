@@ -1,5 +1,6 @@
 import React from "react"
 import { Monitor, Maximize2, Minimize2, Download, Heart, Copy, RotateCcw, Star } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { TitleCardState } from "../types"
 
 interface PreviewAreaProps {
@@ -27,6 +28,7 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
   onResetAll,
   onApplyFavorite,
 }) => {
+  const t = useTranslations("InvincibleTitleCardGenerator")
   return (
     <div className={`${isFullscreen ? "col-span-1" : "lg:col-span-8"}`}>
       <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
@@ -34,12 +36,12 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
           <div className="flex items-center justify-between">
             <h2 className="flex items-center text-xl font-semibold text-white">
               <Monitor className="mr-3 h-5 w-5 text-blue-400" />
-              Live Preview
+              {t("preview.live_preview")}
             </h2>
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2 text-sm text-slate-400">
                 <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-400"></div>
-                <span className="font-mono">1920×1080</span>
+                <span className="font-mono">{t("preview.resolution")}</span>
               </div>
               <button
                 onClick={onToggleFullscreen}
@@ -92,7 +94,7 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
                     state.outline > 0 ? `${state.outline}px ${state.outlineColor}` : "none",
                 }}
               >
-                {state.text || "Enter Your Title"}
+                {state.text || t("preview.default_title")}
               </div>
 
               {/* Credits */}
@@ -136,7 +138,7 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
               {/* Watermark */}
               {state.showWatermark && (
                 <div className="absolute bottom-4 right-4 text-sm font-medium text-white/40">
-                  Made with geekskai.com
+                  {t("preview.watermark")}
                 </div>
               )}
             </div>
@@ -154,12 +156,12 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
           {state.generating ? (
             <div className="flex items-center justify-center space-x-2">
               <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
-              <span>Generating...</span>
+              <span>{t("header.generating")}</span>
             </div>
           ) : (
             <div className="flex items-center justify-center space-x-2">
               <Download className="h-5 w-5" />
-              <span>Download Title Card</span>
+              <span>{t("preview.download_title_card")}</span>
             </div>
           )}
         </button>
@@ -170,7 +172,7 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
             className="flex items-center justify-center space-x-2 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-3 text-sm font-medium text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl"
           >
             <Heart className="h-4 w-4" />
-            <span>Save</span>
+            <span>{t("preview.save_button")}</span>
           </button>
 
           <button
@@ -178,7 +180,7 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
             className="flex items-center justify-center space-x-2 rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm font-medium text-slate-300 backdrop-blur-sm transition-all hover:scale-105 hover:bg-white/15"
           >
             <Copy className="h-4 w-4" />
-            <span>Copy</span>
+            <span>{t("preview.copy_button")}</span>
           </button>
         </div>
 
@@ -187,7 +189,7 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
           className="flex w-full items-center justify-center space-x-2 rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-sm font-medium text-slate-300 backdrop-blur-sm transition-all hover:scale-105 hover:bg-white/10"
         >
           <RotateCcw className="h-4 w-4" />
-          <span>Reset All</span>
+          <span>{t("preview.reset_all")}</span>
         </button>
       </div>
 
@@ -197,7 +199,7 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
           <div className="border-b border-white/10 px-6 py-4">
             <h3 className="flex items-center text-lg font-semibold text-white">
               <Star className="mr-3 h-5 w-5 text-yellow-400" />
-              Saved Configurations ({favorites.length})
+              {t("preview.saved_configurations")} ({favorites.length})
             </h3>
           </div>
           <div className="p-6">
@@ -217,7 +219,7 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
                       <h4 className="font-medium text-white transition-colors group-hover:text-yellow-300">
                         {favorite.text}
                       </h4>
-                      <p className="text-xs text-slate-400">Click to apply</p>
+                      <p className="text-xs text-slate-400">{t("preview.click_to_apply")}</p>
                     </div>
                   </div>
                   <div className="flex space-x-2">

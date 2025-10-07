@@ -1,7 +1,8 @@
 import React from "react"
 import { Settings, Eye, EyeOff, Star, Type, Sliders, Palette, Zap } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { TitleCardState, TabType, CharacterPreset } from "../types"
-import { characterPresets, backgroundPresets, textColorPresets } from "../constants"
+import { getCharacterPresets, getBackgroundPresets, getTextColorPresets } from "../constants"
 
 interface SettingsPanelProps {
   state: TitleCardState
@@ -24,6 +25,13 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
   onApplyPreset,
   isFullscreen,
 }) => {
+  const t = useTranslations("InvincibleTitleCardGenerator")
+
+  // Get translated presets
+  const characterPresets = getCharacterPresets(t)
+  const backgroundPresets = getBackgroundPresets(t)
+  const textColorPresets = getTextColorPresets(t)
+
   if (isFullscreen) return null
 
   return (
@@ -33,7 +41,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
           <div className="flex items-center justify-between">
             <h2 className="flex items-center text-xl font-semibold text-white">
               <Settings className="mr-3 h-5 w-5 text-slate-400" />
-              Customization
+              {t("settings.customization")}
             </h2>
             <div className="flex items-center space-x-2">
               <button
@@ -60,7 +68,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       : "text-slate-300 hover:bg-white/10 hover:text-white"
                   }`}
                 >
-                  {tab}
+                  {t(`settings.${tab}_tab`)}
                 </button>
               ))}
             </div>
@@ -72,7 +80,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                 <div className="space-y-4">
                   <h3 className="flex items-center text-sm font-medium text-slate-300">
                     <Star className="mr-2 h-4 w-4" />
-                    Character Presets
+                    {t("settings.character_presets")}
                   </h3>
                   <div className="grid grid-cols-1 gap-3">
                     {characterPresets.map((preset) => (
@@ -113,27 +121,27 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                 <div className="space-y-6">
                   <h3 className="flex items-center text-sm font-medium text-slate-300">
                     <Type className="mr-2 h-4 w-4" />
-                    Text Settings
+                    {t("settings.text_settings")}
                   </h3>
 
                   {/* Text Inputs */}
                   <div className="space-y-4">
                     <div>
                       <label className="mb-2 block text-sm font-medium text-slate-300">
-                        Main Title
+                        {t("settings.main_title_label")}
                       </label>
                       <input
                         type="text"
                         value={state.text}
                         onChange={(e) => setState((prev) => ({ ...prev, text: e.target.value }))}
                         className="w-full rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-red-500 focus:bg-white/10 focus:ring-2 focus:ring-red-500/50"
-                        placeholder="Enter title text..."
+                        placeholder={t("settings.main_title_placeholder")}
                       />
                     </div>
 
                     <div>
                       <label className="mb-2 block text-sm font-medium text-slate-300">
-                        Small Subtitle
+                        {t("settings.small_subtitle_label")}
                       </label>
                       <input
                         type="text"
@@ -142,13 +150,13 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                           setState((prev) => ({ ...prev, smallSubtitle: e.target.value }))
                         }
                         className="w-full rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-red-500 focus:bg-white/10 focus:ring-2 focus:ring-red-500/50"
-                        placeholder="Small subtitle..."
+                        placeholder={t("settings.small_subtitle_placeholder")}
                       />
                     </div>
 
                     <div>
                       <label className="mb-2 block text-sm font-medium text-slate-300">
-                        Credits Subtitle
+                        {t("settings.credits_subtitle_label")}
                       </label>
                       <input
                         type="text"
@@ -157,7 +165,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                           setState((prev) => ({ ...prev, subtitle: e.target.value }))
                         }
                         className="w-full rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-red-500 focus:bg-white/10 focus:ring-2 focus:ring-red-500/50"
-                        placeholder="Credits subtitle..."
+                        placeholder={t("settings.credits_subtitle_placeholder")}
                       />
                     </div>
                   </div>
@@ -168,7 +176,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       <div className="mb-3 flex items-center justify-between">
                         <label className="flex items-center text-sm font-medium text-slate-300">
                           <Sliders className="mr-2 h-4 w-4" />
-                          Font Size
+                          {t("settings.font_size")}
                         </label>
                         <span className="rounded-lg border border-white/10 bg-white/10 px-3 py-1 font-mono text-xs text-slate-300 backdrop-blur-sm">
                           {state.fontSize}
@@ -191,7 +199,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
 
                     <div>
                       <div className="mb-3 flex items-center justify-between">
-                        <label className="text-sm font-medium text-slate-300">Text Outline</label>
+                        <label className="text-sm font-medium text-slate-300">
+                          {t("settings.text_outline")}
+                        </label>
                         <span className="rounded-lg border border-white/10 bg-white/10 px-3 py-1 font-mono text-xs text-slate-300 backdrop-blur-sm">
                           {state.outline}px
                         </span>
@@ -214,7 +224,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                     <div>
                       <div className="mb-3 flex items-center justify-between">
                         <label className="text-sm font-medium text-slate-300">
-                          Subtitle Offset
+                          {t("settings.subtitle_offset")}
                         </label>
                         <span className="rounded-lg border border-white/10 bg-white/10 px-3 py-1 font-mono text-xs text-slate-300 backdrop-blur-sm">
                           {state.subtitleOffset}%
@@ -245,7 +255,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   <div>
                     <h3 className="mb-4 flex items-center text-sm font-medium text-slate-300">
                       <Palette className="mr-2 h-4 w-4" />
-                      Background Style
+                      {t("settings.background_style")}
                     </h3>
                     <div className="grid grid-cols-2 gap-3">
                       {backgroundPresets.map((preset) => (
@@ -275,7 +285,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
 
                   {/* Text Colors */}
                   <div>
-                    <h3 className="mb-4 text-sm font-medium text-slate-300">Text Color</h3>
+                    <h3 className="mb-4 text-sm font-medium text-slate-300">
+                      {t("settings.text_color")}
+                    </h3>
                     <div className="grid grid-cols-5 gap-2">
                       {textColorPresets.map((preset) => (
                         <button
@@ -300,7 +312,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                 <div className="space-y-6">
                   <h3 className="flex items-center text-sm font-medium text-slate-300">
                     <Zap className="mr-2 h-4 w-4" />
-                    Display Options
+                    {t("settings.display_options")}
                   </h3>
 
                   {/* Checkboxes with improved styling */}
@@ -315,9 +327,11 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                         className="h-5 w-5 rounded-lg border-white/20 bg-white/10 text-red-500 focus:ring-red-500 focus:ring-offset-slate-900"
                       />
                       <div>
-                        <span className="text-sm font-medium text-white">Show Credits</span>
+                        <span className="text-sm font-medium text-white">
+                          {t("settings.show_credits")}
+                        </span>
                         <p className="text-xs text-slate-400">
-                          Display subtitle information below the title
+                          {t("settings.show_credits_description")}
                         </p>
                       </div>
                     </label>
@@ -332,9 +346,11 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                         className="h-5 w-5 rounded-lg border-white/20 bg-white/10 text-red-500 focus:ring-red-500 focus:ring-offset-slate-900"
                       />
                       <div>
-                        <span className="text-sm font-medium text-white">Show Watermark</span>
+                        <span className="text-sm font-medium text-white">
+                          {t("settings.show_watermark")}
+                        </span>
                         <p className="text-xs text-slate-400">
-                          Add attribution to the generated image
+                          {t("settings.show_watermark_description")}
                         </p>
                       </div>
                     </label>

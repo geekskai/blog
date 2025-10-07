@@ -1,12 +1,13 @@
 "use client"
 
 import React, { useRef } from "react"
+import { useTranslations } from "next-intl"
 import { Header } from "./components/Header"
 import { PreviewArea } from "./components/PreviewArea"
 import { SettingsPanel } from "./components/SettingsPanel"
 import { ContentSections } from "./components/ContentSections"
 import { useTitleCardState } from "./hooks"
-import { DEFAULT_STATE } from "./constants"
+import { getDefaultState } from "./constants"
 import {
   downloadTitleCard,
   copySettings,
@@ -17,6 +18,11 @@ import {
 import { TitleCardState } from "./types"
 
 const InvincibleTitleCardGenerator = () => {
+  const t = useTranslations("InvincibleTitleCardGenerator")
+
+  // Get translated default state
+  const defaultState = getDefaultState(t)
+
   const {
     state,
     setState,
@@ -29,15 +35,15 @@ const InvincibleTitleCardGenerator = () => {
     activeTab,
     setActiveTab,
     applyPreset,
-  } = useTitleCardState()
+  } = useTitleCardState(defaultState)
 
   const canvasRef = useRef<HTMLDivElement>(null)
 
   // Handler functions
   const handleDownload = () => downloadTitleCard(canvasRef, state, setState)
-  const handleCopySettings = () => copySettings(state)
+  const handleCopySettings = () => copySettings(state, t)
   const handleRandomize = () => randomizeAll(setState)
-  const handleReset = () => resetToDefault(setState, setFavorites, DEFAULT_STATE)
+  const handleReset = () => resetToDefault(setState, setFavorites, defaultState)
   const handleAddToFavorites = () => addToFavorites(state, favorites, setFavorites)
   const handleToggleFullscreen = () => setIsFullscreen(!isFullscreen)
   const handleApplyFavorite = (favorite: TitleCardState) => setState(favorite)
