@@ -250,11 +250,12 @@ export default function CmToPmConverter() {
                   {t("content_sections.understanding_scale.applications.title")}
                 </h3>
                 <ul className="space-y-2 text-slate-200">
-                  {t("content_sections.understanding_scale.applications.list")
-                    .split(", ")
-                    .map((item, index) => (
-                      <li key={index}>• {item}</li>
-                    ))}
+                  <li>• {t("content_sections.understanding_scale.applications.list1")}</li>
+                  <li>• {t("content_sections.understanding_scale.applications.list2")}</li>
+                  <li>• {t("content_sections.understanding_scale.applications.list3")}</li>
+                  <li>• {t("content_sections.understanding_scale.applications.list4")}</li>
+                  <li>• {t("content_sections.understanding_scale.applications.list5")}</li>
+                  <li>• {t("content_sections.understanding_scale.applications.list6")}</li>
                 </ul>
               </div>
             </div>

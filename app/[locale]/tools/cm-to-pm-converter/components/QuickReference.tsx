@@ -246,10 +246,11 @@ export default function QuickReference() {
             <div className="flex items-start gap-3">
               <TrendingUp className="mt-0.5 h-5 w-5 flex-shrink-0 text-purple-400" />
               <div>
-                <h4 className="font-semibold text-purple-300">Remember</h4>
+                <h4 className="font-semibold text-purple-300">
+                  {t("quick_reference.remember_tip.title")}
+                </h4>
                 <p className="text-sm text-slate-300">
-                  Picometers are incredibly small - 1 cm contains 10 billion picometers! Always
-                  double-check your conversions for scientific accuracy.
+                  {t("quick_reference.remember_tip.content")}
                 </p>
               </div>
             </div>

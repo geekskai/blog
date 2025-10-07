@@ -1442,6 +1442,10 @@
           "centimeters": "Centimeters:",
           "picometers": "Picometers:"
         }
+      },
+      "remember_tip": {
+        "title": "Remember",
+        "content": "Picometers are incredibly small - 1 cm contains 10 billion picometers! Always double-check your conversions for scientific accuracy."
       }
     },
     "usage_guide": {
@@ -1493,14 +1497,12 @@
         "conversion_info": "PM to CM conversion: 1 pm = 1 × 10⁻¹⁰ cm. CM to PM conversion: 1 cm = 1 × 10¹⁰ pm. This bidirectional conversion is critical for bridging macroscopic and atomic scale measurements in scientific research and engineering applications.",
         "applications": {
           "title": "Picometer Applications",
-          "list": [
-            "Atomic radius measurements",
-            "Molecular bond length calculations",
-            "Nanotechnology precision engineering",
-            "Quantum mechanics research",
-            "Crystal lattice parameter analysis",
-            "X-ray crystallography studies"
-          ]
+          "list1": "Atomic radius measurements",
+          "list2": "Molecular bond length calculations",
+          "list3": "Nanotechnology precision engineering",
+          "list4": "Quantum mechanics research",
+          "list5": "Crystal lattice parameter analysis",
+          "list6": "X-ray crystallography studies"
         }
       },
       "scientific_precision": {

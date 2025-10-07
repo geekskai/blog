@@ -1563,6 +1563,10 @@
           "centimeters": "Centimeter:",
           "picometers": "Pikometer:"
         }
+      },
+      "remember_tip": {
+        "title": "Husk",
+        "content": "Pikometer er utrolig små - 1 cm inneholder 10 milliarder pikometer! Dobbeltsjekk alltid konverteringene dine for vitenskapelig nøyaktighet."
       }
     },
     "faq": {
@@ -1631,14 +1635,12 @@
         "conversion_info": "PM til CM konvertering: 1 pm = 1 × 10⁻¹⁰ cm. CM til PM konvertering: 1 cm = 1 × 10¹⁰ pm. Denne toveis konverteringen er kritisk for å bygge bro mellom makroskopiske og atomære skala målinger i vitenskapelig forskning og ingeniør applikasjoner.",
         "applications": {
           "title": "Pikometer Applikasjoner",
-          "list": [
-            "Atomradius målinger",
-            "Molekylær bindingslengde beregninger",
-            "Nanoteknologi presisjonsingeniørarbeid",
-            "Kvantemekanikk forskning",
-            "Krystallgitter parameter analyse",
-            "Røntgenkrystallografi studier"
-          ]
+          "list1": "Atomradius målinger",
+          "list2": "Molekylær bindingslengde beregninger",
+          "list3": "Nanoteknologi presisjonsingeniørarbeid",
+          "list4": "Kvantemekanikk forskning",
+          "list5": "Krystallgitter parameter analyse",
+          "list6": "Røntgenkrystallografi studier"
         }
       },
       "scientific_precision": {
