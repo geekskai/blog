@@ -1,104 +1,69 @@
 "use client"
 
 import React from "react"
+import { useTranslations } from "next-intl"
 import { Info, Zap, Settings, TrendingUp } from "lucide-react"
 
 export default function EducationalContent() {
+  const t = useTranslations("CcmToHpConverter")
   const engineTypes = [
     {
       icon: "🏍️",
-      title: "2-Stroke Engines",
-      description:
-        "Higher power-to-weight ratio, common in dirt bikes, chainsaws, and racing applications.",
-      characteristics: [
-        "Power stroke every revolution",
-        "Lighter and more compact",
-        "Higher power output per cc",
-        "Common in motorcycles and small engines",
-      ],
-      powerFactor: "1.2-1.4x coefficient",
+      title: t("educational_content.2_stroke_title"),
+      description: t("educational_content.2_stroke_description"),
+      characteristics: t("educational_content.2_stroke_characteristics").split("|"),
+      powerFactor: t("educational_content.2_stroke_power_factor"),
     },
     {
       icon: "🚗",
-      title: "4-Stroke Engines",
-      description: "More fuel efficient and cleaner, standard in most cars and modern motorcycles.",
-      characteristics: [
-        "Power stroke every two revolutions",
-        "Better fuel efficiency",
-        "Lower emissions",
-        "More durable and reliable",
-      ],
-      powerFactor: "0.8-1.0x coefficient",
+      title: t("educational_content.4_stroke_title"),
+      description: t("educational_content.4_stroke_description"),
+      characteristics: t("educational_content.4_stroke_characteristics").split("|"),
+      powerFactor: t("educational_content.4_stroke_power_factor"),
     },
   ]
 
   const fuelSystems = [
     {
       icon: "🌬️",
-      title: "Naturally Aspirated",
-      description: "Air enters the engine at atmospheric pressure through normal intake process.",
-      advantages: [
-        "Simpler design and maintenance",
-        "More predictable power delivery",
-        "Lower cost",
-        "Better reliability",
-      ],
-      powerRange: "Lower power density",
+      title: t("educational_content.naturally_aspirated_title"),
+      description: t("educational_content.naturally_aspirated_description"),
+      advantages: t("educational_content.naturally_aspirated_advantages").split("|"),
+      powerRange: t("educational_content.naturally_aspirated_power_range"),
     },
     {
       icon: "💨",
-      title: "Turbocharged",
-      description: "Forced induction system that compresses air for higher power output.",
-      advantages: [
-        "Higher power from smaller displacement",
-        "Better power-to-weight ratio",
-        "Improved efficiency at high loads",
-        "More power per cc",
-      ],
-      powerRange: "25-40% more power",
+      title: t("educational_content.turbocharged_title"),
+      description: t("educational_content.turbocharged_description"),
+      advantages: t("educational_content.turbocharged_advantages").split("|"),
+      powerRange: t("educational_content.turbocharged_power_range"),
     },
   ]
 
   const applications = [
     {
       icon: "🏍️",
-      title: "Motorcycles & Scooters",
-      description: "From small commuter bikes to high-performance superbikes.",
-      examples: [
-        "125cc scooter: ~10-15 hp",
-        "600cc sportbike: ~100-120 hp",
-        "1000cc superbike: ~180-200 hp",
-      ],
+      title: t("educational_content.motorcycles_title"),
+      description: t("educational_content.motorcycles_description"),
+      examples: t("educational_content.motorcycles_examples").split("|"),
     },
     {
       icon: "🚗",
-      title: "Cars & Trucks",
-      description: "Passenger vehicles and commercial applications.",
-      examples: [
-        "1000cc city car: ~70-80 hp",
-        "2000cc sedan: ~150-180 hp",
-        "3000cc SUV: ~250-300 hp",
-      ],
+      title: t("educational_content.cars_title"),
+      description: t("educational_content.cars_description"),
+      examples: t("educational_content.cars_examples").split("|"),
     },
     {
       icon: "🏁",
-      title: "Racing & Performance",
-      description: "High-performance applications with specialized tuning.",
-      examples: [
-        "125cc karting: ~30-35 hp",
-        "250cc motocross: ~45-50 hp",
-        "Formula racing: varies widely",
-      ],
+      title: t("educational_content.racing_title"),
+      description: t("educational_content.racing_description"),
+      examples: t("educational_content.racing_examples").split("|"),
     },
     {
       icon: "⛵",
-      title: "Marine & Outboard",
-      description: "Boat engines and marine applications.",
-      examples: [
-        "25hp outboard: ~500-750cc",
-        "150hp outboard: ~2500-3000cc",
-        "High-performance marine engines",
-      ],
+      title: t("educational_content.marine_title"),
+      description: t("educational_content.marine_description"),
+      examples: t("educational_content.marine_examples").split("|"),
     },
   ]
 
@@ -114,12 +79,10 @@ export default function EducationalContent() {
             <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 px-6 py-3 backdrop-blur-sm">
               <Settings className="h-5 w-5 text-blue-400" />
               <h3 className="bg-gradient-to-r from-blue-300 via-indigo-300 to-purple-300 bg-clip-text text-xl font-bold text-transparent">
-                Engine Types & Power Characteristics
+                {t("educational_content.engine_types_title")}
               </h3>
             </div>
-            <p className="text-slate-300">
-              Understanding how different engine designs affect power output
-            </p>
+            <p className="text-slate-300">{t("educational_content.engine_types_description")}</p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
@@ -135,7 +98,9 @@ export default function EducationalContent() {
                 </div>
                 <p className="mb-4 text-sm text-slate-300">{engine.description}</p>
                 <div className="space-y-2">
-                  <div className="text-xs font-medium text-blue-400">Key Characteristics:</div>
+                  <div className="text-xs font-medium text-blue-400">
+                    {t("educational_content.key_characteristics")}
+                  </div>
                   <ul className="space-y-1">
                     {engine.characteristics.map((char, charIndex) => (
                       <li
@@ -149,7 +114,7 @@ export default function EducationalContent() {
                   </ul>
                   <div className="mt-3 rounded-lg bg-blue-500/10 p-2">
                     <span className="text-xs font-medium text-blue-300">
-                      Power Factor: {engine.powerFactor}
+                      {t("educational_content.power_factor")} {engine.powerFactor}
                     </span>
                   </div>
                 </div>
@@ -169,12 +134,10 @@ export default function EducationalContent() {
             <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-green-500/30 bg-gradient-to-r from-green-500/10 to-emerald-500/10 px-6 py-3 backdrop-blur-sm">
               <Zap className="h-5 w-5 text-green-400" />
               <h3 className="bg-gradient-to-r from-green-300 via-emerald-300 to-teal-300 bg-clip-text text-xl font-bold text-transparent">
-                Fuel System Impact on Power
+                {t("educational_content.fuel_systems_title")}
               </h3>
             </div>
-            <p className="text-slate-300">
-              How different induction systems affect horsepower output
-            </p>
+            <p className="text-slate-300">{t("educational_content.fuel_systems_description")}</p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
@@ -190,7 +153,9 @@ export default function EducationalContent() {
                 </div>
                 <p className="mb-4 text-sm text-slate-300">{system.description}</p>
                 <div className="space-y-2">
-                  <div className="text-xs font-medium text-green-400">Advantages:</div>
+                  <div className="text-xs font-medium text-green-400">
+                    {t("educational_content.advantages")}
+                  </div>
                   <ul className="space-y-1">
                     {system.advantages.map((advantage, advIndex) => (
                       <li key={advIndex} className="flex items-center gap-2 text-xs text-slate-400">
@@ -201,7 +166,7 @@ export default function EducationalContent() {
                   </ul>
                   <div className="mt-3 rounded-lg bg-green-500/10 p-2">
                     <span className="text-xs font-medium text-green-300">
-                      Power Output: {system.powerRange}
+                      {t("educational_content.power_output")}: {system.powerRange}
                     </span>
                   </div>
                 </div>
@@ -221,12 +186,10 @@ export default function EducationalContent() {
             <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-purple-500/30 bg-gradient-to-r from-purple-500/10 to-pink-500/10 px-6 py-3 backdrop-blur-sm">
               <TrendingUp className="h-5 w-5 text-purple-400" />
               <h3 className="bg-gradient-to-r from-purple-300 via-pink-300 to-rose-300 bg-clip-text text-xl font-bold text-transparent">
-                Real-World Applications
+                {t("educational_content.applications_title")}
               </h3>
             </div>
-            <p className="text-slate-300">
-              Common CCM to HP ratios across different vehicle categories
-            </p>
+            <p className="text-slate-300">{t("educational_content.applications_description")}</p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -242,7 +205,9 @@ export default function EducationalContent() {
                 </div>
                 <p className="mb-4 text-sm text-slate-300">{app.description}</p>
                 <div className="space-y-2">
-                  <div className="text-xs font-medium text-purple-400">Typical Examples:</div>
+                  <div className="text-xs font-medium text-purple-400">
+                    {t("educational_content.typical_examples")}
+                  </div>
                   <ul className="space-y-1">
                     {app.examples.map((example, exIndex) => (
                       <li key={exIndex} className="flex items-center gap-2 text-xs text-slate-400">
@@ -265,21 +230,21 @@ export default function EducationalContent() {
             <Info className="h-6 w-6 text-white" />
           </div>
           <div className="flex-1">
-            <h4 className="mb-2 text-lg font-semibold text-white">Important Disclaimer</h4>
+            <h4 className="mb-2 text-lg font-semibold text-white">
+              {t("educational_content.disclaimer_title")}
+            </h4>
             <p className="text-sm leading-relaxed text-slate-300">
-              The CCM to HP conversion provided by this tool is an <strong>estimate</strong> based
-              on empirical data and industry averages. Actual horsepower output can vary
-              significantly based on factors such as:
+              {t("educational_content.disclaimer_text")}
             </p>
             <ul className="mt-2 space-y-1 text-sm text-slate-400">
-              <li>• Compression ratio and engine tuning</li>
-              <li>• Fuel quality and octane rating</li>
-              <li>• Air intake and exhaust system design</li>
-              <li>• Engine management and ignition timing</li>
-              <li>• Manufacturing tolerances and build quality</li>
+              {t("educational_content.disclaimer_factors")
+                .split("|")
+                .map((factor, index) => (
+                  <li key={index}>• {factor}</li>
+                ))}
             </ul>
             <p className="mt-2 text-sm text-slate-400">
-              Always consult manufacturer specifications for accurate power ratings.
+              {t("educational_content.disclaimer_footer")}
             </p>
           </div>
         </div>

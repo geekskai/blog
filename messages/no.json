@@ -1192,5 +1192,205 @@
       "tools": "Verktøy",
       "bpm_ms_converter": "BPM MS Konverter"
     }
+  },
+  "CcmToHpConverter": {
+    "seo_title": "CCM til HP Konverter – Gratis Motor Effekt Kalkulator | Motorsykkel & Bil Motor Verktøy",
+    "seo_description": "Gratis online CCM til HP konverter for motor slagvolum til hestekraft beregning. Konverter kubikkcentimeter til hestekraft for motorsykler, biler, marine motorer. Støtter 2-takt, 4-takt, turboladede motorer med presisjonskontroll.",
+    "seo_keywords": "ccm til hp konverter, motor slagvolum kalkulator, hestekraft kalkulator, motorsykkel effekt kalkulator, bil motor kalkulator",
+    "page_title": "CCM til HP Konverter",
+    "page_subtitle": "Motor Effekt Estimator",
+    "page_description": "Gratis CCM til HP konverter og motor effekt kalkulator. Konverter motor slagvolum (ccm) til hestekraft (hp) øyeblikkelig med presisjon for 2-takt og 4-takt motorer. Perfekt for motorsykkel entusiaster, bilkjøpere, marine anvendelser og racing prosjekter.",
+    "free_calculator_badge": "Motor Effekt Kalkulator",
+
+    "feature_badges": {
+      "bidirectional_conversion": "Toveis CCM ↔ HP Konvertering",
+      "engine_support": "2-Takt & 4-Takt Motor Støtte",
+      "turbo_support": "Turbolader & Naturlig Aspirert",
+      "multi_application": "Motorsykkel, Bil & Marine Motorer"
+    },
+
+    "keywords_tags": {
+      "ccm_to_hp": "ccm til hp",
+      "hp_to_ccm": "hp til ccm",
+      "engine_displacement_calculator": "motor slagvolum kalkulator",
+      "horsepower_estimator": "hestekraft estimator",
+      "motorcycle_power_calculator": "motorsykkel effekt kalkulator",
+      "2_stroke_4_stroke_converter": "2-takt 4-takt konverter"
+    },
+
+    "breadcrumb": {
+      "home": "Hjem",
+      "tools": "Verktøy",
+      "ccm_to_hp_converter": "CCM til HP Konverter"
+    },
+
+    "usage_guide": {
+      "title": "Hvordan Bruke CCM til HP Konverter - Komplett Motor Effekt Guide",
+      "description": "Mestre motor slagvolum til hestekraft konvertering for motorsykkel shopping, bil evaluering, marine motorer og racing anvendelser",
+      "step_1_title": "Skriv Inn Motor Slagvolum",
+      "step_1_description": "Skriv inn motorens slagvolum i CCM (kubikkcentimeter) eller hestekraft for omvendt beregning",
+      "step_2_title": "Velg Motor Type",
+      "step_2_description": "Velg mellom 2-takt (dirt bikes, motorsager) eller 4-takt (biler, moderne motorsykler) motorer",
+      "step_3_title": "Velg Drivstoffsystem",
+      "step_3_description": "Velg naturlig aspirert eller turbolader for å få nøyaktige effekt estimater",
+      "step_4_title": "Få Øyeblikkelige Resultater",
+      "step_4_description": "Se estimert hestekraft med effekt område, kopier resultater eller del beregninger"
+    },
+
+    "converter_card": {
+      "title": "CCM ↔ HP Motor Kalkulator",
+      "description": "Konverter motor slagvolum til hestekraft med presisjon",
+      "engine_type_label": "Motor Type",
+      "fuel_system_label": "Drivstoffsystem",
+      "precision_label": "Presisjon",
+      "input_method_label": "Input Metode",
+      "share_results_label": "Del Resultater",
+      "engine_displacement_label": "Motor Slagvolum",
+      "horsepower_label": "Hestekraft",
+      "estimated_horsepower_label": "Estimert Hestekraft",
+      "estimated_displacement_label": "Estimert Slagvolum",
+      "enter_ccm_placeholder": "Skriv inn ccm...",
+      "enter_hp_placeholder": "Skriv inn hp...",
+      "slider_mode": "Glidebryter Modus",
+      "text_input": "Tekst Input",
+      "hide_share": "Skjul Del",
+      "show_share": "Vis Del",
+      "enter_value_to_calculate": "Skriv inn en verdi for å beregne",
+      "copy_result": "Kopier Resultat",
+      "share_result": "Del Resultat",
+      "copy_url": "Kopier URL",
+      "copying": "Kopierer...",
+      "copied": "Kopiert!",
+      "sharing": "Deler...",
+      "shared": "Delt!",
+      "formula_prefix": "Formel:",
+      "disclaimer": "*Faktisk effekt kan variere avhengig av tuning, kompresjon og drivstofftype.",
+      "share_your_results": "Del Dine Resultater",
+      "decimals": "desimaler",
+      "decimal": "desimal",
+      "range_prefix": "Område:",
+      "invalid_number": "Vennligst skriv inn et gyldig positivt tall",
+      "min_ccm_error": "Minimum CCM verdi er 50",
+      "large_ccm_warning": "Veldig stort motor slagvolum. Resultater kan være mindre nøyaktige for motorer over 8000cc",
+      "min_hp_error": "Minimum HP verdi er 1",
+      "high_hp_warning": "Veldig høy hestekraft. Resultater kan være mindre nøyaktige for motorer over 1000hp"
+    },
+
+    "engine_types": {
+      "2_stroke": "2-Takt Motor",
+      "4_stroke": "4-Takt Motor"
+    },
+
+    "fuel_systems": {
+      "naturally_aspirated": "Naturlig Aspirert",
+      "turbocharged": "Turbolader"
+    },
+
+    "history": {
+      "title": "Konverterings Historikk",
+      "button_text": "Historikk",
+      "clear_history": "Tøm Historikk",
+      "click_to_use": "Klikk for å bruke",
+      "recent_conversions_saved": "Nylige konverteringer lagres lokalt"
+    },
+
+    "quick_reference": {
+      "title": "Rask Referanse",
+      "description": "Vanlige CCM til HP konverteringer og virkelige eksempler",
+      "common_conversions": "Vanlige Konverteringer",
+      "real_vehicle_examples": "Virkelige Kjøretøy Eksempler",
+      "pro_tip": "Pro Tips",
+      "pro_tip_text": "Motor slagvolum (CCM) er bare én faktor i å bestemme hestekraft. Faktisk effekt utgang avhenger av kompressjonsforhold, drivstoffsystem, tuning og mange andre faktorer. Bruk disse estimatene som utgangspunkt."
+    },
+
+    "educational_content": {
+      "title": "Forstå CCM til HP Konvertering",
+      "description": "Lær om motor slagvolum, hestekraft beregninger og faktorer som påvirker motor effekt utgang",
+
+      "engine_types_title": "Motor Typer & Effekt Karakteristikker",
+      "engine_types_description": "Forstå hvordan forskjellige motor design påvirker effekt utgang",
+
+      "2_stroke_title": "2-Takt Motorer",
+      "2_stroke_description": "Høyere effekt-til-vekt forhold, vanlig i dirt bikes, motorsager og racing anvendelser.",
+      "2_stroke_characteristics": "Effekt slag hver omdreining|Lettere og mer kompakt|Høyere effekt utgang per cc|Vanlig i motorsykler og små motorer",
+      "2_stroke_power_factor": "1.2-1.4x koeffisient",
+
+      "4_stroke_title": "4-Takt Motorer",
+      "4_stroke_description": "Mer drivstoffeffektiv og renere, standard i de fleste biler og moderne motorsykler.",
+      "4_stroke_characteristics": "Effekt slag hver andre omdreining|Bedre drivstoffeffektivitet|Lavere utslipp|Mer holdbar og pålitelig",
+      "4_stroke_power_factor": "0.8-1.0x koeffisient",
+
+      "fuel_systems_title": "Drivstoffsystem Påvirkning på Effekt",
+      "fuel_systems_description": "Hvordan forskjellige induksjonssystemer påvirker hestekraft utgang",
+
+      "naturally_aspirated_title": "Naturlig Aspirert",
+      "naturally_aspirated_description": "Luft kommer inn i motoren ved atmosfærisk trykk gjennom normal inntak prosess.",
+      "naturally_aspirated_advantages": "Enklere design og vedlikehold|Mer forutsigbar effekt levering|Lavere kostnad|Bedre pålitelighet",
+      "naturally_aspirated_power_range": "Lavere effekt tetthet",
+
+      "turbocharged_title": "Turbolader",
+      "turbocharged_description": "Tvunget induksjonssystem som komprimerer luft for høyere effekt utgang.",
+      "turbocharged_advantages": "Høyere effekt fra mindre slagvolum|Bedre effekt-til-vekt forhold|Forbedret effektivitet ved høye belastninger|Mer effekt per cc",
+      "turbocharged_power_range": "25-40% mer effekt",
+
+      "applications_title": "Virkelige Anvendelser",
+      "applications_description": "Vanlige CCM til HP forhold på tvers av forskjellige kjøretøy kategorier",
+
+      "motorcycles_title": "Motorsykler & Scootere",
+      "motorcycles_description": "Fra små pendler sykler til høytytende superbikes.",
+      "motorcycles_examples": "125cc scooter: ~10-15 hp|600cc sportbike: ~100-120 hp|1000cc superbike: ~180-200 hp",
+
+      "cars_title": "Biler & Lastebiler",
+      "cars_description": "Passasjerkjøretøyer og kommersielle anvendelser.",
+      "cars_examples": "1000cc by bil: ~70-80 hp|2000cc sedan: ~150-180 hp|3000cc SUV: ~250-300 hp",
+
+      "racing_title": "Racing & Ytelse",
+      "racing_description": "Høytytende anvendelser med spesialisert tuning.",
+      "racing_examples": "125cc karting: ~30-35 hp|250cc motocross: ~45-50 hp|Formel racing: varierer mye",
+
+      "marine_title": "Marine & Påhengsmotor",
+      "marine_description": "Båtmotorer og marine anvendelser.",
+      "marine_examples": "25hp påhengsmotor: ~500-750cc|150hp påhengsmotor: ~2500-3000cc|Høytytende marine motorer",
+
+      "key_characteristics": "Nøkkel Karakteristikker:",
+      "advantages": "Fordeler:",
+      "typical_examples": "Typiske Eksempler:",
+      "power_factor": "Effekt Faktor:",
+      "power_output": "Effekt Utgang:",
+
+      "disclaimer_title": "Viktig Ansvarsfraskrivelse",
+      "disclaimer_text": "CCM til HP konverteringen levert av dette verktøyet er et estimat basert på empiriske data og industri gjennomsnitt. Faktisk hestekraft utgang kan variere betydelig basert på faktorer som:",
+      "disclaimer_factors": "Kompressjonsforhold og motor tuning|Drivstoffkvalitet og oktan rating|Luftinntak og eksossystem design|Motor styring og tenning timing|Produksjonstolerancer og bygge kvalitet",
+      "disclaimer_footer": "Konsulter alltid produsent spesifikasjoner for nøyaktige effekt ratings."
+    },
+
+    "faq": {
+      "title": "Ofte Stilte Spørsmål",
+      "description": "Alt du trenger å vite om CCM til HP konvertering og motor effekt beregninger",
+
+      "q1": "Hvor nøyaktig er CCM til HP konvertering?",
+      "a1": "CCM til HP konvertering gir estimater basert på empiriske data og industri gjennomsnitt. Faktisk hestekraft kan variere ±15-25% avhengig av motor tuning, kompressjonsforhold, drivstoffsystem og andre faktorer. Vår kalkulator bruker beviste formler med forskjellige koeffisienter for 2-takt vs 4-takt og naturlig aspirert vs turboladede motorer.",
+
+      "q2": "Hva er forskjellen mellom 2-takt og 4-takt effekt utgang?",
+      "a2": "2-takt motorer produserer typisk mer effekt per cc enn 4-takt motorer fordi de har et effekt slag hver omdreining i stedet for hver andre omdreining. Vår kalkulator bruker en 1.2-1.4x koeffisient for 2-takt motorer og 0.8-1.0x for 4-takt motorer, som reflekterer virkelige effekt forskjeller.",
+
+      "q3": "Hvordan påvirker turbolading CCM til HP konvertering?",
+      "a3": "Turboladede motorer produserer betydelig mer effekt fra samme slagvolum. Vår kalkulator bruker høyere koeffisienter (1.0-1.4x) for turboladede motorer sammenlignet med naturlig aspirerte motorer (0.8-1.2x), typisk resulterende i 25-40% mer estimert hestekraft.",
+
+      "q4": "Kan jeg bruke dette for motorsykkel, bil og marine motorer?",
+      "a4": "Ja! Vår CCM til HP konverter fungerer for alle forbrenningsmotorer inkludert motorsykler, biler, båter, ATV-er og racing motorer. Kalkulatoren tar hensyn til forskjellige motor typer og konfigurasjoner som vanligvis finnes på tvers av disse anvendelsene.",
+
+      "q5": "Hvorfor skiller produsentenes HP ratings seg noen ganger fra beregninger?",
+      "a5": "Produsent ratings måles under spesifikke forhold (SAE, DIN, etc.) og kan inkludere faktorer som høyde, temperatur og måle standarder. Vår kalkulator gir estimater basert på slagvolum og motor type, mens faktiske ratings avhenger av komplett motor design, tuning og test forhold.",
+
+      "q6": "Hvilket CCM område fungerer best med denne kalkulatoren?",
+      "a6": "Vår kalkulator fungerer nøyaktig for motorer fra 50cc til 8000cc. For veldig små motorer (under 50cc) eller ekstremt store motorer (over 8000cc), kan resultater være mindre nøyaktige på grunn av forskjellige design prinsipper og effektivitetsfaktorer."
+    },
+
+    "final_cta": {
+      "title": "Klar til å Beregne Motor Effekt?",
+      "description": "Bruk vår gratis CCM til HP konverter for å estimere motorens hestekraft øyeblikkelig",
+      "button_text": "Start Konvertering Nå"
+    }
   }
 }

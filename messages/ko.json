@@ -1113,5 +1113,205 @@
       "tools": "도구",
       "bpm_ms_converter": "BPM MS 변환기"
     }
+  },
+  "CcmToHpConverter": {
+    "seo_title": "CCM에서 HP 변환기 – 무료 엔진 파워 계산기 | 오토바이 & 자동차 엔진 도구",
+    "seo_description": "엔진 배기량에서 마력 계산을 위한 무료 온라인 CCM에서 HP 변환기. 오토바이, 자동차, 선박 엔진용 입방센티미터에서 마력으로 변환. 2행정, 4행정, 터보차지 엔진 지원 및 정밀도 제어.",
+    "seo_keywords": "ccm에서 hp 변환기, 엔진 배기량 계산기, 마력 계산기, 오토바이 파워 계산기, 자동차 엔진 계산기",
+    "page_title": "CCM에서 HP 변환기",
+    "page_subtitle": "엔진 파워 추정기",
+    "page_description": "무료 CCM에서 HP 변환기 및 엔진 파워 계산기. 2행정 및 4행정 엔진의 엔진 배기량(ccm)에서 마력(hp)으로 정밀하게 즉시 변환. 오토바이 애호가, 자동차 구매자, 선박 용도, 레이싱 프로젝트에 완벽.",
+    "free_calculator_badge": "엔진 파워 계산기",
+
+    "feature_badges": {
+      "bidirectional_conversion": "양방향 CCM ↔ HP 변환",
+      "engine_support": "2행정 & 4행정 엔진 지원",
+      "turbo_support": "터보차지 & 자연흡기",
+      "multi_application": "오토바이, 자동차 & 선박 엔진"
+    },
+
+    "keywords_tags": {
+      "ccm_to_hp": "ccm에서 hp",
+      "hp_to_ccm": "hp에서 ccm",
+      "engine_displacement_calculator": "엔진 배기량 계산기",
+      "horsepower_estimator": "마력 추정기",
+      "motorcycle_power_calculator": "오토바이 파워 계산기",
+      "2_stroke_4_stroke_converter": "2행정 4행정 변환기"
+    },
+
+    "breadcrumb": {
+      "home": "홈",
+      "tools": "도구",
+      "ccm_to_hp_converter": "CCM에서 HP 변환기"
+    },
+
+    "usage_guide": {
+      "title": "CCM에서 HP 변환기 사용법 - 완전한 엔진 파워 가이드",
+      "description": "오토바이 쇼핑, 자동차 평가, 선박 엔진, 레이싱 용도를 위한 엔진 배기량에서 마력 변환 마스터",
+      "step_1_title": "엔진 배기량 입력",
+      "step_1_description": "엔진의 배기량을 CCM(입방센티미터)으로 입력하거나 역계산을 위해 마력 입력",
+      "step_2_title": "엔진 타입 선택",
+      "step_2_description": "2행정(더트바이크, 체인톱) 또는 4행정(자동차, 현대 오토바이) 엔진 중 선택",
+      "step_3_title": "연료 시스템 선택",
+      "step_3_description": "자연흡기 또는 터보차지를 선택하여 정확한 파워 추정치 획득",
+      "step_4_title": "즉시 결과 획득",
+      "step_4_description": "파워 범위가 포함된 추정 마력 확인, 결과 복사 또는 계산 공유"
+    },
+
+    "converter_card": {
+      "title": "CCM ↔ HP 엔진 계산기",
+      "description": "엔진 배기량을 마력으로 정밀 변환",
+      "engine_type_label": "엔진 타입",
+      "fuel_system_label": "연료 시스템",
+      "precision_label": "정밀도",
+      "input_method_label": "입력 방법",
+      "share_results_label": "결과 공유",
+      "engine_displacement_label": "엔진 배기량",
+      "horsepower_label": "마력",
+      "estimated_horsepower_label": "추정 마력",
+      "estimated_displacement_label": "추정 배기량",
+      "enter_ccm_placeholder": "ccm 입력...",
+      "enter_hp_placeholder": "hp 입력...",
+      "slider_mode": "슬라이더 모드",
+      "text_input": "텍스트 입력",
+      "hide_share": "공유 숨기기",
+      "show_share": "공유 보기",
+      "enter_value_to_calculate": "계산할 값 입력",
+      "copy_result": "결과 복사",
+      "share_result": "결과 공유",
+      "copy_url": "URL 복사",
+      "copying": "복사 중...",
+      "copied": "복사됨!",
+      "sharing": "공유 중...",
+      "shared": "공유됨!",
+      "formula_prefix": "공식:",
+      "disclaimer": "*실제 파워는 튜닝, 압축, 연료 타입에 따라 달라질 수 있습니다.",
+      "share_your_results": "결과 공유",
+      "decimals": "소수점",
+      "decimal": "소수",
+      "range_prefix": "범위:",
+      "invalid_number": "유효한 양수를 입력해주세요",
+      "min_ccm_error": "최소 CCM 값은 50입니다",
+      "large_ccm_warning": "매우 큰 엔진 배기량. 8000cc를 초과하는 엔진의 경우 결과 정확도가 떨어질 수 있습니다",
+      "min_hp_error": "최소 HP 값은 1입니다",
+      "high_hp_warning": "매우 높은 마력. 1000hp를 초과하는 엔진의 경우 결과 정확도가 떨어질 수 있습니다"
+    },
+
+    "engine_types": {
+      "2_stroke": "2행정 엔진",
+      "4_stroke": "4행정 엔진"
+    },
+
+    "fuel_systems": {
+      "naturally_aspirated": "자연흡기",
+      "turbocharged": "터보차지"
+    },
+
+    "history": {
+      "title": "변환 기록",
+      "button_text": "기록",
+      "clear_history": "기록 지우기",
+      "click_to_use": "클릭하여 사용",
+      "recent_conversions_saved": "최근 변환이 로컬에 저장됩니다"
+    },
+
+    "quick_reference": {
+      "title": "빠른 참조",
+      "description": "일반적인 CCM에서 HP 변환 및 실제 예시",
+      "common_conversions": "일반적인 변환",
+      "real_vehicle_examples": "실제 차량 예시",
+      "pro_tip": "프로 팁",
+      "pro_tip_text": "엔진 배기량(CCM)은 마력을 결정하는 요소 중 하나일 뿐입니다. 실제 파워 출력은 압축비, 연료 시스템, 튜닝 및 기타 많은 요소에 따라 달라집니다. 이러한 추정치를 시작점으로 사용하세요."
+    },
+
+    "educational_content": {
+      "title": "CCM에서 HP 변환 이해",
+      "description": "엔진 배기량, 마력 계산, 엔진 파워 출력에 영향을 미치는 요소에 대해 학습",
+
+      "engine_types_title": "엔진 타입 & 파워 특성",
+      "engine_types_description": "다양한 엔진 설계가 파워 출력에 미치는 영향 이해",
+
+      "2_stroke_title": "2행정 엔진",
+      "2_stroke_description": "더 높은 파워 대 중량비, 더트바이크, 체인톱, 레이싱 용도에서 일반적.",
+      "2_stroke_characteristics": "매 회전마다 파워 스트로크|더 가볍고 컴팩트|cc당 더 높은 파워 출력|오토바이와 소형 엔진에서 일반적",
+      "2_stroke_power_factor": "1.2-1.4x 계수",
+
+      "4_stroke_title": "4행정 엔진",
+      "4_stroke_description": "더 연료 효율적이고 깨끗함, 대부분의 자동차와 현대 오토바이에서 표준.",
+      "4_stroke_characteristics": "2회전마다 파워 스트로크|더 나은 연비|낮은 배출|더 내구성 있고 신뢰성 높음",
+      "4_stroke_power_factor": "0.8-1.0x 계수",
+
+      "fuel_systems_title": "연료 시스템의 파워 영향",
+      "fuel_systems_description": "다양한 흡기 시스템이 마력 출력에 미치는 영향",
+
+      "naturally_aspirated_title": "자연흡기",
+      "naturally_aspirated_description": "공기가 정상적인 흡기 과정을 통해 대기압에서 엔진으로 들어감.",
+      "naturally_aspirated_advantages": "더 간단한 설계와 유지보수|더 예측 가능한 파워 전달|낮은 비용|더 나은 신뢰성",
+      "naturally_aspirated_power_range": "낮은 파워 밀도",
+
+      "turbocharged_title": "터보차지",
+      "turbocharged_description": "더 높은 파워 출력을 위해 공기를 압축하는 강제 흡기 시스템.",
+      "turbocharged_advantages": "더 작은 배기량에서 더 높은 파워|더 나은 파워 대 중량비|고부하에서 향상된 효율성|cc당 더 많은 파워",
+      "turbocharged_power_range": "25-40% 더 많은 파워",
+
+      "applications_title": "실제 적용 사례",
+      "applications_description": "다양한 차량 카테고리에서의 일반적인 CCM 대 HP 비율",
+
+      "motorcycles_title": "오토바이 & 스쿠터",
+      "motorcycles_description": "소형 통근용 바이크부터 고성능 슈퍼바이크까지.",
+      "motorcycles_examples": "125cc 스쿠터: ~10-15 hp|600cc 스포츠바이크: ~100-120 hp|1000cc 슈퍼바이크: ~180-200 hp",
+
+      "cars_title": "자동차 & 트럭",
+      "cars_description": "승용차 및 상업용 용도.",
+      "cars_examples": "1000cc 시티카: ~70-80 hp|2000cc 세단: ~150-180 hp|3000cc SUV: ~250-300 hp",
+
+      "racing_title": "레이싱 & 퍼포먼스",
+      "racing_description": "전문 튜닝을 통한 고성능 용도.",
+      "racing_examples": "125cc 카팅: ~30-35 hp|250cc 모토크로스: ~45-50 hp|포뮬러 레이싱: 매우 다양함",
+
+      "marine_title": "선박 & 선외기",
+      "marine_description": "보트 엔진 및 선박 용도.",
+      "marine_examples": "25hp 선외기: ~500-750cc|150hp 선외기: ~2500-3000cc|고성능 선박 엔진",
+
+      "key_characteristics": "주요 특성:",
+      "advantages": "장점:",
+      "typical_examples": "일반적인 예시:",
+      "power_factor": "파워 계수:",
+      "power_output": "파워 출력:",
+
+      "disclaimer_title": "중요한 면책조항",
+      "disclaimer_text": "이 도구가 제공하는 CCM에서 HP 변환은 경험적 데이터와 업계 평균을 기반으로 한 추정치입니다. 실제 마력 출력은 다음과 같은 요소에 따라 크게 달라질 수 있습니다:",
+      "disclaimer_factors": "압축비 및 엔진 튜닝|연료 품질 및 옥탄가|흡기 및 배기 시스템 설계|엔진 관리 및 점화 타이밍|제조 공차 및 구축 품질",
+      "disclaimer_footer": "정확한 파워 등급은 항상 제조업체 사양을 참조하세요."
+    },
+
+    "faq": {
+      "title": "자주 묻는 질문",
+      "description": "CCM에서 HP 변환 및 엔진 파워 계산에 대해 알아야 할 모든 것",
+
+      "q1": "CCM에서 HP 변환은 얼마나 정확한가요?",
+      "a1": "CCM에서 HP 변환은 경험적 데이터와 업계 평균을 기반으로 한 추정치를 제공합니다. 실제 마력은 엔진 튜닝, 압축비, 연료 시스템 및 기타 요소에 따라 ±15-25% 달라질 수 있습니다. 우리 계산기는 2행정 대 4행정, 자연흡기 대 터보차지 엔진에 대해 다른 계수를 사용한 검증된 공식을 사용합니다.",
+
+      "q2": "2행정과 4행정 파워 출력의 차이점은 무엇인가요?",
+      "a2": "2행정 엔진은 일반적으로 2회전마다 한 번이 아닌 매 회전마다 파워 스트로크가 있기 때문에 4행정 엔진보다 cc당 더 많은 파워를 생산합니다. 우리 계산기는 2행정 엔진에 1.2-1.4x 계수, 4행정 엔진에 0.8-1.0x 계수를 적용하여 실제 파워 차이를 반영합니다.",
+
+      "q3": "터보차징이 CCM에서 HP 변환에 어떤 영향을 미치나요?",
+      "a3": "터보차지 엔진은 동일한 배기량에서 훨씬 더 많은 파워를 생산합니다. 우리 계산기는 자연흡기 엔진(0.8-1.2x)과 비교하여 터보차지 엔진에 더 높은 계수(1.0-1.4x)를 적용하여 일반적으로 25-40% 더 많은 추정 마력을 제공합니다.",
+
+      "q4": "이것을 오토바이, 자동차, 선박 엔진에 사용할 수 있나요?",
+      "a4": "네! 우리 CCM에서 HP 변환기는 오토바이, 자동차, 보트, ATV, 레이싱 엔진을 포함한 모든 내연기관에서 작동합니다. 계산기는 이러한 용도에서 일반적으로 발견되는 다양한 엔진 타입과 구성을 고려합니다.",
+
+      "q5": "제조업체의 HP 등급이 때때로 계산과 다른 이유는 무엇인가요?",
+      "a5": "제조업체 등급은 특정 조건(SAE, DIN 등)에서 측정되며 고도, 온도, 측정 표준과 같은 요소를 포함할 수 있습니다. 우리 계산기는 배기량과 엔진 타입을 기반으로 한 추정치를 제공하는 반면, 실제 등급은 완전한 엔진 설계, 튜닝, 테스트 조건에 따라 달라집니다.",
+
+      "q6": "이 계산기에서 가장 잘 작동하는 CCM 범위는 무엇인가요?",
+      "a6": "우리 계산기는 50cc에서 8000cc까지의 엔진에서 정확하게 작동합니다. 매우 작은 엔진(50cc 미만)이나 극도로 큰 엔진(8000cc 초과)의 경우 다른 설계 원리와 효율성 요소로 인해 결과가 덜 정확할 수 있습니다."
+    },
+
+    "final_cta": {
+      "title": "엔진 파워를 계산할 준비가 되셨나요?",
+      "description": "무료 CCM에서 HP 변환기를 사용하여 엔진의 마력을 즉시 추정하세요",
+      "button_text": "지금 변환 시작"
+    }
   }
 }

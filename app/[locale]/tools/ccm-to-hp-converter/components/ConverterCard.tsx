@@ -1,17 +1,8 @@
 "use client"
 
-import React, { useState, useCallback, useEffect } from "react"
-import {
-  ArrowUpDown,
-  Copy,
-  Check,
-  AlertCircle,
-  Settings,
-  Zap,
-  Share2,
-  Info,
-  Sliders,
-} from "lucide-react"
+import { useState, useCallback, useEffect } from "react"
+import { ArrowUpDown, Copy, Check, AlertCircle, Zap, Share2, Info, Sliders } from "lucide-react"
+import { useTranslations } from "next-intl"
 import ShareButtons from "@/components/ShareButtons"
 import ConversionHistory from "./ConversionHistory"
 import type {
@@ -26,8 +17,6 @@ import {
   convert,
   validateInput,
   formatNumber,
-  getEngineTypeOptions,
-  getFuelSystemOptions,
   parseUrlParameters,
   generateUrlWithParameters,
   saveConversionToHistory,
@@ -41,6 +30,8 @@ interface ConverterCardProps {
 }
 
 export default function ConverterCard({ className = "" }: ConverterCardProps) {
+  const t = useTranslations("CcmToHpConverter")
+
   // State management with URL parameter support
   const [inputValue, setInputValue] = useState<string>("125")
   const [engineType, setEngineType] = useState<EngineType>("4-stroke")
@@ -64,25 +55,42 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
     if (urlParams.direction) setDirection(urlParams.direction)
   }, [])
 
-  // Get UI options
-  const engineTypeOptions = getEngineTypeOptions()
-  const fuelSystemOptions = getFuelSystemOptions()
-
   // Calculate conversion result
   const calculateResult = useCallback(() => {
+    // Helper function to get translated error messages
+    const getErrorMessage = (errorCode: string): string => {
+      switch (errorCode) {
+        case "INVALID_NUMBER":
+          return t("converter_card.invalid_number")
+        case "MIN_CCM_ERROR":
+          return t("converter_card.min_ccm_error")
+        case "LARGE_CCM_WARNING":
+          return t("converter_card.large_ccm_warning")
+        case "MIN_HP_ERROR":
+          return t("converter_card.min_hp_error")
+        case "HIGH_HP_WARNING":
+          return t("converter_card.high_hp_warning")
+        default:
+          return errorCode
+      }
+    }
+
     const numValue = parseFloat(inputValue)
 
     // Validate input
     const validation = validateInput(numValue, direction)
     if (!validation.isValid) {
-      setError(validation.error || "Invalid input")
+      const errorMessage = validation.error
+        ? getErrorMessage(validation.error)
+        : t("converter_card.enter_value_to_calculate")
+      setError(errorMessage)
       setWarning("")
       setResult(null)
       return
     }
 
     setError("")
-    setWarning(validation.warning || "")
+    setWarning(validation.warning ? getErrorMessage(validation.warning) : "")
 
     // Perform conversion with precision
     const conversionResult = convert(numValue, direction, engineType, fuelSystem, precision)
@@ -91,7 +99,7 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
     // Save to history and dispatch event for real-time updates
     saveConversionToHistory(conversionResult)
     window.dispatchEvent(new CustomEvent("conversionSaved"))
-  }, [inputValue, direction, engineType, fuelSystem, precision])
+  }, [inputValue, direction, engineType, fuelSystem, precision, t])
 
   // Recalculate when inputs change
   useEffect(() => {
@@ -183,9 +191,15 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
   }
 
   // Get input/output labels
-  const inputLabel = direction === "ccm-to-hp" ? "Engine Displacement" : "Horsepower"
+  const inputLabel =
+    direction === "ccm-to-hp"
+      ? t("converter_card.engine_displacement_label")
+      : t("converter_card.horsepower_label")
   const inputUnit = direction === "ccm-to-hp" ? "ccm" : "hp"
-  const outputLabel = direction === "ccm-to-hp" ? "Estimated Horsepower" : "Estimated Displacement"
+  const outputLabel =
+    direction === "ccm-to-hp"
+      ? t("converter_card.estimated_horsepower_label")
+      : t("converter_card.estimated_displacement_label")
   const outputUnit = direction === "ccm-to-hp" ? "hp" : "ccm"
 
   return (
@@ -203,14 +217,12 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
             <div className="inline-flex items-center gap-3 rounded-full border border-orange-500/30 bg-gradient-to-r from-orange-500/10 to-red-500/10 px-6 py-3 backdrop-blur-sm">
               <Zap className="h-5 w-5 text-orange-400" />
               <h2 className="bg-gradient-to-r from-orange-300 via-red-300 to-pink-300 bg-clip-text text-xl font-bold text-transparent">
-                CCM ↔ HP Engine Calculator
+                {t("converter_card.title")}
               </h2>
             </div>
             <ConversionHistory onSelectConversion={handleHistorySelection} />
           </div>
-          <p className="text-center text-slate-300">
-            Convert engine displacement to horsepower with precision
-          </p>
+          <p className="text-center text-slate-300">{t("converter_card.description")}</p>
         </div>
 
         {/* Engine Configuration */}
@@ -218,33 +230,39 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           <div className="grid gap-4 md:grid-cols-2">
             {/* Engine Type Selection */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-slate-300">Engine Type</label>
+              <label className="block text-sm font-medium text-slate-300">
+                {t("converter_card.engine_type_label")}
+              </label>
               <select
                 value={engineType}
                 onChange={(e) => setEngineType(e.target.value as EngineType)}
                 className="w-full rounded-xl border border-orange-500/30 bg-orange-500/10 px-4 py-3 text-white backdrop-blur-sm transition-all duration-300 focus:border-orange-400 focus:outline-none focus:ring-4 focus:ring-orange-500/20"
               >
-                {engineTypeOptions.map((option) => (
-                  <option key={option.value} value={option.value} className="bg-slate-800">
-                    {option.label}
-                  </option>
-                ))}
+                <option value="2-stroke" className="bg-slate-800">
+                  {t("engine_types.2_stroke")}
+                </option>
+                <option value="4-stroke" className="bg-slate-800">
+                  {t("engine_types.4_stroke")}
+                </option>
               </select>
             </div>
 
             {/* Fuel System Selection */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-slate-300">Fuel System</label>
+              <label className="block text-sm font-medium text-slate-300">
+                {t("converter_card.fuel_system_label")}
+              </label>
               <select
                 value={fuelSystem}
                 onChange={(e) => setFuelSystem(e.target.value as FuelSystem)}
                 className="w-full rounded-xl border border-orange-500/30 bg-orange-500/10 px-4 py-3 text-white backdrop-blur-sm transition-all duration-300 focus:border-orange-400 focus:outline-none focus:ring-4 focus:ring-orange-500/20"
               >
-                {fuelSystemOptions.map((option) => (
-                  <option key={option.value} value={option.value} className="bg-slate-800">
-                    {option.label}
-                  </option>
-                ))}
+                <option value="naturally-aspirated" className="bg-slate-800">
+                  {t("fuel_systems.naturally_aspirated")}
+                </option>
+                <option value="turbocharged" className="bg-slate-800">
+                  {t("fuel_systems.turbocharged")}
+                </option>
               </select>
             </div>
           </div>
@@ -253,30 +271,34 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           <div className="grid gap-4 md:grid-cols-3">
             {/* Precision Control */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-slate-300">Precision</label>
+              <label className="block text-sm font-medium text-slate-300">
+                {t("converter_card.precision_label")}
+              </label>
               <select
                 value={precision}
                 onChange={(e) => setPrecision(parseInt(e.target.value) as PrecisionOption)}
                 className="w-full rounded-xl border border-orange-500/30 bg-orange-500/10 px-4 py-3 text-white backdrop-blur-sm transition-all duration-300 focus:border-orange-400 focus:outline-none focus:ring-4 focus:ring-orange-500/20"
               >
                 <option value={0} className="bg-slate-800">
-                  0 decimals
+                  0 {t("converter_card.decimals")}
                 </option>
                 <option value={1} className="bg-slate-800">
-                  1 decimal
+                  1 {t("converter_card.decimal")}
                 </option>
                 <option value={2} className="bg-slate-800">
-                  2 decimals
+                  2 {t("converter_card.decimals")}
                 </option>
                 <option value={3} className="bg-slate-800">
-                  3 decimals
+                  3 {t("converter_card.decimals")}
                 </option>
               </select>
             </div>
 
             {/* Input Method Toggle */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-slate-300">Input Method</label>
+              <label className="block text-sm font-medium text-slate-300">
+                {t("converter_card.input_method_label")}
+              </label>
               <button
                 onClick={() => setUseSlider(!useSlider)}
                 className={`flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-3 transition-all duration-300 ${
@@ -287,14 +309,16 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
               >
                 <Sliders className="h-4 w-4" />
                 <span className="text-sm font-medium">
-                  {useSlider ? "Slider Mode" : "Text Input"}
+                  {useSlider ? t("converter_card.slider_mode") : t("converter_card.text_input")}
                 </span>
               </button>
             </div>
 
             {/* Share Toggle */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-slate-300">Share Results</label>
+              <label className="block text-sm font-medium text-slate-300">
+                {t("converter_card.share_results_label")}
+              </label>
               <button
                 onClick={() => setShowShareButtons(!showShareButtons)}
                 disabled={!result}
@@ -306,7 +330,9 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
               >
                 <Share2 className="h-4 w-4" />
                 <span className="text-sm font-medium">
-                  {showShareButtons ? "Hide Share" : "Show Share"}
+                  {showShareButtons
+                    ? t("converter_card.hide_share")
+                    : t("converter_card.show_share")}
                 </span>
               </button>
             </div>
@@ -323,7 +349,11 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
               <div className="relative">
                 <input
                   type="text"
-                  placeholder={`Enter ${inputUnit}...`}
+                  placeholder={
+                    direction === "ccm-to-hp"
+                      ? t("converter_card.enter_ccm_placeholder")
+                      : t("converter_card.enter_hp_placeholder")
+                  }
                   value={inputValue}
                   onChange={(e) => handleInputChange(e.target.value)}
                   className="w-full rounded-2xl border border-orange-500/30 bg-orange-500/10 py-4 pl-6 pr-20 text-lg text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-orange-400 focus:outline-none focus:ring-4 focus:ring-orange-500/20"
@@ -368,7 +398,11 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
                 <div className="relative">
                   <input
                     type="text"
-                    placeholder={`Enter ${inputUnit}...`}
+                    placeholder={
+                      direction === "ccm-to-hp"
+                        ? t("converter_card.enter_ccm_placeholder")
+                        : t("converter_card.enter_hp_placeholder")
+                    }
                     value={inputValue}
                     onChange={(e) => handleInputChange(e.target.value)}
                     className="w-full rounded-xl border border-orange-500/30 bg-orange-500/10 py-3 pl-4 pr-16 text-sm text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-orange-400 focus:outline-none focus:ring-4 focus:ring-orange-500/20"
@@ -416,7 +450,7 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
                   <div className="space-y-2">
                     <span className="text-2xl font-bold">{formatNumber(result.output)}</span>
                     <div className="text-sm text-slate-400">
-                      Range: {formatNumber(result.outputRange.min)} -{" "}
+                      {t("converter_card.range_prefix")} {formatNumber(result.outputRange.min)} -{" "}
                       {formatNumber(result.outputRange.max)} {outputUnit}
                     </div>
                     {/* Additional unit conversions */}
@@ -435,7 +469,9 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
                     </div>
                   </div>
                 ) : (
-                  <span className="text-slate-400">Enter a value to calculate</span>
+                  <span className="text-slate-400">
+                    {t("converter_card.enter_value_to_calculate")}
+                  </span>
                 )}
               </div>
               <div className="absolute right-4 top-1/2 -translate-y-1/2 rounded-lg bg-red-500/20 px-3 py-1 text-sm font-medium text-red-300 backdrop-blur-sm">
@@ -462,10 +498,10 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
                 )}
                 <span className="text-sm">
                   {copyStatus === "copying"
-                    ? "Copying..."
+                    ? t("converter_card.copying")
                     : copyStatus === "copied"
-                      ? "Copied!"
-                      : "Copy Result"}
+                      ? t("converter_card.copied")
+                      : t("converter_card.copy_result")}
                 </span>
               </div>
             </button>
@@ -486,10 +522,10 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
                 )}
                 <span className="text-sm">
                   {shareStatus === "copying"
-                    ? "Sharing..."
+                    ? t("converter_card.sharing")
                     : shareStatus === "copied"
-                      ? "Shared!"
-                      : "Share Result"}
+                      ? t("converter_card.shared")
+                      : t("converter_card.share_result")}
                 </span>
               </div>
             </button>
@@ -502,7 +538,7 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
               <div className="relative flex items-center justify-center gap-2">
                 <Share2 className="h-4 w-4" />
-                <span className="text-sm">Copy URL</span>
+                <span className="text-sm">{t("converter_card.copy_url")}</span>
               </div>
             </button>
           </div>
@@ -511,11 +547,10 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           {result && (
             <div className="rounded-xl bg-slate-800/50 p-4 text-center backdrop-blur-sm">
               <p className="text-sm text-slate-400">
-                Formula: <span className="font-mono text-slate-300">{result.formula}</span>
+                {t("converter_card.formula_prefix")}{" "}
+                <span className="font-mono text-slate-300">{result.formula}</span>
               </p>
-              <p className="mt-1 text-xs text-slate-500">
-                *Actual power may vary depending on tuning, compression, and fuel type.
-              </p>
+              <p className="mt-1 text-xs text-slate-500">{t("converter_card.disclaimer")}</p>
             </div>
           )}
 
@@ -523,7 +558,9 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           {showShareButtons && result && (
             <div className="rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-6 backdrop-blur-sm">
               <div className="mb-4 text-center">
-                <h4 className="text-lg font-semibold text-white">Share Your Results</h4>
+                <h4 className="text-lg font-semibold text-white">
+                  {t("converter_card.share_your_results")}
+                </h4>
                 <p className="text-sm text-slate-300">
                   {result.input} {result.inputUnit} = {formatNumber(result.output, precision)}{" "}
                   {result.outputUnit} ({result.engineConfig.description})

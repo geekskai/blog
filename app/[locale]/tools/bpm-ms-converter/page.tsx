@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useCallback, useEffect } from "react"
-import { Music, Clock, Copy, Check, Zap, Headphones } from "lucide-react"
+import { useState, useEffect } from "react"
+import { Music, Clock, Zap, Headphones } from "lucide-react"
 import { useTranslations } from "next-intl"
 import ConversionResults from "./components/ConversionResults"
 import { ConversionState, ConversionMode } from "./types"

@@ -1156,5 +1156,205 @@
       "tools": "Tools",
       "bpm_ms_converter": "BPM MS Converter"
     }
+  },
+  "CcmToHpConverter": {
+    "seo_title": "CCM to HP Converter – Free Engine Power Calculator | Motorcycle & Car Engine Tool",
+    "seo_description": "Free online CCM to HP converter for engine displacement to horsepower calculation. Convert cubic centimeters to horsepower for motorcycles, cars, marine engines. Supports 2-stroke, 4-stroke, turbocharged engines with precision control.",
+    "seo_keywords": "ccm to hp converter, engine displacement calculator, horsepower calculator, motorcycle power calculator, car engine calculator",
+    "page_title": "CCM to HP Converter",
+    "page_subtitle": "Engine Power Estimator",
+    "page_description": "Free CCM to HP converter and engine power calculator. Convert engine displacement (ccm) to horsepower (hp) instantly with precision for 2-stroke and 4-stroke engines. Perfect for motorcycle enthusiasts, car buyers, marine applications, and racing projects.",
+    "free_calculator_badge": "Engine Power Calculator",
+
+    "feature_badges": {
+      "bidirectional_conversion": "Bidirectional CCM ↔ HP Conversion",
+      "engine_support": "2-Stroke & 4-Stroke Engine Support",
+      "turbo_support": "Turbocharged & Natural Aspiration",
+      "multi_application": "Motorcycle, Car & Marine Engines"
+    },
+
+    "keywords_tags": {
+      "ccm_to_hp": "ccm to hp",
+      "hp_to_ccm": "hp to ccm",
+      "engine_displacement_calculator": "engine displacement calculator",
+      "horsepower_estimator": "horsepower estimator",
+      "motorcycle_power_calculator": "motorcycle power calculator",
+      "2_stroke_4_stroke_converter": "2-stroke 4-stroke converter"
+    },
+
+    "breadcrumb": {
+      "home": "Home",
+      "tools": "Tools",
+      "ccm_to_hp_converter": "CCM to HP Converter"
+    },
+
+    "usage_guide": {
+      "title": "How to Use CCM to HP Converter - Complete Engine Power Guide",
+      "description": "Master engine displacement to horsepower conversion for motorcycle shopping, car evaluation, marine engines, and racing applications",
+      "step_1_title": "Enter Engine Displacement",
+      "step_1_description": "Input your engine's displacement in CCM (cubic centimeters) or horsepower for reverse calculation",
+      "step_2_title": "Select Engine Type",
+      "step_2_description": "Choose between 2-stroke (dirt bikes, chainsaws) or 4-stroke (cars, modern motorcycles) engines",
+      "step_3_title": "Choose Fuel System",
+      "step_3_description": "Select naturally aspirated or turbocharged to get accurate power estimates",
+      "step_4_title": "Get Instant Results",
+      "step_4_description": "View estimated horsepower with power range, copy results, or share calculations"
+    },
+
+    "converter_card": {
+      "title": "CCM ↔ HP Engine Calculator",
+      "description": "Convert engine displacement to horsepower with precision",
+      "engine_type_label": "Engine Type",
+      "fuel_system_label": "Fuel System",
+      "precision_label": "Precision",
+      "input_method_label": "Input Method",
+      "share_results_label": "Share Results",
+      "engine_displacement_label": "Engine Displacement",
+      "horsepower_label": "Horsepower",
+      "estimated_horsepower_label": "Estimated Horsepower",
+      "estimated_displacement_label": "Estimated Displacement",
+      "enter_ccm_placeholder": "Enter ccm...",
+      "enter_hp_placeholder": "Enter hp...",
+      "slider_mode": "Slider Mode",
+      "text_input": "Text Input",
+      "hide_share": "Hide Share",
+      "show_share": "Show Share",
+      "enter_value_to_calculate": "Enter a value to calculate",
+      "copy_result": "Copy Result",
+      "share_result": "Share Result",
+      "copy_url": "Copy URL",
+      "copying": "Copying...",
+      "copied": "Copied!",
+      "sharing": "Sharing...",
+      "shared": "Shared!",
+      "formula_prefix": "Formula:",
+      "disclaimer": "*Actual power may vary depending on tuning, compression, and fuel type.",
+      "share_your_results": "Share Your Results",
+      "decimals": "decimals",
+      "decimal": "decimal",
+      "range_prefix": "Range:",
+      "invalid_number": "Please enter a valid positive number",
+      "min_ccm_error": "Minimum CCM value is 50",
+      "large_ccm_warning": "Very large engine displacement. Results may be less accurate for engines over 8000cc",
+      "min_hp_error": "Minimum HP value is 1",
+      "high_hp_warning": "Very high horsepower. Results may be less accurate for engines over 1000hp"
+    },
+
+    "engine_types": {
+      "2_stroke": "2-Stroke Engine",
+      "4_stroke": "4-Stroke Engine"
+    },
+
+    "fuel_systems": {
+      "naturally_aspirated": "Naturally Aspirated",
+      "turbocharged": "Turbocharged"
+    },
+
+    "history": {
+      "title": "Conversion History",
+      "button_text": "History",
+      "clear_history": "Clear History",
+      "click_to_use": "Click to use",
+      "recent_conversions_saved": "Recent conversions are saved locally"
+    },
+
+    "quick_reference": {
+      "title": "Quick Reference",
+      "description": "Common CCM to HP conversions and real-world examples",
+      "common_conversions": "Common Conversions",
+      "real_vehicle_examples": "Real Vehicle Examples",
+      "pro_tip": "Pro Tip",
+      "pro_tip_text": "Engine displacement (CCM) is just one factor in determining horsepower. Actual power output depends on compression ratio, fuel system, tuning, and many other factors. Use these estimates as a starting point."
+    },
+
+    "educational_content": {
+      "title": "Understanding CCM to HP Conversion",
+      "description": "Learn about engine displacement, horsepower calculations, and factors affecting engine power output",
+
+      "engine_types_title": "Engine Types & Power Characteristics",
+      "engine_types_description": "Understanding how different engine designs affect power output",
+
+      "2_stroke_title": "2-Stroke Engines",
+      "2_stroke_description": "Higher power-to-weight ratio, common in dirt bikes, chainsaws, and racing applications.",
+      "2_stroke_characteristics": "Power stroke every revolution|Lighter and more compact|Higher power output per cc|Common in motorcycles and small engines",
+      "2_stroke_power_factor": "1.2-1.4x coefficient",
+
+      "4_stroke_title": "4-Stroke Engines",
+      "4_stroke_description": "More fuel efficient and cleaner, standard in most cars and modern motorcycles.",
+      "4_stroke_characteristics": "Power stroke every two revolutions|Better fuel efficiency|Lower emissions|More durable and reliable",
+      "4_stroke_power_factor": "0.8-1.0x coefficient",
+
+      "fuel_systems_title": "Fuel System Impact on Power",
+      "fuel_systems_description": "How different induction systems affect horsepower output",
+
+      "naturally_aspirated_title": "Naturally Aspirated",
+      "naturally_aspirated_description": "Air enters the engine at atmospheric pressure through normal intake process.",
+      "naturally_aspirated_advantages": "Simpler design and maintenance|More predictable power delivery|Lower cost|Better reliability",
+      "naturally_aspirated_power_range": "Lower power density",
+
+      "turbocharged_title": "Turbocharged",
+      "turbocharged_description": "Forced induction system that compresses air for higher power output.",
+      "turbocharged_advantages": "Higher power from smaller displacement|Better power-to-weight ratio|Improved efficiency at high loads|More power per cc",
+      "turbocharged_power_range": "25-40% more power",
+
+      "applications_title": "Real-World Applications",
+      "applications_description": "Common CCM to HP ratios across different vehicle categories",
+
+      "motorcycles_title": "Motorcycles & Scooters",
+      "motorcycles_description": "From small commuter bikes to high-performance superbikes.",
+      "motorcycles_examples": "125cc scooter: ~10-15 hp|600cc sportbike: ~100-120 hp|1000cc superbike: ~180-200 hp",
+
+      "cars_title": "Cars & Trucks",
+      "cars_description": "Passenger vehicles and commercial applications.",
+      "cars_examples": "1000cc city car: ~70-80 hp|2000cc sedan: ~150-180 hp|3000cc SUV: ~250-300 hp",
+
+      "racing_title": "Racing & Performance",
+      "racing_description": "High-performance applications with specialized tuning.",
+      "racing_examples": "125cc karting: ~30-35 hp|250cc motocross: ~45-50 hp|Formula racing: varies widely",
+
+      "marine_title": "Marine & Outboard",
+      "marine_description": "Boat engines and marine applications.",
+      "marine_examples": "25hp outboard: ~500-750cc|150hp outboard: ~2500-3000cc|High-performance marine engines",
+
+      "key_characteristics": "Key Characteristics:",
+      "advantages": "Advantages:",
+      "typical_examples": "Typical Examples:",
+      "power_factor": "Power Factor:",
+      "power_output": "Power Output:",
+
+      "disclaimer_title": "Important Disclaimer",
+      "disclaimer_text": "The CCM to HP conversion provided by this tool is an estimate based on empirical data and industry averages. Actual horsepower output can vary significantly based on factors such as:",
+      "disclaimer_factors": "Compression ratio and engine tuning|Fuel quality and octane rating|Air intake and exhaust system design|Engine management and ignition timing|Manufacturing tolerances and build quality",
+      "disclaimer_footer": "Always consult manufacturer specifications for accurate power ratings."
+    },
+
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "description": "Everything you need to know about CCM to HP conversion and engine power calculations",
+
+      "q1": "How accurate is CCM to HP conversion?",
+      "a1": "CCM to HP conversion provides estimates based on empirical data and industry averages. Actual horsepower can vary ±15-25% depending on engine tuning, compression ratio, fuel system, and other factors. Our calculator uses proven formulas with different coefficients for 2-stroke vs 4-stroke and naturally aspirated vs turbocharged engines.",
+
+      "q2": "What's the difference between 2-stroke and 4-stroke power output?",
+      "a2": "2-stroke engines typically produce more power per cc than 4-stroke engines because they have a power stroke every revolution instead of every two revolutions. Our calculator applies a 1.2-1.4x coefficient for 2-stroke engines and 0.8-1.0x for 4-stroke engines, reflecting real-world power differences.",
+
+      "q3": "How does turbocharging affect CCM to HP conversion?",
+      "a3": "Turbocharged engines produce significantly more power from the same displacement. Our calculator applies higher coefficients (1.0-1.4x) for turbocharged engines compared to naturally aspirated engines (0.8-1.2x), typically resulting in 25-40% more estimated horsepower.",
+
+      "q4": "Can I use this for motorcycle, car, and marine engines?",
+      "a4": "Yes! Our CCM to HP converter works for all internal combustion engines including motorcycles, cars, boats, ATVs, and racing engines. The calculator accounts for different engine types and configurations commonly found across these applications.",
+
+      "q5": "Why do manufacturers' HP ratings sometimes differ from calculations?",
+      "a5": "Manufacturer ratings are measured under specific conditions (SAE, DIN, etc.) and may include factors like altitude, temperature, and measurement standards. Our calculator provides estimates based on displacement and engine type, while actual ratings depend on complete engine design, tuning, and testing conditions.",
+
+      "q6": "What CCM range works best with this calculator?",
+      "a6": "Our calculator works accurately for engines from 50cc to 8000cc. For very small engines (under 50cc) or extremely large engines (over 8000cc), results may be less accurate due to different design principles and efficiency factors."
+    },
+
+    "final_cta": {
+      "title": "Ready to Calculate Engine Power?",
+      "description": "Use our free CCM to HP converter to estimate your engine's horsepower instantly",
+      "button_text": "Start Converting Now"
+    }
   }
 }

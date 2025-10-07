@@ -2,9 +2,11 @@
 
 import React from "react"
 import { BookOpen, TrendingUp } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { getConversionExamples, getVehicleExamples } from "../utils/converter"
 
 export default function QuickReference() {
+  const t = useTranslations("CcmToHpConverter")
   const conversionExamples = getConversionExamples()
   const vehicleExamples = getVehicleExamples()
 
@@ -20,16 +22,18 @@ export default function QuickReference() {
           <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 px-6 py-3 backdrop-blur-sm">
             <BookOpen className="h-5 w-5 text-emerald-400" />
             <h3 className="bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text text-xl font-bold text-transparent">
-              Quick Reference
+              {t("quick_reference.title")}
             </h3>
           </div>
-          <p className="text-slate-300">Common CCM to HP conversions and real-world examples</p>
+          <p className="text-slate-300">{t("quick_reference.description")}</p>
         </div>
 
         <div className="space-y-8">
           {/* Conversion Examples */}
           <div>
-            <h4 className="mb-4 text-lg font-semibold text-emerald-300">Common Conversions</h4>
+            <h4 className="mb-4 text-lg font-semibold text-emerald-300">
+              {t("quick_reference.common_conversions")}
+            </h4>
             <div className="space-y-3">
               {conversionExamples.map((example, index) => (
                 <div
@@ -55,7 +59,9 @@ export default function QuickReference() {
 
           {/* Real Vehicle Examples */}
           <div>
-            <h4 className="mb-4 text-lg font-semibold text-emerald-300">Real Vehicle Examples</h4>
+            <h4 className="mb-4 text-lg font-semibold text-emerald-300">
+              {t("quick_reference.real_vehicle_examples")}
+            </h4>
             <div className="space-y-3">
               {vehicleExamples.map((vehicle, index) => (
                 <div
@@ -87,12 +93,8 @@ export default function QuickReference() {
             <div className="flex items-start gap-3">
               <TrendingUp className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-400" />
               <div>
-                <h4 className="font-semibold text-emerald-300">Pro Tip</h4>
-                <p className="text-sm text-slate-300">
-                  Engine displacement (CCM) is just one factor in determining horsepower. Actual
-                  power output depends on compression ratio, fuel system, tuning, and many other
-                  factors. Use these estimates as a starting point.
-                </p>
+                <h4 className="font-semibold text-emerald-300">{t("quick_reference.pro_tip")}</h4>
+                <p className="text-sm text-slate-300">{t("quick_reference.pro_tip_text")}</p>
               </div>
             </div>
           </div>

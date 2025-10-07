@@ -145,7 +145,7 @@ export function validateInput(value: number, direction: ConversionDirection): Va
   if (isNaN(value) || value <= 0) {
     return {
       isValid: false,
-      error: "Please enter a valid positive number",
+      error: "INVALID_NUMBER",
     }
   }
 
@@ -153,26 +153,26 @@ export function validateInput(value: number, direction: ConversionDirection): Va
     if (value < CONVERSION_CONSTANTS.MIN_CCM) {
       return {
         isValid: false,
-        error: `Minimum CCM value is ${CONVERSION_CONSTANTS.MIN_CCM}`,
+        error: "MIN_CCM_ERROR",
       }
     }
     if (value > CONVERSION_CONSTANTS.MAX_CCM) {
       return {
         isValid: true,
-        warning: `Very large engine displacement. Results may be less accurate for engines over ${CONVERSION_CONSTANTS.MAX_CCM}cc`,
+        warning: "LARGE_CCM_WARNING",
       }
     }
   } else {
     if (value < CONVERSION_CONSTANTS.MIN_HP) {
       return {
         isValid: false,
-        error: `Minimum HP value is ${CONVERSION_CONSTANTS.MIN_HP}`,
+        error: "MIN_HP_ERROR",
       }
     }
     if (value > CONVERSION_CONSTANTS.MAX_HP) {
       return {
         isValid: true,
-        warning: `Very high horsepower. Results may be less accurate for engines over ${CONVERSION_CONSTANTS.MAX_HP}hp`,
+        warning: "HIGH_HP_WARNING",
       }
     }
   }

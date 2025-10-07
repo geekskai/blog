@@ -1088,5 +1088,205 @@
       "tools": "工具",
       "bpm_ms_converter": "BPM毫秒转换器"
     }
+  },
+  "CcmToHpConverter": {
+    "seo_title": "CCM转HP转换器 – 免费发动机功率计算器 | 摩托车和汽车发动机工具",
+    "seo_description": "免费在线CCM转HP转换器，用于发动机排量到马力计算。为摩托车、汽车、船用发动机将立方厘米转换为马力。支持2冲程、4冲程、涡轮增压发动机，具有精度控制。",
+    "seo_keywords": "ccm转hp转换器, 发动机排量计算器, 马力计算器, 摩托车功率计算器, 汽车发动机计算器",
+    "page_title": "CCM转HP转换器",
+    "page_subtitle": "发动机功率估算器",
+    "page_description": "免费CCM转HP转换器和发动机功率计算器。为2冲程和4冲程发动机精确即时地将发动机排量(ccm)转换为马力(hp)。完美适用于摩托车爱好者、汽车买家、船用应用和赛车项目。",
+    "free_calculator_badge": "发动机功率计算器",
+
+    "feature_badges": {
+      "bidirectional_conversion": "双向CCM ↔ HP转换",
+      "engine_support": "2冲程和4冲程发动机支持",
+      "turbo_support": "涡轮增压和自然吸气",
+      "multi_application": "摩托车、汽车和船用发动机"
+    },
+
+    "keywords_tags": {
+      "ccm_to_hp": "ccm转hp",
+      "hp_to_ccm": "hp转ccm",
+      "engine_displacement_calculator": "发动机排量计算器",
+      "horsepower_estimator": "马力估算器",
+      "motorcycle_power_calculator": "摩托车功率计算器",
+      "2_stroke_4_stroke_converter": "2冲程4冲程转换器"
+    },
+
+    "breadcrumb": {
+      "home": "首页",
+      "tools": "工具",
+      "ccm_to_hp_converter": "CCM转HP转换器"
+    },
+
+    "usage_guide": {
+      "title": "如何使用CCM转HP转换器 - 完整发动机功率指南",
+      "description": "掌握摩托车购买、汽车评估、船用发动机和赛车应用的发动机排量到马力转换",
+      "step_1_title": "输入发动机排量",
+      "step_1_description": "输入发动机的排量CCM（立方厘米）或马力进行反向计算",
+      "step_2_title": "选择发动机类型",
+      "step_2_description": "在2冲程（越野车、链锯）或4冲程（汽车、现代摩托车）发动机之间选择",
+      "step_3_title": "选择燃油系统",
+      "step_3_description": "选择自然吸气或涡轮增压以获得准确的功率估算",
+      "step_4_title": "获得即时结果",
+      "step_4_description": "查看带功率范围的估算马力，复制结果或分享计算"
+    },
+
+    "converter_card": {
+      "title": "CCM ↔ HP发动机计算器",
+      "description": "精确地将发动机排量转换为马力",
+      "engine_type_label": "发动机类型",
+      "fuel_system_label": "燃油系统",
+      "precision_label": "精度",
+      "input_method_label": "输入方式",
+      "share_results_label": "分享结果",
+      "engine_displacement_label": "发动机排量",
+      "horsepower_label": "马力",
+      "estimated_horsepower_label": "估算马力",
+      "estimated_displacement_label": "估算排量",
+      "enter_ccm_placeholder": "输入ccm...",
+      "enter_hp_placeholder": "输入hp...",
+      "slider_mode": "滑块模式",
+      "text_input": "文本输入",
+      "hide_share": "隐藏分享",
+      "show_share": "显示分享",
+      "enter_value_to_calculate": "输入值进行计算",
+      "copy_result": "复制结果",
+      "share_result": "分享结果",
+      "copy_url": "复制URL",
+      "copying": "复制中...",
+      "copied": "已复制！",
+      "sharing": "分享中...",
+      "shared": "已分享！",
+      "formula_prefix": "公式：",
+      "disclaimer": "*实际功率可能因调校、压缩比和燃料类型而有所不同。",
+      "share_your_results": "分享您的结果",
+      "decimals": "小数位",
+      "decimal": "小数",
+      "range_prefix": "范围：",
+      "invalid_number": "请输入有效的正数",
+      "min_ccm_error": "最小CCM值为50",
+      "large_ccm_warning": "发动机排量非常大。超过8000cc的发动机结果可能不够准确",
+      "min_hp_error": "最小HP值为1",
+      "high_hp_warning": "马力非常高。超过1000hp的发动机结果可能不够准确"
+    },
+
+    "engine_types": {
+      "2_stroke": "2冲程发动机",
+      "4_stroke": "4冲程发动机"
+    },
+
+    "fuel_systems": {
+      "naturally_aspirated": "自然吸气",
+      "turbocharged": "涡轮增压"
+    },
+
+    "history": {
+      "title": "转换历史",
+      "button_text": "历史",
+      "clear_history": "清除历史",
+      "click_to_use": "点击使用",
+      "recent_conversions_saved": "最近的转换保存在本地"
+    },
+
+    "quick_reference": {
+      "title": "快速参考",
+      "description": "常见的CCM转HP转换和实际示例",
+      "common_conversions": "常见转换",
+      "real_vehicle_examples": "实际车辆示例",
+      "pro_tip": "专业提示",
+      "pro_tip_text": "发动机排量（CCM）只是决定马力的因素之一。实际功率输出取决于压缩比、燃油系统、调校和许多其他因素。将这些估算值作为起点使用。"
+    },
+
+    "educational_content": {
+      "title": "理解CCM转HP转换",
+      "description": "了解发动机排量、马力计算和影响发动机功率输出的因素",
+
+      "engine_types_title": "发动机类型和功率特性",
+      "engine_types_description": "理解不同发动机设计如何影响功率输出",
+
+      "2_stroke_title": "2冲程发动机",
+      "2_stroke_description": "更高的功率重量比，常见于越野车、链锯和赛车应用。",
+      "2_stroke_characteristics": "每转一次功率冲程|更轻更紧凑|每cc更高的功率输出|常见于摩托车和小型发动机",
+      "2_stroke_power_factor": "1.2-1.4x系数",
+
+      "4_stroke_title": "4冲程发动机",
+      "4_stroke_description": "更省油更清洁，是大多数汽车和现代摩托车的标准。",
+      "4_stroke_characteristics": "每两转一次功率冲程|更好的燃油效率|更低排放|更耐用更可靠",
+      "4_stroke_power_factor": "0.8-1.0x系数",
+
+      "fuel_systems_title": "燃油系统对功率的影响",
+      "fuel_systems_description": "不同进气系统如何影响马力输出",
+
+      "naturally_aspirated_title": "自然吸气",
+      "naturally_aspirated_description": "空气通过正常进气过程在大气压下进入发动机。",
+      "naturally_aspirated_advantages": "更简单的设计和维护|更可预测的功率输出|更低成本|更好的可靠性",
+      "naturally_aspirated_power_range": "较低的功率密度",
+
+      "turbocharged_title": "涡轮增压",
+      "turbocharged_description": "强制进气系统，压缩空气以获得更高的功率输出。",
+      "turbocharged_advantages": "从更小排量获得更高功率|更好的功率重量比|高负荷下效率提升|每cc更多功率",
+      "turbocharged_power_range": "25-40%更多功率",
+
+      "applications_title": "实际应用",
+      "applications_description": "不同车辆类别的常见CCM转HP比率",
+
+      "motorcycles_title": "摩托车和踏板车",
+      "motorcycles_description": "从小型通勤车到高性能超级跑车。",
+      "motorcycles_examples": "125cc踏板车：~10-15 hp|600cc运动车：~100-120 hp|1000cc超级跑车：~180-200 hp",
+
+      "cars_title": "汽车和卡车",
+      "cars_description": "乘用车和商用应用。",
+      "cars_examples": "1000cc城市车：~70-80 hp|2000cc轿车：~150-180 hp|3000cc SUV：~250-300 hp",
+
+      "racing_title": "赛车和性能",
+      "racing_description": "专业调校的高性能应用。",
+      "racing_examples": "125cc卡丁车：~30-35 hp|250cc越野车：~45-50 hp|方程式赛车：变化很大",
+
+      "marine_title": "船用和舷外机",
+      "marine_description": "船用发动机和海洋应用。",
+      "marine_examples": "25hp舷外机：~500-750cc|150hp舷外机：~2500-3000cc|高性能船用发动机",
+
+      "key_characteristics": "主要特征：",
+      "advantages": "优势：",
+      "typical_examples": "典型示例：",
+      "power_factor": "功率系数：",
+      "power_output": "功率输出：",
+
+      "disclaimer_title": "重要免责声明",
+      "disclaimer_text": "此工具提供的CCM转HP转换是基于经验数据和行业平均值的估算。实际马力输出可能因以下因素而显著变化：",
+      "disclaimer_factors": "压缩比和发动机调校|燃料质量和辛烷值|进气和排气系统设计|发动机管理和点火正时|制造公差和构建质量",
+      "disclaimer_footer": "请始终参考制造商规格以获得准确的功率额定值。"
+    },
+
+    "faq": {
+      "title": "常见问题",
+      "description": "关于CCM转HP转换和发动机功率计算您需要了解的一切",
+
+      "q1": "CCM转HP转换有多准确？",
+      "a1": "CCM转HP转换基于经验数据和行业平均值提供估算。实际马力可能因发动机调校、压缩比、燃油系统和其他因素而变化±15-25%。我们的计算器使用经过验证的公式，对2冲程vs4冲程和自然吸气vs涡轮增压发动机使用不同系数。",
+
+      "q2": "2冲程和4冲程功率输出有什么区别？",
+      "a2": "2冲程发动机通常比4冲程发动机产生更多的每cc功率，因为它们每转都有一次功率冲程，而不是每两转一次。我们的计算器对2冲程发动机应用1.2-1.4x系数，对4冲程发动机应用0.8-1.0x系数，反映实际功率差异。",
+
+      "q3": "涡轮增压如何影响CCM转HP转换？",
+      "a3": "涡轮增压发动机从相同排量产生显著更多功率。我们的计算器对涡轮增压发动机应用更高系数（1.0-1.4x），相比自然吸气发动机（0.8-1.2x），通常产生25-40%更多的估算马力。",
+
+      "q4": "我可以将此用于摩托车、汽车和船用发动机吗？",
+      "a4": "是的！我们的CCM转HP转换器适用于所有内燃机，包括摩托车、汽车、船只、ATV和赛车发动机。计算器考虑了这些应用中常见的不同发动机类型和配置。",
+
+      "q5": "为什么制造商的HP额定值有时与计算不同？",
+      "a5": "制造商额定值在特定条件下测量（SAE、DIN等），可能包括海拔、温度和测量标准等因素。我们的计算器基于排量和发动机类型提供估算，而实际额定值取决于完整的发动机设计、调校和测试条件。",
+
+      "q6": "此计算器最适合哪个CCM范围？",
+      "a6": "我们的计算器对50cc到8000cc的发动机准确工作。对于非常小的发动机（50cc以下）或极大的发动机（8000cc以上），由于不同的设计原理和效率因素，结果可能不够准确。"
+    },
+
+    "final_cta": {
+      "title": "准备计算发动机功率了吗？",
+      "description": "使用我们的免费CCM转HP转换器即时估算您的发动机马力",
+      "button_text": "立即开始转换"
+    }
   }
 }

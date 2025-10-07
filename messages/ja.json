@@ -1090,5 +1090,205 @@
       "tools": "ツール",
       "bpm_ms_converter": "BPM MS変換"
     }
+  },
+  "CcmToHpConverter": {
+    "seo_title": "CCMからHP変換器 – 無料エンジンパワー計算機 | バイク・自動車エンジンツール",
+    "seo_description": "エンジン排気量から馬力計算のための無料オンラインCCMからHP変換器。バイク、自動車、船舶エンジン用に立方センチメートルから馬力に変換。2ストローク、4ストローク、ターボチャージドエンジンに対応し、精度制御付き。",
+    "seo_keywords": "ccmからhp変換器, エンジン排気量計算機, 馬力計算機, バイクパワー計算機, 自動車エンジン計算機",
+    "page_title": "CCMからHP変換器",
+    "page_subtitle": "エンジンパワー推定器",
+    "page_description": "無料CCMからHP変換器とエンジンパワー計算機。2ストロークと4ストロークエンジンのエンジン排気量（ccm）から馬力（hp）を瞬時に精密変換。バイク愛好家、自動車購入者、船舶用途、レーシングプロジェクトに最適。",
+    "free_calculator_badge": "エンジンパワー計算機",
+
+    "feature_badges": {
+      "bidirectional_conversion": "双方向CCM ↔ HP変換",
+      "engine_support": "2ストローク・4ストロークエンジン対応",
+      "turbo_support": "ターボチャージド・自然吸気",
+      "multi_application": "バイク・自動車・船舶エンジン"
+    },
+
+    "keywords_tags": {
+      "ccm_to_hp": "ccmからhp",
+      "hp_to_ccm": "hpからccm",
+      "engine_displacement_calculator": "エンジン排気量計算機",
+      "horsepower_estimator": "馬力推定器",
+      "motorcycle_power_calculator": "バイクパワー計算機",
+      "2_stroke_4_stroke_converter": "2ストローク4ストローク変換器"
+    },
+
+    "breadcrumb": {
+      "home": "ホーム",
+      "tools": "ツール",
+      "ccm_to_hp_converter": "CCMからHP変換器"
+    },
+
+    "usage_guide": {
+      "title": "CCMからHP変換器の使い方 - 完全エンジンパワーガイド",
+      "description": "バイク購入、自動車評価、船舶エンジン、レーシング用途のエンジン排気量から馬力変換をマスター",
+      "step_1_title": "エンジン排気量を入力",
+      "step_1_description": "エンジンの排気量をCCM（立方センチメートル）で入力、または逆計算用に馬力を入力",
+      "step_2_title": "エンジンタイプを選択",
+      "step_2_description": "2ストローク（ダートバイク、チェーンソー）または4ストローク（自動車、現代のバイク）エンジンを選択",
+      "step_3_title": "燃料システムを選択",
+      "step_3_description": "自然吸気またはターボチャージドを選択して正確なパワー推定を取得",
+      "step_4_title": "瞬時結果を取得",
+      "step_4_description": "パワー範囲付きの推定馬力を表示、結果をコピー、または計算を共有"
+    },
+
+    "converter_card": {
+      "title": "CCM ↔ HPエンジン計算機",
+      "description": "エンジン排気量を馬力に精密変換",
+      "engine_type_label": "エンジンタイプ",
+      "fuel_system_label": "燃料システム",
+      "precision_label": "精度",
+      "input_method_label": "入力方法",
+      "share_results_label": "結果を共有",
+      "engine_displacement_label": "エンジン排気量",
+      "horsepower_label": "馬力",
+      "estimated_horsepower_label": "推定馬力",
+      "estimated_displacement_label": "推定排気量",
+      "enter_ccm_placeholder": "ccmを入力...",
+      "enter_hp_placeholder": "hpを入力...",
+      "slider_mode": "スライダーモード",
+      "text_input": "テキスト入力",
+      "hide_share": "共有を隠す",
+      "show_share": "共有を表示",
+      "enter_value_to_calculate": "計算する値を入力",
+      "copy_result": "結果をコピー",
+      "share_result": "結果を共有",
+      "copy_url": "URLをコピー",
+      "copying": "コピー中...",
+      "copied": "コピー完了！",
+      "sharing": "共有中...",
+      "shared": "共有完了！",
+      "formula_prefix": "公式：",
+      "disclaimer": "*実際のパワーはチューニング、圧縮、燃料タイプによって異なる場合があります。",
+      "share_your_results": "結果を共有",
+      "decimals": "小数点",
+      "decimal": "小数",
+      "range_prefix": "範囲：",
+      "invalid_number": "有効な正の数を入力してください",
+      "min_ccm_error": "最小CCM値は50です",
+      "large_ccm_warning": "非常に大きなエンジン排気量。8000ccを超えるエンジンでは結果の精度が低下する場合があります",
+      "min_hp_error": "最小HP値は1です",
+      "high_hp_warning": "非常に高い馬力。1000hpを超えるエンジンでは結果の精度が低下する場合があります"
+    },
+
+    "engine_types": {
+      "2_stroke": "2ストロークエンジン",
+      "4_stroke": "4ストロークエンジン"
+    },
+
+    "fuel_systems": {
+      "naturally_aspirated": "自然吸気",
+      "turbocharged": "ターボチャージド"
+    },
+
+    "history": {
+      "title": "変換履歴",
+      "button_text": "履歴",
+      "clear_history": "履歴をクリア",
+      "click_to_use": "クリックして使用",
+      "recent_conversions_saved": "最近の変換がローカルに保存されます"
+    },
+
+    "quick_reference": {
+      "title": "クイックリファレンス",
+      "description": "一般的なCCMからHP変換と実例",
+      "common_conversions": "一般的な変換",
+      "real_vehicle_examples": "実車例",
+      "pro_tip": "プロのヒント",
+      "pro_tip_text": "エンジン排気量（CCM）は馬力を決定する要因の一つに過ぎません。実際のパワー出力は圧縮比、燃料システム、チューニング、その他多くの要因に依存します。これらの推定値を出発点として使用してください。"
+    },
+
+    "educational_content": {
+      "title": "CCMからHP変換の理解",
+      "description": "エンジン排気量、馬力計算、エンジンパワー出力に影響する要因について学ぶ",
+
+      "engine_types_title": "エンジンタイプ・パワー特性",
+      "engine_types_description": "異なるエンジン設計がパワー出力にどのように影響するかの理解",
+
+      "2_stroke_title": "2ストロークエンジン",
+      "2_stroke_description": "より高いパワー対重量比、ダートバイク、チェーンソー、レーシング用途で一般的。",
+      "2_stroke_characteristics": "毎回転でパワーストローク|軽量でコンパクト|ccあたりの高いパワー出力|バイクと小型エンジンで一般的",
+      "2_stroke_power_factor": "1.2-1.4x係数",
+
+      "4_stroke_title": "4ストロークエンジン",
+      "4_stroke_description": "より燃費が良くクリーン、ほとんどの自動車と現代のバイクで標準。",
+      "4_stroke_characteristics": "2回転でパワーストローク|より良い燃費|低排出|より耐久性があり信頼性が高い",
+      "4_stroke_power_factor": "0.8-1.0x係数",
+
+      "fuel_systems_title": "燃料システムのパワーへの影響",
+      "fuel_systems_description": "異なる吸気システムが馬力出力にどのように影響するか",
+
+      "naturally_aspirated_title": "自然吸気",
+      "naturally_aspirated_description": "空気が通常の吸気プロセスを通じて大気圧でエンジンに入る。",
+      "naturally_aspirated_advantages": "シンプルな設計とメンテナンス|より予測可能なパワー供給|低コスト|より良い信頼性",
+      "naturally_aspirated_power_range": "低いパワー密度",
+
+      "turbocharged_title": "ターボチャージド",
+      "turbocharged_description": "より高いパワー出力のために空気を圧縮する強制吸気システム。",
+      "turbocharged_advantages": "小排気量からより高いパワー|より良いパワー対重量比|高負荷での効率改善|ccあたりのより多いパワー",
+      "turbocharged_power_range": "25-40%多いパワー",
+
+      "applications_title": "実世界の用途",
+      "applications_description": "異なる車両カテゴリーでの一般的なCCMからHP比",
+
+      "motorcycles_title": "バイク・スクーター",
+      "motorcycles_description": "小型通勤バイクから高性能スーパーバイクまで。",
+      "motorcycles_examples": "125ccスクーター：~10-15 hp|600ccスポーツバイク：~100-120 hp|1000ccスーパーバイク：~180-200 hp",
+
+      "cars_title": "自動車・トラック",
+      "cars_description": "乗用車と商用用途。",
+      "cars_examples": "1000cc市街地車：~70-80 hp|2000ccセダン：~150-180 hp|3000cc SUV：~250-300 hp",
+
+      "racing_title": "レーシング・パフォーマンス",
+      "racing_description": "専門チューニングによる高性能用途。",
+      "racing_examples": "125ccカート：~30-35 hp|250ccモトクロス：~45-50 hp|フォーミュラレーシング：大きく変動",
+
+      "marine_title": "船舶・船外機",
+      "marine_description": "ボートエンジンと船舶用途。",
+      "marine_examples": "25hp船外機：~500-750cc|150hp船外機：~2500-3000cc|高性能船舶エンジン",
+
+      "key_characteristics": "主要特性：",
+      "advantages": "利点：",
+      "typical_examples": "典型例：",
+      "power_factor": "パワー係数：",
+      "power_output": "パワー出力：",
+
+      "disclaimer_title": "重要な免責事項",
+      "disclaimer_text": "このツールが提供するCCMからHP変換は、経験的データと業界平均に基づく推定値です。実際の馬力出力は以下のような要因により大きく変動する可能性があります：",
+      "disclaimer_factors": "圧縮比とエンジンチューニング|燃料品質とオクタン価|吸気・排気システム設計|エンジン管理と点火タイミング|製造公差と構築品質",
+      "disclaimer_footer": "正確なパワー定格については常にメーカー仕様を参照してください。"
+    },
+
+    "faq": {
+      "title": "よくある質問",
+      "description": "CCMからHP変換とエンジンパワー計算について知っておくべきすべて",
+
+      "q1": "CCMからHP変換はどの程度正確ですか？",
+      "a1": "CCMからHP変換は経験的データと業界平均に基づく推定値を提供します。実際の馬力はエンジンチューニング、圧縮比、燃料システム、その他の要因により±15-25%変動する可能性があります。当計算機は2ストローク対4ストローク、自然吸気対ターボチャージドエンジンで異なる係数を使用した実証済み公式を使用しています。",
+
+      "q2": "2ストロークと4ストロークのパワー出力の違いは何ですか？",
+      "a2": "2ストロークエンジンは通常、2回転に1回ではなく毎回転でパワーストロークがあるため、4ストロークエンジンよりもccあたりのパワーが多く出ます。当計算機は2ストロークエンジンに1.2-1.4x係数、4ストロークエンジンに0.8-1.0x係数を適用し、実世界のパワー差を反映しています。",
+
+      "q3": "ターボチャージングはCCMからHP変換にどのように影響しますか？",
+      "a3": "ターボチャージドエンジンは同じ排気量からかなり多くのパワーを生み出します。当計算機は自然吸気エンジン（0.8-1.2x）と比較してターボチャージドエンジンにより高い係数（1.0-1.4x）を適用し、通常25-40%多い推定馬力をもたらします。",
+
+      "q4": "これをバイク、自動車、船舶エンジンに使用できますか？",
+      "a4": "はい！当CCMからHP変換器はバイク、自動車、ボート、ATV、レーシングエンジンを含むすべての内燃機関で動作します。計算機はこれらの用途で一般的に見られる異なるエンジンタイプと構成を考慮しています。",
+
+      "q5": "なぜメーカーのHP定格が計算と異なることがあるのですか？",
+      "a5": "メーカー定格は特定の条件（SAE、DINなど）で測定され、高度、温度、測定基準などの要因を含む場合があります。当計算機は排気量とエンジンタイプに基づく推定値を提供しますが、実際の定格は完全なエンジン設計、チューニング、テスト条件に依存します。",
+
+      "q6": "この計算機で最適に動作するCCM範囲は？",
+      "a6": "当計算機は50ccから8000ccのエンジンで正確に動作します。非常に小さなエンジン（50cc未満）や極めて大きなエンジン（8000cc超）では、異なる設計原理と効率要因により結果の精度が低下する場合があります。"
+    },
+
+    "final_cta": {
+      "title": "エンジンパワーを計算する準備はできましたか？",
+      "description": "無料CCMからHP変換器を使用してエンジンの馬力を瞬時に推定",
+      "button_text": "今すぐ変換開始"
+    }
   }
 }
