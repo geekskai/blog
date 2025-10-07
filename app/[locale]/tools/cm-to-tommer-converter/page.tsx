@@ -14,11 +14,13 @@ import {
   Calculator,
   Settings,
 } from "lucide-react"
+import { useTranslations } from "next-intl"
 import ConverterCard from "./components/ConverterCard"
 import QuickReference from "./components/QuickReference"
 import EducationalContent from "./components/EducationalContent"
 
 export default function CmToTommerConverter() {
+  const t = useTranslations("CmToTommerConverter")
   return (
     <div className="relative min-h-screen bg-slate-950">
       {/* Background pattern */}
@@ -41,17 +43,17 @@ export default function CmToTommerConverter() {
           <li>
             <a href="/" className="flex items-center transition-colors hover:text-slate-200">
               <Home className="h-4 w-4" />
-              <span className="ml-1">Home</span>
+              <span className="ml-1">{t("breadcrumb.home")}</span>
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
           <li>
             <a href="/tools" className="transition-colors hover:text-slate-200">
-              Tools
+              {t("breadcrumb.tools")}
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
-          <li className="font-medium text-slate-100">CM to Tommer Converter</li>
+          <li className="font-medium text-slate-100">{t("breadcrumb.current")}</li>
         </ol>
       </nav>
 
@@ -62,46 +64,38 @@ export default function CmToTommerConverter() {
           <div className="mb-8 text-center">
             <div className="mb-8 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-slate-300 shadow-xl backdrop-blur-sm">
               <ArrowLeftRight className="mr-2 h-4 w-4 text-blue-400" />
-              Free CM to Tommer Converter & Nordic Measurement Tool
+              {t("header.badge")}
               <Sparkles className="ml-2 h-4 w-4 text-purple-400" />
             </div>
 
             <h1 className="mb-8 text-5xl font-bold text-white sm:text-6xl lg:text-7xl">
-              <span className="block">CM to Tommer</span>
+              <span className="block">{t("header.title_line1")}</span>
               <span className="block bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-500 bg-clip-text text-transparent">
-                Converter & Calculator
+                {t("header.title_line2")}
               </span>
             </h1>
 
             <p className="mx-auto mb-8 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
-              <strong className="text-slate-300">Free CM to Tommer converter</strong> and Nordic
-              measurement calculator. Convert{" "}
-              <strong className="text-slate-300">centimeters to tommer</strong> (Danish/Norwegian
-              inches), convert <strong className="text-slate-300">tommer to centimeters</strong>,
-              and calculate precise measurements with decimal precision. Perfect for{" "}
-              <strong className="text-slate-300">furniture shopping</strong>,{" "}
-              <strong className="text-slate-300">construction projects</strong>,{" "}
-              <strong className="text-slate-300">IKEA dimensions</strong>, and international
-              commerce across Nordic countries.
+              {t("header.description")}
             </p>
 
             {/* SEO-optimized feature badges */}
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500">
               <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
                 <TrendingUp className="h-4 w-4 text-green-500" />
-                <span className="font-medium">Centimeter to Tommer Calculator</span>
+                <span className="font-medium">{t("header.features.calculator")}</span>
               </div>
               <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
                 <Globe className="h-4 w-4 text-blue-500" />
-                <span className="font-medium">Danish Norwegian Inch Converter</span>
+                <span className="font-medium">{t("header.features.converter")}</span>
               </div>
               <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
                 <Zap className="h-4 w-4 text-purple-500" />
-                <span className="font-medium">IKEA Furniture Size Tool</span>
+                <span className="font-medium">{t("header.features.ikea_tool")}</span>
               </div>
               <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
                 <BookOpen className="h-4 w-4 text-orange-500" />
-                <span className="font-medium">Nordic Construction Measurement</span>
+                <span className="font-medium">{t("header.features.construction")}</span>
               </div>
             </div>
 
@@ -109,22 +103,22 @@ export default function CmToTommerConverter() {
             <div className="mt-8 text-center">
               <p className="text-sm text-slate-500">
                 <span className="mx-1 inline-block rounded-full bg-slate-800/50 px-3 py-1">
-                  cm to tommer
+                  {t("header.keyword_1")}
                 </span>
                 <span className="mx-1 inline-block rounded-full bg-slate-800/50 px-3 py-1">
-                  tommer to cm
+                  {t("header.keyword_2")}
                 </span>
                 <span className="mx-1 inline-block rounded-full bg-slate-800/50 px-3 py-1">
-                  danish inch converter
+                  {t("header.keyword_3")}
                 </span>
                 <span className="mx-1 inline-block rounded-full bg-slate-800/50 px-3 py-1">
-                  norwegian measurement
+                  {t("header.keyword_4")}
                 </span>
                 <span className="mx-1 inline-block rounded-full bg-slate-800/50 px-3 py-1">
-                  nordic units
+                  {t("header.keyword_5")}
                 </span>
                 <span className="mx-1 inline-block rounded-full bg-slate-800/50 px-3 py-1">
-                  scandinavian converter
+                  {t("header.keyword_6")}
                 </span>
               </p>
             </div>
@@ -152,16 +146,9 @@ export default function CmToTommerConverter() {
         {/* Usage guide - SEO optimized */}
         <div className="mt-32 rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-white">
-              How to Use CM to Tommer Converter - Complete Guide
-            </h2>
+            <h2 className="mb-4 text-3xl font-bold text-white">{t("usage_guide.title")}</h2>
             <p className="mx-auto max-w-2xl text-xl text-slate-400">
-              Master <strong className="text-slate-300">centimeter to tommer conversion</strong> for{" "}
-              <strong className="text-slate-300">Nordic furniture shopping</strong>,{" "}
-              <strong className="text-slate-300">construction projects</strong>, and{" "}
-              <strong className="text-slate-300">international measurements</strong>. Our{" "}
-              <strong className="text-slate-300">Danish Norwegian inch converter</strong> provides
-              accurate results for all your measurement needs.
+              {t("usage_guide.description")}
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -169,41 +156,37 @@ export default function CmToTommerConverter() {
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-blue-500 text-2xl font-bold text-white">
                 1
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Enter Measurement Value</h3>
-              <p className="text-slate-400">
-                Input your measurement in centimeters or tommer. Our converter accepts decimal
-                values and automatically switches between units for instant conversion.
-              </p>
+              <h3 className="mb-3 text-lg font-semibold text-white">
+                {t("usage_guide.step_1_title")}
+              </h3>
+              <p className="text-slate-400">{t("usage_guide.step_1_description")}</p>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-purple-500 text-2xl font-bold text-white">
                 2
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Choose Precision Level</h3>
-              <p className="text-slate-400">
-                Select decimal precision from 0 to 3 decimal places for your conversion needs.
-                Perfect for construction accuracy or general furniture measurements.
-              </p>
+              <h3 className="mb-3 text-lg font-semibold text-white">
+                {t("usage_guide.step_2_title")}
+              </h3>
+              <p className="text-slate-400">{t("usage_guide.step_2_description")}</p>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-pink-600 to-pink-500 text-2xl font-bold text-white">
                 3
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Get Instant Results</h3>
-              <p className="text-slate-400">
-                View real-time conversion results with the exact formula used. Perfect for
-                understanding Nordic measurement standards and international commerce.
-              </p>
+              <h3 className="mb-3 text-lg font-semibold text-white">
+                {t("usage_guide.step_3_title")}
+              </h3>
+              <p className="text-slate-400">{t("usage_guide.step_3_description")}</p>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-green-600 to-green-500 text-2xl font-bold text-white">
                 4
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Copy & Use Results</h3>
-              <p className="text-slate-400">
-                Copy conversion results with one click for use in shopping lists, construction
-                plans, or international product specifications.
-              </p>
+              <h3 className="mb-3 text-lg font-semibold text-white">
+                {t("usage_guide.step_4_title")}
+              </h3>
+              <p className="text-slate-400">{t("usage_guide.step_4_description")}</p>
             </div>
           </div>
         </div>
@@ -213,34 +196,28 @@ export default function CmToTommerConverter() {
           {/* What is Tommer Section */}
           <section className="rounded-xl bg-gradient-to-r from-blue-800 to-indigo-700 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              What is Tommer? Understanding Nordic Measurement Units
+              {t("content_sections.what_is_tommer.title")}
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <p className="mb-4 text-slate-200">
-                  Tommer is the Danish and Norwegian word for "inch" and represents a traditional
-                  Nordic measurement unit. In modern usage, 1 tommer equals exactly 2.54
-                  centimeters, identical to the international inch standard. This CM to Tommer
-                  converter helps you navigate Nordic measurements for furniture shopping,
-                  construction projects, and international commerce.
+                  {t("content_sections.what_is_tommer.description_1")}
                 </p>
                 <p className="text-slate-200">
-                  Our centimeter to tommer converter is essential for anyone working with Nordic
-                  countries, IKEA furniture dimensions, Scandinavian construction standards, or
-                  international product specifications that use tommer measurements.
+                  {t("content_sections.what_is_tommer.description_2")}
                 </p>
               </div>
               <div className="rounded-lg bg-blue-900/30 p-6">
                 <h3 className="mb-3 text-lg font-semibold text-white">
-                  Tommer Conversion Benefits
+                  {t("content_sections.what_is_tommer.benefits.title")}
                 </h3>
                 <ul className="space-y-2 text-slate-200">
-                  <li>• Accurate Nordic measurement conversion</li>
-                  <li>• Perfect for IKEA furniture dimensions</li>
-                  <li>• Essential for construction projects</li>
-                  <li>• International commerce compatibility</li>
-                  <li>• Precision up to 3 decimal places</li>
-                  <li>• Free and instant conversion</li>
+                  <li>• {t("content_sections.what_is_tommer.benefits.benefit_1")}</li>
+                  <li>• {t("content_sections.what_is_tommer.benefits.benefit_2")}</li>
+                  <li>• {t("content_sections.what_is_tommer.benefits.benefit_3")}</li>
+                  <li>• {t("content_sections.what_is_tommer.benefits.benefit_4")}</li>
+                  <li>• {t("content_sections.what_is_tommer.benefits.benefit_5")}</li>
+                  <li>• {t("content_sections.what_is_tommer.benefits.benefit_6")}</li>
                 </ul>
               </div>
             </div>
@@ -249,41 +226,47 @@ export default function CmToTommerConverter() {
           {/* CM to Tommer Conversion Guide */}
           <section className="rounded-xl bg-gradient-to-r from-purple-800 to-pink-700 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              CM to Tommer Conversion Formula & Calculator Guide
+              {t("content_sections.conversion_guide.title")}
             </h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               <div className="rounded-lg bg-purple-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">📏 Conversion Formula</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  📏 {t("content_sections.conversion_guide.formula.title")}
+                </h3>
                 <div className="space-y-2 text-slate-200">
                   <p>
                     <code className="rounded bg-black/30 px-2 py-1 text-sm">
-                      cm × 0.3937 = tommer
+                      {t("content_sections.conversion_guide.formula.cm_to_tommer")}
                     </code>
                   </p>
                   <p>
                     <code className="rounded bg-black/30 px-2 py-1 text-sm">
-                      tommer × 2.54 = cm
+                      {t("content_sections.conversion_guide.formula.tommer_to_cm")}
                     </code>
                   </p>
-                  <p>Use our calculator for instant and accurate conversions.</p>
+                  <p>{t("content_sections.conversion_guide.formula.description")}</p>
                 </div>
               </div>
               <div className="rounded-lg bg-purple-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">🎯 Precision Control</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  🎯 {t("content_sections.conversion_guide.precision.title")}
+                </h3>
                 <div className="space-y-2 text-slate-200">
-                  <p>0 decimals: General measurements</p>
-                  <p>1-2 decimals: Furniture dimensions</p>
-                  <p>3 decimals: Construction precision</p>
-                  <p>Choose the right precision for your specific needs.</p>
+                  <p>{t("content_sections.conversion_guide.precision.level_1")}</p>
+                  <p>{t("content_sections.conversion_guide.precision.level_2")}</p>
+                  <p>{t("content_sections.conversion_guide.precision.level_3")}</p>
+                  <p>{t("content_sections.conversion_guide.precision.description")}</p>
                 </div>
               </div>
               <div className="rounded-lg bg-purple-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">⚡ Quick Examples</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  ⚡ {t("content_sections.conversion_guide.examples.title")}
+                </h3>
                 <div className="space-y-2 text-slate-200">
-                  <p>10 cm = 3.94 tommer</p>
-                  <p>25.4 cm = 10 tommer</p>
-                  <p>100 cm = 39.37 tommer</p>
-                  <p>Perfect for common measurement conversions.</p>
+                  <p>{t("content_sections.conversion_guide.examples.example_1")}</p>
+                  <p>{t("content_sections.conversion_guide.examples.example_2")}</p>
+                  <p>{t("content_sections.conversion_guide.examples.example_3")}</p>
+                  <p>{t("content_sections.conversion_guide.examples.description")}</p>
                 </div>
               </div>
             </div>

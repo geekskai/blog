@@ -1230,6 +1230,359 @@
       "button_text": "今すぐ変換開始"
     }
   },
+  "CmToTommerConverter": {
+    "seo_title": "CMからTommer変換器 – センチメートルからインチオンラインツール | 無料で正確",
+    "seo_description": "無料オンラインCMからTommer変換器。センチメートルをtommer（デンマーク/ノルウェーインチ）に即座に変換、最大3桁の小数点精度。家具、建設、国際商取引に最適。",
+    "seo_keywords": "cmからtommer, センチメートルからtommer, tommerからcm, デンマークインチ変換器, ノルウェーインチ変換器, 北欧測定変換器, 家具サイズ変換器, 建設測定ツール, メートル法からtommer, スカンジナビア単位, cmからインチ変換器, 測定変換ツール, 無料オンライン変換器, 精密測定変換器",
+    "breadcrumb": {
+      "home": "ホーム",
+      "tools": "ツール",
+      "current": "CMからTommer変換器"
+    },
+    "header": {
+      "badge": "無料CMからTommer変換器と北欧測定ツール",
+      "title_line1": "CMからTommer",
+      "title_line2": "変換器と計算機",
+      "description": "無料CMからTommer変換器と北欧測定計算機。センチメートルをtommer（デンマーク/ノルウェーインチ）に変換、tommerをセンチメートルに変換し、小数点精度で正確な測定を計算。家具ショッピング、建設プロジェクト、IKEA寸法、北欧諸国での国際商取引に最適。",
+      "features": {
+        "calculator": "センチメートルからTommer計算機",
+        "converter": "デンマーク・ノルウェーインチ変換器",
+        "ikea_tool": "IKEA家具サイズツール",
+        "construction": "北欧建設測定"
+      },
+      "keyword_1": "cmからtommer",
+      "keyword_2": "tommerからcm",
+      "keyword_3": "デンマークインチ変換器",
+      "keyword_4": "ノルウェー測定",
+      "keyword_5": "北欧単位",
+      "keyword_6": "スカンジナビア変換器",
+      "converter_card": {
+        "title": "CM ↔ Tommer 変換器",
+        "description": "センチメートルとtommer（デンマーク/ノルウェーインチ）を即座に変換",
+        "input_label_cm": "センチメートル値を入力",
+        "input_label_tommer": "Tommer（インチ）値を入力",
+        "result_label_cm": "センチメートル結果",
+        "result_label_tommer": "Tommer（インチ）結果",
+        "placeholder": "値を入力...",
+        "precision_label": "小数点精度",
+        "precision_0": "小数点0桁",
+        "precision_1": "小数点1桁",
+        "precision_2": "小数点2桁",
+        "precision_3": "小数点3桁",
+        "copy_button": "コピー",
+        "copying": "コピー中...",
+        "copied": "コピー完了！",
+        "copy_failed": "失敗",
+        "formula_label": "変換式：",
+        "formula_cm_to_tommer": "1cm = 0.3937 tommer",
+        "formula_tommer_to_cm": "1 tommer = 2.54cm"
+      }
+    },
+    "converter_card": {
+      "title": "CM ↔ Tommer 変換器",
+      "description": "センチメートルとtommer（デンマーク/ノルウェーインチ）を即座に変換",
+      "input_label_cm": "センチメートル値を入力",
+      "input_label_tommer": "Tommer（インチ）値を入力",
+      "result_label_cm": "センチメートル結果",
+      "result_label_tommer": "Tommer（インチ）結果",
+      "placeholder": "値を入力...",
+      "precision_label": "小数点精度",
+      "precision_0": "小数点0桁",
+      "precision_1": "小数点1桁",
+      "precision_2": "小数点2桁",
+      "precision_3": "小数点3桁",
+      "copy_button": "コピー",
+      "copying": "コピー中...",
+      "copied": "コピー完了！",
+      "copy_failed": "失敗",
+      "formula_label": "変換式：",
+      "formula_cm_to_tommer": "1cm = 0.3937 tommer",
+      "formula_tommer_to_cm": "1 tommer = 2.54cm"
+    },
+    "quick_reference": {
+      "title": "クイックリファレンス",
+      "description": "一般的なセンチメートルからtommer変換のクイックリファレンス",
+      "centimeters_header": "センチメートル",
+      "tommer_header": "Tommer",
+      "cm_unit": "cm",
+      "tommer_unit": "インチ",
+      "pro_tip_title": "プロのヒント",
+      "pro_tip_description": "Tommerはデンマーク語とノルウェー語で「インチ」を意味します。1 tommerは正確に2.54センチメートルで、国際インチと同じです。"
+    },
+    "educational_content": {
+      "use_cases": {
+        "title": "一般的な使用例",
+        "description": "cmとtommerの間で変換が必要な場面と理由を発見",
+        "furniture": {
+          "icon": "🏠",
+          "title": "家具とホームデコレーション",
+          "description": "北欧諸国や国際小売業者から家具を購入する際の家具寸法変換。",
+          "example_1": "IKEA製品寸法",
+          "example_2": "スカンジナビア家具カタログ",
+          "example_3": "住宅改修プロジェクト"
+        },
+        "construction": {
+          "icon": "🏗️",
+          "title": "建設と建築",
+          "description": "異なる単位システムでの正確な測定が必要な専門建設プロジェクト。",
+          "example_1": "建築図面",
+          "example_2": "建築材料",
+          "example_3": "技術仕様"
+        },
+        "ecommerce": {
+          "icon": "🛒",
+          "title": "Eコマースとショッピング",
+          "description": "国際オンラインストアから購入する際の製品サイズの理解。",
+          "example_1": "衣類測定",
+          "example_2": "電子機器寸法",
+          "example_3": "配送箱サイズ"
+        },
+        "engineering": {
+          "icon": "📐",
+          "title": "エンジニアリングとデザイン",
+          "description": "メートル法と北欧測定システム間の変換が必要な技術作業。",
+          "example_1": "CAD図面",
+          "example_2": "製品仕様",
+          "example_3": "製造公差"
+        },
+        "examples_label": "例："
+      },
+      "about_tommer": {
+        "title": "Tommerとセンチメートルについて",
+        "description": "これらの測定単位の歴史と実用的な応用について学ぶ",
+        "historical_background": {
+          "title": "歴史的背景",
+          "content": "Tommer（デンマーク語/ノルウェー語で「親指」を意味）は北欧諸国で何世紀にもわたって使用され、元々は親指の幅に基づいていました。"
+        },
+        "modern_standardization": {
+          "title": "現代の標準化",
+          "content": "今日、1 tommerは正確に2.54cmで、国際インチと同一であり、世界的な互換性を確保しています。"
+        },
+        "regional_usage": {
+          "title": "地域での使用",
+          "content": "メートル法が北欧諸国の公式システムですが、tommerは建設、家具、伝統工芸で今でも一般的に使用されています。"
+        },
+        "precision_matters": {
+          "title": "精度の重要性",
+          "content": "専門的な用途では、小さな変換エラーでも累積する可能性があります。当ツールは最大精度のため3桁の小数点を提供します。"
+        },
+        "conversion_formulas": {
+          "title": "変換式",
+          "cm_to_tommer": "cm × 0.3937 = tommer",
+          "tommer_to_cm": "tommer × 2.54 = cm",
+          "cm_to_tommer_label": "センチメートルからTommer",
+          "tommer_to_cm_label": "TommerからCM"
+        }
+      }
+    },
+    "usage_guide": {
+      "title": "CMからTommer変換器の使用方法 - 完全ガイド",
+      "description": "北欧家具ショッピング、建設プロジェクト、国際測定のためのセンチメートルからtommer変換をマスター。当デンマーク・ノルウェーインチ変換器はすべての測定ニーズに正確な結果を提供します。",
+      "step_1_title": "測定値を入力",
+      "step_1_description": "センチメートルまたはtommerで測定値を入力。当変換器は小数値を受け入れ、即座の変換のため単位間で自動的に切り替わります。",
+      "step_2_title": "精度レベルを選択",
+      "step_2_description": "変換ニーズに応じて0から3桁の小数点精度を選択。建設精度や一般的な家具測定に最適。",
+      "step_3_title": "即座の結果を取得",
+      "step_3_description": "使用された正確な式でリアルタイム変換結果を表示。北欧測定基準と国際商取引の理解に最適。",
+      "step_4_title": "結果をコピーして使用",
+      "step_4_description": "ショッピングリスト、建設計画、国際製品仕様での使用のため、ワンクリックで変換結果をコピー。"
+    },
+    "content_sections": {
+      "what_is_tommer": {
+        "title": "Tommerとは？北欧測定単位の理解",
+        "description_1": "Tommerはデンマーク語とノルウェー語で「インチ」を意味し、伝統的な北欧測定単位を表します。現代の使用では、1 tommerは正確に2.54センチメートルで、国際インチ基準と同一です。このCMからTommer変換器は家具ショッピング、建設プロジェクト、国際商取引での北欧測定のナビゲートを支援します。",
+        "description_2": "当センチメートルからtommer変換器は、北欧諸国、IKEA家具寸法、スカンジナビア建設基準、またはtommer測定を使用する国際製品仕様を扱う人にとって不可欠です。",
+        "benefits": {
+          "title": "Tommer変換の利点",
+          "benefit_1": "正確な北欧測定変換",
+          "benefit_2": "IKEA家具寸法に最適",
+          "benefit_3": "建設プロジェクトに不可欠",
+          "benefit_4": "国際商取引互換性",
+          "benefit_5": "3桁の小数点精度",
+          "benefit_6": "無料で即座の変換"
+        }
+      },
+      "conversion_guide": {
+        "title": "CMからTommer変換式と計算機ガイド",
+        "formula": {
+          "title": "変換式",
+          "cm_to_tommer": "cm × 0.3937 = tommer",
+          "tommer_to_cm": "tommer × 2.54 = cm",
+          "description": "即座で正確な変換には当計算機を使用。"
+        },
+        "precision": {
+          "title": "精度制御",
+          "level_1": "0桁の小数：一般測定",
+          "level_2": "1-2桁の小数：家具寸法",
+          "level_3": "3桁の小数：建設精度",
+          "description": "特定のニーズに適した精度を選択。"
+        },
+        "examples": {
+          "title": "クイック例",
+          "example_1": "10cm = 3.94 tommer",
+          "example_2": "25.4cm = 10 tommer",
+          "example_3": "100cm = 39.37 tommer",
+          "description": "一般的な測定変換に最適。"
+        }
+      },
+      "nordic_usage": {
+        "title": "北欧諸国でのTommer使用",
+        "denmark": {
+          "title": "🇩🇰 デンマーク",
+          "description": "デンマークでは、tommerは建設、家具製造、伝統工芸で一般的に使用されています。デンマークの家具会社は国際市場向けにtommerで寸法を指定することがよくあります。"
+        },
+        "norway": {
+          "title": "🇳🇴 ノルウェー",
+          "description": "ノルウェーの建設と木工業界はtommer測定を頻繁に使用します。当変換器はノルウェーの建築基準と建築仕様に役立ちます。"
+        },
+        "international": {
+          "title": "🌍 国際",
+          "description": "北欧サプライヤーと協力する世界企業は、製品仕様、配送寸法、品質管理基準のため正確なtommer変換が必要です。"
+        }
+      },
+      "use_cases": {
+        "title": "一般的なCMからTommer変換使用例",
+        "ikea_furniture": {
+          "title": "IKEA家具ショッピング",
+          "description": "国際ショッピングや地域基準との比較時のサイズ理解向上のため、IKEA家具寸法をセンチメートルからtommerに変換。"
+        },
+        "construction": {
+          "title": "建設プロジェクト",
+          "description": "専門建設業者と建築家は北欧建設基準、建築材料、建築仕様のため正確なtommer変換が必要。"
+        },
+        "commerce": {
+          "title": "国際商取引",
+          "description": "輸出入企業は製品仕様、配送文書、品質管理基準のため正確なtommerからcm変換が必要。"
+        },
+        "renovation": {
+          "title": "住宅改修",
+          "description": "DIY愛好家と住宅所有者が改修計画のため北欧家具寸法、電化製品サイズ、部屋測定を変換。"
+        },
+        "education": {
+          "title": "教育と学術",
+          "description": "北欧文化、国際測定を研究、またはスカンジナビア諸国と基準に関わるプロジェクトに従事する学生と研究者。"
+        },
+        "manufacturing": {
+          "title": "製造とデザイン",
+          "description": "北欧市場向け製品を作成する製品デザイナーと製造業者は仕様と適合性のため正確なtommer変換が必要。"
+        }
+      },
+      "professional_tools": {
+        "title": "専門測定ツールと北欧基準",
+        "standards_section": {
+          "title": "北欧測定基準",
+          "description": "当CMからTommer変換器はデンマーク、ノルウェー、国際商取引で使用される公式北欧測定基準に従います。このツールは建設、製造、国際貿易での専門用途に不可欠な正確な変換を提供します。",
+          "features": ["公式北欧測定基準", "建設業界適合性", "国際貿易仕様", "品質管理測定"]
+        },
+        "features_section": {
+          "title": "専門変換機能",
+          "description": "ビジネス用途で正確で信頼性の高いtommer変換が必要な専門家向けに設計。当ツールは様々な精度レベルをサポートし、効率的なワークフロー統合のため即座の結果を提供します。",
+          "features": [
+            "精度制御（0-3桁の小数）",
+            "即座の変換結果",
+            "コピーペースト機能",
+            "モバイルフレンドリーインターフェース"
+          ]
+        }
+      }
+    },
+    "features": {
+      "title": "専門CMからTommer変換器機能",
+      "subtitle": "正確な北欧測定変換に必要なすべて",
+      "bidirectional": {
+        "title": "双方向CMからTommer変換",
+        "description": "すべての北欧測定ニーズのため、即座の結果と精度制御でセンチメートルからtommer、tommerからセンチメートルに変換。"
+      },
+      "precision": {
+        "title": "精度制御",
+        "description": "変換ニーズに応じて0から3桁の小数点を選択。建設精度、家具測定、専門用途に最適。"
+      },
+      "professional": {
+        "title": "専門ツール",
+        "description": "効率的なワークフロー統合と専門使用のため、結果をコピー、変換式を表示、クイックリファレンステーブルにアクセス。"
+      }
+    },
+    "faq": {
+      "title": "CMからTommer変換についてよくある質問",
+      "q1": {
+        "question": "センチメートルをtommerに正確に変換するには？",
+        "answer": "センチメートル値を入力して当CMからTommer変換器を使用。ツールは正確な式を使用してtommer等価値を自動計算：cm × 0.3937 = tommer。特定のニーズに応じて小数点精度を0から3桁まで調整できます。"
+      },
+      "q2": {
+        "question": "CMからTommerの正確な変換式は？",
+        "answer": "変換式は：1cm = 0.3937 tommerと1 tommer = 2.54cm。これらは国際インチ基準に基づいており、現代のtommerは国際インチ測定と同一です。"
+      },
+      "q3": {
+        "question": "北欧諸国でtommerはインチと同じですか？",
+        "answer": "はい、現代のtommerは国際インチと同一です。両方とも正確に2.54センチメートルです。「Tommer」は単にデンマーク語とノルウェー語での「インチ」の用語で、当変換器を北欧測定に最適にします。"
+      },
+      "q4": {
+        "question": "IKEA家具にCMからTommer変換器が必要な理由は？",
+        "answer": "IKEAと他の北欧家具会社は国際市場での仕様でtommerを使用することがよくあります。当変換器はスカンジナビア家具ショッピングやサイズ比較時の正確な寸法理解を支援します。"
+      },
+      "q5": {
+        "question": "この変換器を建設プロジェクトに使用できますか？",
+        "answer": "もちろんです！当CMからTommer変換器は建設プロジェクト、特に北欧建築基準、材料、またはtommer測定を使用する建築仕様での作業に最適です。"
+      },
+      "q6": {
+        "question": "このCMからTommer変換ツールはどの程度正確ですか？",
+        "answer": "当変換器は正確な国際基準変換係数を使用し、3桁の小数点精度を提供します。この精度レベルは建設、製造、国際商取引を含む専門用途に適しています。"
+      },
+      "q7": {
+        "question": "このCMからTommer変換器は無料で使用できますか？",
+        "answer": "はい！当CMからTommer変換器は登録不要で完全に無料です。無制限の測定変換、すべての精度レベルへのアクセス、制限や隠れた費用なしですべての機能を使用できます。"
+      },
+      "q8": {
+        "question": "複数の測定を一度に変換できますか？",
+        "answer": "現在、当変換器は最大精度のため一度に一つの測定を処理します。ただし、各測定を個別に入力し、プロジェクト用に結果をコピーすることで複数の値を迅速に変換できます。"
+      },
+      "q9": {
+        "question": "他にどのような測定変換ツールを提供していますか？",
+        "answer": "専門家と個人向けの包括的な測定と変換ツールスイートを提供しています。精度と使いやすさのために設計された追加の変換器、計算機、ユーティリティについては当ツールセクションをご覧ください。"
+      }
+    },
+    "final_cta": {
+      "title": "CMからTommerに変換する準備はできましたか？",
+      "description": "すべての北欧測定ニーズのため無料、正確、専門的なCMからTommer変換器の使用を開始。",
+      "button_text": "CMからTommer変換器を使用"
+    },
+    "structured_data": {
+      "web_application": {
+        "name": "CMからTommer変換器",
+        "description": "高精度でセンチメートルをtommer（デンマーク/ノルウェーインチ）に変換する無料オンラインツール",
+        "feature_1": "双方向変換（CM ↔ Tommer）",
+        "feature_2": "精度制御（0-3桁の小数）",
+        "feature_3": "リアルタイム変換",
+        "feature_4": "クリップボードに結果をコピー",
+        "feature_5": "クイックリファレンステーブル",
+        "feature_6": "tommerに関する教育コンテンツ",
+        "feature_7": "モバイルフレンドリーインターフェース",
+        "feature_8": "登録不要",
+        "audience_type_1": "家具ショッパー",
+        "audience_type_2": "建設専門家",
+        "audience_type_3": "建築家",
+        "audience_type_4": "エンジニア",
+        "audience_type_5": "国際貿易業者",
+        "audience_type_6": "DIY愛好家",
+        "usage_info": {
+          "name": "CMからTommer変換器の使用方法",
+          "description": "センチメートルまたはtommer値を入力、精度を選択、即座の変換結果を取得"
+        }
+      },
+      "faq_page": {
+        "question_1": "tommerとは何ですか？",
+        "answer_1": "Tommerはデンマーク語とノルウェー語で「インチ」を意味します。1 tommerは正確に2.54センチメートルで、国際インチと同じです。",
+        "question_2": "センチメートルをtommerに変換するには？",
+        "answer_2": "センチメートルをtommerに変換するには、センチメートル値に0.3937を掛けます。例：10cm = 10 × 0.3937 = 3.937 tommer。",
+        "question_3": "tommerはインチと同じですか？",
+        "answer_3": "はい、現代のtommerは国際インチと同一です。両方とも正確に2.54センチメートルです。",
+        "question_4": "なぜcmからtommerに変換する必要があるのですか？",
+        "answer_4": "一般的な用途には北欧諸国からの家具ショッピング、建設プロジェクト、建築図面、国際商取引での製品寸法理解が含まれます。",
+        "question_5": "この変換器はどの程度正確ですか？",
+        "answer_5": "当変換器は3桁の小数点精度を提供し、最大精度のため正確な変換係数（1 tommer = 2.54cm）を使用します。"
+      }
+    }
+  },
   "ChromakopiaNamGenerator": {
     "seo_title": "Chromakopia ネームジェネレーター - St. Chroma ペルソナを作成 | 無料ツール",
     "seo_description": "無料のオンラインツールでユニークなChromakopia風の名前とペルソナを生成。Tyler, the CreatorのChromakopiアルバムにインスパイアされたカラフルなアルターエゴを作成。創造的なプロジェクトと自己表現に最適。",

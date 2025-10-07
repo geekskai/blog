@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from "react"
 import { ArrowUpDown, Copy, Check, AlertCircle, Ruler } from "lucide-react"
+import { useTranslations } from "next-intl"
 import type { ConversionUnit, PrecisionOption, CopyStatus } from "../types"
 import { convert, formatNumber, getUnitSymbol, parseInputValue } from "../utils/converter"
 import { copyToClipboard, formatCopyText } from "../utils/clipboard"
@@ -11,6 +12,8 @@ interface ConverterCardProps {
 }
 
 export default function ConverterCard({ className = "" }: ConverterCardProps) {
+  const t = useTranslations("CmToTommerConverter.converter_card")
+
   // 状态管理
   const [inputValue, setInputValue] = useState<string>("1")
   const [inputUnit, setInputUnit] = useState<ConversionUnit>("cm")
@@ -54,25 +57,25 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           icon: (
             <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
           ),
-          text: "Copying...",
+          text: t("copying"),
           className: "bg-blue-500 hover:bg-blue-600",
         }
       case "copied":
         return {
           icon: <Check className="h-4 w-4" />,
-          text: "Copied!",
+          text: t("copied"),
           className: "bg-green-500 hover:bg-green-600",
         }
       case "error":
         return {
           icon: <AlertCircle className="h-4 w-4" />,
-          text: "Failed",
+          text: t("copy_failed"),
           className: "bg-red-500 hover:bg-red-600",
         }
       default:
         return {
           icon: <Copy className="h-4 w-4" />,
-          text: "Copy",
+          text: t("copy_button"),
           className:
             "bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600",
         }
@@ -95,12 +98,10 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-3 backdrop-blur-sm">
             <Ruler className="h-5 w-5 text-blue-400" />
             <h2 className="bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-xl font-bold text-transparent">
-              CM ↔ Tommer Converter
+              {t("title")}
             </h2>
           </div>
-          <p className="text-slate-300">
-            Convert between centimeters and tommer (Danish/Norwegian inches) instantly
-          </p>
+          <p className="text-slate-300">{t("description")}</p>
         </div>
 
         {/* 转换器主体 */}
@@ -108,7 +109,7 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           {/* 输入区域 */}
           <div className="space-y-4">
             <label className="block text-sm font-medium text-slate-300">
-              Enter value in {inputUnit === "cm" ? "Centimeters" : "Tommer (Inches)"}
+              {inputUnit === "cm" ? t("input_label_cm") : t("input_label_tommer")}
             </label>
 
             <div className="relative">
@@ -116,7 +117,7 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Enter value..."
+                placeholder={t("placeholder")}
                 className={`w-full rounded-2xl border py-4 pl-6 pr-20 text-lg backdrop-blur-sm transition-all duration-300 focus:outline-none ${
                   inputUnit === "cm"
                     ? "border-blue-500/30 bg-blue-500/10 focus:border-blue-400 focus:ring-4 focus:ring-blue-500/20"
@@ -151,7 +152,7 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           {/* 输出区域 */}
           <div className="space-y-4">
             <label className="block text-sm font-medium text-slate-300">
-              Result in {outputUnit === "cm" ? "Centimeters" : "Tommer (Inches)"}
+              {outputUnit === "cm" ? t("result_label_cm") : t("result_label_tommer")}
             </label>
 
             <div className="relative">
@@ -182,7 +183,9 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
 
           {/* 精度控制 */}
           <div className="space-y-4">
-            <label className="block text-sm font-medium text-slate-300">Decimal Precision</label>
+            <label className="block text-sm font-medium text-slate-300">
+              {t("precision_label")}
+            </label>
 
             <div className="flex gap-2">
               {[0, 1, 2, 3].map((p) => (
@@ -195,7 +198,7 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
                       : "bg-slate-700/50 text-slate-300 hover:bg-slate-600/50"
                   }`}
                 >
-                  {p} decimal{p !== 1 ? "s" : ""}
+                  {t(`precision_${p}`)}
                 </button>
               ))}
             </div>
@@ -217,9 +220,9 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           {/* 转换公式显示 */}
           <div className="rounded-xl bg-slate-800/50 p-4 text-center backdrop-blur-sm">
             <p className="text-sm text-slate-400">
-              Conversion Formula:{" "}
+              {t("formula_label")}{" "}
               <span className="font-mono text-slate-300">
-                {inputUnit === "cm" ? "1 cm = 0.3937 tommer" : "1 tommer = 2.54 cm"}
+                {inputUnit === "cm" ? t("formula_cm_to_tommer") : t("formula_tommer_to_cm")}
               </span>
             </p>
           </div>

@@ -1,61 +1,69 @@
 "use client"
 import { Info, Globe, Calculator } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export default function EducationalContent() {
+  const t = useTranslations("CmToTommerConverter.educational_content")
+
   const useCases = [
     {
-      icon: "🏠",
-      title: "Furniture & Home Decor",
-      description:
-        "Converting furniture dimensions when shopping from Nordic countries or international retailers.",
+      icon: t("use_cases.furniture.icon"),
+      title: t("use_cases.furniture.title"),
+      description: t("use_cases.furniture.description"),
       examples: [
-        "IKEA product dimensions",
-        "Scandinavian furniture catalogs",
-        "Home renovation projects",
+        t("use_cases.furniture.example_1"),
+        t("use_cases.furniture.example_2"),
+        t("use_cases.furniture.example_3"),
       ],
     },
     {
-      icon: "🏗️",
-      title: "Construction & Architecture",
-      description:
-        "Professional building projects requiring precise measurements in different unit systems.",
-      examples: ["Architectural drawings", "Building materials", "Technical specifications"],
+      icon: t("use_cases.construction.icon"),
+      title: t("use_cases.construction.title"),
+      description: t("use_cases.construction.description"),
+      examples: [
+        t("use_cases.construction.example_1"),
+        t("use_cases.construction.example_2"),
+        t("use_cases.construction.example_3"),
+      ],
     },
     {
-      icon: "🛒",
-      title: "E-commerce & Shopping",
-      description: "Understanding product sizes when buying from international online stores.",
-      examples: ["Clothing measurements", "Electronics dimensions", "Shipping box sizes"],
+      icon: t("use_cases.ecommerce.icon"),
+      title: t("use_cases.ecommerce.title"),
+      description: t("use_cases.ecommerce.description"),
+      examples: [
+        t("use_cases.ecommerce.example_1"),
+        t("use_cases.ecommerce.example_2"),
+        t("use_cases.ecommerce.example_3"),
+      ],
     },
     {
-      icon: "📐",
-      title: "Engineering & Design",
-      description:
-        "Technical work requiring conversion between metric and Nordic measurement systems.",
-      examples: ["CAD drawings", "Product specifications", "Manufacturing tolerances"],
+      icon: t("use_cases.engineering.icon"),
+      title: t("use_cases.engineering.title"),
+      description: t("use_cases.engineering.description"),
+      examples: [
+        t("use_cases.engineering.example_1"),
+        t("use_cases.engineering.example_2"),
+        t("use_cases.engineering.example_3"),
+      ],
     },
   ]
 
   const facts = [
     {
-      title: "Historical Background",
-      content:
-        'Tommer (meaning "thumb" in Danish/Norwegian) has been used in Nordic countries for centuries, originally based on the width of a thumb.',
+      title: t("about_tommer.historical_background.title"),
+      content: t("about_tommer.historical_background.content"),
     },
     {
-      title: "Modern Standardization",
-      content:
-        "Today, 1 tommer equals exactly 2.54 cm, identical to the international inch, ensuring global compatibility.",
+      title: t("about_tommer.modern_standardization.title"),
+      content: t("about_tommer.modern_standardization.content"),
     },
     {
-      title: "Regional Usage",
-      content:
-        "While metric system is official in Nordic countries, tommer is still commonly used in construction, furniture, and traditional crafts.",
+      title: t("about_tommer.regional_usage.title"),
+      content: t("about_tommer.regional_usage.content"),
     },
     {
-      title: "Precision Matters",
-      content:
-        "In professional applications, even small conversion errors can compound. Our tool provides up to 3 decimal places for maximum accuracy.",
+      title: t("about_tommer.precision_matters.title"),
+      content: t("about_tommer.precision_matters.content"),
     },
   ]
 
@@ -72,12 +80,10 @@ export default function EducationalContent() {
             <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-orange-500/30 bg-gradient-to-r from-orange-500/10 to-red-500/10 px-6 py-3 backdrop-blur-sm">
               <Globe className="h-5 w-5 text-orange-400" />
               <h3 className="bg-gradient-to-r from-orange-300 via-red-300 to-pink-300 bg-clip-text text-xl font-bold text-transparent">
-                Common Use Cases
+                {t("use_cases.title")}
               </h3>
             </div>
-            <p className="text-slate-300">
-              Discover when and why you might need to convert between cm and tommer
-            </p>
+            <p className="text-slate-300">{t("use_cases.description")}</p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
@@ -97,7 +103,9 @@ export default function EducationalContent() {
                 <p className="mb-4 text-sm text-slate-300">{useCase.description}</p>
 
                 <div className="space-y-2">
-                  <div className="text-xs font-medium text-orange-400">Examples:</div>
+                  <div className="text-xs font-medium text-orange-400">
+                    {t("use_cases.examples_label")}
+                  </div>
                   <ul className="space-y-1">
                     {useCase.examples.map((example, idx) => (
                       <li key={idx} className="flex items-center gap-2 text-xs text-slate-400">
@@ -124,12 +132,10 @@ export default function EducationalContent() {
             <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-indigo-500/30 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 px-6 py-3 backdrop-blur-sm">
               <Info className="h-5 w-5 text-indigo-400" />
               <h3 className="bg-gradient-to-r from-indigo-300 via-purple-300 to-blue-300 bg-clip-text text-xl font-bold text-transparent">
-                About Tommer & Centimeters
+                {t("about_tommer.title")}
               </h3>
             </div>
-            <p className="text-slate-300">
-              Learn about the history and practical applications of these measurement units
-            </p>
+            <p className="text-slate-300">{t("about_tommer.description")}</p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
@@ -157,21 +163,23 @@ export default function EducationalContent() {
                 <Calculator className="h-6 w-6 text-white" />
               </div>
               <div className="flex-1">
-                <h4 className="mb-2 text-lg font-semibold text-white">Conversion Formulas</h4>
+                <h4 className="mb-2 text-lg font-semibold text-white">
+                  {t("about_tommer.conversion_formulas.title")}
+                </h4>
                 <div className="space-y-2 text-sm text-slate-300">
                   <div className="flex items-center gap-2">
                     <span className="rounded bg-slate-700/50 px-2 py-1 font-mono">
-                      cm × 0.3937 = tommer
+                      {t("about_tommer.conversion_formulas.cm_to_tommer")}
                     </span>
                     <span className="text-slate-400">•</span>
-                    <span>Centimeters to Tommer</span>
+                    <span>{t("about_tommer.conversion_formulas.cm_to_tommer_label")}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="rounded bg-slate-700/50 px-2 py-1 font-mono">
-                      tommer × 2.54 = cm
+                      {t("about_tommer.conversion_formulas.tommer_to_cm")}
                     </span>
                     <span className="text-slate-400">•</span>
-                    <span>Tommer to Centimeters</span>
+                    <span>{t("about_tommer.conversion_formulas.tommer_to_cm_label")}</span>
                   </div>
                 </div>
               </div>

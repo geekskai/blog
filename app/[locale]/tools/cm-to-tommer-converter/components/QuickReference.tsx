@@ -2,9 +2,11 @@
 
 import React from "react"
 import { BookOpen, TrendingUp } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { getCommonConversions, formatNumber } from "../utils/converter"
 
 export default function QuickReference() {
+  const t = useTranslations("CmToTommerConverter.quick_reference")
   const commonConversions = getCommonConversions()
 
   return (
@@ -19,24 +21,22 @@ export default function QuickReference() {
           <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 px-6 py-3 backdrop-blur-sm">
             <BookOpen className="h-5 w-5 text-emerald-400" />
             <h3 className="bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text text-xl font-bold text-transparent">
-              Quick Reference
+              {t("title")}
             </h3>
           </div>
-          <p className="text-slate-300">
-            Common centimeter to tommer conversions for quick reference
-          </p>
+          <p className="text-slate-300">{t("description")}</p>
         </div>
 
         {/* 转换表格 */}
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4 rounded-xl bg-slate-800/30 p-4 backdrop-blur-sm">
             <div className="text-center">
-              <div className="text-sm font-medium text-emerald-400">Centimeters</div>
-              <div className="text-xs text-slate-400">cm</div>
+              <div className="text-sm font-medium text-emerald-400">{t("centimeters_header")}</div>
+              <div className="text-xs text-slate-400">{t("cm_unit")}</div>
             </div>
             <div className="text-center">
-              <div className="text-sm font-medium text-teal-400">Tommer</div>
-              <div className="text-xs text-slate-400">inches</div>
+              <div className="text-sm font-medium text-teal-400">{t("tommer_header")}</div>
+              <div className="text-xs text-slate-400">{t("tommer_unit")}</div>
             </div>
           </div>
 
@@ -69,11 +69,8 @@ export default function QuickReference() {
           <div className="flex items-start gap-3">
             <TrendingUp className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-400" />
             <div>
-              <h4 className="font-semibold text-emerald-300">Pro Tip</h4>
-              <p className="text-sm text-slate-300">
-                Tommer is the Danish and Norwegian word for "inch". 1 tommer equals exactly 2.54
-                centimeters, same as the international inch.
-              </p>
+              <h4 className="font-semibold text-emerald-300">{t("pro_tip_title")}</h4>
+              <p className="text-sm text-slate-300">{t("pro_tip_description")}</p>
             </div>
           </div>
         </div>

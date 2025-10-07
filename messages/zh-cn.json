@@ -1228,6 +1228,349 @@
       "button_text": "立即开始转换"
     }
   },
+  "CmToTommerConverter": {
+    "seo_title": "厘米转Tommer转换器 – 厘米转英寸在线工具 | 免费精确",
+    "seo_description": "免费在线厘米转Tommer转换器。即时将厘米转换为tommer（丹麦/挪威英寸），精度高达3位小数。完美适用于家具、建筑和国际贸易。",
+    "seo_keywords": "厘米转tommer, 厘米转tommer, tommer转厘米, 丹麦英寸转换器, 挪威英寸转换器, 北欧测量转换器, 家具尺寸转换器, 建筑测量工具, 公制转tommer, 斯堪的纳维亚单位, 厘米转英寸转换器, 测量转换工具, 免费在线转换器, 精确测量转换器",
+    "breadcrumb": {
+      "home": "首页",
+      "tools": "工具",
+      "current": "厘米转Tommer转换器"
+    },
+    "header": {
+      "badge": "免费厘米转Tommer转换器和北欧测量工具",
+      "title_line1": "厘米转Tommer",
+      "title_line2": "转换器和计算器",
+      "description": "免费厘米转Tommer转换器和北欧测量计算器。转换厘米为tommer（丹麦/挪威英寸），转换tommer为厘米，并计算精确的小数精度测量。完美适用于家具购物、建筑项目、宜家尺寸和北欧国家的国际贸易。",
+      "features": {
+        "calculator": "厘米转Tommer计算器",
+        "converter": "丹麦挪威英寸转换器",
+        "ikea_tool": "宜家家具尺寸工具",
+        "construction": "北欧建筑测量"
+      },
+      "keyword_1": "厘米转tommer",
+      "keyword_2": "tommer转厘米",
+      "keyword_3": "丹麦英寸转换器",
+      "keyword_4": "挪威测量",
+      "keyword_5": "北欧单位",
+      "keyword_6": "斯堪的纳维亚转换器"
+    },
+    "converter_card": {
+      "title": "厘米 ↔ Tommer 转换器",
+      "description": "即时转换厘米和tommer（丹麦/挪威英寸）",
+      "input_label_cm": "输入厘米值",
+      "input_label_tommer": "输入Tommer（英寸）值",
+      "result_label_cm": "厘米结果",
+      "result_label_tommer": "Tommer（英寸）结果",
+      "placeholder": "输入数值...",
+      "precision_label": "小数精度",
+      "precision_0": "0位小数",
+      "precision_1": "1位小数",
+      "precision_2": "2位小数",
+      "precision_3": "3位小数",
+      "copy_button": "复制",
+      "copying": "复制中...",
+      "copied": "已复制！",
+      "copy_failed": "失败",
+      "formula_label": "转换公式：",
+      "formula_cm_to_tommer": "1厘米 = 0.3937 tommer",
+      "formula_tommer_to_cm": "1 tommer = 2.54厘米"
+    },
+    "quick_reference": {
+      "title": "快速参考",
+      "description": "常用厘米转tommer转换快速参考",
+      "centimeters_header": "厘米",
+      "tommer_header": "Tommer",
+      "cm_unit": "厘米",
+      "tommer_unit": "英寸",
+      "pro_tip_title": "专业提示",
+      "pro_tip_description": "Tommer是丹麦语和挪威语中\"英寸\"的意思。1 tommer等于2.54厘米，与国际英寸相同。"
+    },
+    "educational_content": {
+      "use_cases": {
+        "title": "常见使用场景",
+        "description": "了解何时以及为什么需要在厘米和tommer之间转换",
+        "furniture": {
+          "icon": "🏠",
+          "title": "家具和家居装饰",
+          "description": "从北欧国家或国际零售商购买家具时转换家具尺寸。",
+          "example_1": "宜家产品尺寸",
+          "example_2": "斯堪的纳维亚家具目录",
+          "example_3": "家庭装修项目"
+        },
+        "construction": {
+          "icon": "🏗️",
+          "title": "建筑和建筑学",
+          "description": "需要在不同单位系统中进行精确测量的专业建筑项目。",
+          "example_1": "建筑图纸",
+          "example_2": "建筑材料",
+          "example_3": "技术规格"
+        },
+        "ecommerce": {
+          "icon": "🛒",
+          "title": "电子商务和购物",
+          "description": "从国际在线商店购买时了解产品尺寸。",
+          "example_1": "服装测量",
+          "example_2": "电子产品尺寸",
+          "example_3": "运输箱尺寸"
+        },
+        "engineering": {
+          "icon": "📐",
+          "title": "工程和设计",
+          "description": "需要在公制和北欧测量系统之间转换的技术工作。",
+          "example_1": "CAD图纸",
+          "example_2": "产品规格",
+          "example_3": "制造公差"
+        },
+        "examples_label": "示例："
+      },
+      "about_tommer": {
+        "title": "关于Tommer和厘米",
+        "description": "了解这些测量单位的历史和实际应用",
+        "historical_background": {
+          "title": "历史背景",
+          "content": "Tommer（在丹麦语/挪威语中意为\"拇指\"）在北欧国家使用了几个世纪，最初基于拇指的宽度。"
+        },
+        "modern_standardization": {
+          "title": "现代标准化",
+          "content": "今天，1 tommer等于2.54厘米，与国际英寸相同，确保全球兼容性。"
+        },
+        "regional_usage": {
+          "title": "地区使用",
+          "content": "虽然公制系统是北欧国家的官方系统，但tommer仍然常用于建筑、家具和传统工艺中。"
+        },
+        "precision_matters": {
+          "title": "精度很重要",
+          "content": "在专业应用中，即使是小的转换误差也会累积。我们的工具提供高达3位小数的最大精度。"
+        },
+        "conversion_formulas": {
+          "title": "转换公式",
+          "cm_to_tommer": "厘米 × 0.3937 = tommer",
+          "tommer_to_cm": "tommer × 2.54 = 厘米",
+          "cm_to_tommer_label": "厘米转Tommer",
+          "tommer_to_cm_label": "Tommer转厘米"
+        }
+      }
+    },
+    "usage_guide": {
+      "title": "如何使用厘米转Tommer转换器 - 完整指南",
+      "description": "掌握厘米转tommer转换用于北欧家具购物、建筑项目和国际测量。我们的丹麦挪威英寸转换器为您的所有测量需求提供准确结果。",
+      "step_1_title": "输入测量值",
+      "step_1_description": "以厘米或tommer输入您的测量值。我们的转换器接受小数值，并自动在单位之间切换以进行即时转换。",
+      "step_2_title": "选择精度级别",
+      "step_2_description": "根据您的转换需求选择0到3位小数的精度。完美适用于建筑精度或一般家具测量。",
+      "step_3_title": "获得即时结果",
+      "step_3_description": "查看实时转换结果和使用的确切公式。完美了解北欧测量标准和国际贸易。",
+      "step_4_title": "复制和使用结果",
+      "step_4_description": "一键复制转换结果，用于购物清单、建筑计划或国际产品规格。"
+    },
+    "content_sections": {
+      "what_is_tommer": {
+        "title": "什么是Tommer？了解北欧测量单位",
+        "description_1": "Tommer是丹麦语和挪威语中\"英寸\"的意思，代表传统的北欧测量单位。在现代使用中，1 tommer等于2.54厘米，与国际英寸标准相同。这个厘米转Tommer转换器帮助您导航北欧测量，用于家具购物、建筑项目和国际贸易。",
+        "description_2": "我们的厘米转tommer转换器对于任何与北欧国家、宜家家具尺寸、斯堪的纳维亚建筑标准或使用tommer测量的国际产品规格打交道的人来说都是必不可少的。",
+        "benefits": {
+          "title": "Tommer转换优势",
+          "benefit_1": "精确的北欧测量转换",
+          "benefit_2": "完美适用于宜家家具尺寸",
+          "benefit_3": "建筑项目必需",
+          "benefit_4": "国际贸易兼容性",
+          "benefit_5": "精确到小数点后3位",
+          "benefit_6": "免费即时转换"
+        }
+      },
+      "conversion_guide": {
+        "title": "厘米转Tommer转换公式和计算器指南",
+        "formula": {
+          "title": "转换公式",
+          "cm_to_tommer": "厘米 × 0.3937 = tommer",
+          "tommer_to_cm": "tommer × 2.54 = 厘米",
+          "description": "使用我们的计算器进行即时准确转换。"
+        },
+        "precision": {
+          "title": "精度控制",
+          "level_1": "0位小数：一般测量",
+          "level_2": "1-2位小数：家具尺寸",
+          "level_3": "3位小数：建筑精度",
+          "description": "为您的特定需求选择合适的精度。"
+        },
+        "examples": {
+          "title": "快速示例",
+          "example_1": "10厘米 = 3.94 tommer",
+          "example_2": "25.4厘米 = 10 tommer",
+          "example_3": "100厘米 = 39.37 tommer",
+          "description": "完美适用于常见测量转换。"
+        }
+      },
+      "nordic_usage": {
+        "title": "Tommer在北欧国家的使用",
+        "denmark": {
+          "title": "🇩🇰 丹麦",
+          "description": "在丹麦，tommer常用于建筑、家具制造和传统工艺。丹麦家具公司经常在国际市场上以tommer指定尺寸。"
+        },
+        "norway": {
+          "title": "🇳🇴 挪威",
+          "description": "挪威建筑和木工行业经常使用tommer测量。我们的转换器有助于挪威建筑标准和建筑规格。"
+        },
+        "international": {
+          "title": "🌍 国际",
+          "description": "与北欧供应商合作的全球公司需要准确的tommer转换来处理产品规格、运输尺寸和质量控制标准。"
+        }
+      },
+      "use_cases": {
+        "title": "常见厘米转Tommer转换使用案例",
+        "ikea_furniture": {
+          "title": "宜家家具购物",
+          "description": "将宜家家具尺寸从厘米转换为tommer，以便在国际购物或与本地标准比较时更好地理解尺寸。"
+        },
+        "construction": {
+          "title": "建筑项目",
+          "description": "专业建筑商和建筑师需要准确的tommer转换来处理北欧建筑标准、建筑材料和建筑规格。"
+        },
+        "commerce": {
+          "title": "国际贸易",
+          "description": "进出口企业需要精确的tommer转厘米转换来处理产品规格、运输文档和质量控制标准。"
+        },
+        "renovation": {
+          "title": "家庭装修",
+          "description": "DIY爱好者和房主转换北欧家具尺寸、电器尺寸和房间测量以进行装修规划。"
+        },
+        "education": {
+          "title": "教育和学术",
+          "description": "研究北欧文化、国际测量或从事涉及斯堪的纳维亚国家和标准项目的学生和研究人员。"
+        },
+        "manufacturing": {
+          "title": "制造和设计",
+          "description": "为北欧市场创建产品的产品设计师和制造商需要准确的tommer转换来处理规格和合规性。"
+        }
+      },
+      "professional_tools": {
+        "title": "专业测量工具和北欧标准",
+        "standards_section": {
+          "title": "北欧测量标准",
+          "description": "我们的厘米转Tommer转换器遵循丹麦、挪威和国际贸易中使用的官方北欧测量标准。该工具提供精确转换，对建筑、制造和国际贸易中的专业应用至关重要。",
+          "features": ["官方北欧测量标准", "建筑行业合规性", "国际贸易规格", "质量控制测量"]
+        },
+        "features_section": {
+          "title": "专业转换功能",
+          "description": "专为需要准确可靠tommer转换的专业人士设计，用于商业应用。我们的工具支持各种精度级别，并提供即时结果以实现高效的工作流程集成。",
+          "features": ["精度控制（0-3位小数）", "即时转换结果", "复制粘贴功能", "移动友好界面"]
+        }
+      }
+    },
+    "features": {
+      "title": "专业厘米转Tommer转换器功能",
+      "subtitle": "准确北欧测量转换所需的一切",
+      "bidirectional": {
+        "title": "双向厘米转Tommer转换",
+        "description": "从厘米转换为tommer和从tommer转换为厘米，具有即时结果和精度控制，满足您所有的北欧测量需求。"
+      },
+      "precision": {
+        "title": "精度控制",
+        "description": "根据您的转换需求选择0到3位小数。完美适用于建筑精度、家具测量和专业应用。"
+      },
+      "professional": {
+        "title": "专业工具",
+        "description": "复制结果、查看转换公式，并访问快速参考表，以实现高效的工作流程集成和专业使用。"
+      }
+    },
+    "faq": {
+      "title": "关于厘米转Tommer转换的常见问题",
+      "q1": {
+        "question": "如何准确地将厘米转换为tommer？",
+        "answer": "使用我们的厘米转Tommer转换器，输入您的厘米值。该工具使用精确公式自动计算tommer等值：厘米 × 0.3937 = tommer。您可以根据特定需求调整小数精度从0到3位。"
+      },
+      "q2": {
+        "question": "厘米转Tommer的确切转换公式是什么？",
+        "answer": "转换公式为：1厘米 = 0.3937 tommer和1 tommer = 2.54厘米。这些基于国际英寸标准，因为现代tommer与国际英寸测量相同。"
+      },
+      "q3": {
+        "question": "在北欧国家tommer与英寸相同吗？",
+        "answer": "是的，现代tommer与国际英寸相同。两者都等于2.54厘米。\"Tommer\"只是丹麦语和挪威语中\"英寸\"的术语，使我们的转换器完美适用于北欧测量。"
+      },
+      "q4": {
+        "question": "为什么我需要厘米转Tommer转换器用于宜家家具？",
+        "answer": "宜家和其他北欧家具公司经常在国际市场的规格中使用tommer。我们的转换器帮助您在购买斯堪的纳维亚家具或比较尺寸时了解确切尺寸。"
+      },
+      "q5": {
+        "question": "我可以将此转换器用于建筑项目吗？",
+        "answer": "当然可以！我们的厘米转Tommer转换器完美适用于建筑项目，特别是在使用北欧建筑标准、材料或使用tommer测量的建筑规格时。"
+      },
+      "q6": {
+        "question": "这个厘米转Tommer转换工具有多准确？",
+        "answer": "我们的转换器使用确切的国际标准转换因子，并提供高达3位小数的精度。这种精度水平适用于包括建筑、制造和国际贸易在内的专业应用。"
+      },
+      "q7": {
+        "question": "这个厘米转Tommer转换器免费使用吗？",
+        "answer": "是的！我们的厘米转Tommer转换器完全免费，无需注册。转换无限测量，访问所有精度级别，使用所有功能，没有任何限制或隐藏费用。"
+      },
+      "q8": {
+        "question": "我可以一次转换多个测量值吗？",
+        "answer": "目前，我们的转换器一次处理一个测量值以获得最大精度。但是，您可以通过单独输入每个测量值并复制结果来快速转换多个值用于您的项目。"
+      },
+      "q9": {
+        "question": "您还提供哪些其他测量转换工具？",
+        "answer": "我们为专业人士和个人提供全面的测量和转换工具套件。探索我们的工具部分，了解专为准确性和易用性设计的其他转换器、计算器和实用程序。"
+      }
+    },
+    "final_cta": {
+      "title": "准备转换厘米为Tommer了吗？",
+      "description": "开始使用我们免费、准确、专业的厘米转Tommer转换器满足您所有的北欧测量需求。",
+      "button_text": "使用厘米转Tommer转换器"
+    },
+    "structured_data": {
+      "web_application": {
+        "name": "厘米转Tommer转换器",
+        "description": "免费在线工具，高精度将厘米转换为tommer（丹麦/挪威英寸）",
+        "feature_list": [
+          "双向转换（厘米 ↔ Tommer）",
+          "精度控制（0-3位小数）",
+          "实时转换",
+          "复制结果到剪贴板",
+          "快速参考表",
+          "关于tommer的教育内容",
+          "移动友好界面",
+          "无需注册"
+        ],
+        "audience_types": [
+          "家具购物者",
+          "建筑专业人士",
+          "建筑师",
+          "工程师",
+          "国际贸易商",
+          "DIY爱好者"
+        ],
+        "usage_info": {
+          "name": "如何使用厘米转Tommer转换器",
+          "description": "输入厘米或tommer值，选择精度，获得即时转换结果"
+        }
+      },
+      "faq_page": {
+        "questions": [
+          {
+            "question": "什么是tommer？",
+            "answer": "Tommer是丹麦语和挪威语中\"英寸\"的意思。一个tommer等于2.54厘米，与国际英寸相同。"
+          },
+          {
+            "question": "如何将厘米转换为tommer？",
+            "answer": "要将厘米转换为tommer，将厘米值乘以0.3937。例如，10厘米 = 10 × 0.3937 = 3.937 tommer。"
+          },
+          {
+            "question": "tommer与英寸相同吗？",
+            "answer": "是的，现代tommer与国际英寸相同。两者都等于2.54厘米。"
+          },
+          {
+            "question": "为什么我需要将厘米转换为tommer？",
+            "answer": "常见用途包括从北欧国家购买家具、建筑项目、建筑图纸和了解国际贸易中的产品尺寸。"
+          },
+          {
+            "question": "这个转换器有多准确？",
+            "answer": "我们的转换器提供高达3位小数的精度，并使用确切的转换因子（1 tommer = 2.54厘米）以获得最大精度。"
+          }
+        ]
+      }
+    }
+  },
   "ChromakopiaNamGenerator": {
     "seo_title": "Chromakopia 名字生成器 - 创建你的 St. Chroma 人格 | 免费工具",
     "seo_description": "使用我们的免费在线工具生成独特的 Chromakopia 风格名字和人格。创建受 Tyler, the Creator 的 Chromakopia 专辑启发的彩色化身。完美适用于创意项目和自我表达。",
