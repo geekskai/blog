@@ -2032,5 +2032,307 @@
       "converter_tool": "ピコメートル・センチメートル & CM to PM変換器ツール",
       "measurement_value": "ピコメートルまたはセンチメートルの測定値"
     }
+  },
+  "ConvertInchesToDecimal": {
+    "seo_title": "インチを小数に変換 - 無料分数から小数計算機ツール",
+    "seo_description": "無料のインチから小数計算機で瞬時に変換。分数インチ（5 3/4）を小数インチ（5.75）に変換。建設、木工、製造業向け。モバイル最適化、オフライン対応。",
+    "seo_keywords": "インチ小数変換, インチ小数変換器, 分数小数インチ, 分数インチ計算機, 小数インチ変換器, 建設測定変換器, 木工小数変換器, インペリアル小数変換器, 分数計算機ツール, 小数変換計算機, 建設測定ツール, 現場計算機, モバイル分数変換器",
+    "breadcrumb": {
+      "home": "ホーム",
+      "tools": "ツール",
+      "convert_inches_to_decimal": "インチを小数に変換"
+    },
+    "page_title": "インチを瞬時に小数に変換",
+    "page_subtitle": "建設、木工、製造業向けに設計されたプロ仕様の分数から小数への変換器。現場使用向けモバイル最適化。",
+    "key_features": {
+      "mobile_optimized": "モバイル最適化",
+      "offline_capable": "オフライン対応",
+      "professional_grade": "プロ仕様",
+      "free_forever": "永久無料"
+    },
+    "navigation_tabs": {
+      "convert": "変換",
+      "reference": "参照",
+      "history": "履歴"
+    },
+    "converter_interface": {
+      "title": "インチから小数変換器",
+      "description": "分数インチを瞬時に小数インチに変換。建設、木工、製造業に最適。",
+      "conversion_modes": {
+        "fraction_to_decimal": "分数 → 小数",
+        "decimal_to_fraction": "小数 → 分数"
+      },
+      "placeholders": {
+        "fraction_input": "分数を入力（例：5 3/4, 3/4, 2-1/2）",
+        "decimal_input": "小数を入力（例：5.75, 0.75）"
+      },
+      "quick_fractions_label": "クイック分数：",
+      "precision_label": "小数精度：",
+      "result_label": "結果：",
+      "inches_unit": "インチ",
+      "common_equivalents": "一般的な等価値：",
+      "buttons": {
+        "copy": "コピー",
+        "copy_decimal": "小数をコピー",
+        "share": "共有",
+        "swap_mode": "変換モードを切り替え"
+      },
+      "converting": "変換中...",
+      "error_prefix": "⚠️"
+    },
+    "visual_ruler": {
+      "title": "ビジュアル定規",
+      "resolution": "1920×1080",
+      "show_ruler": "定規を表示",
+      "hide_ruler": "定規を非表示",
+      "your_measurement": "あなたの測定値：",
+      "scale_indicators": {
+        "whole_inches": "全インチ",
+        "quarter_half_inches": "1/4・1/2インチ",
+        "smaller_fractions": "より小さな分数"
+      },
+      "reading_guide": {
+        "title": "定規の読み方：",
+        "tall_marks": "長い目盛り = 全インチと主要分数（1/2, 1/4, 3/4）",
+        "medium_marks": "中間目盛り = 8分の1インチ（1/8, 3/8, 5/8, 7/8）",
+        "small_marks": "小さい目盛り = 16分の1インチ（1/16, 3/16など）",
+        "green_line": "緑の線は現在の測定値を示します"
+      }
+    },
+    "quick_reference": {
+      "title": "クイックリファレンスガイド",
+      "description": "プロ使用のための一般的な測定と変換",
+      "tabs": {
+        "common": "一般的な分数",
+        "construction": "建設",
+        "woodworking": "木工",
+        "manufacturing": "製造"
+      },
+      "common_fractions": {
+        "title": "最も一般的な分数",
+        "halves_quarters": "1/2と1/4",
+        "eighths": "8分の1",
+        "sixteenths": "16分の1",
+        "thirty_seconds": "32分の1",
+        "range_1_15": "1/32 - 15/32",
+        "range_17_31": "17/32 - 31/32"
+      },
+      "pro_tips": {
+        "title": "記憶のためのプロのコツ",
+        "foundation": "1/2と1/4：基礎分数 - 最初にこれらを学習",
+        "woodworking": "8分の1：木工と一般建設で一般的",
+        "precision": "16分の1：精密作業と詳細測定",
+        "pattern": "パターン認識：1/8 = 0.125, 3/8 = 0.375などの規則に注目"
+      },
+      "construction_measurements": [
+        {
+          "fraction": "1/2",
+          "decimal": "0.5",
+          "description": "半インチ - 一般的な木材厚"
+        },
+        {
+          "fraction": "3/4",
+          "decimal": "0.75",
+          "description": "3/4インチ - 合板厚"
+        },
+        {
+          "fraction": "1 1/2",
+          "decimal": "1.5",
+          "description": "標準2x材実際厚"
+        },
+        {
+          "fraction": "3 1/2",
+          "decimal": "3.5",
+          "description": "標準2x4実際幅"
+        },
+        {
+          "fraction": "5 1/2",
+          "decimal": "5.5",
+          "description": "標準2x6実際幅"
+        },
+        {
+          "fraction": "7 1/4",
+          "decimal": "7.25",
+          "description": "標準2x8実際幅"
+        }
+      ],
+      "woodworking_measurements": [
+        {
+          "fraction": "1/4",
+          "decimal": "0.25",
+          "description": "1/4インチ - 薄合板"
+        },
+        {
+          "fraction": "3/8",
+          "decimal": "0.375",
+          "description": "一般的なダボ直径"
+        },
+        {
+          "fraction": "1/2",
+          "decimal": "0.5",
+          "description": "標準キャビネット扉厚"
+        },
+        {
+          "fraction": "5/8",
+          "decimal": "0.625",
+          "description": "パーティクルボード厚"
+        },
+        {
+          "fraction": "3/4",
+          "decimal": "0.75",
+          "description": "標準キャビネット箱材"
+        },
+        {
+          "fraction": "1 3/4",
+          "decimal": "1.75",
+          "description": "標準ドア厚"
+        }
+      ],
+      "manufacturing_tolerances": [
+        {
+          "fraction": "1/32",
+          "decimal": "0.03125",
+          "description": "精密加工公差"
+        },
+        {
+          "fraction": "1/16",
+          "decimal": "0.0625",
+          "description": "標準加工公差"
+        },
+        {
+          "fraction": "1/8",
+          "decimal": "0.125",
+          "description": "一般製造公差"
+        },
+        {
+          "fraction": "1/4",
+          "decimal": "0.25",
+          "description": "粗建設公差"
+        }
+      ],
+      "notes": {
+        "construction": "実際の木材寸法は公称サイズと異なります。\"2x4\"は実際には1.5\" × 3.5\"です。精密計算では常に実際寸法を使用してください。",
+        "woodworking": "広葉樹材の厚さは通常4分の1で表現されます。4/4 = 1\"、5/4 = 1.25\"、6/4 = 1.5\"、8/4 = 2\"。",
+        "manufacturing": "より厳しい公差にはより精密な（そして高価な）製造プロセスが必要です。アプリケーションの要件に適した公差を選択してください。"
+      },
+      "conversion_formula": {
+        "title": "変換公式",
+        "fraction_to_decimal": "分数から小数：分子を分母で割る",
+        "fraction_example": "例：3/4 = 3 ÷ 4 = 0.75",
+        "mixed_number": "帯分数：整数に分数の小数を加算",
+        "mixed_example": "例：5 3/4 = 5 + 0.75 = 5.75"
+      }
+    },
+    "conversion_history": {
+      "title": "変換履歴",
+      "no_conversions": "変換履歴がありません。変換を開始してここで履歴を確認してください。",
+      "export_formats": {
+        "csv": "CSV",
+        "json": "JSON",
+        "txt": "TXT"
+      },
+      "buttons": {
+        "export": "エクスポート",
+        "clear": "クリア",
+        "copy": "結果をコピー",
+        "use_conversion": "この変換を使用"
+      },
+      "statistics": {
+        "total_conversions": "総変換数",
+        "fraction_inputs": "分数入力",
+        "unique_values": "一意の値",
+        "largest_value": "最大値"
+      },
+      "tips": {
+        "title": "履歴のヒント",
+        "click_to_reuse": "任意の変換をクリックして再利用",
+        "export_documentation": "プロジェクト文書用に履歴をエクスポート",
+        "local_storage": "履歴はブラウザにローカル保存されます",
+        "copy_share": "コピーボタンを使用して結果を素早く共有"
+      },
+      "messages": {
+        "no_conversions_to_export": "エクスポートする変換がありません",
+        "exported_conversions": "{count}個の変換を{format}形式でエクスポートしました",
+        "export_failed": "エクスポートに失敗しました",
+        "copied_result": "コピーしました：{result}",
+        "copy_failed": "クリップボードへのコピーに失敗しました"
+      }
+    },
+    "educational_content": {
+      "how_it_works": {
+        "title": "インチを小数に変換する方法",
+        "description_1": "当社のプロ仕様インチ小数変換ツールは、建設、木工、製造業で一般的に使用される様々な分数形式を理解する高度な解析アルゴリズムを使用しています。",
+        "description_2": "現場で\"5 3/4\"などのインチ測定値を\"5.75\"に迅速かつ正確に変換する必要がある請負業者、大工、エンジニアに最適です。",
+        "feature_1": "帯分数（5 3/4）、単純分数（3/4）、小数をサポート",
+        "feature_2": "入力時のリアルタイム変換",
+        "feature_3": "理解しやすいビジュアル定規",
+        "feature_4": "簡単共有のワンクリックコピー"
+      },
+      "best_features": {
+        "title": "最高のインチ小数変換器機能",
+        "mobile_optimized": {
+          "title": "モバイル最適化",
+          "description": "作業手袋を着用していても現場使用に最適な大きなタッチターゲットと高コントラスト表示。"
+        },
+        "lightning_fast": {
+          "title": "超高速",
+          "description": "遅延なしの瞬時変換。秒ではなくミリ秒で結果を取得。"
+        },
+        "professional_accuracy": {
+          "title": "プロ仕様の精度",
+          "description": "建設、製造、木工プロジェクトで精密測定が必要なプロ向けに設計。"
+        }
+      }
+    },
+    "trust_signals": {
+      "title": "世界中の建設プロに信頼されています",
+      "description": "正確な測定とプロ仕様の結果のために当社のインチ小数計算機を信頼する数千の請負業者、木工職人、エンジニアに参加してください。",
+      "badge_1": "100% 永久無料",
+      "badge_2": "登録不要",
+      "badge_3": "オフライン動作",
+      "badge_4": "モバイル＆デスクトップ"
+    },
+    "validation_errors": {
+      "empty_input": "測定値を入力してください",
+      "invalid_decimal": "無効な小数",
+      "division_by_zero": "ゼロ除算は許可されていません",
+      "invalid_format": "無効な形式です。\"5 3/4\"、\"3/4\"、または\"5.75\"を試してください",
+      "input_cannot_be_empty": "入力を空にすることはできません",
+      "double_slashes": "二重スラッシュは許可されていません",
+      "multiple_fractions": "一つの入力に複数の分数があります",
+      "negative_measurements": "負の測定値はサポートされていません"
+    },
+    "validation_suggestions": {
+      "try_fraction_or_decimal": "\"3/4\"または\"5.75\"を入力してみてください",
+      "use_single_slash": "分数には単一スラッシュを使用：\"3/4\"",
+      "use_non_zero_denominator": "ゼロ以外の分母を使用してください",
+      "enter_one_fraction": "一度に一つの分数を入力：\"3/4\"",
+      "positive_measurements_only": "正の測定値のみを入力してください"
+    },
+    "clipboard_messages": {
+      "copied_successfully": "コピーしました：{text}",
+      "copy_failed": "クリップボードへのコピーに失敗しました",
+      "copy_operation_failed": "コピー操作に失敗しました",
+      "shared_successfully": "共有に成功しました",
+      "copied_for_sharing": "共有用にクリップボードにコピーしました",
+      "share_failed": "共有の準備に失敗しました",
+      "share_cancelled": "共有がキャンセルまたは失敗しました"
+    },
+    "structured_data": {
+      "app_name": "インチ小数変換計算機",
+      "app_description": "インチを瞬時に小数に変換するプロ仕様計算機。建設、木工、製造のプロ向けに分数インチを小数インチに変換。",
+      "feature_1": "瞬時インチ小数変換",
+      "feature_2": "分数から小数インチ変換",
+      "feature_3": "測定付きビジュアル定規表示",
+      "feature_4": "現場用モバイル最適化インターフェース",
+      "feature_5": "建設現場オフライン機能",
+      "feature_6": "変換履歴とエクスポート",
+      "feature_7": "プロ仕様精度",
+      "feature_8": "無料計算機ツール",
+      "audience_type_1": "建設作業員",
+      "audience_type_2": "木工職人",
+      "audience_type_3": "エンジニア",
+      "audience_type_4": "製造業者"
+    }
   }
 }

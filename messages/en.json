@@ -631,36 +631,28 @@
       "about_description": "Learn about the history and practical applications of these measurement units",
       "furniture_home_decoration": "Furniture & Home Decoration",
       "furniture_description": "Converting furniture dimensions when shopping from Nordic countries or international retailers.",
-      "furniture_examples": [
-        "IKEA product dimensions",
-        "Scandinavian furniture catalogs",
-        "Home renovation projects",
-        "Kitchen cabinets and fixtures"
-      ],
+      "furniture_example_1": "IKEA product dimensions",
+      "furniture_example_2": "Scandinavian furniture catalogs",
+      "furniture_example_3": "Home renovation projects",
+      "furniture_example_4": "Kitchen cabinets and fixtures",
       "construction_architecture": "Construction & Architecture",
       "construction_description": "Professional construction projects requiring precise measurements in different unit systems.",
-      "construction_examples": [
-        "Architectural drawings",
-        "Building materials",
-        "Technical specifications",
-        "Construction standards"
-      ],
+      "construction_example_1": "Architectural drawings",
+      "construction_example_2": "Building materials",
+      "construction_example_3": "Technical specifications",
+      "construction_example_4": "Construction standards",
       "electronics_shopping": "Electronics & Shopping",
       "electronics_description": "Understanding product sizes when purchasing from international online stores.",
-      "electronics_examples": [
-        "TV and screen sizes",
-        "Laptop dimensions",
-        "Tablet sizes",
-        "Shipping boxes"
-      ],
+      "electronics_example_1": "TV and screen sizes",
+      "electronics_example_2": "Laptop dimensions",
+      "electronics_example_3": "Tablet sizes",
+      "electronics_example_4": "Shipping boxes",
       "engineering_design": "Engineering & Design",
       "engineering_description": "Technical work requiring conversion between metric and Nordic measurement systems.",
-      "engineering_examples": [
-        "CAD drawings",
-        "Product specifications",
-        "Manufacturing tolerances",
-        "Quality control"
-      ],
+      "engineering_example_1": "CAD drawings",
+      "engineering_example_2": "Product specifications",
+      "engineering_example_3": "Manufacturing tolerances",
+      "engineering_example_4": "Quality control",
       "historical_background": "Historical Background",
       "historical_background_text": "Inches (meaning \"thumb\" in Danish/Norwegian) has been used in Nordic countries for centuries, originally based on the width of a thumb.",
       "modern_standardization": "Modern Standardization",
@@ -1958,6 +1950,222 @@
     "supply": {
       "converter_tool": "Picometer to Centimeter & CM to PM Converter Tool",
       "measurement_value": "Measurement value in picometers or centimeters"
+    }
+  },
+  "ConvertInchesToDecimal": {
+    "seo_title": "Convert Inches to Decimal - Free Fraction to Decimal Calculator Tool",
+    "seo_description": "Convert inches to decimal instantly with our free calculator. Transform fractional inches (5 3/4) to decimal inches (5.75) for construction, woodworking & manufacturing. Mobile-optimized, works offline.",
+    "seo_keywords": "convert inches to decimal, inches to decimal converter, fraction to decimal inches, fractional inches calculator, decimal inches converter, construction measurement converter, woodworking decimal converter, imperial to decimal converter, fraction calculator tool, decimal conversion calculator, construction measurement tools, job site calculator, mobile fraction converter",
+    "breadcrumb": {
+      "home": "Home",
+      "tools": "Tools",
+      "convert_inches_to_decimal": "Convert Inches to Decimal"
+    },
+    "page_title": "Convert Inches to Decimal Instantly",
+    "page_subtitle": "Professional-grade fraction to decimal converter designed for construction, woodworking, and manufacturing. Mobile-optimized for job site use.",
+    "key_features": {
+      "mobile_optimized": "Mobile Optimized",
+      "offline_capable": "Offline Capable",
+      "professional_grade": "Professional Grade",
+      "free_forever": "Free Forever"
+    },
+    "navigation_tabs": {
+      "convert": "Convert",
+      "reference": "Reference",
+      "history": "History"
+    },
+    "converter_interface": {
+      "title": "Inches to Decimal Converter",
+      "description": "Convert fractional inches to decimal inches instantly. Perfect for construction, woodworking, and manufacturing.",
+      "conversion_modes": {
+        "fraction_to_decimal": "Fraction → Decimal",
+        "decimal_to_fraction": "Decimal → Fraction"
+      },
+      "placeholders": {
+        "fraction_input": "Enter fraction (e.g., 5 3/4, 3/4, 2-1/2)",
+        "decimal_input": "Enter decimal (e.g., 5.75, 0.75)"
+      },
+      "quick_fractions_label": "Quick Fractions:",
+      "precision_label": "Decimal Precision:",
+      "result_label": "Result:",
+      "inches_unit": "inches",
+      "common_equivalents": "Common equivalents:",
+      "buttons": {
+        "copy": "Copy",
+        "copy_decimal": "Copy Decimal",
+        "share": "Share",
+        "swap_mode": "Swap conversion mode"
+      },
+      "converting": "Converting...",
+      "error_prefix": "⚠️"
+    },
+    "visual_ruler": {
+      "title": "Visual Ruler",
+      "resolution": "1920×1080",
+      "show_ruler": "Show Ruler",
+      "hide_ruler": "Hide Ruler",
+      "your_measurement": "Your measurement:",
+      "scale_indicators": {
+        "whole_inches": "Whole inches",
+        "quarter_half_inches": "Quarter/Half inches",
+        "smaller_fractions": "Smaller fractions"
+      },
+      "reading_guide": {
+        "title": "How to read the ruler:",
+        "tall_marks": "Tall marks = whole inches and major fractions (1/2, 1/4, 3/4)",
+        "medium_marks": "Medium marks = eighth inches (1/8, 3/8, 5/8, 7/8)",
+        "small_marks": "Small marks = sixteenth inches (1/16, 3/16, etc.)",
+        "green_line": "Green line shows your current measurement"
+      }
+    },
+    "quick_reference": {
+      "title": "Quick Reference Guide",
+      "description": "Common measurements and conversions for professional use",
+      "tabs": {
+        "common": "Common Fractions",
+        "construction": "Construction",
+        "woodworking": "Woodworking",
+        "manufacturing": "Manufacturing"
+      },
+      "common_fractions": {
+        "title": "Most Common Fractions",
+        "halves_quarters": "Halves & Quarters",
+        "eighths": "Eighths",
+        "sixteenths": "Sixteenths",
+        "thirty_seconds": "Thirty-seconds",
+        "range_1_15": "1/32 - 15/32",
+        "range_17_31": "17/32 - 31/32"
+      },
+      "pro_tips": {
+        "title": "Pro Tips for Memorization",
+        "foundation": "Halves & Quarters: Foundation fractions - learn these first",
+        "woodworking": "Eighths: Common in woodworking and general construction",
+        "precision": "Sixteenths: Precision work and detailed measurements",
+        "pattern": "Pattern Recognition: Notice how 1/8 = 0.125, 3/8 = 0.375, etc."
+      },
+      "notes": {
+        "construction": "Actual lumber dimensions differ from nominal sizes. A \"2x4\" is actually 1.5\" × 3.5\". Always use actual dimensions for precise calculations.",
+        "woodworking": "When working with hardwood lumber, thicknesses are often expressed in quarters. 4/4 = 1\", 5/4 = 1.25\", 6/4 = 1.5\", 8/4 = 2\".",
+        "manufacturing": "Tighter tolerances require more precise (and expensive) manufacturing processes. Choose the appropriate tolerance for your application's requirements."
+      },
+      "conversion_formula": {
+        "title": "Conversion Formula",
+        "fraction_to_decimal": "Fraction to Decimal: Divide numerator by denominator",
+        "fraction_example": "Example: 3/4 = 3 ÷ 4 = 0.75",
+        "mixed_number": "Mixed Number: Add whole number to fraction decimal",
+        "mixed_example": "Example: 5 3/4 = 5 + 0.75 = 5.75"
+      }
+    },
+    "conversion_history": {
+      "title": "Conversion History",
+      "no_conversions": "No conversions yet. Start converting to see your history here.",
+      "export_formats": {
+        "csv": "CSV",
+        "json": "JSON",
+        "txt": "TXT"
+      },
+      "buttons": {
+        "export": "Export",
+        "clear": "Clear",
+        "copy": "Copy result",
+        "use_conversion": "Use this conversion"
+      },
+      "statistics": {
+        "total_conversions": "Total Conversions",
+        "fraction_inputs": "Fraction Inputs",
+        "unique_values": "Unique Values",
+        "largest_value": "Largest Value"
+      },
+      "tips": {
+        "title": "History Tips",
+        "click_to_reuse": "Click on any conversion to reuse it",
+        "export_documentation": "Export your history for project documentation",
+        "local_storage": "History is saved locally in your browser",
+        "copy_share": "Use the copy button to quickly share results"
+      },
+      "messages": {
+        "no_conversions_to_export": "No conversions to export",
+        "exported_conversions": "Exported {count} conversions as {format}",
+        "export_failed": "Export failed",
+        "copied_result": "Copied: {result}",
+        "copy_failed": "Failed to copy to clipboard"
+      }
+    },
+    "educational_content": {
+      "how_it_works": {
+        "title": "How to Convert Inches to Decimal",
+        "description_1": "Our professional convert inches to decimal tool uses advanced parsing algorithms to understand various fraction formats commonly used in construction, woodworking, and manufacturing.",
+        "description_2": "Perfect for contractors, carpenters, and engineers who need to convert inches to decimal measurements like \"5 3/4\" to \"5.75\" quickly and accurately on job sites.",
+        "feature_1": "Supports mixed numbers (5 3/4), simple fractions (3/4), and decimals",
+        "feature_2": "Real-time conversion as you type",
+        "feature_3": "Visual ruler for better understanding",
+        "feature_4": "One-click copy for easy sharing"
+      },
+      "best_features": {
+        "title": "Best Inches to Decimal Converter Features",
+        "mobile_optimized": {
+          "title": "Mobile Optimized",
+          "description": "Large touch targets and high contrast display perfect for job site use, even with work gloves."
+        },
+        "lightning_fast": {
+          "title": "Lightning Fast",
+          "description": "Instant conversions with no delays. Get your results in milliseconds, not seconds."
+        },
+        "professional_accuracy": {
+          "title": "Professional Accuracy",
+          "description": "Designed for professionals who need precise measurements for construction, manufacturing, and woodworking projects."
+        }
+      }
+    },
+    "trust_signals": {
+      "title": "Trusted by Construction Professionals Worldwide",
+      "description": "Join thousands of contractors, woodworkers, and engineers who rely on our convert inches to decimal calculator for accurate measurements and professional results.",
+      "badge_1": "100% Free Forever",
+      "badge_2": "No Registration Required",
+      "badge_3": "Works Offline",
+      "badge_4": "Mobile & Desktop"
+    },
+    "validation_errors": {
+      "empty_input": "Please enter a measurement",
+      "invalid_decimal": "Invalid decimal number",
+      "division_by_zero": "Division by zero is not allowed",
+      "invalid_format": "Invalid format. Try: \"5 3/4\", \"3/4\", or \"5.75\"",
+      "input_cannot_be_empty": "Input cannot be empty",
+      "double_slashes": "Double slashes are not allowed",
+      "multiple_fractions": "Multiple fractions in one input",
+      "negative_measurements": "Negative measurements are not supported"
+    },
+    "validation_suggestions": {
+      "try_fraction_or_decimal": "Try entering \"3/4\" or \"5.75\"",
+      "use_single_slash": "Use single slash for fractions: \"3/4\"",
+      "use_non_zero_denominator": "Use a non-zero denominator",
+      "enter_one_fraction": "Enter one fraction at a time: \"3/4\"",
+      "positive_measurements_only": "Enter positive measurements only"
+    },
+    "clipboard_messages": {
+      "copied_successfully": "Copied: {text}",
+      "copy_failed": "Failed to copy to clipboard",
+      "copy_operation_failed": "Copy operation failed",
+      "shared_successfully": "Shared successfully",
+      "copied_for_sharing": "Copied to clipboard for sharing",
+      "share_failed": "Failed to prepare for sharing",
+      "share_cancelled": "Share cancelled or failed"
+    },
+    "structured_data": {
+      "app_name": "Convert Inches to Decimal Calculator",
+      "app_description": "Professional calculator to convert inches to decimal instantly. Transform fractional inches to decimal inches for construction, woodworking, and manufacturing professionals.",
+      "feature_1": "Convert inches to decimal instantly",
+      "feature_2": "Fractional to decimal inch conversion",
+      "feature_3": "Visual ruler display with measurements",
+      "feature_4": "Mobile-optimized interface for job sites",
+      "feature_5": "Offline functionality for construction sites",
+      "feature_6": "Conversion history and export",
+      "feature_7": "Professional-grade accuracy",
+      "feature_8": "Free calculator tool",
+      "audience_type_1": "Construction Workers",
+      "audience_type_2": "Woodworkers",
+      "audience_type_3": "Engineers",
+      "audience_type_4": "Manufacturers"
     }
   }
 }

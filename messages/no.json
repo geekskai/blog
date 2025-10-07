@@ -2010,5 +2010,132 @@
       "converter_tool": "Pikometer til Centimeter & CM til PM Konverter Verktøy",
       "measurement_value": "Måleverdi i pikometer eller centimeter"
     }
+  },
+  "ConvertInchesToDecimal": {
+    "seo_title": "Konverter Tommer til Desimal - Gratis Brøk til Desimal Kalkulator Verktøy",
+    "seo_description": "Gratis tommer til desimal kalkulator for øyeblikkelig konvertering. Transformer brøktommer (5 3/4) til desimaltommer (5.75) for bygg, trearbeid og produksjon. Mobiloptimalisert, fungerer offline.",
+    "seo_keywords": "konverter tommer til desimal, tommer desimal konverter, brøk til desimal tommer, brøktommer kalkulator, desimaltommer konverter, byggemåling konverter, trearbeid desimal konverter, imperial til desimal konverter, brøk kalkulator verktøy, desimal konvertering kalkulator, byggemåling verktøy, byggeplass kalkulator, mobil brøk konverter",
+    "breadcrumb": {
+      "home": "Hjem",
+      "tools": "Verktøy",
+      "convert_inches_to_decimal": "Konverter Tommer til Desimal"
+    },
+    "page_title": "Konverter Tommer til Desimal Øyeblikkelig",
+    "page_subtitle": "Profesjonell brøk til desimal konverter designet for bygg, trearbeid og produksjon. Mobiloptimalisert for byggeplassbruk.",
+    "key_features": {
+      "mobile_optimized": "Mobiloptimalisert",
+      "offline_capable": "Offline Kapabel",
+      "professional_grade": "Profesjonell Kvalitet",
+      "free_forever": "Gratis For Alltid"
+    },
+    "navigation_tabs": {
+      "convert": "Konverter",
+      "reference": "Referanse",
+      "history": "Historikk"
+    },
+    "converter_interface": {
+      "title": "Tommer til Desimal Konverter",
+      "description": "Konverter brøktommer til desimaltommer øyeblikkelig. Perfekt for bygg, trearbeid og produksjon.",
+      "conversion_modes": {
+        "fraction_to_decimal": "Brøk → Desimal",
+        "decimal_to_fraction": "Desimal → Brøk"
+      },
+      "placeholders": {
+        "fraction_input": "Skriv inn brøk (f.eks. 5 3/4, 3/4, 2-1/2)",
+        "decimal_input": "Skriv inn desimal (f.eks. 5.75, 0.75)"
+      },
+      "quick_fractions_label": "Raske Brøker:",
+      "precision_label": "Desimal Presisjon:",
+      "result_label": "Resultat:",
+      "inches_unit": "tommer",
+      "common_equivalents": "Vanlige ekvivalenter:",
+      "buttons": {
+        "copy": "Kopier",
+        "copy_decimal": "Kopier Desimal",
+        "share": "Del",
+        "swap_mode": "Bytt konverteringsmodus"
+      },
+      "converting": "Konverterer...",
+      "error_prefix": "⚠️"
+    },
+    "visual_ruler": {
+      "title": "Visuell Linjal",
+      "resolution": "1920×1080",
+      "show_ruler": "Vis Linjal",
+      "hide_ruler": "Skjul Linjal",
+      "your_measurement": "Din måling:",
+      "scale_indicators": {
+        "whole_inches": "Hele tommer",
+        "quarter_half_inches": "Kvart/Halv tommer",
+        "smaller_fractions": "Mindre brøker"
+      },
+      "reading_guide": {
+        "title": "Hvordan lese linjalen:",
+        "tall_marks": "Høye merker = hele tommer og hovedbrøker (1/2, 1/4, 3/4)",
+        "medium_marks": "Mellomstore merker = åttendedels tommer (1/8, 3/8, 5/8, 7/8)",
+        "small_marks": "Små merker = sekstendedels tommer (1/16, 3/16, osv.)",
+        "green_line": "Grønn linje viser din nåværende måling"
+      }
+    },
+    "quick_reference": {
+      "title": "Hurtig Referanse Guide",
+      "description": "Vanlige målinger og konverteringer for profesjonell bruk",
+      "tabs": {
+        "common": "Vanlige Brøker",
+        "construction": "Bygging",
+        "woodworking": "Trearbeid",
+        "manufacturing": "Produksjon"
+      }
+    },
+    "educational_content": {
+      "how_it_works": {
+        "title": "Hvordan Konvertere Tommer til Desimal",
+        "description_1": "Vårt profesjonelle konverter tommer til desimal verktøy bruker avanserte parsing-algoritmer for å forstå ulike brøkformater som vanligvis brukes i bygg, trearbeid og produksjon.",
+        "description_2": "Perfekt for entreprenører, snekkere og ingeniører som trenger å konvertere tommermålinger som \"5 3/4\" til \"5.75\" raskt og nøyaktig på byggeplasser.",
+        "feature_1": "Støtter blandede tall (5 3/4), enkle brøker (3/4) og desimaler",
+        "feature_2": "Sanntidskonvertering mens du skriver",
+        "feature_3": "Visuell linjal for bedre forståelse",
+        "feature_4": "Ett-klikk kopiering for enkel deling"
+      },
+      "best_features": {
+        "title": "Beste Tommer til Desimal Konverter Funksjoner",
+        "mobile_optimized": {
+          "title": "Mobiloptimalisert",
+          "description": "Store berøringsmål og høykontrast display perfekt for byggeplassbruk, selv med arbeidshansker."
+        },
+        "lightning_fast": {
+          "title": "Lynrask",
+          "description": "Øyeblikkelige konverteringer uten forsinkelser. Få resultatene dine på millisekunder, ikke sekunder."
+        },
+        "professional_accuracy": {
+          "title": "Profesjonell Nøyaktighet",
+          "description": "Designet for fagfolk som trenger presise målinger for bygg-, produksjons- og trearbeidsprosjekter."
+        }
+      }
+    },
+    "trust_signals": {
+      "title": "Betrodd av Byggeproffer Verden Over",
+      "description": "Bli med tusenvis av entreprenører, trearbeidere og ingeniører som stoler på vår konverter tommer til desimal kalkulator for nøyaktige målinger og profesjonelle resultater.",
+      "badge_1": "100% Gratis For Alltid",
+      "badge_2": "Ingen Registrering Påkrevd",
+      "badge_3": "Fungerer Offline",
+      "badge_4": "Mobil og Desktop"
+    },
+    "structured_data": {
+      "app_name": "Konverter Tommer til Desimal Kalkulator",
+      "app_description": "Profesjonell kalkulator for å konvertere tommer til desimal øyeblikkelig. Transformer brøktommer til desimaltommer for bygg-, trearbeids- og produksjonsproffer.",
+      "feature_1": "Konverter tommer til desimal øyeblikkelig",
+      "feature_2": "Brøk til desimal tommer konvertering",
+      "feature_3": "Visuell linjal display med målinger",
+      "feature_4": "Mobiloptimalisert grensesnitt for byggeplasser",
+      "feature_5": "Offline funksjonalitet for byggeplasser",
+      "feature_6": "Konverteringshistorikk og eksport",
+      "feature_7": "Profesjonell kvalitet nøyaktighet",
+      "feature_8": "Gratis kalkulator verktøy",
+      "audience_type_1": "Byggearbeidere",
+      "audience_type_2": "Trearbeidere",
+      "audience_type_3": "Ingeniører",
+      "audience_type_4": "Produsenter"
+    }
   }
 }

@@ -2008,5 +2008,186 @@
       "converter_tool": "피코미터 센티미터 & CM to PM 변환기 도구",
       "measurement_value": "피코미터 또는 센티미터 측정값"
     }
+  },
+  "ConvertInchesToDecimal": {
+    "seo_title": "인치를 소수로 변환 - 무료 분수에서 소수 계산기 도구",
+    "seo_description": "무료 인치를 소수 계산기로 즉시 변환하세요. 분수 인치(5 3/4)를 소수 인치(5.75)로 변환합니다. 건설, 목공, 제조업용. 모바일 최적화, 오프라인 작동.",
+    "seo_keywords": "인치 소수 변환, 인치 소수 변환기, 분수 소수 인치, 분수 인치 계산기, 소수 인치 변환기, 건설 측정 변환기, 목공 소수 변환기, 임페리얼 소수 변환기, 분수 계산기 도구, 소수 변환 계산기, 건설 측정 도구, 현장 계산기, 모바일 분수 변환기",
+    "breadcrumb": {
+      "home": "홈",
+      "tools": "도구",
+      "convert_inches_to_decimal": "인치를 소수로 변환"
+    },
+    "page_title": "인치를 즉시 소수로 변환",
+    "page_subtitle": "건설, 목공, 제조업을 위해 설계된 전문급 분수에서 소수 변환기. 현장 사용을 위한 모바일 최적화.",
+    "key_features": {
+      "mobile_optimized": "모바일 최적화",
+      "offline_capable": "오프라인 가능",
+      "professional_grade": "전문급",
+      "free_forever": "영구 무료"
+    },
+    "navigation_tabs": {
+      "convert": "변환",
+      "reference": "참조",
+      "history": "기록"
+    },
+    "converter_interface": {
+      "title": "인치에서 소수 변환기",
+      "description": "분수 인치를 즉시 소수 인치로 변환합니다. 건설, 목공, 제조업에 완벽합니다.",
+      "conversion_modes": {
+        "fraction_to_decimal": "분수 → 소수",
+        "decimal_to_fraction": "소수 → 분수"
+      },
+      "placeholders": {
+        "fraction_input": "분수 입력 (예: 5 3/4, 3/4, 2-1/2)",
+        "decimal_input": "소수 입력 (예: 5.75, 0.75)"
+      },
+      "quick_fractions_label": "빠른 분수:",
+      "precision_label": "소수 정밀도:",
+      "result_label": "결과:",
+      "inches_unit": "인치",
+      "common_equivalents": "일반적인 등가값:",
+      "buttons": {
+        "copy": "복사",
+        "copy_decimal": "소수 복사",
+        "share": "공유",
+        "swap_mode": "변환 모드 전환"
+      },
+      "converting": "변환 중...",
+      "error_prefix": "⚠️"
+    },
+    "visual_ruler": {
+      "title": "시각적 자",
+      "resolution": "1920×1080",
+      "show_ruler": "자 표시",
+      "hide_ruler": "자 숨기기",
+      "your_measurement": "측정값:",
+      "scale_indicators": {
+        "whole_inches": "전체 인치",
+        "quarter_half_inches": "1/4・1/2 인치",
+        "smaller_fractions": "더 작은 분수"
+      },
+      "reading_guide": {
+        "title": "자 읽는 방법:",
+        "tall_marks": "긴 눈금 = 전체 인치와 주요 분수 (1/2, 1/4, 3/4)",
+        "medium_marks": "중간 눈금 = 8분의 1 인치 (1/8, 3/8, 5/8, 7/8)",
+        "small_marks": "작은 눈금 = 16분의 1 인치 (1/16, 3/16 등)",
+        "green_line": "녹색 선은 현재 측정값을 보여줍니다"
+      }
+    },
+    "quick_reference": {
+      "title": "빠른 참조 가이드",
+      "description": "전문 사용을 위한 일반적인 측정 및 변환",
+      "tabs": {
+        "common": "일반적인 분수",
+        "construction": "건설",
+        "woodworking": "목공",
+        "manufacturing": "제조"
+      },
+      "common_fractions": {
+        "title": "가장 일반적인 분수",
+        "halves_quarters": "1/2과 1/4",
+        "eighths": "8분의 1",
+        "sixteenths": "16분의 1",
+        "thirty_seconds": "32분의 1",
+        "range_1_15": "1/32 - 15/32",
+        "range_17_31": "17/32 - 31/32"
+      },
+      "pro_tips": {
+        "title": "암기를 위한 전문가 팁",
+        "foundation": "1/2과 1/4: 기초 분수 - 이것들을 먼저 배우세요",
+        "woodworking": "8분의 1: 목공과 일반 건설에서 일반적",
+        "precision": "16분의 1: 정밀 작업과 세부 측정",
+        "pattern": "패턴 인식: 1/8 = 0.125, 3/8 = 0.375 등의 규칙에 주목하세요"
+      },
+      "notes": {
+        "construction": "실제 목재 치수는 공칭 크기와 다릅니다. \"2x4\"는 실제로 1.5\" × 3.5\"입니다. 정확한 계산을 위해 항상 실제 치수를 사용하세요.",
+        "woodworking": "경목재 두께는 보통 4분의 1로 표현됩니다. 4/4 = 1\", 5/4 = 1.25\", 6/4 = 1.5\", 8/4 = 2\".",
+        "manufacturing": "더 엄격한 공차는 더 정밀한 (그리고 비싼) 제조 공정이 필요합니다. 애플리케이션 요구사항에 적합한 공차를 선택하세요."
+      },
+      "conversion_formula": {
+        "title": "변환 공식",
+        "fraction_to_decimal": "분수에서 소수로: 분자를 분모로 나누기",
+        "fraction_example": "예: 3/4 = 3 ÷ 4 = 0.75",
+        "mixed_number": "대분수: 정수에 분수 소수 더하기",
+        "mixed_example": "예: 5 3/4 = 5 + 0.75 = 5.75"
+      }
+    },
+    "educational_content": {
+      "how_it_works": {
+        "title": "인치를 소수로 변환하는 방법",
+        "description_1": "우리의 전문 인치 소수 변환 도구는 건설, 목공, 제조업에서 일반적으로 사용되는 다양한 분수 형식을 이해하는 고급 파싱 알고리즘을 사용합니다.",
+        "description_2": "현장에서 \"5 3/4\"와 같은 인치 측정값을 \"5.75\"로 빠르고 정확하게 변환해야 하는 계약업체, 목수, 엔지니어에게 완벽합니다.",
+        "feature_1": "대분수 (5 3/4), 단순 분수 (3/4), 소수 지원",
+        "feature_2": "입력 시 실시간 변환",
+        "feature_3": "이해하기 쉬운 시각적 자",
+        "feature_4": "쉬운 공유를 위한 원클릭 복사"
+      },
+      "best_features": {
+        "title": "최고의 인치 소수 변환기 기능",
+        "mobile_optimized": {
+          "title": "모바일 최적화",
+          "description": "작업 장갑을 착용해도 현장 사용에 완벽한 큰 터치 타겟과 고대비 디스플레이."
+        },
+        "lightning_fast": {
+          "title": "번개처럼 빠름",
+          "description": "지연 없는 즉시 변환. 초가 아닌 밀리초로 결과를 얻으세요."
+        },
+        "professional_accuracy": {
+          "title": "전문적 정확도",
+          "description": "건설, 제조, 목공 프로젝트에서 정밀한 측정이 필요한 전문가를 위해 설계되었습니다."
+        }
+      }
+    },
+    "trust_signals": {
+      "title": "전 세계 건설 전문가들의 신뢰",
+      "description": "정확한 측정과 전문적인 결과를 위해 우리의 인치 소수 계산기를 신뢰하는 수천 명의 계약업체, 목공업자, 엔지니어에 합류하세요.",
+      "badge_1": "100% 영구 무료",
+      "badge_2": "등록 불필요",
+      "badge_3": "오프라인 작동",
+      "badge_4": "모바일 및 데스크톱"
+    },
+    "validation_errors": {
+      "empty_input": "측정값을 입력하세요",
+      "invalid_decimal": "잘못된 소수",
+      "division_by_zero": "0으로 나누기는 허용되지 않습니다",
+      "invalid_format": "잘못된 형식입니다. \"5 3/4\", \"3/4\" 또는 \"5.75\"를 시도해보세요",
+      "input_cannot_be_empty": "입력은 비어있을 수 없습니다",
+      "double_slashes": "이중 슬래시는 허용되지 않습니다",
+      "multiple_fractions": "하나의 입력에 여러 분수가 있습니다",
+      "negative_measurements": "음수 측정값은 지원되지 않습니다"
+    },
+    "validation_suggestions": {
+      "try_fraction_or_decimal": "\"3/4\" 또는 \"5.75\" 입력을 시도해보세요",
+      "use_single_slash": "분수에는 단일 슬래시 사용: \"3/4\"",
+      "use_non_zero_denominator": "0이 아닌 분모를 사용하세요",
+      "enter_one_fraction": "한 번에 하나의 분수 입력: \"3/4\"",
+      "positive_measurements_only": "양수 측정값만 입력하세요"
+    },
+    "clipboard_messages": {
+      "copied_successfully": "복사됨: {text}",
+      "copy_failed": "클립보드 복사 실패",
+      "copy_operation_failed": "복사 작업 실패",
+      "shared_successfully": "공유 성공",
+      "copied_for_sharing": "공유를 위해 클립보드에 복사됨",
+      "share_failed": "공유 준비 실패",
+      "share_cancelled": "공유 취소 또는 실패"
+    },
+    "structured_data": {
+      "app_name": "인치 소수 변환 계산기",
+      "app_description": "인치를 즉시 소수로 변환하는 전문 계산기. 건설, 목공, 제조 전문가를 위해 분수 인치를 소수 인치로 변환합니다.",
+      "feature_1": "즉시 인치 소수 변환",
+      "feature_2": "분수에서 소수 인치 변환",
+      "feature_3": "측정이 포함된 시각적 자 표시",
+      "feature_4": "현장용 모바일 최적화 인터페이스",
+      "feature_5": "건설 현장 오프라인 기능",
+      "feature_6": "변환 기록 및 내보내기",
+      "feature_7": "전문급 정확도",
+      "feature_8": "무료 계산기 도구",
+      "audience_type_1": "건설 작업자",
+      "audience_type_2": "목공업자",
+      "audience_type_3": "엔지니어",
+      "audience_type_4": "제조업체"
+    }
   }
 }

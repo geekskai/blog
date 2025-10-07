@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useCallback, useEffect } from "react"
+import { useTranslations } from "next-intl"
 import type { ConversionResult, CommonFraction } from "../types"
 import {
   convertFractionToDecimal,
@@ -34,6 +35,7 @@ interface ConverterInterfaceProps {
 }
 
 export default function ConverterInterface({ onConversion }: ConverterInterfaceProps) {
+  const t = useTranslations("ConvertInchesToDecimal")
   const [input, setInput] = useState("")
   const [result, setResult] = useState<ConversionResult | null>(null)
   const [precision, setPrecision] = useState(4)
@@ -71,7 +73,7 @@ export default function ConverterInterface({ onConversion }: ConverterInterfaceP
       } else {
         const decimal = parseFloat(input)
         if (isNaN(decimal)) {
-          setError("Please enter a valid decimal number")
+          setError(t("validation_errors.invalid_decimal"))
           setResult(null)
           return
         }
@@ -143,14 +145,11 @@ export default function ConverterInterface({ onConversion }: ConverterInterfaceP
         <div className="mb-8 text-center">
           <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-orange-500/30 bg-gradient-to-r from-orange-500/10 to-red-500/10 px-6 py-3 backdrop-blur-sm">
             <span className="text-2xl">🔧</span>
-            <h1 className="bg-gradient-to-r from-orange-400 via-red-400 to-orange-400 bg-clip-text text-2xl font-bold text-transparent">
-              Inches to Decimal Converter
-            </h1>
+            <h2 className="bg-gradient-to-r from-orange-400 via-red-400 to-orange-400 bg-clip-text text-2xl font-bold text-transparent">
+              {t("converter_interface.title")}
+            </h2>
           </div>
-          <p className="text-slate-300">
-            Convert fractional inches to decimal inches instantly. Perfect for construction,
-            woodworking, and manufacturing.
-          </p>
+          <p className="text-slate-300">{t("converter_interface.description")}</p>
         </div>
 
         {/* Conversion Mode Toggle */}
@@ -164,7 +163,7 @@ export default function ConverterInterface({ onConversion }: ConverterInterfaceP
                   : "text-slate-300 hover:text-white"
               }`}
             >
-              Fraction → Decimal
+              {t("converter_interface.conversion_modes.fraction_to_decimal")}
             </button>
             <button
               onClick={() => setConversionMode("decimal-to-fraction")}
@@ -174,7 +173,7 @@ export default function ConverterInterface({ onConversion }: ConverterInterfaceP
                   : "text-slate-300 hover:text-white"
               }`}
             >
-              Decimal → Fraction
+              {t("converter_interface.conversion_modes.decimal_to_fraction")}
             </button>
           </div>
         </div>
@@ -188,8 +187,8 @@ export default function ConverterInterface({ onConversion }: ConverterInterfaceP
               onChange={(e) => setInput(e.target.value)}
               placeholder={
                 conversionMode === "fraction-to-decimal"
-                  ? "Enter fraction (e.g., 5 3/4, 3/4, 2-1/2)"
-                  : "Enter decimal (e.g., 5.75, 0.75)"
+                  ? t("converter_interface.placeholders.fraction_input")
+                  : t("converter_interface.placeholders.decimal_input")
               }
               className="w-full rounded-2xl border border-orange-500/30 bg-orange-500/10 py-4 pl-16 pr-24 text-lg text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-orange-400 focus:outline-none focus:ring-4 focus:ring-orange-500/20"
             />
@@ -203,7 +202,7 @@ export default function ConverterInterface({ onConversion }: ConverterInterfaceP
             <button
               onClick={handleSwapMode}
               className="absolute right-4 top-1/2 -translate-y-1/2 rounded-lg bg-orange-500/20 p-2 backdrop-blur-sm transition-all duration-300 hover:bg-orange-500/30"
-              title="Swap conversion mode"
+              title={t("converter_interface.buttons.swap_mode")}
             >
               <span className="text-xl">↕️</span>
             </button>
@@ -212,7 +211,9 @@ export default function ConverterInterface({ onConversion }: ConverterInterfaceP
           {/* Error message */}
           {error && (
             <div className="mt-2 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-red-300">
-              <span className="text-sm">⚠️ {error}</span>
+              <span className="text-sm">
+                {t("converter_interface.error_prefix")} {error}
+              </span>
             </div>
           )}
         </div>
@@ -220,7 +221,9 @@ export default function ConverterInterface({ onConversion }: ConverterInterfaceP
         {/* Quick Fractions (only show in fraction-to-decimal mode) */}
         {conversionMode === "fraction-to-decimal" && (
           <div className="mb-6">
-            <h3 className="mb-3 text-sm font-semibold text-slate-300">Quick Fractions:</h3>
+            <h3 className="mb-3 text-sm font-semibold text-slate-300">
+              {t("converter_interface.quick_fractions_label")}
+            </h3>
             <div className="grid grid-cols-5 gap-2 sm:grid-cols-8 lg:grid-cols-10">
               {COMMON_FRACTIONS.map((fraction) => (
                 <button
@@ -238,7 +241,9 @@ export default function ConverterInterface({ onConversion }: ConverterInterfaceP
         {/* Precision Control (only for fraction-to-decimal) */}
         {conversionMode === "fraction-to-decimal" && (
           <div className="mb-6">
-            <h3 className="mb-3 text-sm font-semibold text-slate-300">Decimal Precision:</h3>
+            <h3 className="mb-3 text-sm font-semibold text-slate-300">
+              {t("converter_interface.precision_label")}
+            </h3>
             <div className="flex gap-2">
               {[1, 2, 3, 4, 5, 6].map((p) => (
                 <button
@@ -261,12 +266,17 @@ export default function ConverterInterface({ onConversion }: ConverterInterfaceP
         {result && (
           <div className="mb-6 rounded-2xl border border-green-500/30 bg-gradient-to-r from-green-500/10 to-emerald-500/10 p-6 backdrop-blur-sm">
             <div className="text-center">
-              <div className="mb-2 text-sm text-slate-400">Result:</div>
+              <div className="mb-2 text-sm text-slate-400">
+                {t("converter_interface.result_label")}
+              </div>
               <div className="mb-4 text-3xl font-bold text-white">
                 {conversionMode === "fraction-to-decimal" ? (
                   <>
                     {result.formatted}
-                    <span className="text-lg text-slate-400"> inches</span>
+                    <span className="text-lg text-slate-400">
+                      {" "}
+                      {t("converter_interface.inches_unit")}
+                    </span>
                   </>
                 ) : (
                   result.formatted
@@ -276,7 +286,9 @@ export default function ConverterInterface({ onConversion }: ConverterInterfaceP
               {/* Show equivalents for fraction-to-decimal */}
               {conversionMode === "fraction-to-decimal" && result.commonEquivalents.length > 0 && (
                 <div className="mb-4 text-sm text-slate-300">
-                  <span className="text-slate-400">Common equivalents: </span>
+                  <span className="text-slate-400">
+                    {t("converter_interface.common_equivalents")}{" "}
+                  </span>
                   {result.commonEquivalents.map((frac, index) => (
                     <span key={index}>
                       {index > 0 && ", "}
@@ -293,21 +305,21 @@ export default function ConverterInterface({ onConversion }: ConverterInterfaceP
                   className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 px-4 py-2 text-sm font-bold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/30"
                 >
                   <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
-                  <span className="relative">📋 Copy</span>
+                  <span className="relative">📋 {t("converter_interface.buttons.copy")}</span>
                 </button>
 
                 <button
                   onClick={() => handleCopy("decimal-only")}
                   className="rounded-xl border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-sm font-medium text-blue-300 transition-all duration-300 hover:bg-blue-500/20 hover:text-white"
                 >
-                  Copy Decimal
+                  {t("converter_interface.buttons.copy_decimal")}
                 </button>
 
                 <button
                   onClick={handleShare}
                   className="rounded-xl border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm font-medium text-purple-300 transition-all duration-300 hover:bg-purple-500/20 hover:text-white"
                 >
-                  📤 Share
+                  📤 {t("converter_interface.buttons.share")}
                 </button>
               </div>
             </div>
@@ -326,7 +338,7 @@ export default function ConverterInterface({ onConversion }: ConverterInterfaceP
           <div className="text-center">
             <div className="inline-flex items-center gap-2 text-slate-300">
               <div className="h-4 w-4 animate-spin rounded-full border-2 border-orange-500/30 border-t-orange-500"></div>
-              <span className="text-sm">Converting...</span>
+              <span className="text-sm">{t("converter_interface.converting")}</span>
             </div>
           </div>
         )}

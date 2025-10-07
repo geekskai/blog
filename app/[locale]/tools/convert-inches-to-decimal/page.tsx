@@ -1,11 +1,11 @@
 "use client"
 
 import { useState, useCallback, useEffect } from "react"
+import { useTranslations } from "next-intl"
 import type { ConversionResult } from "./types"
 import ConverterInterface from "./components/ConverterInterface"
 import VisualRuler, { CompactRuler } from "./components/VisualRuler"
 import QuickReference from "./components/QuickReference"
-import ConversionHistory from "./components/ConversionHistory"
 
 // Custom hook for managing conversion history
 function useConversionHistory() {
@@ -63,12 +63,13 @@ function useConversionHistory() {
 }
 
 export default function InchesToDecimalConverter() {
+  const t = useTranslations("ConvertInchesToDecimal")
   const [currentResult, setCurrentResult] = useState<ConversionResult | null>(null)
   const [showRuler, setShowRuler] = useState(true)
   const [activeSection, setActiveSection] = useState<"converter" | "reference" | "history">(
     "converter"
   )
-  const { history, addConversion, clearHistory } = useConversionHistory()
+  const { addConversion } = useConversionHistory()
 
   // Handle new conversion
   const handleConversion = useCallback(
@@ -78,12 +79,6 @@ export default function InchesToDecimalConverter() {
     },
     [addConversion]
   )
-
-  // Handle selecting a conversion from history
-  const handleSelectConversion = useCallback((result: ConversionResult) => {
-    setCurrentResult(result)
-    setActiveSection("converter")
-  }, [])
 
   return (
     <div className="min-h-screen bg-slate-950">
@@ -98,34 +93,29 @@ export default function InchesToDecimalConverter() {
             {/* Main heading */}
             <div className="mb-12 text-center">
               <h1 className="mb-6 text-5xl font-bold leading-tight text-white sm:text-6xl lg:text-7xl">
-                Convert{" "}
-                <span className="bg-gradient-to-r from-orange-400 via-red-400 to-orange-400 bg-clip-text text-transparent">
-                  Inches to Decimal
-                </span>{" "}
-                Instantly
+                {t("page_title")}
               </h1>
               <p className="mx-auto max-w-3xl text-xl text-slate-300 sm:text-2xl">
-                Professional-grade fraction to decimal converter designed for construction,
-                woodworking, and manufacturing. Mobile-optimized for job site use.
+                {t("page_subtitle")}
               </p>
 
               {/* Key features */}
               <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <div className="flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-sm text-green-300">
                   <span>✓</span>
-                  <span>Mobile Optimized</span>
+                  <span>{t("key_features.mobile_optimized")}</span>
                 </div>
                 <div className="flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-sm text-blue-300">
                   <span>✓</span>
-                  <span>Offline Capable</span>
+                  <span>{t("key_features.offline_capable")}</span>
                 </div>
                 <div className="flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm text-purple-300">
                   <span>✓</span>
-                  <span>Professional Grade</span>
+                  <span>{t("key_features.professional_grade")}</span>
                 </div>
                 <div className="flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-2 text-sm text-orange-300">
                   <span>✓</span>
-                  <span>Free Forever</span>
+                  <span>{t("key_features.free_forever")}</span>
                 </div>
               </div>
             </div>
@@ -134,9 +124,9 @@ export default function InchesToDecimalConverter() {
             <div className="mb-8 flex justify-center lg:hidden">
               <div className="flex rounded-2xl border border-slate-500/30 bg-slate-500/10 p-1">
                 {[
-                  { id: "converter", label: "Convert", icon: "🔧" },
-                  { id: "reference", label: "Reference", icon: "📚" },
-                  { id: "history", label: "History", icon: "📊" },
+                  { id: "converter", label: t("navigation_tabs.convert"), icon: "🔧" },
+                  { id: "reference", label: t("navigation_tabs.reference"), icon: "📚" },
+                  { id: "history", label: t("navigation_tabs.history"), icon: "📊" },
                 ].map((tab) => (
                   <button
                     key={tab.id}
@@ -167,7 +157,7 @@ export default function InchesToDecimalConverter() {
                 <div className="space-y-4">
                   {/* Ruler toggle */}
                   <div className="flex items-center justify-between">
-                    <h2 className="text-xl font-semibold text-white">Visual Ruler</h2>
+                    <h2 className="text-xl font-semibold text-white">{t("visual_ruler.title")}</h2>
                     <button
                       onClick={() => setShowRuler(!showRuler)}
                       className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 ${
@@ -176,7 +166,7 @@ export default function InchesToDecimalConverter() {
                           : "border border-slate-500/30 bg-slate-500/10 text-slate-400 hover:text-white"
                       }`}
                     >
-                      {showRuler ? "Hide Ruler" : "Show Ruler"}
+                      {showRuler ? t("visual_ruler.hide_ruler") : t("visual_ruler.show_ruler")}
                     </button>
                   </div>
 
@@ -203,15 +193,6 @@ export default function InchesToDecimalConverter() {
                 <div className={activeSection !== "reference" ? "hidden lg:block" : ""}>
                   <QuickReference />
                 </div>
-
-                {/* Conversion History */}
-                <div className={activeSection !== "history" ? "hidden lg:block" : ""}>
-                  <ConversionHistory
-                    history={history}
-                    onClearHistory={clearHistory}
-                    onSelectConversion={handleSelectConversion}
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -224,44 +205,18 @@ export default function InchesToDecimalConverter() {
               {/* How it works */}
               <div className="rounded-3xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-cyan-500/10 p-8 backdrop-blur-xl">
                 <h2 className="mb-6 text-3xl font-bold text-white">
-                  How to Convert Inches to Decimal
+                  {t("educational_content.how_it_works.title")}
                 </h2>
                 <div className="space-y-4 text-slate-300">
-                  <p>
-                    Our professional{" "}
-                    <strong className="text-white">convert inches to decimal</strong> tool uses
-                    advanced parsing algorithms to understand various fraction formats commonly used
-                    in{" "}
-                    <strong className="text-white">
-                      construction, woodworking, and manufacturing
-                    </strong>
-                    .
-                  </p>
-                  <p>
-                    Perfect for{" "}
-                    <strong className="text-white">contractors, carpenters, and engineers</strong>{" "}
-                    who need to <strong className="text-white">convert inches to decimal</strong>{" "}
-                    measurements like "5 3/4" to "5.75" quickly and accurately on job sites.
-                  </p>
+                  <p>{t("educational_content.how_it_works.description_1")}</p>
+                  <p>{t("educational_content.how_it_works.description_2")}</p>
                   <div className="mt-6 space-y-2">
-                    <div className="flex items-center gap-3">
-                      <span className="text-green-400">✓</span>
-                      <span>
-                        Supports mixed numbers (5 3/4), simple fractions (3/4), and decimals
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-green-400">✓</span>
-                      <span>Real-time conversion as you type</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-green-400">✓</span>
-                      <span>Visual ruler for better understanding</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-green-400">✓</span>
-                      <span>One-click copy for easy sharing</span>
-                    </div>
+                    {[1, 2, 3, 4].map((index) => (
+                      <div key={index} className="flex items-center gap-3">
+                        <span className="text-green-400">✓</span>
+                        <span>{t(`educational_content.how_it_works.feature_${index}`)}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -269,7 +224,7 @@ export default function InchesToDecimalConverter() {
               {/* Why use our tool */}
               <div className="rounded-3xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-teal-500/10 p-8 backdrop-blur-xl">
                 <h2 className="mb-6 text-3xl font-bold text-white">
-                  Best Inches to Decimal Converter Features
+                  {t("educational_content.best_features.title")}
                 </h2>
                 <div className="space-y-6">
                   <div className="flex gap-4">
@@ -279,10 +234,11 @@ export default function InchesToDecimalConverter() {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">Mobile Optimized</h3>
+                      <h3 className="text-lg font-semibold text-white">
+                        {t("educational_content.best_features.mobile_optimized.title")}
+                      </h3>
                       <p className="text-slate-300">
-                        Large touch targets and high contrast display perfect for job site use, even
-                        with work gloves.
+                        {t("educational_content.best_features.mobile_optimized.description")}
                       </p>
                     </div>
                   </div>
@@ -294,10 +250,11 @@ export default function InchesToDecimalConverter() {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">Lightning Fast</h3>
+                      <h3 className="text-lg font-semibold text-white">
+                        {t("educational_content.best_features.lightning_fast.title")}
+                      </h3>
                       <p className="text-slate-300">
-                        Instant conversions with no delays. Get your results in milliseconds, not
-                        seconds.
+                        {t("educational_content.best_features.lightning_fast.description")}
                       </p>
                     </div>
                   </div>
@@ -309,10 +266,11 @@ export default function InchesToDecimalConverter() {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">Professional Accuracy</h3>
+                      <h3 className="text-lg font-semibold text-white">
+                        {t("educational_content.best_features.professional_accuracy.title")}
+                      </h3>
                       <p className="text-slate-300">
-                        Designed for professionals who need precise measurements for construction,
-                        manufacturing, and woodworking projects.
+                        {t("educational_content.best_features.professional_accuracy.description")}
                       </p>
                     </div>
                   </div>
@@ -327,30 +285,30 @@ export default function InchesToDecimalConverter() {
           <div className="mx-auto max-w-4xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-gradient-to-r from-green-500/10 to-emerald-500/10 px-6 py-2">
               <span className="text-2xl">🏆</span>
-              <h3 className="text-xl font-semibold text-white">
-                Trusted by Construction Professionals Worldwide
-              </h3>
+              <h3 className="text-xl font-semibold text-white">{t("trust_signals.title")}</h3>
             </div>
 
             <p className="mx-auto mt-4 max-w-3xl text-slate-300">
-              Join thousands of contractors, woodworkers, and engineers who rely on our
-              <strong className="text-green-300"> convert inches to decimal</strong> calculator for
-              accurate measurements and professional results.
+              {t("trust_signals.description")}
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <div className="rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-sm text-green-300">
-                ✓ 100% Free Forever
-              </div>
-              <div className="rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-sm text-blue-300">
-                ✓ No Registration Required
-              </div>
-              <div className="rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm text-purple-300">
-                ✓ Works Offline
-              </div>
-              <div className="rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-2 text-sm text-orange-300">
-                ✓ Mobile & Desktop
-              </div>
+              {[1, 2, 3, 4].map((index) => (
+                <div
+                  key={index}
+                  className={`rounded-full border px-4 py-2 text-sm ${
+                    index === 1
+                      ? "border-green-500/30 bg-green-500/10 text-green-300"
+                      : index === 2
+                        ? "border-blue-500/30 bg-blue-500/10 text-blue-300"
+                        : index === 3
+                          ? "border-purple-500/30 bg-purple-500/10 text-purple-300"
+                          : "border-orange-500/30 bg-orange-500/10 text-orange-300"
+                  }`}
+                >
+                  ✓ {t(`trust_signals.badge_${index}`)}
+                </div>
+              ))}
             </div>
           </div>
         </section>

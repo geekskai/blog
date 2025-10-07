@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 import { COMMON_FRACTIONS } from "../utils/fractionParser"
 
 // Common construction measurements
@@ -36,15 +37,16 @@ interface QuickReferenceProps {
 }
 
 export default function QuickReference({ className = "" }: QuickReferenceProps) {
+  const t = useTranslations("ConvertInchesToDecimal")
   const [activeTab, setActiveTab] = useState<
     "common" | "construction" | "woodworking" | "manufacturing"
   >("common")
 
   const tabs = [
-    { id: "common", label: "Common Fractions", icon: "📐" },
-    { id: "construction", label: "Construction", icon: "🏗️" },
-    { id: "woodworking", label: "Woodworking", icon: "🪵" },
-    { id: "manufacturing", label: "Manufacturing", icon: "⚙️" },
+    { id: "common", label: t("quick_reference.tabs.common"), icon: "📐" },
+    { id: "construction", label: t("quick_reference.tabs.construction"), icon: "🏗️" },
+    { id: "woodworking", label: t("quick_reference.tabs.woodworking"), icon: "🪵" },
+    { id: "manufacturing", label: t("quick_reference.tabs.manufacturing"), icon: "⚙️" },
   ] as const
 
   return (
@@ -61,10 +63,10 @@ export default function QuickReference({ className = "" }: QuickReferenceProps) 
           <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-purple-500/30 bg-gradient-to-r from-purple-500/10 to-pink-500/10 px-6 py-3 backdrop-blur-sm">
             <span className="text-2xl">📚</span>
             <h2 className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-2xl font-bold text-transparent">
-              Quick Reference Guide
+              {t("quick_reference.title")}
             </h2>
           </div>
-          <p className="text-slate-300">Common measurements and conversions for professional use</p>
+          <p className="text-slate-300">{t("quick_reference.description")}</p>
         </div>
 
         {/* Tab Navigation */}
@@ -235,145 +237,8 @@ export default function QuickReference({ className = "" }: QuickReferenceProps) 
                   </div>
                 )}
               </div>
-
-              <div className="mt-8 rounded-2xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-pink-500/5 p-6 backdrop-blur-sm">
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-500/20">
-                      <span className="text-xl">💡</span>
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="mb-2 text-sm font-semibold text-purple-300">
-                      Pro Tips for Memorization
-                    </h4>
-                    <ul className="space-y-1 text-xs text-slate-300">
-                      <li>
-                        • <strong className="text-white">Halves & Quarters:</strong> Foundation
-                        fractions - learn these first
-                      </li>
-                      <li>
-                        • <strong className="text-white">Eighths:</strong> Common in woodworking and
-                        general construction
-                      </li>
-                      <li>
-                        • <strong className="text-white">Sixteenths:</strong> Precision work and
-                        detailed measurements
-                      </li>
-                      <li>
-                        • <strong className="text-white">Pattern Recognition:</strong> Notice how
-                        1/8 = 0.125, 3/8 = 0.375, etc.
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
             </div>
           )}
-
-          {/* Construction Tab */}
-          {activeTab === "construction" && (
-            <div>
-              <h3 className="mb-4 text-lg font-semibold text-white">Construction Standards</h3>
-              <div className="space-y-3">
-                {CONSTRUCTION_MEASUREMENTS.map((item, index) => (
-                  <div
-                    key={index}
-                    className="rounded-lg border border-orange-500/20 bg-orange-500/10 p-4 backdrop-blur-sm"
-                  >
-                    <div className="mb-2 flex items-center justify-between">
-                      <span className="font-mono text-lg text-white">{item.fraction}"</span>
-                      <span className="font-mono text-orange-300">{item.decimal}"</span>
-                    </div>
-                    <p className="text-sm text-slate-300">{item.description}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6 rounded-lg border border-orange-500/20 bg-orange-500/5 p-4">
-                <h4 className="mb-2 text-sm font-semibold text-orange-300">🏗️ Construction Note</h4>
-                <p className="text-xs text-slate-300">
-                  Actual lumber dimensions differ from nominal sizes. A "2x4" is actually 1.5" ×
-                  3.5". Always use actual dimensions for precise calculations.
-                </p>
-              </div>
-            </div>
-          )}
-
-          {/* Woodworking Tab */}
-          {activeTab === "woodworking" && (
-            <div>
-              <h3 className="mb-4 text-lg font-semibold text-white">Woodworking Standards</h3>
-              <div className="space-y-3">
-                {WOODWORKING_MEASUREMENTS.map((item, index) => (
-                  <div
-                    key={index}
-                    className="rounded-lg border border-amber-500/20 bg-amber-500/10 p-4 backdrop-blur-sm"
-                  >
-                    <div className="mb-2 flex items-center justify-between">
-                      <span className="font-mono text-lg text-white">{item.fraction}"</span>
-                      <span className="font-mono text-amber-300">{item.decimal}"</span>
-                    </div>
-                    <p className="text-sm text-slate-300">{item.description}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6 rounded-lg border border-amber-500/20 bg-amber-500/5 p-4">
-                <h4 className="mb-2 text-sm font-semibold text-amber-300">🪵 Woodworking Tip</h4>
-                <p className="text-xs text-slate-300">
-                  When working with hardwood lumber, thicknesses are often expressed in quarters.
-                  4/4 = 1", 5/4 = 1.25", 6/4 = 1.5", 8/4 = 2".
-                </p>
-              </div>
-            </div>
-          )}
-
-          {/* Manufacturing Tab */}
-          {activeTab === "manufacturing" && (
-            <div>
-              <h3 className="mb-4 text-lg font-semibold text-white">Manufacturing Tolerances</h3>
-              <div className="space-y-3">
-                {MANUFACTURING_TOLERANCES.map((item, index) => (
-                  <div
-                    key={index}
-                    className="rounded-lg border border-blue-500/20 bg-blue-500/10 p-4 backdrop-blur-sm"
-                  >
-                    <div className="mb-2 flex items-center justify-between">
-                      <span className="font-mono text-lg text-white">±{item.fraction}"</span>
-                      <span className="font-mono text-blue-300">±{item.decimal}"</span>
-                    </div>
-                    <p className="text-sm text-slate-300">{item.description}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6 rounded-lg border border-blue-500/20 bg-blue-500/5 p-4">
-                <h4 className="mb-2 text-sm font-semibold text-blue-300">⚙️ Manufacturing Note</h4>
-                <p className="text-xs text-slate-300">
-                  Tighter tolerances require more precise (and expensive) manufacturing processes.
-                  Choose the appropriate tolerance for your application's requirements.
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Conversion Formula */}
-        <div className="mt-6 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-6 backdrop-blur-sm">
-          <h3 className="mb-3 text-lg font-semibold text-emerald-300">🧮 Conversion Formula</h3>
-          <div className="space-y-2 text-sm text-slate-300">
-            <p>
-              <strong className="text-white">Fraction to Decimal:</strong> Divide numerator by
-              denominator
-            </p>
-            <p className="font-mono text-emerald-300">Example: 3/4 = 3 ÷ 4 = 0.75</p>
-            <p>
-              <strong className="text-white">Mixed Number:</strong> Add whole number to fraction
-              decimal
-            </p>
-            <p className="font-mono text-emerald-300">Example: 5 3/4 = 5 + 0.75 = 5.75</p>
-          </div>
         </div>
       </div>
     </div>

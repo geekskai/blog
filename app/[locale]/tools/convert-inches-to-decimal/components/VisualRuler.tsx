@@ -1,6 +1,7 @@
 "use client"
 
 import { useMemo } from "react"
+import { useTranslations } from "next-intl"
 import type { ConversionResult } from "../types"
 import { generateRulerMarks } from "../utils/converter"
 
@@ -11,6 +12,8 @@ interface VisualRulerProps {
 }
 
 export default function VisualRuler({ result, maxValue = 6, className = "" }: VisualRulerProps) {
+  const t = useTranslations("ConvertInchesToDecimal")
+
   // Generate ruler marks
   const rulerMarks = useMemo(() => {
     return generateRulerMarks(maxValue, 0.0625) // 1/16 inch increments
@@ -28,7 +31,7 @@ export default function VisualRuler({ result, maxValue = 6, className = "" }: Vi
         <div className="inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 px-4 py-2 backdrop-blur-sm">
           <span className="text-xl">📏</span>
           <h3 className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-lg font-bold text-transparent">
-            Visual Ruler
+            {t("visual_ruler.title")}
           </h3>
         </div>
       </div>
@@ -158,7 +161,7 @@ export default function VisualRuler({ result, maxValue = 6, className = "" }: Vi
             <div className="inline-flex items-center gap-2 rounded-lg border border-green-500/30 bg-green-500/10 px-4 py-2 backdrop-blur-sm">
               <span className="text-green-300">📍</span>
               <span className="font-medium text-white">
-                Your measurement: {result.input} = {result.formatted}"
+                {t("visual_ruler.your_measurement")} {result.input} = {result.formatted}"
               </span>
             </div>
           </div>
@@ -176,26 +179,28 @@ export default function VisualRuler({ result, maxValue = 6, className = "" }: Vi
       <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
         <div className="flex items-center gap-2 text-xs text-slate-300">
           <div className="h-6 w-0.5 bg-blue-400"></div>
-          <span>Whole inches</span>
+          <span>{t("visual_ruler.scale_indicators.whole_inches")}</span>
         </div>
         <div className="flex items-center gap-2 text-xs text-slate-300">
           <div className="h-4 w-0.5 bg-blue-400 opacity-80"></div>
-          <span>Quarter/Half inches</span>
+          <span>{t("visual_ruler.scale_indicators.quarter_half_inches")}</span>
         </div>
         <div className="flex items-center gap-2 text-xs text-slate-300">
           <div className="h-2 w-0.5 bg-blue-400 opacity-60"></div>
-          <span>Smaller fractions</span>
+          <span>{t("visual_ruler.scale_indicators.smaller_fractions")}</span>
         </div>
       </div>
 
       {/* Interactive measurement guide */}
       <div className="mt-4 rounded-lg border border-blue-500/20 bg-blue-500/5 p-3">
-        <h4 className="mb-2 text-sm font-semibold text-blue-300">How to read the ruler:</h4>
+        <h4 className="mb-2 text-sm font-semibold text-blue-300">
+          {t("visual_ruler.reading_guide.title")}
+        </h4>
         <ul className="space-y-1 text-xs text-slate-300">
-          <li>• Tall marks = whole inches and major fractions (1/2, 1/4, 3/4)</li>
-          <li>• Medium marks = eighth inches (1/8, 3/8, 5/8, 7/8)</li>
-          <li>• Small marks = sixteenth inches (1/16, 3/16, etc.)</li>
-          <li>• Green line shows your current measurement</li>
+          <li>• {t("visual_ruler.reading_guide.tall_marks")}</li>
+          <li>• {t("visual_ruler.reading_guide.medium_marks")}</li>
+          <li>• {t("visual_ruler.reading_guide.small_marks")}</li>
+          <li>• {t("visual_ruler.reading_guide.green_line")}</li>
         </ul>
       </div>
     </div>
@@ -210,6 +215,7 @@ export function CompactRuler({
   result?: ConversionResult | null
   className?: string
 }) {
+  const t = useTranslations("ConvertInchesToDecimal")
   const maxValue = 3 // Smaller range for mobile
 
   return (

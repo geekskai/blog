@@ -1989,5 +1989,221 @@
       "converter_tool": "皮米厘米和CM到PM转换器工具",
       "measurement_value": "皮米或厘米测量值"
     }
+  },
+  "ConvertInchesToDecimal": {
+    "seo_title": "英寸转小数 - 免费分数转小数计算器工具",
+    "seo_description": "免费英寸转小数计算器，瞬间将分数英寸（5 3/4）转换为小数英寸（5.75）。专为建筑、木工和制造业设计。移动端优化，支持离线使用。",
+    "seo_keywords": "英寸转小数, 英寸小数转换器, 分数转小数英寸, 分数英寸计算器, 小数英寸转换器, 建筑测量转换器, 木工小数转换器, 英制转小数转换器, 分数计算器工具, 小数转换计算器, 建筑测量工具, 工地计算器, 移动分数转换器",
+    "breadcrumb": {
+      "home": "首页",
+      "tools": "工具",
+      "convert_inches_to_decimal": "英寸转小数"
+    },
+    "page_title": "瞬间英寸转小数",
+    "page_subtitle": "专业级分数转小数转换器，专为建筑、木工和制造业设计。移动端优化，适合工地使用。",
+    "key_features": {
+      "mobile_optimized": "移动端优化",
+      "offline_capable": "离线功能",
+      "professional_grade": "专业级",
+      "free_forever": "永久免费"
+    },
+    "navigation_tabs": {
+      "convert": "转换",
+      "reference": "参考",
+      "history": "历史"
+    },
+    "converter_interface": {
+      "title": "英寸转小数转换器",
+      "description": "瞬间将分数英寸转换为小数英寸。完美适用于建筑、木工和制造业。",
+      "conversion_modes": {
+        "fraction_to_decimal": "分数 → 小数",
+        "decimal_to_fraction": "小数 → 分数"
+      },
+      "placeholders": {
+        "fraction_input": "输入分数（例如：5 3/4, 3/4, 2-1/2）",
+        "decimal_input": "输入小数（例如：5.75, 0.75）"
+      },
+      "quick_fractions_label": "快速分数：",
+      "precision_label": "小数精度：",
+      "result_label": "结果：",
+      "inches_unit": "英寸",
+      "common_equivalents": "常用等值：",
+      "buttons": {
+        "copy": "复制",
+        "copy_decimal": "复制小数",
+        "share": "分享",
+        "swap_mode": "切换转换模式"
+      },
+      "converting": "转换中...",
+      "error_prefix": "⚠️"
+    },
+    "visual_ruler": {
+      "title": "可视化尺子",
+      "resolution": "1920×1080",
+      "show_ruler": "显示尺子",
+      "hide_ruler": "隐藏尺子",
+      "your_measurement": "您的测量值：",
+      "scale_indicators": {
+        "whole_inches": "整英寸",
+        "quarter_half_inches": "四分之一/二分之一英寸",
+        "smaller_fractions": "更小的分数"
+      },
+      "reading_guide": {
+        "title": "如何读取尺子：",
+        "tall_marks": "长刻度 = 整英寸和主要分数（1/2, 1/4, 3/4）",
+        "medium_marks": "中等刻度 = 八分之一英寸（1/8, 3/8, 5/8, 7/8）",
+        "small_marks": "小刻度 = 十六分之一英寸（1/16, 3/16等）",
+        "green_line": "绿线显示您当前的测量值"
+      }
+    },
+    "quick_reference": {
+      "title": "快速参考指南",
+      "description": "专业使用的常见测量和转换",
+      "tabs": {
+        "common": "常用分数",
+        "construction": "建筑",
+        "woodworking": "木工",
+        "manufacturing": "制造"
+      },
+      "common_fractions": {
+        "title": "最常用分数",
+        "halves_quarters": "二分之一和四分之一",
+        "eighths": "八分之一",
+        "sixteenths": "十六分之一",
+        "thirty_seconds": "三十二分之一",
+        "range_1_15": "1/32 - 15/32",
+        "range_17_31": "17/32 - 31/32"
+      },
+      "pro_tips": {
+        "title": "记忆专业技巧",
+        "foundation": "二分之一和四分之一：基础分数 - 首先学习这些",
+        "woodworking": "八分之一：木工和一般建筑中常用",
+        "precision": "十六分之一：精密工作和详细测量",
+        "pattern": "模式识别：注意1/8 = 0.125, 3/8 = 0.375等规律"
+      },
+      "notes": {
+        "construction": "实际木材尺寸与标称尺寸不同。\"2x4\"实际是1.5\" × 3.5\"。精确计算时始终使用实际尺寸。",
+        "woodworking": "硬木木材厚度通常用四分之一表示。4/4 = 1\"，5/4 = 1.25\"，6/4 = 1.5\"，8/4 = 2\"。",
+        "manufacturing": "更严格的公差需要更精确（和昂贵）的制造工艺。为您的应用需求选择合适的公差。"
+      },
+      "conversion_formula": {
+        "title": "转换公式",
+        "fraction_to_decimal": "分数转小数：分子除以分母",
+        "fraction_example": "示例：3/4 = 3 ÷ 4 = 0.75",
+        "mixed_number": "带分数：整数加上分数小数",
+        "mixed_example": "示例：5 3/4 = 5 + 0.75 = 5.75"
+      }
+    },
+    "conversion_history": {
+      "title": "转换历史",
+      "no_conversions": "暂无转换记录。开始转换以查看历史记录。",
+      "export_formats": {
+        "csv": "CSV",
+        "json": "JSON",
+        "txt": "TXT"
+      },
+      "buttons": {
+        "export": "导出",
+        "clear": "清除",
+        "copy": "复制结果",
+        "use_conversion": "使用此转换"
+      },
+      "statistics": {
+        "total_conversions": "总转换次数",
+        "fraction_inputs": "分数输入",
+        "unique_values": "唯一值",
+        "largest_value": "最大值"
+      },
+      "tips": {
+        "title": "历史提示",
+        "click_to_reuse": "点击任何转换记录以重复使用",
+        "export_documentation": "导出历史记录用于项目文档",
+        "local_storage": "历史记录保存在浏览器本地",
+        "copy_share": "使用复制按钮快速分享结果"
+      },
+      "messages": {
+        "no_conversions_to_export": "没有转换记录可导出",
+        "exported_conversions": "已导出 {count} 个转换记录为 {format} 格式",
+        "export_failed": "导出失败",
+        "copied_result": "已复制：{result}",
+        "copy_failed": "复制到剪贴板失败"
+      }
+    },
+    "educational_content": {
+      "how_it_works": {
+        "title": "如何转换英寸为小数",
+        "description_1": "我们的专业英寸转小数工具使用先进的解析算法，理解建筑、木工和制造业中常用的各种分数格式。",
+        "description_2": "完美适用于需要在工地快速准确地将\"5 3/4\"等英寸测量值转换为\"5.75\"的承包商、木匠和工程师。",
+        "feature_1": "支持带分数（5 3/4）、简单分数（3/4）和小数",
+        "feature_2": "输入时实时转换",
+        "feature_3": "可视化尺子便于理解",
+        "feature_4": "一键复制便于分享"
+      },
+      "best_features": {
+        "title": "最佳英寸转小数转换器功能",
+        "mobile_optimized": {
+          "title": "移动端优化",
+          "description": "大触摸目标和高对比度显示，完美适用于工地使用，即使戴着工作手套也能操作。"
+        },
+        "lightning_fast": {
+          "title": "闪电般快速",
+          "description": "即时转换，无延迟。以毫秒而非秒为单位获得结果。"
+        },
+        "professional_accuracy": {
+          "title": "专业精度",
+          "description": "专为需要精确测量的建筑、制造和木工项目专业人士设计。"
+        }
+      }
+    },
+    "trust_signals": {
+      "title": "全球建筑专业人士信赖",
+      "description": "加入数千名依赖我们英寸转小数计算器进行精确测量和专业结果的承包商、木工和工程师。",
+      "badge_1": "100% 永久免费",
+      "badge_2": "无需注册",
+      "badge_3": "离线工作",
+      "badge_4": "移动端和桌面端"
+    },
+    "validation_errors": {
+      "empty_input": "请输入测量值",
+      "invalid_decimal": "无效的小数",
+      "division_by_zero": "不允许除以零",
+      "invalid_format": "格式无效。请尝试：\"5 3/4\"、\"3/4\" 或 \"5.75\"",
+      "input_cannot_be_empty": "输入不能为空",
+      "double_slashes": "不允许双斜杠",
+      "multiple_fractions": "一次输入中有多个分数",
+      "negative_measurements": "不支持负数测量"
+    },
+    "validation_suggestions": {
+      "try_fraction_or_decimal": "尝试输入 \"3/4\" 或 \"5.75\"",
+      "use_single_slash": "分数使用单斜杠：\"3/4\"",
+      "use_non_zero_denominator": "使用非零分母",
+      "enter_one_fraction": "一次输入一个分数：\"3/4\"",
+      "positive_measurements_only": "仅输入正数测量值"
+    },
+    "clipboard_messages": {
+      "copied_successfully": "已复制：{text}",
+      "copy_failed": "复制到剪贴板失败",
+      "copy_operation_failed": "复制操作失败",
+      "shared_successfully": "分享成功",
+      "copied_for_sharing": "已复制到剪贴板用于分享",
+      "share_failed": "准备分享失败",
+      "share_cancelled": "分享已取消或失败"
+    },
+    "structured_data": {
+      "app_name": "英寸转小数计算器",
+      "app_description": "专业计算器，瞬间将英寸转换为小数。为建筑、木工和制造专业人士将分数英寸转换为小数英寸。",
+      "feature_1": "瞬间英寸转小数",
+      "feature_2": "分数转小数英寸转换",
+      "feature_3": "带测量的可视化尺子显示",
+      "feature_4": "工地移动端优化界面",
+      "feature_5": "建筑工地离线功能",
+      "feature_6": "转换历史和导出",
+      "feature_7": "专业级精度",
+      "feature_8": "免费计算器工具",
+      "audience_type_1": "建筑工人",
+      "audience_type_2": "木工",
+      "audience_type_3": "工程师",
+      "audience_type_4": "制造商"
+    }
   }
 }
