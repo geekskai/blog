@@ -1,3 +1,4 @@
+import { supportedLocales } from "app/i18n/routing"
 import type { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 
@@ -8,7 +9,15 @@ export async function generateMetadata({
   params: { locale: string }
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "CmToPmConverter" })
+  const isDefaultLocale = locale === "en"
 
+  const languages = {
+    "x-default": "https://geekskai.com/tools/cm-to-pm-converter",
+  }
+
+  supportedLocales.forEach((locale) => {
+    languages[locale] = `https://geekskai.com/${locale}/tools/cm-to-pm-converter`
+  })
   return {
     title: t("seo_title"),
     description: t("seo_description"),
@@ -21,7 +30,9 @@ export async function generateMetadata({
     openGraph: {
       title: t("seo_title"),
       description: t("seo_description"),
-      url: `https://geekskai.com/${locale}/tools/cm-to-pm-converter/`,
+      url: isDefaultLocale
+        ? "https://geekskai.com/tools/cm-to-pm-converter"
+        : `https://geekskai.com/${locale}/tools/cm-to-pm-converter`,
       siteName: "GeeksKai Scientific Tools",
       images: [
         {
@@ -31,7 +42,7 @@ export async function generateMetadata({
           alt: "CM to PM Converter Tool - Scientific centimeter to picometer conversion",
         },
       ],
-      locale: "en_US",
+      locale: locale === "en" ? "en_US" : locale === "zh-cn" ? "zh_CN" : locale,
       type: "website",
     },
 
@@ -60,6 +71,9 @@ export async function generateMetadata({
     // Canonical URL
     alternates: {
       canonical: `https://geekskai.com/${locale}/tools/cm-to-pm-converter/`,
+      languages: {
+        ...languages,
+      },
     },
 
     // Additional metadata
