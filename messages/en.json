@@ -1023,5 +1023,138 @@
       "copy_failed": "Copy failed",
       "download_failed": "Download failed. Please try again."
     }
+  },
+  "BpmMsConverter": {
+    "seo_title": "BPM to MS Converter | Free Online Beat Timing Calculator",
+    "seo_description": "Professional BPM to milliseconds converter for music producers, DJs, and audio engineers. Convert beats per minute to delay times, LFO rates, and sync parameters instantly. Supports quarter notes, eighth notes, sixteenth notes, dotted notes, and triplets.",
+    "seo_keywords": "BPM to ms converter, ms to BPM, delay time calculator, LFO sync calculator, beat timing converter",
+    "page_title": "BPM to Milliseconds Converter",
+    "page_subtitle": "Professional Timing Calculator for Music Producers & DJs",
+    "page_description": "Instant, accurate delay times and LFO rates for your DAW",
+
+    "value_props": {
+      "instant_conversion": "Instant Conversion",
+      "daw_ready": "DAW Ready",
+      "studio_grade": "Studio Grade"
+    },
+
+    "quick_converter": {
+      "title": "Quick Converter",
+      "input_placeholder": "Enter BPM (e.g. 120) or milliseconds (e.g. 500)",
+      "auto_detect_bpm_to_ms": "BPM → MS",
+      "auto_detect_ms_to_bpm": "MS → BPM",
+      "auto_prefix": "Auto:",
+      "bpm_label": "BPM",
+      "milliseconds_label": "Milliseconds",
+      "click_to_copy": "Click to copy",
+      "copied": "Copied!"
+    },
+
+    "common_bpm_presets": {
+      "title": "Common BPM Values by Genre",
+      "genres": {
+        "ballad": "Ballad",
+        "hip_hop": "Hip Hop",
+        "pop": "Pop",
+        "house": "House",
+        "trance": "Trance",
+        "techno": "Techno",
+        "hardstyle": "Hardstyle",
+        "dnb": "D&B"
+      }
+    },
+
+    "conversion_results": {
+      "milliseconds_per_beat": "Milliseconds per Beat",
+      "beats_per_minute": "Beats per Minute",
+      "common_note_values": "Common Note Values",
+      "copy_result": "Copy Result",
+      "copy_all": "Copy All",
+      "copied": "Copied!",
+      "copied_all": "Copied All!"
+    },
+
+    "note_values": {
+      "quarter_note": "Quarter Note",
+      "quarter_note_description": "1 beat - Standard beat reference",
+      "eighth_note": "Eighth Note",
+      "eighth_note_description": "1/2 beat - Double-time feel",
+      "sixteenth_note": "Sixteenth Note",
+      "sixteenth_note_description": "1/4 beat - Subdivision timing",
+      "dotted_quarter": "Dotted Quarter",
+      "dotted_quarter_description": "1.5 beats - Adds swing feel",
+      "eighth_triplet": "Eighth Triplet",
+      "eighth_triplet_description": "1/3 beat - Triplet subdivision"
+    },
+
+    "conversion_modes": {
+      "bpm_to_ms": "BPM → MS",
+      "ms_to_bpm": "MS → BPM",
+      "bpm_to_ms_description": "Convert beats per minute to milliseconds",
+      "ms_to_bpm_description": "Convert milliseconds to beats per minute",
+      "bpm_input_label": "BPM (Beats Per Minute)",
+      "bpm_input_placeholder": "Enter BPM (20-300)",
+      "ms_input_label": "Milliseconds per Beat",
+      "ms_input_placeholder": "Enter MS (100-3000)",
+      "bpm_output_label": "BPM (Beats Per Minute)",
+      "ms_output_label": "Milliseconds per Beat",
+      "converting_bpm_to_ms": "Converting BPM to Milliseconds",
+      "converting_ms_to_bpm": "Converting Milliseconds to BPM"
+    },
+
+    "input_validation": {
+      "range_bpm": "Range: 20-300 BPM",
+      "range_ms": "Range: 100-3000 ms",
+      "common_bpm": "Common: 120-140 BPM",
+      "common_ms": "Common: 400-500 ms",
+      "quick_presets": "Quick Presets:",
+      "invalid_positive_number": "Please enter a valid positive number",
+      "bpm_min_error": "BPM must be at least 20",
+      "bpm_max_error": "BPM must be no more than 300",
+      "ms_min_error": "Milliseconds must be at least 100",
+      "ms_max_error": "Milliseconds must be no more than 3000",
+      "invalid_input": "Invalid input"
+    },
+
+    "professional_tips": {
+      "title": "Professional Tips for Music Production",
+      "delay_reverb_timing": {
+        "title": "Delay & Reverb Timing",
+        "quarter_notes": "Quarter notes (1/4): Spacious, rhythmic delays",
+        "eighth_notes": "Eighth notes (1/8): Tight, percussive echoes",
+        "dotted_notes": "Dotted notes: Add swing and groove feel",
+        "sixteenth_notes": "Sixteenth notes (1/16): Fast texture delays"
+      },
+      "lfo_modulation": {
+        "title": "LFO & Modulation Rates",
+        "whole_notes": "Whole notes: Slow, evolving filter sweeps",
+        "half_notes": "Half notes: Moderate tremolo effects",
+        "quarter_notes": "Quarter notes: Rhythmic auto-pan",
+        "triplets": "Triplets: Complex polyrhythmic modulation"
+      }
+    },
+
+    "how_it_works": {
+      "title": "How BPM to Milliseconds Conversion Works",
+      "formula_title": "The Formula",
+      "bpm_to_ms_formula": "BPM → Milliseconds:",
+      "bpm_to_ms_calculation": "ms = 60,000 ÷ BPM",
+      "ms_to_bpm_formula": "Milliseconds → BPM:",
+      "ms_to_bpm_calculation": "BPM = 60,000 ÷ ms",
+      "common_applications_title": "Common Applications",
+      "applications": {
+        "daw_delay_times": "Setting delay times in Ableton Live, Logic Pro, FL Studio",
+        "lfo_sync": "Syncing LFO rates to song tempo",
+        "step_sequencers": "Programming step sequencers and drum machines",
+        "modular_timing": "Timing modular synthesizer sequences",
+        "lighting_sync": "Setting up tempo-synced lighting systems"
+      }
+    },
+
+    "breadcrumb": {
+      "home": "Home",
+      "tools": "Tools",
+      "bpm_ms_converter": "BPM MS Converter"
+    }
   }
 }

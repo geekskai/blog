@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Music, Timer, AlertCircle } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { ConversionMode } from "../types"
 import { CONVERSION_MODES, validateInput, getErrorMessage } from "../utils"
 
@@ -18,6 +19,7 @@ export default function ConversionInput({
   onChange,
   onValidationChange,
 }: ConversionInputProps) {
+  const t = useTranslations("BpmMsConverter")
   const [isFocused, setIsFocused] = useState(false)
   const [error, setError] = useState<string>("")
 
@@ -152,9 +154,13 @@ export default function ConversionInput({
         {!error && (
           <div className="mt-4 text-center">
             <div className="inline-flex items-center gap-4 text-sm text-slate-400">
-              <span>Range: {isBPMMode ? "20-300 BPM" : "100-3000 ms"}</span>
+              <span>
+                {isBPMMode ? t("input_validation.range_bpm") : t("input_validation.range_ms")}
+              </span>
               <span className="h-1 w-1 rounded-full bg-slate-500"></span>
-              <span>Common: {isBPMMode ? "120-140 BPM" : "400-500 ms"}</span>
+              <span>
+                {isBPMMode ? t("input_validation.common_bpm") : t("input_validation.common_ms")}
+              </span>
             </div>
           </div>
         )}
@@ -163,7 +169,9 @@ export default function ConversionInput({
       {/* Quick Preset Buttons */}
       {isBPMMode && !value && (
         <div className="mt-6">
-          <p className="mb-3 text-center text-sm text-slate-400">Quick Presets:</p>
+          <p className="mb-3 text-center text-sm text-slate-400">
+            {t("input_validation.quick_presets")}
+          </p>
           <div className="flex flex-wrap justify-center gap-2">
             {[60, 80, 100, 120, 128, 140, 160, 174].map((bpm) => (
               <button
@@ -172,7 +180,9 @@ export default function ConversionInput({
                 className="group relative overflow-hidden rounded-lg border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-blue-500/5 px-4 py-2 text-sm font-medium text-blue-300 transition-all duration-300 hover:border-blue-400/50 hover:from-blue-500/20 hover:to-blue-500/10"
               >
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/10 to-white/0 transition-transform duration-500 group-hover:translate-x-full"></div>
-                <span className="relative">{bpm} BPM</span>
+                <span className="relative">
+                  {bpm} {t("quick_converter.bpm_label")}
+                </span>
               </button>
             ))}
           </div>

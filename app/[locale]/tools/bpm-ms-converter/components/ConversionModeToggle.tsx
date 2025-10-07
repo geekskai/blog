@@ -1,5 +1,6 @@
 "use client"
 
+import { useTranslations } from "next-intl"
 import { ConversionMode } from "../types"
 import { CONVERSION_MODES } from "../utils"
 
@@ -12,14 +13,16 @@ export default function ConversionModeToggle({
   currentMode,
   onModeChange,
 }: ConversionModeToggleProps) {
+  const t = useTranslations("BpmMsConverter")
+
   return (
     <div className="mb-8">
       {/* Mode Toggle Header */}
       <div className="mb-6 text-center">
         <h2 className="mb-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-3xl font-bold text-transparent">
-          Conversion Mode
+          {t("conversion_modes.bpm_to_ms")} / {t("conversion_modes.ms_to_bpm")}
         </h2>
-        <p className="text-slate-400">Choose your conversion direction</p>
+        <p className="text-slate-400">{t("conversion_modes.bpm_to_ms_description")}</p>
       </div>
 
       {/* Toggle Buttons */}
@@ -100,8 +103,8 @@ export default function ConversionModeToggle({
           <span className="h-2 w-2 animate-pulse rounded-full bg-blue-500"></span>
           <span>
             {currentMode === "bpm-to-ms"
-              ? "Converting BPM to Milliseconds"
-              : "Converting Milliseconds to BPM"}
+              ? t("conversion_modes.converting_bpm_to_ms")
+              : t("conversion_modes.converting_ms_to_bpm")}
           </span>
         </div>
       </div>

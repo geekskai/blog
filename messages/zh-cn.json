@@ -955,5 +955,138 @@
       "copy_failed": "复制失败",
       "download_failed": "下载失败。请重试。"
     }
+  },
+  "BpmMsConverter": {
+    "seo_title": "BPM转毫秒转换器 | 免费在线节拍时间计算器",
+    "seo_description": "专业的BPM转毫秒转换器，为音乐制作人、DJ和音频工程师设计。将每分钟节拍数转换为延迟时间、LFO速率和同步参数。支持四分音符、八分音符、十六分音符、附点音符和三连音。",
+    "seo_keywords": "BPM转毫秒转换器, 毫秒转BPM, 延迟时间计算器, LFO同步计算器, 节拍时间转换器",
+    "page_title": "BPM转毫秒转换器",
+    "page_subtitle": "音乐制作人和DJ的专业时间计算器",
+    "page_description": "为您的DAW提供即时、准确的延迟时间和LFO速率",
+
+    "value_props": {
+      "instant_conversion": "即时转换",
+      "daw_ready": "DAW就绪",
+      "studio_grade": "录音室级别"
+    },
+
+    "quick_converter": {
+      "title": "快速转换器",
+      "input_placeholder": "输入BPM（例如120）或毫秒（例如500）",
+      "auto_detect_bpm_to_ms": "BPM → 毫秒",
+      "auto_detect_ms_to_bpm": "毫秒 → BPM",
+      "auto_prefix": "自动:",
+      "bpm_label": "BPM",
+      "milliseconds_label": "毫秒",
+      "click_to_copy": "点击复制",
+      "copied": "已复制！"
+    },
+
+    "common_bpm_presets": {
+      "title": "按音乐风格分类的常见BPM值",
+      "genres": {
+        "ballad": "民谣",
+        "hip_hop": "嘻哈",
+        "pop": "流行",
+        "house": "浩室",
+        "trance": "迷幻",
+        "techno": "电子",
+        "hardstyle": "硬派",
+        "dnb": "鼓打贝斯"
+      }
+    },
+
+    "conversion_results": {
+      "milliseconds_per_beat": "每拍毫秒数",
+      "beats_per_minute": "每分钟节拍数",
+      "common_note_values": "常见音符值",
+      "copy_result": "复制结果",
+      "copy_all": "复制全部",
+      "copied": "已复制！",
+      "copied_all": "全部已复制！"
+    },
+
+    "note_values": {
+      "quarter_note": "四分音符",
+      "quarter_note_description": "1拍 - 标准节拍参考",
+      "eighth_note": "八分音符",
+      "eighth_note_description": "1/2拍 - 双倍时间感",
+      "sixteenth_note": "十六分音符",
+      "sixteenth_note_description": "1/4拍 - 细分时间",
+      "dotted_quarter": "附点四分音符",
+      "dotted_quarter_description": "1.5拍 - 增加摇摆感",
+      "eighth_triplet": "八分音符三连音",
+      "eighth_triplet_description": "1/3拍 - 三连音细分"
+    },
+
+    "conversion_modes": {
+      "bpm_to_ms": "BPM → 毫秒",
+      "ms_to_bpm": "毫秒 → BPM",
+      "bpm_to_ms_description": "将每分钟节拍数转换为毫秒",
+      "ms_to_bpm_description": "将毫秒转换为每分钟节拍数",
+      "bpm_input_label": "BPM（每分钟节拍数）",
+      "bpm_input_placeholder": "输入BPM（20-300）",
+      "ms_input_label": "每拍毫秒数",
+      "ms_input_placeholder": "输入毫秒（100-3000）",
+      "bpm_output_label": "BPM（每分钟节拍数）",
+      "ms_output_label": "每拍毫秒数",
+      "converting_bpm_to_ms": "正在将BPM转换为毫秒",
+      "converting_ms_to_bpm": "正在将毫秒转换为BPM"
+    },
+
+    "input_validation": {
+      "range_bpm": "范围：20-300 BPM",
+      "range_ms": "范围：100-3000 毫秒",
+      "common_bpm": "常见：120-140 BPM",
+      "common_ms": "常见：400-500 毫秒",
+      "quick_presets": "快速预设：",
+      "invalid_positive_number": "请输入有效的正数",
+      "bpm_min_error": "BPM必须至少为20",
+      "bpm_max_error": "BPM不能超过300",
+      "ms_min_error": "毫秒必须至少为100",
+      "ms_max_error": "毫秒不能超过3000",
+      "invalid_input": "无效输入"
+    },
+
+    "professional_tips": {
+      "title": "音乐制作专业技巧",
+      "delay_reverb_timing": {
+        "title": "延迟和混响时间",
+        "quarter_notes": "四分音符（1/4）：宽敞的节奏延迟",
+        "eighth_notes": "八分音符（1/8）：紧密的打击回声",
+        "dotted_notes": "附点音符：增加摇摆和律动感",
+        "sixteenth_notes": "十六分音符（1/16）：快速纹理延迟"
+      },
+      "lfo_modulation": {
+        "title": "LFO和调制速率",
+        "whole_notes": "全音符：缓慢演变的滤波器扫频",
+        "half_notes": "二分音符：适中的颤音效果",
+        "quarter_notes": "四分音符：节奏性自动声像",
+        "triplets": "三连音：复杂的多节奏调制"
+      }
+    },
+
+    "how_it_works": {
+      "title": "BPM转毫秒转换的工作原理",
+      "formula_title": "转换公式",
+      "bpm_to_ms_formula": "BPM → 毫秒：",
+      "bpm_to_ms_calculation": "毫秒 = 60,000 ÷ BPM",
+      "ms_to_bpm_formula": "毫秒 → BPM：",
+      "ms_to_bpm_calculation": "BPM = 60,000 ÷ 毫秒",
+      "common_applications_title": "常见应用",
+      "applications": {
+        "daw_delay_times": "在Ableton Live、Logic Pro、FL Studio中设置延迟时间",
+        "lfo_sync": "将LFO速率同步到歌曲节拍",
+        "step_sequencers": "编程步进音序器和鼓机",
+        "modular_timing": "模块化合成器序列的时间控制",
+        "lighting_sync": "设置节拍同步的灯光系统"
+      }
+    },
+
+    "breadcrumb": {
+      "home": "首页",
+      "tools": "工具",
+      "bpm_ms_converter": "BPM毫秒转换器"
+    }
   }
 }

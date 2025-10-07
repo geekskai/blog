@@ -1035,5 +1035,138 @@
       "copy_failed": "Kopiering mislykkedes",
       "download_failed": "Download mislykkedes. Prøv igen."
     }
+  },
+  "BpmMsConverter": {
+    "seo_title": "BPM til MS Konverter | Gratis Online Beat Timing Beregner",
+    "seo_description": "Professionel BPM til millisekunder konverter til musikproducere, DJ'er og lydingeniører. Konverter beats per minut til delay tider, LFO hastigheder og sync parametre øjeblikkeligt. Understøtter fjerdedelsnoter, ottendedelsnoter, sekstendedelsnoter, prikket noter og trioler.",
+    "seo_keywords": "BPM til ms konverter, ms til BPM, delay tid beregner, LFO sync beregner, beat timing konverter",
+    "page_title": "BPM til Millisekunder Konverter",
+    "page_subtitle": "Professionel Timing Beregner til Musikproducere & DJ'er",
+    "page_description": "Øjeblikkelige, nøjagtige delay tider og LFO hastigheder til din DAW",
+
+    "value_props": {
+      "instant_conversion": "Øjeblikkelig Konvertering",
+      "daw_ready": "DAW Klar",
+      "studio_grade": "Studio Kvalitet"
+    },
+
+    "quick_converter": {
+      "title": "Hurtig Konverter",
+      "input_placeholder": "Indtast BPM (f.eks. 120) eller millisekunder (f.eks. 500)",
+      "auto_detect_bpm_to_ms": "BPM → MS",
+      "auto_detect_ms_to_bpm": "MS → BPM",
+      "auto_prefix": "Auto:",
+      "bpm_label": "BPM",
+      "milliseconds_label": "Millisekunder",
+      "click_to_copy": "Klik for at kopiere",
+      "copied": "Kopieret!"
+    },
+
+    "common_bpm_presets": {
+      "title": "Almindelige BPM Værdier efter Genre",
+      "genres": {
+        "ballad": "Ballade",
+        "hip_hop": "Hip Hop",
+        "pop": "Pop",
+        "house": "House",
+        "trance": "Trance",
+        "techno": "Techno",
+        "hardstyle": "Hardstyle",
+        "dnb": "D&B"
+      }
+    },
+
+    "conversion_results": {
+      "milliseconds_per_beat": "Millisekunder per Beat",
+      "beats_per_minute": "Beats per Minut",
+      "common_note_values": "Almindelige Nodeværdier",
+      "copy_result": "Kopier Resultat",
+      "copy_all": "Kopier Alt",
+      "copied": "Kopieret!",
+      "copied_all": "Alt Kopieret!"
+    },
+
+    "note_values": {
+      "quarter_note": "Fjerdedelsnote",
+      "quarter_note_description": "1 beat - Standard beat reference",
+      "eighth_note": "Ottendedelsnote",
+      "eighth_note_description": "1/2 beat - Dobbelt-tid følelse",
+      "sixteenth_note": "Sekstendedelsnote",
+      "sixteenth_note_description": "1/4 beat - Subdivision timing",
+      "dotted_quarter": "Prikket Fjerdedel",
+      "dotted_quarter_description": "1.5 beats - Tilføjer swing følelse",
+      "eighth_triplet": "Ottendedels Triol",
+      "eighth_triplet_description": "1/3 beat - Triol subdivision"
+    },
+
+    "conversion_modes": {
+      "bpm_to_ms": "BPM → MS",
+      "ms_to_bpm": "MS → BPM",
+      "bpm_to_ms_description": "Konverter beats per minut til millisekunder",
+      "ms_to_bpm_description": "Konverter millisekunder til beats per minut",
+      "bpm_input_label": "BPM (Beats Per Minut)",
+      "bpm_input_placeholder": "Indtast BPM (20-300)",
+      "ms_input_label": "Millisekunder per Beat",
+      "ms_input_placeholder": "Indtast MS (100-3000)",
+      "bpm_output_label": "BPM (Beats Per Minut)",
+      "ms_output_label": "Millisekunder per Beat",
+      "converting_bpm_to_ms": "Konverterer BPM til Millisekunder",
+      "converting_ms_to_bpm": "Konverterer Millisekunder til BPM"
+    },
+
+    "input_validation": {
+      "range_bpm": "Område: 20-300 BPM",
+      "range_ms": "Område: 100-3000 ms",
+      "common_bpm": "Almindelig: 120-140 BPM",
+      "common_ms": "Almindelig: 400-500 ms",
+      "quick_presets": "Hurtige Forudindstillinger:",
+      "invalid_positive_number": "Indtast venligst et gyldigt positivt tal",
+      "bpm_min_error": "BPM skal være mindst 20",
+      "bpm_max_error": "BPM må ikke være mere end 300",
+      "ms_min_error": "Millisekunder skal være mindst 100",
+      "ms_max_error": "Millisekunder må ikke være mere end 3000",
+      "invalid_input": "Ugyldig input"
+    },
+
+    "professional_tips": {
+      "title": "Professionelle Tips til Musikproduktion",
+      "delay_reverb_timing": {
+        "title": "Delay & Reverb Timing",
+        "quarter_notes": "Fjerdedelsnoter (1/4): Rummelige, rytmiske delays",
+        "eighth_notes": "Ottendedelsnoter (1/8): Stramme, perkussive ekkoer",
+        "dotted_notes": "Prikkede noter: Tilføjer swing og groove følelse",
+        "sixteenth_notes": "Sekstendedelsnoter (1/16): Hurtige tekstur delays"
+      },
+      "lfo_modulation": {
+        "title": "LFO & Modulation Hastigheder",
+        "whole_notes": "Hele noter: Langsomme, udviklende filter sweeps",
+        "half_notes": "Halve noter: Moderate tremolo effekter",
+        "quarter_notes": "Fjerdedelsnoter: Rytmisk auto-pan",
+        "triplets": "Trioler: Kompleks polyrytmisk modulation"
+      }
+    },
+
+    "how_it_works": {
+      "title": "Hvordan BPM til Millisekunder Konvertering Virker",
+      "formula_title": "Formlen",
+      "bpm_to_ms_formula": "BPM → Millisekunder:",
+      "bpm_to_ms_calculation": "ms = 60,000 ÷ BPM",
+      "ms_to_bpm_formula": "Millisekunder → BPM:",
+      "ms_to_bpm_calculation": "BPM = 60,000 ÷ ms",
+      "common_applications_title": "Almindelige Anvendelser",
+      "applications": {
+        "daw_delay_times": "Indstilling af delay tider i Ableton Live, Logic Pro, FL Studio",
+        "lfo_sync": "Synkronisering af LFO hastigheder til sang tempo",
+        "step_sequencers": "Programmering af step sequencers og trommemaskiner",
+        "modular_timing": "Timing af modulære synthesizer sekvenser",
+        "lighting_sync": "Opsætning af tempo-synkroniserede lyssystemer"
+      }
+    },
+
+    "breadcrumb": {
+      "home": "Hjem",
+      "tools": "Værktøjer",
+      "bpm_ms_converter": "BPM MS Konverter"
+    }
   }
 }

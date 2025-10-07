@@ -957,5 +957,138 @@
       "copy_failed": "コピーに失敗しました",
       "download_failed": "ダウンロードに失敗しました。再試行してください。"
     }
+  },
+  "BpmMsConverter": {
+    "seo_title": "BPMからミリ秒コンバーター | 無料オンラインビートタイミング計算機",
+    "seo_description": "音楽プロデューサー、DJ、オーディオエンジニア向けのプロフェッショナルBPMからミリ秒コンバーター。ビート・パー・ミニットをディレイタイム、LFOレート、シンクパラメータに瞬時変換。四分音符、八分音符、十六分音符、付点音符、三連符をサポート。",
+    "seo_keywords": "BPMからms変換, msからBPM, ディレイタイム計算機, LFOシンク計算機, ビートタイミング変換",
+    "page_title": "BPMからミリ秒コンバーター",
+    "page_subtitle": "音楽プロデューサー・DJ向けプロフェッショナルタイミング計算機",
+    "page_description": "DAW用の瞬時で正確なディレイタイムとLFOレート",
+
+    "value_props": {
+      "instant_conversion": "瞬時変換",
+      "daw_ready": "DAW対応",
+      "studio_grade": "スタジオグレード"
+    },
+
+    "quick_converter": {
+      "title": "クイック変換",
+      "input_placeholder": "BPM（例：120）またはミリ秒（例：500）を入力",
+      "auto_detect_bpm_to_ms": "BPM → MS",
+      "auto_detect_ms_to_bpm": "MS → BPM",
+      "auto_prefix": "自動:",
+      "bpm_label": "BPM",
+      "milliseconds_label": "ミリ秒",
+      "click_to_copy": "クリックしてコピー",
+      "copied": "コピー完了！"
+    },
+
+    "common_bpm_presets": {
+      "title": "ジャンル別一般的なBPM値",
+      "genres": {
+        "ballad": "バラード",
+        "hip_hop": "ヒップホップ",
+        "pop": "ポップ",
+        "house": "ハウス",
+        "trance": "トランス",
+        "techno": "テクノ",
+        "hardstyle": "ハードスタイル",
+        "dnb": "ドラムンベース"
+      }
+    },
+
+    "conversion_results": {
+      "milliseconds_per_beat": "ビートあたりのミリ秒",
+      "beats_per_minute": "1分あたりのビート数",
+      "common_note_values": "一般的な音符値",
+      "copy_result": "結果をコピー",
+      "copy_all": "すべてコピー",
+      "copied": "コピー完了！",
+      "copied_all": "すべてコピー完了！"
+    },
+
+    "note_values": {
+      "quarter_note": "四分音符",
+      "quarter_note_description": "1ビート - 標準ビートリファレンス",
+      "eighth_note": "八分音符",
+      "eighth_note_description": "1/2ビート - ダブルタイムフィール",
+      "sixteenth_note": "十六分音符",
+      "sixteenth_note_description": "1/4ビート - 細分化タイミング",
+      "dotted_quarter": "付点四分音符",
+      "dotted_quarter_description": "1.5ビート - スウィングフィールを追加",
+      "eighth_triplet": "八分音符三連符",
+      "eighth_triplet_description": "1/3ビート - 三連符細分化"
+    },
+
+    "conversion_modes": {
+      "bpm_to_ms": "BPM → MS",
+      "ms_to_bpm": "MS → BPM",
+      "bpm_to_ms_description": "ビート・パー・ミニットをミリ秒に変換",
+      "ms_to_bpm_description": "ミリ秒をビート・パー・ミニットに変換",
+      "bpm_input_label": "BPM（ビート・パー・ミニット）",
+      "bpm_input_placeholder": "BPMを入力（20-300）",
+      "ms_input_label": "ビートあたりのミリ秒",
+      "ms_input_placeholder": "MSを入力（100-3000）",
+      "bpm_output_label": "BPM（ビート・パー・ミニット）",
+      "ms_output_label": "ビートあたりのミリ秒",
+      "converting_bpm_to_ms": "BPMをミリ秒に変換中",
+      "converting_ms_to_bpm": "ミリ秒をBPMに変換中"
+    },
+
+    "input_validation": {
+      "range_bpm": "範囲：20-300 BPM",
+      "range_ms": "範囲：100-3000 ms",
+      "common_bpm": "一般的：120-140 BPM",
+      "common_ms": "一般的：400-500 ms",
+      "quick_presets": "クイックプリセット：",
+      "invalid_positive_number": "有効な正の数を入力してください",
+      "bpm_min_error": "BPMは20以上である必要があります",
+      "bpm_max_error": "BPMは300以下である必要があります",
+      "ms_min_error": "ミリ秒は100以上である必要があります",
+      "ms_max_error": "ミリ秒は3000以下である必要があります",
+      "invalid_input": "無効な入力"
+    },
+
+    "professional_tips": {
+      "title": "音楽制作のプロフェッショナルヒント",
+      "delay_reverb_timing": {
+        "title": "ディレイ・リバーブタイミング",
+        "quarter_notes": "四分音符（1/4）：広々としたリズミカルなディレイ",
+        "eighth_notes": "八分音符（1/8）：タイトなパーカッシブエコー",
+        "dotted_notes": "付点音符：スウィングとグルーヴフィールを追加",
+        "sixteenth_notes": "十六分音符（1/16）：高速テクスチャーディレイ"
+      },
+      "lfo_modulation": {
+        "title": "LFO・モジュレーションレート",
+        "whole_notes": "全音符：ゆっくりと進化するフィルタースイープ",
+        "half_notes": "二分音符：適度なトレモロエフェクト",
+        "quarter_notes": "四分音符：リズミカルなオートパン",
+        "triplets": "三連符：複雑なポリリズミックモジュレーション"
+      }
+    },
+
+    "how_it_works": {
+      "title": "BPMからミリ秒変換の仕組み",
+      "formula_title": "公式",
+      "bpm_to_ms_formula": "BPM → ミリ秒：",
+      "bpm_to_ms_calculation": "ms = 60,000 ÷ BPM",
+      "ms_to_bpm_formula": "ミリ秒 → BPM：",
+      "ms_to_bpm_calculation": "BPM = 60,000 ÷ ms",
+      "common_applications_title": "一般的な用途",
+      "applications": {
+        "daw_delay_times": "Ableton Live、Logic Pro、FL Studioでのディレイタイム設定",
+        "lfo_sync": "LFOレートを楽曲テンポに同期",
+        "step_sequencers": "ステップシーケンサーとドラムマシンのプログラミング",
+        "modular_timing": "モジュラーシンセサイザーシーケンスのタイミング",
+        "lighting_sync": "テンポ同期照明システムの設定"
+      }
+    },
+
+    "breadcrumb": {
+      "home": "ホーム",
+      "tools": "ツール",
+      "bpm_ms_converter": "BPM MS変換"
+    }
   }
 }

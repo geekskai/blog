@@ -956,5 +956,162 @@
       "copy_failed": "복사 실패",
       "download_failed": "다운로드 실패. 다시 시도하세요."
     }
+  },
+  "BpmMsConverter": {
+    "seo_title": "BPM을 MS 변환기 | 무료 온라인 비트 타이밍 계산기",
+    "seo_description": "음악 프로듀서, DJ, 오디오 엔지니어를 위한 전문 BPM을 밀리초 변환기. 분당 비트를 딜레이 시간, LFO 속도, 동기화 매개변수로 즉시 변환. 4분음표, 8분음표, 16분음표, 점음표, 삼연음 지원.",
+    "seo_keywords": "BPM을 ms 변환기, ms를 BPM, 딜레이 시간 계산기, LFO 동기화 계산기, 비트 타이밍 변환기",
+    "page_title": "BPM을 밀리초 변환기",
+    "page_subtitle": "음악 프로듀서 및 DJ를 위한 전문 타이밍 계산기",
+    "page_description": "DAW를 위한 즉시, 정확한 딜레이 시간 및 LFO 속도",
+
+    "value_props": {
+      "instant_conversion": "즉시 변환",
+      "daw_ready": "DAW 준비",
+      "studio_grade": "스튜디오 급"
+    },
+
+    "quick_converter": {
+      "title": "빠른 변환기",
+      "input_placeholder": "BPM(예: 120) 또는 밀리초(예: 500) 입력",
+      "auto_detect_bpm_to_ms": "BPM → MS",
+      "auto_detect_ms_to_bpm": "MS → BPM",
+      "auto_prefix": "자동:",
+      "bpm_label": "BPM",
+      "milliseconds_label": "밀리초",
+      "click_to_copy": "클릭하여 복사",
+      "copied": "복사됨!"
+    },
+
+    "conversion_results": {
+      "milliseconds_per_beat": "비트당 밀리초",
+      "beats_per_minute": "분당 비트",
+      "copy_result": "결과 복사",
+      "copied": "복사됨!",
+      "common_note_values": "일반적인 음표 값",
+      "copy_all": "모두 복사",
+      "copied_all": "모두 복사됨!"
+    },
+
+    "conversion_modes": {
+      "bpm_to_ms": "BPM을 MS로",
+      "ms_to_bpm": "MS를 BPM으로",
+      "bpm_to_ms_description": "변환 방향을 선택하세요",
+      "converting_bpm_to_ms": "BPM을 밀리초로 변환 중",
+      "converting_ms_to_bpm": "밀리초를 BPM으로 변환 중"
+    },
+
+    "input_validation": {
+      "range_bpm": "범위: 20-300 BPM",
+      "range_ms": "범위: 100-3000 ms",
+      "common_bpm": "일반적: 120-140 BPM",
+      "common_ms": "일반적: 400-500 ms",
+      "quick_presets": "빠른 프리셋:",
+      "error_invalid_bpm": "잘못된 BPM입니다. 20에서 300 사이의 숫자를 입력하세요.",
+      "error_invalid_ms": "잘못된 밀리초입니다. 100에서 3000 사이의 숫자를 입력하세요."
+    },
+
+    "common_bpm_presets": {
+      "title": "장르별 일반적인 BPM 값",
+      "genres": {
+        "ballad": "발라드",
+        "hip_hop": "힙합",
+        "pop": "팝",
+        "house": "하우스",
+        "trance": "트랜스",
+        "techno": "테크노",
+        "hardstyle": "하드스타일",
+        "dnb": "드럼앤베이스"
+      }
+    },
+
+    "note_values": {
+      "quarter": {
+        "name": "4분음표",
+        "description": "1 비트 - 표준 비트 참조",
+        "common_use": "킥 드럼, 기본 리듬"
+      },
+      "eighth": {
+        "name": "8분음표",
+        "description": "1/2 비트 - 더블 타임 느낌",
+        "common_use": "하이햇, 딜레이 타이밍"
+      },
+      "sixteenth": {
+        "name": "16분음표",
+        "description": "1/4 비트 - 세분화 타이밍",
+        "common_use": "빠른 하이햇, 빠른 딜레이"
+      },
+      "dotted_quarter": {
+        "name": "점 4분음표",
+        "description": "1.5 비트 - 스윙 느낌 추가",
+        "common_use": "스윙 리듬, 삼연음 느낌"
+      },
+      "dotted_eighth": {
+        "name": "점 8분음표",
+        "description": "0.75 비트 - 스윙 딜레이에 일반적",
+        "common_use": "스윙 딜레이, 그루브 요소"
+      },
+      "dotted_sixteenth": {
+        "name": "점 16분음표",
+        "description": "0.375 비트 - 매우 빠른 스윙 딜레이",
+        "common_use": "빠른 스윙 딜레이, 복잡한 패턴"
+      },
+      "triplet_quarter": {
+        "name": "삼연음 4분음표",
+        "description": "2/3 비트 - 삼연음 리듬",
+        "common_use": "삼연음 딜레이, 폴리리듬"
+      },
+      "triplet_eighth": {
+        "name": "삼연음 8분음표",
+        "description": "1/3 비트 - 빠른 삼연음 리듬",
+        "common_use": "빠른 삼연음 딜레이, 아르페지오"
+      },
+      "triplet_sixteenth": {
+        "name": "삼연음 16분음표",
+        "description": "1/6 비트 - 매우 빠른 삼연음 리듬",
+        "common_use": "극도로 빠른 딜레이, 글리치 효과"
+      }
+    },
+
+    "professional_tips": {
+      "title": "음악 제작을 위한 전문 팁",
+      "delay_reverb_timing": {
+        "title": "딜레이 및 리버브 타이밍",
+        "quarter_notes": "4분음표 (1/4): 넓고 리드미컬한 딜레이",
+        "eighth_notes": "8분음표 (1/8): 타이트하고 퍼커시브한 에코",
+        "dotted_notes": "점음표: 스윙과 그루브 느낌 추가",
+        "sixteenth_notes": "16분음표 (1/16): 빠른 텍스처 딜레이"
+      },
+      "lfo_modulation": {
+        "title": "LFO 및 모듈레이션 속도",
+        "whole_notes": "온음표: 느리고 진화하는 필터 스윕",
+        "half_notes": "2분음표: 적당한 트레몰로 효과",
+        "quarter_notes": "4분음표: 리드미컬한 오토 팬",
+        "triplets": "삼연음: 복잡한 폴리리듬 모듈레이션"
+      }
+    },
+
+    "how_it_works": {
+      "title": "BPM을 밀리초 변환이 작동하는 방법",
+      "formula_title": "공식",
+      "bpm_to_ms_formula": "BPM → 밀리초:",
+      "bpm_to_ms_calculation": "ms = 60,000 ÷ BPM",
+      "ms_to_bpm_formula": "밀리초 → BPM:",
+      "ms_to_bpm_calculation": "BPM = 60,000 ÷ ms",
+      "common_applications_title": "일반적인 응용",
+      "applications": {
+        "daw_delay_times": "Ableton Live, Logic Pro, FL Studio에서 딜레이 시간 설정",
+        "lfo_sync": "LFO 속도를 곡 템포에 동기화",
+        "step_sequencers": "스텝 시퀀서 및 드럼 머신 프로그래밍",
+        "modular_timing": "모듈러 신디사이저 시퀀스 타이밍",
+        "lighting_sync": "템포 동기화 조명 시스템 설정"
+      }
+    },
+
+    "breadcrumb": {
+      "home": "홈",
+      "tools": "도구",
+      "bpm_ms_converter": "BPM MS 변환기"
+    }
   }
 }

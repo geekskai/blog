@@ -19,41 +19,41 @@ export const convertMSToBPM = (ms: number): number => {
 export const NOTE_VALUES: NoteValue[] = [
   {
     id: "quarter",
-    name: "Quarter Note",
+    name: "Quarter Note", // This will be translated in components
     multiplier: 1,
-    description: "1 beat - Standard beat reference",
+    description: "1 beat - Standard beat reference", // This will be translated in components
     icon: "♩",
     commonUse: ["Kick drums", "Basic rhythm"],
   },
   {
     id: "eighth",
-    name: "Eighth Note",
+    name: "Eighth Note", // This will be translated in components
     multiplier: 0.5,
-    description: "1/2 beat - Double-time feel",
+    description: "1/2 beat - Double-time feel", // This will be translated in components
     icon: "♫",
     commonUse: ["Hi-hats", "Delay timing"],
   },
   {
     id: "sixteenth",
-    name: "Sixteenth Note",
+    name: "Sixteenth Note", // This will be translated in components
     multiplier: 0.25,
-    description: "1/4 beat - Subdivision timing",
+    description: "1/4 beat - Subdivision timing", // This will be translated in components
     icon: "♬",
     commonUse: ["Fast hi-hats", "Quick delays"],
   },
   {
     id: "dotted-quarter",
-    name: "Dotted Quarter",
+    name: "Dotted Quarter", // This will be translated in components
     multiplier: 1.5,
-    description: "1.5 beats - Adds swing feel",
+    description: "1.5 beats - Adds swing feel", // This will be translated in components
     icon: "♩.",
     commonUse: ["Swing rhythms", "Triplet delays"],
   },
   {
     id: "eighth-triplet",
-    name: "Eighth Triplet",
+    name: "Eighth Triplet", // This will be translated in components
     multiplier: 1 / 3,
-    description: "1/3 beat - Triplet subdivision",
+    description: "1/3 beat - Triplet subdivision", // This will be translated in components
     icon: "♫³",
     commonUse: ["Triplet feel", "Swing delays"],
   },
