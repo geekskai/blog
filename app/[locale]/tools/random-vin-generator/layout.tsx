@@ -28,7 +28,7 @@ export async function generateMetadata({
       type: "website",
       images: [
         {
-          url: "/static/images/random-vin-generator.png",
+          url: "/static/images/og/random-vin-generator.png",
           width: 1200,
           height: 630,
           alt: "Random VIN Generator Tool",
