@@ -21,7 +21,7 @@ export async function generateMetadata({
   return {
     title: t("seo_title"),
     description: t("seo_description"),
-    keywords: t("seo_keywords").split(", "),
+    keywords: t("seo_keywords").split(", ").slice(0, 10),
     authors: [{ name: "GeeksKai" }],
     creator: "GeeksKai",
     publisher: "GeeksKai",

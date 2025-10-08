@@ -48,7 +48,6 @@ interface ConversionHistory {
 export default function DiscordTimeConverter() {
   // Translations
   const t = useTranslations("DiscordTimeConverter")
-  const tCommon = useTranslations("HomePage")
 
   // Dynamic timestamp formats with translations
   const TIMESTAMP_FORMATS_I18N: TimestampFormat[] = useMemo(

@@ -2334,5 +2334,345 @@
       "audience_type_3": "エンジニア",
       "audience_type_4": "製造業者"
     }
+  },
+  "DiscordTimeConverter": {
+    "seo_title": "Discord タイムゾーン変換器 - 無料 Discord タイムスタンプ生成ツール",
+    "seo_description": "双方向タイムスタンプ変換、グローバルタイムゾーンサポート、バッチ処理を備えた無料のDiscordタイムゾーン変換器。Discordタイムスタンプを時間に変換し、すべてのタイムゾーンでDiscordタイムスタンプ形式を生成し、グローバルDiscordコミュニティを調整します。Discordボット開発者、サーバー管理者、国際イベント調整に最適。",
+    "seo_keywords": "discord タイムゾーン変換器, discord 時間変換器, discord タイムスタンプ変換器, discord タイムスタンプ生成器, discord 時間形式変換器, discord タイムスタンプから時間, 時間からdiscord タイムスタンプ, discord 時間計算機, discord スケジューリングツール, discord ボット タイムスタンプ, discord タイムスタンプ形式, unix タイムスタンプからdiscord, discord エポック時間変換器, discord コミュニティツール, discord サーバー管理, discord イベント調整, discord 協調ツール, discord グローバルタイムゾーン変換器, discord 国際時間変換器, discord マルチタイムゾーンツール, discord 世界時間変換器, discord タイムゾーン同期, discord クロスタイムゾーン調整, discord タイムゾーン協調, discord タイムゾーン管理, discord ボット タイムゾーン変換器, discord api タイムゾーンツール, discord webhook タイムゾーン, discord 埋め込みタイムゾーン, discord タイムスタンプタイムゾーン変換, discord 異なるタイムゾーンの時間, discord イベントタイムゾーン変換器, discord 会議タイムゾーンツール",
+
+    "breadcrumb": {
+      "home": "ホーム",
+      "tools": "ツール",
+      "discord_time_converter": "Discord タイムスタンプ変換器"
+    },
+
+    "header": {
+      "badge_text": "無料 Discord タイムゾーン変換器とタイムスタンプ生成ツール",
+      "main_title_line1": "Discord タイムゾーン",
+      "main_title_line2": "変換器と生成器",
+      "description": "無料のDiscordタイムゾーン変換器とタイムスタンプ生成ツール。UnixタイムスタンプをすべてのグローバルタイムゾーンでDiscord形式に変換し、Discordタイムスタンプを通常の時間に変換し、包括的なタイムゾーンサポートですべてのDiscordタイムスタンプ形式を生成します。複数のタイムゾーンで国際イベントを調整するDiscordボット開発者、サーバー管理者、コミュニティマネージャーに最適。",
+      "stats": {
+        "timezone_converter": "Discord タイムゾーン変換器",
+        "global_timezone": "グローバルタイムゾーンサポート",
+        "bot_integration": "Discord ボット統合",
+        "free_tool": "無料 Discord タイムゾーンツール"
+      }
+    },
+
+    "conversion_modes": {
+      "to_timestamp": {
+        "title": "時間 → Discord タイムスタンプ",
+        "description": "通常の時間をDiscord形式に変換"
+      },
+      "from_timestamp": {
+        "title": "Discord タイムスタンプ → 時間",
+        "description": "Discord形式を通常の時間に変換"
+      }
+    },
+
+    "input_sections": {
+      "conversion_mode": "変換モード",
+      "time_input": "時間入力",
+      "discord_timestamp_input": "Discord タイムスタンプ入力",
+      "timezone": "タイムゾーン"
+    },
+
+    "form_labels": {
+      "select_date_time": "日付と時間を選択",
+      "discord_timestamp": "Discord タイムスタンプ",
+      "select_timezone": "タイムゾーンを選択",
+      "input_one_per_line": "入力（1行に1つ）"
+    },
+
+    "placeholders": {
+      "select_date_time": "日付と時間を選択",
+      "discord_timestamp": "&lt;t:1640995200:f&gt;",
+      "select_timezone": "タイムゾーンを選択",
+      "batch_to_timestamp": "2024-01-01 12:00:00\n2024-02-01 15:30:00",
+      "batch_from_timestamp": "&lt;t:1640995200:f&gt;\n&lt;t:1640995500:R&gt;"
+    },
+
+    "timestamp_formats": {
+      "relative": {
+        "label": "相対時間",
+        "description": "前/後の時間",
+        "example": "2時間後"
+      },
+      "short_time": {
+        "label": "短時間",
+        "description": "時間のみ",
+        "example": "16:20"
+      },
+      "long_time": {
+        "label": "長時間",
+        "description": "秒付き時間",
+        "example": "16:20:30"
+      },
+      "short_date": {
+        "label": "短日付",
+        "description": "日付のみ",
+        "example": "2021/04/20"
+      },
+      "long_date": {
+        "label": "長日付",
+        "description": "完全な日付",
+        "example": "2021年4月20日"
+      },
+      "short_full": {
+        "label": "短日付/時間",
+        "description": "日付と時間",
+        "example": "2021年4月20日 16:20"
+      },
+      "long_full": {
+        "label": "長日付/時間",
+        "description": "完全な日付と時間",
+        "example": "2021年4月20日火曜日 16:20"
+      }
+    },
+
+    "timezone_groups": {
+      "utc": "UTC",
+      "americas": "アメリカ大陸",
+      "europe": "ヨーロッパ",
+      "asia": "アジア",
+      "oceania": "オセアニア"
+    },
+
+    "common_timezones": {
+      "utc": {
+        "label": "UTC",
+        "description": "協定世界時 (+00:00)"
+      },
+      "america_new_york": {
+        "label": "東部時間",
+        "description": "ニューヨーク、トロント (-05:00)"
+      },
+      "america_chicago": {
+        "label": "中部時間",
+        "description": "シカゴ、メキシコシティ (-06:00)"
+      },
+      "america_denver": {
+        "label": "山地時間",
+        "description": "デンバー、フェニックス (-07:00)"
+      },
+      "america_los_angeles": {
+        "label": "太平洋時間",
+        "description": "ロサンゼルス、バンクーバー (-08:00)"
+      },
+      "america_sao_paulo": {
+        "label": "ブラジル時間",
+        "description": "サンパウロ、リオデジャネイロ (-03:00)"
+      },
+      "europe_london": {
+        "label": "イギリス時間",
+        "description": "ロンドン、ダブリン (+00:00)"
+      },
+      "europe_paris": {
+        "label": "中央ヨーロッパ時間",
+        "description": "パリ、ベルリン、ローマ (+01:00)"
+      },
+      "europe_moscow": {
+        "label": "モスクワ時間",
+        "description": "モスクワ、イスタンブール (+03:00)"
+      },
+      "asia_tokyo": {
+        "label": "日本標準時",
+        "description": "東京、ソウル (+09:00)"
+      },
+      "asia_shanghai": {
+        "label": "中国標準時",
+        "description": "北京、上海 (+08:00)"
+      },
+      "asia_kolkata": {
+        "label": "インド標準時",
+        "description": "ムンバイ、デリー (+05:30)"
+      },
+      "asia_dubai": {
+        "label": "湾岸標準時",
+        "description": "ドバイ、アブダビ (+04:00)"
+      },
+      "australia_sydney": {
+        "label": "オーストラリア東部時間",
+        "description": "シドニー、メルボルン (+11:00)"
+      },
+      "pacific_auckland": {
+        "label": "ニュージーランド時間",
+        "description": "オークランド、ウェリントン (+13:00)"
+      }
+    },
+
+    "buttons": {
+      "plus_1_hour": "+1時間",
+      "plus_1_day": "+1日",
+      "plus_1_week": "+1週間",
+      "9am": "午前9時",
+      "noon": "正午",
+      "6pm": "午後6時",
+      "9pm": "午後9時",
+      "mon": "月",
+      "tue": "火",
+      "wed": "水",
+      "thu": "木",
+      "fri": "金",
+      "set_time": "時間設定",
+      "next_week": "来週",
+      "show_batch": "バッチ変換器を表示",
+      "hide_batch": "バッチ変換器を非表示",
+      "show_advanced": "高度な機能を表示",
+      "hide_advanced": "高度な機能を非表示",
+      "convert_all": "すべて変換"
+    },
+
+    "results": {
+      "conversion_results": "変換結果",
+      "live_preview": "ライブプレビュー",
+      "quick_copy_combinations": "クイックコピー組み合わせ",
+      "date_time_relative": "日付、時間、相対",
+      "full_date_relative": "完全な日付と相対"
+    },
+
+    "advanced_features": {
+      "batch_converter": "バッチ変換器",
+      "conversion_history": "変換履歴",
+      "results_label": "結果："
+    },
+
+    "info_messages": {
+      "format_info": "形式：&lt;t:タイムスタンプ:形式&gt;（例：&lt;t:1640995200:f&gt;）",
+      "invalid_format_type": "無効な形式タイプ"
+    },
+
+    "usage_guide": {
+      "title": "Discord タイムゾーン変換器の使用方法 - 完全ガイド",
+      "description": "サーバー、ボット開発、すべてのタイムゾーンでのグローバルコミュニティ調整のためのDiscordタイムゾーン変換とタイムスタンプ生成をマスター",
+      "step_1_title": "変換方向を選択",
+      "step_1_description": "通常の時間をDiscordタイムスタンプ形式に変換するか、Discordタイムスタンプを分析とデバッグのために読み取り可能な時間に戻すかを選択します。",
+      "step_2_title": "時間データを入力",
+      "step_2_description": "日付と時間を入力するか、Discordタイムスタンプを貼り付けます。変換器はすべてのDiscordタイムスタンプ形式を受け入れ、Unixエポック時間変換を自動的に処理します。",
+      "step_3_title": "タイムゾーンを設定",
+      "step_3_description": "正確なDiscordタイムゾーン変換とタイムスタンプ生成のために、包括的なリストからタイムゾーンを選択します。グローバルDiscordコミュニティと複数のタイムゾーンでの国際イベント計画に不可欠。",
+      "step_4_title": "コピーと実装",
+      "step_4_description": "好みの形式で生成されたDiscordタイムスタンプをコピーし、自動タイムゾーン表示のためにDiscordメッセージ、ボットコード、またはWebhookコンテンツに貼り付けます。"
+    },
+    "content_sections": {
+      "what_are_discord_timestamps": {
+        "title": "Discordタイムスタンプとは？Discord時間形式の理解",
+        "description_1": "Discordタイムスタンプは、各ユーザーのローカルタイムゾーンで時刻と日付情報を自動的に表示する特殊なテキスト形式です。形式&lt;t:UNIX_TIMESTAMP:FORMAT&gt;を使用して、DiscordはUnixエポックタイムスタンプを人間が読み取れる時刻に変換し、各ユーザーの位置と言語環境に合わせて適応します。",
+        "description_2": "このDiscordタイムスタンプ変換器は、イベントスケジューリング、タイムゾーン間の調整、グローバルDiscordコミュニティとサーバーでの動的な時間表示を作成するための特殊なタイムスタンプを生成するのに役立ちます。",
+        "benefits_title": "Discordタイムスタンプの利点",
+        "benefit_1": "すべてのユーザーのタイムゾーン変換",
+        "benefit_2": "ユーザーの位置と言語環境に合わせた適応性",
+        "benefit_3": "グローバルDiscordコミュニティとサーバーでの動的な時間表示",
+        "benefit_4": "イベントスケジューリングとタイムゾーン間の調整",
+        "benefit_5": "グローバルDiscordコミュニティとサーバーでの動的な時間表示",
+        "benefit_6": "イベントスケジューリングとタイムゾーン間の調整",
+        "benefit_7": "グローバルDiscordコミュニティとサーバーでの動的な時間表示",
+        "benefit_8": "イベントスケジューリングとタイムゾーン間の調整"
+      },
+      "timestamp_format_types": {
+        "title": "Discordタイムスタンプ形式タイプの説明",
+        "time_formats_title": "🕐 時間形式",
+        "time_formats_description": "Discordメッセージとボット応答で特定の時刻を表示するのに最適です。",
+        "date_formats_title": "📅 日付形式",
+        "date_formats_description": "イベント告知と日付固有情報に適しています。",
+        "combined_formats_title": "📆 組み合わせ形式"
+      },
+      "timezone_converter_guide": {
+        "title": "Discordタイムゾーン変換器ガイド - グローバルタイムゾーン調整",
+        "global_communities_title": "🌍 グローバルDiscordコミュニティ",
+        "global_communities_description": "当社のDiscordタイムゾーン変換器は、全球的なDiscordコミュニティのタイムゾーン変換を自動的に処理します。ニューヨーク、ロンドン、東京、シドニーのユーザーはすべてのタイムゾーンで同じイベント時間を見ることができ、手動のDiscordタイムゾーン変換は不要です。",
+        "bot_integration_title": "🤖 Discordボットタイムゾーン統合",
+        "bot_integration_description": "Discordボットは、Discordタイムゾーン変換器を使用して、スケジュールコマンド、リマインダーシステム、イベント管理機能のために正確な形式のタイムスタンプを生成できます。これらの機能はすべてのグローバルタイムゾーンで正常に動作します。",
+        "realtime_updates_title": "⚡ リアルタイムタイムゾーン更新",
+        "realtime_updates_description": "相対タイムスタンプ（:R形式）はDiscordで自動的に更新され、タイムゾーン対応機能を備えており、'2時間後'、'明日'、'3日前'などを表示し、不時間推移に伴ってリアルタイムに更新されます。"
+      },
+      "common_use_cases": {
+        "title": "一般的なDiscordタイムゾーン変換器の使用例",
+        "gaming_events": {
+          "title": "ゲームイベントとチームダンジョン",
+          "description": "ゲームセッション、チームダンジョン、トーナメントのスケジューリング、タイムスタンプは各プレイヤーのローカルタイムゾーンで表示されます。"
+        },
+        "community_meetings": {
+          "title": "コミュニティ会議",
+          "description": "グローバルDiscordコミュニティのコミュニティ通話、従業員会議、告知のためのコミュニティ会議、時間は正確です。"
+        },
+        "live_streams": {
+          "title": "ライブストリームとイベント",
+          "description": "ライブスケジュール、現地イベント、デビューの告知、タイムスタンプは国際観客に最適です。"
+        },
+        "bot_commands": {
+          "title": "ボットコマンドと自動化",
+          "description": "リマインダーシステム、スケジュールメッセージ、自動イベント告知のためにDiscordボットと統合。"
+        },
+        "educational_content": {
+          "title": "教育内容",
+          "description": "不時間の学生のためのオンラインクラス、学習セッション、教育イベントのスケジューリング、時間は正確です。"
+        },
+        "business_professional": {
+          "title": "ビジネスとプロフェッショナル",
+          "description": "Discordを使用して、分布型チームの専門会議、期限、プロジェクトマイルストーンを調整。"
+        }
+      },
+      "bot_development": {
+        "title": "Discordタイムゾーン変換器とDiscordボット開発",
+        "bot_timestamp_integration_title": "Discordボットタイムゾーン統合",
+        "bot_timestamp_integration_description": "Discordボットは、Discordタイムゾーン変換器を使用して、スケジュールコマンド、リマインダーシステム、イベント管理機能のために正確な形式のタイムスタンプを生成できます。これらの機能はすべてのグローバルタイムゾーンで正常に動作します。",
+        "bot_features_1": "ボットコマンドタイムスタンプ生成",
+        "bot_features_2": "自動調整システム",
+        "bot_features_3": "イベントリマインダー通知",
+        "bot_features_4": "クロスタイムゾーン調整",
+        "community_management_title": "Discordコミュニティ管理ツール",
+        "community_management_description": "Discordサーバー管理者とコミュニティマネージャーにとって不可欠です。同期イベント、グローバルコミュニティ、複数のタイムゾーンでのサーバー活動の調整を支援します。変換器はDiscordの原生タイムスタンプシステムと統合します。",
+        "community_features_1": "サーバーイベント調整",
+        "community_features_2": "グローバルコミュニティスケジューリング",
+        "community_features_3": "マルチタイムゾーン告知",
+        "community_features_4": "Discordwebhook統合"
+      },
+      "tools_ecosystem": {
+        "title": "Discordツールエコシステムとタイムゾーンサポート",
+        "timestamp_generator_title": "🆕 Discordタイムスタンプ生成器",
+        "timestamp_generator_description": "新しいDiscordタイムスタンプを作成する必要がありますか？私たちのタイムスタンプ生成器を使用して、動的なカウントダウン、イベントリマインダー、時間ゾーン対応のタイムスタンプを作成します。",
+        "timestamp_generator_link": "Discordタイムスタンプ生成器を試す →",
+        "bot_integration_title": "🤖 Discordボット統合",
+        "bot_integration_description": "タイムスタンプ変換機能を備えたDiscordボット開発に最適です。グローバルDiscordコミュニティでのスケジュール、リマインダー、イベント管理に正確な時間処理を提供します。",
+        "api_tools_title": "⚡ DiscordAPIツール",
+        "api_tools_description": "Discordのタイムスタンプと時間変換システムと連携するWebhook統合、カスタムDiscordアプリケーション、および第三者ツールの完全なタイムスタンプソリューション。"
+      },
+      "features": {
+        "title": "Discordタイムゾーン変換器の主な機能",
+        "description": "Discordタイムゾーン変換、タイムスタンプ生成、グローバル調整のためのすべての必要条件",
+        "bidirectional_title": "双方向Discordタイムゾーン変換",
+        "bidirectional_description": "通常の時間をDiscordタイムスタンプ形式に変換し、Discordタイムスタンプを読み取り可能な時間に変換し、グローバルタイムゾーンでのすべてのDiscordタイムスタンプ形式を生成します。",
+        "global_timezone_title": "完全なグローバルタイムゾーンサポート",
+        "global_timezone_description": "すべてのグローバルタイムゾーンでの自動Discordタイムゾーン変換とオフセット計算。国際Discordコミュニティと複数のタイムゾーンでのグローバルイベント調整に最適です。",
+        "batch_processing_title": "バッチDiscordタイムゾーン処理",
+        "batch_processing_description": "複数のタイムスタンプを同時に変換し、タイムゾーンサポートを使用して効率的なバッチ操作、Discordボット開発、複数のタイムゾーンでの大規模イベントスケジューリングを支援します。"
+      },
+      "faq": {
+        "title": "Discordタイムゾーン変換器に関するよくある質問",
+        "q1": "Discordタイムスタンプを通常の時間に変換するにはどうすればよいですか？",
+        "a1": "Discordタイムスタンプ変換器を'Discordタイムスタンプ → 時間'モードで使用してください。任意のDiscordタイムスタンプ（例：&lt;t:1640995200:f&gt;）を貼り付けると、ツールはあなたのタイムゾーンで読み取り可能な日付と時刻に変換し、すべての形式変体を表示します。",
+        "q2": "UnixタイムスタンプとDiscordタイムスタンプの関係は何ですか？",
+        "a2": "Unixタイムスタンプ（エポック時間とも呼ばれます）は、1970年1月1日UTC以降の秒数です。DiscordタイムスタンプはUnixタイムスタンプをその核心値として使用し、変換器は自動的にあなたの選択した日付と時刻からUnixエポック時間を計算し、すべてのタイムゾーン変換を正確に処理します。",
+        "q3": "DiscordタイムスタンプをDiscordボット開発で使用できますか？",
+        "a3": "はい、DiscordタイムスタンプはDiscordボット開発で使用できます。Discordタイムスタンプ変換器は、スケジュールコマンド、リマインダーシステム、イベント管理機能のために正確な形式のタイムスタンプを生成するのに役立ちます。",
+        "q4": "Discordタイムスタンプの最適な形式は何ですか？",
+        "a4": "イベントの場合、初期告知に長い日付/時間形式（:F）、リマインダーに相対形式（:R）を使用します。この組み合わせは、イベントの前に完全な情報を提供し、イベントに近づくにつれて動的なカウントダウンを提供します。",
+        "q5": "Discordタイムスタンプの時間変換の精度はどれくらいですか？",
+        "a5": "Discordタイムスタンプは非常に正確で、夏時間の変更、タイムゾーンの違い、地域の変化を自動的に処理します。変換器はあなたの選択したタイムゾーンを尊重し、すべてのグローバルタイムゾーンで完璧に動作するタイムスタンプを生成します。",
+        "q6": "複数のタイムスタンプを一度に変換できますか？",
+        "a6": "はい、私たちのDiscordタイムゾーン変換器にはバッチ処理機能があります。複数の日付またはタイムスタンプを同時に変換し、効率的なバッチ操作、Discordボット開発、複数のタイムゾーンでの大規模イベントスケジューリングに最適です。",
+        "q7": "Discordタイムゾーン変換器はどのように機能しますか？",
+        "a7": "私たちの変換器は、通常の時間をDiscordタイムスタンプ形式に変換し、Discordタイムスタンプを読み取り可能な時間に変換し、グローバルタイムゾーンでのすべてのDiscordタイムスタンプ形式を生成します。",
+        "q8": "Discordタイムゾーン変換器はどのように機能しますか？",
+        "a8": "私たちの変換器は、通常の時間をDiscordタイムスタンプ形式に変換し、Discordタイムスタンプを読み取り可能な時間に変換し、グローバルタイムゾーンでのすべてのDiscordタイムスタンプ形式を生成します。",
+        "q9": "Discordタイムゾーン変換器はどのように機能しますか？",
+        "a9": "私たちの変換器は、通常の時間をDiscordタイムスタンプ形式に変換し、Discordタイムスタンプを読み取り可能な時間に変換し、グローバルタイムゾーンでのすべてのDiscordタイムスタンプ形式を生成します。",
+        "q10": "Discordタイムゾーン変換器はどのように機能しますか？",
+        "a10": "私たちの変換器は、通常の時間をDiscordタイムスタンプ形式に変換し、Discordタイムスタンプを読み取り可能な時間に変換し、グローバルタイムゾーンでのすべてのDiscordタイムスタンプ形式を生成します。",
+        "q11": "Discordタイムゾーン変換器はどのように機能しますか？",
+        "a11": "私たちの変換器は、通常の時間をDiscordタイムスタンプ形式に変換し、Discordタイムスタンプを読み取り可能な時間に変換し、グローバルタイムゾーンでのすべてのDiscordタイムスタンプ形式を生成します。"
+      }
+    }
   }
 }

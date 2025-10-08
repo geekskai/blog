@@ -2170,8 +2170,8 @@
   },
   "DiscordTimeConverter": {
     "seo_title": "Discord Timezone Converter - Free Discord Time & Timestamp Generator Tool",
-    "seo_description": "Free Discord timezone converter with bidirectional timestamp conversion, global timezone support, and batch processing. Convert Discord timestamps to time, generate Discord timestamp formats across all timezones, and coordinate global Discord communities. Perfect for Discord bot developers, server administrators, and international event scheduling.",
-    "seo_keywords": "discord timezone converter, discord time zone converter, discord timezone conversion, discord time converter, discord timestamp converter, discord timestamp generator, discord time format converter, discord timestamp to time, time to discord timestamp, discord time calculator, discord scheduling tool, discord bot timestamp, discord timestamp formats, unix timestamp to discord, discord epoch time converter, discord community tools, discord server management, discord event scheduling, discord coordination tool, discord global timezone converter, discord international time converter, discord multi timezone tool, discord world time converter, discord timezone synchronization, discord cross timezone scheduling, discord timezone coordination, discord timezone management, discord bot timezone converter, discord api timezone tool, discord webhook timezone, discord embed timezone, convert discord timestamp timezone, discord time in different timezone, discord event timezone converter, discord meeting timezone tool",
+    "seo_description": "Free Discord timezone converter with bidirectional timestamp conversion, global timezone support, and batch processing.",
+    "seo_keywords": "discord timezone converter, discord time zone converter, discord timezone conversion",
 
     "breadcrumb": {
       "home": "Home",

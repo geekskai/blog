@@ -2205,5 +2205,344 @@
       "audience_type_3": "工程师",
       "audience_type_4": "制造商"
     }
+  },
+  "DiscordTimeConverter": {
+    "seo_title": "Discord 时区转换器 - 免费 Discord 时间戳生成工具",
+    "seo_description": "免费的 Discord 时区转换器，支持双向时间戳转换、全球时区支持和批量处理。将 Discord 时间戳转换为时间，在所有时区生成 Discord 时间戳格式，协调全球 Discord 社区。适合 Discord 机器人开发者、服务器管理员和国际活动安排。",
+    "seo_keywords": "discord 时区转换器, discord 时间转换器, discord 时间戳转换器, discord 时间戳生成器, discord 时间格式转换器, discord 时间戳转时间, 时间转 discord 时间戳, discord 时间计算器, discord 调度工具, discord 机器人时间戳, discord 时间戳格式, unix 时间戳转 discord, discord 纪元时间转换器, discord 社区工具, discord 服务器管理, discord 活动安排, discord 协调工具, discord 全球时区转换器, discord 国际时间转换器, discord 多时区工具, discord 世界时间转换器, discord 时区同步, discord 跨时区调度, discord 时区协调, discord 时区管理, discord 机器人时区转换器, discord api 时区工具, discord webhook 时区, discord 嵌入时区, 转换 discord 时间戳时区, discord 不同时区时间, discord 活动时区转换器, discord 会议时区工具",
+
+    "breadcrumb": {
+      "home": "首页",
+      "tools": "工具",
+      "discord_time_converter": "Discord 时间戳转换器"
+    },
+
+    "header": {
+      "badge_text": "免费 Discord 时区转换器和时间戳生成工具",
+      "main_title_line1": "Discord 时区",
+      "main_title_line2": "转换器和生成器",
+      "description": "免费的 Discord 时区转换器和时间戳生成工具。将 Unix 时间戳转换为跨所有全球时区的 Discord 格式，将 Discord 时间戳转换为常规时间，并生成具有全面时区支持的所有 Discord 时间戳格式。适合 Discord 机器人开发者、服务器管理员和社区管理员在多个时区安排国际活动。",
+      "stats": {
+        "timezone_converter": "Discord 时区转换器",
+        "global_timezone": "全球时区支持",
+        "bot_integration": "Discord 机器人集成",
+        "free_tool": "免费 Discord 时区工具"
+      }
+    },
+
+    "conversion_modes": {
+      "to_timestamp": {
+        "title": "时间 → Discord 时间戳",
+        "description": "将常规时间转换为 Discord 格式"
+      },
+      "from_timestamp": {
+        "title": "Discord 时间戳 → 时间",
+        "description": "将 Discord 格式转换为常规时间"
+      }
+    },
+
+    "input_sections": {
+      "conversion_mode": "转换模式",
+      "time_input": "时间输入",
+      "discord_timestamp_input": "Discord 时间戳输入",
+      "timezone": "时区"
+    },
+
+    "form_labels": {
+      "select_date_time": "选择日期和时间",
+      "discord_timestamp": "Discord 时间戳",
+      "select_timezone": "选择您的时区",
+      "input_one_per_line": "输入（每行一个）"
+    },
+
+    "placeholders": {
+      "select_date_time": "选择日期和时间",
+      "discord_timestamp": "&lt;t:1640995200:f&gt;",
+      "select_timezone": "选择您的时区",
+      "batch_to_timestamp": "2024-01-01 12:00:00\n2024-02-01 15:30:00",
+      "batch_from_timestamp": "&lt;t:1640995200:f&gt;\n&lt;t:1640995500:R&gt;"
+    },
+
+    "timestamp_formats": {
+      "relative": {
+        "label": "相对时间",
+        "description": "多久之前/之后",
+        "example": "2小时后"
+      },
+      "short_time": {
+        "label": "短时间",
+        "description": "仅时间",
+        "example": "16:20"
+      },
+      "long_time": {
+        "label": "长时间",
+        "description": "带秒的时间",
+        "example": "16:20:30"
+      },
+      "short_date": {
+        "label": "短日期",
+        "description": "仅日期",
+        "example": "2021/04/20"
+      },
+      "long_date": {
+        "label": "长日期",
+        "description": "完整日期",
+        "example": "2021年4月20日"
+      },
+      "short_full": {
+        "label": "短日期/时间",
+        "description": "日期和时间",
+        "example": "2021年4月20日 16:20"
+      },
+      "long_full": {
+        "label": "长日期/时间",
+        "description": "完整日期和时间",
+        "example": "2021年4月20日星期二 16:20"
+      }
+    },
+
+    "timezone_groups": {
+      "utc": "UTC",
+      "americas": "美洲",
+      "europe": "欧洲",
+      "asia": "亚洲",
+      "oceania": "大洋洲"
+    },
+
+    "common_timezones": {
+      "utc": {
+        "label": "UTC",
+        "description": "协调世界时 (+00:00)"
+      },
+      "america_new_york": {
+        "label": "东部时间",
+        "description": "纽约、多伦多 (-05:00)"
+      },
+      "america_chicago": {
+        "label": "中部时间",
+        "description": "芝加哥、墨西哥城 (-06:00)"
+      },
+      "america_denver": {
+        "label": "山地时间",
+        "description": "丹佛、凤凰城 (-07:00)"
+      },
+      "america_los_angeles": {
+        "label": "太平洋时间",
+        "description": "洛杉矶、温哥华 (-08:00)"
+      },
+      "america_sao_paulo": {
+        "label": "巴西时间",
+        "description": "圣保罗、里约热内卢 (-03:00)"
+      },
+      "europe_london": {
+        "label": "英国时间",
+        "description": "伦敦、都柏林 (+00:00)"
+      },
+      "europe_paris": {
+        "label": "中欧时间",
+        "description": "巴黎、柏林、罗马 (+01:00)"
+      },
+      "europe_moscow": {
+        "label": "莫斯科时间",
+        "description": "莫斯科、伊斯坦布尔 (+03:00)"
+      },
+      "asia_tokyo": {
+        "label": "日本标准时间",
+        "description": "东京、首尔 (+09:00)"
+      },
+      "asia_shanghai": {
+        "label": "中国标准时间",
+        "description": "北京、上海 (+08:00)"
+      },
+      "asia_kolkata": {
+        "label": "印度标准时间",
+        "description": "孟买、德里 (+05:30)"
+      },
+      "asia_dubai": {
+        "label": "海湾标准时间",
+        "description": "迪拜、阿布扎比 (+04:00)"
+      },
+      "australia_sydney": {
+        "label": "澳大利亚东部时间",
+        "description": "悉尼、墨尔本 (+11:00)"
+      },
+      "pacific_auckland": {
+        "label": "新西兰时间",
+        "description": "奥克兰、惠灵顿 (+13:00)"
+      }
+    },
+
+    "buttons": {
+      "plus_1_hour": "+1小时",
+      "plus_1_day": "+1天",
+      "plus_1_week": "+1周",
+      "9am": "上午9点",
+      "noon": "中午",
+      "6pm": "下午6点",
+      "9pm": "晚上9点",
+      "mon": "周一",
+      "tue": "周二",
+      "wed": "周三",
+      "thu": "周四",
+      "fri": "周五",
+      "set_time": "设置时间",
+      "next_week": "下周",
+      "show_batch": "显示批量转换器",
+      "hide_batch": "隐藏批量转换器",
+      "show_advanced": "显示高级功能",
+      "hide_advanced": "隐藏高级功能",
+      "convert_all": "全部转换"
+    },
+
+    "results": {
+      "conversion_results": "转换结果",
+      "live_preview": "实时预览",
+      "quick_copy_combinations": "快速复制组合",
+      "date_time_relative": "日期、时间和相对时间",
+      "full_date_relative": "完整日期和相对时间"
+    },
+
+    "advanced_features": {
+      "batch_converter": "批量转换器",
+      "conversion_history": "转换历史",
+      "results_label": "结果："
+    },
+
+    "info_messages": {
+      "format_info": "格式：&lt;t:时间戳:格式&gt;（例如：&lt;t:1640995200:f&gt;）",
+      "invalid_format_type": "无效的格式类型"
+    },
+
+    "usage_guide": {
+      "title": "如何使用 Discord 时区转换器 - 完整指南",
+      "description": "掌握 Discord 时区转换和时间戳生成，用于您的服务器、机器人开发和跨所有时区的全球社区协调",
+      "step_1_title": "选择转换方向",
+      "step_1_description": "选择将常规时间转换为 Discord 时间戳格式，或将 Discord 时间戳转换回可读时间进行分析和调试。",
+      "step_2_title": "输入时间数据",
+      "step_2_description": "输入您的日期和时间或粘贴 Discord 时间戳。我们的转换器接受所有 Discord 时间戳格式，并自动处理 Unix 纪元时间转换。",
+      "step_3_title": "配置时区",
+      "step_3_description": "从我们的综合列表中选择您的时区，以进行准确的 Discord 时区转换和时间戳生成。对于全球 Discord 社区和跨多个时区的国际活动规划至关重要。",
+      "step_4_title": "复制和实施",
+      "step_4_description": "复制生成的 Discord 时间戳（您首选的格式），并将其粘贴到 Discord 消息、机器人代码或 webhook 内容中，以实现自动时区显示。"
+    },
+
+    "content_sections": {
+      "what_are_discord_timestamps": {
+        "title": "什么是 Discord 时间戳？了解 Discord 时间格式",
+        "description_1": "Discord 时间戳是特殊的文本格式，可以在每个用户的本地时区自动显示时间和日期信息。使用格式 &lt;t:UNIX_时间戳:格式&gt;，Discord 将 Unix 纪元时间戳转换为人类可读的时间，适应每个用户的位置和语言偏好。",
+        "description_2": "这个 Discord 时间戳转换器帮助您生成这些特殊的时间戳，用于安排活动、跨时区协调，以及创建适用于全球 Discord 社区和服务器的动态时间显示。",
+        "benefits_title": "Discord 时间戳的好处",
+        "benefit_1": "为所有用户自动转换时区",
+        "benefit_2": "无需手动时区计算",
+        "benefit_3": "适合全球 Discord 服务器",
+        "benefit_4": "提供多种显示格式",
+        "benefit_5": "在 Discord 消息和嵌入中工作",
+        "benefit_6": "与 Discord 机器人和 webhook 兼容"
+      },
+      "timestamp_format_types": {
+        "title": "Discord 时间戳格式类型说明",
+        "time_formats_title": "🕐 时间格式",
+        "time_formats_description": "适合在 Discord 消息和机器人响应中显示特定时间。",
+        "date_formats_title": "📅 日期格式",
+        "date_formats_description": "适合活动公告和特定日期信息。",
+        "combined_formats_title": "📆 组合格式"
+      },
+      "timezone_converter_guide": {
+        "title": "Discord 时区转换器指南 - 全球时间协调",
+        "global_communities_title": "🌍 全球 Discord 社区",
+        "global_communities_description": "我们的 Discord 时区转换器自动处理全球社区的时区转换。纽约、伦敦、东京和悉尼的用户都能在其本地时区看到相同的活动时间，无需任何手动 Discord 时区转换。",
+        "bot_integration_title": "🤖 Discord 机器人时区集成",
+        "bot_integration_description": "Discord 机器人可以使用我们的 Discord 时区转换器为调度命令、提醒系统和活动管理功能生成正确格式的时间戳，这些功能可以在所有全球时区无缝工作。",
+        "realtime_updates_title": "⚡ 实时时区更新",
+        "realtime_updates_description": "相对时间戳（:R 格式）在 Discord 中自动更新，具有时区感知功能，显示'2小时后'、'明天'或'3天前'，并随着不同时区的时间推移实时刷新。"
+      },
+      "common_use_cases": {
+        "title": "常见的 Discord 时区转换器使用案例",
+        "gaming_events": {
+          "title": "游戏活动和团队副本",
+          "description": "安排游戏会话、团队副本和锦标赛，时间戳自动显示在每个玩家的本地时区。"
+        },
+        "community_meetings": {
+          "title": "社区会议",
+          "description": "为全球 Discord 社区组织社区通话、员工会议和公告，时间精确。"
+        },
+        "live_streams": {
+          "title": "直播和活动",
+          "description": "宣布直播时间表、现场活动和首映，时间戳完美适用于国际观众。"
+        },
+        "bot_commands": {
+          "title": "机器人命令和自动化",
+          "description": "与 Discord 机器人集成，用于提醒系统、定时消息和自动活动公告。"
+        },
+        "educational_content": {
+          "title": "教育内容",
+          "description": "为不同时区的学生安排在线课程、学习会话和教育活动，时间准确。"
+        },
+        "business_professional": {
+          "title": "商务和专业",
+          "description": "使用 Discord 进行沟通，协调分布式团队的专业会议、截止日期和项目里程碑。"
+        }
+      },
+      "bot_development": {
+        "title": "Discord 机器人开发和社区工具集成",
+        "bot_timestamp_integration_title": "Discord 机器人时间戳集成",
+        "bot_timestamp_integration_description": "我们的 Discord 时间转换器是 Discord 机器人开发者的完美伴侣。为机器人命令、定时消息、提醒系统和自动活动公告生成时间戳。转换器处理 Discord 机器人所需的所有 Discord 时间戳格式和 Unix 纪元转换。",
+        "bot_features_1": "机器人命令时间戳生成",
+        "bot_features_2": "自动调度系统",
+        "bot_features_3": "活动提醒通知",
+        "bot_features_4": "跨时区协调",
+        "community_management_title": "Discord 社区管理工具",
+        "community_management_description": "对 Discord 服务器管理员和社区管理员至关重要。创建同步活动，协调全球社区，管理跨多个时区的服务器活动。我们的工具与 Discord 的原生时间戳系统无缝集成。",
+        "community_features_1": "服务器活动协调",
+        "community_features_2": "全球社区调度",
+        "community_features_3": "多时区公告",
+        "community_features_4": "Discord webhook 集成"
+      },
+      "tools_ecosystem": {
+        "title": "完整的 Discord 时间工具生态系统",
+        "timestamp_generator_title": "🆕 Discord 时间戳生成器",
+        "timestamp_generator_description": "需要为活动创建新的 Discord 时间戳？使用我们的时间戳生成器从头构建动态倒计时、活动提醒和时区感知时间戳。",
+        "timestamp_generator_link": "试用 Discord 时间戳生成器 →",
+        "bot_integration_title": "🤖 Discord 机器人集成",
+        "bot_integration_description": "适合具有时间戳转换功能的 Discord 机器人开发。跨全球 Discord 社区处理调度、提醒和活动管理，具有精确的时间处理。",
+        "api_tools_title": "⚡ Discord API 工具",
+        "api_tools_description": "为 Discord webhook 集成、自定义 Discord 应用程序和与 Discord 时间戳和时间转换系统交互的第三方工具提供完整的时间戳解决方案。"
+      },
+      "features": {
+        "title": "专业 Discord 时区转换器功能",
+        "description": "您需要的一切，用于 Discord 时区转换、时间戳生成和全球协调",
+        "bidirectional_title": "双向 Discord 时区转换",
+        "bidirectional_description": "从常规时间转换为具有时区支持的 Discord 时间戳，并将 Discord 时间戳转换回可读时间，全面支持跨全球时区的所有 Discord 时间戳类型。",
+        "global_timezone_title": "完整的全球时区支持",
+        "global_timezone_description": "处理所有全球时区，具有自动 Discord 时区转换和偏移计算。适合国际 Discord 社区和跨多个时区的全球活动协调。",
+        "batch_processing_title": "批量 Discord 时区处理",
+        "batch_processing_description": "同时转换多个时间戳，支持时区，用于高效的批量操作、Discord 机器人开发和跨多个时区的大规模活动调度。"
+      },
+      "faq": {
+        "title": "关于 Discord 时区转换器的常见问题",
+        "q1": "如何将 Discord 时间戳转换回常规时间？",
+        "a1": "在'Discord 时间戳 → 时间'模式下使用我们的 Discord 时间戳转换器工具。只需粘贴任何 Discord 时间戳（如 &lt;t:1640995200:f&gt;），我们的工具将其转换回您时区的可读日期和时间，显示所有格式变体。",
+        "q2": "什么是 Unix 时间戳，它与 Discord 时间戳有什么关系？",
+        "a2": "Unix 时间戳（也称为纪元时间）是自 1970 年 1 月 1 日 UTC 以来的秒数。Discord 时间戳使用 Unix 时间戳作为其核心值，我们的转换器从您选择的日期和时间自动计算，准确处理所有时区转换。",
+        "q3": "我可以在 Discord 机器人开发中使用 Discord 时间戳吗？",
+        "a3": "是的！Discord 时间戳非常适合机器人开发。使用我们的转换器为机器人响应、定时消息、提醒系统和活动公告生成时间戳。时间戳在嵌入字段、描述和常规消息内容中工作。",
+        "q4": "哪种 Discord 时间戳格式最适合活动？",
+        "a4": "对于活动，我们建议在初始公告中使用长日期/时间格式（:F），在提醒中使用相对格式（:R）。这种组合在前期提供完整信息，随着活动临近提供动态倒计时。",
+        "q5": "Discord 时间戳时区转换有多准确？",
+        "a5": "Discord 时间戳极其准确，自动处理夏令时变化、时区差异和地区变化。我们的转换器尊重您选择的时区，生成在所有全球地区完美工作的时间戳。",
+        "q6": "我可以一次转换多个时间戳吗？",
+        "a6": "是的！我们的 Discord 时间戳转换器包括批量处理功能。您可以同时转换多个日期或时间戳，非常适合安排多个活动或高效转换历史数据。",
+        "q7": "Discord 时间戳在所有 Discord 频道中都有效吗？",
+        "a7": "Discord 时间戳在所有文本频道、私信、主题、论坛帖子和嵌入内容中工作。它们在 Discord 的网页、桌面和移动应用程序中都受支持，确保所有用户无论使用什么平台都能看到一致的时间显示。",
+        "q8": "这个 Discord 时间戳转换器免费使用吗？",
+        "a8": "是的！我们的 Discord 时间戳转换器完全免费，无需注册。生成无限时间戳，在格式之间转换，使用批量处理，访问所有时区转换功能，没有任何限制或隐藏费用。",
+        "q9": "这个 Discord 时间转换器与 Discord 替代品相比如何？",
+        "a9": "我们的 Discord 时间戳转换器专门为 Discord 的原生时间戳系统设计，不像通用时间转换器。它支持所有 Discord 时间戳格式，与 Discord 机器人开发集成，并提供通用时区转换器不提供的 Discord 特定功能。",
+        "q10": "我可以将这个 Discord 时间戳生成器与 Discord 机器人集成吗？",
+        "a10": "当然可以！我们的 Discord 时间戳生成器非常适合 Discord 机器人开发。使用它为机器人命令、定时消息、活动提醒和自动公告生成时间戳。生成的时间戳与 Discord 的 API 和 webhook 系统无缝工作。",
+        "q11": "哪些 Discord 社区工具最适合时间戳转换？",
+        "a11": "我们的 Discord 时间戳转换器与 Discord 服务器管理工具、社区调度机器人、活动规划工具和 Discord webhook 集成完美配合。对于管理全球社区和跨多个时区协调活动的 Discord 服务器管理员来说，这是必不可少的。"
+      }
+    }
   }
 }

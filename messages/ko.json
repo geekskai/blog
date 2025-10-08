@@ -2189,5 +2189,343 @@
       "audience_type_3": "엔지니어",
       "audience_type_4": "제조업체"
     }
+  },
+  "DiscordTimeConverter": {
+    "seo_title": "Discord 시간대 변환기 - 무료 Discord 타임스탬프 생성 도구",
+    "seo_description": "양방향 타임스탬프 변환, 글로벌 시간대 지원 및 배치 처리를 제공하는 무료 Discord 시간대 변환기입니다. Discord 타임스탬프를 시간으로 변환하고, 모든 시간대에서 Discord 타임스탬프 형식을 생성하며, 글로벌 Discord 커뮤니티를 조정합니다. Discord 봇 개발자, 서버 관리자 및 국제 이벤트 계획에 완벽합니다.",
+    "seo_keywords": "discord 시간대 변환기, discord 시간 변환기, discord 타임스탬프 변환기, discord 타임스탬프 생성기, discord 시간 형식 변환기, discord 타임스탬프를 시간으로, 시간을 discord 타임스탬프로, discord 시간 계산기, discord 일정 도구, discord 봇 타임스탬프, discord 타임스탬프 형식, unix 타임스탬프를 discord로, discord 에포크 시간 변환기, discord 커뮤니티 도구, discord 서버 관리, discord 이벤트 계획, discord 조정 도구, discord 글로벌 시간대 변환기, discord 국제 시간 변환기, discord 멀티 시간대 도구, discord 세계 시간 변환기, discord 시간대 동기화, discord 교차 시간대 계획, discord 시간대 조정, discord 시간대 관리, discord 봇 시간대 변환기, discord api 시간대 도구, discord webhook 시간대, discord 임베드 시간대, discord 타임스탬프 시간대 변환, discord 다른 시간대의 시간, discord 이벤트 시간대 변환기, discord 회의 시간대 도구",
+
+    "breadcrumb": {
+      "home": "홈",
+      "tools": "도구",
+      "discord_time_converter": "Discord 타임스탬프 변환기"
+    },
+
+    "header": {
+      "badge_text": "무료 Discord 시간대 변환기 및 타임스탬프 생성 도구",
+      "main_title_line1": "Discord 시간대",
+      "main_title_line2": "변환기 및 생성기",
+      "description": "무료 Discord 시간대 변환기 및 타임스탬프 생성 도구입니다. Unix 타임스탬프를 모든 글로벌 시간대에서 Discord 형식으로 변환하고, Discord 타임스탬프를 일반 시간으로 변환하며, 포괄적인 시간대 지원으로 모든 Discord 타임스탬프 형식을 생성합니다. 여러 시간대에서 국제 이벤트를 계획하는 Discord 봇 개발자, 서버 관리자 및 커뮤니티 매니저에게 완벽합니다.",
+      "stats": {
+        "timezone_converter": "Discord 시간대 변환기",
+        "global_timezone": "글로벌 시간대 지원",
+        "bot_integration": "Discord 봇 통합",
+        "free_tool": "무료 Discord 시간대 도구"
+      }
+    },
+
+    "conversion_modes": {
+      "to_timestamp": {
+        "title": "시간 → Discord 타임스탬프",
+        "description": "일반 시간을 Discord 형식으로 변환"
+      },
+      "from_timestamp": {
+        "title": "Discord 타임스탬프 → 시간",
+        "description": "Discord 형식을 일반 시간으로 변환"
+      }
+    },
+
+    "input_sections": {
+      "conversion_mode": "변환 모드",
+      "time_input": "시간 입력",
+      "discord_timestamp_input": "Discord 타임스탬프 입력",
+      "timezone": "시간대"
+    },
+
+    "form_labels": {
+      "select_date_time": "날짜 및 시간 선택",
+      "discord_timestamp": "Discord 타임스탬프",
+      "select_timezone": "시간대를 선택하세요",
+      "input_one_per_line": "입력 (한 줄에 하나씩)"
+    },
+
+    "placeholders": {
+      "select_date_time": "날짜와 시간을 선택하세요",
+      "discord_timestamp": "&lt;t:1640995200:f&gt;",
+      "select_timezone": "시간대를 선택하세요",
+      "batch_to_timestamp": "2024-01-01 12:00:00\n2024-02-01 15:30:00",
+      "batch_from_timestamp": "&lt;t:1640995200:f&gt;\n&lt;t:1640995500:R&gt;"
+    },
+
+    "timestamp_formats": {
+      "relative": {
+        "label": "상대 시간",
+        "description": "전/후 시간",
+        "example": "2시간 후"
+      },
+      "short_time": {
+        "label": "짧은 시간",
+        "description": "시간만",
+        "example": "16:20"
+      },
+      "long_time": {
+        "label": "긴 시간",
+        "description": "초가 포함된 시간",
+        "example": "16:20:30"
+      },
+      "short_date": {
+        "label": "짧은 날짜",
+        "description": "날짜만",
+        "example": "2021/04/20"
+      },
+      "long_date": {
+        "label": "긴 날짜",
+        "description": "전체 날짜",
+        "example": "2021년 4월 20일"
+      },
+      "short_full": {
+        "label": "짧은 날짜/시간",
+        "description": "날짜와 시간",
+        "example": "2021년 4월 20일 16:20"
+      },
+      "long_full": {
+        "label": "긴 날짜/시간",
+        "description": "전체 날짜와 시간",
+        "example": "2021년 4월 20일 화요일 16:20"
+      }
+    },
+
+    "timezone_groups": {
+      "utc": "UTC",
+      "americas": "아메리카",
+      "europe": "유럽",
+      "asia": "아시아",
+      "oceania": "오세아니아"
+    },
+
+    "common_timezones": {
+      "utc": {
+        "label": "UTC",
+        "description": "협정 세계시 (+00:00)"
+      },
+      "america_new_york": {
+        "label": "동부 시간",
+        "description": "뉴욕, 토론토 (-05:00)"
+      },
+      "america_chicago": {
+        "label": "중부 시간",
+        "description": "시카고, 멕시코시티 (-06:00)"
+      },
+      "america_denver": {
+        "label": "산지 시간",
+        "description": "덴버, 피닉스 (-07:00)"
+      },
+      "america_los_angeles": {
+        "label": "태평양 시간",
+        "description": "로스앤젤레스, 밴쿠버 (-08:00)"
+      },
+      "america_sao_paulo": {
+        "label": "브라질 시간",
+        "description": "상파울루, 리우데자네이루 (-03:00)"
+      },
+      "europe_london": {
+        "label": "영국 시간",
+        "description": "런던, 더블린 (+00:00)"
+      },
+      "europe_paris": {
+        "label": "중앙 유럽 시간",
+        "description": "파리, 베를린, 로마 (+01:00)"
+      },
+      "europe_moscow": {
+        "label": "모스크바 시간",
+        "description": "모스크바, 이스탄불 (+03:00)"
+      },
+      "asia_tokyo": {
+        "label": "일본 표준시",
+        "description": "도쿄, 서울 (+09:00)"
+      },
+      "asia_shanghai": {
+        "label": "중국 표준시",
+        "description": "베이징, 상하이 (+08:00)"
+      },
+      "asia_kolkata": {
+        "label": "인도 표준시",
+        "description": "뭄바이, 델리 (+05:30)"
+      },
+      "asia_dubai": {
+        "label": "걸프 표준시",
+        "description": "두바이, 아부다비 (+04:00)"
+      },
+      "australia_sydney": {
+        "label": "호주 동부 시간",
+        "description": "시드니, 멜버른 (+11:00)"
+      },
+      "pacific_auckland": {
+        "label": "뉴질랜드 시간",
+        "description": "오클랜드, 웰링턴 (+13:00)"
+      }
+    },
+
+    "buttons": {
+      "plus_1_hour": "+1시간",
+      "plus_1_day": "+1일",
+      "plus_1_week": "+1주",
+      "9am": "오전 9시",
+      "noon": "정오",
+      "6pm": "오후 6시",
+      "9pm": "오후 9시",
+      "mon": "월",
+      "tue": "화",
+      "wed": "수",
+      "thu": "목",
+      "fri": "금",
+      "set_time": "시간 설정",
+      "next_week": "다음 주",
+      "show_batch": "배치 변환기 표시",
+      "hide_batch": "배치 변환기 숨기기",
+      "show_advanced": "고급 기능 표시",
+      "hide_advanced": "고급 기능 숨기기",
+      "convert_all": "모두 변환"
+    },
+
+    "results": {
+      "conversion_results": "변환 결과",
+      "live_preview": "실시간 미리보기",
+      "quick_copy_combinations": "빠른 복사 조합",
+      "date_time_relative": "날짜, 시간 및 상대",
+      "full_date_relative": "전체 날짜 및 상대"
+    },
+
+    "advanced_features": {
+      "batch_converter": "배치 변환기",
+      "conversion_history": "변환 기록",
+      "results_label": "결과:"
+    },
+
+    "info_messages": {
+      "format_info": "형식: &lt;t:타임스탬프:형식&gt; (예: &lt;t:1640995200:f&gt;)",
+      "invalid_format_type": "잘못된 형식 유형"
+    },
+
+    "usage_guide": {
+      "title": "Discord 시간대 변환기 사용 방법 - 완전 가이드",
+      "description": "서버, 봇 개발 및 모든 시간대에서의 글로벌 커뮤니티 조정을 위한 Discord 시간대 변환 및 타임스탬프 생성 마스터",
+      "step_1_title": "변환 방향 선택",
+      "step_1_description": "일반 시간을 Discord 타임스탬프 형식으로 변환하거나 Discord 타임스탬프를 분석 및 디버깅을 위해 읽기 가능한 시간으로 다시 변환하는 것 중에서 선택합니다.",
+      "step_2_title": "시간 데이터 입력",
+      "step_2_description": "날짜와 시간을 입력하거나 Discord 타임스탬프를 붙여넣습니다. 변환기는 모든 Discord 타임스탬프 형식을 허용하고 Unix 에포크 시간 변환을 자동으로 처리합니다.",
+      "step_3_title": "시간대 구성",
+      "step_3_description": "정확한 Discord 시간대 변환 및 타임스탬프 생성을 위해 포괄적인 목록에서 시간대를 선택합니다. 글로벌 Discord 커뮤니티와 여러 시간대에 걸친 국제 이벤트 계획에 필수적입니다.",
+      "step_4_title": "복사 및 구현",
+      "step_4_description": "선호하는 형식으로 생성된 Discord 타임스탬프를 복사하고 자동 시간대 표시를 위해 Discord 메시지, 봇 코드 또는 웹훅 콘텐츠에 붙여넣습니다."
+    },
+    "content_sections": {
+      "what_are_discord_timestamps": {
+        "title": "Discord 타임스탬프란 무엇인가? Discord 시간 형식 이해",
+        "description_1": "Discord 타임스탬프는 각 사용자의 로컬 시간대에 자동으로 표시되는 특별한 텍스트 형식입니다. 형식 &lt;t:UNIX_TIMESTAMP:FORMAT&gt;를 사용하여 Discord는 Unix 에포크 타임스탬프를 사람이 읽을 수 있는 시간으로 변환하고 각 사용자의 위치와 언어 환경에 맞게 조정합니다.",
+        "description_2": "이 Discord 타임스탬프 변환기는 이벤트 스케줄링, 시간대 간 조정, 글로벌 Discord 커뮤니티와 서버에서의 동적 시간 표시를 위한 특별한 타임스탬프를 생성하는 데 도움이 됩니다.",
+        "benefits_title": "Discord 타임스탬프 장점",
+        "benefit_1": "모든 사용자의 시간대 변환",
+        "benefit_2": "수동 시간대 계산 필요 없음",
+        "benefit_3": "글로벌 Discord 서버에 적합",
+        "benefit_4": "다양한 표시 형식 제공",
+        "benefit_5": "Discord 메시지와 임베드에서 작동",
+        "benefit_6": "Discord 봇과 웹훅과 호환"
+      },
+      "timestamp_format_types": {
+        "title": "Discord 타임스탬프 형식 유형 설명",
+        "time_formats_title": "🕐 시간 형식",
+        "time_formats_description": "Discord 메시지와 봇 응답에 특정 시간을 표시하는 데 적합합니다.",
+        "date_formats_title": "📅 날짜 형식",
+        "date_formats_description": "이벤트 알림과 특정 날짜 정보에 적합합니다.",
+        "combined_formats_title": "📆 조합 형식"
+      },
+      "timezone_converter_guide": {
+        "title": "Discord 시간대 변환기 가이드 - 글로벌 시간대 조정",
+        "global_communities_title": "🌍 글로벌 Discord 커뮤니티",
+        "global_communities_description": "이 Discord 시간대 변환기는 전 세계 Discord 커뮤니티의 시간대 변환을 자동으로 처리합니다. 뉴욕, 런던, 도쿄, 시드니의 사용자는 모든 시간대에서 동일한 이벤트 시간을 볼 수 있으며 수동 Discord 시간대 변환이 필요 없습니다.",
+        "bot_integration_title": "🤖 Discord 봇 시간대 통합",
+        "bot_integration_description": "Discord 봇은 Discord 시간대 변환기를 사용하여 스케줄 명령, 리마인더 시스템, 이벤트 관리 기능을 위한 정확한 형식의 타임스탬프를 생성할 수 있습니다. 이러한 기능은 모든 글로벌 시간대에서 정상적으로 작동합니다.",
+        "realtime_updates_title": "⚡ 실시간 시간대 업데이트",
+        "realtime_updates_description": "상대 타임스탬프 (:R 형식)는 Discord에서 자동으로 업데이트되며 시간대 응답 기능을 포함하여 '2시간 후', '내일', '3일 전'과 같은 동적 시간 표시를 제공하며 시간이 지남에 따라 실시간으로 업데이트됩니다."
+      },
+      "common_use_cases": {
+        "title": "Common Discord Timezone Converter Use Cases",
+        "gaming_events": {
+          "title": "Gaming Events & Raids",
+          "description": "Schedule gaming sessions, raids, and tournaments with timestamps that automatically show in each player's local time zone."
+        },
+        "community_meetings": {
+          "title": "Community Meetings",
+          "description": "Organize community calls, staff meetings, and announcements with precise timing for global Discord communities."
+        },
+        "live_streams": {
+          "title": "Live Streams & Events",
+          "description": "Announce streaming schedules, live events, and premieres with timestamps that work perfectly for international audiences."
+        },
+        "bot_commands": {
+          "title": "Bot Commands & Automation",
+          "description": "Integrate with Discord bots for reminder systems, scheduled messages, and automated event announcements."
+        },
+        "educational_content": {
+          "title": "Educational Content",
+          "description": "Schedule online classes, study sessions, and educational events with accurate timing for students in different time zones."
+        },
+        "business_professional": {
+          "title": "Business & Professional",
+          "description": "Coordinate professional meetings, deadlines, and project milestones across distributed teams using Discord for communication."
+        }
+      },
+      "bot_development": {
+        "title": "Discord 시간대 변환기 및 Discord 봇 개발",
+        "bot_timestamp_integration_title": "Discord 봇 타임스탬프 통합",
+        "bot_timestamp_integration_description": "Discord 봇은 Discord 시간대 변환기를 사용하여 스케줄 명령, 리마인더 시스템, 이벤트 관리 기능을 위한 정확한 형식의 타임스탬프를 생성할 수 있습니다. 이러한 기능은 모든 글로벌 시간대에서 정상적으로 작동합니다.",
+        "bot_features_1": "봇 명령 타임스탬프 생성",
+        "bot_features_2": "자동 예약 시스템",
+        "bot_features_3": "이벤트 리마인더 알림",
+        "bot_features_4": "시간대 간 조정",
+        "community_management_title": "Discord 커뮤니티 관리 도구",
+        "community_management_description": "Discord 서버 관리자와 커뮤니티 관리자에게 필수적입니다. 동기화된 이벤트, 글로벌 커뮤니티 일정, 여러 시간대에 걸친 서버 활동 관리를 지원합니다. 변환기는 Discord의 기본 타임스탬프 시스템과 완벽하게 통합됩니다.",
+        "community_features_1": "서버 이벤트 조정",
+        "community_features_2": "글로벌 커뮤니티 일정",
+        "community_features_3": "다중 시간대 알림",
+        "community_features_4": "Discord 웹훅 통합"
+      },
+      "tools_ecosystem": {
+        "title": "Discord 도구 생태계 및 시간대 지원",
+        "timestamp_generator_title": "🆕 Discord 타임스탬프 생성기",
+        "timestamp_generator_description": "새로운 Discord 타임스탬프를 생성해야 합니까? 우리의 타임스탬프 생성기를 사용하여 동적 카운트다운, 이벤트 리마인더, 시간대 인식 타임스탬프를 처음부터 생성합니다.",
+        "timestamp_generator_link": "Discord 타임스탬프 생성기 사용 →",
+        "bot_integration_title": "🤖 Discord 봇 통합",
+        "bot_integration_description": "타임스탬프 변환 기능이 있는 Discord 봇 개발에 적합합니다. 정확한 시간 처리를 통해 글로벌 Discord 커뮤니티에서 일정, 리마인더, 이벤트 관리를 할 수 있습니다.",
+        "api_tools_title": "⚡ Discord API 도구",
+        "api_tools_description": "Discord 웹훅 통합, 사용자 정의 Discord 애플리케이션, Discord 타임스탬프 및 시간 변환 시스템과 상호 작용하는 외부 도구를 위한 완전한 타임스탬프 솔루션입니다."
+      },
+      "features": {
+        "title": "Discord 시간대 변환기의 주요 기능",
+        "description": "Discord 시간대 변환기에 필요한 모든 기능",
+        "bidirectional_title": "양방향 Discord 시간대 변환",
+        "bidirectional_description": "일반 시간을 Discord 타임스탬프 형식으로 변환하고 Discord 타임스탬프를 읽을 수 있는 시간으로 변환하며 모든 글로벌 지역에서 모든 Discord 타임스탬프 형식을 생성합니다.",
+        "global_timezone_title": "글로벌 시간대 지원",
+        "global_timezone_description": "모든 글로벌 시간대에서 자동 Discord 시간대 변환과 오프셋 계산을 처리합니다. 국제 Discord 커뮤니티와 여러 시간대에 걸친 글로벌 이벤트 조정에 적합합니다.",
+        "batch_processing_title": "배치 Discord 시간대 처리",
+        "batch_processing_description": "여러 날짜 또는 타임스탬프를 동시에 변환하여 효율적인 배치 작업, Discord 봇 개발, 여러 시간대에 걸친 대규모 이벤트 스케줄링에 적합합니다."
+      },
+      "faq": {
+        "title": "Discord 시간대 변환기에 관한 자주 묻는 질문",
+        "q1": "Discord 타임스탬프를 일반 시간으로 변환하려면 어떻게 해야 합니까?",
+        "a1": "Discord 타임스탬프 변환기를 'Discord 타임스탬프 → 시간' 모드로 사용하세요. 원하는 형식으로 생성된 Discord 타임스탬프를 복사하고 자동 시간대 표시를 위해 Discord 메시지, 봇 코드 또는 웹훅 콘텐츠에 붙여넣습니다.",
+        "q2": "Unix 타임스탬프와 Discord 타임스탬프의 관계는 무엇입니까?",
+        "a2": "Unix 타임스탬프(에포크 시간이라고도 함)는 1970년 1월 1일 UTC 이후의 초 수입니다. Discord 타임스탬프는 Unix 타임스탬프를 핵심 값으로 사용하며 변환기는 자동으로 선택한 날짜와 시간에서 Unix 에포크 시간을 계산하고 모든 시간대 변환을 정확하게 처리합니다.",
+        "q3": "Discord 타임스탬프를 Discord 봇 개발에서 사용할 수 있습니까?",
+        "a3": "예! Discord 타임스탬프는 Discord 봇 개발에 완벽합니다. 변환기를 사용하여 봇 응답, 예약 메시지, 리마인더 시스템, 이벤트 알림을 위한 타임스탬프를 생성합니다. 타임스탬프는 임베드 필드, 설명 및 일반 메시지 콘텐츠에서 작동합니다.",
+        "q4": "Discord 타임스탬프에 대한 최적의 형식은 무엇입니까?",
+        "a4": "이벤트의 경우, 초기 알림에 긴 날짜/시간 형식 (:F)을 사용하고 리마인더에 상대 형식 (:R)을 사용하는 것을 권장합니다. 이 조합은 초기 정보를 제공하고 이벤트가 접근하면 동적 카운트다운을 제공합니다.",
+        "q5": "Discord 타임스탬프 시간대 변환의 정확성은 어느 정도입니까?",
+        "a5": "Discord 타임스탬프는 매우 정확하며 일광 절약 시간제 변경, 시간대 차이, 지역 변동을 자동으로 처리합니다. 변환기는 선택한 시간대를 존중하고 모든 글로벌 지역에서 완벽하게 작동하는 타임스탬프를 생성합니다.",
+        "q6": "한 번에 여러 타임스탬프를 변환할 수 있습니까?",
+        "a6": "예! 우리의 Discord 타임스탬프 변환기에는 배치 처리 기능이 있습니다. 여러 날짜 또는 타임스탬프를 동시에 변환하여 효율적인 배치 작업, Discord 봇 개발, 여러 시간대에 걸친 대규모 이벤트 스케줄링에 적합합니다.",
+        "q7": "Discord 타임스탬프 변환기는 어떻게 작동합니까?",
+        "a7": "우리의 변환기는 일반 시간을 Discord 타임스탬프 형식으로 변환하고 Discord 타임스탬프를 읽을 수 있는 시간으로 변환하며 모든 글로벌 지역에서 모든 Discord 타임스탬프 형식을 생성합니다.",
+        "q8": "Discord 타임스탬프 변환기는 어떻게 작동합니까?",
+        "a8": "우리의 변환기는 일반 시간을 Discord 타임스탬프 형식으로 변환하고 Discord 타임스탬프를 읽을 수 있는 시간으로 변환하며 모든 글로벌 지역에서 모든 Discord 타임스탬프 형식을 생성합니다.",
+        "q9": "Discord 타임스탬프 변환기는 어떻게 작동합니까?",
+        "a9": "우리의 변환기는 일반 시간을 Discord 타임스탬프 형식으로 변환하고 Discord 타임스탬프를 읽을 수 있는 시간으로 변환하며 모든 글로벌 지역에서 모든 Discord 타임스탬프 형식을 생성합니다.",
+        "q10": "Discord 타임스탬프 변환기는 어떻게 작동합니까?",
+        "a10": "우리의 변환기는 일반 시간을 Discord 타임스탬프 형식으로 변환하고 Discord 타임스탬프를 읽을 수 있는 시간으로 변환하며 모든 글로벌 지역에서 모든 Discord 타임스탬프 형식을 생성합니다.",
+        "q11": "Discord 타임스탬프 변환기는 어떻게 작동합니까?",
+        "a11": "우리의 변환기는 일반 시간을 Discord 타임스탬프 형식으로 변환하고 Discord 타임스탬프를 읽을 수 있는 시간으로 변환하며 모든 글로벌 지역에서 모든 Discord 타임스탬프 형식을 생성합니다."
+      }
+    }
   }
 }

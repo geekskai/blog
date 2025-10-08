@@ -2069,5 +2069,344 @@
       "audience_type_3": "Ingeniører",
       "audience_type_4": "Producenter"
     }
+  },
+  "DiscordTimeConverter": {
+    "seo_title": "Discord Tidszone Konverter - Gratis Discord Tidsstempel Generator Værktøj",
+    "seo_description": "Gratis Discord tidszone konverter med tovejs tidsstempel konvertering, global tidszone support og batch behandling. Konverter Discord tidsstempler til tid, generer Discord tidsstempel formater på tværs af alle tidszoner, og koordiner globale Discord fællesskaber. Perfekt til Discord bot udviklere, server administratorer og international event planlægning.",
+    "seo_keywords": "discord tidszone konverter, discord tid konverter, discord tidsstempel konverter, discord tidsstempel generator, discord tid format konverter, discord tidsstempel til tid, tid til discord tidsstempel, discord tid beregner, discord planlægning værktøj, discord bot tidsstempel, discord tidsstempel formater, unix tidsstempel til discord, discord epoke tid konverter, discord fællesskab værktøjer, discord server administration, discord event planlægning, discord koordinering værktøj, discord global tidszone konverter, discord international tid konverter, discord multi tidszone værktøj, discord verden tid konverter, discord tidszone synkronisering, discord kryds tidszone planlægning, discord tidszone koordinering, discord tidszone administration, discord bot tidszone konverter, discord api tidszone værktøj, discord webhook tidszone, discord embed tidszone, konverter discord tidsstempel tidszone, discord tid i forskellig tidszone, discord event tidszone konverter, discord møde tidszone værktøj",
+
+    "breadcrumb": {
+      "home": "Hjem",
+      "tools": "Værktøjer",
+      "discord_time_converter": "Discord Tidsstempel Konverter"
+    },
+
+    "header": {
+      "badge_text": "Gratis Discord Tidszone Konverter og Tidsstempel Generator Værktøj",
+      "main_title_line1": "Discord Tidszone",
+      "main_title_line2": "Konverter og Generator",
+      "description": "Gratis Discord tidszone konverter og tidsstempel generator værktøj. Konverter Unix tidsstempler til Discord format på tværs af alle globale tidszoner, konverter Discord tidsstempler til almindelig tid, og generer alle Discord tidsstempel formater med omfattende tidszone support. Perfekt til Discord bot udviklere, server administratorer og fællesskabsledere der planlægger internationale events på tværs af flere tidszoner.",
+      "stats": {
+        "timezone_converter": "Discord Tidszone Konverter",
+        "global_timezone": "Global Tidszone Support",
+        "bot_integration": "Discord Bot Integration",
+        "free_tool": "Gratis Discord Tidszone Værktøj"
+      }
+    },
+
+    "conversion_modes": {
+      "to_timestamp": {
+        "title": "Tid → Discord Tidsstempel",
+        "description": "Konverter almindelig tid til Discord format"
+      },
+      "from_timestamp": {
+        "title": "Discord Tidsstempel → Tid",
+        "description": "Konverter Discord format til almindelig tid"
+      }
+    },
+
+    "input_sections": {
+      "conversion_mode": "Konverteringsmodus",
+      "time_input": "Tid Input",
+      "discord_timestamp_input": "Discord Tidsstempel Input",
+      "timezone": "Tidszone"
+    },
+
+    "form_labels": {
+      "select_date_time": "Vælg Dato og Tid",
+      "discord_timestamp": "Discord Tidsstempel",
+      "select_timezone": "Vælg din tidszone",
+      "input_one_per_line": "Input (en per linje)"
+    },
+
+    "placeholders": {
+      "select_date_time": "Vælg dato og tid",
+      "discord_timestamp": "&lt;t:1640995200:f&gt;",
+      "select_timezone": "Vælg din tidszone",
+      "batch_to_timestamp": "2024-01-01 12:00:00\n2024-02-01 15:30:00",
+      "batch_from_timestamp": "&lt;t:1640995200:f&gt;\n&lt;t:1640995500:R&gt;"
+    },
+
+    "timestamp_formats": {
+      "relative": {
+        "label": "Relativ Tid",
+        "description": "Tid siden/til",
+        "example": "om 2 timer"
+      },
+      "short_time": {
+        "label": "Kort Tid",
+        "description": "Kun tid",
+        "example": "16:20"
+      },
+      "long_time": {
+        "label": "Lang Tid",
+        "description": "Tid med sekunder",
+        "example": "16:20:30"
+      },
+      "short_date": {
+        "label": "Kort Dato",
+        "description": "Kun dato",
+        "example": "20/04/2021"
+      },
+      "long_date": {
+        "label": "Lang Dato",
+        "description": "Fuld dato",
+        "example": "20. april 2021"
+      },
+      "short_full": {
+        "label": "Kort Dato/Tid",
+        "description": "Dato og tid",
+        "example": "20. april 2021 16:20"
+      },
+      "long_full": {
+        "label": "Lang Dato/Tid",
+        "description": "Fuld dato og tid",
+        "example": "tirsdag 20. april 2021 16:20"
+      }
+    },
+
+    "timezone_groups": {
+      "utc": "UTC",
+      "americas": "Amerika",
+      "europe": "Europa",
+      "asia": "Asien",
+      "oceania": "Oceanien"
+    },
+
+    "common_timezones": {
+      "utc": {
+        "label": "UTC",
+        "description": "Koordineret Universaltid (+00:00)"
+      },
+      "america_new_york": {
+        "label": "Østlig Tid",
+        "description": "New York, Toronto (-05:00)"
+      },
+      "america_chicago": {
+        "label": "Central Tid",
+        "description": "Chicago, Mexico City (-06:00)"
+      },
+      "america_denver": {
+        "label": "Bjerg Tid",
+        "description": "Denver, Phoenix (-07:00)"
+      },
+      "america_los_angeles": {
+        "label": "Stillehavs Tid",
+        "description": "Los Angeles, Vancouver (-08:00)"
+      },
+      "america_sao_paulo": {
+        "label": "Brasilien Tid",
+        "description": "São Paulo, Rio de Janeiro (-03:00)"
+      },
+      "europe_london": {
+        "label": "Britisk Tid",
+        "description": "London, Dublin (+00:00)"
+      },
+      "europe_paris": {
+        "label": "Centraleuropæisk Tid",
+        "description": "Paris, Berlin, Rom (+01:00)"
+      },
+      "europe_moscow": {
+        "label": "Moskva Tid",
+        "description": "Moskva, Istanbul (+03:00)"
+      },
+      "asia_tokyo": {
+        "label": "Japan Standard Tid",
+        "description": "Tokyo, Seoul (+09:00)"
+      },
+      "asia_shanghai": {
+        "label": "Kina Standard Tid",
+        "description": "Beijing, Shanghai (+08:00)"
+      },
+      "asia_kolkata": {
+        "label": "Indien Standard Tid",
+        "description": "Mumbai, Delhi (+05:30)"
+      },
+      "asia_dubai": {
+        "label": "Golf Standard Tid",
+        "description": "Dubai, Abu Dhabi (+04:00)"
+      },
+      "australia_sydney": {
+        "label": "Australsk Østlig Tid",
+        "description": "Sydney, Melbourne (+11:00)"
+      },
+      "pacific_auckland": {
+        "label": "New Zealand Tid",
+        "description": "Auckland, Wellington (+13:00)"
+      }
+    },
+
+    "buttons": {
+      "plus_1_hour": "+1 Time",
+      "plus_1_day": "+1 Dag",
+      "plus_1_week": "+1 Uge",
+      "9am": "09:00",
+      "noon": "12:00",
+      "6pm": "18:00",
+      "9pm": "21:00",
+      "mon": "Man",
+      "tue": "Tir",
+      "wed": "Ons",
+      "thu": "Tor",
+      "fri": "Fre",
+      "set_time": "Indstil Tid",
+      "next_week": "Næste Uge",
+      "show_batch": "Vis Batch Konverter",
+      "hide_batch": "Skjul Batch Konverter",
+      "show_advanced": "Vis Avancerede Funktioner",
+      "hide_advanced": "Skjul Avancerede Funktioner",
+      "convert_all": "Konverter Alle"
+    },
+
+    "results": {
+      "conversion_results": "Konverteringsresultater",
+      "live_preview": "Live Forhåndsvisning",
+      "quick_copy_combinations": "Hurtig Kopier Kombinationer",
+      "date_time_relative": "Dato, Tid og Relativ",
+      "full_date_relative": "Fuld Dato og Relativ"
+    },
+
+    "advanced_features": {
+      "batch_converter": "Batch Konverter",
+      "conversion_history": "Konverteringshistorik",
+      "results_label": "Resultater:"
+    },
+
+    "info_messages": {
+      "format_info": "Format: &lt;t:tidsstempel:format&gt; (f.eks., &lt;t:1640995200:f&gt;)",
+      "invalid_format_type": "Ugyldig format type"
+    },
+
+    "usage_guide": {
+      "title": "Sådan Bruger Du Discord Tidszone Konverter - Komplet Guide",
+      "description": "Mestre Discord tidszone konvertering og tidsstempel generering til din server, bot udvikling og global fællesskab koordinering på tværs af alle tidszoner",
+      "step_1_title": "Vælg Konverteringsretning",
+      "step_1_description": "Vælg mellem at konvertere almindelig tid til Discord tidsstempel format eller konvertere Discord tidsstempler tilbage til læsbar tid til analyse og fejlfinding.",
+      "step_2_title": "Indtast Tidsdata",
+      "step_2_description": "Indtast din dato og tid eller indsæt et Discord tidsstempel. Vores konverter accepterer alle Discord tidsstempel formater og håndterer Unix epoke tid konvertering automatisk.",
+      "step_3_title": "Konfigurer Tidszone",
+      "step_3_description": "Vælg din tidszone fra vores omfattende liste for nøjagtig Discord tidszone konvertering og tidsstempel generering. Essentielt for globale Discord fællesskaber og international event planlægning på tværs af flere tidszoner.",
+      "step_4_title": "Kopier og Implementer",
+      "step_4_description": "Kopier det genererede Discord tidsstempel i dit foretrukne format og indsæt det i Discord beskeder, bot kode eller webhook indhold for automatisk tidszone visning."
+    },
+
+    "content_sections": {
+      "what_are_discord_timestamps": {
+        "title": "Hvad er Discord Tidsstempler? Forstå Discord Tidsformatering",
+        "description_1": "Discord tidsstempler er specielle tekstformater, der automatisk viser tid og dato information i hver brugers lokale tidszone. Ved at bruge formatet &lt;t:UNIX_TIDSSTEMPEL:FORMAT&gt;, konverterer Discord Unix epoke tidsstempler til menneskeligt læsbar tid, der tilpasser sig hver brugers placering og sprogpræferencer.",
+        "description_2": "Denne Discord tidsstempel konverter hjælper dig med at generere disse specielle tidsstempler til planlægning af events, koordinering på tværs af tidszoner og skabelse af dynamiske tidsvisninger, der fungerer perfekt for globale Discord fællesskaber og servere.",
+        "benefits_title": "Discord Tidsstempel Fordele",
+        "benefit_1": "Automatisk tidszone konvertering for alle brugere",
+        "benefit_2": "Ingen manuelle tidszone beregninger nødvendige",
+        "benefit_3": "Perfekt til globale Discord servere",
+        "benefit_4": "Flere visningsformater tilgængelige",
+        "benefit_5": "Virker i Discord beskeder og indlejringer",
+        "benefit_6": "Kompatibel med Discord bots og webhooks"
+      },
+      "timestamp_format_types": {
+        "title": "Discord Tidsstempel Format Typer Forklaret",
+        "time_formats_title": "🕐 Tidsformater",
+        "time_formats_description": "Perfekt til at vise specifikke tider i Discord beskeder og bot svar.",
+        "date_formats_title": "📅 Datoformater",
+        "date_formats_description": "Ideelt til event meddelelser og dato-specifik information.",
+        "combined_formats_title": "📆 Kombinerede Formater"
+      },
+      "timezone_converter_guide": {
+        "title": "Discord Tidszone Konverter Guide - Global Tidskoordinering",
+        "global_communities_title": "🌍 Globale Discord Fællesskaber",
+        "global_communities_description": "Vores Discord tidszone konverter håndterer automatisk tidszone konvertering for globale fællesskaber. Brugere i New York, London, Tokyo og Sydney ser alle samme event tid i deres lokale tidszone uden nogen manuel Discord tidszone konvertering nødvendig.",
+        "bot_integration_title": "🤖 Discord Bot Tidszone Integration",
+        "bot_integration_description": "Discord bots kan bruge vores Discord tidszone konverter til at generere korrekt formaterede tidsstempler til planlægning kommandoer, påmindelse systemer og event management funktioner, der virker problemfrit på tværs af alle globale tidszoner.",
+        "realtime_updates_title": "⚡ Realtid Tidszone Opdateringer",
+        "realtime_updates_description": "Relative tidsstempler (:R format) opdateres automatisk i Discord med tidszone bevidsthed, viser \"om 2 timer\", \"i morgen\" eller \"3 dage siden\" og opdateres i realtid, når tiden går på tværs af forskellige tidszoner."
+      },
+      "common_use_cases": {
+        "title": "Almindelige Discord Tidszone Konverter Anvendelsesområder",
+        "gaming_events": {
+          "title": "Gaming Events og Raids",
+          "description": "Planlæg gaming sessioner, raids og turneringer med tidsstempler, der automatisk vises i hver spillers lokale tidszone."
+        },
+        "community_meetings": {
+          "title": "Fællesskabs Møder",
+          "description": "Organiser fællesskabs opkald, personale møder og meddelelser med præcis timing for globale Discord fællesskaber."
+        },
+        "live_streams": {
+          "title": "Live Streams og Events",
+          "description": "Meddel streaming tidsplaner, live events og premierer med tidsstempler, der virker perfekt for internationale publikum."
+        },
+        "bot_commands": {
+          "title": "Bot Kommandoer og Automatisering",
+          "description": "Integrer med Discord bots til påmindelse systemer, planlagte beskeder og automatiserede event meddelelser."
+        },
+        "educational_content": {
+          "title": "Uddannelsesindhold",
+          "description": "Planlæg online klasser, studiesessioner og uddannelsesevents med præcis timing for studerende i forskellige tidszoner."
+        },
+        "business_professional": {
+          "title": "Forretning og Professionel",
+          "description": "Koordiner professionelle møder, deadlines og projekt milepæle på tværs af distribuerede teams, der bruger Discord til kommunikation."
+        }
+      },
+      "bot_development": {
+        "title": "Discord Bot Udvikling og Fællesskab Værktøj Integration",
+        "bot_timestamp_integration_title": "Discord Bot Tidsstempel Integration",
+        "bot_timestamp_integration_description": "Vores Discord tid konverter er den perfekte ledsager for Discord bot udviklere. Generer tidsstempler til bot kommandoer, planlagte beskeder, påmindelse systemer og automatiserede event meddelelser. Konverteren håndterer alle Discord tidsstempel formater og Unix epoke konverteringer, som Discord bots kræver.",
+        "bot_features_1": "Bot kommando tidsstempel generering",
+        "bot_features_2": "Automatiserede planlægning systemer",
+        "bot_features_3": "Event påmindelse notifikationer",
+        "bot_features_4": "Kryds-tidszone koordinering",
+        "community_management_title": "Discord Fællesskab Management Værktøjer",
+        "community_management_description": "Essentielt for Discord server administratorer og fællesskabsledere. Opret synkroniserede events, koordiner globale fællesskaber og administrer server aktiviteter på tværs af flere tidszoner. Vores værktøj integreres problemfrit med Discords native tidsstempel system.",
+        "community_features_1": "Server event koordinering",
+        "community_features_2": "Global fællesskab planlægning",
+        "community_features_3": "Multi-tidszone meddelelser",
+        "community_features_4": "Discord webhook integration"
+      },
+      "tools_ecosystem": {
+        "title": "Komplet Discord Tid Værktøj Økosystem",
+        "timestamp_generator_title": "🆕 Discord Tidsstempel Generator",
+        "timestamp_generator_description": "Har brug for at oprette nye Discord tidsstempler til events? Brug vores tidsstempel generator til at bygge dynamiske nedtællinger, event påmindelser og tidszone-bevidste tidsstempler fra bunden.",
+        "timestamp_generator_link": "Prøv Discord Tidsstempel Generator →",
+        "bot_integration_title": "🤖 Discord Bot Integration",
+        "bot_integration_description": "Perfekt til Discord bot udvikling med tidsstempel konvertering muligheder. Håndter planlægning, påmindelser og event management på tværs af globale Discord fællesskaber med præcis tids håndtering.",
+        "api_tools_title": "⚡ Discord API Værktøjer",
+        "api_tools_description": "Komplet tidsstempel løsning til Discord webhook integrationer, tilpassede Discord applikationer og tredjepartsværktøjer, der interagerer med Discords tidsstempel og tids konvertering systemer."
+      },
+      "features": {
+        "title": "Professionelle Discord Tidszone Konverter Funktioner",
+        "description": "Alt du har brug for til Discord tidszone konvertering, tidsstempel generering og global koordinering",
+        "bidirectional_title": "Tovejs Discord Tidszone Konvertering",
+        "bidirectional_description": "Konverter fra almindelig tid til Discord tidsstempler med tidszone support og konverter Discord tidsstempler tilbage til læsbar tid med fuld format support for alle Discord tidsstempel typer på tværs af globale tidszoner.",
+        "global_timezone_title": "Komplet Global Tidszone Support",
+        "global_timezone_description": "Håndter alle globale tidszoner med automatisk Discord tidszone konvertering og offset beregninger. Perfekt til internationale Discord fællesskaber og verdensomspændende event koordinering på tværs af flere tidszoner.",
+        "batch_processing_title": "Batch Discord Tidszone Behandling",
+        "batch_processing_description": "Konverter flere tidsstempler samtidig med tidszone support til effektive bulk operationer, Discord bot udvikling og storskala event planlægning på tværs af flere tidszoner."
+      },
+      "faq": {
+        "title": "Ofte Stillede Spørgsmål Om Discord Tidszone Konverter",
+        "q1": "Hvordan konverterer jeg et Discord tidsstempel tilbage til almindelig tid?",
+        "a1": "Brug vores Discord tidsstempel konverter værktøj i \"Discord Tidsstempel → Tid\" tilstand. Bare indsæt hvilket som helst Discord tidsstempel (som &lt;t:1640995200:f&gt;) og vores værktøj vil konvertere det tilbage til læsbar dato og tid i din tidszone, vise alle format variationer.",
+        "q2": "Hvad er Unix tidsstempel og hvordan relaterer det til Discord tidsstempler?",
+        "a2": "Unix tidsstempel (også kaldet epoke tid) er antallet af sekunder siden 1. januar 1970 UTC. Discord tidsstempler bruger Unix tidsstempler som deres kerne værdi, som vores konverter automatisk beregner fra din valgte dato og tid, håndterer alle tidszone konverteringer nøjagtigt.",
+        "q3": "Kan jeg bruge Discord tidsstempler i Discord bot udvikling?",
+        "a3": "Ja! Discord tidsstempler er perfekte til bot udvikling. Brug vores konverter til at generere tidsstempler til bot svar, planlagte beskeder, påmindelse systemer og event meddelelser. Tidsstemplerne virker i embed felter, beskrivelser og almindeligt besked indhold.",
+        "q4": "Hvilket Discord tidsstempel format er bedst til events?",
+        "a4": "Til events anbefaler vi at bruge lang dato/tid format (:F) til første meddelelser og relativt format (:R) til påmindelser. Denne kombination giver komplet information på forhånd og dynamiske nedtællinger, når eventet nærmer sig.",
+        "q5": "Hvor nøjagtige er Discord tidsstempel tidszone konverteringer?",
+        "a5": "Discord tidsstempler er ekstremt nøjagtige, håndterer automatisk sommertid ændringer, tidszone forskelle og regionale variationer. Vores konverter respekterer din valgte tidszone og genererer tidsstempler, der virker perfekt på tværs af alle globale regioner.",
+        "q6": "Kan jeg konvertere flere tidsstempler på én gang?",
+        "a6": "Ja! Vores Discord tidsstempel konverter inkluderer en batch behandling funktion. Du kan konvertere flere datoer eller tidsstempler samtidig, gør det perfekt til planlægning af flere events eller konvertering af historiske data effektivt.",
+        "q7": "Virker Discord tidsstempler i alle Discord kanaler?",
+        "a7": "Discord tidsstempler virker i alle tekstkanaler, DMs, tråde, forum indlæg og embed indhold. De understøttes på tværs af Discords web, desktop og mobil applikationer, sikrer konsistent tids visning for alle brugere uanset deres platform.",
+        "q8": "Er denne Discord tidsstempel konverter gratis at bruge?",
+        "a8": "Ja! Vores Discord tidsstempel konverter er helt gratis uden registrering påkrævet. Generer ubegrænsede tidsstempler, konverter mellem formater, brug batch behandling og få adgang til alle tidszone konvertering funktioner uden nogen begrænsninger eller skjulte omkostninger.",
+        "q9": "Hvordan sammenligner denne Discord tid konverter med Discord alternativer?",
+        "a9": "Vores Discord tidsstempel konverter er specifikt designet til Discords native tidsstempel system, i modsætning til generiske tid konvertere. Den understøtter alle Discord tidsstempel formater, integreres med Discord bot udvikling og giver Discord-specifikke funktioner, som generiske tidszone konvertere ikke tilbyder.",
+        "q10": "Kan jeg integrere denne Discord tidsstempel generator med Discord bots?",
+        "a10": "Absolut! Vores Discord tidsstempel generator er perfekt til Discord bot udvikling. Brug den til at generere tidsstempler til bot kommandoer, planlagte beskeder, event påmindelser og automatiserede meddelelser. De genererede tidsstempler virker problemfrit med Discords API og webhook systemer.",
+        "q11": "Hvilke Discord fællesskab værktøjer virker bedst med tidsstempel konvertering?",
+        "a11": "Vores Discord tidsstempel konverter integreres fremragende med Discord server management værktøjer, fællesskab planlægning bots, event planlægning værktøjer og Discord webhook integrationer. Det er essentielt for Discord server administratorer, der administrerer globale fællesskaber og koordinerer events på tværs af flere tidszoner."
+      }
+    }
   }
 }
