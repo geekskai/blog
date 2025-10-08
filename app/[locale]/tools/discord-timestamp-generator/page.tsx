@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef, useCallback } from "react"
+import { useTranslations } from "next-intl"
 import {
   Clock,
   Calendar,
@@ -15,7 +16,6 @@ import {
   ChevronRight,
   Zap,
   Star,
-  Heart,
   Timer,
   CalendarDays,
   MessageSquare,
@@ -48,59 +48,65 @@ interface DateInput {
   minute: number
 }
 
-const TIMESTAMP_FORMATS: TimestampFormat[] = [
-  {
-    id: "relative",
-    label: "Relative",
-    description: "Time ago/from now",
-    suffix: "R",
-    example: "in 2 hours",
-  },
-  {
-    id: "short-time",
-    label: "Short Time",
-    description: "Time only",
-    suffix: "t",
-    example: "16:20",
-  },
-  {
-    id: "long-time",
-    label: "Long Time",
-    description: "Time with seconds",
-    suffix: "T",
-    example: "16:20:30",
-  },
-  {
-    id: "short-date",
-    label: "Short Date",
-    description: "Date only",
-    suffix: "d",
-    example: "20/04/2021",
-  },
-  {
-    id: "long-date",
-    label: "Long Date",
-    description: "Full date",
-    suffix: "D",
-    example: "20 April 2021",
-  },
-  {
-    id: "short-full",
-    label: "Short Date/Time",
-    description: "Date and time",
-    suffix: "f",
-    example: "20 April 2021 16:20",
-  },
-  {
-    id: "long-full",
-    label: "Long Date/Time",
-    description: "Full date and time",
-    suffix: "F",
-    example: "Tuesday, 20 April 2021 16:20",
-  },
-]
+// 将 TIMESTAMP_FORMATS 移到组件内部，以便使用翻译
 
 export default function DiscordTimestampGenerator() {
+  // Translations
+  const t = useTranslations("DiscordTimestampGenerator")
+
+  // TIMESTAMP_FORMATS with translations
+  const TIMESTAMP_FORMATS: TimestampFormat[] = [
+    {
+      id: "relative",
+      label: t("timestamp_formats.relative.label"),
+      description: t("timestamp_formats.relative.description"),
+      suffix: "R",
+      example: t("timestamp_formats.relative.example"),
+    },
+    {
+      id: "short-time",
+      label: t("timestamp_formats.short_time.label"),
+      description: t("timestamp_formats.short_time.description"),
+      suffix: "t",
+      example: t("timestamp_formats.short_time.example"),
+    },
+    {
+      id: "long-time",
+      label: t("timestamp_formats.long_time.label"),
+      description: t("timestamp_formats.long_time.description"),
+      suffix: "T",
+      example: t("timestamp_formats.long_time.example"),
+    },
+    {
+      id: "short-date",
+      label: t("timestamp_formats.short_date.label"),
+      description: t("timestamp_formats.short_date.description"),
+      suffix: "d",
+      example: t("timestamp_formats.short_date.example"),
+    },
+    {
+      id: "long-date",
+      label: t("timestamp_formats.long_date.label"),
+      description: t("timestamp_formats.long_date.description"),
+      suffix: "D",
+      example: t("timestamp_formats.long_date.example"),
+    },
+    {
+      id: "short-full",
+      label: t("timestamp_formats.short_full.label"),
+      description: t("timestamp_formats.short_full.description"),
+      suffix: "f",
+      example: t("timestamp_formats.short_full.example"),
+    },
+    {
+      id: "long-full",
+      label: t("timestamp_formats.long_full.label"),
+      description: t("timestamp_formats.long_full.description"),
+      suffix: "F",
+      example: t("timestamp_formats.long_full.example"),
+    },
+  ]
+
   // State management
   const [mode, setMode] = useState<"timeframe" | "date">("timeframe")
   const [format, setFormat] = useState<string>("relative")
@@ -125,10 +131,10 @@ export default function DiscordTimestampGenerator() {
     Array<{ name: string; timestamp: string; config: any }>
   >([])
   const [quickPresets] = useState([
-    { label: "In 1 hour", hours: 1 },
-    { label: "Tomorrow", days: 1 },
-    { label: "Next week", weeks: 1 },
-    { label: "In 1 month", days: 30 },
+    { label: t("quick_presets.in_1_hour"), hours: 1 },
+    { label: t("quick_presets.tomorrow"), days: 1 },
+    { label: t("quick_presets.next_week"), weeks: 1 },
+    { label: t("quick_presets.in_1_month"), days: 30 },
   ])
 
   // Refs for smooth interactions
@@ -189,18 +195,20 @@ export default function DiscordTimestampGenerator() {
     switch (suffix) {
       case "R":
         if (diffMs > 0) {
-          if (diffDays > 1) setPreviewText(`in ${diffDays} days`)
-          else if (diffHours > 1) setPreviewText(`in ${diffHours} hours`)
-          else if (diffMinutes > 1) setPreviewText(`in ${diffMinutes} minutes`)
-          else setPreviewText("in a few seconds")
+          if (diffDays > 1) setPreviewText(t("preview_text.in_days", { days: diffDays }))
+          else if (diffHours > 1) setPreviewText(t("preview_text.in_hours", { hours: diffHours }))
+          else if (diffMinutes > 1)
+            setPreviewText(t("preview_text.in_minutes", { minutes: diffMinutes }))
+          else setPreviewText(t("preview_text.in_few_seconds"))
         } else {
           const absDays = Math.abs(diffDays)
           const absHours = Math.abs(diffHours)
           const absMinutes = Math.abs(diffMinutes)
-          if (absDays > 1) setPreviewText(`${absDays} days ago`)
-          else if (absHours > 1) setPreviewText(`${absHours} hours ago`)
-          else if (absMinutes > 1) setPreviewText(`${absMinutes} minutes ago`)
-          else setPreviewText("a few seconds ago")
+          if (absDays > 1) setPreviewText(t("preview_text.days_ago", { days: absDays }))
+          else if (absHours > 1) setPreviewText(t("preview_text.hours_ago", { hours: absHours }))
+          else if (absMinutes > 1)
+            setPreviewText(t("preview_text.minutes_ago", { minutes: absMinutes }))
+          else setPreviewText(t("preview_text.few_seconds_ago"))
         }
         break
       case "t":
@@ -287,7 +295,7 @@ export default function DiscordTimestampGenerator() {
         setCopySuccess(false)
       }, 2000)
     } catch (err) {
-      console.error("Failed to copy:", err)
+      console.error(t("generated_result.failed_to_copy"), err)
     }
   }
 
@@ -305,7 +313,7 @@ export default function DiscordTimestampGenerator() {
   // Add to favorites
   const addToFavorites = () => {
     const config = { mode, format, timeAdjustment, dateInput }
-    const name = `${mode === "timeframe" ? "Relative" : "Date"} - ${format}`
+    const name = `${mode === "timeframe" ? t("saved_configurations.relative_mode") : t("saved_configurations.date_mode")} - ${format}`
     const newFavorite = { name, timestamp: generatedTimestamp, config }
 
     if (!favorites.find((f) => f.timestamp === generatedTimestamp)) {
@@ -337,37 +345,25 @@ export default function DiscordTimestampGenerator() {
 
   return (
     <div className="relative min-h-screen bg-slate-950">
-      {/* Subtle geometric background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-          `,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-      </div>
-
       {/* Breadcrumb Navigation */}
       <nav className="relative mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8" aria-label="Breadcrumb">
         <ol className="flex items-center space-x-2 text-sm text-slate-400">
           <li>
             <a href="/" className="flex items-center transition-colors hover:text-slate-200">
               <Home className="h-4 w-4" />
-              <span className="ml-1">Home</span>
+              <span className="ml-1">{t("breadcrumb.home")}</span>
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
           <li>
             <a href="/tools" className="transition-colors hover:text-slate-200">
-              Tools
+              {t("breadcrumb.tools")}
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
-          <li className="font-medium text-slate-100">Discord Timestamp Generator</li>
+          <li className="font-medium text-slate-100">
+            {t("breadcrumb.discord_timestamp_generator")}
+          </li>
         </ol>
       </nav>
 
@@ -376,40 +372,38 @@ export default function DiscordTimestampGenerator() {
         <div className="relative mb-16 text-center">
           <div className="mb-8 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-slate-300 shadow-xl backdrop-blur-sm">
             <Clock className="mr-2 h-4 w-4 text-blue-400" />
-            Professional Discord Timestamps
+            {t("header.professional_badge")}
             <Sparkles className="ml-2 h-4 w-4 text-purple-400" />
           </div>
 
           <h1 className="mb-8 text-5xl font-bold text-white sm:text-6xl lg:text-7xl">
-            <span className="block">Discord</span>
+            <span className="block">{t("header.main_title")}</span>
             <span className="block bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
-              Timestamp Generator
+              {t("header.subtitle")}
             </span>
           </h1>
 
           <p className="mx-auto mb-8 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
-            Create dynamic Discord timestamps that automatically update in Discord messages. Perfect
-            for events, deadlines, and countdowns that work seamlessly across all timezones with
-            professional precision. Generate Discord timestamps from scratch with real-time preview.
+            {t("header.description")}
           </p>
 
           {/* Quick Stats */}
           <div className="mb-12 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500">
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <Clock className="h-4 w-4 text-green-500" />
-              <span className="font-medium">Real-time Generation</span>
+              <span className="font-medium">{t("header.stats.real_time_generation")}</span>
             </div>
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <Zap className="h-4 w-4 text-purple-500" />
-              <span className="font-medium">Dynamic Timestamps</span>
+              <span className="font-medium">{t("header.stats.dynamic_timestamps")}</span>
             </div>
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <Star className="h-4 w-4 text-yellow-500" />
-              <span className="font-medium">Event Creation</span>
+              <span className="font-medium">{t("header.stats.event_creation")}</span>
             </div>
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <Timer className="h-4 w-4 text-blue-500" />
-              <span className="font-medium">Free Generator</span>
+              <span className="font-medium">{t("header.stats.free_generator")}</span>
             </div>
           </div>
         </div>
@@ -423,7 +417,7 @@ export default function DiscordTimestampGenerator() {
               <div className="border-b border-white/10 px-6 py-4">
                 <h2 className="flex items-center text-lg font-semibold text-white">
                   <ArrowUpDown className="mr-3 h-5 w-5 text-blue-400" />
-                  Input Mode
+                  {t("modes.input_mode")}
                 </h2>
               </div>
               <div className="p-6">
@@ -437,8 +431,8 @@ export default function DiscordTimestampGenerator() {
                     }`}
                   >
                     <Timer className="mx-auto mb-2 h-6 w-6" />
-                    <div className="text-sm font-medium">Relative Time</div>
-                    <div className="text-xs opacity-75">e.g., "in 2 hours"</div>
+                    <div className="text-sm font-medium">{t("modes.relative_time")}</div>
+                    <div className="text-xs opacity-75">{t("modes.relative_time_description")}</div>
                   </button>
                   <button
                     onClick={() => setMode("date")}
@@ -449,8 +443,8 @@ export default function DiscordTimestampGenerator() {
                     }`}
                   >
                     <CalendarDays className="mx-auto mb-2 h-6 w-6" />
-                    <div className="text-sm font-medium">Absolute Time</div>
-                    <div className="text-xs opacity-75">Specific date & time</div>
+                    <div className="text-sm font-medium">{t("modes.absolute_time")}</div>
+                    <div className="text-xs opacity-75">{t("modes.absolute_time_description")}</div>
                   </button>
                 </div>
               </div>
@@ -462,7 +456,7 @@ export default function DiscordTimestampGenerator() {
                 <div className="border-b border-white/10 px-6 py-4">
                   <h3 className="flex items-center text-lg font-semibold text-white">
                     <Zap className="mr-3 h-5 w-5 text-yellow-400" />
-                    Quick Presets
+                    {t("quick_presets.title")}
                   </h3>
                 </div>
                 <div className="p-6">
@@ -488,12 +482,12 @@ export default function DiscordTimestampGenerator() {
                   {mode === "timeframe" ? (
                     <>
                       <Clock className="mr-3 h-5 w-5 text-green-400" />
-                      Time Adjustment
+                      {t("time_adjustment.title")}
                     </>
                   ) : (
                     <>
                       <Calendar className="mr-3 h-5 w-5 text-purple-400" />
-                      Date & Time Settings
+                      {t("date_time_settings.title")}
                     </>
                   )}
                 </h3>
@@ -509,12 +503,12 @@ export default function DiscordTimestampGenerator() {
                         <div className="mb-3 text-center">
                           <span className="text-xs font-medium uppercase tracking-wide text-slate-300">
                             {unit === "weeks"
-                              ? "Weeks"
+                              ? t("time_adjustment.weeks")
                               : unit === "days"
-                                ? "Days"
+                                ? t("time_adjustment.days")
                                 : unit === "hours"
-                                  ? "Hours"
-                                  : "Minutes"}
+                                  ? t("time_adjustment.hours")
+                                  : t("time_adjustment.minutes")}
                           </span>
                         </div>
                         <div className="flex items-center justify-center gap-2">
@@ -544,7 +538,7 @@ export default function DiscordTimestampGenerator() {
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label className="mb-2 block text-xs font-medium text-slate-400">
-                          Year
+                          {t("date_time_settings.year")}
                         </label>
                         <input
                           type="number"
@@ -560,7 +554,7 @@ export default function DiscordTimestampGenerator() {
                       </div>
                       <div>
                         <label className="mb-2 block text-xs font-medium text-slate-400">
-                          Month
+                          {t("date_time_settings.month")}
                         </label>
                         <input
                           type="number"
@@ -577,7 +571,9 @@ export default function DiscordTimestampGenerator() {
                         />
                       </div>
                       <div>
-                        <label className="mb-2 block text-xs font-medium text-slate-400">Day</label>
+                        <label className="mb-2 block text-xs font-medium text-slate-400">
+                          {t("date_time_settings.day")}
+                        </label>
                         <input
                           type="number"
                           min="1"
@@ -594,7 +590,7 @@ export default function DiscordTimestampGenerator() {
                       </div>
                       <div>
                         <label className="mb-2 block text-xs font-medium text-slate-400">
-                          Hour
+                          {t("date_time_settings.hour")}
                         </label>
                         <input
                           type="number"
@@ -612,7 +608,10 @@ export default function DiscordTimestampGenerator() {
                       </div>
                     </div>
                     <div className="rounded-lg bg-blue-500/10 p-3 text-center">
-                      <span className="text-xs text-blue-300">Timezone: UTC{timezoneString}</span>
+                      <span className="text-xs text-blue-300">
+                        {t("date_time_settings.timezone")}
+                        {timezoneString}
+                      </span>
                     </div>
                   </div>
                 )}
@@ -624,7 +623,7 @@ export default function DiscordTimestampGenerator() {
               <div className="border-b border-white/10 px-6 py-4">
                 <h3 className="flex items-center text-lg font-semibold text-white">
                   <MessageSquare className="mr-3 h-5 w-5 text-pink-400" />
-                  Display Format
+                  {t("display_format.title")}
                 </h3>
               </div>
               <div className="p-6">
@@ -647,7 +646,9 @@ export default function DiscordTimestampGenerator() {
                     onClick={() => setShowAdvanced(!showAdvanced)}
                     className="w-full rounded-xl border border-white/20 bg-white/5 p-3 text-center text-sm text-slate-300 transition-all hover:bg-white/10"
                   >
-                    {showAdvanced ? "Show Common Formats" : "Show More Formats"}
+                    {showAdvanced
+                      ? t("format_toggle.show_common_formats")
+                      : t("format_toggle.show_more_formats")}
                   </button>
                   {showAdvanced && (
                     <div className="space-y-3">
@@ -680,11 +681,11 @@ export default function DiscordTimestampGenerator() {
                 <div className="flex items-center justify-between">
                   <h2 className="flex items-center text-lg font-semibold text-white">
                     <Monitor className="mr-3 h-5 w-5 text-blue-400" />
-                    Discord Preview
+                    {t("preview.discord_preview")}
                   </h2>
                   <div className="flex items-center space-x-2 text-sm text-slate-400">
                     <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-400"></div>
-                    <span className="font-mono">Real-time</span>
+                    <span className="font-mono">{t("preview.real_time")}</span>
                   </div>
                 </div>
               </div>
@@ -701,12 +702,12 @@ export default function DiscordTimestampGenerator() {
                     <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
                     <div className="flex-1">
                       <div className="mb-2 flex items-center gap-2">
-                        <span className="font-medium text-white">GeeksKai</span>
+                        <span className="font-medium text-white">{t("preview.geekskai_bot")}</span>
                         <span className="rounded bg-blue-600 px-1.5 py-0.5 text-xs font-bold text-white">
-                          BOT
+                          {t("preview.bot_label")}
                         </span>
                         <span className="text-xs text-slate-400">
-                          Today{" "}
+                          {t("preview.today")}{" "}
                           {new Date().toLocaleTimeString([], {
                             hour: "2-digit",
                             minute: "2-digit",
@@ -714,11 +715,11 @@ export default function DiscordTimestampGenerator() {
                         </span>
                       </div>
                       <div className="rounded-lg bg-slate-700/50 p-3">
-                        <div className="mb-2 text-white">🎉 Event Reminder</div>
+                        <div className="mb-2 text-white">{t("preview.event_reminder")}</div>
                         <div className="text-slate-300">
-                          The big event starts{" "}
+                          {t("preview.event_starts")}{" "}
                           <span className="rounded bg-blue-600/20 px-2 py-1 font-mono text-sm text-blue-300">
-                            {previewText || "in 2 hours"}
+                            {previewText || t("timestamp_formats.relative.example")}
                           </span>
                         </div>
                       </div>
@@ -733,7 +734,7 @@ export default function DiscordTimestampGenerator() {
               <div className="border-b border-white/10 px-6 py-4">
                 <h3 className="flex items-center text-lg font-semibold text-white">
                   <RotateCw className="mr-3 h-5 w-5 text-green-400" />
-                  Generated Result
+                  {t("generated_result.title")}
                 </h3>
               </div>
               <div className="p-6">
@@ -741,7 +742,7 @@ export default function DiscordTimestampGenerator() {
                   {/* Generated code */}
                   <div>
                     <label className="mb-2 block text-sm font-medium text-slate-300">
-                      Discord Timestamp Code
+                      {t("generated_result.discord_timestamp_code")}
                     </label>
                     <div className="rounded-lg border border-slate-600/50 bg-slate-800/50 p-4">
                       <div className="break-all font-mono text-lg text-green-400">
@@ -753,10 +754,10 @@ export default function DiscordTimestampGenerator() {
                   {/* Preview effect */}
                   <div>
                     <label className="mb-2 block text-sm font-medium text-slate-300">
-                      Display Effect
+                      {t("generated_result.display_effect")}
                     </label>
                     <div className="rounded-lg bg-blue-500/10 p-4 text-lg text-blue-300">
-                      {previewText || "Preview will appear here"}
+                      {previewText || t("generated_result.preview_placeholder")}
                     </div>
                   </div>
 
@@ -773,12 +774,12 @@ export default function DiscordTimestampGenerator() {
                       {copySuccess ? (
                         <div className="flex items-center justify-center space-x-2">
                           <CheckCircle className="h-5 w-5" />
-                          <span>Copied!</span>
+                          <span>{t("generated_result.copied")}</span>
                         </div>
                       ) : (
                         <div className="flex items-center justify-center space-x-2">
                           <Copy className="h-5 w-5" />
-                          <span>Copy Code</span>
+                          <span>{t("generated_result.copy_code")}</span>
                         </div>
                       )}
                     </button>
@@ -805,7 +806,7 @@ export default function DiscordTimestampGenerator() {
                 <div className="border-b border-white/10 px-6 py-4">
                   <h3 className="flex items-center text-lg font-semibold text-white">
                     <Star className="mr-3 h-5 w-5 text-yellow-400" />
-                    Saved Configurations ({favorites.length})
+                    {t("saved_configurations.title")} ({favorites.length})
                   </h3>
                 </div>
                 <div className="p-6">
@@ -824,7 +825,9 @@ export default function DiscordTimestampGenerator() {
                       >
                         <div className="mb-2 flex items-center justify-between">
                           <span className="font-medium text-white">{favorite.name}</span>
-                          <span className="text-xs text-slate-400">Click to apply</span>
+                          <span className="text-xs text-slate-400">
+                            {t("saved_configurations.click_to_apply")}
+                          </span>
                         </div>
                         <div className="font-mono text-xs text-slate-300">{favorite.timestamp}</div>
                       </button>
@@ -840,10 +843,8 @@ export default function DiscordTimestampGenerator() {
       {/* Modern Features Section */}
       <div className="mt-32">
         <div className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">Professional-Grade Features</h2>
-          <p className="mx-auto max-w-2xl text-xl text-slate-400">
-            Everything you need to create perfect Discord timestamps with precision and style
-          </p>
+          <h2 className="mb-4 text-3xl font-bold text-white">{t("features.title")}</h2>
+          <p className="mx-auto max-w-2xl text-xl text-slate-400">{t("features.description")}</p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-3">
@@ -851,10 +852,11 @@ export default function DiscordTimestampGenerator() {
             <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10">
               <Clock className="h-12 w-12 text-blue-400" />
             </div>
-            <h3 className="mb-6 text-xl font-semibold text-white">Real-time Updates</h3>
+            <h3 className="mb-6 text-xl font-semibold text-white">
+              {t("features.real_time_updates.title")}
+            </h3>
             <p className="text-lg leading-relaxed text-slate-400">
-              Live preview with automatic timezone conversion and instant format switching for
-              precise timestamp generation.
+              {t("features.real_time_updates.description")}
             </p>
           </div>
 
@@ -862,10 +864,11 @@ export default function DiscordTimestampGenerator() {
             <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10">
               <Zap className="h-12 w-12 text-purple-400" />
             </div>
-            <h3 className="mb-6 text-xl font-semibold text-white">Multiple Formats</h3>
+            <h3 className="mb-6 text-xl font-semibold text-white">
+              {t("features.multiple_formats.title")}
+            </h3>
             <p className="text-lg leading-relaxed text-slate-400">
-              Seven different timestamp formats including relative time, date formats, and combined
-              date-time displays.
+              {t("features.multiple_formats.description")}
             </p>
           </div>
 
@@ -873,10 +876,11 @@ export default function DiscordTimestampGenerator() {
             <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10">
               <Star className="h-12 w-12 text-yellow-400" />
             </div>
-            <h3 className="mb-6 text-xl font-semibold text-white">Save & Manage</h3>
+            <h3 className="mb-6 text-xl font-semibold text-white">
+              {t("features.save_manage.title")}
+            </h3>
             <p className="text-lg leading-relaxed text-slate-400">
-              Save favorite configurations and easily manage your timestamp settings for quick
-              access and reuse across different projects.
+              {t("features.save_manage.description")}
             </p>
           </div>
         </div>
@@ -884,11 +888,9 @@ export default function DiscordTimestampGenerator() {
         {/* Usage Instructions */}
         <div className="mt-32 rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-white">
-              How to Create Perfect Discord Timestamps
-            </h2>
+            <h2 className="mb-4 text-3xl font-bold text-white">{t("usage_guide.title")}</h2>
             <p className="mx-auto max-w-2xl text-xl text-slate-400">
-              Follow these simple steps to generate professional Discord timestamps from scratch
+              {t("usage_guide.description")}
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -896,41 +898,37 @@ export default function DiscordTimestampGenerator() {
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-blue-500 text-2xl font-bold text-white">
                 1
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Choose Creation Mode</h3>
-              <p className="text-slate-400">
-                Select between relative time adjustments or absolute date input for timestamp
-                creation.
-              </p>
+              <h3 className="mb-3 text-lg font-semibold text-white">
+                {t("usage_guide.step_1.title")}
+              </h3>
+              <p className="text-slate-400">{t("usage_guide.step_1.description")}</p>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-purple-500 text-2xl font-bold text-white">
                 2
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Configure Time Settings</h3>
-              <p className="text-slate-400">
-                Set your desired time values or dates. Watch the live preview update in real-time as
-                you generate timestamps.
-              </p>
+              <h3 className="mb-3 text-lg font-semibold text-white">
+                {t("usage_guide.step_2.title")}
+              </h3>
+              <p className="text-slate-400">{t("usage_guide.step_2.description")}</p>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-pink-600 to-pink-500 text-2xl font-bold text-white">
                 3
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Select Display Format</h3>
-              <p className="text-slate-400">
-                Choose from seven dynamic Discord timestamp formats to match your event or message
-                context.
-              </p>
+              <h3 className="mb-3 text-lg font-semibold text-white">
+                {t("usage_guide.step_3.title")}
+              </h3>
+              <p className="text-slate-400">{t("usage_guide.step_3.description")}</p>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-green-600 to-green-500 text-2xl font-bold text-white">
                 4
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Generate & Copy</h3>
-              <p className="text-slate-400">
-                Copy the generated Discord timestamp code and paste it into messages for automatic
-                timezone conversion.
-              </p>
+              <h3 className="mb-3 text-lg font-semibold text-white">
+                {t("usage_guide.step_4.title")}
+              </h3>
+              <p className="text-slate-400">{t("usage_guide.step_4.description")}</p>
             </div>
           </div>
         </div>
@@ -940,35 +938,28 @@ export default function DiscordTimestampGenerator() {
           {/* What is Discord Timestamp Generation Section */}
           <section className="rounded-xl bg-gradient-to-r from-blue-800 to-indigo-700 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              What is Discord Timestamp Generation? Creating Dynamic Time Displays
+              {t("content_sections.what_is_generation.title")}
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div>
-                <p className="mb-4 text-slate-200">
-                  Discord timestamp generation is the process of creating dynamic time displays that
-                  automatically update based on each user's local timezone. Unlike static time
-                  messages, generated Discord timestamps use the format
-                  &lt;t:UNIX_TIMESTAMP:FORMAT&gt; to create countdowns, event reminders, and
-                  relative time displays that work perfectly for global Discord communities.
-                </p>
+                {/* <p className="mb-4 text-slate-200">
+                  {t("content_sections.what_is_generation.description_0")}
+                </p> */}
                 <p className="text-slate-200">
-                  Our Discord timestamp generator helps you create these dynamic timestamps from
-                  scratch, perfect for scheduling events, creating countdowns, and building
-                  automated reminder systems that coordinate seamlessly across international Discord
-                  servers and communities.
+                  {t("content_sections.what_is_generation.description_2")}
                 </p>
               </div>
               <div className="rounded-lg bg-blue-900/30 p-6">
                 <h3 className="mb-3 text-lg font-semibold text-white">
-                  Discord Timestamp Generation Benefits
+                  {t("content_sections.what_is_generation.benefits_title")}
                 </h3>
                 <ul className="space-y-2 text-slate-200">
-                  <li>• Create dynamic event countdowns</li>
-                  <li>• Generate timezone-aware reminders</li>
-                  <li>• Build automated scheduling systems</li>
-                  <li>• Perfect for global Discord communities</li>
-                  <li>• Real-time preview during creation</li>
-                  <li>• Multiple format options available</li>
+                  <li>• {t("content_sections.what_is_generation.benefit_1")}</li>
+                  <li>• {t("content_sections.what_is_generation.benefit_2")}</li>
+                  <li>• {t("content_sections.what_is_generation.benefit_3")}</li>
+                  <li>• {t("content_sections.what_is_generation.benefit_4")}</li>
+                  <li>• {t("content_sections.what_is_generation.benefit_5")}</li>
+                  <li>• {t("content_sections.what_is_generation.benefit_6")}</li>
                 </ul>
               </div>
             </div>
@@ -977,38 +968,41 @@ export default function DiscordTimestampGenerator() {
           {/* Discord Timestamp Creation Best Practices */}
           <section className="rounded-xl bg-gradient-to-r from-purple-800 to-pink-700 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              Discord Timestamp Creation Best Practices
+              {t("content_sections.best_practices.title")}
             </h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               <div className="rounded-lg bg-purple-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">🎯 Event Scheduling</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  {t("content_sections.best_practices.event_scheduling.title")}
+                </h3>
                 <div className="space-y-2 text-slate-200">
                   <p>
-                    For events, use{" "}
-                    <code className="rounded bg-black/30 px-2 py-1 text-sm">:F</code> format for
-                    announcements
+                    {t("content_sections.best_practices.event_scheduling.format_f_description")}
                   </p>
                   <p>
-                    Use <code className="rounded bg-black/30 px-2 py-1 text-sm">:R</code> format for
-                    countdowns and reminders
+                    {t("content_sections.best_practices.event_scheduling.format_r_description")}
                   </p>
-                  <p>Perfect for gaming sessions, community meetings, and live streams.</p>
+                  <p>{t("content_sections.best_practices.event_scheduling.use_cases")}</p>
                 </div>
               </div>
               <div className="rounded-lg bg-purple-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">⏰ Countdown Creation</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  {t("content_sections.best_practices.countdown_creation.title")}
+                </h3>
                 <div className="space-y-2 text-slate-200">
-                  <p>Relative timestamps automatically update in real-time</p>
-                  <p>Shows "in 2 hours", "tomorrow", "next week" dynamically</p>
-                  <p>Ideal for deadline reminders and event anticipation.</p>
+                  <p>{t("content_sections.best_practices.countdown_creation.auto_update")}</p>
+                  <p>{t("content_sections.best_practices.countdown_creation.dynamic_display")}</p>
+                  <p>{t("content_sections.best_practices.countdown_creation.ideal_for")}</p>
                 </div>
               </div>
               <div className="rounded-lg bg-purple-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">🤖 Bot Integration</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  {t("content_sections.best_practices.bot_integration.title")}
+                </h3>
                 <div className="space-y-2 text-slate-200">
-                  <p>Generate timestamps for Discord bot responses</p>
-                  <p>Perfect for scheduled commands and automation</p>
-                  <p>Compatible with all Discord API integrations.</p>
+                  <p>{t("content_sections.best_practices.bot_integration.generate_for_bots")}</p>
+                  <p>{t("content_sections.best_practices.bot_integration.scheduled_commands")}</p>
+                  <p>{t("content_sections.best_practices.bot_integration.api_compatible")}</p>
                 </div>
               </div>
             </div>
@@ -1017,45 +1011,64 @@ export default function DiscordTimestampGenerator() {
           {/* Discord Timestamp Generator vs Converter */}
           <section className="rounded-xl bg-gradient-to-r from-green-800 to-emerald-700 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              Discord Timestamp Generator vs Converter: Choose the Right Tool
+              {t("content_sections.generator_vs_converter.title")}
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div className="rounded-lg bg-green-900/30 p-6">
                 <h3 className="mb-4 text-lg font-semibold text-white">
-                  🆕 Discord Timestamp Generator (This Tool)
+                  {t("content_sections.generator_vs_converter.generator_section.title")}
                 </h3>
                 <p className="mb-4 text-slate-200">
-                  Perfect for <strong>creating new</strong> Discord timestamps from scratch. Ideal
-                  when you need to generate timestamps for upcoming events, countdowns, or reminder
-                  systems.
+                  {t("content_sections.generator_vs_converter.generator_section.description")}
                 </p>
                 <ul className="space-y-2 text-slate-200">
-                  <li>• Create timestamps for future events</li>
-                  <li>• Generate dynamic countdowns</li>
-                  <li>• Build event reminder systems</li>
-                  <li>• Real-time preview as you create</li>
-                  <li>• Quick preset configurations</li>
+                  <li>
+                    • {t("content_sections.generator_vs_converter.generator_section.feature_1")}
+                  </li>
+                  <li>
+                    • {t("content_sections.generator_vs_converter.generator_section.feature_2")}
+                  </li>
+                  <li>
+                    • {t("content_sections.generator_vs_converter.generator_section.feature_3")}
+                  </li>
+                  <li>
+                    • {t("content_sections.generator_vs_converter.generator_section.feature_4")}
+                  </li>
+                  <li>
+                    • {t("content_sections.generator_vs_converter.generator_section.feature_5")}
+                  </li>
                 </ul>
               </div>
               <div className="rounded-lg bg-green-900/30 p-6">
-                <h3 className="mb-4 text-lg font-semibold text-white">🔄 Discord Time Converter</h3>
+                <h3 className="mb-4 text-lg font-semibold text-white">
+                  {t("content_sections.generator_vs_converter.converter_section.title")}
+                </h3>
                 <p className="mb-4 text-slate-200">
-                  Perfect for <strong>converting existing</strong> Discord timestamps and analyzing
-                  time data. Ideal when you need to understand or modify existing timestamps.
+                  {t("content_sections.generator_vs_converter.converter_section.description")}
                 </p>
                 <ul className="space-y-2 text-slate-200">
-                  <li>• Convert Discord timestamps to readable time</li>
-                  <li>• Analyze existing timestamp formats</li>
-                  <li>• Debug timestamp issues</li>
-                  <li>• Batch conversion capabilities</li>
-                  <li>• Timezone conversion analysis</li>
+                  <li>
+                    • {t("content_sections.generator_vs_converter.converter_section.feature_1")}
+                  </li>
+                  <li>
+                    • {t("content_sections.generator_vs_converter.converter_section.feature_2")}
+                  </li>
+                  <li>
+                    • {t("content_sections.generator_vs_converter.converter_section.feature_3")}
+                  </li>
+                  <li>
+                    • {t("content_sections.generator_vs_converter.converter_section.feature_4")}
+                  </li>
+                  <li>
+                    • {t("content_sections.generator_vs_converter.converter_section.feature_5")}
+                  </li>
                 </ul>
                 <div className="mt-4">
                   <a
                     href="/tools/discord-time-converter"
                     className="inline-flex items-center text-green-300 transition-colors hover:text-green-200"
                   >
-                    Try our Discord Time Converter →
+                    {t("content_sections.generator_vs_converter.converter_section.link_text")}
                   </a>
                 </div>
               </div>
@@ -1064,94 +1077,39 @@ export default function DiscordTimestampGenerator() {
 
           {/* FAQ Section */}
           <section className="rounded-xl bg-slate-800 p-8">
-            <h2 className="mb-6 text-2xl font-bold text-white">
-              Frequently Asked Questions About Discord Timestamp Generation
-            </h2>
+            <h2 className="mb-6 text-2xl font-bold text-white">{t("faq.title")}</h2>
             <div className="space-y-6">
               <div className="border-b border-slate-700 pb-4">
-                <h3 className="mb-2 text-lg font-semibold text-white">
-                  How do I create a Discord timestamp for an event?
-                </h3>
-                <p className="text-slate-400">
-                  Use our Discord timestamp generator to create event timestamps. Select "Absolute
-                  Time" mode, enter your event date and time, choose the appropriate format (:F for
-                  announcements, :R for countdowns), then copy the generated code into your Discord
-                  message.
-                </p>
+                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q1.question")}</h3>
+                <p className="text-slate-400">{t("faq.q1.answer")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
-                <h3 className="mb-2 text-lg font-semibold text-white">
-                  What's the difference between Discord timestamp generator and converter?
-                </h3>
-                <p className="text-slate-400">
-                  Our Discord timestamp generator creates new timestamps from scratch for events and
-                  countdowns. The Discord time converter analyzes and converts existing timestamps.
-                  Use the generator for creating new events, use the converter for analyzing
-                  existing timestamps.
-                </p>
+                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q2.question")}</h3>
+                <p className="text-slate-400">{t("faq.q2.answer")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
-                <h3 className="mb-2 text-lg font-semibold text-white">
-                  Which Discord timestamp format is best for events?
-                </h3>
-                <p className="text-slate-400">
-                  For event announcements, use the Long Date/Time format (:F) to show complete
-                  information. For reminders and countdowns, use the Relative format (:R) which
-                  shows "in 2 hours" or "tomorrow" and updates automatically as time passes.
-                </p>
+                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q3.question")}</h3>
+                <p className="text-slate-400">{t("faq.q3.answer")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
-                <h3 className="mb-2 text-lg font-semibold text-white">
-                  Can I use generated Discord timestamps in Discord bots?
-                </h3>
-                <p className="text-slate-400">
-                  Yes! Generated Discord timestamps work perfectly in Discord bots. Use our
-                  generator to create timestamps for bot responses, scheduled messages, event
-                  reminders, and automated announcements. The timestamps integrate seamlessly with
-                  Discord's API and webhook systems.
-                </p>
+                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q4.question")}</h3>
+                <p className="text-slate-400">{t("faq.q4.answer")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
-                <h3 className="mb-2 text-lg font-semibold text-white">
-                  Do generated Discord timestamps work across all timezones?
-                </h3>
-                <p className="text-slate-400">
-                  Absolutely! Generated Discord timestamps automatically display in each user's
-                  local timezone. When you create a timestamp, it works perfectly for global Discord
-                  communities, showing the correct time for users in New York, London, Tokyo,
-                  Sydney, and everywhere else.
-                </p>
+                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q5.question")}</h3>
+                <p className="text-slate-400">{t("faq.q5.answer")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
-                <h3 className="mb-2 text-lg font-semibold text-white">
-                  How do I create countdown timers for Discord?
-                </h3>
-                <p className="text-slate-400">
-                  Use our "Relative Time" mode to create countdown timers. Set the time adjustment
-                  (hours, days, weeks ahead), select the Relative format (:R), and copy the
-                  generated timestamp. It will show as "in 2 hours", "tomorrow", etc., and update
-                  automatically in Discord.
-                </p>
+                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q6.question")}</h3>
+                <p className="text-slate-400">{t("faq.q6.answer")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
-                <h3 className="mb-2 text-lg font-semibold text-white">
-                  Is this Discord timestamp generator free to use?
-                </h3>
-                <p className="text-slate-400">
-                  Yes! Our Discord timestamp generator is completely free with no registration
-                  required. Create unlimited timestamps, save configurations, use all formats, and
-                  access real-time preview features without any restrictions or hidden costs.
-                </p>
+                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q7.question")}</h3>
+                <p className="text-slate-400">{t("faq.q7.answer")}</p>
               </div>
               <div>
-                <h3 className="mb-2 text-lg font-semibold text-white">
-                  Can I save my Discord timestamp configurations?
-                </h3>
-                <p className="text-slate-400">
-                  Yes! Our generator includes a favorites system where you can save frequently used
-                  timestamp configurations. Perfect for recurring events, regular meeting schedules,
-                  or commonly used countdown formats that you can quickly apply and generate again.
-                </p>
+                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q8.question")}</h3>
+                <p className="text-slate-400">{t("faq.q8.answer")}</p>
               </div>
             </div>
           </section>

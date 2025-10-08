@@ -2674,5 +2674,281 @@
         "a11": "私たちの変換器は、通常の時間をDiscordタイムスタンプ形式に変換し、Discordタイムスタンプを読み取り可能な時間に変換し、グローバルタイムゾーンでのすべてのDiscordタイムスタンプ形式を生成します。"
       }
     }
+  },
+  "DiscordTimestampGenerator": {
+    "seo_title": "Discord タイムスタンプジェネレーター - 動的 Discord タイムスタンプを作成 | 無料ツール",
+    "seo_description": "無料の Discord タイムスタンプジェネレーターで動的タイムスタンプ、イベントカウントダウン、リマインダーシステムを作成。すべての Discord タイムスタンプ形式をリアルタイムプレビュー、タイムゾーンサポート、Discord ボット統合で生成。イベントスケジューリングとコミュニティ管理に最適。",
+    "seo_keywords": "discord タイムスタンプジェネレーター, discord タイムスタンプ作成, discord タイムスタンプ生成, discord イベントジェネレーター, discord カウントダウンジェネレーター, discord リマインダータイムスタンプ",
+
+    "breadcrumb": {
+      "home": "ホーム",
+      "tools": "ツール",
+      "discord_timestamp_generator": "Discord タイムスタンプジェネレーター"
+    },
+
+    "header": {
+      "professional_badge": "プロフェッショナル Discord タイムスタンプ",
+      "main_title": "Discord",
+      "subtitle": "タイムスタンプジェネレーター",
+      "description": "Discord メッセージで自動更新される動的タイムスタンプを作成。イベント、締切、カウントダウンに最適で、すべてのタイムゾーンでシームレスに動作し、プロフェッショナルな精度を提供。リアルタイムプレビューでゼロから Discord タイムスタンプを生成。",
+      "stats": {
+        "real_time_generation": "リアルタイム生成",
+        "dynamic_timestamps": "動的タイムスタンプ",
+        "event_creation": "イベント作成",
+        "free_generator": "無料ジェネレーター"
+      }
+    },
+
+    "modes": {
+      "input_mode": "入力モード",
+      "relative_time": "相対時間",
+      "relative_time_description": "例：「2時間後」",
+      "absolute_time": "絶対時間",
+      "absolute_time_description": "具体的な日付と時間"
+    },
+
+    "quick_presets": {
+      "title": "クイックプリセット",
+      "in_1_hour": "1時間後",
+      "tomorrow": "明日",
+      "next_week": "来週",
+      "in_1_month": "1ヶ月後"
+    },
+
+    "time_adjustment": {
+      "title": "時間調整",
+      "weeks": "週",
+      "days": "日",
+      "hours": "時間",
+      "minutes": "分"
+    },
+
+    "date_time_settings": {
+      "title": "日付と時間の設定",
+      "year": "年",
+      "month": "月",
+      "day": "日",
+      "hour": "時",
+      "minute": "分",
+      "timezone": "タイムゾーン：UTC"
+    },
+
+    "display_format": {
+      "title": "表示形式"
+    },
+
+    "timestamp_formats": {
+      "relative": {
+        "label": "相対時間",
+        "description": "どのくらい前/後",
+        "example": "2時間後"
+      },
+      "short_time": {
+        "label": "短い時間",
+        "description": "時間のみ",
+        "example": "16:20"
+      },
+      "long_time": {
+        "label": "長い時間",
+        "description": "秒付きの時間",
+        "example": "16:20:30"
+      },
+      "short_date": {
+        "label": "短い日付",
+        "description": "日付のみ",
+        "example": "2021/04/20"
+      },
+      "long_date": {
+        "label": "長い日付",
+        "description": "完全な日付",
+        "example": "2021年4月20日"
+      },
+      "short_full": {
+        "label": "短い日付/時間",
+        "description": "日付と時間",
+        "example": "2021年4月20日 16:20"
+      },
+      "long_full": {
+        "label": "長い日付/時間",
+        "description": "完全な日付と時間",
+        "example": "2021年4月20日火曜日 16:20"
+      }
+    },
+
+    "format_toggle": {
+      "show_common_formats": "一般的な形式を表示",
+      "show_more_formats": "その他の形式を表示"
+    },
+
+    "preview": {
+      "discord_preview": "Discord プレビュー",
+      "real_time": "リアルタイム",
+      "event_reminder": "🎉 イベントリマインダー",
+      "event_starts": "大きなイベントが始まります",
+      "geekskai_bot": "GeeksKai",
+      "bot_label": "ボット",
+      "today": "今日"
+    },
+
+    "generated_result": {
+      "title": "生成結果",
+      "discord_timestamp_code": "Discord タイムスタンプコード",
+      "display_effect": "表示効果",
+      "preview_placeholder": "プレビューがここに表示されます",
+      "copy_code": "コードをコピー",
+      "copied": "コピーしました！",
+      "failed_to_copy": "コピーに失敗しました："
+    },
+
+    "saved_configurations": {
+      "title": "保存された設定",
+      "click_to_apply": "クリックして適用",
+      "relative_mode": "相対時間",
+      "date_mode": "日付"
+    },
+
+    "features": {
+      "title": "プロフェッショナルグレードの機能",
+      "description": "精度とスタイルで完璧な Discord タイムスタンプを作成するために必要なすべて",
+      "real_time_updates": {
+        "title": "リアルタイム更新",
+        "description": "自動タイムゾーン変換とインスタント形式切り替えによるライブプレビューで、精密なタイムスタンプ生成を実現。"
+      },
+      "multiple_formats": {
+        "title": "複数の形式",
+        "description": "相対時間、日付形式、日付時間組み合わせ表示を含む7つの異なるタイムスタンプ形式。"
+      },
+      "save_manage": {
+        "title": "保存と管理",
+        "description": "お気に入りの設定を保存し、タイムスタンプ設定を簡単に管理して、異なるプロジェクト間でのクイックアクセスと再利用を可能にします。"
+      }
+    },
+
+    "usage_guide": {
+      "title": "完璧な Discord タイムスタンプの作成方法",
+      "description": "これらの簡単なステップに従って、ゼロからプロフェッショナルな Discord タイムスタンプを生成",
+      "step_1": {
+        "title": "作成モードを選択",
+        "description": "タイムスタンプ作成のために相対時間調整または絶対日付入力を選択します。"
+      },
+      "step_2": {
+        "title": "時間設定を構成",
+        "description": "希望する時間値または日付を設定します。タイムスタンプを生成する際にライブプレビューがリアルタイムで更新されるのを見てください。"
+      },
+      "step_3": {
+        "title": "表示形式を選択",
+        "description": "イベントやメッセージのコンテキストに合わせて、7つの動的 Discord タイムスタンプ形式から選択します。"
+      },
+      "step_4": {
+        "title": "生成とコピー",
+        "description": "生成された Discord タイムスタンプコードをコピーして、自動タイムゾーン変換のためにメッセージに貼り付けます。"
+      }
+    },
+
+    "content_sections": {
+      "what_is_generation": {
+        "title": "Discord タイムスタンプ生成とは？動的時間表示の作成",
+       "description_2": "私たちの Discord タイムスタンプジェネレーターは、これらの動的タイムスタンプをゼロから作成するのに役立ち、イベントのスケジューリング、カウントダウンの作成、国際的な Discord サーバーとコミュニティ間でシームレスに調整する自動リマインダーシステムの構築に最適です。",
+        "benefits_title": "Discord タイムスタンプ生成の利点",
+        "benefit_1": "動的イベントカウントダウンの作成",
+        "benefit_2": "タイムゾーン対応リマインダーの生成",
+        "benefit_3": "自動スケジューリングシステムの構築",
+        "benefit_4": "グローバル Discord コミュニティに最適",
+        "benefit_5": "作成中のリアルタイムプレビュー",
+        "benefit_6": "複数の形式オプションが利用可能"
+      },
+
+      "best_practices": {
+        "title": "Discord タイムスタンプ作成のベストプラクティス",
+        "event_scheduling": {
+          "title": "🎯 イベントスケジューリング",
+          "format_f_description": "イベントには :F 形式をアナウンスに使用",
+          "format_r_description": "カウントダウンとリマインダーには :R 形式を使用",
+          "use_cases": "ゲームセッション、コミュニティミーティング、ライブストリームに最適。"
+        },
+        "countdown_creation": {
+          "title": "⏰ カウントダウン作成",
+          "auto_update": "相対タイムスタンプは自動的にリアルタイムで更新",
+          "dynamic_display": "「2時間後」、「明日」、「来週」を動的に表示",
+          "ideal_for": "締切リマインダーとイベント期待に理想的。"
+        },
+        "bot_integration": {
+          "title": "🤖 ボット統合",
+          "generate_for_bots": "Discord ボット応答用のタイムスタンプを生成",
+          "scheduled_commands": "スケジュールされたコマンドと自動化に最適",
+          "api_compatible": "すべての Discord API 統合と互換性があります。"
+        }
+      },
+
+      "generator_vs_converter": {
+        "title": "Discord タイムスタンプジェネレーター vs コンバーター：適切なツールを選択",
+        "generator_section": {
+          "title": "🆕 Discord タイムスタンプジェネレーター（このツール）",
+          "description": "ゼロから新しい Discord タイムスタンプを作成するのに最適。今後のイベント、カウントダウン、またはリマインダーシステム用のタイムスタンプを生成する必要がある場合に理想的。",
+          "feature_1": "将来のイベント用のタイムスタンプを作成",
+          "feature_2": "動的カウントダウンを生成",
+          "feature_3": "イベントリマインダーシステムを構築",
+          "feature_4": "作成時のリアルタイムプレビュー",
+          "feature_5": "クイックプリセット設定"
+        },
+        "converter_section": {
+          "title": "🔄 Discord 時間コンバーター",
+          "description": "既存の Discord タイムスタンプの変換と時間データの分析に最適。既存のタイムスタンプを理解または変更する必要がある場合に理想的。",
+          "feature_1": "Discord タイムスタンプを読み取り可能な時間に変換",
+          "feature_2": "既存のタイムスタンプ形式を分析",
+          "feature_3": "タイムスタンプの問題をデバッグ",
+          "feature_4": "バッチ変換機能",
+          "feature_5": "タイムゾーン変換分析",
+          "link_text": "Discord 時間コンバーターを試す →"
+        }
+      }
+    },
+
+    "faq": {
+      "title": "Discord タイムスタンプ生成に関するよくある質問",
+      "q1": {
+        "question": "イベント用の Discord タイムスタンプを作成するにはどうすればよいですか？",
+        "answer": "私たちの Discord タイムスタンプジェネレーターを使用してイベントタイムスタンプを作成します。「絶対時間」モードを選択し、イベントの日付と時間を入力し、適切な形式（アナウンス用は :F、カウントダウン用は :R）を選択してから、生成されたコードを Discord メッセージにコピーします。"
+      },
+      "q2": {
+        "question": "Discord タイムスタンプジェネレーターとコンバーターの違いは何ですか？",
+        "answer": "私たちの Discord タイムスタンプジェネレーターは、イベントとカウントダウン用に新しいタイムスタンプをゼロから作成します。Discord 時間コンバーターは既存のタイムスタンプを分析・変換します。新しいイベントの作成にはジェネレーターを、既存のタイムスタンプの分析にはコンバーターを使用してください。"
+      },
+      "q3": {
+        "question": "イベントに最適な Discord タイムスタンプ形式はどれですか？",
+        "answer": "イベントアナウンスには、完全な情報を表示するために長い日付/時間形式（:F）を使用してください。リマインダーとカウントダウンには、「2時間後」や「明日」を表示し、時間の経過とともに自動的に更新される相対形式（:R）を使用してください。"
+      },
+      "q4": {
+        "question": "生成された Discord タイムスタンプを Discord ボットで使用できますか？",
+        "answer": "はい！生成された Discord タイムスタンプは Discord ボットで完璧に動作します。私たちのジェネレーターを使用して、ボット応答、スケジュールされたメッセージ、イベントリマインダー、自動アナウンス用のタイムスタンプを作成してください。タイムスタンプは Discord の API と webhook システムとシームレスに統合されます。"
+      },
+      "q5": {
+        "question": "生成された Discord タイムスタンプはすべてのタイムゾーンで動作しますか？",
+        "answer": "絶対に！生成された Discord タイムスタンプは、各ユーザーのローカルタイムゾーンで自動的に表示されます。タイムスタンプを作成すると、グローバル Discord コミュニティに完璧に機能し、ニューヨーク、ロンドン、東京、シドニー、その他世界中のユーザーに正しい時間を表示します。"
+      },
+      "q6": {
+        "question": "Discord 用のカウントダウンタイマーを作成するにはどうすればよいですか？",
+        "answer": "カウントダウンタイマーを作成するには、「相対時間」モードを使用してください。時間調整（時間、日、週先）を設定し、相対形式（:R）を選択して、生成されたタイムスタンプをコピーします。「2時間後」、「明日」などとして表示され、Discord で自動的に更新されます。"
+      },
+      "q7": {
+        "question": "この Discord タイムスタンプジェネレーターは無料で使用できますか？",
+        "answer": "はい！私たちの Discord タイムスタンプジェネレーターは登録不要で完全に無料です。無制限のタイムスタンプを作成し、設定を保存し、すべての形式を使用し、制限や隠れた費用なしでリアルタイムプレビュー機能にアクセスできます。"
+      },
+      "q8": {
+        "question": "Discord タイムスタンプ設定を保存できますか？",
+        "answer": "はい！私たちのジェネレーターには、よく使用するタイムスタンプ設定を保存できるお気に入りシステムが含まれています。定期的なイベント、定期会議スケジュール、または一般的に使用されるカウントダウン形式に最適で、素早く適用して再度生成できます。"
+      }
+    },
+
+    "preview_text": {
+      "in_days": "{days}日後",
+      "in_hours": "{hours}時間後",
+      "in_minutes": "{minutes}分後",
+      "in_few_seconds": "数秒後",
+      "days_ago": "{days}日前",
+      "hours_ago": "{hours}時間前",
+      "minutes_ago": "{minutes}分前",
+      "few_seconds_ago": "数秒前"
+    }
   }
 }

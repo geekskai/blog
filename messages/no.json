@@ -2476,5 +2476,281 @@
         "a11": "Vår Discord tidsstempel konverter integreres utmerket med Discord server administrasjon verktøy, samfunn planlegging bots, arrangement planlegging verktøy og Discord webhook integrasjoner. Det er essensielt for Discord server administratorer som administrerer globale samfunn og koordinerer arrangementer på tvers av flere tidssoner."
       }
     }
+  },
+  "DiscordTimestampGenerator": {
+    "seo_title": "Discord Tidsstempel Generator - Lag Dynamiske Discord Tidsstempler | Gratis Verktøy",
+    "seo_description": "Gratis Discord tidsstempel generator for å lage dynamiske tidsstempler, arrangement nedtellinger og påminnelsessystemer. Generer alle Discord tidsstempel formater med sanntids forhåndsvisning, tidssone støtte og Discord bot integrasjon. Perfekt for arrangement planlegging og samfunnsadministrasjon.",
+    "seo_keywords": "discord tidsstempel generator, lag discord tidsstempel, generer discord tidsstempel, discord arrangement generator, discord nedtelling generator, discord påminnelse tidsstempel",
+
+    "breadcrumb": {
+      "home": "Hjem",
+      "tools": "Verktøy",
+      "discord_timestamp_generator": "Discord Tidsstempel Generator"
+    },
+
+    "header": {
+      "professional_badge": "Profesjonelle Discord Tidsstempler",
+      "main_title": "Discord",
+      "subtitle": "Tidsstempel Generator",
+      "description": "Lag dynamiske Discord tidsstempler som automatisk oppdateres i Discord meldinger. Perfekt for arrangementer, frister og nedtellinger som fungerer sømløst på tvers av alle tidssoner med profesjonell presisjon. Generer Discord tidsstempler fra bunnen av med sanntids forhåndsvisning.",
+      "stats": {
+        "real_time_generation": "Sanntids Generering",
+        "dynamic_timestamps": "Dynamiske Tidsstempler",
+        "event_creation": "Arrangement Opprettelse",
+        "free_generator": "Gratis Generator"
+      }
+    },
+
+    "modes": {
+      "input_mode": "Inndata Modus",
+      "relative_time": "Relativ Tid",
+      "relative_time_description": "f.eks. \"om 2 timer\"",
+      "absolute_time": "Absolutt Tid",
+      "absolute_time_description": "Spesifikk dato og tid"
+    },
+
+    "quick_presets": {
+      "title": "Raske Forhåndsinnstillinger",
+      "in_1_hour": "Om 1 time",
+      "tomorrow": "I morgen",
+      "next_week": "Neste uke",
+      "in_1_month": "Om 1 måned"
+    },
+
+    "time_adjustment": {
+      "title": "Tidsjustering",
+      "weeks": "Uker",
+      "days": "Dager",
+      "hours": "Timer",
+      "minutes": "Minutter"
+    },
+
+    "date_time_settings": {
+      "title": "Dato og Tid Innstillinger",
+      "year": "År",
+      "month": "Måned",
+      "day": "Dag",
+      "hour": "Time",
+      "minute": "Minutt",
+      "timezone": "Tidssone: UTC"
+    },
+
+    "display_format": {
+      "title": "Visningsformat"
+    },
+
+    "timestamp_formats": {
+      "relative": {
+        "label": "Relativ",
+        "description": "Tid siden/til",
+        "example": "om 2 timer"
+      },
+      "short_time": {
+        "label": "Kort Tid",
+        "description": "Kun tid",
+        "example": "16:20"
+      },
+      "long_time": {
+        "label": "Lang Tid",
+        "description": "Tid med sekunder",
+        "example": "16:20:30"
+      },
+      "short_date": {
+        "label": "Kort Dato",
+        "description": "Kun dato",
+        "example": "20/04/2021"
+      },
+      "long_date": {
+        "label": "Lang Dato",
+        "description": "Full dato",
+        "example": "20. april 2021"
+      },
+      "short_full": {
+        "label": "Kort Dato/Tid",
+        "description": "Dato og tid",
+        "example": "20. april 2021 16:20"
+      },
+      "long_full": {
+        "label": "Lang Dato/Tid",
+        "description": "Full dato og tid",
+        "example": "tirsdag 20. april 2021 16:20"
+      }
+    },
+
+    "format_toggle": {
+      "show_common_formats": "Vis Vanlige Formater",
+      "show_more_formats": "Vis Flere Formater"
+    },
+
+    "preview": {
+      "discord_preview": "Discord Forhåndsvisning",
+      "real_time": "Sanntid",
+      "event_reminder": "🎉 Arrangement Påminnelse",
+      "event_starts": "Det store arrangementet starter",
+      "geekskai_bot": "GeeksKai",
+      "bot_label": "BOT",
+      "today": "I dag"
+    },
+
+    "generated_result": {
+      "title": "Generert Resultat",
+      "discord_timestamp_code": "Discord Tidsstempel Kode",
+      "display_effect": "Visningseffekt",
+      "preview_placeholder": "Forhåndsvisning vil vises her",
+      "copy_code": "Kopier Kode",
+      "copied": "Kopiert!",
+      "failed_to_copy": "Klarte ikke å kopiere:"
+    },
+
+    "saved_configurations": {
+      "title": "Lagrede Konfigurasjoner",
+      "click_to_apply": "Klikk for å bruke",
+      "relative_mode": "Relativ",
+      "date_mode": "Dato"
+    },
+
+    "features": {
+      "title": "Profesjonelle Funksjoner",
+      "description": "Alt du trenger for å lage perfekte Discord tidsstempler med presisjon og stil",
+      "real_time_updates": {
+        "title": "Sanntids Oppdateringer",
+        "description": "Live forhåndsvisning med automatisk tidssone konvertering og øyeblikkelig format bytte for presis tidsstempel generering."
+      },
+      "multiple_formats": {
+        "title": "Flere Formater",
+        "description": "Syv forskjellige tidsstempel formater inkludert relativ tid, dato formater og kombinerte dato-tid visninger."
+      },
+      "save_manage": {
+        "title": "Lagre og Administrer",
+        "description": "Lagre favoritt konfigurasjoner og administrer enkelt dine tidsstempel innstillinger for rask tilgang og gjenbruk på tvers av forskjellige prosjekter."
+      }
+    },
+
+    "usage_guide": {
+      "title": "Hvordan Lage Perfekte Discord Tidsstempler",
+      "description": "Følg disse enkle trinnene for å generere profesjonelle Discord tidsstempler fra bunnen av",
+      "step_1": {
+        "title": "Velg Opprettelsesmodus",
+        "description": "Velg mellom relative tidsjusteringer eller absolutt dato inndata for tidsstempel opprettelse."
+      },
+      "step_2": {
+        "title": "Konfigurer Tidsinnstillinger",
+        "description": "Sett ønskede tidsverdier eller datoer. Se live forhåndsvisningen oppdateres i sanntid mens du genererer tidsstempler."
+      },
+      "step_3": {
+        "title": "Velg Visningsformat",
+        "description": "Velg fra syv dynamiske Discord tidsstempel formater for å matche ditt arrangement eller melding kontekst."
+      },
+      "step_4": {
+        "title": "Generer og Kopier",
+        "description": "Kopier den genererte Discord tidsstempel koden og lim den inn i meldinger for automatisk tidssone konvertering."
+      }
+    },
+
+    "content_sections": {
+      "what_is_generation": {
+        "title": "Hva er Discord Tidsstempel Generering? Lage Dynamiske Tidsvisninger",
+        "description_2": "Vår Discord tidsstempel generator hjelper deg med å lage disse dynamiske tidsstemplene fra bunnen av, perfekt for å planlegge arrangementer, lage nedtellinger og bygge automatiserte påminnelsessystemer som koordinerer sømløst på tvers av internasjonale Discord servere og samfunn.",
+        "benefits_title": "Discord Tidsstempel Generering Fordeler",
+        "benefit_1": "Lag dynamiske arrangement nedtellinger",
+        "benefit_2": "Generer tidssone-bevisste påminnelser",
+        "benefit_3": "Bygg automatiserte planleggingssystemer",
+        "benefit_4": "Perfekt for globale Discord samfunn",
+        "benefit_5": "Sanntids forhåndsvisning under opprettelse",
+        "benefit_6": "Flere format alternativer tilgjengelig"
+      },
+
+      "best_practices": {
+        "title": "Discord Tidsstempel Opprettelse Beste Praksis",
+        "event_scheduling": {
+          "title": "🎯 Arrangement Planlegging",
+          "format_f_description": "For arrangementer, bruk :F format for kunngjøringer",
+          "format_r_description": "Bruk :R format for nedtellinger og påminnelser",
+          "use_cases": "Perfekt for spilløkter, samfunnsmøter og live streams."
+        },
+        "countdown_creation": {
+          "title": "⏰ Nedtelling Opprettelse",
+          "auto_update": "Relative tidsstempler oppdateres automatisk i sanntid",
+          "dynamic_display": "Viser \"om 2 timer\", \"i morgen\", \"neste uke\" dynamisk",
+          "ideal_for": "Ideelt for frist påminnelser og arrangement forventning."
+        },
+        "bot_integration": {
+          "title": "🤖 Bot Integrasjon",
+          "generate_for_bots": "Generer tidsstempler for Discord bot svar",
+          "scheduled_commands": "Perfekt for planlagte kommandoer og automatisering",
+          "api_compatible": "Kompatibel med alle Discord API integrasjoner."
+        }
+      },
+
+      "generator_vs_converter": {
+        "title": "Discord Tidsstempel Generator vs Konverter: Velg Riktig Verktøy",
+        "generator_section": {
+          "title": "🆕 Discord Tidsstempel Generator (Dette Verktøyet)",
+          "description": "Perfekt for å lage nye Discord tidsstempler fra bunnen av. Ideelt når du trenger å generere tidsstempler for kommende arrangementer, nedtellinger eller påminnelsessystemer.",
+          "feature_1": "Lag tidsstempler for fremtidige arrangementer",
+          "feature_2": "Generer dynamiske nedtellinger",
+          "feature_3": "Bygg arrangement påminnelsessystemer",
+          "feature_4": "Sanntids forhåndsvisning mens du lager",
+          "feature_5": "Raske forhåndsinnstilling konfigurasjoner"
+        },
+        "converter_section": {
+          "title": "🔄 Discord Tid Konverter",
+          "description": "Perfekt for å konvertere eksisterende Discord tidsstempler og analysere tidsdata. Ideelt når du trenger å forstå eller modifisere eksisterende tidsstempler.",
+          "feature_1": "Konverter Discord tidsstempler til lesbar tid",
+          "feature_2": "Analyser eksisterende tidsstempel formater",
+          "feature_3": "Feilsøk tidsstempel problemer",
+          "feature_4": "Batch konvertering muligheter",
+          "feature_5": "Tidssone konvertering analyse",
+          "link_text": "Prøv vår Discord Tid Konverter →"
+        }
+      }
+    },
+
+    "faq": {
+      "title": "Ofte Stilte Spørsmål Om Discord Tidsstempel Generering",
+      "q1": {
+        "question": "Hvordan lager jeg et Discord tidsstempel for et arrangement?",
+        "answer": "Bruk vår Discord tidsstempel generator for å lage arrangement tidsstempler. Velg \"Absolutt Tid\" modus, skriv inn arrangement dato og tid, velg passende format (:F for kunngjøringer, :R for nedtellinger), deretter kopier den genererte koden inn i din Discord melding."
+      },
+      "q2": {
+        "question": "Hva er forskjellen mellom Discord tidsstempel generator og konverter?",
+        "answer": "Vår Discord tidsstempel generator lager nye tidsstempler fra bunnen av for arrangementer og nedtellinger. Discord tid konverteren analyserer og konverterer eksisterende tidsstempler. Bruk generatoren for å lage nye arrangementer, bruk konverteren for å analysere eksisterende tidsstempler."
+      },
+      "q3": {
+        "question": "Hvilket Discord tidsstempel format er best for arrangementer?",
+        "answer": "For arrangement kunngjøringer, bruk Lang Dato/Tid format (:F) for å vise fullstendig informasjon. For påminnelser og nedtellinger, bruk Relativ format (:R) som viser \"om 2 timer\" eller \"i morgen\" og oppdateres automatisk etter hvert som tiden går."
+      },
+      "q4": {
+        "question": "Kan jeg bruke genererte Discord tidsstempler i Discord bots?",
+        "answer": "Ja! Genererte Discord tidsstempler fungerer perfekt i Discord bots. Bruk vår generator for å lage tidsstempler for bot svar, planlagte meldinger, arrangement påminnelser og automatiserte kunngjøringer. Tidsstemplene integreres sømløst med Discords API og webhook systemer."
+      },
+      "q5": {
+        "question": "Fungerer genererte Discord tidsstempler på tvers av alle tidssoner?",
+        "answer": "Absolutt! Genererte Discord tidsstempler vises automatisk i hver brukers lokale tidssone. Når du lager et tidsstempel, fungerer det perfekt for globale Discord samfunn, og viser riktig tid for brukere i New York, London, Tokyo, Sydney og overalt ellers."
+      },
+      "q6": {
+        "question": "Hvordan lager jeg nedtelling timere for Discord?",
+        "answer": "Bruk vår \"Relativ Tid\" modus for å lage nedtelling timere. Sett tidsjusteringen (timer, dager, uker frem), velg Relativ format (:R), og kopier det genererte tidsstempelet. Det vil vises som \"om 2 timer\", \"i morgen\", osv., og oppdateres automatisk i Discord."
+      },
+      "q7": {
+        "question": "Er denne Discord tidsstempel generatoren gratis å bruke?",
+        "answer": "Ja! Vår Discord tidsstempel generator er helt gratis uten registrering påkrevd. Lag ubegrensede tidsstempler, lagre konfigurasjoner, bruk alle formater og få tilgang til sanntids forhåndsvisning funksjoner uten noen begrensninger eller skjulte kostnader."
+      },
+      "q8": {
+        "question": "Kan jeg lagre mine Discord tidsstempel konfigurasjoner?",
+        "answer": "Ja! Vår generator inkluderer et favoritt system hvor du kan lagre ofte brukte tidsstempel konfigurasjoner. Perfekt for tilbakevendende arrangementer, vanlige møte tidsplaner eller vanlig brukte nedtelling formater som du raskt kan bruke og generere igjen."
+      }
+    },
+
+    "preview_text": {
+      "in_days": "om {days} dager",
+      "in_hours": "om {hours} timer",
+      "in_minutes": "om {minutes} minutter",
+      "in_few_seconds": "om noen få sekunder",
+      "days_ago": "{days} dager siden",
+      "hours_ago": "{hours} timer siden",
+      "minutes_ago": "{minutes} minutter siden",
+      "few_seconds_ago": "noen få sekunder siden"
+    }
   }
 }

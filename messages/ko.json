@@ -2527,5 +2527,281 @@
         "a11": "우리의 변환기는 일반 시간을 Discord 타임스탬프 형식으로 변환하고 Discord 타임스탬프를 읽을 수 있는 시간으로 변환하며 모든 글로벌 지역에서 모든 Discord 타임스탬프 형식을 생성합니다."
       }
     }
+  },
+  "DiscordTimestampGenerator": {
+    "seo_title": "Discord 타임스탬프 생성기 - 동적 Discord 타임스탬프 생성 | 무료 도구",
+    "seo_description": "무료 Discord 타임스탬프 생성기로 동적 타임스탬프, 이벤트 카운트다운, 알림 시스템을 생성하세요. 실시간 미리보기, 시간대 지원, Discord 봇 통합으로 모든 Discord 타임스탬프 형식을 생성합니다. 이벤트 일정 관리와 커뮤니티 관리에 완벽합니다.",
+    "seo_keywords": "discord 타임스탬프 생성기, discord 타임스탬프 생성, discord 타임스탬프 만들기, discord 이벤트 생성기, discord 카운트다운 생성기, discord 알림 타임스탬프",
+
+    "breadcrumb": {
+      "home": "홈",
+      "tools": "도구",
+      "discord_timestamp_generator": "Discord 타임스탬프 생성기"
+    },
+
+    "header": {
+      "professional_badge": "전문 Discord 타임스탬프",
+      "main_title": "Discord",
+      "subtitle": "타임스탬프 생성기",
+      "description": "Discord 메시지에서 자동으로 업데이트되는 동적 타임스탬프를 생성하세요. 이벤트, 마감일, 카운트다운에 완벽하며 모든 시간대에서 원활하게 작동하고 전문적인 정확성을 제공합니다. 실시간 미리보기로 처음부터 Discord 타임스탬프를 생성하세요.",
+      "stats": {
+        "real_time_generation": "실시간 생성",
+        "dynamic_timestamps": "동적 타임스탬프",
+        "event_creation": "이벤트 생성",
+        "free_generator": "무료 생성기"
+      }
+    },
+
+    "modes": {
+      "input_mode": "입력 모드",
+      "relative_time": "상대 시간",
+      "relative_time_description": "예: \"2시간 후\"",
+      "absolute_time": "절대 시간",
+      "absolute_time_description": "구체적인 날짜와 시간"
+    },
+
+    "quick_presets": {
+      "title": "빠른 프리셋",
+      "in_1_hour": "1시간 후",
+      "tomorrow": "내일",
+      "next_week": "다음 주",
+      "in_1_month": "1개월 후"
+    },
+
+    "time_adjustment": {
+      "title": "시간 조정",
+      "weeks": "주",
+      "days": "일",
+      "hours": "시간",
+      "minutes": "분"
+    },
+
+    "date_time_settings": {
+      "title": "날짜 및 시간 설정",
+      "year": "년",
+      "month": "월",
+      "day": "일",
+      "hour": "시",
+      "minute": "분",
+      "timezone": "시간대: UTC"
+    },
+
+    "display_format": {
+      "title": "표시 형식"
+    },
+
+    "timestamp_formats": {
+      "relative": {
+        "label": "상대 시간",
+        "description": "얼마 전/후",
+        "example": "2시간 후"
+      },
+      "short_time": {
+        "label": "짧은 시간",
+        "description": "시간만",
+        "example": "16:20"
+      },
+      "long_time": {
+        "label": "긴 시간",
+        "description": "초가 포함된 시간",
+        "example": "16:20:30"
+      },
+      "short_date": {
+        "label": "짧은 날짜",
+        "description": "날짜만",
+        "example": "2021/04/20"
+      },
+      "long_date": {
+        "label": "긴 날짜",
+        "description": "전체 날짜",
+        "example": "2021년 4월 20일"
+      },
+      "short_full": {
+        "label": "짧은 날짜/시간",
+        "description": "날짜와 시간",
+        "example": "2021년 4월 20일 16:20"
+      },
+      "long_full": {
+        "label": "긴 날짜/시간",
+        "description": "전체 날짜와 시간",
+        "example": "2021년 4월 20일 화요일 16:20"
+      }
+    },
+
+    "format_toggle": {
+      "show_common_formats": "일반 형식 표시",
+      "show_more_formats": "더 많은 형식 표시"
+    },
+
+    "preview": {
+      "discord_preview": "Discord 미리보기",
+      "real_time": "실시간",
+      "event_reminder": "🎉 이벤트 알림",
+      "event_starts": "큰 이벤트가 시작됩니다",
+      "geekskai_bot": "GeeksKai",
+      "bot_label": "봇",
+      "today": "오늘"
+    },
+
+    "generated_result": {
+      "title": "생성 결과",
+      "discord_timestamp_code": "Discord 타임스탬프 코드",
+      "display_effect": "표시 효과",
+      "preview_placeholder": "미리보기가 여기에 표시됩니다",
+      "copy_code": "코드 복사",
+      "copied": "복사됨!",
+      "failed_to_copy": "복사 실패:"
+    },
+
+    "saved_configurations": {
+      "title": "저장된 구성",
+      "click_to_apply": "클릭하여 적용",
+      "relative_mode": "상대 시간",
+      "date_mode": "날짜"
+    },
+
+    "features": {
+      "title": "전문가급 기능",
+      "description": "정확성과 스타일로 완벽한 Discord 타임스탬프를 생성하는 데 필요한 모든 것",
+      "real_time_updates": {
+        "title": "실시간 업데이트",
+        "description": "자동 시간대 변환과 즉시 형식 전환이 포함된 라이브 미리보기로 정밀한 타임스탬프 생성을 실현합니다."
+      },
+      "multiple_formats": {
+        "title": "다양한 형식",
+        "description": "상대 시간, 날짜 형식, 날짜-시간 조합 표시를 포함한 7가지 다른 타임스탬프 형식."
+      },
+      "save_manage": {
+        "title": "저장 및 관리",
+        "description": "즐겨찾기 구성을 저장하고 타임스탬프 설정을 쉽게 관리하여 다양한 프로젝트에서 빠른 액세스와 재사용을 가능하게 합니다."
+      }
+    },
+
+    "usage_guide": {
+      "title": "완벽한 Discord 타임스탬프 생성 방법",
+      "description": "이 간단한 단계를 따라 처음부터 전문적인 Discord 타임스탬프를 생성하세요",
+      "step_1": {
+        "title": "생성 모드 선택",
+        "description": "타임스탬프 생성을 위해 상대 시간 조정 또는 절대 날짜 입력 중에서 선택합니다."
+      },
+      "step_2": {
+        "title": "시간 설정 구성",
+        "description": "원하는 시간 값이나 날짜를 설정합니다. 타임스탬프를 생성하면서 라이브 미리보기가 실시간으로 업데이트되는 것을 확인하세요."
+      },
+      "step_3": {
+        "title": "표시 형식 선택",
+        "description": "이벤트나 메시지 컨텍스트에 맞는 7가지 동적 Discord 타임스탬프 형식 중에서 선택합니다."
+      },
+      "step_4": {
+        "title": "생성 및 복사",
+        "description": "생성된 Discord 타임스탬프 코드를 복사하여 자동 시간대 변환을 위해 메시지에 붙여넣습니다."
+      }
+    },
+
+    "content_sections": {
+      "what_is_generation": {
+        "title": "Discord 타임스탬프 생성이란? 동적 시간 표시 생성",
+        "description_2": "우리의 Discord 타임스탬프 생성기는 이러한 동적 타임스탬프를 처음부터 생성하는 데 도움을 주며, 이벤트 일정 관리, 카운트다운 생성, 국제 Discord 서버와 커뮤니티 간에 원활하게 조정되는 자동 알림 시스템 구축에 완벽합니다.",
+        "benefits_title": "Discord 타임스탬프 생성의 이점",
+        "benefit_1": "동적 이벤트 카운트다운 생성",
+        "benefit_2": "시간대 인식 알림 생성",
+        "benefit_3": "자동 일정 관리 시스템 구축",
+        "benefit_4": "글로벌 Discord 커뮤니티에 완벽",
+        "benefit_5": "생성 중 실시간 미리보기",
+        "benefit_6": "다양한 형식 옵션 사용 가능"
+      },
+
+      "best_practices": {
+        "title": "Discord 타임스탬프 생성 모범 사례",
+        "event_scheduling": {
+          "title": "🎯 이벤트 일정 관리",
+          "format_f_description": "이벤트의 경우 공지에 :F 형식 사용",
+          "format_r_description": "카운트다운과 알림에 :R 형식 사용",
+          "use_cases": "게임 세션, 커뮤니티 미팅, 라이브 스트림에 완벽합니다."
+        },
+        "countdown_creation": {
+          "title": "⏰ 카운트다운 생성",
+          "auto_update": "상대 타임스탬프는 자동으로 실시간 업데이트",
+          "dynamic_display": "\"2시간 후\", \"내일\", \"다음 주\"를 동적으로 표시",
+          "ideal_for": "마감일 알림과 이벤트 기대에 이상적입니다."
+        },
+        "bot_integration": {
+          "title": "🤖 봇 통합",
+          "generate_for_bots": "Discord 봇 응답용 타임스탬프 생성",
+          "scheduled_commands": "예약된 명령과 자동화에 완벽",
+          "api_compatible": "모든 Discord API 통합과 호환됩니다."
+        }
+      },
+
+      "generator_vs_converter": {
+        "title": "Discord 타임스탬프 생성기 vs 변환기: 올바른 도구 선택",
+        "generator_section": {
+          "title": "🆕 Discord 타임스탬프 생성기 (이 도구)",
+          "description": "처음부터 새로운 Discord 타임스탬프를 생성하는 데 완벽합니다. 향후 이벤트, 카운트다운 또는 알림 시스템용 타임스탬프를 생성해야 할 때 이상적입니다.",
+          "feature_1": "미래 이벤트용 타임스탬프 생성",
+          "feature_2": "동적 카운트다운 생성",
+          "feature_3": "이벤트 알림 시스템 구축",
+          "feature_4": "생성 시 실시간 미리보기",
+          "feature_5": "빠른 프리셋 구성"
+        },
+        "converter_section": {
+          "title": "🔄 Discord 시간 변환기",
+          "description": "기존 Discord 타임스탬프 변환과 시간 데이터 분석에 완벽합니다. 기존 타임스탬프를 이해하거나 수정해야 할 때 이상적입니다.",
+          "feature_1": "Discord 타임스탬프를 읽기 가능한 시간으로 변환",
+          "feature_2": "기존 타임스탬프 형식 분석",
+          "feature_3": "타임스탬프 문제 디버그",
+          "feature_4": "일괄 변환 기능",
+          "feature_5": "시간대 변환 분석",
+          "link_text": "Discord 시간 변환기 사용해보기 →"
+        }
+      }
+    },
+
+    "faq": {
+      "title": "Discord 타임스탬프 생성에 대한 자주 묻는 질문",
+      "q1": {
+        "question": "이벤트용 Discord 타임스탬프를 어떻게 생성하나요?",
+        "answer": "Discord 타임스탬프 생성기를 사용하여 이벤트 타임스탬프를 생성하세요. \"절대 시간\" 모드를 선택하고, 이벤트 날짜와 시간을 입력하고, 적절한 형식(공지용 :F, 카운트다운용 :R)을 선택한 다음, 생성된 코드를 Discord 메시지에 복사합니다."
+      },
+      "q2": {
+        "question": "Discord 타임스탬프 생성기와 변환기의 차이점은 무엇인가요?",
+        "answer": "우리의 Discord 타임스탬프 생성기는 이벤트와 카운트다운을 위해 처음부터 새로운 타임스탬프를 생성합니다. Discord 시간 변환기는 기존 타임스탬프를 분석하고 변환합니다. 새 이벤트 생성에는 생성기를, 기존 타임스탬프 분석에는 변환기를 사용하세요."
+      },
+      "q3": {
+        "question": "이벤트에 가장 좋은 Discord 타임스탬프 형식은 무엇인가요?",
+        "answer": "이벤트 공지의 경우 완전한 정보를 표시하기 위해 긴 날짜/시간 형식(:F)을 사용하세요. 알림과 카운트다운의 경우 \"2시간 후\" 또는 \"내일\"을 표시하고 시간이 지남에 따라 자동으로 업데이트되는 상대 형식(:R)을 사용하세요."
+      },
+      "q4": {
+        "question": "생성된 Discord 타임스탬프를 Discord 봇에서 사용할 수 있나요?",
+        "answer": "네! 생성된 Discord 타임스탬프는 Discord 봇에서 완벽하게 작동합니다. 우리의 생성기를 사용하여 봇 응답, 예약된 메시지, 이벤트 알림, 자동 공지용 타임스탬프를 생성하세요. 타임스탬프는 Discord의 API 및 웹훅 시스템과 원활하게 통합됩니다."
+      },
+      "q5": {
+        "question": "생성된 Discord 타임스탬프가 모든 시간대에서 작동하나요?",
+        "answer": "물론입니다! 생성된 Discord 타임스탬프는 각 사용자의 로컬 시간대에서 자동으로 표시됩니다. 타임스탬프를 생성하면 글로벌 Discord 커뮤니티에 완벽하게 작동하여 뉴욕, 런던, 도쿄, 시드니 및 전 세계 사용자에게 올바른 시간을 표시합니다."
+      },
+      "q6": {
+        "question": "Discord용 카운트다운 타이머를 어떻게 생성하나요?",
+        "answer": "카운트다운 타이머를 생성하려면 \"상대 시간\" 모드를 사용하세요. 시간 조정(시간, 일, 주 앞서)을 설정하고, 상대 형식(:R)을 선택하고, 생성된 타임스탬프를 복사합니다. \"2시간 후\", \"내일\" 등으로 표시되며 Discord에서 자동으로 업데이트됩니다."
+      },
+      "q7": {
+        "question": "이 Discord 타임스탬프 생성기는 무료로 사용할 수 있나요?",
+        "answer": "네! 우리의 Discord 타임스탬프 생성기는 등록 없이 완전히 무료입니다. 무제한 타임스탬프 생성, 구성 저장, 모든 형식 사용, 제한이나 숨겨진 비용 없이 실시간 미리보기 기능에 액세스할 수 있습니다."
+      },
+      "q8": {
+        "question": "Discord 타임스탬프 구성을 저장할 수 있나요?",
+        "answer": "네! 우리의 생성기에는 자주 사용하는 타임스탬프 구성을 저장할 수 있는 즐겨찾기 시스템이 포함되어 있습니다. 반복 이벤트, 정기 회의 일정 또는 일반적으로 사용되는 카운트다운 형식에 완벽하며 빠르게 적용하고 다시 생성할 수 있습니다."
+      }
+    },
+
+    "preview_text": {
+      "in_days": "{days}일 후",
+      "in_hours": "{hours}시간 후",
+      "in_minutes": "{minutes}분 후",
+      "in_few_seconds": "몇 초 후",
+      "days_ago": "{days}일 전",
+      "hours_ago": "{hours}시간 전",
+      "minutes_ago": "{minutes}분 전",
+      "few_seconds_ago": "몇 초 전"
+    }
   }
 }

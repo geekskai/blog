@@ -2544,5 +2544,281 @@
         "a11": "我们的 Discord 时间戳转换器与 Discord 服务器管理工具、社区调度机器人、活动规划工具和 Discord webhook 集成完美配合。对于管理全球社区和跨多个时区协调活动的 Discord 服务器管理员来说，这是必不可少的。"
       }
     }
+  },
+  "DiscordTimestampGenerator": {
+    "seo_title": "Discord 时间戳生成器 - 创建动态 Discord 时间戳 | 免费工具",
+    "seo_description": "免费 Discord 时间戳生成器，创建动态时间戳、活动倒计时和提醒系统。生成所有 Discord 时间戳格式，支持实时预览、时区支持和 Discord 机器人集成。完美适用于活动安排和社区管理。",
+    "seo_keywords": "discord 时间戳生成器, 创建 discord 时间戳, 生成 discord 时间戳, discord 活动生成器, discord 倒计时生成器, discord 提醒时间戳",
+
+    "breadcrumb": {
+      "home": "首页",
+      "tools": "工具",
+      "discord_timestamp_generator": "Discord 时间戳生成器"
+    },
+
+    "header": {
+      "professional_badge": "专业 Discord 时间戳",
+      "main_title": "Discord",
+      "subtitle": "时间戳生成器",
+      "description": "创建在 Discord 消息中自动更新的动态时间戳。完美适用于活动、截止日期和倒计时，可在所有时区无缝工作，具有专业精度。从零开始生成 Discord 时间戳，支持实时预览。",
+      "stats": {
+        "real_time_generation": "实时生成",
+        "dynamic_timestamps": "动态时间戳",
+        "event_creation": "活动创建",
+        "free_generator": "免费生成器"
+      }
+    },
+
+    "modes": {
+      "input_mode": "输入模式",
+      "relative_time": "相对时间",
+      "relative_time_description": "例如：'2小时后'",
+      "absolute_time": "绝对时间",
+      "absolute_time_description": "具体日期和时间"
+    },
+
+    "quick_presets": {
+      "title": "快速预设",
+      "in_1_hour": "1小时后",
+      "tomorrow": "明天",
+      "next_week": "下周",
+      "in_1_month": "1个月后"
+    },
+
+    "time_adjustment": {
+      "title": "时间调整",
+      "weeks": "周",
+      "days": "天",
+      "hours": "小时",
+      "minutes": "分钟"
+    },
+
+    "date_time_settings": {
+      "title": "日期和时间设置",
+      "year": "年",
+      "month": "月",
+      "day": "日",
+      "hour": "小时",
+      "minute": "分钟",
+      "timezone": "时区：UTC"
+    },
+
+    "display_format": {
+      "title": "显示格式"
+    },
+
+    "timestamp_formats": {
+      "relative": {
+        "label": "相对时间",
+        "description": "多久前/多久后",
+        "example": "2小时后"
+      },
+      "short_time": {
+        "label": "短时间",
+        "description": "仅时间",
+        "example": "16:20"
+      },
+      "long_time": {
+        "label": "长时间",
+        "description": "带秒的时间",
+        "example": "16:20:30"
+      },
+      "short_date": {
+        "label": "短日期",
+        "description": "仅日期",
+        "example": "2021/04/20"
+      },
+      "long_date": {
+        "label": "长日期",
+        "description": "完整日期",
+        "example": "2021年4月20日"
+      },
+      "short_full": {
+        "label": "短日期/时间",
+        "description": "日期和时间",
+        "example": "2021年4月20日 16:20"
+      },
+      "long_full": {
+        "label": "长日期/时间",
+        "description": "完整日期和时间",
+        "example": "2021年4月20日星期二 16:20"
+      }
+    },
+
+    "format_toggle": {
+      "show_common_formats": "显示常用格式",
+      "show_more_formats": "显示更多格式"
+    },
+
+    "preview": {
+      "discord_preview": "Discord 预览",
+      "real_time": "实时",
+      "event_reminder": "🎉 活动提醒",
+      "event_starts": "重要活动开始",
+      "geekskai_bot": "GeeksKai",
+      "bot_label": "机器人",
+      "today": "今天"
+    },
+
+    "generated_result": {
+      "title": "生成结果",
+      "discord_timestamp_code": "Discord 时间戳代码",
+      "display_effect": "显示效果",
+      "preview_placeholder": "预览将在此显示",
+      "copy_code": "复制代码",
+      "copied": "已复制！",
+      "failed_to_copy": "复制失败："
+    },
+
+    "saved_configurations": {
+      "title": "已保存配置",
+      "click_to_apply": "点击应用",
+      "relative_mode": "相对时间",
+      "date_mode": "日期"
+    },
+
+    "features": {
+      "title": "专业级功能",
+      "description": "创建完美 Discord 时间戳所需的一切，精确且时尚",
+      "real_time_updates": {
+        "title": "实时更新",
+        "description": "实时预览，自动时区转换和即时格式切换，实现精确的时间戳生成。"
+      },
+      "multiple_formats": {
+        "title": "多种格式",
+        "description": "七种不同的时间戳格式，包括相对时间、日期格式和日期时间组合显示。"
+      },
+      "save_manage": {
+        "title": "保存和管理",
+        "description": "保存收藏配置，轻松管理时间戳设置，便于在不同项目中快速访问和重复使用。"
+      }
+    },
+
+    "usage_guide": {
+      "title": "如何创建完美的 Discord 时间戳",
+      "description": "按照这些简单步骤从零开始生成专业的 Discord 时间戳",
+      "step_1": {
+        "title": "选择创建模式",
+        "description": "在相对时间调整或绝对日期输入之间选择时间戳创建方式。"
+      },
+      "step_2": {
+        "title": "配置时间设置",
+        "description": "设置所需的时间值或日期。观看实时预览在生成时间戳时实时更新。"
+      },
+      "step_3": {
+        "title": "选择显示格式",
+        "description": "从七种动态 Discord 时间戳格式中选择，以匹配您的活动或消息上下文。"
+      },
+      "step_4": {
+        "title": "生成和复制",
+        "description": "复制生成的 Discord 时间戳代码并粘贴到消息中，实现自动时区转换。"
+      }
+    },
+
+    "content_sections": {
+      "what_is_generation": {
+        "title": "什么是 Discord 时间戳生成？创建动态时间显示",
+        "description_2": "我们的 Discord 时间戳生成器帮助您从零开始创建这些动态时间戳，完美适用于安排活动、创建倒计时和构建自动提醒系统，可在国际 Discord 服务器和社区之间无缝协调。",
+        "benefits_title": "Discord 时间戳生成的好处",
+        "benefit_1": "创建动态活动倒计时",
+        "benefit_2": "生成时区感知提醒",
+        "benefit_3": "构建自动调度系统",
+        "benefit_4": "完美适用于全球 Discord 社区",
+        "benefit_5": "创建过程中的实时预览",
+        "benefit_6": "多种格式选项可用"
+      },
+
+      "best_practices": {
+        "title": "Discord 时间戳创建最佳实践",
+        "event_scheduling": {
+          "title": "🎯 活动安排",
+          "format_f_description": "对于活动，使用 :F 格式进行公告",
+          "format_r_description": "使用 :R 格式进行倒计时和提醒",
+          "use_cases": "完美适用于游戏会话、社区会议和直播。"
+        },
+        "countdown_creation": {
+          "title": "⏰ 倒计时创建",
+          "auto_update": "相对时间戳自动实时更新",
+          "dynamic_display": "动态显示'2小时后'、'明天'、'下周'",
+          "ideal_for": "理想用于截止日期提醒和活动期待。"
+        },
+        "bot_integration": {
+          "title": "🤖 机器人集成",
+          "generate_for_bots": "为 Discord 机器人响应生成时间戳",
+          "scheduled_commands": "完美适用于定时命令和自动化",
+          "api_compatible": "与所有 Discord API 集成兼容。"
+        }
+      },
+
+      "generator_vs_converter": {
+        "title": "Discord 时间戳生成器 vs 转换器：选择合适的工具",
+        "generator_section": {
+          "title": "🆕 Discord 时间戳生成器（此工具）",
+          "description": "完美适用于从零开始创建新的 Discord 时间戳。当您需要为即将到来的活动、倒计时或提醒系统生成时间戳时的理想选择。",
+          "feature_1": "为未来活动创建时间戳",
+          "feature_2": "生成动态倒计时",
+          "feature_3": "构建活动提醒系统",
+          "feature_4": "创建时的实时预览",
+          "feature_5": "快速预设配置"
+        },
+        "converter_section": {
+          "title": "🔄 Discord 时间转换器",
+          "description": "完美适用于转换现有的 Discord 时间戳和分析时间数据。当您需要理解或修改现有时间戳时的理想选择。",
+          "feature_1": "将 Discord 时间戳转换为可读时间",
+          "feature_2": "分析现有时间戳格式",
+          "feature_3": "调试时间戳问题",
+          "feature_4": "批量转换功能",
+          "feature_5": "时区转换分析",
+          "link_text": "试试我们的 Discord 时间转换器 →"
+        }
+      }
+    },
+
+    "faq": {
+      "title": "关于 Discord 时间戳生成的常见问题",
+      "q1": {
+        "question": "如何为活动创建 Discord 时间戳？",
+        "answer": "使用我们的 Discord 时间戳生成器创建活动时间戳。选择'绝对时间'模式，输入活动日期和时间，选择适当的格式（:F 用于公告，:R 用于倒计时），然后将生成的代码复制到您的 Discord 消息中。"
+      },
+      "q2": {
+        "question": "Discord 时间戳生成器和转换器有什么区别？",
+        "answer": "我们的 Discord 时间戳生成器从零开始为活动和倒计时创建新时间戳。Discord 时间转换器分析和转换现有时间戳。使用生成器创建新活动，使用转换器分析现有时间戳。"
+      },
+      "q3": {
+        "question": "哪种 Discord 时间戳格式最适合活动？",
+        "answer": "对于活动公告，使用长日期/时间格式（:F）显示完整信息。对于提醒和倒计时，使用相对格式（:R），它显示'2小时后'或'明天'并随时间自动更新。"
+      },
+      "q4": {
+        "question": "我可以在 Discord 机器人中使用生成的时间戳吗？",
+        "answer": "可以！生成的 Discord 时间戳在 Discord 机器人中完美工作。使用我们的生成器为机器人响应、定时消息、活动提醒和自动公告创建时间戳。时间戳与 Discord 的 API 和 webhook 系统无缝集成。"
+      },
+      "q5": {
+        "question": "生成的 Discord 时间戳在所有时区都有效吗？",
+        "answer": "绝对有效！生成的 Discord 时间戳自动在每个用户的本地时区显示。当您创建时间戳时，它完美适用于全球 Discord 社区，为纽约、伦敦、东京、悉尼和世界各地的用户显示正确时间。"
+      },
+      "q6": {
+        "question": "如何为 Discord 创建倒计时器？",
+        "answer": "使用我们的'相对时间'模式创建倒计时器。设置时间调整（提前几小时、几天、几周），选择相对格式（:R），然后复制生成的时间戳。它将显示为'2小时后'、'明天'等，并在 Discord 中自动更新。"
+      },
+      "q7": {
+        "question": "这个 Discord 时间戳生成器免费使用吗？",
+        "answer": "是的！我们的 Discord 时间戳生成器完全免费，无需注册。创建无限时间戳，保存配置，使用所有格式，访问实时预览功能，没有任何限制或隐藏费用。"
+      },
+      "q8": {
+        "question": "我可以保存我的 Discord 时间戳配置吗？",
+        "answer": "可以！我们的生成器包含收藏系统，您可以保存常用的时间戳配置。完美适用于重复活动、定期会议安排或常用倒计时格式，您可以快速应用并再次生成。"
+      }
+    },
+
+    "preview_text": {
+      "in_days": "{days}天后",
+      "in_hours": "{hours}小时后",
+      "in_minutes": "{minutes}分钟后",
+      "in_few_seconds": "几秒后",
+      "days_ago": "{days}天前",
+      "hours_ago": "{hours}小时前",
+      "minutes_ago": "{minutes}分钟前",
+      "few_seconds_ago": "几秒前"
+    }
   }
 }
