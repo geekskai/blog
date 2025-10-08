@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef, useCallback, useMemo } from "react"
+import { useTranslations } from "next-intl"
 import {
   Clock,
   Copy,
@@ -40,153 +41,168 @@ interface ConversionHistory {
   timestamp: number
 }
 
-const TIMESTAMP_FORMATS: TimestampFormat[] = [
-  {
-    id: "relative",
-    label: "Relative Time",
-    description: "Time ago/from now",
-    suffix: "R",
-    example: "in 2 hours",
-  },
-  {
-    id: "short-time",
-    label: "Short Time",
-    description: "Time only",
-    suffix: "t",
-    example: "16:20",
-  },
-  {
-    id: "long-time",
-    label: "Long Time",
-    description: "Time with seconds",
-    suffix: "T",
-    example: "16:20:30",
-  },
-  {
-    id: "short-date",
-    label: "Short Date",
-    description: "Date only",
-    suffix: "d",
-    example: "20/04/2021",
-  },
-  {
-    id: "long-date",
-    label: "Long Date",
-    description: "Full date",
-    suffix: "D",
-    example: "20 April 2021",
-  },
-  {
-    id: "short-full",
-    label: "Short Date/Time",
-    description: "Date and time",
-    suffix: "f",
-    example: "20 April 2021 16:20",
-  },
-  {
-    id: "long-full",
-    label: "Long Date/Time",
-    description: "Full date and time",
-    suffix: "F",
-    example: "Tuesday, 20 April 2021 16:20",
-  },
-]
+// Removed redundant TIMESTAMP_FORMATS - using TIMESTAMP_FORMATS_I18N instead
 
-// Common timezones for quick selection
-const COMMON_TIMEZONES = [
-  {
-    value: "UTC",
-    label: "UTC",
-    description: "Coordinated Universal Time (+00:00)",
-    group: "UTC",
-  },
-  {
-    value: "America/New_York",
-    label: "Eastern Time",
-    description: "New York, Toronto (-05:00)",
-    group: "Americas",
-  },
-  {
-    value: "America/Chicago",
-    label: "Central Time",
-    description: "Chicago, Mexico City (-06:00)",
-    group: "Americas",
-  },
-  {
-    value: "America/Denver",
-    label: "Mountain Time",
-    description: "Denver, Phoenix (-07:00)",
-    group: "Americas",
-  },
-  {
-    value: "America/Los_Angeles",
-    label: "Pacific Time",
-    description: "Los Angeles, Vancouver (-08:00)",
-    group: "Americas",
-  },
-  {
-    value: "America/Sao_Paulo",
-    label: "Brazil Time",
-    description: "São Paulo, Rio de Janeiro (-03:00)",
-    group: "Americas",
-  },
-  {
-    value: "Europe/London",
-    label: "British Time",
-    description: "London, Dublin (+00:00)",
-    group: "Europe",
-  },
-  {
-    value: "Europe/Paris",
-    label: "Central European Time",
-    description: "Paris, Berlin, Rome (+01:00)",
-    group: "Europe",
-  },
-  {
-    value: "Europe/Moscow",
-    label: "Moscow Time",
-    description: "Moscow, Istanbul (+03:00)",
-    group: "Europe",
-  },
-  {
-    value: "Asia/Tokyo",
-    label: "Japan Standard Time",
-    description: "Tokyo, Seoul (+09:00)",
-    group: "Asia",
-  },
-  {
-    value: "Asia/Shanghai",
-    label: "China Standard Time",
-    description: "Beijing, Shanghai (+08:00)",
-    group: "Asia",
-  },
-  {
-    value: "Asia/Kolkata",
-    label: "India Standard Time",
-    description: "Mumbai, Delhi (+05:30)",
-    group: "Asia",
-  },
-  {
-    value: "Asia/Dubai",
-    label: "Gulf Standard Time",
-    description: "Dubai, Abu Dhabi (+04:00)",
-    group: "Asia",
-  },
-  {
-    value: "Australia/Sydney",
-    label: "Australian Eastern Time",
-    description: "Sydney, Melbourne (+11:00)",
-    group: "Oceania",
-  },
-  {
-    value: "Pacific/Auckland",
-    label: "New Zealand Time",
-    description: "Auckland, Wellington (+13:00)",
-    group: "Oceania",
-  },
-]
+// Removed redundant COMMON_TIMEZONES - using COMMON_TIMEZONES_I18N instead
 
 export default function DiscordTimeConverter() {
+  // Translations
+  const t = useTranslations("DiscordTimeConverter")
+  const tCommon = useTranslations("HomePage")
+
+  // Dynamic timestamp formats with translations
+  const TIMESTAMP_FORMATS_I18N: TimestampFormat[] = useMemo(
+    () => [
+      {
+        id: "relative",
+        label: t("timestamp_formats.relative.label"),
+        description: t("timestamp_formats.relative.description"),
+        suffix: "R",
+        example: t("timestamp_formats.relative.example"),
+      },
+      {
+        id: "short-time",
+        label: t("timestamp_formats.short_time.label"),
+        description: t("timestamp_formats.short_time.description"),
+        suffix: "t",
+        example: t("timestamp_formats.short_time.example"),
+      },
+      {
+        id: "long-time",
+        label: t("timestamp_formats.long_time.label"),
+        description: t("timestamp_formats.long_time.description"),
+        suffix: "T",
+        example: t("timestamp_formats.long_time.example"),
+      },
+      {
+        id: "short-date",
+        label: t("timestamp_formats.short_date.label"),
+        description: t("timestamp_formats.short_date.description"),
+        suffix: "d",
+        example: t("timestamp_formats.short_date.example"),
+      },
+      {
+        id: "long-date",
+        label: t("timestamp_formats.long_date.label"),
+        description: t("timestamp_formats.long_date.description"),
+        suffix: "D",
+        example: t("timestamp_formats.long_date.example"),
+      },
+      {
+        id: "short-full",
+        label: t("timestamp_formats.short_full.label"),
+        description: t("timestamp_formats.short_full.description"),
+        suffix: "f",
+        example: t("timestamp_formats.short_full.example"),
+      },
+      {
+        id: "long-full",
+        label: t("timestamp_formats.long_full.label"),
+        description: t("timestamp_formats.long_full.description"),
+        suffix: "F",
+        example: t("timestamp_formats.long_full.example"),
+      },
+    ],
+    [t]
+  )
+
+  // Dynamic timezone options with translations
+  const COMMON_TIMEZONES_I18N = useMemo(
+    () => [
+      {
+        value: "UTC",
+        label: t("common_timezones.utc.label"),
+        description: t("common_timezones.utc.description"),
+        group: t("timezone_groups.utc"),
+      },
+      {
+        value: "America/New_York",
+        label: t("common_timezones.america_new_york.label"),
+        description: t("common_timezones.america_new_york.description"),
+        group: t("timezone_groups.americas"),
+      },
+      {
+        value: "America/Chicago",
+        label: t("common_timezones.america_chicago.label"),
+        description: t("common_timezones.america_chicago.description"),
+        group: t("timezone_groups.americas"),
+      },
+      {
+        value: "America/Denver",
+        label: t("common_timezones.america_denver.label"),
+        description: t("common_timezones.america_denver.description"),
+        group: t("timezone_groups.americas"),
+      },
+      {
+        value: "America/Los_Angeles",
+        label: t("common_timezones.america_los_angeles.label"),
+        description: t("common_timezones.america_los_angeles.description"),
+        group: t("timezone_groups.americas"),
+      },
+      {
+        value: "America/Sao_Paulo",
+        label: t("common_timezones.america_sao_paulo.label"),
+        description: t("common_timezones.america_sao_paulo.description"),
+        group: t("timezone_groups.americas"),
+      },
+      {
+        value: "Europe/London",
+        label: t("common_timezones.europe_london.label"),
+        description: t("common_timezones.europe_london.description"),
+        group: t("timezone_groups.europe"),
+      },
+      {
+        value: "Europe/Paris",
+        label: t("common_timezones.europe_paris.label"),
+        description: t("common_timezones.europe_paris.description"),
+        group: t("timezone_groups.europe"),
+      },
+      {
+        value: "Europe/Moscow",
+        label: t("common_timezones.europe_moscow.label"),
+        description: t("common_timezones.europe_moscow.description"),
+        group: t("timezone_groups.europe"),
+      },
+      {
+        value: "Asia/Tokyo",
+        label: t("common_timezones.asia_tokyo.label"),
+        description: t("common_timezones.asia_tokyo.description"),
+        group: t("timezone_groups.asia"),
+      },
+      {
+        value: "Asia/Shanghai",
+        label: t("common_timezones.asia_shanghai.label"),
+        description: t("common_timezones.asia_shanghai.description"),
+        group: t("timezone_groups.asia"),
+      },
+      {
+        value: "Asia/Kolkata",
+        label: t("common_timezones.asia_kolkata.label"),
+        description: t("common_timezones.asia_kolkata.description"),
+        group: t("timezone_groups.asia"),
+      },
+      {
+        value: "Asia/Dubai",
+        label: t("common_timezones.asia_dubai.label"),
+        description: t("common_timezones.asia_dubai.description"),
+        group: t("timezone_groups.asia"),
+      },
+      {
+        value: "Australia/Sydney",
+        label: t("common_timezones.australia_sydney.label"),
+        description: t("common_timezones.australia_sydney.description"),
+        group: t("timezone_groups.oceania"),
+      },
+      {
+        value: "Pacific/Auckland",
+        label: t("common_timezones.pacific_auckland.label"),
+        description: t("common_timezones.pacific_auckland.description"),
+        group: t("timezone_groups.oceania"),
+      },
+    ],
+    [t]
+  )
+
   // State management
   const [conversionMode, setConversionMode] = useState<"toTimestamp" | "fromTimestamp">(
     "toTimestamp"
@@ -201,12 +217,14 @@ export default function DiscordTimeConverter() {
   const [batchResults, setBatchResults] = useState<string[]>([])
   const [showAdvanced, setShowAdvanced] = useState(false)
   const [showBatch, setShowBatch] = useState(false)
+  const [isClient, setIsClient] = useState(false)
 
   // Refs for smooth interactions
   const copyTimeoutRef = useRef<NodeJS.Timeout>()
 
-  // Auto-detect user's timezone on mount
+  // Auto-detect user's timezone on mount and set client flag
   useEffect(() => {
+    setIsClient(true)
     const dateTimeFormat = new Intl.DateTimeFormat(navigator.language)
     const { timeZone } = dateTimeFormat.resolvedOptions()
     setSelectedTimezone(timeZone)
@@ -250,35 +268,40 @@ export default function DiscordTimeConverter() {
   }
 
   // Format timestamp for display using date-fns (like reference project)
-  const formatTimestampForDisplay = (unixTime: number, suffix: string): string => {
-    const date = new Date(unixTime * 1000)
+  const formatTimestampForDisplay = useCallback(
+    (unixTime: number, suffix: string): string => {
+      const date = new Date(unixTime * 1000)
 
-    switch (suffix) {
-      case "t":
-        return format(date, "h:mm a")
-      case "T":
-        return format(date, "h:mm:ss a")
-      case "d":
-        return format(date, "MM/dd/yyyy")
-      case "D":
-        return format(date, "MMMM d, yyyy")
-      case "f":
-        return format(date, "MMMM d, yyyy h:mm a")
-      case "F":
-        return format(date, "EEEE, MMMM d, yyyy h:mm a")
-      case "R":
-        return formatDistance(date, new Date(), { addSuffix: true })
-      default:
-        return "Invalid format type"
-    }
-  }
+      switch (suffix) {
+        case "t":
+          return format(date, "h:mm a")
+        case "T":
+          return format(date, "h:mm:ss a")
+        case "d":
+          return format(date, "MM/dd/yyyy")
+        case "D":
+          return format(date, "MMMM d, yyyy")
+        case "f":
+          return format(date, "MMMM d, yyyy h:mm a")
+        case "F":
+          return format(date, "EEEE, MMMM d, yyyy h:mm a")
+        case "R":
+          // Only show relative time on client to avoid hydration issues
+          if (!isClient) return "relative time"
+          return formatDistance(date, new Date(), { addSuffix: true })
+        default:
+          return t("info_messages.invalid_format_type")
+      }
+    },
+    [t, isClient]
+  )
 
   // Handle conversion
   const handleConversion = useCallback(() => {
     if (conversionMode === "toTimestamp") {
       // Convert datetime to Discord timestamps using timezone-adjusted time
       const results: Record<string, string> = {}
-      TIMESTAMP_FORMATS.forEach((format) => {
+      TIMESTAMP_FORMATS_I18N.forEach((format) => {
         const timestamp = generateDiscordTimestamp(adjustedDateTime, format.suffix)
         results[format.id] = timestamp
       })
@@ -300,7 +323,7 @@ export default function DiscordTimeConverter() {
         const date = new Date(parsed.unixTime * 1000)
         const results: Record<string, string> = {}
 
-        TIMESTAMP_FORMATS.forEach((format) => {
+        TIMESTAMP_FORMATS_I18N.forEach((format) => {
           const timestamp = generateDiscordTimestamp(date, format.suffix)
           const display = formatTimestampForDisplay(parsed.unixTime, format.suffix)
           results[format.id] = `${timestamp} → ${display}`
@@ -320,7 +343,14 @@ export default function DiscordTimeConverter() {
         setConversionHistory((prev) => [historyItem, ...prev.slice(0, 9)])
       }
     }
-  }, [conversionMode, adjustedDateTime, inputTimestamp])
+  }, [
+    conversionMode,
+    adjustedDateTime,
+    inputDateTime,
+    inputTimestamp,
+    TIMESTAMP_FORMATS_I18N,
+    formatTimestampForDisplay,
+  ])
 
   // Handle batch conversion
   const handleBatchConversion = () => {
@@ -336,7 +366,7 @@ export default function DiscordTimeConverter() {
           const timestamp = generateDiscordTimestamp(date, "f")
           results.push(`${trimmedLine} → ${timestamp}`)
         } else {
-          results.push(`${trimmedLine} → Invalid date format`)
+          results.push(`${trimmedLine} → ${t("info_messages.invalid_format_type")}`)
         }
       } else {
         // Try to parse as Discord timestamp
@@ -345,7 +375,7 @@ export default function DiscordTimeConverter() {
           const date = new Date(parsed.unixTime * 1000)
           results.push(`${trimmedLine} → ${date.toLocaleString()}`)
         } else {
-          results.push(`${trimmedLine} → Invalid timestamp format`)
+          results.push(`${trimmedLine} → ${t("info_messages.invalid_format_type")}`)
         }
       }
     })
@@ -405,7 +435,7 @@ export default function DiscordTimeConverter() {
     ) {
       handleConversion()
     }
-  }, [handleConversion])
+  }, [handleConversion, conversionMode, inputTimestamp])
 
   // Cleanup timeout on unmount
   useEffect(() => {
@@ -438,17 +468,17 @@ export default function DiscordTimeConverter() {
           <li>
             <a href="/" className="flex items-center transition-colors hover:text-slate-200">
               <Home className="h-4 w-4" />
-              <span className="ml-1">Home</span>
+              <span className="ml-1">{t("breadcrumb.home")}</span>
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
           <li>
             <a href="/tools" className="transition-colors hover:text-slate-200">
-              Tools
+              {t("breadcrumb.tools")}
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
-          <li className="font-medium text-slate-100">Discord Timestamp Converter</li>
+          <li className="font-medium text-slate-100">{t("breadcrumb.discord_time_converter")}</li>
         </ol>
       </nav>
 
@@ -457,42 +487,38 @@ export default function DiscordTimeConverter() {
         <div className="relative mb-16 text-center">
           <div className="mb-8 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-slate-300 shadow-xl backdrop-blur-sm">
             <ArrowLeftRight className="mr-2 h-4 w-4 text-blue-400" />
-            Free Discord Timezone Converter & Timestamp Generator Tool
+            {t("header.badge_text")}
             <Sparkles className="ml-2 h-4 w-4 text-purple-400" />
           </div>
 
           <h1 className="mb-8 text-5xl font-bold text-white sm:text-6xl lg:text-7xl">
-            <span className="block">Discord Timezone</span>
+            <span className="block">{t("header.main_title_line1")}</span>
             <span className="block bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
-              Converter & Generator
+              {t("header.main_title_line2")}
             </span>
           </h1>
 
           <p className="mx-auto mb-8 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
-            Free Discord timezone converter and timestamp generator tool. Convert Unix timestamps to
-            Discord format across all global timezones, convert Discord timestamps to regular time,
-            and generate all Discord timestamp formats with comprehensive timezone support. Perfect
-            for Discord bot developers, server administrators, and community managers scheduling
-            international events across multiple time zones.
+            {t("header.description")}
           </p>
 
           {/* Quick Stats */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500">
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <TrendingUp className="h-4 w-4 text-green-500" />
-              <span className="font-medium">Discord Timezone Converter</span>
+              <span className="font-medium">{t("header.stats.timezone_converter")}</span>
             </div>
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <Globe className="h-4 w-4 text-blue-500" />
-              <span className="font-medium">Global Timezone Support</span>
+              <span className="font-medium">{t("header.stats.global_timezone")}</span>
             </div>
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <Zap className="h-4 w-4 text-purple-500" />
-              <span className="font-medium">Discord Bot Integration</span>
+              <span className="font-medium">{t("header.stats.bot_integration")}</span>
             </div>
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <BookOpen className="h-4 w-4 text-orange-500" />
-              <span className="font-medium">Free Discord Timezone Tool</span>
+              <span className="font-medium">{t("header.stats.free_tool")}</span>
             </div>
           </div>
         </div>
@@ -506,7 +532,7 @@ export default function DiscordTimeConverter() {
               <div className="border-b border-white/10 px-6 py-4">
                 <h2 className="flex items-center text-lg font-semibold text-white">
                   <ArrowLeftRight className="mr-3 h-5 w-5 text-blue-400" />
-                  Conversion Mode
+                  {t("input_sections.conversion_mode")}
                 </h2>
               </div>
               <div className="p-6">
@@ -520,8 +546,12 @@ export default function DiscordTimeConverter() {
                     }`}
                   >
                     <Timer className="mx-auto mb-2 h-6 w-6" />
-                    <div className="text-sm font-medium">Time → Discord Timestamp</div>
-                    <div className="text-xs opacity-75">Convert regular time to Discord format</div>
+                    <div className="text-sm font-medium">
+                      {t("conversion_modes.to_timestamp.title")}
+                    </div>
+                    <div className="text-xs opacity-75">
+                      {t("conversion_modes.to_timestamp.description")}
+                    </div>
                   </button>
                   <button
                     onClick={() => setConversionMode("fromTimestamp")}
@@ -532,8 +562,12 @@ export default function DiscordTimeConverter() {
                     }`}
                   >
                     <CalendarDays className="mx-auto mb-2 h-6 w-6" />
-                    <div className="text-sm font-medium">Discord Timestamp → Time</div>
-                    <div className="text-xs opacity-75">Convert Discord format to regular time</div>
+                    <div className="text-sm font-medium">
+                      {t("conversion_modes.from_timestamp.title")}
+                    </div>
+                    <div className="text-xs opacity-75">
+                      {t("conversion_modes.from_timestamp.description")}
+                    </div>
                   </button>
                 </div>
               </div>
@@ -546,12 +580,12 @@ export default function DiscordTimeConverter() {
                   {conversionMode === "toTimestamp" ? (
                     <>
                       <Clock className="mr-3 h-5 w-5 text-green-400" />
-                      Time Input
+                      {t("input_sections.time_input")}
                     </>
                   ) : (
                     <>
                       <Monitor className="mr-3 h-5 w-5 text-purple-400" />
-                      Discord Timestamp Input
+                      {t("input_sections.discord_timestamp_input")}
                     </>
                   )}
                 </h3>
@@ -561,12 +595,12 @@ export default function DiscordTimeConverter() {
                   <div className="space-y-4">
                     <div>
                       <label className="mb-2 block text-sm font-medium text-slate-300">
-                        Select Date & Time
+                        {t("form_labels.select_date_time")}
                       </label>
                       <CustomDateTimePicker
                         value={inputDateTime}
                         onChange={setInputDateTime}
-                        placeholder="Select date and time"
+                        placeholder={t("placeholders.select_date_time")}
                       />
                     </div>
                     <div className="space-y-3">
@@ -575,86 +609,90 @@ export default function DiscordTimeConverter() {
                           onClick={() => applyQuickPreset(1)}
                           className="rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-sm text-slate-300 transition-all hover:bg-white/10"
                         >
-                          +1 Hour
+                          {t("buttons.plus_1_hour")}
                         </button>
                         <button
                           onClick={() => applyQuickPreset(24)}
                           className="rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-sm text-slate-300 transition-all hover:bg-white/10"
                         >
-                          +1 Day
+                          {t("buttons.plus_1_day")}
                         </button>
                         <button
                           onClick={() => applyQuickPreset(168)}
                           className="rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-sm text-slate-300 transition-all hover:bg-white/10"
                         >
-                          +1 Week
+                          {t("buttons.plus_1_week")}
                         </button>
                       </div>
 
                       {/* Time of day presets (from reference project) */}
                       <div>
-                        <p className="mb-2 text-xs font-medium text-slate-400">Set Time</p>
+                        <p className="mb-2 text-xs font-medium text-slate-400">
+                          {t("buttons.set_time")}
+                        </p>
                         <div className="grid grid-cols-4 gap-2">
                           <button
                             onClick={() => applyTimePreset(9, 0)}
                             className="rounded-lg border border-white/20 bg-white/5 px-2 py-1 text-xs text-slate-300 transition-all hover:bg-white/10"
                           >
-                            9am
+                            {t("buttons.9am")}
                           </button>
                           <button
                             onClick={() => applyTimePreset(12, 0)}
                             className="rounded-lg border border-white/20 bg-white/5 px-2 py-1 text-xs text-slate-300 transition-all hover:bg-white/10"
                           >
-                            Noon
+                            {t("buttons.noon")}
                           </button>
                           <button
                             onClick={() => applyTimePreset(18, 0)}
                             className="rounded-lg border border-white/20 bg-white/5 px-2 py-1 text-xs text-slate-300 transition-all hover:bg-white/10"
                           >
-                            6pm
+                            {t("buttons.6pm")}
                           </button>
                           <button
                             onClick={() => applyTimePreset(21, 0)}
                             className="rounded-lg border border-white/20 bg-white/5 px-2 py-1 text-xs text-slate-300 transition-all hover:bg-white/10"
                           >
-                            9pm
+                            {t("buttons.9pm")}
                           </button>
                         </div>
                       </div>
 
                       {/* Next week presets (from reference project) */}
                       <div>
-                        <p className="mb-2 text-xs font-medium text-slate-400">Next Week</p>
+                        <p className="mb-2 text-xs font-medium text-slate-400">
+                          {t("buttons.next_week")}
+                        </p>
                         <div className="grid grid-cols-5 gap-1">
                           <button
                             onClick={() => applyWeekdayPreset(1)}
                             className="rounded-lg border border-white/20 bg-white/5 px-2 py-1 text-xs text-slate-300 transition-all hover:bg-white/10"
                           >
-                            Mon
+                            {t("buttons.mon")}
                           </button>
                           <button
                             onClick={() => applyWeekdayPreset(2)}
                             className="rounded-lg border border-white/20 bg-white/5 px-2 py-1 text-xs text-slate-300 transition-all hover:bg-white/10"
                           >
-                            Tue
+                            {t("buttons.tue")}
                           </button>
                           <button
                             onClick={() => applyWeekdayPreset(3)}
                             className="rounded-lg border border-white/20 bg-white/5 px-2 py-1 text-xs text-slate-300 transition-all hover:bg-white/10"
                           >
-                            Wed
+                            {t("buttons.wed")}
                           </button>
                           <button
                             onClick={() => applyWeekdayPreset(4)}
                             className="rounded-lg border border-white/20 bg-white/5 px-2 py-1 text-xs text-slate-300 transition-all hover:bg-white/10"
                           >
-                            Thu
+                            {t("buttons.thu")}
                           </button>
                           <button
                             onClick={() => applyWeekdayPreset(5)}
                             className="rounded-lg border border-white/20 bg-white/5 px-2 py-1 text-xs text-slate-300 transition-all hover:bg-white/10"
                           >
-                            Fri
+                            {t("buttons.fri")}
                           </button>
                         </div>
                       </div>
@@ -664,20 +702,18 @@ export default function DiscordTimeConverter() {
                   <div className="space-y-4">
                     <div>
                       <label className="mb-2 block text-sm font-medium text-slate-300">
-                        Discord Timestamp
+                        {t("form_labels.discord_timestamp")}
                       </label>
                       <input
                         type="text"
                         value={inputTimestamp}
                         onChange={(e) => setInputTimestamp(e.target.value)}
-                        placeholder="<t:1640995200:f>"
+                        placeholder={t("placeholders.discord_timestamp")}
                         className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50"
                       />
                     </div>
                     <div className="rounded-lg bg-blue-500/10 p-3">
-                      <p className="text-xs text-blue-300">
-                        Format: &lt;t:timestamp:format&gt; (e.g., &lt;t:1640995200:f&gt;)
-                      </p>
+                      <p className="text-xs text-blue-300">{t("info_messages.format_info")}</p>
                     </div>
                   </div>
                 )}
@@ -689,15 +725,15 @@ export default function DiscordTimeConverter() {
               <div className="border-b border-white/10 px-6 py-4">
                 <h3 className="flex items-center text-lg font-semibold text-white">
                   <Globe className="mr-3 h-5 w-5 text-cyan-400" />
-                  Timezone
+                  {t("input_sections.timezone")}
                 </h3>
               </div>
               <div className="p-6">
                 <CustomSelector
-                  options={COMMON_TIMEZONES}
+                  options={COMMON_TIMEZONES_I18N}
                   value={selectedTimezone}
                   onChange={setSelectedTimezone}
-                  placeholder="Select your timezone"
+                  placeholder={t("form_labels.select_timezone")}
                   searchable={true}
                   clearable={false}
                   icon={<Globe className="h-4 w-4" />}
@@ -715,30 +751,32 @@ export default function DiscordTimeConverter() {
                 <div className="flex items-center justify-between">
                   <h2 className="flex items-center text-lg font-semibold text-white">
                     <RefreshCw className="mr-3 h-5 w-5 text-green-400" />
-                    Conversion Results
+                    {t("results.conversion_results")}
                   </h2>
                   <div className="flex items-center space-x-2 text-sm text-slate-400">
                     <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-400"></div>
-                    <span className="font-mono">Live Preview</span>
+                    <span className="font-mono">{t("results.live_preview")}</span>
                   </div>
                 </div>
               </div>
               <div className="p-6">
                 <div className="space-y-4">
                   {/* Full date combinations (from reference project) */}
-                  {conversionMode === "toTimestamp" && (
+                  {conversionMode === "toTimestamp" && isClient && (
                     <div className="space-y-3 rounded-lg bg-slate-800/50 p-4">
-                      <p className="text-sm font-medium text-slate-300">Quick Copy Combinations</p>
+                      <p className="text-sm font-medium text-slate-300">
+                        {t("results.quick_copy_combinations")}
+                      </p>
                       {(() => {
                         const unixTime = Math.floor(adjustedDateTime.getTime() / 1000)
                         const combinations = [
                           {
-                            label: "Date, Time & Relative",
+                            label: t("results.date_time_relative"),
                             code: `<t:${unixTime}:d> <t:${unixTime}:t>, <t:${unixTime}:R>`,
                             preview: `${formatTimestampForDisplay(unixTime, "d")} ${formatTimestampForDisplay(unixTime, "t")}, ${formatTimestampForDisplay(unixTime, "R")}`,
                           },
                           {
-                            label: "Full Date & Relative",
+                            label: t("results.full_date_relative"),
                             code: `<t:${unixTime}:f>, <t:${unixTime}:R>`,
                             preview: `${formatTimestampForDisplay(unixTime, "f")}, ${formatTimestampForDisplay(unixTime, "R")}`,
                           },
@@ -778,7 +816,7 @@ export default function DiscordTimeConverter() {
 
                   {/* Individual format results */}
                   <div className="grid gap-4">
-                    {TIMESTAMP_FORMATS.map((format) => {
+                    {TIMESTAMP_FORMATS_I18N.map((format) => {
                       const result = generatedResults[format.id]
                       if (!result) return null
 
@@ -820,13 +858,13 @@ export default function DiscordTimeConverter() {
                 onClick={() => setShowBatch(!showBatch)}
                 className="flex-1 rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-sm text-slate-300 transition-all hover:bg-white/10"
               >
-                {showBatch ? "Hide" : "Show"} Batch Converter
+                {showBatch ? t("buttons.hide_batch") : t("buttons.show_batch")}
               </button>
               <button
                 onClick={() => setShowAdvanced(!showAdvanced)}
                 className="flex-1 rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-sm text-slate-300 transition-all hover:bg-white/10"
               >
-                {showAdvanced ? "Hide" : "Show"} Advanced Features
+                {showAdvanced ? t("buttons.hide_advanced") : t("buttons.show_advanced")}
               </button>
             </div>
 
@@ -836,22 +874,22 @@ export default function DiscordTimeConverter() {
                 <div className="border-b border-white/10 px-6 py-4">
                   <h3 className="flex items-center text-lg font-semibold text-white">
                     <Zap className="mr-3 h-5 w-5 text-yellow-400" />
-                    Batch Converter
+                    {t("advanced_features.batch_converter")}
                   </h3>
                 </div>
                 <div className="p-6">
                   <div className="space-y-4">
                     <div>
                       <label className="mb-2 block text-sm font-medium text-slate-300">
-                        Input (one per line)
+                        {t("form_labels.input_one_per_line")}
                       </label>
                       <textarea
                         value={batchInput}
                         onChange={(e) => setBatchInput(e.target.value)}
                         placeholder={
                           conversionMode === "toTimestamp"
-                            ? "2024-01-01 12:00:00\n2024-02-01 15:30:00"
-                            : "<t:1640995200:f>\n<t:1640995500:R>"
+                            ? t("placeholders.batch_to_timestamp")
+                            : t("placeholders.batch_from_timestamp")
                         }
                         className="h-32 w-full rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50"
                       />
@@ -860,11 +898,13 @@ export default function DiscordTimeConverter() {
                       onClick={handleBatchConversion}
                       className="w-full rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-3 font-semibold text-white transition-all hover:scale-[1.02]"
                     >
-                      Convert All
+                      {t("buttons.convert_all")}
                     </button>
                     {batchResults.length > 0 && (
                       <div className="rounded-lg bg-slate-800/50 p-4">
-                        <h4 className="mb-2 font-medium text-white">Results:</h4>
+                        <h4 className="mb-2 font-medium text-white">
+                          {t("advanced_features.results_label")}
+                        </h4>
                         <div className="space-y-1 text-sm">
                           {batchResults.map((result, index) => (
                             <div key={index} className="font-mono text-green-400">
@@ -885,7 +925,7 @@ export default function DiscordTimeConverter() {
                 <div className="border-b border-white/10 px-6 py-4">
                   <h3 className="flex items-center text-lg font-semibold text-white">
                     <History className="mr-3 h-5 w-5 text-orange-400" />
-                    Conversion History
+                    {t("advanced_features.conversion_history")}
                   </h3>
                 </div>
                 <div className="p-6">
@@ -897,7 +937,9 @@ export default function DiscordTimeConverter() {
                       >
                         <div className="flex items-center justify-between">
                           <span className="text-xs text-slate-400">
-                            {item.type === "toTimestamp" ? "Time → Timestamp" : "Timestamp → Time"}
+                            {item.type === "toTimestamp"
+                              ? t("conversion_modes.to_timestamp.title")
+                              : t("conversion_modes.from_timestamp.title")}
                           </span>
                           <span className="text-xs text-slate-500">
                             {new Date(item.timestamp).toLocaleTimeString()}
@@ -918,12 +960,9 @@ export default function DiscordTimeConverter() {
         {/* Usage guide */}
         <div className="mt-32 rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-white">
-              How to Use Discord Timezone Converter - Complete Guide
-            </h2>
+            <h2 className="mb-4 text-3xl font-bold text-white">{t("usage_guide.title")}</h2>
             <p className="mx-auto max-w-2xl text-xl text-slate-400">
-              Master Discord timezone conversion and timestamp generation for your server, bot
-              development, and global community coordination across all timezones
+              {t("usage_guide.description")}
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -931,42 +970,37 @@ export default function DiscordTimeConverter() {
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-blue-500 text-2xl font-bold text-white">
                 1
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Choose Conversion Direction</h3>
-              <p className="text-slate-400">
-                Select between converting regular time to Discord timestamp format or converting
-                Discord timestamps back to readable time for analysis and debugging.
-              </p>
+              <h3 className="mb-3 text-lg font-semibold text-white">
+                {t("usage_guide.step_1_title")}
+              </h3>
+              <p className="text-slate-400">{t("usage_guide.step_1_description")}</p>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-purple-500 text-2xl font-bold text-white">
                 2
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Input Time Data</h3>
-              <p className="text-slate-400">
-                Enter your date and time or paste a Discord timestamp. Our converter accepts all
-                Discord timestamp formats and handles Unix epoch time conversion automatically.
-              </p>
+              <h3 className="mb-3 text-lg font-semibold text-white">
+                {t("usage_guide.step_2_title")}
+              </h3>
+              <p className="text-slate-400">{t("usage_guide.step_2_description")}</p>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-pink-600 to-pink-500 text-2xl font-bold text-white">
                 3
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Configure Timezone</h3>
-              <p className="text-slate-400">
-                Select your timezone from our comprehensive list for accurate Discord timezone
-                conversion and timestamp generation. Essential for global Discord communities and
-                international event planning across multiple timezones.
-              </p>
+              <h3 className="mb-3 text-lg font-semibold text-white">
+                {t("usage_guide.step_3_title")}
+              </h3>
+              <p className="text-slate-400">{t("usage_guide.step_3_description")}</p>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-green-600 to-green-500 text-2xl font-bold text-white">
                 4
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">Copy & Implement</h3>
-              <p className="text-slate-400">
-                Copy the generated Discord timestamp in your preferred format and paste it into
-                Discord messages, bot code, or webhook content for automatic timezone display.
-              </p>
+              <h3 className="mb-3 text-lg font-semibold text-white">
+                {t("usage_guide.step_4_title")}
+              </h3>
+              <p className="text-slate-400">{t("usage_guide.step_4_description")}</p>
             </div>
           </div>
         </div>
@@ -976,33 +1010,28 @@ export default function DiscordTimeConverter() {
           {/* What is Discord Timestamp Section */}
           <section className="rounded-xl bg-gradient-to-r from-blue-800 to-indigo-700 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              What are Discord Timestamps? Understanding Discord Time Formatting
+              {t("content_sections.what_are_discord_timestamps.title")}
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <p className="mb-4 text-slate-200">
-                  Discord timestamps are special text formats that automatically display time and
-                  date information in each user's local timezone. Using the format
-                  &lt;t:UNIX_TIMESTAMP:FORMAT&gt;, Discord converts Unix epoch timestamps into
-                  human-readable time that adapts to every user's location and language preferences.
+                  {t("content_sections.what_are_discord_timestamps.description_1")}
                 </p>
                 <p className="text-slate-200">
-                  This Discord timestamp converter helps you generate these special timestamps for
-                  scheduling events, coordinating across time zones, and creating dynamic time
-                  displays that work perfectly for global Discord communities and servers.
+                  {t("content_sections.what_are_discord_timestamps.description_2")}
                 </p>
               </div>
               <div className="rounded-lg bg-blue-900/30 p-6">
                 <h3 className="mb-3 text-lg font-semibold text-white">
-                  Discord Timestamp Benefits
+                  {t("content_sections.what_are_discord_timestamps.benefits_title")}
                 </h3>
                 <ul className="space-y-2 text-slate-200">
-                  <li>• Automatic timezone conversion for all users</li>
-                  <li>• No manual timezone calculations needed</li>
-                  <li>• Perfect for global Discord servers</li>
-                  <li>• Multiple display formats available</li>
-                  <li>• Works in Discord messages and embeds</li>
-                  <li>• Compatible with Discord bots and webhooks</li>
+                  <li>• {t("content_sections.what_are_discord_timestamps.benefit_1")}</li>
+                  <li>• {t("content_sections.what_are_discord_timestamps.benefit_2")}</li>
+                  <li>• {t("content_sections.what_are_discord_timestamps.benefit_3")}</li>
+                  <li>• {t("content_sections.what_are_discord_timestamps.benefit_4")}</li>
+                  <li>• {t("content_sections.what_are_discord_timestamps.benefit_5")}</li>
+                  <li>• {t("content_sections.what_are_discord_timestamps.benefit_6")}</li>
                 </ul>
               </div>
             </div>
@@ -1011,53 +1040,62 @@ export default function DiscordTimeConverter() {
           {/* Discord Timestamp Format Types Section */}
           <section className="rounded-xl bg-gradient-to-r from-purple-800 to-pink-700 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              Discord Timestamp Format Types Explained
+              {t("content_sections.timestamp_format_types.title")}
             </h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               <div className="rounded-lg bg-purple-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">🕐 Time Formats</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  {t("content_sections.timestamp_format_types.time_formats_title")}
+                </h3>
                 <div className="space-y-2 text-slate-200">
                   <p>
-                    <code className="rounded bg-black/30 px-2 py-1 text-sm">:t</code> - Short time
-                    (16:20)
+                    <code className="rounded bg-black/30 px-2 py-1 text-sm">:t</code> -{" "}
+                    {t("timestamp_formats.short_time.label")}(
+                    {t("timestamp_formats.short_time.example")})
                   </p>
                   <p>
-                    <code className="rounded bg-black/30 px-2 py-1 text-sm">:T</code> - Long time
-                    (16:20:30)
+                    <code className="rounded bg-black/30 px-2 py-1 text-sm">:T</code> -{" "}
+                    {t("timestamp_formats.long_time.label")}(
+                    {t("timestamp_formats.long_time.example")})
                   </p>
-                  <p>
-                    Perfect for displaying specific times in Discord messages and bot responses.
-                  </p>
+                  <p>{t("content_sections.timestamp_format_types.time_formats_description")}</p>
                 </div>
               </div>
               <div className="rounded-lg bg-purple-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">📅 Date Formats</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  {t("content_sections.timestamp_format_types.date_formats_title")}
+                </h3>
                 <div className="space-y-2 text-slate-200">
                   <p>
-                    <code className="rounded bg-black/30 px-2 py-1 text-sm">:d</code> - Short date
-                    (20/04/2021)
+                    <code className="rounded bg-black/30 px-2 py-1 text-sm">:d</code> -{" "}
+                    {t("timestamp_formats.short_date.label")}(
+                    {t("timestamp_formats.short_date.example")})
                   </p>
                   <p>
-                    <code className="rounded bg-black/30 px-2 py-1 text-sm">:D</code> - Long date
-                    (20 April 2021)
+                    <code className="rounded bg-black/30 px-2 py-1 text-sm">:D</code> -{" "}
+                    {t("timestamp_formats.long_date.label")}(
+                    {t("timestamp_formats.long_date.example")})
                   </p>
-                  <p>Ideal for event announcements and date-specific information.</p>
+                  <p>{t("content_sections.timestamp_format_types.date_formats_description")}</p>
                 </div>
               </div>
               <div className="rounded-lg bg-purple-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">📆 Combined Formats</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  {t("content_sections.timestamp_format_types.combined_formats_title")}
+                </h3>
                 <div className="space-y-2 text-slate-200">
                   <p>
-                    <code className="rounded bg-black/30 px-2 py-1 text-sm">:f</code> - Short
-                    date/time
+                    <code className="rounded bg-black/30 px-2 py-1 text-sm">:f</code> -{" "}
+                    {t("timestamp_formats.short_full.label")}
                   </p>
                   <p>
-                    <code className="rounded bg-black/30 px-2 py-1 text-sm">:F</code> - Long
-                    date/time
+                    <code className="rounded bg-black/30 px-2 py-1 text-sm">:F</code> -{" "}
+                    {t("timestamp_formats.long_full.label")}
                   </p>
                   <p>
-                    <code className="rounded bg-black/30 px-2 py-1 text-sm">:R</code> - Relative
-                    time (2 hours ago)
+                    <code className="rounded bg-black/30 px-2 py-1 text-sm">:R</code> -{" "}
+                    {t("timestamp_formats.relative.label")} (
+                    {t("timestamp_formats.relative.example")})
                   </p>
                 </div>
               </div>
@@ -1067,38 +1105,31 @@ export default function DiscordTimeConverter() {
           {/* Timezone Conversion Guide Section */}
           <section className="rounded-xl bg-gradient-to-r from-slate-800 to-slate-700 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              Discord Timezone Converter Guide - Global Time Coordination
+              {t("content_sections.timezone_converter_guide.title")}
             </h2>
             <div className="grid gap-6 md:grid-cols-3">
               <div className="rounded-lg bg-slate-800 p-6 shadow-md">
                 <h3 className="mb-3 text-lg font-semibold text-white">
-                  🌍 Global Discord Communities
+                  {t("content_sections.timezone_converter_guide.global_communities_title")}
                 </h3>
                 <p className="text-slate-400">
-                  Our Discord timezone converter automatically handles timezone conversion for
-                  global communities. Users in New York, London, Tokyo, and Sydney all see the same
-                  event time in their local timezone without any manual Discord timezone conversion
-                  needed.
+                  {t("content_sections.timezone_converter_guide.global_communities_description")}
                 </p>
               </div>
               <div className="rounded-lg bg-slate-800 p-6 shadow-md">
                 <h3 className="mb-3 text-lg font-semibold text-white">
-                  🤖 Discord Bot Timezone Integration
+                  {t("content_sections.timezone_converter_guide.bot_integration_title")}
                 </h3>
                 <p className="text-slate-400">
-                  Discord bots can use our Discord timezone converter to generate properly formatted
-                  timestamps for scheduling commands, reminder systems, and event management
-                  features that work seamlessly across all global timezones.
+                  {t("content_sections.timezone_converter_guide.bot_integration_description")}
                 </p>
               </div>
               <div className="rounded-lg bg-slate-800 p-6 shadow-md">
                 <h3 className="mb-3 text-lg font-semibold text-white">
-                  ⚡ Real-time Timezone Updates
+                  {t("content_sections.timezone_converter_guide.realtime_updates_title")}
                 </h3>
                 <p className="text-slate-400">
-                  Relative timestamps (:R format) update automatically in Discord with timezone
-                  awareness, showing "in 2 hours", "tomorrow", or "3 days ago" and refreshing in
-                  real-time as time passes across different timezones.
+                  {t("content_sections.timezone_converter_guide.realtime_updates_description")}
                 </p>
               </div>
             </div>
@@ -1107,7 +1138,7 @@ export default function DiscordTimeConverter() {
           {/* Common Use Cases Section */}
           <section className="rounded-xl bg-slate-800 p-8 shadow-lg">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              Common Discord Timezone Converter Use Cases
+              {t("content_sections.common_use_cases.title")}
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div className="space-y-4">
@@ -1116,10 +1147,11 @@ export default function DiscordTimeConverter() {
                     1
                   </span>
                   <div>
-                    <h3 className="font-semibold text-white">Gaming Events & Raids</h3>
+                    <h3 className="font-semibold text-white">
+                      {t("content_sections.common_use_cases.gaming_events.title")}
+                    </h3>
                     <p className="text-slate-400">
-                      Schedule gaming sessions, raids, and tournaments with timestamps that
-                      automatically show in each player's local time zone.
+                      {t("content_sections.common_use_cases.gaming_events.description")}
                     </p>
                   </div>
                 </div>
@@ -1128,10 +1160,11 @@ export default function DiscordTimeConverter() {
                     2
                   </span>
                   <div>
-                    <h3 className="font-semibold text-white">Community Meetings</h3>
+                    <h3 className="font-semibold text-white">
+                      {t("content_sections.common_use_cases.community_meetings.title")}
+                    </h3>
                     <p className="text-slate-400">
-                      Organize community calls, staff meetings, and announcements with precise
-                      timing for global Discord communities.
+                      {t("content_sections.common_use_cases.community_meetings.description")}
                     </p>
                   </div>
                 </div>
@@ -1140,10 +1173,11 @@ export default function DiscordTimeConverter() {
                     3
                   </span>
                   <div>
-                    <h3 className="font-semibold text-white">Live Streams & Events</h3>
+                    <h3 className="font-semibold text-white">
+                      {t("content_sections.common_use_cases.live_streams.title")}
+                    </h3>
                     <p className="text-slate-400">
-                      Announce streaming schedules, live events, and premieres with timestamps that
-                      work perfectly for international audiences.
+                      {t("content_sections.common_use_cases.live_streams.description")}
                     </p>
                   </div>
                 </div>
@@ -1154,10 +1188,11 @@ export default function DiscordTimeConverter() {
                     4
                   </span>
                   <div>
-                    <h3 className="font-semibold text-white">Bot Commands & Automation</h3>
+                    <h3 className="font-semibold text-white">
+                      {t("content_sections.common_use_cases.bot_commands.title")}
+                    </h3>
                     <p className="text-slate-400">
-                      Integrate with Discord bots for reminder systems, scheduled messages, and
-                      automated event announcements.
+                      {t("content_sections.common_use_cases.bot_commands.description")}
                     </p>
                   </div>
                 </div>
@@ -1166,10 +1201,11 @@ export default function DiscordTimeConverter() {
                     5
                   </span>
                   <div>
-                    <h3 className="font-semibold text-white">Educational Content</h3>
+                    <h3 className="font-semibold text-white">
+                      {t("content_sections.common_use_cases.educational_content.title")}
+                    </h3>
                     <p className="text-slate-400">
-                      Schedule online classes, study sessions, and educational events with accurate
-                      timing for students in different time zones.
+                      {t("content_sections.common_use_cases.educational_content.description")}
                     </p>
                   </div>
                 </div>
@@ -1178,10 +1214,11 @@ export default function DiscordTimeConverter() {
                     6
                   </span>
                   <div>
-                    <h3 className="font-semibold text-white">Business & Professional</h3>
+                    <h3 className="font-semibold text-white">
+                      {t("content_sections.common_use_cases.business_professional.title")}
+                    </h3>
                     <p className="text-slate-400">
-                      Coordinate professional meetings, deadlines, and project milestones across
-                      distributed teams using Discord for communication.
+                      {t("content_sections.common_use_cases.business_professional.description")}
                     </p>
                   </div>
                 </div>
@@ -1192,41 +1229,35 @@ export default function DiscordTimeConverter() {
           {/* Discord Tools Integration Section */}
           <section className="rounded-xl bg-gradient-to-r from-green-800 to-emerald-700 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              Discord Bot Development & Community Tools Integration
+              {t("content_sections.bot_development.title")}
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <h3 className="mb-4 text-lg font-semibold text-white">
-                  Discord Bot Timestamp Integration
+                  {t("content_sections.bot_development.bot_timestamp_integration_title")}
                 </h3>
                 <p className="mb-4 text-slate-200">
-                  Our Discord time converter is the perfect companion for Discord bot developers.
-                  Generate timestamps for bot commands, scheduled messages, reminder systems, and
-                  automated event announcements. The converter handles all Discord timestamp formats
-                  and Unix epoch conversions that Discord bots require.
+                  {t("content_sections.bot_development.bot_timestamp_integration_description")}
                 </p>
                 <ul className="space-y-2 text-slate-200">
-                  <li>• Bot command timestamp generation</li>
-                  <li>• Automated scheduling systems</li>
-                  <li>• Event reminder notifications</li>
-                  <li>• Cross-timezone coordination</li>
+                  <li>• {t("content_sections.bot_development.bot_features_1")}</li>
+                  <li>• {t("content_sections.bot_development.bot_features_2")}</li>
+                  <li>• {t("content_sections.bot_development.bot_features_3")}</li>
+                  <li>• {t("content_sections.bot_development.bot_features_4")}</li>
                 </ul>
               </div>
               <div>
                 <h3 className="mb-4 text-lg font-semibold text-white">
-                  Discord Community Management Tools
+                  {t("content_sections.bot_development.community_management_title")}
                 </h3>
                 <p className="mb-4 text-slate-200">
-                  Essential for Discord server administrators and community managers. Create
-                  synchronized events, coordinate global communities, and manage server activities
-                  across multiple time zones. Our tool integrates seamlessly with Discord's native
-                  timestamp system.
+                  {t("content_sections.bot_development.community_management_description")}
                 </p>
                 <ul className="space-y-2 text-slate-200">
-                  <li>• Server event coordination</li>
-                  <li>• Global community scheduling</li>
-                  <li>• Multi-timezone announcements</li>
-                  <li>• Discord webhook integration</li>
+                  <li>• {t("content_sections.bot_development.community_features_1")}</li>
+                  <li>• {t("content_sections.bot_development.community_features_2")}</li>
+                  <li>• {t("content_sections.bot_development.community_features_3")}</li>
+                  <li>• {t("content_sections.bot_development.community_features_4")}</li>
                 </ul>
               </div>
             </div>
@@ -1235,41 +1266,37 @@ export default function DiscordTimeConverter() {
           {/* Discord Tools Ecosystem & Related Solutions */}
           <section className="rounded-xl bg-gradient-to-r from-orange-800 to-red-700 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              Complete Discord Time Tools Ecosystem
+              {t("content_sections.tools_ecosystem.title")}
             </h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               <div className="rounded-lg bg-orange-900/30 p-6">
                 <h3 className="mb-3 text-lg font-semibold text-white">
-                  🆕 Discord Timestamp Generator
+                  {t("content_sections.tools_ecosystem.timestamp_generator_title")}
                 </h3>
                 <p className="mb-4 text-slate-200">
-                  Need to create new Discord timestamps for events? Use our timestamp generator to
-                  build dynamic countdowns, event reminders, and timezone-aware timestamps from
-                  scratch.
+                  {t("content_sections.tools_ecosystem.timestamp_generator_description")}
                 </p>
                 <a
                   href="/tools/discord-timestamp-generator"
                   className="inline-flex items-center text-orange-300 transition-colors hover:text-orange-200"
                 >
-                  Try Discord Timestamp Generator →
+                  {t("content_sections.tools_ecosystem.timestamp_generator_link")}
                 </a>
               </div>
               <div className="rounded-lg bg-orange-900/30 p-6">
                 <h3 className="mb-3 text-lg font-semibold text-white">
-                  🤖 Discord Bot Integration
+                  {t("content_sections.tools_ecosystem.bot_integration_title")}
                 </h3>
                 <p className="text-slate-200">
-                  Perfect for Discord bot development with timestamp conversion capabilities. Handle
-                  scheduling, reminders, and event management across global Discord communities with
-                  precise time handling.
+                  {t("content_sections.tools_ecosystem.bot_integration_description")}
                 </p>
               </div>
               <div className="rounded-lg bg-orange-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">⚡ Discord API Tools</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  {t("content_sections.tools_ecosystem.api_tools_title")}
+                </h3>
                 <p className="text-slate-200">
-                  Complete timestamp solution for Discord webhook integrations, custom Discord
-                  applications, and third-party tools that interact with Discord's timestamp and
-                  time conversion systems.
+                  {t("content_sections.tools_ecosystem.api_tools_description")}
                 </p>
               </div>
             </div>
@@ -1279,11 +1306,10 @@ export default function DiscordTimeConverter() {
           <div className="mt-32">
             <div className="mb-16 text-center">
               <h2 className="mb-4 text-3xl font-bold text-white">
-                Professional Discord Timezone Converter Features
+                {t("content_sections.features.title")}
               </h2>
               <p className="mx-auto max-w-2xl text-xl text-slate-400">
-                Everything you need for Discord timezone conversion, timestamp generation, and
-                global coordination
+                {t("content_sections.features.description")}
               </p>
             </div>
 
@@ -1293,12 +1319,10 @@ export default function DiscordTimeConverter() {
                   <ArrowLeftRight className="h-12 w-12 text-blue-400" />
                 </div>
                 <h3 className="mb-6 text-xl font-semibold text-white">
-                  Bidirectional Discord Timezone Conversion
+                  {t("content_sections.features.bidirectional_title")}
                 </h3>
                 <p className="text-lg leading-relaxed text-slate-400">
-                  Convert from regular time to Discord timestamps with timezone support and convert
-                  Discord timestamps back to readable time with full format support for all Discord
-                  timestamp types across global timezones.
+                  {t("content_sections.features.bidirectional_description")}
                 </p>
               </div>
 
@@ -1307,12 +1331,10 @@ export default function DiscordTimeConverter() {
                   <Globe className="h-12 w-12 text-green-400" />
                 </div>
                 <h3 className="mb-6 text-xl font-semibold text-white">
-                  Complete Global Timezone Support
+                  {t("content_sections.features.global_timezone_title")}
                 </h3>
                 <p className="text-lg leading-relaxed text-slate-400">
-                  Handle all global timezones with automatic Discord timezone conversion and offset
-                  calculations. Perfect for international Discord communities and worldwide event
-                  coordination across multiple timezones.
+                  {t("content_sections.features.global_timezone_description")}
                 </p>
               </div>
 
@@ -1321,12 +1343,10 @@ export default function DiscordTimeConverter() {
                   <Zap className="h-12 w-12 text-purple-400" />
                 </div>
                 <h3 className="mb-6 text-xl font-semibold text-white">
-                  Batch Discord Timezone Processing
+                  {t("content_sections.features.batch_processing_title")}
                 </h3>
                 <p className="text-lg leading-relaxed text-slate-400">
-                  Convert multiple timestamps simultaneously with timezone support for efficient
-                  bulk operations, Discord bot development, and large-scale event scheduling across
-                  multiple time zones.
+                  {t("content_sections.features.batch_processing_description")}
                 </p>
               </div>
             </div>
@@ -1335,126 +1355,74 @@ export default function DiscordTimeConverter() {
           {/* FAQ Section */}
           <section className="rounded-xl bg-slate-800 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              Frequently Asked Questions About Discord Timezone Converter
+              {t("content_sections.faq.title")}
             </h2>
             <div className="space-y-6">
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  How do I convert a Discord timestamp back to regular time?
+                  {t("content_sections.faq.q1")}
                 </h3>
-                <p className="text-slate-400">
-                  Use our Discord timestamp converter tool in "Discord Timestamp → Time" mode.
-                  Simply paste any Discord timestamp (like &lt;t:1640995200:f&gt;) and our tool will
-                  convert it back to readable date and time in your timezone, showing all format
-                  variations.
-                </p>
+                <p className="text-slate-400">{t("content_sections.faq.a1")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  What is Unix timestamp and how does it relate to Discord timestamps?
+                  {t("content_sections.faq.q2")}
                 </h3>
-                <p className="text-slate-400">
-                  Unix timestamp (also called epoch time) is the number of seconds since January 1,
-                  1970 UTC. Discord timestamps use Unix timestamps as their core value, which our
-                  converter automatically calculates from your selected date and time, handling all
-                  timezone conversions accurately.
-                </p>
+                <p className="text-slate-400">{t("content_sections.faq.a2")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  Can I use Discord timestamps in Discord bot development?
+                  {t("content_sections.faq.q3")}
                 </h3>
-                <p className="text-slate-400">
-                  Yes! Discord timestamps are perfect for bot development. Use our converter to
-                  generate timestamps for bot responses, scheduled messages, reminder systems, and
-                  event announcements. The timestamps work in embed fields, descriptions, and
-                  regular message content.
-                </p>
+                <p className="text-slate-400">{t("content_sections.faq.a3")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  Which Discord timestamp format is best for events?
+                  {t("content_sections.faq.q4")}
                 </h3>
-                <p className="text-slate-400">
-                  For events, we recommend using the long date/time format (:F) for initial
-                  announcements and relative format (:R) for reminders. This combination provides
-                  complete information upfront and dynamic countdowns as the event approaches.
-                </p>
+                <p className="text-slate-400">{t("content_sections.faq.a4")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  How accurate are Discord timestamp timezone conversions?
+                  {t("content_sections.faq.q5")}
                 </h3>
-                <p className="text-slate-400">
-                  Discord timestamps are extremely accurate, automatically handling daylight saving
-                  time changes, timezone differences, and regional variations. Our converter
-                  respects your selected timezone and generates timestamps that work perfectly
-                  across all global regions.
-                </p>
+                <p className="text-slate-400">{t("content_sections.faq.a5")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  Can I convert multiple timestamps at once?
+                  {t("content_sections.faq.q6")}
                 </h3>
-                <p className="text-slate-400">
-                  Yes! Our Discord timestamp converter includes a batch processing feature. You can
-                  convert multiple dates or timestamps simultaneously, making it perfect for
-                  scheduling multiple events or converting historical data efficiently.
-                </p>
+                <p className="text-slate-400">{t("content_sections.faq.a6")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  Do Discord timestamps work in all Discord channels?
+                  {t("content_sections.faq.q7")}
                 </h3>
-                <p className="text-slate-400">
-                  Discord timestamps work in all text channels, DMs, threads, forum posts, and embed
-                  content. They're supported across Discord's web, desktop, and mobile applications,
-                  ensuring consistent time display for all users regardless of their platform.
-                </p>
+                <p className="text-slate-400">{t("content_sections.faq.a7")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  Is this Discord timestamp converter free to use?
+                  {t("content_sections.faq.q8")}
                 </h3>
-                <p className="text-slate-400">
-                  Yes! Our Discord timestamp converter is completely free with no registration
-                  required. Generate unlimited timestamps, convert between formats, use batch
-                  processing, and access all timezone conversion features without any restrictions
-                  or hidden costs.
-                </p>
+                <p className="text-slate-400">{t("content_sections.faq.a8")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  How does this Discord time converter compare to Discord alternatives?
+                  {t("content_sections.faq.q9")}
                 </h3>
-                <p className="text-slate-400">
-                  Our Discord timestamp converter is specifically designed for Discord's native
-                  timestamp system, unlike generic time converters. It supports all Discord
-                  timestamp formats, integrates with Discord bot development, and provides
-                  Discord-specific features that generic timezone converters don't offer.
-                </p>
+                <p className="text-slate-400">{t("content_sections.faq.a9")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  Can I integrate this Discord timestamp generator with Discord bots?
+                  {t("content_sections.faq.q10")}
                 </h3>
-                <p className="text-slate-400">
-                  Absolutely! Our Discord timestamp generator is perfect for Discord bot
-                  development. Use it to generate timestamps for bot commands, scheduled messages,
-                  event reminders, and automated announcements. The generated timestamps work
-                  seamlessly with Discord's API and webhook systems.
-                </p>
+                <p className="text-slate-400">{t("content_sections.faq.a10")}</p>
               </div>
               <div>
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  What Discord community tools work best with timestamp conversion?
+                  {t("content_sections.faq.q11")}
                 </h3>
-                <p className="text-slate-400">
-                  Our Discord timestamp converter integrates excellently with Discord server
-                  management tools, community scheduling bots, event planning tools, and Discord
-                  webhook integrations. It's essential for Discord server administrators managing
-                  global communities and coordinating events across multiple time zones.
-                </p>
+                <p className="text-slate-400">{t("content_sections.faq.a11")}</p>
               </div>
             </div>
           </section>
