@@ -1,48 +1,39 @@
 import React from "react"
 import { Shield, Book, Code, AlertTriangle, Car, Wrench } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 const EducationalContent = () => {
+  const t = useTranslations("RandomVinGenerator.educational_content")
   return (
     <div className="mt-20 space-y-16">
       {/* VIN Structure Section */}
       <section className="rounded-xl bg-gradient-to-r from-emerald-800 to-teal-700 p-8">
-        <h2 className="mb-6 text-2xl font-bold text-white">
-          Vehicle Identification Number (VIN) Structure Guide
-        </h2>
+        <h2 className="mb-6 text-2xl font-bold text-white">{t("vin_structure_title")}</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <div>
-            <p className="mb-4 text-slate-200">
-              A Vehicle Identification Number (VIN) is a unique 17-character code assigned to every
-              motor vehicle when manufactured. It follows the ISO 3779 standard and provides
-              detailed information about the vehicle's specifications, manufacturer, and production
-              details.
-            </p>
-            <p className="text-slate-200">
-              Our VIN generator creates compliant numbers with valid check digits, making them ideal
-              for automotive software testing and development while ensuring they don't correspond
-              to real vehicles.
-            </p>
+            <p className="mb-4 text-slate-200">{t("vin_structure_desc")}</p>
+            <p className="text-slate-200">{t("vin_structure_desc2")}</p>
           </div>
           <div className="rounded-lg bg-emerald-900/30 p-6">
-            <h3 className="mb-3 text-lg font-semibold text-white">VIN Character Positions</h3>
+            <h3 className="mb-3 text-lg font-semibold text-white">{t("character_positions")}</h3>
             <ul className="space-y-2 text-slate-200">
               <li>
-                • <strong>Positions 1-3:</strong> World Manufacturer Identifier (WMI)
+                • <strong>{t("positions_1_3")}</strong> {t("positions_1_3_desc")}
               </li>
               <li>
-                • <strong>Positions 4-8:</strong> Vehicle Descriptor Section (VDS)
+                • <strong>{t("positions_4_8")}</strong> {t("positions_4_8_desc")}
               </li>
               <li>
-                • <strong>Position 9:</strong> Check Digit (validation)
+                • <strong>{t("position_9")}</strong> {t("position_9_desc")}
               </li>
               <li>
-                • <strong>Position 10:</strong> Model Year
+                • <strong>{t("position_10")}</strong> {t("position_10_desc")}
               </li>
               <li>
-                • <strong>Position 11:</strong> Plant Code
+                • <strong>{t("position_11")}</strong> {t("position_11_desc")}
               </li>
               <li>
-                • <strong>Positions 12-17:</strong> Sequential Number
+                • <strong>{t("positions_12_17")}</strong> {t("positions_12_17_desc")}
               </li>
             </ul>
           </div>
@@ -51,110 +42,84 @@ const EducationalContent = () => {
 
       {/* VIN Validation */}
       <section className="rounded-xl bg-gradient-to-r from-orange-800 to-red-700 p-8">
-        <h2 className="mb-6 text-2xl font-bold text-white">
-          VIN Validation and Check Digit Calculation
-        </h2>
+        <h2 className="mb-6 text-2xl font-bold text-white">{t("validation_title")}</h2>
         <div className="grid gap-6 md:grid-cols-3">
           <div className="rounded-lg bg-orange-900/30 p-6">
             <div className="mb-3 flex items-center gap-2">
               <Code className="h-5 w-5 text-orange-300" />
-              <h3 className="text-lg font-semibold text-white">Check Digit Algorithm</h3>
+              <h3 className="text-lg font-semibold text-white">{t("check_digit_algorithm")}</h3>
             </div>
-            <p className="text-slate-200">
-              Position 9 contains a check digit calculated using a specific algorithm that validates
-              the authenticity of the entire VIN. Our generator implements the official ISO 3779
-              calculation method.
-            </p>
+            <p className="text-slate-200">{t("check_digit_algorithm_desc")}</p>
           </div>
           <div className="rounded-lg bg-orange-900/30 p-6">
             <div className="mb-3 flex items-center gap-2">
               <Car className="h-5 w-5 text-orange-300" />
-              <h3 className="text-lg font-semibold text-white">Manufacturer Codes</h3>
+              <h3 className="text-lg font-semibold text-white">{t("manufacturer_codes")}</h3>
             </div>
-            <p className="text-slate-200">
-              The first three characters identify the manufacturer and country of origin, following
-              specific allocation rules managed by the Society of Automotive Engineers (SAE).
-            </p>
+            <p className="text-slate-200">{t("manufacturer_codes_desc")}</p>
           </div>
           <div className="rounded-lg bg-orange-900/30 p-6">
             <div className="mb-3 flex items-center gap-2">
               <Wrench className="h-5 w-5 text-orange-300" />
-              <h3 className="text-lg font-semibold text-white">Year Encoding</h3>
+              <h3 className="text-lg font-semibold text-white">{t("year_encoding")}</h3>
             </div>
-            <p className="text-slate-200">
-              Position 10 encodes the model year using a specific character mapping that cycles
-              every 30 years, excluding certain letters to avoid confusion.
-            </p>
+            <p className="text-slate-200">{t("year_encoding_desc")}</p>
           </div>
         </div>
       </section>
 
       {/* Testing Best Practices */}
       <section className="rounded-xl bg-gradient-to-r from-purple-800 to-pink-700 p-8">
-        <h2 className="mb-6 text-2xl font-bold text-white">
-          VIN Testing Best Practices for Developers
-        </h2>
+        <h2 className="mb-6 text-2xl font-bold text-white">{t("testing_best_practices")}</h2>
         <div className="grid gap-6 md:grid-cols-3">
           <div className="rounded-lg bg-purple-900/30 p-6">
             <div className="mb-3 flex items-center gap-2">
               <Shield className="h-5 w-5 text-purple-300" />
-              <h3 className="text-lg font-semibold text-white">Security First</h3>
+              <h3 className="text-lg font-semibold text-white">{t("security_first")}</h3>
             </div>
-            <p className="text-slate-200">
-              Never use real VINs in testing environments. Always use clearly fake numbers that
-              follow format rules but don't correspond to actual vehicles. Our generator ensures
-              compliance with this principle.
-            </p>
+            <p className="text-slate-200">{t("security_first_desc")}</p>
           </div>
           <div className="rounded-lg bg-purple-900/30 p-6">
             <div className="mb-3 flex items-center gap-2">
               <Code className="h-5 w-5 text-purple-300" />
-              <h3 className="text-lg font-semibold text-white">Testing Scenarios</h3>
+              <h3 className="text-lg font-semibold text-white">{t("testing_scenarios")}</h3>
             </div>
-            <p className="text-slate-200">
-              Test edge cases including invalid characters, incorrect lengths, invalid check digits,
-              and boundary conditions. Validate both format compliance and business logic to ensure
-              robust validation.
-            </p>
+            <p className="text-slate-200">{t("testing_scenarios_desc")}</p>
           </div>
           <div className="rounded-lg bg-purple-900/30 p-6">
             <div className="mb-3 flex items-center gap-2">
               <Book className="h-5 w-5 text-purple-300" />
-              <h3 className="text-lg font-semibold text-white">Documentation</h3>
+              <h3 className="text-lg font-semibold text-white">{t("documentation")}</h3>
             </div>
-            <p className="text-slate-200">
-              Clearly document test data sources and ensure team members understand the difference
-              between test and production data. Maintain audit trails for automotive compliance
-              purposes.
-            </p>
+            <p className="text-slate-200">{t("documentation_desc")}</p>
           </div>
         </div>
       </section>
 
       {/* VIN Character Rules */}
       <section className="rounded-xl bg-gradient-to-r from-blue-800 to-indigo-700 p-8">
-        <h2 className="mb-6 text-2xl font-bold text-white">VIN Character Rules and Restrictions</h2>
+        <h2 className="mb-6 text-2xl font-bold text-white">{t("character_rules_title")}</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-white">Valid VIN Characteristics</h3>
+            <h3 className="mb-4 text-lg font-semibold text-white">{t("valid_characteristics")}</h3>
             <ul className="space-y-2 text-slate-200">
-              <li>✅ Exactly 17 characters long</li>
-              <li>✅ Uses letters A-Z and numbers 0-9</li>
-              <li>✅ Excludes letters I, O, Q to avoid confusion</li>
-              <li>✅ Check digit matches calculated value</li>
-              <li>✅ Valid manufacturer identifier (WMI)</li>
-              <li>✅ Proper year code encoding</li>
+              <li>✅ {t("valid_17_chars")}</li>
+              <li>✅ {t("valid_chars")}</li>
+              <li>✅ {t("valid_excludes")}</li>
+              <li>✅ {t("valid_check_digit")}</li>
+              <li>✅ {t("valid_wmi")}</li>
+              <li>✅ {t("valid_year_code")}</li>
             </ul>
           </div>
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-white">Invalid VIN Patterns</h3>
+            <h3 className="mb-4 text-lg font-semibold text-white">{t("invalid_patterns")}</h3>
             <ul className="space-y-2 text-slate-200">
-              <li>❌ Contains letters I, O, or Q</li>
-              <li>❌ Length not exactly 17 characters</li>
-              <li>❌ Invalid check digit calculation</li>
-              <li>❌ Unrecognized manufacturer code</li>
-              <li>❌ Contains special characters or spaces</li>
-              <li>❌ Uses lowercase letters</li>
+              <li>❌ {t("invalid_ioq")}</li>
+              <li>❌ {t("invalid_length")}</li>
+              <li>❌ {t("invalid_check_digit")}</li>
+              <li>❌ {t("invalid_manufacturer")}</li>
+              <li>❌ {t("invalid_special_chars")}</li>
+              <li>❌ {t("invalid_lowercase")}</li>
             </ul>
           </div>
         </div>
@@ -162,79 +127,51 @@ const EducationalContent = () => {
 
       {/* Use Cases */}
       <section className="rounded-xl bg-gradient-to-r from-slate-800 to-slate-700 p-8">
-        <h2 className="mb-6 text-2xl font-bold text-white">
-          Common Use Cases for Random VIN Generation
-        </h2>
+        <h2 className="mb-6 text-2xl font-bold text-white">{t("use_cases_title")}</h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           <div className="rounded-lg bg-slate-800 p-4">
-            <h3 className="mb-2 font-semibold text-white">🚗 Automotive Testing</h3>
-            <p className="text-sm text-slate-200">
-              Generate test data for automotive software, vehicle databases, and registration
-              systems.
-            </p>
+            <h3 className="mb-2 font-semibold text-white">🚗 {t("automotive_testing")}</h3>
+            <p className="text-sm text-slate-200">{t("automotive_testing_desc")}</p>
           </div>
           <div className="rounded-lg bg-slate-800 p-4">
-            <h3 className="mb-2 font-semibold text-white">🏫 Education</h3>
-            <p className="text-sm text-slate-200">
-              Teaching VIN validation, automotive data structures, and compliance concepts in
-              engineering courses.
-            </p>
+            <h3 className="mb-2 font-semibold text-white">🏫 {t("education")}</h3>
+            <p className="text-sm text-slate-200">{t("education_desc")}</p>
           </div>
           <div className="rounded-lg bg-slate-800 p-4">
-            <h3 className="mb-2 font-semibold text-white">🔧 Development</h3>
-            <p className="text-sm text-slate-200">
-              Populating development databases with realistic vehicle test data for application
-              development.
-            </p>
+            <h3 className="mb-2 font-semibold text-white">🔧 {t("development")}</h3>
+            <p className="text-sm text-slate-200">{t("development_desc")}</p>
           </div>
           <div className="rounded-lg bg-slate-800 p-4">
-            <h3 className="mb-2 font-semibold text-white">📊 Analytics</h3>
-            <p className="text-sm text-slate-200">
-              Creating anonymized vehicle datasets for automotive analytics and reporting system
-              development.
-            </p>
+            <h3 className="mb-2 font-semibold text-white">📊 {t("analytics")}</h3>
+            <p className="text-sm text-slate-200">{t("analytics_desc")}</p>
           </div>
         </div>
       </section>
 
       {/* Automotive Compliance */}
       <section className="rounded-xl bg-gradient-to-r from-green-800 to-emerald-700 p-8">
-        <h2 className="mb-6 text-2xl font-bold text-white">
-          Automotive Industry Compliance and Standards
-        </h2>
+        <h2 className="mb-6 text-2xl font-bold text-white">{t("compliance_title")}</h2>
         <div className="grid gap-6 md:grid-cols-3">
           <div className="rounded-lg bg-green-900/30 p-6">
             <div className="mb-3 flex items-center gap-2">
               <AlertTriangle className="h-5 w-5 text-yellow-400" />
-              <h3 className="text-lg font-semibold text-white">ISO 3779 Standard</h3>
+              <h3 className="text-lg font-semibold text-white">{t("iso_standard")}</h3>
             </div>
-            <p className="text-slate-300">
-              Our VIN generator follows the ISO 3779 international standard for vehicle
-              identification numbers, ensuring compliance with global automotive regulations and
-              format requirements.
-            </p>
+            <p className="text-slate-300">{t("iso_standard_desc")}</p>
           </div>
           <div className="rounded-lg bg-green-900/30 p-6">
             <div className="mb-3 flex items-center gap-2">
               <Shield className="h-5 w-5 text-green-400" />
-              <h3 className="text-lg font-semibold text-white">Data Protection</h3>
+              <h3 className="text-lg font-semibold text-white">{t("data_protection")}</h3>
             </div>
-            <p className="text-slate-300">
-              Even fake VINs should be handled with care in development environments. Implement
-              proper data protection measures and avoid exposing test data in logs or public
-              repositories.
-            </p>
+            <p className="text-slate-300">{t("data_protection_desc")}</p>
           </div>
           <div className="rounded-lg bg-green-900/30 p-6">
             <div className="mb-3 flex items-center gap-2">
               <Book className="h-5 w-5 text-blue-400" />
-              <h3 className="text-lg font-semibold text-white">Ethical Usage</h3>
+              <h3 className="text-lg font-semibold text-white">{t("ethical_usage")}</h3>
             </div>
-            <p className="text-slate-300">
-              Use generated VINs responsibly and transparently. Clearly mark test data as fake,
-              educate team members about proper usage, and maintain ethical standards in automotive
-              data handling.
-            </p>
+            <p className="text-slate-300">{t("ethical_usage_desc")}</p>
           </div>
         </div>
       </section>

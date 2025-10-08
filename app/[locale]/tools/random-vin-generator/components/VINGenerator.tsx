@@ -2,10 +2,12 @@
 
 import React, { useState, useCallback } from "react"
 import { Shuffle, Copy, Download, Check, RotateCcw, Eye, EyeOff, Info, Car } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { VINGenerator, VINExporter } from "../utils/vinGenerator"
 import { VINGeneratorState } from "../types"
 
 const VINGeneratorComponent = () => {
+  const t = useTranslations("RandomVinGenerator.vin_generator")
   const [state, setState] = useState<VINGeneratorState>({
     generatedVIN: "",
     isGenerating: false,
@@ -120,28 +122,31 @@ const VINGeneratorComponent = () => {
   }, [])
 
   // Get VIN structure breakdown
-  const getVINStructure = useCallback((vin: string) => {
-    if (!vin) return null
-    const validation = VINGenerator.validate(vin)
-    const manufacturer = VINGenerator.getManufacturerInfo(validation.structure.wmi)
-    return {
-      ...validation.structure,
-      manufacturer: manufacturer?.name || "Unknown",
-    }
-  }, [])
+  const getVINStructure = useCallback(
+    (vin: string) => {
+      if (!vin) return null
+      const validation = VINGenerator.validate(vin)
+      const manufacturer = VINGenerator.getManufacturerInfo(validation.structure.wmi)
+      return {
+        ...validation.structure,
+        manufacturer: manufacturer?.name || t("unknown"),
+      }
+    },
+    [t]
+  )
 
   return (
     <div className="space-y-6">
       {/* Single VIN Generator */}
       <div className="rounded-xl bg-slate-800 p-6 shadow-xl ring-1 ring-slate-700">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="text-lg font-semibold text-white">Single VIN Generator</h3>
+          <h3 className="text-lg font-semibold text-white">{t("single_generator_title")}</h3>
           <button
             onClick={() => setState((prev) => ({ ...prev, showStructure: !prev.showStructure }))}
             className="flex items-center gap-2 rounded-lg bg-slate-700 px-3 py-1 text-sm text-slate-300 hover:bg-slate-600"
           >
             {state.showStructure ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-            {state.showStructure ? "Hide" : "Show"} Structure
+            {state.showStructure ? t("hide_structure") : t("show_structure")}
           </button>
         </div>
 
@@ -149,7 +154,7 @@ const VINGeneratorComponent = () => {
         <div className="mb-6 grid gap-4 md:grid-cols-2">
           <div>
             <label className="mb-2 block text-sm font-medium text-slate-300">
-              Manufacturer (Optional)
+              {t("manufacturer_label")}
             </label>
             <select
               value={state.selectedManufacturer}
@@ -158,7 +163,7 @@ const VINGeneratorComponent = () => {
               }
               className="w-full rounded-lg border border-slate-600 bg-slate-700 px-3 py-2 text-white focus:border-emerald-500 focus:ring-emerald-500"
             >
-              <option value="">Random Manufacturer</option>
+              <option value="">{t("manufacturer_random")}</option>
               {manufacturers.map((mfg) => (
                 <option key={mfg.code} value={mfg.code}>
                   {mfg.name} ({mfg.code}) - {mfg.country}
@@ -169,14 +174,14 @@ const VINGeneratorComponent = () => {
 
           <div>
             <label className="mb-2 block text-sm font-medium text-slate-300">
-              Model Year (Optional)
+              {t("model_year_label")}
             </label>
             <select
               value={state.modelYear}
               onChange={(e) => setState((prev) => ({ ...prev, modelYear: e.target.value }))}
               className="w-full rounded-lg border border-slate-600 bg-slate-700 px-3 py-2 text-white focus:border-emerald-500 focus:ring-emerald-500"
             >
-              <option value="">Random Year</option>
+              <option value="">{t("model_year_random")}</option>
               {Array.from({ length: 21 }, (_, i) => 2010 + i).map((year) => (
                 <option key={year} value={year.toString()}>
                   {year}
@@ -199,27 +204,33 @@ const VINGeneratorComponent = () => {
                     <div className="text-sm text-slate-400">
                       <div className="grid grid-cols-2 gap-2 md:grid-cols-3">
                         <span>
-                          WMI: <strong>{getVINStructure(state.generatedVIN)?.wmi}</strong>
+                          {t("structure.wmi")}:{" "}
+                          <strong>{getVINStructure(state.generatedVIN)?.wmi}</strong>
                         </span>
                         <span>
-                          VDS: <strong>{getVINStructure(state.generatedVIN)?.vds}</strong>
+                          {t("structure.vds")}:{" "}
+                          <strong>{getVINStructure(state.generatedVIN)?.vds}</strong>
                         </span>
                         <span>
-                          Check: <strong>{getVINStructure(state.generatedVIN)?.checkDigit}</strong>
+                          {t("structure.check")}:{" "}
+                          <strong>{getVINStructure(state.generatedVIN)?.checkDigit}</strong>
                         </span>
                         <span>
-                          Year: <strong>{getVINStructure(state.generatedVIN)?.modelYear}</strong>
+                          {t("structure.year")}:{" "}
+                          <strong>{getVINStructure(state.generatedVIN)?.modelYear}</strong>
                         </span>
                         <span>
-                          Plant: <strong>{getVINStructure(state.generatedVIN)?.plantCode}</strong>
+                          {t("structure.plant")}:{" "}
+                          <strong>{getVINStructure(state.generatedVIN)?.plantCode}</strong>
                         </span>
                         <span>
-                          Serial:{" "}
+                          {t("structure.serial")}:{" "}
                           <strong>{getVINStructure(state.generatedVIN)?.sequentialNumber}</strong>
                         </span>
                       </div>
                       <div className="mt-2 text-xs text-emerald-400">
-                        Manufacturer: {getVINStructure(state.generatedVIN)?.manufacturer}
+                        {t("structure.manufacturer")}:{" "}
+                        {getVINStructure(state.generatedVIN)?.manufacturer}
                       </div>
                     </div>
                   )}
@@ -229,8 +240,8 @@ const VINGeneratorComponent = () => {
                   <div className="mb-2 flex justify-center">
                     <Car className="h-8 w-8 text-slate-600" />
                   </div>
-                  <div className="mb-2 text-lg">Click "Generate VIN" to create a random VIN</div>
-                  <div className="text-sm">Format: 17 characters, ISO 3779 compliant</div>
+                  <div className="mb-2 text-lg">{t("generate_instruction")}</div>
+                  <div className="text-sm">{t("format_info")}</div>
                 </div>
               )}
             </div>
@@ -245,7 +256,7 @@ const VINGeneratorComponent = () => {
             className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-4 py-3 font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:opacity-50"
           >
             <Shuffle className={`h-4 w-4 ${state.isGenerating ? "animate-spin" : ""}`} />
-            {state.isGenerating ? "Generating..." : "Generate VIN"}
+            {state.isGenerating ? t("generating") : t("generate_vin")}
           </button>
 
           {state.generatedVIN && (
@@ -258,7 +269,7 @@ const VINGeneratorComponent = () => {
               ) : (
                 <Copy className="h-4 w-4" />
               )}
-              {copiedVIN === state.generatedVIN ? "Copied!" : "Copy"}
+              {copiedVIN === state.generatedVIN ? t("copied") : t("copy")}
             </button>
           )}
         </div>
@@ -266,12 +277,14 @@ const VINGeneratorComponent = () => {
 
       {/* Batch Generator */}
       <div className="rounded-xl bg-slate-800 p-6 shadow-xl ring-1 ring-slate-700">
-        <h3 className="mb-4 text-lg font-semibold text-white">Batch VIN Generator</h3>
+        <h3 className="mb-4 text-lg font-semibold text-white">{t("batch_generator_title")}</h3>
 
         {/* Batch Settings */}
         <div className="mb-6 grid gap-4 md:grid-cols-3">
           <div>
-            <label className="mb-2 block text-sm font-medium text-slate-300">Number of VINs</label>
+            <label className="mb-2 block text-sm font-medium text-slate-300">
+              {t("number_of_vins")}
+            </label>
             <input
               type="number"
               min="1"
@@ -285,7 +298,9 @@ const VINGeneratorComponent = () => {
           </div>
 
           <div>
-            <label className="mb-2 block text-sm font-medium text-slate-300">Export Format</label>
+            <label className="mb-2 block text-sm font-medium text-slate-300">
+              {t("export_format")}
+            </label>
             <select
               value={state.exportFormat}
               onChange={(e) =>
@@ -293,9 +308,9 @@ const VINGeneratorComponent = () => {
               }
               className="w-full rounded-lg border border-slate-600 bg-slate-700 px-3 py-2 text-white focus:border-emerald-500 focus:ring-emerald-500"
             >
-              <option value="txt">Plain Text (.txt)</option>
-              <option value="csv">CSV (.csv)</option>
-              <option value="json">JSON (.json)</option>
+              <option value="txt">{t("export_txt")}</option>
+              <option value="csv">{t("export_csv")}</option>
+              <option value="json">{t("export_json")}</option>
             </select>
           </div>
 
@@ -309,7 +324,7 @@ const VINGeneratorComponent = () => {
                 }
                 className="rounded border-slate-600 text-emerald-600 focus:ring-emerald-500"
               />
-              <span className="text-sm text-slate-300">Include metadata</span>
+              <span className="text-sm text-slate-300">{t("include_metadata")}</span>
             </label>
           </div>
         </div>
@@ -322,7 +337,9 @@ const VINGeneratorComponent = () => {
             className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 px-4 py-3 font-medium text-white shadow-lg transition-all hover:from-blue-700 hover:to-cyan-700 disabled:opacity-50"
           >
             <Shuffle className={`h-4 w-4 ${state.isGenerating ? "animate-spin" : ""}`} />
-            {state.isGenerating ? "Generating..." : `Generate ${state.batchCount} VINs`}
+            {state.isGenerating
+              ? t("generating")
+              : t("generate_batch", { count: state.batchCount })}
           </button>
 
           {state.generatedBatch.length > 0 && (
@@ -332,7 +349,7 @@ const VINGeneratorComponent = () => {
                 className="flex items-center gap-2 rounded-xl border border-slate-600 bg-slate-700 px-4 py-3 text-slate-300 hover:bg-slate-600"
               >
                 <Download className="h-4 w-4" />
-                Export
+                {t("export")}
               </button>
 
               <button
@@ -340,7 +357,7 @@ const VINGeneratorComponent = () => {
                 className="flex items-center gap-2 rounded-xl border border-slate-600 bg-slate-700 px-4 py-3 text-slate-300 hover:bg-slate-600"
               >
                 {showBatch ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                {showBatch ? "Hide" : "Show"}
+                {showBatch ? t("hide") : t("show")}
               </button>
             </>
           )}
@@ -351,11 +368,11 @@ const VINGeneratorComponent = () => {
           <div className="mt-6">
             <div className="mb-3 flex items-center justify-between">
               <h4 className="text-sm font-medium text-slate-300">
-                Generated VINs ({state.generatedBatch.length})
+                {t("generated_vins", { count: state.generatedBatch.length })}
               </h4>
               <div className="flex items-center gap-2 text-xs text-slate-500">
                 <Info className="h-3 w-3" />
-                Click any VIN to copy
+                {t("click_to_copy")}
               </div>
             </div>
             <div className="max-h-64 overflow-y-auto rounded-lg bg-slate-900 p-4">
@@ -386,7 +403,7 @@ const VINGeneratorComponent = () => {
             className="flex items-center gap-2 rounded-xl border border-slate-600 bg-slate-700 px-6 py-3 text-slate-300 hover:bg-slate-600"
           >
             <RotateCcw className="h-4 w-4" />
-            Reset All
+            {t("reset_all")}
           </button>
         </div>
       )}
