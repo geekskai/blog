@@ -1,4 +1,4 @@
-import { Home, ChevronRight, Shield, Download, Users, AlertTriangle, Car } from "lucide-react";
+import { Home, ChevronRight, Shield, Download, Users, AlertTriangle, Car } from "lucide-react"
 import { useTranslations } from "next-intl"
 import ShareButtons from "@/components/ShareButtons"
 import VINGeneratorComponent from "./components/VINGenerator"

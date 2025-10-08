@@ -12,13 +12,13 @@ import {
   RotateCcw,
   Home,
   ChevronRight,
-  AlertTriangle,
   Zap,
   Shield,
   Users,
   Copy,
 } from "lucide-react"
 import ShareButtons from "@/components/ShareButtons"
+import { useTranslations } from "next-intl"
 
 // Define tip screen themes
 type TipTheme = "ipad-pos" | "uber-eats" | "dark-pattern"
@@ -51,9 +51,13 @@ interface TipScreenProps {
   handleCustomTipSelect?: () => void
   handleCustomTipChange?: (value: string) => void
   handleContinue?: () => void
+  t: any // Translation function
 }
 
 const TipScreenGenerator = () => {
+  const t = useTranslations("TipScreenGenerator")
+  const tCommon = useTranslations("HomePage")
+
   const [billAmount, setBillAmount] = useState(25.75)
   const [billAmountInput, setBillAmountInput] = useState("25.75")
   const [selectedTip, setSelectedTip] = useState<number | null>(20)
@@ -76,10 +80,10 @@ const TipScreenGenerator = () => {
 
   // Calculate tip options based on bill amount
   const tipOptions: TipOption[] = [
-    { percentage: 15, amount: billAmount * 0.15, label: "Good" },
-    { percentage: 20, amount: billAmount * 0.2, label: "Great" },
-    { percentage: 25, amount: billAmount * 0.25, label: "Excellent" },
-    { percentage: 30, amount: billAmount * 0.3, label: "Outstanding" },
+    { percentage: 15, amount: billAmount * 0.15, label: t("tip_options.good") },
+    { percentage: 20, amount: billAmount * 0.2, label: t("tip_options.great") },
+    { percentage: 25, amount: billAmount * 0.25, label: t("tip_options.excellent") },
+    { percentage: 30, amount: billAmount * 0.3, label: t("tip_options.outstanding") },
   ]
 
   // Auto-select highest tip if dark pattern is enabled
@@ -101,14 +105,14 @@ const TipScreenGenerator = () => {
   // Screenshot functionality
   const takeScreenshot = async () => {
     if (!tipScreenRef.current) {
-      alert("Please wait for the screen to load completely before taking a screenshot.")
+      alert(t("alerts.screenshot_wait"))
       return
     }
 
     // Check if the tip screen is properly rendered
     const hasContent = tipScreenRef.current.children.length > 0
     if (!hasContent) {
-      alert("Please wait for the tip screen to render before taking a screenshot.")
+      alert(t("alerts.render_wait"))
       return
     }
 
@@ -133,9 +137,7 @@ const TipScreenGenerator = () => {
       link.click()
     } catch (error) {
       console.error("Screenshot failed:", error)
-      alert(
-        "Screenshot failed. This might be due to browser security restrictions. Please try again or use a different browser."
-      )
+      alert(t("alerts.screenshot_failed"))
     }
   }
 
@@ -155,15 +157,15 @@ const TipScreenGenerator = () => {
         if (blob) {
           try {
             await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })])
-            alert("Screenshot copied to clipboard!")
+            alert(t("alerts.screenshot_copied"))
           } catch (err) {
             console.error("Copy failed:", err)
-            alert("Copy failed. Please try the download option instead.")
+            alert(t("alerts.copy_failed"))
           }
         }
       })
     } catch (error) {
-      console.error("Copy to clipboard failed:", error)
+      console.error(t("alerts.copy_failed_general"), error)
     }
   }
 
@@ -201,11 +203,18 @@ const TipScreenGenerator = () => {
   const handleContinue = () => {
     const tipAmount = getCurrentTipAmount()
     const total = calculateTotal()
+    const tipPercentage = selectedTip ? `${selectedTip}%` : "Custom"
+
+    const copyText = t("copy_text.tip_calculation", {
+      tipAmount: tipAmount.toFixed(2),
+      tipPercentage,
+      total: total.toFixed(2),
+    })
 
     alert(
       `🎭 This is a FAKE tip screen!\n\n` +
         `Bill: $${billAmount.toFixed(2)}\n` +
-        `Tip: $${tipAmount.toFixed(2)} (${selectedTip ? `${selectedTip}%` : "Custom"})\n` +
+        `Tip: $${tipAmount.toFixed(2)} (${tipPercentage})\n` +
         `Total: $${total.toFixed(2)}\n\n` +
         `This tool is for educational and satirical purposes only!`
     )
@@ -255,6 +264,7 @@ const TipScreenGenerator = () => {
       handleCustomTipSelect,
       handleCustomTipChange,
       handleContinue,
+      t,
     }
 
     switch (theme) {
@@ -277,17 +287,17 @@ const TipScreenGenerator = () => {
           <li>
             <a href="/" className="flex items-center hover:text-slate-200">
               <Home className="h-4 w-4" />
-              <span className="ml-1">Home</span>
+              <span className="ml-1">{t("breadcrumb.home")}</span>
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
           <li>
             <a href="/tools" className="hover:text-slate-200">
-              Tools
+              {t("breadcrumb.tools")}
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
-          <li className="font-medium text-slate-100">Tip Screen Generator</li>
+          <li className="font-medium text-slate-100">{t("breadcrumb.tip_screen_generator")}</li>
         </ol>
       </nav>
 
@@ -296,18 +306,14 @@ const TipScreenGenerator = () => {
         <div className="mb-10 text-center">
           <div className="mb-6 inline-flex items-center rounded-full bg-gradient-to-r from-orange-500 to-red-600 px-4 py-2 text-sm font-medium text-white shadow-lg">
             <DollarSign className="mr-2 h-4 w-4" />
-            Free Tip Screen Tool
+            {t("header.professional_badge")}
           </div>
 
           <h1 className="mb-4 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-4xl font-bold text-transparent">
-            Tip Screen Guide & Generator
+            {t("header.main_title")}
           </h1>
 
-          <p className="mx-auto max-w-2xl text-lg text-slate-300">
-            Understanding tip screens: Learn how digital tip screens work, their psychological
-            impact, and create realistic tip screen examples for iPhone, iPad, and Android devices.
-            Free tip screen generator for educational and satirical purposes.
-          </p>
+          <p className="mx-auto max-w-2xl text-lg text-slate-300">{t("header.description")}</p>
 
           {/* Share Button */}
           <div className="mt-6 flex justify-center">
@@ -327,7 +333,7 @@ const TipScreenGenerator = () => {
             <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
               <div className="border-b border-slate-700 px-6 py-4">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-white">Tip Screen Settings</h2>
+                  <h2 className="text-lg font-semibold text-white">{t("settings.title")}</h2>
                   <button
                     onClick={() => setShowSettings(!showSettings)}
                     className="rounded-lg p-2 text-slate-500 hover:bg-slate-700"
@@ -345,7 +351,7 @@ const TipScreenGenerator = () => {
                       htmlFor="bill-amount"
                       className="mb-2 block text-sm font-medium text-slate-300"
                     >
-                      Bill Amount
+                      {t("settings.bill_amount_label")}
                     </label>
                     <div className="relative">
                       <DollarSign className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
@@ -365,13 +371,21 @@ const TipScreenGenerator = () => {
                   {/* Theme Selection */}
                   <div>
                     <div className="mb-3 block text-sm font-medium text-slate-300">
-                      Interface Theme
+                      {t("settings.theme_label")}
                     </div>
                     <div className="space-y-2">
                       {[
-                        { value: "ipad-pos", label: "iPad POS", icon: Tablet },
-                        { value: "uber-eats", label: "Food Delivery", icon: Smartphone },
-                        { value: "dark-pattern", label: "Dark Pattern", icon: Monitor },
+                        { value: "ipad-pos", label: t("settings.themes.ipad_pos"), icon: Tablet },
+                        {
+                          value: "uber-eats",
+                          label: t("settings.themes.food_delivery"),
+                          icon: Smartphone,
+                        },
+                        {
+                          value: "dark-pattern",
+                          label: t("settings.themes.dark_pattern"),
+                          icon: Monitor,
+                        },
                       ].map(({ value, label, icon: Icon }) => (
                         <button
                           key={value}
@@ -392,16 +406,40 @@ const TipScreenGenerator = () => {
                   {/* Dark Pattern Toggles */}
                   <div>
                     <div className="mb-3 block text-sm font-medium text-slate-300">
-                      Dark Pattern Elements
+                      {t("settings.dark_patterns_label")}
                     </div>
                     <div className="space-y-3">
                       {[
-                        { key: "defaultHighest", label: "Auto-select highest tip", icon: "🎯" },
-                        { key: "hideSkip", label: "Hide 'No Tip' option", icon: "🙈" },
-                        { key: "guiltyText", label: "Guilt-inducing messages", icon: "😢" },
-                        { key: "smallSkip", label: "Tiny skip button", icon: "🔍" },
-                        { key: "watchingEyes", label: "Employee watching", icon: "👀" },
-                        { key: "tipFirst", label: "Show tip amount first", icon: "💰" },
+                        {
+                          key: "defaultHighest",
+                          label: t("settings.dark_pattern_options.auto_select_highest"),
+                          icon: "🎯",
+                        },
+                        {
+                          key: "hideSkip",
+                          label: t("settings.dark_pattern_options.hide_no_tip"),
+                          icon: "🙈",
+                        },
+                        {
+                          key: "guiltyText",
+                          label: t("settings.dark_pattern_options.guilt_messages"),
+                          icon: "😢",
+                        },
+                        {
+                          key: "smallSkip",
+                          label: t("settings.dark_pattern_options.tiny_skip"),
+                          icon: "🔍",
+                        },
+                        {
+                          key: "watchingEyes",
+                          label: t("settings.dark_pattern_options.employee_watching"),
+                          icon: "👀",
+                        },
+                        {
+                          key: "tipFirst",
+                          label: t("settings.dark_pattern_options.tip_amount_first"),
+                          icon: "💰",
+                        },
                       ].map(({ key, label, icon }) => (
                         <label key={key} className="flex items-center space-x-3">
                           <input
@@ -459,7 +497,7 @@ const TipScreenGenerator = () => {
             <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
               <div className="border-b border-slate-700 px-6 py-4">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-white">Live Tip Screen Preview</h2>
+                  <h2 className="text-lg font-semibold text-white">{t("preview.title")}</h2>
                   <div className="flex items-center space-x-2">
                     <Eye className="h-5 w-5 text-slate-400" />
                     <span className="text-sm capitalize text-slate-500">
@@ -489,33 +527,30 @@ const TipScreenGenerator = () => {
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-orange-500 to-red-500 text-white">
                 <Zap className="h-8 w-8" />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-white">Satirical Design</h3>
-              <p className="text-slate-400">
-                Expose manipulative UX patterns with humor and create viral content for social
-                media.
-              </p>
+              <h3 className="mb-2 text-lg font-semibold text-white">
+                {t("features.satirical_design.title")}
+              </h3>
+              <p className="text-slate-400">{t("features.satirical_design.description")}</p>
             </div>
 
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white">
                 <Shield className="h-8 w-8" />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-white">Educational Tool</h3>
-              <p className="text-slate-400">
-                Perfect for UX designers, educators, and anyone interested in dark pattern
-                awareness.
-              </p>
+              <h3 className="mb-2 text-lg font-semibold text-white">
+                {t("features.educational_tool.title")}
+              </h3>
+              <p className="text-slate-400">{t("features.educational_tool.description")}</p>
             </div>
 
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 text-white">
                 <Users className="h-8 w-8" />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-white">Social Sharing</h3>
-              <p className="text-slate-400">
-                Generate shareable screenshots and memes to spark conversations about tipping
-                culture.
-              </p>
+              <h3 className="mb-2 text-lg font-semibold text-white">
+                {t("features.social_sharing.title")}
+              </h3>
+              <p className="text-slate-400">{t("features.social_sharing.description")}</p>
             </div>
           </div>
         </div>
@@ -525,35 +560,28 @@ const TipScreenGenerator = () => {
           {/* What is Tip Screen Section */}
           <section className="rounded-xl bg-gradient-to-r from-blue-800 to-indigo-700 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              What is a Tip Screen? Understanding Digital Tipping
+              {t("educational_content.what_is_tip_screen.title")}
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <p className="mb-4 text-slate-200">
-                  A tip screen is a digital interface that appears during payment transactions,
-                  prompting customers to add a gratuity. These tip screens have become ubiquitous in
-                  modern commerce, appearing on tablets, smartphones, and point-of-sale (POS)
-                  systems across restaurants, coffee shops, delivery services, and retail
-                  establishments.
+                  {t("educational_content.what_is_tip_screen.description_1")}
                 </p>
                 <p className="text-slate-200">
-                  The evolution of tip screens reflects the digitization of payments and changing
-                  social expectations around tipping culture. What started as simple percentage
-                  options has evolved into sophisticated interfaces that leverage psychological
-                  principles to influence customer behavior.
+                  {t("educational_content.what_is_tip_screen.description_2")}
                 </p>
               </div>
               <div className="rounded-lg bg-blue-900/30 p-6">
                 <h3 className="mb-3 text-lg font-semibold text-white">
-                  Common Tip Screen Features
+                  {t("educational_content.what_is_tip_screen.features_title")}
                 </h3>
                 <ul className="space-y-2 text-slate-200">
-                  <li>• Percentage-based tip options (15%, 18%, 20%, 25%)</li>
-                  <li>• Custom tip amount input</li>
-                  <li>• "No tip" or "Skip" option (sometimes hidden)</li>
-                  <li>• Pre-calculated total amounts</li>
-                  <li>• Visual design elements to influence choice</li>
-                  <li>• Social pressure messaging</li>
+                  <li>{t("educational_content.what_is_tip_screen.features.percentage_options")}</li>
+                  <li>{t("educational_content.what_is_tip_screen.features.custom_input")}</li>
+                  <li>{t("educational_content.what_is_tip_screen.features.skip_option")}</li>
+                  <li>{t("educational_content.what_is_tip_screen.features.calculated_totals")}</li>
+                  <li>{t("educational_content.what_is_tip_screen.features.visual_elements")}</li>
+                  <li>{t("educational_content.what_is_tip_screen.features.social_messaging")}</li>
                 </ul>
               </div>
             </div>
@@ -562,30 +590,31 @@ const TipScreenGenerator = () => {
           {/* Tip Screen Psychology Section */}
           <section className="rounded-xl bg-gradient-to-r from-purple-800 to-pink-700 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              The Psychology Behind Tip Screens
+              {t("educational_content.psychology_section.title")}
             </h2>
             <div className="grid gap-6 md:grid-cols-3">
               <div className="rounded-lg bg-purple-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">🧠 Cognitive Bias</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  {t("educational_content.psychology_section.cognitive_bias.title")}
+                </h3>
                 <p className="text-slate-200">
-                  Tip screens exploit cognitive biases like anchoring (high default percentages),
-                  social proof (suggested amounts), and loss aversion (framing no tip as
-                  "skipping").
+                  {t("educational_content.psychology_section.cognitive_bias.description")}
                 </p>
               </div>
               <div className="rounded-lg bg-purple-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">👥 Social Pressure</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  {t("educational_content.psychology_section.social_pressure.title")}
+                </h3>
                 <p className="text-slate-200">
-                  Digital tip screens create artificial social pressure through public displays,
-                  employee visibility, and guilt-inducing language that makes customers feel
-                  obligated to tip.
+                  {t("educational_content.psychology_section.social_pressure.description")}
                 </p>
               </div>
               <div className="rounded-lg bg-purple-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">🎯 Default Effects</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  {t("educational_content.psychology_section.default_effects.title")}
+                </h3>
                 <p className="text-slate-200">
-                  Pre-selected high tip percentages and prominent placement of higher amounts
-                  leverage the default effect, where people tend to stick with suggested options.
+                  {t("educational_content.psychology_section.default_effects.description")}
                 </p>
               </div>
             </div>
@@ -594,31 +623,31 @@ const TipScreenGenerator = () => {
           {/* Mobile Optimization Section */}
           <section className="rounded-xl bg-gradient-to-r from-slate-800 to-slate-700 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              Tip Screens Across Different Devices
+              {t("educational_content.device_section.title")}
             </h2>
             <div className="grid gap-6 md:grid-cols-3">
               <div className="rounded-lg bg-slate-800 p-6 shadow-md">
-                <h3 className="mb-3 text-lg font-semibold text-white">📱 iPhone Tip Screens</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  {t("educational_content.device_section.iphone.title")}
+                </h3>
                 <p className="text-slate-400">
-                  iPhone tip screens feature iOS-style design elements with smooth animations and
-                  Apple Pay integration. Common in mobile payment apps and delivery services like
-                  UberEats and DoorDash.
+                  {t("educational_content.device_section.iphone.description")}
                 </p>
               </div>
               <div className="rounded-lg bg-slate-800 p-6 shadow-md">
-                <h3 className="mb-3 text-lg font-semibold text-white">📟 iPad POS Tip Screens</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  {t("educational_content.device_section.ipad_pos.title")}
+                </h3>
                 <p className="text-slate-400">
-                  iPad tip screens dominate restaurant and retail environments. These larger
-                  displays allow for more elaborate designs and clear visibility to both customers
-                  and staff.
+                  {t("educational_content.device_section.ipad_pos.description")}
                 </p>
               </div>
               <div className="rounded-lg bg-slate-800 p-6 shadow-md">
-                <h3 className="mb-3 text-lg font-semibold text-white">🤖 Android Tip Screens</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  {t("educational_content.device_section.android.title")}
+                </h3>
                 <p className="text-slate-400">
-                  Android tip screens incorporate Material Design principles and are prevalent in
-                  various payment terminals and mobile applications across different Android
-                  devices.
+                  {t("educational_content.device_section.android.description")}
                 </p>
               </div>
             </div>
@@ -627,7 +656,7 @@ const TipScreenGenerator = () => {
           {/* How to Use Section */}
           <section className="rounded-xl bg-slate-800 p-8 shadow-lg">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              How to Create Tip Screen Images and Memes
+              {t("educational_content.how_to_create.title")}
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div className="space-y-4">
@@ -636,10 +665,11 @@ const TipScreenGenerator = () => {
                     1
                   </span>
                   <div>
-                    <h3 className="font-semibold text-white">Set Your Bill Amount</h3>
+                    <h3 className="font-semibold text-white">
+                      {t("educational_content.how_to_create.step_1.title")}
+                    </h3>
                     <p className="text-slate-400">
-                      Enter any bill amount to see how manipulative tip calculations work in real
-                      POS systems.
+                      {t("educational_content.how_to_create.step_1.description")}
                     </p>
                   </div>
                 </div>
@@ -648,9 +678,11 @@ const TipScreenGenerator = () => {
                     2
                   </span>
                   <div>
-                    <h3 className="font-semibold text-white">Choose Interface Theme</h3>
+                    <h3 className="font-semibold text-white">
+                      {t("educational_content.how_to_create.step_2.title")}
+                    </h3>
                     <p className="text-slate-400">
-                      Select from iPad POS, food delivery, or extreme dark pattern interfaces.
+                      {t("educational_content.how_to_create.step_2.description")}
                     </p>
                   </div>
                 </div>
@@ -661,10 +693,11 @@ const TipScreenGenerator = () => {
                     3
                   </span>
                   <div>
-                    <h3 className="font-semibold text-white">Enable Dark Patterns</h3>
+                    <h3 className="font-semibold text-white">
+                      {t("educational_content.how_to_create.step_3.title")}
+                    </h3>
                     <p className="text-slate-400">
-                      Toggle manipulative design elements to show how businesses guilt customers
-                      into higher tips.
+                      {t("educational_content.how_to_create.step_3.description")}
                     </p>
                   </div>
                 </div>
@@ -673,10 +706,11 @@ const TipScreenGenerator = () => {
                     4
                   </span>
                   <div>
-                    <h3 className="font-semibold text-white">Screenshot & Share</h3>
+                    <h3 className="font-semibold text-white">
+                      {t("educational_content.how_to_create.step_4.title")}
+                    </h3>
                     <p className="text-slate-400">
-                      Download or copy your fake tip screen to share on social media and educate
-                      others.
+                      {t("educational_content.how_to_create.step_4.description")}
                     </p>
                   </div>
                 </div>
@@ -687,78 +721,44 @@ const TipScreenGenerator = () => {
           {/* FAQ Section */}
           <section className="rounded-xl bg-slate-800 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
-              Frequently Asked Questions About Tip Screens
+              {t("educational_content.faq.title")}
             </h2>
             <div className="space-y-6">
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  What is a tip screen and how does it work?
+                  {t("educational_content.faq.q1.question")}
                 </h3>
-                <p className="text-slate-400">
-                  A tip screen is a digital interface that appears during payment transactions,
-                  typically on tablets or smartphones. It prompts customers to add a gratuity by
-                  presenting percentage options (usually 15%, 18%, 20%, 25% or higher) or allowing
-                  custom amounts. The tip screen calculates the total automatically and processes
-                  the payment including the tip.
-                </p>
+                <p className="text-slate-400">{t("educational_content.faq.q1.answer")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  Why are tip screens everywhere now?
+                  {t("educational_content.faq.q2.question")}
                 </h3>
-                <p className="text-slate-400">
-                  Tip screens have proliferated due to the shift to digital payments, especially
-                  accelerated by the COVID-19 pandemic. They're easier to implement than traditional
-                  tip jars, automatically calculate amounts, and can increase tip amounts through
-                  psychological design elements. Many businesses adopted them to help staff
-                  compensation during economic uncertainty.
-                </p>
+                <p className="text-slate-400">{t("educational_content.faq.q2.answer")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  Is this tip screen generator free to use?
+                  {t("educational_content.faq.q3.question")}
                 </h3>
-                <p className="text-slate-400">
-                  Yes! This tip screen generator is completely free and doesn't require any app
-                  download. It works directly in your browser on iPhone, iPad, Android, and desktop
-                  devices. Create unlimited tip screen examples and educational content without any
-                  restrictions.
-                </p>
+                <p className="text-slate-400">{t("educational_content.faq.q3.answer")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  What are dark patterns in tip screens?
+                  {t("educational_content.faq.q4.question")}
                 </h3>
-                <p className="text-slate-400">
-                  Dark patterns in tip screens are manipulative design techniques that pressure
-                  customers into tipping more. These include auto-selecting high percentages, hiding
-                  "no tip" options, using guilt-inducing language, making skip buttons tiny, and
-                  displaying tips prominently to create social pressure. Our tool demonstrates these
-                  patterns for educational purposes.
-                </p>
+                <p className="text-slate-400">{t("educational_content.faq.q4.answer")}</p>
               </div>
               <div className="border-b border-slate-700 pb-4">
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  How do tip screens affect tipping behavior?
+                  {t("educational_content.faq.q5.question")}
                 </h3>
-                <p className="text-slate-400">
-                  Studies show tip screens generally increase both tip frequency and amounts. The
-                  suggested percentages often anchor customers to higher amounts than they might
-                  leave otherwise. The public nature of the interaction and preset options also
-                  reduce the cognitive effort required to calculate tips, making customers more
-                  likely to tip.
-                </p>
+                <p className="text-slate-400">{t("educational_content.faq.q5.answer")}</p>
               </div>
               <div>
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  Can I use generated tip screens for educational purposes?
+                  {t("educational_content.faq.q6.question")}
                 </h3>
-                <p className="text-slate-400">
-                  Absolutely! The generated tip screens are perfect for educational content about UX
-                  design, consumer psychology, digital ethics, and tipping culture. They're ideal
-                  for blog posts, social media content, academic presentations, or training
-                  materials about dark patterns and user experience design.
-                </p>
+                <p className="text-slate-400">{t("educational_content.faq.q6.answer")}</p>
               </div>
             </div>
           </section>
@@ -778,12 +778,13 @@ const IPadPOSScreen: React.FC<TipScreenProps> = ({
   getCurrentTipAmount,
   darkPatterns,
   handleContinue,
+  t,
 }) => {
   return (
     <div className="aspect-[3/4] w-full rounded-2xl bg-slate-900 p-6 shadow-xl">
       {/* Header */}
       <div className="mb-6 text-center">
-        <h3 className="text-xl font-bold text-slate-200">Add Tip</h3>
+        <h3 className="text-xl font-bold text-slate-200">{t("tip_screen_components.tip")}</h3>
         {darkPatterns.watchingEyes && (
           <p className="mt-2 text-sm text-slate-400">👀 Your server is watching...</p>
         )}
@@ -792,7 +793,7 @@ const IPadPOSScreen: React.FC<TipScreenProps> = ({
       {/* Bill Amount */}
       <div className="mb-6 rounded-lg bg-slate-800 p-4">
         <div className="flex justify-between">
-          <span className="text-slate-400">Subtotal:</span>
+          <span className="text-slate-400">{t("tip_screen_components.bill_total")}:</span>
           <span className="font-medium text-slate-200">${billAmount.toFixed(2)}</span>
         </div>
       </div>
@@ -823,11 +824,11 @@ const IPadPOSScreen: React.FC<TipScreenProps> = ({
       {/* Total */}
       <div className="mb-4 rounded-lg bg-green-900/20 p-4">
         <div className="flex justify-between text-lg font-bold">
-          <span className="text-green-200">Total:</span>
+          <span className="text-green-200">{t("tip_screen_components.total")}:</span>
           <span className="text-green-200">${calculateTotal().toFixed(2)}</span>
         </div>
         <div className="flex justify-between text-sm text-green-400">
-          <span>Tip:</span>
+          <span>{t("tip_screen_components.tip")}:</span>
           <span>${getCurrentTipAmount().toFixed(2)}</span>
         </div>
       </div>
@@ -838,7 +839,7 @@ const IPadPOSScreen: React.FC<TipScreenProps> = ({
           onClick={handleContinue}
           className="w-full rounded-lg bg-green-600 py-3 font-medium text-white transition-colors hover:bg-green-700"
         >
-          Continue
+          {t("tip_screen_components.continue")}
         </button>
 
         {!darkPatterns.hideSkip && (
@@ -847,7 +848,9 @@ const IPadPOSScreen: React.FC<TipScreenProps> = ({
               darkPatterns.smallSkip ? "py-1 text-xs" : "py-2"
             }`}
           >
-            {darkPatterns.guiltyText ? "Skip (Your server will be sad 😢)" : "No Tip"}
+            {darkPatterns.guiltyText
+              ? t("tip_screen_components.guilt_skip_message")
+              : t("tip_screen_components.no_tip")}
           </button>
         )}
       </div>
@@ -870,12 +873,13 @@ const UberEatsScreen: React.FC<TipScreenProps> = ({
   handleCustomTipChange,
   customTip,
   handleContinue,
+  t,
 }) => {
   return (
     <div className="aspect-[9/16] w-full rounded-3xl bg-slate-900 p-6 shadow-xl">
       {/* Header */}
       <div className="mb-6 text-center">
-        <h3 className="text-2xl font-bold text-slate-200">Add tip</h3>
+        <h3 className="text-2xl font-bold text-slate-200">{t("tip_screen_components.tip")}</h3>
         <p className="text-slate-400">Help support your delivery partner</p>
         {darkPatterns.watchingEyes && (
           <p className="mt-2 text-sm text-red-400">👀 Driver can see your tip amount</p>
@@ -918,12 +922,16 @@ const UberEatsScreen: React.FC<TipScreenProps> = ({
             onClick={handleCustomTipSelect}
             className="w-full rounded-xl border-2 border-slate-600 bg-slate-800 p-4 text-left hover:bg-slate-700"
           >
-            <div className="font-medium text-slate-200">Custom amount</div>
-            <div className="text-sm text-slate-400">Enter your own tip</div>
+            <div className="font-medium text-slate-200">
+              {t("tip_screen_components.custom_tip")}
+            </div>
+            <div className="text-sm text-slate-400">{t("tip_screen_components.enter_amount")}</div>
           </button>
         ) : (
           <div className="rounded-xl border-2 border-blue-500 bg-blue-900/20 p-4">
-            <div className="mb-2 font-medium text-slate-200">Custom tip amount</div>
+            <div className="mb-2 font-medium text-slate-200">
+              {t("tip_screen_components.custom_tip")}
+            </div>
             <div className="flex items-center space-x-2">
               <div className="relative flex-1">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">$</span>
@@ -952,16 +960,16 @@ const UberEatsScreen: React.FC<TipScreenProps> = ({
       <div className="mb-6 rounded-xl bg-slate-800 p-4">
         <div className="space-y-2">
           <div className="flex justify-between">
-            <span className="text-slate-400">Subtotal</span>
+            <span className="text-slate-400">{t("tip_screen_components.bill_total")}</span>
             <span className="text-slate-200">${billAmount.toFixed(2)}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-slate-400">Tip</span>
+            <span className="text-slate-400">{t("tip_screen_components.tip")}</span>
             <span className="text-slate-200">${getCurrentTipAmount().toFixed(2)}</span>
           </div>
           <div className="border-t border-slate-600 pt-2">
             <div className="flex justify-between font-bold">
-              <span className="text-slate-200">Total</span>
+              <span className="text-slate-200">{t("tip_screen_components.total")}</span>
               <span className="text-slate-200">${calculateTotal().toFixed(2)}</span>
             </div>
           </div>
@@ -974,7 +982,7 @@ const UberEatsScreen: React.FC<TipScreenProps> = ({
           onClick={handleContinue}
           className="w-full rounded-xl bg-black py-4 font-medium text-white transition-colors hover:bg-gray-800"
         >
-          Continue
+          {t("tip_screen_components.continue")}
         </button>
 
         {!darkPatterns.hideSkip && (
@@ -984,8 +992,8 @@ const UberEatsScreen: React.FC<TipScreenProps> = ({
             }`}
           >
             {darkPatterns.guiltyText
-              ? "Continue without tipping (Driver won't be happy)"
-              : "Continue without tip"}
+              ? t("tip_screen_components.delivery_guilt_message")
+              : t("tip_screen_components.delivery_no_tip")}
           </button>
         )}
       </div>
@@ -1003,6 +1011,7 @@ const DarkPatternScreen: React.FC<TipScreenProps> = ({
   getCurrentTipAmount,
   darkPatterns,
   handleContinue,
+  t,
 }) => {
   return (
     <div className="aspect-[3/4] w-full rounded-2xl border-2 border-red-800 bg-gradient-to-b from-red-900/20 to-orange-900/20 p-6 shadow-xl">
@@ -1020,9 +1029,21 @@ const DarkPatternScreen: React.FC<TipScreenProps> = ({
       {/* Exaggerated Tip Options */}
       <div className="mb-6 grid grid-cols-2 gap-2">
         {[
-          { percentage: 25, label: "Minimum Decent", color: "bg-yellow-700 border-yellow-500" },
-          { percentage: 30, label: "Fair", color: "bg-orange-700 border-orange-500" },
-          { percentage: 40, label: "Good Person", color: "bg-green-700 border-green-500" },
+          {
+            percentage: 25,
+            label: t("tip_screen_components.dark_pattern_labels.minimum_decent"),
+            color: "bg-yellow-700 border-yellow-500",
+          },
+          {
+            percentage: 30,
+            label: t("tip_screen_components.dark_pattern_labels.fair"),
+            color: "bg-orange-700 border-orange-500",
+          },
+          {
+            percentage: 40,
+            label: t("tip_screen_components.dark_pattern_labels.good_person"),
+            color: "bg-green-700 border-green-500",
+          },
           { percentage: 50, label: "HERO! ⭐", color: "bg-purple-700 border-purple-500" },
         ].map((option) => (
           <button
@@ -1076,7 +1097,9 @@ const DarkPatternScreen: React.FC<TipScreenProps> = ({
                 : "py-2 text-xs text-gray-400 hover:text-gray-200"
             }`}
           >
-            {darkPatterns.guiltyText ? "I don't care about workers 😢" : "Skip"}
+            {darkPatterns.guiltyText
+              ? t("tip_screen_components.dark_pattern_guilt")
+              : t("tip_screen_components.skip")}
           </button>
         )}
       </div>

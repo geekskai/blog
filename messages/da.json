@@ -2888,5 +2888,280 @@
       "badge_automotive_standards": "Bilstandarder",
       "badge_export_formats": "Flere Eksportformater"
     }
+  },
+  "TipScreenGenerator": {
+    "seo_title": "Drikkepenge Skærm Generator - Opret og Forstå POS Drikkepenge Skærme | Gratis Generator Værktøj",
+    "seo_description": "Alt om drikkepenge skærme - hvad de er, hvordan de fungerer, og hvorfor de betyder noget. Opret realistiske drikkepenge skærme til iPhone, iPad og Android. Gratis online drikkepenge skærm generator og uddannelsesressource.",
+    "seo_keywords": "drikkepenge skærm, drikkepenge skærm generator, pos drikkepenge skærm, drikkepenge skærm billede",
+    "breadcrumb": {
+      "home": "Hjem",
+      "tools": "Værktøjer",
+      "tip_screen_generator": "Drikkepenge Skærm Generator"
+    },
+    "header": {
+      "professional_badge": "Satirisk Design og Uddannelsesværktøj",
+      "main_title": "Drikkepenge Skærm Generator",
+      "subtitle": "Opret og Forstå POS Drikkepenge Skærme",
+      "description": "Alt om drikkepenge skærme - hvad de er, hvordan de fungerer, og hvorfor de betyder noget. Opret realistiske drikkepenge skærme til iPhone, iPad og Android med vores gratis generator værktøj."
+    },
+    "tip_options": {
+      "good": "God",
+      "great": "Fantastisk",
+      "excellent": "Fremragende",
+      "outstanding": "Enestående"
+    },
+    "alerts": {
+      "screenshot_wait": "Vent venligst på at skærmen indlæses helt, før du tager et skærmbillede.",
+      "render_wait": "Vent venligst på at drikkepenge skærmen gengives, før du tager et skærmbillede.",
+      "screenshot_failed": "Skærmbillede mislykkedes. Dette kan skyldes browser sikkerhedsbegrænsninger. Prøv igen eller brug en anden browser.",
+      "screenshot_copied": "Skærmbillede kopieret til udklipsholder!",
+      "copy_failed": "Kopiering mislykkedes. Prøv download muligheden i stedet.",
+      "copy_failed_general": "Kopiering til udklipsholder mislykkedes:"
+    },
+    "settings": {
+      "title": "Drikkepenge Skærm Indstillinger",
+      "bill_amount_label": "Regningsbeløb ($)",
+      "theme_label": "Interface Tema",
+      "dark_patterns_label": "Mørke Mønstre (Valgfrit)",
+      "themes": {
+        "ipad_pos": "iPad POS",
+        "food_delivery": "Mad Levering",
+        "dark_pattern": "Mørkt Mønster"
+      },
+      "dark_pattern_options": {
+        "auto_select_highest": "Auto-vælg højeste drikkepenge",
+        "hide_no_tip": "Skjul 'Ingen Drikkepenge' mulighed",
+        "guilt_messages": "Skyld-inducerende beskeder",
+        "tiny_skip": "Lille spring knap",
+        "employee_watching": "Medarbejder ser på",
+        "tip_amount_first": "Vis drikkepenge beløb først"
+      }
+    },
+    "preview": {
+      "title": "Live Drikkepenge Skærm Forhåndsvisning",
+      "download_button": "Download Skærmbillede",
+      "copy_button": "Kopier til Udklipsholder",
+      "reset_button": "Nulstil Indstillinger"
+    },
+    "features": {
+      "satirical_design": {
+        "title": "Satirisk Design",
+        "description": "Overdrevne drikkepenge skærm interfaces der fremhæver det absurde i aggressive drikkepenge prompts i moderne point-of-sale systemer."
+      },
+      "educational_tool": {
+        "title": "Uddannelsesværktøj",
+        "description": "Lær om mørke mønstre i UX design og hvordan de manipulerer brugeradfærd i digitale betalingsinterfaces."
+      },
+      "social_sharing": {
+        "title": "Social Deling",
+        "description": "Opret delbart indhold der udløser samtaler om drikkepenge kultur og digital betalingspsykologi."
+      }
+    },
+    "tip_screen_anatomy": {
+      "title": "Anatomi af en Drikkepenge Skærm",
+      "description": "Forstå de nøgleelementer der gør drikkepenge skærme så effektive (og nogle gange manipulerende):",
+      "elements": {
+        "title": "Nøgleelementer",
+        "bill_amount": "• Regningsbeløb (fremtrædende vist)",
+        "tip_percentages": "• Forudberegnede drikkepenge procenter (normalt 15%, 18%, 20%, 25%+)",
+        "custom_tip": "• Brugerdefineret drikkepenge beløb mulighed",
+        "no_tip_option": "• \"Ingen drikkepenge\" eller \"Spring over\" mulighed (nogle gange skjult)",
+        "total_calculation": "• Samlet beløb beregning",
+        "continue_button": "• Fortsæt/Betal knap",
+        "branding": "• Betalingsprocessor branding"
+      }
+    },
+    "psychology": {
+      "title": "Psykologien Bag Drikkepenge Skærme",
+      "cognitive_bias": {
+        "title": "🧠 Kognitiv Bias",
+        "description": "Drikkepenge skærme udnytter 'forankringseffekten' ved at præsentere høje standardprocenter, hvilket får lavere drikkepenge til at føles utilstrækkelige. Indramningen af 'god,' 'bedre,' 'bedst' skaber et falsk hierarki der presser kunder til højere drikkepenge."
+      },
+      "social_pressure": {
+        "title": "👥 Socialt Pres",
+        "description": "Den offentlige natur af drikkepenge valg skaber social angst. Kunder føler sig overvåget og dømt, især når medarbejdere kan se skærmen. Denne 'publikumseffekt' øger betydeligt drikkepenge beløb sammenlignet med private drikkepenge."
+      },
+      "default_effects": {
+        "title": "🎯 Standard Effekter",
+        "description": "Forudvalgte drikkepenge beløb udnytter 'standard bias' - folk har tendens til at holde sig til foreslåede muligheder frem for at tilpasse. Højere standardprocenter har målbart øget gennemsnitlige drikkepenge beløb på tværs af industrier."
+      }
+    },
+    "device_variations": {
+      "title": "Drikkepenge Skærm Variationer efter Enhed",
+      "iphone": {
+        "title": "📱 iPhone Drikkepenge Skærme",
+        "description": "Mobile betalingsapps som Square, Toast og Clover præsenterer drikkepenge muligheder i et lodret layout optimeret til énhånds brug. Det begrænsede skærmplads gør 'ingen drikkepenge' muligheder mindre fremtrædende."
+      },
+      "ipad_pos": {
+        "title": "📟 iPad POS Drikkepenge Skærme",
+        "description": "Tablet-baserede point-of-sale systemer tilbyder større, mere fremtrædende drikkepenge knapper. Den større skærm tillader mere psykologisk manipulation gennem visuel hierarki og farve psykologi."
+      },
+      "android": {
+        "title": "🤖 Android Drikkepenge Skærme",
+        "description": "Android-baserede betalingsterminaler varierer meget i design men følger ofte lignende psykologiske principper. Nogle systemer roterer skærmen mod kunder, hvilket tilføjer til det sociale pres."
+      }
+    },
+    "how_to_use": {
+      "title": "Hvordan man Bruger Drikkepenge Skærm Generatoren",
+      "step_1": {
+        "title": "Indstil Dit Regningsbeløb",
+        "description": "Indtast et hvilket som helst dollar beløb for at se hvordan drikkepenge beregninger ændrer totalen. Bemærk hvordan højere regninger får procentbaserede drikkepenge til at føles mere betydningsfulde."
+      },
+      "step_2": {
+        "title": "Vælg Interface Tema",
+        "description": "Vælg fra iPad POS, mobil mad levering eller overdrevne mørke mønster designs. Hvert tema demonstrerer forskellige psykologiske tilgange til drikkepenge opfordring."
+      },
+      "step_3": {
+        "title": "Aktiver Mørke Mønstre",
+        "description": "Skift forskellige manipulerende design elementer for at se hvordan de påvirker brugeroplevelsen. Disse mønstre er desværre almindelige i rigtige betalingssystemer."
+      },
+      "step_4": {
+        "title": "Skærmbillede og Del",
+        "description": "Download eller kopier din genererede drikkepenge skærm for at dele på sociale medier. Brug det til at starte samtaler om drikkepenge kultur og digital manipulation."
+      }
+    },
+    "understanding_dark_patterns": {
+      "title": "Forstå Mørke Mønstre i Drikkepenge Skærme",
+      "hidden_skip": {
+        "title": "🙈 Skjulte \"Spring Over\" Muligheder",
+        "description": "Gøre 'ingen drikkepenge' muligheden svær at finde, bruge lille tekst eller begrave den i undermenuer for at modvirke dens brug."
+      },
+      "guilt_language": {
+        "title": "😢 Skyld-Inducerende Sprog",
+        "description": "Bruge sætninger som 'Støt din server' eller 'Din chauffør vil være ked af det' for at skabe følelsesmæssigt pres og skyld omkring ikke at give drikkepenge."
+      },
+      "inflated_defaults": {
+        "title": "📈 Oppustede Standard Procenter",
+        "description": "Indstille 22%, 25% eller endda 30% som 'standard' muligheder, hvilket får traditionelle 15-18% drikkepenge til at virke utilstrækkelige eller billige."
+      },
+      "manipulative_design": {
+        "title": "🎨 Manipulerende Visuelt Design",
+        "description": "Bruge lyse farver til høje drikkepenge beløb, gøre 'ingen drikkepenge' muligheder små og anvende visuel hierarki til at guide brugere mod højere drikkepenge."
+      },
+      "social_surveillance": {
+        "title": "👀 Social Overvågning",
+        "description": "Positionere skærme så medarbejdere og andre kunder kan se drikkepenge valg, udnytte socialt pres og frygt for dom."
+      },
+      "tip_before_service": {
+        "title": "⏰ Før-Service Drikkepenge",
+        "description": "Anmode om drikkepenge før service leveres, når kunder ikke kan evaluere service kvalitet, hvilket fører til over-drikkepenge for potentielt dårlig service."
+      }
+    },
+    "tip_screen_components": {
+      "bill_total": "Regnings Total",
+      "tip": "Drikkepenge",
+      "total": "Total",
+      "no_tip": "Ingen Drikkepenge",
+      "skip": "Spring Over",
+      "continue": "Fortsæt",
+      "pay_now": "Betal Nu",
+      "custom_tip": "Brugerdefineret Drikkepenge",
+      "other_amount": "Andet Beløb",
+      "enter_amount": "Indtast Beløb",
+      "guilt_skip_message": "Spring over (Din server vil være ked af det 😢)",
+      "delivery_guilt_message": "Fortsæt uden drikkepenge (Chauffør vil ikke være glad)",
+      "delivery_no_tip": "Fortsæt uden drikkepenge",
+      "dark_pattern_labels": {
+        "minimum_decent": "Minimum Anstændig",
+        "fair": "Rimelig",
+        "good_person": "God Person"
+      },
+      "dark_pattern_guilt": "Jeg er ligeglad med arbejdere 😢"
+    },
+    "copy_text": {
+      "tip_calculation": "Drikkepenge: ${tipAmount} ({tipPercentage})\nTotal: ${total}\n\nGenereret med Drikkepenge Skærm Generator\nhttps://geekskai.com/tools/tip-screen-generator"
+    },
+    "educational_content": {
+      "what_is_tip_screen": {
+        "title": "Hvad er en Drikkepenge Skærm?",
+        "description_1": "En drikkepenge skærm er en digital grænseflade, der vises under betalingstransaktioner og opfordrer kunder til at tilføje drikkepenge. Disse drikkepenge skærme er blevet allestedsnærværende i moderne handel og vises på tablets, smartphones og POS-systemer på tværs af restauranter, kaffebarer, leveringstjenester og detailvirksomheder.",
+        "description_2": "Udviklingen af drikkepenge skærme afspejler digitaliseringen af betalinger og skiftende sociale forventninger omkring drikkepenge kultur. Det, der startede som simple procentmuligheder, har udviklet sig til sofistikerede grænseflader, der udnytter psykologiske principper til at påvirke kundeadfærd.",
+        "features_title": "Almindelige Drikkepenge Skærm Funktioner",
+        "features": {
+          "percentage_options": "• Procentbaserede drikkepenge muligheder (15%, 18%, 20%, 25%)",
+          "custom_input": "• Brugerdefineret drikkepenge beløb input",
+          "skip_option": "• \"Ingen drikkepenge\" eller \"Spring over\" mulighed (nogle gange skjult)",
+          "calculated_totals": "• Forudberegnede samlede beløb",
+          "visual_elements": "• Visuelle designelementer til at påvirke valg",
+          "social_messaging": "• Socialt pres beskeder"
+        }
+      },
+      "psychology_section": {
+        "title": "Psykologien Bag Drikkepenge Skærme",
+        "cognitive_bias": {
+          "title": "🧠 Kognitiv Bias",
+          "description": "Drikkepenge skærme udnytter kognitive bias som forankring (høje standardprocenter), socialt bevis (foreslåede beløb) og tabsaversion (indramning af ingen drikkepenge som \"spring over\")."
+        },
+        "social_pressure": {
+          "title": "👥 Socialt Pres",
+          "description": "Digitale drikkepenge skærme skaber kunstigt socialt pres gennem offentlige displays, medarbejder synlighed og skyld-inducerende sprog, der får kunder til at føle sig forpligtet til at give drikkepenge."
+        },
+        "default_effects": {
+          "title": "🎯 Standard Effekter",
+          "description": "Forudvalgte høje drikkepenge procenter og fremtrædende placering af højere beløb udnytter standardeffekten, hvor folk har tendens til at holde sig til foreslåede muligheder."
+        }
+      },
+      "device_section": {
+        "title": "Drikkepenge Skærme På Tværs af Forskellige Enheder",
+        "iphone": {
+          "title": "📱 iPhone Drikkepenge Skærme",
+          "description": "iPhone drikkepenge skærme har iOS-stil designelementer med glatte animationer og Apple Pay integration. Almindelige i mobile betalingsapps og leveringstjenester som UberEats og DoorDash."
+        },
+        "ipad_pos": {
+          "title": "📟 iPad POS Drikkepenge Skærme",
+          "description": "iPad drikkepenge skærme dominerer restaurant- og detailmiljøer. Disse større displays tillader mere elaborate designs og klar synlighed for både kunder og personale."
+        },
+        "android": {
+          "title": "🤖 Android Drikkepenge Skærme",
+          "description": "Android drikkepenge skærme inkorporerer Material Design principper og er udbredte i forskellige betalingsterminaler og mobile applikationer på tværs af forskellige Android-enheder."
+        }
+      },
+      "how_to_create": {
+        "title": "Hvordan Man Laver Drikkepenge Skærm Billeder og Memes",
+        "step_1": {
+          "title": "Indstil Dit Regningsbeløb",
+          "description": "Indtast et hvilket som helst regningsbeløb for at se, hvordan manipulerende drikkepenge beregninger fungerer i rigtige POS-systemer."
+        },
+        "step_2": {
+          "title": "Vælg Interface Tema",
+          "description": "Vælg fra iPad POS, mad levering eller ekstreme mørke mønster interfaces."
+        },
+        "step_3": {
+          "title": "Aktiver Mørke Mønstre",
+          "description": "Skift manipulerende designelementer for at vise, hvordan virksomheder får kunder til at føle skyld for højere drikkepenge."
+        },
+        "step_4": {
+          "title": "Skærmbillede og Del",
+          "description": "Download eller kopier din falske drikkepenge skærm for at dele på sociale medier og uddanne andre."
+        }
+      },
+      "faq": {
+        "title": "Ofte Stillede Spørgsmål Om Drikkepenge Skærme",
+        "q1": {
+          "question": "Hvad er en drikkepenge skærm, og hvordan fungerer den?",
+          "answer": "En drikkepenge skærm er en digital grænseflade, der vises under betalingstransaktioner, typisk på tablets eller smartphones. Den opfordrer kunder til at tilføje drikkepenge ved at præsentere procentmuligheder (normalt 15%, 18%, 20%, 25% eller højere) eller tillade brugerdefinerede beløb. Drikkepenge skærmen beregner automatisk totalen og behandler betalingen inklusive drikkepengen."
+        },
+        "q2": {
+          "question": "Hvorfor er drikkepenge skærme overalt nu?",
+          "answer": "Drikkepenge skærme er blevet udbredt på grund af skiftet til digitale betalinger, især accelereret af COVID-19 pandemien. De er nemmere at implementere end traditionelle drikkepenge krukker, beregner automatisk beløb og kan øge drikkepenge beløb gennem psykologiske designelementer. Mange virksomheder adopterede dem for at hjælpe personalekompensation under økonomisk usikkerhed."
+        },
+        "q3": {
+          "question": "Er denne drikkepenge skærm generator gratis at bruge?",
+          "answer": "Ja! Denne drikkepenge skærm generator er helt gratis og kræver ikke noget app download. Den fungerer direkte i din browser på iPhone, iPad, Android og desktop enheder. Opret ubegrænsede drikkepenge skærm eksempler og uddannelsesindhold uden nogen begrænsninger."
+        },
+        "q4": {
+          "question": "Hvad er mørke mønstre i drikkepenge skærme?",
+          "answer": "Mørke mønstre i drikkepenge skærme er manipulerende designteknikker, der presser kunder til at give mere drikkepenge. Disse inkluderer auto-valg af høje procenter, skjulning af \"ingen drikkepenge\" muligheder, brug af skyld-inducerende sprog, gøre spring over knapper små og fremhæve drikkepenge for at skabe socialt pres. Vores værktøj demonstrerer disse mønstre til uddannelsesformål."
+        },
+        "q5": {
+          "question": "Hvordan påvirker drikkepenge skærme drikkepenge adfærd?",
+          "answer": "Studier viser, at drikkepenge skærme generelt øger både drikkepenge frekvens og beløb. De foreslåede procenter forankrer ofte kunder til højere beløb, end de ellers måtte efterlade. Den offentlige natur af interaktionen og forudindstillede muligheder reducerer også den kognitive indsats, der kræves for at beregne drikkepenge, hvilket gør kunder mere tilbøjelige til at give drikkepenge."
+        },
+        "q6": {
+          "question": "Kan jeg bruge genererede drikkepenge skærme til uddannelsesformål?",
+          "answer": "Absolut! De genererede drikkepenge skærme er perfekte til uddannelsesindhold om UX design, forbrugerpsykologi, digital etik og drikkepenge kultur. De er ideelle til blogindlæg, sociale medier indhold, akademiske præsentationer eller undervisningsmaterialer om mørke mønstre og brugeroplevelse design."
+        }
+      }
+    }
   }
 }

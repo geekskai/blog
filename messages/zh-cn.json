@@ -3024,5 +3024,280 @@
       "badge_automotive_standards": "汽车标准",
       "badge_export_formats": "多种导出格式"
     }
+  },
+  "TipScreenGenerator": {
+    "seo_title": "小费屏幕生成器 - 创建和理解POS小费屏幕 | 免费生成工具",
+    "seo_description": "关于小费屏幕的一切 - 它们是什么，如何工作，为什么重要。为iPhone、iPad和Android创建逼真的小费屏幕。免费在线小费屏幕生成器和教育资源。",
+    "seo_keywords": "小费屏幕, 小费屏幕生成器, pos小费屏幕, 小费屏幕图片",
+    "breadcrumb": {
+      "home": "首页",
+      "tools": "工具",
+      "tip_screen_generator": "小费屏幕生成器"
+    },
+    "header": {
+      "professional_badge": "讽刺设计与教育工具",
+      "main_title": "小费屏幕生成器",
+      "subtitle": "创建和理解POS小费屏幕",
+      "description": "关于小费屏幕的一切 - 它们是什么，如何工作，为什么重要。使用我们的免费生成工具为iPhone、iPad和Android创建逼真的小费屏幕。"
+    },
+    "tip_options": {
+      "good": "不错",
+      "great": "很好",
+      "excellent": "优秀",
+      "outstanding": "杰出"
+    },
+    "alerts": {
+      "screenshot_wait": "请等待屏幕完全加载后再截图。",
+      "render_wait": "请等待小费屏幕渲染完成后再截图。",
+      "screenshot_failed": "截图失败。这可能是由于浏览器安全限制。请重试或使用其他浏览器。",
+      "screenshot_copied": "截图已复制到剪贴板！",
+      "copy_failed": "复制失败。请尝试下载选项。",
+      "copy_failed_general": "复制到剪贴板失败："
+    },
+    "settings": {
+      "title": "小费屏幕设置",
+      "bill_amount_label": "账单金额 ($)",
+      "theme_label": "界面主题",
+      "dark_patterns_label": "暗黑模式（可选）",
+      "themes": {
+        "ipad_pos": "iPad POS",
+        "food_delivery": "外卖配送",
+        "dark_pattern": "暗黑模式"
+      },
+      "dark_pattern_options": {
+        "auto_select_highest": "自动选择最高小费",
+        "hide_no_tip": "隐藏\"无小费\"选项",
+        "guilt_messages": "内疚诱导信息",
+        "tiny_skip": "微小跳过按钮",
+        "employee_watching": "员工观察",
+        "tip_amount_first": "优先显示小费金额"
+      }
+    },
+    "preview": {
+      "title": "实时小费屏幕预览",
+      "download_button": "下载截图",
+      "copy_button": "复制到剪贴板",
+      "reset_button": "重置设置"
+    },
+    "features": {
+      "satirical_design": {
+        "title": "讽刺设计",
+        "description": "夸张的小费屏幕界面，突出现代销售点系统中激进小费提示的荒谬性。"
+      },
+      "educational_tool": {
+        "title": "教育工具",
+        "description": "了解UX设计中的暗黑模式以及它们如何在数字支付界面中操纵用户行为。"
+      },
+      "social_sharing": {
+        "title": "社交分享",
+        "description": "创建可分享的内容，引发关于小费文化和数字支付心理学的讨论。"
+      }
+    },
+    "tip_screen_anatomy": {
+      "title": "小费屏幕解剖",
+      "description": "了解使小费屏幕如此有效（有时具有操纵性）的关键元素：",
+      "elements": {
+        "title": "关键元素",
+        "bill_amount": "• 账单金额（显著显示）",
+        "tip_percentages": "• 预计算小费百分比（通常为15%、18%、20%、25%+）",
+        "custom_tip": "• 自定义小费金额选项",
+        "no_tip_option": "• \"无小费\"或\"跳过\"选项（有时隐藏）",
+        "total_calculation": "• 总金额计算",
+        "continue_button": "• 继续/支付按钮",
+        "branding": "• 支付处理器品牌"
+      }
+    },
+    "psychology": {
+      "title": "小费屏幕背后的心理学",
+      "cognitive_bias": {
+        "title": "🧠 认知偏见",
+        "description": "小费屏幕通过呈现高默认百分比来利用\"锚定效应\"，使较低的小费感觉不够。\"好\"、\"更好\"、\"最好\"的框架创造了虚假的等级制度，迫使客户给更高的小费。"
+      },
+      "social_pressure": {
+        "title": "👥 社会压力",
+        "description": "小费选择的公开性质创造了社会焦虑。客户感到被观察和评判，特别是当员工能看到屏幕时。这种\"观众效应\"与私人小费相比显著增加了小费金额。"
+      },
+      "default_effects": {
+        "title": "🎯 默认效应",
+        "description": "预选的小费金额利用了\"默认偏见\" - 人们倾向于坚持建议的选项而不是自定义。更高的默认百分比在各行业中可测量地增加了平均小费金额。"
+      }
+    },
+    "device_variations": {
+      "title": "按设备分类的小费屏幕变化",
+      "iphone": {
+        "title": "📱 iPhone小费屏幕",
+        "description": "像Square、Toast和Clover这样的移动支付应用程序以垂直布局呈现小费选项，优化了单手使用。有限的屏幕空间使\"无小费\"选项不那么突出。"
+      },
+      "ipad_pos": {
+        "title": "📟 iPad POS小费屏幕",
+        "description": "基于平板电脑的销售点系统提供更大、更突出的小费按钮。更大的屏幕允许通过视觉层次和色彩心理学进行更多心理操纵。"
+      },
+      "android": {
+        "title": "🤖 Android小费屏幕",
+        "description": "基于Android的支付终端在设计上差异很大，但通常遵循类似的心理原则。一些系统将屏幕转向客户，增加了社会压力。"
+      }
+    },
+    "how_to_use": {
+      "title": "如何使用小费屏幕生成器",
+      "step_1": {
+        "title": "设置您的账单金额",
+        "description": "输入任何美元金额以查看小费计算如何改变总额。注意更高的账单如何使基于百分比的小费感觉更重要。"
+      },
+      "step_2": {
+        "title": "选择界面主题",
+        "description": "从iPad POS、移动外卖配送或夸张的暗黑模式设计中选择。每个主题展示了不同的小费征求心理方法。"
+      },
+      "step_3": {
+        "title": "启用暗黑模式",
+        "description": "切换各种操纵性设计元素以查看它们如何影响用户体验。这些模式在真实支付系统中不幸很常见。"
+      },
+      "step_4": {
+        "title": "截图和分享",
+        "description": "下载或复制您生成的小费屏幕以在社交媒体上分享。用它来开始关于小费文化和数字操纵的对话。"
+      }
+    },
+    "understanding_dark_patterns": {
+      "title": "理解小费屏幕中的暗黑模式",
+      "hidden_skip": {
+        "title": "🙈 隐藏的\"跳过\"选项",
+        "description": "使\"无小费\"选项难以找到，使用小文本，或将其埋在子菜单中以阻止其使用。"
+      },
+      "guilt_language": {
+        "title": "😢 内疚诱导语言",
+        "description": "使用\"支持您的服务员\"或\"您的司机会很伤心\"等短语来创造情感压力和关于不给小费的内疚感。"
+      },
+      "inflated_defaults": {
+        "title": "📈 夸大的默认百分比",
+        "description": "将22%、25%甚至30%设置为\"标准\"选项，使传统的15-18%小费看起来不够或便宜。"
+      },
+      "manipulative_design": {
+        "title": "🎨 操纵性视觉设计",
+        "description": "为高小费金额使用明亮的颜色，使\"无小费\"选项变小，并使用视觉层次来引导用户选择更高的小费。"
+      },
+      "social_surveillance": {
+        "title": "👀 社会监视",
+        "description": "定位屏幕以便员工和其他客户可以看到小费选择，利用社会压力和对判断的恐惧。"
+      },
+      "tip_before_service": {
+        "title": "⏰ 服务前小费",
+        "description": "在提供服务之前要求小费，当客户无法评估服务质量时，导致对可能糟糕的服务过度小费。"
+      }
+    },
+    "tip_screen_components": {
+      "bill_total": "账单总额",
+      "tip": "小费",
+      "total": "总计",
+      "no_tip": "无小费",
+      "skip": "跳过",
+      "continue": "继续",
+      "pay_now": "立即支付",
+      "custom_tip": "自定义小费",
+      "other_amount": "其他金额",
+      "enter_amount": "输入金额",
+      "guilt_skip_message": "跳过（您的服务员会很伤心😢）",
+      "delivery_guilt_message": "继续而不给小费（司机不会高兴）",
+      "delivery_no_tip": "继续而不给小费",
+      "dark_pattern_labels": {
+        "minimum_decent": "最低体面",
+        "fair": "公平",
+        "good_person": "好人"
+      },
+      "dark_pattern_guilt": "我不关心工人😢"
+    },
+    "copy_text": {
+      "tip_calculation": "小费：${tipAmount} ({tipPercentage})\n总计：${total}\n\n使用小费屏幕生成器生成\nhttps://geekskai.com/tools/tip-screen-generator"
+    },
+    "educational_content": {
+      "what_is_tip_screen": {
+        "title": "什么是小费屏幕？",
+        "description_1": "小费屏幕是在支付交易过程中出现的数字界面，提示客户添加小费。这些小费屏幕在现代商业中变得无处不在，出现在餐厅、咖啡店、配送服务和零售店的平板电脑、智能手机和销售点(POS)系统上。",
+        "description_2": "小费屏幕的演变反映了支付的数字化和围绕小费文化不断变化的社会期望。从简单的百分比选项开始，已经发展成为利用心理学原理影响客户行为的复杂界面。",
+        "features_title": "常见小费屏幕功能",
+        "features": {
+          "percentage_options": "• 基于百分比的小费选项（15%、18%、20%、25%）",
+          "custom_input": "• 自定义小费金额输入",
+          "skip_option": "• \"无小费\"或\"跳过\"选项（有时隐藏）",
+          "calculated_totals": "• 预计算总金额",
+          "visual_elements": "• 影响选择的视觉设计元素",
+          "social_messaging": "• 社会压力信息"
+        }
+      },
+      "psychology_section": {
+        "title": "小费屏幕背后的心理学",
+        "cognitive_bias": {
+          "title": "🧠 认知偏见",
+          "description": "小费屏幕利用认知偏见，如锚定（高默认百分比）、社会证明（建议金额）和损失厌恶（将无小费框定为\"跳过\"）。"
+        },
+        "social_pressure": {
+          "title": "👥 社会压力",
+          "description": "数字小费屏幕通过公开显示、员工可见性和内疚诱导语言创造人为的社会压力，使客户感到有义务给小费。"
+        },
+        "default_effects": {
+          "title": "🎯 默认效应",
+          "description": "预选的高小费百分比和高金额的突出位置利用了默认效应，人们倾向于坚持建议的选项。"
+        }
+      },
+      "device_section": {
+        "title": "不同设备上的小费屏幕",
+        "iphone": {
+          "title": "📱 iPhone小费屏幕",
+          "description": "iPhone小费屏幕具有iOS风格的设计元素，具有流畅的动画和Apple Pay集成。在移动支付应用和配送服务（如UberEats和DoorDash）中很常见。"
+        },
+        "ipad_pos": {
+          "title": "📟 iPad POS小费屏幕",
+          "description": "iPad小费屏幕在餐厅和零售环境中占主导地位。这些更大的显示器允许更精美的设计，客户和员工都能清楚地看到。"
+        },
+        "android": {
+          "title": "🤖 Android小费屏幕",
+          "description": "Android小费屏幕采用Material Design原则，在各种Android设备的各种支付终端和移动应用程序中很普遍。"
+        }
+      },
+      "how_to_create": {
+        "title": "如何创建小费屏幕图片和表情包",
+        "step_1": {
+          "title": "设置您的账单金额",
+          "description": "输入任何账单金额，看看操纵性小费计算在真实POS系统中是如何工作的。"
+        },
+        "step_2": {
+          "title": "选择界面主题",
+          "description": "从iPad POS、外卖配送或极端暗黑模式界面中选择。"
+        },
+        "step_3": {
+          "title": "启用暗黑模式",
+          "description": "切换操纵性设计元素，展示企业如何让客户产生内疚感而给更高的小费。"
+        },
+        "step_4": {
+          "title": "截图和分享",
+          "description": "下载或复制您的虚假小费屏幕，在社交媒体上分享并教育他人。"
+        }
+      },
+      "faq": {
+        "title": "关于小费屏幕的常见问题",
+        "q1": {
+          "question": "什么是小费屏幕，它是如何工作的？",
+          "answer": "小费屏幕是在支付交易过程中出现的数字界面，通常在平板电脑或智能手机上。它通过提供百分比选项（通常为15%、18%、20%、25%或更高）或允许自定义金额来提示客户添加小费。小费屏幕自动计算总额并处理包括小费在内的付款。"
+        },
+        "q2": {
+          "question": "为什么现在小费屏幕无处不在？",
+          "answer": "小费屏幕的普及是由于向数字支付的转变，特别是COVID-19大流行加速了这一趋势。它们比传统的小费罐更容易实施，自动计算金额，并可以通过心理设计元素增加小费金额。许多企业采用它们来帮助员工在经济不确定时期获得补偿。"
+        },
+        "q3": {
+          "question": "这个小费屏幕生成器免费使用吗？",
+          "answer": "是的！这个小费屏幕生成器完全免费，不需要任何应用下载。它直接在您的浏览器中工作，支持iPhone、iPad、Android和桌面设备。创建无限的小费屏幕示例和教育内容，没有任何限制。"
+        },
+        "q4": {
+          "question": "小费屏幕中的暗黑模式是什么？",
+          "answer": "小费屏幕中的暗黑模式是操纵性设计技术，迫使客户给更多小费。这些包括自动选择高百分比、隐藏\"无小费\"选项、使用内疚诱导语言、使跳过按钮变小，以及突出显示小费以创造社会压力。我们的工具出于教育目的演示这些模式。"
+        },
+        "q5": {
+          "question": "小费屏幕如何影响小费行为？",
+          "answer": "研究表明，小费屏幕通常会增加小费频率和金额。建议的百分比通常会将客户锚定到比他们原本可能留下的更高金额。交互的公开性质和预设选项也减少了计算小费所需的认知努力，使客户更有可能给小费。"
+        },
+        "q6": {
+          "question": "我可以将生成的小费屏幕用于教育目的吗？",
+          "answer": "当然可以！生成的小费屏幕非常适合关于UX设计、消费者心理学、数字伦理和小费文化的教育内容。它们非常适合博客文章、社交媒体内容、学术演示或关于暗黑模式和用户体验设计的培训材料。"
+        }
+      }
+    }
   }
 }
