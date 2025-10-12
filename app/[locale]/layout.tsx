@@ -12,7 +12,7 @@ import { Metadata } from "next"
 import SiteFooter from "@/components/SiteFooter"
 import { NextIntlClientProvider } from "next-intl"
 import { hasLocale } from "next-intl"
-import { routing, supportedLocales } from "../i18n/routing"
+import { defaultLocale, routing, supportedLocales } from "../i18n/routing"
 import { notFound } from "next/navigation"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 
@@ -21,6 +21,16 @@ const space_grotesk = Space_Grotesk({
   display: "swap",
   variable: "--font-space-grotesk",
 })
+
+export function getStaticParams() {
+  return supportedLocales
+    .filter((locale) => locale !== defaultLocale)
+    .map((locale) => {
+      return {
+        locale,
+      }
+    })
+}
 
 type Props = {
   children: React.ReactNode
