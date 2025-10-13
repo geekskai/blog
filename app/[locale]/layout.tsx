@@ -22,16 +22,6 @@ const space_grotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
 })
 
-export function getStaticParams() {
-  return supportedLocales
-    .filter((locale) => locale !== defaultLocale)
-    .map((locale) => {
-      return {
-        locale,
-      }
-    })
-}
-
 type Props = {
   children: React.ReactNode
   params: Promise<{ locale: string }>
