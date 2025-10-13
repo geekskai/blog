@@ -21,6 +21,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = ["", "blog/", "projects/", "tools/", "tags/", "about/"].map((route) => ({
     url: `${siteUrl}/${route}`,
     lastModified: new Date().toISOString().split("T")[0],
+    priority: route === "" ? 1.0 : route === "tools/" ? 0.9 : 0.8,
+    changeFrequency: "weekly" as const,
   }))
 
   // Generate static routes for all locales
