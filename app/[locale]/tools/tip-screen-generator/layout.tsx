@@ -26,7 +26,7 @@ export async function generateMetadata({
       type: "website",
       images: [
         {
-          url: "/static/images/tip-screen-generator.png",
+          url: "/static/images/og/tip-screen-generator.png",
           width: 1200,
           height: 630,
           alt: t("seo_title"),
