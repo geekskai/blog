@@ -15,6 +15,9 @@ export async function generateMetadata({ params }: { params: { tag: string } }):
     description: `${siteMetadata.title} ${tag} tagged content`,
     alternates: {
       canonical: "./",
+      languages: {
+        "x-default": `https://geekskai.com/tags/${tag}/`,
+      },
       types: {
         "application/rss+xml": `${siteMetadata.siteUrl}/tags/${tag}/feed.xml`,
       },

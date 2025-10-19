@@ -27,24 +27,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Generate static routes for all locales
   // const staticRoutes = ["", "blog/", "projects/", "tools/", "tags/", "about/"]
-  // const routes = staticRoutes.flatMap((route) => {
-  //   return supportedLocales.map((locale) => ({
-  //     url: `${siteUrl}${locale === defaultLocale ? "" : `/${locale}`}/${route}`,
-  //     lastModified: new Date().toISOString().split("T")[0],
-  //     priority: route === "" ? 1.0 : route === "tools/" ? 0.9 : 0.8,
-  //     changeFrequency: "weekly" as const,
-  //     // Add alternates for SEO
-  //     alternates: {
-  //       languages: supportedLocales.reduce(
-  //         (acc, lang) => {
-  //           acc[lang] = `${siteUrl}${lang === defaultLocale ? "" : `/${lang}`}/${route}`
-  //           return acc
-  //         },
-  //         {} as Record<string, string>
-  //       ),
-  //     },
-  //   }))
-  // })
+  const staticRoutes = ["tools/"].flatMap((route) => {
+    return supportedLocales.map((locale) => ({
+      url: `${siteUrl}${locale === defaultLocale ? "" : `/${locale}`}/${route}`,
+      lastModified: new Date().toISOString().split("T")[0],
+      priority: route === "" ? 1.0 : route === "tools/" ? 0.9 : 0.8,
+      changeFrequency: "weekly" as const,
+      // Add alternates for SEO
+      alternates: {
+        languages: supportedLocales.reduce(
+          (acc, lang) => {
+            acc[lang] = `${siteUrl}${lang === defaultLocale ? "" : `/${lang}`}/${route}`
+            return acc
+          },
+          {} as Record<string, string>
+        ),
+      },
+    }))
+  })
 
   // Generate tool routes for all locales
   const toolRoutes = toolsData.flatMap((tool) => {
@@ -72,7 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   })
   // Generate robots.txt friendly sitemap
-  const allRoutes = [...routes, ...blogRoutes, ...toolRoutes]
+  const allRoutes = [...routes, ...blogRoutes, ...toolRoutes, ...staticRoutes]
 
   // Remove duplicates and sort by priority
   const uniqueRoutes = allRoutes
