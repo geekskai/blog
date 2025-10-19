@@ -18,7 +18,7 @@ const space_grotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
 })
 
-export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
+export const generateMetadata = async (): Promise<Metadata> => {
   // const { locale } = await params
   // const t = await getTranslations("TagsPage")
 

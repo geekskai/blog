@@ -9,6 +9,14 @@ type Props = {
   params: Promise<{ locale: string }>
 }
 
+export function generateStaticParams() {
+  return supportedLocales
+    .filter((locale) => locale !== "en")
+    .map((locale) => ({
+      locale: locale,
+    }))
+}
+
 // export const metadata: Metadata = {
 //   metadataBase: new URL(siteMetadata.siteUrl),
 //   title: {
