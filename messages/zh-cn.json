@@ -3299,5 +3299,483 @@
         }
       }
     }
+  },
+
+  "Random4DigitNumberGenerator": {
+    "seo_title": "随机4位数字生成器 - 免费安全 | 即时生成",
+    "seo_description": "即时生成安全的随机4位数字。非常适合验证码、PIN码、测试数据和开发。免费、快速、加密安全、无需注册。",
+    "seo_keywords": "随机4位数字生成器, 随机4位代码生成器, 4位数字生成器, 四位随机数字生成器, 4位随机数字, 验证码生成器, PIN生成器, OTP生成器, 随机数字生成器, 安全随机数字, 加密随机, 测试数据生成器, 批量数字生成器",
+
+    "og_image_alt": "随机4位数字生成器工具",
+
+    "json_ld": {
+      "name": "随机4位数字生成器",
+      "description": "即时生成安全的随机4位数字。非常适合{verification_codes}、{pins}、{testing_data}和开发用途。加密安全、无限制、完全免费。",
+
+      "keywords": "随机数字生成器, 4位生成器, 验证码, PIN生成器, OTP, 安全随机, 加密",
+      "educational_use": "软件开发, 安全测试, QA测试, 数据库填充, 统计分析",
+      "audience_type": "开发者, QA工程师, 安全专业人士, 学生",
+      "usage_info": "用于验证码、PIN码、测试、开发和教育目的。使用加密安全的随机性。",
+      "feature_list": {
+        "crypto_secure": "加密安全的随机数字生成",
+        "single_bulk": "单个和批量生成模式",
+        "custom_range": "可自定义数字范围 (0000-9999)",
+        "multiple_formats": "多种格式选项（普通、连字符、点号、前缀）",
+        "exclusion_rules": "连续和重复数字的排除规则",
+        "export_formats": "以TXT、CSV和JSON格式导出",
+        "no_duplicates": "无重复选项用于唯一数字集",
+        "history": "生成历史跟踪",
+        "statistics": "实时统计和分析",
+        "mobile_friendly": "移动友好的响应式设计",
+        "no_registration": "无需注册",
+        "free": "100%免费，无限生成",
+        "privacy": "注重隐私 - 无数据存储",
+        "instant": "使用Web Crypto API即时生成"
+      }
+    },
+
+    "breadcrumb": {
+      "home": "首页",
+      "tools": "工具",
+      "random_4_digit_number_generator": "随机4位数字生成器"
+    },
+
+    "header": {
+      "badge_text": "加密安全 • 永久免费",
+      "main_title": "随机4位数字生成器",
+      "description": "即时生成安全的随机4位数字。非常适合{verification_codes}、{pins}、{testing_data}和开发用途。加密安全、无限制、完全免费。",
+      "verification_codes": "验证码",
+      "pins": "PIN码",
+      "testing_data": "测试数据",
+      "share_text": "与您的团队分享这个免费工具"
+    },
+
+    "features_pills": {
+      "instant_generation": "即时生成",
+      "crypto_secure": "加密安全",
+      "bulk_export": "批量导出"
+    },
+
+    "generator": {
+      "single_title": "单个数字生成器",
+      "settings_show": "显示设置",
+      "settings_hide": "隐藏设置",
+
+      "settings_panel": {
+        "title": "生成设置",
+        "range_label": "范围（最小 - 最大）",
+        "format_label": "数字格式",
+        "format_plain": "普通 (1234)",
+        "format_hyphen": "连字符 (12-34)",
+        "format_dot": "点号 (12.34)",
+        "format_prefix": "前缀 (#1234)",
+        "exclusion_rules_label": "排除规则",
+        "exclude_sequential": "排除连续 (1234, 4321)",
+        "exclude_repeated": "排除重复 (1111, 2222)"
+      },
+
+      "display": {
+        "crypto_secure": "加密安全的随机数字",
+        "click_generate": "点击生成创建数字",
+        "features": "安全 • 随机 • 即时"
+      },
+
+      "buttons": {
+        "generate": "生成数字",
+        "generating": "生成中...",
+        "copy": "复制",
+        "copied": "已复制！"
+      },
+
+      "history": {
+        "title": "最近历史",
+        "clear": "清除"
+      },
+
+      "bulk": {
+        "title": "批量生成器",
+        "number_of_items": "项目数量",
+        "export_format": "导出格式",
+        "format_txt": "文本 (.txt)",
+        "format_csv": "CSV (.csv)",
+        "format_json": "JSON (.json)",
+        "allow_duplicates": "允许重复",
+        "generate_button": "生成 {count} 个数字",
+        "results_title": "已生成数字 ({count})",
+        "click_to_copy": "点击复制"
+      },
+
+      "stats": {
+        "total_generated": "总生成数",
+        "unique_numbers": "唯一数字",
+        "average_value": "平均值"
+      },
+
+      "bulk_title": "批量生成器",
+      "bulk_settings": {
+        "quantity_label": "项目数量",
+        "export_format_label": "导出格式",
+        "export_txt": "文本 (.txt)",
+        "export_csv": "CSV (.csv)",
+        "export_json": "JSON (.json)",
+        "allow_duplicates": "允许重复"
+      },
+
+      "bulk_buttons": {
+        "generate": "生成 {count} 个数字",
+        "export": "导出",
+        "show": "显示",
+        "hide": "隐藏"
+      },
+
+      "statistics": {
+        "total_generated": "总生成数",
+        "unique_numbers": "唯一数字",
+        "average_value": "平均值",
+        "generated_numbers": "已生成数字 ({count})",
+        "click_to_copy": "点击复制"
+      },
+
+      "reset_button": "全部重置"
+    },
+
+    "use_cases": {
+      "badge": "热门使用场景",
+      "title": "4位随机数字生成器可以用来做什么？",
+      "description": "从安全应用到开发测试，探索我们的随机数字生成器可以帮助您的多种方式",
+
+      "verification_codes": {
+        "title": "验证码",
+        "description": "为短信/邮件验证系统生成安全的OTP和2FA代码",
+        "examples": {
+          "sms_otp": "短信OTP",
+          "email_verification": "邮件验证",
+          "two_factor_auth": "双因素认证",
+          "account_recovery": "账户恢复"
+        }
+      },
+
+      "pin_numbers": {
+        "title": "PIN码",
+        "description": "为各种应用创建安全的个人识别码",
+        "examples": {
+          "atm_pins": "ATM PIN码",
+          "lock_codes": "锁定代码",
+          "access_control": "访问控制",
+          "security_tokens": "安全令牌"
+        }
+      },
+
+      "testing_development": {
+        "title": "测试与开发",
+        "description": "为QA、开发和数据库填充目的生成测试数据",
+        "examples": {
+          "qa_testing": "QA测试",
+          "api_testing": "API测试",
+          "mock_data": "模拟数据",
+          "database_seeds": "数据库种子"
+        }
+      },
+
+      "gaming_lottery": {
+        "title": "游戏与抽奖",
+        "description": "为游戏、比赛和幸运数字生成创建随机数字",
+        "examples": {
+          "lucky_numbers": "幸运数字",
+          "game_codes": "游戏代码",
+          "contest_ids": "比赛ID",
+          "random_selection": "随机选择"
+        }
+      },
+
+      "educational_research": {
+        "title": "教育与研究",
+        "description": "非常适合统计、概率实验和学术项目",
+        "examples": {
+          "statistical_sampling": "统计抽样",
+          "math_education": "数学教育",
+          "research_data": "研究数据",
+          "surveys": "调查"
+        }
+      },
+
+      "how_it_works": {
+        "title": "我们的生成器如何工作",
+        "description_1": "我们的{strong_4digit}使用加密安全算法确保真正的随机性和不可预测性。",
+        "strong_4digit": "4位随机数字生成器",
+        "description_2": "与基本的随机数字生成器不同，我们使用{strong_crypto}，它提供适用于安全敏感应用的加密强随机值。",
+        "strong_crypto": "Web Crypto API",
+        "description_3": "非常适合{strong_users}以及任何需要可靠随机数字用于验证码、PIN码或测试目的的人。",
+        "strong_users": "开发者、安全专业人士",
+
+        "steps": {
+          "step_1": "选择您的偏好（范围、格式、排除项）",
+          "step_2": "点击生成以创建安全的随机数字",
+          "step_3": "复制单个数字或批量导出",
+          "step_4": "立即在您的应用中使用它们"
+        }
+      },
+
+      "why_choose": {
+        "title": "为什么选择我们的工具？",
+        "instant_generation": {
+          "title": "即时生成",
+          "description": "在毫秒内获取您的随机数字"
+        },
+        "crypto_secure": {
+          "title": "加密安全",
+          "description": "使用Web Crypto API实现真正的随机性"
+        },
+        "no_registration": {
+          "title": "无需注册",
+          "description": "立即开始生成，无需注册"
+        },
+        "free_forever": {
+          "title": "100%永久免费",
+          "description": "无限生成，无需任何费用"
+        },
+        "mobile_friendly": {
+          "title": "移动友好",
+          "description": "在所有设备上完美运行"
+        },
+        "customizable": {
+          "title": "可自定义选项",
+          "description": "控制范围、格式和排除规则"
+        }
+      }
+    },
+
+    "features": {
+      "badge": "强大功能",
+      "title": "一个工具满足所有需求",
+      "description": "为开发者、安全专业人士和高级用户设计的专业级功能",
+
+      "crypto_secure": {
+        "title": "加密安全",
+        "description": "使用Web Crypto API进行真正的随机数字生成，适用于安全敏感的应用"
+      },
+      "lightning_fast": {
+        "title": "超快速度",
+        "description": "通过我们优化的算法和高效处理，即时生成数千个随机数字"
+      },
+      "multiple_exports": {
+        "title": "多种导出格式",
+        "description": "以TXT、CSV或JSON格式导出生成的数字，轻松集成到您的工作流程"
+      },
+      "mobile_optimized": {
+        "title": "移动优化",
+        "description": "完全响应式设计，在所有设备上完美运行 - 桌面、平板和移动设备"
+      },
+      "no_registration": {
+        "title": "无需注册",
+        "description": "无需创建账户或提供个人信息即可立即开始生成随机数字"
+      },
+      "advanced_customization": {
+        "title": "高级自定义",
+        "description": "控制数字范围、格式、重复，并应用连续或重复数字的排除规则"
+      },
+
+      "learn_more": "了解更多",
+
+      "trust_signals": {
+        "badge": "受开发者和安全专业人士信赖",
+        "description": "加入数千名依赖我们随机数字生成器进行日常工作流程的开发者、QA工程师和安全专业人士",
+        "badges": {
+          "free_forever": "✓ 100%永久免费",
+          "no_registration": "✓ 无需注册",
+          "unlimited": "✓ 无限生成",
+          "privacy": "✓ 注重隐私",
+          "open_source": "✓ 开源算法",
+          "cross_platform": "✓ 移动和桌面"
+        }
+      },
+
+      "security_notice": {
+        "title": "安全与隐私",
+        "description": "所有随机数字生成都在您的浏览器中使用Web Crypto API进行。我们不存储、跟踪或传输任何生成的数字。您的数据保留在您的设备上，确保完全的隐私和安全。"
+      }
+    },
+
+    "faq": {
+      "badge": "常见问题",
+      "title": "您需要了解的一切",
+      "description": "关于我们的随机4位数字生成器的常见问题",
+
+      "items": {
+        "how_random": {
+          "question": "生成的数字有多随机？",
+          "answer": "我们的生成器使用Web Crypto API（crypto.getRandomValues()），它提供加密安全的随机数字。这意味着数字是真正随机和不可预测的，适用于验证码和PIN码等安全敏感应用。随机性质量明显高于Math.random()。"
+        },
+        "no_duplicates": {
+          "question": "可以生成无重复的数字吗？",
+          "answer": "可以！使用批量生成器时，只需取消选中\"允许重复\"选项。我们的算法将确保批次中所有生成的数字都是唯一的。这非常适合创建唯一的验证码或测试数据集。"
+        },
+        "is_free": {
+          "question": "这个工具完全免费吗？",
+          "answer": "绝对免费！我们的4位随机数字生成器100%免费，没有隐藏费用、订阅或高级功能。您可以无限制地生成数字。永远不需要注册或付款。"
+        },
+        "secure_passwords": {
+          "question": "生成的数字足够安全用作密码吗？",
+          "answer": "虽然我们的生成器使用加密安全的随机性，但4位数字（0000-9999）只提供10,000种可能的组合。这通常不足以用作密码。但是，它们非常适合临时验证码、PIN码和存在额外安全层的双因素认证。"
+        },
+        "more_than_1000": {
+          "question": "可以一次生成超过1000个数字吗？",
+          "answer": "目前，批量生成器限制为每批1000个数字以确保最佳性能。如果您需要更多数字，可以生成多个批次并组合它们。对于非常大的数据集（10,000+），请考虑使用我们的API或运行多次生成。"
+        },
+        "store_numbers": {
+          "question": "你们会存储我生成的数字吗？",
+          "answer": "不会，我们从不存储、记录或传输您生成的数字。所有数字生成完全在您的浏览器中使用JavaScript进行。您的数字保留在您的设备上，永远不会发送到我们的服务器。我们完全尊重您的隐私。"
+        },
+        "format_options": {
+          "question": "格式选项有什么区别？",
+          "answer": "我们提供四种格式选项：普通（1234）、连字符（12-34）、点号（12.34）和前缀（#1234）。这些格式纯粹是装饰性的，有助于匹配不同的使用场景。例如，连字符格式常用于验证码，而前缀格式对ID号很有用。"
+        },
+        "exclude_patterns": {
+          "question": "可以排除连续或重复的数字吗？",
+          "answer": "可以！在高级设置中，您可以启用排除规则来防止连续数字（如1234或4321）和重复数字（如1111或2222）。当您需要更\"随机外观\"的数字或想避免容易猜测的模式时，这很有用。"
+        },
+        "how_export": {
+          "question": "如何导出我生成的数字？",
+          "answer": "生成一批数字后，点击导出按钮。您可以从三种格式中选择：TXT（纯文本，每行一个数字）、CSV（带元数据的电子表格兼容）或JSON（用于编程的结构化数据）。文件会立即下载到您的设备。"
+        },
+        "lottery_gambling": {
+          "question": "可以将这些数字用于彩票或赌博吗？",
+          "answer": "虽然我们的生成器提供真正适合选择彩票号码或进行随机选择的随机数字，但请注意我们不能保证中奖结果。请负责任地使用，并记住赌博涉及风险。我们的工具主要设计用于开发、测试和安全应用。"
+        },
+        "browsers_supported": {
+          "question": "支持哪些浏览器？",
+          "answer": "我们的工具适用于所有现代浏览器，包括Chrome、Firefox、Safari、Edge和移动浏览器。Web Crypto API在2014年后发布的所有浏览器中都受支持。为获得最佳体验，我们建议使用您首选浏览器的最新版本。"
+        },
+        "range_setting": {
+          "question": "范围设置如何工作？",
+          "answer": "范围设置允许您指定生成的最小值和最大值。例如，设置范围1000-5000将只生成1000到5000之间的数字。当您需要0000-9999范围的特定子集内的数字时，这很有用。"
+        }
+      },
+
+      "q1": {
+        "question": "生成的数字有多随机？",
+        "answer": "我们的生成器使用Web Crypto API（crypto.getRandomValues()），它提供加密安全的随机数字。这意味着数字是真正随机和不可预测的，适用于验证码和PIN码等安全敏感应用。随机性质量明显高于Math.random()。"
+      },
+      "q2": {
+        "question": "可以生成无重复的数字吗？",
+        "answer": "可以！使用批量生成器时，只需取消选中\"允许重复\"选项。我们的算法将确保批次中所有生成的数字都是唯一的。这非常适合创建唯一的验证码或测试数据集。"
+      },
+      "q3": {
+        "question": "这个工具完全免费吗？",
+        "answer": "绝对免费！我们的4位随机数字生成器100%免费，没有隐藏费用、订阅或高级功能。您可以无限制地生成数字。永远不需要注册或付款。"
+      },
+      "q4": {
+        "question": "生成的数字是否足够安全用作密码？",
+        "answer": "虽然我们的生成器使用加密安全的随机性，但4位数字（0000-9999）只提供10,000种可能的组合。这通常不足以用作密码。但是，它们非常适合临时验证码、PIN码和存在额外安全层的双因素认证。"
+      },
+      "q5": {
+        "question": "可以一次生成超过1000个数字吗？",
+        "answer": "目前，批量生成器限制为每批1000个数字以确保最佳性能。如果您需要更多数字，可以生成多个批次并将它们组合起来。对于非常大的数据集（10,000+），请考虑使用我们的API或运行多次生成。"
+      },
+      "q6": {
+        "question": "你们会存储我生成的数字吗？",
+        "answer": "不会，我们永远不会存储、记录或传输您生成的数字。所有数字生成完全在您的浏览器中使用JavaScript进行。您的数字保留在您的设备上，永远不会发送到我们的服务器。我们完全尊重您的隐私。"
+      },
+      "q7": {
+        "question": "格式选项有什么区别？",
+        "answer": "我们提供四种格式选项：普通（1234）、连字符（12-34）、点号（12.34）和前缀（#1234）。这些格式纯粹是外观上的，有助于匹配不同的使用场景。例如，连字符格式常用于验证码，而前缀格式对ID号很有用。"
+      },
+      "q8": {
+        "question": "可以排除连续或重复的数字吗？",
+        "answer": "可以！在高级设置中，您可以启用排除规则来防止连续数字（如1234或4321）和重复数字（如1111或2222）。当您需要更\"随机\"的数字或想要避免容易猜测的模式时，这很有用。"
+      },
+      "q9": {
+        "question": "如何导出我生成的数字？",
+        "answer": "生成一批数字后，点击导出按钮。您可以从三种格式中选择：TXT（纯文本，每行一个数字）、CSV（与电子表格兼容，带有元数据）或JSON（用于编程的结构化数据）。文件会立即下载到您的设备。"
+      },
+      "q10": {
+        "question": "可以将这些数字用于彩票或赌博吗？",
+        "answer": "虽然我们的生成器提供真正随机的数字，适合选择彩票号码或进行随机选择，但请注意我们不能保证中奖结果。请负责任地使用，并记住赌博涉及风险。我们的工具主要设计用于开发、测试和安全应用。"
+      },
+      "q11": {
+        "question": "支持哪些浏览器？",
+        "answer": "我们的工具适用于所有现代浏览器，包括Chrome、Firefox、Safari、Edge和移动浏览器。Web Crypto API在2014年后发布的所有浏览器中都受支持。为获得最佳体验，我们建议使用您首选浏览器的最新版本。"
+      },
+      "q12": {
+        "question": "范围设置如何工作？",
+        "answer": "范围设置允许您指定生成的最小值和最大值。例如，设置范围1000-5000将只生成1000到5000之间的数字。当您需要0000-9999范围的特定子集内的数字时，这很有用。"
+      },
+
+      "still_have_questions": {
+        "title": "还有问题吗？",
+        "description": "找不到您要找的答案？查看我们的文档或联系我们的社区",
+        "view_docs": "查看文档",
+        "contact_support": "联系支持"
+      },
+
+      "pro_tips": {
+        "tip_1": {
+          "icon": "💡",
+          "title": "专业提示",
+          "text": "使用历史功能快速访问您最近生成的数字"
+        },
+        "tip_2": {
+          "icon": "⚡",
+          "title": "速度提示",
+          "text": "输入后按Enter键即可立即生成新数字"
+        },
+        "tip_3": {
+          "icon": "🎯",
+          "title": "最佳实践",
+          "text": "启用排除规则以获得更安全和不可预测的数字模式"
+        }
+      }
+    },
+
+    "cta": {
+      "title": "准备好生成随机数字了吗？",
+      "description": "立即开始生成安全的随机4位数字。无需注册，无限制，永久免费。",
+      "button": "立即生成数字",
+      "trust_badges": {
+        "crypto_secure": "✓ 加密安全",
+        "no_registration": "✓ 无需注册",
+        "free_forever": "✓ 100%永久免费",
+        "privacy": "✓ 注重隐私",
+        "unlimited": "✓ 无限生成",
+        "cross_platform": "✓ 移动和桌面"
+      }
+    },
+
+    "seo_content": {
+      "title": "关于我们的随机4位数字生成器",
+      "paragraph_1": "我们的{strong_generator}是为开发者、安全专业人士、QA工程师和任何需要可靠随机数字的人设计的专业级工具。与基本的随机数字生成器不同，我们使用<rich>{strong_crypto}</rich>来确保适用于安全敏感应用的加密安全随机性。",
+      "strong_generator": "随机4位数字生成器",
+      "strong_crypto": "Web Crypto API",
+
+      "perfect_for_title": "适用于多种使用场景",
+      "perfect_for_description": "无论您需要用于身份验证系统的{strong_verification}、用于访问控制的{strong_pins}、用于开发的{strong_test_data}，还是用于其他目的的{strong_random}，我们的工具都能提供具有高级自定义选项的即时、安全的生成。",
+      "strong_verification": "验证码",
+      "strong_pins": "PIN码",
+      "strong_test_data": "测试数据",
+      "strong_random": "随机数字",
+
+      "key_features_title": "主要功能",
+      "features_list": {
+        "crypto_secure": "<strong>加密安全</strong>：使用Web Crypto API实现真正的随机性",
+        "bulk_generation": "<strong>批量生成</strong>：一次生成最多1000个数字",
+        "multiple_formats": "<strong>多种格式</strong>：普通、连字符、点号和前缀格式",
+        "exclusion_rules": "<strong>排除规则</strong>：避免连续和重复模式",
+        "export_options": "<strong>导出选项</strong>：下载为TXT、CSV或JSON",
+        "no_registration": "<strong>无需注册</strong>：立即开始使用",
+        "free": "<strong>100%免费</strong>：永久无限生成",
+        "privacy": "<strong>注重隐私</strong>：无数据存储或跟踪"
+      },
+
+      "how_it_works_title": "工作原理",
+      "how_it_works_description": "我们的生成器利用浏览器的原生{strong_crypto}方法，该方法提供加密强随机值。这确保生成的数字真正不可预测，适用于{strong_otp}、{strong_2fa}和{strong_verification}等安全应用。",
+      "strong_crypto_method": "crypto.getRandomValues()",
+      "strong_otp": "OTP生成",
+      "strong_2fa": "双因素认证",
+      "strong_verification_codes": "验证码",
+
+      "why_choose_title": "为什么选择我们的工具？",
+      "why_choose_description": "与使用基本Math.random()的其他随机数字生成器不同，我们的工具提供{strong_enterprise}，配有美观直观的界面。我们专门为需要可靠、安全的随机数字而不牺牲可用性或功能的专业人士设计。",
+      "strong_enterprise": "企业级安全"
+    }
   }
 }

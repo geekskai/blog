@@ -344,7 +344,6 @@
       "bf_unit": "bf",
       "untitled_piece": "Navnløs del"
     },
-
     "educational_content": {
       "professional_use_cases": "Profesjonelle Brukstilfeller",
       "use_cases_description": "Oppdag hvordan fagfolk på tvers av bransjer bruker board foot beregninger",
@@ -853,13 +852,11 @@
     "page_title": "Invincible Titelkort Generator",
     "page_subtitle": "Lag Tilpassede TV-Show Titelkort",
     "page_description": "Generer tilpassede titelkort inspirert av Invincible animasjonsserien. Lag profesjonelle titelkort med tilpassbar tekst, farger, bakgrunner og effekter. Perfekt for fan-innhold og kreative prosjekter.",
-
     "breadcrumb": {
       "home": "Hjem",
       "tools": "Verktøy",
       "invincible_title_card_generator": "Invincible Titelkort Generator"
     },
-
     "header": {
       "professional_badge": "Profesjonell Titelkort Generator",
       "main_title": "Invincible",
@@ -871,7 +868,6 @@
       "download_button": "Last ned",
       "generating": "Genererer..."
     },
-
     "preview": {
       "live_preview": "Direkteforhåndsvisning",
       "resolution": "1920×1080",
@@ -884,14 +880,12 @@
       "saved_configurations": "Lagrede Konfigurasjoner",
       "click_to_apply": "Klikk for å bruke"
     },
-
     "settings": {
       "customization": "Tilpasning",
       "presets_tab": "forhåndsinnstillinger",
       "text_tab": "tekst",
       "colors_tab": "farger",
       "effects_tab": "effekter",
-
       "character_presets": "Karakterforhåndsinnstillinger",
       "text_settings": "Tekstinnstillinger",
       "main_title_label": "Hovedtittel",
@@ -900,21 +894,17 @@
       "small_subtitle_placeholder": "Liten undertittel...",
       "credits_subtitle_label": "Credits Undertittel",
       "credits_subtitle_placeholder": "Credits undertittel...",
-
       "font_size": "Skriftstørrelse",
       "text_outline": "Tekstkontur",
       "subtitle_offset": "Undertittel Forskyvning",
-
       "background_style": "Bakgrunnsstil",
       "text_color": "Tekstfarge",
-
       "display_options": "Visningsalternativer",
       "show_credits": "Vis Credits",
       "show_credits_description": "Vis undertittelinformasjon under tittelen",
       "show_watermark": "Vis Vannmerke",
       "show_watermark_description": "Legg til attribusjon til det genererte bildet"
     },
-
     "presets": {
       "invincible": {
         "name": "Invincible",
@@ -945,7 +935,6 @@
         "description": "Marks halvbror"
       }
     },
-
     "backgrounds": {
       "classic_blue": "Klassisk Blå",
       "hero_gradient": "Helt Gradient",
@@ -956,7 +945,6 @@
       "sunset_orange": "Solnedgang Oransje",
       "forest_green": "Skog Grønn"
     },
-
     "text_colors": {
       "invincible_yellow": "Invincible Gul",
       "hero_blue": "Helt Blå",
@@ -969,24 +957,18 @@
       "atom_pink": "Atom Rosa",
       "alien_cyan": "Alien Cyan"
     },
-
     "content": {
       "professional_features": "Profesjonelle Funksjoner",
       "features_description": "Alt du trenger for å lage fantastiske titelkort med studiokvalitets resultater",
-
       "advanced_typography": "Avansert Typografi",
       "typography_description": "Profesjonell teksttilpasning med autentisk Invincible-styling, kontureffekter og presis typografisk kontroll for piksel-perfekte resultater.",
-
       "character_presets_feature": "Karakterforhåndsinnstillinger",
       "presets_description": "Bruk øyeblikkelig autentiske fargeskjemaer for Mark, Omni-Man, Atom Eve og andre elskede karakterer med ett-klikk forhåndsinnstillingskonfigurasjoner.",
-
       "studio_export_quality": "Studio Eksportkvalitet",
       "export_description": "Eksporter i ultra-høy oppløsning 1920×1080 PNG-format, optimalisert for profesjonell videoproduksjon, sosiale medier og presentasjonsbruk.",
-
       "create_professional_title": "Lag Profesjonelle Invincible-Stil Titelkort",
       "about_description_1": "Vår avanserte Invincible Titelkort Generator gir skapere mulighet til å produsere studiokvalitets titelkort som fanger essensen av den elskede animasjonsserien. Med intuitive kontroller og profesjonell utgang, bring din kreative visjon til live.",
       "about_description_2": "Enten du lager fan-videoer, YouTube-innhold, undervisningsmateriell eller profesjonelle presentasjoner, gir vårt verktøy fleksibiliteten og kvaliteten du trenger for å skille deg ut fra mengden.",
-
       "premium_features": "Premium Funksjoner",
       "feature_character_presets": "Karakterbaserte fargeforhåndsinnstillinger og temaer",
       "feature_text_customization": "Avansert teksttilpasning og typografi",
@@ -994,7 +976,6 @@
       "feature_high_resolution": "Høy oppløsning eksport (1920×1080)",
       "feature_real_time_preview": "Sanntids forhåndsvisning og redigering",
       "feature_save_configurations": "Lagre og administrer favorittkonfigurasjoner",
-
       "how_to_create_title": "Hvordan Lage Ditt Perfekte Titelkort",
       "step_1_title": "Velg Din Stil",
       "step_1_description": "Velg fra karakterforhåndsinnstillinger eller start med et blankt lerret. Hver forhåndsinnstilling inkluderer optimaliserte farger og styling for autentiske resultater.",
@@ -1004,7 +985,6 @@
       "step_3_description": "Juster farger, bakgrunner og effekter mens du ser endringene dine i sanntid. Bruk fullskjermmodus for detaljert redigering.",
       "step_4_title": "Eksporter & Del",
       "step_4_description": "Last ned titelkortet ditt i profesjonell kvalitet og del det på tvers av prosjektene dine, sosiale medier eller kreative plattformer.",
-
       "faq_title": "Ofte Stilte Spørsmål",
       "faq_1_question": "Hva gjør denne titelkort generatoren spesiell?",
       "faq_1_answer": "Vår generator er spesifikt designet for å replikere det autentiske utseendet og følelsen av Invincible animasjonsserien. Vi har nøye studert showets typografi, fargeskjemaer og visuelle stil for å levere karakterspesifikke forhåndsinnstillinger og profesjonelle tilpasningsmuligheter som produserer studiokvalitets resultater.",
@@ -1017,13 +997,11 @@
       "faq_5_question": "Er verktøyet helt gratis?",
       "faq_5_answer": "Ja! Vår Invincible Titelkort Generator er helt gratis uten registrering påkrevd, ingen skjulte gebyrer og ingen vannmerker (med mindre du velger å beholde attribusjonen). Lag ubegrensede titelkort og last dem ned i full oppløsning uten noen begrensninger."
     },
-
     "default_state": {
       "text": "Invincible",
       "small_subtitle": "BASERT PÅ TEGNESERIEN AV",
       "subtitle": "Robert Kirkman, Cory Walker, & Ryan Ottley"
     },
-
     "messages": {
       "settings_copied": "Innstillinger kopiert til utklippstavle! 🎬",
       "copy_failed": "Kopiering mislyktes",
@@ -1037,13 +1015,11 @@
     "page_title": "BPM til Millisekunder Konverter",
     "page_subtitle": "Profesjonell Timing Kalkulator for Musikk Produsenter & DJ-er",
     "page_description": "Øyeblikkelige, nøyaktige delay tider og LFO hastigheter for din DAW",
-
     "value_props": {
       "instant_conversion": "Øyeblikkelig Konvertering",
       "daw_ready": "DAW Klar",
       "studio_grade": "Studio Kvalitet"
     },
-
     "quick_converter": {
       "title": "Rask Konverter",
       "input_placeholder": "Skriv inn BPM (f.eks. 120) eller millisekunder (f.eks. 500)",
@@ -1055,7 +1031,6 @@
       "click_to_copy": "Klikk for å kopiere",
       "copied": "Kopiert!"
     },
-
     "conversion_results": {
       "milliseconds_per_beat": "Millisekunder per Beat",
       "beats_per_minute": "Beats per Minutt",
@@ -1065,7 +1040,6 @@
       "copy_all": "Kopier Alt",
       "copied_all": "Kopiert Alt!"
     },
-
     "conversion_modes": {
       "bpm_to_ms": "BPM til MS",
       "ms_to_bpm": "MS til BPM",
@@ -1073,7 +1047,6 @@
       "converting_bpm_to_ms": "Konverterer BPM til Millisekunder",
       "converting_ms_to_bpm": "Konverterer Millisekunder til BPM"
     },
-
     "input_validation": {
       "range_bpm": "Område: 20-300 BPM",
       "range_ms": "Område: 100-3000 ms",
@@ -1083,7 +1056,6 @@
       "error_invalid_bpm": "Ugyldig BPM. Vennligst skriv inn et tall mellom 20 og 300.",
       "error_invalid_ms": "Ugyldige millisekunder. Vennligst skriv inn et tall mellom 100 og 3000."
     },
-
     "common_bpm_presets": {
       "title": "Vanlige BPM Verdier etter Sjanger",
       "genres": {
@@ -1097,7 +1069,6 @@
         "dnb": "D&B"
       }
     },
-
     "note_values": {
       "quarter": {
         "name": "Kvart Note",
@@ -1145,7 +1116,6 @@
         "common_use": "Ekstremt raske delays, Glitch effekter"
       }
     },
-
     "professional_tips": {
       "title": "Profesjonelle Tips for Musikk Produksjon",
       "delay_reverb_timing": {
@@ -1163,7 +1133,6 @@
         "triplets": "Trioler: Kompleks polyrytmisk modulasjon"
       }
     },
-
     "how_it_works": {
       "title": "Hvordan BPM til Millisekunder Konvertering Fungerer",
       "formula_title": "Formelen",
@@ -1180,7 +1149,6 @@
         "lighting_sync": "Sette opp tempo-synkroniserte lyssystemer"
       }
     },
-
     "breadcrumb": {
       "home": "Hjem",
       "tools": "Verktøy",
@@ -1195,14 +1163,12 @@
     "page_subtitle": "Motor Effekt Estimator",
     "page_description": "Gratis CCM til HP konverter og motor effekt kalkulator. Konverter motor slagvolum (ccm) til hestekraft (hp) øyeblikkelig med presisjon for 2-takt og 4-takt motorer. Perfekt for motorsykkel entusiaster, bilkjøpere, marine anvendelser og racing prosjekter.",
     "free_calculator_badge": "Motor Effekt Kalkulator",
-
     "feature_badges": {
       "bidirectional_conversion": "Toveis CCM ↔ HP Konvertering",
       "engine_support": "2-Takt & 4-Takt Motor Støtte",
       "turbo_support": "Turbolader & Naturlig Aspirert",
       "multi_application": "Motorsykkel, Bil & Marine Motorer"
     },
-
     "keywords_tags": {
       "ccm_to_hp": "ccm til hp",
       "hp_to_ccm": "hp til ccm",
@@ -1211,13 +1177,11 @@
       "motorcycle_power_calculator": "motorsykkel effekt kalkulator",
       "2_stroke_4_stroke_converter": "2-takt 4-takt konverter"
     },
-
     "breadcrumb": {
       "home": "Hjem",
       "tools": "Verktøy",
       "ccm_to_hp_converter": "CCM til HP Konverter"
     },
-
     "usage_guide": {
       "title": "Hvordan Bruke CCM til HP Konverter - Komplett Motor Effekt Guide",
       "description": "Mestre motor slagvolum til hestekraft konvertering for motorsykkel shopping, bil evaluering, marine motorer og racing anvendelser",
@@ -1230,7 +1194,6 @@
       "step_4_title": "Få Øyeblikkelige Resultater",
       "step_4_description": "Se estimert hestekraft med effekt område, kopier resultater eller del beregninger"
     },
-
     "converter_card": {
       "title": "CCM ↔ HP Motor Kalkulator",
       "description": "Konverter motor slagvolum til hestekraft med presisjon",
@@ -1269,17 +1232,14 @@
       "min_hp_error": "Minimum HP verdi er 1",
       "high_hp_warning": "Veldig høy hestekraft. Resultater kan være mindre nøyaktige for motorer over 1000hp"
     },
-
     "engine_types": {
       "2_stroke": "2-Takt Motor",
       "4_stroke": "4-Takt Motor"
     },
-
     "fuel_systems": {
       "naturally_aspirated": "Naturlig Aspirert",
       "turbocharged": "Turbolader"
     },
-
     "history": {
       "title": "Konverterings Historikk",
       "button_text": "Historikk",
@@ -1287,7 +1247,6 @@
       "click_to_use": "Klikk for å bruke",
       "recent_conversions_saved": "Nylige konverteringer lagres lokalt"
     },
-
     "quick_reference": {
       "title": "Rask Referanse",
       "description": "Vanlige CCM til HP konverteringer og virkelige eksempler",
@@ -1296,30 +1255,22 @@
       "pro_tip": "Pro Tips",
       "pro_tip_text": "Motor slagvolum (CCM) er bare én faktor i å bestemme hestekraft. Faktisk effekt utgang avhenger av kompressjonsforhold, drivstoffsystem, tuning og mange andre faktorer. Bruk disse estimatene som utgangspunkt."
     },
-
     "faq": {
       "title": "Ofte Stilte Spørsmål",
       "description": "Alt du trenger å vite om CCM til HP konvertering og motor effekt beregninger",
-
       "q1": "Hvor nøyaktig er CCM til HP konvertering?",
       "a1": "CCM til HP konvertering gir estimater basert på empiriske data og industri gjennomsnitt. Faktisk hestekraft kan variere ±15-25% avhengig av motor tuning, kompressjonsforhold, drivstoffsystem og andre faktorer. Vår kalkulator bruker beviste formler med forskjellige koeffisienter for 2-takt vs 4-takt og naturlig aspirert vs turboladede motorer.",
-
       "q2": "Hva er forskjellen mellom 2-takt og 4-takt effekt utgang?",
       "a2": "2-takt motorer produserer typisk mer effekt per cc enn 4-takt motorer fordi de har et effekt slag hver omdreining i stedet for hver andre omdreining. Vår kalkulator bruker en 1.2-1.4x koeffisient for 2-takt motorer og 0.8-1.0x for 4-takt motorer, som reflekterer virkelige effekt forskjeller.",
-
       "q3": "Hvordan påvirker turbolading CCM til HP konvertering?",
       "a3": "Turboladede motorer produserer betydelig mer effekt fra samme slagvolum. Vår kalkulator bruker høyere koeffisienter (1.0-1.4x) for turboladede motorer sammenlignet med naturlig aspirerte motorer (0.8-1.2x), typisk resulterende i 25-40% mer estimert hestekraft.",
-
       "q4": "Kan jeg bruke dette for motorsykkel, bil og marine motorer?",
       "a4": "Ja! Vår CCM til HP konverter fungerer for alle forbrenningsmotorer inkludert motorsykler, biler, båter, ATV-er og racing motorer. Kalkulatoren tar hensyn til forskjellige motor typer og konfigurasjoner som vanligvis finnes på tvers av disse anvendelsene.",
-
       "q5": "Hvorfor skiller produsentenes HP ratings seg noen ganger fra beregninger?",
       "a5": "Produsent ratings måles under spesifikke forhold (SAE, DIN, etc.) og kan inkludere faktorer som høyde, temperatur og måle standarder. Vår kalkulator gir estimater basert på slagvolum og motor type, mens faktiske ratings avhenger av komplett motor design, tuning og test forhold.",
-
       "q6": "Hvilket CCM område fungerer best med denne kalkulatoren?",
       "a6": "Vår kalkulator fungerer nøyaktig for motorer fra 50cc til 8000cc. For veldig små motorer (under 50cc) eller ekstremt store motorer (over 8000cc), kan resultater være mindre nøyaktige på grunn av forskjellige design prinsipper og effektivitetsfaktorer."
     },
-
     "final_cta": {
       "title": "Klar til å Beregne Motor Effekt?",
       "description": "Bruk vår gratis CCM til HP konverter for å estimere motorens hestekraft øyeblikkelig",
@@ -1617,18 +1568,15 @@
     "page_subtitle": "Lag Din Fargerike Persona",
     "page_description": "Slipp kreativiteten løs med vår Chromakopia navngenerator. Lag unike personaer inspirert av Tyler, the Creator's kunstneriske visjon om å bringe farge tilbake til livet.",
     "free_tool_badge": "Gratis Chromakopia Verktøy",
-
     "breadcrumb": {
       "home": "Hjem",
       "tools": "Verktøy",
       "chromakopia_name_generator": "Chromakopia Navngenerator"
     },
-
     "header": {
       "main_title": "Chromakopia Navngenerator",
       "description": "Lag ditt fargerike alter ego inspirert av Tyler, the Creator's Chromakopia. Generer unike personaer som legemliggjør ånden i å bringe farge tilbake til livet og bryte fri fra svart-hvitt tenkning."
     },
-
     "persona_display": {
       "title": "Din Chromakopia Persona",
       "st_chroma_style": "St. Chroma Stil",
@@ -1638,13 +1586,11 @@
       "radiating_in": "Utstråler i",
       "chromatic_superpower": "Kromatisk Superkraft"
     },
-
     "favorites": {
       "title": "Favoritt Personaer",
       "no_personas": "Ingen personaer ennå",
       "add_first": "Generer din første persona for å starte samlingen din"
     },
-
     "settings": {
       "title": "Generator Innstillinger",
       "generation_style": "Genereringsstil",
@@ -1663,7 +1609,6 @@
       "add_to_favorites": "Legg til Favoritter",
       "reset_all": "Tilbakestill Alt"
     },
-
     "features": {
       "music_inspired": "Musikk-Inspirert",
       "music_description": "Generer personaer inspirert av Tyler, the Creator's Chromakopia album og dets temaer om autentisitet og fargerik uttrykk.",
@@ -1672,7 +1617,6 @@
       "share_connect": "Del & Koble",
       "share_description": "Del dine genererte personaer med venner og oppdag hvordan forskjellige mennesker uttrykker sine fargerike identiteter."
     },
-
     "about_chromakopia": {
       "title": "Hva er Chromakopia? Forstå Tyler, the Creator's Visjon",
       "description_1": "Chromakopia er Tyler, the Creator's åttende studioalbum som utforsker temaer om å bringe farge tilbake til livet og bryte fri fra samfunnets svart-hvite forventninger. Albumet sentrerer seg rundt hans alter ego St. Chroma, som representerer autentisk selvuttrykk og motet til å leve fargerikt.",
@@ -1685,7 +1629,6 @@
       "theme_5": "Emosjonell åpenhet",
       "theme_6": "Kunstnerisk opprør"
     },
-
     "how_to_use": {
       "title": "Hvordan Lage Din Chromakopia Persona",
       "step_1_title": "Velg Din Stil",
@@ -1697,7 +1640,6 @@
       "step_4_title": "Del & Uttrykk",
       "step_4_description": "Last ned bilder eller kopier tekst for å dele din kromatiske persona på sosiale medier og inspirere andre."
     },
-
     "faq": {
       "title": "Ofte Stilte Spørsmål",
       "q1": "Hva inspirerte Chromakopia navngeneratoren?",
@@ -1709,7 +1651,6 @@
       "q4": "Er Chromakopia navngeneratoren gratis?",
       "a4": "Ja! Dette verktøyet er helt gratis uten registrering påkrevd. Generer ubegrensede personaer, lagre favorittene dine og del skapelsene dine uten begrensninger. Det fungerer på alle enheter inkludert mobiltelefoner og nettbrett."
     },
-
     "persona_card": {
       "copy_text": "🎨 Min Chromakopia Persona 🎨\n\nNavn: {name}\nFarge: {colorName}\nTrekk: {trait}\nBeskrivelse: {description}\nSuperkraft: {superpower}\nSitat: {quote}\n\nGenerert på: https://geekskai.com/tools/chromakopia-name-generator",
       "copied_message": "Persona kopiert til utklippstavle! 🎨",
@@ -2142,13 +2083,11 @@
     "seo_title": "Discord Tidssone Konverter - Gratis Discord Tidsstempel Generator Verktøy",
     "seo_description": "Gratis Discord tidssone konverter med toveis tidsstempel konvertering, global tidssone støtte og batch behandling. Konverter Discord tidsstempler til tid, generer Discord tidsstempel formater på tvers av alle tidssoner, og koordiner globale Discord samfunn. Perfekt for Discord bot utviklere, server administratorer og internasjonal arrangement planlegging.",
     "seo_keywords": "discord tidssone konverter, discord tid konverter, discord tidsstempel konverter, discord tidsstempel generator, discord tid format konverter, discord tidsstempel til tid, tid til discord tidsstempel, discord tid kalkulator, discord planlegging verktøy, discord bot tidsstempel, discord tidsstempel formater, unix tidsstempel til discord, discord epoke tid konverter, discord samfunn verktøy, discord server administrasjon, discord arrangement planlegging, discord koordinering verktøy, discord global tidssone konverter, discord internasjonal tid konverter, discord multi tidssone verktøy, discord verden tid konverter, discord tidssone synkronisering, discord krysset tidssone planlegging, discord tidssone koordinering, discord tidssone administrasjon, discord bot tidssone konverter, discord api tidssone verktøy, discord webhook tidssone, discord embed tidssone, konverter discord tidsstempel tidssone, discord tid i forskjellig tidssone, discord arrangement tidssone konverter, discord møte tidssone verktøy",
-
     "breadcrumb": {
       "home": "Hjem",
       "tools": "Verktøy",
       "discord_time_converter": "Discord Tidsstempel Konverter"
     },
-
     "header": {
       "badge_text": "Gratis Discord Tidssone Konverter og Tidsstempel Generator Verktøy",
       "main_title_line1": "Discord Tidssone",
@@ -2161,7 +2100,6 @@
         "free_tool": "Gratis Discord Tidssone Verktøy"
       }
     },
-
     "conversion_modes": {
       "to_timestamp": {
         "title": "Tid → Discord Tidsstempel",
@@ -2172,21 +2110,18 @@
         "description": "Konverter Discord format til vanlig tid"
       }
     },
-
     "input_sections": {
       "conversion_mode": "Konverteringsmodus",
       "time_input": "Tid Inndata",
       "discord_timestamp_input": "Discord Tidsstempel Inndata",
       "timezone": "Tidssone"
     },
-
     "form_labels": {
       "select_date_time": "Velg Dato og Tid",
       "discord_timestamp": "Discord Tidsstempel",
       "select_timezone": "Velg din tidssone",
       "input_one_per_line": "Inndata (en per linje)"
     },
-
     "placeholders": {
       "select_date_time": "Velg dato og tid",
       "discord_timestamp": "&lt;t:1640995200:f&gt;",
@@ -2194,7 +2129,6 @@
       "batch_to_timestamp": "2024-01-01 12:00:00\n2024-02-01 15:30:00",
       "batch_from_timestamp": "&lt;t:1640995200:f&gt;\n&lt;t:1640995500:R&gt;"
     },
-
     "timestamp_formats": {
       "relative": {
         "label": "Relativ Tid",
@@ -2232,7 +2166,6 @@
         "example": "tirsdag 20. april 2021 16:20"
       }
     },
-
     "timezone_groups": {
       "utc": "UTC",
       "americas": "Amerika",
@@ -2240,7 +2173,6 @@
       "asia": "Asia",
       "oceania": "Oseania"
     },
-
     "common_timezones": {
       "utc": {
         "label": "UTC",
@@ -2303,7 +2235,6 @@
         "description": "Auckland, Wellington (+13:00)"
       }
     },
-
     "buttons": {
       "plus_1_hour": "+1 Time",
       "plus_1_day": "+1 Dag",
@@ -2325,7 +2256,6 @@
       "hide_advanced": "Skjul Avanserte Funksjoner",
       "convert_all": "Konverter Alle"
     },
-
     "results": {
       "conversion_results": "Konverteringsresultater",
       "live_preview": "Live Forhåndsvisning",
@@ -2333,18 +2263,15 @@
       "date_time_relative": "Dato, Tid og Relativ",
       "full_date_relative": "Full Dato og Relativ"
     },
-
     "advanced_features": {
       "batch_converter": "Batch Konverter",
       "conversion_history": "Konverteringshistorikk",
       "results_label": "Resultater:"
     },
-
     "info_messages": {
       "format_info": "Format: &lt;t:tidsstempel:format&gt; (f.eks., &lt;t:1640995200:f&gt;)",
       "invalid_format_type": "Ugyldig format type"
     },
-
     "usage_guide": {
       "title": "Hvordan Bruke Discord Tidssone Konverter - Komplett Guide",
       "description": "Mestre Discord tidssone konvertering og tidsstempel generering for din server, bot utvikling og global samfunn koordinering på tvers av alle tidssoner",
@@ -2357,7 +2284,6 @@
       "step_4_title": "Kopier og Implementer",
       "step_4_description": "Kopier det genererte Discord tidsstempelet i ditt foretrukne format og lim det inn i Discord meldinger, bot kode eller webhook innhold for automatisk tidssone visning."
     },
-
     "content_sections": {
       "what_are_discord_timestamps": {
         "title": "Hva er Discord Tidsstempler? Forstå Discord Tidsformatering",
@@ -2481,13 +2407,11 @@
     "seo_title": "Discord Tidsstempel Generator - Lag Dynamiske Discord Tidsstempler | Gratis Verktøy",
     "seo_description": "Gratis Discord tidsstempel generator for å lage dynamiske tidsstempler, arrangement nedtellinger og påminnelsessystemer. Generer alle Discord tidsstempel formater med sanntids forhåndsvisning, tidssone støtte og Discord bot integrasjon. Perfekt for arrangement planlegging og samfunnsadministrasjon.",
     "seo_keywords": "discord tidsstempel generator, lag discord tidsstempel, generer discord tidsstempel, discord arrangement generator, discord nedtelling generator, discord påminnelse tidsstempel",
-
     "breadcrumb": {
       "home": "Hjem",
       "tools": "Verktøy",
       "discord_timestamp_generator": "Discord Tidsstempel Generator"
     },
-
     "header": {
       "professional_badge": "Profesjonelle Discord Tidsstempler",
       "main_title": "Discord",
@@ -2500,7 +2424,6 @@
         "free_generator": "Gratis Generator"
       }
     },
-
     "modes": {
       "input_mode": "Inndata Modus",
       "relative_time": "Relativ Tid",
@@ -2508,7 +2431,6 @@
       "absolute_time": "Absolutt Tid",
       "absolute_time_description": "Spesifikk dato og tid"
     },
-
     "quick_presets": {
       "title": "Raske Forhåndsinnstillinger",
       "in_1_hour": "Om 1 time",
@@ -2516,7 +2438,6 @@
       "next_week": "Neste uke",
       "in_1_month": "Om 1 måned"
     },
-
     "time_adjustment": {
       "title": "Tidsjustering",
       "weeks": "Uker",
@@ -2524,7 +2445,6 @@
       "hours": "Timer",
       "minutes": "Minutter"
     },
-
     "date_time_settings": {
       "title": "Dato og Tid Innstillinger",
       "year": "År",
@@ -2534,11 +2454,9 @@
       "minute": "Minutt",
       "timezone": "Tidssone: UTC"
     },
-
     "display_format": {
       "title": "Visningsformat"
     },
-
     "timestamp_formats": {
       "relative": {
         "label": "Relativ",
@@ -2576,12 +2494,10 @@
         "example": "tirsdag 20. april 2021 16:20"
       }
     },
-
     "format_toggle": {
       "show_common_formats": "Vis Vanlige Formater",
       "show_more_formats": "Vis Flere Formater"
     },
-
     "preview": {
       "discord_preview": "Discord Forhåndsvisning",
       "real_time": "Sanntid",
@@ -2591,7 +2507,6 @@
       "bot_label": "BOT",
       "today": "I dag"
     },
-
     "generated_result": {
       "title": "Generert Resultat",
       "discord_timestamp_code": "Discord Tidsstempel Kode",
@@ -2601,14 +2516,12 @@
       "copied": "Kopiert!",
       "failed_to_copy": "Klarte ikke å kopiere:"
     },
-
     "saved_configurations": {
       "title": "Lagrede Konfigurasjoner",
       "click_to_apply": "Klikk for å bruke",
       "relative_mode": "Relativ",
       "date_mode": "Dato"
     },
-
     "features": {
       "title": "Profesjonelle Funksjoner",
       "description": "Alt du trenger for å lage perfekte Discord tidsstempler med presisjon og stil",
@@ -2625,7 +2538,6 @@
         "description": "Lagre favoritt konfigurasjoner og administrer enkelt dine tidsstempel innstillinger for rask tilgang og gjenbruk på tvers av forskjellige prosjekter."
       }
     },
-
     "usage_guide": {
       "title": "Hvordan Lage Perfekte Discord Tidsstempler",
       "description": "Følg disse enkle trinnene for å generere profesjonelle Discord tidsstempler fra bunnen av",
@@ -2646,7 +2558,6 @@
         "description": "Kopier den genererte Discord tidsstempel koden og lim den inn i meldinger for automatisk tidssone konvertering."
       }
     },
-
     "content_sections": {
       "what_is_generation": {
         "title": "Hva er Discord Tidsstempel Generering? Lage Dynamiske Tidsvisninger",
@@ -2659,7 +2570,6 @@
         "benefit_5": "Sanntids forhåndsvisning under opprettelse",
         "benefit_6": "Flere format alternativer tilgjengelig"
       },
-
       "best_practices": {
         "title": "Discord Tidsstempel Opprettelse Beste Praksis",
         "event_scheduling": {
@@ -2681,7 +2591,6 @@
           "api_compatible": "Kompatibel med alle Discord API integrasjoner."
         }
       },
-
       "generator_vs_converter": {
         "title": "Discord Tidsstempel Generator vs Konverter: Velg Riktig Verktøy",
         "generator_section": {
@@ -2705,7 +2614,6 @@
         }
       }
     },
-
     "faq": {
       "title": "Ofte Stilte Spørsmål Om Discord Tidsstempel Generering",
       "q1": {
@@ -2741,7 +2649,6 @@
         "answer": "Ja! Vår generator inkluderer et favoritt system hvor du kan lagre ofte brukte tidsstempel konfigurasjoner. Perfekt for tilbakevendende arrangementer, vanlige møte tidsplaner eller vanlig brukte nedtelling formater som du raskt kan bruke og generere igjen."
       }
     },
-
     "preview_text": {
       "in_days": "om {days} dager",
       "in_hours": "om {hours} timer",
@@ -3230,6 +3137,441 @@
           "answer": "Absolutt! De genererte tips skjermene er perfekte for utdanningsinnhold om UX design, forbrukerpsykologi, digital etikk og tips kultur. De er ideelle for blogginnlegg, sosiale medier innhold, akademiske presentasjoner eller undervisningsmateriell om mørke mønstre og brukeropplevelse design."
         }
       }
+    }
+  },
+  "Random4DigitNumberGenerator": {
+    "seo_title": "Tilfeldig 4-sifret tallgenerator - Gratis & Sikker | Øyeblikkelig generering",
+    "seo_description": "Generer sikre tilfeldige 4-sifrede tall øyeblikkelig. Perfekt for verifiseringskoder, PIN-koder, testdata og utvikling. Gratis, rask, kryptografisk sikker, ingen registrering påkrevd.",
+    "seo_keywords": "tilfeldig 4-sifret tallgenerator, tilfeldig 4-sifret kodegenerator, 4-sifret tallgenerator, fire-sifret tilfeldig tallgenerator, 4-sifrede tilfeldige tall, verifiseringskodegenerator, PIN-generator, OTP-generator, tilfeldig tallgenerator, sikre tilfeldige tall, kryptografisk tilfeldig, testdatagenerator, bulk tallgenerator",
+    "og_image_alt": "Random 4-Digit Number Generator Tool",
+    "json_ld": {
+      "name": "Random 4-Digit Number Generator",
+      "description": "Generate secure random 4-digit numbers for verification codes, PINs, testing, and development purposes",
+      "keywords": "random number generator, 4 digit generator, verification code, PIN generator, OTP, secure random, cryptographic",
+      "educational_use": "Software Development, Security Testing, QA Testing, Database Seeding, Statistical Analysis",
+      "audience_type": "Developers, QA Engineers, Security Professionals, Students",
+      "usage_info": "For verification codes, PINs, testing, development, and educational purposes. Uses cryptographically secure randomness.",
+      "feature_list": {
+        "crypto_secure": "Cryptographically secure random number generation",
+        "single_bulk": "Single and bulk generation modes",
+        "custom_range": "Customizable number range (0000-9999)",
+        "multiple_formats": "Multiple format options (plain, hyphen, dot, prefix)",
+        "exclusion_rules": "Exclusion rules for sequential and repeated digits",
+        "export_formats": "Export in TXT, CSV, and JSON formats",
+        "no_duplicates": "No duplicates option for unique number sets",
+        "history": "Generation history tracking",
+        "statistics": "Real-time statistics and analytics",
+        "mobile_friendly": "Mobile-friendly responsive design",
+        "no_registration": "No registration required",
+        "free": "100% free with unlimited generations",
+        "privacy": "Privacy-focused - no data storage",
+        "instant": "Instant generation with Web Crypto API"
+      }
+    },
+    "breadcrumb": {
+      "home": "Hjem",
+      "tools": "Verktøy",
+      "random_4_digit_number_generator": "Tilfeldig 4-sifret tallgenerator"
+    },
+    "header": {
+      "badge_text": "Kryptografisk sikker • Gratis for alltid",
+      "main_title": "Tilfeldig 4-sifret tallgenerator",
+      "description": "Generer sikre tilfeldige 4-sifrede tall øyeblikkelig. Perfekt for {verification_codes}, {pins}, {testing_data} og utviklingsformål. Kryptografisk sikker, ubegrenset og helt gratis.",
+      "verification_codes": "verification codes",
+      "pins": "PINs",
+      "testing_data": "testing data",
+      "share_text": "Del dette gratis verktøyet med teamet ditt"
+    },
+    "features_pills": {
+      "instant_generation": "Øyeblikkelig generering",
+      "crypto_secure": "Krypto-sikker",
+      "bulk_export": "Bulk-eksport"
+    },
+    "generator": {
+      "single_title": "Enkelt tallgenerator",
+      "settings_show": "Vis innstillinger",
+      "settings_hide": "Skjul innstillinger",
+      "settings_panel": {
+        "title": "Genereringsinnstillinger",
+        "range_label": "Område (Min - Maks)",
+        "format_label": "Tallformat",
+        "format_plain": "Vanlig (1234)",
+        "format_hyphen": "Bindestrek (12-34)",
+        "format_dot": "Punktum (12.34)",
+        "format_prefix": "Prefiks (#1234)",
+        "exclusion_rules_label": "Ekskluderingsregler",
+        "exclude_sequential": "Ekskluder sekvensielle (1234, 4321)",
+        "exclude_repeated": "Ekskluder gjentatte (1111, 2222)"
+      },
+      "display": {
+        "crypto_secure": "Kryptografisk sikkert tilfeldig tall",
+        "click_generate": "Klikk Generer for å opprette et tall",
+        "features": "Sikker • Tilfeldig • Øyeblikkelig"
+      },
+      "buttons": {
+        "generate": "Generer tall",
+        "generating": "Genererer...",
+        "copy": "Kopier",
+        "copied": "Kopiert!"
+      },
+      "history": {
+        "title": "Nylig historikk",
+        "clear": "Tøm"
+      },
+      "bulk": {
+        "title": "Bulk-generator",
+        "number_of_items": "Antall elementer",
+        "export_format": "Eksportformat",
+        "format_txt": "Tekst (.txt)",
+        "format_csv": "CSV (.csv)",
+        "format_json": "JSON (.json)",
+        "allow_duplicates": "Tillat duplikater",
+        "generate_button": "Generer {count} tall",
+        "results_title": "Genererte tall ({count})",
+        "click_to_copy": "Klikk for å kopiere"
+      },
+      "stats": {
+        "total_generated": "Totalt generert",
+        "unique_numbers": "Unike tall",
+        "average_value": "Gjennomsnittsverdi"
+      },
+      "bulk_title": "Bulk Generator",
+      "bulk_settings": {
+        "quantity_label": "Number of Items",
+        "export_format_label": "Export Format",
+        "export_txt": "Text (.txt)",
+        "export_csv": "CSV (.csv)",
+        "export_json": "JSON (.json)",
+        "allow_duplicates": "Allow Duplicates"
+      },
+      "bulk_buttons": {
+        "generate": "Generate {count} Numbers",
+        "export": "Export",
+        "show": "Show",
+        "hide": "Hide"
+      },
+      "statistics": {
+        "total_generated": "Total Generated",
+        "unique_numbers": "Unique Numbers",
+        "average_value": "Average Value",
+        "generated_numbers": "Generated Numbers ({count})",
+        "click_to_copy": "Click to copy"
+      },
+      "reset_button": "Reset All"
+    },
+    "use_cases": {
+      "badge": "Populære bruksområder",
+      "title": "Hva kan du bruke en 4-sifret tilfeldig tallgenerator til?",
+      "description": "Fra sikkerhetsapplikasjoner til utviklingstesting, oppdag de mange måtene vår tilfeldige tallgenerator kan hjelpe deg",
+      "verification_codes": {
+        "title": "Verification Codes",
+        "description": "Generate secure OTP and 2FA codes for SMS/Email verification systems",
+        "examples": {
+          "sms_otp": "SMS OTP",
+          "email_verification": "Email Verification",
+          "two_factor_auth": "Two-Factor Auth",
+          "account_recovery": "Account Recovery"
+        }
+      },
+      "pin_numbers": {
+        "title": "PIN Numbers",
+        "description": "Create secure personal identification numbers for various applications",
+        "examples": {
+          "atm_pins": "ATM PINs",
+          "lock_codes": "Lock Codes",
+          "access_control": "Access Control",
+          "security_tokens": "Security Tokens"
+        }
+      },
+      "testing_development": {
+        "title": "Testing & Development",
+        "description": "Generate test data for QA, development, and database seeding purposes",
+        "examples": {
+          "qa_testing": "QA Testing",
+          "api_testing": "API Testing",
+          "mock_data": "Mock Data",
+          "database_seeds": "Database Seeds"
+        }
+      },
+      "gaming_lottery": {
+        "title": "Gaming & Lottery",
+        "description": "Create random numbers for games, contests, and lucky number generation",
+        "examples": {
+          "lucky_numbers": "Lucky Numbers",
+          "game_codes": "Game Codes",
+          "contest_ids": "Contest IDs",
+          "random_selection": "Random Selection"
+        }
+      },
+      "educational_research": {
+        "title": "Educational & Research",
+        "description": "Perfect for statistics, probability experiments, and academic projects",
+        "examples": {
+          "statistical_sampling": "Statistical Sampling",
+          "math_education": "Math Education",
+          "research_data": "Research Data",
+          "surveys": "Surveys"
+        }
+      },
+      "how_it_works": {
+        "title": "How Our Generator Works",
+        "description_1": "Our {strong_4digit} uses cryptographically secure algorithms to ensure true randomness and unpredictability.",
+        "strong_4digit": "4-digit random number generator",
+        "description_2": "Unlike basic random number generators, we utilize the {strong_crypto} which provides cryptographically strong random values suitable for security-sensitive applications.",
+        "strong_crypto": "Web Crypto API",
+        "description_3": "Perfect for {strong_users}, and anyone who needs reliable random numbers for verification codes, PINs, or testing purposes.",
+        "strong_users": "developers, security professionals",
+        "steps": {
+          "step_1": "Choose your preferences (range, format, exclusions)",
+          "step_2": "Click Generate to create secure random numbers",
+          "step_3": "Copy individual numbers or export in bulk",
+          "step_4": "Use them in your applications immediately"
+        }
+      },
+      "why_choose": {
+        "title": "Why Choose Our Tool?",
+        "instant_generation": {
+          "title": "Instant Generation",
+          "description": "Get your random numbers in milliseconds"
+        },
+        "crypto_secure": {
+          "title": "Cryptographically Secure",
+          "description": "Uses Web Crypto API for true randomness"
+        },
+        "no_registration": {
+          "title": "No Registration Required",
+          "description": "Start generating immediately, no sign-up needed"
+        },
+        "free_forever": {
+          "title": "100% Free Forever",
+          "description": "Unlimited generations at no cost"
+        },
+        "mobile_friendly": {
+          "title": "Mobile Friendly",
+          "description": "Works perfectly on all devices"
+        },
+        "customizable": {
+          "title": "Customizable Options",
+          "description": "Control range, format, and exclusion rules"
+        }
+      }
+    },
+    "features": {
+      "badge": "Kraftige funksjoner",
+      "title": "Alt du trenger i ett verktøy",
+      "description": "Funksjoner i profesjonell kvalitet designet for utviklere, sikkerhetsprofesjonelle og power-brukere",
+      "crypto_secure": {
+        "title": "Kryptografisk sikker",
+        "description": "Bruker Web Crypto API for ekte tilfeldig tallgenerering, egnet for sikkerhetsfølsomme applikasjoner"
+      },
+      "lightning_fast": {
+        "title": "Lynrask",
+        "description": "Generer tusenvis av tilfeldige tall øyeblikkelig med vår optimaliserte algoritme og effektiv behandling"
+      },
+      "multiple_exports": {
+        "title": "Multiple Export Formats",
+        "description": "Export your generated numbers in TXT, CSV, or JSON format for easy integration with your workflow"
+      },
+      "mobile_optimized": {
+        "title": "Mobil-optimalisert",
+        "description": "Fullt responsivt design som fungerer feilfritt på alle enheter - desktop, nettbrett og mobil"
+      },
+      "no_registration": {
+        "title": "Ingen registrering påkrevd",
+        "description": "Begynn å generere tilfeldige tall øyeblikkelig uten å opprette en konto eller gi personlig informasjon"
+      },
+      "advanced_customization": {
+        "title": "Avansert tilpasning",
+        "description": "Kontroller tallområde, format, duplikater og bruk ekskluderingsregler for sekvensielle eller gjentatte sifre"
+      },
+      "learn_more": "Learn more",
+      "trust_signals": {
+        "badge": "Trusted by Developers & Security Professionals",
+        "description": "Join thousands of developers, QA engineers, and security professionals who rely on our random number generator for their daily workflows",
+        "badges": {
+          "free_forever": "✓ 100% Free Forever",
+          "no_registration": "✓ No Registration",
+          "unlimited": "✓ Unlimited Generations",
+          "privacy": "✓ Privacy Focused",
+          "open_source": "✓ Open Source Algorithm",
+          "cross_platform": "✓ Mobile & Desktop"
+        }
+      },
+      "security_notice": {
+        "title": "Security & Privacy",
+        "description": "All random number generation happens in your browser using the Web Crypto API. We don't store, track, or transmit any generated numbers. Your data stays on your device, ensuring complete privacy and security."
+      }
+    },
+    "faq": {
+      "badge": "Ofte stilte spørsmål",
+      "title": "Alt du trenger å vite",
+      "description": "Vanlige spørsmål om vår tilfeldige 4-sifrede tallgenerator",
+      "items": {
+        "how_random": {
+          "question": "Hvor tilfeldige er de genererte tallene?",
+          "answer": "Vår generator bruker Web Crypto API (crypto.getRandomValues()), som gir kryptografisk sikre tilfeldige tall. Dette betyr at tallene er virkelig tilfeldige og uforutsigbare, egnet for sikkerhetsfølsomme applikasjoner som verifiseringskoder og PIN-koder. Tilfeldighets kvaliteten er betydelig høyere enn Math.random()."
+        },
+        "no_duplicates": {
+          "question": "Kan jeg generere tall uten duplikater?",
+          "answer": "Ja! Når du bruker bulk-generatoren, fjern bare avmerkingen av \"Tillat duplikater\"-alternativet. Vår algoritme vil sikre at alle genererte tall i batchen er unike. Dette er perfekt for å opprette unike verifiseringskoder eller testdatasett."
+        },
+        "is_free": {
+          "question": "Er dette verktøyet helt gratis?",
+          "answer": "Absolutt! Vår 4-sifrede tilfeldige tallgenerator er 100% gratis uten skjulte kostnader, abonnementer eller premium-funksjoner. Du kan generere ubegrensede tall uten noen begrensninger. Ingen registrering eller betaling er noensinne påkrevd."
+        },
+        "secure_passwords": {
+          "question": "Er de genererte tallene sikre nok til passord?",
+          "answer": "Selv om vår generator bruker kryptografisk sikker tilfeldighet, gir 4-sifrede tall (0000-9999) bare 10 000 mulige kombinasjoner. Dette er generelt ikke tilstrekkelig for passord. De er imidlertid perfekte for midlertidige verifiseringskoder, PIN-koder og to-faktor-autentisering hvor det finnes ekstra sikkerhetslag."
+        },
+        "more_than_1000": {
+          "question": "Kan jeg generere mer enn 1000 tall på én gang?",
+          "answer": "For øyeblikket er bulk-generatoren begrenset til 1000 tall per batch for å sikre optimal ytelse. Hvis du trenger flere tall, kan du generere flere batcher og kombinere dem. For svært store datasett (10 000+) kan du vurdere å bruke vår API eller kjøre flere genereringer."
+        },
+        "store_numbers": {
+          "question": "Lagrer dere mine genererte tall?",
+          "answer": "Nei, vi lagrer, logger eller overfører aldri dine genererte tall. All tallgenerering skjer helt i nettleseren din ved hjelp av JavaScript. Tallene dine forblir på enheten din og sendes aldri til våre servere. Vi respekterer ditt personvern fullstendig."
+        },
+        "format_options": {
+          "question": "Hva er forskjellen mellom formatalternativene?",
+          "answer": "Vi tilbyr fire formatalternativer: Vanlig (1234), Bindestrek (12-34), Punktum (12.34) og Prefiks (#1234). Disse formatene er rent kosmetiske og hjelper med å matche forskjellige bruksområder. For eksempel er bindestreksformat vanlig for verifiseringskoder, mens prefiksformat er nyttig for ID-numre."
+        },
+        "exclude_patterns": {
+          "question": "Kan jeg ekskludere sekvensielle eller gjentatte tall?",
+          "answer": "Ja! I de avanserte innstillingene kan du aktivere ekskluderingsregler for å forhindre sekvensielle tall (som 1234 eller 4321) og gjentatte sifre (som 1111 eller 2222). Dette er nyttig når du trenger mer \"tilfeldig utseende\" tall eller vil unngå lett gjettbare mønstre."
+        },
+        "how_export": {
+          "question": "Hvordan eksporterer jeg mine genererte tall?",
+          "answer": "Etter å ha generert en batch med tall, klikk på Eksporter-knappen. Du kan velge mellom tre formater: TXT (ren tekst, ett tall per linje), CSV (regneark-kompatibel med metadata) eller JSON (strukturerte data for programmering). Filen lastes ned øyeblikkelig til enheten din."
+        },
+        "lottery_gambling": {
+          "question": "Kan jeg bruke disse tallene til lotteri eller gambling?",
+          "answer": "Selv om vår generator gir virkelig tilfeldige tall egnet for å velge lotterinumre eller gjøre tilfeldige valg, vær oppmerksom på at vi ikke kan garantere vinnende resultater. Bruk ansvarlig og husk at gambling innebærer risiko. Vårt verktøy er primært designet for utvikling, testing og sikkerhetsapplikasjoner."
+        },
+        "browsers_supported": {
+          "question": "Hvilke nettlesere støttes?",
+          "answer": "Vårt verktøy fungerer på alle moderne nettlesere inkludert Chrome, Firefox, Safari, Edge og mobile nettlesere. Web Crypto API støttes i alle nettlesere utgitt etter 2014. For den beste opplevelsen anbefaler vi å bruke den nyeste versjonen av din foretrukne nettleser."
+        },
+        "range_setting": {
+          "question": "Hvordan fungerer områdeinnstillingen?",
+          "answer": "Områdeinnstillingen lar deg spesifisere minimums- og maksimumsverdier for generering. For eksempel vil innstilling av område 1000-5000 bare generere tall mellom 1000 og 5000. Dette er nyttig når du trenger tall innenfor en spesifikk delmengde av 0000-9999-området."
+        }
+      },
+      "q1": {
+        "question": "How random are the generated numbers?",
+        "answer": "Our generator uses the Web Crypto API (crypto.getRandomValues()), which provides cryptographically secure random numbers. This means the numbers are truly random and unpredictable, suitable for security-sensitive applications like verification codes and PINs. The randomness quality is significantly higher than Math.random()."
+      },
+      "q2": {
+        "question": "Can I generate numbers without duplicates?",
+        "answer": "Yes! When using the bulk generator, simply uncheck the \"Allow Duplicates\" option. Our algorithm will ensure all generated numbers in the batch are unique. This is perfect for creating unique verification codes or test data sets."
+      },
+      "q3": {
+        "question": "Is this tool completely free?",
+        "answer": "Absolutely! Our 4-digit random number generator is 100% free with no hidden costs, subscriptions, or premium features. You can generate unlimited numbers without any restrictions. No registration or payment is ever required."
+      },
+      "q4": {
+        "question": "Are the generated numbers secure enough for passwords?",
+        "answer": "While our generator uses cryptographically secure randomness, 4-digit numbers (0000-9999) only provide 10,000 possible combinations. This is generally not sufficient for passwords. However, they are perfect for temporary verification codes, PINs, and two-factor authentication where additional security layers exist."
+      },
+      "q5": {
+        "question": "Can I generate more than 1000 numbers at once?",
+        "answer": "Currently, the bulk generator is limited to 1000 numbers per batch to ensure optimal performance. If you need more numbers, you can generate multiple batches and combine them. For very large datasets (10,000+), consider using our API or running multiple generations."
+      },
+      "q6": {
+        "question": "Do you store my generated numbers?",
+        "answer": "No, we never store, log, or transmit your generated numbers. All number generation happens entirely in your browser using JavaScript. Your numbers stay on your device and are never sent to our servers. We respect your privacy completely."
+      },
+      "q7": {
+        "question": "What's the difference between the format options?",
+        "answer": "We offer four format options: Plain (1234), Hyphen (12-34), Dot (12.34), and Prefix (#1234). These formats are purely cosmetic and help match different use cases. For example, hyphen format is common for verification codes, while prefix format is useful for ID numbers."
+      },
+      "q8": {
+        "question": "Can I exclude sequential or repeated numbers?",
+        "answer": "Yes! In the advanced settings, you can enable exclusion rules to prevent sequential numbers (like 1234 or 4321) and repeated digits (like 1111 or 2222). This is useful when you need more \"random-looking\" numbers or want to avoid easily guessable patterns."
+      },
+      "q9": {
+        "question": "How do I export my generated numbers?",
+        "answer": "After generating a batch of numbers, click the Export button. You can choose from three formats: TXT (plain text, one number per line), CSV (spreadsheet-compatible with metadata), or JSON (structured data for programming). The file downloads instantly to your device."
+      },
+      "q10": {
+        "question": "Can I use these numbers for lottery or gambling?",
+        "answer": "While our generator provides truly random numbers suitable for picking lottery numbers or making random selections, please note that we cannot guarantee winning outcomes. Use responsibly and remember that gambling involves risk. Our tool is designed primarily for development, testing, and security applications."
+      },
+      "q11": {
+        "question": "What browsers are supported?",
+        "answer": "Our tool works on all modern browsers including Chrome, Firefox, Safari, Edge, and mobile browsers. The Web Crypto API is supported in all browsers released after 2014. For the best experience, we recommend using the latest version of your preferred browser."
+      },
+      "q12": {
+        "question": "How does the range setting work?",
+        "answer": "The range setting allows you to specify minimum and maximum values for generation. For example, setting range 1000-5000 will only generate numbers between 1000 and 5000. This is useful when you need numbers within a specific subset of the 0000-9999 range."
+      },
+      "still_have_questions": {
+        "title": "Still Have Questions?",
+        "description": "Can't find the answer you're looking for? Check our documentation or reach out to our community",
+        "view_docs": "View Documentation",
+        "contact_support": "Contact Support"
+      },
+      "pro_tips": {
+        "tip_1": {
+          "icon": "💡",
+          "title": "Pro Tip",
+          "text": "Use the history feature to quickly access your recently generated numbers"
+        },
+        "tip_2": {
+          "icon": "⚡",
+          "title": "Speed Tip",
+          "text": "Press Enter after typing to instantly generate a new number"
+        },
+        "tip_3": {
+          "icon": "🎯",
+          "title": "Best Practice",
+          "text": "Enable exclusion rules for more secure and unpredictable number patterns"
+        }
+      }
+    },
+    "cta": {
+      "title": "Klar til å generere tilfeldige tall?",
+      "description": "Begynn å generere sikre, tilfeldige 4-sifrede tall akkurat nå. Ingen registrering, ingen grenser, helt gratis for alltid.",
+      "button": "Generer tall nå",
+      "trust_badges": {
+        "crypto_secure": "✓ Kryptografisk sikker",
+        "no_registration": "✓ Ingen registrering påkrevd",
+        "free_forever": "✓ 100% gratis for alltid",
+        "privacy": "✓ Personvernfokusert",
+        "unlimited": "✓ Ubegrensede genereringer",
+        "cross_platform": "✓ Mobil & desktop"
+      }
+    },
+    "seo_content": {
+      "title": "Om vår tilfeldige 4-sifrede tallgenerator",
+      "paragraph_1": "Vår {strong_generator} er et verktøy i profesjonell kvalitet designet for utviklere, sikkerhetsprofesjonelle, QA-ingeniører og alle som trenger pålitelige tilfeldige tall. I motsetning til grunnleggende tilfeldige tallgeneratorer bruker vi <rich>{strong_crypto}</rich> for å sikre kryptografisk sikker tilfeldighet egnet for sikkerhetsfølsomme applikasjoner.",
+      "strong_generator": "random 4-digit number generator",
+      "strong_crypto": "Web Crypto API",
+      "perfect_for_title": "Perfekt for flere bruksområder",
+      "perfect_for_description": "Enten du trenger {strong_verification} for ditt autentiseringssystem, {strong_pins} for tilgangskontroll, {strong_test_data} for utvikling eller {strong_random} for andre formål, gir vårt verktøy øyeblikkelig, sikker generering med avanserte tilpasningsmuligheter.",
+      "strong_verification": "verification codes",
+      "strong_pins": "PIN numbers",
+      "strong_test_data": "test data",
+      "strong_random": "random numbers",
+      "key_features_title": "Nøkkelfunksjoner",
+      "features_list": {
+        "crypto_secure": "<strong>Kryptografisk sikker</strong>: Bruker Web Crypto API for ekte tilfeldighet",
+        "bulk_generation": "<strong>Bulk-generering</strong>: Generer opptil 1000 tall på én gang",
+        "multiple_formats": "<strong>Flere formater</strong>: Vanlig, bindestrek, punktum og prefiksformater",
+        "exclusion_rules": "<strong>Ekskluderingsregler</strong>: Unngå sekvensielle og gjentatte mønstre",
+        "export_options": "<strong>Eksportalternativer</strong>: Last ned som TXT, CSV eller JSON",
+        "no_registration": "<strong>Ingen registrering</strong>: Begynn å bruke øyeblikkelig",
+        "free": "<strong>100% gratis</strong>: Ubegrensede genereringer for alltid",
+        "privacy": "<strong>Personvernfokusert</strong>: Ingen datalagring eller sporing"
+      },
+      "how_it_works_title": "Slik fungerer det",
+      "how_it_works_description": "Vår generator utnytter nettleserens native {strong_crypto}-metode, som gir kryptografisk sterke tilfeldige verdier. Dette sikrer at de genererte tallene er virkelig uforutsigbare og egnet for sikkerhetsapplikasjoner som {strong_otp}, {strong_2fa} og {strong_verification}.",
+      "strong_crypto_method": "crypto.getRandomValues()",
+      "strong_otp": "OTP generation",
+      "strong_2fa": "two-factor authentication",
+      "strong_verification_codes": "verification codes",
+      "why_choose_title": "Hvorfor velge vårt verktøy?",
+      "why_choose_description": "I motsetning til andre tilfeldige tallgeneratorer som bruker grunnleggende Math.random(), gir vårt verktøy {strong_enterprise} med et vakkert, intuitivt grensesnitt. Vi har designet det spesifikt for profesjonelle som trenger pålitelige, sikre tilfeldige tall uten å gå på kompromiss med brukervennlighet eller funksjoner.",
+      "strong_enterprise": "enterprise-grade security"
     }
   }
 }

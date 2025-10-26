@@ -344,7 +344,6 @@
       "bf_unit": "bf",
       "untitled_piece": "無題の部品"
     },
-
     "educational_content": {
       "professional_use_cases": "プロフェッショナル用途",
       "use_cases_description": "各業界のプロフェッショナルがボードフィート計算をどのように使用するかを発見",
@@ -594,7 +593,6 @@
     },
     "quick_reference": {
       "quick_memory_rule": "簡単な目安",
-
       "quick_memory_rule_text": "簡単な見積もり：1 cm ≈ 0.4インチ、または2.5 cm ≈ 1インチ。正確な計算には変換器をご利用ください。",
       "professional_tip_text": "成功する木材プロジェクトには、正確な計算、品質の高い材料選択、効率的な計画が必要です。この計算機を、適切な保管、取り扱い、設置技術を含む包括的なプロジェクト管理アプローチの一部として使用してください。常に地元の供給業者に現在の価格と在庫状況を確認し、特定の用途での材料性能に影響する環境要因を考慮してください。",
       "title": "クイックリファレンス",
@@ -781,13 +779,11 @@
     "page_title": "インビンシブル タイトルカード ジェネレーター",
     "page_subtitle": "カスタムTVショータイトルカードを作成",
     "page_description": "インビンシブル アニメシリーズにインスパイアされたカスタムタイトルカードを生成。カスタマイズ可能なテキスト、色、背景、エフェクトでプロフェッショナルなタイトルカードを作成。ファンコンテンツやクリエイティブプロジェクトに最適。",
-
     "breadcrumb": {
       "home": "ホーム",
       "tools": "ツール",
       "invincible_title_card_generator": "インビンシブル タイトルカード ジェネレーター"
     },
-
     "header": {
       "professional_badge": "プロフェッショナル タイトルカード ジェネレーター",
       "main_title": "インビンシブル",
@@ -799,7 +795,6 @@
       "download_button": "ダウンロード",
       "generating": "生成中..."
     },
-
     "preview": {
       "live_preview": "ライブプレビュー",
       "resolution": "1920×1080",
@@ -812,14 +807,12 @@
       "saved_configurations": "保存された設定",
       "click_to_apply": "クリックして適用"
     },
-
     "settings": {
       "customization": "カスタマイズ",
       "presets_tab": "プリセット",
       "text_tab": "テキスト",
       "colors_tab": "色",
       "effects_tab": "エフェクト",
-
       "character_presets": "キャラクタープリセット",
       "text_settings": "テキスト設定",
       "main_title_label": "メインタイトル",
@@ -828,21 +821,17 @@
       "small_subtitle_placeholder": "小サブタイトル...",
       "credits_subtitle_label": "クレジットサブタイトル",
       "credits_subtitle_placeholder": "クレジットサブタイトル...",
-
       "font_size": "フォントサイズ",
       "text_outline": "テキストアウトライン",
       "subtitle_offset": "サブタイトルオフセット",
-
       "background_style": "背景スタイル",
       "text_color": "テキスト色",
-
       "display_options": "表示オプション",
       "show_credits": "クレジット表示",
       "show_credits_description": "タイトル下にサブタイトル情報を表示",
       "show_watermark": "ウォーターマーク表示",
       "show_watermark_description": "生成された画像に帰属を追加"
     },
-
     "presets": {
       "invincible": {
         "name": "インビンシブル",
@@ -873,7 +862,6 @@
         "description": "マークの異母兄弟"
       }
     },
-
     "backgrounds": {
       "classic_blue": "クラシックブルー",
       "hero_gradient": "ヒーローグラデーション",
@@ -884,7 +872,6 @@
       "sunset_orange": "サンセットオレンジ",
       "forest_green": "フォレストグリーン"
     },
-
     "text_colors": {
       "invincible_yellow": "インビンシブルイエロー",
       "hero_blue": "ヒーローブルー",
@@ -897,24 +884,18 @@
       "atom_pink": "アトムピンク",
       "alien_cyan": "エイリアンシアン"
     },
-
     "content": {
       "professional_features": "プロフェッショナル機能",
       "features_description": "スタジオ品質の結果で素晴らしいタイトルカードを作成するために必要なすべて",
-
       "advanced_typography": "高度なタイポグラフィ",
       "typography_description": "本格的なインビンシブルスタイリング、アウトラインエフェクト、ピクセルパーフェクトな結果のための精密なタイポグラフィコントロールでプロフェッショナルなテキストカスタマイズ。",
-
       "character_presets_feature": "キャラクタープリセット",
       "presets_description": "マーク、オムニマン、アトム・イヴ、その他愛されるキャラクターの本格的なカラースキームをワンクリックプリセット設定で瞬時に適用。",
-
       "studio_export_quality": "スタジオエクスポート品質",
       "export_description": "プロフェッショナルなビデオ制作、ソーシャルメディア、プレゼンテーション使用に最適化された超高解像度1920×1080 PNG形式でエクスポート。",
-
       "create_professional_title": "プロフェッショナルなインビンシブルスタイルのタイトルカードを作成",
       "about_description_1": "当社の高度なインビンシブル タイトルカード ジェネレーターは、愛されるアニメシリーズのエッセンスを捉えたスタジオ品質のタイトルカードを制作することをクリエイターに可能にします。直感的なコントロールとプロフェッショナルグレードの出力で、あなたのクリエイティブビジョンを実現します。",
       "about_description_2": "ファン動画、YouTubeコンテンツ、教育資料、プロフェッショナルプレゼンテーションのいずれを作成する場合でも、当ツールは群衆から際立つために必要な柔軟性と品質を提供します。",
-
       "premium_features": "プレミアム機能",
       "feature_character_presets": "キャラクターベースのカラープリセットとテーマ",
       "feature_text_customization": "高度なテキストカスタマイズとタイポグラフィ",
@@ -922,7 +903,6 @@
       "feature_high_resolution": "高解像度エクスポート（1920×1080）",
       "feature_real_time_preview": "リアルタイムプレビューと編集",
       "feature_save_configurations": "お気に入り設定の保存と管理",
-
       "how_to_create_title": "完璧なタイトルカードの作成方法",
       "step_1_title": "スタイルを選択",
       "step_1_description": "キャラクタープリセットから選択するか、白紙のキャンバスから開始。各プリセットには本格的な結果のための最適化された色とスタイリングが含まれています。",
@@ -932,7 +912,6 @@
       "step_3_description": "リアルタイムで変更を確認しながら色、背景、エフェクトを調整。詳細編集にはフルスクリーンモードを使用。",
       "step_4_title": "エクスポートと共有",
       "step_4_description": "プロフェッショナル品質でタイトルカードをダウンロードし、プロジェクト、ソーシャルメディア、クリエイティブプラットフォームで共有。",
-
       "faq_title": "よくある質問",
       "faq_1_question": "このタイトルカードジェネレーターの特別な点は何ですか？",
       "faq_1_answer": "当ジェネレーターは、インビンシブル アニメシリーズの本格的な外観と感触を再現するために特別に設計されています。番組のタイポグラフィ、カラースキーム、ビジュアルスタイルを注意深く研究し、スタジオ品質の結果を生み出すキャラクター固有のプリセットとプロフェッショナルグレードのカスタマイズオプションを提供しています。",
@@ -945,13 +924,11 @@
       "faq_5_question": "このツールは完全に無料ですか？",
       "faq_5_answer": "はい！当インビンシブル タイトルカード ジェネレーターは完全に無料で、登録不要、隠れた料金なし、ウォーターマークなし（帰属を保持することを選択しない限り）。制限なく無制限のタイトルカードを作成し、フル解像度でダウンロードできます。"
     },
-
     "default_state": {
       "text": "インビンシブル",
       "small_subtitle": "コミックブック原作",
       "subtitle": "ロバート・カークマン、コリー・ウォーカー、ライアン・オットリー"
     },
-
     "messages": {
       "settings_copied": "設定がクリップボードにコピーされました！🎬",
       "copy_failed": "コピーに失敗しました",
@@ -965,13 +942,11 @@
     "page_title": "BPMからミリ秒コンバーター",
     "page_subtitle": "音楽プロデューサー・DJ向けプロフェッショナルタイミング計算機",
     "page_description": "DAW用の瞬時で正確なディレイタイムとLFOレート",
-
     "value_props": {
       "instant_conversion": "瞬時変換",
       "daw_ready": "DAW対応",
       "studio_grade": "スタジオグレード"
     },
-
     "quick_converter": {
       "title": "クイック変換",
       "input_placeholder": "BPM（例：120）またはミリ秒（例：500）を入力",
@@ -983,7 +958,6 @@
       "click_to_copy": "クリックしてコピー",
       "copied": "コピー完了！"
     },
-
     "common_bpm_presets": {
       "title": "ジャンル別一般的なBPM値",
       "genres": {
@@ -997,7 +971,6 @@
         "dnb": "ドラムンベース"
       }
     },
-
     "conversion_results": {
       "milliseconds_per_beat": "ビートあたりのミリ秒",
       "beats_per_minute": "1分あたりのビート数",
@@ -1007,7 +980,6 @@
       "copied": "コピー完了！",
       "copied_all": "すべてコピー完了！"
     },
-
     "note_values": {
       "quarter_note": "四分音符",
       "quarter_note_description": "1ビート - 標準ビートリファレンス",
@@ -1020,7 +992,6 @@
       "eighth_triplet": "八分音符三連符",
       "eighth_triplet_description": "1/3ビート - 三連符細分化"
     },
-
     "conversion_modes": {
       "bpm_to_ms": "BPM → MS",
       "ms_to_bpm": "MS → BPM",
@@ -1035,7 +1006,6 @@
       "converting_bpm_to_ms": "BPMをミリ秒に変換中",
       "converting_ms_to_bpm": "ミリ秒をBPMに変換中"
     },
-
     "input_validation": {
       "range_bpm": "範囲：20-300 BPM",
       "range_ms": "範囲：100-3000 ms",
@@ -1049,7 +1019,6 @@
       "ms_max_error": "ミリ秒は3000以下である必要があります",
       "invalid_input": "無効な入力"
     },
-
     "professional_tips": {
       "title": "音楽制作のプロフェッショナルヒント",
       "delay_reverb_timing": {
@@ -1067,7 +1036,6 @@
         "triplets": "三連符：複雑なポリリズミックモジュレーション"
       }
     },
-
     "how_it_works": {
       "title": "BPMからミリ秒変換の仕組み",
       "formula_title": "公式",
@@ -1084,7 +1052,6 @@
         "lighting_sync": "テンポ同期照明システムの設定"
       }
     },
-
     "breadcrumb": {
       "home": "ホーム",
       "tools": "ツール",
@@ -1099,14 +1066,12 @@
     "page_subtitle": "エンジンパワー推定器",
     "page_description": "無料CCMからHP変換器とエンジンパワー計算機。2ストロークと4ストロークエンジンのエンジン排気量（ccm）から馬力（hp）を瞬時に精密変換。バイク愛好家、自動車購入者、船舶用途、レーシングプロジェクトに最適。",
     "free_calculator_badge": "エンジンパワー計算機",
-
     "feature_badges": {
       "bidirectional_conversion": "双方向CCM ↔ HP変換",
       "engine_support": "2ストローク・4ストロークエンジン対応",
       "turbo_support": "ターボチャージド・自然吸気",
       "multi_application": "バイク・自動車・船舶エンジン"
     },
-
     "keywords_tags": {
       "ccm_to_hp": "ccmからhp",
       "hp_to_ccm": "hpからccm",
@@ -1115,13 +1080,11 @@
       "motorcycle_power_calculator": "バイクパワー計算機",
       "2_stroke_4_stroke_converter": "2ストローク4ストローク変換器"
     },
-
     "breadcrumb": {
       "home": "ホーム",
       "tools": "ツール",
       "ccm_to_hp_converter": "CCMからHP変換器"
     },
-
     "usage_guide": {
       "title": "CCMからHP変換器の使い方 - 完全エンジンパワーガイド",
       "description": "バイク購入、自動車評価、船舶エンジン、レーシング用途のエンジン排気量から馬力変換をマスター",
@@ -1134,7 +1097,6 @@
       "step_4_title": "瞬時結果を取得",
       "step_4_description": "パワー範囲付きの推定馬力を表示、結果をコピー、または計算を共有"
     },
-
     "converter_card": {
       "title": "CCM ↔ HPエンジン計算機",
       "description": "エンジン排気量を馬力に精密変換",
@@ -1173,17 +1135,14 @@
       "min_hp_error": "最小HP値は1です",
       "high_hp_warning": "非常に高い馬力。1000hpを超えるエンジンでは結果の精度が低下する場合があります"
     },
-
     "engine_types": {
       "2_stroke": "2ストロークエンジン",
       "4_stroke": "4ストロークエンジン"
     },
-
     "fuel_systems": {
       "naturally_aspirated": "自然吸気",
       "turbocharged": "ターボチャージド"
     },
-
     "history": {
       "title": "変換履歴",
       "button_text": "履歴",
@@ -1191,7 +1150,6 @@
       "click_to_use": "クリックして使用",
       "recent_conversions_saved": "最近の変換がローカルに保存されます"
     },
-
     "quick_reference": {
       "title": "クイックリファレンス",
       "description": "一般的なCCMからHP変換と実例",
@@ -1200,30 +1158,22 @@
       "pro_tip": "プロのヒント",
       "pro_tip_text": "エンジン排気量（CCM）は馬力を決定する要因の一つに過ぎません。実際のパワー出力は圧縮比、燃料システム、チューニング、その他多くの要因に依存します。これらの推定値を出発点として使用してください。"
     },
-
     "faq": {
       "title": "よくある質問",
       "description": "CCMからHP変換とエンジンパワー計算について知っておくべきすべて",
-
       "q1": "CCMからHP変換はどの程度正確ですか？",
       "a1": "CCMからHP変換は経験的データと業界平均に基づく推定値を提供します。実際の馬力はエンジンチューニング、圧縮比、燃料システム、その他の要因により±15-25%変動する可能性があります。当計算機は2ストローク対4ストローク、自然吸気対ターボチャージドエンジンで異なる係数を使用した実証済み公式を使用しています。",
-
       "q2": "2ストロークと4ストロークのパワー出力の違いは何ですか？",
       "a2": "2ストロークエンジンは通常、2回転に1回ではなく毎回転でパワーストロークがあるため、4ストロークエンジンよりもccあたりのパワーが多く出ます。当計算機は2ストロークエンジンに1.2-1.4x係数、4ストロークエンジンに0.8-1.0x係数を適用し、実世界のパワー差を反映しています。",
-
       "q3": "ターボチャージングはCCMからHP変換にどのように影響しますか？",
       "a3": "ターボチャージドエンジンは同じ排気量からかなり多くのパワーを生み出します。当計算機は自然吸気エンジン（0.8-1.2x）と比較してターボチャージドエンジンにより高い係数（1.0-1.4x）を適用し、通常25-40%多い推定馬力をもたらします。",
-
       "q4": "これをバイク、自動車、船舶エンジンに使用できますか？",
       "a4": "はい！当CCMからHP変換器はバイク、自動車、ボート、ATV、レーシングエンジンを含むすべての内燃機関で動作します。計算機はこれらの用途で一般的に見られる異なるエンジンタイプと構成を考慮しています。",
-
       "q5": "なぜメーカーのHP定格が計算と異なることがあるのですか？",
       "a5": "メーカー定格は特定の条件（SAE、DINなど）で測定され、高度、温度、測定基準などの要因を含む場合があります。当計算機は排気量とエンジンタイプに基づく推定値を提供しますが、実際の定格は完全なエンジン設計、チューニング、テスト条件に依存します。",
-
       "q6": "この計算機で最適に動作するCCM範囲は？",
       "a6": "当計算機は50ccから8000ccのエンジンで正確に動作します。非常に小さなエンジン（50cc未満）や極めて大きなエンジン（8000cc超）では、異なる設計原理と効率要因により結果の精度が低下する場合があります。"
     },
-
     "final_cta": {
       "title": "エンジンパワーを計算する準備はできましたか？",
       "description": "無料CCMからHP変換器を使用してエンジンの馬力を瞬時に推定",
@@ -1591,18 +1541,15 @@
     "page_subtitle": "カラフルなペルソナを作成",
     "page_description": "Chromakopiネームジェネレーターで創造性を解き放ちましょう。Tyler, the Creatorの芸術的ビジョンにインスパイアされたユニークなペルソナを作成し、人生に色を取り戻します。",
     "free_tool_badge": "無料 Chromakopia ツール",
-
     "breadcrumb": {
       "home": "ホーム",
       "tools": "ツール",
       "chromakopia_name_generator": "Chromakopia ネームジェネレーター"
     },
-
     "header": {
       "main_title": "Chromakopia ネームジェネレーター",
       "description": "Tyler, the CreatorのChromakopiにインスパイアされたカラフルなアルターエゴを作成。人生に色を取り戻し、白黒思考から解放される精神を体現するユニークなペルソナを生成します。"
     },
-
     "persona_display": {
       "title": "あなたの Chromakopia ペルソナ",
       "st_chroma_style": "St. Chroma スタイル",
@@ -1612,13 +1559,11 @@
       "radiating_in": "放射する",
       "chromatic_superpower": "クロマティック超能力"
     },
-
     "favorites": {
       "title": "お気に入りのペルソナ",
       "no_personas": "まだペルソナがありません",
       "add_first": "最初のペルソナを生成してコレクションを始めましょう"
     },
-
     "settings": {
       "title": "ジェネレーター設定",
       "generation_style": "生成スタイル",
@@ -1637,7 +1582,6 @@
       "add_to_favorites": "お気に入りに追加",
       "reset_all": "すべてリセット"
     },
-
     "features": {
       "music_inspired": "音楽インスパイア",
       "music_description": "Tyler, the CreatorのChromakopiアルバムとその真正性とカラフルな表現のテーマにインスパイアされたペルソナを生成。",
@@ -1646,7 +1590,6 @@
       "share_connect": "共有と接続",
       "share_description": "生成したペルソナを友達と共有し、異なる人々がどのようにカラフルなアイデンティティを表現するかを発見しましょう。"
     },
-
     "about_chromakopia": {
       "title": "Chromakopiaとは？Tyler, the Creatorのビジョンを理解する",
       "description_1": "Chromakopiaは、Tyler, the Creatorの8枚目のスタジオアルバムで、人生に色を取り戻し、社会の白黒の期待から解放されるテーマを探求しています。アルバムは彼のアルターエゴSt. Chromaを中心に展開し、真正な自己表現とカラフルに生きる勇気を表しています。",
@@ -1659,7 +1602,6 @@
       "theme_5": "感情的透明性",
       "theme_6": "芸術的反逆"
     },
-
     "how_to_use": {
       "title": "Chromakopia ペルソナの作成方法",
       "step_1_title": "スタイルを選択",
@@ -1671,7 +1613,6 @@
       "step_4_title": "共有と表現",
       "step_4_description": "画像をダウンロードしたりテキストをコピーして、ソーシャルメディアでクロマティックペルソナを共有し、他の人にインスピレーションを与えます。"
     },
-
     "faq": {
       "title": "よくある質問",
       "q1": "Chromakopia ネームジェネレーターのインスピレーションは何ですか？",
@@ -1683,7 +1624,6 @@
       "q4": "Chromakopia ネームジェネレーターは無料ですか？",
       "a4": "はい！このツールは完全に無料で、登録は不要です。無制限にペルソナを生成し、お気に入りを保存し、制限なしで作品を共有できます。携帯電話やタブレットを含むすべてのデバイスで動作します。"
     },
-
     "persona_card": {
       "copy_text": "🎨 私の Chromakopia ペルソナ 🎨\n\n名前：{name}\n色：{colorName}\n特徴：{trait}\n説明：{description}\n超能力：{superpower}\n名言：{quote}\n\n生成場所：https://geekskai.com/tools/chromakopia-name-generator",
       "copied_message": "ペルソナがクリップボードにコピーされました！🎨",
@@ -1762,7 +1702,6 @@
         "reduced_precision_small": "非常に小さな値は精度が低下する可能性があります"
       }
     },
-
     "quick_reference": {
       "reference_table": {
         "title": "クイックリファレンステーブル",
@@ -2339,13 +2278,11 @@
     "seo_title": "Discord タイムゾーン変換器 - 無料 Discord タイムスタンプ生成ツール",
     "seo_description": "双方向タイムスタンプ変換、グローバルタイムゾーンサポート、バッチ処理を備えた無料のDiscordタイムゾーン変換器。Discordタイムスタンプを時間に変換し、すべてのタイムゾーンでDiscordタイムスタンプ形式を生成し、グローバルDiscordコミュニティを調整します。Discordボット開発者、サーバー管理者、国際イベント調整に最適。",
     "seo_keywords": "discord タイムゾーン変換器, discord 時間変換器, discord タイムスタンプ変換器, discord タイムスタンプ生成器, discord 時間形式変換器, discord タイムスタンプから時間, 時間からdiscord タイムスタンプ, discord 時間計算機, discord スケジューリングツール, discord ボット タイムスタンプ, discord タイムスタンプ形式, unix タイムスタンプからdiscord, discord エポック時間変換器, discord コミュニティツール, discord サーバー管理, discord イベント調整, discord 協調ツール, discord グローバルタイムゾーン変換器, discord 国際時間変換器, discord マルチタイムゾーンツール, discord 世界時間変換器, discord タイムゾーン同期, discord クロスタイムゾーン調整, discord タイムゾーン協調, discord タイムゾーン管理, discord ボット タイムゾーン変換器, discord api タイムゾーンツール, discord webhook タイムゾーン, discord 埋め込みタイムゾーン, discord タイムスタンプタイムゾーン変換, discord 異なるタイムゾーンの時間, discord イベントタイムゾーン変換器, discord 会議タイムゾーンツール",
-
     "breadcrumb": {
       "home": "ホーム",
       "tools": "ツール",
       "discord_time_converter": "Discord タイムスタンプ変換器"
     },
-
     "header": {
       "badge_text": "無料 Discord タイムゾーン変換器とタイムスタンプ生成ツール",
       "main_title_line1": "Discord タイムゾーン",
@@ -2358,7 +2295,6 @@
         "free_tool": "無料 Discord タイムゾーンツール"
       }
     },
-
     "conversion_modes": {
       "to_timestamp": {
         "title": "時間 → Discord タイムスタンプ",
@@ -2369,21 +2305,18 @@
         "description": "Discord形式を通常の時間に変換"
       }
     },
-
     "input_sections": {
       "conversion_mode": "変換モード",
       "time_input": "時間入力",
       "discord_timestamp_input": "Discord タイムスタンプ入力",
       "timezone": "タイムゾーン"
     },
-
     "form_labels": {
       "select_date_time": "日付と時間を選択",
       "discord_timestamp": "Discord タイムスタンプ",
       "select_timezone": "タイムゾーンを選択",
       "input_one_per_line": "入力（1行に1つ）"
     },
-
     "placeholders": {
       "select_date_time": "日付と時間を選択",
       "discord_timestamp": "&lt;t:1640995200:f&gt;",
@@ -2391,7 +2324,6 @@
       "batch_to_timestamp": "2024-01-01 12:00:00\n2024-02-01 15:30:00",
       "batch_from_timestamp": "&lt;t:1640995200:f&gt;\n&lt;t:1640995500:R&gt;"
     },
-
     "timestamp_formats": {
       "relative": {
         "label": "相対時間",
@@ -2429,7 +2361,6 @@
         "example": "2021年4月20日火曜日 16:20"
       }
     },
-
     "timezone_groups": {
       "utc": "UTC",
       "americas": "アメリカ大陸",
@@ -2437,7 +2368,6 @@
       "asia": "アジア",
       "oceania": "オセアニア"
     },
-
     "common_timezones": {
       "utc": {
         "label": "UTC",
@@ -2500,7 +2430,6 @@
         "description": "オークランド、ウェリントン (+13:00)"
       }
     },
-
     "buttons": {
       "plus_1_hour": "+1時間",
       "plus_1_day": "+1日",
@@ -2522,7 +2451,6 @@
       "hide_advanced": "高度な機能を非表示",
       "convert_all": "すべて変換"
     },
-
     "results": {
       "conversion_results": "変換結果",
       "live_preview": "ライブプレビュー",
@@ -2530,18 +2458,15 @@
       "date_time_relative": "日付、時間、相対",
       "full_date_relative": "完全な日付と相対"
     },
-
     "advanced_features": {
       "batch_converter": "バッチ変換器",
       "conversion_history": "変換履歴",
       "results_label": "結果："
     },
-
     "info_messages": {
       "format_info": "形式：&lt;t:タイムスタンプ:形式&gt;（例：&lt;t:1640995200:f&gt;）",
       "invalid_format_type": "無効な形式タイプ"
     },
-
     "usage_guide": {
       "title": "Discord タイムゾーン変換器の使用方法 - 完全ガイド",
       "description": "サーバー、ボット開発、すべてのタイムゾーンでのグローバルコミュニティ調整のためのDiscordタイムゾーン変換とタイムスタンプ生成をマスター",
@@ -2679,13 +2604,11 @@
     "seo_title": "Discord タイムスタンプジェネレーター - 動的 Discord タイムスタンプを作成 | 無料ツール",
     "seo_description": "無料の Discord タイムスタンプジェネレーターで動的タイムスタンプ、イベントカウントダウン、リマインダーシステムを作成。すべての Discord タイムスタンプ形式をリアルタイムプレビュー、タイムゾーンサポート、Discord ボット統合で生成。イベントスケジューリングとコミュニティ管理に最適。",
     "seo_keywords": "discord タイムスタンプジェネレーター, discord タイムスタンプ作成, discord タイムスタンプ生成, discord イベントジェネレーター, discord カウントダウンジェネレーター, discord リマインダータイムスタンプ",
-
     "breadcrumb": {
       "home": "ホーム",
       "tools": "ツール",
       "discord_timestamp_generator": "Discord タイムスタンプジェネレーター"
     },
-
     "header": {
       "professional_badge": "プロフェッショナル Discord タイムスタンプ",
       "main_title": "Discord",
@@ -2698,7 +2621,6 @@
         "free_generator": "無料ジェネレーター"
       }
     },
-
     "modes": {
       "input_mode": "入力モード",
       "relative_time": "相対時間",
@@ -2706,7 +2628,6 @@
       "absolute_time": "絶対時間",
       "absolute_time_description": "具体的な日付と時間"
     },
-
     "quick_presets": {
       "title": "クイックプリセット",
       "in_1_hour": "1時間後",
@@ -2714,7 +2635,6 @@
       "next_week": "来週",
       "in_1_month": "1ヶ月後"
     },
-
     "time_adjustment": {
       "title": "時間調整",
       "weeks": "週",
@@ -2722,7 +2642,6 @@
       "hours": "時間",
       "minutes": "分"
     },
-
     "date_time_settings": {
       "title": "日付と時間の設定",
       "year": "年",
@@ -2732,11 +2651,9 @@
       "minute": "分",
       "timezone": "タイムゾーン：UTC"
     },
-
     "display_format": {
       "title": "表示形式"
     },
-
     "timestamp_formats": {
       "relative": {
         "label": "相対時間",
@@ -2774,12 +2691,10 @@
         "example": "2021年4月20日火曜日 16:20"
       }
     },
-
     "format_toggle": {
       "show_common_formats": "一般的な形式を表示",
       "show_more_formats": "その他の形式を表示"
     },
-
     "preview": {
       "discord_preview": "Discord プレビュー",
       "real_time": "リアルタイム",
@@ -2789,7 +2704,6 @@
       "bot_label": "ボット",
       "today": "今日"
     },
-
     "generated_result": {
       "title": "生成結果",
       "discord_timestamp_code": "Discord タイムスタンプコード",
@@ -2799,14 +2713,12 @@
       "copied": "コピーしました！",
       "failed_to_copy": "コピーに失敗しました："
     },
-
     "saved_configurations": {
       "title": "保存された設定",
       "click_to_apply": "クリックして適用",
       "relative_mode": "相対時間",
       "date_mode": "日付"
     },
-
     "features": {
       "title": "プロフェッショナルグレードの機能",
       "description": "精度とスタイルで完璧な Discord タイムスタンプを作成するために必要なすべて",
@@ -2823,7 +2735,6 @@
         "description": "お気に入りの設定を保存し、タイムスタンプ設定を簡単に管理して、異なるプロジェクト間でのクイックアクセスと再利用を可能にします。"
       }
     },
-
     "usage_guide": {
       "title": "完璧な Discord タイムスタンプの作成方法",
       "description": "これらの簡単なステップに従って、ゼロからプロフェッショナルな Discord タイムスタンプを生成",
@@ -2844,7 +2755,6 @@
         "description": "生成された Discord タイムスタンプコードをコピーして、自動タイムゾーン変換のためにメッセージに貼り付けます。"
       }
     },
-
     "content_sections": {
       "what_is_generation": {
         "title": "Discord タイムスタンプ生成とは？動的時間表示の作成",
@@ -2857,7 +2767,6 @@
         "benefit_5": "作成中のリアルタイムプレビュー",
         "benefit_6": "複数の形式オプションが利用可能"
       },
-
       "best_practices": {
         "title": "Discord タイムスタンプ作成のベストプラクティス",
         "event_scheduling": {
@@ -2879,7 +2788,6 @@
           "api_compatible": "すべての Discord API 統合と互換性があります。"
         }
       },
-
       "generator_vs_converter": {
         "title": "Discord タイムスタンプジェネレーター vs コンバーター：適切なツールを選択",
         "generator_section": {
@@ -2903,7 +2811,6 @@
         }
       }
     },
-
     "faq": {
       "title": "Discord タイムスタンプ生成に関するよくある質問",
       "q1": {
@@ -2939,7 +2846,6 @@
         "answer": "はい！私たちのジェネレーターには、よく使用するタイムスタンプ設定を保存できるお気に入りシステムが含まれています。定期的なイベント、定期会議スケジュール、または一般的に使用されるカウントダウン形式に最適で、素早く適用して再度生成できます。"
       }
     },
-
     "preview_text": {
       "in_days": "{days}日後",
       "in_hours": "{hours}時間後",
@@ -3428,6 +3334,441 @@
           "answer": "もちろんです！生成されたチップ画面は、UXデザイン、消費者心理学、デジタル倫理、チップ文化に関する教育コンテンツに最適です。ブログ投稿、ソーシャルメディアコンテンツ、学術プレゼンテーション、またはダークパターンとユーザーエクスペリエンスデザインに関するトレーニング資料に理想的です。"
         }
       }
+    }
+  },
+  "Random4DigitNumberGenerator": {
+    "seo_title": "ランダム4桁数字ジェネレーター - 無料＆安全 | 即座に生成",
+    "seo_description": "安全なランダム4桁数字を即座に生成します。認証コード、PIN、テストデータ、開発に最適。無料、高速、暗号学的に安全、登録不要。",
+    "seo_keywords": "ランダム4桁数字ジェネレーター, ランダム4桁コードジェネレーター, 4桁数字ジェネレーター, 4桁ランダム数字ジェネレーター, 4桁ランダム数字, 認証コードジェネレーター, PINジェネレーター, OTPジェネレーター, ランダム数字ジェネレーター, 安全なランダム数字, 暗号学的ランダム, テストデータジェネレーター, 一括数字ジェネレーター",
+    "og_image_alt": "Random 4-Digit Number Generator Tool",
+    "json_ld": {
+      "name": "Random 4-Digit Number Generator",
+      "description": "Generate secure random 4-digit numbers for verification codes, PINs, testing, and development purposes",
+      "keywords": "random number generator, 4 digit generator, verification code, PIN generator, OTP, secure random, cryptographic",
+      "educational_use": "Software Development, Security Testing, QA Testing, Database Seeding, Statistical Analysis",
+      "audience_type": "Developers, QA Engineers, Security Professionals, Students",
+      "usage_info": "For verification codes, PINs, testing, development, and educational purposes. Uses cryptographically secure randomness.",
+      "feature_list": {
+        "crypto_secure": "Cryptographically secure random number generation",
+        "single_bulk": "Single and bulk generation modes",
+        "custom_range": "Customizable number range (0000-9999)",
+        "multiple_formats": "Multiple format options (plain, hyphen, dot, prefix)",
+        "exclusion_rules": "Exclusion rules for sequential and repeated digits",
+        "export_formats": "Export in TXT, CSV, and JSON formats",
+        "no_duplicates": "No duplicates option for unique number sets",
+        "history": "Generation history tracking",
+        "statistics": "Real-time statistics and analytics",
+        "mobile_friendly": "Mobile-friendly responsive design",
+        "no_registration": "No registration required",
+        "free": "100% free with unlimited generations",
+        "privacy": "Privacy-focused - no data storage",
+        "instant": "Instant generation with Web Crypto API"
+      }
+    },
+    "breadcrumb": {
+      "home": "ホーム",
+      "tools": "ツール",
+      "random_4_digit_number_generator": "ランダム4桁数字ジェネレーター"
+    },
+    "header": {
+      "badge_text": "暗号学的に安全 • 永久無料",
+      "main_title": "ランダム4桁数字ジェネレーター",
+      "description": "安全なランダム4桁数字を即座に生成します。{verification_codes}、{pins}、{testing_data}、開発目的に最適。暗号学的に安全、無制限、完全無料。",
+      "verification_codes": "verification codes",
+      "pins": "PINs",
+      "testing_data": "testing data",
+      "share_text": "この無料ツールをチームと共有"
+    },
+    "features_pills": {
+      "instant_generation": "即座に生成",
+      "crypto_secure": "暗号化セキュア",
+      "bulk_export": "一括エクスポート"
+    },
+    "generator": {
+      "single_title": "単一数字ジェネレーター",
+      "settings_show": "設定を表示",
+      "settings_hide": "設定を非表示",
+      "settings_panel": {
+        "title": "生成設定",
+        "range_label": "範囲（最小 - 最大）",
+        "format_label": "数字形式",
+        "format_plain": "プレーン (1234)",
+        "format_hyphen": "ハイフン (12-34)",
+        "format_dot": "ドット (12.34)",
+        "format_prefix": "プレフィックス (#1234)",
+        "exclusion_rules_label": "除外ルール",
+        "exclude_sequential": "連続を除外 (1234, 4321)",
+        "exclude_repeated": "繰り返しを除外 (1111, 2222)"
+      },
+      "display": {
+        "crypto_secure": "暗号学的に安全なランダム数字",
+        "click_generate": "生成をクリックして数字を作成",
+        "features": "安全 • ランダム • 即座"
+      },
+      "buttons": {
+        "generate": "数字を生成",
+        "generating": "生成中...",
+        "copy": "コピー",
+        "copied": "コピーしました！"
+      },
+      "history": {
+        "title": "最近の履歴",
+        "clear": "クリア"
+      },
+      "bulk": {
+        "title": "一括ジェネレーター",
+        "number_of_items": "アイテム数",
+        "export_format": "エクスポート形式",
+        "format_txt": "テキスト (.txt)",
+        "format_csv": "CSV (.csv)",
+        "format_json": "JSON (.json)",
+        "allow_duplicates": "重複を許可",
+        "generate_button": "{count}個の数字を生成",
+        "results_title": "生成された数字 ({count})",
+        "click_to_copy": "クリックしてコピー"
+      },
+      "stats": {
+        "total_generated": "生成総数",
+        "unique_numbers": "ユニーク数字",
+        "average_value": "平均値"
+      },
+      "bulk_title": "Bulk Generator",
+      "bulk_settings": {
+        "quantity_label": "Number of Items",
+        "export_format_label": "Export Format",
+        "export_txt": "Text (.txt)",
+        "export_csv": "CSV (.csv)",
+        "export_json": "JSON (.json)",
+        "allow_duplicates": "Allow Duplicates"
+      },
+      "bulk_buttons": {
+        "generate": "Generate {count} Numbers",
+        "export": "Export",
+        "show": "Show",
+        "hide": "Hide"
+      },
+      "statistics": {
+        "total_generated": "Total Generated",
+        "unique_numbers": "Unique Numbers",
+        "average_value": "Average Value",
+        "generated_numbers": "Generated Numbers ({count})",
+        "click_to_copy": "Click to copy"
+      },
+      "reset_button": "Reset All"
+    },
+    "use_cases": {
+      "badge": "人気の使用例",
+      "title": "4桁ランダム数字ジェネレーターの使い道は？",
+      "description": "セキュリティアプリケーションから開発テストまで、当社のランダム数字ジェネレーターがお手伝いできる多くの方法を発見してください",
+      "verification_codes": {
+        "title": "Verification Codes",
+        "description": "Generate secure OTP and 2FA codes for SMS/Email verification systems",
+        "examples": {
+          "sms_otp": "SMS OTP",
+          "email_verification": "Email Verification",
+          "two_factor_auth": "Two-Factor Auth",
+          "account_recovery": "Account Recovery"
+        }
+      },
+      "pin_numbers": {
+        "title": "PIN Numbers",
+        "description": "Create secure personal identification numbers for various applications",
+        "examples": {
+          "atm_pins": "ATM PINs",
+          "lock_codes": "Lock Codes",
+          "access_control": "Access Control",
+          "security_tokens": "Security Tokens"
+        }
+      },
+      "testing_development": {
+        "title": "Testing & Development",
+        "description": "Generate test data for QA, development, and database seeding purposes",
+        "examples": {
+          "qa_testing": "QA Testing",
+          "api_testing": "API Testing",
+          "mock_data": "Mock Data",
+          "database_seeds": "Database Seeds"
+        }
+      },
+      "gaming_lottery": {
+        "title": "Gaming & Lottery",
+        "description": "Create random numbers for games, contests, and lucky number generation",
+        "examples": {
+          "lucky_numbers": "Lucky Numbers",
+          "game_codes": "Game Codes",
+          "contest_ids": "Contest IDs",
+          "random_selection": "Random Selection"
+        }
+      },
+      "educational_research": {
+        "title": "Educational & Research",
+        "description": "Perfect for statistics, probability experiments, and academic projects",
+        "examples": {
+          "statistical_sampling": "Statistical Sampling",
+          "math_education": "Math Education",
+          "research_data": "Research Data",
+          "surveys": "Surveys"
+        }
+      },
+      "how_it_works": {
+        "title": "How Our Generator Works",
+        "description_1": "Our {strong_4digit} uses cryptographically secure algorithms to ensure true randomness and unpredictability.",
+        "strong_4digit": "4-digit random number generator",
+        "description_2": "Unlike basic random number generators, we utilize the {strong_crypto} which provides cryptographically strong random values suitable for security-sensitive applications.",
+        "strong_crypto": "Web Crypto API",
+        "description_3": "Perfect for {strong_users}, and anyone who needs reliable random numbers for verification codes, PINs, or testing purposes.",
+        "strong_users": "developers, security professionals",
+        "steps": {
+          "step_1": "Choose your preferences (range, format, exclusions)",
+          "step_2": "Click Generate to create secure random numbers",
+          "step_3": "Copy individual numbers or export in bulk",
+          "step_4": "Use them in your applications immediately"
+        }
+      },
+      "why_choose": {
+        "title": "Why Choose Our Tool?",
+        "instant_generation": {
+          "title": "Instant Generation",
+          "description": "Get your random numbers in milliseconds"
+        },
+        "crypto_secure": {
+          "title": "Cryptographically Secure",
+          "description": "Uses Web Crypto API for true randomness"
+        },
+        "no_registration": {
+          "title": "No Registration Required",
+          "description": "Start generating immediately, no sign-up needed"
+        },
+        "free_forever": {
+          "title": "100% Free Forever",
+          "description": "Unlimited generations at no cost"
+        },
+        "mobile_friendly": {
+          "title": "Mobile Friendly",
+          "description": "Works perfectly on all devices"
+        },
+        "customizable": {
+          "title": "Customizable Options",
+          "description": "Control range, format, and exclusion rules"
+        }
+      }
+    },
+    "features": {
+      "badge": "強力な機能",
+      "title": "1つのツールで必要なすべて",
+      "description": "開発者、セキュリティ専門家、パワーユーザー向けに設計されたプロフェッショナルグレードの機能",
+      "crypto_secure": {
+        "title": "暗号学的に安全",
+        "description": "セキュリティに敏感なアプリケーションに適した、真のランダム数字生成のためにWeb Crypto APIを使用"
+      },
+      "lightning_fast": {
+        "title": "超高速",
+        "description": "最適化されたアルゴリズムと効率的な処理で、数千のランダム数字を即座に生成"
+      },
+      "multiple_exports": {
+        "title": "Multiple Export Formats",
+        "description": "Export your generated numbers in TXT, CSV, or JSON format for easy integration with your workflow"
+      },
+      "mobile_optimized": {
+        "title": "モバイル最適化",
+        "description": "デスクトップ、タブレット、モバイルのすべてのデバイスで完璧に動作する完全レスポンシブデザイン"
+      },
+      "no_registration": {
+        "title": "登録不要",
+        "description": "アカウントを作成したり個人情報を提供したりすることなく、すぐにランダム数字の生成を開始"
+      },
+      "advanced_customization": {
+        "title": "高度なカスタマイズ",
+        "description": "数字範囲、形式、重複を制御し、連続または繰り返し桁の除外ルールを適用"
+      },
+      "learn_more": "Learn more",
+      "trust_signals": {
+        "badge": "Trusted by Developers & Security Professionals",
+        "description": "Join thousands of developers, QA engineers, and security professionals who rely on our random number generator for their daily workflows",
+        "badges": {
+          "free_forever": "✓ 100% Free Forever",
+          "no_registration": "✓ No Registration",
+          "unlimited": "✓ Unlimited Generations",
+          "privacy": "✓ Privacy Focused",
+          "open_source": "✓ Open Source Algorithm",
+          "cross_platform": "✓ Mobile & Desktop"
+        }
+      },
+      "security_notice": {
+        "title": "Security & Privacy",
+        "description": "All random number generation happens in your browser using the Web Crypto API. We don't store, track, or transmit any generated numbers. Your data stays on your device, ensuring complete privacy and security."
+      }
+    },
+    "faq": {
+      "badge": "よくある質問",
+      "title": "知っておくべきすべて",
+      "description": "ランダム4桁数字ジェネレーターに関する一般的な質問",
+      "items": {
+        "how_random": {
+          "question": "生成される数字はどのくらいランダムですか？",
+          "answer": "当社のジェネレーターは、暗号学的に安全なランダム数字を提供するWeb Crypto API（crypto.getRandomValues()）を使用しています。これは、数字が真にランダムで予測不可能であり、認証コードやPINなどのセキュリティに敏感なアプリケーションに適していることを意味します。ランダム性の品質はMath.random()よりもはるかに高いです。"
+        },
+        "no_duplicates": {
+          "question": "重複なしで数字を生成できますか？",
+          "answer": "はい！一括ジェネレーターを使用する場合は、「重複を許可」オプションのチェックを外すだけです。当社のアルゴリズムは、バッチ内のすべての生成された数字が一意であることを保証します。これは、一意の認証コードやテストデータセットを作成するのに最適です。"
+        },
+        "is_free": {
+          "question": "このツールは完全に無料ですか？",
+          "answer": "もちろんです！当社の4桁ランダム数字ジェネレーターは、隠れたコスト、サブスクリプション、プレミアム機能なしで100%無料です。制限なしで無制限の数字を生成できます。登録や支払いは一切不要です。"
+        },
+        "secure_passwords": {
+          "question": "生成された数字はパスワードに十分安全ですか？",
+          "answer": "当社のジェネレーターは暗号学的に安全なランダム性を使用していますが、4桁の数字（0000-9999）は10,000の可能な組み合わせしか提供しません。これは一般的にパスワードには不十分です。ただし、追加のセキュリティレイヤーが存在する一時的な認証コード、PIN、二要素認証には最適です。"
+        },
+        "more_than_1000": {
+          "question": "一度に1000個以上の数字を生成できますか？",
+          "answer": "現在、一括ジェネレーターは最適なパフォーマンスを確保するためにバッチあたり1000個の数字に制限されています。より多くの数字が必要な場合は、複数のバッチを生成して組み合わせることができます。非常に大きなデータセット（10,000以上）の場合は、当社のAPIを使用するか、複数の生成を実行することを検討してください。"
+        },
+        "store_numbers": {
+          "question": "生成された数字を保存しますか？",
+          "answer": "いいえ、生成された数字を保存、ログ、または送信することは決してありません。すべての数字生成はJavaScriptを使用してブラウザ内で完全に行われます。数字はデバイスに留まり、当社のサーバーに送信されることはありません。プライバシーを完全に尊重します。"
+        },
+        "format_options": {
+          "question": "形式オプションの違いは何ですか？",
+          "answer": "4つの形式オプションを提供しています：プレーン（1234）、ハイフン（12-34）、ドット（12.34）、プレフィックス（#1234）。これらの形式は純粋に装飾的であり、さまざまな使用例に合わせるのに役立ちます。たとえば、ハイフン形式は認証コードに一般的であり、プレフィックス形式はID番号に便利です。"
+        },
+        "exclude_patterns": {
+          "question": "連続または繰り返しの数字を除外できますか？",
+          "answer": "はい！詳細設定では、連続数字（1234や4321など）や繰り返し桁（1111や2222など）を防ぐための除外ルールを有効にできます。これは、より「ランダムに見える」数字が必要な場合や、簡単に推測できるパターンを避けたい場合に便利です。"
+        },
+        "how_export": {
+          "question": "生成された数字をエクスポートするにはどうすればよいですか？",
+          "answer": "数字のバッチを生成した後、エクスポートボタンをクリックします。3つの形式から選択できます：TXT（プレーンテキスト、1行に1つの数字）、CSV（メタデータ付きのスプレッドシート互換）、またはJSON（プログラミング用の構造化データ）。ファイルはデバイスに即座にダウンロードされます。"
+        },
+        "lottery_gambling": {
+          "question": "これらの数字を宝くじやギャンブルに使用できますか？",
+          "answer": "当社のジェネレーターは、宝くじ番号の選択やランダム選択に適した真にランダムな数字を提供しますが、当選結果を保証することはできません。責任を持って使用し、ギャンブルにはリスクが伴うことを忘れないでください。当社のツールは主に開発、テスト、セキュリティアプリケーション向けに設計されています。"
+        },
+        "browsers_supported": {
+          "question": "どのブラウザがサポートされていますか？",
+          "answer": "当社のツールは、Chrome、Firefox、Safari、Edge、モバイルブラウザを含むすべての最新ブラウザで動作します。Web Crypto APIは2014年以降にリリースされたすべてのブラウザでサポートされています。最高のエクスペリエンスを得るには、お好みのブラウザの最新バージョンを使用することをお勧めします。"
+        },
+        "range_setting": {
+          "question": "範囲設定はどのように機能しますか？",
+          "answer": "範囲設定を使用すると、生成の最小値と最大値を指定できます。たとえば、範囲1000-5000を設定すると、1000から5000の間の数字のみが生成されます。これは、0000-9999範囲の特定のサブセット内の数字が必要な場合に便利です。"
+        }
+      },
+      "q1": {
+        "question": "How random are the generated numbers?",
+        "answer": "Our generator uses the Web Crypto API (crypto.getRandomValues()), which provides cryptographically secure random numbers. This means the numbers are truly random and unpredictable, suitable for security-sensitive applications like verification codes and PINs. The randomness quality is significantly higher than Math.random()."
+      },
+      "q2": {
+        "question": "Can I generate numbers without duplicates?",
+        "answer": "Yes! When using the bulk generator, simply uncheck the \"Allow Duplicates\" option. Our algorithm will ensure all generated numbers in the batch are unique. This is perfect for creating unique verification codes or test data sets."
+      },
+      "q3": {
+        "question": "Is this tool completely free?",
+        "answer": "Absolutely! Our 4-digit random number generator is 100% free with no hidden costs, subscriptions, or premium features. You can generate unlimited numbers without any restrictions. No registration or payment is ever required."
+      },
+      "q4": {
+        "question": "Are the generated numbers secure enough for passwords?",
+        "answer": "While our generator uses cryptographically secure randomness, 4-digit numbers (0000-9999) only provide 10,000 possible combinations. This is generally not sufficient for passwords. However, they are perfect for temporary verification codes, PINs, and two-factor authentication where additional security layers exist."
+      },
+      "q5": {
+        "question": "Can I generate more than 1000 numbers at once?",
+        "answer": "Currently, the bulk generator is limited to 1000 numbers per batch to ensure optimal performance. If you need more numbers, you can generate multiple batches and combine them. For very large datasets (10,000+), consider using our API or running multiple generations."
+      },
+      "q6": {
+        "question": "Do you store my generated numbers?",
+        "answer": "No, we never store, log, or transmit your generated numbers. All number generation happens entirely in your browser using JavaScript. Your numbers stay on your device and are never sent to our servers. We respect your privacy completely."
+      },
+      "q7": {
+        "question": "What's the difference between the format options?",
+        "answer": "We offer four format options: Plain (1234), Hyphen (12-34), Dot (12.34), and Prefix (#1234). These formats are purely cosmetic and help match different use cases. For example, hyphen format is common for verification codes, while prefix format is useful for ID numbers."
+      },
+      "q8": {
+        "question": "Can I exclude sequential or repeated numbers?",
+        "answer": "Yes! In the advanced settings, you can enable exclusion rules to prevent sequential numbers (like 1234 or 4321) and repeated digits (like 1111 or 2222). This is useful when you need more \"random-looking\" numbers or want to avoid easily guessable patterns."
+      },
+      "q9": {
+        "question": "How do I export my generated numbers?",
+        "answer": "After generating a batch of numbers, click the Export button. You can choose from three formats: TXT (plain text, one number per line), CSV (spreadsheet-compatible with metadata), or JSON (structured data for programming). The file downloads instantly to your device."
+      },
+      "q10": {
+        "question": "Can I use these numbers for lottery or gambling?",
+        "answer": "While our generator provides truly random numbers suitable for picking lottery numbers or making random selections, please note that we cannot guarantee winning outcomes. Use responsibly and remember that gambling involves risk. Our tool is designed primarily for development, testing, and security applications."
+      },
+      "q11": {
+        "question": "What browsers are supported?",
+        "answer": "Our tool works on all modern browsers including Chrome, Firefox, Safari, Edge, and mobile browsers. The Web Crypto API is supported in all browsers released after 2014. For the best experience, we recommend using the latest version of your preferred browser."
+      },
+      "q12": {
+        "question": "How does the range setting work?",
+        "answer": "The range setting allows you to specify minimum and maximum values for generation. For example, setting range 1000-5000 will only generate numbers between 1000 and 5000. This is useful when you need numbers within a specific subset of the 0000-9999 range."
+      },
+      "still_have_questions": {
+        "title": "Still Have Questions?",
+        "description": "Can't find the answer you're looking for? Check our documentation or reach out to our community",
+        "view_docs": "View Documentation",
+        "contact_support": "Contact Support"
+      },
+      "pro_tips": {
+        "tip_1": {
+          "icon": "💡",
+          "title": "Pro Tip",
+          "text": "Use the history feature to quickly access your recently generated numbers"
+        },
+        "tip_2": {
+          "icon": "⚡",
+          "title": "Speed Tip",
+          "text": "Press Enter after typing to instantly generate a new number"
+        },
+        "tip_3": {
+          "icon": "🎯",
+          "title": "Best Practice",
+          "text": "Enable exclusion rules for more secure and unpredictable number patterns"
+        }
+      }
+    },
+    "cta": {
+      "title": "ランダム数字を生成する準備はできましたか？",
+      "description": "今すぐ安全でランダムな4桁数字の生成を開始します。登録不要、制限なし、永久無料。",
+      "button": "今すぐ数字を生成",
+      "trust_badges": {
+        "crypto_secure": "✓ 暗号学的に安全",
+        "no_registration": "✓ 登録不要",
+        "free_forever": "✓ 100%永久無料",
+        "privacy": "✓ プライバシー重視",
+        "unlimited": "✓ 無制限生成",
+        "cross_platform": "✓ モバイル＆デスクトップ"
+      }
+    },
+    "seo_content": {
+      "title": "ランダム4桁数字ジェネレーターについて",
+      "paragraph_1": "当社の{strong_generator}は、開発者、セキュリティ専門家、QAエンジニア、信頼性の高いランダム数字を必要とするすべての人向けに設計されたプロフェッショナルグレードのツールです。基本的なランダム数字ジェネレーターとは異なり、セキュリティに敏感なアプリケーションに適した暗号学的に安全なランダム性を確保するために<rich>{strong_crypto}</rich>を使用しています。",
+      "strong_generator": "random 4-digit number generator",
+      "strong_crypto": "Web Crypto API",
+      "perfect_for_title": "複数の使用例に最適",
+      "perfect_for_description": "認証システム用の{strong_verification}、アクセス制御用の{strong_pins}、開発用の{strong_test_data}、またはその他の目的の{strong_random}が必要な場合でも、当社のツールは高度なカスタマイズオプションを備えた即座で安全な生成を提供します。",
+      "strong_verification": "verification codes",
+      "strong_pins": "PIN numbers",
+      "strong_test_data": "test data",
+      "strong_random": "random numbers",
+      "key_features_title": "主な機能",
+      "features_list": {
+        "crypto_secure": "<strong>暗号学的に安全</strong>：真のランダム性のためにWeb Crypto APIを使用",
+        "bulk_generation": "<strong>一括生成</strong>：一度に最大1000個の数字を生成",
+        "multiple_formats": "<strong>複数の形式</strong>：プレーン、ハイフン、ドット、プレフィックス形式",
+        "exclusion_rules": "<strong>除外ルール</strong>：連続および繰り返しパターンを回避",
+        "export_options": "<strong>エクスポートオプション</strong>：TXT、CSV、またはJSONとしてダウンロード",
+        "no_registration": "<strong>登録不要</strong>：すぐに使用開始",
+        "free": "<strong>100%無料</strong>：永久に無制限生成",
+        "privacy": "<strong>プライバシー重視</strong>：データ保存や追跡なし"
+      },
+      "how_it_works_title": "仕組み",
+      "how_it_works_description": "当社のジェネレーターは、暗号学的に強力なランダム値を提供するブラウザのネイティブ{strong_crypto}メソッドを活用しています。これにより、生成された数字が真に予測不可能であり、{strong_otp}、{strong_2fa}、{strong_verification}などのセキュリティアプリケーションに適していることが保証されます。",
+      "strong_crypto_method": "crypto.getRandomValues()",
+      "strong_otp": "OTP generation",
+      "strong_2fa": "two-factor authentication",
+      "strong_verification_codes": "verification codes",
+      "why_choose_title": "当社のツールを選ぶ理由",
+      "why_choose_description": "基本的なMath.random()を使用する他のランダム数字ジェネレーターとは異なり、当社のツールは美しく直感的なインターフェースで{strong_enterprise}を提供します。使いやすさや機能を犠牲にすることなく、信頼性の高い安全なランダム数字を必要とする専門家向けに特別に設計されています。",
+      "strong_enterprise": "enterprise-grade security"
     }
   }
 }

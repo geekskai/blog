@@ -344,7 +344,6 @@
       "bf_unit": "bf",
       "untitled_piece": "제목 없는 부품"
     },
-
     "educational_content": {
       "professional_use_cases": "전문적 사용 사례",
       "use_cases_description": "다양한 산업의 전문가들이 보드 피트 계산을 어떻게 사용하는지 알아보세요",
@@ -780,13 +779,11 @@
     "page_title": "인빈시블 타이틀 카드 생성기",
     "page_subtitle": "맞춤형 TV 쇼 타이틀 카드 제작",
     "page_description": "인빈시블 애니메이션 시리즈에서 영감을 받은 맞춤형 타이틀 카드를 생성하세요. 사용자 정의 가능한 텍스트, 색상, 배경 및 효과로 전문적인 타이틀 카드를 제작하세요. 팬 콘텐츠와 창작 프로젝트에 완벽합니다.",
-
     "breadcrumb": {
       "home": "홈",
       "tools": "도구",
       "invincible_title_card_generator": "인빈시블 타이틀 카드 생성기"
     },
-
     "header": {
       "professional_badge": "전문 타이틀 카드 생성기",
       "main_title": "인빈시블",
@@ -798,7 +795,6 @@
       "download_button": "다운로드",
       "generating": "생성 중..."
     },
-
     "preview": {
       "live_preview": "실시간 미리보기",
       "resolution": "1920×1080",
@@ -811,14 +807,12 @@
       "saved_configurations": "저장된 구성",
       "click_to_apply": "클릭하여 적용"
     },
-
     "settings": {
       "customization": "사용자 정의",
       "presets_tab": "프리셋",
       "text_tab": "텍스트",
       "colors_tab": "색상",
       "effects_tab": "효과",
-
       "character_presets": "캐릭터 프리셋",
       "text_settings": "텍스트 설정",
       "main_title_label": "메인 제목",
@@ -827,21 +821,17 @@
       "small_subtitle_placeholder": "작은 부제목...",
       "credits_subtitle_label": "크레딧 부제목",
       "credits_subtitle_placeholder": "크레딧 부제목...",
-
       "font_size": "글꼴 크기",
       "text_outline": "텍스트 윤곽선",
       "subtitle_offset": "부제목 오프셋",
-
       "background_style": "배경 스타일",
       "text_color": "텍스트 색상",
-
       "display_options": "표시 옵션",
       "show_credits": "크레딧 표시",
       "show_credits_description": "제목 아래에 부제목 정보 표시",
       "show_watermark": "워터마크 표시",
       "show_watermark_description": "생성된 이미지에 출처 추가"
     },
-
     "presets": {
       "invincible": {
         "name": "인빈시블",
@@ -872,7 +862,6 @@
         "description": "마크의 이복형제"
       }
     },
-
     "backgrounds": {
       "classic_blue": "클래식 블루",
       "hero_gradient": "히어로 그라데이션",
@@ -883,7 +872,6 @@
       "sunset_orange": "선셋 오렌지",
       "forest_green": "포레스트 그린"
     },
-
     "text_colors": {
       "invincible_yellow": "인빈시블 옐로우",
       "hero_blue": "히어로 블루",
@@ -896,24 +884,18 @@
       "atom_pink": "아톰 핑크",
       "alien_cyan": "에일리언 시안"
     },
-
     "content": {
       "professional_features": "전문 기능",
       "features_description": "스튜디오 품질의 결과로 멋진 타이틀 카드를 만드는 데 필요한 모든 것",
-
       "advanced_typography": "고급 타이포그래피",
       "typography_description": "정통 인빈시블 스타일링, 윤곽선 효과, 픽셀 완벽한 결과를 위한 정밀한 타이포그래피 제어로 전문적인 텍스트 사용자 정의.",
-
       "character_presets_feature": "캐릭터 프리셋",
       "presets_description": "마크, 옴니맨, 아톰 이브 및 기타 사랑받는 캐릭터의 정통 색상 구성표를 원클릭 프리셋 구성으로 즉시 적용하세요.",
-
       "studio_export_quality": "스튜디오 내보내기 품질",
       "export_description": "전문 비디오 제작, 소셜 미디어 및 프레젠테이션 사용에 최적화된 초고해상도 1920×1080 PNG 형식으로 내보내기.",
-
       "create_professional_title": "전문적인 인빈시블 스타일 타이틀 카드 제작",
       "about_description_1": "우리의 고급 인빈시블 타이틀 카드 생성기는 크리에이터가 사랑받는 애니메이션 시리즈의 본질을 담은 스튜디오 품질의 타이틀 카드를 제작할 수 있게 해줍니다. 직관적인 제어와 전문급 출력으로 창작 비전을 실현하세요.",
       "about_description_2": "팬 비디오, YouTube 콘텐츠, 교육 자료 또는 전문 프레젠테이션을 제작하든, 우리 도구는 군중에서 돋보이는 데 필요한 유연성과 품질을 제공합니다.",
-
       "premium_features": "프리미엄 기능",
       "feature_character_presets": "캐릭터 기반 색상 프리셋 및 테마",
       "feature_text_customization": "고급 텍스트 사용자 정의 및 타이포그래피",
@@ -921,7 +903,6 @@
       "feature_high_resolution": "고해상도 내보내기 (1920×1080)",
       "feature_real_time_preview": "실시간 미리보기 및 편집",
       "feature_save_configurations": "즐겨찾기 구성 저장 및 관리",
-
       "how_to_create_title": "완벽한 타이틀 카드 만드는 방법",
       "step_1_title": "스타일 선택",
       "step_1_description": "캐릭터 프리셋에서 선택하거나 빈 캔버스로 시작하세요. 각 프리셋에는 정통한 결과를 위한 최적화된 색상과 스타일링이 포함되어 있습니다.",
@@ -931,7 +912,6 @@
       "step_3_description": "실시간으로 변경 사항을 보면서 색상, 배경 및 효과를 조정하세요. 자세한 편집을 위해 전체화면 모드를 사용하세요.",
       "step_4_title": "내보내기 및 공유",
       "step_4_description": "전문 품질로 타이틀 카드를 다운로드하고 프로젝트, 소셜 미디어 또는 창작 플랫폼에서 공유하세요.",
-
       "faq_title": "자주 묻는 질문",
       "faq_1_question": "이 타이틀 카드 생성기의 특별한 점은 무엇인가요?",
       "faq_1_answer": "우리 생성기는 인빈시블 애니메이션 시리즈의 정통한 모양과 느낌을 재현하도록 특별히 설계되었습니다. 쇼의 타이포그래피, 색상 구성표 및 시각적 스타일을 신중히 연구하여 스튜디오 품질의 결과를 생성하는 캐릭터별 프리셋과 전문급 사용자 정의 옵션을 제공합니다.",
@@ -944,13 +924,11 @@
       "faq_5_question": "이 도구는 완전히 무료인가요?",
       "faq_5_answer": "네! 우리의 인빈시블 타이틀 카드 생성기는 등록 불필요, 숨겨진 수수료 없음, 워터마크 없음(출처 표시를 유지하기로 선택하지 않는 한)으로 완전히 무료입니다. 제한 없이 무제한 타이틀 카드를 만들고 전체 해상도로 다운로드하세요."
     },
-
     "default_state": {
       "text": "인빈시블",
       "small_subtitle": "만화책 원작",
       "subtitle": "로버트 커크먼, 코리 워커, 라이언 오틀리"
     },
-
     "messages": {
       "settings_copied": "설정이 클립보드에 복사되었습니다! 🎬",
       "copy_failed": "복사 실패",
@@ -964,13 +942,11 @@
     "page_title": "BPM을 밀리초 변환기",
     "page_subtitle": "음악 프로듀서 및 DJ를 위한 전문 타이밍 계산기",
     "page_description": "DAW를 위한 즉시, 정확한 딜레이 시간 및 LFO 속도",
-
     "value_props": {
       "instant_conversion": "즉시 변환",
       "daw_ready": "DAW 준비",
       "studio_grade": "스튜디오 급"
     },
-
     "quick_converter": {
       "title": "빠른 변환기",
       "input_placeholder": "BPM(예: 120) 또는 밀리초(예: 500) 입력",
@@ -982,7 +958,6 @@
       "click_to_copy": "클릭하여 복사",
       "copied": "복사됨!"
     },
-
     "conversion_results": {
       "milliseconds_per_beat": "비트당 밀리초",
       "beats_per_minute": "분당 비트",
@@ -992,7 +967,6 @@
       "copy_all": "모두 복사",
       "copied_all": "모두 복사됨!"
     },
-
     "conversion_modes": {
       "bpm_to_ms": "BPM을 MS로",
       "ms_to_bpm": "MS를 BPM으로",
@@ -1000,7 +974,6 @@
       "converting_bpm_to_ms": "BPM을 밀리초로 변환 중",
       "converting_ms_to_bpm": "밀리초를 BPM으로 변환 중"
     },
-
     "input_validation": {
       "range_bpm": "범위: 20-300 BPM",
       "range_ms": "범위: 100-3000 ms",
@@ -1010,7 +983,6 @@
       "error_invalid_bpm": "잘못된 BPM입니다. 20에서 300 사이의 숫자를 입력하세요.",
       "error_invalid_ms": "잘못된 밀리초입니다. 100에서 3000 사이의 숫자를 입력하세요."
     },
-
     "common_bpm_presets": {
       "title": "장르별 일반적인 BPM 값",
       "genres": {
@@ -1024,7 +996,6 @@
         "dnb": "드럼앤베이스"
       }
     },
-
     "note_values": {
       "quarter": {
         "name": "4분음표",
@@ -1072,7 +1043,6 @@
         "common_use": "극도로 빠른 딜레이, 글리치 효과"
       }
     },
-
     "professional_tips": {
       "title": "음악 제작을 위한 전문 팁",
       "delay_reverb_timing": {
@@ -1090,7 +1060,6 @@
         "triplets": "삼연음: 복잡한 폴리리듬 모듈레이션"
       }
     },
-
     "how_it_works": {
       "title": "BPM을 밀리초 변환이 작동하는 방법",
       "formula_title": "공식",
@@ -1107,7 +1076,6 @@
         "lighting_sync": "템포 동기화 조명 시스템 설정"
       }
     },
-
     "breadcrumb": {
       "home": "홈",
       "tools": "도구",
@@ -1122,14 +1090,12 @@
     "page_subtitle": "엔진 파워 추정기",
     "page_description": "무료 CCM에서 HP 변환기 및 엔진 파워 계산기. 2행정 및 4행정 엔진의 엔진 배기량(ccm)에서 마력(hp)으로 정밀하게 즉시 변환. 오토바이 애호가, 자동차 구매자, 선박 용도, 레이싱 프로젝트에 완벽.",
     "free_calculator_badge": "엔진 파워 계산기",
-
     "feature_badges": {
       "bidirectional_conversion": "양방향 CCM ↔ HP 변환",
       "engine_support": "2행정 & 4행정 엔진 지원",
       "turbo_support": "터보차지 & 자연흡기",
       "multi_application": "오토바이, 자동차 & 선박 엔진"
     },
-
     "keywords_tags": {
       "ccm_to_hp": "ccm에서 hp",
       "hp_to_ccm": "hp에서 ccm",
@@ -1138,13 +1104,11 @@
       "motorcycle_power_calculator": "오토바이 파워 계산기",
       "2_stroke_4_stroke_converter": "2행정 4행정 변환기"
     },
-
     "breadcrumb": {
       "home": "홈",
       "tools": "도구",
       "ccm_to_hp_converter": "CCM에서 HP 변환기"
     },
-
     "usage_guide": {
       "title": "CCM에서 HP 변환기 사용법 - 완전한 엔진 파워 가이드",
       "description": "오토바이 쇼핑, 자동차 평가, 선박 엔진, 레이싱 용도를 위한 엔진 배기량에서 마력 변환 마스터",
@@ -1157,7 +1121,6 @@
       "step_4_title": "즉시 결과 획득",
       "step_4_description": "파워 범위가 포함된 추정 마력 확인, 결과 복사 또는 계산 공유"
     },
-
     "converter_card": {
       "title": "CCM ↔ HP 엔진 계산기",
       "description": "엔진 배기량을 마력으로 정밀 변환",
@@ -1196,17 +1159,14 @@
       "min_hp_error": "최소 HP 값은 1입니다",
       "high_hp_warning": "매우 높은 마력. 1000hp를 초과하는 엔진의 경우 결과 정확도가 떨어질 수 있습니다"
     },
-
     "engine_types": {
       "2_stroke": "2행정 엔진",
       "4_stroke": "4행정 엔진"
     },
-
     "fuel_systems": {
       "naturally_aspirated": "자연흡기",
       "turbocharged": "터보차지"
     },
-
     "history": {
       "title": "변환 기록",
       "button_text": "기록",
@@ -1214,7 +1174,6 @@
       "click_to_use": "클릭하여 사용",
       "recent_conversions_saved": "최근 변환이 로컬에 저장됩니다"
     },
-
     "quick_reference": {
       "title": "빠른 참조",
       "description": "일반적인 CCM에서 HP 변환 및 실제 예시",
@@ -1223,30 +1182,22 @@
       "pro_tip": "프로 팁",
       "pro_tip_text": "엔진 배기량(CCM)은 마력을 결정하는 요소 중 하나일 뿐입니다. 실제 파워 출력은 압축비, 연료 시스템, 튜닝 및 기타 많은 요소에 따라 달라집니다. 이러한 추정치를 시작점으로 사용하세요."
     },
-
     "faq": {
       "title": "자주 묻는 질문",
       "description": "CCM에서 HP 변환 및 엔진 파워 계산에 대해 알아야 할 모든 것",
-
       "q1": "CCM에서 HP 변환은 얼마나 정확한가요?",
       "a1": "CCM에서 HP 변환은 경험적 데이터와 업계 평균을 기반으로 한 추정치를 제공합니다. 실제 마력은 엔진 튜닝, 압축비, 연료 시스템 및 기타 요소에 따라 ±15-25% 달라질 수 있습니다. 우리 계산기는 2행정 대 4행정, 자연흡기 대 터보차지 엔진에 대해 다른 계수를 사용한 검증된 공식을 사용합니다.",
-
       "q2": "2행정과 4행정 파워 출력의 차이점은 무엇인가요?",
       "a2": "2행정 엔진은 일반적으로 2회전마다 한 번이 아닌 매 회전마다 파워 스트로크가 있기 때문에 4행정 엔진보다 cc당 더 많은 파워를 생산합니다. 우리 계산기는 2행정 엔진에 1.2-1.4x 계수, 4행정 엔진에 0.8-1.0x 계수를 적용하여 실제 파워 차이를 반영합니다.",
-
       "q3": "터보차징이 CCM에서 HP 변환에 어떤 영향을 미치나요?",
       "a3": "터보차지 엔진은 동일한 배기량에서 훨씬 더 많은 파워를 생산합니다. 우리 계산기는 자연흡기 엔진(0.8-1.2x)과 비교하여 터보차지 엔진에 더 높은 계수(1.0-1.4x)를 적용하여 일반적으로 25-40% 더 많은 추정 마력을 제공합니다.",
-
       "q4": "이것을 오토바이, 자동차, 선박 엔진에 사용할 수 있나요?",
       "a4": "네! 우리 CCM에서 HP 변환기는 오토바이, 자동차, 보트, ATV, 레이싱 엔진을 포함한 모든 내연기관에서 작동합니다. 계산기는 이러한 용도에서 일반적으로 발견되는 다양한 엔진 타입과 구성을 고려합니다.",
-
       "q5": "제조업체의 HP 등급이 때때로 계산과 다른 이유는 무엇인가요?",
       "a5": "제조업체 등급은 특정 조건(SAE, DIN 등)에서 측정되며 고도, 온도, 측정 표준과 같은 요소를 포함할 수 있습니다. 우리 계산기는 배기량과 엔진 타입을 기반으로 한 추정치를 제공하는 반면, 실제 등급은 완전한 엔진 설계, 튜닝, 테스트 조건에 따라 달라집니다.",
-
       "q6": "이 계산기에서 가장 잘 작동하는 CCM 범위는 무엇인가요?",
       "a6": "우리 계산기는 50cc에서 8000cc까지의 엔진에서 정확하게 작동합니다. 매우 작은 엔진(50cc 미만)이나 극도로 큰 엔진(8000cc 초과)의 경우 다른 설계 원리와 효율성 요소로 인해 결과가 덜 정확할 수 있습니다."
     },
-
     "final_cta": {
       "title": "엔진 파워를 계산할 준비가 되셨나요?",
       "description": "무료 CCM에서 HP 변환기를 사용하여 엔진의 마력을 즉시 추정하세요",
@@ -1598,18 +1549,15 @@
     "page_subtitle": "컬러풀한 페르소나 만들기",
     "page_description": "Chromakopia 이름 생성기로 창의력을 발휘하세요. Tyler, the Creator의 예술적 비전에서 영감을 받은 독특한 페르소나를 만들어 삶에 색을 되돌려 보세요.",
     "free_tool_badge": "무료 Chromakopia 도구",
-
     "breadcrumb": {
       "home": "홈",
       "tools": "도구",
       "chromakopia_name_generator": "Chromakopia 이름 생성기"
     },
-
     "header": {
       "main_title": "Chromakopia 이름 생성기",
       "description": "Tyler, the Creator의 Chromakopia에서 영감을 받은 컬러풀한 분신을 만드세요. 삶에 색을 되돌리고 흑백 사고에서 벗어나는 정신을 구현하는 독특한 페르소나를 생성합니다."
     },
-
     "persona_display": {
       "title": "당신의 Chromakopia 페르소나",
       "st_chroma_style": "St. Chroma 스타일",
@@ -1619,13 +1567,11 @@
       "radiating_in": "발산하는",
       "chromatic_superpower": "크로매틱 초능력"
     },
-
     "favorites": {
       "title": "즐겨찾는 페르소나",
       "no_personas": "아직 페르소나가 없습니다",
       "add_first": "첫 번째 페르소나를 생성하여 컬렉션을 시작하세요"
     },
-
     "settings": {
       "title": "생성기 설정",
       "generation_style": "생성 스타일",
@@ -1644,7 +1590,6 @@
       "add_to_favorites": "즐겨찾기에 추가",
       "reset_all": "모두 재설정"
     },
-
     "features": {
       "music_inspired": "음악 영감",
       "music_description": "Tyler, the Creator의 Chromakopia 앨범과 진정성 및 컬러풀한 표현의 테마에서 영감을 받은 페르소나를 생성합니다.",
@@ -1653,7 +1598,6 @@
       "share_connect": "공유 및 연결",
       "share_description": "생성한 페르소나를 친구들과 공유하고 다른 사람들이 어떻게 컬러풀한 정체성을 표현하는지 발견하세요."
     },
-
     "about_chromakopia": {
       "title": "Chromakopia란? Tyler, the Creator의 비전 이해하기",
       "description_1": "Chromakopia는 Tyler, the Creator의 8번째 스튜디오 앨범으로, 삶에 색을 되돌리고 사회의 흑백 기대에서 벗어나는 테마를 탐구합니다. 앨범은 그의 분신 St. Chroma를 중심으로 전개되며, 진정한 자기 표현과 컬러풀하게 살아가는 용기를 나타냅니다.",
@@ -1666,7 +1610,6 @@
       "theme_5": "감정적 투명성",
       "theme_6": "예술적 반항"
     },
-
     "how_to_use": {
       "title": "Chromakopia 페르소나 만드는 방법",
       "step_1_title": "스타일 선택",
@@ -1678,7 +1621,6 @@
       "step_4_title": "공유 및 표현",
       "step_4_description": "이미지를 다운로드하거나 텍스트를 복사하여 소셜 미디어에서 크로매틱 페르소나를 공유하고 다른 사람들에게 영감을 주세요."
     },
-
     "faq": {
       "title": "자주 묻는 질문",
       "q1": "Chromakopia 이름 생성기의 영감은 무엇인가요?",
@@ -1690,7 +1632,6 @@
       "q4": "Chromakopia 이름 생성기는 무료인가요?",
       "a4": "네! 이 도구는 등록 없이 완전히 무료입니다. 무제한으로 페르소나를 생성하고, 즐겨찾기를 저장하고, 제한 없이 창작물을 공유하세요. 휴대폰과 태블릿을 포함한 모든 기기에서 작동합니다."
     },
-
     "persona_card": {
       "copy_text": "🎨 나의 Chromakopia 페르소나 🎨\n\n이름: {name}\n색상: {colorName}\n특성: {trait}\n설명: {description}\n초능력: {superpower}\n명언: {quote}\n\n생성 위치: https://geekskai.com/tools/chromakopia-name-generator",
       "copied_message": "페르소나가 클립보드에 복사되었습니다! 🎨",
@@ -1769,7 +1710,6 @@
         "reduced_precision_small": "매우 작은 값은 정밀도가 감소할 수 있습니다"
       }
     },
-
     "quick_reference": {
       "reference_table": {
         "title": "빠른 참조 테이블",
@@ -2194,13 +2134,11 @@
     "seo_title": "Discord 시간대 변환기 - 무료 Discord 타임스탬프 생성 도구",
     "seo_description": "양방향 타임스탬프 변환, 글로벌 시간대 지원 및 배치 처리를 제공하는 무료 Discord 시간대 변환기입니다. Discord 타임스탬프를 시간으로 변환하고, 모든 시간대에서 Discord 타임스탬프 형식을 생성하며, 글로벌 Discord 커뮤니티를 조정합니다. Discord 봇 개발자, 서버 관리자 및 국제 이벤트 계획에 완벽합니다.",
     "seo_keywords": "discord 시간대 변환기, discord 시간 변환기, discord 타임스탬프 변환기, discord 타임스탬프 생성기, discord 시간 형식 변환기, discord 타임스탬프를 시간으로, 시간을 discord 타임스탬프로, discord 시간 계산기, discord 일정 도구, discord 봇 타임스탬프, discord 타임스탬프 형식, unix 타임스탬프를 discord로, discord 에포크 시간 변환기, discord 커뮤니티 도구, discord 서버 관리, discord 이벤트 계획, discord 조정 도구, discord 글로벌 시간대 변환기, discord 국제 시간 변환기, discord 멀티 시간대 도구, discord 세계 시간 변환기, discord 시간대 동기화, discord 교차 시간대 계획, discord 시간대 조정, discord 시간대 관리, discord 봇 시간대 변환기, discord api 시간대 도구, discord webhook 시간대, discord 임베드 시간대, discord 타임스탬프 시간대 변환, discord 다른 시간대의 시간, discord 이벤트 시간대 변환기, discord 회의 시간대 도구",
-
     "breadcrumb": {
       "home": "홈",
       "tools": "도구",
       "discord_time_converter": "Discord 타임스탬프 변환기"
     },
-
     "header": {
       "badge_text": "무료 Discord 시간대 변환기 및 타임스탬프 생성 도구",
       "main_title_line1": "Discord 시간대",
@@ -2213,7 +2151,6 @@
         "free_tool": "무료 Discord 시간대 도구"
       }
     },
-
     "conversion_modes": {
       "to_timestamp": {
         "title": "시간 → Discord 타임스탬프",
@@ -2224,21 +2161,18 @@
         "description": "Discord 형식을 일반 시간으로 변환"
       }
     },
-
     "input_sections": {
       "conversion_mode": "변환 모드",
       "time_input": "시간 입력",
       "discord_timestamp_input": "Discord 타임스탬프 입력",
       "timezone": "시간대"
     },
-
     "form_labels": {
       "select_date_time": "날짜 및 시간 선택",
       "discord_timestamp": "Discord 타임스탬프",
       "select_timezone": "시간대를 선택하세요",
       "input_one_per_line": "입력 (한 줄에 하나씩)"
     },
-
     "placeholders": {
       "select_date_time": "날짜와 시간을 선택하세요",
       "discord_timestamp": "&lt;t:1640995200:f&gt;",
@@ -2246,7 +2180,6 @@
       "batch_to_timestamp": "2024-01-01 12:00:00\n2024-02-01 15:30:00",
       "batch_from_timestamp": "&lt;t:1640995200:f&gt;\n&lt;t:1640995500:R&gt;"
     },
-
     "timestamp_formats": {
       "relative": {
         "label": "상대 시간",
@@ -2284,7 +2217,6 @@
         "example": "2021년 4월 20일 화요일 16:20"
       }
     },
-
     "timezone_groups": {
       "utc": "UTC",
       "americas": "아메리카",
@@ -2292,7 +2224,6 @@
       "asia": "아시아",
       "oceania": "오세아니아"
     },
-
     "common_timezones": {
       "utc": {
         "label": "UTC",
@@ -2355,7 +2286,6 @@
         "description": "오클랜드, 웰링턴 (+13:00)"
       }
     },
-
     "buttons": {
       "plus_1_hour": "+1시간",
       "plus_1_day": "+1일",
@@ -2377,7 +2307,6 @@
       "hide_advanced": "고급 기능 숨기기",
       "convert_all": "모두 변환"
     },
-
     "results": {
       "conversion_results": "변환 결과",
       "live_preview": "실시간 미리보기",
@@ -2385,18 +2314,15 @@
       "date_time_relative": "날짜, 시간 및 상대",
       "full_date_relative": "전체 날짜 및 상대"
     },
-
     "advanced_features": {
       "batch_converter": "배치 변환기",
       "conversion_history": "변환 기록",
       "results_label": "결과:"
     },
-
     "info_messages": {
       "format_info": "형식: &lt;t:타임스탬프:형식&gt; (예: &lt;t:1640995200:f&gt;)",
       "invalid_format_type": "잘못된 형식 유형"
     },
-
     "usage_guide": {
       "title": "Discord 시간대 변환기 사용 방법 - 완전 가이드",
       "description": "서버, 봇 개발 및 모든 시간대에서의 글로벌 커뮤니티 조정을 위한 Discord 시간대 변환 및 타임스탬프 생성 마스터",
@@ -2532,13 +2458,11 @@
     "seo_title": "Discord 타임스탬프 생성기 - 동적 Discord 타임스탬프 생성 | 무료 도구",
     "seo_description": "무료 Discord 타임스탬프 생성기로 동적 타임스탬프, 이벤트 카운트다운, 알림 시스템을 생성하세요. 실시간 미리보기, 시간대 지원, Discord 봇 통합으로 모든 Discord 타임스탬프 형식을 생성합니다. 이벤트 일정 관리와 커뮤니티 관리에 완벽합니다.",
     "seo_keywords": "discord 타임스탬프 생성기, discord 타임스탬프 생성, discord 타임스탬프 만들기, discord 이벤트 생성기, discord 카운트다운 생성기, discord 알림 타임스탬프",
-
     "breadcrumb": {
       "home": "홈",
       "tools": "도구",
       "discord_timestamp_generator": "Discord 타임스탬프 생성기"
     },
-
     "header": {
       "professional_badge": "전문 Discord 타임스탬프",
       "main_title": "Discord",
@@ -2551,7 +2475,6 @@
         "free_generator": "무료 생성기"
       }
     },
-
     "modes": {
       "input_mode": "입력 모드",
       "relative_time": "상대 시간",
@@ -2559,7 +2482,6 @@
       "absolute_time": "절대 시간",
       "absolute_time_description": "구체적인 날짜와 시간"
     },
-
     "quick_presets": {
       "title": "빠른 프리셋",
       "in_1_hour": "1시간 후",
@@ -2567,7 +2489,6 @@
       "next_week": "다음 주",
       "in_1_month": "1개월 후"
     },
-
     "time_adjustment": {
       "title": "시간 조정",
       "weeks": "주",
@@ -2575,7 +2496,6 @@
       "hours": "시간",
       "minutes": "분"
     },
-
     "date_time_settings": {
       "title": "날짜 및 시간 설정",
       "year": "년",
@@ -2585,11 +2505,9 @@
       "minute": "분",
       "timezone": "시간대: UTC"
     },
-
     "display_format": {
       "title": "표시 형식"
     },
-
     "timestamp_formats": {
       "relative": {
         "label": "상대 시간",
@@ -2627,12 +2545,10 @@
         "example": "2021년 4월 20일 화요일 16:20"
       }
     },
-
     "format_toggle": {
       "show_common_formats": "일반 형식 표시",
       "show_more_formats": "더 많은 형식 표시"
     },
-
     "preview": {
       "discord_preview": "Discord 미리보기",
       "real_time": "실시간",
@@ -2642,7 +2558,6 @@
       "bot_label": "봇",
       "today": "오늘"
     },
-
     "generated_result": {
       "title": "생성 결과",
       "discord_timestamp_code": "Discord 타임스탬프 코드",
@@ -2652,14 +2567,12 @@
       "copied": "복사됨!",
       "failed_to_copy": "복사 실패:"
     },
-
     "saved_configurations": {
       "title": "저장된 구성",
       "click_to_apply": "클릭하여 적용",
       "relative_mode": "상대 시간",
       "date_mode": "날짜"
     },
-
     "features": {
       "title": "전문가급 기능",
       "description": "정확성과 스타일로 완벽한 Discord 타임스탬프를 생성하는 데 필요한 모든 것",
@@ -2676,7 +2589,6 @@
         "description": "즐겨찾기 구성을 저장하고 타임스탬프 설정을 쉽게 관리하여 다양한 프로젝트에서 빠른 액세스와 재사용을 가능하게 합니다."
       }
     },
-
     "usage_guide": {
       "title": "완벽한 Discord 타임스탬프 생성 방법",
       "description": "이 간단한 단계를 따라 처음부터 전문적인 Discord 타임스탬프를 생성하세요",
@@ -2697,7 +2609,6 @@
         "description": "생성된 Discord 타임스탬프 코드를 복사하여 자동 시간대 변환을 위해 메시지에 붙여넣습니다."
       }
     },
-
     "content_sections": {
       "what_is_generation": {
         "title": "Discord 타임스탬프 생성이란? 동적 시간 표시 생성",
@@ -2710,7 +2621,6 @@
         "benefit_5": "생성 중 실시간 미리보기",
         "benefit_6": "다양한 형식 옵션 사용 가능"
       },
-
       "best_practices": {
         "title": "Discord 타임스탬프 생성 모범 사례",
         "event_scheduling": {
@@ -2732,7 +2642,6 @@
           "api_compatible": "모든 Discord API 통합과 호환됩니다."
         }
       },
-
       "generator_vs_converter": {
         "title": "Discord 타임스탬프 생성기 vs 변환기: 올바른 도구 선택",
         "generator_section": {
@@ -2756,7 +2665,6 @@
         }
       }
     },
-
     "faq": {
       "title": "Discord 타임스탬프 생성에 대한 자주 묻는 질문",
       "q1": {
@@ -2792,7 +2700,6 @@
         "answer": "네! 우리의 생성기에는 자주 사용하는 타임스탬프 구성을 저장할 수 있는 즐겨찾기 시스템이 포함되어 있습니다. 반복 이벤트, 정기 회의 일정 또는 일반적으로 사용되는 카운트다운 형식에 완벽하며 빠르게 적용하고 다시 생성할 수 있습니다."
       }
     },
-
     "preview_text": {
       "in_days": "{days}일 후",
       "in_hours": "{hours}시간 후",
@@ -3281,6 +3188,441 @@
           "answer": "물론입니다! 생성된 팁 화면은 UX 디자인, 소비자 심리학, 디지털 윤리, 팁 문화에 대한 교육 콘텐츠에 완벽합니다. 블로그 게시물, 소셜 미디어 콘텐츠, 학술 프레젠테이션 또는 다크 패턴과 사용자 경험 디자인에 대한 교육 자료에 이상적입니다."
         }
       }
+    }
+  },
+  "Random4DigitNumberGenerator": {
+    "seo_title": "랜덤 4자리 숫자 생성기 - 무료 & 안전 | 즉시 생성",
+    "seo_description": "안전한 랜덤 4자리 숫자를 즉시 생성하세요. 인증 코드, PIN, 테스트 데이터 및 개발에 완벽합니다. 무료, 빠름, 암호학적으로 안전, 등록 불필요.",
+    "seo_keywords": "랜덤 4자리 숫자 생성기, 랜덤 4자리 코드 생성기, 4자리 숫자 생성기, 4자리 랜덤 숫자 생성기, 4자리 랜덤 숫자, 인증 코드 생성기, PIN 생성기, OTP 생성기, 랜덤 숫자 생성기, 안전한 랜덤 숫자, 암호학적 랜덤, 테스트 데이터 생성기, 대량 숫자 생성기",
+    "og_image_alt": "Random 4-Digit Number Generator Tool",
+    "json_ld": {
+      "name": "Random 4-Digit Number Generator",
+      "description": "Generate secure random 4-digit numbers for verification codes, PINs, testing, and development purposes",
+      "keywords": "random number generator, 4 digit generator, verification code, PIN generator, OTP, secure random, cryptographic",
+      "educational_use": "Software Development, Security Testing, QA Testing, Database Seeding, Statistical Analysis",
+      "audience_type": "Developers, QA Engineers, Security Professionals, Students",
+      "usage_info": "For verification codes, PINs, testing, development, and educational purposes. Uses cryptographically secure randomness.",
+      "feature_list": {
+        "crypto_secure": "Cryptographically secure random number generation",
+        "single_bulk": "Single and bulk generation modes",
+        "custom_range": "Customizable number range (0000-9999)",
+        "multiple_formats": "Multiple format options (plain, hyphen, dot, prefix)",
+        "exclusion_rules": "Exclusion rules for sequential and repeated digits",
+        "export_formats": "Export in TXT, CSV, and JSON formats",
+        "no_duplicates": "No duplicates option for unique number sets",
+        "history": "Generation history tracking",
+        "statistics": "Real-time statistics and analytics",
+        "mobile_friendly": "Mobile-friendly responsive design",
+        "no_registration": "No registration required",
+        "free": "100% free with unlimited generations",
+        "privacy": "Privacy-focused - no data storage",
+        "instant": "Instant generation with Web Crypto API"
+      }
+    },
+    "breadcrumb": {
+      "home": "홈",
+      "tools": "도구",
+      "random_4_digit_number_generator": "랜덤 4자리 숫자 생성기"
+    },
+    "header": {
+      "badge_text": "암호학적으로 안전 • 영구 무료",
+      "main_title": "랜덤 4자리 숫자 생성기",
+      "description": "안전한 랜덤 4자리 숫자를 즉시 생성하세요. {verification_codes}, {pins}, {testing_data} 및 개발 목적에 완벽합니다. 암호학적으로 안전하고, 무제한이며, 완전 무료입니다.",
+      "verification_codes": "verification codes",
+      "pins": "PINs",
+      "testing_data": "testing data",
+      "share_text": "이 무료 도구를 팀과 공유하세요"
+    },
+    "features_pills": {
+      "instant_generation": "즉시 생성",
+      "crypto_secure": "암호화 보안",
+      "bulk_export": "대량 내보내기"
+    },
+    "generator": {
+      "single_title": "단일 숫자 생성기",
+      "settings_show": "설정 표시",
+      "settings_hide": "설정 숨기기",
+      "settings_panel": {
+        "title": "생성 설정",
+        "range_label": "범위 (최소 - 최대)",
+        "format_label": "숫자 형식",
+        "format_plain": "일반 (1234)",
+        "format_hyphen": "하이픈 (12-34)",
+        "format_dot": "점 (12.34)",
+        "format_prefix": "접두사 (#1234)",
+        "exclusion_rules_label": "제외 규칙",
+        "exclude_sequential": "순차 제외 (1234, 4321)",
+        "exclude_repeated": "반복 제외 (1111, 2222)"
+      },
+      "display": {
+        "crypto_secure": "암호학적으로 안전한 랜덤 숫자",
+        "click_generate": "생성을 클릭하여 숫자 만들기",
+        "features": "안전 • 랜덤 • 즉시"
+      },
+      "buttons": {
+        "generate": "숫자 생성",
+        "generating": "생성 중...",
+        "copy": "복사",
+        "copied": "복사됨!"
+      },
+      "history": {
+        "title": "최근 기록",
+        "clear": "지우기"
+      },
+      "bulk": {
+        "title": "대량 생성기",
+        "number_of_items": "항목 수",
+        "export_format": "내보내기 형식",
+        "format_txt": "텍스트 (.txt)",
+        "format_csv": "CSV (.csv)",
+        "format_json": "JSON (.json)",
+        "allow_duplicates": "중복 허용",
+        "generate_button": "{count}개 숫자 생성",
+        "results_title": "생성된 숫자 ({count})",
+        "click_to_copy": "클릭하여 복사"
+      },
+      "stats": {
+        "total_generated": "총 생성",
+        "unique_numbers": "고유 숫자",
+        "average_value": "평균값"
+      },
+      "bulk_title": "Bulk Generator",
+      "bulk_settings": {
+        "quantity_label": "Number of Items",
+        "export_format_label": "Export Format",
+        "export_txt": "Text (.txt)",
+        "export_csv": "CSV (.csv)",
+        "export_json": "JSON (.json)",
+        "allow_duplicates": "Allow Duplicates"
+      },
+      "bulk_buttons": {
+        "generate": "Generate {count} Numbers",
+        "export": "Export",
+        "show": "Show",
+        "hide": "Hide"
+      },
+      "statistics": {
+        "total_generated": "Total Generated",
+        "unique_numbers": "Unique Numbers",
+        "average_value": "Average Value",
+        "generated_numbers": "Generated Numbers ({count})",
+        "click_to_copy": "Click to copy"
+      },
+      "reset_button": "Reset All"
+    },
+    "use_cases": {
+      "badge": "인기 사용 사례",
+      "title": "4자리 랜덤 숫자 생성기를 어디에 사용할 수 있나요?",
+      "description": "보안 애플리케이션부터 개발 테스트까지, 랜덤 숫자 생성기가 도움이 되는 다양한 방법을 알아보세요",
+      "verification_codes": {
+        "title": "Verification Codes",
+        "description": "Generate secure OTP and 2FA codes for SMS/Email verification systems",
+        "examples": {
+          "sms_otp": "SMS OTP",
+          "email_verification": "Email Verification",
+          "two_factor_auth": "Two-Factor Auth",
+          "account_recovery": "Account Recovery"
+        }
+      },
+      "pin_numbers": {
+        "title": "PIN Numbers",
+        "description": "Create secure personal identification numbers for various applications",
+        "examples": {
+          "atm_pins": "ATM PINs",
+          "lock_codes": "Lock Codes",
+          "access_control": "Access Control",
+          "security_tokens": "Security Tokens"
+        }
+      },
+      "testing_development": {
+        "title": "Testing & Development",
+        "description": "Generate test data for QA, development, and database seeding purposes",
+        "examples": {
+          "qa_testing": "QA Testing",
+          "api_testing": "API Testing",
+          "mock_data": "Mock Data",
+          "database_seeds": "Database Seeds"
+        }
+      },
+      "gaming_lottery": {
+        "title": "Gaming & Lottery",
+        "description": "Create random numbers for games, contests, and lucky number generation",
+        "examples": {
+          "lucky_numbers": "Lucky Numbers",
+          "game_codes": "Game Codes",
+          "contest_ids": "Contest IDs",
+          "random_selection": "Random Selection"
+        }
+      },
+      "educational_research": {
+        "title": "Educational & Research",
+        "description": "Perfect for statistics, probability experiments, and academic projects",
+        "examples": {
+          "statistical_sampling": "Statistical Sampling",
+          "math_education": "Math Education",
+          "research_data": "Research Data",
+          "surveys": "Surveys"
+        }
+      },
+      "how_it_works": {
+        "title": "How Our Generator Works",
+        "description_1": "Our {strong_4digit} uses cryptographically secure algorithms to ensure true randomness and unpredictability.",
+        "strong_4digit": "4-digit random number generator",
+        "description_2": "Unlike basic random number generators, we utilize the {strong_crypto} which provides cryptographically strong random values suitable for security-sensitive applications.",
+        "strong_crypto": "Web Crypto API",
+        "description_3": "Perfect for {strong_users}, and anyone who needs reliable random numbers for verification codes, PINs, or testing purposes.",
+        "strong_users": "developers, security professionals",
+        "steps": {
+          "step_1": "Choose your preferences (range, format, exclusions)",
+          "step_2": "Click Generate to create secure random numbers",
+          "step_3": "Copy individual numbers or export in bulk",
+          "step_4": "Use them in your applications immediately"
+        }
+      },
+      "why_choose": {
+        "title": "Why Choose Our Tool?",
+        "instant_generation": {
+          "title": "Instant Generation",
+          "description": "Get your random numbers in milliseconds"
+        },
+        "crypto_secure": {
+          "title": "Cryptographically Secure",
+          "description": "Uses Web Crypto API for true randomness"
+        },
+        "no_registration": {
+          "title": "No Registration Required",
+          "description": "Start generating immediately, no sign-up needed"
+        },
+        "free_forever": {
+          "title": "100% Free Forever",
+          "description": "Unlimited generations at no cost"
+        },
+        "mobile_friendly": {
+          "title": "Mobile Friendly",
+          "description": "Works perfectly on all devices"
+        },
+        "customizable": {
+          "title": "Customizable Options",
+          "description": "Control range, format, and exclusion rules"
+        }
+      }
+    },
+    "features": {
+      "badge": "강력한 기능",
+      "title": "하나의 도구에 필요한 모든 것",
+      "description": "개발자, 보안 전문가 및 파워 유저를 위해 설계된 전문가급 기능",
+      "crypto_secure": {
+        "title": "암호학적으로 안전",
+        "description": "보안에 민감한 애플리케이션에 적합한 진정한 랜덤 숫자 생성을 위해 Web Crypto API 사용"
+      },
+      "lightning_fast": {
+        "title": "초고속",
+        "description": "최적화된 알고리즘과 효율적인 처리로 수천 개의 랜덤 숫자를 즉시 생성"
+      },
+      "multiple_exports": {
+        "title": "Multiple Export Formats",
+        "description": "Export your generated numbers in TXT, CSV, or JSON format for easy integration with your workflow"
+      },
+      "mobile_optimized": {
+        "title": "모바일 최적화",
+        "description": "데스크톱, 태블릿 및 모바일의 모든 기기에서 완벽하게 작동하는 완전 반응형 디자인"
+      },
+      "no_registration": {
+        "title": "등록 불필요",
+        "description": "계정을 만들거나 개인 정보를 제공하지 않고 즉시 랜덤 숫자 생성 시작"
+      },
+      "advanced_customization": {
+        "title": "고급 사용자 정의",
+        "description": "숫자 범위, 형식, 중복을 제어하고 순차 또는 반복 숫자에 대한 제외 규칙 적용"
+      },
+      "learn_more": "Learn more",
+      "trust_signals": {
+        "badge": "Trusted by Developers & Security Professionals",
+        "description": "Join thousands of developers, QA engineers, and security professionals who rely on our random number generator for their daily workflows",
+        "badges": {
+          "free_forever": "✓ 100% Free Forever",
+          "no_registration": "✓ No Registration",
+          "unlimited": "✓ Unlimited Generations",
+          "privacy": "✓ Privacy Focused",
+          "open_source": "✓ Open Source Algorithm",
+          "cross_platform": "✓ Mobile & Desktop"
+        }
+      },
+      "security_notice": {
+        "title": "Security & Privacy",
+        "description": "All random number generation happens in your browser using the Web Crypto API. We don't store, track, or transmit any generated numbers. Your data stays on your device, ensuring complete privacy and security."
+      }
+    },
+    "faq": {
+      "badge": "자주 묻는 질문",
+      "title": "알아야 할 모든 것",
+      "description": "랜덤 4자리 숫자 생성기에 대한 일반적인 질문",
+      "items": {
+        "how_random": {
+          "question": "생성된 숫자는 얼마나 랜덤한가요?",
+          "answer": "저희 생성기는 암호학적으로 안전한 랜덤 숫자를 제공하는 Web Crypto API(crypto.getRandomValues())를 사용합니다. 이는 숫자가 진정으로 랜덤하고 예측 불가능하며, 인증 코드 및 PIN과 같은 보안에 민감한 애플리케이션에 적합함을 의미합니다. 랜덤성 품질은 Math.random()보다 훨씬 높습니다."
+        },
+        "no_duplicates": {
+          "question": "중복 없이 숫자를 생성할 수 있나요?",
+          "answer": "네! 대량 생성기를 사용할 때 \"중복 허용\" 옵션을 선택 해제하기만 하면 됩니다. 저희 알고리즘은 배치의 모든 생성된 숫자가 고유함을 보장합니다. 이는 고유한 인증 코드 또는 테스트 데이터 세트를 만드는 데 완벽합니다."
+        },
+        "is_free": {
+          "question": "이 도구는 완전히 무료인가요?",
+          "answer": "물론입니다! 저희 4자리 랜덤 숫자 생성기는 숨겨진 비용, 구독 또는 프리미엄 기능 없이 100% 무료입니다. 제한 없이 무제한으로 숫자를 생성할 수 있습니다. 등록이나 결제가 전혀 필요하지 않습니다."
+        },
+        "secure_passwords": {
+          "question": "생성된 숫자는 비밀번호로 충분히 안전한가요?",
+          "answer": "저희 생성기는 암호학적으로 안전한 랜덤성을 사용하지만, 4자리 숫자(0000-9999)는 10,000개의 가능한 조합만 제공합니다. 이는 일반적으로 비밀번호에는 충분하지 않습니다. 그러나 추가 보안 계층이 있는 임시 인증 코드, PIN 및 2단계 인증에는 완벽합니다."
+        },
+        "more_than_1000": {
+          "question": "한 번에 1000개 이상의 숫자를 생성할 수 있나요?",
+          "answer": "현재 대량 생성기는 최적의 성능을 보장하기 위해 배치당 1000개의 숫자로 제한됩니다. 더 많은 숫자가 필요한 경우 여러 배치를 생성하여 결합할 수 있습니다. 매우 큰 데이터 세트(10,000개 이상)의 경우 API를 사용하거나 여러 생성을 실행하는 것을 고려하세요."
+        },
+        "store_numbers": {
+          "question": "생성된 숫자를 저장하나요?",
+          "answer": "아니요, 생성된 숫자를 저장, 로깅 또는 전송하지 않습니다. 모든 숫자 생성은 JavaScript를 사용하여 브라우저에서 완전히 이루어집니다. 숫자는 기기에 남아 있으며 서버로 전송되지 않습니다. 개인 정보를 완전히 존중합니다."
+        },
+        "format_options": {
+          "question": "형식 옵션의 차이점은 무엇인가요?",
+          "answer": "4가지 형식 옵션을 제공합니다: 일반(1234), 하이픈(12-34), 점(12.34), 접두사(#1234). 이러한 형식은 순전히 장식적이며 다양한 사용 사례에 맞추는 데 도움이 됩니다. 예를 들어, 하이픈 형식은 인증 코드에 일반적이며, 접두사 형식은 ID 번호에 유용합니다."
+        },
+        "exclude_patterns": {
+          "question": "순차 또는 반복 숫자를 제외할 수 있나요?",
+          "answer": "네! 고급 설정에서 순차 숫자(1234 또는 4321과 같은)와 반복 숫자(1111 또는 2222와 같은)를 방지하는 제외 규칙을 활성화할 수 있습니다. 이는 더 \"랜덤하게 보이는\" 숫자가 필요하거나 쉽게 추측할 수 있는 패턴을 피하고 싶을 때 유용합니다."
+        },
+        "how_export": {
+          "question": "생성된 숫자를 어떻게 내보내나요?",
+          "answer": "숫자 배치를 생성한 후 내보내기 버튼을 클릭합니다. 3가지 형식 중에서 선택할 수 있습니다: TXT(일반 텍스트, 한 줄에 하나의 숫자), CSV(메타데이터가 있는 스프레드시트 호환) 또는 JSON(프로그래밍용 구조화된 데이터). 파일은 기기에 즉시 다운로드됩니다."
+        },
+        "lottery_gambling": {
+          "question": "이 숫자를 복권이나 도박에 사용할 수 있나요?",
+          "answer": "저희 생성기는 복권 번호 선택이나 랜덤 선택에 적합한 진정으로 랜덤한 숫자를 제공하지만, 당첨 결과를 보장할 수는 없습니다. 책임감 있게 사용하고 도박에는 위험이 따른다는 것을 기억하세요. 저희 도구는 주로 개발, 테스트 및 보안 애플리케이션을 위해 설계되었습니다."
+        },
+        "browsers_supported": {
+          "question": "어떤 브라우저가 지원되나요?",
+          "answer": "저희 도구는 Chrome, Firefox, Safari, Edge 및 모바일 브라우저를 포함한 모든 최신 브라우저에서 작동합니다. Web Crypto API는 2014년 이후 출시된 모든 브라우저에서 지원됩니다. 최상의 경험을 위해 선호하는 브라우저의 최신 버전을 사용하는 것을 권장합니다."
+        },
+        "range_setting": {
+          "question": "범위 설정은 어떻게 작동하나요?",
+          "answer": "범위 설정을 사용하면 생성을 위한 최소값과 최대값을 지정할 수 있습니다. 예를 들어, 범위 1000-5000을 설정하면 1000에서 5000 사이의 숫자만 생성됩니다. 이는 0000-9999 범위의 특정 하위 집합 내에서 숫자가 필요할 때 유용합니다."
+        }
+      },
+      "q1": {
+        "question": "How random are the generated numbers?",
+        "answer": "Our generator uses the Web Crypto API (crypto.getRandomValues()), which provides cryptographically secure random numbers. This means the numbers are truly random and unpredictable, suitable for security-sensitive applications like verification codes and PINs. The randomness quality is significantly higher than Math.random()."
+      },
+      "q2": {
+        "question": "Can I generate numbers without duplicates?",
+        "answer": "Yes! When using the bulk generator, simply uncheck the \"Allow Duplicates\" option. Our algorithm will ensure all generated numbers in the batch are unique. This is perfect for creating unique verification codes or test data sets."
+      },
+      "q3": {
+        "question": "Is this tool completely free?",
+        "answer": "Absolutely! Our 4-digit random number generator is 100% free with no hidden costs, subscriptions, or premium features. You can generate unlimited numbers without any restrictions. No registration or payment is ever required."
+      },
+      "q4": {
+        "question": "Are the generated numbers secure enough for passwords?",
+        "answer": "While our generator uses cryptographically secure randomness, 4-digit numbers (0000-9999) only provide 10,000 possible combinations. This is generally not sufficient for passwords. However, they are perfect for temporary verification codes, PINs, and two-factor authentication where additional security layers exist."
+      },
+      "q5": {
+        "question": "Can I generate more than 1000 numbers at once?",
+        "answer": "Currently, the bulk generator is limited to 1000 numbers per batch to ensure optimal performance. If you need more numbers, you can generate multiple batches and combine them. For very large datasets (10,000+), consider using our API or running multiple generations."
+      },
+      "q6": {
+        "question": "Do you store my generated numbers?",
+        "answer": "No, we never store, log, or transmit your generated numbers. All number generation happens entirely in your browser using JavaScript. Your numbers stay on your device and are never sent to our servers. We respect your privacy completely."
+      },
+      "q7": {
+        "question": "What's the difference between the format options?",
+        "answer": "We offer four format options: Plain (1234), Hyphen (12-34), Dot (12.34), and Prefix (#1234). These formats are purely cosmetic and help match different use cases. For example, hyphen format is common for verification codes, while prefix format is useful for ID numbers."
+      },
+      "q8": {
+        "question": "Can I exclude sequential or repeated numbers?",
+        "answer": "Yes! In the advanced settings, you can enable exclusion rules to prevent sequential numbers (like 1234 or 4321) and repeated digits (like 1111 or 2222). This is useful when you need more \"random-looking\" numbers or want to avoid easily guessable patterns."
+      },
+      "q9": {
+        "question": "How do I export my generated numbers?",
+        "answer": "After generating a batch of numbers, click the Export button. You can choose from three formats: TXT (plain text, one number per line), CSV (spreadsheet-compatible with metadata), or JSON (structured data for programming). The file downloads instantly to your device."
+      },
+      "q10": {
+        "question": "Can I use these numbers for lottery or gambling?",
+        "answer": "While our generator provides truly random numbers suitable for picking lottery numbers or making random selections, please note that we cannot guarantee winning outcomes. Use responsibly and remember that gambling involves risk. Our tool is designed primarily for development, testing, and security applications."
+      },
+      "q11": {
+        "question": "What browsers are supported?",
+        "answer": "Our tool works on all modern browsers including Chrome, Firefox, Safari, Edge, and mobile browsers. The Web Crypto API is supported in all browsers released after 2014. For the best experience, we recommend using the latest version of your preferred browser."
+      },
+      "q12": {
+        "question": "How does the range setting work?",
+        "answer": "The range setting allows you to specify minimum and maximum values for generation. For example, setting range 1000-5000 will only generate numbers between 1000 and 5000. This is useful when you need numbers within a specific subset of the 0000-9999 range."
+      },
+      "still_have_questions": {
+        "title": "Still Have Questions?",
+        "description": "Can't find the answer you're looking for? Check our documentation or reach out to our community",
+        "view_docs": "View Documentation",
+        "contact_support": "Contact Support"
+      },
+      "pro_tips": {
+        "tip_1": {
+          "icon": "💡",
+          "title": "Pro Tip",
+          "text": "Use the history feature to quickly access your recently generated numbers"
+        },
+        "tip_2": {
+          "icon": "⚡",
+          "title": "Speed Tip",
+          "text": "Press Enter after typing to instantly generate a new number"
+        },
+        "tip_3": {
+          "icon": "🎯",
+          "title": "Best Practice",
+          "text": "Enable exclusion rules for more secure and unpredictable number patterns"
+        }
+      }
+    },
+    "cta": {
+      "title": "랜덤 숫자를 생성할 준비가 되셨나요?",
+      "description": "지금 바로 안전하고 랜덤한 4자리 숫자 생성을 시작하세요. 등록 없음, 제한 없음, 영구 무료.",
+      "button": "지금 숫자 생성",
+      "trust_badges": {
+        "crypto_secure": "✓ 암호학적으로 안전",
+        "no_registration": "✓ 등록 불필요",
+        "free_forever": "✓ 100% 영구 무료",
+        "privacy": "✓ 개인정보 중심",
+        "unlimited": "✓ 무제한 생성",
+        "cross_platform": "✓ 모바일 & 데스크톱"
+      }
+    },
+    "seo_content": {
+      "title": "랜덤 4자리 숫자 생성기 소개",
+      "paragraph_1": "저희 {strong_generator}는 개발자, 보안 전문가, QA 엔지니어 및 신뢰할 수 있는 랜덤 숫자가 필요한 모든 사람을 위해 설계된 전문가급 도구입니다. 기본 랜덤 숫자 생성기와 달리, 보안에 민감한 애플리케이션에 적합한 암호학적으로 안전한 랜덤성을 보장하기 위해 <rich>{strong_crypto}</rich>를 사용합니다.",
+      "strong_generator": "random 4-digit number generator",
+      "strong_crypto": "Web Crypto API",
+      "perfect_for_title": "다양한 사용 사례에 완벽",
+      "perfect_for_description": "인증 시스템을 위한 {strong_verification}, 접근 제어를 위한 {strong_pins}, 개발을 위한 {strong_test_data} 또는 기타 목적을 위한 {strong_random}이 필요하든, 저희 도구는 고급 사용자 정의 옵션과 함께 즉각적이고 안전한 생성을 제공합니다.",
+      "strong_verification": "verification codes",
+      "strong_pins": "PIN numbers",
+      "strong_test_data": "test data",
+      "strong_random": "random numbers",
+      "key_features_title": "주요 기능",
+      "features_list": {
+        "crypto_secure": "<strong>암호학적으로 안전</strong>: 진정한 랜덤성을 위해 Web Crypto API 사용",
+        "bulk_generation": "<strong>대량 생성</strong>: 한 번에 최대 1000개의 숫자 생성",
+        "multiple_formats": "<strong>다중 형식</strong>: 일반, 하이픈, 점 및 접두사 형식",
+        "exclusion_rules": "<strong>제외 규칙</strong>: 순차 및 반복 패턴 방지",
+        "export_options": "<strong>내보내기 옵션</strong>: TXT, CSV 또는 JSON으로 다운로드",
+        "no_registration": "<strong>등록 불필요</strong>: 즉시 사용 시작",
+        "free": "<strong>100% 무료</strong>: 영구적으로 무제한 생성",
+        "privacy": "<strong>개인정보 중심</strong>: 데이터 저장 또는 추적 없음"
+      },
+      "how_it_works_title": "작동 방식",
+      "how_it_works_description": "저희 생성기는 암호학적으로 강력한 랜덤 값을 제공하는 브라우저의 네이티브 {strong_crypto} 메서드를 활용합니다. 이는 생성된 숫자가 진정으로 예측 불가능하며 {strong_otp}, {strong_2fa} 및 {strong_verification}와 같은 보안 애플리케이션에 적합함을 보장합니다.",
+      "strong_crypto_method": "crypto.getRandomValues()",
+      "strong_otp": "OTP generation",
+      "strong_2fa": "two-factor authentication",
+      "strong_verification_codes": "verification codes",
+      "why_choose_title": "저희 도구를 선택하는 이유",
+      "why_choose_description": "기본 Math.random()을 사용하는 다른 랜덤 숫자 생성기와 달리, 저희 도구는 아름답고 직관적인 인터페이스로 {strong_enterprise}를 제공합니다. 사용성이나 기능을 희생하지 않고 신뢰할 수 있고 안전한 랜덤 숫자가 필요한 전문가를 위해 특별히 설계되었습니다.",
+      "strong_enterprise": "enterprise-grade security"
     }
   }
 }
