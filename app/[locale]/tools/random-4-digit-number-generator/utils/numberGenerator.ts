@@ -19,7 +19,11 @@ export class NumberGenerator {
    * Generate a single cryptographically secure random 4-digit number
    */
   static generate(options: GenerationOptions = {}): string {
-    const { rangeStart = this.MIN_VALUE, rangeEnd = this.MAX_VALUE, exclusionRules = {} } = options
+    const {
+      rangeStart = this.MIN_VALUE,
+      rangeEnd = this.MAX_VALUE,
+      exclusionRules = { excludeSequential: false, excludeRepeated: false, excludeSpecific: [] },
+    } = options
 
     let attempts = 0
     const maxAttempts = 1000
@@ -108,7 +112,14 @@ export class NumberGenerator {
   /**
    * Validate a 4-digit number
    */
-  static validate(number: string, exclusionRules: ExclusionRules = {}): ValidationResult {
+  static validate(
+    number: string,
+    exclusionRules: ExclusionRules = {
+      excludeSequential: false,
+      excludeRepeated: false,
+      excludeSpecific: [],
+    }
+  ): ValidationResult {
     const errors: string[] = []
 
     // Check length
