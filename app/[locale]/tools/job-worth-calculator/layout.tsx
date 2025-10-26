@@ -8,6 +8,7 @@
  * @license MIT
  */
 
+import { supportedLocales } from "app/i18n/routing"
 import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 
@@ -17,6 +18,14 @@ type Props = {
 
 export async function generateMetadata({ params: { locale } }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "JobWorthCalculator" })
+  const isDefaultLocale = locale === "en"
+  const languages = {
+    "x-default": "https://geekskai.com/tools/job-worth-calculator/",
+  }
+
+  supportedLocales.forEach((locale) => {
+    languages[locale] = `https://geekskai.com/${locale}/tools/job-worth-calculator/`
+  })
 
   return {
     title: t("seo_title"),
@@ -43,12 +52,10 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
       images: ["/static/images/job-worth-calculator-twitter.png"],
     },
     alternates: {
-      canonical: `https://geekskai.com/${locale}/tools/job-worth-calculator/`,
-      languages: {
-        "zh-CN": "https://geekskai.com/zh-cn/tools/job-worth-calculator/",
-        en: "https://geekskai.com/en/tools/job-worth-calculator/",
-        ja: "https://geekskai.com/ja/tools/job-worth-calculator/",
-      },
+      canonical: isDefaultLocale
+        ? "https://geekskai.com/tools/job-worth-calculator/"
+        : `https://geekskai.com/${locale}/tools/job-worth-calculator/`,
+      languages,
     },
     robots: {
       index: true,
