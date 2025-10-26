@@ -70,10 +70,10 @@ export async function generateMetadata({
 
     // Canonical URL
     alternates: {
-      canonical: `https://geekskai.com/${locale}/tools/cm-to-pm-converter/`,
-      languages: {
-        ...languages,
-      },
+      canonical: isDefaultLocale
+        ? "https://geekskai.com/tools/cm-to-pm-converter/"
+        : `https://geekskai.com/${locale}/tools/cm-to-pm-converter/`,
+      languages,
     },
 
     // Additional metadata
