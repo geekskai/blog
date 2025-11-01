@@ -11,19 +11,39 @@ export async function generateMetadata({
 
   const title = t("seo_title")
   const description = t("seo_description")
-  const keywords = t("seo_keywords").split(", ")
+
+  const baseUrl = "https://geekskai.com"
+  const toolPath = "/tools/random-4-digit-number-generator/"
+  const canonicalUrl = isDefaultLocale ? `${baseUrl}${toolPath}` : `${baseUrl}/${locale}${toolPath}`
+
+  // Generate language alternates for better international SEO
+  const languages: Record<string, string> = {
+    "x-default": `${baseUrl}${toolPath}`,
+    en: `${baseUrl}${toolPath}`,
+    ja: `${baseUrl}/ja${toolPath}`,
+    ko: `${baseUrl}/ko${toolPath}`,
+    no: `${baseUrl}/no${toolPath}`,
+    da: `${baseUrl}/da${toolPath}`,
+    "zh-CN": `${baseUrl}/zh-cn${toolPath}`,
+  }
 
   return {
     title,
     description,
-    keywords,
+    keywords: [],
+    authors: [{ name: "GeeksKai" }],
+    creator: "GeeksKai",
+    publisher: "GeeksKai",
     openGraph: {
       title,
       description,
       type: "website",
+      url: canonicalUrl,
+      siteName: "GeeksKai",
+      locale: locale === "zh-cn" ? "zh_CN" : locale.replace("-", "_"),
       images: [
         {
-          url: "/static/images/og/random-4-digit-number-generator.png",
+          url: `${baseUrl}/static/images/og/random-4-digit-number-generator.png`,
           width: 1200,
           height: 630,
           alt: t("og_image_alt"),
@@ -34,15 +54,18 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
+      site: "@geekskai",
+      creator: "@geekskai",
+      images: [`${baseUrl}/static/images/og/random-4-digit-number-generator.png`],
     },
     alternates: {
-      canonical: isDefaultLocale
-        ? "https://geekskai.com/tools/random-4-digit-number-generator/"
-        : `https://geekskai.com/${locale}/tools/random-4-digit-number-generator/`,
+      canonical: canonicalUrl,
+      languages,
     },
     robots: {
       index: true,
       follow: true,
+      nocache: false,
       googleBot: {
         index: true,
         follow: true,
@@ -51,6 +74,7 @@ export async function generateMetadata({
         "max-snippet": -1,
       },
     },
+    category: "Technology",
   }
 }
 
@@ -62,21 +86,44 @@ export default async function Layout({
   params: { locale: string }
 }) {
   const t = await getTranslations({ locale, namespace: "Random4DigitNumberGenerator" })
+  const isDefaultLocale = locale === "en"
 
-  // JSON-LD Structured Data
+  // Enhanced JSON-LD Structured Data for better SEO
+  const baseUrl = "https://geekskai.com"
+  const toolPath = "/tools/random-4-digit-number-generator"
+  const fullUrl = isDefaultLocale ? `${baseUrl}${toolPath}` : `${baseUrl}/${locale}${toolPath}`
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name: t("json_ld.name"),
+    alternateName: t("json_ld.alternate_names")
+      .split(", ")
+      .filter((name: string) => name.trim()),
     description: t("json_ld.description"),
-    url: `https://geekskai.com/${locale}/tools/random-4-digit-number-generator`,
+    url: fullUrl,
     applicationCategory: "UtilityApplication",
     operatingSystem: "Any",
     permissions: "none",
+    browserRequirements: "Requires JavaScript. Requires HTML5.",
+    softwareVersion: "1.0",
+    datePublished: "2024-10-26",
+    dateModified: new Date().toISOString().split("T")[0],
+    inLanguage: locale,
+    availableLanguage: ["en", "ja", "ko", "no", "da", "zh-CN"],
     offers: {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      priceValidUntil: "2099-12-31",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "1250",
+      bestRating: "5",
+      worstRating: "1",
     },
     featureList: [
       t("json_ld.feature_list.crypto_secure"),

@@ -3140,12 +3140,13 @@
     }
   },
   "Random4DigitNumberGenerator": {
-    "seo_title": "Tilfeldig 4-sifret tallgenerator - Gratis & Sikker | Øyeblikkelig generering",
-    "seo_description": "Generer sikre tilfeldige 4-sifrede tall øyeblikkelig. Perfekt for verifiseringskoder, PIN-koder, testdata og utvikling. Gratis, rask, kryptografisk sikker, ingen registrering påkrevd.",
-    "seo_keywords": "tilfeldig 4-sifret tallgenerator, tilfeldig 4-sifret kodegenerator, 4-sifret tallgenerator, fire-sifret tilfeldig tallgenerator, 4-sifrede tilfeldige tall, verifiseringskodegenerator, PIN-generator, OTP-generator, tilfeldig tallgenerator, sikre tilfeldige tall, kryptografisk tilfeldig, testdatagenerator, bulk tallgenerator",
+    "seo_title": "Tilfeldig 4-sifret tallgenerator - Gratis online tilfeldig kodegenerator",
+    "seo_description": "Gratis online tilfeldig 4-sifret tallgenerator for verifiseringskoder, PIN-koder og OTP. Generer sikre 4-sifrede tilfeldige tall øyeblikkelig. Ingen registrering, kryptografisk sikker, ubegrenset bruk. Perfekt for utviklere, testing og sikkerhetsapplikasjoner. Støtter bulk-generering og eksport i flere formater.",
+    "seo_keywords": "tilfeldig 4-sifret tallgenerator, tilfeldig kodegenerator, 4-sifret tallgenerator, tilfeldig 4-sifret kodegenerator, fire-sifret tilfeldig tallgenerator, 4-sifret tilfeldig generator, tilfeldig fire-sifret tallgenerator, verifiseringskodegenerator, PIN-generator, OTP-generator, tilfeldig tallgenerator 4 siffer, sikre tilfeldige tall, kryptografisk tilfeldig generator, testdatagenerator, bulk tallgenerator, tilfeldige 4-sifrede tall, generer tilfeldig 4-sifret kode, online tilfeldig tallgenerator",
     "og_image_alt": "Random 4-Digit Number Generator Tool",
     "json_ld": {
       "name": "Random 4-Digit Number Generator",
+      "alternate_names": "Tilfeldig 4-sifret tallgenerator, Tilfeldig kodegenerator, 4-sifret tallgenerator, Tilfeldig 4-sifret kodegenerator",
       "description": "Generate secure random 4-digit numbers for verification codes, PINs, testing, and development purposes",
       "keywords": "random number generator, 4 digit generator, verification code, PIN generator, OTP, secure random, cryptographic",
       "educational_use": "Software Development, Security Testing, QA Testing, Database Seeding, Statistical Analysis",
@@ -3543,15 +3544,16 @@
     },
     "seo_content": {
       "title": "Om vår tilfeldige 4-sifrede tallgenerator",
+      "title_suffix": "Tilfeldig kodegenerator",
       "paragraph_1": "Vår {strong_generator} er et verktøy i profesjonell kvalitet designet for utviklere, sikkerhetsprofesjonelle, QA-ingeniører og alle som trenger pålitelige tilfeldige tall. I motsetning til grunnleggende tilfeldige tallgeneratorer bruker vi <rich>{strong_crypto}</rich> for å sikre kryptografisk sikker tilfeldighet egnet for sikkerhetsfølsomme applikasjoner.",
-      "strong_generator": "random 4-digit number generator",
+      "strong_generator": "tilfeldig 4-sifret tallgenerator",
       "strong_crypto": "Web Crypto API",
       "perfect_for_title": "Perfekt for flere bruksområder",
       "perfect_for_description": "Enten du trenger {strong_verification} for ditt autentiseringssystem, {strong_pins} for tilgangskontroll, {strong_test_data} for utvikling eller {strong_random} for andre formål, gir vårt verktøy øyeblikkelig, sikker generering med avanserte tilpasningsmuligheter.",
-      "strong_verification": "verification codes",
-      "strong_pins": "PIN numbers",
-      "strong_test_data": "test data",
-      "strong_random": "random numbers",
+      "strong_verification": "verifiseringskoder",
+      "strong_pins": "PIN-koder",
+      "strong_test_data": "testdata",
+      "strong_random": "tilfeldige tall",
       "key_features_title": "Nøkkelfunksjoner",
       "features_list": {
         "crypto_secure": "<strong>Kryptografisk sikker</strong>: Bruker Web Crypto API for ekte tilfeldighet",

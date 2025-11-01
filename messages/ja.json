@@ -3337,12 +3337,13 @@
     }
   },
   "Random4DigitNumberGenerator": {
-    "seo_title": "ランダム4桁数字ジェネレーター - 無料＆安全 | 即座に生成",
-    "seo_description": "安全なランダム4桁数字を即座に生成します。認証コード、PIN、テストデータ、開発に最適。無料、高速、暗号学的に安全、登録不要。",
-    "seo_keywords": "ランダム4桁数字ジェネレーター, ランダム4桁コードジェネレーター, 4桁数字ジェネレーター, 4桁ランダム数字ジェネレーター, 4桁ランダム数字, 認証コードジェネレーター, PINジェネレーター, OTPジェネレーター, ランダム数字ジェネレーター, 安全なランダム数字, 暗号学的ランダム, テストデータジェネレーター, 一括数字ジェネレーター",
+    "seo_title": "ランダム4桁数字ジェネレーター - 無料オンライン認証コード生成ツール",
+    "seo_description": "無料オンラインランダム4桁数字ジェネレーター、認証コード、PIN、OTPに対応。安全な4桁ランダム数字を即座に生成、登録不要、暗号学的に安全、無制限使用。開発者、テスト、セキュリティアプリケーションに最適。一括生成、複数形式エクスポート対応。",
+    "seo_keywords": "ランダム4桁数字ジェネレーター, ランダムコードジェネレーター, 4桁数字ジェネレーター, ランダム4桁コードジェネレーター, 4桁ランダム数字ジェネレーター, 4桁ランダムジェネレーター, ランダム4桁数字生成, 認証コードジェネレーター, PINジェネレーター, OTPジェネレーター, 4桁ランダム数字ジェネレーターオンライン, 安全なランダム数字, 暗号学的ランダムジェネレーター, テストデータジェネレーター, 一括数字ジェネレーター, ランダム4桁数字, 4桁ランダムコード生成, オンライン乱数生成器",
     "og_image_alt": "Random 4-Digit Number Generator Tool",
     "json_ld": {
       "name": "Random 4-Digit Number Generator",
+      "alternate_names": "ランダム4桁数字ジェネレーター, ランダムコードジェネレーター, 4桁数字ジェネレーター, ランダム4桁コードジェネレーター",
       "description": "Generate secure random 4-digit numbers for verification codes, PINs, testing, and development purposes",
       "keywords": "random number generator, 4 digit generator, verification code, PIN generator, OTP, secure random, cryptographic",
       "educational_use": "Software Development, Security Testing, QA Testing, Database Seeding, Statistical Analysis",
@@ -3740,15 +3741,16 @@
     },
     "seo_content": {
       "title": "ランダム4桁数字ジェネレーターについて",
+      "title_suffix": "ランダムコードジェネレーター",
       "paragraph_1": "当社の{strong_generator}は、開発者、セキュリティ専門家、QAエンジニア、信頼性の高いランダム数字を必要とするすべての人向けに設計されたプロフェッショナルグレードのツールです。基本的なランダム数字ジェネレーターとは異なり、セキュリティに敏感なアプリケーションに適した暗号学的に安全なランダム性を確保するために<rich>{strong_crypto}</rich>を使用しています。",
-      "strong_generator": "random 4-digit number generator",
+      "strong_generator": "ランダム4桁数字ジェネレーター",
       "strong_crypto": "Web Crypto API",
       "perfect_for_title": "複数の使用例に最適",
       "perfect_for_description": "認証システム用の{strong_verification}、アクセス制御用の{strong_pins}、開発用の{strong_test_data}、またはその他の目的の{strong_random}が必要な場合でも、当社のツールは高度なカスタマイズオプションを備えた即座で安全な生成を提供します。",
-      "strong_verification": "verification codes",
-      "strong_pins": "PIN numbers",
-      "strong_test_data": "test data",
-      "strong_random": "random numbers",
+      "strong_verification": "認証コード",
+      "strong_pins": "PIN番号",
+      "strong_test_data": "テストデータ",
+      "strong_random": "ランダム数字",
       "key_features_title": "主な機能",
       "features_list": {
         "crypto_secure": "<strong>暗号学的に安全</strong>：真のランダム性のためにWeb Crypto APIを使用",

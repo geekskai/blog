@@ -3263,14 +3263,15 @@
     }
   },
   "Random4DigitNumberGenerator": {
-    "seo_title": "Random 4-Digit Number Generator - Free & Secure | Instant Generation",
-    "seo_description": "Generate secure random 4-digit numbers instantly. Perfect for verification codes, PINs, testing data, and development. Free, fast, cryptographically secure, no registration required.",
-    "seo_keywords": "random 4 digit number generator, random 4 digit code generator, 4 digit number generator, four digit random number generator, 4 digit random numbers, verification code generator, PIN generator, OTP generator, random number generator, secure random numbers, cryptographic random, test data generator, bulk number generator",
+    "seo_title": "Random 4 Digit Number Generator - Free Random Code Generator Online",
+    "seo_description": "Free random 4 digit number generator for verification codes, PINs, and OTP. Generate secure 4-digit random numbers instantly. No registration, cryptographically secure, unlimited use. Perfect for developers, testing, and security applications.",
+    "seo_keywords": "random 4 digit number generator, random code generator, 4 digit number generator, random 4 digit code generator, four digit random number generator, 4 digit random generator, random four digit number generator, verification code generator, PIN generator, OTP generator, random number generator 4 digits, secure random numbers, cryptographic random generator, test data generator, bulk number generator, random 4 digit numbers, generate random 4 digit code",
 
     "og_image_alt": "Random 4-Digit Number Generator Tool",
 
     "json_ld": {
       "name": "Random 4-Digit Number Generator",
+      "alternate_names": "Random 4 Digit Number Generator, Random Code Generator, 4 Digit Random Number Generator, Random 4-Digit Code Generator",
       "description": "Generate secure random 4-digit numbers for verification codes, PINs, testing, and development purposes",
       "keywords": "random number generator, 4 digit generator, verification code, PIN generator, OTP, secure random, cryptographic",
       "educational_use": "Software Development, Security Testing, QA Testing, Database Seeding, Statistical Analysis",
@@ -3303,6 +3304,7 @@
     "header": {
       "badge_text": "Cryptographically Secure • Free Forever",
       "main_title": "Random 4-Digit Number Generator",
+      "seo_subtitle": "Free Random Code Generator | 4 Digit Random Number Generator Online",
       "description": "Generate secure random 4-digit numbers instantly. Perfect for {verification_codes}, {pins}, {testing_data}, and development purposes. Cryptographically secure, unlimited, and completely free.",
       "verification_codes": "verification codes",
       "pins": "PINs",
@@ -3703,6 +3705,7 @@
 
     "seo_content": {
       "title": "About Our Random 4-Digit Number Generator",
+      "title_suffix": "Random Code Generator",
       "paragraph_1": "Our {strong_generator} is a professional-grade tool designed for developers, security professionals, QA engineers, and anyone who needs reliable random numbers. Unlike basic random number generators, we use the <rich>{strong_crypto}</rich> to ensure cryptographically secure randomness suitable for security-sensitive applications.",
       "strong_generator": "random 4-digit number generator",
       "strong_crypto": "Web Crypto API",

@@ -12,24 +12,38 @@ export default function Random4DigitNumberGenerator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Breadcrumb Navigation */}
+      {/* Breadcrumb Navigation - SEO Enhanced */}
       <nav className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8" aria-label="Breadcrumb">
-        <ol className="flex items-center space-x-2 text-sm text-slate-400">
-          <li>
-            <a href="/" className="flex items-center hover:text-slate-200">
+        <ol
+          className="flex items-center space-x-2 text-sm text-slate-400"
+          itemScope
+          itemType="https://schema.org/BreadcrumbList"
+        >
+          <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+            <a href="/" className="flex items-center hover:text-slate-200" itemProp="item">
               <Home className="h-4 w-4" />
-              <span className="ml-1">{t("breadcrumb.home")}</span>
+              <span className="ml-1" itemProp="name">
+                {t("breadcrumb.home")}
+              </span>
             </a>
+            <meta itemProp="position" content="1" />
           </li>
           <ChevronRight className="h-4 w-4" />
-          <li>
-            <a href="/tools" className="hover:text-slate-200">
-              {t("breadcrumb.tools")}
+          <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+            <a href="/tools" className="hover:text-slate-200" itemProp="item">
+              <span itemProp="name">{t("breadcrumb.tools")}</span>
             </a>
+            <meta itemProp="position" content="2" />
           </li>
           <ChevronRight className="h-4 w-4" />
-          <li className="font-medium text-slate-100">
-            {t("breadcrumb.random_4_digit_number_generator")}
+          <li
+            className="font-medium text-slate-100"
+            itemProp="itemListElement"
+            itemScope
+            itemType="https://schema.org/ListItem"
+          >
+            <span itemProp="name">{t("breadcrumb.random_4_digit_number_generator")}</span>
+            <meta itemProp="position" content="3" />
           </li>
         </ol>
       </nav>
@@ -43,10 +57,15 @@ export default function Random4DigitNumberGenerator() {
             <span className="text-sm font-medium text-blue-300">{t("header.badge_text")}</span>
           </div>
 
-          {/* Main Title */}
+          {/* Main Title - SEO Optimized */}
           <h1 className="mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
             {t("header.main_title")}
           </h1>
+
+          {/* SEO-optimized subtitle with keywords */}
+          <p className="mx-auto mb-4 max-w-2xl text-lg font-semibold text-blue-200">
+            {t("header.seo_subtitle")}
+          </p>
 
           {/* Description */}
           <p className="mx-auto mb-8 max-w-3xl text-xl text-slate-300">
@@ -148,10 +167,13 @@ export default function Random4DigitNumberGenerator() {
           </div>
         </div>
 
-        {/* === SEO Content Section === */}
+        {/* === Enhanced SEO Content Section === */}
         <div className="mt-20 rounded-3xl border border-white/10 bg-gradient-to-br from-slate-800/30 to-slate-900/30 p-8 backdrop-blur-sm md:p-12">
           <div className="prose prose-invert max-w-none">
-            <h2 className="mb-6 text-3xl font-bold text-white">{t("seo_content.title")}</h2>
+            {/* H2 with primary keyword */}
+            <h2 className="mb-6 text-3xl font-bold text-white">
+              {t("seo_content.title")} - {t("seo_content.title_suffix")}
+            </h2>
 
             <div className="space-y-6 text-slate-300">
               <p>

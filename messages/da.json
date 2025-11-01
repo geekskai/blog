@@ -3057,12 +3057,13 @@
     }
   },
   "Random4DigitNumberGenerator": {
-    "seo_title": "Tilfældig 4-cifret talgenerator - Gratis & Sikker | Øjeblikkelig generering",
-    "seo_description": "Generer sikre tilfældige 4-cifrede tal øjeblikkeligt. Perfekt til verifikationskoder, PIN-koder, testdata og udvikling. Gratis, hurtig, kryptografisk sikker, ingen registrering påkrævet.",
-    "seo_keywords": "tilfældig 4-cifret talgenerator, tilfældig 4-cifret kodegenerator, 4-cifret talgenerator, fire-cifret tilfældig talgenerator, 4-cifrede tilfældige tal, verifikationskodesenerator, PIN-generator, OTP-generator, tilfældig talgenerator, sikre tilfældige tal, kryptografisk tilfældig, testdatagenerator, bulk talgenerator",
+    "seo_title": "Tilfældig 4-cifret talgenerator - Gratis online tilfældig kodegenerator",
+    "seo_description": "Gratis online tilfældig 4-cifret talgenerator til verifikationskoder, PIN-koder og OTP. Generer sikre 4-cifrede tilfældige tal øjeblikkeligt. Ingen registrering, kryptografisk sikker, ubegrænset brug. Perfekt til udviklere, test og sikkerhedsapplikationer. Understøtter bulk-generering og eksport i flere formater.",
+    "seo_keywords": "tilfældig 4-cifret talgenerator, tilfældig kodegenerator, 4-cifret talgenerator, tilfældig 4-cifret kodegenerator, fire-cifret tilfældig talgenerator, 4-cifret tilfældig generator, tilfældig fire-cifret talgenerator, verifikationskodegenerator, PIN-generator, OTP-generator, tilfældig talgenerator 4 cifre, sikre tilfældige tal, kryptografisk tilfældig generator, testdatagenerator, bulk talgenerator, tilfældige 4-cifrede tal, generer tilfældig 4-cifret kode, online tilfældig talgenerator",
     "og_image_alt": "Random 4-Digit Number Generator Tool",
     "json_ld": {
       "name": "Random 4-Digit Number Generator",
+      "alternate_names": "Tilfældig 4-cifret talgenerator, Tilfældig kodegenerator, 4-cifret talgenerator, Tilfældig 4-cifret kodegenerator",
       "description": "Generate secure random 4-digit numbers for verification codes, PINs, testing, and development purposes",
       "keywords": "random number generator, 4 digit generator, verification code, PIN generator, OTP, secure random, cryptographic",
       "educational_use": "Software Development, Security Testing, QA Testing, Database Seeding, Statistical Analysis",
@@ -3093,10 +3094,11 @@
     "header": {
       "badge_text": "Kryptografisk sikker • Gratis for altid",
       "main_title": "Tilfældig 4-cifret talgenerator",
+      "seo_subtitle": "Gratis tilfældig kodegenerator | Online 4-cifret tilfældig talgenerator",
       "description": "Generer sikre tilfældige 4-cifrede tal øjeblikkeligt. Perfekt til {verification_codes}, {pins}, {testing_data} og udviklingsformål. Kryptografisk sikker, ubegrænset og helt gratis.",
-      "verification_codes": "verification codes",
-      "pins": "PINs",
-      "testing_data": "testing data",
+      "verification_codes": "verifikationskoder",
+      "pins": "PIN-koder",
+      "testing_data": "testdata",
       "share_text": "Del dette gratis værktøj med dit team"
     },
     "features_pills": {
@@ -3460,15 +3462,16 @@
     },
     "seo_content": {
       "title": "Om vores tilfældige 4-cifrede talgenerator",
+      "title_suffix": "Tilfældig kodegenerator",
       "paragraph_1": "Vores {strong_generator} er et værktøj i professionel kvalitet designet til udviklere, sikkerhedsprofessionelle, QA-ingeniører og alle, der har brug for pålidelige tilfældige tal. I modsætning til grundlæggende tilfældige talgeneratorer bruger vi <rich>{strong_crypto}</rich> til at sikre kryptografisk sikker tilfældighed, der er egnet til sikkerhedsfølsomme applikationer.",
-      "strong_generator": "random 4-digit number generator",
+      "strong_generator": "tilfældig 4-cifret talgenerator",
       "strong_crypto": "Web Crypto API",
       "perfect_for_title": "Perfekt til flere anvendelsestilfælde",
       "perfect_for_description": "Uanset om du har brug for {strong_verification} til dit autentificeringssystem, {strong_pins} til adgangskontrol, {strong_test_data} til udvikling eller {strong_random} til andre formål, giver vores værktøj øjeblikkelig, sikker generering med avancerede tilpasningsmuligheder.",
-      "strong_verification": "verification codes",
-      "strong_pins": "PIN numbers",
-      "strong_test_data": "test data",
-      "strong_random": "random numbers",
+      "strong_verification": "verifikationskoder",
+      "strong_pins": "PIN-koder",
+      "strong_test_data": "testdata",
+      "strong_random": "tilfældige tal",
       "key_features_title": "Nøglefunktioner",
       "features_list": {
         "crypto_secure": "<strong>Kryptografisk sikker</strong>: Bruger Web Crypto API til ægte tilfældighed",

@@ -3191,12 +3191,13 @@
     }
   },
   "Random4DigitNumberGenerator": {
-    "seo_title": "랜덤 4자리 숫자 생성기 - 무료 & 안전 | 즉시 생성",
-    "seo_description": "안전한 랜덤 4자리 숫자를 즉시 생성하세요. 인증 코드, PIN, 테스트 데이터 및 개발에 완벽합니다. 무료, 빠름, 암호학적으로 안전, 등록 불필요.",
-    "seo_keywords": "랜덤 4자리 숫자 생성기, 랜덤 4자리 코드 생성기, 4자리 숫자 생성기, 4자리 랜덤 숫자 생성기, 4자리 랜덤 숫자, 인증 코드 생성기, PIN 생성기, OTP 생성기, 랜덤 숫자 생성기, 안전한 랜덤 숫자, 암호학적 랜덤, 테스트 데이터 생성기, 대량 숫자 생성기",
+    "seo_title": "랜덤 4자리 숫자 생성기 - 무료 온라인 랜덤 코드 생성 도구",
+    "seo_description": "무료 온라인 랜덤 4자리 숫자 생성기, 인증 코드, PIN, OTP용. 안전한 4자리 랜덤 숫자를 즉시 생성, 등록 불필요, 암호학적으로 안전, 무제한 사용. 개발자, 테스트, 보안 애플리케이션에 완벽. 대량 생성, 다양한 형식 내보내기 지원.",
+    "seo_keywords": "랜덤 4자리 숫자 생성기, 랜덤 코드 생성기, 4자리 숫자 생성기, 랜덤 4자리 코드 생성기, 4자리 랜덤 숫자 생성기, 4자리 랜덤 생성기, 랜덤 4자리 숫자 생성, 인증 코드 생성기, PIN 생성기, OTP 생성기, 4자리 랜덤 숫자 생성기 온라인, 안전한 랜덤 숫자, 암호학적 랜덤 생성기, 테스트 데이터 생성기, 대량 숫자 생성기, 랜덤 4자리 숫자, 4자리 랜덤 코드 생성, 온라인 난수 생성기",
     "og_image_alt": "Random 4-Digit Number Generator Tool",
     "json_ld": {
       "name": "Random 4-Digit Number Generator",
+      "alternate_names": "랜덤 4자리 숫자 생성기, 랜덤 코드 생성기, 4자리 숫자 생성기, 랜덤 4자리 코드 생성기",
       "description": "Generate secure random 4-digit numbers for verification codes, PINs, testing, and development purposes",
       "keywords": "random number generator, 4 digit generator, verification code, PIN generator, OTP, secure random, cryptographic",
       "educational_use": "Software Development, Security Testing, QA Testing, Database Seeding, Statistical Analysis",
@@ -3594,15 +3595,16 @@
     },
     "seo_content": {
       "title": "랜덤 4자리 숫자 생성기 소개",
+      "title_suffix": "랜덤 코드 생성기",
       "paragraph_1": "저희 {strong_generator}는 개발자, 보안 전문가, QA 엔지니어 및 신뢰할 수 있는 랜덤 숫자가 필요한 모든 사람을 위해 설계된 전문가급 도구입니다. 기본 랜덤 숫자 생성기와 달리, 보안에 민감한 애플리케이션에 적합한 암호학적으로 안전한 랜덤성을 보장하기 위해 <rich>{strong_crypto}</rich>를 사용합니다.",
-      "strong_generator": "random 4-digit number generator",
+      "strong_generator": "랜덤 4자리 숫자 생성기",
       "strong_crypto": "Web Crypto API",
       "perfect_for_title": "다양한 사용 사례에 완벽",
       "perfect_for_description": "인증 시스템을 위한 {strong_verification}, 접근 제어를 위한 {strong_pins}, 개발을 위한 {strong_test_data} 또는 기타 목적을 위한 {strong_random}이 필요하든, 저희 도구는 고급 사용자 정의 옵션과 함께 즉각적이고 안전한 생성을 제공합니다.",
-      "strong_verification": "verification codes",
-      "strong_pins": "PIN numbers",
-      "strong_test_data": "test data",
-      "strong_random": "random numbers",
+      "strong_verification": "인증 코드",
+      "strong_pins": "PIN 번호",
+      "strong_test_data": "테스트 데이터",
+      "strong_random": "랜덤 숫자",
       "key_features_title": "주요 기능",
       "features_list": {
         "crypto_secure": "<strong>암호학적으로 안전</strong>: 진정한 랜덤성을 위해 Web Crypto API 사용",
