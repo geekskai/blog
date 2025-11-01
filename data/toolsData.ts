@@ -1,10 +1,8 @@
 import {
   Calculator,
   FileText,
-  DollarSign,
   Palette,
   Monitor,
-  Star,
   Sparkles,
   Clock,
   ArrowLeftRight,
@@ -19,6 +17,7 @@ import {
   CreditCard,
   Banknote,
   Microscope,
+  Hash,
 } from "lucide-react"
 
 export interface ToolData {
@@ -457,6 +456,24 @@ export const toolsData: ToolData[] = [
     badgeColor: "bg-red-500",
     gradient: gradients.finance,
     category: "Finance",
+  },
+  {
+    id: "random-4-digit-number-generator",
+    title: "Random 4 Digit Number Generator",
+    description:
+      "Free random 4 digit number generator for verification codes, PINs, and OTP. Generate secure 4-digit random numbers instantly with cryptographic security, bulk generation, and export options.",
+    icon: Hash,
+    href: "/tools/random-4-digit-number-generator/",
+    features: [
+      "Cryptographically Secure Generation",
+      "Single & Bulk Generation (up to 1000)",
+      "Custom Range & Exclusion Rules",
+      "Multiple Export Formats (CSV, JSON, TXT)",
+    ],
+    badge: "New",
+    badgeColor: "bg-blue-500",
+    gradient: gradients.development,
+    category: "Development",
   },
 ]
 
