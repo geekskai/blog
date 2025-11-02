@@ -78,6 +78,11 @@ module.exports = () => {
           destination: "/blog/css/how-to-change-css-of-primevue/",
           permanent: true,
         },
+        {
+          source: "/blog/china/china-wok-menu-guide/",
+          destination: "/blog/",
+          permanent: true,
+        },
       ]
     },
     output,
