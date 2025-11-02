@@ -56,7 +56,6 @@ interface TipScreenProps {
 
 const TipScreenGenerator = () => {
   const t = useTranslations("TipScreenGenerator")
-  const tCommon = useTranslations("HomePage")
 
   const [billAmount, setBillAmount] = useState(25.75)
   const [billAmountInput, setBillAmountInput] = useState("25.75")
