@@ -1,201 +1,227 @@
+import { supportedLocales } from "app/i18n/routing"
 import { Metadata } from "next"
+import { getTranslations } from "next-intl/server"
 import Script from "next/script"
 
-export const metadata: Metadata = {
-  title: "Free VIN Decoder - Vehicle Identification Number Lookup | GeeksKai",
-  description:
-    "Free VIN decoder tool to instantly decode any vehicle identification number. Get detailed specs including make, model, year, engine, transmission, and safety features. No signup required.",
-  keywords: [
-    "VIN decoder",
-    "vehicle identification number",
-    "VIN lookup",
-    "car VIN decoder",
-    "free VIN check",
-    "vehicle specs lookup",
-    "auto VIN decoder",
-    "VIN number decoder",
-    "decode VIN",
-    "vehicle history",
-  ],
-  openGraph: {
-    title: "Free VIN Decoder - Instant Vehicle Specs Lookup",
-    description:
-      "Decode any VIN instantly to get complete vehicle specifications. Free, fast, and accurate VIN decoder with no registration required.",
-    type: "website",
-    url: "https://geekskai.com/tools/vin-decoder",
-    images: [
-      {
-        url: "/og-vin-decoder.jpg",
-        width: 1200,
-        height: 630,
-        alt: "VIN Decoder Tool",
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string }
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "VinDecoder" })
+  const isDefaultLocale = locale === "en"
+  const languages = {
+    "x-default": "https://geekskai.com/tools/vin-decoder/",
+  }
+
+  supportedLocales.forEach((locale) => {
+    languages[locale] = `https://geekskai.com/${locale}/tools/vin-decoder/`
+  })
+
+  return {
+    title: t("seo_title"),
+    description: t("seo_description"),
+    keywords: t("seo_keywords").split(", "),
+    openGraph: {
+      title: t("seo_title"),
+      description: t("seo_description"),
+      type: "website",
+      url: isDefaultLocale
+        ? "https://geekskai.com/tools/vin-decoder"
+        : `https://geekskai.com/${locale}/tools/vin-decoder`,
+      images: [
+        {
+          url: "/og-vin-decoder.jpg",
+          width: 1200,
+          height: 630,
+          alt: t("structured_data.name"),
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("seo_title"),
+      description: t("seo_description"),
+      images: ["/twitter-vin-decoder.jpg"],
+    },
+    alternates: {
+      canonical: isDefaultLocale
+        ? "https://geekskai.com/tools/vin-decoder"
+        : `https://geekskai.com/${locale}/tools/vin-decoder`,
+      languages: {
+        ...languages,
       },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Free VIN Decoder - Vehicle Identification Number Lookup",
-    description:
-      "Instantly decode any VIN to get complete vehicle specifications. Free and accurate.",
-    images: ["/twitter-vin-decoder.jpg"],
-  },
-  alternates: {
-    canonical: "https://geekskai.com/tools/vin-decoder",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
+  }
 }
 
-// Structured data for SEO
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "VIN Decoder",
-  description:
-    "Free VIN decoder tool to instantly decode vehicle identification numbers and get detailed vehicle specifications.",
-  url: "https://geekskai.com/tools/vin-decoder",
-  applicationCategory: "UtilityApplication",
-  operatingSystem: "Any",
-  permissions: "browser",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-  featureList: [
-    "Instant VIN decoding",
-    "Complete vehicle specifications",
-    "Engine and transmission details",
-    "Safety features information",
-    "Manufacturing details",
-    "Export results as JSON/CSV",
-    "Decode history tracking",
-    "No registration required",
-    "Free forever",
-    "Mobile responsive",
-  ],
-  creator: {
-    "@type": "Organization",
-    name: "GeeksKai",
-    url: "https://geekskai.com",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    ratingCount: "2847",
-    bestRating: "5",
-    worstRating: "1",
-  },
-}
+// Structured data for SEO - will be generated in component
 
-// FAQ structured data
-const faqStructuredData = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What is a VIN?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "A Vehicle Identification Number (VIN) is a unique 17-character code assigned to every vehicle. It contains information about the vehicle's manufacturer, model, year, and other specifications.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Where can I find my vehicle's VIN?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "The VIN can typically be found on the driver's side dashboard (visible through the windshield), driver's side door jamb, vehicle registration documents, insurance cards, or vehicle title.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is this VIN decoder free to use?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, our VIN decoder is completely free to use. There are no hidden charges, no registration required, and no limits on the number of VINs you can decode.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What information can I get from a VIN?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "A VIN can provide information about the vehicle's make, model, year, body style, engine type, transmission, drive type, safety features, manufacturing location, and more.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Are VIN decoders accurate?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Our VIN decoder uses the official NHTSA (National Highway Traffic Safety Administration) database, providing highly accurate and up-to-date vehicle information.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can I decode VINs from any country?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, our VIN decoder supports vehicles from all major manufacturers worldwide, including vehicles from the United States, Europe, Asia, and other regions.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Why are some fields showing 'Not available'?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Some vehicle specifications may not be available in the database for certain vehicles, especially for older models or less common manufacturers. The available information depends on what the manufacturer has reported.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is my VIN information stored or shared?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "We only store VINs locally in your browser for the history feature. We do not collect, store on our servers, or share VIN information with third parties. Your privacy is protected.",
-      },
-    },
-  ],
-}
+// FAQ structured data - will be generated in component
 
-// Breadcrumb structured data
-const breadcrumbStructuredData = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://geekskai.com",
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Tools",
-      item: "https://geekskai.com/tools",
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "VIN Decoder",
-      item: "https://geekskai.com/tools/vin-decoder",
-    },
-  ],
-}
+// Breadcrumb structured data - will be generated in component
 
-export default function VinDecoderLayout({ children }: { children: React.ReactNode }) {
+export default async function VinDecoderLayout({
+  children,
+  params: { locale },
+}: {
+  children: React.ReactNode
+  params: { locale: string }
+}) {
+  const t = await getTranslations({ locale, namespace: "VinDecoder" })
+  const isDefaultLocale = locale === "en"
+  const baseUrl = isDefaultLocale ? "https://geekskai.com" : `https://geekskai.com/${locale}`
+
+  // Structured data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: t("structured_data.name"),
+    description: t("structured_data.description"),
+    url: `${baseUrl}/tools/vin-decoder`,
+    applicationCategory: t("structured_data.application_category"),
+    operatingSystem: t("structured_data.operating_system"),
+    permissions: t("structured_data.permissions"),
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: t("structured_data.price_currency"),
+    },
+    featureList: [
+      t("structured_data.feature_instant"),
+      t("structured_data.feature_complete"),
+      t("structured_data.feature_engine"),
+      t("structured_data.feature_safety"),
+      t("structured_data.feature_manufacturing"),
+      t("structured_data.feature_export"),
+      t("structured_data.feature_history"),
+      t("structured_data.feature_no_registration"),
+      t("structured_data.feature_free"),
+      t("structured_data.feature_mobile"),
+    ],
+    creator: {
+      "@type": "Organization",
+      name: t("structured_data.organization_name"),
+      url: "https://geekskai.com",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "2847",
+      bestRating: "5",
+      worstRating: "1",
+    },
+  }
+
+  // FAQ structured data
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: t("structured_data.faq_what_is_vin_q"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("structured_data.faq_what_is_vin_a"),
+        },
+      },
+      {
+        "@type": "Question",
+        name: t("structured_data.faq_where_find_q"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("structured_data.faq_where_find_a"),
+        },
+      },
+      {
+        "@type": "Question",
+        name: t("structured_data.faq_free_q"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("structured_data.faq_free_a"),
+        },
+      },
+      {
+        "@type": "Question",
+        name: t("structured_data.faq_info_q"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("structured_data.faq_info_a"),
+        },
+      },
+      {
+        "@type": "Question",
+        name: t("structured_data.faq_accurate_q"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("structured_data.faq_accurate_a"),
+        },
+      },
+      {
+        "@type": "Question",
+        name: t("structured_data.faq_country_q"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("structured_data.faq_country_a"),
+        },
+      },
+      {
+        "@type": "Question",
+        name: t("structured_data.faq_not_available_q"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("structured_data.faq_not_available_a"),
+        },
+      },
+      {
+        "@type": "Question",
+        name: t("structured_data.faq_privacy_q"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("structured_data.faq_privacy_a"),
+        },
+      },
+    ],
+  }
+
+  // Breadcrumb structured data
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: t("structured_data.breadcrumb_home"),
+        item: "https://geekskai.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: t("structured_data.breadcrumb_tools"),
+        item: "https://geekskai.com/tools",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: t("structured_data.breadcrumb_vin_decoder"),
+        item: `${baseUrl}/tools/vin-decoder`,
+      },
+    ],
+  }
+
   return (
     <>
       <Script
