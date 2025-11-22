@@ -3,7 +3,7 @@ import { usePathname, useRouter } from "../app/i18n/navigation"
 import { useState, useRef, useEffect } from "react"
 import { ChevronDown, Check } from "lucide-react"
 import { useLocale } from "next-intl"
-import { supportedLocales } from "../app/i18n/routing"
+import { locales } from "../app/i18n/routing"
 
 interface LanguageOption {
   value: string
@@ -327,7 +327,7 @@ const hiddenSwitchLang = ["/blog/", "/privacy/", "/tags/"]
 
 // Get only supported languages for display
 export const getSupportedLanguages = () => {
-  return languageOptions.filter((lang) => supportedLocales.includes(lang.value))
+  return languageOptions.filter((lang) => locales.includes(lang.value))
 }
 
 // Export for SEO hreflang generation
