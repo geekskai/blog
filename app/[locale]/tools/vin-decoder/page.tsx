@@ -151,9 +151,7 @@ export default function VinDecoder() {
     } catch (error) {
       console.error("Decode error:", error)
       const errorMessage =
-        error instanceof Error
-          ? error.message
-          : t("errors.network_error_message")
+        error instanceof Error ? error.message : t("errors.network_error_message")
 
       setSearchState((prev) => ({
         ...prev,
@@ -355,9 +353,7 @@ export default function VinDecoder() {
           </h1>
 
           {/* Description */}
-          <p className="mx-auto max-w-2xl text-lg text-slate-300">
-            {t("header.description")}
-          </p>
+          <p className="mx-auto max-w-2xl text-lg text-slate-300">{t("header.description")}</p>
 
           {/* Share Component */}
           <div className="mt-6 flex justify-center">
@@ -541,7 +537,8 @@ export default function VinDecoder() {
                       <History className="h-5 w-5" />
                     </div>
                     <span>
-                      {showHistory ? t("actions.hide_history") : t("actions.view_history")} ({historyItems.length})
+                      {showHistory ? t("actions.hide_history") : t("actions.view_history")} (
+                      {historyItems.length})
                     </span>
                   </div>
                 </button>
@@ -600,7 +597,9 @@ export default function VinDecoder() {
             {/* Usage Guidelines */}
             <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
               <div className="border-b border-slate-700 px-6 py-4">
-                <h2 className="text-lg font-semibold text-white">{t("sidebar.usage_guidelines_title")}</h2>
+                <h2 className="text-lg font-semibold text-white">
+                  {t("sidebar.usage_guidelines_title")}
+                </h2>
               </div>
               <div className="p-6">
                 <div className="space-y-4 text-sm text-slate-300">
@@ -614,7 +613,9 @@ export default function VinDecoder() {
                   <div className="flex items-start gap-3">
                     <div className="mt-1 h-2 w-2 rounded-full bg-blue-400"></div>
                     <div>
-                      <div className="font-medium text-white">{t("sidebar.usage_instant_decode")}</div>
+                      <div className="font-medium text-white">
+                        {t("sidebar.usage_instant_decode")}
+                      </div>
                       <div>{t("sidebar.usage_instant_decode_desc")}</div>
                     </div>
                   </div>
@@ -632,35 +633,45 @@ export default function VinDecoder() {
             {/* VIN Quick Facts */}
             <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
               <div className="border-b border-slate-700 px-6 py-4">
-                <h2 className="text-lg font-semibold text-white">{t("sidebar.quick_facts_title")}</h2>
+                <h2 className="text-lg font-semibold text-white">
+                  {t("sidebar.quick_facts_title")}
+                </h2>
               </div>
               <div className="p-6">
                 <div className="space-y-4 text-sm text-slate-300">
                   <div className="flex items-start gap-3">
                     <div className="mt-1 h-2 w-2 rounded-full bg-emerald-400"></div>
                     <div>
-                      <div className="font-medium text-white">{t("sidebar.quick_facts_17_chars")}</div>
+                      <div className="font-medium text-white">
+                        {t("sidebar.quick_facts_17_chars")}
+                      </div>
                       <div>{t("sidebar.quick_facts_17_chars_desc")}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="mt-1 h-2 w-2 rounded-full bg-blue-400"></div>
                     <div>
-                      <div className="font-medium text-white">{t("sidebar.quick_facts_no_ioq")}</div>
+                      <div className="font-medium text-white">
+                        {t("sidebar.quick_facts_no_ioq")}
+                      </div>
                       <div>{t("sidebar.quick_facts_no_ioq_desc")}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="mt-1 h-2 w-2 rounded-full bg-purple-400"></div>
                     <div>
-                      <div className="font-medium text-white">{t("sidebar.quick_facts_check_digit")}</div>
+                      <div className="font-medium text-white">
+                        {t("sidebar.quick_facts_check_digit")}
+                      </div>
                       <div>{t("sidebar.quick_facts_check_digit_desc")}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="mt-1 h-2 w-2 rounded-full bg-orange-400"></div>
                     <div>
-                      <div className="font-medium text-white">{t("sidebar.quick_facts_global_standard")}</div>
+                      <div className="font-medium text-white">
+                        {t("sidebar.quick_facts_global_standard")}
+                      </div>
                       <div>{t("sidebar.quick_facts_global_standard_desc")}</div>
                     </div>
                   </div>
@@ -673,7 +684,9 @@ export default function VinDecoder() {
               <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
                 <div className="border-b border-slate-700 px-6 py-4">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-lg font-semibold text-white">{t("sidebar.recent_activity_title")}</h2>
+                    <h2 className="text-lg font-semibold text-white">
+                      {t("sidebar.recent_activity_title")}
+                    </h2>
                     <span className="rounded-full bg-blue-500/20 px-2 py-1 text-xs font-medium text-blue-300">
                       {historyItems.length}
                     </span>
@@ -722,9 +735,7 @@ export default function VinDecoder() {
             <h2 className="mb-4 bg-gradient-to-r from-white via-slate-200 to-slate-300 bg-clip-text text-4xl font-bold text-transparent">
               {t("brand_links.title")}
             </h2>
-            <p className="mb-12 text-lg text-slate-400">
-              {t("brand_links.description")}
-            </p>
+            <p className="mb-12 text-lg text-slate-400">{t("brand_links.description")}</p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -779,15 +790,13 @@ export default function VinDecoder() {
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div>
-                <p className="mb-4 text-slate-200">
-                  {t("educational.vin_structure_desc_1")}
-                </p>
-                <p className="text-slate-200">
-                  {t("educational.vin_structure_desc_2")}
-                </p>
+                <p className="mb-4 text-slate-200">{t("educational.vin_structure_desc_1")}</p>
+                <p className="text-slate-200">{t("educational.vin_structure_desc_2")}</p>
               </div>
               <div className="rounded-lg bg-blue-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">{t("educational.vin_structure_positions_title")}</h3>
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  {t("educational.vin_structure_positions_title")}
+                </h3>
                 <ul className="space-y-2 text-slate-200">
                   <li>
                     • <strong>{t("educational.vin_structure_positions_1_3")}</strong>
@@ -814,68 +823,72 @@ export default function VinDecoder() {
 
           {/* How to Use Section */}
           <section className="rounded-xl bg-gradient-to-r from-emerald-800 to-teal-700 p-8">
-            <h2 className="mb-6 text-2xl font-bold text-white">{t("educational.how_to_use_title")}</h2>
+            <h2 className="mb-6 text-2xl font-bold text-white">
+              {t("educational.how_to_use_title")}
+            </h2>
             <div className="grid gap-6 md:grid-cols-3">
               <div className="rounded-lg bg-emerald-900/30 p-6">
                 <div className="mb-3 flex items-center gap-2">
                   <Search className="h-5 w-5 text-emerald-300" />
-                  <h3 className="text-lg font-semibold text-white">{t("educational.how_to_use_step_1_title")}</h3>
+                  <h3 className="text-lg font-semibold text-white">
+                    {t("educational.how_to_use_step_1_title")}
+                  </h3>
                 </div>
-                <p className="text-slate-200">
-                  {t("educational.how_to_use_step_1_desc")}
-                </p>
+                <p className="text-slate-200">{t("educational.how_to_use_step_1_desc")}</p>
               </div>
               <div className="rounded-lg bg-emerald-900/30 p-6">
                 <div className="mb-3 flex items-center gap-2">
                   <Zap className="h-5 w-5 text-emerald-300" />
-                  <h3 className="text-lg font-semibold text-white">{t("educational.how_to_use_step_2_title")}</h3>
+                  <h3 className="text-lg font-semibold text-white">
+                    {t("educational.how_to_use_step_2_title")}
+                  </h3>
                 </div>
-                <p className="text-slate-200">
-                  {t("educational.how_to_use_step_2_desc")}
-                </p>
+                <p className="text-slate-200">{t("educational.how_to_use_step_2_desc")}</p>
               </div>
               <div className="rounded-lg bg-emerald-900/30 p-6">
                 <div className="mb-3 flex items-center gap-2">
                   <Download className="h-5 w-5 text-emerald-300" />
-                  <h3 className="text-lg font-semibold text-white">{t("educational.how_to_use_step_3_title")}</h3>
+                  <h3 className="text-lg font-semibold text-white">
+                    {t("educational.how_to_use_step_3_title")}
+                  </h3>
                 </div>
-                <p className="text-slate-200">
-                  {t("educational.how_to_use_step_3_desc")}
-                </p>
+                <p className="text-slate-200">{t("educational.how_to_use_step_3_desc")}</p>
               </div>
             </div>
           </section>
 
           {/* Features Section */}
           <section className="rounded-xl bg-gradient-to-r from-purple-800 to-pink-700 p-8">
-            <h2 className="mb-6 text-2xl font-bold text-white">{t("educational.features_title")}</h2>
+            <h2 className="mb-6 text-2xl font-bold text-white">
+              {t("educational.features_title")}
+            </h2>
             <div className="grid gap-6 md:grid-cols-3">
               <div className="rounded-lg bg-purple-900/30 p-6">
                 <div className="mb-3 flex items-center gap-2">
                   <Shield className="h-5 w-5 text-purple-300" />
-                  <h3 className="text-lg font-semibold text-white">{t("educational.features_official_title")}</h3>
+                  <h3 className="text-lg font-semibold text-white">
+                    {t("educational.features_official_title")}
+                  </h3>
                 </div>
-                <p className="text-slate-200">
-                  {t("educational.features_official_desc")}
-                </p>
+                <p className="text-slate-200">{t("educational.features_official_desc")}</p>
               </div>
               <div className="rounded-lg bg-purple-900/30 p-6">
                 <div className="mb-3 flex items-center gap-2">
                   <Sparkles className="h-5 w-5 text-purple-300" />
-                  <h3 className="text-lg font-semibold text-white">{t("educational.features_free_title")}</h3>
+                  <h3 className="text-lg font-semibold text-white">
+                    {t("educational.features_free_title")}
+                  </h3>
                 </div>
-                <p className="text-slate-200">
-                  {t("educational.features_free_desc")}
-                </p>
+                <p className="text-slate-200">{t("educational.features_free_desc")}</p>
               </div>
               <div className="rounded-lg bg-purple-900/30 p-6">
                 <div className="mb-3 flex items-center gap-2">
                   <Globe className="h-5 w-5 text-purple-300" />
-                  <h3 className="text-lg font-semibold text-white">{t("educational.features_global_title")}</h3>
+                  <h3 className="text-lg font-semibold text-white">
+                    {t("educational.features_global_title")}
+                  </h3>
                 </div>
-                <p className="text-slate-200">
-                  {t("educational.features_global_desc")}
-                </p>
+                <p className="text-slate-200">{t("educational.features_global_desc")}</p>
               </div>
             </div>
           </section>
@@ -887,7 +900,9 @@ export default function VinDecoder() {
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div>
-                <h3 className="mb-4 text-lg font-semibold text-white">{t("educational.vin_facts_valid_title")}</h3>
+                <h3 className="mb-4 text-lg font-semibold text-white">
+                  {t("educational.vin_facts_valid_title")}
+                </h3>
                 <ul className="space-y-2 text-slate-200">
                   <li>✅ {t("educational.vin_facts_valid_1")}</li>
                   <li>✅ {t("educational.vin_facts_valid_2")}</li>
@@ -898,7 +913,9 @@ export default function VinDecoder() {
                 </ul>
               </div>
               <div>
-                <h3 className="mb-4 text-lg font-semibold text-white">{t("educational.vin_facts_what_title")}</h3>
+                <h3 className="mb-4 text-lg font-semibold text-white">
+                  {t("educational.vin_facts_what_title")}
+                </h3>
                 <ul className="space-y-2 text-slate-200">
                   <li>🚗 {t("educational.vin_facts_what_1")}</li>
                   <li>🔧 {t("educational.vin_facts_what_2")}</li>
@@ -920,12 +937,8 @@ export default function VinDecoder() {
                 <Users className="h-8 w-8 text-white" />
               </div>
             </div>
-            <h2 className="mb-4 text-2xl font-bold text-white">
-              {t("cta.title")}
-            </h2>
-            <p className="mb-6 text-slate-300">
-              {t("cta.description")}
-            </p>
+            <h2 className="mb-4 text-2xl font-bold text-white">{t("cta.title")}</h2>
+            <p className="mb-6 text-slate-300">{t("cta.description")}</p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-400">
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-green-400"></div>
