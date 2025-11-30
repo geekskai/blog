@@ -22,7 +22,6 @@
 ### 3) Objectives and Success Metrics
 
 - **Primary objectives**
-
   - Launch a production-grade VIN decoder with brand-focused SEO landing pages.
   - Provide best-in-class UX: instant validation, rich results, copy/share/export.
   - Establish internal foundation for future automotive tools (recalls, equipment, market value, insurance).
@@ -170,20 +169,17 @@
 **Primary Endpoints** (Recommended Usage Order):
 
 1. **`DecodeVinValuesExtended(vin: string)`** ⭐⭐ **RECOMMENDED**
-
    - **Purpose**: Most comprehensive VIN decoding with extended vehicle specifications
    - **Returns**: Flat key-value format (easiest to process)
    - **Use Case**: Primary decoding method for detailed vehicle information
    - **Data Coverage**: Maximum available fields including advanced specifications
 
 2. **`DecodeVinValues(vin: string)`** ⭐ **FALLBACK**
-
    - **Purpose**: Standard VIN decoding with essential vehicle information
    - **Returns**: Flat key-value format
    - **Use Case**: Fallback when extended version fails or for basic requirements
 
 3. **`DecodeVin(vin: string)`**
-
    - **Purpose**: Basic VIN decoding returning variable-value pairs
    - **Returns**: Array of {Variable, Value} objects
    - **Use Case**: Legacy support or when raw variable format needed
@@ -227,7 +223,6 @@
 **Validation**:
 
 - **`isValidVin(vin: string)`** ⭐⭐⭐ **ESSENTIAL**
-
   - **Purpose**: Offline VIN format validation
   - **Performance**: No network request required
   - **Use Case**: Pre-validation before API calls to prevent unnecessary requests
@@ -379,7 +374,6 @@ export interface ManufacturerInfo {
 ````
 
 - Error Handling
-
   - Network errors: show retry + friendly message.
   - Empty/unknown data: map to “Not available”.
   - Invalid VIN: block request, show hint (length 17, exclude I/O/Q).
@@ -393,14 +387,12 @@ export interface ManufacturerInfo {
 ### 10) UX / UI Specification
 
 - Visual Style
-
   - Follow “Design System Standards (顶级产品设计标准)”:
     - Gradient layers, glassmorphism, animated shine effects.
     - Clear hierarchy: bold H1, clean section headers.
     - Interaction: hover glows, subtle ring focus, duration-300/500 transitions.
 
 - Layout (Main page)
-
   - Hero: Title “VIN Decoder”, subtitle, trust badges.
   - Input Card:
     - VIN text field (auto uppercase), paste detection, clear button.
@@ -418,13 +410,11 @@ export interface ManufacturerInfo {
   - History dropdown/panel (top-right of input or results header).
 
 - Brand Pages (e.g., `/tools/vin-decoder/bmw`)
-
   - Brand hero (logo/emoji-substitute), short paragraph about typical BMW VIN patterns (no trademark usage beyond nominative fair use).
   - Same input component but with brand-specific SEO text blocks and FAQs.
   - Internal links to other brand pages.
 
 - Empty / Error States
-
   - Invalid VIN entered: compact error message with inline tips.
   - No data: show graceful message and encourage cross-check.
 
@@ -438,12 +428,10 @@ export interface ManufacturerInfo {
 ### 11) SEO Requirements
 
 - Pages
-
   - `/tools/vin-decoder/` — hub page
   - `/tools/vin-decoder/[brand]` — brand-focused pages (bmw, chevrolet, ford, toyota, honda, nissan, hyundai, kia, mercedes, audi, vw, volvo, subaru, mazda, porsche, jeep, ram, gmc, cadillac, lexus, acura, infiniti, tesla, jaguar, land-rover)
 
 - Metadata
-
   - Title: “{Brand} VIN Decoder – Free Vehicle Identification Number Lookup | GeeksKai”
   - Description: Brand-intent copy, value props (free, no signup, instant).
   - Keywords: “{brand} vin decoder, {brand} vin lookup, {brand} vin check”
@@ -451,14 +439,12 @@ export interface ManufacturerInfo {
   - OpenGraph/Twitter cards.
 
 - Structured Data
-
   - WebApplication schema (+ Feature list)
   - FAQ schema per brand page (answer common decoding questions)
   - BreadcrumbList schema
   - Use `generateMetadata` in App Router for dynamic brand pages.
 
 - Internal Linking
-
   - Brand directory on hub page.
   - “Related brands” at bottom of brand pages.
 
@@ -471,14 +457,12 @@ export interface ManufacturerInfo {
 ### 12) Performance & Reliability
 
 - Performance
-
   - Lazy-load results sections.
   - Dynamic import for heavy components.
   - Next/Image for assets; responsive sizes.
   - Cache API responses; dedupe concurrent requests (VIN-keyed).
 
 - Resilience
-
   - Parallelize `DecodeVinValuesExtended` and `DecodeWMI`.
   - Graceful fallback to `DecodeVinValues` on low data coverage.
   - Retry policy with exponential backoff (max 2 retries).
@@ -516,7 +500,6 @@ export interface ManufacturerInfo {
 ### 16) Engineering Plan (Next.js App Router)
 
 - Files (initial)
-
   - `app/tools/vin-decoder/layout.tsx` — metadata + JSON-LD
   - `app/tools/vin-decoder/page.tsx` — hub
   - `app/tools/vin-decoder/[brand]/page.tsx` — brand pages
@@ -529,7 +512,6 @@ export interface ManufacturerInfo {
   - Optional server proxy: `app/api/vin/route.ts` (normalize + cache headers)
 
 - Data Flow
-
   1. User types VIN → `isValidVin` feedback.
   2. Submit → call API wrapper:
      - `DecodeVinValuesExtended(vin)`
@@ -539,7 +521,6 @@ export interface ManufacturerInfo {
   4. Render sections; populate history; expose export/copy/share.
 
 - State & Types
-
   - Strict TypeScript models for decoded variables and UI state.
   - Narrowed discriminated unions for known variable names.
 

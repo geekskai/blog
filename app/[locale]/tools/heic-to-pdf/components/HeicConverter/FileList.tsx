@@ -1,4 +1,5 @@
 import React from "react"
+import { useTranslations } from "next-intl"
 
 interface FileListProps {
   files: File[]
@@ -17,6 +18,7 @@ const FileList: React.FC<FileListProps> = ({
   removeFile,
   converting,
 }) => {
+  const t = useTranslations("HeicToPdf")
   return (
     <div className="space-y-3">
       {[...files].reverse().map((file, index) => (
@@ -55,7 +57,7 @@ const FileList: React.FC<FileListProps> = ({
               {progress[file.name] === 100 && (
                 <div className="flex items-center gap-2 rounded-lg bg-green-500/20 px-3 py-1">
                   <span className="text-sm">✅</span>
-                  <span className="text-sm font-medium text-green-300">Done</span>
+                  <span className="text-sm font-medium text-green-300">{t("file_done")}</span>
                 </div>
               )}
               {/* Output Format Selector */}
@@ -67,10 +69,10 @@ const FileList: React.FC<FileListProps> = ({
                     handleFileOutputChange(file.name, e.target.value as "jpeg" | "pdf")
                   }
                   disabled={converting}
-                  aria-label="Select output format"
+                  aria-label={t("file_select_output_format")}
                 >
-                  <option value="pdf">PDF</option>
-                  <option value="jpeg">JPEG</option>
+                  <option value="pdf">{t("output_format_pdf")}</option>
+                  <option value="jpeg">{t("output_format_jpeg")}</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-300">
                   <svg
@@ -97,7 +99,7 @@ const FileList: React.FC<FileListProps> = ({
                 className={`rounded-lg border border-red-500/30 bg-red-500/10 p-2 text-red-300 transition-all duration-300 hover:bg-red-500/20 hover:shadow-lg hover:shadow-red-500/25 ${
                   converting ? "cursor-not-allowed opacity-50" : ""
                 }`}
-                aria-label={`Remove file ${file.name}`}
+                aria-label={`${t("file_remove_aria")} ${file.name}`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

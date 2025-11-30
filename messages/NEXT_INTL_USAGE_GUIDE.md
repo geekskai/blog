@@ -31,12 +31,12 @@
 
 ### 📊 决策表 (Decision Table)
 
-| JSON 格式 | 使用函数 | 传递参数类型 | 何时使用 |
-|-----------|---------|------------|---------|
-| 纯文本 | `t()` | 无 | 静态文本 |
-| `{variable}` | `t()` | 实际值 | 简单插值 |
-| `<strong>...</strong>` | `t.rich()` | 回调函数 | HTML 标签 |
-| `<rich>...</rich>` | `t.rich()` | 回调函数 | 自定义标签 |
+| JSON 格式              | 使用函数   | 传递参数类型 | 何时使用   |
+| ---------------------- | ---------- | ------------ | ---------- |
+| 纯文本                 | `t()`      | 无           | 静态文本   |
+| `{variable}`           | `t()`      | 实际值       | 简单插值   |
+| `<strong>...</strong>` | `t.rich()` | 回调函数     | HTML 标签  |
+| `<rich>...</rich>`     | `t.rich()` | 回调函数     | 自定义标签 |
 
 ### 🎯 使用规则详解
 
@@ -129,6 +129,7 @@
 ```
 
 **特点：**
+
 - 使用 `{variable}` 格式
 - 变量值单独定义
 - 便于翻译和维护
@@ -145,6 +146,7 @@
 ```
 
 **特点：**
+
 - 直接包含 HTML 标签
 - 标签内容会被回调函数处理
 - 适合需要样式的文本
@@ -162,6 +164,7 @@
 ```
 
 **特点：**
+
 - 结合简单插值和富文本
 - `{tool_name}` 传递实际值
 - `<rich>{api_name}</rich>` 使用回调函数
@@ -462,6 +465,7 @@
 ```
 
 **优点：**
+
 - 结构清晰，易于维护
 - 变量值单独定义
 - 翻译人员容易理解
@@ -497,13 +501,17 @@
 const richTextComponents = {
   strong: (chunks: React.ReactNode) => <strong className="text-white">{chunks}</strong>,
   em: (chunks: React.ReactNode) => <em className="italic text-slate-300">{chunks}</em>,
-  code: (chunks: React.ReactNode) => <code className="rounded bg-slate-800 px-2 py-1">{chunks}</code>,
+  code: (chunks: React.ReactNode) => (
+    <code className="rounded bg-slate-800 px-2 py-1">{chunks}</code>
+  ),
 }
 
 // 使用
-{t.rich("feature", {
-  strong: richTextComponents.strong,
-})}
+{
+  t.rich("feature", {
+    strong: richTextComponents.strong,
+  })
+}
 ```
 
 ---
@@ -514,18 +522,18 @@ const richTextComponents = {
 // 辅助函数
 const renderRichText = (key: string, variables: Record<string, string>) => {
   return t.rich(key, {
-    ...Object.fromEntries(
-      Object.entries(variables).map(([k, v]) => [k, t(v)])
-    ),
+    ...Object.fromEntries(Object.entries(variables).map(([k, v]) => [k, t(v)])),
     rich: (chunks) => <strong className="text-white">{chunks}</strong>,
   })
 }
 
 // 使用
-{renderRichText("paragraph", {
-  tool: "tool_name",
-  api: "api_name",
-})}
+{
+  renderRichText("paragraph", {
+    tool: "tool_name",
+    api: "api_name",
+  })
+}
 ```
 
 ---
@@ -560,11 +568,8 @@ const renderRichText = (key: string, variables: Record<string, string>) => {
 
 ```tsx
 // 定义翻译 key 类型
-type TranslationKey = 
-  | "header.title"
-  | "header.description"
-  | "features.crypto_secure"
-  // ... 更多 keys
+type TranslationKey = "header.title" | "header.description" | "features.crypto_secure"
+// ... 更多 keys
 
 // 使用类型安全的 t()
 const title = t("header.title" as TranslationKey)
@@ -576,18 +581,18 @@ const title = t("header.title" as TranslationKey)
 
 ```tsx
 // ✅ 好的实践 - 添加有意义的样式
-{t.rich("feature", {
-  strong: (chunks) => (
-    <strong className="font-bold text-white">
-      {chunks}
-    </strong>
-  ),
-})}
+{
+  t.rich("feature", {
+    strong: (chunks) => <strong className="font-bold text-white">{chunks}</strong>,
+  })
+}
 
 // ❌ 不好的实践 - 没有样式
-{t.rich("feature", {
-  strong: (chunks) => <strong>{chunks}</strong>,
-})}
+{
+  t.rich("feature", {
+    strong: (chunks) => <strong>{chunks}</strong>,
+  })
+}
 ```
 
 ---
@@ -631,14 +636,14 @@ testLanguages.forEach((locale) => {
 
 ### 常用模式速查
 
-| 场景 | JSON 格式 | 代码示例 |
-|------|----------|---------|
-| 纯文本 | `"title": "Text"` | `t("title")` |
-| 单个插值 | `"text": "Hello {name}"` | `t("text", { name: t("name") })` |
-| 多个插值 | `"text": "{a} and {b}"` | `t("text", { a: t("a"), b: t("b") })` |
-| 单个标签 | `"text": "<strong>Bold</strong>"` | `t.rich("text", { strong: (c) => <strong>{c}</strong> })` |
-| 多个标签 | `"text": "<strong>A</strong> <em>B</em>"` | `t.rich("text", { strong: ..., em: ... })` |
-| 混合格式 | `"text": "{var} <rich>text</rich>"` | `t.rich("text", { var: t("var"), rich: ... })` |
+| 场景     | JSON 格式                                 | 代码示例                                                  |
+| -------- | ----------------------------------------- | --------------------------------------------------------- |
+| 纯文本   | `"title": "Text"`                         | `t("title")`                                              |
+| 单个插值 | `"text": "Hello {name}"`                  | `t("text", { name: t("name") })`                          |
+| 多个插值 | `"text": "{a} and {b}"`                   | `t("text", { a: t("a"), b: t("b") })`                     |
+| 单个标签 | `"text": "<strong>Bold</strong>"`         | `t.rich("text", { strong: (c) => <strong>{c}</strong> })` |
+| 多个标签 | `"text": "<strong>A</strong> <em>B</em>"` | `t.rich("text", { strong: ..., em: ... })`                |
+| 混合格式 | `"text": "{var} <rich>text</rich>"`       | `t.rich("text", { var: t("var"), rich: ... })`            |
 
 ---
 
@@ -709,4 +714,3 @@ grep -r "{[a-z_]*}" messages/en.json
 **文档版本**: 1.0.0  
 **最后更新**: 2025-10-26  
 **维护者**: Development Team
-

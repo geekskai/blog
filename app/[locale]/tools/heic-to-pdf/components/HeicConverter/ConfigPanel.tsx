@@ -1,5 +1,6 @@
 import React from "react"
 import type { ImageConfig } from "./useHeicConverter"
+import { useTranslations } from "next-intl"
 
 interface ConfigPanelProps {
   imageConfig: ImageConfig
@@ -16,6 +17,7 @@ const ConfigPanel: React.FC<ConfigPanelProps> = ({
   show,
   onClose,
 }) => {
+  const t = useTranslations("HeicToPdf")
   // Handle keyboard events for accessibility
   React.useEffect(() => {
     if (!show) return
@@ -47,7 +49,7 @@ const ConfigPanel: React.FC<ConfigPanelProps> = ({
       <button
         className="absolute inset-0"
         onClick={handleBackdropClick}
-        aria-label="Close dialog"
+        aria-label={t("config_panel_close_dialog_aria")}
         tabIndex={-1}
       />
       <div
@@ -58,7 +60,7 @@ const ConfigPanel: React.FC<ConfigPanelProps> = ({
           e.stopPropagation()
         }}
         role="region"
-        aria-label="Configuration panel content"
+        aria-label={t("config_panel_content_aria")}
         tabIndex={-1}
       >
         {/* Decorative background elements */}
@@ -74,13 +76,13 @@ const ConfigPanel: React.FC<ConfigPanelProps> = ({
                 id="config-panel-title"
                 className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-2xl font-bold text-transparent"
               >
-                Advanced Options
+                {t("config_panel_title")}
               </h3>
             </div>
             <button
               onClick={onClose}
               className="rounded-lg border border-slate-500/30 bg-slate-500/10 p-2 text-slate-400 transition-all duration-300 hover:bg-slate-500/20 hover:text-slate-200"
-              aria-label="Close configuration panel"
+              aria-label={t("config_panel_close_aria")}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -103,17 +105,29 @@ const ConfigPanel: React.FC<ConfigPanelProps> = ({
             {/* PDF Page Size Settings */}
             {outputType === "pdf" && (
               <div className="space-y-3">
-                <label className="block text-lg font-semibold text-white">PDF Page Size</label>
+                <label className="block text-lg font-semibold text-white">
+                  {t("pdf_page_size_title")}
+                </label>
                 <div className="grid gap-3 md:grid-cols-3">
                   {[
                     {
                       value: "image",
-                      label: "Image Size",
+                      label: t("pdf_page_size_image"),
                       icon: "🖼️",
-                      description: "Match image dimensions",
+                      description: t("pdf_page_size_image_description"),
                     },
-                    { value: "a4", label: "A4", icon: "📄", description: "210×297mm" },
-                    { value: "letter", label: "Letter", icon: "📋", description: "216×279mm" },
+                    {
+                      value: "a4",
+                      label: t("pdf_page_size_a4"),
+                      icon: "📄",
+                      description: t("pdf_page_size_a4_description"),
+                    },
+                    {
+                      value: "letter",
+                      label: t("pdf_page_size_letter"),
+                      icon: "📋",
+                      description: t("pdf_page_size_letter_description"),
+                    },
                   ].map(({ value, label, icon, description }) => (
                     <button
                       key={value}
@@ -140,20 +154,22 @@ const ConfigPanel: React.FC<ConfigPanelProps> = ({
 
             {/* Metadata Processing */}
             <div className="space-y-3">
-              <label className="block text-lg font-semibold text-white">Metadata Processing</label>
+              <label className="block text-lg font-semibold text-white">
+                {t("metadata_processing_title")}
+              </label>
               <div className="grid gap-3 md:grid-cols-2">
                 {[
                   {
                     value: true,
-                    label: "Remove Metadata",
+                    label: t("metadata_remove"),
                     icon: "🔒",
-                    description: "Protect privacy",
+                    description: t("metadata_remove_description"),
                   },
                   {
                     value: false,
-                    label: "Keep Metadata",
+                    label: t("metadata_keep"),
                     icon: "📝",
-                    description: "Preserve info",
+                    description: t("metadata_keep_description"),
                   },
                 ].map(({ value, label, icon, description }) => (
                   <button
@@ -176,52 +192,63 @@ const ConfigPanel: React.FC<ConfigPanelProps> = ({
                   </button>
                 ))}
               </div>
-              <p className="text-sm text-slate-400">
-                Metadata contains information such as shooting device, time, GPS location, etc.
-                Removing metadata can protect privacy and reduce file size.
-              </p>
+              <p className="text-sm text-slate-400">{t("metadata_description")}</p>
             </div>
 
             {/* Width and Height */}
             <div className="grid gap-6 md:grid-cols-2">
               <div className="space-y-3">
-                <label className="block text-lg font-semibold text-white">Width</label>
+                <label className="block text-lg font-semibold text-white">{t("width_title")}</label>
                 <input
                   type="number"
                   value={imageConfig.width}
                   onChange={(e) => handleImageConfigChange("width", e.target.value)}
                   className="w-full rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
-                  placeholder="Output width (pixels)"
+                  placeholder={t("width_placeholder")}
                 />
-                <p className="text-xs text-slate-400">Leave empty to keep original width</p>
+                <p className="text-xs text-slate-400">{t("width_hint")}</p>
               </div>
               <div className="space-y-3">
-                <label className="block text-lg font-semibold text-white">Height</label>
+                <label className="block text-lg font-semibold text-white">
+                  {t("height_title")}
+                </label>
                 <input
                   type="number"
                   value={imageConfig.height}
                   onChange={(e) => handleImageConfigChange("height", e.target.value)}
                   className="w-full rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
-                  placeholder="Output height (pixels)"
+                  placeholder={t("height_placeholder")}
                 />
-                <p className="text-xs text-slate-400">Leave empty to keep original height</p>
+                <p className="text-xs text-slate-400">{t("height_hint")}</p>
               </div>
             </div>
 
             {/* Fit Mode */}
             {(imageConfig.width || imageConfig.height) && (
               <div className="space-y-3">
-                <label className="block text-lg font-semibold text-white">Fit Mode</label>
+                <label className="block text-lg font-semibold text-white">
+                  {t("fit_mode_title")}
+                </label>
                 <div className="grid gap-3 md:grid-cols-3">
                   {[
                     {
                       value: "max",
-                      label: "Max Fit",
+                      label: t("fit_mode_max"),
                       icon: "↔️",
-                      description: "Maintain aspect ratio",
+                      description: t("fit_mode_max_description"),
                     },
-                    { value: "crop", label: "Crop", icon: "✂️", description: "Fill and crop" },
-                    { value: "scale", label: "Scale", icon: "📏", description: "Force stretch" },
+                    {
+                      value: "crop",
+                      label: t("fit_mode_crop"),
+                      icon: "✂️",
+                      description: t("fit_mode_crop_description"),
+                    },
+                    {
+                      value: "scale",
+                      label: t("fit_mode_scale"),
+                      icon: "📏",
+                      description: t("fit_mode_scale_description"),
+                    },
                   ].map(({ value, label, icon, description }) => (
                     <button
                       key={value}

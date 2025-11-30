@@ -19,7 +19,6 @@ This converter uses the [Open Exchange Rates API](https://openexchangerates.org/
 ### API Configuration
 
 1. **Get API Key**: Sign up at [Open Exchange Rates](https://openexchangerates.org/signup/free)
-
    - Free plan: 1,000 requests/month
    - Paid plans available for higher usage
 

@@ -6,8 +6,10 @@ import DropZone from "./DropZone"
 import FileList from "./FileList"
 import ConfigPanel from "./ConfigPanel"
 import HeaderControls from "./HeaderControls"
+import { useTranslations } from "next-intl"
 
 export default function HeicConverter() {
+  const t = useTranslations("HeicToPdf")
   const {
     files,
     converting,
@@ -48,7 +50,9 @@ export default function HeicConverter() {
                 files.length > 0 ? "bg-green-500" : "bg-slate-500"
               }`}
             />
-            <span className="text-sm text-slate-300">Files ({files.length})</span>
+            <span className="text-sm text-slate-300">
+              {t("status_files")} ({files.length})
+            </span>
           </div>
 
           {/* Conversion status */}
@@ -63,7 +67,11 @@ export default function HeicConverter() {
               }`}
             />
             <span className="text-sm text-slate-300">
-              {allCompleted ? "Ready" : hasInProgress || converting ? "Processing..." : "Waiting"}
+              {allCompleted
+                ? t("status_ready")
+                : hasInProgress || converting
+                  ? t("status_processing")
+                  : t("status_waiting")}
             </span>
           </div>
         </div>
@@ -78,7 +86,9 @@ export default function HeicConverter() {
         <div className="mb-8 text-center">
           <div className="inline-flex items-center gap-4 rounded-2xl border border-blue-500/30 bg-blue-500/10 px-8 py-4 backdrop-blur-sm">
             <div className="h-6 w-6 animate-spin rounded-full border-2 border-blue-500/30 border-t-blue-500"></div>
-            <span className="text-lg font-medium text-blue-300">Processing your files...</span>
+            <span className="text-lg font-medium text-blue-300">
+              {t("status_processing_files")}
+            </span>
           </div>
         </div>
       )
@@ -90,7 +100,7 @@ export default function HeicConverter() {
           <div className="inline-flex items-start gap-4 rounded-2xl border border-red-500/30 bg-red-500/10 px-8 py-4 backdrop-blur-sm">
             <span className="text-2xl">❌</span>
             <div className="text-left">
-              <p className="font-medium text-red-300">Processing Failed</p>
+              <p className="font-medium text-red-300">{t("status_processing_failed")}</p>
               <p className="text-sm text-red-400">{error}</p>
             </div>
           </div>
@@ -105,9 +115,10 @@ export default function HeicConverter() {
           <div className="inline-flex items-center gap-4 rounded-2xl border border-green-500/30 bg-green-500/10 px-8 py-4 backdrop-blur-sm">
             <span className="text-2xl">✅</span>
             <div>
-              <p className="font-medium text-green-300">Conversion Completed Successfully!</p>
+              <p className="font-medium text-green-300">{t("status_conversion_completed")}</p>
               <p className="text-sm text-green-400">
-                {files.length} file{files.length > 1 ? "s" : ""} converted
+                {files.length}{" "}
+                {files.length > 1 ? t("status_files_converted") : t("status_file_converted")}
               </p>
             </div>
           </div>
@@ -130,7 +141,7 @@ export default function HeicConverter() {
             onClick={convertFiles}
             disabled={files.length === 0}
             className="group relative overflow-hidden rounded-full bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 p-4 text-white shadow-2xl shadow-green-500/25 transition-all duration-300 hover:scale-110 hover:shadow-emerald-500/30 active:scale-95"
-            title="Quick start conversion"
+            title={t("quick_start_conversion")}
           >
             <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
             <span className="relative text-2xl">🚀</span>
@@ -144,7 +155,7 @@ export default function HeicConverter() {
           <button
             onClick={removeAllFiles}
             className="group relative overflow-hidden rounded-full bg-gradient-to-r from-slate-600 to-slate-700 p-4 text-white shadow-xl shadow-slate-500/25 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-slate-500/30 active:scale-95"
-            title="Clear all files"
+            title={t("clear_all_files")}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-slate-500/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
             <span className="relative text-2xl">🔄</span>
@@ -179,7 +190,7 @@ export default function HeicConverter() {
                   <div className="inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-3 backdrop-blur-sm">
                     <span className="text-2xl">📁</span>
                     <h2 className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-2xl font-bold text-transparent">
-                      Files & Controls
+                      {t("files_controls_title")}
                     </h2>
                   </div>
                 </div>
@@ -217,7 +228,7 @@ export default function HeicConverter() {
                   <div className="inline-flex items-center gap-3 rounded-full border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 px-6 py-3 backdrop-blur-sm">
                     <span className="text-2xl">⚙️</span>
                     <h2 className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-2xl font-bold text-transparent">
-                      Configuration
+                      {t("configuration_title")}
                     </h2>
                   </div>
                 </div>
@@ -226,15 +237,22 @@ export default function HeicConverter() {
                 <div className="space-y-6">
                   {/* Output Format Selection */}
                   <div className="space-y-4">
-                    <h3 className="text-lg font-semibold text-white">Output Format</h3>
-                    <p className="text-sm text-slate-400">
-                      Set default format for all files. You can also change individual files in the
-                      file list.
-                    </p>
+                    <h3 className="text-lg font-semibold text-white">{t("output_format_title")}</h3>
+                    <p className="text-sm text-slate-400">{t("output_format_description")}</p>
                     <div className="grid gap-4 md:grid-cols-2">
                       {[
-                        { value: "pdf", label: "PDF", icon: "📄", description: "Document format" },
-                        { value: "jpeg", label: "JPEG", icon: "🖼️", description: "Image format" },
+                        {
+                          value: "pdf",
+                          label: t("output_format_pdf"),
+                          icon: "📄",
+                          description: t("output_format_pdf_description"),
+                        },
+                        {
+                          value: "jpeg",
+                          label: t("output_format_jpeg"),
+                          icon: "🖼️",
+                          description: t("output_format_jpeg_description"),
+                        },
                       ].map(({ value, label, icon, description }) => (
                         <button
                           key={value}
@@ -278,10 +296,8 @@ export default function HeicConverter() {
                           className="h-5 w-5 rounded border-emerald-500/30 bg-emerald-500/10 text-emerald-500 focus:ring-emerald-500/20"
                         />
                         <div>
-                          <span className="font-medium text-white">Merge PDF Files</span>
-                          <p className="text-sm text-slate-400">
-                            Combine all PDF files into a single document
-                          </p>
+                          <span className="font-medium text-white">{t("merge_pdf_title")}</span>
+                          <p className="text-sm text-slate-400">{t("merge_pdf_description")}</p>
                         </div>
                       </label>
                     </div>
@@ -297,8 +313,12 @@ export default function HeicConverter() {
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">⚙️</span>
                         <div>
-                          <h4 className="font-semibold text-white">Advanced Options</h4>
-                          <p className="text-sm text-slate-400">Page size, dimensions, metadata</p>
+                          <h4 className="font-semibold text-white">
+                            {t("advanced_options_title")}
+                          </h4>
+                          <p className="text-sm text-slate-400">
+                            {t("advanced_options_description")}
+                          </p>
                         </div>
                       </div>
                       <svg
@@ -332,7 +352,7 @@ export default function HeicConverter() {
                     ? "cursor-not-allowed bg-slate-600 shadow-slate-500/25"
                     : "bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 shadow-green-500/25 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/30 active:scale-95"
                 }`}
-                aria-label="Start converting HEIC files"
+                aria-label={t("start_conversion")}
               >
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
                 <span className="relative flex items-center justify-center gap-3">
@@ -359,12 +379,12 @@ export default function HeicConverter() {
                           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                         />
                       </svg>
-                      Converting...
+                      {t("converting")}
                     </>
                   ) : (
                     <>
                       <span className="text-2xl">🚀</span>
-                      Start Conversion
+                      {t("start_conversion")}
                       <svg
                         className="h-6 w-6"
                         fill="none"

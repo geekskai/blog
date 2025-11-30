@@ -1536,8 +1536,6 @@ Examples of API calls:
      "cod": 200
      }
 
-
-
 ```
 
 `https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=[{API key}](https://home.openweathermap.org/api_keys)`
@@ -1586,8 +1584,6 @@ Examples of API calls:
      "name": "London",
      "cod": 200
      }
-
-
 
 ```
 
@@ -1660,8 +1656,6 @@ Examples of API calls
      "cod": 200
      }
 
-
-
 ```
 
 #### Built-in API request by ZIP code
@@ -1727,8 +1721,6 @@ Examples of API calls
      "name": "Mountain View",
      "cod": 200
      }
-
-
 
 ```
 

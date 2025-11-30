@@ -475,6 +475,24 @@ export const toolsData: ToolData[] = [
     gradient: gradients.development,
     category: "Development",
   },
+  {
+    id: "heic-to-pdf",
+    title: "HEIC to PDF Converter - Free Online Tool",
+    description:
+      "Convert HEIC images to PDF or JPEG format instantly in your browser. 100% free, no uploads required, privacy-first, batch processing supported. Works on iPhone, iPad, Mac, Windows, Android, and all modern browsers. No software installation needed.",
+    icon: FileText,
+    href: "/tools/heic-to-pdf/",
+    features: [
+      "HEIC to PDF & JPEG Conversion",
+      "Batch Processing Support",
+      "Privacy-First Local Processing",
+      "No File Size Limits",
+    ],
+    badge: "New",
+    badgeColor: "bg-emerald-500",
+    gradient: gradients.development,
+    category: "Development",
+  },
 ]
 
 export default toolsData
