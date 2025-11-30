@@ -165,10 +165,7 @@ async function generateJsonLd(locale: string) {
           width: 512,
           height: 512,
         },
-        sameAs: [
-          "https://github.com/geekskai",
-          "https://twitter.com/geekskai",
-        ],
+        sameAs: ["https://github.com/geekskai", "https://twitter.com/geekskai"],
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "Customer Service",

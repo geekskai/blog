@@ -1,8 +1,6 @@
 import "css/tailwind.css"
 import "pliny/search/algolia.css"
 import "remark-github-blockquote-alert/alert.css"
-
-import { Space_Grotesk } from "next/font/google"
 import { Analytics, AnalyticsConfig } from "pliny/analytics"
 import { SearchProvider, SearchConfig } from "pliny/search"
 import Header from "@/components/Header"
@@ -12,15 +10,9 @@ import { Metadata } from "next"
 import SiteFooter from "@/components/SiteFooter"
 import { NextIntlClientProvider } from "next-intl"
 import { hasLocale } from "next-intl"
-import { defaultLocale, routing, supportedLocales } from "../i18n/routing"
+import { routing, supportedLocales } from "../i18n/routing"
 import { notFound } from "next/navigation"
 import { getTranslations, setRequestLocale } from "next-intl/server"
-
-const space_grotesk = Space_Grotesk({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-space-grotesk",
-})
 
 type Props = {
   children: React.ReactNode
@@ -109,11 +101,7 @@ export default async function RootLayout({
   // Enable static rendering
   setRequestLocale(locale)
   return (
-    <html
-      lang={locale}
-      className={`${space_grotesk.variable} scroll-smooth`}
-      suppressHydrationWarning
-    >
+    <html lang={locale} className={`scroll-smooth`} suppressHydrationWarning>
       <link
         rel="apple-touch-icon"
         sizes="76x76"

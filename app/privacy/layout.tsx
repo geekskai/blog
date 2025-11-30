@@ -2,7 +2,6 @@ import "css/tailwind.css"
 import "pliny/search/algolia.css"
 import "remark-github-blockquote-alert/alert.css"
 
-import { Space_Grotesk } from "next/font/google"
 import { Analytics, AnalyticsConfig } from "pliny/analytics"
 import { SearchProvider, SearchConfig } from "pliny/search"
 import Header from "@/components/Header"
@@ -11,12 +10,6 @@ import siteMetadata from "@/data/siteMetadata"
 import { Metadata } from "next"
 import SiteFooter from "@/components/SiteFooter"
 import { NextIntlClientProvider } from "next-intl"
-
-const space_grotesk = Space_Grotesk({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-space-grotesk",
-})
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const metadata: Metadata = {
@@ -74,11 +67,7 @@ export default async function RootLayout({
   const basePath = process.env.BASE_PATH || ""
   const { locale } = await params
   return (
-    <html
-      lang={locale}
-      className={`${space_grotesk.variable} scroll-smooth`}
-      suppressHydrationWarning
-    >
+    <html lang={locale} className={`scroll-smooth`} suppressHydrationWarning>
       <link
         rel="apple-touch-icon"
         sizes="76x76"

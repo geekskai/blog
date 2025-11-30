@@ -60,13 +60,19 @@ module.exports = () => {
       ],
       unoptimized,
     },
-    webpack: (config, options) => {
+    webpack: (config) => {
       config.module.rules.push({
         test: /\.svg$/,
         use: ["@svgr/webpack"],
       })
 
       return config
+    },
+    // Optimize font loading
+    optimizeFonts: true,
+    // Allow font optimization to fail gracefully
+    experimental: {
+      optimizePackageImports: ["lucide-react"],
     },
   })
 }
