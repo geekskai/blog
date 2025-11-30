@@ -113,7 +113,9 @@ export function useHeicConverter() {
 
   // Apply image configuration
   const applyImageConfig = async (blob: Blob): Promise<Blob> => {
-    if (!imageConfig.width && !imageConfig.height && !imageConfig.stripMetadata) {
+    // Only skip if no dimensions are set (metadata stripping would require EXIF library)
+    // pdfPageSize is handled separately in PDF generation
+    if (!imageConfig.width && !imageConfig.height) {
       return blob
     }
     try {

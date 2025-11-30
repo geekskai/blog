@@ -16,10 +16,50 @@ const ConfigPanel: React.FC<ConfigPanelProps> = ({
   show,
   onClose,
 }) => {
+  // Handle keyboard events for accessibility
+  React.useEffect(() => {
+    if (!show) return
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose()
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown)
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [show, onClose])
+
   if (!show) return null
+
+  // Handle click outside to close
+  const handleBackdropClick = () => {
+    onClose()
+  }
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 p-4 backdrop-blur-sm backdrop-filter transition-all duration-300 ease-in-out">
-      <div className="animate-fade-in relative flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/25 via-teal-500/20 to-cyan-500/25 p-8 shadow-2xl backdrop-blur-xl">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 p-4 backdrop-blur-sm backdrop-filter transition-all duration-300 ease-in-out"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="config-panel-title"
+    >
+      <button
+        className="absolute inset-0"
+        onClick={handleBackdropClick}
+        aria-label="Close dialog"
+        tabIndex={-1}
+      />
+      <div
+        className="animate-fade-in relative z-10 flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/25 via-teal-500/20 to-cyan-500/25 p-8 shadow-2xl backdrop-blur-xl"
+        onClick={(e) => e.stopPropagation()}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") {
+            e.stopPropagation()
+          }
+        }}
+        role="document"
+      >
         {/* Decorative background elements */}
         <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-emerald-500/15 to-teal-500/15 blur-3xl"></div>
         <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-teal-500/15 to-cyan-500/15 blur-3xl"></div>
@@ -29,7 +69,10 @@ const ConfigPanel: React.FC<ConfigPanelProps> = ({
           <div className="mb-6 flex items-center justify-between">
             <div className="inline-flex items-center gap-3 rounded-full border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 px-6 py-3 backdrop-blur-sm">
               <span className="text-2xl">⚙️</span>
-              <h3 className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-2xl font-bold text-transparent">
+              <h3
+                id="config-panel-title"
+                className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-2xl font-bold text-transparent"
+              >
                 Advanced Options
               </h3>
             </div>
@@ -55,7 +98,7 @@ const ConfigPanel: React.FC<ConfigPanelProps> = ({
           </div>
 
           {/* Content */}
-          <div className="space-y-6 overflow-y-auto">
+          <div className="max-h-[calc(90vh-200px)] space-y-6 overflow-y-auto">
             {/* PDF Page Size Settings */}
             {outputType === "pdf" && (
               <div className="space-y-3">

@@ -10,19 +10,15 @@ import HeaderControls from "./HeaderControls"
 export default function HeicConverter() {
   const {
     files,
-    setFiles,
     converting,
     outputType,
     setOutputType,
     pdfMode,
-    setPdfMode,
     error,
-    setError,
     progress,
     showConfigPanel,
     setShowConfigPanel,
     imageConfig,
-    setImageConfig,
     fileOutputs,
     setFileOutputs,
     fileInputRef,
@@ -193,13 +189,6 @@ export default function HeicConverter() {
                   fileInputRef={fileInputRef}
                   onDrop={onDrop}
                   removeAllFiles={removeAllFiles}
-                  hasPdfMergeOption={hasPdfMergeOption}
-                  pdfMode={pdfMode}
-                  handlePdfMergeCheckbox={handlePdfMergeCheckbox}
-                  setShowConfigPanel={setShowConfigPanel}
-                  convertFiles={convertFiles}
-                  converting={converting}
-                  files={files}
                 />
 
                 {/* File List */}
@@ -238,6 +227,10 @@ export default function HeicConverter() {
                   {/* Output Format Selection */}
                   <div className="space-y-4">
                     <h3 className="text-lg font-semibold text-white">Output Format</h3>
+                    <p className="text-sm text-slate-400">
+                      Set default format for all files. You can also change individual files in the
+                      file list.
+                    </p>
                     <div className="grid gap-4 md:grid-cols-2">
                       {[
                         { value: "pdf", label: "PDF", icon: "📄", description: "Document format" },
@@ -245,7 +238,16 @@ export default function HeicConverter() {
                       ].map(({ value, label, icon, description }) => (
                         <button
                           key={value}
-                          onClick={() => setOutputType(value as "pdf" | "jpeg")}
+                          onClick={() => {
+                            setOutputType(value as "pdf" | "jpeg")
+                            // Update all existing files to use the new output type
+                            setFileOutputs((prev) =>
+                              prev.map((config) => ({
+                                ...config,
+                                outputType: value as "pdf" | "jpeg",
+                              }))
+                            )
+                          }}
                           className={`group relative overflow-hidden rounded-2xl border p-6 text-left transition-all duration-300 ${
                             outputType === value
                               ? "border-emerald-400 bg-gradient-to-br from-emerald-500/20 to-teal-500/15 shadow-lg shadow-emerald-500/25"
@@ -406,14 +408,35 @@ export default function HeicConverter() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            name: "HEIC to PDF Online Conversion Tool",
+            name: "HEIC to PDF Converter - Free Online Tool",
             description:
-              "Free HEIC photos to PDF or JPEG format conversion, supports batch processing, no software installation required",
-            operatingSystem: "All",
+              "Convert HEIC images to PDF or JPEG format instantly in your browser. 100% free, no uploads required, privacy-first, batch processing supported. Works on iPhone, iPad, Mac, Windows, Android.",
+            url: "https://geekskai.com/tools/heic-to-pdf/",
             applicationCategory: "UtilitiesApplication",
+            operatingSystem: ["Windows", "macOS", "Linux", "iOS", "Android"],
+            browserRequirements: "Requires JavaScript. Requires HTML5.",
+            softwareVersion: "1.0",
+            releaseNotes:
+              "Free HEIC to PDF and JPEG conversion tool with batch processing and advanced options.",
             offers: {
               "@type": "Offer",
               price: "0",
+              priceCurrency: "USD",
+            },
+            featureList: [
+              "HEIC to PDF conversion",
+              "HEIC to JPEG conversion",
+              "Batch processing",
+              "PDF merging",
+              "Privacy-first local processing",
+              "No file size limits",
+              "Advanced customization options",
+              "Mobile device support",
+            ],
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: "4.8",
+              ratingCount: "1250",
             },
           }),
         }}

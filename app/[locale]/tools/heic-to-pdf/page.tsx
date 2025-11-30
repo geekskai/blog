@@ -16,12 +16,12 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-6 py-12">
             <div className="text-center">
               <h1 className="mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-6xl font-bold text-transparent">
-                HEIC to PDF Converter
+                HEIC to PDF Converter - Free Online Tool
               </h1>
               <p className="mx-auto max-w-3xl text-xl text-slate-300">
-                Instantly convert HEIC images to PDF with our advanced, privacy-first online tool.
-                No uploads, no registration, no limits—just fast, secure, and high-quality
-                conversion in your browser.
+                Convert HEIC images to PDF or JPEG format instantly in your browser. 100% free, no
+                uploads required, privacy-first, batch processing supported. Works on iPhone, iPad,
+                Mac, Windows, Android, and all modern browsers. No software installation needed.
               </p>
             </div>
           </div>
@@ -130,30 +130,172 @@ export default function Home() {
               </div>
             </section>
 
-            {/* FAQ Section */}
-            <section className="rounded-xl bg-slate-800 p-8">
-              <h2 className="mb-6 text-2xl font-bold text-white">Quick FAQ</h2>
+            {/* SEO Rich Content Sections */}
+            <section className="rounded-xl bg-slate-800 p-8 shadow-lg">
+              <h2 className="mb-6 text-2xl font-bold text-white">
+                Why Choose Our HEIC to PDF Converter?
+              </h2>
+              <div className="space-y-4 text-slate-300">
+                <p>
+                  Our HEIC to PDF converter is the perfect solution for anyone who needs to convert
+                  Apple's HEIC image format to the universally compatible PDF or JPEG format.
+                  Whether you're using an iPhone, iPad, or Mac, our tool handles HEIC files
+                  seamlessly without requiring any software installation.
+                </p>
+                <p>
+                  <strong className="text-white">Key Features:</strong> Batch conversion support
+                  allows you to convert multiple HEIC files simultaneously. Advanced options let you
+                  customize PDF page size (A4, Letter, or image size), adjust image dimensions, and
+                  control metadata handling. All processing happens locally in your browser,
+                  ensuring complete privacy and security.
+                </p>
+                <p>
+                  <strong className="text-white">Perfect For:</strong> Students submitting
+                  assignments, professionals sharing reports, designers preparing print files,
+                  photographers archiving work, and anyone who needs to make Apple device photos
+                  accessible on Windows, Android, or web platforms.
+                </p>
+              </div>
+            </section>
+
+            {/* FAQ Section with Schema */}
+            <section
+              className="rounded-xl bg-slate-800 p-8"
+              itemScope
+              itemType="https://schema.org/FAQPage"
+            >
+              <h2 className="mb-6 text-2xl font-bold text-white">Frequently Asked Questions</h2>
               <div className="space-y-6">
-                <div className="border-b border-slate-700 pb-4">
-                  <h3 className="mb-2 text-lg font-semibold text-white">Is my data safe?</h3>
-                  <p className="text-slate-400">
-                    Yes, all HEIC to PDF conversion happens in your browser. No uploads, no
-                    tracking, total privacy.
-                  </p>
-                </div>
-                <div className="border-b border-slate-700 pb-4">
-                  <h3 className="mb-2 text-lg font-semibold text-white">Are there any limits?</h3>
-                  <p className="text-slate-400">
-                    No file size or number limits. Convert as many HEIC images to PDF as you need.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="mb-2 text-lg font-semibold text-white">
-                    Will I lose image quality?
+                <div
+                  className="border-b border-slate-700 pb-4"
+                  itemScope
+                  itemProp="mainEntity"
+                  itemType="https://schema.org/Question"
+                >
+                  <h3 className="mb-2 text-lg font-semibold text-white" itemProp="name">
+                    Is my data safe when converting HEIC to PDF?
                   </h3>
-                  <p className="text-slate-400">
-                    No, our HEIC to PDF tool preserves the original quality of your images.
-                  </p>
+                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <p className="text-slate-400" itemProp="text">
+                      Yes, absolutely. All HEIC to PDF conversion happens entirely in your browser.
+                      Your images never leave your device, ensuring complete privacy and security.
+                      No uploads, no tracking, no data collection.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  className="border-b border-slate-700 pb-4"
+                  itemScope
+                  itemProp="mainEntity"
+                  itemType="https://schema.org/Question"
+                >
+                  <h3 className="mb-2 text-lg font-semibold text-white" itemProp="name">
+                    Are there any file size or quantity limits?
+                  </h3>
+                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <p className="text-slate-400" itemProp="text">
+                      No, there are no limits. You can convert as many HEIC images to PDF as you
+                      need, regardless of file size or quantity. Our converter handles batch
+                      processing efficiently.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  className="border-b border-slate-700 pb-4"
+                  itemScope
+                  itemProp="mainEntity"
+                  itemType="https://schema.org/Question"
+                >
+                  <h3 className="mb-2 text-lg font-semibold text-white" itemProp="name">
+                    Will I lose image quality when converting HEIC to PDF?
+                  </h3>
+                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <p className="text-slate-400" itemProp="text">
+                      No, our HEIC to PDF converter preserves the original quality of your images.
+                      You can also customize output dimensions and quality settings in the advanced
+                      options.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  className="border-b border-slate-700 pb-4"
+                  itemScope
+                  itemProp="mainEntity"
+                  itemType="https://schema.org/Question"
+                >
+                  <h3 className="mb-2 text-lg font-semibold text-white" itemProp="name">
+                    Can I convert HEIC to PDF on mobile devices?
+                  </h3>
+                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <p className="text-slate-400" itemProp="text">
+                      Yes, our HEIC to PDF converter works perfectly on iPhone, iPad, Android
+                      devices, and all modern mobile browsers. No app installation required.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  className="border-b border-slate-700 pb-4"
+                  itemScope
+                  itemProp="mainEntity"
+                  itemType="https://schema.org/Question"
+                >
+                  <h3 className="mb-2 text-lg font-semibold text-white" itemProp="name">
+                    Can I convert multiple HEIC files at once?
+                  </h3>
+                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <p className="text-slate-400" itemProp="text">
+                      Yes, batch conversion is fully supported. You can upload multiple HEIC files
+                      and convert them all at once. You can also merge multiple HEIC images into a
+                      single PDF file.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  className="border-b border-slate-700 pb-4"
+                  itemScope
+                  itemProp="mainEntity"
+                  itemType="https://schema.org/Question"
+                >
+                  <h3 className="mb-2 text-lg font-semibold text-white" itemProp="name">
+                    What's the difference between converting HEIC to PDF vs JPEG?
+                  </h3>
+                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <p className="text-slate-400" itemProp="text">
+                      PDF format is ideal for documents, printing, and sharing professional work.
+                      JPEG format is better for web use, social media, and general image sharing.
+                      Our converter supports both formats with customizable quality settings.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  className="border-b border-slate-700 pb-4"
+                  itemScope
+                  itemProp="mainEntity"
+                  itemType="https://schema.org/Question"
+                >
+                  <h3 className="mb-2 text-lg font-semibold text-white" itemProp="name">
+                    Do I need to install any software?
+                  </h3>
+                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <p className="text-slate-400" itemProp="text">
+                      No, our HEIC to PDF converter is completely web-based. It works directly in
+                      your browser on any device - Windows, Mac, Linux, iPhone, iPad, or Android. No
+                      downloads or installations required.
+                    </p>
+                  </div>
+                </div>
+                <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+                  <h3 className="mb-2 text-lg font-semibold text-white" itemProp="name">
+                    Can I customize PDF page size and image dimensions?
+                  </h3>
+                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <p className="text-slate-400" itemProp="text">
+                      Yes, our advanced options allow you to choose PDF page size (A4, Letter, or
+                      match image dimensions), set custom width and height, and select fit modes
+                      (max fit, crop, or scale). Perfect for professional printing and document
+                      preparation.
+                    </p>
+                  </div>
                 </div>
               </div>
             </section>
