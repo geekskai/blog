@@ -15,6 +15,7 @@ import { routing, supportedLocales } from "../i18n/routing"
 import { notFound } from "next/navigation"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 import { toolsData } from "@/data/toolsData"
+import Script from "next/script"
 
 type Props = {
   children: React.ReactNode
@@ -254,19 +255,22 @@ export default async function RootLayout({
       <meta name="google-site-verification" content="QBYZptmNADcvd2h8ZZVSZIJUlv5RnI8yYmHtEld1mKk" />
       <meta name="msapplication-TileColor" content="#000000" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
-      {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        suppressHydrationWarning
-      />
-      <script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2108246014001009"
-        crossOrigin="anonymous"
-      ></script>
-      <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
       <body className="min-h-screen bg-gradient-to-b from-[#020617] via-[#0a0f1f] to-[#000D1A]/90 pl-[calc(100vw-100%)] text-white antialiased">
+        {/* JSON-LD Structured Data - Must be in body to avoid hydration error */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {/* External Scripts using Next.js Script component */}
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2108246014001009"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
+        <Script
+          src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+          strategy="afterInteractive"
+        />
         <NextIntlClientProvider>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SectionContainer>
