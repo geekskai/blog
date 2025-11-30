@@ -226,11 +226,6 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={`scroll-smooth`} suppressHydrationWarning>
-      {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
       <link
         rel="apple-touch-icon"
         sizes="76x76"
@@ -254,17 +249,23 @@ export default async function RootLayout({
         href={`${basePath}/static/favicons/safari-pinned-tab.png`}
         color="#FF6B6B"
       />
+      <meta name="msvalidate.01" content="58567D271AD7C1B504E10F5DC587BD0B" />
+      <meta name="google-adsense-account" content="ca-pub-2108246014001009"></meta>
+      <meta name="google-site-verification" content="QBYZptmNADcvd2h8ZZVSZIJUlv5RnI8yYmHtEld1mKk" />
+      <meta name="msapplication-TileColor" content="#000000" />
+      <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        suppressHydrationWarning
+      />
       <script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2108246014001009"
         crossOrigin="anonymous"
       ></script>
       <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-      <meta name="msvalidate.01" content="58567D271AD7C1B504E10F5DC587BD0B" />
-      <meta name="google-adsense-account" content="ca-pub-2108246014001009"></meta>
-      <meta name="google-site-verification" content="QBYZptmNADcvd2h8ZZVSZIJUlv5RnI8yYmHtEld1mKk" />
-      <meta name="msapplication-TileColor" content="#000000" />
-      <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
       <body className="min-h-screen bg-gradient-to-b from-[#020617] via-[#0a0f1f] to-[#000D1A]/90 pl-[calc(100vw-100%)] text-white antialiased">
         <NextIntlClientProvider>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
