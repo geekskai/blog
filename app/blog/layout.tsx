@@ -1,7 +1,6 @@
 import "css/tailwind.css"
 import "pliny/search/algolia.css"
 import "remark-github-blockquote-alert/alert.css"
-
 import { Analytics, AnalyticsConfig } from "pliny/analytics"
 import { SearchProvider, SearchConfig } from "pliny/search"
 import Header from "@/components/Header"
@@ -10,7 +9,6 @@ import siteMetadata from "@/data/siteMetadata"
 import { Metadata } from "next"
 import SiteFooter from "@/components/SiteFooter"
 import { NextIntlClientProvider } from "next-intl"
-import { getTranslations } from "next-intl/server"
 
 export const generateMetadata = async (): Promise<Metadata> => {
   // const { locale } = await params
