@@ -1,4 +1,3 @@
-
 "use client"
 import Image from "@/components/Image"
 import { usePathname } from "next/navigation"
