@@ -3,7 +3,7 @@ import { useDropzone } from "react-dropzone"
 
 interface DropZoneProps {
   onDrop: (files: File[]) => void
-  fileInputRef: React.RefObject<HTMLInputElement | null>
+  fileInputRef: React.RefObject<HTMLInputElement>
   error: string | null
 }
 

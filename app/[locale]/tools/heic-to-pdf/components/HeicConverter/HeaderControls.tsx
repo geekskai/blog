@@ -1,7 +1,7 @@
 import React from "react"
 
 interface HeaderControlsProps {
-  fileInputRef: React.RefObject<HTMLInputElement | null>
+  fileInputRef: React.RefObject<HTMLInputElement>
   onDrop: (files: File[]) => void
   removeAllFiles: () => void
 }
@@ -39,7 +39,7 @@ const HeaderControls: React.FC<HeaderControlsProps> = ({
           </span>
           <input
             type="file"
-            ref={fileInputRef as React.RefObject<HTMLInputElement>}
+            ref={fileInputRef}
             onChange={(e) => {
               if (e.target.files?.length) {
                 onDrop(Array.from(e.target.files))
