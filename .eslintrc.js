@@ -12,7 +12,6 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
     "next",
     "next/core-web-vitals",
@@ -24,8 +23,6 @@ module.exports = {
   rules: {
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off",
-    "jsx-a11y/anchor-is-valid": "off",
-    "jsx-a11y/label-has-associated-control": "off",
     "react/prop-types": 0,
     "@typescript-eslint/no-unused-vars": 0,
     "react/no-unescaped-entities": 0,

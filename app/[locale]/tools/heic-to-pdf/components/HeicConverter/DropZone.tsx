@@ -52,54 +52,54 @@ const DropZone: React.FC<DropZoneProps> = ({ onDrop, fileInputRef, error }) => {
               <h3 className="text-xl font-semibold text-white">Drop your HEIC files here</h3>
               <p className="text-slate-300">or click to browse</p>
             </div>
-          <button
+            <button
               className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-indigo-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/30"
-            onClick={(e) => {
-              e.stopPropagation()
-              fileInputRef.current?.click()
-            }}
-          >
+              onClick={(e) => {
+                e.stopPropagation()
+                fileInputRef.current?.click()
+              }}
+            >
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
               <span className="relative flex items-center gap-2">
-            <svg
+                <svg
                   className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-              />
-            </svg>
-            Upload Files
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                  />
+                </svg>
+                Upload Files
               </span>
-          </button>
+            </button>
             <div className="space-y-2">
               <p className="text-sm text-slate-400">
                 Supported format: HEIC • Batch upload supported • Maximum file size: 10MB
               </p>
               <p className="text-xs text-slate-500">
                 All processing happens locally in your browser
-          </p>
-        </div>
-      </div>
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Error Message */}
-      {error && (
+        {error && (
           <div className="mt-6 flex items-start gap-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 backdrop-blur-sm">
             <span className="text-2xl">❌</span>
             <div className="text-left">
               <p className="font-medium text-red-300">Upload Failed</p>
               <p className="text-sm text-red-400">{error}</p>
             </div>
-        </div>
-      )}
+          </div>
+        )}
       </div>
     </div>
   )

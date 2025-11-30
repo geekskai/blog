@@ -54,11 +54,12 @@ const ConfigPanel: React.FC<ConfigPanelProps> = ({
         className="animate-fade-in relative z-10 flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/25 via-teal-500/20 to-cyan-500/25 p-8 shadow-2xl backdrop-blur-xl"
         onClick={(e) => e.stopPropagation()}
         onKeyDown={(e) => {
-          if (e.key === "Escape") {
-            e.stopPropagation()
-          }
+          // Stop propagation for keyboard events
+          e.stopPropagation()
         }}
-        role="document"
+        role="region"
+        aria-label="Configuration panel content"
+        tabIndex={-1}
       >
         {/* Decorative background elements */}
         <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-emerald-500/15 to-teal-500/15 blur-3xl"></div>
