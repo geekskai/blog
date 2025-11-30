@@ -243,17 +243,5 @@ async function generateJsonLd(locale: string) {
 // Since we have a `not-found.tsx` page on the root, a layout file
 // is required, even if it's just passing children through.
 export default async function RootLayout({ children, params }: Props) {
-  const { locale } = await params
-  const jsonLd = await generateJsonLd(locale)
-
-  return (
-    <>
-      {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      {children}
-    </>
-  )
+  return <>{children}</>
 }

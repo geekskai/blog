@@ -14,6 +14,7 @@ import { hasLocale } from "next-intl"
 import { routing, supportedLocales } from "../i18n/routing"
 import { notFound } from "next/navigation"
 import { getTranslations, setRequestLocale } from "next-intl/server"
+import { toolsData } from "@/data/toolsData"
 
 type Props = {
   children: React.ReactNode
@@ -101,8 +102,135 @@ export default async function RootLayout({
 
   // Enable static rendering
   setRequestLocale(locale)
+
+  // Generate JSON-LD Structured Data
+  const t = await getTranslations("HomePage")
+  const baseUrl = "https://geekskai.com"
+  const url = `${baseUrl}${locale === "en" ? "" : `/${locale}`}/`
+
+  const popularTools = toolsData.slice(0, 10).map((tool, index) => ({
+    "@type": "SoftwareApplication",
+    position: index + 1,
+    name: tool.title,
+    description: tool.description,
+    url: `${baseUrl}${locale === "en" ? "" : `/${locale}`}${tool.href}`,
+    applicationCategory: `${tool.category}Application`,
+    operatingSystem: "Any",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "1000+",
+    },
+  }))
+
+  const localeMap: Record<string, string> = {
+    en: "en-US",
+    ja: "ja-JP",
+    ko: "ko-KR",
+    no: "nb-NO",
+    "zh-cn": "zh-CN",
+    da: "da-DK",
+  }
+
+  const inLanguage = localeMap[locale] || "en-US"
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${baseUrl}/#organization`,
+        name: "GeeksKai",
+        url: baseUrl,
+        logo: {
+          "@type": "ImageObject",
+          url: `${baseUrl}/static/logo.png`,
+          width: 512,
+          height: 512,
+        },
+        sameAs: ["https://github.com/geekskai", "https://twitter.com/geekskai"],
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "Customer Service",
+          availableLanguage: ["en", "ja", "ko", "zh-cn", "no", "da"],
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${baseUrl}/#website`,
+        url: baseUrl,
+        name: "GeeksKai Tools",
+        description: t("home_seo_description"),
+        publisher: {
+          "@id": `${baseUrl}/#organization`,
+        },
+        inLanguage: inLanguage,
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${baseUrl}${locale === "en" ? "" : `/${locale}`}/tools/?q={search_term_string}`,
+          },
+          "query-input": "required name=search_term_string",
+        },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url: url,
+        name: t("home_seo_title"),
+        description: t("home_seo_description"),
+        isPartOf: {
+          "@id": `${baseUrl}/#website`,
+        },
+        about: {
+          "@id": `${baseUrl}/#organization`,
+        },
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${baseUrl}/og-images/home.jpg`,
+        },
+        breadcrumb: {
+          "@id": `${url}#breadcrumb`,
+        },
+        inLanguage: inLanguage,
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: url,
+          },
+        ],
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${url}#tools`,
+        name: t("footer_popular_tools"),
+        description: t("footer_description"),
+        numberOfItems: toolsData.length.toString(),
+        itemListElement: popularTools,
+      },
+    ],
+  }
+
   return (
     <html lang={locale} className={`scroll-smooth`} suppressHydrationWarning>
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <link
         rel="apple-touch-icon"
         sizes="76x76"
