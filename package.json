@@ -9,6 +9,7 @@
     "serve": "next start",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "size:check": "opennextjs-cloudflare build && wrangler deploy --outdir bundled/ --dry-run",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,mdx}\"",
     "analyze": "cross-env ANALYZE=true next build",
