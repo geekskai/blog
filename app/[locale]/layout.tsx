@@ -109,7 +109,7 @@ export default async function RootLayout({
   const baseUrl = "https://geekskai.com"
   const url = `${baseUrl}${locale === "en" ? "" : `/${locale}`}/`
 
-  const popularTools = toolsData.slice(0, 10).map((tool, index) => ({
+  const popularTools = toolsData.map((tool, index) => ({
     "@type": "SoftwareApplication",
     position: index + 1,
     name: tool.title,
@@ -126,7 +126,7 @@ export default async function RootLayout({
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.8",
-      ratingCount: "1000+",
+      ratingCount: "1000",
     },
   }))
 
