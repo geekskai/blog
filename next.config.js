@@ -60,11 +60,39 @@ module.exports = () => {
       ],
       unoptimized,
     },
-    webpack: (config) => {
+    webpack: (config, { isServer }) => {
       config.module.rules.push({
         test: /\.svg$/,
         use: ["@svgr/webpack"],
       })
+
+      // Optimize bundle size for Cloudflare Workers
+      if (isServer) {
+        // Exclude large client-side only dependencies from server bundle
+        config.externals = config.externals || []
+        config.externals.push({
+          "pdfjs-dist": "commonjs pdfjs-dist",
+          html2canvas: "commonjs html2canvas",
+          "file-saver": "commonjs file-saver",
+          jszip: "commonjs jszip",
+          heic2any: "commonjs heic2any",
+          jsdom: "commonjs jsdom",
+        })
+
+        // Optimize module resolution
+        config.resolve = config.resolve || {}
+        config.resolve.alias = {
+          ...config.resolve.alias,
+          // Use lighter alternatives where possible
+        }
+      }
+
+      // Enable tree shaking and minification
+      config.optimization = {
+        ...config.optimization,
+        usedExports: true,
+        sideEffects: false,
+      }
 
       return config
     },
@@ -72,7 +100,11 @@ module.exports = () => {
     optimizeFonts: true,
     // Allow font optimization to fail gracefully
     experimental: {
-      optimizePackageImports: ["lucide-react"],
+      optimizePackageImports: ["lucide-react", "react-icons", "@headlessui/react", "date-fns"],
     },
+    // Compress output
+    compress: true,
+    // Optimize production builds
+    swcMinify: true,
   })
 }
