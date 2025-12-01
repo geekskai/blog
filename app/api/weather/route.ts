@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 
 // 强制动态渲染
-export const dynamic = "force-dynamic"
+// export const dynamic = "force-dynamic"
 
 // Server-side API key (secure)
 const API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY
