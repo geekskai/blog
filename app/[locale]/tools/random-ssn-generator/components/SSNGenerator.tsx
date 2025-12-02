@@ -2,10 +2,12 @@
 
 import React, { useState, useCallback } from "react"
 import { Shuffle, Copy, Download, Check, RotateCcw, Eye, EyeOff, Info } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { SSNGeneratorState } from "../types"
 import { SSNGenerator, SSNExporter } from "../utils/ssnGenerator"
 
 const SSNGeneratorComponent = () => {
+  const t = useTranslations("RandomSSNGenerator")
   const [state, setState] = useState<SSNGeneratorState>({
     generatedSSN: "",
     isGenerating: false,
@@ -118,13 +120,13 @@ const SSNGeneratorComponent = () => {
       {/* Single SSN Generator */}
       <div className="rounded-xl bg-slate-800 p-6 shadow-xl ring-1 ring-slate-700">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="text-lg font-semibold text-white">Single SSN Generator</h3>
+          <h3 className="text-lg font-semibold text-white">{t("generator_single_title")}</h3>
           <button
             onClick={() => setState((prev) => ({ ...prev, showStructure: !prev.showStructure }))}
             className="flex items-center gap-2 rounded-lg bg-slate-700 px-3 py-1 text-sm text-slate-300 hover:bg-slate-600"
           >
             {state.showStructure ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-            {state.showStructure ? "Hide" : "Show"} Structure
+            {state.showStructure ? t("generator_hide_structure") : t("generator_show_structure")}
           </button>
         </div>
 
@@ -141,13 +143,16 @@ const SSNGeneratorComponent = () => {
                     <div className="text-sm text-slate-400">
                       <div className="flex items-center justify-center gap-4">
                         <span>
-                          Area: <strong>{getSSNStructure(state.generatedSSN)?.area}</strong>
+                          {t("generator_area")}:{" "}
+                          <strong>{getSSNStructure(state.generatedSSN)?.area}</strong>
                         </span>
                         <span>
-                          Group: <strong>{getSSNStructure(state.generatedSSN)?.group}</strong>
+                          {t("generator_group")}:{" "}
+                          <strong>{getSSNStructure(state.generatedSSN)?.group}</strong>
                         </span>
                         <span>
-                          Serial: <strong>{getSSNStructure(state.generatedSSN)?.serial}</strong>
+                          {t("generator_serial")}:{" "}
+                          <strong>{getSSNStructure(state.generatedSSN)?.serial}</strong>
                         </span>
                       </div>
                     </div>
@@ -155,8 +160,8 @@ const SSNGeneratorComponent = () => {
                 </div>
               ) : (
                 <div className="text-center text-slate-500">
-                  <div className="mb-2 text-lg">Click "Generate SSN" to create a random SSN</div>
-                  <div className="text-sm">Format: XXX-XX-XXXX</div>
+                  <div className="mb-2 text-lg">{t("generator_placeholder")}</div>
+                  <div className="text-sm">{t("generator_format_hint")}</div>
                 </div>
               )}
             </div>
@@ -171,7 +176,7 @@ const SSNGeneratorComponent = () => {
             className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 px-4 py-3 font-medium text-white shadow-lg transition-all hover:from-blue-700 hover:to-cyan-700 disabled:opacity-50"
           >
             <Shuffle className={`h-4 w-4 ${state.isGenerating ? "animate-spin" : ""}`} />
-            {state.isGenerating ? "Generating..." : "Generate SSN"}
+            {state.isGenerating ? t("generator_generating") : t("generator_generate_button")}
           </button>
 
           {state.generatedSSN && (
@@ -184,7 +189,7 @@ const SSNGeneratorComponent = () => {
               ) : (
                 <Copy className="h-4 w-4" />
               )}
-              {copiedSSN === state.generatedSSN ? "Copied!" : "Copy"}
+              {copiedSSN === state.generatedSSN ? t("generator_copied") : t("generator_copy")}
             </button>
           )}
         </div>
@@ -192,12 +197,14 @@ const SSNGeneratorComponent = () => {
 
       {/* Batch Generator */}
       <div className="rounded-xl bg-slate-800 p-6 shadow-xl ring-1 ring-slate-700">
-        <h3 className="mb-4 text-lg font-semibold text-white">Batch SSN Generator</h3>
+        <h3 className="mb-4 text-lg font-semibold text-white">{t("generator_batch_title")}</h3>
 
         {/* Batch Settings */}
         <div className="mb-6 grid gap-4 md:grid-cols-3">
           <div>
-            <label className="mb-2 block text-sm font-medium text-slate-300">Number of SSNs</label>
+            <label className="mb-2 block text-sm font-medium text-slate-300">
+              {t("generator_batch_count_label")}
+            </label>
             <input
               type="number"
               min="1"
@@ -211,7 +218,9 @@ const SSNGeneratorComponent = () => {
           </div>
 
           <div>
-            <label className="mb-2 block text-sm font-medium text-slate-300">Export Format</label>
+            <label className="mb-2 block text-sm font-medium text-slate-300">
+              {t("generator_export_format_label")}
+            </label>
             <select
               value={state.exportFormat}
               onChange={(e) =>
@@ -219,9 +228,9 @@ const SSNGeneratorComponent = () => {
               }
               className="w-full rounded-lg border border-slate-600 bg-slate-700 px-3 py-2 text-white focus:border-blue-500 focus:ring-blue-500"
             >
-              <option value="txt">Plain Text (.txt)</option>
-              <option value="csv">CSV (.csv)</option>
-              <option value="json">JSON (.json)</option>
+              <option value="txt">{t("generator_export_format_txt")}</option>
+              <option value="csv">{t("generator_export_format_csv")}</option>
+              <option value="json">{t("generator_export_format_json")}</option>
             </select>
           </div>
 
@@ -235,7 +244,7 @@ const SSNGeneratorComponent = () => {
                 }
                 className="rounded border-slate-600 text-blue-600 focus:ring-blue-500"
               />
-              <span className="text-sm text-slate-300">Include metadata</span>
+              <span className="text-sm text-slate-300">{t("generator_include_metadata")}</span>
             </label>
           </div>
         </div>
@@ -248,7 +257,9 @@ const SSNGeneratorComponent = () => {
             className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-4 py-3 font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:opacity-50"
           >
             <Shuffle className={`h-4 w-4 ${state.isGenerating ? "animate-spin" : ""}`} />
-            {state.isGenerating ? "Generating..." : `Generate ${state.batchCount} SSNs`}
+            {state.isGenerating
+              ? t("generator_batch_generating")
+              : t("generator_batch_generate", { count: state.batchCount })}
           </button>
 
           {state.generatedBatch.length > 0 && (
@@ -258,7 +269,7 @@ const SSNGeneratorComponent = () => {
                 className="flex items-center gap-2 rounded-xl border border-slate-600 bg-slate-700 px-4 py-3 text-slate-300 hover:bg-slate-600"
               >
                 <Download className="h-4 w-4" />
-                Export
+                {t("generator_export")}
               </button>
 
               <button
@@ -266,7 +277,7 @@ const SSNGeneratorComponent = () => {
                 className="flex items-center gap-2 rounded-xl border border-slate-600 bg-slate-700 px-4 py-3 text-slate-300 hover:bg-slate-600"
               >
                 {showBatch ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                {showBatch ? "Hide" : "Show"}
+                {showBatch ? t("generator_hide") : t("generator_show")}
               </button>
             </>
           )}
@@ -277,11 +288,11 @@ const SSNGeneratorComponent = () => {
           <div className="mt-6">
             <div className="mb-3 flex items-center justify-between">
               <h4 className="text-sm font-medium text-slate-300">
-                Generated SSNs ({state.generatedBatch.length})
+                {t("generator_generated_ssns", { count: state.generatedBatch.length })}
               </h4>
               <div className="flex items-center gap-2 text-xs text-slate-500">
                 <Info className="h-3 w-3" />
-                Click any SSN to copy
+                {t("generator_click_to_copy")}
               </div>
             </div>
             <div className="max-h-64 overflow-y-auto rounded-lg bg-slate-900 p-4">
@@ -312,7 +323,7 @@ const SSNGeneratorComponent = () => {
             className="flex items-center gap-2 rounded-xl border border-slate-600 bg-slate-700 px-6 py-3 text-slate-300 hover:bg-slate-600"
           >
             <RotateCcw className="h-4 w-4" />
-            Reset All
+            {t("generator_reset_all")}
           </button>
         </div>
       )}

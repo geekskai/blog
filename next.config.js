@@ -87,13 +87,6 @@ module.exports = () => {
         }
       }
 
-      // Enable tree shaking and minification
-      config.optimization = {
-        ...config.optimization,
-        usedExports: true,
-        sideEffects: false,
-      }
-
       return config
     },
     // Optimize font loading

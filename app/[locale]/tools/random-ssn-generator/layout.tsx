@@ -1,108 +1,123 @@
 import { Metadata } from "next"
+import { getTranslations } from "next-intl/server"
+import { supportedLocales } from "app/i18n/routing"
 
-export const metadata: Metadata = {
-  title: "Random SSN Generator - Valid Format Social Security Numbers | Free Tool",
-  description:
-    "Generate random Social Security Numbers in valid format for software testing and development. Educational tool with SSN structure guide, batch processing, and export capabilities. For testing purposes only.",
-  keywords: [
-    "random ssn number",
-    "random ssn",
-    "ssn generator",
-    "fake ssn generator",
-    "ssn for testing",
-    "valid ssn format",
-    "social security number generator",
-    "test ssn numbers",
-    "dummy ssn data",
-  ],
-  openGraph: {
-    title: "Random SSN Generator - Professional Testing Tool",
-    description:
-      "Generate valid format Social Security Numbers for software testing and development. Educational tool with batch processing and export features.",
-    type: "website",
-    images: [
-      {
-        url: "/static/images/random-ssn-generator.png",
-        width: 1200,
-        height: 630,
-        alt: "Random SSN Generator Tool",
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string }
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "RandomSSNGenerator" })
+  const isDefaultLocale = locale === "en"
+
+  const languages = {
+    "x-default": "https://geekskai.com/tools/random-ssn-generator/",
+  }
+
+  supportedLocales.forEach((loc) => {
+    languages[loc] = `https://geekskai.com/${loc}/tools/random-ssn-generator/`
+  })
+
+  return {
+    title: t("metadata_title"),
+    description: t("metadata_description"),
+    keywords: t("metadata_keywords").split(", "),
+    openGraph: {
+      title: t("metadata_og_title"),
+      description: t("metadata_og_description"),
+      type: "website",
+      images: [
+        {
+          url: "/static/images/og/random-ssn-generator.png",
+          width: 1200,
+          height: 630,
+          alt: t("metadata_og_image_alt"),
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("metadata_twitter_title"),
+      description: t("metadata_twitter_description"),
+    },
+    alternates: {
+      canonical: isDefaultLocale
+        ? "https://geekskai.com/tools/random-ssn-generator/"
+        : `https://geekskai.com/${locale}/tools/random-ssn-generator/`,
+      languages: {
+        ...languages,
       },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Random SSN Generator - Testing Tool",
-    description:
-      "Generate valid format SSN numbers for software testing. Educational tool for developers.",
-  },
-  alternates: {
-    canonical: "https://geekskai.com/tools/random-ssn-generator/",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
+  }
 }
 
-// JSON-LD Structured Data
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Random SSN Generator",
-  description:
-    "Professional random Social Security Number generator for software testing and development. Educational tool with valid format generation, structure explanations, and batch processing capabilities.",
-  url: "https://geekskai.com/tools/random-ssn-generator",
-  applicationCategory: "DeveloperApplication",
-  operatingSystem: "Any",
-  permissions: "none",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-  featureList: [
-    "Valid SSN format generation",
-    "Educational content about SSN structure",
-    "Batch processing capabilities",
-    "Export in multiple formats (TXT, CSV, JSON)",
-    "Real-time validation feedback",
-    "Testing and development focused",
-    "No registration required",
-    "Browser-based processing",
-    "Mobile-friendly interface",
-    "Compliance with format standards",
-    "Educational structure breakdown",
-    "Professional testing tool",
-  ],
-  softwareRequirements: "Modern web browser with JavaScript enabled",
-  author: {
-    "@type": "Organization",
-    name: "GeeksKai",
-    url: "https://geekskai.com",
-  },
-  keywords:
-    "random ssn number, ssn generator, social security number, software testing, development tools",
-  educationalUse:
-    "Software Development Education, Testing Methodology, Data Structure Learning, Privacy Awareness",
-  audience: {
-    "@type": "Audience",
-    audienceType: "Software Developers",
-  },
-  isAccessibleForFree: true,
-  accessMode: ["textual", "visual"],
-  accessibilityFeature: ["alternativeText", "readingOrder", "structuralNavigation"],
-  usageInfo:
-    "For testing and development purposes only. Generated numbers do not correspond to real individuals.",
-}
+export default async function Layout({
+  children,
+  params: { locale },
+}: {
+  children: React.ReactNode
+  params: { locale: string }
+}) {
+  const t = await getTranslations({ locale, namespace: "RandomSSNGenerator" })
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+  // JSON-LD Structured Data
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: t("schema_name"),
+    description: t("schema_description"),
+    url: `https://geekskai.com/${locale}/tools/random-ssn-generator`,
+    applicationCategory: "DeveloperApplication",
+    operatingSystem: "Any",
+    permissions: "none",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    featureList: [
+      t("schema_feature_1"),
+      t("schema_feature_2"),
+      t("schema_feature_3"),
+      t("schema_feature_4"),
+      t("schema_feature_5"),
+      t("schema_feature_6"),
+      t("schema_feature_7"),
+      t("schema_feature_8"),
+      t("schema_feature_9"),
+      t("schema_feature_10"),
+      t("schema_feature_11"),
+      t("schema_feature_12"),
+    ],
+    softwareRequirements: t("schema_software_requirements"),
+    author: {
+      "@type": "Organization",
+      name: "GeeksKai",
+      url: "https://geekskai.com",
+    },
+    keywords: t("schema_keywords"),
+    educationalUse: t("schema_educational_use"),
+    audience: {
+      "@type": "Audience",
+      audienceType: t("schema_audience_type"),
+    },
+    isAccessibleForFree: true,
+    accessMode: ["textual", "visual"],
+    accessibilityFeature: ["alternativeText", "readingOrder", "structuralNavigation"],
+    usageInfo: t("schema_usage_info"),
+  }
+
   return (
     <div className="min-h-screen">
       <script
