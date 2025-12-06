@@ -5,6 +5,8 @@ import { allBlogs } from "contentlayer/generated"
 // add cache to the page, revalidate at most every 24 hours
 export const revalidate = 86400 // 24 hours
 
+const POSTS_PER_PAGE = 9
+
 export default function BlogPage() {
   const posts = allCoreContent(sortPosts(allBlogs))
   const pageNumber = 1
