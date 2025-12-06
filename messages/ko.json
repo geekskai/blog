@@ -841,7 +841,10 @@
       "show_credits": "크레딧 표시",
       "show_credits_description": "제목 아래에 부제목 정보 표시",
       "show_watermark": "워터마크 표시",
-      "show_watermark_description": "생성된 이미지에 출처 추가"
+      "show_watermark_description": "생성된 이미지에 출처 추가",
+      "visual_effects": "시각 효과",
+      "visual_effects_description": "제목 카드에 극적인 효과 추가",
+      "selected_effects": "선택된 효과"
     },
     "presets": {
       "invincible": {
@@ -897,18 +900,24 @@
     },
 
     "effects": {
+      "blood_level_1": "혈흔 레벨 1",
+      "blood_level_1_description": "가벼운 혈흔",
+      "blood_level_2": "혈흔 레벨 2",
+      "blood_level_2_description": "중간 혈흔",
+      "blood_level_3": "혈흔 레벨 3",
+      "blood_level_3_description": "무거운 혈흔",
+      "blood_level_4": "혈흔 레벨 4",
+      "blood_level_4_description": "매우 무거운 혈흔",
+      "blood_level_5": "혈흔 레벨 5",
+      "blood_level_5_description": "최대 혈흔",
       "blood_splatter_1": "혈흔 효과 1",
       "blood_splatter_1_description": "클래식 혈흔 효과",
       "blood_splatter_2": "혈흔 효과 2",
       "blood_splatter_2_description": "강력한 혈흔 효과",
-      "scratch_1": "긁힘 효과 1",
-      "scratch_1_description": "날카로운 긁힘 자국",
-      "scratch_2": "긁힘 효과 2",
-      "scratch_2_description": "깊은 긁힘 자국",
-      "mark_1": "표시 효과",
-      "mark_1_description": "전투 표시 오버레이",
-      "damage_1": "손상 효과",
-      "damage_1_description": "손상 텍스처 오버레이"
+      "blood_splatter_3": "혈흔 효과 3",
+      "blood_splatter_3_description": "강렬한 혈흔 효과",
+      "sus": "의심 효과",
+      "sus_description": "의심스러운 오버레이 효과"
     },
 
     "content": {

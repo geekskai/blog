@@ -192,17 +192,30 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       </div>
                       <input
                         type="range"
-                        min="12"
-                        max="48"
+                        min="10"
+                        max="40"
+                        step="1"
                         value={state.fontSize}
                         onChange={(e) =>
                           setState((prev) => ({
                             ...prev,
-                            fontSize: parseInt(e.target.value),
+                            fontSize: parseInt(e.target.value, 10),
                           }))
                         }
-                        className="w-full accent-red-500"
+                        className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-700 accent-red-500 transition-colors hover:accent-red-600"
+                        style={{
+                          background: `linear-gradient(to right, rgb(239 68 68) 0%, rgb(239 68 68) ${
+                            ((state.fontSize - 10) / (40 - 10)) * 100
+                          }%, rgb(55 65 81) ${
+                            ((state.fontSize - 10) / (40 - 10)) * 100
+                          }%, rgb(55 65 81) 100%)`,
+                        }}
                       />
+                      <div className="mt-2 flex justify-between text-xs text-slate-400">
+                        <span>10</span>
+                        <span>25</span>
+                        <span>40</span>
+                      </div>
                     </div>
 
                     <div>
@@ -400,7 +413,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                     </p>
 
                     {/* Effect Grid */}
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
                       {effectPresets.map((effect) => {
                         const isSelected = state.effects.includes(effect.id)
                         return (

@@ -1,0 +1,12 @@
+/* Curved text effect - matches original implementation */
+/* Original: transform: perspective(400px) rotateX(10deg) scaleY(1.4); */
+.curved-text {
+  transform: perspective(400px) rotateX(10deg) scaleY(2);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Woodblock font fallback */
+.woodblock {
+  font-family: "Inter", "Arial Black", Arial, sans-serif;
+  font-weight: 900;
+}

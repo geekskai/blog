@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Monitor, Maximize2, Minimize2, Download, Heart, Copy, RotateCcw, Star } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { TitleCardState } from "../types"
@@ -30,6 +30,28 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
   onApplyFavorite,
 }) => {
   const t = useTranslations("InvincibleTitleCardGenerator")
+  const [canvasDimensions, setCanvasDimensions] = useState({ width: 0, height: 0 })
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (canvasRef.current) {
+        setCanvasDimensions({
+          width: canvasRef.current.clientWidth,
+          height: canvasRef.current.clientHeight,
+        })
+      }
+    }
+
+    window.addEventListener("resize", handleResize)
+    handleResize()
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [canvasRef])
+
+  const displayDimensions = state.generating ? { width: 1920, height: 1080 } : canvasDimensions
+
   return (
     <div className={`${isFullscreen ? "col-span-1" : "lg:col-span-8"}`}>
       <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
@@ -70,31 +92,38 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
             {/* Title Card Content - This is what gets exported */}
             <div
               ref={canvasRef}
-              className="flex h-full w-full flex-col items-center justify-center px-8"
+              data-canvas-ref="title-card"
+              className="relative flex flex-col items-center justify-center gap-[5%]"
               style={{
+                width: !state.generating ? "100%" : "1920px",
+                height: !state.generating ? "100%" : "1080px",
                 background: state.backgroundImage
                   ? `url(${state.backgroundImage}) no-repeat center center / cover`
                   : state.background,
-                aspectRatio: "16 / 9",
-                minHeight: "100%",
               }}
             >
+              {/* Title Component with Curved Effect - Match original implementation */}
+              {/* Font size calculation: (canvasDimensions.width / 100) * state.fontSize */}
+              {/* This ensures the font scales proportionally with the container width */}
               <div
-                className="select-none text-center font-black transition-all duration-300"
+                className={`woodblock curved-text w-full bg-transparent text-center outline-0`}
                 style={{
+                  lineHeight: 0.8,
+                  fontSize: `${(displayDimensions.width / 200) * state.fontSize}px`,
                   color: state.color,
-                  fontSize: `${state.fontSize * (isFullscreen ? 3 : 2)}px`,
+                  WebkitTextStroke:
+                    state.outline > 0 ? `${state.outline}px ${state.outlineColor}` : "none",
+                  marginTop: state.showCredits ? "5%" : "0",
+                  maxWidth: "100%",
                   textShadow:
-                    state.outline > 0
-                      ? `${state.outline}px ${state.outline}px 0px ${state.outlineColor}, -${state.outline}px -${state.outline}px 0px ${state.outlineColor}, ${state.outline}px -${state.outline}px 0px ${state.outlineColor}, -${state.outline}px ${state.outline}px 0px ${state.outlineColor}`
-                      : "2px 2px 4px rgba(0,0,0,0.5)",
+                    state.outline === 0
+                      ? "0 0 10px rgba(255, 255, 255, 0.2), 2px 2px 4px rgba(0,0,0,0.5)"
+                      : "none",
                   fontFamily: '"Inter", "Arial Black", Arial, sans-serif',
                   fontWeight: "900",
                   letterSpacing: "2px",
-                  lineHeight: "1.1",
                   textTransform: "uppercase",
-                  WebkitTextStroke:
-                    state.outline > 0 ? `${state.outline}px ${state.outlineColor}` : "none",
+                  transition: "font-size 0.2s ease-in-out",
                 }}
               >
                 {state.text || t("preview.default_title")}
@@ -103,21 +132,19 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
               {/* Credits */}
               {state.showCredits && (state.smallSubtitle || state.subtitle) && (
                 <div
-                  className="mt-6 text-center transition-all duration-300"
+                  className="text-center transition-all duration-300"
                   style={{
                     color: state.color,
-                    marginTop: `${state.subtitleOffset + 3}%`,
+                    marginTop: `${state.subtitleOffset * 1}%`, // Reduced spacing
                     filter: "drop-shadow(2px 2px 4px rgba(0,0,0,0.7))",
                   }}
                 >
                   {state.smallSubtitle && (
                     <div
-                      className="font-bold uppercase tracking-wider"
                       style={{
-                        fontSize: `${state.fontSize * (isFullscreen ? 0.6 : 0.4)}px`,
-                        marginBottom: "8px",
+                        fontSize: `${(displayDimensions.width / 100) * 1.9}px`,
+                        fontWeight: displayDimensions.width * 0.3,
                         fontFamily: '"Inter", Arial, sans-serif',
-                        fontWeight: "700",
                       }}
                     >
                       {state.smallSubtitle}
@@ -125,11 +152,10 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
                   )}
                   {state.subtitle && (
                     <div
-                      className="font-bold"
                       style={{
-                        fontSize: `${state.fontSize * (isFullscreen ? 0.8 : 0.6)}px`,
+                        fontSize: `${(displayDimensions.width / 100) * 3}px`,
+                        fontWeight: displayDimensions.width * 0.3,
                         fontFamily: '"Inter", Arial, sans-serif',
-                        fontWeight: "600",
                       }}
                     >
                       {state.subtitle}

@@ -16,6 +16,7 @@ import {
   addToFavorites,
 } from "./utils"
 import { TitleCardState } from "./types"
+import "./title-card.css"
 
 const InvincibleTitleCardGenerator = () => {
   const t = useTranslations("InvincibleTitleCardGenerator")

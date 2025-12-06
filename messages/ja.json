@@ -841,7 +841,10 @@
       "show_credits": "クレジット表示",
       "show_credits_description": "タイトル下にサブタイトル情報を表示",
       "show_watermark": "ウォーターマーク表示",
-      "show_watermark_description": "生成された画像に帰属を追加"
+      "show_watermark_description": "生成された画像に帰属を追加",
+      "visual_effects": "視覚効果",
+      "visual_effects_description": "タイトルカードに劇的な効果を追加",
+      "selected_effects": "選択された効果"
     },
     "presets": {
       "invincible": {
@@ -897,18 +900,24 @@
     },
 
     "effects": {
+      "blood_level_1": "血痕レベル 1",
+      "blood_level_1_description": "軽い血痕",
+      "blood_level_2": "血痕レベル 2",
+      "blood_level_2_description": "中程度の血痕",
+      "blood_level_3": "血痕レベル 3",
+      "blood_level_3_description": "重い血痕",
+      "blood_level_4": "血痕レベル 4",
+      "blood_level_4_description": "非常に重い血痕",
+      "blood_level_5": "血痕レベル 5",
+      "blood_level_5_description": "最大の血痕",
       "blood_splatter_1": "血しぶき効果 1",
       "blood_splatter_1_description": "クラシックな血しぶき効果",
       "blood_splatter_2": "血しぶき効果 2",
       "blood_splatter_2_description": "重い血しぶき効果",
-      "scratch_1": "傷跡効果 1",
-      "scratch_1_description": "鋭い傷跡",
-      "scratch_2": "傷跡効果 2",
-      "scratch_2_description": "深い傷跡",
-      "mark_1": "マーク効果",
-      "mark_1_description": "戦闘マークオーバーレイ",
-      "damage_1": "ダメージ効果",
-      "damage_1_description": "ダメージテクスチャオーバーレイ"
+      "blood_splatter_3": "血しぶき効果 3",
+      "blood_splatter_3_description": "激しい血しぶき効果",
+      "sus": "怪しい効果",
+      "sus_description": "怪しいオーバーレイ効果"
     },
 
     "content": {

@@ -914,7 +914,10 @@
       "show_credits": "Vis Credits",
       "show_credits_description": "Vis undertittelinformasjon under tittelen",
       "show_watermark": "Vis Vannmerke",
-      "show_watermark_description": "Legg til attribusjon til det genererte bildet"
+      "show_watermark_description": "Legg til attribusjon til det genererte bildet",
+      "visual_effects": "Visuelle Effekter",
+      "visual_effects_description": "Legg til dramatiske effekter til tittelkortet ditt",
+      "selected_effects": "Valgte Effekter"
     },
     "presets": {
       "invincible": {
@@ -970,18 +973,24 @@
     },
 
     "effects": {
+      "blood_level_1": "Blodnivå 1",
+      "blood_level_1_description": "Lette blodmerker",
+      "blood_level_2": "Blodnivå 2",
+      "blood_level_2_description": "Moderate blodmerker",
+      "blood_level_3": "Blodnivå 3",
+      "blood_level_3_description": "Tunge blodmerker",
+      "blood_level_4": "Blodnivå 4",
+      "blood_level_4_description": "Veldig tunge blodmerker",
+      "blood_level_5": "Blodnivå 5",
+      "blood_level_5_description": "Maksimale blodmerker",
       "blood_splatter_1": "Blodsprut 1",
       "blood_splatter_1_description": "Klassisk blodsprut effekt",
       "blood_splatter_2": "Blodsprut 2",
       "blood_splatter_2_description": "Tung blodsprut effekt",
-      "scratch_1": "Ripe 1",
-      "scratch_1_description": "Skarp ripe merker",
-      "scratch_2": "Ripe 2",
-      "scratch_2_description": "Dype ripe merker",
-      "mark_1": "Merk 1",
-      "mark_1_description": "Kamp merke overlay",
-      "damage_1": "Skade 1",
-      "damage_1_description": "Skade tekstur overlay"
+      "blood_splatter_3": "Blodsprut 3",
+      "blood_splatter_3_description": "Intens blodsprut effekt",
+      "sus": "Sus",
+      "sus_description": "Mistenkelig overlay effekt"
     },
 
     "content": {
