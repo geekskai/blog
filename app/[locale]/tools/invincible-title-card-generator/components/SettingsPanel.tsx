@@ -1,8 +1,13 @@
 import React from "react"
-import { Settings, Eye, EyeOff, Star, Type, Sliders, Palette, Zap } from "lucide-react"
+import { Settings, Eye, EyeOff, Star, Type, Sliders, Palette, Zap, X } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { TitleCardState, TabType, CharacterPreset } from "../types"
-import { getCharacterPresets, getBackgroundPresets, getTextColorPresets } from "../constants"
+import {
+  getCharacterPresets,
+  getBackgroundPresets,
+  getTextColorPresets,
+  getEffectPresets,
+} from "../constants"
 
 interface SettingsPanelProps {
   state: TitleCardState
@@ -31,6 +36,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
   const characterPresets = getCharacterPresets(t)
   const backgroundPresets = getBackgroundPresets(t)
   const textColorPresets = getTextColorPresets(t)
+  const effectPresets = getEffectPresets(t)
 
   if (isFullscreen) return null
 
@@ -310,50 +316,156 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
               {/* Effects Tab */}
               {activeTab === "effects" && (
                 <div className="space-y-6">
-                  <h3 className="flex items-center text-sm font-medium text-slate-300">
-                    <Zap className="mr-2 h-4 w-4" />
-                    {t("settings.display_options")}
-                  </h3>
+                  {/* Visual Effects Section */}
+                  <div>
+                    <h3 className="mb-4 flex items-center text-sm font-medium text-slate-300">
+                      <Zap className="mr-2 h-4 w-4" />
+                      {t("settings.visual_effects")}
+                    </h3>
+                    <p className="mb-4 text-xs text-slate-400">
+                      {t("settings.visual_effects_description")}
+                    </p>
 
-                  {/* Checkboxes with improved styling */}
-                  <div className="space-y-4">
-                    <label className="flex cursor-pointer items-center space-x-3 rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/10">
-                      <input
-                        type="checkbox"
-                        checked={state.showCredits}
-                        onChange={(e) =>
-                          setState((prev) => ({ ...prev, showCredits: e.target.checked }))
-                        }
-                        className="h-5 w-5 rounded-lg border-white/20 bg-white/10 text-red-500 focus:ring-red-500 focus:ring-offset-slate-900"
-                      />
-                      <div>
-                        <span className="text-sm font-medium text-white">
-                          {t("settings.show_credits")}
-                        </span>
-                        <p className="text-xs text-slate-400">
-                          {t("settings.show_credits_description")}
-                        </p>
-                      </div>
-                    </label>
+                    {/* Effect Grid */}
+                    <div className="grid grid-cols-2 gap-3">
+                      {effectPresets.map((effect) => {
+                        const isSelected = state.effects.includes(effect.id)
+                        return (
+                          <button
+                            key={effect.id}
+                            onClick={() => {
+                              setState((prev) => {
+                                const currentEffects = prev.effects || []
+                                if (isSelected) {
+                                  return {
+                                    ...prev,
+                                    effects: currentEffects.filter((id) => id !== effect.id),
+                                  }
+                                } else {
+                                  return {
+                                    ...prev,
+                                    effects: [...currentEffects, effect.id],
+                                  }
+                                }
+                              })
+                            }}
+                            className={`group relative overflow-hidden rounded-xl border-2 p-3 transition-all hover:scale-105 ${
+                              isSelected
+                                ? "border-red-500 bg-red-500/20 shadow-lg shadow-red-500/20"
+                                : "border-white/20 bg-white/5 hover:border-white/40"
+                            }`}
+                            title={effect.description}
+                          >
+                            <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-slate-800">
+                              <img
+                                src={effect.image}
+                                alt={effect.name}
+                                className="h-full w-full object-cover opacity-80 transition-opacity group-hover:opacity-100"
+                                onError={(e) => {
+                                  // Fallback if image doesn't exist
+                                  const target = e.target as HTMLImageElement
+                                  target.style.display = "none"
+                                  const parent = target.parentElement
+                                  if (parent) {
+                                    parent.innerHTML = `<div class="flex h-full items-center justify-center text-xs text-slate-400">${effect.name}</div>`
+                                  }
+                                }}
+                              />
+                              {isSelected && (
+                                <div className="absolute inset-0 flex items-center justify-center bg-red-500/30">
+                                  <div className="rounded-full bg-red-500 p-1">
+                                    <Zap className="h-3 w-3 text-white" />
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                            <p className="mt-2 text-xs font-medium text-white">{effect.name}</p>
+                          </button>
+                        )
+                      })}
+                    </div>
 
-                    <label className="flex cursor-pointer items-center space-x-3 rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/10">
-                      <input
-                        type="checkbox"
-                        checked={state.showWatermark}
-                        onChange={(e) =>
-                          setState((prev) => ({ ...prev, showWatermark: e.target.checked }))
-                        }
-                        className="h-5 w-5 rounded-lg border-white/20 bg-white/10 text-red-500 focus:ring-red-500 focus:ring-offset-slate-900"
-                      />
-                      <div>
-                        <span className="text-sm font-medium text-white">
-                          {t("settings.show_watermark")}
-                        </span>
-                        <p className="text-xs text-slate-400">
-                          {t("settings.show_watermark_description")}
+                    {/* Selected Effects List */}
+                    {state.effects && state.effects.length > 0 && (
+                      <div className="mt-4">
+                        <p className="mb-2 text-xs font-medium text-slate-300">
+                          {t("settings.selected_effects")} ({state.effects.length})
                         </p>
+                        <div className="flex flex-wrap gap-2">
+                          {state.effects.map((effectId) => {
+                            const effect = effectPresets.find((e) => e.id === effectId)
+                            if (!effect) return null
+                            return (
+                              <div
+                                key={effectId}
+                                className="flex items-center gap-2 rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-1.5"
+                              >
+                                <span className="text-xs text-white">{effect.name}</span>
+                                <button
+                                  onClick={() => {
+                                    setState((prev) => ({
+                                      ...prev,
+                                      effects: prev.effects.filter((id) => id !== effectId),
+                                    }))
+                                  }}
+                                  className="text-red-400 transition-colors hover:text-red-300"
+                                >
+                                  <X className="h-3 w-3" />
+                                </button>
+                              </div>
+                            )
+                          })}
+                        </div>
                       </div>
-                    </label>
+                    )}
+                  </div>
+
+                  {/* Display Options Section */}
+                  <div className="border-t border-white/10 pt-6">
+                    <h3 className="mb-4 flex items-center text-sm font-medium text-slate-300">
+                      {t("settings.display_options")}
+                    </h3>
+
+                    {/* Checkboxes with improved styling */}
+                    <div className="space-y-4">
+                      <label className="flex cursor-pointer items-center space-x-3 rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/10">
+                        <input
+                          type="checkbox"
+                          checked={state.showCredits}
+                          onChange={(e) =>
+                            setState((prev) => ({ ...prev, showCredits: e.target.checked }))
+                          }
+                          className="h-5 w-5 rounded-lg border-white/20 bg-white/10 text-red-500 focus:ring-red-500 focus:ring-offset-slate-900"
+                        />
+                        <div>
+                          <span className="text-sm font-medium text-white">
+                            {t("settings.show_credits")}
+                          </span>
+                          <p className="text-xs text-slate-400">
+                            {t("settings.show_credits_description")}
+                          </p>
+                        </div>
+                      </label>
+
+                      <label className="flex cursor-pointer items-center space-x-3 rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/10">
+                        <input
+                          type="checkbox"
+                          checked={state.showWatermark}
+                          onChange={(e) =>
+                            setState((prev) => ({ ...prev, showWatermark: e.target.checked }))
+                          }
+                          className="h-5 w-5 rounded-lg border-white/20 bg-white/10 text-red-500 focus:ring-red-500 focus:ring-offset-slate-900"
+                        />
+                        <div>
+                          <span className="text-sm font-medium text-white">
+                            {t("settings.show_watermark")}
+                          </span>
+                          <p className="text-xs text-slate-400">
+                            {t("settings.show_watermark_description")}
+                          </p>
+                        </div>
+                      </label>
+                    </div>
                   </div>
                 </div>
               )}

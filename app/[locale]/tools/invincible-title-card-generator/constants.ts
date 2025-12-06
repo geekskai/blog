@@ -198,7 +198,100 @@ export const getDefaultState = (t: any) => ({
   generating: false,
   smallSubtitle: t("default_state.small_subtitle"),
   subtitle: t("default_state.subtitle"),
+  effects: [],
 })
+
+// Effect presets
+export const getEffectPresets = (t: any) => [
+  {
+    id: "blood-splatter-1",
+    name: t("effects.blood_splatter_1"),
+    image: "/static/images/invincible-title-card-generator/effects/blood-splatter-1.png",
+    description: t("effects.blood_splatter_1_description"),
+    category: "blood" as const,
+  },
+  {
+    id: "blood-splatter-2",
+    name: t("effects.blood_splatter_2"),
+    image: "/static/images/invincible-title-card-generator/effects/blood-splatter-2.png",
+    description: t("effects.blood_splatter_2_description"),
+    category: "blood" as const,
+  },
+  {
+    id: "scratch-1",
+    name: t("effects.scratch_1"),
+    image: "/static/images/invincible-title-card-generator/effects/scratch-1.png",
+    description: t("effects.scratch_1_description"),
+    category: "scratch" as const,
+  },
+  {
+    id: "scratch-2",
+    name: t("effects.scratch_2"),
+    image: "/static/images/invincible-title-card-generator/effects/scratch-2.png",
+    description: t("effects.scratch_2_description"),
+    category: "scratch" as const,
+  },
+  {
+    id: "mark-1",
+    name: t("effects.mark_1"),
+    image: "/static/images/invincible-title-card-generator/effects/mark-1.png",
+    description: t("effects.mark_1_description"),
+    category: "mark" as const,
+  },
+  {
+    id: "damage-1",
+    name: t("effects.damage_1"),
+    image: "/static/images/invincible-title-card-generator/effects/damage-1.png",
+    description: t("effects.damage_1_description"),
+    category: "damage" as const,
+  },
+]
+
+// Static effect presets for utils (fallback)
+export const effectPresets = [
+  {
+    id: "blood-splatter-1",
+    name: "Blood Splatter 1",
+    image: "/static/images/invincible-title-card-generator/effects/blood-splatter-1.png",
+    description: "Classic blood splatter effect",
+    category: "blood" as const,
+  },
+  {
+    id: "blood-splatter-2",
+    name: "Blood Splatter 2",
+    image: "/static/images/invincible-title-card-generator/effects/blood-splatter-2.png",
+    description: "Heavy blood splatter effect",
+    category: "blood" as const,
+  },
+  {
+    id: "scratch-1",
+    name: "Scratch 1",
+    image: "/static/images/invincible-title-card-generator/effects/scratch-1.png",
+    description: "Sharp scratch marks",
+    category: "scratch" as const,
+  },
+  {
+    id: "scratch-2",
+    name: "Scratch 2",
+    image: "/static/images/invincible-title-card-generator/effects/scratch-2.png",
+    description: "Deep scratch marks",
+    category: "scratch" as const,
+  },
+  {
+    id: "mark-1",
+    name: "Mark 1",
+    image: "/static/images/invincible-title-card-generator/effects/mark-1.png",
+    description: "Battle mark overlay",
+    category: "mark" as const,
+  },
+  {
+    id: "damage-1",
+    name: "Damage 1",
+    image: "/static/images/invincible-title-card-generator/effects/damage-1.png",
+    description: "Damage texture overlay",
+    category: "damage" as const,
+  },
+]
 
 // Static default state for utils (fallback)
 export const DEFAULT_STATE = {
@@ -214,4 +307,5 @@ export const DEFAULT_STATE = {
   generating: false,
   smallSubtitle: "BASED ON THE COMIC BOOK BY",
   subtitle: "Robert Kirkman, Cory Walker, & Ryan Ottley",
+  effects: [],
 }

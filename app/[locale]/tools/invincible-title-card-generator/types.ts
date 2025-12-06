@@ -11,6 +11,7 @@ export interface TitleCardState {
   outlineColor: string
   subtitleOffset: number
   generating: boolean
+  effects: string[] // Array of effect IDs (e.g., ["blood-splatter-1", "scratch-1"])
 }
 
 export interface CharacterPreset {
@@ -30,6 +31,14 @@ export interface BackgroundPreset {
 export interface TextColorPreset {
   name: string
   value: string
+}
+
+export interface EffectPreset {
+  id: string
+  name: string
+  image: string // Path to effect image
+  description: string
+  category: "blood" | "scratch" | "mark" | "damage" | "other"
 }
 
 export type TabType = "presets" | "colors" | "text" | "effects"

@@ -1,5 +1,5 @@
 import { TitleCardState } from "./types"
-import { characterPresets, backgroundPresets } from "./constants"
+import { characterPresets, backgroundPresets, effectPresets } from "./constants"
 
 // 绘制圆角矩形路径
 const drawRoundedRect = (
@@ -64,6 +64,17 @@ const parseGradientToCanvas = (
   return gradient
 }
 
+// Load image helper function
+const loadImage = (src: string): Promise<HTMLImageElement> => {
+  return new Promise((resolve, reject) => {
+    const img = new Image()
+    img.crossOrigin = "anonymous"
+    img.onload = () => resolve(img)
+    img.onerror = () => reject(new Error(`Failed to load image: ${src}`))
+    img.src = src
+  })
+}
+
 // Download title card function
 export const downloadTitleCard = async (
   canvasRef: React.RefObject<HTMLDivElement>,
@@ -86,6 +97,9 @@ export const downloadTitleCard = async (
     const ctx = finalCanvas.getContext("2d")
 
     if (ctx) {
+      // 保存上下文状态
+      ctx.save()
+
       // 创建圆角裁剪路径
       const borderRadius = 24 // 对应 rounded-xl 的圆角大小，按比例放大
       drawRoundedRect(ctx, 0, 0, outputWidth, outputHeight, borderRadius)
@@ -151,6 +165,46 @@ export const downloadTitleCard = async (
         ctx.textBaseline = "bottom"
         ctx.fillText("Made with geekskai.com", outputWidth - 40, outputHeight - 40)
       }
+
+      // 绘制视觉效果叠加层（如果启用）
+      if (state.effects && state.effects.length > 0) {
+        // 设置混合模式
+        ctx.globalCompositeOperation = "overlay"
+        ctx.globalAlpha = 0.8
+
+        // 加载并绘制每个效果图片
+        const effectPromises = state.effects.map((effectId) => {
+          const effect = effectPresets.find((e) => e.id === effectId)
+          if (!effect) return Promise.resolve(null)
+
+          return new Promise<HTMLImageElement | null>((resolve) => {
+            const img = new Image()
+            img.crossOrigin = "anonymous"
+            img.onload = () => resolve(img)
+            img.onerror = () => {
+              console.warn(`Failed to load effect image: ${effect.image}`)
+              resolve(null)
+            }
+            img.src = effect.image
+          })
+        })
+
+        const effectImages = await Promise.all(effectPromises)
+
+        // 绘制所有效果图片
+        effectImages.forEach((img) => {
+          if (img) {
+            ctx.drawImage(img, 0, 0, outputWidth, outputHeight)
+          }
+        })
+
+        // 恢复默认设置
+        ctx.globalCompositeOperation = "source-over"
+        ctx.globalAlpha = 1.0
+      }
+
+      // 恢复上下文状态
+      ctx.restore()
     }
 
     const link = document.createElement("a")

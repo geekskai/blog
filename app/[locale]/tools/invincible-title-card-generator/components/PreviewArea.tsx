@@ -2,6 +2,7 @@ import React from "react"
 import { Monitor, Maximize2, Minimize2, Download, Heart, Copy, RotateCcw, Star } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { TitleCardState } from "../types"
+import { effectPresets } from "../constants"
 
 interface PreviewAreaProps {
   canvasRef: React.RefObject<HTMLDivElement>
@@ -139,6 +140,30 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
               {state.showWatermark && (
                 <div className="absolute bottom-4 right-4 text-sm font-medium text-white/40">
                   {t("preview.watermark")}
+                </div>
+              )}
+
+              {/* Visual Effects Overlay */}
+              {state.effects && state.effects.length > 0 && (
+                <div className="pointer-events-none absolute inset-0">
+                  {state.effects.map((effectId) => {
+                    const effect = effectPresets.find((e) => e.id === effectId)
+                    if (!effect) return null
+                    return (
+                      <img
+                        key={effectId}
+                        src={effect.image}
+                        alt={effect.name}
+                        className="absolute inset-0 h-full w-full object-cover opacity-80 mix-blend-overlay"
+                        style={{ zIndex: 10 }}
+                        onError={(e) => {
+                          // Hide broken images
+                          const target = e.target as HTMLImageElement
+                          target.style.display = "none"
+                        }}
+                      />
+                    )
+                  })}
                 </div>
               )}
             </div>
