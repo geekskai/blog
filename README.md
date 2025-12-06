@@ -4,6 +4,8 @@
 
 [![Blog Template Preview](/public/static/images/geekskai-blog.png)](https://geekskai.com/)
 
+[![Google Search Console](/public/static/images/blog-2025-12-06.png)](https://geekskai.com/)
+
 [![GitHub stars](https://img.shields.io/github/stars/geekskai/blog.svg?style=social&label=Stars)](https://github.com/geekskai/blog)
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/geekskai/blog)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
