@@ -837,6 +837,11 @@
       "drop_image_here": "将图片拖放到此处",
       "click_or_drag_image": "点击或拖放图片",
       "image_formats": "支持 PNG, JPG, JPEG, GIF, WEBP",
+      "custom_background_color": "自定义背景颜色",
+      "background_color_picker": "背景颜色",
+      "custom_text_color": "自定义文本颜色",
+      "text_color_picker": "文本颜色",
+      "custom_color_hint": "为背景选择自定义纯色",
       "background_style": "背景样式",
       "text_color": "文本颜色",
 

@@ -806,6 +806,11 @@
       "drop_image_here": "Drop Image Here",
       "click_or_drag_image": "Click or Drag Image",
       "image_formats": "PNG, JPG, JPEG, GIF, WEBP supported",
+      "custom_background_color": "Custom Background Color",
+      "background_color_picker": "Background Color",
+      "custom_text_color": "Custom Text Color",
+      "text_color_picker": "Text Color",
+      "custom_color_hint": "Select a custom solid color for the background",
       "background_style": "Background Style",
       "text_color": "Text Color",
 

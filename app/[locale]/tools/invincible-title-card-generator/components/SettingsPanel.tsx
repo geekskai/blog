@@ -9,6 +9,7 @@ import {
   getEffectPresets,
 } from "../constants"
 import { ImageUpload } from "./ImageUpload"
+import { ColorInput } from "./ColorInput"
 
 interface SettingsPanelProps {
   state: TitleCardState
@@ -286,6 +287,32 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                     />
                   </div>
 
+                  {/* Custom Background Color */}
+                  <div>
+                    <h3 className="mb-4 flex items-center text-sm font-medium text-slate-300">
+                      <Palette className="mr-2 h-4 w-4" />
+                      {t("settings.custom_background_color")}
+                    </h3>
+                    <ColorInput
+                      value={
+                        state.backgroundImage
+                          ? "#169ee7"
+                          : state.background.startsWith("#") && state.background.length === 7
+                            ? state.background
+                            : "#169ee7"
+                      }
+                      onChange={(color) =>
+                        setState((prev) => ({
+                          ...prev,
+                          background: color,
+                          backgroundImage: null,
+                        }))
+                      }
+                      label={t("settings.background_color_picker")}
+                    />
+                    <p className="mt-2 text-xs text-slate-400">{t("settings.custom_color_hint")}</p>
+                  </div>
+
                   {/* Background Colors */}
                   <div>
                     <h3 className="mb-4 flex items-center text-sm font-medium text-slate-300">
@@ -321,6 +348,18 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                         </button>
                       ))}
                     </div>
+                  </div>
+
+                  {/* Custom Text Color */}
+                  <div>
+                    <h3 className="mb-4 text-sm font-medium text-slate-300">
+                      {t("settings.custom_text_color")}
+                    </h3>
+                    <ColorInput
+                      value={state.color}
+                      onChange={(color) => setState((prev) => ({ ...prev, color }))}
+                      label={t("settings.text_color_picker")}
+                    />
                   </div>
 
                   {/* Text Colors */}
