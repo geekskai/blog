@@ -6,6 +6,7 @@ export interface TitleCardState {
   showWatermark: boolean
   color: string
   background: string
+  backgroundImage: string | null // Data URL or null for uploaded image
   fontSize: number
   outline: number
   outlineColor: string

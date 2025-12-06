@@ -831,6 +831,12 @@
       "text_outline": "文本轮廓",
       "subtitle_offset": "副标题偏移",
 
+      "upload_background": "上传自定义背景",
+      "remove_image": "移除图片",
+      "uploaded_image": "已上传图片",
+      "drop_image_here": "将图片拖放到此处",
+      "click_or_drag_image": "点击或拖放图片",
+      "image_formats": "支持 PNG, JPG, JPEG, GIF, WEBP",
       "background_style": "背景样式",
       "text_color": "文本颜色",
 
@@ -894,6 +900,21 @@
       "steel_gray": "钢灰",
       "atom_pink": "原子粉",
       "alien_cyan": "外星青"
+    },
+
+    "effects": {
+      "blood_splatter_1": "血溅效果 1",
+      "blood_splatter_1_description": "经典血溅效果",
+      "blood_splatter_2": "血溅效果 2",
+      "blood_splatter_2_description": "重型血溅效果",
+      "scratch_1": "划痕效果 1",
+      "scratch_1_description": "尖锐划痕",
+      "scratch_2": "划痕效果 2",
+      "scratch_2_description": "深度划痕",
+      "mark_1": "标记效果",
+      "mark_1_description": "战斗标记叠加",
+      "damage_1": "损伤效果",
+      "damage_1_description": "损伤纹理叠加"
     },
 
     "content": {

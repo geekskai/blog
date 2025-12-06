@@ -812,6 +812,12 @@
       "font_size": "Skriftstørrelse",
       "text_outline": "Tekstkontur",
       "subtitle_offset": "Undertitel Forskydning",
+      "upload_background": "Upload Brugerdefineret Baggrund",
+      "remove_image": "Fjern Billede",
+      "uploaded_image": "Uploadet Billede",
+      "drop_image_here": "Slip Billede Her",
+      "click_or_drag_image": "Klik eller Træk Billede",
+      "image_formats": "PNG, JPG, JPEG, GIF, WEBP understøttet",
       "background_style": "Baggrundsstil",
       "text_color": "Tekstfarve",
       "display_options": "Visningsindstillinger",
@@ -872,6 +878,22 @@
       "atom_pink": "Atom Pink",
       "alien_cyan": "Alien Cyan"
     },
+
+    "effects": {
+      "blood_splatter_1": "Blodsprøjt 1",
+      "blood_splatter_1_description": "Klassisk blodsprøjt effekt",
+      "blood_splatter_2": "Blodsprøjt 2",
+      "blood_splatter_2_description": "Tung blodsprøjt effekt",
+      "scratch_1": "Rids 1",
+      "scratch_1_description": "Skarp ridse mærker",
+      "scratch_2": "Rids 2",
+      "scratch_2_description": "Dybe ridse mærker",
+      "mark_1": "Mærke 1",
+      "mark_1_description": "Kamp mærke overlay",
+      "damage_1": "Skade 1",
+      "damage_1_description": "Skade tekstur overlay"
+    },
+
     "content": {
       "professional_features": "Professionelle Funktioner",
       "features_description": "Alt hvad du har brug for til at skabe fantastiske titelkort med studiekvalitets resultater",

@@ -824,6 +824,12 @@
       "font_size": "글꼴 크기",
       "text_outline": "텍스트 윤곽선",
       "subtitle_offset": "부제목 오프셋",
+      "upload_background": "사용자 정의 배경 업로드",
+      "remove_image": "이미지 제거",
+      "uploaded_image": "업로드된 이미지",
+      "drop_image_here": "여기에 이미지를 드롭하세요",
+      "click_or_drag_image": "클릭하거나 이미지를 드래그하세요",
+      "image_formats": "PNG, JPG, JPEG, GIF, WEBP 지원",
       "background_style": "배경 스타일",
       "text_color": "텍스트 색상",
       "display_options": "표시 옵션",
@@ -884,6 +890,22 @@
       "atom_pink": "아톰 핑크",
       "alien_cyan": "에일리언 시안"
     },
+
+    "effects": {
+      "blood_splatter_1": "혈흔 효과 1",
+      "blood_splatter_1_description": "클래식 혈흔 효과",
+      "blood_splatter_2": "혈흔 효과 2",
+      "blood_splatter_2_description": "강력한 혈흔 효과",
+      "scratch_1": "긁힘 효과 1",
+      "scratch_1_description": "날카로운 긁힘 자국",
+      "scratch_2": "긁힘 효과 2",
+      "scratch_2_description": "깊은 긁힘 자국",
+      "mark_1": "표시 효과",
+      "mark_1_description": "전투 표시 오버레이",
+      "damage_1": "손상 효과",
+      "damage_1_description": "손상 텍스처 오버레이"
+    },
+
     "content": {
       "professional_features": "전문 기능",
       "features_description": "스튜디오 품질의 결과로 멋진 타이틀 카드를 만드는 데 필요한 모든 것",

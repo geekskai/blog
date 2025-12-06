@@ -800,6 +800,12 @@
       "text_outline": "Text Outline",
       "subtitle_offset": "Subtitle Offset",
 
+      "upload_background": "Upload Custom Background",
+      "remove_image": "Remove Image",
+      "uploaded_image": "Uploaded Image",
+      "drop_image_here": "Drop Image Here",
+      "click_or_drag_image": "Click or Drag Image",
+      "image_formats": "PNG, JPG, JPEG, GIF, WEBP supported",
       "background_style": "Background Style",
       "text_color": "Text Color",
 
@@ -863,6 +869,21 @@
       "steel_gray": "Steel Gray",
       "atom_pink": "Atom Pink",
       "alien_cyan": "Alien Cyan"
+    },
+
+    "effects": {
+      "blood_splatter_1": "Blood Splatter 1",
+      "blood_splatter_1_description": "Classic blood splatter effect",
+      "blood_splatter_2": "Blood Splatter 2",
+      "blood_splatter_2_description": "Heavy blood splatter effect",
+      "scratch_1": "Scratch 1",
+      "scratch_1_description": "Sharp scratch marks",
+      "scratch_2": "Scratch 2",
+      "scratch_2_description": "Deep scratch marks",
+      "mark_1": "Mark 1",
+      "mark_1_description": "Battle mark overlay",
+      "damage_1": "Damage 1",
+      "damage_1_description": "Damage texture overlay"
     },
 
     "content": {

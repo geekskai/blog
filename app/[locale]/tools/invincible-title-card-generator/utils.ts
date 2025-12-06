@@ -106,15 +106,33 @@ export const downloadTitleCard = async (
       ctx.clip()
 
       // 绘制背景
-      if (state.background.includes("gradient")) {
+      if (state.backgroundImage) {
+        // 使用上传的图片作为背景
+        try {
+          const bgImage = await loadImage(state.backgroundImage)
+          ctx.drawImage(bgImage, 0, 0, outputWidth, outputHeight)
+        } catch (error) {
+          console.error("Failed to load background image:", error)
+          // Fallback to default background if image fails to load
+          const gradient = parseGradientToCanvas(
+            ctx,
+            "linear-gradient(135deg, #169ee7, #1e40af)",
+            outputWidth,
+            outputHeight
+          )
+          ctx.fillStyle = gradient
+          ctx.fillRect(0, 0, outputWidth, outputHeight)
+        }
+      } else if (state.background.includes("gradient")) {
         // 使用渐变解析函数
         const gradient = parseGradientToCanvas(ctx, state.background, outputWidth, outputHeight)
         ctx.fillStyle = gradient
+        ctx.fillRect(0, 0, outputWidth, outputHeight)
       } else {
         // 纯色背景
         ctx.fillStyle = state.background
+        ctx.fillRect(0, 0, outputWidth, outputHeight)
       }
-      ctx.fillRect(0, 0, outputWidth, outputHeight)
 
       // 直接在Canvas上绘制文字，确保文字一定显示
       // 设置文字样式

@@ -897,6 +897,12 @@
       "font_size": "Skriftstørrelse",
       "text_outline": "Tekstkontur",
       "subtitle_offset": "Undertittel Forskyvning",
+      "upload_background": "Last Opp Tilpasset Bakgrunn",
+      "remove_image": "Fjern Bilde",
+      "uploaded_image": "Opplastet Bilde",
+      "drop_image_here": "Slipp Bilde Her",
+      "click_or_drag_image": "Klikk eller Dra Bilde",
+      "image_formats": "PNG, JPG, JPEG, GIF, WEBP støttet",
       "background_style": "Bakgrunnsstil",
       "text_color": "Tekstfarge",
       "display_options": "Visningsalternativer",
@@ -957,6 +963,22 @@
       "atom_pink": "Atom Rosa",
       "alien_cyan": "Alien Cyan"
     },
+
+    "effects": {
+      "blood_splatter_1": "Blodsprut 1",
+      "blood_splatter_1_description": "Klassisk blodsprut effekt",
+      "blood_splatter_2": "Blodsprut 2",
+      "blood_splatter_2_description": "Tung blodsprut effekt",
+      "scratch_1": "Ripe 1",
+      "scratch_1_description": "Skarp ripe merker",
+      "scratch_2": "Ripe 2",
+      "scratch_2_description": "Dype ripe merker",
+      "mark_1": "Merk 1",
+      "mark_1_description": "Kamp merke overlay",
+      "damage_1": "Skade 1",
+      "damage_1_description": "Skade tekstur overlay"
+    },
+
     "content": {
       "professional_features": "Profesjonelle Funksjoner",
       "features_description": "Alt du trenger for å lage fantastiske titelkort med studiokvalitets resultater",

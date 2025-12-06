@@ -1,5 +1,5 @@
 import React from "react"
-import { Settings, Eye, EyeOff, Star, Type, Sliders, Palette, Zap, X } from "lucide-react"
+import { Settings, Eye, EyeOff, Star, Type, Sliders, Palette, Zap, X, Upload } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { TitleCardState, TabType, CharacterPreset } from "../types"
 import {
@@ -8,6 +8,7 @@ import {
   getTextColorPresets,
   getEffectPresets,
 } from "../constants"
+import { ImageUpload } from "./ImageUpload"
 
 interface SettingsPanelProps {
   state: TitleCardState
@@ -257,6 +258,34 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
               {/* Colors Tab */}
               {activeTab === "colors" && (
                 <div className="space-y-6">
+                  {/* Upload Custom Background Image */}
+                  <div>
+                    <h3 className="mb-4 flex items-center text-sm font-medium text-slate-300">
+                      <Upload className="mr-2 h-4 w-4" />
+                      {t("settings.upload_background")}
+                    </h3>
+                    <ImageUpload
+                      value={state.backgroundImage}
+                      onChange={(image) =>
+                        setState((prev) => ({
+                          ...prev,
+                          backgroundImage: image,
+                          // Clear background preset when uploading image
+                          background: image ? "" : prev.background,
+                        }))
+                      }
+                      onRemove={() =>
+                        setState((prev) => ({
+                          ...prev,
+                          backgroundImage: null,
+                          // Restore default background if no preset was selected
+                          background:
+                            prev.background || "linear-gradient(135deg, #169ee7, #1e40af)",
+                        }))
+                      }
+                    />
+                  </div>
+
                   {/* Background Colors */}
                   <div>
                     <h3 className="mb-4 flex items-center text-sm font-medium text-slate-300">
@@ -268,10 +297,15 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                         <button
                           key={preset.name}
                           onClick={() =>
-                            setState((prev) => ({ ...prev, background: preset.value }))
+                            setState((prev) => ({
+                              ...prev,
+                              background: preset.value,
+                              // Clear uploaded image when selecting preset
+                              backgroundImage: null,
+                            }))
                           }
                           className={`group relative overflow-hidden rounded-xl border-2 p-4 text-xs font-medium transition-all hover:scale-105 ${
-                            state.background === preset.value
+                            state.background === preset.value && !state.backgroundImage
                               ? "border-white shadow-xl"
                               : "border-white/20 hover:border-white/40"
                           }`}

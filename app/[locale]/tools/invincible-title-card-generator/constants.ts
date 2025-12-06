@@ -191,6 +191,7 @@ export const getDefaultState = (t: any) => ({
   showCredits: true,
   showWatermark: true,
   background: "linear-gradient(135deg, #169ee7, #1e40af)",
+  backgroundImage: null,
   fontSize: 28,
   outline: 2,
   subtitleOffset: 5,

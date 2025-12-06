@@ -72,7 +72,9 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
               ref={canvasRef}
               className="flex h-full w-full flex-col items-center justify-center px-8"
               style={{
-                background: state.background,
+                background: state.backgroundImage
+                  ? `url(${state.backgroundImage}) no-repeat center center / cover`
+                  : state.background,
                 aspectRatio: "16 / 9",
                 minHeight: "100%",
               }}
