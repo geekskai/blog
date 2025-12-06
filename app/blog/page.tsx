@@ -1,17 +1,9 @@
 import ListLayoutWithTags from "@/layouts/ListLayoutWithTags"
 import { allCoreContent, sortPosts } from "pliny/utils/contentlayer"
 import { allBlogs } from "contentlayer/generated"
-import { genPageMetadata } from "app/seo"
 
-// blog page size is 12
-const POSTS_PER_PAGE = 12
-
-export const metadata = genPageMetadata({
-  title: "Latest Insights on AI Tools, Productivity Hacks & Online Utilities | GeeksKai",
-  description:
-    "Explore expert-written guides and insights on AI tools, online utilities, and productivity tips. Stay updated with the latest articles from GeeksKai Blog.",
-  keywords: ["AI tools", "online utilities", "productivity tips", "GeeksKai Blog"],
-})
+// add cache to the page, revalidate at most every 24 hours
+export const revalidate = 86400 // 24 hours
 
 export default function BlogPage() {
   const posts = allCoreContent(sortPosts(allBlogs))
