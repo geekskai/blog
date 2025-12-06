@@ -479,7 +479,7 @@ export const toolsData: ToolData[] = [
     id: "heic-to-pdf",
     title: "HEIC to PDF Converter - Free Online Tool",
     description:
-      "Convert HEIC images to PDF or JPEG format instantly in your browser. 100% free, no uploads required, privacy-first, batch processing supported. Works on iPhone, iPad, Mac, Windows, Android, and all modern browsers. No software installation needed.",
+      "Convert HEIC images to PDF or JPEG format instantly in your browser. 100% free, no uploads required, privacy-first, batch processing supported.",
     icon: FileText,
     href: "/tools/heic-to-pdf/",
     features: [
