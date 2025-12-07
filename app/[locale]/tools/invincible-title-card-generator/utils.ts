@@ -1,165 +1,6 @@
 import { TitleCardState } from "./types"
-import { characterPresets, backgroundPresets, effectPresets } from "./constants"
+import { characterPresets, backgroundPresets } from "./constants"
 import html2canvas from "html2canvas"
-
-// 绘制圆角矩形路径
-const drawRoundedRect = (
-  ctx: CanvasRenderingContext2D,
-  x: number,
-  y: number,
-  width: number,
-  height: number,
-  radius: number
-) => {
-  ctx.beginPath()
-  ctx.moveTo(x + radius, y)
-  ctx.lineTo(x + width - radius, y)
-  ctx.quadraticCurveTo(x + width, y, x + width, y + radius)
-  ctx.lineTo(x + width, y + height - radius)
-  ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height)
-  ctx.lineTo(x + radius, y + height)
-  ctx.quadraticCurveTo(x, y + height, x, y + height - radius)
-  ctx.lineTo(x, y + radius)
-  ctx.quadraticCurveTo(x, y, x + radius, y)
-  ctx.closePath()
-}
-
-// 解析CSS渐变并创建Canvas渐变
-const parseGradientToCanvas = (
-  ctx: CanvasRenderingContext2D,
-  gradientString: string,
-  width: number,
-  height: number
-) => {
-  // 创建线性渐变
-  const gradient = ctx.createLinearGradient(0, 0, width, height)
-
-  // 根据预设的渐变进行匹配
-  if (gradientString.includes("#169ee7") && gradientString.includes("#1e40af")) {
-    gradient.addColorStop(0, "#169ee7")
-    gradient.addColorStop(1, "#1e40af")
-  } else if (gradientString.includes("#dc2626") && gradientString.includes("#991b1b")) {
-    gradient.addColorStop(0, "#dc2626")
-    gradient.addColorStop(1, "#991b1b")
-  } else if (gradientString.includes("#eb607a") && gradientString.includes("#be185d")) {
-    gradient.addColorStop(0, "#eb607a")
-    gradient.addColorStop(1, "#be185d")
-  } else if (gradientString.includes("#1f2937") && gradientString.includes("#000000")) {
-    gradient.addColorStop(0, "#1f2937")
-    gradient.addColorStop(1, "#000000")
-  } else if (gradientString.includes("#7c3aed") && gradientString.includes("#3730a3")) {
-    gradient.addColorStop(0, "#7c3aed")
-    gradient.addColorStop(1, "#3730a3")
-  } else if (gradientString.includes("#ea580c") && gradientString.includes("#dc2626")) {
-    gradient.addColorStop(0, "#ea580c")
-    gradient.addColorStop(1, "#dc2626")
-  } else if (gradientString.includes("#059669") && gradientString.includes("#047857")) {
-    gradient.addColorStop(0, "#059669")
-    gradient.addColorStop(1, "#047857")
-  } else {
-    // 默认蓝色渐变
-    gradient.addColorStop(0, "#169ee7")
-    gradient.addColorStop(1, "#1e40af")
-  }
-
-  return gradient
-}
-
-// Load image helper function
-const loadImage = (src: string): Promise<HTMLImageElement> => {
-  return new Promise((resolve, reject) => {
-    const img = new Image()
-    img.crossOrigin = "anonymous"
-    img.onload = () => resolve(img)
-    img.onerror = () => reject(new Error(`Failed to load image: ${src}`))
-    img.src = src
-  })
-}
-
-// Test function to verify download matches preview (for debugging)
-export const testDownloadMatch = async (
-  canvasRef: React.RefObject<HTMLDivElement>,
-  state: TitleCardState
-): Promise<{
-  success: boolean
-  previewDimensions: { width: number; height: number }
-  canvasDimensions: { width: number; height: number }
-  hasContent: boolean
-  matches: boolean
-}> => {
-  if (!canvasRef.current) {
-    return {
-      success: false,
-      previewDimensions: { width: 0, height: 0 },
-      canvasDimensions: { width: 0, height: 0 },
-      hasContent: false,
-      matches: false,
-    }
-  }
-
-  const element = canvasRef.current
-  const previewWidth = element.clientWidth || element.scrollWidth
-  const previewHeight = element.clientHeight || element.scrollHeight
-
-  try {
-    const canvas = await html2canvas(element, {
-      allowTaint: true,
-      useCORS: true,
-      backgroundColor: window.getComputedStyle(element).backgroundColor || "#000000",
-      height: previewHeight,
-      width: previewWidth,
-      scale: 1,
-      logging: false,
-    })
-
-    const ctx = canvas.getContext("2d")
-    let hasContent = false
-    if (ctx) {
-      const imageData = ctx.getImageData(
-        0,
-        0,
-        Math.min(100, canvas.width),
-        Math.min(100, canvas.height)
-      )
-      const data = imageData.data
-      for (let i = 0; i < data.length; i += 4) {
-        const a = data[i + 3]
-        if (a > 0) {
-          hasContent = true
-          break
-        }
-      }
-    }
-
-    const matches =
-      Math.abs(canvas.width - previewWidth) < 10 &&
-      Math.abs(canvas.height - previewHeight) < 10 &&
-      hasContent
-
-    console.log("🧪 Test Download Match Results:")
-    console.log(`  Preview: ${previewWidth}x${previewHeight}`)
-    console.log(`  Canvas: ${canvas.width}x${canvas.height}`)
-    console.log(`  Has content: ${hasContent ? "✅" : "❌"}`)
-    console.log(`  Matches: ${matches ? "✅" : "❌"}`)
-
-    return {
-      success: true,
-      previewDimensions: { width: previewWidth, height: previewHeight },
-      canvasDimensions: { width: canvas.width, height: canvas.height },
-      hasContent,
-      matches,
-    }
-  } catch (error) {
-    console.error("Test failed:", error)
-    return {
-      success: false,
-      previewDimensions: { width: previewWidth, height: previewHeight },
-      canvasDimensions: { width: 0, height: 0 },
-      hasContent: false,
-      matches: false,
-    }
-  }
-}
 
 // Download title card function - Use html2canvas to capture DOM directly
 // This ensures the exported image matches the preview exactly, including all CSS transforms
@@ -183,14 +24,18 @@ export const downloadTitleCard = async (
       return
     }
 
-    // Get preview container dimensions
+    // Get preview container dimensions - use same logic as PreviewArea
     const previewRect = sourceElement.getBoundingClientRect()
-    const previewWidth = previewRect.width || 800
-    const previewHeight = previewRect.height || 450
+    // Match PreviewArea's displayDimensions calculation
+    const previewWidth = Math.max(previewRect.width || 800, 800)
+    const previewHeight = Math.max(previewRect.height || 450, 450)
 
     // Target dimensions for download (16:9 aspect ratio)
     const targetWidth = 1920
     const targetHeight = 1080
+
+    // Calculate scale ratio - this ensures proportional scaling
+    const scaleRatio = targetWidth / previewWidth
 
     // Create hidden clone container
     const cloneContainer = document.createElement("div")
@@ -226,9 +71,6 @@ export const downloadTitleCard = async (
     await new Promise((resolve) => setTimeout(resolve, 100))
     void clonedElement.offsetHeight
 
-    // Calculate scale ratio for proportional scaling
-    const scaleRatio = targetWidth / previewWidth
-
     // Update inner content container
     const contentContainer = clonedElement.querySelector('[class*="flex"]') as HTMLElement
     if (contentContainer) {
@@ -245,8 +87,10 @@ export const downloadTitleCard = async (
     // Update title element - match preview calculation exactly
     const titleElement = clonedElement.querySelector(".curved-text") as HTMLElement
     if (titleElement) {
-      // Preview: (displayDimensions.width / 200) * state.fontSize
-      // Download: (targetWidth / 200) * state.fontSize
+      // Preview uses: (displayDimensions.width / 200) * state.fontSize
+      // where displayDimensions.width = Math.max(canvasDimensions.width || 800, 800)
+      // Download uses: (targetWidth / 200) * state.fontSize
+      // This ensures the same calculation ratio: targetWidth / previewWidth = scaleRatio
       const fontSize = (targetWidth / 200) * state.fontSize
       titleElement.style.fontSize = `${fontSize}px`
       titleElement.style.color = state.color
