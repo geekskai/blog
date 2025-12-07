@@ -87,27 +87,22 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
         </div>
 
         <div className="p-6">
+          {/* Title Card Container - This is the actual canvasRef that gets exported */}
           <div
+            ref={canvasRef}
+            data-canvas-ref="title-card"
             className={`relative overflow-hidden rounded-xl shadow-2xl transition-all duration-300 ${
               isFullscreen ? "aspect-video w-full" : "aspect-video w-full"
             }`}
             style={{
               minHeight: isFullscreen ? "70vh" : "400px",
+              background: state.backgroundImage
+                ? `url(${state.backgroundImage}) no-repeat center center / cover`
+                : state.background,
             }}
           >
-            {/* Title Card Content - This is what gets exported */}
-            <div
-              ref={canvasRef}
-              data-canvas-ref="title-card"
-              className="relative flex flex-col items-center justify-center gap-[5%]"
-              style={{
-                width: "100%",
-                height: "100%",
-                background: state.backgroundImage
-                  ? `url(${state.backgroundImage}) no-repeat center center / cover`
-                  : state.background,
-              }}
-            >
+            {/* Title Card Content */}
+            <div className="relative flex h-full w-full flex-col items-center justify-center gap-[5%]">
               {/* Title Component with Curved Effect - Match original implementation */}
               {/* Font size calculation: Use consistent base width for both preview and download */}
               {/* This ensures the font scales proportionally with the container width */}

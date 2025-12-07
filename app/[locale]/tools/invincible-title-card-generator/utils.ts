@@ -177,37 +177,42 @@ export const downloadTitleCard = async (
   setState((prev) => ({ ...prev, generating: true }))
 
   try {
-    // Get the source element
     const sourceElement = canvasRef.current
     if (!sourceElement) {
       setState((prev) => ({ ...prev, generating: false }))
       return
     }
 
-    // Create a hidden clone container for capturing
-    // This prevents visual flickering in the preview
+    // Get preview container dimensions
+    const previewRect = sourceElement.getBoundingClientRect()
+    const previewWidth = previewRect.width || 800
+    const previewHeight = previewRect.height || 450
+
+    // Target dimensions for download (16:9 aspect ratio)
+    const targetWidth = 1920
+    const targetHeight = 1080
+
+    // Create hidden clone container
     const cloneContainer = document.createElement("div")
     cloneContainer.style.position = "fixed"
     cloneContainer.style.left = "-9999px"
     cloneContainer.style.top = "0"
-    cloneContainer.style.width = "1920px"
-    cloneContainer.style.height = "1080px"
+    cloneContainer.style.width = `${targetWidth}px`
+    cloneContainer.style.height = `${targetHeight}px`
     cloneContainer.style.overflow = "visible"
     cloneContainer.style.zIndex = "-1"
     document.body.appendChild(cloneContainer)
 
-    // Clone the element and set exact dimensions
+    // Clone the element
     const clonedElement = sourceElement.cloneNode(true) as HTMLElement
-    clonedElement.style.width = "1920px"
-    clonedElement.style.height = "1080px"
+    clonedElement.style.width = `${targetWidth}px`
+    clonedElement.style.height = `${targetHeight}px`
     clonedElement.style.position = "relative"
-    clonedElement.style.display = "flex"
-    clonedElement.style.flexDirection = "column"
-    clonedElement.style.alignItems = "center"
-    clonedElement.style.justifyContent = "center"
-    clonedElement.style.gap = "5%"
+    clonedElement.style.overflow = "hidden"
+    clonedElement.style.borderRadius = "12px"
+    clonedElement.style.minHeight = ""
 
-    // Ensure background is preserved
+    // Set background
     if (state.backgroundImage) {
       clonedElement.style.backgroundImage = `url(${state.backgroundImage})`
       clonedElement.style.backgroundSize = "cover"
@@ -218,20 +223,31 @@ export const downloadTitleCard = async (
     }
 
     cloneContainer.appendChild(clonedElement)
-
-    // Wait for clone to render
     await new Promise((resolve) => setTimeout(resolve, 100))
-    void clonedElement.offsetHeight // Force reflow
+    void clonedElement.offsetHeight
 
-    // Get actual dimensions
-    const actualWidth = 1920
-    const actualHeight = 1080
+    // Calculate scale ratio for proportional scaling
+    const scaleRatio = targetWidth / previewWidth
 
-    // Fix title element styles in the clone
+    // Update inner content container
+    const contentContainer = clonedElement.querySelector('[class*="flex"]') as HTMLElement
+    if (contentContainer) {
+      contentContainer.style.width = "100%"
+      contentContainer.style.height = "100%"
+      contentContainer.style.display = "flex"
+      contentContainer.style.flexDirection = "column"
+      contentContainer.style.alignItems = "center"
+      contentContainer.style.justifyContent = "center"
+      contentContainer.style.gap = "5%"
+      contentContainer.style.position = "relative"
+    }
+
+    // Update title element - match preview calculation exactly
     const titleElement = clonedElement.querySelector(".curved-text") as HTMLElement
     if (titleElement) {
-      // Calculate font size for 1920px width (same calculation as preview)
-      const fontSize = (1920 / 200) * state.fontSize
+      // Preview: (displayDimensions.width / 200) * state.fontSize
+      // Download: (targetWidth / 200) * state.fontSize
+      const fontSize = (targetWidth / 200) * state.fontSize
       titleElement.style.fontSize = `${fontSize}px`
       titleElement.style.color = state.color
       titleElement.style.transform = "perspective(400px) rotateX(10deg) scaleY(2)"
@@ -249,15 +265,11 @@ export const downloadTitleCard = async (
       titleElement.style.display = "block"
       titleElement.style.position = "relative"
       titleElement.style.marginTop = state.showCredits ? "5%" : "0"
+      titleElement.style.marginBottom = "0"
+      titleElement.style.padding = "0"
 
+      // Outline scales with container width (same ratio as font size)
       if (state.outline > 0) {
-        // Scale outline proportionally with font size
-        // Font size scales by: (1920 / 200) * state.fontSize
-        // Outline should scale by the same ratio: (1920 / 200) * state.outline
-        // But outline is typically smaller, so we use a more conservative scaling
-        // Assuming preview container is ~800px wide, scale outline accordingly
-        const previewWidth = 800 // Approximate preview width
-        const scaleRatio = 1920 / previewWidth
         const scaledOutline = state.outline * scaleRatio
         titleElement.style.webkitTextStroke = `${scaledOutline}px ${state.outlineColor}`
         titleElement.style.textShadow = "none"
@@ -268,46 +280,50 @@ export const downloadTitleCard = async (
       }
     }
 
-    // Fix subtitle elements in the clone
-    // Find all div elements that might be subtitles
+    // Update subtitle elements
     const allDivs = clonedElement.querySelectorAll("div")
     let creditsContainer: HTMLElement | null = null
 
-    // Find the credits container by checking if it contains subtitle text
-    allDivs.forEach((div) => {
+    for (const div of allDivs) {
       const text = div.textContent || ""
       if (
         (state.smallSubtitle && text.includes(state.smallSubtitle)) ||
         (state.subtitle && text.includes(state.subtitle))
       ) {
         creditsContainer = div as HTMLElement
+        break
       }
-    })
+    }
 
     if (creditsContainer && state.showCredits) {
-      creditsContainer.style.color = state.color
-      creditsContainer.style.marginTop = `${state.subtitleOffset * 1}%`
-      creditsContainer.style.filter = "drop-shadow(2px 2px 4px rgba(0,0,0,0.7))"
-      creditsContainer.style.textAlign = "center"
+      const creditsEl = creditsContainer as HTMLElement
+      creditsEl.style.color = state.color
+      creditsEl.style.marginTop = `${state.subtitleOffset * 1}%`
+      creditsEl.style.filter = "drop-shadow(2px 2px 4px rgba(0,0,0,0.7))"
+      creditsEl.style.textAlign = "center"
 
-      // Find and fix small subtitle (first child div)
-      const smallSubtitle = Array.from(creditsContainer.children).find(
+      // Small subtitle - Preview: (displayDimensions.width / 100) * 1.9
+      const smallSubtitle = Array.from(creditsEl.children).find(
         (child) => (child as HTMLElement).textContent === state.smallSubtitle
       ) as HTMLElement | undefined
       if (smallSubtitle && state.smallSubtitle) {
-        smallSubtitle.style.fontSize = `${(1920 / 100) * 1.9}px`
+        smallSubtitle.style.fontSize = `${(targetWidth / 100) * 1.9}px`
         smallSubtitle.style.fontWeight = "300"
         smallSubtitle.style.fontFamily = '"Inter", Arial, sans-serif'
+        smallSubtitle.style.margin = "0"
+        smallSubtitle.style.padding = "0"
       }
 
-      // Find and fix large subtitle (contains the main subtitle text)
-      const largeSubtitle = Array.from(creditsContainer.children).find(
+      // Large subtitle - Preview: (displayDimensions.width / 100) * 3
+      const largeSubtitle = Array.from(creditsEl.children).find(
         (child) => (child as HTMLElement).textContent === state.subtitle
       ) as HTMLElement | undefined
       if (largeSubtitle && state.subtitle) {
-        largeSubtitle.style.fontSize = `${(1920 / 100) * 3}px`
+        largeSubtitle.style.fontSize = `${(targetWidth / 100) * 3}px`
         largeSubtitle.style.fontWeight = "300"
         largeSubtitle.style.fontFamily = '"Inter", Arial, sans-serif'
+        largeSubtitle.style.margin = "0"
+        largeSubtitle.style.padding = "0"
       }
     }
 
@@ -327,20 +343,20 @@ export const downloadTitleCard = async (
       bgColor = match ? match[0] : "#000000"
     }
 
-    // Use html2canvas with higher scale for better quality
+    // Use html2canvas to capture the cloned element
     const canvas = await html2canvas(clonedElement, {
       allowTaint: true,
       useCORS: true,
       backgroundColor: bgColor,
-      height: actualHeight,
-      width: actualWidth,
-      scale: 2, // Higher scale for better quality
+      height: targetHeight,
+      width: targetWidth,
+      scale: 2,
       logging: false,
       foreignObjectRendering: false,
       imageTimeout: 15000,
       removeContainer: false,
-      windowWidth: actualWidth,
-      windowHeight: actualHeight,
+      windowWidth: targetWidth,
+      windowHeight: targetHeight,
       scrollX: 0,
       scrollY: 0,
       ignoreElements: () => false,
@@ -350,12 +366,10 @@ export const downloadTitleCard = async (
     // Clean up clone container
     document.body.removeChild(cloneContainer)
 
-    // Create final canvas with exact dimensions (1920x1080)
-    const outputWidth = 1920
-    const outputHeight = 1080
+    // Create final canvas with exact dimensions
     const finalCanvas = document.createElement("canvas")
-    finalCanvas.width = outputWidth
-    finalCanvas.height = outputHeight
+    finalCanvas.width = targetWidth
+    finalCanvas.height = targetHeight
     const ctx = finalCanvas.getContext("2d")
 
     if (!ctx) {
@@ -368,16 +382,15 @@ export const downloadTitleCard = async (
     // Use high-quality image scaling
     ctx.imageSmoothingEnabled = true
     ctx.imageSmoothingQuality = "high"
-    // Draw the captured canvas onto the final canvas
-    // Since we used scale: 2, the canvas is 3840x2160, so we need to scale it down
-    ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, outputWidth, outputHeight)
+    // Draw the captured canvas (scale:2 = 3840x2160) onto final canvas (1920x1080)
+    ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, targetWidth, targetHeight)
 
     // Verify canvas has content before downloading
     const imageData = ctx.getImageData(
       0,
       0,
-      Math.min(100, outputWidth),
-      Math.min(100, outputHeight)
+      Math.min(100, targetWidth),
+      Math.min(100, targetHeight)
     )
     const data = imageData.data
     let hasContent = false
@@ -395,7 +408,7 @@ export const downloadTitleCard = async (
     if (!hasContent) {
       console.error("❌ Canvas appears to be empty!")
       console.log("Canvas dimensions:", canvas.width, "x", canvas.height)
-      console.log("Final canvas dimensions:", outputWidth, "x", outputHeight)
+      console.log("Final canvas dimensions:", targetWidth, "x", targetHeight)
       alert("Download failed: Canvas is empty. Please check console for details.")
       setState((prev) => ({ ...prev, generating: false }))
       return
