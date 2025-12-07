@@ -17,6 +17,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server"
 import { toolsData } from "@/data/toolsData"
 import Script from "next/script"
 
+export const revalidate = 86400 // 24 hours
+
 type Props = {
   children: React.ReactNode
   params: Promise<{ locale: string }>

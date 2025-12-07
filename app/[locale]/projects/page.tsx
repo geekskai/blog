@@ -3,8 +3,6 @@ import Card from "@/components/Card"
 import { genPageMetadata } from "app/seo"
 import { getTranslations } from "next-intl/server"
 
-export const revalidate = 86400 // 24 hours
-
 export const metadata = genPageMetadata({ title: "Projects" })
 
 export default async function Projects() {

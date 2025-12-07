@@ -7,7 +7,6 @@ import tagData from "app/tag-data.json"
 import { genPageMetadata } from "app/seo"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
-export const revalidate = 86400 // 24 hours
 export async function generateMetadata({ params }: { params: { tag: string } }): Promise<Metadata> {
   const tag = decodeURI(params.tag)
   return genPageMetadata({

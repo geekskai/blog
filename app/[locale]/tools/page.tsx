@@ -16,8 +16,6 @@ import {
 import { toolsData } from "@/data/toolsData"
 import { useTranslations } from "next-intl"
 
-export const revalidate = 86400 // 24 hours
-
 export default function ToolsPage() {
   // State management for search and filtering
   const t = useTranslations("ToolsPage")

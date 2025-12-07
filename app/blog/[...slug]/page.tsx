@@ -12,8 +12,6 @@ import siteMetadata from "@/data/siteMetadata"
 import { notFound } from "next/navigation"
 import { Suspense } from "react"
 
-export const revalidate = 86400 // 24 hours
-
 export async function generateMetadata({
   params,
 }: {
