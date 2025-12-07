@@ -19,4 +19,3 @@ export const TIP_PERCENTAGES = [15, 20, 25, 30] as const
 
 export const MAX_BILL_AMOUNT = 9999.99
 export const MIN_BILL_AMOUNT = 0
-
