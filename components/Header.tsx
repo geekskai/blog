@@ -123,9 +123,9 @@ const Header = () => {
                           </div>
                           <div className="min-w-0 flex-1">
                             <div className="mb-1 flex items-center justify-between">
-                              <h4 className="truncate text-sm font-medium text-white transition-colors duration-300 group-hover:text-blue-300">
+                              <p className="truncate text-sm font-medium text-white transition-colors duration-300 group-hover:text-blue-300">
                                 {tool.title}
-                              </h4>
+                              </p>
                               <span
                                 className={`ml-2 flex-shrink-0 rounded-full px-2 py-0.5 text-xs font-medium text-white ${tool.badgeColor}`}
                               >
