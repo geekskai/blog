@@ -71,103 +71,125 @@ export const downloadTitleCard = async (
     await new Promise((resolve) => setTimeout(resolve, 100))
     void clonedElement.offsetHeight
 
-    // Update inner content container
+    // Update inner content container - exact match with preview
     const contentContainer = clonedElement.querySelector('[class*="flex"]') as HTMLElement
-    if (contentContainer) {
-      contentContainer.style.width = "100%"
-      contentContainer.style.height = "100%"
-      contentContainer.style.display = "flex"
-      contentContainer.style.flexDirection = "column"
-      contentContainer.style.alignItems = "center"
-      contentContainer.style.justifyContent = "center"
-      contentContainer.style.gap = "5%"
-      contentContainer.style.position = "relative"
+    if (!contentContainer) {
+      console.error("❌ Content container not found")
+      setState((prev) => ({ ...prev, generating: false }))
+      return
     }
 
-    // Update title element - match preview calculation exactly
+    contentContainer.style.width = "100%"
+    contentContainer.style.height = "100%"
+    contentContainer.style.display = "flex"
+    contentContainer.style.flexDirection = "column"
+    contentContainer.style.alignItems = "center"
+    contentContainer.style.justifyContent = "center"
+    contentContainer.style.gap = "5%"
+    contentContainer.style.position = "relative"
+
+    // Update title element - exact match with preview
     const titleElement = clonedElement.querySelector(".curved-text") as HTMLElement
-    if (titleElement) {
-      // Preview uses: (displayDimensions.width / 200) * state.fontSize
-      // where displayDimensions.width = Math.max(canvasDimensions.width || 800, 800)
-      // Download uses: (targetWidth / 200) * state.fontSize
-      // This ensures the same calculation ratio: targetWidth / previewWidth = scaleRatio
-      const fontSize = (targetWidth / 200) * state.fontSize
-      titleElement.style.fontSize = `${fontSize}px`
-      titleElement.style.color = state.color
-      titleElement.style.transform = "perspective(400px) rotateX(10deg) scaleY(2)"
-      titleElement.style.transformOrigin = "center center"
-      titleElement.style.transformStyle = "preserve-3d"
-      titleElement.style.backfaceVisibility = "visible"
-      titleElement.style.fontFamily = '"Inter", "Arial Black", Arial, sans-serif'
-      titleElement.style.fontWeight = "900"
-      titleElement.style.letterSpacing = "2px"
-      titleElement.style.textTransform = "uppercase"
-      titleElement.style.lineHeight = "0.8"
-      titleElement.style.width = "100%"
-      titleElement.style.textAlign = "center"
-      titleElement.style.maxWidth = "100%"
-      titleElement.style.display = "block"
-      titleElement.style.position = "relative"
-      titleElement.style.marginTop = state.showCredits ? "5%" : "0"
-      titleElement.style.marginBottom = "0"
-      titleElement.style.padding = "0"
-
-      // Outline scales with container width (same ratio as font size)
-      if (state.outline > 0) {
-        const scaledOutline = state.outline * scaleRatio
-        titleElement.style.webkitTextStroke = `${scaledOutline}px ${state.outlineColor}`
-        titleElement.style.textShadow = "none"
-      } else {
-        titleElement.style.webkitTextStroke = "none"
-        titleElement.style.textShadow =
-          "0 0 10px rgba(255, 255, 255, 0.2), 2px 2px 4px rgba(0,0,0,0.5)"
-      }
+    if (!titleElement) {
+      console.error("❌ Title element not found")
+      setState((prev) => ({ ...prev, generating: false }))
+      return
     }
 
-    // Update subtitle elements
-    const allDivs = clonedElement.querySelectorAll("div")
+    const fontSize = (targetWidth / 200) * state.fontSize
+    titleElement.style.fontSize = `${fontSize}px`
+    titleElement.style.color = state.color
+    titleElement.style.transform = "perspective(400px) rotateX(10deg) scaleY(2)"
+    titleElement.style.transformOrigin = "center center"
+    titleElement.style.transformStyle = "preserve-3d"
+    titleElement.style.backfaceVisibility = "visible"
+    titleElement.style.fontFamily = '"Inter", "Arial Black", Arial, sans-serif'
+    titleElement.style.fontWeight = "900"
+    titleElement.style.letterSpacing = "2px"
+    titleElement.style.textTransform = "uppercase"
+    titleElement.style.lineHeight = "0.8"
+    titleElement.style.width = "100%"
+    titleElement.style.textAlign = "center"
+    titleElement.style.maxWidth = "100%"
+    titleElement.style.display = "block"
+    titleElement.style.position = "relative"
+    titleElement.style.marginTop = state.showCredits ? "5%" : "0"
+    titleElement.style.marginBottom = "0"
+    titleElement.style.padding = "0"
+    titleElement.style.zIndex = "0"
+
+    if (state.outline > 0) {
+      const scaledOutline = state.outline * scaleRatio
+      titleElement.style.webkitTextStroke = `${scaledOutline}px ${state.outlineColor}`
+      titleElement.style.textShadow = "none"
+    } else {
+      titleElement.style.webkitTextStroke = "none"
+      titleElement.style.textShadow =
+        "0 0 10px rgba(255, 255, 255, 0.2), 2px 2px 4px rgba(0,0,0,0.5)"
+    }
+
+    // Find subtitle container - more reliable: check all direct children of contentContainer
     let creditsContainer: HTMLElement | null = null
 
-    for (const div of allDivs) {
-      const text = div.textContent || ""
-      if (
-        (state.smallSubtitle && text.includes(state.smallSubtitle)) ||
-        (state.subtitle && text.includes(state.subtitle))
-      ) {
-        creditsContainer = div as HTMLElement
-        break
+    if (state.showCredits && (state.smallSubtitle || state.subtitle)) {
+      const children = Array.from(contentContainer.children) as HTMLElement[]
+
+      for (const child of children) {
+        if (child === titleElement || child.classList.contains("curved-text")) continue
+
+        const text = child.textContent?.trim() || ""
+        const hasSmallSubtitle = state.smallSubtitle && text.includes(state.smallSubtitle)
+        const hasSubtitle = state.subtitle && text.includes(state.subtitle)
+
+        if (hasSmallSubtitle || hasSubtitle) {
+          creditsContainer = child
+          break
+        }
       }
     }
 
+    // Apply subtitle styles - exact match with preview
     if (creditsContainer && state.showCredits) {
-      const creditsEl = creditsContainer as HTMLElement
-      creditsEl.style.color = state.color
-      creditsEl.style.marginTop = `${state.subtitleOffset * 1}%`
-      creditsEl.style.filter = "drop-shadow(2px 2px 4px rgba(0,0,0,0.7))"
-      creditsEl.style.textAlign = "center"
+      creditsContainer.style.color = state.color
+      creditsContainer.style.marginTop = `${state.subtitleOffset * 1}%`
+      creditsContainer.style.filter = "drop-shadow(2px 2px 4px rgba(0,0,0,0.7))"
+      creditsContainer.style.textAlign = "center"
+      creditsContainer.style.position = "relative"
+      creditsContainer.style.display = "block"
+      creditsContainer.style.zIndex = "10"
 
-      // Small subtitle - Preview: (displayDimensions.width / 100) * 1.9
-      const smallSubtitle = Array.from(creditsEl.children).find(
-        (child) => (child as HTMLElement).textContent === state.smallSubtitle
-      ) as HTMLElement | undefined
-      if (smallSubtitle && state.smallSubtitle) {
-        smallSubtitle.style.fontSize = `${(targetWidth / 100) * 1.9}px`
-        smallSubtitle.style.fontWeight = "300"
-        smallSubtitle.style.fontFamily = '"Inter", Arial, sans-serif'
-        smallSubtitle.style.margin = "0"
-        smallSubtitle.style.padding = "0"
+      // Update small subtitle
+      if (state.smallSubtitle) {
+        const smallSubtitle = Array.from(creditsContainer.children).find((child) => {
+          const text = (child as HTMLElement).textContent?.trim()
+          return text === state.smallSubtitle
+        }) as HTMLElement | undefined
+
+        if (smallSubtitle) {
+          smallSubtitle.style.fontSize = `${(targetWidth / 100) * 1.9}px`
+          smallSubtitle.style.fontWeight = "300"
+          smallSubtitle.style.fontFamily = '"Inter", Arial, sans-serif'
+          smallSubtitle.style.margin = "0"
+          smallSubtitle.style.padding = "0"
+          smallSubtitle.style.display = "block"
+        }
       }
 
-      // Large subtitle - Preview: (displayDimensions.width / 100) * 3
-      const largeSubtitle = Array.from(creditsEl.children).find(
-        (child) => (child as HTMLElement).textContent === state.subtitle
-      ) as HTMLElement | undefined
-      if (largeSubtitle && state.subtitle) {
-        largeSubtitle.style.fontSize = `${(targetWidth / 100) * 3}px`
-        largeSubtitle.style.fontWeight = "300"
-        largeSubtitle.style.fontFamily = '"Inter", Arial, sans-serif'
-        largeSubtitle.style.margin = "0"
-        largeSubtitle.style.padding = "0"
+      // Update large subtitle
+      if (state.subtitle) {
+        const largeSubtitle = Array.from(creditsContainer.children).find((child) => {
+          const text = (child as HTMLElement).textContent?.trim()
+          return text === state.subtitle
+        }) as HTMLElement | undefined
+
+        if (largeSubtitle) {
+          largeSubtitle.style.fontSize = `${(targetWidth / 100) * 3}px`
+          largeSubtitle.style.fontWeight = "300"
+          largeSubtitle.style.fontFamily = '"Inter", Arial, sans-serif'
+          largeSubtitle.style.margin = "0"
+          largeSubtitle.style.padding = "0"
+          largeSubtitle.style.display = "block"
+        }
       }
     }
 
@@ -188,6 +210,7 @@ export const downloadTitleCard = async (
     }
 
     // Use html2canvas to capture the cloned element
+    // onclone ensures styles are preserved in html2canvas's internal clone
     const canvas = await html2canvas(clonedElement, {
       allowTaint: true,
       useCORS: true,
@@ -205,6 +228,42 @@ export const downloadTitleCard = async (
       scrollY: 0,
       ignoreElements: () => false,
       proxy: undefined,
+      onclone: (clonedDoc) => {
+        // Ensure styles are preserved in html2canvas's clone
+        const cloned = clonedDoc.querySelector('[data-canvas-ref="title-card"]') as HTMLElement
+        if (cloned) {
+          cloned.style.width = `${targetWidth}px`
+          cloned.style.height = `${targetHeight}px`
+          cloned.style.borderRadius = "12px"
+
+          const clonedContent = cloned.querySelector('[class*="flex"]') as HTMLElement
+          if (clonedContent) {
+            clonedContent.style.display = "flex"
+            clonedContent.style.flexDirection = "column"
+            clonedContent.style.alignItems = "center"
+            clonedContent.style.justifyContent = "center"
+            clonedContent.style.gap = "5%"
+          }
+
+          const clonedTitle = cloned.querySelector(".curved-text") as HTMLElement
+          if (clonedTitle) {
+            clonedTitle.style.zIndex = "0"
+          }
+
+          const clonedCredits = Array.from(cloned.querySelectorAll("div")).find((div) => {
+            const text = (div as HTMLElement).textContent?.trim() || ""
+            return (
+              (state.smallSubtitle && text.includes(state.smallSubtitle)) ||
+              (state.subtitle && text.includes(state.subtitle))
+            )
+          }) as HTMLElement | undefined
+
+          if (clonedCredits && state.showCredits) {
+            clonedCredits.style.zIndex = "10"
+            clonedCredits.style.position = "relative"
+          }
+        }
+      },
     })
 
     // Clean up clone container
