@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Monitor, Maximize2, Minimize2, Download, Heart, Copy, RotateCcw, Star } from "lucide-react"
 import { useTranslations } from "next-intl"
-import Image from "next/image"
 import { TitleCardState } from "../types"
 import { effectPresets } from "../constants"
 
@@ -175,28 +174,29 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
               )}
 
               {/* Visual Effects Overlay */}
+              {/* Use CSS background instead of Image component for better html2canvas/dom-to-image compatibility */}
+              {/* Match reference implementation: https://github.com/shivankacker/invincible-title-card-generator/blob/main/src/components/preview.tsx */}
               {state.effects && state.effects.length > 0 && (
-                <div className="pointer-events-none absolute inset-0">
+                <>
                   {state.effects.map((effectId) => {
                     const effect = effectPresets.find((e) => e.id === effectId)
                     if (!effect) return null
+                    // Convert image path to CSS background format (like reference project)
+                    const backgroundValue = `url('${effect.image}') no-repeat center center / cover`
                     return (
-                      <Image
+                      <div
                         key={effectId}
-                        src={effect.image}
-                        alt={effect.name}
-                        fill
-                        className="absolute inset-0 h-full w-full object-cover opacity-80 mix-blend-overlay"
-                        style={{ zIndex: 10 }}
-                        onError={(e) => {
-                          // Hide broken images
-                          const target = e.target as HTMLImageElement
-                          target.style.display = "none"
+                        className="pointer-events-none absolute inset-0"
+                        style={{
+                          background: backgroundValue,
+                          opacity: 0.8,
+                          mixBlendMode: "overlay",
+                          zIndex: 10,
                         }}
                       />
                     )
                   })}
-                </div>
+                </>
               )}
             </div>
           </div>

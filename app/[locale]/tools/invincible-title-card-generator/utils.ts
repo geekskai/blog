@@ -5,82 +5,62 @@ import html2canvas from "html2canvas-pro"
 import domtoimage from "dom-to-image"
 
 /**
- * Wait for all effect images to load before downloading
+ * Preload effect images used in CSS backgrounds
  * This ensures html2canvas/dom-to-image can properly capture the effects
- * Handles both regular img tags and Next.js Image components
+ * CSS background images need to be preloaded for proper capture
+ * Match reference implementation approach
  */
-const waitForEffectImagesToLoad = async (
-  canvasElement: HTMLElement,
-  effectIds: string[]
-): Promise<void> => {
+const preloadEffectImages = async (effectIds: string[]): Promise<void> => {
   if (!effectIds || effectIds.length === 0) {
     return Promise.resolve()
   }
 
-  // Find all images in the canvas element (including Next.js Image components)
-  // Next.js Image components render as img tags, but may have different src attributes
-  const allImages = Array.from(canvasElement.querySelectorAll("img")) as HTMLImageElement[]
+  // Import effectPresets to get image paths
+  const { effectPresets } = await import("./constants")
 
-  // Filter to effect images - check if src contains 'effects' or if it's in the effects overlay container
-  const effectImages = allImages.filter((img) => {
-    const src = img.src || img.getAttribute("src") || ""
-    const parent = img.closest('[class*="absolute"][class*="inset-0"]')
-    // Check if image is in effects overlay or has effects in src
-    return (
-      src.includes("effects") || (parent && parent.querySelector('[class*="pointer-events-none"]'))
-    )
-  })
+  // Get all effect image paths
+  const effectImagePaths = effectIds
+    .map((id) => {
+      const effect = effectPresets.find((e) => e.id === id)
+      return effect?.image
+    })
+    .filter((path): path is string => !!path)
 
-  if (effectImages.length === 0) {
-    // If no images found, wait a bit for them to render
-    // Next.js Image components might need more time
-    await new Promise((resolve) => setTimeout(resolve, 500))
-    // Try again after waiting
-    const retryImages = Array.from(canvasElement.querySelectorAll("img")) as HTMLImageElement[]
-    if (retryImages.length > 0) {
-      return Promise.resolve()
-    }
-    return
+  if (effectImagePaths.length === 0) {
+    return Promise.resolve()
   }
 
-  // Wait for all images to load
-  const imageLoadPromises = effectImages.map((img) => {
-    // Check if image is already loaded
-    if (img.complete && img.naturalHeight !== 0) {
-      return Promise.resolve()
-    }
-
+  // Preload all effect images by creating Image objects
+  const imageLoadPromises = effectImagePaths.map((imagePath) => {
     return new Promise<void>((resolve) => {
+      // Check if image is already cached
+      const img = new Image()
+
       const timeout = setTimeout(() => {
-        console.warn(`Effect image load timeout: ${img.src || img.getAttribute("src")}`)
+        console.warn(`Effect image preload timeout: ${imagePath}`)
         resolve() // Resolve anyway to not block download
       }, 5000)
 
-      // Use both onload and addEventListener for better compatibility
-      const handleLoad = () => {
+      img.onload = () => {
         clearTimeout(timeout)
         resolve()
       }
 
-      const handleError = () => {
+      img.onerror = () => {
         clearTimeout(timeout)
-        console.warn(`Effect image load error: ${img.src || img.getAttribute("src")}`)
+        console.warn(`Effect image preload error: ${imagePath}`)
         resolve() // Resolve anyway to not block download
       }
 
-      if (img.complete) {
-        handleLoad()
-      } else {
-        img.addEventListener("load", handleLoad, { once: true })
-        img.addEventListener("error", handleError, { once: true })
-      }
+      // Start loading the image
+      img.src = imagePath
     })
   })
 
   await Promise.all(imageLoadPromises)
 
-  // Additional wait to ensure images are fully rendered in the DOM
-  await new Promise((resolve) => setTimeout(resolve, 100))
+  // Additional wait to ensure CSS backgrounds are applied
+  await new Promise((resolve) => setTimeout(resolve, 200))
 }
 
 // Download title card function - Match reference implementation
@@ -118,14 +98,12 @@ export const downloadTitleCard = async (
 
     const sourceElement = canvasRef.current!
 
-    // Wait for font size reset and ensure all images are loaded
+    // Wait for font size reset to take effect
     await new Promise((resolve) => setTimeout(resolve, 500))
 
-    // Wait for all effect images to load before capturing
+    // Preload all effect images before capturing (CSS backgrounds need preloading)
     if (state.effects && state.effects.length > 0) {
-      await waitForEffectImagesToLoad(sourceElement, state.effects)
-      // Additional wait to ensure images are rendered
-      await new Promise((resolve) => setTimeout(resolve, 200))
+      await preloadEffectImages(state.effects)
     }
 
     const height = sourceElement.clientHeight
