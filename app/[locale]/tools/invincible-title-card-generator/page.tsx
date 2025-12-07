@@ -16,6 +16,7 @@ import {
   addToFavorites,
 } from "./utils"
 import { TitleCardState } from "./types"
+import { useDeviceInfo } from "./utils/deviceInfo"
 import "./title-card.css"
 
 const InvincibleTitleCardGenerator = () => {
@@ -39,9 +40,14 @@ const InvincibleTitleCardGenerator = () => {
   } = useTitleCardState(defaultState)
 
   const canvasRef = useRef<HTMLDivElement>(null)
+  const deviceInfo = useDeviceInfo()
 
   // Handler functions
-  const handleDownload = () => downloadTitleCard(canvasRef, state, setState)
+  const handleDownload = () =>
+    downloadTitleCard(canvasRef, state, setState, {
+      os: deviceInfo.os,
+      browser: deviceInfo.browser,
+    })
   const handleCopySettings = () => copySettings(state, t)
   const handleRandomize = () => randomizeAll(setState)
   const handleReset = () => resetToDefault(setState, setFavorites, defaultState)

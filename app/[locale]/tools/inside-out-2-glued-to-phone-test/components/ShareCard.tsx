@@ -182,7 +182,7 @@ export const generateShareImage = async (result: TestResult): Promise<string> =>
           }
 
           // 使用html2canvas生成图片
-          const html2canvas = (await import("html2canvas")).default
+          const html2canvas = (await import("html2canvas-pro")).default
           const canvas = await html2canvas(cardElement, {
             scale: 2,
             backgroundColor: "#ffffff",
