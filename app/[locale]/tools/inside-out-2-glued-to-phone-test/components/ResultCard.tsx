@@ -79,7 +79,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onShare, onRetak
     setIsDownloading(true)
     try {
       // 动态导入html2canvas
-      const html2canvas = (await import("html2canvas")).default
+      const html2canvas = (await import("html2canvas-pro")).default
 
       // 优化canvas配置以提高图片质量
       const canvas = await html2canvas(resultRef.current, {

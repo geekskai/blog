@@ -1,164 +1,152 @@
 import { TitleCardState } from "./types"
 import { characterPresets, backgroundPresets } from "./constants"
+import html2canvas from "html2canvas-pro"
+// @ts-ignore - dom-to-image type definitions are incomplete
+import domtoimage from "dom-to-image"
 
-// 绘制圆角矩形路径
-const drawRoundedRect = (
-  ctx: CanvasRenderingContext2D,
-  x: number,
-  y: number,
-  width: number,
-  height: number,
-  radius: number
-) => {
-  ctx.beginPath()
-  ctx.moveTo(x + radius, y)
-  ctx.lineTo(x + width - radius, y)
-  ctx.quadraticCurveTo(x + width, y, x + width, y + radius)
-  ctx.lineTo(x + width, y + height - radius)
-  ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height)
-  ctx.lineTo(x + radius, y + height)
-  ctx.quadraticCurveTo(x, y + height, x, y + height - radius)
-  ctx.lineTo(x, y + radius)
-  ctx.quadraticCurveTo(x, y, x + radius, y)
-  ctx.closePath()
-}
-
-// 解析CSS渐变并创建Canvas渐变
-const parseGradientToCanvas = (
-  ctx: CanvasRenderingContext2D,
-  gradientString: string,
-  width: number,
-  height: number
-) => {
-  // 创建线性渐变
-  const gradient = ctx.createLinearGradient(0, 0, width, height)
-
-  // 根据预设的渐变进行匹配
-  if (gradientString.includes("#169ee7") && gradientString.includes("#1e40af")) {
-    gradient.addColorStop(0, "#169ee7")
-    gradient.addColorStop(1, "#1e40af")
-  } else if (gradientString.includes("#dc2626") && gradientString.includes("#991b1b")) {
-    gradient.addColorStop(0, "#dc2626")
-    gradient.addColorStop(1, "#991b1b")
-  } else if (gradientString.includes("#eb607a") && gradientString.includes("#be185d")) {
-    gradient.addColorStop(0, "#eb607a")
-    gradient.addColorStop(1, "#be185d")
-  } else if (gradientString.includes("#1f2937") && gradientString.includes("#000000")) {
-    gradient.addColorStop(0, "#1f2937")
-    gradient.addColorStop(1, "#000000")
-  } else if (gradientString.includes("#7c3aed") && gradientString.includes("#3730a3")) {
-    gradient.addColorStop(0, "#7c3aed")
-    gradient.addColorStop(1, "#3730a3")
-  } else if (gradientString.includes("#ea580c") && gradientString.includes("#dc2626")) {
-    gradient.addColorStop(0, "#ea580c")
-    gradient.addColorStop(1, "#dc2626")
-  } else if (gradientString.includes("#059669") && gradientString.includes("#047857")) {
-    gradient.addColorStop(0, "#059669")
-    gradient.addColorStop(1, "#047857")
-  } else {
-    // 默认蓝色渐变
-    gradient.addColorStop(0, "#169ee7")
-    gradient.addColorStop(1, "#1e40af")
+/**
+ * Preload effect images used in CSS backgrounds
+ * This ensures html2canvas/dom-to-image can properly capture the effects
+ * CSS background images need to be preloaded for proper capture
+ * Match reference implementation approach
+ */
+const preloadEffectImages = async (effectIds: string[]): Promise<void> => {
+  if (!effectIds || effectIds.length === 0) {
+    return Promise.resolve()
   }
 
-  return gradient
+  // Import effectPresets to get image paths
+  const { effectPresets } = await import("./constants")
+
+  // Get all effect image paths
+  const effectImagePaths = effectIds
+    .map((id) => {
+      const effect = effectPresets.find((e) => e.id === id)
+      return effect?.image
+    })
+    .filter((path): path is string => !!path)
+
+  if (effectImagePaths.length === 0) {
+    return Promise.resolve()
+  }
+
+  // Preload all effect images by creating Image objects
+  const imageLoadPromises = effectImagePaths.map((imagePath) => {
+    return new Promise<void>((resolve) => {
+      // Check if image is already cached
+      const img = new Image()
+
+      const timeout = setTimeout(() => {
+        console.warn(`Effect image preload timeout: ${imagePath}`)
+        resolve() // Resolve anyway to not block download
+      }, 5000)
+
+      img.onload = () => {
+        clearTimeout(timeout)
+        resolve()
+      }
+
+      img.onerror = () => {
+        clearTimeout(timeout)
+        console.warn(`Effect image preload error: ${imagePath}`)
+        resolve() // Resolve anyway to not block download
+      }
+
+      // Start loading the image
+      img.src = imagePath
+    })
+  })
+
+  await Promise.all(imageLoadPromises)
+
+  // Additional wait to ensure CSS backgrounds are applied
+  await new Promise((resolve) => setTimeout(resolve, 200))
 }
 
-// Download title card function
+// Download title card function - Match reference implementation
+// https://github.com/shivankacker/invincible-title-card-generator/blob/main/src/components/toolbar.tsx
+// Uses device detection to choose between html2canvas (iOS/Safari) and dom-to-image (others)
 export const downloadTitleCard = async (
   canvasRef: React.RefObject<HTMLDivElement>,
   state: TitleCardState,
-  setState: React.Dispatch<React.SetStateAction<TitleCardState>>
+  setState: React.Dispatch<React.SetStateAction<TitleCardState>>,
+  deviceInfo?: { os: string; browser: string }
 ) => {
-  if (!canvasRef.current) return
+  if (!canvasRef.current) {
+    setState((prev) => ({ ...prev, generating: false }))
+    return
+  }
 
   setState((prev) => ({ ...prev, generating: true }))
 
   try {
-    // 直接使用Canvas API绘制，确保文字正确显示
-    const outputWidth = 1920
-    const outputHeight = 1080
+    // Font size reset trick from reference implementation
+    const initFontSize = state.fontSize
+    setState((prev) => ({ ...prev, fontSize: 12 }))
+    setState((prev) => ({ ...prev, fontSize: initFontSize }))
 
-    // 创建最终的canvas，确保是1920x1080
-    const finalCanvas = document.createElement("canvas")
-    finalCanvas.width = outputWidth
-    finalCanvas.height = outputHeight
-    const ctx = finalCanvas.getContext("2d")
-
-    if (ctx) {
-      // 创建圆角裁剪路径
-      const borderRadius = 24 // 对应 rounded-xl 的圆角大小，按比例放大
-      drawRoundedRect(ctx, 0, 0, outputWidth, outputHeight, borderRadius)
-      ctx.clip()
-
-      // 绘制背景
-      if (state.background.includes("gradient")) {
-        // 使用渐变解析函数
-        const gradient = parseGradientToCanvas(ctx, state.background, outputWidth, outputHeight)
-        ctx.fillStyle = gradient
-      } else {
-        // 纯色背景
-        ctx.fillStyle = state.background
-      }
-      ctx.fillRect(0, 0, outputWidth, outputHeight)
-
-      // 直接在Canvas上绘制文字，确保文字一定显示
-      // 设置文字样式
-      const fontSize = Math.floor(state.fontSize * 4) // 放大字体以适应高分辨率
-      ctx.font = `900 ${fontSize}px "Inter", "Arial Black", Arial, sans-serif`
-      ctx.textAlign = "center"
-      ctx.textBaseline = "middle"
-
-      // 绘制文字轮廓（如果启用）
-      if (state.outline > 0) {
-        ctx.strokeStyle = state.outlineColor
-        ctx.lineWidth = state.outline * 4
-        ctx.lineJoin = "round"
-        ctx.miterLimit = 2
-        ctx.strokeText(state.text || "Enter Your Title", outputWidth / 2, outputHeight / 2)
-      }
-
-      // 绘制主文字
-      ctx.fillStyle = state.color
-      ctx.fillText(state.text || "Enter Your Title", outputWidth / 2, outputHeight / 2)
-
-      // 绘制副标题（如果启用）
-      if (state.showCredits && (state.smallSubtitle || state.subtitle)) {
-        const subtitleY =
-          outputHeight / 2 + fontSize / 2 + (state.subtitleOffset * outputHeight) / 100 + 60
-
-        if (state.smallSubtitle) {
-          const smallSubtitleSize = Math.floor(fontSize * 0.4)
-          ctx.font = `700 ${smallSubtitleSize}px "Inter", Arial, sans-serif`
-          ctx.fillStyle = state.color
-          ctx.fillText(state.smallSubtitle.toUpperCase(), outputWidth / 2, subtitleY)
-        }
-
-        if (state.subtitle) {
-          const subtitleSize = Math.floor(fontSize * 0.6)
-          const subtitleYPos = subtitleY + (state.smallSubtitle ? 50 : 0)
-          ctx.font = `600 ${subtitleSize}px "Inter", Arial, sans-serif`
-          ctx.fillStyle = state.color
-          ctx.fillText(state.subtitle, outputWidth / 2, subtitleYPos)
-        }
-      }
-
-      // 绘制水印（如果启用）
-      if (state.showWatermark) {
-        ctx.font = "400 24px Inter, Arial, sans-serif"
-        ctx.fillStyle = "rgba(255, 255, 255, 0.4)"
-        ctx.textAlign = "right"
-        ctx.textBaseline = "bottom"
-        ctx.fillText("Made with geekskai.com", outputWidth - 40, outputHeight - 40)
+    // Get device info if not provided
+    let device = deviceInfo
+    if (!device) {
+      // Fallback device detection
+      const userAgent = window.navigator.userAgent.toLowerCase()
+      device = {
+        os: /iphone|ipad|ipod/i.test(userAgent) ? "ios" : "unknown",
+        browser: /safari/i.test(userAgent) && !/chrome/i.test(userAgent) ? "safari" : "unknown",
       }
     }
 
+    const sourceElement = canvasRef.current!
+
+    // Wait for font size reset to take effect
+    await new Promise((resolve) => setTimeout(resolve, 500))
+
+    // Preload all effect images before capturing (CSS backgrounds need preloading)
+    if (state.effects && state.effects.length > 0) {
+      await preloadEffectImages(state.effects)
+    }
+
+    const height = sourceElement.clientHeight
+    const width = sourceElement.clientWidth
+
+    let dataURL: string
+
+    if (device?.os === "ios" || device?.browser === "safari") {
+      // Use html2canvas for iOS/Safari
+      const canvas = await html2canvas(sourceElement, {
+        allowTaint: true,
+        useCORS: true,
+        height: height,
+        width: width,
+        scale: 1,
+        logging: false,
+        // Ensure images are included
+        imageTimeout: 15000,
+        removeContainer: false,
+      })
+      dataURL = canvas.toDataURL("image/png")
+    } else {
+      // Use dom-to-image for other browsers
+      dataURL = await domtoimage.toPng(sourceElement, {
+        height: height,
+        width: width,
+        quality: 1.0,
+        // Ensure images are included
+        cacheBust: true,
+      })
+    }
+
+    // Download the image
     const link = document.createElement("a")
-    link.download = `${state.text.replace(/\s+/g, "-").toLowerCase()}-invincible-title-card.png`
-    link.href = finalCanvas.toDataURL("image/png", 1.0)
+    link.href = dataURL
+    link.download = `geekskai-title-card-${new Date().toISOString().slice(0, 16).replace(/[T:]/g, "-")}.png`
+    document.body.appendChild(link)
     link.click()
+    document.body.removeChild(link)
+
+    console.log("✅ Download completed successfully with effects")
   } catch (error) {
-    console.error("Download failed:", error)
+    console.error("❌ Download failed:", error)
     alert("Download failed. Please try again.")
   }
 

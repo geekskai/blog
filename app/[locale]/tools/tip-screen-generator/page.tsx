@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useRef, useCallback, useEffect } from "react"
+import React, { useState, useRef, useCallback, useEffect, useMemo } from "react"
 import {
   DollarSign,
   Settings,
@@ -19,6 +19,22 @@ import {
 } from "lucide-react"
 import ShareButtons from "@/components/ShareButtons"
 import { useTranslations } from "next-intl"
+import {
+  findTipScreenElement,
+  preloadTipScreenImages,
+  captureElementAsImage,
+  captureElementAsBlob,
+  downloadImage,
+} from "./utils"
+import {
+  DEFAULT_BILL_AMOUNT,
+  DEFAULT_SELECTED_TIP,
+  DEFAULT_THEME,
+  DEFAULT_DARK_PATTERNS,
+  TIP_PERCENTAGES,
+  MAX_BILL_AMOUNT,
+  MIN_BILL_AMOUNT,
+} from "./constants"
 
 // Define tip screen themes
 type TipTheme = "ipad-pos" | "uber-eats" | "dark-pattern"
@@ -57,38 +73,41 @@ interface TipScreenProps {
 const TipScreenGenerator = () => {
   const t = useTranslations("TipScreenGenerator")
 
-  const [billAmount, setBillAmount] = useState(25.75)
-  const [billAmountInput, setBillAmountInput] = useState("25.75")
-  const [selectedTip, setSelectedTip] = useState<number | null>(20)
+  const [billAmount, setBillAmount] = useState(DEFAULT_BILL_AMOUNT)
+  const [billAmountInput, setBillAmountInput] = useState(DEFAULT_BILL_AMOUNT.toString())
+  const [selectedTip, setSelectedTip] = useState<number | null>(DEFAULT_SELECTED_TIP)
   const [customTip, setCustomTip] = useState("")
-  const [theme, setTheme] = useState<TipTheme>("ipad-pos")
+  const [theme, setTheme] = useState<TipTheme>(DEFAULT_THEME)
   const [showSettings, setShowSettings] = useState(true)
   const [showCustomTipInput, setShowCustomTipInput] = useState(false)
 
   // Dark pattern toggles
-  const [darkPatterns, setDarkPatterns] = useState({
-    hideSkip: false,
-    defaultHighest: true,
-    guiltyText: false,
-    smallSkip: false,
-    watchingEyes: false,
-    tipFirst: true,
-  })
+  const [darkPatterns, setDarkPatterns] = useState({ ...DEFAULT_DARK_PATTERNS })
 
   const tipScreenRef = useRef<HTMLDivElement>(null)
 
-  // Calculate tip options based on bill amount
-  const tipOptions: TipOption[] = [
-    { percentage: 15, amount: billAmount * 0.15, label: t("tip_options.good") },
-    { percentage: 20, amount: billAmount * 0.2, label: t("tip_options.great") },
-    { percentage: 25, amount: billAmount * 0.25, label: t("tip_options.excellent") },
-    { percentage: 30, amount: billAmount * 0.3, label: t("tip_options.outstanding") },
-  ]
+  // Calculate tip options based on bill amount (memoized for performance)
+  const tipOptions: TipOption[] = useMemo(
+    () =>
+      TIP_PERCENTAGES.map((percentage) => ({
+        percentage,
+        amount: billAmount * (percentage / 100),
+        label:
+          percentage === 15
+            ? t("tip_options.good")
+            : percentage === 20
+              ? t("tip_options.great")
+              : percentage === 25
+                ? t("tip_options.excellent")
+                : t("tip_options.outstanding"),
+      })),
+    [billAmount, t]
+  )
 
   // Auto-select highest tip if dark pattern is enabled
   useEffect(() => {
     if (darkPatterns.defaultHighest) {
-      setSelectedTip(30)
+      setSelectedTip(TIP_PERCENTAGES[TIP_PERCENTAGES.length - 1]) // Highest percentage (30%)
     }
   }, [darkPatterns.defaultHighest])
 
@@ -102,113 +121,127 @@ const TipScreenGenerator = () => {
   }, [billAmount, selectedTip, customTip])
 
   // Screenshot functionality
+
+  /**
+   * Capture tip screen as image and download
+   * Finds the actual tip screen element (not the wrapper) for accurate capture
+   */
   const takeScreenshot = async () => {
     if (!tipScreenRef.current) {
       alert(t("alerts.screenshot_wait"))
       return
     }
 
+    // Find the actual tip screen element (not the wrapper)
+    const actualTipScreen = findTipScreenElement(tipScreenRef.current)
+    if (!actualTipScreen) {
+      alert(t("alerts.render_wait"))
+      return
+    }
+
     // Check if the tip screen is properly rendered
-    const hasContent = tipScreenRef.current.children.length > 0
+    const hasContent = actualTipScreen.children.length > 0
     if (!hasContent) {
       alert(t("alerts.render_wait"))
       return
     }
 
     try {
-      // Dynamic import to avoid SSR issues
-      const html2canvas = (await import("html2canvas")).default
+      // Wait for DOM to be fully rendered
+      await new Promise((resolve) => setTimeout(resolve, 300))
 
-      const canvas = await html2canvas(tipScreenRef.current, {
+      // Preload all images and CSS backgrounds
+      await preloadTipScreenImages(actualTipScreen)
+
+      // Capture element as image
+      const dataURL = await captureElementAsImage(actualTipScreen, {
         backgroundColor: "#ffffff",
         scale: 2,
-        logging: false,
-        useCORS: true,
-        allowTaint: true,
-        height: tipScreenRef.current.scrollHeight,
-        width: tipScreenRef.current.scrollWidth,
       })
 
       // Download the image
-      const link = document.createElement("a")
-      link.download = `fake-tip-screen-${theme}-${Date.now()}.png`
-      link.href = canvas.toDataURL("image/png", 1.0)
-      link.click()
+      const filename = `fake-tip-screen-${theme}-${Date.now()}.png`
+      downloadImage(dataURL, filename)
+
+      console.log("✅ Screenshot downloaded successfully")
     } catch (error) {
       console.error("Screenshot failed:", error)
       alert(t("alerts.screenshot_failed"))
     }
   }
 
-  // Copy to clipboard
+  /**
+   * Copy tip screen to clipboard
+   * Finds the actual tip screen element (not the wrapper) for accurate capture
+   */
   const copyToClipboard = async () => {
     if (!tipScreenRef.current) return
 
     try {
-      const html2canvas = (await import("html2canvas")).default
-      const canvas = await html2canvas(tipScreenRef.current, {
+      // Find the actual tip screen element (not the wrapper)
+      const actualTipScreen = findTipScreenElement(tipScreenRef.current)
+      if (!actualTipScreen) {
+        alert(t("alerts.render_wait"))
+        return
+      }
+
+      // Wait for DOM to be fully rendered
+      await new Promise((resolve) => setTimeout(resolve, 300))
+
+      // Preload all images and CSS backgrounds
+      await preloadTipScreenImages(actualTipScreen)
+
+      // Capture element as blob
+      const blob = await captureElementAsBlob(actualTipScreen, {
         backgroundColor: null,
         scale: 2,
-        logging: false,
       })
 
-      canvas.toBlob(async (blob) => {
-        if (blob) {
-          try {
-            await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })])
-            alert(t("alerts.screenshot_copied"))
-          } catch (err) {
-            console.error("Copy failed:", err)
-            alert(t("alerts.copy_failed"))
-          }
+      if (blob) {
+        try {
+          await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })])
+          alert(t("alerts.screenshot_copied"))
+        } catch (err) {
+          console.error("Copy failed:", err)
+          alert(t("alerts.copy_failed"))
         }
-      })
+      }
     } catch (error) {
       console.error(t("alerts.copy_failed_general"), error)
     }
   }
 
-  // Reset all settings
+  // Reset all settings to default values
   const resetSettings = () => {
-    setBillAmount(25.75)
-    setBillAmountInput("25.75")
-    setSelectedTip(20)
+    setBillAmount(DEFAULT_BILL_AMOUNT)
+    setBillAmountInput(DEFAULT_BILL_AMOUNT.toString())
+    setSelectedTip(DEFAULT_SELECTED_TIP)
     setCustomTip("")
-    setTheme("ipad-pos")
+    setTheme(DEFAULT_THEME)
     setShowCustomTipInput(false)
-    setDarkPatterns({
-      hideSkip: false,
-      defaultHighest: true,
-      guiltyText: false,
-      smallSkip: false,
-      watchingEyes: false,
-      tipFirst: true,
-    })
+    setDarkPatterns({ ...DEFAULT_DARK_PATTERNS })
   }
 
   // Handle custom tip selection
-  const handleCustomTipSelect = () => {
+  const handleCustomTipSelect = useCallback(() => {
     setSelectedTip(null)
     setShowCustomTipInput(true)
-  }
+  }, [])
 
   // Handle custom tip input change
-  const handleCustomTipChange = (value: string) => {
+  const handleCustomTipChange = useCallback((value: string) => {
     setCustomTip(value)
     setSelectedTip(null)
-  }
+  }, [])
 
-  // Handle continue button click
-  const handleContinue = () => {
+  /**
+   * Handle continue button click
+   * Shows an alert with tip calculation details
+   */
+  const handleContinue = useCallback(() => {
     const tipAmount = getCurrentTipAmount()
     const total = calculateTotal()
     const tipPercentage = selectedTip ? `${selectedTip}%` : "Custom"
-
-    const copyText = t("copy_text.tip_calculation", {
-      tipAmount: tipAmount.toFixed(2),
-      tipPercentage,
-      total: total.toFixed(2),
-    })
 
     alert(
       `🎭 This is a FAKE tip screen!\n\n` +
@@ -217,7 +250,7 @@ const TipScreenGenerator = () => {
         `Total: $${total.toFixed(2)}\n\n` +
         `This tool is for educational and satirical purposes only!`
     )
-  }
+  }, [billAmount, selectedTip, getCurrentTipAmount, calculateTotal])
 
   // Validate bill amount
   const handleBillAmountChange = (value: string) => {
@@ -236,18 +269,18 @@ const TipScreenGenerator = () => {
       return
     }
 
-    if (amount < 0) {
-      setBillAmount(0)
-    } else if (amount > 9999.99) {
-      setBillAmount(9999.99)
-      setBillAmountInput("9999.99")
+    if (amount < MIN_BILL_AMOUNT) {
+      setBillAmount(MIN_BILL_AMOUNT)
+    } else if (amount > MAX_BILL_AMOUNT) {
+      setBillAmount(MAX_BILL_AMOUNT)
+      setBillAmountInput(MAX_BILL_AMOUNT.toString())
     } else {
       setBillAmount(amount)
     }
   }
 
-  // Render different tip screen themes
-  const renderTipScreen = () => {
+  // Render different tip screen themes (memoized for performance)
+  const renderTipScreen = useMemo(() => {
     const commonProps: TipScreenProps = {
       billAmount,
       tipOptions,
@@ -276,7 +309,21 @@ const TipScreenGenerator = () => {
       default:
         return <IPadPOSScreen {...commonProps} />
     }
-  }
+  }, [
+    billAmount,
+    tipOptions,
+    selectedTip,
+    customTip,
+    calculateTotal,
+    getCurrentTipAmount,
+    darkPatterns,
+    showCustomTipInput,
+    handleCustomTipSelect,
+    handleCustomTipChange,
+    handleContinue,
+    theme,
+    t,
+  ])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
@@ -510,7 +557,7 @@ const TipScreenGenerator = () => {
                 <div className="flex justify-center">
                   <div ref={tipScreenRef} className="mx-auto w-full max-w-md">
                     <div className="transform-gpu transition-all duration-300 hover:scale-[1.02]">
-                      {renderTipScreen()}
+                      {renderTipScreen}
                     </div>
                   </div>
                 </div>

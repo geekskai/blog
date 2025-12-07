@@ -812,13 +812,27 @@
       "font_size": "Skriftstørrelse",
       "text_outline": "Tekstkontur",
       "subtitle_offset": "Undertitel Forskydning",
+      "upload_background": "Upload Brugerdefineret Baggrund",
+      "remove_image": "Fjern Billede",
+      "uploaded_image": "Uploadet Billede",
+      "drop_image_here": "Slip Billede Her",
+      "click_or_drag_image": "Klik eller Træk Billede",
+      "image_formats": "PNG, JPG, JPEG, GIF, WEBP understøttet",
+      "custom_background_color": "Brugerdefineret Baggrundsfarve",
+      "background_color_picker": "Baggrundsfarve",
+      "custom_text_color": "Brugerdefineret Tekstfarve",
+      "text_color_picker": "Tekstfarve",
+      "custom_color_hint": "Vælg en brugerdefineret solid farve til baggrunden",
       "background_style": "Baggrundsstil",
       "text_color": "Tekstfarve",
       "display_options": "Visningsindstillinger",
       "show_credits": "Vis Credits",
       "show_credits_description": "Vis undertitelinformation under titlen",
       "show_watermark": "Vis Vandmærke",
-      "show_watermark_description": "Tilføj attribution til det genererede billede"
+      "show_watermark_description": "Tilføj attribution til det genererede billede",
+      "visual_effects": "Visuelle Effekter",
+      "visual_effects_description": "Tilføj dramatiske effekter til din titelkort",
+      "selected_effects": "Valgte Effekter"
     },
     "presets": {
       "invincible": {
@@ -872,6 +886,28 @@
       "atom_pink": "Atom Pink",
       "alien_cyan": "Alien Cyan"
     },
+
+    "effects": {
+      "blood_level_1": "Blodniveau 1",
+      "blood_level_1_description": "Lette blodmærker",
+      "blood_level_2": "Blodniveau 2",
+      "blood_level_2_description": "Moderate blodmærker",
+      "blood_level_3": "Blodniveau 3",
+      "blood_level_3_description": "Tunge blodmærker",
+      "blood_level_4": "Blodniveau 4",
+      "blood_level_4_description": "Meget tunge blodmærker",
+      "blood_level_5": "Blodniveau 5",
+      "blood_level_5_description": "Maksimale blodmærker",
+      "blood_splatter_1": "Blodsprøjt 1",
+      "blood_splatter_1_description": "Klassisk blodsprøjt effekt",
+      "blood_splatter_2": "Blodsprøjt 2",
+      "blood_splatter_2_description": "Tung blodsprøjt effekt",
+      "blood_splatter_3": "Blodsprøjt 3",
+      "blood_splatter_3_description": "Intens blodsprøjt effekt",
+      "sus": "Sus",
+      "sus_description": "Mistænkelig overlay effekt"
+    },
+
     "content": {
       "professional_features": "Professionelle Funktioner",
       "features_description": "Alt hvad du har brug for til at skabe fantastiske titelkort med studiekvalitets resultater",

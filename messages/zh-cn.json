@@ -831,6 +831,17 @@
       "text_outline": "文本轮廓",
       "subtitle_offset": "副标题偏移",
 
+      "upload_background": "上传自定义背景",
+      "remove_image": "移除图片",
+      "uploaded_image": "已上传图片",
+      "drop_image_here": "将图片拖放到此处",
+      "click_or_drag_image": "点击或拖放图片",
+      "image_formats": "支持 PNG, JPG, JPEG, GIF, WEBP",
+      "custom_background_color": "自定义背景颜色",
+      "background_color_picker": "背景颜色",
+      "custom_text_color": "自定义文本颜色",
+      "text_color_picker": "文本颜色",
+      "custom_color_hint": "为背景选择自定义纯色",
       "background_style": "背景样式",
       "text_color": "文本颜色",
 
@@ -838,7 +849,10 @@
       "show_credits": "显示制作人员",
       "show_credits_description": "在标题下方显示副标题信息",
       "show_watermark": "显示水印",
-      "show_watermark_description": "在生成的图像上添加署名"
+      "show_watermark_description": "在生成的图像上添加署名",
+      "visual_effects": "视觉效果",
+      "visual_effects_description": "为标题卡添加戏剧性效果",
+      "selected_effects": "已选择的效果"
     },
 
     "presets": {
@@ -894,6 +908,27 @@
       "steel_gray": "钢灰",
       "atom_pink": "原子粉",
       "alien_cyan": "外星青"
+    },
+
+    "effects": {
+      "blood_level_1": "血迹等级 1",
+      "blood_level_1_description": "轻微血迹",
+      "blood_level_2": "血迹等级 2",
+      "blood_level_2_description": "中等血迹",
+      "blood_level_3": "血迹等级 3",
+      "blood_level_3_description": "重度血迹",
+      "blood_level_4": "血迹等级 4",
+      "blood_level_4_description": "非常重度血迹",
+      "blood_level_5": "血迹等级 5",
+      "blood_level_5_description": "最大血迹",
+      "blood_splatter_1": "血溅效果 1",
+      "blood_splatter_1_description": "经典血溅效果",
+      "blood_splatter_2": "血溅效果 2",
+      "blood_splatter_2_description": "重型血溅效果",
+      "blood_splatter_3": "血溅效果 3",
+      "blood_splatter_3_description": "强烈血溅效果",
+      "sus": "可疑效果",
+      "sus_description": "可疑叠加效果"
     },
 
     "content": {

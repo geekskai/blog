@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Monitor, Maximize2, Minimize2, Download, Heart, Copy, RotateCcw, Star } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { TitleCardState } from "../types"
+import { effectPresets } from "../constants"
 
 interface PreviewAreaProps {
   canvasRef: React.RefObject<HTMLDivElement>
@@ -29,6 +30,33 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
   onApplyFavorite,
 }) => {
   const t = useTranslations("InvincibleTitleCardGenerator")
+  const [canvasDimensions, setCanvasDimensions] = useState({ width: 0, height: 0 })
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (canvasRef.current) {
+        setCanvasDimensions({
+          width: canvasRef.current.clientWidth,
+          height: canvasRef.current.clientHeight,
+        })
+      }
+    }
+
+    window.addEventListener("resize", handleResize)
+    handleResize()
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [canvasRef])
+
+  // Ensure minimum dimensions to prevent zero font sizes
+  // No longer depends on generating state since we use a hidden clone for download
+  const displayDimensions = {
+    width: Math.max(canvasDimensions.width || 800, 800),
+    height: Math.max(canvasDimensions.height || 450, 450),
+  }
+
   return (
     <div className={`${isFullscreen ? "col-span-1" : "lg:col-span-8"}`}>
       <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
@@ -58,40 +86,46 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
         </div>
 
         <div className="p-6">
+          {/* Title Card Container - This is the actual canvasRef that gets exported */}
           <div
+            ref={canvasRef}
+            data-canvas-ref="title-card"
             className={`relative overflow-hidden rounded-xl shadow-2xl transition-all duration-300 ${
               isFullscreen ? "aspect-video w-full" : "aspect-video w-full"
             }`}
             style={{
               minHeight: isFullscreen ? "70vh" : "400px",
+              background: state.backgroundImage
+                ? `url(${state.backgroundImage}) no-repeat center center / cover`
+                : state.background,
             }}
           >
-            {/* Title Card Content - This is what gets exported */}
-            <div
-              ref={canvasRef}
-              className="flex h-full w-full flex-col items-center justify-center px-8"
-              style={{
-                background: state.background,
-                aspectRatio: "16 / 9",
-                minHeight: "100%",
-              }}
-            >
+            {/* Title Card Content */}
+            <div className="relative flex h-full w-full flex-col items-center justify-center gap-[5%]">
+              {/* Title Component with Curved Effect - Match original implementation */}
+              {/* Font size calculation: Use consistent base width for both preview and download */}
+              {/* This ensures the font scales proportionally with the container width */}
               <div
-                className="select-none text-center font-black transition-all duration-300"
+                className={`woodblock curved-text w-full bg-transparent text-center outline-0`}
                 style={{
+                  lineHeight: 0.8,
+                  fontSize: `${(displayDimensions.width / 200) * state.fontSize}px`,
                   color: state.color,
-                  fontSize: `${state.fontSize * (isFullscreen ? 3 : 2)}px`,
+                  WebkitTextStroke:
+                    state.outline > 0 ? `${state.outline}px ${state.outlineColor}` : "none",
+                  marginTop: state.showCredits ? "5%" : "0",
+                  maxWidth: "100%",
                   textShadow:
-                    state.outline > 0
-                      ? `${state.outline}px ${state.outline}px 0px ${state.outlineColor}, -${state.outline}px -${state.outline}px 0px ${state.outlineColor}, ${state.outline}px -${state.outline}px 0px ${state.outlineColor}, -${state.outline}px ${state.outline}px 0px ${state.outlineColor}`
-                      : "2px 2px 4px rgba(0,0,0,0.5)",
+                    state.outline === 0
+                      ? "0 0 10px rgba(255, 255, 255, 0.2), 2px 2px 4px rgba(0,0,0,0.5)"
+                      : "none",
                   fontFamily: '"Inter", "Arial Black", Arial, sans-serif',
                   fontWeight: "900",
                   letterSpacing: "2px",
-                  lineHeight: "1.1",
                   textTransform: "uppercase",
-                  WebkitTextStroke:
-                    state.outline > 0 ? `${state.outline}px ${state.outlineColor}` : "none",
+                  transition: "font-size 0.2s ease-in-out",
+                  // Ensure CSS transform is applied consistently
+                  transform: "perspective(400px) rotateX(10deg) scaleY(2)",
                 }}
               >
                 {state.text || t("preview.default_title")}
@@ -100,21 +134,19 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
               {/* Credits */}
               {state.showCredits && (state.smallSubtitle || state.subtitle) && (
                 <div
-                  className="mt-6 text-center transition-all duration-300"
+                  className="text-center transition-all duration-300"
                   style={{
                     color: state.color,
-                    marginTop: `${state.subtitleOffset + 3}%`,
+                    marginTop: `${state.subtitleOffset * 1}%`, // Reduced spacing
                     filter: "drop-shadow(2px 2px 4px rgba(0,0,0,0.7))",
                   }}
                 >
                   {state.smallSubtitle && (
                     <div
-                      className="font-bold uppercase tracking-wider"
                       style={{
-                        fontSize: `${state.fontSize * (isFullscreen ? 0.6 : 0.4)}px`,
-                        marginBottom: "8px",
+                        fontSize: `${(displayDimensions.width / 100) * 1.9}px`,
+                        fontWeight: "300",
                         fontFamily: '"Inter", Arial, sans-serif',
-                        fontWeight: "700",
                       }}
                     >
                       {state.smallSubtitle}
@@ -122,11 +154,10 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
                   )}
                   {state.subtitle && (
                     <div
-                      className="font-bold"
                       style={{
-                        fontSize: `${state.fontSize * (isFullscreen ? 0.8 : 0.6)}px`,
+                        fontSize: `${(displayDimensions.width / 100) * 3}px`,
+                        fontWeight: "300",
                         fontFamily: '"Inter", Arial, sans-serif',
-                        fontWeight: "600",
                       }}
                     >
                       {state.subtitle}
@@ -140,6 +171,32 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
                 <div className="absolute bottom-4 right-4 text-sm font-medium text-white/40">
                   {t("preview.watermark")}
                 </div>
+              )}
+
+              {/* Visual Effects Overlay */}
+              {/* Use CSS background instead of Image component for better html2canvas/dom-to-image compatibility */}
+              {/* Match reference implementation: https://github.com/shivankacker/invincible-title-card-generator/blob/main/src/components/preview.tsx */}
+              {state.effects && state.effects.length > 0 && (
+                <>
+                  {state.effects.map((effectId) => {
+                    const effect = effectPresets.find((e) => e.id === effectId)
+                    if (!effect) return null
+                    // Convert image path to CSS background format (like reference project)
+                    const backgroundValue = `url('${effect.image}') no-repeat center center / cover`
+                    return (
+                      <div
+                        key={effectId}
+                        className="pointer-events-none absolute inset-0"
+                        style={{
+                          background: backgroundValue,
+                          opacity: 0.8,
+                          mixBlendMode: "overlay",
+                          zIndex: 10,
+                        }}
+                      />
+                    )
+                  })}
+                </>
               )}
             </div>
           </div>

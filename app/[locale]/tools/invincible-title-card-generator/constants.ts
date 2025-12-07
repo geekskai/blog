@@ -191,14 +191,153 @@ export const getDefaultState = (t: any) => ({
   showCredits: true,
   showWatermark: true,
   background: "linear-gradient(135deg, #169ee7, #1e40af)",
-  fontSize: 28,
+  backgroundImage: null,
+  fontSize: 24,
   outline: 2,
   subtitleOffset: 5,
   outlineColor: "#000000",
   generating: false,
   smallSubtitle: t("default_state.small_subtitle"),
   subtitle: t("default_state.subtitle"),
+  effects: [],
 })
+
+// Effect presets
+export const getEffectPresets = (t: any) => [
+  // Blood Levels (1-5)
+  {
+    id: "blood-level-1",
+    name: t("effects.blood_level_1"),
+    image: "/static/images/invincible-title-card-generator/effects/blood/level-1.png",
+    description: t("effects.blood_level_1_description"),
+    category: "blood" as const,
+  },
+  {
+    id: "blood-level-2",
+    name: t("effects.blood_level_2"),
+    image: "/static/images/invincible-title-card-generator/effects/blood/level-2.png",
+    description: t("effects.blood_level_2_description"),
+    category: "blood" as const,
+  },
+  {
+    id: "blood-level-3",
+    name: t("effects.blood_level_3"),
+    image: "/static/images/invincible-title-card-generator/effects/blood/level-3.png",
+    description: t("effects.blood_level_3_description"),
+    category: "blood" as const,
+  },
+  {
+    id: "blood-level-4",
+    name: t("effects.blood_level_4"),
+    image: "/static/images/invincible-title-card-generator/effects/blood/level-4.png",
+    description: t("effects.blood_level_4_description"),
+    category: "blood" as const,
+  },
+  {
+    id: "blood-level-5",
+    name: t("effects.blood_level_5"),
+    image: "/static/images/invincible-title-card-generator/effects/blood/level-5.png",
+    description: t("effects.blood_level_5_description"),
+    category: "blood" as const,
+  },
+  // Blood Splatters
+  {
+    id: "blood-splatter-1",
+    name: t("effects.blood_splatter_1"),
+    image: "/static/images/invincible-title-card-generator/effects/blood/splatter-1.png",
+    description: t("effects.blood_splatter_1_description"),
+    category: "blood" as const,
+  },
+  {
+    id: "blood-splatter-2",
+    name: t("effects.blood_splatter_2"),
+    image: "/static/images/invincible-title-card-generator/effects/blood/splatter-2.png",
+    description: t("effects.blood_splatter_2_description"),
+    category: "blood" as const,
+  },
+  {
+    id: "blood-splatter-3",
+    name: t("effects.blood_splatter_3"),
+    image: "/static/images/invincible-title-card-generator/effects/blood/splatter-3.png",
+    description: t("effects.blood_splatter_3_description"),
+    category: "blood" as const,
+  },
+  // Sus Effect
+  {
+    id: "sus",
+    name: t("effects.sus"),
+    image: "/static/images/invincible-title-card-generator/effects/sus.png",
+    description: t("effects.sus_description"),
+    category: "other" as const,
+  },
+]
+
+// Static effect presets for utils (fallback)
+export const effectPresets = [
+  {
+    id: "blood-level-1",
+    name: "Blood Level 1",
+    image: "/static/images/invincible-title-card-generator/effects/blood/level-1.png",
+    description: "Light blood marks",
+    category: "blood" as const,
+  },
+  {
+    id: "blood-level-2",
+    name: "Blood Level 2",
+    image: "/static/images/invincible-title-card-generator/effects/blood/level-2.png",
+    description: "Moderate blood marks",
+    category: "blood" as const,
+  },
+  {
+    id: "blood-level-3",
+    name: "Blood Level 3",
+    image: "/static/images/invincible-title-card-generator/effects/blood/level-3.png",
+    description: "Heavy blood marks",
+    category: "blood" as const,
+  },
+  {
+    id: "blood-level-4",
+    name: "Blood Level 4",
+    image: "/static/images/invincible-title-card-generator/effects/blood/level-4.png",
+    description: "Very heavy blood marks",
+    category: "blood" as const,
+  },
+  {
+    id: "blood-level-5",
+    name: "Blood Level 5",
+    image: "/static/images/invincible-title-card-generator/effects/blood/level-5.png",
+    description: "Maximum blood marks",
+    category: "blood" as const,
+  },
+  {
+    id: "blood-splatter-1",
+    name: "Blood Splatter 1",
+    image: "/static/images/invincible-title-card-generator/effects/blood/splatter-1.png",
+    description: "Classic blood splatter effect",
+    category: "blood" as const,
+  },
+  {
+    id: "blood-splatter-2",
+    name: "Blood Splatter 2",
+    image: "/static/images/invincible-title-card-generator/effects/blood/splatter-2.png",
+    description: "Heavy blood splatter effect",
+    category: "blood" as const,
+  },
+  {
+    id: "blood-splatter-3",
+    name: "Blood Splatter 3",
+    image: "/static/images/invincible-title-card-generator/effects/blood/splatter-3.png",
+    description: "Intense blood splatter effect",
+    category: "blood" as const,
+  },
+  {
+    id: "sus",
+    name: "Sus",
+    image: "/static/images/invincible-title-card-generator/effects/sus.png",
+    description: "Suspicious overlay effect",
+    category: "other" as const,
+  },
+]
 
 // Static default state for utils (fallback)
 export const DEFAULT_STATE = {
@@ -207,11 +346,13 @@ export const DEFAULT_STATE = {
   showCredits: true,
   showWatermark: true,
   background: "linear-gradient(135deg, #169ee7, #1e40af)",
-  fontSize: 28,
+  backgroundImage: null,
+  fontSize: 24,
   outline: 2,
   subtitleOffset: 5,
   outlineColor: "#000000",
   generating: false,
   smallSubtitle: "BASED ON THE COMIC BOOK BY",
   subtitle: "Robert Kirkman, Cory Walker, & Ryan Ottley",
+  effects: [],
 }

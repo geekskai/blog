@@ -6965,6 +6965,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/dom-to-image@npm:^2.6.0":
+  version: 2.6.7
+  resolution: "@types/dom-to-image@npm:2.6.7"
+  checksum: aecdd8bb06b23026ea169fd567f66f4dc19843efc9b8fc96464a86c670eaab4b7a58408f8b6aeec42d115c001a2b2a0935b19960d980d8ae84148017f731a68e
+  languageName: node
+  linkType: hard
+
 "@types/estree-jsx@npm:^1.0.0":
   version: 1.0.5
   resolution: "@types/estree-jsx@npm:1.0.5"
@@ -9113,6 +9120,13 @@ __metadata:
     domhandler: ^5.0.2
     entities: ^4.2.0
   checksum: cd1810544fd8cdfbd51fa2c0c1128ec3a13ba92f14e61b7650b5de421b88205fd2e3f0cc6ace82f13334114addb90ed1c2f23074a51770a8e9c1273acbc7f3e6
+  languageName: node
+  linkType: hard
+
+"dom-to-image@npm:^2.6.0":
+  version: 2.6.0
+  resolution: "dom-to-image@npm:2.6.0"
+  checksum: 0d1f450b776d36f3ec982783d2a3898baaa3697f135ed0a9c70085db6bc5ac6def02f5ed7affc6acb92ef4fb3248905fabec915fed541994383d317260f784a2
   languageName: node
   linkType: hard
 
@@ -11379,7 +11393,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html2canvas@npm:^1.0.0-rc.5, html2canvas@npm:^1.4.1":
+"html2canvas-pro@npm:^1.5.13":
+  version: 1.5.13
+  resolution: "html2canvas-pro@npm:1.5.13"
+  dependencies:
+    css-line-break: ^2.1.0
+    text-segmentation: ^1.0.3
+  checksum: a6a6e3b4450737d1137de647b7110427305b5a01e09a3d2e7791795dd53cdbdd308fe46d093a43562152b0ed30baf8b10e346c88c1d6569e1b44ebeb925da6c2
+  languageName: node
+  linkType: hard
+
+"html2canvas@npm:^1.0.0-rc.5":
   version: 1.4.1
   resolution: "html2canvas@npm:1.4.1"
   dependencies:
@@ -16874,6 +16898,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tailwind-merge@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "tailwind-merge@npm:3.4.0"
+  checksum: 172d0bc19af4512e037e481354e9038211b2748f1a96f51a6c33559aec2fc4230e6ad52c0b16c4ccc03d8392b87781a615cd1b93badcbd6333b160eb5aca30f7
+  languageName: node
+  linkType: hard
+
 "tailwind-nextjs-starter-blog@workspace:.":
   version: 0.0.0-use.local
   resolution: "tailwind-nextjs-starter-blog@workspace:."
@@ -16888,6 +16919,7 @@ __metadata:
     "@tailwindcss/forms": ^0.5.7
     "@tailwindcss/typography": ^0.5.12
     "@types/cheerio": ^0.22.35
+    "@types/dom-to-image": ^2.6.0
     "@types/mdx": ^2.0.12
     "@types/react": ^18.2.73
     "@typescript-eslint/eslint-plugin": ^6.1.0
@@ -16898,6 +16930,7 @@ __metadata:
     contentlayer2: 0.5.1
     cross-env: ^7.0.3
     date-fns: ^4.1.0
+    dom-to-image: ^2.6.0
     dompurify: ^3.2.6
     esbuild: 0.20.2
     eslint: ^8.45.0
@@ -16909,7 +16942,7 @@ __metadata:
     gray-matter: ^4.0.2
     hast-util-from-html-isomorphic: ^2.0.0
     heic2any: ^0.0.4
-    html2canvas: ^1.4.1
+    html2canvas-pro: ^1.5.13
     husky: ^9.0.0
     image-size: 1.0.0
     jsdom: ^26.1.0
@@ -16948,6 +16981,7 @@ __metadata:
     remark-math: ^6.0.0
     remarkable: ^2.0.1
     sharp: ^0.34.5
+    tailwind-merge: ^3.4.0
     tailwindcss: ^3.4.3
     turndown: ^7.2.0
     typescript: ^5.1.3

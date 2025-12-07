@@ -800,6 +800,17 @@
       "text_outline": "Text Outline",
       "subtitle_offset": "Subtitle Offset",
 
+      "upload_background": "Upload Custom Background",
+      "remove_image": "Remove Image",
+      "uploaded_image": "Uploaded Image",
+      "drop_image_here": "Drop Image Here",
+      "click_or_drag_image": "Click or Drag Image",
+      "image_formats": "PNG, JPG, JPEG, GIF, WEBP supported",
+      "custom_background_color": "Custom Background Color",
+      "background_color_picker": "Background Color",
+      "custom_text_color": "Custom Text Color",
+      "text_color_picker": "Text Color",
+      "custom_color_hint": "Select a custom solid color for the background",
       "background_style": "Background Style",
       "text_color": "Text Color",
 
@@ -807,7 +818,10 @@
       "show_credits": "Show Credits",
       "show_credits_description": "Display subtitle information below the title",
       "show_watermark": "Show Watermark",
-      "show_watermark_description": "Add attribution to the generated image"
+      "show_watermark_description": "Add attribution to the generated image",
+      "visual_effects": "Visual Effects",
+      "visual_effects_description": "Add dramatic effects to your title card",
+      "selected_effects": "Selected Effects"
     },
 
     "presets": {
@@ -863,6 +877,27 @@
       "steel_gray": "Steel Gray",
       "atom_pink": "Atom Pink",
       "alien_cyan": "Alien Cyan"
+    },
+
+    "effects": {
+      "blood_level_1": "Blood Level 1",
+      "blood_level_1_description": "Light blood marks",
+      "blood_level_2": "Blood Level 2",
+      "blood_level_2_description": "Moderate blood marks",
+      "blood_level_3": "Blood Level 3",
+      "blood_level_3_description": "Heavy blood marks",
+      "blood_level_4": "Blood Level 4",
+      "blood_level_4_description": "Very heavy blood marks",
+      "blood_level_5": "Blood Level 5",
+      "blood_level_5_description": "Maximum blood marks",
+      "blood_splatter_1": "Blood Splatter 1",
+      "blood_splatter_1_description": "Classic blood splatter effect",
+      "blood_splatter_2": "Blood Splatter 2",
+      "blood_splatter_2_description": "Heavy blood splatter effect",
+      "blood_splatter_3": "Blood Splatter 3",
+      "blood_splatter_3_description": "Intense blood splatter effect",
+      "sus": "Sus",
+      "sus_description": "Suspicious overlay effect"
     },
 
     "content": {

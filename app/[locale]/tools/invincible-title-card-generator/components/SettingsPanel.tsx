@@ -1,8 +1,15 @@
 import React from "react"
-import { Settings, Eye, EyeOff, Star, Type, Sliders, Palette, Zap } from "lucide-react"
+import { Settings, Eye, EyeOff, Star, Type, Sliders, Palette, Zap, X, Upload } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { TitleCardState, TabType, CharacterPreset } from "../types"
-import { getCharacterPresets, getBackgroundPresets, getTextColorPresets } from "../constants"
+import {
+  getCharacterPresets,
+  getBackgroundPresets,
+  getTextColorPresets,
+  getEffectPresets,
+} from "../constants"
+import { ImageUpload } from "./ImageUpload"
+import { ColorInput } from "./ColorInput"
 
 interface SettingsPanelProps {
   state: TitleCardState
@@ -31,6 +38,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
   const characterPresets = getCharacterPresets(t)
   const backgroundPresets = getBackgroundPresets(t)
   const textColorPresets = getTextColorPresets(t)
+  const effectPresets = getEffectPresets(t)
 
   if (isFullscreen) return null
 
@@ -184,17 +192,30 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                       </div>
                       <input
                         type="range"
-                        min="12"
-                        max="48"
+                        min="10"
+                        max="40"
+                        step="1"
                         value={state.fontSize}
                         onChange={(e) =>
                           setState((prev) => ({
                             ...prev,
-                            fontSize: parseInt(e.target.value),
+                            fontSize: parseInt(e.target.value, 10),
                           }))
                         }
-                        className="w-full accent-red-500"
+                        className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-700 accent-red-500 transition-colors hover:accent-red-600"
+                        style={{
+                          background: `linear-gradient(to right, rgb(239 68 68) 0%, rgb(239 68 68) ${
+                            ((state.fontSize - 10) / (40 - 10)) * 100
+                          }%, rgb(55 65 81) ${
+                            ((state.fontSize - 10) / (40 - 10)) * 100
+                          }%, rgb(55 65 81) 100%)`,
+                        }}
                       />
+                      <div className="mt-2 flex justify-between text-xs text-slate-400">
+                        <span>10</span>
+                        <span>25</span>
+                        <span>40</span>
+                      </div>
                     </div>
 
                     <div>
@@ -251,6 +272,60 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
               {/* Colors Tab */}
               {activeTab === "colors" && (
                 <div className="space-y-6">
+                  {/* Upload Custom Background Image */}
+                  <div>
+                    <h3 className="mb-4 flex items-center text-sm font-medium text-slate-300">
+                      <Upload className="mr-2 h-4 w-4" />
+                      {t("settings.upload_background")}
+                    </h3>
+                    <ImageUpload
+                      value={state.backgroundImage}
+                      onChange={(image) =>
+                        setState((prev) => ({
+                          ...prev,
+                          backgroundImage: image,
+                          // Clear background preset when uploading image
+                          background: image ? "" : prev.background,
+                        }))
+                      }
+                      onRemove={() =>
+                        setState((prev) => ({
+                          ...prev,
+                          backgroundImage: null,
+                          // Restore default background if no preset was selected
+                          background:
+                            prev.background || "linear-gradient(135deg, #169ee7, #1e40af)",
+                        }))
+                      }
+                    />
+                  </div>
+
+                  {/* Custom Background Color */}
+                  <div>
+                    <h3 className="mb-4 flex items-center text-sm font-medium text-slate-300">
+                      <Palette className="mr-2 h-4 w-4" />
+                      {t("settings.custom_background_color")}
+                    </h3>
+                    <ColorInput
+                      value={
+                        state.backgroundImage
+                          ? "#169ee7"
+                          : state.background.startsWith("#") && state.background.length === 7
+                            ? state.background
+                            : "#169ee7"
+                      }
+                      onChange={(color) =>
+                        setState((prev) => ({
+                          ...prev,
+                          background: color,
+                          backgroundImage: null,
+                        }))
+                      }
+                      label={t("settings.background_color_picker")}
+                    />
+                    <p className="mt-2 text-xs text-slate-400">{t("settings.custom_color_hint")}</p>
+                  </div>
+
                   {/* Background Colors */}
                   <div>
                     <h3 className="mb-4 flex items-center text-sm font-medium text-slate-300">
@@ -262,10 +337,15 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                         <button
                           key={preset.name}
                           onClick={() =>
-                            setState((prev) => ({ ...prev, background: preset.value }))
+                            setState((prev) => ({
+                              ...prev,
+                              background: preset.value,
+                              // Clear uploaded image when selecting preset
+                              backgroundImage: null,
+                            }))
                           }
                           className={`group relative overflow-hidden rounded-xl border-2 p-4 text-xs font-medium transition-all hover:scale-105 ${
-                            state.background === preset.value
+                            state.background === preset.value && !state.backgroundImage
                               ? "border-white shadow-xl"
                               : "border-white/20 hover:border-white/40"
                           }`}
@@ -281,6 +361,18 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                         </button>
                       ))}
                     </div>
+                  </div>
+
+                  {/* Custom Text Color */}
+                  <div>
+                    <h3 className="mb-4 text-sm font-medium text-slate-300">
+                      {t("settings.custom_text_color")}
+                    </h3>
+                    <ColorInput
+                      value={state.color}
+                      onChange={(color) => setState((prev) => ({ ...prev, color }))}
+                      label={t("settings.text_color_picker")}
+                    />
                   </div>
 
                   {/* Text Colors */}
@@ -310,50 +402,156 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
               {/* Effects Tab */}
               {activeTab === "effects" && (
                 <div className="space-y-6">
-                  <h3 className="flex items-center text-sm font-medium text-slate-300">
-                    <Zap className="mr-2 h-4 w-4" />
-                    {t("settings.display_options")}
-                  </h3>
+                  {/* Visual Effects Section */}
+                  <div>
+                    <h3 className="mb-4 flex items-center text-sm font-medium text-slate-300">
+                      <Zap className="mr-2 h-4 w-4" />
+                      {t("settings.visual_effects")}
+                    </h3>
+                    <p className="mb-4 text-xs text-slate-400">
+                      {t("settings.visual_effects_description")}
+                    </p>
 
-                  {/* Checkboxes with improved styling */}
-                  <div className="space-y-4">
-                    <label className="flex cursor-pointer items-center space-x-3 rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/10">
-                      <input
-                        type="checkbox"
-                        checked={state.showCredits}
-                        onChange={(e) =>
-                          setState((prev) => ({ ...prev, showCredits: e.target.checked }))
-                        }
-                        className="h-5 w-5 rounded-lg border-white/20 bg-white/10 text-red-500 focus:ring-red-500 focus:ring-offset-slate-900"
-                      />
-                      <div>
-                        <span className="text-sm font-medium text-white">
-                          {t("settings.show_credits")}
-                        </span>
-                        <p className="text-xs text-slate-400">
-                          {t("settings.show_credits_description")}
-                        </p>
-                      </div>
-                    </label>
+                    {/* Effect Grid */}
+                    <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
+                      {effectPresets.map((effect) => {
+                        const isSelected = state.effects.includes(effect.id)
+                        return (
+                          <button
+                            key={effect.id}
+                            onClick={() => {
+                              setState((prev) => {
+                                const currentEffects = prev.effects || []
+                                if (isSelected) {
+                                  return {
+                                    ...prev,
+                                    effects: currentEffects.filter((id) => id !== effect.id),
+                                  }
+                                } else {
+                                  return {
+                                    ...prev,
+                                    effects: [...currentEffects, effect.id],
+                                  }
+                                }
+                              })
+                            }}
+                            className={`group relative overflow-hidden rounded-xl border-2 p-3 transition-all hover:scale-105 ${
+                              isSelected
+                                ? "border-red-500 bg-red-500/20 shadow-lg shadow-red-500/20"
+                                : "border-white/20 bg-white/5 hover:border-white/40"
+                            }`}
+                            title={effect.description}
+                          >
+                            <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-slate-800">
+                              <img
+                                src={effect.image}
+                                alt={effect.name}
+                                className="h-full w-full object-cover opacity-80 transition-opacity group-hover:opacity-100"
+                                onError={(e) => {
+                                  // Fallback if image doesn't exist
+                                  const target = e.target as HTMLImageElement
+                                  target.style.display = "none"
+                                  const parent = target.parentElement
+                                  if (parent) {
+                                    parent.innerHTML = `<div class="flex h-full items-center justify-center text-xs text-slate-400">${effect.name}</div>`
+                                  }
+                                }}
+                              />
+                              {isSelected && (
+                                <div className="absolute inset-0 flex items-center justify-center bg-red-500/30">
+                                  <div className="rounded-full bg-red-500 p-1">
+                                    <Zap className="h-3 w-3 text-white" />
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                            <p className="mt-2 text-xs font-medium text-white">{effect.name}</p>
+                          </button>
+                        )
+                      })}
+                    </div>
 
-                    <label className="flex cursor-pointer items-center space-x-3 rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/10">
-                      <input
-                        type="checkbox"
-                        checked={state.showWatermark}
-                        onChange={(e) =>
-                          setState((prev) => ({ ...prev, showWatermark: e.target.checked }))
-                        }
-                        className="h-5 w-5 rounded-lg border-white/20 bg-white/10 text-red-500 focus:ring-red-500 focus:ring-offset-slate-900"
-                      />
-                      <div>
-                        <span className="text-sm font-medium text-white">
-                          {t("settings.show_watermark")}
-                        </span>
-                        <p className="text-xs text-slate-400">
-                          {t("settings.show_watermark_description")}
+                    {/* Selected Effects List */}
+                    {state.effects && state.effects.length > 0 && (
+                      <div className="mt-4">
+                        <p className="mb-2 text-xs font-medium text-slate-300">
+                          {t("settings.selected_effects")} ({state.effects.length})
                         </p>
+                        <div className="flex flex-wrap gap-2">
+                          {state.effects.map((effectId) => {
+                            const effect = effectPresets.find((e) => e.id === effectId)
+                            if (!effect) return null
+                            return (
+                              <div
+                                key={effectId}
+                                className="flex items-center gap-2 rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-1.5"
+                              >
+                                <span className="text-xs text-white">{effect.name}</span>
+                                <button
+                                  onClick={() => {
+                                    setState((prev) => ({
+                                      ...prev,
+                                      effects: prev.effects.filter((id) => id !== effectId),
+                                    }))
+                                  }}
+                                  className="text-red-400 transition-colors hover:text-red-300"
+                                >
+                                  <X className="h-3 w-3" />
+                                </button>
+                              </div>
+                            )
+                          })}
+                        </div>
                       </div>
-                    </label>
+                    )}
+                  </div>
+
+                  {/* Display Options Section */}
+                  <div className="border-t border-white/10 pt-6">
+                    <h3 className="mb-4 flex items-center text-sm font-medium text-slate-300">
+                      {t("settings.display_options")}
+                    </h3>
+
+                    {/* Checkboxes with improved styling */}
+                    <div className="space-y-4">
+                      <label className="flex cursor-pointer items-center space-x-3 rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/10">
+                        <input
+                          type="checkbox"
+                          checked={state.showCredits}
+                          onChange={(e) =>
+                            setState((prev) => ({ ...prev, showCredits: e.target.checked }))
+                          }
+                          className="h-5 w-5 rounded-lg border-white/20 bg-white/10 text-red-500 focus:ring-red-500 focus:ring-offset-slate-900"
+                        />
+                        <div>
+                          <span className="text-sm font-medium text-white">
+                            {t("settings.show_credits")}
+                          </span>
+                          <p className="text-xs text-slate-400">
+                            {t("settings.show_credits_description")}
+                          </p>
+                        </div>
+                      </label>
+
+                      <label className="flex cursor-pointer items-center space-x-3 rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/10">
+                        <input
+                          type="checkbox"
+                          checked={state.showWatermark}
+                          onChange={(e) =>
+                            setState((prev) => ({ ...prev, showWatermark: e.target.checked }))
+                          }
+                          className="h-5 w-5 rounded-lg border-white/20 bg-white/10 text-red-500 focus:ring-red-500 focus:ring-offset-slate-900"
+                        />
+                        <div>
+                          <span className="text-sm font-medium text-white">
+                            {t("settings.show_watermark")}
+                          </span>
+                          <p className="text-xs text-slate-400">
+                            {t("settings.show_watermark_description")}
+                          </p>
+                        </div>
+                      </label>
+                    </div>
                   </div>
                 </div>
               )}

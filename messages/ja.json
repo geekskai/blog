@@ -824,13 +824,27 @@
       "font_size": "フォントサイズ",
       "text_outline": "テキストアウトライン",
       "subtitle_offset": "サブタイトルオフセット",
+      "upload_background": "カスタム背景をアップロード",
+      "remove_image": "画像を削除",
+      "uploaded_image": "アップロード済み画像",
+      "drop_image_here": "ここに画像をドロップ",
+      "click_or_drag_image": "クリックまたは画像をドラッグ",
+      "image_formats": "PNG, JPG, JPEG, GIF, WEBP 対応",
+      "custom_background_color": "カスタム背景色",
+      "background_color_picker": "背景色",
+      "custom_text_color": "カスタムテキスト色",
+      "text_color_picker": "テキスト色",
+      "custom_color_hint": "背景にカスタム単色を選択",
       "background_style": "背景スタイル",
       "text_color": "テキスト色",
       "display_options": "表示オプション",
       "show_credits": "クレジット表示",
       "show_credits_description": "タイトル下にサブタイトル情報を表示",
       "show_watermark": "ウォーターマーク表示",
-      "show_watermark_description": "生成された画像に帰属を追加"
+      "show_watermark_description": "生成された画像に帰属を追加",
+      "visual_effects": "視覚効果",
+      "visual_effects_description": "タイトルカードに劇的な効果を追加",
+      "selected_effects": "選択された効果"
     },
     "presets": {
       "invincible": {
@@ -884,6 +898,28 @@
       "atom_pink": "アトムピンク",
       "alien_cyan": "エイリアンシアン"
     },
+
+    "effects": {
+      "blood_level_1": "血痕レベル 1",
+      "blood_level_1_description": "軽い血痕",
+      "blood_level_2": "血痕レベル 2",
+      "blood_level_2_description": "中程度の血痕",
+      "blood_level_3": "血痕レベル 3",
+      "blood_level_3_description": "重い血痕",
+      "blood_level_4": "血痕レベル 4",
+      "blood_level_4_description": "非常に重い血痕",
+      "blood_level_5": "血痕レベル 5",
+      "blood_level_5_description": "最大の血痕",
+      "blood_splatter_1": "血しぶき効果 1",
+      "blood_splatter_1_description": "クラシックな血しぶき効果",
+      "blood_splatter_2": "血しぶき効果 2",
+      "blood_splatter_2_description": "重い血しぶき効果",
+      "blood_splatter_3": "血しぶき効果 3",
+      "blood_splatter_3_description": "激しい血しぶき効果",
+      "sus": "怪しい効果",
+      "sus_description": "怪しいオーバーレイ効果"
+    },
+
     "content": {
       "professional_features": "プロフェッショナル機能",
       "features_description": "スタジオ品質の結果で素晴らしいタイトルカードを作成するために必要なすべて",

@@ -683,7 +683,7 @@ const ShareCard: React.FC<ShareCardProps> = (props) => {
       const element = simpleReportRef.current
 
       // 动态导入html2canvas，确保只在客户端加载
-      const html2canvasModule = await import("html2canvas")
+      const html2canvasModule = await import("html2canvas-pro")
       const html2canvas = html2canvasModule.default
 
       // 修复 html2canvas 在处理 rem 时文字基线问题
