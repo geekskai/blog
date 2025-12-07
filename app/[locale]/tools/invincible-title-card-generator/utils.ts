@@ -169,122 +169,186 @@ export const downloadTitleCard = async (
   state: TitleCardState,
   setState: React.Dispatch<React.SetStateAction<TitleCardState>>
 ) => {
-  if (!canvasRef.current) return
+  if (!canvasRef.current) {
+    setState((prev) => ({ ...prev, generating: false }))
+    return
+  }
 
   setState((prev) => ({ ...prev, generating: true }))
 
   try {
-    // Wait a bit to ensure DOM is fully rendered (match original: 500ms delay)
-    // This allows the element to switch to 1920x1080 dimensions when generating=true
-    await new Promise((resolve) => setTimeout(resolve, 500))
-
-    // Get the element - it should now have 1920x1080 dimensions due to generating=true
-    const element = canvasRef.current
-    if (!element) return
-
-    // Find parent container and temporarily remove overflow-hidden
-    const parentContainer = element.parentElement
-    const originalParentOverflow = parentContainer?.style.overflow || ""
-    const originalParentPosition = parentContainer?.style.position || ""
-    const originalParentWidth = parentContainer?.style.width || ""
-    const originalParentHeight = parentContainer?.style.height || ""
-
-    // Temporarily modify parent to allow full element visibility
-    if (parentContainer) {
-      parentContainer.style.overflow = "visible"
-      parentContainer.style.position = "relative"
-      parentContainer.style.width = "1920px"
-      parentContainer.style.height = "1080px"
+    // Get the source element
+    const sourceElement = canvasRef.current
+    if (!sourceElement) {
+      setState((prev) => ({ ...prev, generating: false }))
+      return
     }
 
-    // Force browser to recalculate styles
-    void element.offsetHeight
+    // Create a hidden clone container for capturing
+    // This prevents visual flickering in the preview
+    const cloneContainer = document.createElement("div")
+    cloneContainer.style.position = "fixed"
+    cloneContainer.style.left = "-9999px"
+    cloneContainer.style.top = "0"
+    cloneContainer.style.width = "1920px"
+    cloneContainer.style.height = "1080px"
+    cloneContainer.style.overflow = "visible"
+    cloneContainer.style.zIndex = "-1"
+    document.body.appendChild(cloneContainer)
 
-    // Wait a bit more for CSS transforms to be fully applied
-    await new Promise((resolve) => setTimeout(resolve, 200))
+    // Clone the element and set exact dimensions
+    const clonedElement = sourceElement.cloneNode(true) as HTMLElement
+    clonedElement.style.width = "1920px"
+    clonedElement.style.height = "1080px"
+    clonedElement.style.position = "relative"
+    clonedElement.style.display = "flex"
+    clonedElement.style.flexDirection = "column"
+    clonedElement.style.alignItems = "center"
+    clonedElement.style.justifyContent = "center"
+    clonedElement.style.gap = "5%"
 
-    // Get actual dimensions - element should be 1920x1080 when generating=true
+    // Ensure background is preserved
+    if (state.backgroundImage) {
+      clonedElement.style.backgroundImage = `url(${state.backgroundImage})`
+      clonedElement.style.backgroundSize = "cover"
+      clonedElement.style.backgroundPosition = "center"
+      clonedElement.style.backgroundRepeat = "no-repeat"
+    } else {
+      clonedElement.style.background = state.background
+    }
+
+    cloneContainer.appendChild(clonedElement)
+
+    // Wait for clone to render
+    await new Promise((resolve) => setTimeout(resolve, 100))
+    void clonedElement.offsetHeight // Force reflow
+
+    // Get actual dimensions
     const actualWidth = 1920
     const actualHeight = 1080
 
-    // Get computed background color from the element's style
-    const computedStyle = window.getComputedStyle(element)
-    let bgColor = computedStyle.backgroundColor
+    // Fix title element styles in the clone
+    const titleElement = clonedElement.querySelector(".curved-text") as HTMLElement
+    if (titleElement) {
+      // Calculate font size for 1920px width (same calculation as preview)
+      const fontSize = (1920 / 200) * state.fontSize
+      titleElement.style.fontSize = `${fontSize}px`
+      titleElement.style.color = state.color
+      titleElement.style.transform = "perspective(400px) rotateX(10deg) scaleY(2)"
+      titleElement.style.transformOrigin = "center center"
+      titleElement.style.transformStyle = "preserve-3d"
+      titleElement.style.backfaceVisibility = "visible"
+      titleElement.style.fontFamily = '"Inter", "Arial Black", Arial, sans-serif'
+      titleElement.style.fontWeight = "900"
+      titleElement.style.letterSpacing = "2px"
+      titleElement.style.textTransform = "uppercase"
+      titleElement.style.lineHeight = "0.8"
+      titleElement.style.width = "100%"
+      titleElement.style.textAlign = "center"
+      titleElement.style.maxWidth = "100%"
+      titleElement.style.display = "block"
+      titleElement.style.position = "relative"
+      titleElement.style.marginTop = state.showCredits ? "5%" : "0"
 
-    // If background is transparent or gradient, extract from inline style
-    if (!bgColor || bgColor === "rgba(0, 0, 0, 0)" || bgColor === "transparent") {
-      const inlineBg = element.style.background
-      if (inlineBg && inlineBg.includes("gradient")) {
-        // For gradients, use a fallback color (first color in gradient or black)
-        bgColor = "#000000"
-      } else if (inlineBg && inlineBg.startsWith("#")) {
-        bgColor = inlineBg
-      } else if (state.background && state.background.startsWith("#")) {
-        bgColor = state.background
+      if (state.outline > 0) {
+        // Scale outline proportionally with font size
+        // Font size scales by: (1920 / 200) * state.fontSize
+        // Outline should scale by the same ratio: (1920 / 200) * state.outline
+        // But outline is typically smaller, so we use a more conservative scaling
+        // Assuming preview container is ~800px wide, scale outline accordingly
+        const previewWidth = 800 // Approximate preview width
+        const scaleRatio = 1920 / previewWidth
+        const scaledOutline = state.outline * scaleRatio
+        titleElement.style.webkitTextStroke = `${scaledOutline}px ${state.outlineColor}`
+        titleElement.style.textShadow = "none"
       } else {
-        bgColor = "#000000" // Default to black
+        titleElement.style.webkitTextStroke = "none"
+        titleElement.style.textShadow =
+          "0 0 10px rgba(255, 255, 255, 0.2), 2px 2px 4px rgba(0,0,0,0.5)"
       }
     }
 
-    // Use html2canvas to capture the DOM element directly
-    // This preserves all CSS transforms, including perspective(400px) rotateX(10deg) scaleY(2)
-    // Optimize configuration for better quality and CSS transform support
-    const canvas = await html2canvas(element, {
+    // Fix subtitle elements in the clone
+    // Find all div elements that might be subtitles
+    const allDivs = clonedElement.querySelectorAll("div")
+    let creditsContainer: HTMLElement | null = null
+
+    // Find the credits container by checking if it contains subtitle text
+    allDivs.forEach((div) => {
+      const text = div.textContent || ""
+      if (
+        (state.smallSubtitle && text.includes(state.smallSubtitle)) ||
+        (state.subtitle && text.includes(state.subtitle))
+      ) {
+        creditsContainer = div as HTMLElement
+      }
+    })
+
+    if (creditsContainer && state.showCredits) {
+      creditsContainer.style.color = state.color
+      creditsContainer.style.marginTop = `${state.subtitleOffset * 1}%`
+      creditsContainer.style.filter = "drop-shadow(2px 2px 4px rgba(0,0,0,0.7))"
+      creditsContainer.style.textAlign = "center"
+
+      // Find and fix small subtitle (first child div)
+      const smallSubtitle = Array.from(creditsContainer.children).find(
+        (child) => (child as HTMLElement).textContent === state.smallSubtitle
+      ) as HTMLElement | undefined
+      if (smallSubtitle && state.smallSubtitle) {
+        smallSubtitle.style.fontSize = `${(1920 / 100) * 1.9}px`
+        smallSubtitle.style.fontWeight = "300"
+        smallSubtitle.style.fontFamily = '"Inter", Arial, sans-serif'
+      }
+
+      // Find and fix large subtitle (contains the main subtitle text)
+      const largeSubtitle = Array.from(creditsContainer.children).find(
+        (child) => (child as HTMLElement).textContent === state.subtitle
+      ) as HTMLElement | undefined
+      if (largeSubtitle && state.subtitle) {
+        largeSubtitle.style.fontSize = `${(1920 / 100) * 3}px`
+        largeSubtitle.style.fontWeight = "300"
+        largeSubtitle.style.fontFamily = '"Inter", Arial, sans-serif'
+      }
+    }
+
+    // Wait for styles to apply
+    await new Promise((resolve) => setTimeout(resolve, 200))
+    void clonedElement.offsetHeight
+
+    // Get background color for html2canvas
+    let bgColor = "#000000"
+    if (state.backgroundImage) {
+      bgColor = "#000000" // Use black for images
+    } else if (state.background.startsWith("#")) {
+      bgColor = state.background
+    } else if (state.background.includes("gradient")) {
+      // Extract first color from gradient
+      const match = state.background.match(/#[0-9a-fA-F]{6}/)
+      bgColor = match ? match[0] : "#000000"
+    }
+
+    // Use html2canvas with higher scale for better quality
+    const canvas = await html2canvas(clonedElement, {
       allowTaint: true,
       useCORS: true,
-      backgroundColor: bgColor as string, // Use computed background color
+      backgroundColor: bgColor,
       height: actualHeight,
       width: actualWidth,
       scale: 2, // Higher scale for better quality
-      logging: false, // Disable logging for production
-      foreignObjectRendering: true, // Better CSS transform support
-      imageTimeout: 15000, // Longer timeout for images
-      removeContainer: false, // Keep container for proper rendering
+      logging: false,
+      foreignObjectRendering: false,
+      imageTimeout: 15000,
+      removeContainer: false,
       windowWidth: actualWidth,
       windowHeight: actualHeight,
       scrollX: 0,
       scrollY: 0,
-      onclone: (clonedDoc) => {
-        // Ensure cloned element maintains styles and is visible
-        const clonedElement = clonedDoc.querySelector(
-          '[data-canvas-ref="title-card"]'
-        ) as HTMLElement
-        if (clonedElement) {
-          clonedElement.style.width = `${actualWidth}px`
-          clonedElement.style.height = `${actualHeight}px`
-          clonedElement.style.position = "relative"
-          clonedElement.style.visibility = "visible"
-          clonedElement.style.opacity = "1"
-          clonedElement.style.display = "block"
-          // Ensure background is preserved
-          if (state.backgroundImage) {
-            clonedElement.style.backgroundImage = `url(${state.backgroundImage})`
-            clonedElement.style.backgroundSize = "cover"
-            clonedElement.style.backgroundPosition = "center"
-            clonedElement.style.backgroundRepeat = "no-repeat"
-          } else if (state.background) {
-            clonedElement.style.background = state.background
-          }
-          // Ensure CSS class is applied for transform
-          clonedElement.classList.add("curved-text", "woodblock")
-        }
-        // Also fix parent container in cloned document
-        const clonedParent = clonedElement?.parentElement
-        if (clonedParent) {
-          clonedParent.style.overflow = "visible"
-          clonedParent.style.width = `${actualWidth}px`
-          clonedParent.style.height = `${actualHeight}px`
-        }
-      },
+      ignoreElements: () => false,
+      proxy: undefined,
     })
 
-    // Restore parent container styles immediately after capture
-    if (parentContainer) {
-      parentContainer.style.overflow = originalParentOverflow || ""
-      parentContainer.style.position = originalParentPosition || ""
-      parentContainer.style.width = originalParentWidth || ""
-      parentContainer.style.height = originalParentHeight || ""
-    }
+    // Clean up clone container
+    document.body.removeChild(cloneContainer)
 
     // Create final canvas with exact dimensions (1920x1080)
     const outputWidth = 1920
@@ -294,43 +358,50 @@ export const downloadTitleCard = async (
     finalCanvas.height = outputHeight
     const ctx = finalCanvas.getContext("2d")
 
-    if (ctx) {
-      // Use high-quality image scaling
-      ctx.imageSmoothingEnabled = true
-      ctx.imageSmoothingQuality = "high"
-      // Draw the captured canvas onto the final canvas, scaling to fit 1920x1080
-      ctx.drawImage(canvas, 0, 0, outputWidth, outputHeight)
-
-      // Verify canvas has content before downloading
-      const imageData = ctx.getImageData(
-        0,
-        0,
-        Math.min(100, outputWidth),
-        Math.min(100, outputHeight)
-      )
-      const data = imageData.data
-      let hasContent = false
-      for (let i = 0; i < data.length; i += 4) {
-        const r = data[i]
-        const g = data[i + 1]
-        const b = data[i + 2]
-        const a = data[i + 3]
-        if (a > 0 && (r > 0 || g > 0 || b > 0)) {
-          hasContent = true
-          break
-        }
-      }
-
-      if (!hasContent) {
-        console.error("❌ Canvas appears to be empty!")
-        console.log("Canvas dimensions:", canvas.width, "x", canvas.height)
-        console.log("Final canvas dimensions:", outputWidth, "x", outputHeight)
-        alert("Download failed: Canvas is empty. Please check console for details.")
-        return
-      }
-
-      console.log("✅ Canvas verification passed - content detected")
+    if (!ctx) {
+      console.error("❌ Failed to get 2D context")
+      alert("Download failed: Could not initialize canvas context.")
+      setState((prev) => ({ ...prev, generating: false }))
+      return
     }
+
+    // Use high-quality image scaling
+    ctx.imageSmoothingEnabled = true
+    ctx.imageSmoothingQuality = "high"
+    // Draw the captured canvas onto the final canvas
+    // Since we used scale: 2, the canvas is 3840x2160, so we need to scale it down
+    ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, outputWidth, outputHeight)
+
+    // Verify canvas has content before downloading
+    const imageData = ctx.getImageData(
+      0,
+      0,
+      Math.min(100, outputWidth),
+      Math.min(100, outputHeight)
+    )
+    const data = imageData.data
+    let hasContent = false
+    for (let i = 0; i < data.length; i += 4) {
+      const r = data[i]
+      const g = data[i + 1]
+      const b = data[i + 2]
+      const a = data[i + 3]
+      if (a > 0 && (r > 0 || g > 0 || b > 0)) {
+        hasContent = true
+        break
+      }
+    }
+
+    if (!hasContent) {
+      console.error("❌ Canvas appears to be empty!")
+      console.log("Canvas dimensions:", canvas.width, "x", canvas.height)
+      console.log("Final canvas dimensions:", outputWidth, "x", outputHeight)
+      alert("Download failed: Canvas is empty. Please check console for details.")
+      setState((prev) => ({ ...prev, generating: false }))
+      return
+    }
+
+    console.log("✅ Canvas verification passed - content detected")
 
     // Download the image
     const link = document.createElement("a")

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Monitor, Maximize2, Minimize2, Download, Heart, Copy, RotateCcw, Star } from "lucide-react"
 import { useTranslations } from "next-intl"
+import Image from "next/image"
 import { TitleCardState } from "../types"
 import { effectPresets } from "../constants"
 
@@ -50,7 +51,12 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
     }
   }, [canvasRef])
 
-  const displayDimensions = state.generating ? { width: 1920, height: 1080 } : canvasDimensions
+  // Ensure minimum dimensions to prevent zero font sizes
+  // No longer depends on generating state since we use a hidden clone for download
+  const displayDimensions = {
+    width: Math.max(canvasDimensions.width || 800, 800),
+    height: Math.max(canvasDimensions.height || 450, 450),
+  }
 
   return (
     <div className={`${isFullscreen ? "col-span-1" : "lg:col-span-8"}`}>
@@ -95,15 +101,15 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
               data-canvas-ref="title-card"
               className="relative flex flex-col items-center justify-center gap-[5%]"
               style={{
-                width: !state.generating ? "100%" : "1920px",
-                height: !state.generating ? "100%" : "1080px",
+                width: "100%",
+                height: "100%",
                 background: state.backgroundImage
                   ? `url(${state.backgroundImage}) no-repeat center center / cover`
                   : state.background,
               }}
             >
               {/* Title Component with Curved Effect - Match original implementation */}
-              {/* Font size calculation: (canvasDimensions.width / 100) * state.fontSize */}
+              {/* Font size calculation: Use consistent base width for both preview and download */}
               {/* This ensures the font scales proportionally with the container width */}
               <div
                 className={`woodblock curved-text w-full bg-transparent text-center outline-0`}
@@ -124,6 +130,8 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
                   letterSpacing: "2px",
                   textTransform: "uppercase",
                   transition: "font-size 0.2s ease-in-out",
+                  // Ensure CSS transform is applied consistently
+                  transform: "perspective(400px) rotateX(10deg) scaleY(2)",
                 }}
               >
                 {state.text || t("preview.default_title")}
@@ -143,7 +151,7 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
                     <div
                       style={{
                         fontSize: `${(displayDimensions.width / 100) * 1.9}px`,
-                        fontWeight: displayDimensions.width * 0.3,
+                        fontWeight: "300",
                         fontFamily: '"Inter", Arial, sans-serif',
                       }}
                     >
@@ -154,7 +162,7 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
                     <div
                       style={{
                         fontSize: `${(displayDimensions.width / 100) * 3}px`,
-                        fontWeight: displayDimensions.width * 0.3,
+                        fontWeight: "300",
                         fontFamily: '"Inter", Arial, sans-serif',
                       }}
                     >
@@ -178,10 +186,11 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
                     const effect = effectPresets.find((e) => e.id === effectId)
                     if (!effect) return null
                     return (
-                      <img
+                      <Image
                         key={effectId}
                         src={effect.image}
                         alt={effect.name}
+                        fill
                         className="absolute inset-0 h-full w-full object-cover opacity-80 mix-blend-overlay"
                         style={{ zIndex: 10 }}
                         onError={(e) => {

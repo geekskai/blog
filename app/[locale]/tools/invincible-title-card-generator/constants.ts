@@ -346,6 +346,7 @@ export const DEFAULT_STATE = {
   showCredits: true,
   showWatermark: true,
   background: "linear-gradient(135deg, #169ee7, #1e40af)",
+  backgroundImage: null,
   fontSize: 24,
   outline: 2,
   subtitleOffset: 5,
