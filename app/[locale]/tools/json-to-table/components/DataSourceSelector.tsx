@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useCallback } from "react"
+import { useTranslations } from "next-intl"
 import { SourceType, type DataSource } from "../types"
 import {
   createDataSource,
@@ -19,6 +20,7 @@ export default function DataSourceSelector({
   onDataChange,
   loading = false,
 }: DataSourceSelectorProps) {
+  const t = useTranslations("JsonToTable")
   const [activeTab, setActiveTab] = useState<SourceType>(SourceType.Text)
   const [textData, setTextData] = useState("")
   const [urlData, setUrlData] = useState("")
@@ -54,12 +56,12 @@ export default function DataSourceSelector({
       // File size check (max 10MB)
       const maxSize = 10 * 1024 * 1024 // 10MB
       if (file.size > maxSize) {
-        alert("File size too large. Please upload files smaller than 10MB.")
+        alert(t("error_file_too_large"))
         return
       }
 
       if (!isSupportedFileType(file.name)) {
-        alert("Unsupported file type. Please upload JSON, TXT, JS, TS, JSX, TSX, or CSV files.")
+        alert(t("error_unsupported_file"))
         return
       }
 
@@ -86,7 +88,7 @@ export default function DataSourceSelector({
         setTimeout(() => setFileUploadProgress(0), 1000)
       } catch (error) {
         console.error("File reading error:", error)
-        alert(`Failed to read file: ${error instanceof Error ? error.message : "Unknown error"}`)
+        alert(t("error_file_read", { error: error instanceof Error ? error.message : "Unknown error" }))
         setUploadedFile(null)
         setFileUploadProgress(0)
       }
@@ -204,9 +206,9 @@ export default function DataSourceSelector({
   }, [handleTextChange])
 
   const tabs = [
-    { type: SourceType.Text, label: "Text Input", icon: "📝" },
-    { type: SourceType.File, label: "File Upload", icon: "📁" },
-    { type: SourceType.URL, label: "URL Fetch", icon: "🌐" },
+    { type: SourceType.Text, label: t("data_source_text_tab"), icon: "📝" },
+    { type: SourceType.File, label: t("data_source_file_tab"), icon: "📁" },
+    { type: SourceType.URL, label: t("data_source_url_tab"), icon: "🌐" },
   ]
 
   return (
@@ -221,7 +223,7 @@ export default function DataSourceSelector({
           <div className="inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-3 backdrop-blur-sm">
             <span className="text-2xl">📊</span>
             <h2 className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-2xl font-bold text-transparent">
-              Choose Data Source
+              {t("data_source_title")}
             </h2>
           </div>
         </div>
@@ -252,18 +254,18 @@ export default function DataSourceSelector({
           {activeTab === SourceType.Text && (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <label className="text-lg font-semibold text-white">JSON Data</label>
+                <label className="text-lg font-semibold text-white">{t("data_source_json_label")}</label>
                 <button
                   onClick={loadExample}
                   className="rounded-lg border border-green-500/30 bg-gradient-to-r from-green-500/10 to-emerald-500/10 px-4 py-2 text-sm text-green-300 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25"
                 >
-                  Load Example
+                  {t("data_source_load_example")}
                 </button>
               </div>
               <textarea
                 value={textData}
                 onChange={(e) => handleTextChange(e.target.value)}
-                placeholder="Paste your JSON data here..."
+                placeholder={t("data_source_placeholder")}
                 disabled={loading}
                 className="h-64 w-full rounded-2xl border border-blue-500/30 bg-blue-500/10 p-4 text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/20"
               />
@@ -289,8 +291,8 @@ export default function DataSourceSelector({
                   <div className="space-y-4">
                     <div className="animate-bounce text-6xl">📁</div>
                     <div>
-                      <h3 className="text-xl font-semibold text-white">Drop your file here</h3>
-                      <p className="text-slate-300">or click to browse</p>
+                      <h3 className="text-xl font-semibold text-white">{t("data_source_drop_file")}</h3>
+                      <p className="text-slate-300">{t("data_source_click_browse")}</p>
                     </div>
                     <input
                       type="file"
@@ -304,9 +306,9 @@ export default function DataSourceSelector({
                     />
                     <div className="space-y-2">
                       <p className="text-sm text-slate-400">
-                        Supported formats: JSON, TXT, JS, TS, JSX, TSX, CSV
+                        {t("data_source_supported_formats")}
                       </p>
-                      <p className="text-xs text-slate-500">Maximum file size: 10MB</p>
+                      <p className="text-xs text-slate-500">{t("data_source_max_size")}</p>
                     </div>
                   </div>
                 </div>
@@ -329,7 +331,7 @@ export default function DataSourceSelector({
                     <button
                       onClick={handleClearFile}
                       className="rounded-lg border border-red-500/30 bg-red-500/10 p-2 text-red-300 transition-all duration-300 hover:bg-red-500/20 hover:shadow-lg hover:shadow-red-500/25"
-                      title="Remove file"
+                      title={t("data_source_remove_file")}
                     >
                       <span className="text-lg">🗑️</span>
                     </button>
@@ -339,7 +341,7 @@ export default function DataSourceSelector({
                   {fileUploadProgress > 0 && fileUploadProgress < 100 && (
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm">
-                        <span className="text-slate-300">Uploading...</span>
+                        <span className="text-slate-300">{t("data_source_uploading")}</span>
                         <span className="text-purple-300">{fileUploadProgress}%</span>
                       </div>
                       <div className="h-2 overflow-hidden rounded-full bg-slate-700">
@@ -355,7 +357,7 @@ export default function DataSourceSelector({
                   {fileUploadProgress === 100 && (
                     <div className="flex items-center gap-2 text-green-400">
                       <span className="text-lg">✅</span>
-                      <span className="text-sm font-medium">File uploaded successfully!</span>
+                      <span className="text-sm font-medium">{t("data_source_upload_success")}</span>
                     </div>
                   )}
                 </div>
@@ -366,13 +368,13 @@ export default function DataSourceSelector({
           {/* URL Input */}
           {activeTab === SourceType.URL && (
             <div className="space-y-4">
-              <label className="text-lg font-semibold text-white">URL Address</label>
+              <label className="text-lg font-semibold text-white">{t("data_source_url_label")}</label>
               <div className="relative">
                 <input
                   type="url"
                   value={urlData}
                   onChange={(e) => handleUrlChange(e.target.value)}
-                  placeholder="https://api.example.com/data.json"
+                  placeholder={t("data_source_url_placeholder")}
                   disabled={loading}
                   className="w-full rounded-2xl border border-purple-500/30 bg-purple-500/10 py-4 pl-16 pr-4 text-lg text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:outline-none focus:ring-4 focus:ring-purple-500/20"
                 />
@@ -384,7 +386,7 @@ export default function DataSourceSelector({
                 )}
               </div>
               <p className="text-sm text-slate-400">
-                Enter a URL that returns JSON data. CORS must be enabled for the URL.
+                {t("data_source_url_hint")}
               </p>
             </div>
           )}

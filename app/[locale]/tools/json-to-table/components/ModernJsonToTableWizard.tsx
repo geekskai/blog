@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useCallback } from "react"
+import { useTranslations } from "next-intl"
 import DataSourceSelector from "./DataSourceSelector"
 import ConfigPanel from "./ConfigPanel"
 import TableResultModal from "./TableResultModal"
@@ -18,6 +19,7 @@ import { jsonTryParse } from "../lib/json-parser"
 import { jsonToTable } from "../lib/table-generator"
 
 export default function ModernJsonToTableWizard() {
+  const t = useTranslations("JsonToTable")
   const [dataSource, setDataSource] = useState<DataSource | null>(null)
   const [config, setConfig] = useState<TableConfig>(DEFAULT_TABLE_CONFIG)
   const [tableData, setTableData] = useState<TableData | null>(null)
@@ -60,7 +62,7 @@ export default function ModernJsonToTableWizard() {
             `${processingError.message}${processingError.details ? `: ${processingError.details}` : ""}`
           )
         } else {
-          setError("An unexpected error occurred while processing the data")
+          setError(t("error_unexpected"))
         }
         setTableData(null)
       } finally {
@@ -119,13 +121,13 @@ export default function ModernJsonToTableWizard() {
                 dataSource ? "bg-green-500" : "bg-slate-500"
               }`}
             />
-            <span className="text-sm text-slate-300">Data Source</span>
+            <span className="text-sm text-slate-300">{t("status_data_source")}</span>
           </div>
 
           {/* Configuration status */}
           <div className="flex items-center gap-2">
             <div className="h-3 w-3 rounded-full bg-blue-500" />
-            <span className="text-sm text-slate-300">Configuration</span>
+            <span className="text-sm text-slate-300">{t("status_configuration")}</span>
           </div>
 
           {/* Result status */}
@@ -140,7 +142,11 @@ export default function ModernJsonToTableWizard() {
               }`}
             />
             <span className="text-sm text-slate-300">
-              {loading ? "Processing..." : tableData ? "Ready" : "Waiting"}
+              {loading
+                ? t("status_processing")
+                : tableData
+                  ? t("status_ready")
+                  : t("status_waiting")}
             </span>
           </div>
         </div>
@@ -154,7 +160,7 @@ export default function ModernJsonToTableWizard() {
       <div className="fixed bottom-8 right-8 z-40 flex flex-col gap-3">
         {/* View result button */}
         {tableData && (
-          <Tooltip content="View Generated Table" position="left">
+          <Tooltip content={t("floating_view_table")} position="left">
             <button
               onClick={() => setShowResultModal(true)}
               className="hover:shadow-3xl group relative overflow-hidden rounded-full bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 p-4 text-white shadow-2xl shadow-green-500/25 transition-all duration-300 hover:scale-110 hover:shadow-emerald-500/30 active:scale-95"
@@ -170,7 +176,7 @@ export default function ModernJsonToTableWizard() {
 
         {/* Reset button */}
         {(dataSource || tableData) && (
-          <Tooltip content="Reset All Data" position="left">
+          <Tooltip content={t("floating_reset_all")} position="left">
             <button
               onClick={handleReset}
               className="group relative overflow-hidden rounded-full bg-gradient-to-r from-slate-600 to-slate-700 p-4 text-white shadow-xl shadow-slate-500/25 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-slate-500/30 active:scale-95"
@@ -191,7 +197,7 @@ export default function ModernJsonToTableWizard() {
         <div className="mb-8 text-center">
           <div className="inline-flex items-center gap-4 rounded-2xl border border-blue-500/30 bg-blue-500/10 px-8 py-4 backdrop-blur-sm">
             <div className="h-6 w-6 animate-spin rounded-full border-2 border-blue-500/30 border-t-blue-500"></div>
-            <span className="text-lg font-medium text-blue-300">Processing your data...</span>
+            <span className="text-lg font-medium text-blue-300">{t("status_processing_data")}</span>
           </div>
         </div>
       )
@@ -203,7 +209,7 @@ export default function ModernJsonToTableWizard() {
           <div className="inline-flex items-start gap-4 rounded-2xl border border-red-500/30 bg-red-500/10 px-8 py-4 backdrop-blur-sm">
             <span className="text-2xl">❌</span>
             <div className="text-left">
-              <p className="font-medium text-red-300">Processing Failed</p>
+              <p className="font-medium text-red-300">{t("status_processing_failed")}</p>
               <p className="text-sm text-red-400">{error}</p>
             </div>
           </div>
@@ -217,9 +223,12 @@ export default function ModernJsonToTableWizard() {
           <div className="inline-flex items-center gap-4 rounded-2xl border border-green-500/30 bg-green-500/10 px-8 py-4 backdrop-blur-sm">
             <span className="text-2xl">✅</span>
             <div>
-              <p className="font-medium text-green-300">Table Generated Successfully!</p>
+              <p className="font-medium text-green-300">{t("status_table_generated")}</p>
               <p className="text-sm text-green-400">
-                {tableData.metadata.totalRows} rows × {tableData.metadata.totalColumns} columns
+                {t("status_rows_columns", {
+                  rows: tableData.metadata.totalRows,
+                  columns: tableData.metadata.totalColumns,
+                })}
               </p>
             </div>
           </div>
@@ -241,42 +250,33 @@ export default function ModernJsonToTableWizard() {
               <span className="text-2xl">⚡</span>
             </div>
             <h3 className="mb-2 text-lg font-semibold text-white">
-              Lightning Fast JSON Conversion
+              {t("feature_lightning_title")}
             </h3>
-            <p className="text-slate-400">
-              Advanced JSON parsing algorithms ensure rapid conversion from JSON to table format
-              without compromising quality or data structure.
-            </p>
+            <p className="text-slate-400">{t("feature_lightning_description")}</p>
           </div>
 
           <div className="text-center">
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 text-white">
               <span className="text-2xl">✅</span>
             </div>
-            <h3 className="mb-2 text-lg font-semibold text-white">Structure Preserved</h3>
-            <p className="text-slate-400">
-              Intelligent JSON parsing maintains nested object structure, arrays, and data
-              relationships when converting JSON to HTML tables.
-            </p>
+            <h3 className="mb-2 text-lg font-semibold text-white">
+              {t("feature_structure_title")}
+            </h3>
+            <p className="text-slate-400">{t("feature_structure_description")}</p>
           </div>
 
           <div className="text-center">
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white">
               <span className="text-2xl">🔒</span>
             </div>
-            <h3 className="mb-2 text-lg font-semibold text-white">Privacy First</h3>
-            <p className="text-slate-400">
-              All JSON to table processing happens locally in your browser. Your JSON data never
-              leaves your device during conversion.
-            </p>
+            <h3 className="mb-2 text-lg font-semibold text-white">{t("feature_privacy_title")}</h3>
+            <p className="text-slate-400">{t("feature_privacy_description")}</p>
           </div>
         </div>
 
         {/* How to Use Section */}
         <section className="rounded-xl bg-slate-800 p-8 shadow-lg">
-          <h2 className="mb-6 text-2xl font-bold text-white">
-            How to Use Our JSON to Table Converter: Complete Guide
-          </h2>
+          <h2 className="mb-6 text-2xl font-bold text-white">{t("how_to_use_title")}</h2>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
@@ -284,12 +284,8 @@ export default function ModernJsonToTableWizard() {
                   1
                 </span>
                 <div>
-                  <h3 className="font-semibold text-white">Input Your JSON Data</h3>
-                  <p className="text-slate-400">
-                    Paste JSON text, upload JSON files, or fetch from URLs. Our JSON to table
-                    converter supports nested objects, arrays, and complex JSON structures for table
-                    conversion.
-                  </p>
+                  <h3 className="font-semibold text-white">{t("how_to_step1_title")}</h3>
+                  <p className="text-slate-400">{t("how_to_step1_description")}</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
@@ -297,11 +293,8 @@ export default function ModernJsonToTableWizard() {
                   2
                 </span>
                 <div>
-                  <h3 className="font-semibold text-white">Configure Table Settings</h3>
-                  <p className="text-slate-400">
-                    Choose output format (HTML, ASCII, JSON), customize table appearance, and set
-                    conversion options for optimal JSON to table results.
-                  </p>
+                  <h3 className="font-semibold text-white">{t("how_to_step2_title")}</h3>
+                  <p className="text-slate-400">{t("how_to_step2_description")}</p>
                 </div>
               </div>
             </div>
@@ -311,11 +304,8 @@ export default function ModernJsonToTableWizard() {
                   3
                 </span>
                 <div>
-                  <h3 className="font-semibold text-white">Automatic JSON Table Generation</h3>
-                  <p className="text-slate-400">
-                    Our JSON table generator automatically processes your data, converting JSON to
-                    table format while preserving structure and relationships.
-                  </p>
+                  <h3 className="font-semibold text-white">{t("how_to_step3_title")}</h3>
+                  <p className="text-slate-400">{t("how_to_step3_description")}</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
@@ -323,11 +313,8 @@ export default function ModernJsonToTableWizard() {
                   4
                 </span>
                 <div>
-                  <h3 className="font-semibold text-white">Download or Copy Results</h3>
-                  <p className="text-slate-400">
-                    Download your converted table as HTML, Excel, or ASCII file, or copy the JSON
-                    table data to clipboard for immediate use.
-                  </p>
+                  <h3 className="font-semibold text-white">{t("how_to_step4_title")}</h3>
+                  <p className="text-slate-400">{t("how_to_step4_description")}</p>
                 </div>
               </div>
             </div>
@@ -336,117 +323,76 @@ export default function ModernJsonToTableWizard() {
 
         {/* Use Cases Section */}
         <section className="rounded-xl bg-slate-800 p-8">
-          <h2 className="mb-6 text-2xl font-bold text-white">Why Convert JSON to Table Format?</h2>
+          <h2 className="mb-6 text-2xl font-bold text-white">{t("why_convert_title")}</h2>
           <div className="grid gap-6 md:grid-cols-3">
             <div className="rounded-lg bg-slate-700 p-6">
-              <h3 className="mb-3 font-semibold text-white">API Data Visualization</h3>
-              <p className="text-slate-400">
-                Convert JSON API responses to readable HTML tables for documentation, testing, and
-                data analysis. Perfect for REST API data visualization.
-              </p>
+              <h3 className="mb-3 font-semibold text-white">{t("why_convert_api_title")}</h3>
+              <p className="text-slate-400">{t("why_convert_api_description")}</p>
             </div>
             <div className="rounded-lg bg-slate-700 p-6">
-              <h3 className="mb-3 font-semibold text-white">Database Export</h3>
-              <p className="text-slate-400">
-                Transform JSON database exports into Excel-compatible tables for reporting,
-                analysis, and data migration tasks.
-              </p>
+              <h3 className="mb-3 font-semibold text-white">{t("why_convert_database_title")}</h3>
+              <p className="text-slate-400">{t("why_convert_database_description")}</p>
             </div>
             <div className="rounded-lg bg-slate-700 p-6">
-              <h3 className="mb-3 font-semibold text-white">Development & Testing</h3>
-              <p className="text-slate-400">
-                Convert JSON test data to table format for easier debugging, validation, and sharing
-                with team members and stakeholders.
-              </p>
+              <h3 className="mb-3 font-semibold text-white">
+                {t("why_convert_development_title")}
+              </h3>
+              <p className="text-slate-400">{t("why_convert_development_description")}</p>
             </div>
           </div>
         </section>
 
         {/* FAQ Section */}
         <section className="rounded-xl bg-slate-800 p-8 shadow-lg">
-          <h2 className="mb-6 text-2xl font-bold text-white">JSON to Table Converter FAQ</h2>
+          <h2 className="mb-6 text-2xl font-bold text-white">{t("faq_title")}</h2>
           <div className="space-y-6">
             <div className="border-b border-slate-700 pb-4">
-              <h3 className="mb-2 text-lg font-semibold text-white">
-                What is the best free JSON to table converter?
-              </h3>
-              <p className="text-slate-400">
-                Our JSON to table converter is the best free online tool for converting JSON to
-                HTML, ASCII, and Excel table formats. This JSON table generator offers unlimited
-                conversions with no registration requirements, subscription fees, or usage limits.
-                Convert JSON data to tables as many times as you need.
-              </p>
+              <h3 className="mb-2 text-lg font-semibold text-white">{t("faq_best_converter_q")}</h3>
+              <p className="text-slate-400">{t("faq_best_converter_a")}</p>
             </div>
             <div className="border-b border-slate-700 pb-4">
-              <h3 className="mb-2 text-lg font-semibold text-white">
-                How accurate is JSON to table conversion with this tool?
-              </h3>
-              <p className="text-slate-400">
-                Our JSON to table converter uses advanced parsing algorithms to maintain data
-                structure when converting JSON to table format. The JSON table conversion preserves
-                nested objects, arrays, and data relationships. Most JSON to table conversions
-                achieve 99%+ accuracy in preserving the original data structure.
-              </p>
+              <h3 className="mb-2 text-lg font-semibold text-white">{t("faq_accuracy_q")}</h3>
+              <p className="text-slate-400">{t("faq_accuracy_a")}</p>
             </div>
             <div className="border-b border-slate-700 pb-4">
-              <h3 className="mb-2 text-lg font-semibold text-white">
-                Is this JSON to table converter secure?
-              </h3>
-              <p className="text-slate-400">
-                Yes, our JSON to table converter is completely secure. All JSON table conversion
-                happens locally in your browser using client-side JavaScript. When you convert JSON
-                to table with our tool, your data never leaves your device, ensuring complete
-                privacy and security during the JSON table conversion process.
-              </p>
+              <h3 className="mb-2 text-lg font-semibold text-white">{t("faq_secure_q")}</h3>
+              <p className="text-slate-400">{t("faq_secure_a")}</p>
             </div>
             <div className="border-b border-slate-700 pb-4">
-              <h3 className="mb-2 text-lg font-semibold text-white">
-                What JSON formats are supported for table conversion?
-              </h3>
-              <p className="text-slate-400">
-                Our JSON table converter supports all valid JSON formats including nested objects,
-                arrays, primitive values, and complex data structures. You can convert JSON files,
-                JSON strings, or JSON from URLs to table format with full structure preservation.
-              </p>
+              <h3 className="mb-2 text-lg font-semibold text-white">{t("faq_formats_q")}</h3>
+              <p className="text-slate-400">{t("faq_formats_a")}</p>
             </div>
             <div>
-              <h3 className="mb-2 text-lg font-semibold text-white">
-                Can I convert large JSON files to tables?
-              </h3>
-              <p className="text-slate-400">
-                Yes, our JSON to table converter can handle large JSON files efficiently. The tool
-                processes JSON data locally in your browser, so conversion speed depends on your
-                device performance. For optimal results, we recommend JSON files under 10MB for JSON
-                to table conversion.
-              </p>
+              <h3 className="mb-2 text-lg font-semibold text-white">{t("faq_large_files_q")}</h3>
+              <p className="text-slate-400">{t("faq_large_files_a")}</p>
             </div>
           </div>
         </section>
 
         {/* Technical Benefits */}
         <section className="rounded-xl bg-gradient-to-r from-slate-800 to-slate-700 p-8">
-          <h2 className="mb-6 text-2xl font-bold text-white">
-            Advanced JSON to Table Conversion Features
-          </h2>
+          <h2 className="mb-6 text-2xl font-bold text-white">{t("advanced_features_title")}</h2>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-white">Smart JSON Structure Detection</h3>
+              <h3 className="text-lg font-semibold text-white">
+                {t("advanced_features_detection_title")}
+              </h3>
               <ul className="space-y-2 text-slate-400">
-                <li>
-                  • Automatically detects nested JSON objects and converts to merged table cells
-                </li>
-                <li>• Preserves JSON array structures in table format</li>
-                <li>• Maintains data type information during JSON to table conversion</li>
-                <li>• Handles complex JSON hierarchies intelligently</li>
+                <li>• {t("advanced_features_detection_1")}</li>
+                <li>• {t("advanced_features_detection_2")}</li>
+                <li>• {t("advanced_features_detection_3")}</li>
+                <li>• {t("advanced_features_detection_4")}</li>
               </ul>
             </div>
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-white">Multiple Output Formats</h3>
+              <h3 className="text-lg font-semibold text-white">
+                {t("advanced_features_output_title")}
+              </h3>
               <ul className="space-y-2 text-slate-400">
-                <li>• HTML tables with modern styling and responsive design</li>
-                <li>• ASCII tables for command-line and text-based environments</li>
-                <li>• Excel-compatible formats for spreadsheet applications</li>
-                <li>• JSON output with enhanced structure for further processing</li>
+                <li>• {t("advanced_features_output_1")}</li>
+                <li>• {t("advanced_features_output_2")}</li>
+                <li>• {t("advanced_features_output_3")}</li>
+                <li>• {t("advanced_features_output_4")}</li>
               </ul>
             </div>
           </div>
@@ -470,12 +416,9 @@ export default function ModernJsonToTableWizard() {
           <div className="mx-auto max-w-7xl px-6 py-12">
             <div className="text-center">
               <h1 className="mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-6xl font-bold text-transparent">
-                JSON to Table Converter
+                {t("title")}
               </h1>
-              <p className="mx-auto max-w-3xl text-xl text-slate-300">
-                Transform your JSON data into beautiful, readable tables with our modern
-                step-by-step wizard.
-              </p>
+              <p className="mx-auto max-w-3xl text-xl text-slate-300">{t("subtitle")}</p>
             </div>
           </div>
         </div>
@@ -511,7 +454,7 @@ export default function ModernJsonToTableWizard() {
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
                 <span className="relative flex items-center gap-2">
                   <span>👁️</span>
-                  View Generated Table
+                  {t("button_view_table")}
                 </span>
               </button>
             </div>

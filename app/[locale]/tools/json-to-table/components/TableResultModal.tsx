@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useEffect } from "react"
+import { useTranslations } from "next-intl"
 import { OutputFormat, type TableData } from "../types"
 import { renderHTMLTable, renderASCIITable, renderJSON } from "../lib/table-generator"
 
@@ -21,6 +22,7 @@ export default function TableResultModal({
   loading = false,
   error,
 }: TableResultModalProps) {
+  const t = useTranslations("JsonToTable")
   const [copied, setCopied] = React.useState(false)
   // Close modal with ESC key
   useEffect(() => {
@@ -128,7 +130,7 @@ Visit geekskai.com for more awesome tools!
         <div className="flex h-96 items-center justify-center">
           <div className="flex items-center gap-4">
             <div className="h-8 w-8 animate-spin rounded-full border-4 border-orange-500/30 border-t-orange-500"></div>
-            <span className="text-lg text-white">Processing data...</span>
+            <span className="text-lg text-white">{t("modal_processing")}</span>
           </div>
         </div>
       )
@@ -138,7 +140,7 @@ Visit geekskai.com for more awesome tools!
       return (
         <div className="rounded-2xl border border-red-500/30 bg-red-500/10 p-8 text-center">
           <div className="mb-4 text-6xl">❌</div>
-          <h3 className="mb-2 text-xl font-semibold text-red-400">Processing Error</h3>
+          <h3 className="mb-2 text-xl font-semibold text-red-400">{t("modal_error_title")}</h3>
           <p className="text-red-300">{error}</p>
         </div>
       )
@@ -150,8 +152,8 @@ Visit geekskai.com for more awesome tools!
           <div className="space-y-4">
             <div className="text-6xl">📊</div>
             <div>
-              <h3 className="text-xl font-semibold text-white">No Data Yet</h3>
-              <p className="text-slate-300">Select a data source to generate a table</p>
+              <h3 className="text-xl font-semibold text-white">{t("modal_no_data_title")}</h3>
+              <p className="text-slate-300">{t("modal_no_data_desc")}</p>
             </div>
           </div>
         </div>
@@ -166,18 +168,21 @@ Visit geekskai.com for more awesome tools!
             <div className="inline-flex items-center gap-2 rounded-lg border border-orange-500/30 bg-orange-500/15 px-3 py-2">
               <span className="text-orange-400">📊</span>
               <span className="font-medium text-orange-300">
-                {tableData.metadata.totalRows} rows × {tableData.metadata.totalColumns} columns
+                {t("modal_metadata_rows", {
+                  rows: tableData.metadata.totalRows,
+                  columns: tableData.metadata.totalColumns,
+                })}
               </span>
             </div>
             <div className="inline-flex items-center gap-2 rounded-lg border border-purple-500/30 bg-purple-500/15 px-3 py-2">
               <span className="text-purple-400">📋</span>
               <span className="font-medium text-purple-300">
-                Type: {tableData.metadata.dataType}
+                {t("modal_metadata_type", { type: tableData.metadata.dataType })}
               </span>
             </div>
             <div className="inline-flex items-center gap-2 rounded-lg border border-blue-500/30 bg-blue-500/15 px-3 py-2">
               <span className="text-blue-400">🎨</span>
-              <span className="font-medium text-blue-300">Format: {format}</span>
+              <span className="font-medium text-blue-300">{t("modal_metadata_format", { format })}</span>
             </div>
           </div>
         </div>
@@ -207,7 +212,7 @@ Visit geekskai.com for more awesome tools!
         }}
         role="button"
         tabIndex={0}
-        aria-label="Close modal"
+        aria-label={t("modal_close")}
       />
 
       {/* Modal content */}
@@ -231,7 +236,7 @@ Visit geekskai.com for more awesome tools!
                   id="modal-title"
                   className="bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-2xl font-bold text-transparent"
                 >
-                  Generated Table
+                  {t("modal_title")}
                 </h2>
               </div>
 
@@ -246,12 +251,12 @@ Visit geekskai.com for more awesome tools!
                         ? "border-emerald-500/50 bg-emerald-500/20 text-emerald-300 hover:shadow-emerald-500/25"
                         : "border-green-500/40 bg-green-500/15 text-green-300 hover:border-green-400/60 hover:shadow-green-500/25"
                     }`}
-                    title="Copy table to clipboard"
+                    title={t("modal_copy_tooltip")}
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                     <span className="relative flex items-center gap-2 text-sm font-medium">
                       <span className="text-base">{copied ? "✅" : "📋"}</span>
-                      {copied ? "Copied!" : "Copy"}
+                      {copied ? t("modal_copied") : t("modal_copy")}
                     </span>
                   </button>
                 )}
@@ -263,12 +268,12 @@ Visit geekskai.com for more awesome tools!
                       downloadAsFile(renderedContent, `table.${getFileExtension(format)}`)
                     }
                     className="group relative overflow-hidden rounded-xl border border-blue-500/40 bg-blue-500/15 px-4 py-2 text-blue-300 transition-all duration-300 hover:border-blue-400/60 hover:shadow-lg hover:shadow-blue-500/25"
-                    title="Download table as file"
+                    title={t("modal_download_tooltip")}
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                     <span className="relative flex items-center gap-2 text-sm font-medium">
                       <span className="text-base">💾</span>
-                      Download
+                      {t("modal_download")}
                     </span>
                   </button>
                 )}
@@ -277,7 +282,7 @@ Visit geekskai.com for more awesome tools!
                 <button
                   onClick={onClose}
                   className="group relative overflow-hidden rounded-xl border border-slate-500/30 bg-slate-500/10 p-3 text-slate-300 transition-all duration-300 hover:bg-slate-500/20 hover:shadow-lg hover:shadow-slate-500/25"
-                  title="Close (ESC)"
+                  title={t("modal_close_tooltip")}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-slate-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                   <span className="relative text-xl">✕</span>

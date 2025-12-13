@@ -16,7 +16,7 @@ export function jsonTryParse<T = unknown>(json: string): JSONParseResult<T, Proc
         error: {
           type: "parse",
           message: "Empty JSON string",
-          details: "Please provide valid JSON data",
+          details: "Empty JSON string",
         },
       }
     }
@@ -33,7 +33,7 @@ export function jsonTryParse<T = unknown>(json: string): JSONParseResult<T, Proc
       error: {
         type: "parse",
         message: "Invalid JSON format",
-        details: error instanceof Error ? error.message : "Unknown parsing error",
+        details: error instanceof Error ? error.message : "Invalid JSON format",
       },
     }
   }
