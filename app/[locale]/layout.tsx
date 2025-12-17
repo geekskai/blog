@@ -229,11 +229,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={`scroll-smooth`} suppressHydrationWarning>
-      <link
-        rel="apple-touch-icon"
-        sizes="76x76"
-        href={`${basePath}/static/favicons/apple-touch-icon.png`}
-      />
+      <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/static/favicons/logo.png`} />
       <link
         rel="icon"
         type="image/png"
