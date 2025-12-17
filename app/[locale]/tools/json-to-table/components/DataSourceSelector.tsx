@@ -88,7 +88,9 @@ export default function DataSourceSelector({
         setTimeout(() => setFileUploadProgress(0), 1000)
       } catch (error) {
         console.error("File reading error:", error)
-        alert(t("error_file_read", { error: error instanceof Error ? error.message : "Unknown error" }))
+        alert(
+          t("error_file_read", { error: error instanceof Error ? error.message : "Unknown error" })
+        )
         setUploadedFile(null)
         setFileUploadProgress(0)
       }
@@ -254,7 +256,9 @@ export default function DataSourceSelector({
           {activeTab === SourceType.Text && (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <label className="text-lg font-semibold text-white">{t("data_source_json_label")}</label>
+                <label className="text-lg font-semibold text-white">
+                  {t("data_source_json_label")}
+                </label>
                 <button
                   onClick={loadExample}
                   className="rounded-lg border border-green-500/30 bg-gradient-to-r from-green-500/10 to-emerald-500/10 px-4 py-2 text-sm text-green-300 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25"
@@ -291,7 +295,9 @@ export default function DataSourceSelector({
                   <div className="space-y-4">
                     <div className="animate-bounce text-6xl">📁</div>
                     <div>
-                      <h3 className="text-xl font-semibold text-white">{t("data_source_drop_file")}</h3>
+                      <h3 className="text-xl font-semibold text-white">
+                        {t("data_source_drop_file")}
+                      </h3>
                       <p className="text-slate-300">{t("data_source_click_browse")}</p>
                     </div>
                     <input
@@ -305,9 +311,7 @@ export default function DataSourceSelector({
                       className="absolute inset-0 cursor-pointer opacity-0"
                     />
                     <div className="space-y-2">
-                      <p className="text-sm text-slate-400">
-                        {t("data_source_supported_formats")}
-                      </p>
+                      <p className="text-sm text-slate-400">{t("data_source_supported_formats")}</p>
                       <p className="text-xs text-slate-500">{t("data_source_max_size")}</p>
                     </div>
                   </div>
@@ -368,7 +372,9 @@ export default function DataSourceSelector({
           {/* URL Input */}
           {activeTab === SourceType.URL && (
             <div className="space-y-4">
-              <label className="text-lg font-semibold text-white">{t("data_source_url_label")}</label>
+              <label className="text-lg font-semibold text-white">
+                {t("data_source_url_label")}
+              </label>
               <div className="relative">
                 <input
                   type="url"
@@ -385,9 +391,7 @@ export default function DataSourceSelector({
                   <div className="absolute right-4 top-1/2 -translate-y-1/2 text-red-400">❌</div>
                 )}
               </div>
-              <p className="text-sm text-slate-400">
-                {t("data_source_url_hint")}
-              </p>
+              <p className="text-sm text-slate-400">{t("data_source_url_hint")}</p>
             </div>
           )}
         </div>

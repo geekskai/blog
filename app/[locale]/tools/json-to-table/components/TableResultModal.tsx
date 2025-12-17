@@ -182,7 +182,9 @@ Visit geekskai.com for more awesome tools!
             </div>
             <div className="inline-flex items-center gap-2 rounded-lg border border-blue-500/30 bg-blue-500/15 px-3 py-2">
               <span className="text-blue-400">🎨</span>
-              <span className="font-medium text-blue-300">{t("modal_metadata_format", { format })}</span>
+              <span className="font-medium text-blue-300">
+                {t("modal_metadata_format", { format })}
+              </span>
             </div>
           </div>
         </div>
