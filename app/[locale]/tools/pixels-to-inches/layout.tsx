@@ -22,16 +22,16 @@ export async function generateMetadata({
 
   const ogLocale = localeMap[locale] || "en_US"
   const baseUrl = "https://geekskai.com"
-  const path = `/tools/pixels-to-inchs/`
+  const path = `/tools/pixels-to-inches/`
   const url = `${baseUrl}${locale === "en" ? "" : `/${locale}`}${path}`
 
   const isDefaultLocale = locale === "en"
   const languages: Record<string, string> = {
-    "x-default": "https://geekskai.com/tools/pixels-to-inchs/",
+    "x-default": "https://geekskai.com/tools/pixels-to-inches/",
   }
 
   supportedLocales.forEach((loc) => {
-    languages[loc] = `https://geekskai.com/${loc}/tools/pixels-to-inchs/`
+    languages[loc] = `https://geekskai.com/${loc}/tools/pixels-to-inches/`
   })
 
   return {
@@ -85,8 +85,8 @@ export async function generateMetadata({
     // Canonical URL and language alternates
     alternates: {
       canonical: isDefaultLocale
-        ? "https://geekskai.com/tools/pixels-to-inchs/"
-        : `https://geekskai.com/${locale}/tools/pixels-to-inchs/`,
+        ? "https://geekskai.com/tools/pixels-to-inches/"
+        : `https://geekskai.com/${locale}/tools/pixels-to-inches/`,
       languages: {
         ...languages,
       },
@@ -121,7 +121,7 @@ export default async function PixelsToInchesLayout({
   const t = await getTranslations({ locale, namespace: "PixelsToInchesConverter" })
 
   const baseUrl = "https://geekskai.com"
-  const path = `/tools/pixels-to-inchs/`
+  const path = `/tools/pixels-to-inches/`
   const url = `${baseUrl}${locale === "en" ? "" : `/${locale}`}${path}`
 
   // 动态生成结构化数据
