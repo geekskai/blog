@@ -4108,5 +4108,85 @@
     "error_file_read": "Kunne ikke læse fil: {error}",
     "error_empty_json": "Tom JSON streng",
     "error_invalid_json": "Ugyldigt JSON format"
+  },
+  "PixelsToInchesConverter": {
+    "seo_title": "Pixel til tommer konverter – Gratis online pixel til tomme-beregner | Præcis & Hurtig",
+    "seo_description": "Gratis online pixel til tommer konverter. Konverter pixels til tommer og tommer til pixels med justerbar PPI (Pixels Per Inch). Perfekt til webdesign, skærmopløsning og printdesign.",
+    "seo_keywords": "pixels til tommer, tommer til pixels, pixel konverter, PPI beregner, skærmopløsningskonverter, webdesign værktøj",
+    "page_title": "Pixels til Tommer",
+    "page_subtitle": "Konverter & Beregner",
+    "page_description": "Gratis pixel til tommer konverter og beregner. Konverter pixels til tommer og tommer til pixels med justerbar PPI (Pixels Per Inch). Perfekt til webdesign, skærmopløsningsberegninger og printprojekter.",
+    "free_calculator_badge": "Gratis Pixel til Tommer Konverter & Beregner",
+    "feature_badges": {
+      "pixel_converter": "Pixel til Tomme Konverter",
+      "screen_resolution": "Skærmopløsningsværktøj",
+      "instant_conversion": "Øjeblikkelig Konvertering",
+      "customizable_ppi": "Justerbar PPI"
+    },
+    "breadcrumb": {
+      "home": "Hjem",
+      "tools": "Værktøjer",
+      "pixels_to_inches_converter": "Pixel til Tommer Konverter"
+    },
+    "converter_card": {
+      "title": "Pixel til Tommer Konverter",
+      "description": "Konverter mellem pixels og tommer med justerbar PPI",
+      "inches_label": "Tommer",
+      "inches_placeholder": "Indtast tommer",
+      "inches_unit": "in",
+      "pixels_label": "Pixels",
+      "pixels_placeholder": "Indtast pixels",
+      "pixels_unit": "px",
+      "ppi_label": "Pixels pr. tomme (PPI)",
+      "ppi_info": "Standard skærmopløsning",
+      "precision_label": "Decimalpræcision",
+      "decimals": "decimaler",
+      "info_text": "Du kan udføre beregninger begge veje, dvs. konvertere tommer til pixels og omvendt.",
+      "formula_label": "Konverteringsformel",
+      "share_result": "Del resultat",
+      "copying": "Kopierer...",
+      "copied": "Kopieret!",
+      "failed": "Mislykkedes",
+      "reload_calculator": "Genindlæs beregner",
+      "clear_all": "Ryd alle ændringer"
+    },
+    "usage_guide": {
+      "title": "Sådan bruger du Pixel til Tommer Konverter",
+      "description": "Lær pixel til tommer konvertering til webdesign, skærmopløsning og printprojekter.",
+      "step_1_title": "Indtast værdi",
+      "step_1_description": "Indtast en værdi i enten tommer- eller pixel-feltet. Konverteren beregner automatisk den tilsvarende værdi.",
+      "step_2_title": "Indstil PPI",
+      "step_2_description": "Juster Pixels Per Inch (PPI) efter behov. Standard er 96 PPI (standard skærmopløsning).",
+      "step_3_title": "Vælg præcision",
+      "step_3_description": "Vælg decimalpræcision fra 0 til 3 decimaler.",
+      "step_4_title": "Kopiér resultater",
+      "step_4_description": "Kopiér konverteringsresultater med ét klik til dine designprojekter."
+    },
+    "features_section": {
+      "title": "Professionelle funktioner i Pixel til Tommer Konverter",
+      "subtitle": "Alt hvad du behøver for præcis pixel til tommer konvertering",
+      "two_way_conversion": "Tovejs konvertering",
+      "two_way_conversion_description": "Konverter pixels til tommer eller tommer til pixels øjeblikkeligt.",
+      "customizable_ppi": "Justerbar PPI",
+      "customizable_ppi_description": "Tilpas PPI til din skærmopløsning eller printkrav.",
+      "precision_control": "Præcisionskontrol",
+      "precision_control_description": "Styr decimalpræcision fra 0 til 3 decimaler."
+    },
+    "faq_section": {
+      "title": "Ofte stillede spørgsmål",
+      "q1_question": "Hvordan konverterer jeg pixels til tommer?",
+      "q1_answer": "Indtast pixelværdien i pixel-feltet, så beregner konverteren automatisk tommer baseret på PPI-værdien. Standard er 96 PPI.",
+      "q2_question": "Hvad er PPI?",
+      "q2_answer": "PPI står for Pixels Per Inch og angiver pixeltætheden på en skærm eller et billede.",
+      "q3_question": "Kan jeg konvertere tommer til pixels?",
+      "q3_answer": "Ja! Indtast tommeværdien, så beregnes pixels automatisk.",
+      "q4_question": "Er denne konverter gratis?",
+      "q4_answer": "Ja, denne pixel til tommer konverter er helt gratis og kræver ingen tilmelding."
+    },
+    "final_cta": {
+      "title": "Klar til at konvertere pixels til tommer?",
+      "description": "Brug vores gratis pixel til tommer konverter nu og få præcise resultater med det samme.",
+      "button_text": "Start konvertering"
+    }
   }
 }

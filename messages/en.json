@@ -4354,5 +4354,85 @@
     "error_file_read": "Failed to read file: {error}",
     "error_empty_json": "Empty JSON string",
     "error_invalid_json": "Invalid JSON format"
+  },
+  "PixelsToInchesConverter": {
+    "seo_title": "Pixels to Inches Converter – Free Online Pixel to Inch Calculator | Accurate & Fast",
+    "seo_description": "Free online pixels to inches converter. Convert pixels to inches and inches to pixels instantly with customizable PPI (Pixels Per Inch). Perfect for web design, screen resolution, and print design.",
+    "seo_keywords": "pixels to inches, inches to pixels, pixel converter, PPI calculator, screen resolution converter, web design tool",
+    "page_title": "Pixels to Inches",
+    "page_subtitle": "Converter & Calculator",
+    "page_description": "Free pixels to inches converter and calculator. Convert pixels to inches and inches to pixels with customizable PPI (Pixels Per Inch). Perfect for web design, screen resolution calculations, and print design projects.",
+    "free_calculator_badge": "Free Pixels to Inches Converter & Calculator",
+    "feature_badges": {
+      "pixel_converter": "Pixel to Inch Converter",
+      "screen_resolution": "Screen Resolution Tool",
+      "instant_conversion": "Instant Conversion",
+      "customizable_ppi": "Customizable PPI"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "tools": "Tools",
+      "pixels_to_inches_converter": "Pixels to Inches Converter"
+    },
+    "converter_card": {
+      "title": "Pixels to Inches Converter",
+      "description": "Convert between pixels and inches with customizable PPI",
+      "inches_label": "Inches",
+      "inches_placeholder": "Enter inches",
+      "inches_unit": "in",
+      "pixels_label": "Pixels",
+      "pixels_placeholder": "Enter pixels",
+      "pixels_unit": "px",
+      "ppi_label": "Pixels per inch (PPI)",
+      "ppi_info": "Standard screen resolution",
+      "precision_label": "Decimal Precision",
+      "decimals": "decimals",
+      "info_text": "You can perform calculations both ways, i.e., convert inches to pixels and vice versa.",
+      "formula_label": "Conversion Formula",
+      "share_result": "Share result",
+      "copying": "Copying...",
+      "copied": "Copied!",
+      "failed": "Failed",
+      "reload_calculator": "Reload calculator",
+      "clear_all": "Clear all changes"
+    },
+    "usage_guide": {
+      "title": "How to Use Pixels to Inches Converter",
+      "description": "Master pixel to inch conversion for web design, screen resolution, and print design projects.",
+      "step_1_title": "Enter Value",
+      "step_1_description": "Enter a value in either inches or pixels field. The converter will automatically calculate the corresponding value.",
+      "step_2_title": "Set PPI",
+      "step_2_description": "Adjust the Pixels Per Inch (PPI) value if needed. Default is 96 PPI (standard screen resolution).",
+      "step_3_title": "Choose Precision",
+      "step_3_description": "Select decimal precision from 0 to 3 decimals for your conversion needs.",
+      "step_4_title": "Copy Results",
+      "step_4_description": "Copy conversion results with one click for use in your design projects."
+    },
+    "features_section": {
+      "title": "Professional Pixels to Inches Converter Features",
+      "subtitle": "Everything you need for accurate pixel to inch conversions",
+      "two_way_conversion": "Two-Way Conversion",
+      "two_way_conversion_description": "Convert pixels to inches or inches to pixels instantly with bidirectional conversion.",
+      "customizable_ppi": "Customizable PPI",
+      "customizable_ppi_description": "Adjust Pixels Per Inch (PPI) to match your screen resolution or print requirements.",
+      "precision_control": "Precision Control",
+      "precision_control_description": "Control decimal precision from 0 to 3 decimals for accurate measurements."
+    },
+    "faq_section": {
+      "title": "Frequently Asked Questions",
+      "q1_question": "How do I convert pixels to inches?",
+      "q1_answer": "Enter the pixel value in the pixels field, and the converter will automatically calculate the corresponding inches based on the PPI (Pixels Per Inch) value. Default PPI is 96.",
+      "q2_question": "What is PPI?",
+      "q2_answer": "PPI stands for Pixels Per Inch. It represents the pixel density of a display or image. Standard screen resolution is 96 PPI, but you can adjust this value based on your specific needs.",
+      "q3_question": "Can I convert inches to pixels?",
+      "q3_answer": "Yes! Enter the inch value in the inches field, and the converter will automatically calculate the corresponding pixels based on the PPI value.",
+      "q4_question": "Is this converter free?",
+      "q4_answer": "Yes, this pixels to inches converter is completely free to use with no signup required."
+    },
+    "final_cta": {
+      "title": "Ready to Convert Pixels to Inches?",
+      "description": "Start using our free pixels to inches converter now and get accurate conversions instantly.",
+      "button_text": "Start Converting"
+    }
   }
 }

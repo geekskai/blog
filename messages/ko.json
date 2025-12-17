@@ -4241,5 +4241,85 @@
     "error_file_read": "파일 읽기 실패: {error}",
     "error_empty_json": "빈 JSON 문자열",
     "error_invalid_json": "유효하지 않은 JSON 형식"
+  },
+  "PixelsToInchesConverter": {
+    "seo_title": "픽셀 → 인치 변환기 – 무료 온라인 픽셀 인치 계산기 | 정확하고 빠름",
+    "seo_description": "무료 온라인 픽셀 → 인치 변환기. PPI(인치당 픽셀 수)를 조정하여 픽셀과 인치를 즉시 변환하세요. 웹 디자인, 화면 해상도, 인쇄 디자인에 적합합니다.",
+    "seo_keywords": "픽셀 인치 변환, 인치 픽셀 변환, 픽셀 계산기, PPI 계산기, 해상도 변환, 웹 디자인 도구",
+    "page_title": "픽셀 → 인치",
+    "page_subtitle": "변환기 & 계산기",
+    "page_description": "무료 픽셀 → 인치 변환 및 계산기. PPI를 조정하여 픽셀과 인치를 상호 변환할 수 있습니다.",
+    "free_calculator_badge": "무료 픽셀 ↔ 인치 변환기",
+    "feature_badges": {
+      "pixel_converter": "픽셀 인치 변환",
+      "screen_resolution": "화면 해상도 도구",
+      "instant_conversion": "즉시 변환",
+      "customizable_ppi": "PPI 사용자 설정"
+    },
+    "breadcrumb": {
+      "home": "홈",
+      "tools": "도구",
+      "pixels_to_inches_converter": "픽셀 → 인치 변환기"
+    },
+    "converter_card": {
+      "title": "픽셀 → 인치 변환기",
+      "description": "PPI를 설정하여 픽셀과 인치를 변환하세요",
+      "inches_label": "인치",
+      "inches_placeholder": "인치 입력",
+      "inches_unit": "in",
+      "pixels_label": "픽셀",
+      "pixels_placeholder": "픽셀 입력",
+      "pixels_unit": "px",
+      "ppi_label": "인치당 픽셀 수(PPI)",
+      "ppi_info": "표준 화면 해상도",
+      "precision_label": "소수점 정밀도",
+      "decimals": "자리",
+      "info_text": "픽셀 → 인치 또는 인치 → 픽셀 양방향 계산이 가능합니다.",
+      "formula_label": "변환 공식",
+      "share_result": "결과 공유",
+      "copying": "복사 중...",
+      "copied": "복사됨!",
+      "failed": "실패",
+      "reload_calculator": "계산기 새로고침",
+      "clear_all": "모두 초기화"
+    },
+    "usage_guide": {
+      "title": "픽셀 → 인치 변환기 사용 방법",
+      "description": "웹 디자인과 인쇄를 위한 정확한 변환 방법을 알아보세요.",
+      "step_1_title": "값 입력",
+      "step_1_description": "인치 또는 픽셀 중 하나에 값을 입력하면 자동으로 계산됩니다.",
+      "step_2_title": "PPI 설정",
+      "step_2_description": "필요에 따라 PPI를 조정하세요. 기본값은 96입니다.",
+      "step_3_title": "정밀도 선택",
+      "step_3_description": "소수점 0~3자리까지 선택할 수 있습니다.",
+      "step_4_title": "결과 복사",
+      "step_4_description": "한 번의 클릭으로 결과를 복사하세요."
+    },
+    "features_section": {
+      "title": "전문 픽셀 → 인치 변환 기능",
+      "subtitle": "정확한 변환을 위한 모든 기능",
+      "two_way_conversion": "양방향 변환",
+      "two_way_conversion_description": "픽셀과 인치를 즉시 상호 변환합니다.",
+      "customizable_ppi": "PPI 설정",
+      "customizable_ppi_description": "화면 또는 인쇄 요구 사항에 맞게 PPI를 조정하세요.",
+      "precision_control": "정밀도 제어",
+      "precision_control_description": "소수점 정밀도를 자유롭게 설정할 수 있습니다."
+    },
+    "faq_section": {
+      "title": "자주 묻는 질문",
+      "q1_question": "픽셀을 인치로 어떻게 변환하나요?",
+      "q1_answer": "픽셀 값을 입력하면 PPI를 기준으로 자동 계산됩니다.",
+      "q2_question": "PPI란 무엇인가요?",
+      "q2_answer": "PPI는 인치당 픽셀 수를 의미하며 화면의 밀도를 나타냅니다.",
+      "q3_question": "인치를 픽셀로도 변환할 수 있나요?",
+      "q3_answer": "네, 인치 값을 입력하면 자동으로 픽셀로 변환됩니다.",
+      "q4_question": "이 도구는 무료인가요?",
+      "q4_answer": "네, 회원가입 없이 무료로 사용할 수 있습니다."
+    },
+    "final_cta": {
+      "title": "픽셀을 인치로 변환할 준비가 되셨나요?",
+      "description": "지금 무료 변환기를 사용해 보세요.",
+      "button_text": "변환 시작"
+    }
   }
 }

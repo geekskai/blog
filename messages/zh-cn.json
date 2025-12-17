@@ -4394,5 +4394,85 @@
     "error_file_read": "读取文件失败：{error}",
     "error_empty_json": "空的JSON字符串",
     "error_invalid_json": "无效的JSON格式"
+  },
+  "PixelsToInchesConverter": {
+    "seo_title": "像素转英寸转换器 – 免费在线像素转英寸计算器 | 精确快速",
+    "seo_description": "免费在线像素转英寸转换器。将像素转换为英寸，英寸转换为像素，支持自定义PPI（每英寸像素数）。完美适用于网页设计、屏幕分辨率和印刷设计。",
+    "seo_keywords": "像素转英寸, 英寸转像素, 像素转换器, PPI计算器, 屏幕分辨率转换器, 网页设计工具",
+    "page_title": "像素转英寸",
+    "page_subtitle": "转换器和计算器",
+    "page_description": "免费像素转英寸转换器和计算器。将像素转换为英寸，英寸转换为像素，支持自定义PPI（每英寸像素数）。完美适用于网页设计、屏幕分辨率计算和印刷设计项目。",
+    "free_calculator_badge": "免费像素转英寸转换器和计算器",
+    "feature_badges": {
+      "pixel_converter": "像素转英寸转换器",
+      "screen_resolution": "屏幕分辨率工具",
+      "instant_conversion": "即时转换",
+      "customizable_ppi": "可自定义PPI"
+    },
+    "breadcrumb": {
+      "home": "首页",
+      "tools": "工具",
+      "pixels_to_inches_converter": "像素转英寸转换器"
+    },
+    "converter_card": {
+      "title": "像素转英寸转换器",
+      "description": "在像素和英寸之间转换，支持自定义PPI",
+      "inches_label": "英寸",
+      "inches_placeholder": "输入英寸",
+      "inches_unit": "英寸",
+      "pixels_label": "像素",
+      "pixels_placeholder": "输入像素",
+      "pixels_unit": "像素",
+      "ppi_label": "每英寸像素数 (PPI)",
+      "ppi_info": "标准屏幕分辨率",
+      "precision_label": "小数精度",
+      "decimals": "位小数",
+      "info_text": "您可以双向计算，即可以将英寸转换为像素，反之亦然。",
+      "formula_label": "转换公式",
+      "share_result": "分享结果",
+      "copying": "复制中...",
+      "copied": "已复制！",
+      "failed": "失败",
+      "reload_calculator": "重新加载计算器",
+      "clear_all": "清除所有更改"
+    },
+    "usage_guide": {
+      "title": "如何使用像素转英寸转换器",
+      "description": "掌握像素转英寸转换，用于网页设计、屏幕分辨率和印刷设计项目。",
+      "step_1_title": "输入数值",
+      "step_1_description": "在英寸或像素字段中输入数值。转换器将自动计算相应的值。",
+      "step_2_title": "设置PPI",
+      "step_2_description": "根据需要调整每英寸像素数（PPI）值。默认值为96 PPI（标准屏幕分辨率）。",
+      "step_3_title": "选择精度",
+      "step_3_description": "根据需要选择0到3位小数的精度。",
+      "step_4_title": "复制结果",
+      "step_4_description": "一键复制转换结果，用于您的设计项目。"
+    },
+    "features_section": {
+      "title": "专业像素转英寸转换器功能",
+      "subtitle": "准确像素转英寸转换所需的一切",
+      "two_way_conversion": "双向转换",
+      "two_way_conversion_description": "即时将像素转换为英寸或将英寸转换为像素，支持双向转换。",
+      "customizable_ppi": "可自定义PPI",
+      "customizable_ppi_description": "调整每英寸像素数（PPI）以匹配您的屏幕分辨率或印刷要求。",
+      "precision_control": "精度控制",
+      "precision_control_description": "控制0到3位小数的精度，确保测量准确。"
+    },
+    "faq_section": {
+      "title": "常见问题",
+      "q1_question": "如何将像素转换为英寸？",
+      "q1_answer": "在像素字段中输入像素值，转换器将根据PPI（每英寸像素数）值自动计算相应的英寸。默认PPI为96。",
+      "q2_question": "什么是PPI？",
+      "q2_answer": "PPI代表每英寸像素数。它表示显示器或图像的像素密度。标准屏幕分辨率为96 PPI，但您可以根据具体需求调整此值。",
+      "q3_question": "我可以将英寸转换为像素吗？",
+      "q3_answer": "可以！在英寸字段中输入英寸值，转换器将根据PPI值自动计算相应的像素。",
+      "q4_question": "这个转换器是免费的吗？",
+      "q4_answer": "是的，这个像素转英寸转换器完全免费使用，无需注册。"
+    },
+    "final_cta": {
+      "title": "准备转换像素到英寸？",
+      "description": "立即开始使用我们的免费像素转英寸转换器，即时获得准确的转换结果。",
+      "button_text": "开始转换"
+    }
   }
 }

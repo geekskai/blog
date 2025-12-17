@@ -4387,5 +4387,85 @@
     "error_file_read": "ファイルの読み取りに失敗しました：{error}",
     "error_empty_json": "空のJSON文字列",
     "error_invalid_json": "無効なJSON形式"
+  },
+  "PixelsToInchesConverter": {
+    "seo_title": "ピクセルからインチ変換 – 無料オンライン ピクセル→インチ計算機 | 高精度・高速",
+    "seo_description": "無料のオンライン ピクセルからインチ変換ツール。PPI（Pixels Per Inch）をカスタマイズして、ピクセルとインチを相互に即時変換できます。Webデザイン、画面解像度、印刷デザインに最適。",
+    "seo_keywords": "ピクセルからインチ, インチからピクセル, ピクセル変換, PPI計算機, 解像度変換, Webデザインツール",
+    "page_title": "ピクセルからインチ",
+    "page_subtitle": "変換＆計算",
+    "page_description": "無料のピクセルからインチ変換・計算ツール。PPIを調整してピクセルとインチを相互変換できます。Webデザイン、解像度計算、印刷プロジェクトに最適。",
+    "free_calculator_badge": "無料 ピクセル↔インチ 変換＆計算ツール",
+    "feature_badges": {
+      "pixel_converter": "ピクセル→インチ変換",
+      "screen_resolution": "画面解像度ツール",
+      "instant_conversion": "即時変換",
+      "customizable_ppi": "PPIカスタマイズ"
+    },
+    "breadcrumb": {
+      "home": "ホーム",
+      "tools": "ツール",
+      "pixels_to_inches_converter": "ピクセル→インチ変換"
+    },
+    "converter_card": {
+      "title": "ピクセルからインチ変換",
+      "description": "PPIを調整してピクセルとインチを変換",
+      "inches_label": "インチ",
+      "inches_placeholder": "インチを入力",
+      "inches_unit": "in",
+      "pixels_label": "ピクセル",
+      "pixels_placeholder": "ピクセルを入力",
+      "pixels_unit": "px",
+      "ppi_label": "インチあたりのピクセル数（PPI）",
+      "ppi_info": "標準画面解像度",
+      "precision_label": "小数精度",
+      "decimals": "桁",
+      "info_text": "インチからピクセル、またはピクセルからインチの両方向で計算できます。",
+      "formula_label": "変換式",
+      "share_result": "結果を共有",
+      "copying": "コピー中...",
+      "copied": "コピーしました！",
+      "failed": "失敗しました",
+      "reload_calculator": "計算機を再読み込み",
+      "clear_all": "すべてクリア"
+    },
+    "usage_guide": {
+      "title": "ピクセルからインチ変換の使い方",
+      "description": "Webデザインや印刷向けの正確な変換方法を学びましょう。",
+      "step_1_title": "値を入力",
+      "step_1_description": "インチまたはピクセルのどちらかに値を入力すると自動計算されます。",
+      "step_2_title": "PPIを設定",
+      "step_2_description": "必要に応じてPPIを調整します。初期値は96です。",
+      "step_3_title": "精度を選択",
+      "step_3_description": "小数点以下0～3桁まで選択可能です。",
+      "step_4_title": "結果をコピー",
+      "step_4_description": "ワンクリックで結果をコピーできます。"
+    },
+    "features_section": {
+      "title": "プロ向け ピクセル→インチ変換機能",
+      "subtitle": "正確な変換に必要なすべて",
+      "two_way_conversion": "双方向変換",
+      "two_way_conversion_description": "ピクセルとインチを即時に相互変換。",
+      "customizable_ppi": "PPI調整",
+      "customizable_ppi_description": "画面や印刷に合わせてPPIを設定。",
+      "precision_control": "精度コントロール",
+      "precision_control_description": "小数点以下0～3桁まで調整可能。"
+    },
+    "faq_section": {
+      "title": "よくある質問",
+      "q1_question": "ピクセルをインチに変換するには？",
+      "q1_answer": "ピクセル欄に数値を入力すると、PPIに基づいて自動計算されます。",
+      "q2_question": "PPIとは何ですか？",
+      "q2_answer": "PPIはPixels Per Inchの略で、表示密度を表します。",
+      "q3_question": "インチからピクセルにも変換できますか？",
+      "q3_answer": "はい。インチ欄に入力すれば自動で変換されます。",
+      "q4_question": "このツールは無料ですか？",
+      "q4_answer": "はい。完全無料で、登録不要です。"
+    },
+    "final_cta": {
+      "title": "ピクセルをインチに変換しますか？",
+      "description": "今すぐ無料ツールを使って正確に変換しましょう。",
+      "button_text": "変換を開始"
+    }
   }
 }

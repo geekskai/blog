@@ -4190,5 +4190,85 @@
     "error_file_read": "Kunne ikke lese fil: {error}",
     "error_empty_json": "Tom JSON streng",
     "error_invalid_json": "Ugyldig JSON format"
+  },
+  "PixelsToInchesConverter": {
+    "seo_title": "Piksler til tommer-konverter – Gratis online piksel til tomme-kalkulator | Nøyaktig & Rask",
+    "seo_description": "Gratis online piksler til tommer-konverter. Konverter piksler til tommer og tommer til piksler med justerbar PPI (Pixels Per Inch). Perfekt for webdesign, skjermoppløsning og trykkdesign.",
+    "seo_keywords": "piksler til tommer, tommer til piksler, pikselkonverter, PPI-kalkulator, skjermoppløsning, webdesign verktøy",
+    "page_title": "Piksler til Tommer",
+    "page_subtitle": "Konverter & Kalkulator",
+    "page_description": "Gratis piksler til tommer-konverter og kalkulator. Konverter begge veier med justerbar PPI.",
+    "free_calculator_badge": "Gratis Piksler ↔ Tommer Kalkulator",
+    "feature_badges": {
+      "pixel_converter": "Piksel til Tomme-konverter",
+      "screen_resolution": "Skjermoppløsningsverktøy",
+      "instant_conversion": "Umiddelbar konvertering",
+      "customizable_ppi": "Justerbar PPI"
+    },
+    "breadcrumb": {
+      "home": "Hjem",
+      "tools": "Verktøy",
+      "pixels_to_inches_converter": "Piksler til Tommer"
+    },
+    "converter_card": {
+      "title": "Piksler til Tommer Konverter",
+      "description": "Konverter mellom piksler og tommer med justerbar PPI",
+      "inches_label": "Tommer",
+      "inches_placeholder": "Skriv inn tommer",
+      "inches_unit": "in",
+      "pixels_label": "Piksler",
+      "pixels_placeholder": "Skriv inn piksler",
+      "pixels_unit": "px",
+      "ppi_label": "Piksler per tomme (PPI)",
+      "ppi_info": "Standard skjermoppløsning",
+      "precision_label": "Desimalpresisjon",
+      "decimals": "desimaler",
+      "info_text": "Du kan konvertere både fra tommer til piksler og omvendt.",
+      "formula_label": "Konverteringsformel",
+      "share_result": "Del resultat",
+      "copying": "Kopierer...",
+      "copied": "Kopiert!",
+      "failed": "Mislyktes",
+      "reload_calculator": "Last kalkulator på nytt",
+      "clear_all": "Fjern alle endringer"
+    },
+    "usage_guide": {
+      "title": "Slik bruker du Piksler til Tommer-konverter",
+      "description": "Lær korrekt piksel til tomme-konvertering for design og utskrift.",
+      "step_1_title": "Skriv inn verdi",
+      "step_1_description": "Skriv inn en verdi i enten tommer- eller pikselfeltet.",
+      "step_2_title": "Angi PPI",
+      "step_2_description": "Juster PPI etter behov. Standardverdi er 96.",
+      "step_3_title": "Velg presisjon",
+      "step_3_description": "Velg mellom 0 og 3 desimaler.",
+      "step_4_title": "Kopier resultater",
+      "step_4_description": "Kopier resultatet med ett klikk."
+    },
+    "features_section": {
+      "title": "Profesjonelle funksjoner",
+      "subtitle": "Alt du trenger for nøyaktig konvertering",
+      "two_way_conversion": "Toveis konvertering",
+      "two_way_conversion_description": "Konverter begge veier umiddelbart.",
+      "customizable_ppi": "Justerbar PPI",
+      "customizable_ppi_description": "Tilpass PPI til skjerm eller utskrift.",
+      "precision_control": "Presisjonskontroll",
+      "precision_control_description": "Kontroller antall desimaler."
+    },
+    "faq_section": {
+      "title": "Ofte stilte spørsmål",
+      "q1_question": "Hvordan konverterer jeg piksler til tommer?",
+      "q1_answer": "Skriv inn pikselverdien, og verktøyet beregner tommer automatisk.",
+      "q2_question": "Hva er PPI?",
+      "q2_answer": "PPI betyr piksler per tomme og beskriver piksel tetthet.",
+      "q3_question": "Kan jeg konvertere tommer til piksler?",
+      "q3_answer": "Ja, bare skriv inn tommerverdien.",
+      "q4_question": "Er dette verktøyet gratis?",
+      "q4_answer": "Ja, helt gratis uten registrering."
+    },
+    "final_cta": {
+      "title": "Klar til å konvertere piksler til tommer?",
+      "description": "Start med vår gratis konverter i dag.",
+      "button_text": "Start konvertering"
+    }
   }
 }
