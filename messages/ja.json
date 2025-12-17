@@ -4389,13 +4389,13 @@
     "error_invalid_json": "無効なJSON形式"
   },
   "PixelsToInchesConverter": {
-    "seo_title": "ピクセルからインチ変換 – 無料オンライン ピクセル→インチ計算機 | 高精度・高速",
-    "seo_description": "無料のオンライン ピクセルからインチ変換ツール。PPI（Pixels Per Inch）をカスタマイズして、ピクセルとインチを相互に即時変換できます。Webデザイン、画面解像度、印刷デザインに最適。",
-    "seo_keywords": "ピクセルからインチ, インチからピクセル, ピクセル変換, PPI計算機, 解像度変換, Webデザインツール",
-    "page_title": "ピクセルからインチ",
-    "page_subtitle": "変換＆計算",
-    "page_description": "無料のピクセルからインチ変換・計算ツール。PPIを調整してピクセルとインチを相互変換できます。Webデザイン、解像度計算、印刷プロジェクトに最適。",
-    "free_calculator_badge": "無料 ピクセル↔インチ 変換＆計算ツール",
+    "seo_title": "ピクセルからインチ変換 – 無料オンライン計算機 | ピクセル⇄インチを即時変換",
+    "seo_description": "無料のピクセルからインチ変換・計算ツール。PPI/DPI をカスタマイズして、ピクセルとインチを即時に相互変換できます。Webデザイン、画面解像度、印刷デザイン、DPI計算に最適。登録不要。",
+    "seo_keywords": "ピクセルからインチ, インチからピクセル, ピクセルをインチに変換, ピクセル インチ 変換, ピクセル インチ 計算, dpi ピクセル 変換, pixels per inch dpi, 1インチ 何ピクセル, ピクセル変換, PPI計算機, 解像度変換, Webデザインツール, 印刷デザイン変換",
+    "page_title": "ピクセルをインチに変換",
+    "page_subtitle": "無料オンライン ピクセル→インチ 変換＆計算ツール",
+    "page_description": "無料のピクセルからインチ変換・計算ツール。PPI（Pixels Per Inch）と DPI（Dots Per Inch）をカスタマイズして、ピクセルとインチを即時に相互変換できます。Webデザイン、画面解像度計算、印刷デザイン、DPI変換に最適。登録不要ですぐに利用できます。",
+    "free_calculator_badge": "無料 ピクセル→インチ 変換＆計算ツール",
     "feature_badges": {
       "pixel_converter": "ピクセル→インチ変換",
       "screen_resolution": "画面解像度ツール",
@@ -4430,41 +4430,79 @@
       "clear_all": "すべてクリア"
     },
     "usage_guide": {
-      "title": "ピクセルからインチ変換の使い方",
-      "description": "Webデザインや印刷向けの正確な変換方法を学びましょう。",
+      "title": "ピクセル→インチ変換ツールの使い方",
+      "description": "Webデザイン、画面解像度、印刷デザイン向けのピクセル変換をマスターしましょう。",
       "step_1_title": "値を入力",
-      "step_1_description": "インチまたはピクセルのどちらかに値を入力すると自動計算されます。",
+      "step_1_description": "インチまたはピクセルのどちらかに値を入力すると、自動で対応する値が計算されます。",
       "step_2_title": "PPIを設定",
-      "step_2_description": "必要に応じてPPIを調整します。初期値は96です。",
+      "step_2_description": "必要に応じてPPIを調整します。初期値は96（標準的な画面解像度）です。",
       "step_3_title": "精度を選択",
-      "step_3_description": "小数点以下0～3桁まで選択可能です。",
+      "step_3_description": "小数点以下0〜3桁まで精度を選択できます。",
       "step_4_title": "結果をコピー",
-      "step_4_description": "ワンクリックで結果をコピーできます。"
+      "step_4_description": "ワンクリックで変換結果をコピーし、デザイン作業に利用できます。"
     },
     "features_section": {
       "title": "プロ向け ピクセル→インチ変換機能",
-      "subtitle": "正確な変換に必要なすべて",
+      "subtitle": "正確なピクセル変換に必要なすべての機能",
       "two_way_conversion": "双方向変換",
-      "two_way_conversion_description": "ピクセルとインチを即時に相互変換。",
-      "customizable_ppi": "PPI調整",
-      "customizable_ppi_description": "画面や印刷に合わせてPPIを設定。",
+      "two_way_conversion_description": "ピクセルからインチ、インチからピクセルを即時に相互変換できます。",
+      "customizable_ppi": "PPIカスタマイズ",
+      "customizable_ppi_description": "画面解像度や印刷要件に合わせてPPIを調整できます。",
       "precision_control": "精度コントロール",
-      "precision_control_description": "小数点以下0～3桁まで調整可能。"
+      "precision_control_description": "小数点以下0〜3桁まで精度を細かく調整可能です。"
+    },
+    "intro_section": {
+      "title": "ピクセルをインチに即時変換 – 無料オンライン変換ツール",
+      "paragraph_1": "ピクセルをインチに変換したいですか？この無料オンライン変換ツールを使えば、ピクセルからインチ、インチからピクセルを簡単かつ即時に変換できます。Webデザイン、画面解像度、印刷デザインなど、さまざまな用途に対応し、PPI と DPI をカスタマイズして正確な結果を得られます。",
+      "paragraph_2": "あらゆる画面解像度や印刷要件に対応したピクセル→インチ変換が可能です。双方向変換に対応しているため、デザイナーや開発者、正確なサイズ計算が必要な方に最適です。",
+      "key_features_intro": "主な機能：ピクセル→インチ変換、インチ→ピクセル変換、DPI と PPI の変換、PPI カスタマイズ、即時結果表示、完全無料。"
+    },
+    "conversion_examples_section": {
+      "title": "よく使われるピクセル→インチ変換例",
+      "subtitle": "一般的な変換のクイックリファレンス",
+      "example_1_title": "1920ピクセル → インチ（96 PPI）",
+      "example_1_result": "20インチ",
+      "example_2_title": "1080ピクセル → インチ（96 PPI）",
+      "example_2_result": "11.25インチ",
+      "example_3_title": "300ピクセル → インチ（96 PPI）",
+      "example_3_result": "3.125インチ",
+      "example_4_title": "72ピクセル → インチ（72 PPI）",
+      "example_4_result": "1インチ"
+    },
+    "use_cases_section": {
+      "title": "ピクセル→インチ変換を使う場面",
+      "subtitle": "代表的な利用シーン",
+      "use_case_1_title": "Webデザイン",
+      "use_case_1_description": "デザインカンプのサイズをピクセルからインチに変換し、資料や印刷物に使用。",
+      "use_case_2_title": "画面解像度",
+      "use_case_2_description": "ピクセル数とPPIから実際の画面サイズを計算。",
+      "use_case_3_title": "印刷デザイン",
+      "use_case_3_description": "デジタルデザインを正確な印刷サイズに変換。",
+      "use_case_4_title": "DPI計算",
+      "use_case_4_description": "印刷や表示要件に応じてDPIとPPIを変換。"
     },
     "faq_section": {
-      "title": "よくある質問",
+      "title": "よくある質問 – ピクセル→インチ変換",
       "q1_question": "ピクセルをインチに変換するには？",
-      "q1_answer": "ピクセル欄に数値を入力すると、PPIに基づいて自動計算されます。",
-      "q2_question": "PPIとは何ですか？",
-      "q2_answer": "PPIはPixels Per Inchの略で、表示密度を表します。",
-      "q3_question": "インチからピクセルにも変換できますか？",
-      "q3_answer": "はい。インチ欄に入力すれば自動で変換されます。",
-      "q4_question": "このツールは無料ですか？",
-      "q4_answer": "はい。完全無料で、登録不要です。"
+      "q1_answer": "ピクセル欄に数値を入力すると、選択したPPIに基づいて自動的にインチが計算されます。標準のPPIは96です。",
+      "q2_question": "インチをピクセルに変換するには？",
+      "q2_answer": "インチ欄に数値を入力すると、PPIに基づいて自動でピクセルに変換されます。",
+      "q3_question": "PPIとDPIの違いは何ですか？",
+      "q3_answer": "PPIは画面表示の密度、DPIは印刷のドット密度を指します。本ツールは両方に対応しています。",
+      "q4_question": "1インチは何ピクセルですか？",
+      "q4_answer": "PPIによって異なります。96 PPIの場合、1インチは96ピクセルです。",
+      "q5_question": "DPIをPPI（ピクセル/インチ）に変換できますか？",
+      "q5_answer": "はい。PPI/DPI設定を調整することで変換できます。",
+      "q6_question": "このツールは無料ですか？",
+      "q6_answer": "はい。登録不要で完全に無料です。",
+      "q7_question": "WebデザインにはどのPPIを使うべきですか？",
+      "q7_answer": "一般的には96 PPIが標準です。",
+      "q8_question": "変換の精度はどのくらいですか？",
+      "q8_answer": "選択したPPIに基づいて高精度な変換結果を提供します。"
     },
     "final_cta": {
-      "title": "ピクセルをインチに変換しますか？",
-      "description": "今すぐ無料ツールを使って正確に変換しましょう。",
+      "title": "ピクセルをインチに変換する準備はできましたか？",
+      "description": "今すぐ無料ツールを使って正確な変換を始めましょう。",
       "button_text": "変換を開始"
     }
   }

@@ -4192,26 +4192,26 @@
     "error_invalid_json": "Ugyldig JSON format"
   },
   "PixelsToInchesConverter": {
-    "seo_title": "Piksler til tommer-konverter – Gratis online piksel til tomme-kalkulator | Nøyaktig & Rask",
-    "seo_description": "Gratis online piksler til tommer-konverter. Konverter piksler til tommer og tommer til piksler med justerbar PPI (Pixels Per Inch). Perfekt for webdesign, skjermoppløsning og trykkdesign.",
-    "seo_keywords": "piksler til tommer, tommer til piksler, pikselkonverter, PPI-kalkulator, skjermoppløsning, webdesign verktøy",
-    "page_title": "Piksler til Tommer",
-    "page_subtitle": "Konverter & Kalkulator",
-    "page_description": "Gratis piksler til tommer-konverter og kalkulator. Konverter begge veier med justerbar PPI.",
-    "free_calculator_badge": "Gratis Piksler ↔ Tommer Kalkulator",
+    "seo_title": "Piksler til tommer – Gratis online konverterer | Rask og nøyaktig",
+    "seo_description": "Gratis piksler til tommer-konverterer. Konverter piksler til tommer og tommer til piksler umiddelbart med tilpassbar PPI (Pixels Per Inch). Perfekt for webdesign, skjermoppløsning og trykkdesign.",
+    "seo_keywords": "piksler til tommer, tommer til piksler, pikselkonverterer, PPI kalkulator, skjermoppløsning konverterer, webdesign verktøy",
+    "page_title": "Piksler til tommer",
+    "page_subtitle": "Konverterer & kalkulator",
+    "page_description": "Gratis piksler til tommer-konverterer og kalkulator. Konverter mellom piksler og tommer med justerbar PPI (Pixels Per Inch). Ideell for webdesign, skjermoppløsning og trykkprosjekter.",
+    "free_calculator_badge": "Gratis piksler til tommer-konverterer & kalkulator",
     "feature_badges": {
-      "pixel_converter": "Piksel til Tomme-konverter",
+      "pixel_converter": "Piksel til tomme-konverterer",
       "screen_resolution": "Skjermoppløsningsverktøy",
       "instant_conversion": "Umiddelbar konvertering",
-      "customizable_ppi": "Justerbar PPI"
+      "customizable_ppi": "Tilpassbar PPI"
     },
     "breadcrumb": {
       "home": "Hjem",
       "tools": "Verktøy",
-      "pixels_to_inches_converter": "Piksler til Tommer"
+      "pixels_to_inches_converter": "Piksler til tommer-konverterer"
     },
     "converter_card": {
-      "title": "Piksler til Tommer Konverter",
+      "title": "Piksler til tommer-konverterer",
       "description": "Konverter mellom piksler og tommer med justerbar PPI",
       "inches_label": "Tommer",
       "inches_placeholder": "Skriv inn tommer",
@@ -4223,51 +4223,51 @@
       "ppi_info": "Standard skjermoppløsning",
       "precision_label": "Desimalpresisjon",
       "decimals": "desimaler",
-      "info_text": "Du kan konvertere både fra tommer til piksler og omvendt.",
+      "info_text": "Du kan konvertere begge veier – fra tommer til piksler og omvendt.",
       "formula_label": "Konverteringsformel",
       "share_result": "Del resultat",
       "copying": "Kopierer...",
       "copied": "Kopiert!",
       "failed": "Mislyktes",
-      "reload_calculator": "Last kalkulator på nytt",
-      "clear_all": "Fjern alle endringer"
+      "reload_calculator": "Last kalkulatoren på nytt",
+      "clear_all": "Tøm alt"
     },
     "usage_guide": {
-      "title": "Slik bruker du Piksler til Tommer-konverter",
-      "description": "Lær korrekt piksel til tomme-konvertering for design og utskrift.",
-      "step_1_title": "Skriv inn verdi",
-      "step_1_description": "Skriv inn en verdi i enten tommer- eller pikselfeltet.",
-      "step_2_title": "Angi PPI",
-      "step_2_description": "Juster PPI etter behov. Standardverdi er 96.",
+      "title": "Slik bruker du piksler til tommer-konvertereren",
+      "description": "Lær å konvertere piksler og tommer for webdesign, skjermoppløsning og trykk.",
+      "step_1_title": "Angi verdi",
+      "step_1_description": "Skriv inn en verdi i enten tommer eller piksler. Resultatet beregnes automatisk.",
+      "step_2_title": "Still inn PPI",
+      "step_2_description": "Juster PPI etter behov. Standardverdien er 96.",
       "step_3_title": "Velg presisjon",
-      "step_3_description": "Velg mellom 0 og 3 desimaler.",
-      "step_4_title": "Kopier resultater",
-      "step_4_description": "Kopier resultatet med ett klikk."
+      "step_3_description": "Velg desimalpresisjon fra 0 til 3 desimaler.",
+      "step_4_title": "Kopier resultat",
+      "step_4_description": "Kopier resultatet med ett klikk for bruk i designprosjekter."
     },
     "features_section": {
-      "title": "Profesjonelle funksjoner",
-      "subtitle": "Alt du trenger for nøyaktig konvertering",
+      "title": "Profesjonelle funksjoner for piksler til tommer",
+      "subtitle": "Alt du trenger for nøyaktige konverteringer",
       "two_way_conversion": "Toveis konvertering",
-      "two_way_conversion_description": "Konverter begge veier umiddelbart.",
-      "customizable_ppi": "Justerbar PPI",
-      "customizable_ppi_description": "Tilpass PPI til skjerm eller utskrift.",
+      "two_way_conversion_description": "Konverter mellom piksler og tommer umiddelbart.",
+      "customizable_ppi": "Tilpassbar PPI",
+      "customizable_ppi_description": "Tilpass PPI etter skjerm eller trykkbehov.",
       "precision_control": "Presisjonskontroll",
-      "precision_control_description": "Kontroller antall desimaler."
+      "precision_control_description": "Kontroller desimalpresisjon fra 0 til 3."
     },
     "faq_section": {
       "title": "Ofte stilte spørsmål",
       "q1_question": "Hvordan konverterer jeg piksler til tommer?",
-      "q1_answer": "Skriv inn pikselverdien, og verktøyet beregner tommer automatisk.",
+      "q1_answer": "Skriv inn pikselverdien, og tommer beregnes automatisk basert på PPI. Standard PPI er 96.",
       "q2_question": "Hva er PPI?",
-      "q2_answer": "PPI betyr piksler per tomme og beskriver piksel tetthet.",
+      "q2_answer": "PPI står for Pixels Per Inch og angir pikseltettheten på en skjerm eller et bilde.",
       "q3_question": "Kan jeg konvertere tommer til piksler?",
-      "q3_answer": "Ja, bare skriv inn tommerverdien.",
-      "q4_question": "Er dette verktøyet gratis?",
-      "q4_answer": "Ja, helt gratis uten registrering."
+      "q3_answer": "Ja, skriv inn tommeverdien, så beregnes piksler automatisk.",
+      "q4_question": "Er denne konvertereren gratis?",
+      "q4_answer": "Ja, den er helt gratis og krever ingen registrering."
     },
     "final_cta": {
       "title": "Klar til å konvertere piksler til tommer?",
-      "description": "Start med vår gratis konverter i dag.",
+      "description": "Begynn å bruke vår gratis konverterer nå for raske og nøyaktige resultater.",
       "button_text": "Start konvertering"
     }
   }

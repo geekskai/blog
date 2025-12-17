@@ -4110,12 +4110,12 @@
     "error_invalid_json": "Ugyldigt JSON format"
   },
   "PixelsToInchesConverter": {
-    "seo_title": "Pixel til tommer konverter – Gratis online pixel til tomme-beregner | Præcis & Hurtig",
-    "seo_description": "Gratis online pixel til tommer konverter. Konverter pixels til tommer og tommer til pixels med justerbar PPI (Pixels Per Inch). Perfekt til webdesign, skærmopløsning og printdesign.",
-    "seo_keywords": "pixels til tommer, tommer til pixels, pixel konverter, PPI beregner, skærmopløsningskonverter, webdesign værktøj",
-    "page_title": "Pixels til Tommer",
-    "page_subtitle": "Konverter & Beregner",
-    "page_description": "Gratis pixel til tommer konverter og beregner. Konverter pixels til tommer og tommer til pixels med justerbar PPI (Pixels Per Inch). Perfekt til webdesign, skærmopløsningsberegninger og printprojekter.",
+    "seo_title": "Pixel til tommer konverter – Gratis online beregner | Konverter pixels til tommer & tommer til pixels øjeblikkeligt",
+    "seo_description": "Gratis pixel til tommer konverter og beregner. Konverter pixels til tommer og tommer til pixels øjeblikkeligt med justerbar PPI/DPI. Perfekt til webdesign, skærmopløsning, printdesign og DPI-beregninger. Ingen tilmelding kræves.",
+    "seo_keywords": "pixels til tommer, tommer til pixels, konverter pixels til tommer, pixel til tommer konverter, pixel til tommer beregner, dpi til pixels pr tomme, pixels pr tomme til dpi, hvor mange pixels i en tomme, pixel konverter, PPI beregner, skærmopløsningskonverter, webdesign værktøj, printdesign konverter",
+    "page_title": "Konverter Pixels til Tommer",
+    "page_subtitle": "Gratis Online Pixel til Tommer Konverter & Beregner",
+    "page_description": "Gratis pixel til tommer konverter og beregner. Konverter pixels til tommer og tommer til pixels øjeblikkeligt med justerbar PPI (Pixels Per Inch) og DPI (Dots Per Inch). Perfekt til webdesign, skærmopløsningsberegninger, printprojekter og DPI-konverteringer. Ingen tilmelding kræves – kom i gang nu!",
     "free_calculator_badge": "Gratis Pixel til Tommer Konverter & Beregner",
     "feature_badges": {
       "pixel_converter": "Pixel til Tomme Konverter",
@@ -4141,7 +4141,7 @@
       "ppi_info": "Standard skærmopløsning",
       "precision_label": "Decimalpræcision",
       "decimals": "decimaler",
-      "info_text": "Du kan udføre beregninger begge veje, dvs. konvertere tommer til pixels og omvendt.",
+      "info_text": "Du kan beregne begge veje – konverter tommer til pixels eller pixels til tommer.",
       "formula_label": "Konverteringsformel",
       "share_result": "Del resultat",
       "copying": "Kopierer...",
@@ -4152,15 +4152,15 @@
     },
     "usage_guide": {
       "title": "Sådan bruger du Pixel til Tommer Konverter",
-      "description": "Lær pixel til tommer konvertering til webdesign, skærmopløsning og printprojekter.",
+      "description": "Bliv fortrolig med pixel til tommer konvertering til webdesign, skærmopløsning og printprojekter.",
       "step_1_title": "Indtast værdi",
       "step_1_description": "Indtast en værdi i enten tommer- eller pixel-feltet. Konverteren beregner automatisk den tilsvarende værdi.",
       "step_2_title": "Indstil PPI",
-      "step_2_description": "Juster Pixels Per Inch (PPI) efter behov. Standard er 96 PPI (standard skærmopløsning).",
+      "step_2_description": "Juster Pixels Per Inch (PPI) efter behov. Standard er 96 PPI.",
       "step_3_title": "Vælg præcision",
       "step_3_description": "Vælg decimalpræcision fra 0 til 3 decimaler.",
       "step_4_title": "Kopiér resultater",
-      "step_4_description": "Kopiér konverteringsresultater med ét klik til dine designprojekter."
+      "step_4_description": "Kopiér konverteringsresultater med ét klik."
     },
     "features_section": {
       "title": "Professionelle funktioner i Pixel til Tommer Konverter",
@@ -4172,20 +4172,58 @@
       "precision_control": "Præcisionskontrol",
       "precision_control_description": "Styr decimalpræcision fra 0 til 3 decimaler."
     },
+    "intro_section": {
+      "title": "Konverter Pixels til Tommer Øjeblikkeligt – Gratis Online Konverter",
+      "paragraph_1": "Har du brug for at konvertere pixels til tommer? Vores gratis online pixel til tommer konverter gør det nemt at konvertere pixels til tommer og tommer til pixels øjeblikkeligt. Uanset om du arbejder med webdesign, skærmopløsning eller printdesign, leverer denne beregner nøjagtige resultater med justerbar PPI og DPI.",
+      "paragraph_2": "Konverter pixels til tommer for enhver skærmopløsning eller printkrav. Værktøjet understøtter tovejs konvertering og er ideelt for designere, udviklere og alle, der har brug for præcise målinger.",
+      "key_features_intro": "Nøglefunktioner: Pixel til tommer konvertering, tommer til pixels, DPI til pixels pr. tomme, justerbar PPI, øjeblikkelige resultater og helt gratis."
+    },
+    "conversion_examples_section": {
+      "title": "Almindelige Pixel til Tommer Konverteringer",
+      "subtitle": "Hurtig reference til populære konverteringer",
+      "example_1_title": "1920 pixels til tommer (96 PPI)",
+      "example_1_result": "20 tommer",
+      "example_2_title": "1080 pixels til tommer (96 PPI)",
+      "example_2_result": "11,25 tommer",
+      "example_3_title": "300 pixels til tommer (96 PPI)",
+      "example_3_result": "3,125 tommer",
+      "example_4_title": "72 pixels til tommer (72 PPI)",
+      "example_4_result": "1 tomme"
+    },
+    "use_cases_section": {
+      "title": "Hvornår skal du bruge Pixel til Tommer Konverter",
+      "subtitle": "Typiske anvendelsesscenarier",
+      "use_case_1_title": "Webdesign",
+      "use_case_1_description": "Konverter designmål fra pixels til tommer til præsentationer og print.",
+      "use_case_2_title": "Skærmopløsning",
+      "use_case_2_description": "Beregn fysisk skærmstørrelse baseret på pixelmål og PPI.",
+      "use_case_3_title": "Printdesign",
+      "use_case_3_description": "Sørg for korrekt størrelse ved at konvertere digitale designs til tommer.",
+      "use_case_4_title": "DPI-beregninger",
+      "use_case_4_description": "Konverter mellem DPI og pixels pr. tomme til print og skærmbrug."
+    },
     "faq_section": {
-      "title": "Ofte stillede spørgsmål",
+      "title": "Ofte stillede spørgsmål – Pixel til Tommer",
       "q1_question": "Hvordan konverterer jeg pixels til tommer?",
-      "q1_answer": "Indtast pixelværdien i pixel-feltet, så beregner konverteren automatisk tommer baseret på PPI-værdien. Standard er 96 PPI.",
-      "q2_question": "Hvad er PPI?",
-      "q2_answer": "PPI står for Pixels Per Inch og angiver pixeltætheden på en skærm eller et billede.",
-      "q3_question": "Kan jeg konvertere tommer til pixels?",
-      "q3_answer": "Ja! Indtast tommeværdien, så beregnes pixels automatisk.",
-      "q4_question": "Er denne konverter gratis?",
-      "q4_answer": "Ja, denne pixel til tommer konverter er helt gratis og kræver ingen tilmelding."
+      "q1_answer": "Indtast pixelværdien, og konverteren beregner automatisk tommer baseret på PPI. Standard er 96 PPI.",
+      "q2_question": "Hvordan konverterer jeg tommer til pixels?",
+      "q2_answer": "Indtast tommeværdien, så beregnes pixels automatisk ud fra PPI.",
+      "q3_question": "Hvad er forskellen på PPI og DPI?",
+      "q3_answer": "PPI bruges til skærme, DPI til print. Værktøjet understøtter begge.",
+      "q4_question": "Hvor mange pixels er der i en tomme?",
+      "q4_answer": "Det afhænger af PPI. Ved 96 PPI er der 96 pixels pr. tomme.",
+      "q5_question": "Kan jeg konvertere DPI til pixels pr. tomme?",
+      "q5_answer": "Ja, du kan justere PPI/DPI for præcise konverteringer.",
+      "q6_question": "Er denne konverter gratis?",
+      "q6_answer": "Ja, helt gratis uden begrænsninger.",
+      "q7_question": "Hvilken PPI skal jeg bruge til webdesign?",
+      "q7_answer": "96 PPI er standard for webdesign.",
+      "q8_question": "Hvor nøjagtig er konverteringen?",
+      "q8_answer": "Resultaterne er meget præcise og afhænger af korrekt PPI-indstilling."
     },
     "final_cta": {
       "title": "Klar til at konvertere pixels til tommer?",
-      "description": "Brug vores gratis pixel til tommer konverter nu og få præcise resultater med det samme.",
+      "description": "Brug vores gratis konverter og få præcise resultater med det samme.",
       "button_text": "Start konvertering"
     }
   }

@@ -203,6 +203,92 @@ export default async function PixelsToInchesLayout({
           text: t("faq_section.q4_answer"),
         },
       },
+      {
+        "@type": "Question",
+        name: t("faq_section.q5_question"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("faq_section.q5_answer"),
+        },
+      },
+      {
+        "@type": "Question",
+        name: t("faq_section.q6_question"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("faq_section.q6_answer"),
+        },
+      },
+      {
+        "@type": "Question",
+        name: t("faq_section.q7_question"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("faq_section.q7_answer"),
+        },
+      },
+      {
+        "@type": "Question",
+        name: t("faq_section.q8_question"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("faq_section.q8_answer"),
+        },
+      },
+    ],
+  }
+
+  // 动态生成 HowTo 结构化数据
+  const howToStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: t("usage_guide.title"),
+    description: t("usage_guide.description"),
+    step: [
+      {
+        "@type": "HowToStep",
+        name: t("usage_guide.step_1_title"),
+        text: t("usage_guide.step_1_description"),
+      },
+      {
+        "@type": "HowToStep",
+        name: t("usage_guide.step_2_title"),
+        text: t("usage_guide.step_2_description"),
+      },
+      {
+        "@type": "HowToStep",
+        name: t("usage_guide.step_3_title"),
+        text: t("usage_guide.step_3_description"),
+      },
+      {
+        "@type": "HowToStep",
+        name: t("usage_guide.step_4_title"),
+        text: t("usage_guide.step_4_description"),
+      },
+    ],
+  }
+
+  // 动态生成 ConverterTool 结构化数据
+  const converterToolStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: t("page_title"),
+    applicationCategory: "UtilityApplication",
+    operatingSystem: "Any",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    featureList: [
+      t("features_section.two_way_conversion"),
+      t("features_section.customizable_ppi"),
+      t("features_section.precision_control"),
+      "Convert pixels to inches",
+      "Convert inches to pixels",
+      "DPI to pixels per inch conversion",
+      "Customizable PPI settings",
+      "Instant conversion results",
     ],
   }
 
@@ -251,6 +337,18 @@ export default async function PixelsToInchesLayout({
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(dynamicBreadcrumbStructuredData),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(howToStructuredData),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(converterToolStructuredData),
         }}
       />
 

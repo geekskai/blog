@@ -8,6 +8,10 @@ import {
   Monitor,
   Settings,
   ArrowLeftRight,
+  Palette,
+  Printer,
+  Calculator,
+  HelpCircle,
 } from "lucide-react"
 import ConverterCard from "./components/ConverterCard"
 import { useTranslations } from "./hooks/useTranslations"
@@ -100,6 +104,72 @@ export default function PixelsToInchesConverter() {
           <div id="converter-section" className="flex justify-center">
             <div className="w-full max-w-2xl">
               <ConverterCard />
+            </div>
+          </div>
+        </div>
+
+        {/* SEO-optimized Introduction Section */}
+        <div className="relative mb-16 rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 p-8 shadow-2xl backdrop-blur-xl md:p-12">
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
+              {t("intro_section.title")}
+            </h2>
+            <p className="mb-6 text-lg leading-relaxed text-slate-300 md:text-xl">
+              {t("intro_section.paragraph_1")}
+            </p>
+            <p className="mb-6 text-lg leading-relaxed text-slate-300 md:text-xl">
+              {t("intro_section.paragraph_2")}
+            </p>
+            <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+              <p className="text-base font-medium text-slate-200 md:text-lg">
+                {t("intro_section.key_features_intro")}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Common Conversion Examples Section */}
+        <div className="mt-32 rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 p-12 shadow-2xl backdrop-blur-xl">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-white">
+              {t("conversion_examples_section.title")}
+            </h2>
+            <p className="mx-auto max-w-2xl text-xl text-slate-400">
+              {t("conversion_examples_section.subtitle")}
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:bg-white/10">
+              <div className="mb-3 text-sm font-medium text-slate-400">
+                {t("conversion_examples_section.example_1_title")}
+              </div>
+              <div className="text-2xl font-bold text-white">
+                {t("conversion_examples_section.example_1_result")}
+              </div>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:bg-white/10">
+              <div className="mb-3 text-sm font-medium text-slate-400">
+                {t("conversion_examples_section.example_2_title")}
+              </div>
+              <div className="text-2xl font-bold text-white">
+                {t("conversion_examples_section.example_2_result")}
+              </div>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:bg-white/10">
+              <div className="mb-3 text-sm font-medium text-slate-400">
+                {t("conversion_examples_section.example_3_title")}
+              </div>
+              <div className="text-2xl font-bold text-white">
+                {t("conversion_examples_section.example_3_result")}
+              </div>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:bg-white/10">
+              <div className="mb-3 text-sm font-medium text-slate-400">
+                {t("conversion_examples_section.example_4_title")}
+              </div>
+              <div className="text-2xl font-bold text-white">
+                {t("conversion_examples_section.example_4_result")}
+              </div>
             </div>
           </div>
         </div>
@@ -200,9 +270,65 @@ export default function PixelsToInchesConverter() {
           </div>
         </div>
 
+        {/* Use Cases Section */}
+        <div className="mt-32 rounded-3xl border border-white/10 bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-orange-500/10 p-12 shadow-2xl backdrop-blur-xl">
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-white">{t("use_cases_section.title")}</h2>
+            <p className="mx-auto max-w-2xl text-xl text-slate-400">
+              {t("use_cases_section.subtitle")}
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all hover:bg-white/10 hover:shadow-xl">
+              <div className="mb-4 flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-blue-500">
+                  <Palette className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-white">
+                  {t("use_cases_section.use_case_1_title")}
+                </h3>
+              </div>
+              <p className="text-slate-400">{t("use_cases_section.use_case_1_description")}</p>
+            </div>
+            <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all hover:bg-white/10 hover:shadow-xl">
+              <div className="mb-4 flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-purple-600 to-purple-500">
+                  <Monitor className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-white">
+                  {t("use_cases_section.use_case_2_title")}
+                </h3>
+              </div>
+              <p className="text-slate-400">{t("use_cases_section.use_case_2_description")}</p>
+            </div>
+            <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all hover:bg-white/10 hover:shadow-xl">
+              <div className="mb-4 flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-pink-600 to-pink-500">
+                  <Printer className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-white">
+                  {t("use_cases_section.use_case_3_title")}
+                </h3>
+              </div>
+              <p className="text-slate-400">{t("use_cases_section.use_case_3_description")}</p>
+            </div>
+            <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all hover:bg-white/10 hover:shadow-xl">
+              <div className="mb-4 flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-orange-600 to-orange-500">
+                  <Calculator className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-white">
+                  {t("use_cases_section.use_case_4_title")}
+                </h3>
+              </div>
+              <p className="text-slate-400">{t("use_cases_section.use_case_4_description")}</p>
+            </div>
+          </div>
+        </div>
+
         {/* FAQ Section */}
-        <section className="mt-32 rounded-xl bg-slate-800 p-8">
-          <h2 className="mb-6 text-2xl font-bold text-white">{t("faq_section.title")}</h2>
+        <section className="mt-32 rounded-xl bg-slate-800 p-8 md:p-12">
+          <h2 className="mb-8 text-3xl font-bold text-white">{t("faq_section.title")}</h2>
           <div className="space-y-6">
             <div className="border-b border-slate-700 pb-4">
               <h3 className="mb-2 text-lg font-semibold text-white">
@@ -222,11 +348,35 @@ export default function PixelsToInchesConverter() {
               </h3>
               <p className="text-slate-400">{t("faq_section.q3_answer")}</p>
             </div>
-            <div>
+            <div className="border-b border-slate-700 pb-4">
               <h3 className="mb-2 text-lg font-semibold text-white">
                 {t("faq_section.q4_question")}
               </h3>
               <p className="text-slate-400">{t("faq_section.q4_answer")}</p>
+            </div>
+            <div className="border-b border-slate-700 pb-4">
+              <h3 className="mb-2 text-lg font-semibold text-white">
+                {t("faq_section.q5_question")}
+              </h3>
+              <p className="text-slate-400">{t("faq_section.q5_answer")}</p>
+            </div>
+            <div className="border-b border-slate-700 pb-4">
+              <h3 className="mb-2 text-lg font-semibold text-white">
+                {t("faq_section.q6_question")}
+              </h3>
+              <p className="text-slate-400">{t("faq_section.q6_answer")}</p>
+            </div>
+            <div className="border-b border-slate-700 pb-4">
+              <h3 className="mb-2 text-lg font-semibold text-white">
+                {t("faq_section.q7_question")}
+              </h3>
+              <p className="text-slate-400">{t("faq_section.q7_answer")}</p>
+            </div>
+            <div>
+              <h3 className="mb-2 text-lg font-semibold text-white">
+                {t("faq_section.q8_question")}
+              </h3>
+              <p className="text-slate-400">{t("faq_section.q8_answer")}</p>
             </div>
           </div>
         </section>

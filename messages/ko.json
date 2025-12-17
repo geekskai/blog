@@ -4243,15 +4243,15 @@
     "error_invalid_json": "유효하지 않은 JSON 형식"
   },
   "PixelsToInchesConverter": {
-    "seo_title": "픽셀 → 인치 변환기 – 무료 온라인 픽셀 인치 계산기 | 정확하고 빠름",
-    "seo_description": "무료 온라인 픽셀 → 인치 변환기. PPI(인치당 픽셀 수)를 조정하여 픽셀과 인치를 즉시 변환하세요. 웹 디자인, 화면 해상도, 인쇄 디자인에 적합합니다.",
-    "seo_keywords": "픽셀 인치 변환, 인치 픽셀 변환, 픽셀 계산기, PPI 계산기, 해상도 변환, 웹 디자인 도구",
-    "page_title": "픽셀 → 인치",
-    "page_subtitle": "변환기 & 계산기",
-    "page_description": "무료 픽셀 → 인치 변환 및 계산기. PPI를 조정하여 픽셀과 인치를 상호 변환할 수 있습니다.",
-    "free_calculator_badge": "무료 픽셀 ↔ 인치 변환기",
+    "seo_title": "픽셀 → 인치 변환기 – 무료 온라인 계산기 | 픽셀과 인치를 즉시 변환",
+    "seo_description": "무료 픽셀 → 인치 변환기 및 계산기. PPI/DPI를 사용자 설정하여 픽셀을 인치로, 인치를 픽셀로 즉시 변환할 수 있습니다. 웹 디자인, 화면 해상도, 인쇄 디자인, DPI 계산에 적합합니다. 회원가입 필요 없음.",
+    "seo_keywords": "픽셀 인치 변환, 인치 픽셀 변환, 픽셀을 인치로 변환, 픽셀 인치 계산기, 픽셀 변환기, dpi 픽셀 변환, pixels per inch dpi, 1인치 픽셀 수, PPI 계산기, 해상도 변환, 웹 디자인 도구, 인쇄 디자인 변환기",
+    "page_title": "픽셀을 인치로 변환",
+    "page_subtitle": "무료 온라인 픽셀 → 인치 변환기 & 계산기",
+    "page_description": "무료 픽셀 → 인치 변환기 및 계산기입니다. PPI(Pixels Per Inch)와 DPI(Dots Per Inch)를 설정하여 픽셀과 인치를 즉시 상호 변환할 수 있습니다. 웹 디자인, 화면 해상도 계산, 인쇄 디자인, DPI 변환에 이상적입니다. 회원가입 없이 바로 사용하세요.",
+    "free_calculator_badge": "무료 픽셀 → 인치 변환기 & 계산기",
     "feature_badges": {
-      "pixel_converter": "픽셀 인치 변환",
+      "pixel_converter": "픽셀 → 인치 변환",
       "screen_resolution": "화면 해상도 도구",
       "instant_conversion": "즉시 변환",
       "customizable_ppi": "PPI 사용자 설정"
@@ -4285,7 +4285,7 @@
     },
     "usage_guide": {
       "title": "픽셀 → 인치 변환기 사용 방법",
-      "description": "웹 디자인과 인쇄를 위한 정확한 변환 방법을 알아보세요.",
+      "description": "웹 디자인, 화면 해상도, 인쇄 디자인을 위한 픽셀 변환 방법을 알아보세요.",
       "step_1_title": "값 입력",
       "step_1_description": "인치 또는 픽셀 중 하나에 값을 입력하면 자동으로 계산됩니다.",
       "step_2_title": "PPI 설정",
@@ -4293,32 +4293,70 @@
       "step_3_title": "정밀도 선택",
       "step_3_description": "소수점 0~3자리까지 선택할 수 있습니다.",
       "step_4_title": "결과 복사",
-      "step_4_description": "한 번의 클릭으로 결과를 복사하세요."
+      "step_4_description": "한 번의 클릭으로 변환 결과를 복사하여 디자인 작업에 활용할 수 있습니다."
     },
     "features_section": {
       "title": "전문 픽셀 → 인치 변환 기능",
-      "subtitle": "정확한 변환을 위한 모든 기능",
+      "subtitle": "정확한 픽셀 변환을 위한 모든 기능",
       "two_way_conversion": "양방향 변환",
       "two_way_conversion_description": "픽셀과 인치를 즉시 상호 변환합니다.",
-      "customizable_ppi": "PPI 설정",
-      "customizable_ppi_description": "화면 또는 인쇄 요구 사항에 맞게 PPI를 조정하세요.",
+      "customizable_ppi": "PPI 사용자 설정",
+      "customizable_ppi_description": "화면 해상도나 인쇄 요구 사항에 맞게 PPI를 조정할 수 있습니다.",
       "precision_control": "정밀도 제어",
-      "precision_control_description": "소수점 정밀도를 자유롭게 설정할 수 있습니다."
+      "precision_control_description": "소수점 정밀도를 0~3자리까지 제어할 수 있습니다."
+    },
+    "intro_section": {
+      "title": "픽셀을 인치로 즉시 변환 – 무료 온라인 변환기",
+      "paragraph_1": "픽셀을 인치로 변환해야 하나요? 이 무료 온라인 픽셀 → 인치 변환기를 사용하면 픽셀과 인치를 즉시 상호 변환할 수 있습니다. 웹 디자인, 화면 해상도, 인쇄 디자인 작업에 적합하며 PPI와 DPI 설정을 통해 정확한 결과를 제공합니다.",
+      "paragraph_2": "어떤 화면 해상도나 인쇄 요구 사항에도 대응할 수 있는 양방향 변환을 지원합니다. 디자이너, 개발자, 정확한 치수가 필요한 모든 사용자에게 이상적인 도구입니다.",
+      "key_features_intro": "주요 기능: 픽셀 → 인치 변환, 인치 → 픽셀 변환, DPI와 PPI 변환, PPI 사용자 설정, 즉시 결과 제공, 완전 무료."
+    },
+    "conversion_examples_section": {
+      "title": "자주 사용되는 픽셀 → 인치 변환 예시",
+      "subtitle": "일반적인 픽셀 변환 참고표",
+      "example_1_title": "1920 픽셀 → 인치 (96 PPI)",
+      "example_1_result": "20 인치",
+      "example_2_title": "1080 픽셀 → 인치 (96 PPI)",
+      "example_2_result": "11.25 인치",
+      "example_3_title": "300 픽셀 → 인치 (96 PPI)",
+      "example_3_result": "3.125 인치",
+      "example_4_title": "72 픽셀 → 인치 (72 PPI)",
+      "example_4_result": "1 인치"
+    },
+    "use_cases_section": {
+      "title": "픽셀 → 인치 변환기를 사용해야 할 때",
+      "subtitle": "대표적인 활용 사례",
+      "use_case_1_title": "웹 디자인",
+      "use_case_1_description": "디자인 시안을 픽셀에서 인치로 변환하여 클라이언트 자료나 인쇄물에 활용합니다.",
+      "use_case_2_title": "화면 해상도",
+      "use_case_2_description": "픽셀 수와 PPI를 기준으로 실제 화면 크기를 계산합니다.",
+      "use_case_3_title": "인쇄 디자인",
+      "use_case_3_description": "디지털 디자인을 인쇄에 적합한 정확한 크기로 변환합니다.",
+      "use_case_4_title": "DPI 계산",
+      "use_case_4_description": "인쇄 및 디스플레이 요구 사항에 맞게 DPI와 PPI를 변환합니다."
     },
     "faq_section": {
-      "title": "자주 묻는 질문",
+      "title": "자주 묻는 질문 – 픽셀 → 인치 변환",
       "q1_question": "픽셀을 인치로 어떻게 변환하나요?",
-      "q1_answer": "픽셀 값을 입력하면 PPI를 기준으로 자동 계산됩니다.",
-      "q2_question": "PPI란 무엇인가요?",
-      "q2_answer": "PPI는 인치당 픽셀 수를 의미하며 화면의 밀도를 나타냅니다.",
-      "q3_question": "인치를 픽셀로도 변환할 수 있나요?",
-      "q3_answer": "네, 인치 값을 입력하면 자동으로 픽셀로 변환됩니다.",
-      "q4_question": "이 도구는 무료인가요?",
-      "q4_answer": "네, 회원가입 없이 무료로 사용할 수 있습니다."
+      "q1_answer": "픽셀 값을 입력하면 선택한 PPI를 기준으로 인치 값이 자동 계산됩니다. 기본 PPI는 96입니다.",
+      "q2_question": "인치를 픽셀로 변환하려면 어떻게 하나요?",
+      "q2_answer": "인치 값을 입력하면 PPI 설정에 따라 픽셀로 자동 변환됩니다.",
+      "q3_question": "PPI와 DPI의 차이는 무엇인가요?",
+      "q3_answer": "PPI는 화면의 픽셀 밀도, DPI는 인쇄물의 점 밀도를 의미합니다. 이 변환기는 두 가지 모두 지원합니다.",
+      "q4_question": "1인치는 몇 픽셀인가요?",
+      "q4_answer": "PPI 값에 따라 다릅니다. 96 PPI 기준으로 1인치는 96픽셀입니다.",
+      "q5_question": "DPI를 픽셀/인치(PPI)로 변환할 수 있나요?",
+      "q5_answer": "네, PPI/DPI 설정을 조정하여 변환할 수 있습니다.",
+      "q6_question": "이 변환기는 무료인가요?",
+      "q6_answer": "네, 회원가입 없이 완전히 무료로 사용할 수 있습니다.",
+      "q7_question": "웹 디자인에는 어떤 PPI를 사용해야 하나요?",
+      "q7_answer": "일반적으로 웹 디자인에는 96 PPI가 표준입니다.",
+      "q8_question": "변환 정확도는 어느 정도인가요?",
+      "q8_answer": "선택한 PPI 값을 기준으로 매우 정확한 결과를 제공합니다."
     },
     "final_cta": {
       "title": "픽셀을 인치로 변환할 준비가 되셨나요?",
-      "description": "지금 무료 변환기를 사용해 보세요.",
+      "description": "지금 무료 변환기를 사용하여 정확한 변환을 시작하세요.",
       "button_text": "변환 시작"
     }
   }
