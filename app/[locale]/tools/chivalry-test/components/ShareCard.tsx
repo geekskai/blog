@@ -2,6 +2,7 @@
 
 import React, { useRef } from "react"
 import { Shield, Download } from "lucide-react"
+import { useTranslations } from "next-intl"
 import type { ResultLevel, TraitType } from "../constants"
 
 interface ShareCardProps {
@@ -12,6 +13,7 @@ interface ShareCardProps {
 }
 
 export default function ShareCard({ score, resultLevel, traitScores, mode }: ShareCardProps) {
+  const t = useTranslations("ChivalryTest")
   const cardRef = useRef<HTMLDivElement>(null)
 
   const handleDownload = async () => {
@@ -57,11 +59,13 @@ export default function ShareCard({ score, resultLevel, traitScores, mode }: Sha
 
           {/* Trait scores */}
           <div className="mb-6 rounded-xl bg-white/5 p-4 backdrop-blur-sm">
-            <h3 className="mb-3 text-center text-sm font-semibold text-white">Your Traits</h3>
+            <h3 className="mb-3 text-center text-sm font-semibold text-white">
+              {t("your_traits")}
+            </h3>
             <div className="space-y-2">
               {Object.entries(traitScores).map(([trait, score]) => (
                 <div key={trait} className="flex items-center justify-between">
-                  <span className="text-xs font-medium capitalize text-slate-300">{trait}</span>
+                  <span className="text-xs font-medium text-slate-300">{t(`trait_${trait}`)}</span>
                   <div className="flex items-center gap-2">
                     <div className="h-2 w-24 overflow-hidden rounded-full bg-slate-700">
                       <div
@@ -89,7 +93,7 @@ export default function ShareCard({ score, resultLevel, traitScores, mode }: Sha
         className="mx-auto flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 text-sm font-medium text-white shadow-lg transition-all hover:from-blue-700 hover:to-purple-700"
       >
         <Download className="h-4 w-4" />
-        Download Result Card
+        {t("download_result_card")}
       </button>
     </div>
   )

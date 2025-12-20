@@ -67,23 +67,23 @@ export const ContentSections: React.FC = () => {
                 <ul className="space-y-3 text-slate-300">
                   <li className="flex items-center">
                     <div className="mr-3 h-2 w-2 rounded-full bg-blue-400"></div>
-                    Courtesy
+                    {t("trait_courtesy")}
                   </li>
                   <li className="flex items-center">
                     <div className="mr-3 h-2 w-2 rounded-full bg-purple-400"></div>
-                    Respect
+                    {t("trait_respect")}
                   </li>
                   <li className="flex items-center">
                     <div className="mr-3 h-2 w-2 rounded-full bg-emerald-400"></div>
-                    Integrity
+                    {t("trait_integrity")}
                   </li>
                   <li className="flex items-center">
                     <div className="mr-3 h-2 w-2 rounded-full bg-orange-400"></div>
-                    Courage
+                    {t("trait_courage")}
                   </li>
                   <li className="flex items-center">
                     <div className="mr-3 h-2 w-2 rounded-full bg-pink-400"></div>
-                    Loyalty
+                    {t("trait_loyalty")}
                   </li>
                 </ul>
               </div>
@@ -107,8 +107,8 @@ export const ContentSections: React.FC = () => {
                 key={trait}
                 className="rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur-sm"
               >
-                <h3 className="mb-2 font-semibold capitalize text-white">{trait}</h3>
-                <p className="text-sm text-slate-400">{t("what_test_measures_description")}</p>
+                <h3 className="mb-2 font-semibold text-white">{t(`trait_${trait}`)}</h3>
+                <p className="text-sm text-slate-400">{t(`trait_${trait}_description`)}</p>
               </div>
             ))}
           </div>

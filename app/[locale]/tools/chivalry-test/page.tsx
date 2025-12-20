@@ -104,6 +104,16 @@ const ChivalryTest = () => {
   const selectedAnswer = answers[currentQuestion]
   const canProceed = selectedAnswer !== undefined
 
+  // Get translated question and answers
+  const getQuestionText = (question: typeof currentQuestionData) => {
+    if (!question) return ""
+    return t(question.textKey)
+  }
+
+  const getAnswerText = (answer: { textKey: string }) => {
+    return t(answer.textKey)
+  }
+
   // Get result level if quiz is complete
   const resultLevel = score !== null ? getResultLevel(score, quizMode) : null
 
@@ -272,7 +282,7 @@ const ChivalryTest = () => {
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
               <div className="border-b border-white/10 bg-gradient-to-r from-blue-900/20 to-indigo-900/20 p-6">
                 <h2 className="text-xl font-semibold text-white md:text-2xl">
-                  {currentQuestionData?.text}
+                  {getQuestionText(currentQuestionData)}
                 </h2>
               </div>
 
@@ -299,7 +309,7 @@ const ChivalryTest = () => {
                               isSelected ? "text-blue-300" : "text-slate-300"
                             }`}
                           >
-                            {answer.text}
+                            {getAnswerText(answer)}
                           </span>
                           {isSelected && <CheckCircle className="h-5 w-5 text-blue-400" />}
                         </div>
