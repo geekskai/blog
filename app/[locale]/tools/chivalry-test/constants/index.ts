@@ -267,9 +267,9 @@ export const modernQuestions: Question[] = [
 // Knight's Code Questions (15 questions)
 export const knightQuestions: Question[] = [
   {
-    id: 21,
+    id: 1,
     mode: "knight",
-    trait: "honor",
+    trait: "integrity",
     text: "While jousting in a tournament, you notice your opponent is injured. You:",
     answers: [
       { id: "a", text: "Stop immediately and ensure their safety", score: 10 },
@@ -279,7 +279,7 @@ export const knightQuestions: Question[] = [
     ],
   },
   {
-    id: 22,
+    id: 2,
     mode: "knight",
     trait: "courage",
     text: "A village is threatened by bandits. You:",
@@ -291,7 +291,7 @@ export const knightQuestions: Question[] = [
     ],
   },
   {
-    id: 23,
+    id: 3,
     mode: "knight",
     trait: "loyalty",
     text: "Your liege lord asks you to do something against your values. You:",
@@ -303,9 +303,9 @@ export const knightQuestions: Question[] = [
     ],
   },
   {
-    id: 24,
+    id: 4,
     mode: "knight",
-    trait: "humility",
+    trait: "courtesy",
     text: "You win a great victory. How do you handle the praise?",
     answers: [
       { id: "a", text: "Credit your team and remain humble", score: 10 },
@@ -315,7 +315,7 @@ export const knightQuestions: Question[] = [
     ],
   },
   {
-    id: 25,
+    id: 5,
     mode: "knight",
     trait: "courtesy",
     text: "A commoner approaches you with a request. You:",
@@ -327,9 +327,9 @@ export const knightQuestions: Question[] = [
     ],
   },
   {
-    id: 26,
+    id: 6,
     mode: "knight",
-    trait: "honor",
+    trait: "integrity",
     text: "You discover a fellow knight has broken their oath. You:",
     answers: [
       { id: "a", text: "Confront them privately first", score: 9 },
@@ -339,7 +339,7 @@ export const knightQuestions: Question[] = [
     ],
   },
   {
-    id: 27,
+    id: 7,
     mode: "knight",
     trait: "courage",
     text: "You face an enemy stronger than you. You:",
@@ -351,7 +351,7 @@ export const knightQuestions: Question[] = [
     ],
   },
   {
-    id: 28,
+    id: 8,
     mode: "knight",
     trait: "loyalty",
     text: "Your sworn enemy saves your life. You:",
@@ -363,9 +363,9 @@ export const knightQuestions: Question[] = [
     ],
   },
   {
-    id: 29,
+    id: 9,
     mode: "knight",
-    trait: "humility",
+    trait: "courtesy",
     text: "A squire challenges you to a duel. You:",
     answers: [
       { id: "a", text: "Decline gracefully and offer to train them", score: 10 },
@@ -375,7 +375,7 @@ export const knightQuestions: Question[] = [
     ],
   },
   {
-    id: 30,
+    id: 10,
     mode: "knight",
     trait: "courtesy",
     text: "You're invited to a feast. A guest is being rude. You:",
@@ -387,9 +387,9 @@ export const knightQuestions: Question[] = [
     ],
   },
   {
-    id: 31,
+    id: 11,
     mode: "knight",
-    trait: "honor",
+    trait: "integrity",
     text: "You're offered a reward for a deed you didn't fully accomplish. You:",
     answers: [
       { id: "a", text: "Decline and explain the truth", score: 10 },
@@ -399,7 +399,7 @@ export const knightQuestions: Question[] = [
     ],
   },
   {
-    id: 32,
+    id: 12,
     mode: "knight",
     trait: "courage",
     text: "You must choose between saving a friend or completing a mission. You:",
@@ -411,7 +411,7 @@ export const knightQuestions: Question[] = [
     ],
   },
   {
-    id: 33,
+    id: 13,
     mode: "knight",
     trait: "loyalty",
     text: "Your order's code conflicts with your personal beliefs. You:",
@@ -423,9 +423,9 @@ export const knightQuestions: Question[] = [
     ],
   },
   {
-    id: 34,
+    id: 14,
     mode: "knight",
-    trait: "humility",
+    trait: "respect",
     text: "A peasant teaches you something valuable. You:",
     answers: [
       { id: "a", text: "Acknowledge their wisdom and learn", score: 10 },
@@ -435,7 +435,7 @@ export const knightQuestions: Question[] = [
     ],
   },
   {
-    id: 35,
+    id: 15,
     mode: "knight",
     trait: "courtesy",
     text: "You must deliver bad news to a grieving family. You:",
@@ -593,6 +593,9 @@ export function calculateTraitScores(
 
   questions.forEach((question) => {
     if (!question.trait) return
+
+    // Skip if trait is not in the valid TraitType list
+    if (!(question.trait in traitScores)) return
 
     const answerId = answers[question.id]
     const maxAnswerScore = Math.max(...question.answers.map((a) => a.score))
