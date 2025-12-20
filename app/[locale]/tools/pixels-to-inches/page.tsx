@@ -109,21 +109,46 @@ export default function PixelsToInchesConverter() {
         </div>
 
         {/* SEO-optimized Introduction Section */}
-        <div className="relative mb-16 rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 p-8 shadow-2xl backdrop-blur-xl md:p-12">
-          <div className="mx-auto max-w-4xl text-center">
-            <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
-              {t("intro_section.title")}
-            </h2>
-            <p className="mb-6 text-lg leading-relaxed text-slate-300 md:text-xl">
-              {t("intro_section.paragraph_1")}
-            </p>
-            <p className="mb-6 text-lg leading-relaxed text-slate-300 md:text-xl">
-              {t("intro_section.paragraph_2")}
-            </p>
-            <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <p className="text-base font-medium text-slate-200 md:text-lg">
-                {t("intro_section.key_features_intro")}
-              </p>
+        <div className="relative mb-16 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/15 via-purple-500/10 to-pink-500/15 p-8 shadow-2xl backdrop-blur-xl md:p-12 lg:p-16">
+          {/* Decorative background elements */}
+          <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/15 blur-3xl"></div>
+          <div className="absolute -bottom-16 -left-16 h-36 w-36 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/15 blur-3xl"></div>
+          <div className="absolute right-1/4 top-1/3 h-24 w-24 rounded-full bg-gradient-to-br from-cyan-500/15 to-blue-500/10 blur-2xl"></div>
+
+          <div className="relative mx-auto max-w-5xl">
+            {/* Main Title */}
+            <div className="mb-8 text-center">
+              <h2 className="mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
+                {t("intro_section.title")}
+              </h2>
+            </div>
+
+            {/* Content Grid */}
+            <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
+              {/* Left Column - Paragraphs */}
+              <div className="space-y-6 text-left">
+                <p className="text-lg leading-relaxed text-slate-300 md:text-xl">
+                  {t("intro_section.paragraph_1")}
+                </p>
+                <p className="text-lg leading-relaxed text-slate-300 md:text-xl">
+                  {t("intro_section.paragraph_2")}
+                </p>
+              </div>
+
+              {/* Right Column - Key Features */}
+              <div className="flex items-center">
+                <div className="w-full rounded-2xl border border-white/20 bg-gradient-to-br from-white/10 via-white/5 to-white/10 p-6 shadow-xl backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:shadow-2xl hover:shadow-blue-500/20 md:p-8">
+                  <div className="mb-3 flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-r from-blue-500/20 to-purple-500/20">
+                      <Sparkles className="h-5 w-5 text-blue-300" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-white md:text-xl">Key Features</h3>
+                  </div>
+                  <p className="text-base leading-relaxed text-slate-200 md:text-lg">
+                    {t("intro_section.key_features_intro")}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

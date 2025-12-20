@@ -1031,7 +1031,11 @@
       "faq_4_question": "Hvordan lagrer jeg mine favorittkonfigurasjoner?",
       "faq_4_answer": "Bruk \"Lagre\" knappen for å legge til din nåværende konfigurasjon til favorittene dine. Du kan lagre flere konfigurasjoner og raskt bytte mellom dem ved å klikke på enhver lagret forhåndsinnstilling i favorittavsnittet. Denne funksjonen hjelper deg med å opprettholde konsistens på tvers av flere titelkort eller raskt eksperimentere med forskjellige stiler.",
       "faq_5_question": "Er verktøyet helt gratis?",
-      "faq_5_answer": "Ja! Vår Invincible Titelkort Generator er helt gratis uten registrering påkrevd, ingen skjulte gebyrer og ingen vannmerker (med mindre du velger å beholde attribusjonen). Lag ubegrensede titelkort og last dem ned i full oppløsning uten noen begrensninger."
+      "faq_5_answer": "Ja! Vår Invincible Titelkort Generator er helt gratis uten registrering påkrevd, ingen skjulte gebyrer og ingen vannmerker (med mindre du velger å beholde attribusjonen). Lag ubegrensede titelkort og last dem ned i full oppløsning uten noen begrensninger.",
+      "faq_6_question": "Hvordan lager jeg et tilpasset Invincible-tittelkort?",
+      "faq_6_answer": "For å lage et tilpasset Invincible-tittelkort kan du bruke alternativet 'Last opp egendefinert bakgrunn' (Upload Custom Background) for å laste opp ditt eget bilde som bakgrunn. Alternativt kan du bruke alternativet 'Egendefinert bakgrunnsfarge' (Custom Background Color) for å velge en heldekkende farge som bakgrunn. Du kan også bruke alternativet 'Tekstfarge' (Text Color) for å velge farge på teksten, og 'Visuelle effekter' (Visual Effects) for å legge til en effekt på tittelkortet.",
+      "faq_7_question": "Hvordan lager jeg et Invincible-tittelkort?",
+      "faq_7_answer": "For å lage et Invincible-tittelkort kan du bruke alternativet 'Karakterforhåndsinnstillinger' (Character Presets) for å velge en karakter. Du kan også bruke 'Tekstinnstillinger' (Text Settings) for å tilpasse teksten, 'Farger' (Colors) for å justere fargene, og 'Effekter' (Effects) for å legge til en visuell effekt på tittelkortet."
     },
     "default_state": {
       "text": "Invincible",

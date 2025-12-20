@@ -945,7 +945,11 @@
       "faq_4_question": "How do I save my favorite configurations?",
       "faq_4_answer": "Use the \"Save\" button to add your current configuration to your favorites. You can save multiple configurations and quickly switch between them by clicking on any saved preset in the favorites section. This feature helps you maintain consistency across multiple title cards or quickly experiment with different styles.",
       "faq_5_question": "Is the tool completely free?",
-      "faq_5_answer": "Yes! Our Invincible Title Card Generator is completely free with no registration required, no hidden fees, and no watermarks (unless you choose to keep the attribution). Create unlimited title cards and download them at full resolution without any restrictions."
+      "faq_5_answer": "Yes! Our Invincible Title Card Generator is completely free with no registration required, no hidden fees, and no watermarks (unless you choose to keep the attribution). Create unlimited title cards and download them at full resolution without any restrictions.",
+      "faq_6_question": "how to make a custom invincible title card?",
+      "faq_6_answer": "To create a custom invincible title card, you can use the \"Upload Custom Background\" option to upload your own image as the background. Alternatively, you can use the \"Custom Background Color\" option to select a solid color for the background. You can also use the \"Text Color\" option to select a color for the text. You can also use the \"Visual Effects\" option to add a visual effect to the title card.",
+      "faq_7_question": "how to make an invincible title card?",
+      "faq_7_answer": "To make an invincible title card, you can use the \"Character Presets\" option to select a character preset. You can also use the \"Text Settings\" option to customize the text. You can also use the \"Colors\" option to customize the colors. You can also use the \"Effects\" option to add a visual effect to the title card."
     },
 
     "default_state": {

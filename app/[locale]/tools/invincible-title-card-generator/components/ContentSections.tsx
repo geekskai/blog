@@ -187,6 +187,20 @@ export const ContentSections: React.FC = () => {
               </h3>
               <p className="leading-relaxed text-slate-300">{t("content.faq_5_answer")}</p>
             </div>
+
+            <div className="rounded-lg border border-slate-700 bg-slate-700/30 p-6">
+              <h3 className="mb-3 text-xl font-semibold text-white">
+                {t("content.faq_6_question")}
+              </h3>
+              <p className="leading-relaxed text-slate-300">{t("content.faq_6_answer")}</p>
+            </div>
+
+            <div className="rounded-lg border border-slate-700 bg-slate-700/30 p-6">
+              <h3 className="mb-3 text-xl font-semibold text-white">
+                {t("content.faq_7_question")}
+              </h3>
+              <p className="leading-relaxed text-slate-300">{t("content.faq_7_answer")}</p>
+            </div>
           </div>
         </section>
       </div>

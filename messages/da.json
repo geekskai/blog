@@ -946,7 +946,11 @@
       "faq_4_question": "Hvordan gemmer jeg mine favoritkonfigurationer?",
       "faq_4_answer": "Brug \"Gem\" knappen til at tilføje din nuværende konfiguration til dine favoritter. Du kan gemme flere konfigurationer og hurtigt skifte mellem dem ved at klikke på enhver gemt forudindstilling i favoritafsnittet. Denne funktion hjælper dig med at opretholde konsistens på tværs af flere titelkort eller hurtigt eksperimentere med forskellige stilarter.",
       "faq_5_question": "Er værktøjet helt gratis?",
-      "faq_5_answer": "Ja! Vores Invincible Titelkort Generator er helt gratis uden registrering påkrævet, ingen skjulte gebyrer og ingen vandmærker (medmindre du vælger at beholde attributionen). Opret ubegrænsede titelkort og download dem i fuld opløsning uden nogen begrænsninger."
+      "faq_5_answer": "Ja! Vores Invincible Titelkort Generator er helt gratis uden registrering påkrævet, ingen skjulte gebyrer og ingen vandmærker (medmindre du vælger at beholde attributionen). Opret ubegrænsede titelkort og download dem i fuld opløsning uden nogen begrænsninger.",
+      "faq_6_question": "Hvordan laver man et brugerdefineret Invincible-titelkort?",
+      "faq_6_answer": "For at oprette et brugerdefineret Invincible-titelkort kan du bruge muligheden 'Upload Custom Background' til at uploade dit eget billede som baggrund. Alternativt kan du bruge muligheden 'Custom Background Color' til at vælge en ensfarvet baggrund. Du kan også bruge muligheden 'Text Color' til at vælge en farve til teksten og muligheden 'Visual Effects' til at tilføje en visuel effekt til titelkortet.",
+      "faq_7_question": "Hvordan laver man et Invincible-titelkort?",
+      "faq_7_answer": "For at lave et Invincible-titelkort kan du bruge muligheden 'Character Presets' til at vælge en forudindstillet karakter. Du kan også bruge 'Text Settings' til at tilpasse teksten, 'Colors' til at tilpasse farverne og 'Effects' til at tilføje en visuel effekt til titelkortet."
     },
     "default_state": {
       "text": "Invincible",
