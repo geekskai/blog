@@ -68,24 +68,24 @@ interface TrackInfoCardProps {
   isDownloading?: boolean
 }
 
-// 格式化时长（毫秒转 mm:ss）
+// Format duration (milliseconds to mm:ss)
 const formatDuration = (ms?: number): string => {
-  if (!ms) return "未知"
+  if (!ms) return "Unknown"
   const seconds = Math.floor(ms / 1000)
   const minutes = Math.floor(seconds / 60)
   const remainingSeconds = seconds % 60
   return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`
 }
 
-// 格式化数字（添加千位分隔符）
+// Format number (add thousand separators)
 const formatNumber = (num?: number): string => {
   if (num === undefined || num === null) return "0"
   return num.toLocaleString()
 }
 
-// 格式化日期
+// Format date
 const formatDate = (dateString?: string): string => {
-  if (!dateString) return "未知"
+  if (!dateString) return "Unknown"
   try {
     const date = new Date(dateString)
     const now = new Date()
@@ -96,19 +96,19 @@ const formatDate = (dateString?: string): string => {
     const diffMonths = Math.floor(diffDays / 30)
     const diffYears = Math.floor(diffDays / 365)
 
-    if (diffMins < 1) return "刚刚"
-    if (diffMins < 60) return `${diffMins} 分钟前`
-    if (diffHours < 24) return `${diffHours} 小时前`
-    if (diffDays < 30) return `${diffDays} 天前`
-    if (diffMonths < 12) return `${diffMonths} 个月前`
-    if (diffYears < 1) return `${diffYears} 年前`
-    return date.toLocaleDateString("zh-CN")
+    if (diffMins < 1) return "Just now"
+    if (diffMins < 60) return `${diffMins} minutes ago`
+    if (diffHours < 24) return `${diffHours} hours ago`
+    if (diffDays < 30) return `${diffDays} days ago`
+    if (diffMonths < 12) return `${diffMonths} months ago`
+    if (diffYears < 1) return `${diffYears} years ago`
+    return date.toLocaleDateString("en-US")
   } catch {
     return dateString
   }
 }
 
-// 信息项组件
+// Info item component
 const InfoItem = ({
   label,
   value,
@@ -120,7 +120,7 @@ const InfoItem = ({
 }) => {
   if (value === undefined || value === null) return null
 
-  const displayValue = typeof value === "boolean" ? (value ? "是" : "否") : String(value)
+  const displayValue = typeof value === "boolean" ? (value ? "Yes" : "No") : String(value)
 
   return (
     <div className="flex items-start space-x-2">
@@ -168,16 +168,16 @@ export default function TrackInfoCard({
     public: isPublic,
   } = trackInfo
 
-  // 处理封面图 URL（替换尺寸）
+  // Process artwork URL (replace size)
   const artworkUrl = artwork_url?.replace("-large", "-t500x500") || ""
   const userAvatarUrl = user?.avatar_url?.replace("-large", "-t300x300") || ""
 
   return (
     <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg">
-      {/* 头部：封面图和基本信息 */}
+      {/* Header: artwork and basic info */}
       <div className="relative bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-6">
-          {/* 封面图 */}
+          {/* Artwork */}
           {artworkUrl && (
             <div className="relative h-48 w-48 flex-shrink-0 overflow-hidden rounded-lg shadow-xl md:h-56 md:w-56">
               <Image
@@ -190,10 +190,10 @@ export default function TrackInfoCard({
             </div>
           )}
 
-          {/* 基本信息 */}
+          {/* Basic info */}
           <div className="flex flex-1 flex-col justify-center space-y-3 text-white">
             <div>
-              <h2 className="text-2xl font-bold md:text-3xl">{title || "未知标题"}</h2>
+              <h2 className="text-2xl font-bold md:text-3xl">{title || "Unknown Title"}</h2>
               {user && (
                 <div className="mt-2 flex items-center space-x-2">
                   {userAvatarUrl && (
@@ -208,25 +208,25 @@ export default function TrackInfoCard({
                     </div>
                   )}
                   <span className="text-lg font-medium opacity-90">
-                    {user.username || "未知艺术家"}
+                    {user.username || "Unknown Artist"}
                   </span>
                 </div>
               )}
             </div>
 
-            {/* 时长和状态标签 */}
+            {/* Duration and status labels */}
             <div className="flex flex-wrap items-center gap-2">
               <span className="rounded-full bg-white/20 px-3 py-1 text-sm backdrop-blur-sm">
                 ⏱️ {formatDuration(duration || full_duration)}
               </span>
               {streamable && (
                 <span className="rounded-full bg-green-500/80 px-3 py-1 text-sm backdrop-blur-sm">
-                  🔊 可播放
+                  🔊 Streamable
                 </span>
               )}
               {downloadable && (
                 <span className="rounded-full bg-blue-500/80 px-3 py-1 text-sm backdrop-blur-sm">
-                  ⬇️ 可下载
+                  ⬇️ Downloadable
                 </span>
               )}
               {genre && (
@@ -239,40 +239,40 @@ export default function TrackInfoCard({
         </div>
       </div>
 
-      {/* 内容区域 */}
+      {/* Content area */}
       <div className="p-6">
-        {/* 描述 */}
+        {/* Description */}
         {description && (
           <div className="mb-6 rounded-lg bg-gray-50 p-4">
-            <h3 className="mb-2 text-sm font-semibold text-gray-700">描述</h3>
+            <h3 className="mb-2 text-sm font-semibold text-gray-700">Description</h3>
             <p className="text-sm leading-relaxed text-gray-600">{description}</p>
           </div>
         )}
 
-        {/* 统计数据 */}
+        {/* Statistics */}
         <div className="mb-6 grid grid-cols-2 gap-4 md:grid-cols-4">
           <div className="rounded-lg bg-gradient-to-br from-pink-50 to-rose-50 p-4 text-center">
             <div className="text-2xl font-bold text-pink-600">{formatNumber(likes_count)}</div>
-            <div className="text-xs text-pink-600">❤️ 喜欢</div>
+            <div className="text-xs text-pink-600">❤️ Likes</div>
           </div>
           <div className="rounded-lg bg-gradient-to-br from-blue-50 to-cyan-50 p-4 text-center">
             <div className="text-2xl font-bold text-blue-600">{formatNumber(playback_count)}</div>
-            <div className="text-xs text-blue-600">👁️ 播放</div>
+            <div className="text-xs text-blue-600">👁️ Plays</div>
           </div>
           <div className="rounded-lg bg-gradient-to-br from-green-50 to-emerald-50 p-4 text-center">
             <div className="text-2xl font-bold text-green-600">{formatNumber(reposts_count)}</div>
-            <div className="text-xs text-green-600">🔄 转发</div>
+            <div className="text-xs text-green-600">🔄 Reposts</div>
           </div>
           <div className="rounded-lg bg-gradient-to-br from-purple-50 to-violet-50 p-4 text-center">
             <div className="text-2xl font-bold text-purple-600">{formatNumber(comment_count)}</div>
-            <div className="text-xs text-purple-600">💬 评论</div>
+            <div className="text-xs text-purple-600">💬 Comments</div>
           </div>
         </div>
 
-        {/* 标签 */}
+        {/* Tags */}
         {tag_list && (
           <div className="mb-6">
-            <h3 className="mb-2 text-sm font-semibold text-gray-700">标签</h3>
+            <h3 className="mb-2 text-sm font-semibold text-gray-700">Tags</h3>
             <div className="flex flex-wrap gap-2">
               {tag_list.split(" ").map((tag, index) => (
                 <span
@@ -286,26 +286,30 @@ export default function TrackInfoCard({
           </div>
         )}
 
-        {/* 详细信息网格 */}
+        {/* Detailed info grid */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           <InfoItem label="ID" value={trackInfo.id} icon="🆔" />
-          <InfoItem label="类型" value={kind} icon="📋" />
-          <InfoItem label="状态" value={state} icon="📊" />
-          <InfoItem label="下载次数" value={formatNumber(download_count)} icon="⬇️" />
-          <InfoItem label="可下载剩余" value={has_downloads_left} icon="📥" />
-          <InfoItem label="可评论" value={commentable} icon="💬" />
-          <InfoItem label="公开" value={isPublic} icon="🌐" />
-          <InfoItem label="货币化模式" value={monetization_model} icon="💰" />
-          <InfoItem label="政策" value={policy} icon="📜" />
-          {trackInfo.label_name && <InfoItem label="厂牌" value={trackInfo.label_name} icon="🏷️" />}
-          {created_at && <InfoItem label="创建时间" value={formatDate(created_at)} icon="📅" />}
-          {last_modified && (
-            <InfoItem label="最后修改" value={formatDate(last_modified)} icon="✏️" />
+          <InfoItem label="Type" value={kind} icon="📋" />
+          <InfoItem label="Status" value={state} icon="📊" />
+          <InfoItem label="Download Count" value={formatNumber(download_count)} icon="⬇️" />
+          <InfoItem label="Downloadable Remaining" value={has_downloads_left} icon="📥" />
+          <InfoItem label="Commentable" value={commentable} icon="💬" />
+          <InfoItem label="Public" value={isPublic} icon="🌐" />
+          <InfoItem label="Monetization Model" value={monetization_model} icon="💰" />
+          <InfoItem label="Policy" value={policy} icon="📜" />
+          {trackInfo.label_name && (
+            <InfoItem label="Label" value={trackInfo.label_name} icon="🏷️" />
           )}
-          {display_date && <InfoItem label="显示日期" value={formatDate(display_date)} icon="📆" />}
+          {created_at && <InfoItem label="Created At" value={formatDate(created_at)} icon="📅" />}
+          {last_modified && (
+            <InfoItem label="Last Modified" value={formatDate(last_modified)} icon="✏️" />
+          )}
+          {display_date && (
+            <InfoItem label="Display Date" value={formatDate(display_date)} icon="📆" />
+          )}
         </div>
 
-        {/* 操作按钮区域 */}
+        {/* Action buttons area */}
         <div className="mt-6 flex flex-wrap gap-3 border-t border-gray-200 pt-6">
           {onDownload && (
             <button
@@ -335,12 +339,12 @@ export default function TrackInfoCard({
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                     ></path>
                   </svg>
-                  <span>下载中...</span>
+                  <span>Downloading...</span>
                 </>
               ) : (
                 <>
                   <span>⬇️</span>
-                  <span>下载音乐</span>
+                  <span>Download</span>
                 </>
               )}
             </button>
@@ -353,7 +357,7 @@ export default function TrackInfoCard({
               className="inline-flex items-center space-x-2 rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-600"
             >
               <span>🔗</span>
-              <span>在 SoundCloud 上查看</span>
+              <span>View on SoundCloud</span>
             </a>
           )}
           {waveform_url && (
@@ -364,7 +368,7 @@ export default function TrackInfoCard({
               className="inline-flex items-center space-x-2 rounded-lg bg-gray-700 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-800"
             >
               <span>📊</span>
-              <span>查看波形图</span>
+              <span>View Waveform</span>
             </a>
           )}
         </div>

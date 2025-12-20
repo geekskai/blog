@@ -6,17 +6,17 @@ import React from "react"
 
 type LoadingState = "idle" | "loading" | "success" | "error"
 
-// 常量
+// Constants
 const SOUNDCLOUD_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/.+/
 const ERROR_MESSAGES = {
-  EMPTY_URL: "请输入 SoundCloud 链接",
-  INVALID_URL: "请输入有效的 SoundCloud 链接",
-  NETWORK_ERROR: "网络错误，请稍后重试",
-  DOWNLOAD_FAILED: "下载失败，请稍后重试",
-  GET_INFO_FAILED: "获取信息失败，请检查链接是否正确",
+  EMPTY_URL: "Please enter a SoundCloud link",
+  INVALID_URL: "Please enter a valid SoundCloud link",
+  NETWORK_ERROR: "Network error, please try again later",
+  DOWNLOAD_FAILED: "Download failed, please try again later",
+  GET_INFO_FAILED: "Failed to get info, please check if the link is correct",
 } as const
 
-// 工具函数
+// Utility functions
 const isValidSoundCloudUrl = (url: string): boolean => {
   return SOUNDCLOUD_URL_REGEX.test(url)
 }
@@ -36,11 +36,11 @@ const createDownloadLink = (blob: Blob, fileName: string): void => {
   window.URL.revokeObjectURL(url)
 }
 
-const getFileName = (trackInfo: TrackInfo | null): string => {
-  return trackInfo?.title ? `${trackInfo.title}.mp3` : `audio-${Date.now()}.mp3`
+const getFileName = (trackInfo: TrackInfo | null, extension: string): string => {
+  return trackInfo?.title ? `${trackInfo.title}.${extension}` : `audio-${Date.now()}.${extension}`
 }
 
-// 加载图标组件
+// Loading spinner component
 const LoadingSpinner = () => (
   <svg
     className="h-5 w-5 animate-spin"
@@ -57,7 +57,7 @@ const LoadingSpinner = () => (
   </svg>
 )
 
-// 进度条组件
+// Progress bar component
 interface ProgressBarProps {
   progress: number
   status: string
@@ -67,7 +67,7 @@ interface ProgressBarProps {
 const ProgressBar = ({ progress, status, className = "" }: ProgressBarProps) => (
   <div className={`space-y-1 ${className}`}>
     <div className="flex items-center justify-between text-xs text-white/80">
-      <span className={progress > 0 ? "" : "truncate"}>{status || "处理中..."}</span>
+      <span className={progress > 0 ? "" : "truncate"}>{status || "Processing..."}</span>
       {progress > 0 && <span className="ml-2 flex-shrink-0">{progress}%</span>}
     </div>
     <div className="h-2 overflow-hidden rounded-full bg-white/20">
@@ -94,7 +94,7 @@ export default function Page() {
   const [infoStatus, setInfoStatus] = useState<string>("")
   const [downloadStatus, setDownloadStatus] = useState<string>("")
 
-  // 重置状态
+  // Reset state
   const resetInfoState = () => {
     setInfoProgress(0)
     setInfoStatus("")
@@ -115,7 +115,7 @@ export default function Page() {
     setErrorMessage("")
   }
 
-  // 验证URL
+  // Validate URL
   const validateUrl = (): boolean => {
     if (!url.trim()) {
       setErrorMessage(ERROR_MESSAGES.EMPTY_URL)
@@ -128,7 +128,7 @@ export default function Page() {
     return true
   }
 
-  // 获取音频信息
+  // Get audio info
   const handleGetInfo = async (e?: FormEvent) => {
     e?.preventDefault()
 
@@ -142,19 +142,19 @@ export default function Page() {
       resetError()
       setTrackInfo(null)
       resetInfoState()
-      setInfoStatus("正在连接服务器...")
+      setInfoStatus("Connecting to server...")
 
       const startTime = Date.now()
       const progressInterval = setInterval(() => {
         const elapsed = Date.now() - startTime
         if (elapsed < 1000) {
-          setInfoStatus("正在连接服务器...")
+          setInfoStatus("Connecting to server...")
           setInfoProgress(10)
         } else if (elapsed < 3000) {
-          setInfoStatus("正在获取音频信息...")
+          setInfoStatus("Fetching audio info...")
           setInfoProgress(30)
         } else {
-          setInfoStatus("正在处理数据...")
+          setInfoStatus("Processing data...")
           setInfoProgress(60)
         }
       }, 500)
@@ -166,14 +166,14 @@ export default function Page() {
       })
 
       clearInterval(progressInterval)
-      setInfoStatus("正在解析响应...")
+      setInfoStatus("Parsing response...")
       setInfoProgress(90)
 
       const data = await response.json()
 
       if (data.success) {
         setInfoProgress(100)
-        setInfoStatus("完成")
+        setInfoStatus("Complete")
         setTrackInfo({ ...data.info, downloadable: true })
         setLoadingState("success")
         setTimeout(resetInfoState, 1000)
@@ -190,20 +190,22 @@ export default function Page() {
     }
   }
 
-  // 下载音频（使用 fetch + ReadableStream 追踪进度）
+  const [extension, setExtension] = useState("mp3")
+
+  // Download audio (using fetch + ReadableStream to track progress)
   const handleDownload = async () => {
     if (!validateUrl()) return
 
-    // 防止重复点击
+    // Prevent duplicate clicks
     if (downloading) return
 
     try {
       setDownloading(true)
       resetError()
       resetDownloadProgress()
-      setDownloadStatus("正在连接服务器...")
+      setDownloadStatus("Connecting to server...")
 
-      setDownloadStatus("正在发送请求...")
+      setDownloadStatus("Sending request...")
       setDownloadProgress(5)
 
       const response = await fetch("/api/download-soundcloud", {
@@ -221,10 +223,10 @@ export default function Page() {
         return
       }
 
-      setDownloadStatus("服务器正在处理（从 SoundCloud 下载音频）...")
+      setDownloadStatus("Server processing (downloading audio from SoundCloud)...")
       setDownloadProgress(10)
 
-      // 从响应头获取文件大小和 SoundCloud 信息
+      // Get file size and SoundCloud info from response headers
       const contentLength = response.headers.get("Content-Length")
       const totalBytes = contentLength ? parseInt(contentLength, 10) : 0
       const infoHeader = response.headers.get("X-SoundCloud-Info")
@@ -242,7 +244,7 @@ export default function Page() {
         }
       }
 
-      // 使用 ReadableStream 追踪下载进度
+      // Use ReadableStream to track download progress
       if (!response.body) {
         throw new Error("Response body is null")
       }
@@ -251,7 +253,7 @@ export default function Page() {
       const chunks: BlobPart[] = []
       let loadedBytes = 0
 
-      // 读取流数据
+      // Read stream data
       // eslint-disable-next-line no-constant-condition
       while (true) {
         const { done, value } = await reader.read()
@@ -261,25 +263,27 @@ export default function Page() {
         chunks.push(value)
         loadedBytes += value.length
 
-        // 更新进度
+        // Update progress
         if (totalBytes > 0) {
           const progress = Math.round((loadedBytes / totalBytes) * 80 + 20)
           setDownloadProgress(progress)
           const loadedMB = formatFileSize(loadedBytes)
           const totalMB = formatFileSize(totalBytes)
-          setDownloadStatus(`正在下载文件: ${loadedMB}MB / ${totalMB}MB`)
+          setDownloadStatus(`Downloading file: ${loadedMB}MB / ${totalMB}MB`)
         } else {
-          setDownloadStatus("正在下载文件...")
+          setDownloadStatus("Downloading file...")
           setDownloadProgress((prev) => Math.min(prev + 2, 95))
         }
       }
 
-      // 构建 Blob
+      // Build Blob
       setDownloadProgress(100)
-      setDownloadStatus("正在保存文件...")
+      setDownloadStatus("Saving file...")
 
-      const blob = new Blob(chunks, { type: "audio/mpeg" })
-      createDownloadLink(blob, getFileName(downloadedInfo || trackInfo))
+      const isMP3 = extension === "mp3"
+
+      const blob = new Blob(chunks, { type: isMP3 ? "audio/mpeg" : "audio/wav" })
+      createDownloadLink(blob, getFileName(downloadedInfo || trackInfo, isMP3 ? "mp3" : "wav"))
 
       setTimeout(resetDownloadState, 1000)
     } catch (error) {
@@ -292,15 +296,17 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
       <div className="container mx-auto px-4 py-8 md:px-6 md:py-12 lg:px-8">
-        {/* 标题区域 */}
+        {/* Title section */}
         <div className="mb-8 text-center">
           <h1 className="mb-2 text-4xl font-bold text-gray-800 md:text-5xl">
-            🎵 SoundCloud 音乐下载工具
+            🎵 SoundCloud Music Downloader
           </h1>
-          <p className="text-gray-600 md:text-lg">输入 SoundCloud 链接，获取音乐信息并下载</p>
+          <p className="text-gray-600 md:text-lg">
+            Enter a SoundCloud link to get music info and download
+          </p>
         </div>
 
-        {/* 输入区域卡片 */}
+        {/* Input area card */}
         <div className="mx-auto mb-8 max-w-3xl">
           <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl">
             <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-6">
@@ -310,7 +316,7 @@ export default function Page() {
                     htmlFor="soundcloud-url"
                     className="mb-2 block text-sm font-semibold text-white"
                   >
-                    SoundCloud 链接
+                    SoundCloud Link
                   </label>
                   <input
                     id="soundcloud-url"
@@ -325,7 +331,7 @@ export default function Page() {
                     className="w-full rounded-lg border-2 border-white/20 bg-white/90 px-4 py-3 text-gray-800 placeholder-gray-400 transition-all focus:border-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-white/50"
                   />
                 </div>
-                {/* 操作按钮组 */}
+                {/* Action buttons group */}
                 <div className="space-y-3">
                   <div className="flex flex-col gap-3 sm:flex-row">
                     <div className="flex flex-1 flex-col gap-2">
@@ -337,12 +343,12 @@ export default function Page() {
                         {loadingState === "loading" ? (
                           <>
                             <LoadingSpinner />
-                            <span>获取中...</span>
+                            <span>Fetching...</span>
                           </>
                         ) : (
                           <>
                             <span className="text-lg">🔍</span>
-                            <span>获取信息</span>
+                            <span>Get Info</span>
                           </>
                         )}
                       </button>
@@ -350,6 +356,7 @@ export default function Page() {
                         <ProgressBar progress={infoProgress} status={infoStatus} />
                       )}
                     </div>
+
                     <div className="flex flex-1 flex-col gap-2">
                       <button
                         type="button"
@@ -360,12 +367,12 @@ export default function Page() {
                         {downloading ? (
                           <>
                             <LoadingSpinner />
-                            <span>下载中...</span>
+                            <span>Downloading...</span>
                           </>
                         ) : (
                           <>
                             <span className="text-lg">⬇️</span>
-                            <span>直接下载</span>
+                            <span>Download</span>
                           </>
                         )}
                       </button>
@@ -373,12 +380,23 @@ export default function Page() {
                         <ProgressBar progress={downloadProgress} status={downloadStatus} />
                       )}
                     </div>
+                    {/* MP3 or WAV */}
+                    <div className="flex w-1/6 flex-col gap-2">
+                      <select
+                        value={extension}
+                        onChange={(e) => setExtension(e.target.value)}
+                        className="w-full rounded-lg border-2 border-white/20 bg-white/90 px-4 py-3 text-gray-800 placeholder-gray-400 transition-all focus:border-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                      >
+                        <option value="mp3">MP3</option>
+                        <option value="wav">WAV</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
               </form>
             </div>
 
-            {/* 错误提示 */}
+            {/* Error message */}
             {errorMessage && (
               <div className="border-t border-red-200 bg-red-50 p-4">
                 <div className="flex items-center gap-2 text-red-600">
@@ -390,7 +408,7 @@ export default function Page() {
           </div>
         </div>
 
-        {/* 加载骨架屏 */}
+        {/* Loading skeleton */}
         {loadingState === "loading" && !trackInfo && (
           <div className="mx-auto max-w-4xl">
             <div className="animate-pulse space-y-4 rounded-2xl border border-gray-200 bg-white p-6 shadow-xl">
@@ -403,12 +421,12 @@ export default function Page() {
           </div>
         )}
 
-        {/* 音乐信息卡片 */}
+        {/* Music info card */}
         {trackInfo && (
           <div className="mx-auto max-w-4xl">
             <div className="mb-6 text-center">
-              <h2 className="text-2xl font-bold text-gray-800">音乐信息</h2>
-              <p className="mt-1 text-sm text-gray-500">查看详细信息并下载音乐</p>
+              <h2 className="text-2xl font-bold text-gray-800">Track Information</h2>
+              <p className="mt-1 text-sm text-gray-500">View detailed info and download music</p>
             </div>
             <div className="transition-all duration-500 ease-in-out">
               <TrackInfoCard
@@ -420,14 +438,14 @@ export default function Page() {
           </div>
         )}
 
-        {/* 空状态提示 */}
+        {/* Empty state message */}
         {loadingState === "idle" && !trackInfo && (
           <div className="mx-auto max-w-2xl text-center">
             <div className="rounded-2xl border border-gray-200 bg-white/50 p-12 shadow-lg backdrop-blur-sm">
               <div className="mb-4 text-6xl">🎼</div>
-              <h3 className="mb-2 text-xl font-semibold text-gray-700">开始使用</h3>
+              <h3 className="mb-2 text-xl font-semibold text-gray-700">Get Started</h3>
               <p className="text-gray-500">
-                在上方输入 SoundCloud 链接，点击&ldquo;获取信息&rdquo;按钮开始
+                Enter a SoundCloud link above and click the &ldquo;Get Info&rdquo; button to start
               </p>
             </div>
           </div>
