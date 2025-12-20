@@ -2829,7 +2829,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.28.4":
+"@babel/runtime@npm:^7.10.3, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.28.4":
   version: 7.28.4
   resolution: "@babel/runtime@npm:7.28.4"
   checksum: 934b0a0460f7d06637d93fcd1a44ac49adc33518d17253b5a0b55ff4cb90a45d8fe78bf034b448911dbec7aff2a90b918697559f78d21c99ff8dbadae9565b55
@@ -7900,6 +7900,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^0.21.0":
+  version: 0.21.4
+  resolution: "axios@npm:0.21.4"
+  dependencies:
+    follow-redirects: ^1.14.0
+  checksum: 44245f24ac971e7458f3120c92f9d66d1fc695e8b97019139de5b0cc65d9b8104647db01e5f46917728edfc0cfd88eb30fc4c55e6053eef4ace76768ce95ff3c
+  languageName: node
+  linkType: hard
+
 "axobject-query@npm:^4.1.0":
   version: 4.1.0
   resolution: "axobject-query@npm:4.1.0"
@@ -10515,6 +10524,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"follow-redirects@npm:^1.14.0":
+  version: 1.15.11
+  resolution: "follow-redirects@npm:1.15.11"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 20bf55e9504f59e6cc3743ba27edb2ebf41edea1baab34799408f2c050f73f0c612728db21c691276296d2795ea8a812dc532a98e8793619fcab91abe06d017f
+  languageName: node
+  linkType: hard
+
 "for-each@npm:^0.3.3, for-each@npm:^0.3.5":
   version: 0.3.5
   resolution: "for-each@npm:0.3.5"
@@ -12631,6 +12650,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"m3u8stream@npm:^0.8.0":
+  version: 0.8.6
+  resolution: "m3u8stream@npm:0.8.6"
+  dependencies:
+    miniget: ^4.2.2
+    sax: ^1.2.4
+  checksum: b8f61c1101dd3ad873ff2f3d0e9e6a5139ad17e20990b89ae67f2585043bc2b727151ed85f3e58aabc8a1a95af28e1ee26f69af6ac9e8841ff68129eae2f5ac5
+  languageName: node
+  linkType: hard
+
 "make-fetch-happen@npm:^14.0.3":
   version: 14.0.3
   resolution: "make-fetch-happen@npm:14.0.3"
@@ -13581,6 +13610,13 @@ __metadata:
   bin:
     miniflare: bootstrap.js
   checksum: be06cc14465d00e0262bfb325a8d62e24480ffc3d9da64d7c49250f33c6c172a343fec7ae2195c0f43d4d6234d00a1073a72a668a8f2d2c0ea3e271ff75aad2a
+  languageName: node
+  linkType: hard
+
+"miniget@npm:^4.2.2":
+  version: 4.2.3
+  resolution: "miniget@npm:4.2.3"
+  checksum: c2db18570b4dc6771a6824993f9a33360b02ef92173bf38a5d772f27640f4f493153f73da1b28700c2b55cb7526321446ce2f326c667ad671fb78c8998c1402f
   languageName: node
   linkType: hard
 
@@ -16427,6 +16463,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"soundcloud-downloader@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "soundcloud-downloader@npm:1.0.0"
+  dependencies:
+    "@babel/runtime": ^7.10.3
+    axios: ^0.21.0
+    dotenv: ^8.2.0
+    m3u8stream: ^0.8.0
+    soundcloud-key-fetch: ^1.0.10
+  checksum: 114469ea3d22567ad09f98570c66fe8f1efbe3448c803fe03145fb9dbd34c066de5196921f31c7b647831e7b87afc42a23fe0e8fc2a72b6b44c1a06a41b2e0cb
+  languageName: node
+  linkType: hard
+
+"soundcloud-key-fetch@npm:^1.0.10":
+  version: 1.0.13
+  resolution: "soundcloud-key-fetch@npm:1.0.13"
+  checksum: 0ccbf2be31efa9c7b13f5ee9c7755b6931b11bf7f9c46b6a0eea0c48a1e46871c85d691adf704ecc8a13291b5f0333251339506d840e7a68fa8a69a585eb6be6
+  languageName: node
+  linkType: hard
+
 "source-map-js@npm:^1.0.1, source-map-js@npm:^1.0.2, source-map-js@npm:^1.2.1":
   version: 1.2.1
   resolution: "source-map-js@npm:1.2.1"
@@ -16981,6 +17037,7 @@ __metadata:
     remark-math: ^6.0.0
     remarkable: ^2.0.1
     sharp: ^0.34.5
+    soundcloud-downloader: ^1.0.0
     tailwind-merge: ^3.4.0
     tailwindcss: ^3.4.3
     turndown: ^7.2.0
