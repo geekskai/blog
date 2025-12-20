@@ -190,7 +190,7 @@ export default function Page() {
     }
   }
 
-  const [extension, setExtension] = useState("mp3")
+  const [extension, setExtension] = useState("wav")
 
   // Download audio (using fetch + ReadableStream to track progress)
   const handleDownload = async () => {
