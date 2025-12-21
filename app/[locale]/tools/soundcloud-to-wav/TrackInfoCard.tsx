@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import React from "react"
+import { useTranslations } from "next-intl"
 
 interface Transcoding {
   url: string
@@ -69,8 +70,8 @@ interface TrackInfoCardProps {
 }
 
 // Format duration (milliseconds to mm:ss)
-const formatDuration = (ms?: number): string => {
-  if (!ms) return "Unknown"
+const formatDuration = (ms?: number, t?: ReturnType<typeof useTranslations>): string => {
+  if (!ms) return t ? t("track_info_unknown") : "Unknown"
   const seconds = Math.floor(ms / 1000)
   const minutes = Math.floor(seconds / 60)
   const remainingSeconds = seconds % 60
@@ -84,8 +85,8 @@ const formatNumber = (num?: number): string => {
 }
 
 // Format date
-const formatDate = (dateString?: string): string => {
-  if (!dateString) return "Unknown"
+const formatDate = (dateString?: string, t?: ReturnType<typeof useTranslations>): string => {
+  if (!dateString) return t ? t("track_info_unknown") : "Unknown"
   try {
     const date = new Date(dateString)
     const now = new Date()
@@ -96,12 +97,22 @@ const formatDate = (dateString?: string): string => {
     const diffMonths = Math.floor(diffDays / 30)
     const diffYears = Math.floor(diffDays / 365)
 
-    if (diffMins < 1) return "Just now"
-    if (diffMins < 60) return `${diffMins} minutes ago`
-    if (diffHours < 24) return `${diffHours} hours ago`
-    if (diffDays < 30) return `${diffDays} days ago`
-    if (diffMonths < 12) return `${diffMonths} months ago`
-    if (diffYears < 1) return `${diffYears} years ago`
+    if (!t) {
+      if (diffMins < 1) return "Just now"
+      if (diffMins < 60) return `${diffMins} minutes ago`
+      if (diffHours < 24) return `${diffHours} hours ago`
+      if (diffDays < 30) return `${diffDays} days ago`
+      if (diffMonths < 12) return `${diffMonths} months ago`
+      if (diffYears < 1) return `${diffYears} years ago`
+      return date.toLocaleDateString("en-US")
+    }
+
+    if (diffMins < 1) return t("track_info_just_now")
+    if (diffMins < 60) return `${diffMins} ${t("track_info_minutes_ago")}`
+    if (diffHours < 24) return `${diffHours} ${t("track_info_hours_ago")}`
+    if (diffDays < 30) return `${diffDays} ${t("track_info_days_ago")}`
+    if (diffMonths < 12) return `${diffMonths} ${t("track_info_months_ago")}`
+    if (diffYears < 1) return `${diffYears} ${t("track_info_years_ago")}`
     return date.toLocaleDateString("en-US")
   } catch {
     return dateString
@@ -113,14 +124,25 @@ const InfoItem = ({
   label,
   value,
   icon,
+  t,
 }: {
   label: string
   value: string | number | boolean | undefined
   icon?: string
+  t?: ReturnType<typeof useTranslations>
 }) => {
   if (value === undefined || value === null) return null
 
-  const displayValue = typeof value === "boolean" ? (value ? "Yes" : "No") : String(value)
+  const displayValue =
+    typeof value === "boolean"
+      ? value
+        ? t
+          ? t("track_info_yes")
+          : "Yes"
+        : t
+          ? t("track_info_no")
+          : "No"
+      : String(value)
 
   return (
     <div className="flex items-start space-x-3">
@@ -138,6 +160,7 @@ export default function TrackInfoCard({
   onDownload,
   isDownloading = false,
 }: TrackInfoCardProps) {
+  const t = useTranslations("SoundCloudToWAV")
   const {
     title,
     artwork_url,
@@ -193,14 +216,16 @@ export default function TrackInfoCard({
           {/* Basic info */}
           <div className="flex flex-1 flex-col justify-center space-y-4 text-white">
             <div>
-              <h2 className="text-3xl font-bold md:text-4xl">{title || "Unknown Title"}</h2>
+              <h2 className="text-3xl font-bold md:text-4xl">
+                {title || t("track_info_unknown_title")}
+              </h2>
               {user && (
                 <div className="mt-3 flex items-center space-x-3">
                   {userAvatarUrl && (
                     <div className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white/30">
                       <Image
                         src={userAvatarUrl}
-                        alt={user.username || "User"}
+                        alt={user.username || t("track_info_unknown_artist")}
                         fill
                         className="object-cover"
                         unoptimized
@@ -208,7 +233,7 @@ export default function TrackInfoCard({
                     </div>
                   )}
                   <span className="text-lg font-medium text-white/90">
-                    {user.username || "Unknown Artist"}
+                    {user.username || t("track_info_unknown_artist")}
                   </span>
                 </div>
               )}
@@ -217,16 +242,16 @@ export default function TrackInfoCard({
             {/* Duration and status labels */}
             <div className="flex flex-wrap items-center gap-3">
               <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm backdrop-blur-sm">
-                ⏱️ {formatDuration(duration || full_duration)}
+                ⏱️ {formatDuration(duration || full_duration, t)}
               </span>
               {streamable && (
                 <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm backdrop-blur-sm">
-                  🔊 Streamable
+                  🔊 {t("track_info_streamable")}
                 </span>
               )}
               {downloadable && (
                 <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm backdrop-blur-sm">
-                  ⬇️ Downloadable
+                  ⬇️ {t("track_info_downloadable")}
                 </span>
               )}
               {genre && (
@@ -244,7 +269,9 @@ export default function TrackInfoCard({
         {/* Description */}
         {description && (
           <div className="mb-8 rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-            <h3 className="mb-3 text-sm font-semibold text-purple-300">Description</h3>
+            <h3 className="mb-3 text-sm font-semibold text-purple-300">
+              {t("track_info_description")}
+            </h3>
             <p className="text-sm leading-relaxed text-slate-300">{description}</p>
           </div>
         )}
@@ -253,26 +280,26 @@ export default function TrackInfoCard({
         <div className="mb-8 grid grid-cols-2 gap-4 md:grid-cols-4">
           <div className="group rounded-lg border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
             <div className="text-3xl font-bold text-pink-400">{formatNumber(likes_count)}</div>
-            <div className="text-xs text-pink-300">❤️ Likes</div>
+            <div className="text-xs text-pink-300">❤️ {t("track_info_likes")}</div>
           </div>
           <div className="group rounded-lg border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
             <div className="text-3xl font-bold text-blue-400">{formatNumber(playback_count)}</div>
-            <div className="text-xs text-blue-300">👁️ Plays</div>
+            <div className="text-xs text-blue-300">👁️ {t("track_info_plays")}</div>
           </div>
           <div className="group rounded-lg border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
             <div className="text-3xl font-bold text-emerald-400">{formatNumber(reposts_count)}</div>
-            <div className="text-xs text-emerald-300">🔄 Reposts</div>
+            <div className="text-xs text-emerald-300">🔄 {t("track_info_reposts")}</div>
           </div>
           <div className="group rounded-lg border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
             <div className="text-3xl font-bold text-purple-400">{formatNumber(comment_count)}</div>
-            <div className="text-xs text-purple-300">💬 Comments</div>
+            <div className="text-xs text-purple-300">💬 {t("track_info_comments")}</div>
           </div>
         </div>
 
         {/* Tags */}
         {tag_list && (
           <div className="mb-8">
-            <h3 className="mb-3 text-sm font-semibold text-purple-300">Tags</h3>
+            <h3 className="mb-3 text-sm font-semibold text-purple-300">{t("track_info_tags")}</h3>
             <div className="flex flex-wrap gap-3">
               {tag_list.split(" ").map((tag, index) => (
                 <span
@@ -288,24 +315,56 @@ export default function TrackInfoCard({
 
         {/* Detailed info grid */}
         <div className="mb-8 grid grid-cols-1 gap-4 rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur-sm md:grid-cols-2 lg:grid-cols-3">
-          <InfoItem label="ID" value={trackInfo.id} icon="🆔" />
-          <InfoItem label="Type" value={kind} icon="📋" />
-          <InfoItem label="Status" value={state} icon="📊" />
-          <InfoItem label="Download Count" value={formatNumber(download_count)} icon="⬇️" />
-          <InfoItem label="Downloadable Remaining" value={has_downloads_left} icon="📥" />
-          <InfoItem label="Commentable" value={commentable} icon="💬" />
-          <InfoItem label="Public" value={isPublic} icon="🌐" />
-          <InfoItem label="Monetization Model" value={monetization_model} icon="💰" />
-          <InfoItem label="Policy" value={policy} icon="📜" />
+          <InfoItem label={t("track_info_id")} value={trackInfo.id} icon="🆔" t={t} />
+          <InfoItem label={t("track_info_type")} value={kind} icon="📋" t={t} />
+          <InfoItem label={t("track_info_status")} value={state} icon="📊" t={t} />
+          <InfoItem
+            label={t("track_info_download_count")}
+            value={formatNumber(download_count)}
+            icon="⬇️"
+            t={t}
+          />
+          <InfoItem
+            label={t("track_info_downloadable_remaining")}
+            value={has_downloads_left}
+            icon="📥"
+            t={t}
+          />
+          <InfoItem label={t("track_info_commentable")} value={commentable} icon="💬" t={t} />
+          <InfoItem label={t("track_info_public")} value={isPublic} icon="🌐" t={t} />
+          <InfoItem
+            label={t("track_info_monetization_model")}
+            value={monetization_model}
+            icon="💰"
+            t={t}
+          />
+          <InfoItem label={t("track_info_policy")} value={policy} icon="📜" t={t} />
           {trackInfo.label_name && (
-            <InfoItem label="Label" value={trackInfo.label_name} icon="🏷️" />
+            <InfoItem label={t("track_info_label")} value={trackInfo.label_name} icon="🏷️" t={t} />
           )}
-          {created_at && <InfoItem label="Created At" value={formatDate(created_at)} icon="📅" />}
+          {created_at && (
+            <InfoItem
+              label={t("track_info_created_at")}
+              value={formatDate(created_at, t)}
+              icon="📅"
+              t={t}
+            />
+          )}
           {last_modified && (
-            <InfoItem label="Last Modified" value={formatDate(last_modified)} icon="✏️" />
+            <InfoItem
+              label={t("track_info_last_modified")}
+              value={formatDate(last_modified, t)}
+              icon="✏️"
+              t={t}
+            />
           )}
           {display_date && (
-            <InfoItem label="Display Date" value={formatDate(display_date)} icon="📆" />
+            <InfoItem
+              label={t("track_info_display_date")}
+              value={formatDate(display_date, t)}
+              icon="📆"
+              t={t}
+            />
           )}
         </div>
 
@@ -341,12 +400,12 @@ export default function TrackInfoCard({
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       ></path>
                     </svg>
-                    <span>Downloading...</span>
+                    <span>{t("form_button_downloading")}</span>
                   </>
                 ) : (
                   <>
                     <span className="text-xl">⬇️</span>
-                    <span>Download</span>
+                    <span>{t("form_button_download")}</span>
                   </>
                 )}
               </span>
@@ -360,7 +419,7 @@ export default function TrackInfoCard({
               className="inline-flex items-center rounded-lg border border-white/10 bg-white/5 px-6 py-3 text-base font-medium text-white shadow-sm backdrop-blur-sm transition-all hover:bg-white/10"
             >
               <span className="mr-2 text-xl">🔗</span>
-              <span>View on SoundCloud</span>
+              <span>{t("track_info_view_on_soundcloud")}</span>
             </a>
           )}
           {waveform_url && (
@@ -371,7 +430,7 @@ export default function TrackInfoCard({
               className="inline-flex items-center rounded-lg border border-white/10 bg-white/5 px-6 py-3 text-base font-medium text-white shadow-sm backdrop-blur-sm transition-all hover:bg-white/10"
             >
               <span className="mr-2 text-xl">📊</span>
-              <span>View Waveform</span>
+              <span>{t("track_info_view_waveform")}</span>
             </a>
           )}
         </div>

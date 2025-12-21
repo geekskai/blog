@@ -1,12 +1,14 @@
 import { supportedLocales } from "app/i18n/routing"
 import { Metadata } from "next"
 import React from "react"
+import { getTranslations } from "next-intl/server"
 
 export async function generateMetadata({
   params: { locale },
 }: {
   params: { locale: string }
 }): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "SoundCloudToWAV" })
   const isDefaultLocale = locale === "en"
 
   const languages: Record<string, string> = {
@@ -21,24 +23,12 @@ export async function generateMetadata({
   const lastModified = new Date("2025-12-21") // Update current date
 
   return {
-    title: "SoundCloud to WAV Converter - Free Online Tool | Download SoundCloud Tracks",
-    description:
-      "Free SoundCloud to WAV converter. Download SoundCloud tracks as WAV or MP3 files instantly. No registration required. High-quality audio conversion in under 30 seconds.",
-    keywords: [
-      "soundcloud to wav",
-      "soundcloud downloader",
-      "soundcloud to wav converter",
-      "download soundcloud wav",
-      "soundcloud wav converter",
-      "soundcloud to mp3",
-      "free soundcloud downloader",
-      "convert soundcloud to wav",
-      "soundcloud audio downloader",
-    ],
+    title: t("metadata_title"),
+    description: t("metadata_description"),
+    keywords: t("metadata_keywords").split(", "),
     openGraph: {
-      title: "SoundCloud to WAV Converter - Free Online Tool",
-      description:
-        "Download SoundCloud tracks as WAV or MP3 files instantly. Free, fast, and no registration required.",
+      title: t("metadata_og_title"),
+      description: t("metadata_og_description"),
       type: "website",
       url: isDefaultLocale
         ? "https://geekskai.com/tools/soundcloud-to-wav/"
@@ -49,15 +39,15 @@ export async function generateMetadata({
           url: "/static/images/soundcloud-to-wav.png",
           width: 1200,
           height: 630,
-          alt: "SoundCloud to WAV Converter",
+          alt: t("metadata_og_image_alt"),
         },
       ],
       locale: "en_US",
     },
     twitter: {
       card: "summary_large_image",
-      title: "SoundCloud to WAV Converter - Free Online Tool",
-      description: "Download SoundCloud tracks as WAV or MP3 files instantly. Free and fast.",
+      title: t("metadata_twitter_title"),
+      description: t("metadata_twitter_description"),
     },
     alternates: {
       canonical: isDefaultLocale
@@ -93,6 +83,7 @@ export default async function Layout({
   children: React.ReactNode
   params: { locale: string }
 }) {
+  const t = await getTranslations({ locale, namespace: "SoundCloudToWAV" })
   const isDefaultLocale = locale === "en"
   const baseUrl = isDefaultLocale
     ? "https://geekskai.com/tools/soundcloud-to-wav"
@@ -102,9 +93,8 @@ export default async function Layout({
   const webApplicationSchema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "SoundCloud to WAV Converter",
-    description:
-      "Free online tool to convert SoundCloud tracks to WAV or MP3 format. Download SoundCloud audio files instantly without registration.",
+    name: t("schema_name"),
+    description: t("schema_description"),
     url: baseUrl,
     applicationCategory: "UtilityApplication",
     operatingSystem: "Any",
@@ -115,21 +105,21 @@ export default async function Layout({
     },
     provider: {
       "@type": "Organization",
-      name: "GeeksKai",
-      url: "https://geekskai.com",
+      name: t("schema_provider_name"),
+      url: t("schema_provider_url"),
     },
     featureList: [
-      "SoundCloud to WAV conversion",
-      "SoundCloud to MP3 conversion",
-      "Track information extraction",
-      "High-quality audio download",
-      "No registration required",
-      "Free unlimited use",
-      "Fast processing under 30 seconds",
-      "Support for public SoundCloud tracks",
+      t("schema_feature_1"),
+      t("schema_feature_2"),
+      t("schema_feature_3"),
+      t("schema_feature_4"),
+      t("schema_feature_5"),
+      t("schema_feature_6"),
+      t("schema_feature_7"),
+      t("schema_feature_8"),
     ],
-    browserRequirements: "Requires JavaScript. Requires HTML5.",
-    softwareVersion: "1.0",
+    browserRequirements: t("schema_browser_requirements"),
+    softwareVersion: t("schema_software_version"),
   }
 
   // FAQ Schema
@@ -139,66 +129,66 @@ export default async function Layout({
     mainEntity: [
       {
         "@type": "Question",
-        name: "Is the SoundCloud to WAV converter free?",
+        name: t("faq_question_1"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes, our SoundCloud to WAV converter is 100% free to use. No registration, no payment, and unlimited conversions.",
+          text: t("faq_answer_1"),
         },
       },
       {
         "@type": "Question",
-        name: "What audio formats are supported?",
+        name: t("faq_question_2"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Our converter supports WAV (lossless) and MP3 (compressed) output formats. You can choose either format before downloading.",
+          text: t("faq_answer_2"),
         },
       },
       {
         "@type": "Question",
-        name: "How long does conversion take?",
+        name: t("faq_question_3"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Most SoundCloud tracks convert and download in under 30 seconds. The time depends on track length and your internet connection speed.",
+          text: t("faq_answer_3"),
         },
       },
       {
         "@type": "Question",
-        name: "Can I download any SoundCloud track?",
+        name: t("faq_question_4"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: "You can download tracks that are publicly available on SoundCloud. Private tracks or tracks with download restrictions may not be accessible.",
+          text: t("faq_answer_4"),
         },
       },
       {
         "@type": "Question",
-        name: "Is it legal to download SoundCloud tracks?",
+        name: t("faq_question_5"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Downloading tracks depends on the artist's terms and copyright. Always respect copyright laws and use downloaded tracks responsibly. Our tool is for personal use and educational purposes.",
+          text: t("faq_answer_5"),
         },
       },
       {
         "@type": "Question",
-        name: "What is the difference between WAV and MP3 format?",
+        name: t("faq_question_6"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: "WAV is a lossless audio format that preserves original quality but creates larger files (10-50MB per track). MP3 is a compressed format with smaller file sizes (3-8MB per track) while maintaining good quality at 320kbps. Choose WAV for professional editing and MP3 for casual listening.",
+          text: t("faq_answer_6"),
         },
       },
       {
         "@type": "Question",
-        name: "Do I need to create an account?",
+        name: t("faq_question_7"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No, you don't need to create an account or register. Our SoundCloud to WAV converter works instantly without any sign-up process.",
+          text: t("faq_answer_7"),
         },
       },
       {
         "@type": "Question",
-        name: "What is the maximum file size I can download?",
+        name: t("faq_question_8"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: "There is no specific file size limit. However, longer tracks will take more time to process. Most standard tracks (3-5 minutes) download successfully.",
+          text: t("faq_answer_8"),
         },
       },
     ],
@@ -212,19 +202,19 @@ export default async function Layout({
       {
         "@type": "ListItem",
         position: 1,
-        name: "Home",
+        name: t("breadcrumb_home"),
         item: "https://geekskai.com",
       },
       {
         "@type": "ListItem",
         position: 2,
-        name: "Tools",
+        name: t("breadcrumb_tools"),
         item: "https://geekskai.com/tools",
       },
       {
         "@type": "ListItem",
         position: 3,
-        name: "SoundCloud to WAV Converter",
+        name: t("breadcrumb_title"),
         item: baseUrl,
       },
     ],

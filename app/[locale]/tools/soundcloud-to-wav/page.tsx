@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react"
 import TrackInfoCard, { TrackInfo } from "./TrackInfoCard"
 import React from "react"
+import { useTranslations } from "next-intl"
 import {
   CoreFactsSection,
   FAQSection,
@@ -17,13 +18,6 @@ type LoadingState = "idle" | "loading" | "success" | "error"
 
 // Constants
 const SOUNDCLOUD_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/.+/
-const ERROR_MESSAGES = {
-  EMPTY_URL: "Please enter a SoundCloud link",
-  INVALID_URL: "Please enter a valid SoundCloud link",
-  NETWORK_ERROR: "Network error, please try again later",
-  DOWNLOAD_FAILED: "Download failed, please try again later",
-  GET_INFO_FAILED: "Failed to get info, please check if the link is correct",
-} as const
 
 // Utility functions
 const isValidSoundCloudUrl = (url: string): boolean => {
@@ -95,6 +89,7 @@ const ProgressBar = ({ progress, status, className = "" }: ProgressBarProps) => 
 )
 
 export default function Page() {
+  const t = useTranslations("SoundCloudToWAV")
   const [url, setUrl] = useState("")
   const [downloading, setDownloading] = useState(false)
   const [trackInfo, setTrackInfo] = useState<TrackInfo | null>(null)
@@ -129,11 +124,11 @@ export default function Page() {
   // Validate URL
   const validateUrl = (): boolean => {
     if (!url.trim()) {
-      setErrorMessage(ERROR_MESSAGES.EMPTY_URL)
+      setErrorMessage(t("error_empty_url"))
       return false
     }
     if (!isValidSoundCloudUrl(url.trim())) {
-      setErrorMessage(ERROR_MESSAGES.INVALID_URL)
+      setErrorMessage(t("error_invalid_url"))
       return false
     }
     return true
@@ -153,19 +148,19 @@ export default function Page() {
       resetError()
       setTrackInfo(null)
       resetInfoState()
-      setInfoStatus("Connecting to server...")
+      setInfoStatus(t("progress_connecting"))
 
       const startTime = Date.now()
       const progressInterval = setInterval(() => {
         const elapsed = Date.now() - startTime
         if (elapsed < 1000) {
-          setInfoStatus("Connecting to server...")
+          setInfoStatus(t("progress_connecting"))
           setInfoProgress(10)
         } else if (elapsed < 3000) {
-          setInfoStatus("Fetching audio info...")
+          setInfoStatus(t("progress_fetching"))
           setInfoProgress(30)
         } else {
-          setInfoStatus("Processing data...")
+          setInfoStatus(t("progress_processing"))
           setInfoProgress(60)
         }
       }, 500)
@@ -177,24 +172,24 @@ export default function Page() {
       })
 
       clearInterval(progressInterval)
-      setInfoStatus("Parsing response...")
+      setInfoStatus(t("progress_parsing"))
       setInfoProgress(90)
 
       const data = await response.json()
 
       if (data.success) {
         setInfoProgress(100)
-        setInfoStatus("Complete")
+        setInfoStatus(t("progress_complete"))
         setTrackInfo({ ...data.info, downloadable: true })
         setLoadingState("success")
         setTimeout(resetInfoState, 1000)
       } else {
-        setErrorMessage(data.error || ERROR_MESSAGES.GET_INFO_FAILED)
+        setErrorMessage(data.error || t("error_get_info_failed"))
         setLoadingState("error")
         resetInfoState()
       }
     } catch (error) {
-      setErrorMessage(ERROR_MESSAGES.NETWORK_ERROR)
+      setErrorMessage(t("error_network"))
       setLoadingState("error")
       resetInfoState()
       console.error("Get info error:", error)
@@ -214,9 +209,9 @@ export default function Page() {
       setDownloading(true)
       resetError()
       resetDownloadProgress()
-      setDownloadStatus("Connecting to server...")
+      setDownloadStatus(t("progress_connecting"))
 
-      setDownloadStatus("Sending request...")
+      setDownloadStatus(t("progress_sending_request"))
       setDownloadProgress(5)
 
       const response = await fetch("/api/download-soundcloud", {
@@ -227,14 +222,14 @@ export default function Page() {
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({
-          error: ERROR_MESSAGES.DOWNLOAD_FAILED,
+          error: t("error_download_failed"),
         }))
-        setErrorMessage(errorData.error || ERROR_MESSAGES.DOWNLOAD_FAILED)
+        setErrorMessage(errorData.error || t("error_download_failed"))
         resetDownloadState()
         return
       }
 
-      setDownloadStatus("Server processing (downloading audio from SoundCloud)...")
+      setDownloadStatus(t("progress_server_processing"))
       setDownloadProgress(10)
 
       // Get file size and SoundCloud info from response headers
@@ -280,16 +275,16 @@ export default function Page() {
           setDownloadProgress(progress)
           const loadedMB = formatFileSize(loadedBytes)
           const totalMB = formatFileSize(totalBytes)
-          setDownloadStatus(`Downloading file: ${loadedMB}MB / ${totalMB}MB`)
+          setDownloadStatus(`${t("progress_downloading_file")}: ${loadedMB}MB / ${totalMB}MB`)
         } else {
-          setDownloadStatus("Downloading file...")
+          setDownloadStatus(t("progress_downloading_file"))
           setDownloadProgress((prev) => Math.min(prev + 2, 95))
         }
       }
 
       // Build Blob
       setDownloadProgress(100)
-      setDownloadStatus("Saving file...")
+      setDownloadStatus(t("progress_saving_file"))
 
       const isMP3 = extension === "mp3"
 
@@ -299,7 +294,7 @@ export default function Page() {
       setTimeout(resetDownloadState, 1000)
     } catch (error) {
       console.error("Download error:", error)
-      setErrorMessage(error instanceof Error ? error.message : ERROR_MESSAGES.DOWNLOAD_FAILED)
+      setErrorMessage(error instanceof Error ? error.message : t("error_download_failed"))
       resetDownloadState()
     }
   }
@@ -328,21 +323,23 @@ export default function Page() {
             <div className="rounded-full bg-white/20 p-1">
               <span className="text-xl">🎵</span>
             </div>
-            <span className="font-semibold">SoundCloud Converter</span>
+            <span className="font-semibold">{t("tool_badge")}</span>
           </div>
 
           {/* Main Title - H1 for SEO */}
           <h1 className="my-6 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-3xl font-bold leading-tight text-transparent md:text-5xl lg:text-6xl">
-            SoundCloud to WAV Converter
+            {t("page_title")}
           </h1>
 
           {/* Subtitle */}
           <p className="text-md mx-auto mb-6 max-w-3xl leading-relaxed text-slate-300 md:text-lg">
-            Download SoundCloud tracks as <strong className="text-purple-400">WAV</strong> or{" "}
-            <strong className="text-cyan-400">MP3</strong> files instantly.{" "}
-            <strong className="text-emerald-400">Free</strong>,{" "}
-            <strong className="text-blue-400">fast</strong>, and{" "}
-            <strong className="text-pink-400">no registration</strong> required.
+            {t.rich("page_subtitle", {
+              wav: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
+              mp3: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
+              free: (chunks) => <strong className="text-emerald-400">{chunks}</strong>,
+              fast: (chunks) => <strong className="text-blue-400">{chunks}</strong>,
+              no_registration: (chunks) => <strong className="text-pink-400">{chunks}</strong>,
+            })}
           </p>
 
           {/* Content Freshness Badge */}
@@ -353,9 +350,7 @@ export default function Page() {
         <div className="mx-auto mb-12 max-w-3xl">
           <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
             <div className="border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 p-6">
-              <h2 className="text-xl font-semibold text-white md:text-2xl">
-                Convert SoundCloud Track
-              </h2>
+              <h2 className="text-xl font-semibold text-white md:text-2xl">{t("form_title")}</h2>
             </div>
             <div className="p-6">
               <form onSubmit={handleGetInfo} className="space-y-6">
@@ -364,7 +359,7 @@ export default function Page() {
                     htmlFor="soundcloud-url"
                     className="mb-3 block text-sm font-semibold text-white/90"
                   >
-                    SoundCloud Link
+                    {t("form_label_soundcloud_link")}
                   </label>
                   <div className="relative">
                     <div className="absolute left-4 top-1/2 -translate-y-1/2 rounded-lg bg-white/5 p-2 backdrop-blur-sm">
@@ -379,7 +374,7 @@ export default function Page() {
                         resetError()
                         setLoadingState("idle")
                       }}
-                      placeholder="https://soundcloud.com/..."
+                      placeholder={t("form_placeholder_url")}
                       className="w-full rounded-lg border border-white/10 bg-white/5 py-4 pl-16 pr-6 text-lg text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
                     />
                   </div>
@@ -398,12 +393,12 @@ export default function Page() {
                           {loadingState === "loading" ? (
                             <>
                               <LoadingSpinner />
-                              <span>Fetching...</span>
+                              <span>{t("form_button_fetching")}</span>
                             </>
                           ) : (
                             <>
                               <span className="text-xl">🔍</span>
-                              <span>Get Info</span>
+                              <span>{t("form_button_get_info")}</span>
                             </>
                           )}
                         </span>
@@ -425,12 +420,12 @@ export default function Page() {
                           {downloading ? (
                             <>
                               <LoadingSpinner />
-                              <span>Downloading...</span>
+                              <span>{t("form_button_downloading")}</span>
                             </>
                           ) : (
                             <>
                               <span className="text-xl">⬇️</span>
-                              <span>Download</span>
+                              <span>{t("form_button_download")}</span>
                             </>
                           )}
                         </span>
@@ -447,10 +442,10 @@ export default function Page() {
                         className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-base text-white backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
                       >
                         <option value="mp3" className="bg-slate-900">
-                          MP3
+                          {t("form_select_format_mp3")}
                         </option>
                         <option value="wav" className="bg-slate-900">
-                          WAV
+                          {t("form_select_format_wav")}
                         </option>
                       </select>
                     </div>
@@ -490,8 +485,8 @@ export default function Page() {
         {trackInfo && (
           <div className="mx-auto max-w-4xl">
             <div className="mb-8 text-center">
-              <h2 className="mb-2 text-3xl font-bold text-white">Track Information</h2>
-              <p className="text-sm text-slate-400">View detailed info and download music</p>
+              <h2 className="mb-2 text-3xl font-bold text-white">{t("track_info_title")}</h2>
+              <p className="text-sm text-slate-400">{t("track_info_subtitle")}</p>
             </div>
             <div className="transition-all duration-500 ease-in-out">
               <TrackInfoCard
@@ -508,10 +503,8 @@ export default function Page() {
           <div className="mx-auto max-w-2xl text-center">
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-12 shadow-xl backdrop-blur-sm">
               <div className="mb-6 text-7xl">🎼</div>
-              <h3 className="mb-3 text-2xl font-bold text-white">Get Started</h3>
-              <p className="text-slate-300">
-                Enter a SoundCloud link above and click the &ldquo;Get Info&rdquo; button to start
-              </p>
+              <h3 className="mb-3 text-2xl font-bold text-white">{t("empty_state_title")}</h3>
+              <p className="text-slate-300">{t("empty_state_description")}</p>
             </div>
           </div>
         )}
@@ -522,51 +515,41 @@ export default function Page() {
           <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10"></div>
             <div className="relative z-10">
-              <h2 className="mb-8 text-3xl font-bold text-white">
-                What is SoundCloud to WAV Converter?
-              </h2>
+              <h2 className="mb-8 text-3xl font-bold text-white">{t("section_what_is_title")}</h2>
               <div className="grid gap-8 md:grid-cols-2">
                 <div>
                   <p className="mb-6 text-lg leading-relaxed text-slate-300">
-                    Our <strong className="text-purple-300">SoundCloud to WAV converter</strong> is
-                    a <strong className="text-purple-300">free online tool</strong> that allows you
-                    to download SoundCloud tracks and convert them to{" "}
-                    <strong className="text-purple-300">WAV format</strong> or{" "}
-                    <strong className="text-purple-300">MP3 format</strong>. It extracts audio from
-                    any public SoundCloud URL and provides high-quality audio files for offline use.
+                    {t.rich("section_what_is_description_1", {
+                      strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
+                    })}
                   </p>
                   <p className="text-lg leading-relaxed text-slate-300">
-                    Whether you're a <strong className="text-purple-300">DJ</strong>,{" "}
-                    <strong className="text-purple-300">music producer</strong>,{" "}
-                    <strong className="text-purple-300">content creator</strong>, or{" "}
-                    <strong className="text-purple-300">audio enthusiast</strong>, this tool helps
-                    you download SoundCloud tracks quickly and easily without any registration or
-                    payment required.
+                    {t.rich("section_what_is_description_2", {
+                      strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
+                    })}
                   </p>
                 </div>
                 <div className="rounded-2xl border border-white/20 bg-white/5 p-8 backdrop-blur-sm">
                   <h3 className="mb-6 flex items-center text-xl font-semibold text-white">
                     <span className="mr-3 text-2xl">✨</span>
-                    Key Benefits
+                    {t("section_what_is_key_benefits")}
                   </h3>
                   <ul className="space-y-3 text-slate-300">
                     <li className="flex items-center">
                       <div className="mr-3 h-2 w-2 rounded-full bg-purple-400"></div>
-                      <strong className="text-purple-300">100% Free</strong> - No registration
-                      required
+                      {t("section_what_is_benefit_1")}
                     </li>
                     <li className="flex items-center">
                       <div className="mr-3 h-2 w-2 rounded-full bg-pink-400"></div>
-                      <strong className="text-pink-300">High Quality</strong> - WAV and MP3 formats
+                      {t("section_what_is_benefit_2")}
                     </li>
                     <li className="flex items-center">
                       <div className="mr-3 h-2 w-2 rounded-full bg-emerald-400"></div>
-                      <strong className="text-emerald-300">Fast Processing</strong> - Under 30
-                      seconds
+                      {t("section_what_is_benefit_3")}
                     </li>
                     <li className="flex items-center">
                       <div className="mr-3 h-2 w-2 rounded-full bg-blue-400"></div>
-                      <strong className="text-blue-300">Unlimited Use</strong> - No restrictions
+                      {t("section_what_is_benefit_4")}
                     </li>
                   </ul>
                 </div>
@@ -594,34 +577,16 @@ export default function Page() {
 
           {/* Legal and Ethical Section */}
           <section className="rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
-            <h2 className="mb-6 text-3xl font-bold text-white">Legal and Ethical Considerations</h2>
+            <h2 className="mb-6 text-3xl font-bold text-white">{t("section_legal_title")}</h2>
             <div className="prose prose-lg max-w-none text-slate-300 prose-headings:text-white prose-strong:font-bold prose-strong:text-orange-300 prose-ul:text-slate-300">
-              <p>
-                When using our <strong>SoundCloud to WAV converter</strong>, please keep in mind:
-              </p>
+              <p>{t("section_legal_description")}</p>
               <ul className="list-inside list-disc space-y-3">
-                <li>
-                  <strong>Copyright respect</strong>: Always respect the artist's copyright and
-                  terms of service
-                </li>
-                <li>
-                  <strong>Personal use</strong>: Downloaded tracks should be used for personal
-                  listening or educational purposes
-                </li>
-                <li>
-                  <strong>Fair use</strong>: Follow fair use guidelines when using downloaded tracks
-                  in your content
-                </li>
-                <li>
-                  <strong>Artist rights</strong>: Support artists by purchasing their music when
-                  possible
-                </li>
+                <li>{t("section_legal_point_1")}</li>
+                <li>{t("section_legal_point_2")}</li>
+                <li>{t("section_legal_point_3")}</li>
+                <li>{t("section_legal_point_4")}</li>
               </ul>
-              <p className="mt-6">
-                Our tool is designed to help users access publicly available SoundCloud content
-                responsibly. Always check the track's download permissions and respect the creator's
-                wishes.
-              </p>
+              <p className="mt-6">{t("section_legal_footer")}</p>
             </div>
           </section>
         </div>
