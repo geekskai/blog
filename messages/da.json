@@ -516,22 +516,22 @@
     }
   },
   "CmTilTommerConverter": {
-    "seo_title": "CM til Tommer Konverter – Gratis Centimeter til Tommer Online Værktøj | Nøjagtig & Hurtig",
-    "seo_description": "Gratis online CM til tommer konverter. Konverter centimeter til tommer (danske/norske tommer) øjeblikkeligt med præcision op til 3 decimaler. Perfekt til møbler, byggeri og international handel.",
-    "seo_keywords": "cm til tommer, centimeter til tommer, tommer til cm, dansk tommer konverter, norsk tommer konverter, nordisk målekonverter",
-    "page_title": "CM til Tommer",
-    "page_subtitle": "Konverter & Beregner",
-    "page_description": "Gratis CM til tommer konverter og nordisk måleberegner. Konverter centimeter til tommer (danske/norske tommer), konverter tommer til centimeter, og beregn præcise målinger med decimal præcision. Perfekt til møbelindkøb, byggeprojekter, IKEA dimensioner, og international handel på tværs af nordiske lande.",
-    "free_calculator_badge": "Gratis CM til Tommer Konverter & Nordisk Måleværktøj",
+    "seo_title": "Centimeter til tommer konverter – Gratis online værktøj | Præcist og hurtigt",
+    "seo_description": "Gratis online centimeter til tommer konverter. Konverter centimeter til tommer (danske/norske tommer) med præcision op til 3 decimaler. Perfekt til møbler, byggeri og international handel.",
+    "seo_keywords": "centimeter til tommer, cm konverter, tommer til centimeter, dansk tommer konverter, norsk tommer konverter, nordisk måleenhed konverter",
+    "page_title": "Centimeter til tommer",
+    "page_subtitle": "Konverter og beregner",
+    "page_description": "Gratis centimeter til tommer konverter og nordisk måleberegner. Konverter centimeter til tommer (danske/norske tommer), tommer til centimeter og beregn præcise mål med decimalnøjagtighed. Perfekt til møbelkøb, byggeprojekter, IKEA-dimensioner og international handel i Norden.",
+    "free_calculator_badge": "Gratis centimeter til tommer konverter og nordisk måleværktøj",
     "feature_badges": {
-      "measurement_calculator": "Centimeter til Tommer Beregner",
-      "nordic_converter": "Dansk Norsk Tommer Konverter",
-      "ikea_tool": "IKEA Møbelstørrelse Værktøj",
-      "construction_measurement": "Nordisk Byggemåling"
+      "measurement_calculator": "Centimeter til tommer beregner",
+      "nordic_converter": "Dansk og norsk tommer konverter",
+      "ikea_tool": "IKEA møbelstørrelsesværktøj",
+      "construction_measurement": "Nordiske byggemålinger"
     },
     "keywords_tags": {
-      "cm_to_inches": "cm til tommer",
-      "inches_to_cm": "tommer til cm",
+      "cm_to_inches": "centimeter til tommer",
+      "inches_to_cm": "tommer til centimeter",
       "danish_inches_converter": "dansk tommer konverter",
       "norwegian_measurement": "norsk måling",
       "nordic_units": "nordiske enheder",
@@ -540,92 +540,73 @@
     "breadcrumb": {
       "home": "Hjem",
       "tools": "Værktøjer",
-      "cm_to_inches_converter": "CM til Tommer Konverter"
+      "cm_to_inches_converter": "Centimeter til tommer konverter"
     },
     "converter_card": {
-      "title": "CM til Tommer Konverter",
-      "description": "Konverter mellem centimeter og tommer (danske/norske tommer) øjeblikkeligt",
-      "quick_values": "Hurtige Værdier",
-      "enter_value_in": "Indtast værdi i {unit}",
-      "centimeters": "Centimeter",
-      "inches": "Tommer",
-      "enter_value": "Indtast værdi...",
-      "result_in": "Resultat i {unit}",
-      "decimal_precision": "Decimal Præcision",
-      "decimals": "decimaler",
-      "decimal": "decimal",
-      "conversion_steps": "Konverteringstrin",
-      "show_steps": "Vis Trin",
-      "hide_steps": "Skjul Trin",
-      "copy_result": "Kopier Resultat",
-      "copying": "Kopierer...",
-      "copied": "Kopieret!",
-      "failed": "Fejl",
-      "conversion_formula": "Konverteringsformel:",
+      "title": "Centimeter til tommer konverter",
+      "description": "Konverter øjeblikkeligt mellem centimeter og tommer (danske/norske tommer)",
+      "quick_values": "Hurtige værdier",
       "presets": {
-        "1_cm": "1 cm",
-        "1_inch": "1 tommer",
-        "10_cm": "10 cm",
-        "30_cm": "30 cm",
+        "1_cm": "1 centimeter",
+        "1_inch": "1 tomme",
+        "10_cm": "10 centimeter",
+        "30_cm": "30 centimeter",
         "1_foot": "1 fod",
         "2_foot": "2 fod"
       },
       "from": "Fra",
       "to": "Til",
+      "enter_value": "Indtast værdi",
       "result": "Resultat",
       "units": {
-        "cm": "cm",
+        "cm": "centimeter",
         "inches": "tommer",
-        "centimeters": "Centimeter",
-        "inches_full": "Tommer"
+        "centimeters": "centimeter",
+        "inches_full": "tommer"
       },
-      "enter_value_placeholder": "Indtast værdi...",
-      "nordic_sizes": {
-        "1_inch_standard": "1 tommer standard",
-        "1_foot": "1 fod (12 tommer)",
-        "1_yard": "1 yard (3 fod)",
-        "cabinet_depth": "Standard skabdybde",
-        "table_width": "Standard bordbredde",
-        "bed_length": "Standard sengelængde"
-      },
-      "nordic_standard_sizes": "Nordiske Standardstørrelser",
-      "professional_tip": "Professionelt Tip",
-      "professional_tip_content": "Tommer er det danske og norske ord for \"inch\". 1 tommer er nøjagtigt lig med 2,54 centimeter, det samme som den internationale inch.",
-      "quick_rule": "Hurtig Huskeregel",
-      "quick_rule_content": "For hurtige estimater: 1 cm ≈ 0,4 tommer, eller 2,5 cm ≈ 1 tommer. Brug vores konverter for præcise beregninger."
+      "enter_value_in": "Indtast værdi",
+      "enter_value_placeholder": "Indtast venligst en værdi...",
+      "result_in": "Resultat",
+      "copying": "Kopierer...",
+      "copied": "Kopieret!",
+      "failed": "Mislykkedes",
+      "copy_result": "Kopiér resultat"
     },
     "converter": {
       "same_unit": "Samme enhed",
-      "inches": "tommer",
+      "inches": "Tommer",
       "invalid_conversion": "Ugyldig konvertering",
       "value": "Værdi",
       "no_conversion_needed": "Ingen konvertering nødvendig",
-      "start_value": "Start værdi",
+      "start_value": "Startværdi",
       "formula": "Formel",
       "calculation": "Beregning",
       "result": "Resultat",
-      "batch_title": "CM til Tommer Konvertering",
-      "values": "værdier",
-      "generated_by": "Genereret af CM til Tommer Konverter",
-      "detailed_title": "CM til Tommer Konvertering",
+      "batch_title": "Centimeter til tommer konvertering",
+      "values": "Værdier",
+      "generated_by": "Genereret af centimeter til tommer konverter",
+      "detailed_title": "Centimeter til tommer konvertering",
       "input": "Input",
       "output": "Output",
       "precision": "Præcision",
-      "decimals": "decimaler"
+      "decimals": "Decimaler"
     },
     "quick_reference": {
-      "inches_unit": "tommer",
-      "title": "Hurtig Reference",
-      "description": "Almindelige centimeter til tommer konverteringer til hurtig reference",
-      "basic_conversions": "Grundlæggende Konverteringer",
+      "quick_memory_rule": "Hurtig huskeregel",
+      "professional_tip_text": "Succesfulde træprojekter kræver nøjagtige beregninger, kvalitetsmaterialer og effektiv planlægning. Brug denne beregner som en del af en samlet projektstyring, herunder korrekt opbevaring, håndtering og installation. Rådfør dig altid med lokale leverandører om aktuelle priser og tilgængelighed, og overvej miljøfaktorer, der kan påvirke materialernes ydeevne i din specifikke anvendelse.",
+      "title": "Hurtig reference",
+      "quick_memory_rule_text": "Hurtigt estimat: 1 centimeter ≈ 0,4 tommer, eller 2,5 centimeter ≈ 1 tomme. Brug vores konverter til præcise beregninger.",
+      "description": "Hurtig reference for almindelige centimeter til tommer konverteringer",
+      "basic_conversions": "Grundlæggende konverteringer",
       "centimeter": "Centimeter",
       "inches": "Tommer",
-      "nordic_standard_sizes": "Nordiske Standardstørrelser",
-      "common_size_in_denmark_norway": "Almindelig størrelse i Danmark/Norge",
-      "professional_tip": "Professionelt Tip",
-      "professional_tip_text": "Tommer er det danske og norske ord for \"inch\". 1 tommer er nøjagtigt lig med 2,54 centimeter, det samme som den internationale inch.",
-      "quick_memory_rule": "Hurtig Huskeregel",
-      "quick_memory_rule_text": "For hurtige estimater: 1 cm ≈ 0,4 tommer, eller 2,5 cm ≈ 1 tommer. Brug vores konverter for præcise beregninger.",
+      "nordic_standard_sizes": "Nordiske standardstørrelser",
+      "common_size_in_denmark_norway": "Almindelige størrelser i Danmark/Norge",
+      "professional_tip": "Professionelt tip",
+      "professional_tip_content": "Tommer er betegnelsen for \"inch\" på dansk og norsk. 1 tomme er nøjagtigt lig med 2,54 centimeter, samme som den internationale tomme.",
+      "quick_rule": "Hurtig huskeregel",
+      "quick_rule_content": "Hurtigt estimat: 1 centimeter ≈ 0,4 tommer, eller 2,5 centimeter ≈ 1 tomme. Brug vores konverter til præcise beregninger.",
+      "inches_unit": "Tommer",
       "nordic_sizes": {
         "1_inch_standard": "1 tomme standard",
         "1_foot": "1 fod (12 tommer)",
@@ -636,128 +617,159 @@
       }
     },
     "educational_content": {
-      "common_use_cases": "Almindelige Anvendelsesområder",
-      "use_cases_description": "Opdag hvornår og hvorfor du måske skal konvertere mellem cm og tommer",
-      "about_inches_and_centimeters": "Om Tommer & Centimeter",
-      "about_description": "Lær om historien og praktiske anvendelser af disse måleenheder",
-      "furniture_home_decoration": "Møbler & Boligindretning",
-      "furniture_description": "Konvertering af møbeldimensioner ved indkøb fra nordiske lande eller internationale forhandlere.",
-      "furniture_examples": [
-        "IKEA produktdimensioner",
-        "Skandinaviske møbelkataloger",
-        "Boligrenovering projekter",
-        "Køkkenskabe og indretning"
-      ],
-      "construction_architecture": "Byggeri & Arkitektur",
-      "construction_description": "Professionelle byggeprojekter der kræver præcise målinger i forskellige enhedssystemer.",
-      "construction_examples": [
-        "Arkitekttegninger",
-        "Byggematerialer",
-        "Tekniske specifikationer",
-        "Konstruktionsstandarder"
-      ],
-      "electronics_shopping": "Elektronik & Shopping",
-      "electronics_description": "Forståelse af produktstørrelser ved køb fra internationale online butikker.",
-      "electronics_examples": [
-        "TV og skærmstørrelser",
-        "Laptop dimensioner",
-        "Tablet størrelser",
-        "Forsendelseskasser"
-      ],
-      "engineering_design": "Ingeniørarbejde & Design",
-      "engineering_description": "Teknisk arbejde der kræver konvertering mellem metriske og nordiske målesystemer.",
-      "engineering_examples": [
-        "CAD tegninger",
-        "Produktspecifikationer",
-        "Produktionstolerancer",
-        "Kvalitetskontrol"
-      ],
-      "historical_background": "Historisk Baggrund",
-      "historical_background_text": "Tommer (betyder \"tommelfinger\" på dansk/norsk) har været brugt i nordiske lande i århundreder, oprindeligt baseret på bredden af en tommelfinger.",
-      "modern_standardization": "Moderne Standardisering",
-      "modern_standardization_text": "I dag er 1 tommer lig med præcis 2,54 cm, identisk med den internationale inch, hvilket sikrer global kompatibilitet.",
-      "regional_usage": "Regional Brug",
-      "regional_usage_text": "Selvom det metriske system er officielt i nordiske lande, bruges tommer stadig almindeligt i byggeri, møbler og traditionelle håndværk.",
-      "precision_matters": "Præcision Betyder Noget",
-      "precision_matters_text": "I professionelle anvendelser kan selv små konverteringsfejl sammensættes. Vores værktøj giver op til 3 decimaler for maksimal nøjagtighed.",
+      "common_uses": {
+        "title": "Almindelige anvendelser",
+        "description": "Find ud af hvornår og hvorfor du har brug for at konvertere mellem centimeter og tommer"
+      },
+      "examples": "Eksempler",
+      "use_cases": {
+        "furniture": {
+          "title": "Møbler og indretning",
+          "description": "Konverter møbelmål ved køb fra nordiske lande eller internationale forhandlere.",
+          "examples": {
+            "ikea": "IKEA produktmål",
+            "scandinavian": "Skandinaviske møbelkataloger",
+            "renovation": "Boligrenoveringsprojekter",
+            "kitchen": "Køkkenskabe og tilbehør"
+          }
+        },
+        "construction": {
+          "title": "Byggeri og konstruktion",
+          "description": "Professionelle byggeprojekter, der kræver præcise målinger i forskellige enhedssystemer.",
+          "examples": {
+            "drawings": "Byggetegninger",
+            "materials": "Byggematerialer",
+            "specifications": "Tekniske specifikationer",
+            "standards": "Byggestandarder"
+          }
+        },
+        "electronics": {
+          "title": "Elektronik og shopping",
+          "description": "Forstå produktdimensioner ved køb fra internationale onlinebutikker.",
+          "examples": {
+            "tv": "TV- og skærmstørrelser",
+            "laptop": "Bærbare computerstørrelser",
+            "tablet": "Tabletstørrelser",
+            "shipping": "Forsendelseskasser"
+          }
+        },
+        "engineering": {
+          "title": "Ingeniørarbejde og design",
+          "description": "Teknisk arbejde, der kræver konvertering mellem metriske og nordiske målesystemer.",
+          "examples": {
+            "cad": "CAD-tegninger",
+            "product_specs": "Produktspecifikationer",
+            "tolerances": "Produktionstolerancer",
+            "quality": "Kvalitetskontrol"
+          }
+        }
+      },
+      "about_units": {
+        "title": "Om tommer og centimeter",
+        "description": "Lær om historien og den praktiske anvendelse af disse måleenheder"
+      },
+      "facts": {
+        "historical": {
+          "title": "Historisk baggrund",
+          "content": "Tommer (som på dansk/norsk betyder \"tomme\") har været brugt i Norden i århundreder og var oprindeligt baseret på tommelens bredde."
+        },
+        "modern": {
+          "title": "Moderne standardisering",
+          "content": "I dag er 1 tomme nøjagtigt lig med 2,54 centimeter, identisk med den internationale tomme, hvilket sikrer global kompatibilitet."
+        },
+        "regional": {
+          "title": "Regional anvendelse",
+          "content": "Selvom det metriske system er officielt i Norden, bruges tommer stadig ofte inden for byggeri, møbler og traditionelt håndværk."
+        },
+        "precision": {
+          "title": "Vigtigheden af præcision",
+          "content": "I professionelle anvendelser kan selv små konverteringsfejl akkumulere. Vores værktøj tilbyder op til 3 decimaler for maksimal nøjagtighed."
+        }
+      },
       "conversion_formulas": "Konverteringsformler",
-      "cm_to_inches_formula": "Centimeter til Tommer",
-      "inches_to_cm_formula": "Tommer til Centimeter",
-      "nordic_measurement_tradition": "Nordisk Måletradition",
-      "denmark": "Danmark",
-      "denmark_text": "I Danmark bruges tommer stadig i byggeri, møbelindustrien og traditionelle håndværk. Danske møbelproducenter angiver ofte dimensioner i tommer til internationale markeder.",
-      "norway": "Norge",
-      "norway_text": "Norske bygge- og træindustrier bruger ofte tommer-målinger. Vores konverter hjælper med norske byggerstandarder og arkitektoniske specifikationer."
+      "cm_to_inches": "Centimeter til tommer",
+      "inches_to_cm": "Tommer til centimeter",
+      "nordic_tradition": {
+        "title": "Nordisk måletradition",
+        "denmark": {
+          "title": "Danmark",
+          "content": "I Danmark bruges tommer stadig i byggeri, møbelindustrien og traditionelt håndværk. Danske møbelproducenter angiver ofte mål i tommer til internationale markeder."
+        },
+        "norway": {
+          "title": "Norge",
+          "content": "I Norge anvendes tommer ofte i bygge- og træindustrien. Vores konverter hjælper med norske byggestandarder og specifikationer."
+        }
+      }
     },
     "usage_guide": {
-      "title": "Sådan Bruger Du CM til Tommer Konverter - Komplet Professionel Guide",
-      "description": "Mester centimeter til tommer konvertering til nordisk møbelindkøb, byggeprojekter og internationale målinger. Vores dansk norsk tommer konverter giver nøjagtige resultater til alle dine målebehov.",
-      "step_1_title": "Indtast Måleværdi",
-      "step_1_description": "Indtast din måling i centimeter eller tommer. Vores konverter accepterer decimal værdier og skifter automatisk mellem enheder for øjeblikkelig konvertering.",
-      "step_2_title": "Vælg Præcisionsniveau",
-      "step_2_description": "Vælg decimal præcision fra 0 til 3 decimaler til dine konverteringsbehov. Perfekt til byggenøjagtighed eller generelle møbelmålinger.",
-      "step_3_title": "Få Øjeblikkelige Resultater",
-      "step_3_description": "Se realtids konverteringsresultater med den nøjagtige formel brugt. Perfekt til forståelse af nordiske målestandarder og international handel.",
-      "step_4_title": "Kopier & Brug Resultater",
-      "step_4_description": "Kopier konverteringsresultater med et klik til brug i indkøbslister, byggeplaner, eller internationale produktspecifikationer."
+      "title": "Sådan bruger du centimeter til tommer konverteren – komplet professionel guide",
+      "description": "Bliv fortrolig med centimeter til tommer konvertering til nordisk møbelkøb, byggeprojekter og internationale målinger. Vores dansk-norske tommer konverter leverer præcise resultater til alle dine målebehov.",
+      "step_1_title": "Indtast måleværdien",
+      "step_1_description": "Indtast din måling i centimeter eller tommer. Vores konverter accepterer decimalværdier og skifter automatisk mellem enheder for øjeblikkelig konvertering.",
+      "step_2_title": "Vælg præcisionsniveau",
+      "step_2_description": "Vælg mellem 0 og 3 decimalers præcision afhængigt af dit behov. Perfekt til byggenøjagtighed eller generelle møbelmål.",
+      "step_3_title": "Få øjeblikkelige resultater",
+      "step_3_description": "Se konverteringsresultater i realtid baseret på præcise formler. Ideelt til forståelse af nordiske målestandarder og international handel.",
+      "step_4_title": "Kopiér og brug resultatet",
+      "step_4_description": "Kopiér konverteringsresultatet med ét klik til indkøbslister, byggeplaner eller internationale produktspecifikationer."
     },
     "content_sections": {
-      "what_is_inches_title": "Hvad er Tommer? Forståelse af Nordiske Måleenheder",
-      "what_is_inches_description": "Tommer er det danske og norske ord for \"inch\" og repræsenterer en traditionel nordisk måleenhed. I moderne brug er 1 tommer lig med præcis 2,54 centimeter, identisk med den internationale inch standard. Denne CM til Tommer konverter hjælper dig med at navigere nordiske målinger til møbelindkøb, byggeprojekter og international handel.",
-      "inches_conversion_benefits": "Tommer Konvertering Fordele",
-      "benefit_1": "Nøjagtig nordisk målekonvertering",
-      "benefit_2": "Perfekt til IKEA møbeldimensioner",
-      "benefit_3": "Essentiel til byggeprojekter",
-      "benefit_4": "International handelskompatibilitet",
+      "what_is_inches_title": "Hvad er en tomme? Forstå nordiske måleenheder",
+      "what_is_inches_description": "Tommer er betegnelsen for \"inch\" på dansk og norsk og repræsenterer en traditionel nordisk måleenhed. I moderne brug er 1 tomme nøjagtigt lig med 2,54 centimeter, identisk med den internationale tommestandard. Denne centimeter til tommer konverter hjælper dig med at navigere nordiske målinger til møbelkøb, byggeprojekter og international handel.",
+      "inches_conversion_benefits": "Fordele ved tommekonvertering",
+      "benefit_1": "Præcise nordiske målekonverteringer",
+      "benefit_2": "Perfekt til IKEA møbelmål",
+      "benefit_3": "Uundværlig til byggeprojekter",
+      "benefit_4": "Kompatibilitet med international handel",
       "benefit_5": "Præcision op til 3 decimaler",
-      "benefit_6": "Gratis og øjeblikkelig konvertering",
-      "formula_guide_title": "CM til Tommer Konverteringsformel & Beregner Guide",
+      "benefit_6": "Gratis øjeblikkelig konvertering",
+      "formula_guide_title": "Centimeter til tommer konverteringsformel og beregnerguide",
       "conversion_formula": "Konverteringsformel",
       "precision_control": "Præcisionskontrol",
-      "quick_examples": "Hurtige Eksempler",
+      "quick_examples": "Hurtige eksempler",
       "precision_control_content": {
-        "decimals_0": "0 decimaler: Generelle målinger",
-        "decimals_1_2": "1-2 decimaler: Møbeldimensioner",
-        "decimals_3": "3 decimaler: Byggepræcision",
-        "precision_note": "Vælg den rigtige præcision til dine specifikke behov."
+        "decimals_0": "0 decimaler: generelle målinger",
+        "decimals_1_2": "1-2 decimaler: møbelmål",
+        "decimals_3": "3 decimaler: bygningspræcision",
+        "precision_note": "Vælg den rette præcision til dine specifikke behov."
       },
       "quick_examples_content": {
-        "example_1": "10 cm = 3,94 tommer",
-        "example_2": "25,4 cm = 10 tommer",
-        "example_3": "100 cm = 39,37 tommer",
+        "example_1": "10 centimeter = 3,94 tommer",
+        "example_2": "25,4 centimeter = 10 tommer",
+        "example_3": "100 centimeter = 39,37 tommer",
         "examples_note": "Perfekt til almindelige målekonverteringer."
       },
-      "inches_usage_across_nordic_countries": "Tommer Brug På Tværs af Nordiske Lande",
+      "inches_usage_across_nordic_countries": "Anvendelse af tommer i de nordiske lande",
       "denmark_usage": "Danmark",
-      "denmark_usage_text": "I Danmark bruges tommer almindeligt i byggeri, møbelproduktion og traditionelle håndværk. Danske møbelvirksomheder angiver ofte dimensioner i tommer til internationale markeder.",
+      "denmark_usage_text": "I Danmark bruges tommer bredt i byggeri, møbelproduktion og traditionelt håndværk. Danske møbelvirksomheder angiver ofte mål i tommer til internationale markeder.",
       "norway_usage": "Norge",
-      "norway_usage_text": "Norske bygge- og træindustrier bruger ofte tommer målinger. Vores konverter hjælper med norske byggerstandarder og arkitektoniske specifikationer.",
-      "international_usage": "International",
-      "international_usage_text": "Globale virksomheder der arbejder med nordiske leverandører har brug for nøjagtig tommer konvertering til produktspecifikationer, forsendelsesdimensioner og kvalitetskontrolstandarder.",
-      "features_title": "Professionel CM til Tommer Konverter Funktioner",
-      "features_subtitle": "Alt hvad du har brug for til nøjagtig nordisk målekonvertering",
-      "two_way_conversion": "Tovejs CM til Tommer Konvertering",
-      "two_way_conversion_description": "Konverter fra centimeter til tommer og tommer til centimeter med øjeblikkelige resultater og præcisionskontrol til alle dine nordiske målebehov.",
+      "norway_usage_text": "Norsk byggeri og træindustri anvender ofte tommemål. Vores konverter understøtter norske byggestandarder og specifikationer.",
+      "international_usage": "Internationalt",
+      "international_usage_text": "Globale virksomheder, der samarbejder med nordiske leverandører, har brug for nøjagtige tommekonverteringer til produktspecifikationer, forsendelsesdimensioner og kvalitetskontrol.",
+      "features_title": "Professionelle funktioner i centimeter til tommer konverteren",
+      "features_subtitle": "Alt hvad du behøver til præcis nordisk målekonvertering",
+      "two_way_conversion": "Tovejs centimeter til tommer konvertering",
+      "two_way_conversion_description": "Konverter både fra centimeter til tommer og fra tommer til centimeter med øjeblikkelige resultater og præcisionskontrol til alle dine nordiske målebehov.",
       "precision_control_feature": "Præcisionskontrol",
-      "precision_control_description": "Vælg fra 0 til 3 decimaler til dine konverteringsbehov. Perfekt til byggenøjagtighed, møbelmålinger og professionelle anvendelser.",
-      "professional_tools": "Professionelle Værktøjer",
-      "professional_tools_description": "Kopier resultater, se konverteringsformler, og få adgang til hurtige referencetabeller til effektiv workflow integration og professionel brug.",
-      "faq_title": "Ofte Stillede Spørgsmål Om CM til Tommer Konvertering",
-      "faq_how_convert": "Hvordan konverterer jeg centimeter til tommer nøjagtigt?",
-      "faq_how_convert_answer": "Brug vores CM til Tommer konverter ved at indtaste din centimeter værdi. Værktøjet beregner automatisk tommer ækvivalenten ved hjælp af den præcise formel: cm × 0,3937 = tommer. Du kan justere decimal præcision fra 0 til 3 pladser til dine specifikke behov.",
-      "faq_conversion_formula": "Hvad er den nøjagtige konverteringsformel for CM til Tommer?",
-      "faq_conversion_formula_answer": "Konverteringsformlerne er: 1 cm = 0,3937 tommer og 1 tommer = 2,54 cm. Disse er baseret på den internationale inch standard, da moderne tommer er identisk med den internationale inch måling.",
-      "faq_inches_same_as_international": "Er tommer det samme som internationale inches i nordiske lande?",
-      "faq_inches_same_as_international_answer": "Ja, moderne tommer er identisk med den internationale inch. Begge er lig med præcis 2,54 centimeter. Ordet \"tommer\" er simpelthen det danske og norske udtryk for \"inch,\" hvilket gør vores konverter perfekt til nordiske målinger.",
-      "faq_why_need_converter": "Hvorfor har jeg brug for en CM til Tommer konverter til IKEA møbler?",
-      "faq_why_need_converter_answer": "IKEA og andre nordiske møbelvirksomheder bruger ofte tommer i deres specifikationer til internationale markeder. Vores konverter hjælper dig med at forstå nøjagtige dimensioner når du handler skandinaviske møbler eller sammenligner størrelser.",
-      "faq_is_free": "Er denne CM til Tommer konverter gratis at bruge?",
-      "faq_is_free_answer": "Ja! Vores CM til Tommer konverter er helt gratis uden registrering påkrævet. Konverter ubegrænsede målinger, få adgang til alle præcisionsniveauer, og brug alle funktioner uden begrænsninger eller skjulte omkostninger."
+      "precision_control_description": "Vælg mellem 0 og 3 decimaler afhængigt af dine konverteringskrav. Ideelt til byggenøjagtighed, møbelmålinger og professionelle anvendelser.",
+      "professional_tools": "Professionelle værktøjer",
+      "professional_tools_description": "Kopiér resultater, se konverteringsformler og få adgang til hurtige referencetabeller for effektiv arbejdsgang og professionel brug.",
+      "faq_title": "Ofte stillede spørgsmål om centimeter til tommer konvertering",
+      "faq_how_convert": "Hvordan konverterer man præcist centimeter til tommer?",
+      "faq_how_convert_answer": "Indtast blot centimeter-værdien i vores centimeter til tommer konverter. Værktøjet bruger den præcise formel: centimeter × 0,3937 = tommer. Du kan justere præcisionen mellem 0 og 3 decimaler efter behov.",
+      "faq_conversion_formula": "Hvad er den præcise konverteringsformel for centimeter til tommer?",
+      "faq_conversion_formula_answer": "Konverteringsformlen er: 1 centimeter = 0,3937 tommer og 1 tomme = 2,54 centimeter. Disse er baseret på den internationale tommestandard, da moderne tommer er identisk med internationale målinger.",
+      "faq_inches_same_as_international": "Er tommer i Norden det samme som internationale tommer?",
+      "faq_inches_same_as_international_answer": "Ja, moderne tommer er identiske med internationale tommer. Begge er nøjagtigt lig med 2,54 centimeter. Ordet \"tomme\" er blot den danske og norske betegnelse for \"inch\".",
+      "faq_why_need_converter": "Hvorfor har IKEA-møbler brug for en centimeter til tommer konverter?",
+      "faq_why_need_converter_answer": "IKEA og andre nordiske møbelvirksomheder bruger ofte tommer i specifikationer til internationale markeder. Vores konverter hjælper dig med at forstå præcise mål ved køb eller sammenligning af skandinaviske møbler.",
+      "faq_is_free": "Er denne centimeter til tommer konverter gratis?",
+      "faq_is_free_answer": "Ja! Vores centimeter til tommer konverter er 100 % gratis uden registrering. Ubegrænsede konverteringer, fuld adgang til alle præcisionsniveauer og ingen skjulte gebyrer."
     },
     "final_cta": {
-      "title": "Klar til at Konvertere CM til Tommer?",
-      "description": "Begynd at bruge vores gratis, nøjagtige og professionelle CM til Tommer konverter til alle dine nordiske målebehov.",
-      "button_text": "Brug CM til Tommer Konverter"
+      "title": "Klar til at konvertere centimeter til tommer?",
+      "description": "Kom i gang med vores gratis, præcise og professionelle centimeter til tommer konverter til alle dine nordiske målebehov.",
+      "button_text": "Brug centimeter til tommer konverteren"
     }
   },
   "InvincibleTitleCardGenerator": {
