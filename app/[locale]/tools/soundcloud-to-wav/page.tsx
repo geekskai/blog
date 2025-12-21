@@ -3,6 +3,15 @@
 import { FormEvent, useState } from "react"
 import TrackInfoCard, { TrackInfo } from "./TrackInfoCard"
 import React from "react"
+import {
+  CoreFactsSection,
+  FAQSection,
+  HowToSection,
+  FormatComparisonSection,
+  UseCasesSection,
+  KeyFeaturesSection,
+  ContentFreshnessBadge,
+} from "./components/SEOContent"
 
 type LoadingState = "idle" | "loading" | "success" | "error"
 
@@ -299,11 +308,15 @@ export default function Page() {
         {/* Title section */}
         <div className="mb-8 text-center">
           <h1 className="mb-2 text-4xl font-bold text-gray-800 md:text-5xl">
-            🎵 SoundCloud Music Downloader
+            🎵 SoundCloud to WAV Converter - Free Online Tool
           </h1>
-          <p className="text-gray-600 md:text-lg">
-            Enter a SoundCloud link to get music info and download
+          <p className="mb-4 text-gray-600 md:text-lg">
+            Download SoundCloud tracks as <strong>WAV</strong> or <strong>MP3</strong> files
+            instantly.
+            <strong> Free</strong>, <strong>fast</strong>, and <strong>no registration</strong>{" "}
+            required.
           </p>
+          <ContentFreshnessBadge lastModified={new Date("2025-12-21")} />
         </div>
 
         {/* Input area card */}
@@ -450,6 +463,88 @@ export default function Page() {
             </div>
           </div>
         )}
+
+        {/* SEO Content Sections */}
+        <div className="mx-auto max-w-6xl">
+          {/* What is this tool section */}
+          <section className="mb-12">
+            <article className="mx-auto max-w-4xl rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
+              <h2 className="mb-4 text-3xl font-bold text-gray-800">
+                What is SoundCloud to WAV Converter?
+              </h2>
+              <div className="prose prose-lg max-w-none text-gray-700">
+                <p>
+                  Our <strong>SoundCloud to WAV converter</strong> is a{" "}
+                  <strong>free online tool</strong> that allows you to download SoundCloud tracks
+                  and convert them to <strong>WAV format</strong> or <strong>MP3 format</strong>. It
+                  extracts audio from any public SoundCloud URL and provides high-quality audio
+                  files for offline use.
+                </p>
+                <p>
+                  Whether you're a <strong>DJ</strong>, <strong>music producer</strong>,{" "}
+                  <strong>content creator</strong>, or <strong>audio enthusiast</strong>, this tool
+                  helps you download SoundCloud tracks quickly and easily without any registration
+                  or payment required.
+                </p>
+              </div>
+            </article>
+          </section>
+
+          {/* Core Facts Section */}
+          <CoreFactsSection />
+
+          {/* Key Features Section */}
+          <KeyFeaturesSection />
+
+          {/* How-to Guide Section */}
+          <HowToSection />
+
+          {/* Format Comparison Section */}
+          <FormatComparisonSection />
+
+          {/* Use Cases Section */}
+          <UseCasesSection />
+
+          {/* FAQ Section */}
+          <FAQSection />
+
+          {/* Legal and Ethical Section */}
+          <section className="mb-12">
+            <div className="mx-auto max-w-4xl rounded-2xl border border-gray-200 bg-gradient-to-br from-yellow-50 to-orange-50 p-8 shadow-lg">
+              <h2 className="mb-4 text-3xl font-bold text-gray-800">
+                Legal and Ethical Considerations
+              </h2>
+              <div className="prose prose-lg max-w-none text-gray-700">
+                <p>
+                  When using our <strong>SoundCloud to WAV converter</strong>, please keep in mind:
+                </p>
+                <ul className="list-inside list-disc space-y-2">
+                  <li>
+                    <strong>Copyright respect</strong>: Always respect the artist's copyright and
+                    terms of service
+                  </li>
+                  <li>
+                    <strong>Personal use</strong>: Downloaded tracks should be used for personal
+                    listening or educational purposes
+                  </li>
+                  <li>
+                    <strong>Fair use</strong>: Follow fair use guidelines when using downloaded
+                    tracks in your content
+                  </li>
+                  <li>
+                    <strong>Artist rights</strong>: Support artists by purchasing their music when
+                    possible
+                  </li>
+                </ul>
+                <p className="mt-4">
+                  Our tool is designed to help users access publicly available SoundCloud content
+                  responsibly. Always check the track's download permissions and respect the
+                  creator's wishes.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   )
