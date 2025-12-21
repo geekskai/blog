@@ -398,15 +398,6 @@ export default function VinDecoder() {
         <div className="grid gap-8 lg:grid-cols-12">
           {/* Main Content Panel */}
           <div className="space-y-6 lg:col-span-8">
-            <VinInput
-              value={searchState.vin}
-              onChange={handleVinChange}
-              onSubmit={handleDecode}
-              isValid={searchState.validationResult?.isValid || false}
-              error={searchState.validationResult?.error}
-              isLoading={searchState.isDecoding}
-            />
-
             {/* Results Section - Directly below VIN Input */}
             {searchState.decodeResult && (
               <div className="space-y-8">
@@ -517,6 +508,15 @@ export default function VinDecoder() {
                 )}
               </div>
             )}
+
+            <VinInput
+              value={searchState.vin}
+              onChange={handleVinChange}
+              onSubmit={handleDecode}
+              isValid={searchState.validationResult?.isValid || false}
+              error={searchState.validationResult?.error}
+              isLoading={searchState.isDecoding}
+            />
 
             {/* Divider */}
             {searchState.decodeResult && mounted && historyItems.length > 0 && (
