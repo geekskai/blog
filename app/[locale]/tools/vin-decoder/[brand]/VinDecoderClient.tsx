@@ -1,23 +1,13 @@
 "use client"
 
-import React, { useState, useCallback, useEffect } from "react"
+import { useState, useCallback, useEffect } from "react"
 import Link from "next/link"
-import {
-  Car,
-  ArrowLeft,
-  Search,
-  Home,
-  ChevronRight,
-  Database,
-  Share2,
-  Copy,
-  Check,
-} from "lucide-react"
+import { Car, Search, Home, ChevronRight, Database, Share2, Copy, Check } from "lucide-react"
 import { BrandInfo, SUPPORTED_BRANDS } from "../types"
 import VinInput from "../components/VinInput"
 import ResultSummary from "../components/ResultSummary"
-import { SearchState, DecodeStatus, DecodedVehicle, HistoryItem, ExportFormat } from "../types"
-import { validateVIN, isValidVin } from "../lib/validation"
+import { SearchState, DecodeStatus, ExportFormat } from "../types"
+import { validateVIN } from "../lib/validation"
 import { decodeVehicle } from "../lib/api"
 import { vinCache, history, dedupeRequest } from "../lib/cache"
 import { formatVehicleSummary, exportAsJSON, exportAsCSV, exportAsText } from "../lib/mapping"
@@ -33,15 +23,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
     isDecoding: false,
   })
 
-  const [historyItems, setHistoryItems] = useState<HistoryItem[]>([])
   const [copyStatus, setCopyStatus] = useState<"idle" | "copying" | "copied">("idle")
-  const [mounted, setMounted] = useState(false)
-
-  // Load history on mount
-  useEffect(() => {
-    setMounted(true)
-    setHistoryItems(history.get())
-  }, [])
 
   // Validate VIN as user types
   useEffect(() => {

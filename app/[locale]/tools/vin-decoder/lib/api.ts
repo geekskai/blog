@@ -4,14 +4,7 @@ import {
   DecodeWMI,
   isValidVin as validateVinOffline,
 } from "@shaggytools/nhtsa-api-wrapper"
-import { DecodedVehicle, VPICResponse, ManufacturerInfo } from "../types"
-
-// API configuration
-const API_CONFIG = {
-  timeout: 10000,
-  retries: 3,
-  retryDelay: 1000,
-} as const
+import { DecodedVehicle } from "../types"
 
 /**
  * Enhanced VIN decode function with comprehensive error handling and data mapping
