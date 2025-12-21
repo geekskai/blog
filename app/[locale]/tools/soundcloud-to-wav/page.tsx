@@ -74,19 +74,21 @@ interface ProgressBarProps {
 }
 
 const ProgressBar = ({ progress, status, className = "" }: ProgressBarProps) => (
-  <div className={`space-y-1 ${className}`}>
-    <div className="flex items-center justify-between text-xs text-white/80">
-      <span className={progress > 0 ? "" : "truncate"}>{status || "Processing..."}</span>
-      {progress > 0 && <span className="ml-2 flex-shrink-0">{progress}%</span>}
+  <div className={`space-y-2 ${className}`}>
+    <div className="flex items-center justify-between text-xs text-white/90">
+      <span className={progress > 0 ? "truncate" : ""}>{status || "Processing..."}</span>
+      {progress > 0 && (
+        <span className="ml-2 flex-shrink-0 font-semibold text-purple-300">{progress}%</span>
+      )}
     </div>
-    <div className="h-2 overflow-hidden rounded-full bg-white/20">
+    <div className="h-2.5 overflow-hidden rounded-full bg-white/10 backdrop-blur-sm">
       {progress > 0 ? (
         <div
-          className="h-full rounded-full bg-white transition-all duration-300 ease-out"
+          className="h-full rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 shadow-lg shadow-purple-500/50 transition-all duration-300 ease-out"
           style={{ width: `${progress}%` }}
         />
       ) : (
-        <div className="h-full w-full animate-pulse rounded-full bg-white/50" />
+        <div className="h-full w-full animate-pulse rounded-full bg-gradient-to-r from-purple-500/50 via-pink-500/50 to-cyan-500/50" />
       )}
     </div>
   </div>
@@ -303,132 +305,182 @@ export default function Page() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
-      <div className="container mx-auto px-4 py-8 md:px-6 md:py-12 lg:px-8">
-        {/* Title section */}
-        <div className="mb-8 text-center">
-          <h1 className="mb-2 text-4xl font-bold text-gray-800 md:text-5xl">
-            🎵 SoundCloud to WAV Converter - Free Online Tool
+    <div className="relative min-h-screen bg-slate-950">
+      {/* Subtle geometric background pattern */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+          `,
+            backgroundSize: "60px 60px",
+          }}
+        ></div>
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+        {/* Header Section - SEO Optimized */}
+        <header className="mb-12 text-center">
+          {/* Tool Badge */}
+          <div className="mb-6 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 px-6 py-3 text-white shadow-lg shadow-purple-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-500/30">
+            <div className="rounded-full bg-white/20 p-1">
+              <span className="text-xl">🎵</span>
+            </div>
+            <span className="font-semibold">SoundCloud Converter</span>
+          </div>
+
+          {/* Main Title - H1 for SEO */}
+          <h1 className="my-6 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-3xl font-bold leading-tight text-transparent md:text-5xl lg:text-6xl">
+            SoundCloud to WAV Converter
           </h1>
-          <p className="mb-4 text-gray-600 md:text-lg">
-            Download SoundCloud tracks as <strong>WAV</strong> or <strong>MP3</strong> files
-            instantly.
-            <strong> Free</strong>, <strong>fast</strong>, and <strong>no registration</strong>{" "}
-            required.
+
+          {/* Subtitle */}
+          <p className="text-md mx-auto mb-6 max-w-3xl leading-relaxed text-slate-300 md:text-lg">
+            Download SoundCloud tracks as <strong className="text-purple-400">WAV</strong> or{" "}
+            <strong className="text-cyan-400">MP3</strong> files instantly.{" "}
+            <strong className="text-emerald-400">Free</strong>,{" "}
+            <strong className="text-blue-400">fast</strong>, and{" "}
+            <strong className="text-pink-400">no registration</strong> required.
           </p>
+
+          {/* Content Freshness Badge */}
           <ContentFreshnessBadge lastModified={new Date("2025-12-21")} />
-        </div>
+        </header>
 
         {/* Input area card */}
-        <div className="mx-auto mb-8 max-w-3xl">
-          <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl">
-            <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-6">
-              <form onSubmit={handleGetInfo} className="space-y-4">
+        <div className="mx-auto mb-12 max-w-3xl">
+          <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
+            <div className="border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 p-6">
+              <h2 className="text-xl font-semibold text-white md:text-2xl">
+                Convert SoundCloud Track
+              </h2>
+            </div>
+            <div className="p-6">
+              <form onSubmit={handleGetInfo} className="space-y-6">
                 <div>
                   <label
                     htmlFor="soundcloud-url"
-                    className="mb-2 block text-sm font-semibold text-white"
+                    className="mb-3 block text-sm font-semibold text-white/90"
                   >
                     SoundCloud Link
                   </label>
-                  <input
-                    id="soundcloud-url"
-                    type="text"
-                    value={url}
-                    onChange={(e) => {
-                      setUrl(e.target.value)
-                      resetError()
-                      setLoadingState("idle")
-                    }}
-                    placeholder="https://soundcloud.com/..."
-                    className="w-full rounded-lg border-2 border-white/20 bg-white/90 px-4 py-3 text-gray-800 placeholder-gray-400 transition-all focus:border-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-white/50"
-                  />
+                  <div className="relative">
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 rounded-lg bg-white/5 p-2 backdrop-blur-sm">
+                      <span className="text-xl">🔗</span>
+                    </div>
+                    <input
+                      id="soundcloud-url"
+                      type="text"
+                      value={url}
+                      onChange={(e) => {
+                        setUrl(e.target.value)
+                        resetError()
+                        setLoadingState("idle")
+                      }}
+                      placeholder="https://soundcloud.com/..."
+                      className="w-full rounded-lg border border-white/10 bg-white/5 py-4 pl-16 pr-6 text-lg text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
+                    />
+                  </div>
                 </div>
                 {/* Action buttons group */}
-                <div className="space-y-3">
-                  <div className="flex flex-col gap-3 sm:flex-row">
-                    <div className="flex flex-1 flex-col gap-2">
+                <div className="space-y-4">
+                  <div className="flex flex-col gap-4 sm:flex-row">
+                    <div className="flex flex-1 flex-col gap-3">
                       <button
                         type="submit"
                         disabled={loadingState === "loading" || !url.trim()}
-                        className="flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 font-semibold text-purple-600 shadow-md transition-all hover:bg-gray-100 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
+                        className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-base font-medium text-white shadow-lg transition-all hover:from-blue-700 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-50"
                       >
-                        {loadingState === "loading" ? (
-                          <>
-                            <LoadingSpinner />
-                            <span>Fetching...</span>
-                          </>
-                        ) : (
-                          <>
-                            <span className="text-lg">🔍</span>
-                            <span>Get Info</span>
-                          </>
-                        )}
+                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
+                        <span className="relative flex items-center justify-center gap-2">
+                          {loadingState === "loading" ? (
+                            <>
+                              <LoadingSpinner />
+                              <span>Fetching...</span>
+                            </>
+                          ) : (
+                            <>
+                              <span className="text-xl">🔍</span>
+                              <span>Get Info</span>
+                            </>
+                          )}
+                        </span>
                       </button>
                       {loadingState === "loading" && (
                         <ProgressBar progress={infoProgress} status={infoStatus} />
                       )}
                     </div>
 
-                    <div className="flex flex-1 flex-col gap-2">
+                    <div className="flex flex-1 flex-col gap-3">
                       <button
                         type="button"
                         onClick={handleDownload}
                         disabled={downloading || !url.trim() || loadingState === "loading"}
-                        className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-3 font-semibold text-white shadow-md transition-all hover:from-green-600 hover:to-emerald-600 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
+                        className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-3 text-base font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:cursor-not-allowed disabled:opacity-50"
                       >
-                        {downloading ? (
-                          <>
-                            <LoadingSpinner />
-                            <span>Downloading...</span>
-                          </>
-                        ) : (
-                          <>
-                            <span className="text-lg">⬇️</span>
-                            <span>Download</span>
-                          </>
-                        )}
+                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
+                        <span className="relative flex items-center justify-center gap-2">
+                          {downloading ? (
+                            <>
+                              <LoadingSpinner />
+                              <span>Downloading...</span>
+                            </>
+                          ) : (
+                            <>
+                              <span className="text-xl">⬇️</span>
+                              <span>Download</span>
+                            </>
+                          )}
+                        </span>
                       </button>
                       {downloading && (
                         <ProgressBar progress={downloadProgress} status={downloadStatus} />
                       )}
                     </div>
                     {/* MP3 or WAV */}
-                    <div className="flex w-1/6 flex-col gap-2">
+                    <div className="flex w-full flex-col gap-3 sm:w-32">
                       <select
                         value={extension}
                         onChange={(e) => setExtension(e.target.value)}
-                        className="w-full rounded-lg border-2 border-white/20 bg-white/90 px-4 py-3 text-gray-800 placeholder-gray-400 transition-all focus:border-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                        className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-base text-white backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
                       >
-                        <option value="mp3">MP3</option>
-                        <option value="wav">WAV</option>
+                        <option value="mp3" className="bg-slate-900">
+                          MP3
+                        </option>
+                        <option value="wav" className="bg-slate-900">
+                          WAV
+                        </option>
                       </select>
                     </div>
                   </div>
                 </div>
               </form>
-            </div>
 
-            {/* Error message */}
-            {errorMessage && (
-              <div className="border-t border-red-200 bg-red-50 p-4">
-                <div className="flex items-center gap-2 text-red-600">
-                  <span>⚠️</span>
-                  <span className="text-sm font-medium">{errorMessage}</span>
+              {/* Error message */}
+              {errorMessage && (
+                <div className="mt-6 rounded-lg border border-red-500/30 bg-red-900/20 p-4 backdrop-blur-sm">
+                  <div className="flex items-center gap-3 text-red-400">
+                    <span className="text-xl">⚠️</span>
+                    <span className="text-sm font-medium">{errorMessage}</span>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
 
         {/* Loading skeleton */}
         {loadingState === "loading" && !trackInfo && (
           <div className="mx-auto max-w-4xl">
-            <div className="animate-pulse space-y-4 rounded-2xl border border-gray-200 bg-white p-6 shadow-xl">
-              <div className="h-64 rounded-lg bg-gray-200"></div>
-              <div className="space-y-2">
-                <div className="h-8 w-3/4 rounded bg-gray-200"></div>
-                <div className="h-4 w-1/2 rounded bg-gray-200"></div>
+            <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
+              <div className="animate-pulse space-y-4 p-8">
+                <div className="h-64 rounded-lg bg-white/10"></div>
+                <div className="space-y-2">
+                  <div className="h-8 w-3/4 rounded-lg bg-white/10"></div>
+                  <div className="h-4 w-1/2 rounded-lg bg-white/10"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -437,9 +489,9 @@ export default function Page() {
         {/* Music info card */}
         {trackInfo && (
           <div className="mx-auto max-w-4xl">
-            <div className="mb-6 text-center">
-              <h2 className="text-2xl font-bold text-gray-800">Track Information</h2>
-              <p className="mt-1 text-sm text-gray-500">View detailed info and download music</p>
+            <div className="mb-8 text-center">
+              <h2 className="mb-2 text-3xl font-bold text-white">Track Information</h2>
+              <p className="text-sm text-slate-400">View detailed info and download music</p>
             </div>
             <div className="transition-all duration-500 ease-in-out">
               <TrackInfoCard
@@ -454,10 +506,10 @@ export default function Page() {
         {/* Empty state message */}
         {loadingState === "idle" && !trackInfo && (
           <div className="mx-auto max-w-2xl text-center">
-            <div className="rounded-2xl border border-gray-200 bg-white/50 p-12 shadow-lg backdrop-blur-sm">
-              <div className="mb-4 text-6xl">🎼</div>
-              <h3 className="mb-2 text-xl font-semibold text-gray-700">Get Started</h3>
-              <p className="text-gray-500">
+            <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-12 shadow-xl backdrop-blur-sm">
+              <div className="mb-6 text-7xl">🎼</div>
+              <h3 className="mb-3 text-2xl font-bold text-white">Get Started</h3>
+              <p className="text-slate-300">
                 Enter a SoundCloud link above and click the &ldquo;Get Info&rdquo; button to start
               </p>
             </div>
@@ -465,29 +517,61 @@ export default function Page() {
         )}
 
         {/* SEO Content Sections */}
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto mt-32 space-y-24">
           {/* What is this tool section */}
-          <section className="mb-12">
-            <article className="mx-auto max-w-4xl rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
-              <h2 className="mb-4 text-3xl font-bold text-gray-800">
+          <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10"></div>
+            <div className="relative z-10">
+              <h2 className="mb-8 text-3xl font-bold text-white">
                 What is SoundCloud to WAV Converter?
               </h2>
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p>
-                  Our <strong>SoundCloud to WAV converter</strong> is a{" "}
-                  <strong>free online tool</strong> that allows you to download SoundCloud tracks
-                  and convert them to <strong>WAV format</strong> or <strong>MP3 format</strong>. It
-                  extracts audio from any public SoundCloud URL and provides high-quality audio
-                  files for offline use.
-                </p>
-                <p>
-                  Whether you're a <strong>DJ</strong>, <strong>music producer</strong>,{" "}
-                  <strong>content creator</strong>, or <strong>audio enthusiast</strong>, this tool
-                  helps you download SoundCloud tracks quickly and easily without any registration
-                  or payment required.
-                </p>
+              <div className="grid gap-8 md:grid-cols-2">
+                <div>
+                  <p className="mb-6 text-lg leading-relaxed text-slate-300">
+                    Our <strong className="text-purple-300">SoundCloud to WAV converter</strong> is
+                    a <strong className="text-purple-300">free online tool</strong> that allows you
+                    to download SoundCloud tracks and convert them to{" "}
+                    <strong className="text-purple-300">WAV format</strong> or{" "}
+                    <strong className="text-purple-300">MP3 format</strong>. It extracts audio from
+                    any public SoundCloud URL and provides high-quality audio files for offline use.
+                  </p>
+                  <p className="text-lg leading-relaxed text-slate-300">
+                    Whether you're a <strong className="text-purple-300">DJ</strong>,{" "}
+                    <strong className="text-purple-300">music producer</strong>,{" "}
+                    <strong className="text-purple-300">content creator</strong>, or{" "}
+                    <strong className="text-purple-300">audio enthusiast</strong>, this tool helps
+                    you download SoundCloud tracks quickly and easily without any registration or
+                    payment required.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/20 bg-white/5 p-8 backdrop-blur-sm">
+                  <h3 className="mb-6 flex items-center text-xl font-semibold text-white">
+                    <span className="mr-3 text-2xl">✨</span>
+                    Key Benefits
+                  </h3>
+                  <ul className="space-y-3 text-slate-300">
+                    <li className="flex items-center">
+                      <div className="mr-3 h-2 w-2 rounded-full bg-purple-400"></div>
+                      <strong className="text-purple-300">100% Free</strong> - No registration
+                      required
+                    </li>
+                    <li className="flex items-center">
+                      <div className="mr-3 h-2 w-2 rounded-full bg-pink-400"></div>
+                      <strong className="text-pink-300">High Quality</strong> - WAV and MP3 formats
+                    </li>
+                    <li className="flex items-center">
+                      <div className="mr-3 h-2 w-2 rounded-full bg-emerald-400"></div>
+                      <strong className="text-emerald-300">Fast Processing</strong> - Under 30
+                      seconds
+                    </li>
+                    <li className="flex items-center">
+                      <div className="mr-3 h-2 w-2 rounded-full bg-blue-400"></div>
+                      <strong className="text-blue-300">Unlimited Use</strong> - No restrictions
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </article>
+            </div>
           </section>
 
           {/* Core Facts Section */}
@@ -509,39 +593,35 @@ export default function Page() {
           <FAQSection />
 
           {/* Legal and Ethical Section */}
-          <section className="mb-12">
-            <div className="mx-auto max-w-4xl rounded-2xl border border-gray-200 bg-gradient-to-br from-yellow-50 to-orange-50 p-8 shadow-lg">
-              <h2 className="mb-4 text-3xl font-bold text-gray-800">
-                Legal and Ethical Considerations
-              </h2>
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p>
-                  When using our <strong>SoundCloud to WAV converter</strong>, please keep in mind:
-                </p>
-                <ul className="list-inside list-disc space-y-2">
-                  <li>
-                    <strong>Copyright respect</strong>: Always respect the artist's copyright and
-                    terms of service
-                  </li>
-                  <li>
-                    <strong>Personal use</strong>: Downloaded tracks should be used for personal
-                    listening or educational purposes
-                  </li>
-                  <li>
-                    <strong>Fair use</strong>: Follow fair use guidelines when using downloaded
-                    tracks in your content
-                  </li>
-                  <li>
-                    <strong>Artist rights</strong>: Support artists by purchasing their music when
-                    possible
-                  </li>
-                </ul>
-                <p className="mt-4">
-                  Our tool is designed to help users access publicly available SoundCloud content
-                  responsibly. Always check the track's download permissions and respect the
-                  creator's wishes.
-                </p>
-              </div>
+          <section className="rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
+            <h2 className="mb-6 text-3xl font-bold text-white">Legal and Ethical Considerations</h2>
+            <div className="prose prose-lg max-w-none text-slate-300 prose-headings:text-white prose-strong:font-bold prose-strong:text-orange-300 prose-ul:text-slate-300">
+              <p>
+                When using our <strong>SoundCloud to WAV converter</strong>, please keep in mind:
+              </p>
+              <ul className="list-inside list-disc space-y-3">
+                <li>
+                  <strong>Copyright respect</strong>: Always respect the artist's copyright and
+                  terms of service
+                </li>
+                <li>
+                  <strong>Personal use</strong>: Downloaded tracks should be used for personal
+                  listening or educational purposes
+                </li>
+                <li>
+                  <strong>Fair use</strong>: Follow fair use guidelines when using downloaded tracks
+                  in your content
+                </li>
+                <li>
+                  <strong>Artist rights</strong>: Support artists by purchasing their music when
+                  possible
+                </li>
+              </ul>
+              <p className="mt-6">
+                Our tool is designed to help users access publicly available SoundCloud content
+                responsibly. Always check the track's download permissions and respect the creator's
+                wishes.
+              </p>
             </div>
           </section>
         </div>
