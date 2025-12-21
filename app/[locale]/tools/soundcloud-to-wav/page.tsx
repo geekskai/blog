@@ -12,7 +12,7 @@ import {
   UseCasesSection,
   KeyFeaturesSection,
   ContentFreshnessBadge,
-} from "./components/SEOContent"
+} from "./SEOContent
 
 type LoadingState = "idle" | "loading" | "success" | "error"
 

@@ -18,6 +18,7 @@ import {
   Banknote,
   Microscope,
   Hash,
+  Printer,
 } from "lucide-react"
 
 export interface ToolData {
@@ -492,6 +493,45 @@ export const toolsData: ToolData[] = [
     badgeColor: "bg-emerald-500",
     gradient: gradients.development,
     category: "Development",
+  },
+  {
+    id: "chivalry-test",
+    title: "Chivalry Test",
+    description:
+      "Chivalry test for your chivalry. Chivalry test for your chivalry. Chivalry test for your chivalry.",
+    icon: Shield,
+    href: "/tools/chivalry-test/",
+    features: [],
+    badge: "New",
+    badgeColor: "bg-blue-500",
+    gradient: gradients.utility,
+    category: "Utility",
+  },
+  {
+    id: "soundcloud-to-wav",
+    title: "SoundCloud to WAV Converter",
+    description:
+      "SoundCloud to WAV converter for your SoundCloud. SoundCloud to WAV converter for your SoundCloud. SoundCloud to WAV converter for your SoundCloud.",
+    icon: Music,
+    href: "/tools/soundcloud-to-wav/",
+    features: [],
+    badge: "New",
+    badgeColor: "bg-blue-500",
+    gradient: gradients.utility,
+    category: "Utility",
+  },
+  {
+    id: "print-test-page",
+    title: "Print Test Page",
+    description:
+      "Print test page for your printer. Print test page for your printer. Print test page for your printer.",
+    icon: Printer,
+    href: "/tools/print-test-page/",
+    features: [],
+    badge: "New",
+    badgeColor: "bg-blue-500",
+    gradient: gradients.utility,
+    category: "Utility",
   },
 ]
 
