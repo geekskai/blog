@@ -51,6 +51,7 @@ const CHAR_VALUES: Record<string, number> = {
  * @returns Validation result with details
  */
 export function validateVIN(vin: string): VINValidationResult {
+  console.log("vin validation:", vin)
   if (!vin) {
     return {
       isValid: false,
@@ -62,6 +63,7 @@ export function validateVIN(vin: string): VINValidationResult {
 
   // Use official validation first
   if (!validateVinOffline(vinUpper)) {
+    console.log("vinUpper validation failed:", vinUpper)
     // Provide specific error details for better UX
     if (vinUpper.length !== VIN_LENGTH) {
       return {
