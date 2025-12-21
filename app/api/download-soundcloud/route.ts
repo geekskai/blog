@@ -57,26 +57,34 @@ function nodeStreamToWebStream(nodeStream: Readable): ReadableStream<Uint8Array>
 }
 
 /**
- * 尝试下载音频流，优先使用 progressive 流
+ * 尝试下载音频流，优先使用 progressive 流以避免 HLS 流的时效性问题
+ *
+ * 下载策略（按优先级）：
+ * 1. 如果可下载，优先使用 download link（最可靠）
+ * 2. 优先使用 progressive 流（避免 HLS 流 URL 过期问题）
+ * 3. 如果 progressive 流失败，尝试 HLS 流（作为后备）
+ * 4. 最后使用默认下载方法（库会自动选择）
  */
 async function downloadAudioStream(url: string): Promise<Readable> {
   // 先获取音频信息
   const info = await scdl.getInfo(url)
 
-  // 策略1: 如果可下载，优先使用 download link
-  if (info.downloadable) {
+  // 策略1: 如果可下载，优先使用 download link（最可靠的方法）
+  if (info.downloadable && info.id) {
     try {
-      console.log("Attempting download link method")
-      // 使用库的内部方法，通过传递 useDownloadLink 参数
-      // 注意：需要检查库是否支持此参数
-      const stream = await (scdl as any).download(url, { useDownloadLink: true })
-      if (stream) return stream
+      console.log("Attempting download link method for track ID:", info.id)
+      // 使用库的内部方法 fromDownloadLink
+      const stream = await (scdl as any).fromDownloadLink?.(info.id)
+      if (stream) {
+        console.log("Successfully obtained stream from download link")
+        return stream
+      }
     } catch (error) {
-      console.warn("Download link method failed:", error)
+      console.warn("Download link method failed, trying other methods:", error)
     }
   }
 
-  // 策略2: 查找并优先使用 progressive 流
+  // 策略2: 查找并优先使用 progressive 流（避免 HLS 流 URL 过期问题）
   if (info.media?.transcodings && Array.isArray(info.media.transcodings)) {
     // 找到所有 progressive 流
     const progressiveStreams = info.media.transcodings.filter(
@@ -99,7 +107,10 @@ async function downloadAudioStream(url: string): Promise<Readable> {
       try {
         console.log("Attempting progressive stream:", transcoding.url)
         const stream = await (scdl as any).fromMediaObj(transcoding)
-        if (stream) return stream
+        if (stream) {
+          console.log("Successfully obtained progressive stream")
+          return stream
+        }
       } catch (error) {
         console.warn("Progressive stream failed:", error)
         continue
@@ -111,7 +122,10 @@ async function downloadAudioStream(url: string): Promise<Readable> {
       try {
         console.log("Attempting HLS stream:", transcoding.url)
         const stream = await (scdl as any).fromMediaObj(transcoding)
-        if (stream) return stream
+        if (stream) {
+          console.log("Successfully obtained HLS stream")
+          return stream
+        }
       } catch (error) {
         console.warn("HLS stream failed:", error)
         continue
@@ -119,7 +133,7 @@ async function downloadAudioStream(url: string): Promise<Readable> {
     }
   }
 
-  // 策略3: 使用默认下载方法（库会自动选择）
+  // 策略3: 使用默认下载方法（库会自动选择最佳流）
   try {
     console.log("Attempting default download method")
     return await scdl.download(url)
@@ -152,49 +166,8 @@ export async function POST(request: NextRequest) {
     // 生成文件名
     const fileName = `audio-${Date.now()}.mp3`
 
-    let nodeStream: Readable | null = null
-    let lastError: Error | null = null
-
-    // 策略1: 先获取信息，然后尝试不同的下载方法
-    try {
-      const info = await scdl.getInfo(url)
-
-      // 如果可下载，优先尝试 download link
-      if (info.downloadable && info.id) {
-        try {
-          console.log("Attempting download link for track ID:", info.id)
-          // 使用库的内部方法
-          const downloadLink = await (scdl as any).fromDownloadLink?.(info.id)
-          if (downloadLink) {
-            nodeStream = downloadLink
-          }
-        } catch (error) {
-          console.warn("Download link failed, trying other methods:", error)
-        }
-      }
-    } catch (error) {
-      console.warn("Failed to get info, using default download:", error)
-    }
-
-    // 策略2: 使用默认下载方法（库会尝试所有可用流）
-    if (!nodeStream) {
-      try {
-        console.log("Attempting default download method")
-        nodeStream = await scdl.download(url)
-      } catch (error) {
-        lastError = error as Error
-        console.error("Default download failed:", error)
-      }
-    }
-
-    if (!nodeStream) {
-      throw new Error(
-        `Failed to download audio. ` +
-          `The track may not be downloadable or stream URLs may have expired. ` +
-          `Please try fetching the track info again and download immediately. ` +
-          `Error: ${lastError?.message || "Unknown error"}`
-      )
-    }
+    // 使用统一的下载函数，优先使用 progressive 流以避免 HLS 流 URL 过期问题
+    const nodeStream = await downloadAudioStream(url)
 
     // 将 Node.js 流转换为 Web Stream
     const webStream = nodeStreamToWebStream(nodeStream)
