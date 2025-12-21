@@ -21,7 +21,14 @@ import {
 import { useTranslations } from "next-intl"
 import VinInput from "./components/VinInput"
 import ResultSummary from "./components/ResultSummary"
-import { SearchState, DecodeStatus, HistoryItem, ExportFormat, SUPPORTED_BRANDS } from "./types"
+import {
+  SearchState,
+  DecodeStatus,
+  HistoryItem,
+  ExportFormat,
+  SUPPORTED_BRANDS,
+  VINValidationResult,
+} from "./types"
 import { validateVIN, isValidVin } from "./lib/validation"
 import { decodeVehicle } from "./lib/api"
 import { vinCache, history, dedupeRequest } from "./lib/cache"
@@ -74,16 +81,27 @@ export default function VinDecoder() {
   }, [])
 
   const handleDecode = useCallback(async () => {
-    const { vin, validationResult } = searchState
+    let currentVin: string
+    let currentValidation: VINValidationResult | undefined
 
-    if (!validationResult?.isValid) return
+    // Get current state and validate
+    setSearchState((prev) => {
+      currentVin = prev.vin
+      currentValidation = prev.validationResult
 
-    // Set loading state
-    setSearchState((prev) => ({
-      ...prev,
-      isDecoding: true,
-      decodeResult: { status: "loading" as DecodeStatus },
-    }))
+      if (!currentValidation?.isValid) return prev
+
+      // Set loading state
+      return {
+        ...prev,
+        isDecoding: true,
+        decodeResult: { status: "loading" as DecodeStatus },
+      }
+    })
+
+    if (!currentValidation?.isValid || !currentVin) return
+
+    const vin = currentVin
 
     try {
       // Check cache first
@@ -157,7 +175,7 @@ export default function VinDecoder() {
         },
       }))
     }
-  }, [searchState.vin, searchState.validationResult, t, searchState])
+  }, [t])
 
   const handleHistorySelect = useCallback(
     (item: HistoryItem) => {
@@ -288,23 +306,24 @@ export default function VinDecoder() {
 
   // Check for VIN in URL params on mount
   useEffect(() => {
-    if (typeof window === "undefined") return
+    if (typeof window === "undefined" || !mounted) return
 
     const params = new URLSearchParams(window.location.search)
     const vinParam = params.get("vin")
     if (vinParam && isValidVin(vinParam)) {
-      handleVinChange(vinParam)
+      const formattedVin = vinParam.toUpperCase().trim()
+      setSearchState((prev) => ({
+        ...prev,
+        vin: formattedVin,
+        validationResult: validateVIN(formattedVin, t),
+      }))
       // Auto-decode after a short delay
       setTimeout(() => {
-        setSearchState((prev) => ({
-          ...prev,
-          vin: vinParam,
-          validationResult: validateVIN(vinParam, t),
-        }))
         handleDecode()
       }, 500)
     }
-  }, [handleVinChange, handleDecode])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mounted, t])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">

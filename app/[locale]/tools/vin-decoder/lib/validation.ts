@@ -57,31 +57,26 @@ export function validateVIN(
 ): VINValidationResult {
   const getText = (key: string, fallback: string) => (t ? t(key) : fallback)
 
-  if (!vin) {
+  if (!vin || vin.trim().length === 0) {
     return {
       isValid: false,
-      error: getText("validation.vin_required", "VIN is required"),
     }
   }
 
   const vinUpper = formatVIN(vin)
 
-  // Use official validation first
+  // Only show errors when VIN is exactly 17 characters
+  // This allows users to type without seeing errors prematurely
+  if (vinUpper.length !== VIN_LENGTH) {
+    return {
+      isValid: false,
+      // Don't set error for incomplete VINs - let user finish typing
+    }
+  }
+
+  // Use official validation for complete VINs
   if (!validateVinOffline(vinUpper)) {
     // Provide specific error details for better UX
-    if (vinUpper.length !== VIN_LENGTH) {
-      if (t) {
-        return {
-          isValid: false,
-          error: t("validation.vin_length_error", { length: VIN_LENGTH, current: vinUpper.length }),
-        }
-      }
-      return {
-        isValid: false,
-        error: `VIN must be exactly ${VIN_LENGTH} characters (currently ${vinUpper.length})`,
-      }
-    }
-
     if (INVALID_CHARS.test(vinUpper)) {
       return {
         isValid: false,

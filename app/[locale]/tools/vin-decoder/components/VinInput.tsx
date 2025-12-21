@@ -1,21 +1,18 @@
 "use client"
 
-import React, { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Search, AlertCircle, Loader2, X, Clipboard, Car } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { VinInputProps } from "../types"
 import { formatVIN, getValidationHint, EXAMPLE_VINS } from "../lib/validation"
 
 /**
- * Example VINs for testing and demonstration
- */
-/**
- * 1HGBH41JXMN109186 - Honda Accord
+ *  * 1HGBH41JXMN109186 - Honda Accord
  * 5YJSA1DN5CFP01657 - Tesla Model S
  * WBA3B5C50EJ845971 - BMW 3 Series
  * 1FTFW1ET5DFC10312 - Ford F-150
  * JTDKARFU5J3068263 - Toyota Prius
- * VinInput component
+ * VinInput component - Enhanced VIN input with real-time validation
  * @param value - The current value of the input
  * @param onChange - The function to call when the input value changes
  * @param onSubmit - The function to call when the form is submitted

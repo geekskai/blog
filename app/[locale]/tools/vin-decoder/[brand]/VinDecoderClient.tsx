@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useCallback, useEffect } from "react"
+import { useState, useCallback, useEffect } from "react"
 import Link from "next/link"
 import {
   Car,
@@ -14,11 +14,18 @@ import {
   Check,
 } from "lucide-react"
 import { useTranslations } from "next-intl"
-import { BrandInfo, SUPPORTED_BRANDS } from "../types"
+import { BrandInfo, SUPPORTED_BRANDS, VINValidationResult } from "../types"
 import VinInput from "../components/VinInput"
 import ResultSummary from "../components/ResultSummary"
-import { SearchState, DecodeStatus, DecodedVehicle, HistoryItem, ExportFormat } from "../types"
-import { validateVIN, isValidVin } from "../lib/validation"
+import {
+  SearchState,
+  DecodeStatus,
+  DecodedVehicle,
+  HistoryItem,
+  ExportFormat,
+  VINValidationResult,
+} from "../types"
+import { validateVIN } from "../lib/validation"
 import { decodeVehicle } from "../lib/api"
 import { vinCache, history, dedupeRequest } from "../lib/cache"
 import { formatVehicleSummary, exportAsJSON, exportAsCSV, exportAsText } from "../lib/mapping"
@@ -59,7 +66,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
         validationResult: undefined,
       }))
     }
-  }, [searchState.vin])
+  }, [searchState.vin, t])
 
   const handleVinChange = useCallback((vin: string) => {
     setSearchState((prev) => ({
@@ -70,15 +77,27 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
   }, [])
 
   const handleDecode = useCallback(async () => {
-    const { vin, validationResult } = searchState
+    let currentVin: string
+    let currentValidation: VINValidationResult | undefined
 
-    if (!validationResult?.isValid) return
+    // Get current state and validate
+    setSearchState((prev) => {
+      currentVin = prev.vin
+      currentValidation = prev.validationResult
 
-    setSearchState((prev) => ({
-      ...prev,
-      isDecoding: true,
-      decodeResult: { status: "loading" as DecodeStatus },
-    }))
+      if (!currentValidation?.isValid) return prev
+
+      // Set loading state
+      return {
+        ...prev,
+        isDecoding: true,
+        decodeResult: { status: "loading" as DecodeStatus },
+      }
+    })
+
+    if (!currentValidation?.isValid || !currentVin) return
+
+    const vin = currentVin
 
     try {
       const cached = vinCache.get(vin)
@@ -148,7 +167,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
         },
       }))
     }
-  }, [searchState.vin, searchState.validationResult])
+  }, [t])
 
   const handleCopy = useCallback(async () => {
     if (!searchState.decodeResult?.vehicle) return
