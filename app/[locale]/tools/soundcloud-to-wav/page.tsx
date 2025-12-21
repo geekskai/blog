@@ -183,6 +183,9 @@ export default function Page() {
         setTrackInfo({ ...data.info, downloadable: true })
         setLoadingState("success")
         setTimeout(resetInfoState, 1000)
+
+        // 可选：提示用户立即下载以避免 URL 过期
+        // 或者自动开始下载
       } else {
         setErrorMessage(data.error || t("error_get_info_failed"))
         setLoadingState("error")

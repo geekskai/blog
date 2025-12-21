@@ -10,12 +10,6 @@ const DOWNLOAD_TIMEOUT = 300000 // 5分钟超时（300秒）
 
 /**
  * 将 Node.js Readable Stream 转换为 Web ReadableStream
- *
- * 内存优化策略：
- * - 使用流式传输，数据不全部加载到内存
- * - 每个 chunk 立即传递给客户端，内存占用最小
- * - 支持大文件下载，不受内存限制
- * - 自动清理资源，防止内存泄漏
  */
 function nodeStreamToWebStream(nodeStream: Readable): ReadableStream<Uint8Array> {
   return new ReadableStream({
@@ -29,7 +23,6 @@ function nodeStreamToWebStream(nodeStream: Readable): ReadableStream<Uint8Array>
       nodeStream.on("data", (chunk: Buffer) => {
         totalSize += chunk.length
 
-        // 检查文件大小限制
         if (totalSize > MAX_FILE_SIZE) {
           nodeStream.destroy()
           clearTimeout(timeoutId)
@@ -63,6 +56,82 @@ function nodeStreamToWebStream(nodeStream: Readable): ReadableStream<Uint8Array>
   })
 }
 
+/**
+ * 尝试下载音频流，优先使用 progressive 流
+ */
+async function downloadAudioStream(url: string): Promise<Readable> {
+  // 先获取音频信息
+  const info = await scdl.getInfo(url)
+
+  // 策略1: 如果可下载，优先使用 download link
+  if (info.downloadable) {
+    try {
+      console.log("Attempting download link method")
+      // 使用库的内部方法，通过传递 useDownloadLink 参数
+      // 注意：需要检查库是否支持此参数
+      const stream = await (scdl as any).download(url, { useDownloadLink: true })
+      if (stream) return stream
+    } catch (error) {
+      console.warn("Download link method failed:", error)
+    }
+  }
+
+  // 策略2: 查找并优先使用 progressive 流
+  if (info.media?.transcodings && Array.isArray(info.media.transcodings)) {
+    // 找到所有 progressive 流
+    const progressiveStreams = info.media.transcodings.filter(
+      (t: any) =>
+        t.format?.protocol === "progressive" ||
+        t.url?.includes("/progressive") ||
+        t.format?.mime_type?.includes("mp3")
+    )
+
+    // 找到所有 HLS 流
+    const hlsStreams = info.media.transcodings.filter(
+      (t: any) =>
+        t.format?.protocol === "hls" ||
+        t.url?.includes("/hls") ||
+        t.format?.mime_type?.includes("mpegurl")
+    )
+
+    // 优先尝试 progressive 流
+    for (const transcoding of progressiveStreams) {
+      try {
+        console.log("Attempting progressive stream:", transcoding.url)
+        const stream = await (scdl as any).fromMediaObj(transcoding)
+        if (stream) return stream
+      } catch (error) {
+        console.warn("Progressive stream failed:", error)
+        continue
+      }
+    }
+
+    // 如果 progressive 流都失败，尝试 HLS 流（作为后备）
+    for (const transcoding of hlsStreams) {
+      try {
+        console.log("Attempting HLS stream:", transcoding.url)
+        const stream = await (scdl as any).fromMediaObj(transcoding)
+        if (stream) return stream
+      } catch (error) {
+        console.warn("HLS stream failed:", error)
+        continue
+      }
+    }
+  }
+
+  // 策略3: 使用默认下载方法（库会自动选择）
+  try {
+    console.log("Attempting default download method")
+    return await scdl.download(url)
+  } catch (error) {
+    throw new Error(
+      `Failed to download audio. All download methods failed. ` +
+        `The track may not be downloadable, or stream URLs may have expired. ` +
+        `Original error: ${error instanceof Error ? error.message : String(error)}`
+    )
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { url } = await request.json()
@@ -83,14 +152,51 @@ export async function POST(request: NextRequest) {
     // 生成文件名
     const fileName = `audio-${Date.now()}.mp3`
 
-    // 下载音频流
-    const nodeStream = await scdl.download(url)
+    let nodeStream: Readable | null = null
+    let lastError: Error | null = null
 
-    // 将 Node.js 流转换为 Web Stream（流式传输，不占用大量内存）
-    // 优势：
-    // 1. 内存占用最小：数据流式传输，不全部加载到内存
-    // 2. 支持并发：多个请求可以同时处理，每个请求内存占用约几KB
-    // 3. 快速响应：客户端可以立即开始接收数据，无需等待完整下载
+    // 策略1: 先获取信息，然后尝试不同的下载方法
+    try {
+      const info = await scdl.getInfo(url)
+
+      // 如果可下载，优先尝试 download link
+      if (info.downloadable && info.id) {
+        try {
+          console.log("Attempting download link for track ID:", info.id)
+          // 使用库的内部方法
+          const downloadLink = await (scdl as any).fromDownloadLink?.(info.id)
+          if (downloadLink) {
+            nodeStream = downloadLink
+          }
+        } catch (error) {
+          console.warn("Download link failed, trying other methods:", error)
+        }
+      }
+    } catch (error) {
+      console.warn("Failed to get info, using default download:", error)
+    }
+
+    // 策略2: 使用默认下载方法（库会尝试所有可用流）
+    if (!nodeStream) {
+      try {
+        console.log("Attempting default download method")
+        nodeStream = await scdl.download(url)
+      } catch (error) {
+        lastError = error as Error
+        console.error("Default download failed:", error)
+      }
+    }
+
+    if (!nodeStream) {
+      throw new Error(
+        `Failed to download audio. ` +
+          `The track may not be downloadable or stream URLs may have expired. ` +
+          `Please try fetching the track info again and download immediately. ` +
+          `Error: ${lastError?.message || "Unknown error"}`
+      )
+    }
+
+    // 将 Node.js 流转换为 Web Stream
     const webStream = nodeStreamToWebStream(nodeStream)
 
     // 返回流式响应
@@ -98,17 +204,25 @@ export async function POST(request: NextRequest) {
       headers: {
         "Content-Type": "audio/mpeg",
         "Content-Disposition": `attachment; filename="${fileName}"`,
-        "Transfer-Encoding": "chunked", // 流式传输
+        "Transfer-Encoding": "chunked",
         "Cache-Control": "no-cache, no-store, must-revalidate",
-        "X-Accel-Buffering": "no", // 禁用 Nginx 缓冲（如果使用）
+        "X-Accel-Buffering": "no",
       },
     })
   } catch (error) {
     console.error("Download error:", error)
     const errorMessage = error instanceof Error ? error.message : "Failed to download audio"
+
+    // 提供更友好的错误信息
+    let userFriendlyError = errorMessage
+    if (errorMessage.includes("404") || errorMessage.includes("Not Found")) {
+      userFriendlyError =
+        "The audio stream URL has expired or is no longer available. Please try fetching the track info again and download immediately."
+    }
+
     return NextResponse.json(
       {
-        error: errorMessage,
+        error: userFriendlyError,
         details: error instanceof Error ? error.stack : String(error),
       },
       { status: 500 }
