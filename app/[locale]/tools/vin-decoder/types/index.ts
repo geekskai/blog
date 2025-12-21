@@ -119,7 +119,6 @@ export interface VINValidationResult {
 
 export interface SearchState {
   vin: string
-  isValidating: boolean
   validationResult?: VINValidationResult
   decodeResult?: DecodeResult
   isDecoding: boolean

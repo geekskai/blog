@@ -14,10 +14,9 @@ import {
   Check,
 } from "lucide-react"
 import { useTranslations } from "next-intl"
-import { BrandInfo, SUPPORTED_BRANDS, VINValidationResult } from "../types"
-import VinInput from "../components/VinInput"
-import ResultSummary from "../components/ResultSummary"
 import {
+  BrandInfo,
+  SUPPORTED_BRANDS,
   SearchState,
   DecodeStatus,
   DecodedVehicle,
@@ -25,6 +24,8 @@ import {
   ExportFormat,
   VINValidationResult,
 } from "../types"
+import VinInput from "../components/VinInput"
+import ResultSummary from "../components/ResultSummary"
 import { validateVIN } from "../lib/validation"
 import { decodeVehicle } from "../lib/api"
 import { vinCache, history, dedupeRequest } from "../lib/cache"
@@ -38,7 +39,6 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
   const t = useTranslations("VinDecoder")
   const [searchState, setSearchState] = useState<SearchState>({
     vin: "",
-    isValidating: false,
     isDecoding: false,
   })
 
@@ -77,10 +77,10 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
   }, [])
 
   const handleDecode = useCallback(async () => {
-    let currentVin: string
+    // Get current state and validate
+    let currentVin: string = ""
     let currentValidation: VINValidationResult | undefined
 
-    // Get current state and validate
     setSearchState((prev) => {
       currentVin = prev.vin
       currentValidation = prev.validationResult
@@ -185,7 +185,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
       console.error("Failed to copy:", error)
       setCopyStatus("idle")
     }
-  }, [searchState.decodeResult])
+  }, [searchState.decodeResult, t])
 
   const handleShare = useCallback(async () => {
     if (!searchState.decodeResult?.vehicle) return
@@ -211,7 +211,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
       setCopyStatus("copied")
       setTimeout(() => setCopyStatus("idle"), 2000)
     }
-  }, [searchState.decodeResult, searchState.vin, brand.slug])
+  }, [searchState.decodeResult, searchState.vin, brand.slug, brand.name, t])
 
   const handleExport = useCallback(
     (format: ExportFormat) => {

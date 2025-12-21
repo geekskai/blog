@@ -41,7 +41,6 @@ export default function VinDecoder() {
   const t = useTranslations("VinDecoder")
   const [searchState, setSearchState] = useState<SearchState>({
     vin: "",
-    isValidating: false,
     isDecoding: false,
   })
 
@@ -81,10 +80,10 @@ export default function VinDecoder() {
   }, [])
 
   const handleDecode = useCallback(async () => {
-    let currentVin: string
+    // Get current state and validate
+    let currentVin: string = ""
     let currentValidation: VINValidationResult | undefined
 
-    // Get current state and validate
     setSearchState((prev) => {
       currentVin = prev.vin
       currentValidation = prev.validationResult
@@ -181,7 +180,6 @@ export default function VinDecoder() {
     (item: HistoryItem) => {
       setSearchState({
         vin: item.vin,
-        isValidating: false,
         isDecoding: false,
         validationResult: validateVIN(item.vin, t),
         decodeResult: item.vehicle
@@ -286,7 +284,7 @@ export default function VinDecoder() {
       setCopyStatus("copied")
       setTimeout(() => setCopyStatus("idle"), 2000)
     }
-  }, [searchState.decodeResult, searchState.vin])
+  }, [searchState.decodeResult, searchState.vin, t])
 
   const handleCopyUrl = useCallback(async () => {
     if (typeof window === "undefined") return

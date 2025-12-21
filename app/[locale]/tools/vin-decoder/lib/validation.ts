@@ -57,6 +57,7 @@ export function validateVIN(
 ): VINValidationResult {
   const getText = (key: string, fallback: string) => (t ? t(key) : fallback)
 
+  // Empty VIN - no error shown, button disabled
   if (!vin || vin.trim().length === 0) {
     return {
       isValid: false,
@@ -65,35 +66,43 @@ export function validateVIN(
 
   const vinUpper = formatVIN(vin)
 
-  // Only show errors when VIN is exactly 17 characters
+  // Incomplete VIN (less than 17 characters) - no error shown, button disabled
   // This allows users to type without seeing errors prematurely
-  if (vinUpper.length !== VIN_LENGTH) {
+  if (vinUpper.length < VIN_LENGTH) {
     return {
       isValid: false,
-      // Don't set error for incomplete VINs - let user finish typing
+    }
+  }
+
+  // VIN too long - show error
+  if (vinUpper.length > VIN_LENGTH) {
+    return {
+      isValid: false,
+      error: getText("validation.vin_too_long", "VIN must be exactly 17 characters"),
+    }
+  }
+
+  // VIN is exactly 17 characters - validate format
+  // Check for invalid characters first
+  if (INVALID_CHARS.test(vinUpper)) {
+    return {
+      isValid: false,
+      error: getText(
+        "validation.vin_invalid_chars",
+        "VIN contains invalid characters (I, O, or Q are not allowed)"
+      ),
     }
   }
 
   // Use official validation for complete VINs
   if (!validateVinOffline(vinUpper)) {
-    // Provide specific error details for better UX
-    if (INVALID_CHARS.test(vinUpper)) {
-      return {
-        isValid: false,
-        error: getText(
-          "validation.vin_invalid_chars",
-          "VIN contains invalid characters (I, O, or Q are not allowed)"
-        ),
-      }
-    }
-
     return {
       isValid: false,
       error: getText("validation.vin_format_invalid", "VIN format is invalid"),
     }
   }
 
-  // Calculate check digit for additional info (optional)
+  // VIN is valid - calculate check digit for additional info
   const checkDigit = calculateCheckDigit(vinUpper)
   const actualCheckDigit = vinUpper[8]
   const checkDigitValid = checkDigit === actualCheckDigit
