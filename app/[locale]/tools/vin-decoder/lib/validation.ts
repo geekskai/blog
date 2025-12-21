@@ -48,13 +48,19 @@ const CHAR_VALUES: Record<string, number> = {
 /**
  * Validates a VIN using official NHTSA wrapper with enhanced error details
  * @param vin - The VIN to validate
+ * @param t - Optional translation function
  * @returns Validation result with details
  */
-export function validateVIN(vin: string): VINValidationResult {
+export function validateVIN(
+  vin: string,
+  t?: (key: string, values?: Record<string, any>) => string
+): VINValidationResult {
+  const getText = (key: string, fallback: string) => (t ? t(key) : fallback)
+
   if (!vin) {
     return {
       isValid: false,
-      error: "VIN is required",
+      error: getText("validation.vin_required", "VIN is required"),
     }
   }
 
@@ -64,6 +70,12 @@ export function validateVIN(vin: string): VINValidationResult {
   if (!validateVinOffline(vinUpper)) {
     // Provide specific error details for better UX
     if (vinUpper.length !== VIN_LENGTH) {
+      if (t) {
+        return {
+          isValid: false,
+          error: t("validation.vin_length_error", { length: VIN_LENGTH, current: vinUpper.length }),
+        }
+      }
       return {
         isValid: false,
         error: `VIN must be exactly ${VIN_LENGTH} characters (currently ${vinUpper.length})`,
@@ -73,13 +85,16 @@ export function validateVIN(vin: string): VINValidationResult {
     if (INVALID_CHARS.test(vinUpper)) {
       return {
         isValid: false,
-        error: "VIN contains invalid characters (I, O, or Q are not allowed)",
+        error: getText(
+          "validation.vin_invalid_chars",
+          "VIN contains invalid characters (I, O, or Q are not allowed)"
+        ),
       }
     }
 
     return {
       isValid: false,
-      error: "VIN format is invalid",
+      error: getText("validation.vin_format_invalid", "VIN format is invalid"),
     }
   }
 
@@ -195,24 +210,42 @@ export function getSerialNumber(vin: string): string | null {
 /**
  * Provides helpful hints based on VIN validation errors
  * @param error - The validation error
+ * @param t - Optional translation function
  * @returns User-friendly hint message
  */
-export function getValidationHint(error?: string): string {
+export function getValidationHint(
+  error?: string,
+  t?: (key: string, values?: Record<string, any>) => string
+): string {
   if (!error) return ""
 
-  if (error.includes("17 characters")) {
-    return "💡 Tip: VINs are exactly 17 characters long. Check for missing or extra characters."
+  const getText = (key: string, fallback: string) => (t ? t(key) : fallback)
+
+  if (error.includes("17 characters") || error.includes("characters")) {
+    return getText(
+      "validation.hint_length",
+      "💡 Tip: VINs are exactly 17 characters long. Check for missing or extra characters."
+    )
   }
 
-  if (error.includes("I, O, or Q")) {
-    return "💡 Tip: The letters I, O, and Q are never used in VINs to avoid confusion with numbers."
+  if (error.includes("I, O, or Q") || error.includes("invalid characters")) {
+    return getText(
+      "validation.hint_invalid_chars",
+      "💡 Tip: The letters I, O, and Q are never used in VINs to avoid confusion with numbers."
+    )
   }
 
   if (error.includes("invalid characters")) {
-    return "💡 Tip: VINs only contain letters A-Z (except I, O, Q) and numbers 0-9."
+    return getText(
+      "validation.hint_chars_only",
+      "💡 Tip: VINs only contain letters A-Z (except I, O, Q) and numbers 0-9."
+    )
   }
 
-  return "💡 Tip: Double-check the VIN on your vehicle's dashboard, door jamb, or registration documents."
+  return getText(
+    "validation.hint_check_vin",
+    "💡 Tip: Double-check the VIN on your vehicle's dashboard, door jamb, or registration documents."
+  )
 }
 
 /**

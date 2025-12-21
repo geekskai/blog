@@ -2,6 +2,7 @@
 
 import React from "react"
 import { Car, Calendar, Palette, Settings, MapPin, Shield } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { ResultSummaryProps } from "../types"
 import {
   getDisplayValue,
@@ -11,6 +12,7 @@ import {
 } from "../lib/mapping"
 
 export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummaryProps) {
+  const t = useTranslations("VinDecoder")
   const title = getVehicleTitle(vehicle)
   const subtitle = getVehicleSubtitle(vehicle)
 
@@ -30,7 +32,7 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
             </h2>
             {subtitle && <p className="mb-4 text-xl font-semibold text-slate-200">{subtitle}</p>}
             <div className="inline-flex items-center gap-3 rounded-2xl border border-slate-600/30 bg-slate-700/30 px-4 py-2 backdrop-blur-sm">
-              <span className="text-sm font-medium text-slate-400">VIN:</span>
+              <span className="text-sm font-medium text-slate-400">{t("result.vin_label")}</span>
               <span className="font-mono text-lg font-bold text-white">{vehicle.vin}</span>
             </div>
           </div>
@@ -43,7 +45,7 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
                 className="group relative overflow-hidden rounded-2xl border border-slate-500/30 bg-gradient-to-br from-slate-600/40 to-slate-700/40 px-6 py-3 text-base font-medium text-slate-300 backdrop-blur-xl transition-all duration-300 hover:border-slate-400/50 hover:shadow-lg hover:shadow-slate-500/20"
               >
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-slate-400/0 via-slate-400/10 to-slate-400/0 transition-transform duration-700 group-hover:translate-x-full" />
-                <span className="relative">Copy</span>
+                <span className="relative">{t("actions.copy_summary")}</span>
               </button>
             )}
             {onShare && (
@@ -52,7 +54,7 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
                 className="group relative overflow-hidden rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-cyan-500/10 px-6 py-3 text-base font-medium text-blue-300 backdrop-blur-xl transition-all duration-300 hover:border-blue-400/50 hover:shadow-lg hover:shadow-blue-500/20"
               >
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-blue-400/0 via-blue-400/10 to-blue-400/0 transition-transform duration-700 group-hover:translate-x-full" />
-                <span className="relative">Share</span>
+                <span className="relative">{t("actions.share")}</span>
               </button>
             )}
           </div>
@@ -68,9 +70,13 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
                 <div className="rounded-xl bg-blue-500/25 p-3 shadow-lg shadow-blue-500/20">
                   <Calendar className="h-6 w-6 text-blue-400" />
                 </div>
-                <span className="text-sm font-semibold text-blue-300">Model Year</span>
+                <span className="text-sm font-semibold text-blue-300">
+                  {t("result.model_year")}
+                </span>
               </div>
-              <p className="text-2xl font-bold text-white">{getDisplayValue(vehicle.year)}</p>
+              <p className="text-2xl font-bold text-white">
+                {getDisplayValue(vehicle.year, undefined, t)}
+              </p>
             </div>
           </div>
 
@@ -82,10 +88,13 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
                 <div className="rounded-xl bg-emerald-500/25 p-3 shadow-lg shadow-emerald-500/20">
                   <Car className="h-6 w-6 text-emerald-400" />
                 </div>
-                <span className="text-sm font-semibold text-emerald-300">Make & Model</span>
+                <span className="text-sm font-semibold text-emerald-300">
+                  {t("result.make_model")}
+                </span>
               </div>
               <p className="text-2xl font-bold text-white">
-                {getDisplayValue(vehicle.make)} {getDisplayValue(vehicle.model, "")}
+                {getDisplayValue(vehicle.make, undefined, t)}{" "}
+                {getDisplayValue(vehicle.model, "", t)}
               </p>
             </div>
           </div>
@@ -98,9 +107,13 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
                 <div className="rounded-xl bg-purple-500/25 p-3 shadow-lg shadow-purple-500/20">
                   <Palette className="h-6 w-6 text-purple-400" />
                 </div>
-                <span className="text-sm font-semibold text-purple-300">Body Class</span>
+                <span className="text-sm font-semibold text-purple-300">
+                  {t("result.body_class")}
+                </span>
               </div>
-              <p className="text-2xl font-bold text-white">{getDisplayValue(vehicle.bodyClass)}</p>
+              <p className="text-2xl font-bold text-white">
+                {getDisplayValue(vehicle.bodyClass, undefined, t)}
+              </p>
             </div>
           </div>
 
@@ -113,21 +126,24 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
                   <div className="rounded-xl bg-orange-500/25 p-3 shadow-lg shadow-orange-500/20">
                     <Settings className="h-6 w-6 text-orange-400" />
                   </div>
-                  <span className="text-sm font-semibold text-orange-300">Engine</span>
+                  <span className="text-sm font-semibold text-orange-300">
+                    {t("result.engine")}
+                  </span>
                 </div>
                 <p className="text-2xl font-bold text-white">
                   {vehicle.engine.cylinders && `${vehicle.engine.cylinders} Cyl`}
                   {vehicle.engine.cylinders &&
                     (vehicle.engine.displacementL || vehicle.engine.displacementCc) &&
                     " • "}
-                  {formatEngineDisplacement(
-                    vehicle.engine.displacementCc,
-                    vehicle.engine.displacementL
-                  ) !== "Not available" &&
-                    formatEngineDisplacement(
+                  {(() => {
+                    const displacement = formatEngineDisplacement(
                       vehicle.engine.displacementCc,
-                      vehicle.engine.displacementL
-                    )}
+                      vehicle.engine.displacementL,
+                      t
+                    )
+                    const notAvailable = t("mapping.not_available")
+                    return displacement !== notAvailable && displacement
+                  })()}
                 </p>
                 {vehicle.engine.fuelType && (
                   <p className="mt-2 text-base text-orange-200">{vehicle.engine.fuelType}</p>
@@ -145,7 +161,9 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
                   <div className="rounded-xl bg-cyan-500/25 p-3 shadow-lg shadow-cyan-500/20">
                     <Settings className="h-6 w-6 text-cyan-400" />
                   </div>
-                  <span className="text-sm font-semibold text-cyan-300">Drive Type</span>
+                  <span className="text-sm font-semibold text-cyan-300">
+                    {t("result.drive_type")}
+                  </span>
                 </div>
                 <p className="text-2xl font-bold text-white">{vehicle.driveType}</p>
               </div>
@@ -161,10 +179,12 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
                   <div className="rounded-xl bg-pink-500/25 p-3 shadow-lg shadow-pink-500/20">
                     <MapPin className="h-6 w-6 text-pink-400" />
                   </div>
-                  <span className="text-sm font-semibold text-pink-300">Manufacturing</span>
+                  <span className="text-sm font-semibold text-pink-300">
+                    {t("result.manufacturing")}
+                  </span>
                 </div>
                 <p className="text-2xl font-bold text-white">
-                  {getDisplayValue(vehicle.manufacturing.plantCountry)}
+                  {getDisplayValue(vehicle.manufacturing.plantCountry, undefined, t)}
                 </p>
                 {vehicle.manufacturing.manufacturerName && (
                   <p className="mt-2 text-base text-pink-200">
@@ -181,7 +201,7 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
           {/* Doors */}
           {vehicle.doors && (
             <div className="group flex items-center justify-between rounded-2xl border border-slate-600/20 bg-gradient-to-r from-slate-700/30 to-slate-800/30 px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:border-slate-500/40 hover:shadow-lg hover:shadow-slate-500/10">
-              <span className="text-base font-medium text-slate-300">Doors</span>
+              <span className="text-base font-medium text-slate-300">{t("result.doors")}</span>
               <span className="text-lg font-bold text-white">{vehicle.doors}</span>
             </div>
           )}
@@ -189,7 +209,9 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
           {/* Vehicle Type */}
           {vehicle.vehicleType && (
             <div className="group flex items-center justify-between rounded-2xl border border-slate-600/20 bg-gradient-to-r from-slate-700/30 to-slate-800/30 px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:border-slate-500/40 hover:shadow-lg hover:shadow-slate-500/10">
-              <span className="text-base font-medium text-slate-300">Vehicle Type</span>
+              <span className="text-base font-medium text-slate-300">
+                {t("result.vehicle_type")}
+              </span>
               <span className="text-lg font-bold text-white">{vehicle.vehicleType}</span>
             </div>
           )}
@@ -197,7 +219,7 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
           {/* GVWR */}
           {vehicle.gvwr && (
             <div className="group flex items-center justify-between rounded-2xl border border-slate-600/20 bg-gradient-to-r from-slate-700/30 to-slate-800/30 px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:border-slate-500/40 hover:shadow-lg hover:shadow-slate-500/10">
-              <span className="text-base font-medium text-slate-300">GVWR</span>
+              <span className="text-base font-medium text-slate-300">{t("result.gvwr")}</span>
               <span className="text-lg font-bold text-white">{vehicle.gvwr}</span>
             </div>
           )}
@@ -205,10 +227,13 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
           {/* Transmission */}
           {vehicle.transmission?.type && (
             <div className="group flex items-center justify-between rounded-2xl border border-slate-600/20 bg-gradient-to-r from-slate-700/30 to-slate-800/30 px-6 py-4 backdrop-blur-xl transition-all duration-300 hover:border-slate-500/40 hover:shadow-lg hover:shadow-slate-500/10">
-              <span className="text-base font-medium text-slate-300">Transmission</span>
+              <span className="text-base font-medium text-slate-300">
+                {t("result.transmission")}
+              </span>
               <span className="text-lg font-bold text-white">
                 {vehicle.transmission.type}
-                {vehicle.transmission.speeds && ` (${vehicle.transmission.speeds} speeds)`}
+                {vehicle.transmission.speeds &&
+                  ` (${vehicle.transmission.speeds} ${t("result.speeds")})`}
               </span>
             </div>
           )}
@@ -224,7 +249,7 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
                   <Shield className="h-8 w-8 text-green-400" />
                 </div>
                 <h3 className="bg-gradient-to-r from-green-200 to-emerald-200 bg-clip-text text-2xl font-bold text-transparent">
-                  Safety Features
+                  {t("result.safety_features")}
                 </h3>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
@@ -243,7 +268,7 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
                     <div className="flex items-center gap-3">
                       <div className="h-3 w-3 rounded-full bg-green-400" />
                       <span className="text-base font-medium text-green-300">
-                        ABS: {vehicle.safety.abs}
+                        {t("result.abs")}: {vehicle.safety.abs}
                       </span>
                     </div>
                   </div>
@@ -253,7 +278,7 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
                     <div className="flex items-center gap-3">
                       <div className="h-3 w-3 rounded-full bg-green-400" />
                       <span className="text-base font-medium text-green-300">
-                        ESC: {vehicle.safety.esc}
+                        {t("result.esc")}: {vehicle.safety.esc}
                       </span>
                     </div>
                   </div>
@@ -263,7 +288,7 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
                     <div className="flex items-center gap-3">
                       <div className="h-3 w-3 rounded-full bg-green-400" />
                       <span className="text-base font-medium text-green-300">
-                        TPMS: {vehicle.safety.tpms}
+                        {t("result.tpms")}: {vehicle.safety.tpms}
                       </span>
                     </div>
                   </div>

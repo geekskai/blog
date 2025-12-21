@@ -13,6 +13,7 @@ import {
   Copy,
   Check,
 } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { BrandInfo, SUPPORTED_BRANDS } from "../types"
 import VinInput from "../components/VinInput"
 import ResultSummary from "../components/ResultSummary"
@@ -27,6 +28,7 @@ interface VinDecoderClientProps {
 }
 
 export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
+  const t = useTranslations("VinDecoder")
   const [searchState, setSearchState] = useState<SearchState>({
     vin: "",
     isValidating: false,
@@ -46,7 +48,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
   // Validate VIN as user types
   useEffect(() => {
     if (searchState.vin) {
-      const validation = validateVIN(searchState.vin)
+      const validation = validateVIN(searchState.vin, t)
       setSearchState((prev) => ({
         ...prev,
         validationResult: validation,
@@ -113,7 +115,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
           isDecoding: false,
           decodeResult: {
             status: "no_data" as DecodeStatus,
-            message: "No vehicle data found for this VIN. Please verify the VIN is correct.",
+            message: t("errors.no_data_message"),
           },
         }))
         return
@@ -135,9 +137,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
     } catch (error) {
       console.error("Decode error:", error)
       const errorMessage =
-        error instanceof Error
-          ? error.message
-          : "Failed to decode VIN. Please check your connection and try again."
+        error instanceof Error ? error.message : t("errors.network_error_message")
 
       setSearchState((prev) => ({
         ...prev,
@@ -154,7 +154,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
     if (!searchState.decodeResult?.vehicle) return
 
     setCopyStatus("copying")
-    const text = formatVehicleSummary(searchState.decodeResult.vehicle)
+    const text = formatVehicleSummary(searchState.decodeResult.vehicle, t)
 
     try {
       if (typeof navigator !== "undefined" && navigator.clipboard) {
@@ -171,7 +171,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
   const handleShare = useCallback(async () => {
     if (!searchState.decodeResult?.vehicle) return
 
-    const text = formatVehicleSummary(searchState.decodeResult.vehicle)
+    const text = formatVehicleSummary(searchState.decodeResult.vehicle, t)
 
     if (typeof window === "undefined") return
 
@@ -180,7 +180,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
     if (typeof navigator !== "undefined" && navigator.share) {
       try {
         await navigator.share({
-          title: `${brand.name} VIN Decoder Result`,
+          title: t("brand.share_title", { brand: brand.name }),
           text,
           url,
         })
@@ -242,19 +242,19 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
           <li>
             <a href="/" className="flex items-center hover:text-slate-200">
               <Home className="h-4 w-4" />
-              <span className="ml-1">Home</span>
+              <span className="ml-1">{t("breadcrumb.home")}</span>
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
           <li>
             <a href="/tools" className="hover:text-slate-200">
-              Tools
+              {t("breadcrumb.tools")}
             </a>
           </li>
           <ChevronRight className="h-4 w-4" />
           <li>
             <Link href="/tools/vin-decoder" className="hover:text-slate-200">
-              VIN Decoder
+              {t("breadcrumb.vin_decoder")}
             </Link>
           </li>
           <ChevronRight className="h-4 w-4" />
@@ -268,17 +268,17 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
           {/* Brand Badge */}
           <div className="mb-6 inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-lg">
             <Car className="mr-2 h-4 w-4" />
-            {brand.name} VIN Decoder
+            {t("brand.badge", { brand: brand.name })}
           </div>
 
           {/* Title */}
           <h1 className="mb-4 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-4xl font-bold text-transparent">
-            {brand.name} VIN Decoder
+            {t("brand.title", { brand: brand.name })}
           </h1>
 
           {/* Description */}
           <p className="mx-auto max-w-2xl text-lg text-slate-300">
-            {brand.description} Get instant results with our official NHTSA database integration.
+            {brand.description} {t("brand.description_suffix")}
           </p>
         </div>
 
@@ -316,12 +316,12 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
                             {copyStatus === "copied" ? (
                               <>
                                 <Check className="h-5 w-5 text-green-400" />
-                                <span className="text-green-400">Copied!</span>
+                                <span className="text-green-400">{t("actions.copied")}</span>
                               </>
                             ) : (
                               <>
                                 <Copy className="h-5 w-5" />
-                                <span>Copy Summary</span>
+                                <span>{t("actions.copy_summary")}</span>
                               </>
                             )}
                           </div>
@@ -333,7 +333,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
                         >
                           <div className="relative flex items-center gap-2">
                             <Database className="h-5 w-5" />
-                            <span>Export JSON</span>
+                            <span>{t("actions.export_json")}</span>
                           </div>
                         </button>
 
@@ -343,7 +343,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
                         >
                           <div className="relative flex items-center gap-2">
                             <Share2 className="h-5 w-5" />
-                            <span>Share</span>
+                            <span>{t("actions.share")}</span>
                           </div>
                         </button>
                       </div>
@@ -358,7 +358,9 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
             {/* Brand Info */}
             <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
               <div className="border-b border-slate-700 px-6 py-4">
-                <h2 className="text-lg font-semibold text-white">{brand.name} Information</h2>
+                <h2 className="text-lg font-semibold text-white">
+                  {t("brand.info_title", { brand: brand.name })}
+                </h2>
               </div>
               <div className="p-6">
                 <div className="space-y-4 text-sm text-slate-300">
@@ -366,7 +368,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
                     <div className="flex items-start gap-3">
                       <div className="mt-1 h-2 w-2 rounded-full bg-blue-400"></div>
                       <div>
-                        <div className="font-medium text-white">Country</div>
+                        <div className="font-medium text-white">{t("brand.country")}</div>
                         <div>{brand.country}</div>
                       </div>
                     </div>
@@ -374,7 +376,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
                   <div className="flex items-start gap-3">
                     <div className="mt-1 h-2 w-2 rounded-full bg-emerald-400"></div>
                     <div>
-                      <div className="font-medium text-white">Full Name</div>
+                      <div className="font-medium text-white">{t("brand.full_name")}</div>
                       <div>{brand.fullName}</div>
                     </div>
                   </div>
@@ -386,11 +388,11 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
             {brand.commonWMIs && brand.commonWMIs.length > 0 && (
               <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
                 <div className="border-b border-slate-700 px-6 py-4">
-                  <h2 className="text-lg font-semibold text-white">WMI Codes</h2>
+                  <h2 className="text-lg font-semibold text-white">{t("brand.wmi_codes_title")}</h2>
                 </div>
                 <div className="p-6">
                   <p className="mb-4 text-sm text-slate-300">
-                    Common {brand.name} WMI codes (first 3 VIN characters):
+                    {t("brand.wmi_codes_desc", { brand: brand.name })}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {brand.commonWMIs.map((wmi) => (
@@ -410,7 +412,9 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
             {brand.popularModels && brand.popularModels.length > 0 && (
               <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
                 <div className="border-b border-slate-700 px-6 py-4">
-                  <h2 className="text-lg font-semibold text-white">Popular Models</h2>
+                  <h2 className="text-lg font-semibold text-white">
+                    {t("brand.popular_models_title")}
+                  </h2>
                 </div>
                 <div className="p-6">
                   <div className="space-y-2">
@@ -434,50 +438,36 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
         <div className="mt-16 space-y-8">
           <div className="text-center">
             <h2 className="mb-4 bg-gradient-to-r from-white via-slate-200 to-slate-300 bg-clip-text text-3xl font-bold text-transparent">
-              {brand.name} VIN Decoder FAQ
+              {t("brand.faq_title", { brand: brand.name })}
             </h2>
             <p className="text-lg text-slate-400">
-              Common questions about decoding {brand.name} VINs
+              {t("brand.faq_subtitle", { brand: brand.name })}
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-xl bg-gradient-to-r from-blue-800 to-indigo-700 p-6">
               <h3 className="mb-3 text-lg font-semibold text-white">
-                Where can I find my {brand.name} VIN?
+                {t("brand.faq_where_find_q", { brand: brand.name })}
               </h3>
-              <p className="text-slate-200">
-                On most {brand.name} vehicles, you can find the VIN on the driver's side dashboard
-                (visible through the windshield), on the driver's side door jamb, or in your vehicle
-                registration and insurance documents.
-              </p>
+              <p className="text-slate-200">{t("brand.faq_where_find_a", { brand: brand.name })}</p>
             </div>
 
             <div className="rounded-xl bg-gradient-to-r from-emerald-800 to-teal-700 p-6">
-              <h3 className="mb-3 text-lg font-semibold text-white">
-                What do the first 3 characters mean?
-              </h3>
+              <h3 className="mb-3 text-lg font-semibold text-white">{t("brand.faq_wmi_q")}</h3>
               <p className="text-slate-200">
-                The first 3 characters (WMI) identify {brand.name} as the manufacturer. Common{" "}
-                {brand.name} WMI codes include: {brand.commonWMIs.join(", ")}.
+                {t("brand.faq_wmi_a", { brand: brand.name, wmis: brand.commonWMIs.join(", ") })}
               </p>
             </div>
 
             <div className="rounded-xl bg-gradient-to-r from-purple-800 to-pink-700 p-6">
-              <h3 className="mb-3 text-lg font-semibold text-white">What information can I get?</h3>
-              <p className="text-slate-200">
-                Our {brand.name} VIN decoder provides comprehensive vehicle specifications including
-                model year, exact model, trim level, engine type and size, transmission type, drive
-                configuration, safety features, and manufacturing location.
-              </p>
+              <h3 className="mb-3 text-lg font-semibold text-white">{t("brand.faq_info_q")}</h3>
+              <p className="text-slate-200">{t("brand.faq_info_a", { brand: brand.name })}</p>
             </div>
 
             <div className="rounded-xl bg-gradient-to-r from-orange-800 to-red-700 p-6">
-              <h3 className="mb-3 text-lg font-semibold text-white">Is this decoder free?</h3>
-              <p className="text-slate-200">
-                Yes, our {brand.name} VIN decoder is completely free to use with no limits. No
-                registration or payment required - just enter your VIN and get instant results.
-              </p>
+              <h3 className="mb-3 text-lg font-semibold text-white">{t("brand.faq_free_q")}</h3>
+              <p className="text-slate-200">{t("brand.faq_free_a", { brand: brand.name })}</p>
             </div>
           </div>
         </div>
@@ -486,11 +476,9 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
         <div className="mt-16">
           <div className="text-center">
             <h2 className="mb-4 bg-gradient-to-r from-white via-slate-200 to-slate-300 bg-clip-text text-3xl font-bold text-transparent">
-              Other Brand VIN Decoders
+              {t("brand.other_brands_title")}
             </h2>
-            <p className="mb-8 text-lg text-slate-400">
-              Decode VINs for other popular vehicle brands
-            </p>
+            <p className="mb-8 text-lg text-slate-400">{t("brand.other_brands_desc")}</p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -530,7 +518,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
                     <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/5 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
                     <div className="relative">
                       <h3 className="text-lg font-bold text-white">{otherBrand.name}</h3>
-                      <p className="mt-1 text-sm text-slate-300">VIN Decoder</p>
+                      <p className="mt-1 text-sm text-slate-300">{t("brand_links.vin_decoder")}</p>
                     </div>
                   </Link>
                 )

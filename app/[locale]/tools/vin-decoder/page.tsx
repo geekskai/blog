@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useCallback, useEffect } from "react"
+import { useState, useCallback, useEffect } from "react"
 import {
   Home,
   ChevronRight,
@@ -21,19 +21,14 @@ import {
 import { useTranslations } from "next-intl"
 import VinInput from "./components/VinInput"
 import ResultSummary from "./components/ResultSummary"
-import {
-  SearchState,
-  DecodeStatus,
-  DecodedVehicle,
-  HistoryItem,
-  ExportFormat,
-  SUPPORTED_BRANDS,
-} from "./types"
+import { SearchState, DecodeStatus, HistoryItem, ExportFormat, SUPPORTED_BRANDS } from "./types"
 import { validateVIN, isValidVin } from "./lib/validation"
 import { decodeVehicle } from "./lib/api"
 import { vinCache, history, dedupeRequest } from "./lib/cache"
 import { formatVehicleSummary, exportAsJSON, exportAsCSV, exportAsText } from "./lib/mapping"
 import Link from "next/link"
+
+//bmw test vin:  WBA5D12000G270024
 
 export default function VinDecoder() {
   const t = useTranslations("VinDecoder")
@@ -57,7 +52,7 @@ export default function VinDecoder() {
   // Validate VIN as user types
   useEffect(() => {
     if (searchState.vin) {
-      const validation = validateVIN(searchState.vin)
+      const validation = validateVIN(searchState.vin, t)
       setSearchState((prev) => ({
         ...prev,
         validationResult: validation,
@@ -68,7 +63,7 @@ export default function VinDecoder() {
         validationResult: undefined,
       }))
     }
-  }, [searchState.vin])
+  }, [searchState.vin, t])
 
   const handleVinChange = useCallback((vin: string) => {
     setSearchState((prev) => ({
@@ -162,24 +157,27 @@ export default function VinDecoder() {
         },
       }))
     }
-  }, [searchState.vin, searchState.validationResult])
+  }, [searchState.vin, searchState.validationResult, t, searchState])
 
-  const handleHistorySelect = useCallback((item: HistoryItem) => {
-    setSearchState({
-      vin: item.vin,
-      isValidating: false,
-      isDecoding: false,
-      validationResult: validateVIN(item.vin),
-      decodeResult: item.vehicle
-        ? {
-            status: "success" as DecodeStatus,
-            vehicle: item.vehicle,
-            timestamp: Date.now(),
-          }
-        : undefined,
-    })
-    setShowHistory(false)
-  }, [])
+  const handleHistorySelect = useCallback(
+    (item: HistoryItem) => {
+      setSearchState({
+        vin: item.vin,
+        isValidating: false,
+        isDecoding: false,
+        validationResult: validateVIN(item.vin, t),
+        decodeResult: item.vehicle
+          ? {
+              status: "success" as DecodeStatus,
+              vehicle: item.vehicle,
+              timestamp: Date.now(),
+            }
+          : undefined,
+      })
+      setShowHistory(false)
+    },
+    [t]
+  )
 
   const handleClearHistory = useCallback(() => {
     history.clear()
@@ -190,7 +188,7 @@ export default function VinDecoder() {
     if (!searchState.decodeResult?.vehicle) return
 
     setCopyStatus("copying")
-    const text = formatVehicleSummary(searchState.decodeResult.vehicle)
+    const text = formatVehicleSummary(searchState.decodeResult.vehicle, t)
 
     try {
       if (typeof navigator !== "undefined" && navigator.clipboard) {
@@ -202,7 +200,7 @@ export default function VinDecoder() {
       console.error("Failed to copy:", error)
       setCopyStatus("idle")
     }
-  }, [searchState.decodeResult])
+  }, [searchState.decodeResult, t])
 
   const handleExport = useCallback(
     (format: ExportFormat) => {
@@ -247,7 +245,7 @@ export default function VinDecoder() {
   const handleShare = useCallback(async () => {
     if (!searchState.decodeResult?.vehicle) return
 
-    const text = formatVehicleSummary(searchState.decodeResult.vehicle)
+    const text = formatVehicleSummary(searchState.decodeResult.vehicle, t)
 
     if (typeof window === "undefined") return
 
@@ -301,7 +299,7 @@ export default function VinDecoder() {
         setSearchState((prev) => ({
           ...prev,
           vin: vinParam,
-          validationResult: validateVIN(vinParam),
+          validationResult: validateVIN(vinParam, t),
         }))
         handleDecode()
       }, 500)
@@ -329,14 +327,6 @@ export default function VinDecoder() {
           <li className="font-medium text-slate-100">{t("breadcrumb.vin_decoder")}</li>
         </ol>
       </nav>
-
-      {/* Enhanced Background decorations */}
-      {/* <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="from-blue-500/8 to-indigo-500/8 absolute -left-1/4 -top-1/4 h-1/2 w-1/2 animate-pulse rounded-full bg-gradient-to-br blur-3xl" />
-        <div className="from-indigo-500/8 to-purple-500/8 absolute -bottom-1/4 -right-1/4 h-1/2 w-1/2 animate-pulse rounded-full bg-gradient-to-br blur-3xl" />
-        <div className="from-cyan-500/4 to-blue-500/4 absolute left-1/3 top-1/2 h-1/3 w-1/3 rounded-full bg-gradient-to-br blur-2xl" />
-        <div className="from-purple-500/4 to-pink-500/4 absolute right-1/4 top-1/4 h-1/4 w-1/4 rounded-full bg-gradient-to-br blur-2xl" />
-      </div> */}
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Header Section */}

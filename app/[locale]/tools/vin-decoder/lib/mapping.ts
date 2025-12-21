@@ -23,9 +23,16 @@ export function formatVehicleData(vehicle: DecodedVehicle): DecodedVehicle {
 /**
  * Get display value or fallback
  */
-export function getDisplayValue(value: string | undefined, fallback = "Not available"): string {
+export function getDisplayValue(
+  value: string | undefined,
+  fallback?: string,
+  t?: (key: string, values?: Record<string, any>) => string
+): string {
+  const defaultFallback = t ? t("mapping.not_available") : "Not available"
+  const finalFallback = fallback || defaultFallback
+
   if (!value || value === "Not Applicable" || value === "N/A" || value === "null") {
-    return fallback
+    return finalFallback
   }
   return value
 }
@@ -33,8 +40,13 @@ export function getDisplayValue(value: string | undefined, fallback = "Not avail
 /**
  * Format engine displacement for display
  */
-export function formatEngineDisplacement(cc?: string, liters?: string): string {
+export function formatEngineDisplacement(
+  cc?: string,
+  liters?: string,
+  t?: (key: string, values?: Record<string, any>) => string
+): string {
   const parts: string[] = []
+  const notAvailable = t ? t("mapping.not_available") : "Not available"
 
   if (liters && liters !== "Not Applicable") {
     parts.push(`${liters}L`)
@@ -44,13 +56,17 @@ export function formatEngineDisplacement(cc?: string, liters?: string): string {
     parts.push(`${cc}cc`)
   }
 
-  return parts.join(" / ") || "Not available"
+  return parts.join(" / ") || notAvailable
 }
 
 /**
  * Format vehicle summary for sharing
  */
-export function formatVehicleSummary(vehicle: DecodedVehicle): string {
+export function formatVehicleSummary(
+  vehicle: DecodedVehicle,
+  t?: (key: string, values?: Record<string, any>) => string
+): string {
+  const getText = (key: string, fallback: string) => (t ? t(key) : fallback)
   const parts: string[] = []
 
   // Year Make Model
@@ -61,12 +77,12 @@ export function formatVehicleSummary(vehicle: DecodedVehicle): string {
 
   // Trim
   if (vehicle.trim) {
-    parts.push(`Trim: ${vehicle.trim}`)
+    parts.push(`${getText("mapping.trim", "Trim")}: ${vehicle.trim}`)
   }
 
   // Body
   if (vehicle.bodyClass) {
-    parts.push(`Body: ${vehicle.bodyClass}`)
+    parts.push(`${getText("mapping.body", "Body")}: ${vehicle.bodyClass}`)
   }
 
   // Engine
@@ -74,14 +90,16 @@ export function formatVehicleSummary(vehicle: DecodedVehicle): string {
     const engineParts: string[] = []
 
     if (vehicle.engine.cylinders) {
-      engineParts.push(`${vehicle.engine.cylinders} cylinders`)
+      engineParts.push(`${vehicle.engine.cylinders} ${getText("mapping.cylinders", "cylinders")}`)
     }
 
     const displacement = formatEngineDisplacement(
       vehicle.engine.displacementCc,
-      vehicle.engine.displacementL
+      vehicle.engine.displacementL,
+      t
     )
-    if (displacement !== "Not available") {
+    const notAvailable = t ? t("mapping.not_available") : "Not available"
+    if (displacement !== notAvailable) {
       engineParts.push(displacement)
     }
 
@@ -90,17 +108,17 @@ export function formatVehicleSummary(vehicle: DecodedVehicle): string {
     }
 
     if (engineParts.length > 0) {
-      parts.push(`Engine: ${engineParts.join(", ")}`)
+      parts.push(`${getText("mapping.engine", "Engine")}: ${engineParts.join(", ")}`)
     }
   }
 
   // Drive Type
   if (vehicle.driveType) {
-    parts.push(`Drive: ${vehicle.driveType}`)
+    parts.push(`${getText("mapping.drive", "Drive")}: ${vehicle.driveType}`)
   }
 
   // VIN
-  parts.push(`VIN: ${vehicle.vin}`)
+  parts.push(`${getText("mapping.vin", "VIN")}: ${vehicle.vin}`)
 
   return parts.join("\n")
 }

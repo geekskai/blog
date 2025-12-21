@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react"
 import { Search, AlertCircle, Loader2, X, Clipboard, Car } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { VinInputProps } from "../types"
 import { formatVIN, getValidationHint, EXAMPLE_VINS } from "../lib/validation"
 
@@ -31,13 +32,16 @@ export default function VinInput({
   isValid,
   error,
   isLoading = false,
-  placeholder = "Enter 17-character VIN",
+  placeholder,
   autoFocus = true,
 }: VinInputProps) {
+  const t = useTranslations("VinDecoder")
   const [isFocused, setIsFocused] = useState(false)
   const [showExamples, setShowExamples] = useState(false)
   const [mounted, setMounted] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
+
+  const defaultPlaceholder = placeholder || t("input.placeholder")
 
   useEffect(() => {
     setMounted(true)
@@ -146,7 +150,7 @@ export default function VinInput({
             onKeyDown={handleKeyDown}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            placeholder={placeholder}
+            placeholder={defaultPlaceholder}
             className="w-full bg-transparent py-8 pl-24 pr-36 text-2xl font-bold tracking-wider text-white placeholder-slate-400 outline-none transition-all duration-300 focus:placeholder-slate-500"
             spellCheck={false}
             autoComplete="off"
@@ -185,7 +189,7 @@ export default function VinInput({
                 <button
                   onClick={handleClear}
                   className="group rounded-xl border border-slate-600/30 bg-slate-700/30 p-3 text-slate-400 transition-all duration-300 hover:border-red-500/40 hover:bg-red-500/20 hover:text-red-400 hover:shadow-lg hover:shadow-red-500/20"
-                  title="Clear"
+                  title={t("input.clear")}
                 >
                   <X className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
                 </button>
@@ -195,7 +199,7 @@ export default function VinInput({
                 <button
                   onClick={handlePaste}
                   className="group rounded-xl border border-slate-600/30 bg-slate-700/30 p-3 text-slate-400 transition-all duration-300 hover:border-blue-500/40 hover:bg-blue-500/20 hover:text-blue-400 hover:shadow-lg hover:shadow-blue-500/20"
-                  title="Paste from clipboard"
+                  title={t("input.paste")}
                 >
                   <Clipboard className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
                 </button>
@@ -233,14 +237,14 @@ export default function VinInput({
                   <div className="rounded-full bg-white/20 p-2">
                     <Loader2 className="h-6 w-6 animate-spin" />
                   </div>
-                  <span>Decoding VIN...</span>
+                  <span>{t("input.decoding")}</span>
                 </>
               ) : (
                 <>
                   <div className="rounded-full bg-white/20 p-2 transition-transform duration-300 group-hover:scale-110">
                     <Search className="h-6 w-6" />
                   </div>
-                  <span>Decode VIN</span>
+                  <span>{t("actions.decode_vin")}</span>
                 </>
               )}
             </div>
@@ -258,8 +262,8 @@ export default function VinInput({
             </div>
             <div className="flex-1">
               <p className="text-base font-semibold text-red-300">{error}</p>
-              {getValidationHint(error) && (
-                <p className="mt-2 text-sm text-red-200/80">{getValidationHint(error)}</p>
+              {getValidationHint(error, t) && (
+                <p className="mt-2 text-sm text-red-200/80">{getValidationHint(error, t)}</p>
               )}
             </div>
           </div>
@@ -272,7 +276,7 @@ export default function VinInput({
           onClick={() => setShowExamples(!showExamples)}
           className="group inline-flex items-center gap-2 rounded-xl border border-slate-600/30 bg-slate-700/30 px-4 py-2 text-base font-medium text-slate-300 transition-all duration-300 hover:border-slate-500/50 hover:bg-slate-600/40 hover:text-white"
         >
-          <span>{showExamples ? "Hide" : "Show"} example VINs</span>
+          <span>{showExamples ? t("input.hide_examples") : t("input.show_examples")}</span>
           <div className={`transition-transform duration-300 ${showExamples ? "rotate-180" : ""}`}>
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path
@@ -335,24 +339,24 @@ export default function VinInput({
         <div className="absolute -bottom-8 -right-8 h-16 w-16 rounded-full bg-gradient-to-br from-slate-500/10 to-slate-600/10 blur-2xl" />
         <div className="relative">
           <h4 className="mb-4 bg-gradient-to-r from-white to-slate-200 bg-clip-text text-lg font-bold text-transparent">
-            Where to find your VIN:
+            {t("input.where_to_find_title")}
           </h4>
           <ul className="space-y-3 text-base text-slate-300">
             <li className="flex items-center gap-3">
               <div className="h-2 w-2 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400" />
-              <span>Driver's side dashboard (visible through windshield)</span>
+              <span>{t("input.where_to_find_1")}</span>
             </li>
             <li className="flex items-center gap-3">
               <div className="h-2 w-2 rounded-full bg-gradient-to-r from-emerald-400 to-teal-400" />
-              <span>Driver's side door jamb sticker</span>
+              <span>{t("input.where_to_find_2")}</span>
             </li>
             <li className="flex items-center gap-3">
               <div className="h-2 w-2 rounded-full bg-gradient-to-r from-purple-400 to-pink-400" />
-              <span>Vehicle registration or insurance documents</span>
+              <span>{t("input.where_to_find_3")}</span>
             </li>
             <li className="flex items-center gap-3">
               <div className="h-2 w-2 rounded-full bg-gradient-to-r from-orange-400 to-red-400" />
-              <span>Engine block or frame near the windshield washer fluid container</span>
+              <span>{t("input.where_to_find_4")}</span>
             </li>
           </ul>
         </div>
