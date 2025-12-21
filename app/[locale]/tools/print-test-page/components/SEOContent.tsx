@@ -294,7 +294,6 @@ export function FAQSection() {
           <span className="font-semibold text-orange-300">{t("faq_badge")}</span>
         </div>
         <h2 className="text-3xl font-bold text-white">{t("faq_title")}</h2>
-        <p className="mt-4 text-slate-300">{t("faq_description")}</p>
       </div>
       <div className="space-y-4">
         {faqs.map((faq, index) => (

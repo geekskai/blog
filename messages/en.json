@@ -4950,6 +4950,8 @@
     "schema_software_version": "1.0",
     "schema_provider_name": "GeeksKai",
     "schema_provider_url": "https://geekskai.com",
+    "faq_badge": "FAQ",
+    "faq_title": "Frequently Asked Questions",
     "faq_question_1": "What is a printer test page?",
     "faq_answer_1": "A printer test page is a diagnostic document used to check printer quality, color accuracy, alignment, and ink levels. It helps identify issues like missing colors, misalignment, or clogged print heads.",
     "faq_question_2": "How do I print a test page?",
