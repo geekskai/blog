@@ -257,7 +257,7 @@ export function getValidationHint(
  */
 export const EXAMPLE_VINS = [
   { vin: "1HGBH41JXMN109186", description: "Honda Accord" },
-  { vin: "5YJSA1DN5CFP01657", description: "Tesla Model S" },
+  { vin: "3VWD07AJ5EM388202", description: "Tesla Model S" },
   { vin: "WBA3B5C50EJ845971", description: "BMW 3 Series" },
   { vin: "1FTFW1ET5DFC10312", description: "Ford F-150" },
   { vin: "JTDKARFU5J3068263", description: "Toyota Prius" },

@@ -8,7 +8,7 @@ import { formatVIN, getValidationHint, EXAMPLE_VINS } from "../lib/validation"
 
 /**
  *  * 1HGBH41JXMN109186 - Honda Accord
- * 5YJSA1DN5CFP01657 - Tesla Model S
+ * 3VWD07AJ5EM388202 - Tesla Model S
  * WBA3B5C50EJ845971 - BMW 3 Series
  * 1FTFW1ET5DFC10312 - Ford F-150
  * JTDKARFU5J3068263 - Toyota Prius
