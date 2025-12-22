@@ -33,6 +33,7 @@ export function CoreFactsSection() {
     <section className="mb-12" itemScope itemType="https://schema.org/Product">
       <meta itemProp="name" content={t("metadata_title")} />
       <meta itemProp="description" content={t("metadata_description")} />
+      <link itemProp="image" href="https://geekskai.com/static/images/soundcloud-to-wav.png" />
       <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-md">
         <h2 className="mb-8 text-3xl font-bold text-white">{t("section_core_facts_title")}</h2>
         <dl className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -126,8 +127,7 @@ export function FAQSection() {
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
-          >
+            className="rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
             <h3 className="mb-3 text-xl font-semibold text-white">
               {faq.question}
             </h3>
