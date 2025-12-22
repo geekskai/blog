@@ -127,11 +127,12 @@ export function FAQSection() {
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
-              <h3 className="mb-3 text-xl font-semibold text-white">{faq.question}</h3>
-              <p className="prose prose-sm max-w-none text-slate-300 prose-strong:text-purple-300">
-                {faq.answer}
-              </p>
+            className="rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
+          >
+            <h3 className="mb-3 text-xl font-semibold text-white">{faq.question}</h3>
+            <p className="prose prose-sm max-w-none text-slate-300 prose-strong:text-purple-300">
+              {faq.answer}
+            </p>
           </div>
         ))}
       </div>
