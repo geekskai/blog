@@ -50,8 +50,6 @@ export function CoreFactsSection() {
               {t("section_core_facts_pricing")}
             </dt>
             <dd className="text-lg text-white">{t("section_core_facts_pricing_value")}</dd>
-            <meta itemProp="price" content="0" />
-            <meta itemProp="priceCurrency" content="USD" />
           </div>
 
           <div
