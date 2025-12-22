@@ -248,6 +248,7 @@ export default async function RootLayout({
         href={`${basePath}/static/favicons/safari-pinned-tab.png`}
         color="#FF6B6B"
       />
+      <meta name="saashub-verification" content="e4h08bjpev5u" />
       <meta name="msvalidate.01" content="58567D271AD7C1B504E10F5DC587BD0B" />
       <meta name="google-adsense-account" content="ca-pub-2108246014001009"></meta>
       <meta name="google-site-verification" content="QBYZptmNADcvd2h8ZZVSZIJUlv5RnI8yYmHtEld1mKk" />
