@@ -31,6 +31,8 @@ export function CoreFactsSection() {
   const t = useTranslations("SoundCloudToWAV")
   return (
     <section className="mb-12" itemScope itemType="https://schema.org/Product">
+      <meta itemProp="name" content={t("metadata_title")} />
+      <meta itemProp="description" content={t("metadata_description")} />
       <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-md">
         <h2 className="mb-8 text-3xl font-bold text-white">{t("section_core_facts_title")}</h2>
         <dl className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -40,6 +42,9 @@ export function CoreFactsSection() {
             itemType="https://schema.org/Offer"
             className="rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
           >
+            <meta itemProp="price" content="0" />
+            <meta itemProp="priceCurrency" content="USD" />
+            <link itemProp="availability" href="https://schema.org/InStock" />
             <dt className="mb-3 text-sm font-semibold text-emerald-300">
               {t("section_core_facts_pricing")}
             </dt>
@@ -115,25 +120,19 @@ export function FAQSection() {
   ]
 
   return (
-    <section className="mb-12" itemScope itemType="https://schema.org/FAQPage">
+    <section className="mb-12">
       <h2 className="mb-8 text-center text-3xl font-bold text-white">{t("section_faq_title")}</h2>
       <div className="mx-auto max-w-4xl space-y-4">
         {faqs.map((faq, index) => (
           <div
             key={index}
             className="rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
-            itemProp="mainEntity"
-            itemScope
-            itemType="https://schema.org/Question"
           >
-            <h3 className="mb-3 text-xl font-semibold text-white" itemProp="name">
+            <h3 className="mb-3 text-xl font-semibold text-white">
               {faq.question}
             </h3>
-            <div itemProp="acceptedAnswer" itemScope itemType="https://schema.org/Answer">
-              <p
-                className="prose prose-sm max-w-none text-slate-300 prose-strong:text-purple-300"
-                itemProp="text"
-              >
+            <div>
+              <p className="prose prose-sm max-w-none text-slate-300 prose-strong:text-purple-300">
                 {faq.answer}
               </p>
             </div>
