@@ -31,6 +31,9 @@ export function CoreFactsSection() {
   const t = useTranslations("PrintTestPage")
   return (
     <section className="mb-12" itemScope itemType="https://schema.org/Product">
+      <meta itemProp="name" content={t("metadata_title")} />
+      <meta itemProp="description" content={t("metadata_description")} />
+      <link itemProp="image" href="https://geekskai.com/static/images/print-test-page.png" />
       <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-md">
         <h2 className="mb-8 text-3xl font-bold text-white">{t("section_core_facts_title")}</h2>
         <dl className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -46,6 +49,7 @@ export function CoreFactsSection() {
             <dd className="text-lg text-white">{t("section_core_facts_pricing_value")}</dd>
             <meta itemProp="price" content="0" />
             <meta itemProp="priceCurrency" content="USD" />
+            <link itemProp="availability" href="https://schema.org/InStock" />
           </div>
 
           <div
