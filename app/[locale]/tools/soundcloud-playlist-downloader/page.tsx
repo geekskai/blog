@@ -234,6 +234,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
               tracks={playlistInfo.tracks}
               onDownloadAll={handleDownloadAll}
               isDownloading={downloadProgress.status === "downloading"}
+              format={format}
             />
           </div>
         )}
