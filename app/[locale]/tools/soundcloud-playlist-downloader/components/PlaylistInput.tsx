@@ -35,86 +35,78 @@ export default function PlaylistInput({
             SoundCloud Playlist Downloader
           </h2>
         </div>
-        <div className="p-6">
-          <div className="space-y-6">
-            <div>
-              <span className="mb-3 block text-sm font-semibold text-white/90">Playlist URL</span>
-              <div className="relative">
-                <div className="absolute left-4 top-1/2 -translate-y-1/2 rounded-lg bg-white/5 p-2 backdrop-blur-sm">
-                  <span className="text-xl">🔗</span>
-                </div>
-                <input
-                  type="text"
-                  value={url}
-                  onChange={(e) => onUrlChange(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="https://soundcloud.com/username/sets/playlist-name"
-                  className="w-full rounded-lg border border-white/10 bg-white/5 py-4 pl-16 pr-6 text-lg text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
-                  disabled={isLoading}
-                />
-              </div>
+        <div className="space-y-6 p-6">
+          <span className="mb-3 block text-sm font-semibold text-white/90">Playlist URL</span>
+          <div className="relative">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 rounded-lg bg-white/5 p-2 backdrop-blur-sm">
+              <span className="text-xl">🔗</span>
             </div>
+            <input
+              type="text"
+              value={url}
+              onChange={(e) => onUrlChange(e.target.value)}
+              onKeyPress={handleKeyPress}
+              placeholder="https://soundcloud.com/username/sets/playlist-name"
+              className="w-full rounded-lg border border-white/10 bg-white/5 py-4 pl-16 pr-6 text-lg text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
+              disabled={isLoading}
+            />
+          </div>
 
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <div className="flex flex-1">
-                <button
-                  type="button"
-                  onClick={onFetchPlaylist}
-                  disabled={isLoading || !url.trim()}
-                  className="group relative w-full overflow-hidden rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-base font-medium text-white shadow-lg transition-all hover:from-blue-700 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
-                  <span className="relative flex items-center justify-center gap-2">
-                    {isLoading ? (
-                      <>
-                        <svg
-                          className="h-5 w-5 animate-spin"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                        >
-                          <circle
-                            className="opacity-25"
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                          />
-                          <path
-                            className="opacity-75"
-                            fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                          />
-                        </svg>
-                        <span>Loading Playlist...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span className="text-xl">🔍</span>
-                        <span>Fetch Playlist</span>
-                      </>
-                    )}
-                  </span>
-                </button>
-              </div>
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <button
+              type="button"
+              onClick={onFetchPlaylist}
+              disabled={isLoading || !url.trim()}
+              className="group relative flex-1 overflow-hidden rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-base font-medium text-white shadow-lg transition-all hover:from-blue-700 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
+              <span className="relative flex items-center justify-center gap-2">
+                {isLoading ? (
+                  <>
+                    <svg
+                      className="h-5 w-5 animate-spin"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
+                    </svg>
+                    <span>Loading Playlist...</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="text-xl">🔍</span>
+                    <span>Fetch Playlist</span>
+                  </>
+                )}
+              </span>
+            </button>
 
-              <div className="flex w-full items-center sm:w-32">
-                <select
-                  value={format}
-                  onChange={(e) => onFormatChange(e.target.value as "mp3" | "wav")}
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-base text-white backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
-                  disabled={isLoading}
-                >
-                  <option value="mp3" className="bg-slate-900">
-                    MP3
-                  </option>
-                  <option value="wav" className="bg-slate-900">
-                    WAV
-                  </option>
-                </select>
-              </div>
-            </div>
+            <select
+              value={format}
+              onChange={(e) => onFormatChange(e.target.value as "mp3" | "wav")}
+              className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-base text-white backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20 sm:w-32"
+              disabled={isLoading}
+            >
+              <option value="mp3" className="bg-slate-900">
+                MP3
+              </option>
+              <option value="wav" className="bg-slate-900">
+                WAV
+              </option>
+            </select>
           </div>
 
           {error && (
