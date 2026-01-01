@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
+import { useTranslations } from "next-intl"
 import type { PlaylistTrack, DownloadFormat } from "../types"
 import Image from "next/image"
 import { createDownloadLink, getSafeFileName } from "../lib/utils"
@@ -22,6 +23,7 @@ export default function PlaylistTracks({
   isDownloading,
   format,
 }: PlaylistTracksProps) {
+  const t = useTranslations("SoundCloudPlaylistDownloader")
   const [downloadingTracks, setDownloadingTracks] = useState<TrackDownloadState>({})
 
   const handleDownloadTrack = async (track: PlaylistTrack) => {
@@ -58,7 +60,7 @@ export default function PlaylistTracks({
       console.log(`Downloaded: ${track.title} (${blob.size} bytes)`)
     } catch (error) {
       console.error(`Failed to download track (${track.title}):`, error)
-      alert(`Failed to download ${track.title}. Please try again.`)
+      alert(`${t("playlist_tracks_download")} ${track.title} ${t("error_network")}`)
     } finally {
       setDownloadingTracks((prev) => {
         const newState = { ...prev }
@@ -76,8 +78,10 @@ export default function PlaylistTracks({
     <div className="mx-auto max-w-4xl">
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h2 className="mb-2 text-3xl font-bold text-white">Playlist Tracks ({tracks.length})</h2>
-          <p className="text-sm text-slate-400">Ready to download all tracks</p>
+          <h2 className="mb-2 text-3xl font-bold text-white">
+            {t("playlist_tracks_title")} ({tracks.length})
+          </h2>
+          <p className="text-sm text-slate-400">{t("playlist_tracks_subtitle")}</p>
         </div>
         <button
           onClick={onDownloadAll}
@@ -108,12 +112,12 @@ export default function PlaylistTracks({
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                   />
                 </svg>
-                <span>Downloading...</span>
+                <span>{t("playlist_tracks_downloading")}</span>
               </>
             ) : (
               <>
                 <span className="text-xl">⬇️</span>
-                <span>Download All</span>
+                <span>{t("playlist_tracks_download_all")}</span>
               </>
             )}
           </span>
@@ -187,12 +191,12 @@ export default function PlaylistTracks({
                                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                                 />
                               </svg>
-                              <span>Downloading...</span>
+                              <span>{t("playlist_tracks_downloading")}</span>
                             </>
                           ) : (
                             <>
                               <span className="text-base">⬇️</span>
-                              <span>Download</span>
+                              <span>{t("playlist_tracks_download")}</span>
                             </>
                           )}
                         </span>
@@ -206,7 +210,7 @@ export default function PlaylistTracks({
                           className="inline-flex items-center rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white shadow-sm backdrop-blur-sm transition-all hover:bg-white/10"
                         >
                           <span className="mr-2 text-base">🔗</span>
-                          <span>View on SoundCloud</span>
+                          <span>{t("playlist_tracks_view_soundcloud")}</span>
                         </a>
                       )}
 

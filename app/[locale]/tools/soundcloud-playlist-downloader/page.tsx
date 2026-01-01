@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useCallback } from "react"
+import { useTranslations } from "next-intl"
 import PlaylistInput from "./components/PlaylistInput"
 import PlaylistTracks from "./components/PlaylistTracks"
 import DownloadProgress from "./components/DownloadProgress"
@@ -23,6 +24,7 @@ import type {
 import { isValidSoundCloudPlaylistUrl, createDownloadLink, getSafeFileName } from "./lib/utils"
 
 export default function SoundCloudPlaylistDownloaderPage() {
+  const t = useTranslations("SoundCloudPlaylistDownloader")
   const [url, setUrl] = useState("")
   const [format, setFormat] = useState<DownloadFormat>("mp3")
   const [loadingState, setLoadingState] = useState<LoadingState>("idle")
@@ -43,15 +45,15 @@ export default function SoundCloudPlaylistDownloaderPage() {
   // Validate URL
   const validateUrl = useCallback((): boolean => {
     if (!url.trim()) {
-      setErrorMessage("Please enter a playlist URL")
+      setErrorMessage(t("error_empty_url"))
       return false
     }
     if (!isValidSoundCloudPlaylistUrl(url.trim())) {
-      setErrorMessage("Please enter a valid SoundCloud playlist URL")
+      setErrorMessage(t("error_invalid_url"))
       return false
     }
     return true
-  }, [url])
+  }, [url, t])
 
   // Fetch playlist info
   const handleFetchPlaylist = useCallback(async () => {
@@ -76,8 +78,8 @@ export default function SoundCloudPlaylistDownloaderPage() {
       })
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ error: "Failed to fetch playlist" }))
-        setErrorMessage(errorData.error || "Failed to fetch playlist")
+        const errorData = await response.json().catch(() => ({ error: t("error_fetch_failed") }))
+        setErrorMessage(errorData.error || t("error_fetch_failed"))
         setLoadingState("error")
         return
       }
@@ -88,15 +90,15 @@ export default function SoundCloudPlaylistDownloaderPage() {
         setPlaylistInfo(data)
         setLoadingState("success")
       } else {
-        setErrorMessage("No tracks found in this playlist")
+        setErrorMessage(t("error_no_tracks"))
         setLoadingState("error")
       }
     } catch (error) {
       console.error("Fetch playlist error:", error)
-      setErrorMessage(error instanceof Error ? error.message : "Network error")
+      setErrorMessage(error instanceof Error ? error.message : t("error_network"))
       setLoadingState("error")
     }
-  }, [url, validateUrl, resetError])
+  }, [url, validateUrl, resetError, t])
 
   // Download all tracks
   const handleDownloadAll = useCallback(async () => {
@@ -194,33 +196,35 @@ export default function SoundCloudPlaylistDownloaderPage() {
             <div className="rounded-full bg-white/20 p-1">
               <span className="text-xl">🎵</span>
             </div>
-            <span className="font-semibold">Playlist Downloader</span>
+            <span className="font-semibold">{t("tool_badge")}</span>
           </div>
 
           {/* Main Title */}
           <h1 className="my-6 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-3xl font-bold leading-tight text-transparent md:text-5xl lg:text-6xl">
-            SoundCloud Playlist Downloader
+            {t("page_title")}
           </h1>
 
           {/* Subtitle */}
           <p className="text-md mx-auto mb-6 max-w-3xl leading-relaxed text-slate-300 md:text-lg">
-            Download entire SoundCloud playlists in <strong className="text-purple-400">MP3</strong>{" "}
-            or <strong className="text-cyan-400">WAV</strong> format.{" "}
-            <strong className="text-emerald-400">Free</strong>,{" "}
-            <strong className="text-blue-400">fast</strong>, and{" "}
-            <strong className="text-pink-400">no registration required</strong>.
+            {t.rich("page_subtitle", {
+              mp3: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
+              wav: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
+              free: (chunks) => <strong className="text-emerald-400">{chunks}</strong>,
+              fast: (chunks) => <strong className="text-blue-400">{chunks}</strong>,
+              no_registration: (chunks) => <strong className="text-pink-400">{chunks}</strong>,
+            })}
           </p>
 
           {/* Content Freshness Badge */}
           <div className="flex flex-col items-center gap-4">
             <ContentFreshnessBadge lastModified={new Date("2026-01-01")} />
             <div className="text-sm text-slate-400">
-              Need to download a single track?{" "}
+              {t("related_tool_text")}{" "}
               <a
                 href="/tools/soundcloud-to-wav"
                 className="text-cyan-400 underline transition-colors hover:text-cyan-300"
               >
-                Try SoundCloud to MP3/WAV Converter
+                {t("related_tool_link")}
               </a>
             </div>
           </div>
@@ -267,8 +271,8 @@ export default function SoundCloudPlaylistDownloaderPage() {
           <div className="mx-auto max-w-2xl text-center">
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-12 shadow-xl backdrop-blur-sm">
               <div className="mb-6 text-7xl">🎼</div>
-              <h3 className="mb-3 text-2xl font-bold text-white">Ready to Download</h3>
-              <p className="text-slate-300">Enter a SoundCloud playlist URL above to get started</p>
+              <h3 className="mb-3 text-2xl font-bold text-white">{t("empty_state_title")}</h3>
+              <p className="text-slate-300">{t("empty_state_description")}</p>
             </div>
           </div>
         )}
@@ -279,48 +283,41 @@ export default function SoundCloudPlaylistDownloaderPage() {
           <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10"></div>
             <div className="relative z-10">
-              <h2 className="mb-8 text-3xl font-bold text-white">
-                What is SoundCloud Playlist Downloader?
-              </h2>
+              <h2 className="mb-8 text-3xl font-bold text-white">{t("section_what_is_title")}</h2>
               <div className="grid gap-8 md:grid-cols-2">
                 <div>
                   <p className="mb-6 text-lg leading-relaxed text-slate-300">
-                    Our <strong className="text-purple-300">SoundCloud playlist downloader</strong>{" "}
-                    is a free online tool that allows you to download entire SoundCloud playlists
-                    with just a few clicks. Whether you're a DJ building your music library, a
-                    content creator needing background music, or a music enthusiast wanting offline
-                    access, our tool makes it easy to batch download all tracks from any public
-                    SoundCloud playlist.
+                    {t.rich("section_what_is_description_1", {
+                      strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
+                    })}
                   </p>
                   <p className="text-lg leading-relaxed text-slate-300">
-                    Unlike single-track downloaders, our{" "}
-                    <strong className="text-purple-300">playlist downloader</strong> fetches all
-                    tracks from a playlist at once, displays them in an organized list, and allows
-                    you to download the entire collection or select individual tracks. Choose
-                    between MP3 for smaller file sizes or WAV for uncompressed audio quality.
+                    {t.rich("section_what_is_description_2", {
+                      strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
+                    })}
                   </p>
                 </div>
                 <div className="rounded-2xl border border-white/20 bg-white/5 p-8 backdrop-blur-sm">
                   <h3 className="mb-6 flex items-center text-xl font-semibold text-white">
                     <span className="mr-3 text-2xl">✨</span>
-                    Key Benefits
+                    {t("section_what_is_key_benefits")}
                   </h3>
                   <ul className="space-y-3 text-slate-300">
                     <li className="flex items-center">
                       <div className="mr-3 h-2 w-2 rounded-full bg-purple-400"></div>
-                      Batch download entire playlists instantly
+                      {t("section_what_is_benefit_1")}
                     </li>
                     <li className="flex items-center">
                       <div className="mr-3 h-2 w-2 rounded-full bg-pink-400"></div>
-                      Individual track download option
+                      {t("section_what_is_benefit_2")}
                     </li>
                     <li className="flex items-center">
                       <div className="mr-3 h-2 w-2 rounded-full bg-emerald-400"></div>
-                      MP3 and WAV format support
+                      {t("section_what_is_benefit_3")}
                     </li>
                     <li className="flex items-center">
                       <div className="mr-3 h-2 w-2 rounded-full bg-blue-400"></div>
-                      Free and unlimited downloads
+                      {t("section_what_is_benefit_4")}
                     </li>
                   </ul>
                 </div>
@@ -348,35 +345,16 @@ export default function SoundCloudPlaylistDownloaderPage() {
 
           {/* Legal and Ethical Section */}
           <section className="rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
-            <h2 className="mb-6 text-3xl font-bold text-white">Legal and Ethical Considerations</h2>
+            <h2 className="mb-6 text-3xl font-bold text-white">{t("section_legal_title")}</h2>
             <div className="prose prose-lg max-w-none text-slate-300 prose-headings:text-white prose-strong:font-bold prose-strong:text-orange-300 prose-ul:text-slate-300">
-              <p>
-                Our SoundCloud playlist downloader is provided as a tool for users who have the
-                legal right to download content. It is your responsibility to ensure you have
-                permission to download any content you access through this tool.
-              </p>
+              <p>{t("section_legal_description")}</p>
               <ul className="list-inside list-disc space-y-3">
-                <li>
-                  Only download content you have permission to use or that is explicitly available
-                  for free download
-                </li>
-                <li>
-                  Respect copyright laws and the rights of content creators and copyright holders
-                </li>
-                <li>
-                  Do not redistribute downloaded content without proper authorization from the
-                  copyright holder
-                </li>
-                <li>
-                  Use downloaded content in accordance with SoundCloud's Terms of Service and
-                  applicable copyright laws
-                </li>
+                <li>{t("section_legal_point_1")}</li>
+                <li>{t("section_legal_point_2")}</li>
+                <li>{t("section_legal_point_3")}</li>
+                <li>{t("section_legal_point_4")}</li>
               </ul>
-              <p className="mt-6">
-                By using this tool, you agree to use it responsibly and in compliance with all
-                applicable laws and regulations. We are not responsible for any misuse of this tool
-                or any copyright violations.
-              </p>
+              <p className="mt-6">{t("section_legal_footer")}</p>
             </div>
           </section>
         </div>

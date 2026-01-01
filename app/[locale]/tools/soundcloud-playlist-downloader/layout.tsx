@@ -1,12 +1,14 @@
 import { supportedLocales } from "app/i18n/routing"
 import { Metadata } from "next"
 import React from "react"
+import { getTranslations } from "next-intl/server"
 
 export async function generateMetadata({
   params: { locale },
 }: {
   params: { locale: string }
 }): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "SoundCloudPlaylistDownloader" })
   const isDefaultLocale = locale === "en"
 
   const languages: Record<string, string> = {
@@ -20,30 +22,13 @@ export async function generateMetadata({
   // Update this monthly
   const lastModified = new Date("2025-01-15")
 
-  const metadata = {
-    title: "SoundCloud Playlist Downloader - Free Online Tool | Download Entire Playlists",
-    description:
-      "Free SoundCloud playlist downloader. Download entire SoundCloud playlists in MP3 or WAV format. Fast, unlimited, and no registration required. Batch download all tracks from any SoundCloud playlist.",
-    keywords: [
-      "soundcloud playlist downloader",
-      "download soundcloud playlist",
-      "soundcloud playlist to mp3",
-      "soundcloud playlist to wav",
-      "batch download soundcloud",
-      "soundcloud playlist converter",
-      "free soundcloud playlist downloader",
-      "download entire soundcloud playlist",
-      "soundcloud playlist download tool",
-    ],
-  }
-
   return {
-    title: metadata.title,
-    description: metadata.description,
-    keywords: metadata.keywords,
+    title: t("metadata_title"),
+    description: t("metadata_description"),
+    keywords: t("metadata_keywords").split(", "),
     openGraph: {
-      title: metadata.title,
-      description: metadata.description,
+      title: t("metadata_og_title"),
+      description: t("metadata_og_description"),
       type: "website",
       url: isDefaultLocale
         ? "https://geekskai.com/tools/soundcloud-playlist-downloader/"
@@ -54,15 +39,15 @@ export async function generateMetadata({
           url: "/static/images/soundcloud-playlist-downloader.png",
           width: 1200,
           height: 630,
-          alt: "SoundCloud Playlist Downloader - Free Online Tool",
+          alt: t("metadata_og_image_alt"),
         },
       ],
       locale: "en_US",
     },
     twitter: {
       card: "summary_large_image",
-      title: metadata.title,
-      description: metadata.description,
+      title: t("metadata_twitter_title"),
+      description: t("metadata_twitter_description"),
     },
     alternates: {
       canonical: isDefaultLocale
@@ -98,6 +83,7 @@ export default async function Layout({
   children: React.ReactNode
   params: { locale: string }
 }) {
+  const t = await getTranslations({ locale, namespace: "SoundCloudPlaylistDownloader" })
   const isDefaultLocale = locale === "en"
   const baseUrl = isDefaultLocale
     ? "https://geekskai.com/tools/soundcloud-playlist-downloader"
@@ -107,9 +93,8 @@ export default async function Layout({
   const webApplicationSchema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "SoundCloud Playlist Downloader",
-    description:
-      "Free online tool to download entire SoundCloud playlists in MP3 or WAV format. Batch download all tracks from any SoundCloud playlist quickly and easily.",
+    name: t("schema_name"),
+    description: t("schema_description"),
     url: baseUrl,
     applicationCategory: "UtilityApplication",
     operatingSystem: "Any",
@@ -120,21 +105,21 @@ export default async function Layout({
     },
     provider: {
       "@type": "Organization",
-      name: "GeeksKai",
-      url: "https://geekskai.com",
+      name: t("schema_provider_name"),
+      url: t("schema_provider_url"),
     },
     featureList: [
-      "Download entire SoundCloud playlists",
-      "Batch download multiple tracks at once",
-      "Support for MP3 and WAV formats",
-      "Free and unlimited downloads",
-      "Fast processing speed",
-      "No registration required",
-      "Individual track download option",
-      "Progress tracking for batch downloads",
+      t("schema_feature_1"),
+      t("schema_feature_2"),
+      t("schema_feature_3"),
+      t("schema_feature_4"),
+      t("schema_feature_5"),
+      t("schema_feature_6"),
+      t("schema_feature_7"),
+      t("schema_feature_8"),
     ],
-    browserRequirements: "Modern web browser with JavaScript enabled",
-    softwareVersion: "1.0.0",
+    browserRequirements: t("schema_browser_requirements"),
+    softwareVersion: t("schema_software_version"),
   }
 
   // FAQ Schema
@@ -144,66 +129,66 @@ export default async function Layout({
     mainEntity: [
       {
         "@type": "Question",
-        name: "How do I download a SoundCloud playlist?",
+        name: t("faq_question_1"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Simply paste the SoundCloud playlist URL into the input field, click 'Fetch Playlist' to load all tracks, then click 'Download All' to batch download the entire playlist in your preferred format (MP3 or WAV).",
+          text: t("faq_answer_1"),
         },
       },
       {
         "@type": "Question",
-        name: "Is the SoundCloud playlist downloader free?",
+        name: t("faq_question_2"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes, our SoundCloud playlist downloader is completely free with no registration required. You can download unlimited playlists without any cost.",
+          text: t("faq_answer_2"),
         },
       },
       {
         "@type": "Question",
-        name: "What formats can I download SoundCloud playlists in?",
+        name: t("faq_question_3"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: "You can download SoundCloud playlists in both MP3 and WAV formats. MP3 is ideal for smaller file sizes, while WAV provides uncompressed audio quality.",
+          text: t("faq_answer_3"),
         },
       },
       {
         "@type": "Question",
-        name: "Can I download individual tracks from a playlist?",
+        name: t("faq_question_4"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes, you can download individual tracks from a playlist. After fetching the playlist, each track will have its own download button, allowing you to download tracks one at a time if preferred.",
+          text: t("faq_answer_4"),
         },
       },
       {
         "@type": "Question",
-        name: "How fast is the SoundCloud playlist downloader?",
+        name: t("faq_question_5"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: "The download speed depends on your internet connection and the playlist size. Our tool processes tracks sequentially to ensure stability, with progress tracking for each download.",
+          text: t("faq_answer_5"),
         },
       },
       {
         "@type": "Question",
-        name: "Is it legal to download SoundCloud playlists?",
+        name: t("faq_question_6"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Downloading is only legal if you have permission from the copyright holder or if the tracks are available for free download. Always respect copyright laws and only download content you have rights to use.",
+          text: t("faq_answer_6"),
         },
       },
       {
         "@type": "Question",
-        name: "Do I need to create an account to use the playlist downloader?",
+        name: t("faq_question_7"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No account or registration is required. You can use our SoundCloud playlist downloader immediately without signing up.",
+          text: t("faq_answer_7"),
         },
       },
       {
         "@type": "Question",
-        name: "Can I download private SoundCloud playlists?",
+        name: t("faq_question_8"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No, you can only download public SoundCloud playlists. Private playlists require authentication and cannot be accessed through our tool.",
+          text: t("faq_answer_8"),
         },
       },
     ],
@@ -217,19 +202,19 @@ export default async function Layout({
       {
         "@type": "ListItem",
         position: 1,
-        name: "Home",
+        name: t("breadcrumb_home"),
         item: "https://geekskai.com",
       },
       {
         "@type": "ListItem",
         position: 2,
-        name: "Tools",
+        name: t("breadcrumb_tools"),
         item: "https://geekskai.com/tools",
       },
       {
         "@type": "ListItem",
         position: 3,
-        name: "SoundCloud Playlist Downloader",
+        name: t("breadcrumb_title"),
         item: baseUrl,
       },
     ],

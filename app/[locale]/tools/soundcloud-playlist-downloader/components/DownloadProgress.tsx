@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react"
+import { useTranslations } from "next-intl"
 import type { DownloadProgress as DownloadProgressType } from "../types"
 
 interface DownloadProgressProps {
@@ -9,6 +10,7 @@ interface DownloadProgressProps {
 }
 
 export default function DownloadProgress({ progress, className = "" }: DownloadProgressProps) {
+  const t = useTranslations("SoundCloudPlaylistDownloader")
   const { current, total, currentTrack, status } = progress
 
   if (status === "idle") {
@@ -22,9 +24,9 @@ export default function DownloadProgress({ progress, className = "" }: DownloadP
       <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-sm">
         <div className="mb-4 flex items-center justify-between">
           <div>
-            <h3 className="text-lg font-semibold text-white">Download Progress</h3>
+            <h3 className="text-lg font-semibold text-white">{t("download_progress_title")}</h3>
             <p className="text-sm text-slate-400">
-              {current} of {total} tracks
+              {current} of {total} {t("download_progress_tracks")}
             </p>
           </div>
           <div className="text-2xl font-bold text-purple-300">{percentage}%</div>
@@ -46,7 +48,9 @@ export default function DownloadProgress({ progress, className = "" }: DownloadP
         {currentTrack && (
           <div className="flex items-center gap-2 text-sm text-slate-300">
             <span className="text-xl">🎵</span>
-            <span className="truncate">Downloading: {currentTrack}</span>
+            <span className="truncate">
+              {t("download_progress_downloading")} {currentTrack}
+            </span>
           </div>
         )}
 
@@ -54,7 +58,7 @@ export default function DownloadProgress({ progress, className = "" }: DownloadP
           <div className="mt-4 rounded-lg border border-red-500/30 bg-red-900/20 p-3">
             <div className="flex items-center gap-2 text-sm text-red-400">
               <span>⚠️</span>
-              <span>Some tracks failed to download. Check console for details.</span>
+              <span>{t("download_progress_error")}</span>
             </div>
           </div>
         )}
@@ -63,7 +67,7 @@ export default function DownloadProgress({ progress, className = "" }: DownloadP
           <div className="mt-4 rounded-lg border border-emerald-500/30 bg-emerald-900/20 p-3">
             <div className="flex items-center gap-2 text-sm text-emerald-400">
               <span>✅</span>
-              <span>All tracks downloaded successfully!</span>
+              <span>{t("download_progress_completed")}</span>
             </div>
           </div>
         )}

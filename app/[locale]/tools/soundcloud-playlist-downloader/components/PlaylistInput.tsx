@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react"
+import { useTranslations } from "next-intl"
 
 interface PlaylistInputProps {
   url: string
@@ -21,6 +22,7 @@ export default function PlaylistInput({
   isLoading,
   error,
 }: PlaylistInputProps) {
+  const t = useTranslations("SoundCloudPlaylistDownloader")
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !isLoading && url.trim()) {
       onFetchPlaylist()
@@ -31,12 +33,12 @@ export default function PlaylistInput({
     <div className="mx-auto max-w-3xl">
       <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
         <div className="border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 p-6">
-          <h2 className="text-xl font-semibold text-white md:text-2xl">
-            SoundCloud Playlist Downloader
-          </h2>
+          <h2 className="text-xl font-semibold text-white md:text-2xl">{t("form_title")}</h2>
         </div>
         <div className="space-y-6 p-6">
-          <span className="mb-3 block text-sm font-semibold text-white/90">Playlist URL</span>
+          <span className="mb-3 block text-sm font-semibold text-white/90">
+            {t("form_label_playlist_url")}
+          </span>
           <div className="relative">
             <div className="absolute left-4 top-1/2 -translate-y-1/2 rounded-lg bg-white/5 p-2 backdrop-blur-sm">
               <span className="text-xl">🔗</span>
@@ -46,7 +48,7 @@ export default function PlaylistInput({
               value={url}
               onChange={(e) => onUrlChange(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="https://soundcloud.com/username/sets/playlist-name"
+              placeholder={t("form_placeholder_url")}
               className="w-full rounded-lg border border-white/10 bg-white/5 py-4 pl-16 pr-6 text-lg text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
               disabled={isLoading}
             />
@@ -83,12 +85,12 @@ export default function PlaylistInput({
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       />
                     </svg>
-                    <span>Loading Playlist...</span>
+                    <span>{t("form_button_loading")}</span>
                   </>
                 ) : (
                   <>
                     <span className="text-xl">🔍</span>
-                    <span>Fetch Playlist</span>
+                    <span>{t("form_button_fetch")}</span>
                   </>
                 )}
               </span>
@@ -101,10 +103,10 @@ export default function PlaylistInput({
               disabled={isLoading}
             >
               <option value="mp3" className="bg-slate-900">
-                MP3
+                {t("form_select_format_mp3")}
               </option>
               <option value="wav" className="bg-slate-900">
-                WAV
+                {t("form_select_format_wav")}
               </option>
             </select>
           </div>

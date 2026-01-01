@@ -90,7 +90,9 @@ const ProgressBar = ({ progress, status, className = "" }: ProgressBarProps) => 
 
 export default function Page() {
   const t = useTranslations("SoundCloudToWAV")
-  const [url, setUrl] = useState("")
+  const [url, setUrl] = useState(
+    "https://soundcloud.com/munaim2007/happy-birthday-to-you-arabic-song"
+  )
   const [downloading, setDownloading] = useState(false)
   const [trackInfo, setTrackInfo] = useState<TrackInfo | null>(null)
   const [loadingState, setLoadingState] = useState<LoadingState>("idle")
