@@ -363,7 +363,7 @@ export function generateUrlWithParameters(
   const baseUrl =
     typeof window !== "undefined"
       ? window.location.origin + window.location.pathname
-      : "https://geekskai.com/tools/ccm-to-hp-converter"
+      : "https://geekskai.com/tools/ccm-to-hp-converter/"
 
   return `${baseUrl}?${params.toString()}`
 }

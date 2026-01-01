@@ -13,11 +13,11 @@ export async function generateMetadata({
   const isDefaultLocale = locale === "en"
 
   const languages = {
-    "x-default": "https://geekskai.com/tools/ccm-to-hp-converter",
+    "x-default": "https://geekskai.com/tools/ccm-to-hp-converter/",
   }
 
   supportedLocales.forEach((locale) => {
-    languages[locale] = `https://geekskai.com/${locale}/tools/ccm-to-hp-converter`
+    languages[locale] = `https://geekskai.com/${locale}/tools/ccm-to-hp-converter/`
   })
   return {
     title: t("seo_title"),
@@ -42,7 +42,7 @@ export async function generateMetadata({
       description: t("seo_description"),
       url: isDefaultLocale
         ? "https://geekskai.com/tools/ccm-to-hp-converter"
-        : `https://geekskai.com/${locale}/tools/ccm-to-hp-converter`,
+        : `https://geekskai.com/${locale}/tools/ccm-to-hp-converter/`,
       siteName: "GeeksKai Tools",
       images: [
         {
@@ -64,8 +64,8 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: isDefaultLocale
-        ? "https://geekskai.com/tools/ccm-to-hp-converter"
-        : `https://geekskai.com/${locale}/tools/ccm-to-hp-converter`,
+        ? "https://geekskai.com/tools/ccm-to-hp-converter/"
+        : `https://geekskai.com/${locale}/tools/ccm-to-hp-converter/`,
       languages: {
         ...languages,
       },
@@ -87,7 +87,7 @@ const getJsonLd = (t: any, locale: string) => ({
       "@id": `https://geekskai.com/${locale}/tools/ccm-to-hp-converter#webapp`,
       name: t("page_title"),
       description: t("page_description"),
-      url: `https://geekskai.com/${locale}/tools/ccm-to-hp-converter`,
+      url: `https://geekskai.com/${locale}/tools/ccm-to-hp-converter/`,
       applicationCategory: "UtilityApplication",
       operatingSystem: "Any",
       permissions: "browser",
@@ -105,7 +105,7 @@ const getJsonLd = (t: any, locale: string) => ({
     },
     {
       "@type": "HowTo",
-      "@id": `https://geekskai.com/${locale}/tools/ccm-to-hp-converter#howto`,
+      "@id": `https://geekskai.com/${locale}/tools/ccm-to-hp-converter/#howto`,
       name: t("usage_guide.title"),
       description: t("usage_guide.description"),
       image: "https://geekskai.com/og-images/ccm-to-hp-converter.jpg",
@@ -158,7 +158,7 @@ const getJsonLd = (t: any, locale: string) => ({
     },
     {
       "@type": "FAQPage",
-      "@id": `https://geekskai.com/${locale}/tools/ccm-to-hp-converter#faq`,
+      "@id": `https://geekskai.com/${locale}/tools/ccm-to-hp-converter/#faq`,
       mainEntity: [
         {
           "@type": "Question",
@@ -212,7 +212,7 @@ const getJsonLd = (t: any, locale: string) => ({
     },
     {
       "@type": "BreadcrumbList",
-      "@id": `https://geekskai.com/${locale}/tools/ccm-to-hp-converter#breadcrumb`,
+      "@id": `https://geekskai.com/${locale}/tools/ccm-to-hp-converter/#breadcrumb`,
       itemListElement: [
         {
           "@type": "ListItem",
@@ -230,13 +230,13 @@ const getJsonLd = (t: any, locale: string) => ({
           "@type": "ListItem",
           position: 3,
           name: t("breadcrumb.ccm_to_hp_converter"),
-          item: `https://geekskai.com/${locale}/tools/ccm-to-hp-converter`,
+          item: `https://geekskai.com/${locale}/tools/ccm-to-hp-converter/`,
         },
       ],
     },
     {
       "@type": "Organization",
-      "@id": "https://geekskai.com#organization",
+      "@id": "https://geekskai.com/#organization",
       name: "GeeksKai",
       url: "https://geekskai.com",
       logo: {
@@ -247,20 +247,20 @@ const getJsonLd = (t: any, locale: string) => ({
     },
     {
       "@type": "WebSite",
-      "@id": "https://geekskai.com#website",
+      "@id": "https://geekskai.com/#website",
       url: "https://geekskai.com",
       name: "GeeksKai",
       description:
         "Free online tools and calculators for developers, designers, and digital professionals.",
       publisher: {
-        "@id": "https://geekskai.com#organization",
+        "@id": "https://geekskai.com/#organization",
       },
       potentialAction: [
         {
           "@type": "SearchAction",
           target: {
             "@type": "EntryPoint",
-            urlTemplate: `https://geekskai.com/${locale}/search?q={search_term_string}`,
+            urlTemplate: `https://geekskai.com/${locale}/#search?q={search_term_string}`,
           },
           "query-input": "required name=search_term_string",
         },

@@ -62,7 +62,7 @@ export function formatCopyText(result: ConversionResult): string {
  */
 export function formatShareText(result: ConversionResult): string {
   const copyText = formatCopyText(result)
-  return `${copyText}\n\nCalculated using CCM to HP Converter - https://geekskai.com/tools/ccm-to-hp-converter`
+  return `${copyText}\n\nCalculated using CCM to HP Converter - https://geekskai.com/tools/ccm-to-hp-converter/`
 }
 
 /**
@@ -85,7 +85,7 @@ export async function shareConversionResult(result: ConversionResult): Promise<b
       await navigator.share({
         title: "CCM to HP Conversion Result",
         text: text,
-        url: "https://geekskai.com/tools/ccm-to-hp-converter",
+        url: "https://geekskai.com/tools/ccm-to-hp-converter/",
       })
       return true
     } catch (error) {
@@ -102,7 +102,7 @@ export async function shareConversionResult(result: ConversionResult): Promise<b
  * Generate shareable URL with conversion parameters
  */
 export function generateShareableUrl(result: ConversionResult): string {
-  const baseUrl = "https://geekskai.com/tools/ccm-to-hp-converter"
+  const baseUrl = "https://geekskai.com/tools/ccm-to-hp-converter/"
   const params = new URLSearchParams({
     input: result.input.toString(),
     type: result.engineConfig.type,
