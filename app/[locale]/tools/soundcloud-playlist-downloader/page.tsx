@@ -4,6 +4,15 @@ import React, { useState, useCallback } from "react"
 import PlaylistInput from "./components/PlaylistInput"
 import PlaylistTracks from "./components/PlaylistTracks"
 import DownloadProgress from "./components/DownloadProgress"
+import {
+  CoreFactsSection,
+  FAQSection,
+  HowToSection,
+  FormatComparisonSection,
+  UseCasesSection,
+  KeyFeaturesSection,
+  ContentFreshnessBadge,
+} from "./SEOContent"
 import type {
   PlaylistTrack,
   PlaylistInfo,
@@ -201,6 +210,20 @@ export default function SoundCloudPlaylistDownloaderPage() {
             <strong className="text-blue-400">fast</strong>, and{" "}
             <strong className="text-pink-400">no registration required</strong>.
           </p>
+
+          {/* Content Freshness Badge */}
+          <div className="flex flex-col items-center gap-4">
+            <ContentFreshnessBadge lastModified={new Date("2026-01-01")} />
+            <div className="text-sm text-slate-400">
+              Need to download a single track?{" "}
+              <a
+                href="/tools/soundcloud-to-wav"
+                className="text-cyan-400 underline transition-colors hover:text-cyan-300"
+              >
+                Try SoundCloud to MP3/WAV Converter
+              </a>
+            </div>
+          </div>
         </header>
 
         {/* Input Section */}
@@ -249,6 +272,114 @@ export default function SoundCloudPlaylistDownloaderPage() {
             </div>
           </div>
         )}
+
+        {/* SEO Content Sections */}
+        <div className="mx-auto mt-32 space-y-24">
+          {/* What is this tool section */}
+          <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10"></div>
+            <div className="relative z-10">
+              <h2 className="mb-8 text-3xl font-bold text-white">
+                What is SoundCloud Playlist Downloader?
+              </h2>
+              <div className="grid gap-8 md:grid-cols-2">
+                <div>
+                  <p className="mb-6 text-lg leading-relaxed text-slate-300">
+                    Our <strong className="text-purple-300">SoundCloud playlist downloader</strong>{" "}
+                    is a free online tool that allows you to download entire SoundCloud playlists
+                    with just a few clicks. Whether you're a DJ building your music library, a
+                    content creator needing background music, or a music enthusiast wanting offline
+                    access, our tool makes it easy to batch download all tracks from any public
+                    SoundCloud playlist.
+                  </p>
+                  <p className="text-lg leading-relaxed text-slate-300">
+                    Unlike single-track downloaders, our{" "}
+                    <strong className="text-purple-300">playlist downloader</strong> fetches all
+                    tracks from a playlist at once, displays them in an organized list, and allows
+                    you to download the entire collection or select individual tracks. Choose
+                    between MP3 for smaller file sizes or WAV for uncompressed audio quality.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/20 bg-white/5 p-8 backdrop-blur-sm">
+                  <h3 className="mb-6 flex items-center text-xl font-semibold text-white">
+                    <span className="mr-3 text-2xl">✨</span>
+                    Key Benefits
+                  </h3>
+                  <ul className="space-y-3 text-slate-300">
+                    <li className="flex items-center">
+                      <div className="mr-3 h-2 w-2 rounded-full bg-purple-400"></div>
+                      Batch download entire playlists instantly
+                    </li>
+                    <li className="flex items-center">
+                      <div className="mr-3 h-2 w-2 rounded-full bg-pink-400"></div>
+                      Individual track download option
+                    </li>
+                    <li className="flex items-center">
+                      <div className="mr-3 h-2 w-2 rounded-full bg-emerald-400"></div>
+                      MP3 and WAV format support
+                    </li>
+                    <li className="flex items-center">
+                      <div className="mr-3 h-2 w-2 rounded-full bg-blue-400"></div>
+                      Free and unlimited downloads
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Core Facts Section */}
+          <CoreFactsSection />
+
+          {/* Key Features Section */}
+          <KeyFeaturesSection />
+
+          {/* How-to Guide Section */}
+          <HowToSection />
+
+          {/* Format Comparison Section */}
+          <FormatComparisonSection />
+
+          {/* Use Cases Section */}
+          <UseCasesSection />
+
+          {/* FAQ Section */}
+          <FAQSection />
+
+          {/* Legal and Ethical Section */}
+          <section className="rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
+            <h2 className="mb-6 text-3xl font-bold text-white">Legal and Ethical Considerations</h2>
+            <div className="prose prose-lg max-w-none text-slate-300 prose-headings:text-white prose-strong:font-bold prose-strong:text-orange-300 prose-ul:text-slate-300">
+              <p>
+                Our SoundCloud playlist downloader is provided as a tool for users who have the
+                legal right to download content. It is your responsibility to ensure you have
+                permission to download any content you access through this tool.
+              </p>
+              <ul className="list-inside list-disc space-y-3">
+                <li>
+                  Only download content you have permission to use or that is explicitly available
+                  for free download
+                </li>
+                <li>
+                  Respect copyright laws and the rights of content creators and copyright holders
+                </li>
+                <li>
+                  Do not redistribute downloaded content without proper authorization from the
+                  copyright holder
+                </li>
+                <li>
+                  Use downloaded content in accordance with SoundCloud's Terms of Service and
+                  applicable copyright laws
+                </li>
+              </ul>
+              <p className="mt-6">
+                By using this tool, you agree to use it responsibly and in compliance with all
+                applicable laws and regulations. We are not responsible for any misuse of this tool
+                or any copyright violations.
+              </p>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   )

@@ -346,7 +346,18 @@ export default function Page() {
           </p>
 
           {/* Content Freshness Badge */}
-          <ContentFreshnessBadge lastModified={new Date("2025-12-21")} />
+          <div className="flex flex-col items-center gap-4">
+            <ContentFreshnessBadge lastModified={new Date("2025-12-21")} />
+            <div className="text-sm text-slate-400">
+              Need to download entire playlists?{" "}
+              <a
+                href="/tools/soundcloud-playlist-downloader"
+                className="text-emerald-400 underline transition-colors hover:text-emerald-300"
+              >
+                Try SoundCloud Playlist Downloader
+              </a>
+            </div>
+          </div>
         </header>
 
         {/* Input area card */}
