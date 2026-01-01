@@ -166,7 +166,9 @@ export default function CcmToHpConverter() {
         <div className="mb-16 text-center">
           <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-3 backdrop-blur-sm">
             <BookOpen className="h-5 w-5 text-blue-400" />
-            <span className="text-lg font-semibold text-blue-300">Engine Power Education</span>
+            <span className="text-lg font-semibold text-blue-300">
+              {t("educational_content.badge")}
+            </span>
           </div>
           <h2 className="mb-4 text-4xl font-bold text-white">{t("educational_content.title")}</h2>
           <p className="mx-auto max-w-3xl text-xl text-slate-400">
