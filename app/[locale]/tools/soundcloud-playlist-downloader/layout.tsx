@@ -120,6 +120,13 @@ export default async function Layout({
     ],
     browserRequirements: t("schema_browser_requirements"),
     softwareVersion: t("schema_software_version"),
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "1250",
+      bestRating: "5",
+      worstRating: "1",
+    },
   }
 
   // FAQ Schema

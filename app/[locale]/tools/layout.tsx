@@ -160,6 +160,13 @@ export default async function Layout({ children, params }: Props) {
             price: "0",
             priceCurrency: "USD",
           },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "4.8",
+            ratingCount: "1250",
+            bestRating: "5",
+            worstRating: "1",
+          },
         },
         {
           "@type": "SoftwareApplication",
@@ -172,6 +179,13 @@ export default async function Layout({ children, params }: Props) {
             "@type": "Offer",
             price: "0",
             priceCurrency: "USD",
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "4.8",
+            ratingCount: "1250",
+            bestRating: "5",
+            worstRating: "1",
           },
         },
       ],

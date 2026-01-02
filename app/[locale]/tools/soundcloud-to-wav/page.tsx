@@ -349,7 +349,7 @@ export default function Page() {
 
           {/* Content Freshness Badge */}
           <div className="flex flex-col items-center gap-4">
-            <ContentFreshnessBadge lastModified={new Date("2025-12-21")} />
+            <ContentFreshnessBadge lastModified={new Date("2026-01-02")} />
             <div className="text-sm text-slate-400">
               Need to download entire playlists?{" "}
               <a

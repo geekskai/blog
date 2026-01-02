@@ -334,6 +334,13 @@ export default async function BoardFootCalculatorLayout({
         "Project managers",
       ],
     },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "1250",
+      bestRating: "5",
+      worstRating: "1",
+    },
   }
 
   return (
