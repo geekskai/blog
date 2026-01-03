@@ -2680,6 +2680,1289 @@ class ParentComponent extends React.Component {
 
 **[⬆ Back to Top](#table-of-contents)**
 
+79. ### How does React's automatic batching improve performance?
+
+    Automatic batching in React groups multiple state updates that occur within the same event loop into a single re-render, rather than re-rendering after each update.
+
+    ```jsx
+    setCount(c => c + 1);
+    setFlag(f => !f);
+    // React batches these → only one re-render
+    ```
+
+    **Result:**
+
+    Fewer renders → less DOM work, better performance, and smoother UI.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+80. ### What are React Portals, and what problems do they solve?
+
+    React Portals render a component's output outside its parent DOM hierarchy into a different part of the DOM tree.
+
+    ```jsx
+    import { createPortal } from "react-dom";
+
+    function Modal({ children }) {
+      return createPortal(
+        <div className="modal">{children}</div>,
+        document.getElementById("modal-root")
+      );
+    }
+    ```
+
+    **They solve the following problems:**
+
+    * Rendering modals, tooltips, or dropdowns outside parent containers
+    * Avoiding CSS overflow or z-index issues (e.g., when parent has overflow: hidden)
+    * Maintaining a logical React hierarchy while adjusting visual placement in the DOM
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+81. ### What is React Strict Mode and what are its benefits?
+
+    React Strict Mode is a development feature in React that activates extra checks and warnings to help identify potential issues in your app.
+
+    * **Detects unsafe lifecycles**: Warns about deprecated lifecycle methods
+    * **Identifies side effects**: Highlights components with side effects in render methods
+    * **Warns about unexpected state changes**: Catches unexpected state mutations
+    * **Enforces best practices**: Flags potential problems, encouraging modern practices
+
+    ```jsx
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+    ```
+
+    Wrapping components in `<React.StrictMode>` activates these development checks without affecting production builds.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+82. ### What is code splitting in a React application?
+
+    Code splitting enhances performance by dividing code into smaller chunks loaded on demand, thereby reducing initial load times. This can be achieved through dynamic `import()` statements or using React's `React.lazy` and `Suspense`.
+
+    ```jsx
+    // Using React.lazy and Suspense
+    const LazyComponent = React.lazy(() => import('./LazyComponent'));
+
+    function App() {
+      return (
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <LazyComponent />
+        </React.Suspense>
+      );
+    }
+    ```
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+83. ### How would one optimize the performance of React contexts to reduce rerenders?
+
+    Optimizing context performance involves memoizing context values with `useMemo`, splitting contexts for isolated state changes, and employing selectors to rerender only necessary components.
+
+    ```jsx
+    const value = useMemo(() => ({ state, dispatch }), [state, dispatch]);
+    ```
+
+    **Additional strategies:**
+
+    * Split contexts by concern (e.g., separate UserContext and ThemeContext)
+    * Use context selectors to subscribe to specific parts of context
+    * Consider using state management libraries for complex scenarios
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+84. ### Explain one-way data flow of React
+
+    In React, one-way data flow means data moves from parent to child components through props.
+
+    * **Parent to child**: The parent passes data to the child
+    * **State updates**: To change data, the child calls a function passed down by the parent
+
+    ```jsx
+    function Parent() {
+      const [count, setCount] = React.useState(0);
+      return <Child count={count} increment={() => setCount(count + 1)} />;
+    }
+
+    function Child({ count, increment }) {
+      return <button onClick={increment}>Count: {count}</button>;
+    }
+    ```
+
+    This ensures data flows in one direction, making the app more predictable.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+85. ### What are some pitfalls of using context in React?
+
+    Context in React can lead to performance issues if not handled carefully, causing unnecessary re-renders of components that consume the context, even if only part of the context changes. Overusing context for state management can also make the code harder to maintain and understand. It's best to use context sparingly and consider other state management solutions like Redux or Zustand for more complex scenarios.
+
+    **Common pitfalls:**
+
+    * All consumers re-render when any part of context changes
+    * Difficult to track where context values are used
+    * Can lead to prop drilling in the opposite direction
+    * Not suitable for frequently changing values
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+86. ### What are some React anti-patterns?
+
+    React anti-patterns are practices that can lead to inefficient or hard-to-maintain code. Common examples include:
+
+    * Directly mutating state instead of using `setState`
+    * Using `componentWillMount` for data fetching
+    * Overusing `componentWillReceiveProps`
+    * Not using keys in lists or using array index for keys
+    * Excessive inline functions in render
+    * Deeply nested state
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+87. ### How do you decide between using React state, context, and external state managers?
+
+    Choosing between React state, context, and external state managers depends on your application's complexity. Use React state for local component state, context for global state shared across multiple components, and external managers like Redux or MobX for complex state management requiring advanced features like optimizing re-renders.
+
+    **Decision guide:**
+
+    * **useState/useReducer**: For component-local state
+    * **Context API**: For simple global state (theme, user info, language)
+    * **Redux/Zustand**: For complex state with frequent updates, time-travel debugging, middleware needs
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+88. ### Explain what happens when `setState` is called in React?
+
+    When `setState` is called in React:
+
+    1. **State update**: It updates the component's state, triggering a re-render of the component
+    2. **Batching**: React may batch multiple setState calls into a single update for performance optimization
+    3. **Re-render**: React re-renders the component (and its child components if needed) with the new state
+    4. **Asynchronous**: State updates may be asynchronous, meaning React doesn't immediately apply the state change; it schedules it for later to optimize performance
+
+    ```jsx
+    function Counter() {
+      const [count, setCount] = React.useState(0);
+
+      const increment = () => {
+        setCount(count + 1); // Calls setState to update state
+      };
+
+      return <button onClick={increment}>Count: {count}</button>;
+    }
+    ```
+
+    In this example, calling `setState` (via `setCount`) triggers a re-render with the updated `count`.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+89. ### Explain prop drilling
+
+    Prop drilling is when you pass data from a parent component to a deeply nested child component through props, even if intermediate components don't use it.
+
+    ```jsx
+    function Grandparent() {
+      const data = 'Hello from Grandparent';
+      return <Parent data={data} />;
+    }
+
+    function Parent({ data }) {
+      return <Child data={data} />;
+    }
+
+    function Child({ data }) {
+      return <p>{data}</p>;
+    }
+    ```
+
+    In this example, `data` is passed through multiple components, even though only the `Child` component uses it. Prop drilling is acceptable for small applications where the component hierarchy is shallow. When global state is needed to be accessed in deeper levels of the app, using context and/or external state managers might be better.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+90. ### Describe lazy loading in React
+
+    Lazy loading in React is a technique where components are loaded only when they are needed, rather than at the initial page load. This helps reduce the initial load time and improve performance by splitting the code into smaller chunks.
+
+    ```jsx
+    import React, { Suspense, lazy } from 'react';
+
+    const LazyComponent = lazy(() => import('./LazyComponent'));
+
+    function App() {
+      return (
+        <Suspense fallback={<div>Loading...</div>}>
+          <LazyComponent />
+        </Suspense>
+      );
+    }
+    ```
+
+    In this example, `LazyComponent` is loaded only when it's rendered, and while loading, a fallback UI (Loading...) is displayed.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+91. ### Discuss synthetic events in React
+
+    Synthetic events in React are a wrapper around native DOM events that ensure consistent behavior across browsers. They normalize the way events are handled, providing a unified API for React applications.
+
+    These events are wrapped in the `SyntheticEvent` object and offer methods like `preventDefault()` and `stopPropagation()` to control event behavior. React uses event pooling to reuse event objects, which helps optimize performance.
+
+    ```jsx
+    function MyComponent() {
+      const handleClick = (event) => {
+        event.preventDefault();
+        console.log('Button clicked');
+      };
+
+      return <button onClick={handleClick}>Click me</button>;
+    }
+    ```
+
+    In this example, `handleClick` handles the click event consistently across all browsers using a synthetic event.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+92. ### Explain the React component lifecycle methods in class components
+
+    React class components have lifecycle methods for different phases:
+
+    **Mounting:**
+
+    * `constructor`: Initializes state or binds methods
+    * `componentDidMount`: Runs after the component mounts, useful for API calls or subscriptions
+
+    ```jsx
+    componentDidMount() {
+      console.log('Component mounted');
+    }
+    ```
+
+    **Updating:**
+
+    * `shouldComponentUpdate`: Determines if the component should re-render
+    * `componentDidUpdate`: Runs after updates, useful for side effects
+
+    **Unmounting:**
+
+    * `componentWillUnmount`: Cleans up (e.g., removing event listeners).
+
+    ```jsx
+    componentWillUnmount() {
+      console.log('Component will unmount');
+    }
+    ```
+
+    These methods allow you to manage component behavior throughout its lifecycle.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+93. ### What is Concurrent Mode in React, and how does it improve rendering performance?
+
+    Concurrent Mode allows React to work on multiple tasks simultaneously without blocking the main UI thread. It enables React to prioritize updates and provide smoother rendering for complex applications.
+
+    **Key benefits:**
+
+    * Interruptible rendering: React can pause, resume, or abort rendering work
+    * Priority-based updates: User interactions get priority over background updates
+    * Better perceived performance: UI stays responsive during heavy computations
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+94. ### How does React handle concurrent rendering with multiple updates and prioritize them?
+
+    React uses the priority system in Concurrent Mode to schedule updates. It can break up large updates into smaller chunks and give priority to user interactions (like clicks or input) to ensure the app remains responsive.
+
+    **Priority levels:**
+
+    * **Urgent**: User interactions (clicks, input)
+    * **Normal**: Data fetching, state updates
+    * **Low**: Background work, analytics
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+95. ### How would you handle long-running tasks or expensive computations in React applications without blocking the UI?
+
+    To avoid blocking the UI, use **Web Workers**, `setTimeout`, or `requestIdleCallback` for offloading heavy computations. Alternatively, break tasks into smaller parts and use React's Suspense or useMemo to only recompute when necessary.
+
+    ```jsx
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+      setTimeout(() => {
+        const result = computeExpensiveData();
+        setData(result);
+      }, 0);
+    }, []);
+    ```
+
+    **Additional strategies:**
+
+    * Use `useMemo` for expensive calculations
+    * Use `useDeferredValue` for non-urgent updates
+    * Use Web Workers for CPU-intensive tasks
+    * Implement pagination or virtualization for large lists
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+96. ### Explain server-side rendering of React applications and its benefits
+
+    Server-side rendering (SSR) involves rendering components on the server before sending fully rendered HTML to clients, improving initial load times and SEO through efficient hydration processes.
+
+    **Benefits:**
+
+    * Faster initial page load
+    * Better SEO (search engines can crawl the content)
+    * Improved performance on low-end devices
+    * Better social media sharing (proper meta tags)
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+97. ### Explain static generation of React applications
+
+    Static generation pre-renders HTML at build time instead of runtime; this approach enhances performance by delivering static content quickly while improving SEO outcomes.
+
+    **When to use:**
+
+    * Content that doesn't change frequently
+    * Blog posts, documentation, marketing pages
+    * Pages that can be generated at build time
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+98. ### What are higher-order components in React?
+
+    Higher-order components (HOCs) are functions that take a component and return a new one with added props or behavior, facilitating logic reuse across components.
+
+    ```jsx
+    const withExtraProps = (WrappedComponent) => {
+      return (props) => <WrappedComponent {...props} extraProp="value" />;
+    };
+
+    const EnhancedComponent = withExtraProps(MyComponent);
+    ```
+
+    **Common use cases:**
+
+    * Authentication checks
+    * Data fetching
+    * Logging and analytics
+    * Styling and theming
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+99. ### Explain the presentational vs container component pattern in React
+
+    In React, the presentational vs container component pattern distinguishes between components that focus on appearance (presentational components) and those that manage logic and state (container components). Presentational components render HTML and CSS, while container components handle data and behavior. This separation leads to a cleaner and more organized codebase.
+
+    **Presentational components:**
+
+    * Focus on how things look
+    * Receive data via props
+    * Rarely have their own state
+    * Are reusable and easy to test
+
+    **Container components:**
+
+    * Focus on how things work
+    * Manage state and data fetching
+    * Pass data to presentational components
+    * Handle business logic
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+100. ### What are render props in React?
+
+    Render props in React allow code sharing between components through a prop that is a function. This function returns a React element, enabling data to be passed to child components. This technique facilitates logic reuse without relying on higher-order components or hooks.
+
+    ```jsx
+    class DataFetcher extends React.Component {
+      state = { data: null };
+
+      componentDidMount() {
+        fetch(this.props.url)
+          .then((response) => response.json())
+          .then((data) => this.setState({ data }));
+      }
+
+      render() {
+        return this.props.render(this.state.data);
+      }
+    }
+
+    // Usage
+    <DataFetcher
+      url="/api/data"
+      render={(data) => <div>{data ? data.name : 'Loading...'}</div>}
+    />
+    ```
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+101. ### Explain the composition pattern in React
+
+    The composition pattern in React involves building components by combining smaller, reusable ones instead of using inheritance. This encourages creating complex UIs by passing components as children or props.
+
+    ```jsx
+    function WelcomeDialog() {
+      return (
+        <Dialog>
+          <h1>Welcome</h1>
+          <p>Thank you for visiting our spacecraft!</p>
+        </Dialog>
+      );
+    }
+
+    function Dialog(props) {
+      return <div className="dialog">{props.children}</div>;
+    }
+    ```
+
+    **Benefits:**
+
+    * More flexible than inheritance
+    * Easier to understand and maintain
+    * Promotes code reuse
+    * Better separation of concerns
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+102. ### How do you handle asynchronous data loading in React applications?
+
+    Asynchronous data loading uses `useEffect` alongside `useState` hooks; fetching data inside `useEffect` updates state with fetched results ensuring re-renders occur with new data.
+
+    ```jsx
+    import React, { useState, useEffect } from 'react';
+
+    const FetchAndDisplayData = () => {
+      const [info, updateInfo] = useState(null);
+      const [isLoading, toggleLoading] = useState(true);
+
+      useEffect(() => {
+        const retrieveData = async () => {
+          try {
+            const res = await fetch('https://api.example.com/data');
+            const data = await res.json();
+            updateInfo(data);
+          } catch (err) {
+            console.error('Error fetching data:', err);
+          } finally {
+            toggleLoading(false);
+          }
+        };
+
+        retrieveData();
+      }, []);
+
+      return (
+        <div>
+          {isLoading ? (
+            <p>Fetching data, please wait...</p>
+          ) : (
+            <pre>{JSON.stringify(info, null, 2)}</pre>
+          )}
+        </div>
+      );
+    };
+
+    export default FetchAndDisplayData;
+    ```
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+103. ### What are some common pitfalls when doing data fetching in React?
+
+    Common pitfalls in data fetching with React include failing to handle loading and error states, neglecting to clean up subscriptions which can cause memory leaks, and improperly using lifecycle methods or hooks. Always ensure proper handling of these states, clean up after components, and utilize `useEffect` for side effects in functional components.
+
+    **Common mistakes:**
+
+    * Not handling loading states
+    * Ignoring error handling
+    * Memory leaks from unclosed subscriptions
+    * Race conditions with async operations
+    * Not cleaning up effects properly
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+## React Hooks
+
+121. ### What are the benefits of using hooks in React?
+
+    Hooks enable the use of state and other React features in functional components, replacing the need for class components. They streamline code by reducing the reliance on lifecycle methods, enhance readability, and facilitate the reuse of stateful logic across components.
+
+    Popular hooks like `useState` and `useEffect` are used for managing state and side effects.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+122. ### What are the rules of React hooks?
+
+    React hooks should be called at the top level of a function, not inside loops, conditions, or nested functions. They must only be used within React function components or custom hooks. These guidelines ensure proper state management and lifecycle behavior.
+
+    **Key rules:**
+
+    1. **Only call hooks at the top level**: Don't call hooks inside loops, conditions, or nested functions
+    2. **Only call hooks from React functions**: Call hooks from React function components or custom hooks
+    3. **Custom hooks must start with 'use'**: This naming convention helps React identify hooks
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+123. ### What is the difference between `useEffect` and `useLayoutEffect` in React?
+
+    `useEffect` and `useLayoutEffect` both handle side effects in React functional components but differ in when they run:
+
+    * `useEffect` runs asynchronously after the DOM has rendered, making it suitable for tasks like data fetching or subscriptions.
+    * `useLayoutEffect` runs synchronously after DOM updates but before the browser paints, ideal for tasks like measuring DOM elements or aligning the UI with the DOM.
+
+    ```jsx
+    import React, { useEffect, useLayoutEffect, useRef } from 'react';
+
+    function Example() {
+      const ref = useRef();
+
+      useEffect(() => {
+        console.log('useEffect: Runs after DOM paint');
+      });
+
+      useLayoutEffect(() => {
+        console.log('useLayoutEffect: Runs before DOM paint');
+        console.log('Element width:', ref.current.offsetWidth);
+      });
+
+      return <div ref={ref}>Hello</div>;
+    }
+    ```
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+124. ### What does the dependency array of `useEffect` affect?
+
+    The dependency array of `useEffect` controls when the effect re-runs:
+
+    * If it's empty `[]`, the effect runs only once after the initial render.
+    * If it contains variables `[dep1, dep2]`, the effect re-runs whenever any of those variables change.
+    * If omitted, the effect runs after every render.
+
+    ```jsx
+    useEffect(() => {
+      // Runs on every render
+    });
+
+    useEffect(() => {
+      // Runs only once on mount
+    }, []);
+
+    useEffect(() => {
+      // Runs when count or name changes
+    }, [count, name]);
+    ```
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+125. ### What is the `useRef` hook in React and when should it be used?
+
+    The `useRef` hook creates a mutable object that persists through renders, allowing direct access to DOM elements, storing mutable values without causing re-renders, and maintaining references to values.
+
+    For instance, `useRef` can be utilized to focus on an input element:
+
+    ```jsx
+    import React, { useRef, useEffect } from 'react';
+
+    function TextInputWithFocusButton() {
+      const inputEl = useRef(null);
+      useEffect(() => {
+        inputEl.current.focus();
+      }, []);
+      return <input ref={inputEl} type="text" />;
+    }
+    ```
+
+    **Common use cases:**
+
+    * Accessing DOM elements directly
+    * Storing mutable values that don't trigger re-renders
+    * Keeping references to previous values
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+126. ### What is the `useCallback` hook in React and when should it be used?
+
+    The `useCallback` hook memoizes functions to prevent their recreation on every render. This is especially beneficial when passing callbacks to optimized child components that depend on reference equality to avoid unnecessary renders.
+
+    ```jsx
+    const memoizedCallback = useCallback(() => {
+      doSomething(a, b);
+    }, [a, b]);
+    ```
+
+    **When to use:**
+
+    * When passing callbacks to child components wrapped in `React.memo`
+    * When callbacks are dependencies of other hooks
+    * To prevent unnecessary re-renders of child components
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+127. ### What is the `useMemo` hook in React and when should it be used?
+
+    The `useMemo` hook memoizes costly calculations, recomputing them only when dependencies change. This enhances performance by avoiding unnecessary recalculations.
+
+    ```jsx
+    const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+    ```
+
+    **When to use:**
+
+    * For expensive computations that don't need to run on every render
+    * When passing computed values to child components to prevent unnecessary re-renders
+    * To optimize performance in components with heavy calculations
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+128. ### What is the `useReducer` hook in React and when should it be used?
+
+    The `useReducer` hook manages complex state logic in functional components, serving as an alternative to `useState`. It's ideal when state has multiple fields or when the next state relies on the previous one.
+
+    The `useReducer` hook accepts a reducer function and an initial state. The `reducer` function is passed the current `state` and `action` and returns a new state.
+
+    ```jsx
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    // Example usage:
+    dispatch({ type: 'increment' });
+    ```
+
+    **When to use:**
+
+    * Complex state logic with multiple sub-values
+    * When next state depends on previous state
+    * When you want centralized state management in a component
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+129. ### What is the `useId` hook in React and when should it be used?
+
+    The `useId` hook generates unique IDs for elements within a component, which is crucial for accessibility by dynamically creating ids that can be used for linking form inputs and labels. It guarantees unique IDs across the application even if the component renders multiple times.
+
+    ```jsx
+    import { useId } from 'react';
+
+    function MyComponent() {
+      const id = useId();
+
+      return (
+        <div>
+          <label htmlFor={id}>Name:</label>
+          <input id={id} type="text" />
+        </div>
+      );
+    }
+    ```
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+130. ### Can you explain how to create and use custom hooks in React?
+
+    To create and use custom hooks in React:
+
+    1. Create a function that starts with `use` and uses built-in hooks like `useState` or `useEffect`
+    2. Return the values or functions you want to share.
+
+    **Example:**
+
+    ```jsx
+    function useForm(initialState) {
+      const [formData, setFormData] = useState(initialState);
+      const handleChange = (e) =>
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+      return [formData, handleChange];
+    }
+    ```
+
+    **Use the Hook:**
+
+    ```jsx
+    function MyForm() {
+      const [formData, handleChange] = useForm({ name: '', email: '' });
+      return <input name="name" value={formData.name} onChange={handleChange} />;
+    }
+    ```
+
+    Custom hooks let you reuse logic across components, keeping your code clean.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+## React Arrays & Lists
+
+131. ### How do you render a list of items in React?
+
+    In React, lists are usually rendered using JavaScript's `.map()` method. Each list item should also have a unique `key` prop so React can efficiently track and update elements.
+
+    ```jsx
+    const fruits = ["Apple", "Banana", "Mango"];
+    return (
+      <ul>
+        {fruits.map((fruit, index) => (
+          <li key={index}>{fruit}</li>
+        ))}
+      </ul>
+    );
+    ```
+
+    In this example, `.map()` is used to iterate over the array, and the `key` prop helps React identify each list item uniquely.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+132. ### Why is the `key` prop important in React lists?
+
+    The `key` prop is important because it helps React efficiently manage list rendering. It allows React to identify which items have changed, been added, or removed, instead of re-rendering the entire list.
+
+    * Helps React track elements and update only what's necessary.
+    * Prevents unnecessary re-renders, improving performance.
+    * Best practice: Use a unique ID as the key instead of the array index whenever possible.
+
+    ```jsx
+    {
+      items.map((item) => <ListItem key={item.id} value={item.value} />);
+    }
+    ```
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+133. ### What happens if we use the array index as a key in React?
+
+    Using the array index as `key`s can lead to performance issues and unexpected behavior, especially when reordering or deleting items. React relies on keys to identify elements uniquely, and using indices can cause components to be re-rendered unnecessarily or display incorrect data.
+
+    **Problems with index keys:**
+
+    * Can cause issues when list items are reordered
+    * May lead to incorrect updates if items are added or removed
+    * Safe only for static lists that never change
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+134. ### How do you conditionally render list items in React?
+
+    In React, list items can be conditionally rendered using techniques like `if` statements, ternary operators, or array methods such as `.filter()` combined with `.map()`.
+
+    ```jsx
+    const users = [{name: "Aman", active: true}, {name: "Raj", active: false}];
+    return (
+      <ul>
+        {users
+          .filter(user => user.active)
+          .map(user => <li key={user.name}>{user.name}</li>)}
+      </ul>
+    );
+    ```
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+135. ### How do you update or remove an item from a list in React state?
+
+    State is immutable, so you cannot modify arrays directly. Instead, you create a new array using methods like `.map()` or `.filter()` and then update state with that new array.
+
+    **Example (removing an item):**
+
+    ```jsx
+    const [list, setList] = useState(["A", "B", "C"]);
+
+    const removeItem = (item) => {
+      setList(list.filter(i => i !== item));
+    };
+    ```
+
+    **Example (updating an item):**
+
+    ```jsx
+    const updateItem = (id, newValue) => {
+      setList(list.map(item =>
+        item.id === id ? { ...item, value: newValue } : item
+      ));
+    };
+    ```
+
+    In these examples, `.filter()` and `.map()` create new arrays without the removed item or with the updated item, and `setList` updates the state.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+136. ### What are some performance tips when rendering large lists in React?
+
+    Rendering very large lists can hurt performance, so React provides techniques and best practices to optimize them:
+
+    * Use unique keys so React can efficiently track items.
+    * Use virtualization libraries like `react-window` or `react-virtualized` to render only the visible portion of the list.
+    * Memoize list items with `React.memo` to prevent unnecessary re-renders.
+    * Implement pagination or lazy loading instead of rendering thousands of items at once.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+137. ### How would you render a nested list in React?
+
+    You can nest `.map()` calls: one for the parent array and another for the child array.
+
+    ```jsx
+    const categories = [
+      { name: "Fruits", items: ["Apple", "Banana"] },
+      { name: "Veggies", items: ["Carrot", "Tomato"] }
+    ];
+
+    return (
+      <div>
+        {categories.map(cat => (
+          <div key={cat.name}>
+            <h3>{cat.name}</h3>
+            <ul>
+              {cat.items.map(item => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    );
+    ```
+
+    In this example, each level of data gets its own `.map()` loop, and both parent and child elements should have unique `key` props.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+138. ### How do you handle dynamic addition of items in a list?
+
+    In React, since state is immutable, you cannot directly modify the existing array. Instead, you create a new array that includes the new item and update state.
+
+    ```jsx
+    const [list, setList] = useState(["A", "B"]);
+
+    const addItem = (item) => {
+      setList([...list, item]);
+    };
+    ```
+
+    In this example:
+
+    * `[...list, item]` creates a new array with the existing items plus the new one.
+    * Calling `setList` with this new array updates the state and triggers a re-render, showing the updated list in the UI.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+139. ### How do you handle dynamic sorting or filtering of lists in React?
+
+    In React, lists are usually stored in state, and you can sort or filter them dynamically by creating a new array based on the original list and updating the state.
+
+    ```jsx
+    const [users, setUsers] = useState([
+      { name: "Aman", age: 25 },
+      { name: "Raj", age: 30 },
+      { name: "Sara", age: 22 }
+    ]);
+
+    // Filter active users
+    const filteredUsers = users.filter(user => user.age > 24);
+
+    // Sort by name
+    const sortedUsers = [...users].sort((a, b) => a.name.localeCompare(b.name));
+    ```
+
+    In this example:
+
+    * `filter` creates a new array containing only the items that meet the condition.
+    * `sort` rearranges the array items; using `[...users]` ensures the original state is not mutated.
+    * Updating state with the new array triggers a re-render, displaying the sorted or filtered list in the UI.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+140. ### What is the difference between rendering lists with map() vs forEach()?
+
+    When rendering lists, it's important to return JSX elements for each item. The choice between `map()` and `forEach()` affects this:
+
+    * **map()**: Returns a **new array**, which can contain JSX elements to be rendered. This is the preferred method for rendering lists in React.
+    * **forEach()**: Does **not return a new array**, so it cannot directly produce elements for rendering. It's only useful for side effects.
+
+    ```jsx
+    const fruits = ["Apple", "Banana", "Mango"];
+    return (
+      <ul>
+        {fruits.map(fruit => <li key={fruit}>{fruit}</li>)}
+      </ul>
+    );
+    ```
+
+    In this example:
+
+    * `map` returns an array of `<li>` elements, which React renders.
+    * Using `forEach` here would not work, because it does not return the array of elements.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+## React Forms & Events
+
+141. ### How are forms handled in React compared to plain HTML?
+
+    In plain HTML, the browser's DOM manages form data. In React, form inputs are usually controlled components:
+
+    * The form values live in state.
+    * Each keystroke triggers an onChange handler to update state.
+    * This makes the data predictable and easy to validate before submission.
+
+    ```jsx
+    function MyForm() {
+      const [name, setName] = React.useState("");
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        alert("Submitted: " + name);
+      };
+
+      return (
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <button type="submit">Submit</button>
+        </form>
+      );
+    }
+    ```
+
+    In this example, the input is fully controlled by React through `value` and `onChange`.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+142. ### How do you prevent the default form submission behavior in React?
+
+    By using `event.preventDefault()` inside the form's `onSubmit` handler.
+
+    ```jsx
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      console.log("Form submitted!");
+    };
+    ```
+
+    In this example, the page is stopped from reloading and lets React control what happens on submit.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+143. ### What is event bubbling and how can you stop it in React?
+
+    * **Event Bubbling**: When an event triggered on a child element propagates upward to its parent elements.
+    * In React, you can stop it using `event.stopPropagation()`.
+
+    ```jsx
+    const handleClick = (e) => {
+      e.stopPropagation();
+      console.log("Child clicked, but won't bubble up.");
+    };
+    ```
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+144. ### How do you handle multiple input fields in a single form in React?
+
+    By using a single state object and updating it dynamically with `name` and `value`.
+
+    ```jsx
+    const [formData, setFormData] = useState({ name: "", email: "" });
+
+    const handleChange = (e) => {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+    ```
+
+    This way, one handler can manage multiple inputs.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+145. ### How do you reset form fields after submission in React?
+
+    In React, form inputs are usually controlled components, meaning their values are stored in state. To reset a form, you simply reset the state that controls the inputs:
+
+    ```jsx
+    const [formData, setFormData] = useState({ name: "", email: "" });
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      console.log(formData);
+      // Reset form fields
+      setFormData({ name: "", email: "" });
+    };
+    ```
+
+    In this example:
+
+    * `setFormData({ name: "", email: "" })` resets all input fields to their initial values.
+    * This triggers a re-render, updating the UI with empty inputs.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+## React State Management
+
+156. ### What is State Management in React and what is the difference between Local and Global State?
+
+    State management refers to how an application handles and shares data across components. It ensures that the UI is updated correctly whenever the underlying data (state) changes. In React, state can be managed locally (inside components) or globally (shared across multiple components using context, Redux, Zustand, etc.).
+
+    | **Local State**                                              | **Global State**                                              |
+    | -------------------------------------------------------------- | --------------------------------------------------------------- |
+    | Data managed within a single component.                        | Data shared across multiple components.                         |
+    | Controlled using useState or useReducer inside the component.  | Managed using Context API, Redux, Zustand, etc.                 |
+    | Used for UI-related data like form inputs, modals, or toggles. | Used for app-wide data like authentication, user info, or theme |
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+157. ### What are some popular state management solutions in React/Next.js?
+
+    There are several approaches and libraries for managing state in React and Next.js, depending on the scale and complexity of your application:
+
+    * **React built-in hooks**: `useState`, `useReducer`, `useContext` – for local or small-scale state management.
+    * **Context API**: Ideal for small to medium global state needs.
+    * **Redux / Redux Toolkit**: Widely used for large-scale applications with complex state logic.
+    * **Zustand**: Lightweight state management library for simplicity and performance.
+    * **Recoil / Jotai / MobX**: Alternative libraries offering fine-grained state control.
+    * **Server-side state (Next.js)**: `useSWR`, React Query, or Server Actions for fetching and caching server data efficiently.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+158. ### When should you use Redux over Context API?
+
+    Choosing between Redux and Context API depends on the size and complexity of your application:
+
+    **Use Redux when:**
+
+    * The application is large and complex.
+    * You need predictable state management with debugging tools (e.g., Redux DevTools).
+    * There are frequent state updates and many shared states across components.
+
+    **Use Context API when:**
+
+    * The application is small or medium-sized.
+    * You only need to share simple state, such as theme, language, or user info.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+159. ### What is the difference between Client State and Server State?
+
+    | Client State                                | Server State                      |
+    | ------------------------------------------- | --------------------------------- |
+    | Managed locally in the app                  | Managed on backend/server         |
+    | Controlled by useState, useReducer, Context | Controlled via API or DB          |
+    | Short-lived (browser session)               | Persistent across sessions/users  |
+    | Examples: form inputs, UI toggles           | Examples: user data, product list |
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+160. ### Explain the Context API in React
+
+    The **Context API** in React is used to share data globally across components without prop drilling. It allows you to wrap components with a provider and access the shared value anywhere in the tree using `useContext`.
+
+    * `createContext()`: Creates a context.
+    * Avoids prop drilling.
+    * Uses Provider to supply data.
+    * Components consume data with `useContext` or `Consumer`.
+    * Best for global values like theme, auth, language.
+    * Often combined with `useState`/`useReducer` for updates.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+161. ### What is the role of useReducer in state management?
+
+    The `useReducer` hook in React plays an important role in state management when the logic for updating state is complex or involves multiple actions. Unlike `useState`, which is best for simple state updates, `useReducer` organizes state transitions using a reducer function, making the code more predictable and easier to maintain. It is especially useful in larger applications or when managing related pieces of state.
+
+    * Manages complex state logic more effectively than `useState`.
+    * Uses a reducer function that takes state and action, then returns a new state.
+    * Returns `[state, dispatch]`, where `dispatch` triggers actions.
+    * Helps keep state updates predictable and organized.
+    * Often used in forms, lists, or apps needing Redux-like patterns.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+162. ### How do you handle persistent state in React apps?
+
+    Persistent state ensures that certain data remains available even after page reloads or across sessions. Common approaches include:
+
+    * **localStorage or sessionStorage**: Save state that persists across page reloads.
+    * **Combine state hooks with effects**: Use `useState` or `useReducer` together with `useEffect` to sync state with storage.
+    * **IndexedDB**: For larger or more complex client-side storage needs.
+    * **Backend storage**: Store state on a server/database via APIs for server-side persistence.
+    * **State management libraries**: Use Redux, Zustand, or Context API with persistence middleware.
+    * **Cookies**: Suitable for small pieces of data, like authentication tokens.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+163. ### What is the difference between derived state and computed state in React?
+
+    In React, sometimes you need values that depend on other state or props. These values can be handled as derived state or computed state, but they work differently:
+
+    * **Derived state**: State calculated from props or other state. Should be avoided if it can be computed during render.
+    * **Computed state**: Calculated on the fly during render or using hooks like `useMemo`. Ensures data stays consistent without storing redundant state.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+164. ### How can you optimize state updates for performance in React?
+
+    Optimizing state updates ensures that components re-render only when necessary, improving performance in React applications:
+
+    * Keep state localized to the smallest possible component.
+    * Use `useMemo` and `useCallback` to avoid unnecessary re-renders.
+    * Batch state updates where possible.
+    * Avoid deep nested objects in state; normalize the data.
+    * Use state management libraries efficiently (e.g., Redux selectors, Zustand slices).
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+165. ### How do you handle asynchronous state updates in React?
+
+    In React, state updates are asynchronous, so you need to handle them carefully to ensure predictable results:
+
+    * State updates (via `setState` or the setter from `useState`) do not happen immediately.
+    * Use the functional form of `setState` when the new state depends on the previous state:
+
+    ```jsx
+    setCount(prevCount => prevCount + 1);
+    ```
+
+    * For multiple sequential updates, consider `useReducer` for predictable state transitions.
+    * Use effects (`useEffect`) to react to changes in state asynchronously.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+## React Rendering & Performance
+
+166. ### Can you explain what the Virtual DOM is and how React uses it?
+
+    The Virtual DOM (VDOM) is a lightweight, in-memory representation of the real DOM in the browser. Instead of updating the actual DOM directly, which can be slow and costly, React first updates the Virtual DOM when a component's state or props change. React then compares the new Virtual DOM with the previous one using a process called diffing, identifies the minimum set of changes needed, and updates only those parts of the real DOM. This approach makes UI updates faster and more efficient by reducing unnecessary DOM manipulations.
+
+    **Key points:**
+
+    * Virtual DOM is a JavaScript object representing the real DOM.
+    * React updates the VDOM first, not the real DOM.
+    * Uses a diffing algorithm to detect changes efficiently.
+    * Only the necessary parts of the real DOM are updated.
+    * Improves performance and user experience in dynamic applications.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+167. ### What do you understand by reconciliation in React? Why is it important?
+
+    Reconciliation in React is the process of comparing the new Virtual DOM with the previous one to determine what has changed. React then updates only the necessary parts of the real DOM, instead of re-rendering the entire UI. This approach improves performance, rendering speed, and efficiency, ensuring a smooth and responsive user experience.
+
+    **Key points:**
+
+    * Reconciliation is React's process to update the DOM efficiently.
+    * Compares new Virtual DOM with previous Virtual DOM using diffing.
+    * Updates only the changed parts of the real DOM.
+    * Improves performance, rendering speed, and efficiency.
+    * Ensures a smooth and responsive UI.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+168. ### How does `React.memo` help improve performance?
+
+    `React.memo` is a higher-order component that prevents unnecessary re-renders of functional components. It re-renders a component only if its props have changed, which helps improve performance in components that render frequently or are part of large lists.
+
+    **Example:** If you have a large list of items and only one item changes, `React.memo` ensures that the other list items do not re-render, saving processing time and improving UI performance.
+
+    ```jsx
+    const ExpensiveComponent = React.memo(function({ value }) {
+      console.log('Rendering ExpensiveComponent');
+      return <div>{value}</div>;
+    });
+    ```
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+169. ### If I ask you to optimize a slow React application, what techniques would you use?
+
+    To improve performance in a slow React application, you can use several optimization techniques:
+
+    * Use `React.memo`, `useMemo`, and `useCallback` to avoid unnecessary re-renders.
+    * Split code using `React.lazy` and `Suspense` for on-demand component loading.
+    * Optimize large lists with `react-window` or `react-virtualized`.
+    * Avoid anonymous functions in render; use `useCallback` instead.
+    * Keep state localized as much as possible instead of placing everything in global state.
+    * Use proper key props when rendering lists.
+    * For server data, use libraries like React Query or SWR with caching to reduce unnecessary refetching.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+170. ### What do you mean by code splitting and lazy loading in React?
+
+    Code splitting and lazy loading are techniques used to improve performance by reducing the initial load time of a React application.
+
+    * **Code Splitting**: Breaks the app's bundle into smaller chunks so the browser loads only what's necessary.
+    * **Lazy Loading**: Loads components only when they are needed, instead of loading everything upfront.
+
+    In React, this is often implemented with `React.lazy` and `<Suspense>`:
+
+    ```jsx
+    const MyComponent = React.lazy(() => import('./MyComponent'));
+
+    function App() {
+      return (
+        <Suspense fallback={<div>Loading...</div>}>
+          <MyComponent />
+        </Suspense>
+      );
+    }
+    ```
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+171. ### How would you optimize a slow React application?
+
+    Optimizing a React application ensures faster rendering and better performance, especially for large or complex apps:
+
+    * Use `React.memo`, `useMemo`, and `useCallback` to avoid unnecessary re-renders.
+    * Split code with `React.lazy` and `Suspense` for on-demand loading.
+    * Optimize large lists using `react-window` or `react-virtualized`.
+    * Avoid anonymous functions in render; use `useCallback` instead.
+    * Keep state localized instead of storing everything globally.
+    * Use proper key props in lists to prevent unnecessary re-renders.
+    * For server data, use React Query or SWR with caching to reduce refetching.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+172. ### What is the difference between React.PureComponent and React.Component?
+
+    Both `Component` and `PureComponent` are used to create class components, but they handle re-rendering differently:
+
+    * **React.Component**: Always re-renders when `setState` is called, regardless of whether the state or props have changed.
+    * **React.PureComponent**: Implements a shallow comparison of props and state; it only re-renders if something has actually changed.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+173. ### How does React handle re-rendering when state or props change?
+
+    Components automatically re-render when their state or props change, but React optimizes this process using the virtual DOM:
+
+    * When state or props change, React creates a new Virtual DOM for the component.
+    * It compares the new Virtual DOM with the previous one (diffing algorithm) to detect changes.
+    * Only the necessary parts of the real DOM are updated.
+    * This approach improves performance by avoiding full DOM updates and ensures the UI stays in sync with the data.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+174. ### What is the difference between controlled and uncontrolled components in terms of rendering?
+
+    Form inputs can be controlled or uncontrolled, and this affects how they are rendered and updated:
+
+    * **Controlled components**: React manages the input's value through state. The UI is always in sync with React state, and updates happen on every change via `onChange`.
+    * **Uncontrolled components**: The DOM manages the input's value, and React only accesses it when needed using refs. Useful for simple forms where you don't need to track every change.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+175. ### How do useMemo and useCallback help improve performance in React?
+
+    In React, re-renders can be expensive if functions or computed values are recreated unnecessarily. `useMemo` and `useCallback` help optimize rendering by caching values and functions:
+
+    * **useMemo**: Memoizes the result of a computation so that it is recalculated only when its dependencies change.
+    * **useCallback**: Memoizes a function so that it is not recreated on every render, preventing unnecessary re-renders in child components.
+    * Both hooks help avoid expensive recalculations and unnecessary re-renders, improving performance in large or complex components.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
 ## React Router
 
 **[⬆ Back to Top](#table-of-contents)**
@@ -3453,7 +4736,7 @@ class ParentComponent extends React.Component {
 
     **[⬆ Back to Top](#table-of-contents)**
 
-96. ### What is Shallow Renderer in React testing?
+115. ### What is Shallow Renderer in React testing?
 
     _Shallow rendering_ is useful for writing unit test cases in React. It lets you render a component _one level deep_ and assert facts about what its render method returns, without worrying about the behavior of child components, which are not instantiated or rendered.
 
@@ -3490,7 +4773,7 @@ class ParentComponent extends React.Component {
 
 **[⬆ Back to Top](#table-of-contents)**
 
-97. ### What is `TestRenderer` package in React?
+116. ### What is `TestRenderer` package in React?
 
     This package provides a renderer that can be used to render components to pure JavaScript objects, without depending on the DOM or a native mobile environment. This package makes it easy to grab a snapshot of the platform view hierarchy (similar to a DOM tree) rendered by a ReactDOM or React Native without using a browser or `jsdom`.
 
@@ -3513,19 +4796,19 @@ class ParentComponent extends React.Component {
 
 **[⬆ Back to Top](#table-of-contents)**
 
-98. ### What is the purpose of ReactTestUtils package?
+117. ### What is the purpose of ReactTestUtils package?
 
     _ReactTestUtils_ are provided in the `with-addons` package and allow you to perform actions against a simulated DOM for the purpose of unit testing.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-99. ### What is Jest?
+118. ### What is Jest?
 
     _Jest_ is a JavaScript unit testing framework created by Facebook based on Jasmine and provides automated mock creation and a `jsdom` environment. It's often used for testing components.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-100. ### What are the advantages of Jest over Jasmine?
+119. ### What are the advantages of Jest over Jasmine?
 
      There are couple of advantages compared to Jasmine:
 
@@ -3537,7 +4820,7 @@ class ParentComponent extends React.Component {
 
 **[⬆ Back to Top](#table-of-contents)**
 
-101. ### Give a simple example of Jest test case
+120. ### Give a simple example of Jest test case
 
      Let's write a test for a function that adds two numbers in `sum.js` file:
 
