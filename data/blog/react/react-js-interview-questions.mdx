@@ -1598,15 +1598,9 @@ class ParentComponent extends React.Component {
 
     **[⬆ Back to Top](#table-of-contents)**
 
-47.  ### How to enable production mode in React?
+48.  ### How to enable production mode in React?
 
     You should use Webpack's `DefinePlugin` method to set `NODE_ENV` to `production`, by which it strip out things like propType validation and extra warnings. Apart from this, if you minify the code, for example, Uglify's dead-code elimination to strip out development only code and comments, it will drastically reduce the size of your bundle.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-48.  ### Do Hooks replace render props and higher order components?
-
-    Both render props and higher-order components render only a single child but in most of the cases Hooks are a simpler way to serve this by reducing nesting in your tree.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -2105,41 +2099,8 @@ class ParentComponent extends React.Component {
 
     **[⬆ Back to Top](#table-of-contents)**
 
-70.  ### Explain the React component lifecycle methods in class components
 
-    React class components have lifecycle methods for different phases:
-
-    **Mounting:**
-
-    * `constructor`: Initializes state or binds methods
-    * `componentDidMount`: Runs after the component mounts, useful for API calls or subscriptions
-
-    ```jsx
-    componentDidMount() {
-      console.log('Component mounted');
-    }
-    ```
-
-    **Updating:**
-
-    * `shouldComponentUpdate`: Determines if the component should re-render
-    * `componentDidUpdate`: Runs after updates, useful for side effects
-
-    **Unmounting:**
-
-    * `componentWillUnmount`: Cleans up (e.g., removing event listeners).
-
-    ```jsx
-    componentWillUnmount() {
-      console.log('Component will unmount');
-    }
-    ```
-
-    These methods allow you to manage component behavior throughout its lifecycle.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-71.  ### What is Concurrent Mode in React, and how does it improve rendering performance?
+70.  ### What is Concurrent Mode in React, and how does it improve rendering performance?
 
     Concurrent Mode allows React to work on multiple tasks simultaneously without blocking the main UI thread. It enables React to prioritize updates and provide smoother rendering for complex applications.
 
@@ -2151,19 +2112,7 @@ class ParentComponent extends React.Component {
 
     **[⬆ Back to Top](#table-of-contents)**
 
-72.  ### How does React handle concurrent rendering with multiple updates and prioritize them?
-
-    React uses the priority system in Concurrent Mode to schedule updates. It can break up large updates into smaller chunks and give priority to user interactions (like clicks or input) to ensure the app remains responsive.
-
-    **Priority levels:**
-
-    * **Urgent**: User interactions (clicks, input)
-    * **Normal**: Data fetching, state updates
-    * **Low**: Background work, analytics
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-73.  ### How would you handle long-running tasks or expensive computations in React applications without blocking the UI?
+71.  ### How would you handle long-running tasks or expensive computations in React applications without blocking the UI?
 
     To avoid blocking the UI, use **Web Workers**, `setTimeout`, or `requestIdleCallback` for offloading heavy computations. Alternatively, break tasks into smaller parts and use React's Suspense or useMemo to only recompute when necessary.
 
@@ -2187,53 +2136,7 @@ class ParentComponent extends React.Component {
 
     **[⬆ Back to Top](#table-of-contents)**
 
-74.  ### Explain server-side rendering of React applications and its benefits
-
-    Server-side rendering (SSR) involves rendering components on the server before sending fully rendered HTML to clients, improving initial load times and SEO through efficient hydration processes.
-
-    **Benefits:**
-
-    * Faster initial page load
-    * Better SEO (search engines can crawl the content)
-    * Improved performance on low-end devices
-    * Better social media sharing (proper meta tags)
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-75.  ### Explain static generation of React applications
-
-    Static generation pre-renders HTML at build time instead of runtime; this approach enhances performance by delivering static content quickly while improving SEO outcomes.
-
-    **When to use:**
-
-    * Content that doesn't change frequently
-    * Blog posts, documentation, marketing pages
-    * Pages that can be generated at build time
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-79.  ### What are higher-order components in React?
-
-    Higher-order components (HOCs) are functions that take a component and return a new one with added props or behavior, facilitating logic reuse across components.
-
-    ```jsx
-    const withExtraProps = (WrappedComponent) => {
-      return (props) => <WrappedComponent {...props} extraProp="value" />;
-    };
-
-    const EnhancedComponent = withExtraProps(MyComponent);
-    ```
-
-    **Common use cases:**
-
-    * Authentication checks
-    * Data fetching
-    * Logging and analytics
-    * Styling and theming
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-76.  ### Explain the presentational vs container component pattern in React
+72.  ### Explain the presentational vs container component pattern in React
 
     In React, the presentational vs container component pattern distinguishes between components that focus on appearance (presentational components) and those that manage logic and state (container components). Presentational components render HTML and CSS, while container components handle data and behavior. This separation leads to a cleaner and more organized codebase.
 
