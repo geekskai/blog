@@ -2947,15 +2947,187 @@ class ParentComponent extends React.Component {
 
 **[⬆ Back to Top](#table-of-contents)**
 
+90. ### How do you handle nested routes and route parameters in React Router?
+
+    Nested routes allow you to create hierarchies of components, and `useParams` helps access dynamic route parameters.
+
+    **Key techniques:**
+
+    * `<Outlet>`: Renders child routes within a parent layout
+    * `useParams`: Retrieves route parameters for dynamic routing
+
+    ```jsx
+    import {
+      BrowserRouter,
+      Routes,
+      Route,
+      Outlet,
+      useParams,
+    } from 'react-router-dom';
+
+    function UserProfile() {
+      const { userId } = useParams();
+      return <h2>User ID: {userId}</h2>;
+    }
+
+    function App() {
+      return (
+        <BrowserRouter>
+          <Routes>
+            <Route path="user/:userId" element={<Outlet />}>
+              <Route path="profile" element={<UserProfile />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      );
+    }
+    ```
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+91. ### How do you handle route guards or private routes in React?
+
+    To implement private routes, create a component that checks if the user is authenticated before rendering the desired route.
+
+    ```jsx
+    import { Navigate } from 'react-router-dom';
+
+    function PrivateRoute({ children }) {
+      return isAuthenticated ? children : <Navigate to="/login" />;
+    }
+    ```
+
+    * `PrivateRoute`: Checks authentication and either renders the children (protected routes) or redirects to the login page.
+    * `<Navigate>`: Replaces the deprecated `<Redirect>` for redirecting in React Router v6+.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+92. ### How do you manage the active route state in a multi-page React application?
+
+    Use the `useLocation` hook to get the current route, and conditionally apply styles for the active state.
+
+    ```jsx
+    import { useLocation } from 'react-router-dom';
+
+    function NavBar() {
+      const location = useLocation();
+      return (
+        <nav>
+          <ul>
+            <li className={location.pathname === '/home' ? 'active' : ''}>Home</li>
+            <li className={location.pathname === '/about' ? 'active' : ''}>About</li>
+          </ul>
+        </nav>
+      );
+    }
+    ```
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+93. ### How do you handle 404 errors or page not found in React Router?
+
+    To handle 404 errors or page not found in React Router, create a catch-all route at the end of your route configuration that renders a custom 404 component.
+
+    ```jsx
+    import { Routes, Route } from 'react-router-dom';
+
+    function NotFound() {
+      return <h1>404 - Page Not Found</h1>;
+    }
+
+    function App() {
+      return (
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      );
+    }
+    ```
+
+    In this example, the `NotFound` component is rendered when no other routes match the URL, indicating a 404 error.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+94. ### How to get query parameters in React Router v6?
+
+    In React Router v6, you can use the `useSearchParams` hook to access query parameters from the URL.
+
+    ```jsx
+    import { useSearchParams } from 'react-router-dom';
+
+    function MyComponent() {
+      const [searchParams] = useSearchParams();
+      const queryParam = searchParams.get('paramName');
+      return <div>Query Param: {queryParam}</div>;
+    }
+    ```
+
+    This hook allows you to retrieve and manipulate query parameters in React Router v6.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+95. ### How do you perform an automatic redirect after login in React Router v6?
+
+    To perform an automatic redirect after login in React Router v6, use the `useNavigate` hook to navigate to the desired route after successful authentication.
+
+    ```jsx
+    import { useNavigate } from 'react-router-dom';
+
+    function Login() {
+      const navigate = useNavigate();
+
+      const handleLogin = () => {
+        // Perform login logic
+        navigate('/dashboard');
+      };
+
+      return (
+        <div>
+          <button onClick={handleLogin}>Login</button>
+        </div>
+      );
+    }
+    ```
+
+    In this example, the `handleLogin` function navigates to the `/dashboard` route after successful login.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+96. ### How do you pass props to a route component in React Router v6?
+
+    In React Router v6, you can pass props to a route component using the `element` prop in the `<Route>` component.
+
+    ```jsx
+    import { Routes, Route } from 'react-router-dom';
+
+    function MyComponent({ propValue }) {
+      return <div>Prop Value: {propValue}</div>;
+    }
+
+    function App() {
+      return (
+        <Routes>
+          <Route path="/my-route" element={<MyComponent propValue="Hello" />} />
+        </Routes>
+      );
+    }
+    ```
+
+    In this example, the `propValue` prop is passed to the `MyComponent` component when rendering the `/my-route` route.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
 ## React Internationalization
 
-90. ### What is React Intl?
+97. ### What is React Intl?
 
     The _React Intl_ library makes internationalization in React straightforward, with off-the-shelf components and an API that can handle everything from formatting strings, dates, and numbers, to pluralization. React Intl is part of _FormatJS_ which provides bindings to React via its components and API.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-91. ### What are the main features of React Intl?
+98. ### What are the main features of React Intl?
 
     Below are the main features of React Intl,
 
@@ -2969,7 +3141,7 @@ class ParentComponent extends React.Component {
 
 **[⬆ Back to Top](#table-of-contents)**
 
-92. ### What are the two ways of formatting in React Intl?
+99. ### What are the two ways of formatting in React Intl?
 
     The library provides two ways to format strings, numbers, and dates:
 
@@ -2997,7 +3169,7 @@ class ParentComponent extends React.Component {
 
 **[⬆ Back to Top](#table-of-contents)**
 
-93. ### How to use `<FormattedMessage>` as placeholder using React Intl?
+100. ### How to use `<FormattedMessage>` as placeholder using React Intl?
 
     The `<Formatted... />` components from `react-intl` return elements, not plain text, so they can't be used for placeholders, alt text, etc. In that case, you should use lower level API `formatMessage()`. You can inject the `intl` object into your component using `injectIntl()` higher-order component and then format the message using `formatMessage()` available on that object.
 
@@ -3019,7 +3191,7 @@ class ParentComponent extends React.Component {
 
 **[⬆ Back to Top](#table-of-contents)**
 
-94. ### How to access current locale with React Intl?
+101. ### How to access current locale with React Intl?
 
     You can get the current locale in any component of your application using `injectIntl()`:
 
@@ -3039,7 +3211,7 @@ class ParentComponent extends React.Component {
 
 **[⬆ Back to Top](#table-of-contents)**
 
-95. ### How to format date using React Intl?
+102. ### How to format date using React Intl?
 
      The `injectIntl()` higher-order component will give you access to the `formatDate()` method via the props in your component. The method is used internally by instances of `FormattedDate` and it returns the string representation of the formatted date.
 
@@ -3065,7 +3237,221 @@ class ParentComponent extends React.Component {
 
     **[⬆ Back to Top](#table-of-contents)**
 
+103. ### How do you localize React applications?
+
+    Localization typically involves libraries like react-i18next or react-intl. Set up translation files for different languages and configure the library within your app using provided hooks or components.
+
+    ```jsx
+    // Example using react-i18next
+    import { useTranslation } from 'react-i18next';
+
+    const MyComponent = () => {
+      const { t } = useTranslation();
+      return <p>{t('welcome_message')}</p>;
+    };
+    ```
+
+    **[⬆ Back to Top](#table-of-contents)**
+
 ## React Testing
+
+104. ### How do you test React applications?
+
+    Testing React applications can be done using Jest and React Testing Library. Jest serves as the testing framework while React Testing Library provides utilities for testing components similarly to user interactions.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+105. ### What is React Testing Library and how is it used for testing React components?
+
+    React Testing Library is a testing utility for React that helps test components in a way that resembles how users interact with the application. It provides functions to render components, interact with them, and assert on the rendered output.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+106. ### How do you test React components using React Testing Library?
+
+    To test React components using React Testing Library, you can:
+
+    1. Render the component using `render`.
+    2. Interact with the component (e.g., clicking buttons, entering text).
+    3. Assert on the rendered output using queries like `getByText`, `queryByRole`, etc.
+
+    ```jsx
+    import { render, screen, fireEvent } from '@testing-library/react';
+    import MyComponent from './MyComponent';
+
+    test('renders component', () => {
+      render(<MyComponent />);
+      const button = screen.getByRole('button');
+      fireEvent.click(button);
+      expect(screen.getByText('Clicked!')).toBeInTheDocument();
+    });
+    ```
+
+    In this example, the test renders `MyComponent`, clicks a button, and asserts that the text 'Clicked!' is present.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+107. ### How do you test asynchronous code in React components?
+
+    To test asynchronous code in React components, you can use `async/await` with `waitFor` from React Testing Library to handle asynchronous operations like data fetching or API calls.
+
+    ```jsx
+    import { render, screen, waitFor } from '@testing-library/react';
+    import MyComponent from './MyComponent';
+
+    test('fetches data and renders it', async () => {
+      render(<MyComponent />);
+      await waitFor(() => {
+        expect(screen.getByText('Data loaded')).toBeInTheDocument();
+      });
+    });
+    ```
+
+    In this example, the test waits for the data to be loaded before asserting that the text 'Data loaded' is present.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+108. ### How do you mock API calls in React component tests?
+
+    To mock API calls in React component tests, you can use Jest's `jest.mock` to mock the API module and return mock data. This allows you to simulate API responses without making actual network requests.
+
+    ```jsx
+    import { render, screen } from '@testing-library/react';
+
+    jest.mock('./api', () => ({
+      fetchData: jest.fn(() => Promise.resolve('mocked data')),
+    }));
+
+    import MyComponent from './MyComponent';
+
+    test('fetches data and renders it', async () => {
+      render(<MyComponent />);
+      expect(screen.getByText('Loading...')).toBeInTheDocument();
+      expect(await screen.findByText('mocked data')).toBeInTheDocument();
+    });
+    ```
+
+    In this example, the `fetchData` function from the `api` module is mocked to return 'mocked data' for testing purposes.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+109. ### How do you test React hooks in functional components?
+
+    To test React hooks in functional components, you can use the `renderHook` function from `@testing-library/react-hooks` to render the hook and test its behavior.
+
+    ```jsx
+    import { renderHook, act } from '@testing-library/react-hooks';
+    import useCounter from './useCounter';
+
+    test('increments counter', () => {
+      const { result } = renderHook(() => useCounter());
+      act(() => {
+        result.current.increment();
+      });
+      expect(result.current.count).toBe(1);
+    });
+    ```
+
+    In this example, the `useCounter` hook is tested by rendering it with `renderHook` and asserting that the counter increments correctly.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+110. ### How do you test custom hooks in React?
+
+    To test custom hooks in React, you can use the `renderHook` function from `@testing-library/react-hooks` to render the hook and test its behavior.
+
+    ```jsx
+    import { renderHook, act } from '@testing-library/react-hooks';
+    import useCustomHook from './useCustomHook';
+
+    test('hook behavior', () => {
+      const { result } = renderHook(() => useCustomHook());
+      act(() => {
+        result.current.doSomething();
+      });
+      expect(result.current.value).toBe('expected value');
+    });
+    ```
+
+    In this example, the `useCustomHook` hook is tested by rendering it with `renderHook` and asserting its behavior.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+111. ### What is Snapshot Testing in React?
+
+    Snapshot Testing in React is a testing technique that captures the rendered output of a component and saves it as a snapshot. Subsequent test runs compare the current output with the saved snapshot to detect any unexpected changes. If the output differs from the snapshot, the test fails, indicating that the component's output has changed.
+
+    ```jsx
+    import React from 'react';
+    import renderer from 'react-test-renderer';
+    import MyComponent from './MyComponent';
+
+    test('renders correctly', () => {
+      const tree = renderer.create(<MyComponent />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+    ```
+
+    In this example, the `renderer.create` function renders the `MyComponent` and converts it to a JSON tree. The `toMatchSnapshot` function saves the snapshot of the component's output. Subsequent test runs compare the current output with the saved snapshot, ensuring the component's output remains consistent.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+112. ### How do you test React components that use context?
+
+    To test React components that use context, you can wrap the component in a context provider with the desired context values for testing. This allows you to simulate the context values and test the component's behavior based on those values.
+
+    ```jsx
+    import { render } from '@testing-library/react';
+    import { MyContextProvider } from './MyContextProvider';
+    import MyComponent from './MyComponent';
+
+    test('renders correctly with context', () => {
+      const { getByText } = render(
+        <MyContextProvider value="test value">
+          <MyComponent />
+        </MyContextProvider>,
+      );
+      expect(getByText('test value')).toBeInTheDocument();
+    });
+    ```
+
+    In this example, the `MyComponent` is wrapped in a `MyContextProvider` with a specific context value for testing. The test verifies that the component renders correctly with the provided context value.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+113. ### How do you test React components that use Redux?
+
+    To test React components that use Redux, you can use the `redux-mock-store` library to create a mock store with the desired state for testing. This allows you to simulate the Redux store and test the component's behavior based on the state.
+
+    ```jsx
+    import { render } from '@testing-library/react';
+    import configureStore from 'redux-mock-store';
+    import { Provider } from 'react-redux';
+    import MyComponent from './MyComponent';
+
+    const mockStore = configureStore([]);
+
+    test('renders correctly with Redux state', () => {
+      const store = mockStore({ counter: 0 });
+      const { getByText } = render(
+        <Provider store={store}>
+          <MyComponent />
+        </Provider>,
+      );
+      expect(getByText('Counter: 0')).toBeInTheDocument();
+    });
+    ```
+
+    In this example, the `MyComponent` is wrapped in a `Provider` with a mock Redux store containing the initial state `{ counter: 0 }` for testing. The test verifies that the component renders correctly with the provided Redux state.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+114. ### What are the key differences between shallow rendering and full DOM rendering in React tests?
+
+    * **Shallow Rendering**: Renders only the component being tested, without rendering its child components. Useful for isolated unit testing.
+    * **Full DOM Rendering**: Mounts the entire component tree, including children, providing a complete DOM structure. Ideal for integration tests.
+
+    **[⬆ Back to Top](#table-of-contents)**
 
 96. ### What is Shallow Renderer in React testing?
 
