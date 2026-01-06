@@ -190,22 +190,24 @@ export default function SoundCloudPlaylistDownloaderPage() {
 
       <div className="relative mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <header className="mb-12 text-center">
-          {/* Tool Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 px-6 py-3 text-white shadow-lg shadow-purple-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-500/30">
-            <div className="rounded-full bg-white/20 p-1">
-              <span className="text-xl">🎵</span>
+        <header className="mb-4 text-center">
+          <div className="flex items-center justify-center gap-4">
+            {/* Tool Badge */}
+            <div className="mb-6 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 px-6 py-3 text-white shadow-lg shadow-purple-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-500/30">
+              <div className="rounded-full bg-white/20 p-1">
+                <span className="text-xl">🎵</span>
+              </div>
+              <span className="font-semibold">{t("tool_badge")}</span>
             </div>
-            <span className="font-semibold">{t("tool_badge")}</span>
           </div>
 
           {/* Main Title */}
-          <h1 className="my-6 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-3xl font-bold leading-tight text-transparent md:text-5xl lg:text-6xl">
+          <h1 className="my-2 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-3xl font-bold leading-tight text-transparent md:text-5xl lg:text-6xl">
             {t("page_title")}
           </h1>
 
           {/* Subtitle */}
-          <p className="text-md mx-auto mb-6 max-w-3xl leading-relaxed text-slate-300 md:text-lg">
+          <p className="text-md mx-auto mb-2 max-w-5xl leading-relaxed text-slate-300 md:text-lg">
             {t.rich("page_subtitle", {
               mp3: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
               wav: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
@@ -214,24 +216,15 @@ export default function SoundCloudPlaylistDownloaderPage() {
               no_registration: (chunks) => <strong className="text-pink-400">{chunks}</strong>,
             })}
           </p>
-
-          {/* Content Freshness Badge */}
-          <div className="flex flex-col items-center gap-4">
-            <ContentFreshnessBadge lastModified={new Date("2026-01-02")} />
-            <div className="text-sm text-slate-400">
-              {t("related_tool_text")}{" "}
-              <a
-                href="/tools/soundcloud-to-wav"
-                className="text-cyan-400 underline transition-colors hover:text-cyan-300"
-              >
-                {t("related_tool_link")}
-              </a>
-            </div>
-          </div>
         </header>
 
+        {/* Content Freshness Badge */}
+        <div className="flex justify-center">
+          <ContentFreshnessBadge lastModified={new Date("2026-01-06")} />
+        </div>
+
         {/* Input Section */}
-        <div className="mb-12">
+        <div className="my-4">
           <PlaylistInput
             url={url}
             onUrlChange={(newUrl) => {
@@ -268,7 +261,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
 
         {/* Empty State */}
         {loadingState === "idle" && !playlistInfo && (
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto max-w-5xl text-center">
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-12 shadow-xl backdrop-blur-sm">
               <div className="mb-6 text-7xl">🎼</div>
               <h3 className="mb-3 text-2xl font-bold text-white">{t("empty_state_title")}</h3>

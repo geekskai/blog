@@ -337,7 +337,7 @@ export default function Page() {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-md mx-auto mb-6 max-w-3xl leading-relaxed text-slate-300 md:text-lg">
+          <p className="text-md mx-auto mb-6 max-w-5xl leading-relaxed text-slate-300 md:text-lg">
             {t.rich("page_subtitle", {
               wav: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
               mp3: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
@@ -350,39 +350,38 @@ export default function Page() {
           {/* Content Freshness Badge */}
           <div className="flex flex-col items-center gap-4">
             <ContentFreshnessBadge lastModified={new Date("2026-01-02")} />
-            <div className="text-sm text-slate-400">
-              Need to download entire playlists?{" "}
-              <a
-                href="/tools/soundcloud-playlist-downloader"
-                className="text-emerald-400 underline transition-colors hover:text-emerald-300"
-              >
-                Try SoundCloud Playlist Downloader
-              </a>
-            </div>
           </div>
         </header>
 
         {/* Input area card */}
-        <div className="mx-auto mb-12 max-w-3xl">
+        <div className="mx-auto mb-12 max-w-5xl">
           <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
             <div className="border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 p-6">
               <h2 className="text-xl font-semibold text-white md:text-2xl">{t("form_title")}</h2>
             </div>
             <div className="p-6">
               <form onSubmit={handleGetInfo} className="space-y-6">
-                <div>
-                  <label
-                    htmlFor="soundcloud-url"
-                    className="mb-3 block text-sm font-semibold text-white/90"
-                  >
-                    {t("form_label_soundcloud_link")}
-                  </label>
+                <div className="flex flex-col gap-4">
+                  <div className="flex justify-between gap-3 text-sm text-slate-400">
+                    <span className="block text-sm font-semibold text-white/90">
+                      {t("form_label_soundcloud_link")}
+                    </span>
+                    <div className="gap-3 text-sm text-slate-400">
+                      {t("related_tool_text")} 👉
+                      <a
+                        href="/tools/soundcloud-playlist-downloader"
+                        className="text-emerald-400 underline transition-colors hover:text-emerald-300"
+                      >
+                        {t("related_tool_link")}
+                      </a>
+                    </div>
+                  </div>
+
                   <div className="relative">
                     <div className="absolute left-4 top-1/2 -translate-y-1/2 rounded-lg bg-white/5 p-2 backdrop-blur-sm">
                       <span className="text-xl">🔗</span>
                     </div>
                     <input
-                      id="soundcloud-url"
                       type="text"
                       value={url}
                       onChange={(e) => {
@@ -516,7 +515,7 @@ export default function Page() {
 
         {/* Empty state message */}
         {loadingState === "idle" && !trackInfo && (
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto max-w-5xl text-center">
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-12 shadow-xl backdrop-blur-sm">
               <div className="mb-6 text-7xl">🎼</div>
               <h3 className="mb-3 text-2xl font-bold text-white">{t("empty_state_title")}</h3>

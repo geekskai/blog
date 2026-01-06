@@ -30,15 +30,24 @@ export default function PlaylistInput({
   }
 
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="mx-auto max-w-5xl">
       <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
         <div className="border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 p-6">
           <h2 className="text-xl font-semibold text-white md:text-2xl">{t("form_title")}</h2>
         </div>
         <div className="space-y-6 p-6">
-          <span className="mb-3 block text-sm font-semibold text-white/90">
+          <div className="mb-3 flex justify-between text-sm font-semibold text-white/90">
             {t("form_label_playlist_url")}
-          </span>
+            <div className="text-sm text-slate-400">
+              {t("related_tool_text")} 👉
+              <a
+                href="/tools/soundcloud-to-wav"
+                className="text-cyan-400 underline transition-colors hover:text-cyan-300"
+              >
+                {t("related_tool_link")}
+              </a>
+            </div>
+          </div>
           <div className="relative">
             <div className="absolute left-4 top-1/2 -translate-y-1/2 rounded-lg bg-white/5 p-2 backdrop-blur-sm">
               <span className="text-xl">🔗</span>

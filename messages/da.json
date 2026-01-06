@@ -4689,7 +4689,6 @@
     "content_freshness_last_updated": "Sidst opdateret",
     "related_tool_text": "Har du brug for at downloade et enkelt nummer?",
     "related_tool_link": "Prøv SoundCloud til MP3/WAV-konverter",
-    "form_title": "SoundCloud Playlist Downloader",
     "form_label_playlist_url": "Playlist-URL",
     "form_placeholder_url": "https://soundcloud.com/brugernavn/sets/playlist-navn",
     "form_button_fetch": "Hent playlist",
