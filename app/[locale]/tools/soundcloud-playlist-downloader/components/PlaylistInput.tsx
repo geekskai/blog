@@ -36,7 +36,7 @@ export default function PlaylistInput({
           <h2 className="text-xl font-semibold text-white md:text-2xl">{t("form_title")}</h2>
         </div>
         <div className="space-y-6 p-6">
-          <div className="mb-3 flex justify-between text-sm font-semibold text-white/90">
+          <div className="mb-3 flex flex-col-reverse justify-between gap-2 text-sm font-semibold text-white/90 md:flex-row">
             {t("form_label_playlist_url")}
             <div className="text-sm text-slate-400">
               {t("related_tool_text")} 👉

@@ -362,12 +362,12 @@ export default function Page() {
             <div className="p-6">
               <form onSubmit={handleGetInfo} className="space-y-6">
                 <div className="flex flex-col gap-4">
-                  <div className="flex justify-between gap-3 text-sm text-slate-400">
-                    <span className="block text-sm font-semibold text-white/90">
+                  <div className="flex flex-col-reverse justify-between gap-2 gap-3 text-sm text-slate-400 md:flex-row md:flex-row">
+                    <span className="text-md font-semibold text-white/90">
                       {t("form_label_soundcloud_link")}
                     </span>
-                    <div className="gap-3 text-sm text-slate-400">
-                      {t("related_tool_text")} 👉
+                    <div className="text-md flex-col gap-3 text-slate-400 md:flex-row">
+                      <span>{t("related_tool_text")} 👉</span>
                       <a
                         href="/tools/soundcloud-playlist-downloader"
                         className="text-emerald-400 underline transition-colors hover:text-emerald-300"
