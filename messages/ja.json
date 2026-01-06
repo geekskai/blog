@@ -31,7 +31,9 @@
     "hero_github_contributions": "私のGitHubコントリビューション",
     "hero_experiences": "経験",
     "hero_skills": "スキル",
-    "hero_blogs_list": "ブログ一覧"
+    "hero_blogs_list": "ブログ一覧",
+    "projects_title": "プロジェクト",
+    "projects_description": "私が参加したプロジェクトの一部です。"
   },
   "ToolsPage": {
     "tools_seo_title": "ワークフローを強化する無料ツール",

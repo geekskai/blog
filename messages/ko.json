@@ -31,7 +31,9 @@
     "hero_github_contributions": "나의 GitHub 기여도",
     "hero_experiences": "경험",
     "hero_skills": "기술",
-    "hero_blogs_list": "블로그 목록"
+    "hero_blogs_list": "블로그 목록",
+    "projects_title": "프로젝트",
+    "projects_description": "저가 참여한 프로젝트의 일부입니다."
   },
   "ToolsPage": {
     "tools_seo_title": "워크플로우를 강화하는 무료 도구",

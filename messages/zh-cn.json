@@ -31,7 +31,9 @@
     "hero_github_contributions": "我的 Github 贡献",
     "hero_experiences": "工作经历",
     "hero_skills": "技能",
-    "hero_blogs_list": "博客列表"
+    "hero_blogs_list": "博客列表",
+    "projects_title": "项目",
+    "projects_description": "我参与的一些项目。"
   },
   "ToolsPage": {
     "tools_seo_title": "免费工具，助力您的工作流程",

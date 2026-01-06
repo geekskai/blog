@@ -31,7 +31,9 @@
     "hero_github_contributions": "Mine GitHub-bidrag",
     "hero_experiences": "Erfaring",
     "hero_skills": "Ferdigheter",
-    "hero_blogs_list": "Bloggliste"
+    "hero_blogs_list": "Bloggliste",
+    "projects_title": "Prosjekter",
+    "projects_description": "Her er noen av de prosjektene jeg har jobbet på."
   },
   "ToolsPage": {
     "tools_seo_title": "Gratis verktøy som superladder arbeidsflyten din",
