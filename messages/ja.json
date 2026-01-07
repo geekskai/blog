@@ -4759,7 +4759,8 @@
     "section_format_comparison_mp3_2": "<strong>ファイルサイズ</strong> – 約 3～8MB",
     "section_format_comparison_mp3_3": "<strong>最適用途</strong> – モバイル・日常利用",
     "section_format_comparison_mp3_4": "<strong>ビットレート</strong> – 320kbps 高音質",
-
+    "related_tool_text": "プレイリスト全体をダウンロードしたいですか？",
+    "related_tool_link": "SoundCloud プレイリストダウンローダーを試す",
     "section_use_cases_title": "どんな人が使っていますか？",
     "section_use_cases_1_title": "DJ・音楽プロデューサー",
     "section_use_cases_1_description": "<strong>ミックス、リミックス、マッシュアップ</strong>用にトラックをダウンロード。DJ セットや制作フローに最適。",
