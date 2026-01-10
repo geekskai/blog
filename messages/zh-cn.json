@@ -1612,52 +1612,36 @@
       "web_application": {
         "name": "厘米转Tommer转换器",
         "description": "免费在线工具，高精度将厘米转换为tommer（丹麦/挪威英寸）",
-        "feature_list": [
-          "双向转换（厘米 ↔ Tommer）",
-          "精度控制（0-3位小数）",
-          "实时转换",
-          "复制结果到剪贴板",
-          "快速参考表",
-          "关于tommer的教育内容",
-          "移动友好界面",
-          "无需注册"
-        ],
-        "audience_types": [
-          "家具购物者",
-          "建筑专业人士",
-          "建筑师",
-          "工程师",
-          "国际贸易商",
-          "DIY爱好者"
-        ],
+        "feature_1": "双向转换（厘米 ↔ Tommer）",
+        "feature_2": "精度控制（0-3位小数）",
+        "feature_3": "实时转换",
+        "feature_4": "复制结果到剪贴板",
+        "feature_5": "快速参考表",
+        "feature_6": "关于tommer的教育内容",
+        "feature_7": "移动友好界面",
+        "feature_8": "无需注册",
+        "audience_type_1": "家具购物者",
+        "audience_type_2": "建筑专业人士",
+        "audience_type_3": "建筑师",
+        "audience_type_4": "工程师",
+        "audience_type_5": "国际贸易商",
+        "audience_type_6": "DIY爱好者",
         "usage_info": {
           "name": "如何使用厘米转Tommer转换器",
           "description": "输入厘米或tommer值，选择精度，获得即时转换结果"
         }
       },
       "faq_page": {
-        "questions": [
-          {
-            "question": "什么是tommer？",
-            "answer": "Tommer是丹麦语和挪威语中\"英寸\"的意思。一个tommer等于2.54厘米，与国际英寸相同。"
-          },
-          {
-            "question": "如何将厘米转换为tommer？",
-            "answer": "要将厘米转换为tommer，将厘米值乘以0.3937。例如，10厘米 = 10 × 0.3937 = 3.937 tommer。"
-          },
-          {
-            "question": "tommer与英寸相同吗？",
-            "answer": "是的，现代tommer与国际英寸相同。两者都等于2.54厘米。"
-          },
-          {
-            "question": "为什么我需要将厘米转换为tommer？",
-            "answer": "常见用途包括从北欧国家购买家具、建筑项目、建筑图纸和了解国际贸易中的产品尺寸。"
-          },
-          {
-            "question": "这个转换器有多准确？",
-            "answer": "我们的转换器提供高达3位小数的精度，并使用确切的转换因子（1 tommer = 2.54厘米）以获得最大精度。"
-          }
-        ]
+        "question_1": "什么是tommer？",
+        "answer_1": "Tommer是丹麦语和挪威语中\"英寸\"的意思。一个tommer等于2.54厘米，与国际英寸相同。",
+        "question_2": "如何将厘米转换为tommer？",
+        "answer_2": "要将厘米转换为tommer，将厘米值乘以0.3937。例如，10厘米 = 10 × 0.3937 = 3.937 tommer。",
+        "question_3": "tommer与英寸相同吗？",
+        "answer_3": "是的，现代tommer与国际英寸相同。两者都等于2.54厘米。",
+        "question_4": "为什么我需要将厘米转换为tommer？",
+        "answer_4": "常见用途包括从北欧国家购买家具、建筑项目、建筑图纸和了解国际贸易中的产品尺寸。",
+        "question_5": "这个转换器有多准确？",
+        "answer_5": "我们的转换器提供高达3位小数的精度，并使用确切的转换因子（1 tommer = 2.54厘米）以获得最大精度。"
       }
     }
   },
