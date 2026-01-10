@@ -1010,9 +1010,16 @@
       "copied_all": "Kopiert Alt!"
     },
     "conversion_modes": {
-      "bpm_to_ms": "BPM til MS",
-      "ms_to_bpm": "MS til BPM",
-      "bpm_to_ms_description": "Velg din konverteringsretning",
+      "bpm_to_ms": "BPM → MS",
+      "ms_to_bpm": "MS → BPM",
+      "bpm_to_ms_description": "Konverter beats per minutt til millisekunder",
+      "ms_to_bpm_description": "Konverter millisekunder til beats per minutt",
+      "bpm_input_label": "BPM (Beats Per Minutt)",
+      "bpm_input_placeholder": "Skriv inn BPM (20-300)",
+      "ms_input_label": "Millisekunder per Beat",
+      "ms_input_placeholder": "Skriv inn MS (100-3000)",
+      "bpm_output_label": "BPM (Beats Per Minutt)",
+      "ms_output_label": "Millisekunder per Beat",
       "converting_bpm_to_ms": "Konverterer BPM til Millisekunder",
       "converting_ms_to_bpm": "Konverterer Millisekunder til BPM"
     },
@@ -1039,56 +1046,21 @@
       }
     },
     "note_values": {
-      "quarter": {
-        "name": "Kvart Note",
-        "description": "1 beat - Standard beat referanse",
-        "common_use": "Kick trommer, Grunnleggende rytme"
-      },
-      "eighth": {
-        "name": "Åttende Note",
-        "description": "1/2 beat - Dobbel-tid følelse",
-        "common_use": "Hi-hats, Delay timing"
-      },
-      "sixteenth": {
-        "name": "Sekstende Note",
-        "description": "1/4 beat - Underavdeling timing",
-        "common_use": "Raske hi-hats, Raske delays"
-      },
-      "dotted_quarter": {
-        "name": "Prikket Kvart",
-        "description": "1.5 beats - Legger til swing følelse",
-        "common_use": "Swing rytmer, Triolet følelse"
-      },
-      "dotted_eighth": {
-        "name": "Prikket Åttende",
-        "description": "0.75 beats - Vanlig for swung delays",
-        "common_use": "Swung delays, Groove elementer"
-      },
-      "dotted_sixteenth": {
-        "name": "Prikket Sekstende",
-        "description": "0.375 beats - Veldig raske swung delays",
-        "common_use": "Raske swung delays, Intrikate mønstre"
-      },
-      "triplet_quarter": {
-        "name": "Triolet Kvart",
-        "description": "2/3 beat - Triolet rytme",
-        "common_use": "Triolet delays, Polyrytmer"
-      },
-      "triplet_eighth": {
-        "name": "Triolet Åttende",
-        "description": "1/3 beat - Rask triolet rytme",
-        "common_use": "Raske triolet delays, Arpeggios"
-      },
-      "triplet_sixteenth": {
-        "name": "Triolet Sekstende",
-        "description": "1/6 beat - Veldig rask triolet rytme",
-        "common_use": "Ekstremt raske delays, Glitch effekter"
-      }
+      "quarter_note": "Kvart noten",
+      "quarter_note_description": "1 beat - Standard beat referanse",
+      "eighth_note": "Åttende noten",
+      "eighth_note_description": "1/2 beat - Dobbelt-tid følelse",
+      "sixteenth_note": "Sekstende noten",
+      "sixteenth_note_description": "1/4 beat - Subdivision tidsbestemmelse",
+      "dotted_quarter": "Prikket Kvart",
+      "dotted_quarter_description": "1.5 beats - Legger til swing følelse",
+      "eighth_triplet": "Åttende triol",
+      "eighth_triplet_description": "1/3 beat - Triol subdivision tidsbestemmelse"
     },
     "professional_tips": {
       "title": "Profesjonelle Tips for Musikk Produksjon",
       "delay_reverb_timing": {
-        "title": "Delay & Reverb Timing",
+        "title": "Delay & Reverb Tidsbestemmelse",
         "quarter_notes": "Kvart noter (1/4): Romslige, rytmiske delays",
         "eighth_notes": "Åttende noter (1/8): Tette, perkussive ekko",
         "dotted_notes": "Prikket noter: Legg til swing og groove følelse",
@@ -1824,6 +1796,22 @@
         "importance": {
           "question": "Hvorfor er PM til CM og CM til PM konverteringer viktige i vitenskapelig forskning?",
           "answer": "PM til CM og CM til PM konverteringer forbinder makroskopiske og atomære skalaer, essensielle for nanoteknologi, atomfysikk og materialforskning. Både PM til CM og CM til PM konverteringer gjør det mulig for forskere å arbeide med atomære dimensjoner mens de relaterer dem til målbare størrelser."
+        },
+        "scientific_notation": {
+          "question": "Kan jeg bruke vitenskapelig notasjon med denne konverteren?",
+          "answer": "Ja, vår konverter støtter både standard desimal input og vitenskapelig notasjon (f.eks. 1.5e-8). Resultater kan vises i begge format, med automatisk vitenskapelig notasjon for meget store tall som overstiger 1×10⁶."
+        },
+        "accuracy": {
+          "question": "Hvor nøyaktig er denne PM til CM og CM til PM konverteren for forskningsformål?",
+          "answer": "Vår PM til CM og CM til PM konverter oppretter nøyaktighet til 15 signifikante siffer og støtter verdier opp til 10¹⁵ pikometer. Denne presisjonsnivået er egnet for profesjonell vitenskapelig forskning, inkludert nanoteknologi og atomfysikk applikasjoner. Begge PM til CM og CM til PM konverteringer er like nøyaktige."
+        },
+        "free_use": {
+          "question": "Er denne PM til CM og CM til PM konverteren gratis for akademisk bruk?",
+          "answer": "Ja! Vår PM til CM og CM til PM konverter er helt gratis for alle brukere, inkludert forskere, studenter og akademiske institusjoner. Ingen registrering eller abonnement er nødvendig for ubegrenset PM til CM og CM til PM konverteringer."
+        },
+        "applications": {
+          "question": "Hvilke vitenskapelige applikasjoner bruker PM til CM og CM til PM konvertering?",
+          "answer": "Alle vanlige applikasjoner inkluderer nanoteknologiforskning, atomradius beregninger, molekylær bindingslengde målinger, røntgenkrystallografi, kvantemekanisk studier og materialvitenskap analyse hvor atomskala precision er nødvendig. Begge PM til CM og CM til PM konverteringer er essensielle for å bygge bro mellom forskjellige måleskalaer."
         }
       }
     },
@@ -3194,6 +3182,7 @@
     "header": {
       "badge_text": "Kryptografisk sikker • Gratis for alltid",
       "main_title": "Tilfeldig 4-sifret tallgenerator",
+      "seo_subtitle": "Gratis tilfeldig kodegenerator | Online 4-sifret tilfeldig tallgenerator",
       "description": "Generer sikre tilfeldige 4-sifrede tall øyeblikkelig. Perfekt for {verification_codes}, {pins}, {testing_data} og utviklingsformål. Kryptografisk sikker, ubegrenset og helt gratis.",
       "verification_codes": "verification codes",
       "pins": "PINs",

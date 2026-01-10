@@ -3315,10 +3315,11 @@
     "header": {
       "badge_text": "暗号学的に安全 • 永久無料",
       "main_title": "ランダム4桁数字ジェネレーター",
+      "seo_subtitle": "無料ランダムコードジェネレーター | オンライン4桁ランダム数字ジェネレーター",
       "description": "安全なランダム4桁数字を即座に生成します。{verification_codes}、{pins}、{testing_data}、開発目的に最適。暗号学的に安全、無制限、完全無料。",
-      "verification_codes": "verification codes",
-      "pins": "PINs",
-      "testing_data": "testing data",
+      "verification_codes": "認証コード",
+      "pins": "PIN番号",
+      "testing_data": "テストデータ",
       "share_text": "この無料ツールをチームと共有"
     },
     "features_pills": {

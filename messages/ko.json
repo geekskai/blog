@@ -618,6 +618,168 @@
         "bed_length": "표준 침대 길이"
       }
     },
+    "educational_content": {
+      "common_uses": {
+        "title": "일반적인 사용",
+        "description": "센티미터와 인치 간 변환이 필요한 이유와 시기를 알아보세요"
+      },
+      "examples": "예시",
+      "use_cases": {
+        "furniture": {
+          "title": "가구 & 인테리어 디자인",
+          "description": "북유럽 국가나 국제 쇼핑몰에서 가구 치수를 변환할 때 사용합니다.",
+          "examples": {
+            "ikea": "IKEA 제품 치수",
+            "scandinavian": "스칸디나비아 가구 치수",
+            "renovation": "홈 리노베이션 프로젝트",
+            "kitchen": "주방 캐비닛과 장치"
+          }
+        },
+        "construction": {
+          "title": "건축 & 건설",
+          "description": "다양한 단위 시스템에서 정확한 측정이 필요한 전문 건축 프로젝트에 사용합니다.",
+          "examples": {
+            "drawings": "건축 도면",
+            "materials": "건축 자재",
+            "specifications": "기술 사양",
+            "standards": "건축 표준"
+          }
+        },
+        "electronics": {
+          "title": "전자제품 & 쇼핑",
+          "description": "국제 온라인 쇼핑몰에서 구매할 때 제품 치수를 이해할 때 사용합니다.",
+          "examples": {
+            "tv": "TV와 화면 치수",
+            "laptop": "노트북 치수",
+            "tablet": "태블릿 치수",
+            "shipping": "배송 박스"
+          }
+        },
+        "engineering": {
+          "title": "공학 & 디자인",
+          "description": "미터법과 북유럽 측정 시스템 간 변환이 필요한 공학 작업에 사용합니다.",
+          "examples": {
+            "cad": "CAD 도면",
+            "product_specs": "제품 사양",
+            "tolerances": "제조 허용 오차",
+            "quality": "품질 제어"
+          }
+        }
+      },
+
+      "about_units": {
+        "title": "인치와 센티미터에 대하여",
+        "description": "이 측정 단위의 역사와 실제 응용을 배워보세요"
+      },
+
+      "facts": {
+        "historical": {
+          "title": "역사적 배경",
+          "content": "인치(덴마크어와 노르웨이어에서 \"thumb\"를 의미함)는 북유럽 국가에서 수세기 동안 사용되었으며, 원래 엄지손가락 너비를 기반으로 합니다."
+        },
+        "modern": {
+          "title": "현대 표준화",
+          "content": "오늘날, 1인치는 정확히 2.54센티미터와 동일하며, 국제 인치 표준과 동일하여 전 세계 호환성을 보장합니다."
+        },
+        "regional": {
+          "title": "지역 사용",
+          "content": "미터법 시스템은 북유럽 국가에서 공식적으로 사용되지만, 인치는 여전히 건축, 가구 및 전통 공예에서 일반적으로 사용됩니다."
+        },
+        "precision": {
+          "title": "정밀도의 중요성",
+          "content": "전문 응용 프로그램에서는 작은 변환 오차도 누적될 수 있습니다. 우리의 도구는 최대 정밀도를 위해 최대 3자리 소수점까지 제공합니다."
+        }
+      },
+
+      "conversion_formulas": "변환 공식",
+      "cm_to_inches": "센티미터 → 인치",
+      "inches_to_cm": "인치 → 센티미터",
+
+      "nordic_tradition": {
+        "title": "북유럽 측정 전통",
+        "denmark": {
+          "title": "덴마크",
+          "content": "덴마크에서는 인치는 여전히 건축, 가구 제조 및 전통 공예에서 사용됩니다. 덴마크 가구 제조업체는 종종 인치로 치수를 지정하여 국제 시장에 판매합니다."
+        },
+        "norway": {
+          "title": "노르웨이",
+          "content": "노르웨이 건축 및 나무 공업 산업은 종종 인치 측정을 사용합니다. 우리의 변환기는 노르웨이 건축 표준 및 사양을 지원합니다."
+        }
+      }
+    },
+
+    "usage_guide": {
+      "title": "센티미터 → 인치 변환기 사용 방법 – 완전한 전문가 가이드",
+      "description": "북유럽 가구 쇼핑, 건축 프로젝트 및 국제 측정을 위한 센티미터 → 인치 변환을 마스터하세요. 우리의 덴마크어와 노르웨이어 인치 변환기는 모든 측정 요구를 위해 정확한 결과를 제공합니다.",
+      "step_1_title": "측정값 입력",
+      "step_1_description": "센티미터 또는 인치로 측정값을 입력하세요. 변환기는 소수 값을 받아들이고 즉시 변환을 위해 단위를 자동으로 전환합니다.",
+      "step_2_title": "정밀도 수준 선택",
+      "step_2_description": "필요에 따라 0과 3자리 소수점 사이를 선택하세요. 건축 정밀도 또는 일반 가구 측정에 적합합니다.",
+      "step_3_title": "즉시 결과 확인",
+      "step_3_description": "정확한 공식을 사용한 실시간 변환 결과를 확인하세요. 북유럽 측정 표준 및 국제 거래를 이해하는 데 완벽합니다.",
+      "step_4_title": "결과 복사 및 사용",
+      "step_4_description": "쇼핑 목록, 건축 계획 또는 국제 제품 사양을 위해 변환 결과를 한 번의 클릭으로 복사하세요."
+    },
+
+    "content_sections": {
+      "what_is_inches_title": "인치는 무엇인가? 북유럽 측정 단위 이해",
+      "what_is_inches_description": "인치(덴마크어와 노르웨이어에서 \"tommer\"를 의미함)는 전통적인 북유럽 측정 단위를 나타냅니다. 현대 사용에서는 1인치가 정확히 2.54센티미터와 동일하며, 국제 인치 표준과 동일합니다. 이 센티미터 → 인치 변환기는 가구 쇼핑, 건축 프로젝트 및 국제 거래를 위한 북유럽 측정을 탐색하는 데 도움이 됩니다.",
+      "inches_conversion_benefits": "인치 변환의 장점",
+      "benefit_1": "북유럽 측정 변환 정확성",
+      "benefit_2": "IKEA 가구 치수에 완벽합니다",
+      "benefit_3": "건축 프로젝트에 필수",
+      "benefit_4": "국제 거래 호환성",
+      "benefit_5": "최대 3자리 소수점 정밀도",
+      "benefit_6": "무료 즉시 변환",
+
+      "formula_guide_title": "센티미터 → 인치 변환 공식 & 계산기 가이드",
+      "conversion_formula": "변환 공식",
+      "precision_control": "정밀도 제어",
+      "quick_examples": "빠른 예시",
+
+      "precision_control_content": {
+        "decimals_0": "0 decimals: 일반 측정",
+        "decimals_1_2": "1–2 decimals: 가구 치수",
+        "decimals_3": "3 decimals: 건축 정밀도",
+        "precision_note": "필요에 따라 적절한 정밀도를 선택하세요."
+      },
+
+      "quick_examples_content": {
+        "example_1": "10 cm = 3.94 inches",
+        "example_2": "25.4 cm = 10 인치",
+        "example_3": "100 cm = 39.37 인치",
+        "examples_note": "일반적인 측정 변환에 완벽합니다."
+      },
+
+      "inches_usage_across_nordic_countries": "북유럽 국가에서 인치 사용",
+      "denmark_usage": "덴마크",
+      "denmark_usage_text": "덴마크에서는 인치는 건축, 가구 생산 및 전통 공예에서 널리 사용됩니다. 덴마크 가구 회사는 종종 인치로 치수를 표시하여 국제 시장에 판매합니다.",
+      "norway_usage": "노르웨이",
+      "norway_usage_text": "노르웨이 건축 및 나무 공업 산업은 종종 인치 측정을 사용합니다. 우리의 변환기는 노르웨이 건축 표준 및 사양을 지원합니다.",
+      "international_usage": "국제",
+      "international_usage_text": "북유럽 공급업체와 협력하는 글로벌 회사들은 제품 사양, 배송 치수, 품질 관리 표준을 위해 정확한 인치 변환이 필요합니다.",
+
+      "features_title": "전문 센티미터 → 인치 변환기 기능",
+      "features_subtitle": "정확한 북유럽 측정 변환에 필요한 모든 것",
+      "two_way_conversion": "양방향 센티미터 → 인치 변환",
+      "two_way_conversion_description": "센티미터를 인치로 변환하고 인치를 센티미터로 변환하여 북유럽 측정 요구를 위한 즉시 결과 및 정밀도 제어.",
+      "precision_control_feature": "정밀도 제어",
+      "precision_control_description": "변환 요구에 따라 0과 3자리 소수점 사이를 선택하세요. 건축 정밀도, 가구 측정 및 전문 사용에 적합합니다.",
+      "professional_tools": "전문 도구",
+      "professional_tools_description": "결과를 복사하고, 변환 공식을 보고, 빠른 참조 표를 통해 효율적인 워크플로우 통합 및 전문 응용 프로그램에 접근합니다.",
+
+      "faq_title": "센티미터 → 인치 변환 FAQs",
+      "faq_how_convert": "센티미터를 인치로 정확하게 변환하는 방법은?",
+      "faq_how_convert_answer": "센티미터 값을 센티미터 → 인치 변환기에 입력하세요. 도구는 정확한 공식을 사용하여 인치 등가값을 자동 계산합니다: 센티미터 × 0.3937 = 인치. 필요에 따라 0에서 3자리 소수점 정밀도를 조정할 수 있습니다.",
+      "faq_conversion_formula": "센티미터에서 인치로의 정확한 변환 공식은 무엇인가요?",
+      "faq_conversion_formula_answer": "변환 공식은: 1센티미터 = 0.3937인치, 1인치 = 2.54센티미터입니다. 이는 국제 인치 표준을 기반으로 하며, 현대 인치는 국제 인치 측정과 동일합니다.",
+      "faq_inches_same_as_international": "북유럽 인치는 국제 인치와 같은가요?",
+      "faq_inches_same_as_international_answer": "네, 현대 북유럽 인치는 국제 인치와 동일합니다. 둘 다 정확히 2.54센티미터입니다. \"Tommer\"는 단순히 덴마크어와 노르웨이어로 \"인치\"를 뜻하는 용어로, 우리 변환기를 북유럽 측정에 완벽하게 만듭니다.",
+      "faq_why_need_converter": "IKEA 가구 치수를 위해 센티미터 → 인치 변환기가 필요한 이유는?",
+      "faq_why_need_converter_answer": "IKEA와 다른 북유럽 가구 브랜드는 종종 인치를 국제 사양에 사용합니다. 우리의 변환기는 스칸디나비아 가구를 구매하거나 크기를 비교할 때 정확한 치수를 이해하는 데 도움이 됩니다.",
+      "faq_is_free": "센티미터 → 인치 변환기는 무료로 사용할 수 있나요?",
+      "faq_is_free_answer": "네! 센티미터 → 인치 변환기는 무료로 등록 없이 사용할 수 있습니다. 무제한 변환, 정밀도 제어 및 모든 기능을 즐기세요."
+    },
     "final_cta": {
       "title": "센티미터를 인치로 변환할 준비가 되셨나요?",
       "description": "무료·정확·전문적인 센티미터 → 인치 변환기로 북유럽 측정 요구를 모두 해결하세요.",
@@ -3170,10 +3332,11 @@
     "header": {
       "badge_text": "암호학적으로 안전 • 영구 무료",
       "main_title": "랜덤 4자리 숫자 생성기",
+      "seo_subtitle": "무료 랜덤 코드 생성기 | 온라인 4자리 랜덤 숫자 생성기",
       "description": "안전한 랜덤 4자리 숫자를 즉시 생성하세요. {verification_codes}, {pins}, {testing_data} 및 개발 목적에 완벽합니다. 암호학적으로 안전하고, 무제한이며, 완전 무료입니다.",
-      "verification_codes": "verification codes",
-      "pins": "PINs",
-      "testing_data": "testing data",
+      "verification_codes": "인증 코드",
+      "pins": "PIN 번호",
+      "testing_data": "테스트 데이터",
       "share_text": "이 무료 도구를 팀과 공유하세요"
     },
     "features_pills": {

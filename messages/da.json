@@ -1201,6 +1201,7 @@
       "pro_tip_text": "Motor slagvolumen (CCM) er kun én faktor i bestemmelse af hestekraft. Faktisk effekt output afhænger af kompressionsforhold, brændstofsystem, tuning og mange andre faktorer. Brug disse estimater som udgangspunkt."
     },
     "educational_content": {
+      "badge": "Motor Effekt Uddannelse",
       "title": "Forståelse af CCM til HP Konvertering",
       "description": "Lær om motor slagvolumen, hestekraft beregninger og faktorer der påvirker motor effekt output",
       "engine_types_title": "Motor Typer & Effekt Karakteristika",
@@ -1778,6 +1779,22 @@
         "importance": {
           "question": "Hvorfor er PM til CM og CM til PM konverteringer vigtige i videnskabelig forskning?",
           "answer": "PM til CM og CM til PM konverteringer forbinder makroskopiske og atomare skalaer, essentielle for nanoteknologi, atomfysik og materialeforskning. Både PM til CM og CM til PM konverteringer gør det muligt for forskere at arbejde med atomare dimensioner mens de relaterer dem til målbare størrelser."
+        },
+        "scientific_notation": {
+          "question": "Kan jeg bruge videnskabelig notation med denne konverter?",
+          "answer": "Ja, vores konverter understøtter både standard decimal input og videnskabelig notation (f.eks. 1.5e-8). Resultater kan vises i begge format, med automatisk videnskabelig notation for meget store tal der overstiger 1×10⁶."
+        },
+        "accuracy": {
+          "question": "Hvor præcis er denne PM til CM og CM til PM konverter for videnskabelig forskning?",
+          "answer": "Vores PM til CM og CM til PM konverter opretholder nøjagtighed til 15 signifikante cifre og understøtter værdier op til 10¹⁵ pikometer. Denne præcisionniveau er egnet til professionel videnskabelig forskning, herunder nanoteknologi og atomfysik applikationer. Begge PM til CM og CM til PM konverteringer er lige nøjagtige."
+        },
+        "free_use": {
+          "question": "Er denne PM til CM og CM til PM konverter gratis til akademisk brug?",
+          "answer": "Ja! Vores PM til CM og CM til PM konverter er helt gratis for alle brugere, herunder forskere, studerende og akademiske institutioner. Ingen registrering eller abonnement er nødvendigt for ubegrænset PM til CM og CM til PM konverteringer."
+        },
+        "applications": {
+          "question": "Hvilke videnskabelige applikationer bruger PM til CM og CM til PM konvertering?",
+          "answer": "Almindelige applikationer omfatter nanoteknologiforskning, atomradius beregninger, molekylær bindingslængde målinger, røntgenkrystallografi, kvantemekanisk studier og materialevidenskab analyse hvor atomskala precision er nødvendig. Begge PM til CM og CM til PM konverteringer er essentielle for at bygge bro mellem forskellige måleskalaer."
         }
       }
     },
@@ -4695,6 +4712,7 @@
     "content_freshness_last_updated": "Sidst opdateret",
     "related_tool_text": "Har du brug for at downloade et enkelt nummer?",
     "related_tool_link": "Prøv SoundCloud til MP3/WAV-konverter",
+    "form_title": "SoundCloud Playlist Downloader",
     "form_label_playlist_url": "Playlist-URL",
     "form_placeholder_url": "https://soundcloud.com/brugernavn/sets/playlist-navn",
     "form_button_fetch": "Hent playlist",
