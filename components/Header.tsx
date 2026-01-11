@@ -2,7 +2,6 @@
 import { useEffect } from "react"
 import siteMetadata from "@/data/siteMetadata"
 import headerNavLinks from "@/data/headerNavLinks"
-import Logo from "/public/static/logo.png"
 import Link from "./Link"
 import MobileNav from "./MobileNav"
 import SearchButton from "./SearchButton"
@@ -41,7 +40,7 @@ const Header = () => {
           <div className="group flex items-center gap-3">
             <div className="relative">
               <Image
-                src={Logo}
+                src="/static/logo.png"
                 alt="geekskai Logo"
                 width={100}
                 height={36}
