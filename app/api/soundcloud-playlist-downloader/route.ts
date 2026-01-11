@@ -113,69 +113,39 @@ export async function POST(request: NextRequest) {
     )
 
     console.log(
-      `🚀 ~ Track breakdown: ${completeTracks.length} complete, ${incompleteTracks.length} incomplete (only ID)`
+      `🚀 ~ Track breakdown: ${completeTracks.length} complete, ${incompleteTracks.length} incomplete (private tracks)`
     )
 
-    // 如果有不完整的音轨，尝试批量获取它们的完整信息
-    let additionalTracks: Array<{
-      title: string
-      permalink_url: string
-      id?: number
-      artwork_url?: string
-      user?: { username?: string }
-    }> = []
-
-    if (incompleteTracks.length > 0 && incompleteTracks.length <= 100) {
-      // 只尝试获取不超过100个不完整音轨的信息（避免请求过大）
-      try {
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        const { getTrackInfoByID } = require("soundcloud-downloader/dist/info")
-        const incompleteIds = incompleteTracks
-          .map((t: { id?: number }) => t.id)
-          .filter((id: number | undefined): id is number => id !== undefined)
-          .slice(0, 100) // 限制最多100个
-
-        if (incompleteIds.length > 0) {
-          console.log(
-            `🚀 ~ Attempting to fetch ${incompleteIds.length} incomplete track details...`
-          )
-          const trackDetails = await getTrackInfoByID(
-            clientId,
-            scdl.axios,
-            incompleteIds,
-            info.id,
-            info.secret_token
-          )
-
-          // 过滤出有效的音轨（有 permalink_url）
-          additionalTracks = (Array.isArray(trackDetails) ? trackDetails : [trackDetails]).filter(
-            (track: { permalink_url?: string; title?: string }) =>
-              track.permalink_url && track.title
-          )
-
-          console.log(
-            `🚀 ~ Successfully fetched ${additionalTracks.length} additional track details`
-          )
-        }
-      } catch (error) {
-        console.warn(
-          `⚠️ Failed to fetch incomplete track details (this is normal for restricted tracks):`,
-          error instanceof Error ? error.message : String(error)
-        )
-        // 忽略错误，继续处理已有的完整音轨
-      }
+    // 如果所有音轨都是非公开的，直接返回错误
+    if (completeTracks.length === 0 && incompleteTracks.length > 0) {
+      return NextResponse.json(
+        {
+          error: "All tracks in this playlist are private",
+          details: `This playlist contains ${totalTracks} tracks, but all of them are private and cannot be accessed. Private tracks are not available for download.`,
+          totalTracks,
+          accessibleTracks: 0,
+          restrictedTracks: totalTracks,
+        },
+        { status: 403 }
+      )
     }
 
-    // 合并所有有效的音轨
-    const allValidTracks = [...completeTracks, ...additionalTracks]
+    // 如果有不完整的音轨（非公开音轨），记录警告但不尝试获取（因为它们是非公开的）
+    if (incompleteTracks.length > 0) {
+      console.warn(`⚠️ Found ${incompleteTracks.length} private tracks that cannot be accessed`)
+    }
+
+    // 合并所有有效的音轨（只包含公开的音轨）
+    const allValidTracks = [...completeTracks]
 
     if (allValidTracks.length === 0) {
       return NextResponse.json(
         {
           error: "No accessible tracks found in this playlist",
-          details: `Found ${totalTracks} tracks total, but none are accessible. This may be due to regional restrictions or privacy settings.`,
+          details: `Found ${totalTracks} tracks total, but none are accessible. All tracks appear to be private.`,
           totalTracks,
           accessibleTracks: 0,
+          restrictedTracks: totalTracks,
         },
         { status: 404 }
       )
@@ -200,6 +170,9 @@ export async function POST(request: NextRequest) {
       })
     )
 
+    const restrictedTracks = totalTracks - tracks.length
+    const hasPrivateTracks = restrictedTracks > 0
+
     return NextResponse.json<{
       success: boolean
       message: string
@@ -207,6 +180,7 @@ export async function POST(request: NextRequest) {
       totalTracks: number
       accessibleTracks: number
       restrictedTracks: number
+      warning?: string
       tracks: Array<{
         title: string
         url: string
@@ -217,11 +191,16 @@ export async function POST(request: NextRequest) {
     }>(
       {
         success: true,
-        message: `Found ${tracks.length} accessible tracks out of ${totalTracks} total in playlist`,
+        message: hasPrivateTracks
+          ? `Found ${tracks.length} accessible tracks out of ${totalTracks} total. ${restrictedTracks} tracks are private and cannot be accessed.`
+          : `Found ${tracks.length} accessible tracks in playlist`,
         trackCount: tracks.length,
         totalTracks,
         accessibleTracks: tracks.length,
-        restrictedTracks: totalTracks - tracks.length,
+        restrictedTracks,
+        ...(hasPrivateTracks && {
+          warning: `${restrictedTracks} track${restrictedTracks > 1 ? "s are" : " is"} private and cannot be accessed. Only public tracks are available for download.`,
+        }),
         tracks,
       },
       { status: 200 }

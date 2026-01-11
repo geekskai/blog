@@ -70,7 +70,43 @@ function nodeStreamToWebStream(nodeStream: Readable): ReadableStream<Uint8Array>
  */
 async function downloadAudioStream(url: string): Promise<Readable> {
   // Get audio info first
-  const info = await scdl.getInfo(url)
+  let info
+  try {
+    info = await scdl.getInfo(url)
+  } catch (error) {
+    const errorStr = error instanceof Error ? error.message : String(error)
+    // Check if track is private or inaccessible
+    if (
+      errorStr.includes("404") ||
+      errorStr.includes("Not Found") ||
+      errorStr.includes("403") ||
+      errorStr.includes("Forbidden") ||
+      errorStr.includes("401") ||
+      errorStr.includes("Unauthorized") ||
+      errorStr.includes("405") ||
+      errorStr.includes("Method Not Allowed")
+    ) {
+      throw new Error(
+        "This track is private or not accessible. Please ensure the track URL is public and accessible. Private tracks cannot be downloaded."
+      )
+    }
+    throw error
+  }
+
+  // Check if track is public
+  if (!info.public && info.sharing !== "public") {
+    throw new Error(
+      "This track is private. Only public tracks can be downloaded. Please check if the track URL is public."
+    )
+  }
+
+  // Check if track has media/streamable content
+  if (!info.streamable && !info.downloadable) {
+    throw new Error(
+      "This track is not available for streaming or download. The track may be private or restricted. Please verify the track URL is public."
+    )
+  }
+
   const clientID = await scdl.getClientID()
   const axiosInstance = scdl.axios
 
@@ -190,11 +226,58 @@ export async function POST(request: NextRequest) {
     console.error("Download error:", error)
     const errorMessage = error instanceof Error ? error.message : "Failed to download audio"
 
-    // 提供更友好的错误信息
+    // Check error type and provide user-friendly English error messages
     let userFriendlyError = errorMessage
-    if (errorMessage.includes("404") || errorMessage.includes("Not Found")) {
+    let statusCode = 500
+
+    // Check for private/restricted track errors
+    if (
+      errorMessage.includes("private") ||
+      errorMessage.includes("not accessible") ||
+      errorMessage.includes("not available for streaming") ||
+      errorMessage.includes("restricted")
+    ) {
+      userFriendlyError =
+        "This track is private or not accessible. Please ensure the track URL is public and accessible. Private tracks cannot be downloaded."
+      statusCode = 403
+    }
+    // Check for 404/Not Found errors
+    else if (errorMessage.includes("404") || errorMessage.includes("Not Found")) {
+      userFriendlyError =
+        "Track not found. The track may have been deleted, made private, or the URL is incorrect. Please verify the track URL is public and accessible."
+      statusCode = 404
+    }
+    // Check for 403/Forbidden errors
+    else if (errorMessage.includes("403") || errorMessage.includes("Forbidden")) {
+      userFriendlyError =
+        "Access forbidden. This track may be private or restricted. Please check if the track URL is public and try again."
+      statusCode = 403
+    }
+    // Check for 401/Unauthorized errors
+    else if (errorMessage.includes("401") || errorMessage.includes("Unauthorized")) {
+      userFriendlyError =
+        "Unauthorized access. The track may be private or require authentication. Please ensure the track URL is public."
+      statusCode = 401
+    }
+    // Check for 405/Method Not Allowed errors
+    else if (errorMessage.includes("405") || errorMessage.includes("Method Not Allowed")) {
+      userFriendlyError =
+        "Method not allowed. The track may be private or restricted. Please verify the track URL is public and accessible."
+      statusCode = 405
+    }
+    // Check for stream URL expiration
+    else if (
+      errorMessage.includes("expired") ||
+      errorMessage.includes("no longer available") ||
+      errorMessage.includes("stream URL")
+    ) {
       userFriendlyError =
         "The audio stream URL has expired or is no longer available. Please try fetching the track info again and download immediately."
+      statusCode = 410
+    }
+    // Generic error - remind user to check if track is public
+    else {
+      userFriendlyError = `Failed to download audio. ${errorMessage}. Please verify the track URL is public and accessible. Private tracks cannot be downloaded.`
     }
 
     return NextResponse.json(
@@ -202,7 +285,7 @@ export async function POST(request: NextRequest) {
         error: userFriendlyError,
         details: error instanceof Error ? error.stack : String(error),
       },
-      { status: 500 }
+      { status: statusCode }
     )
   }
 }
