@@ -14,11 +14,11 @@ export async function POST(request: NextRequest) {
 
     console.log(`🚀 ~ playlistUrl==>`, playlistUrl)
 
-    const clientId = `dH1Xed1fpITYonugor6sw39jvdq58M3h`
+    // const clientId = `dH1Xed1fpITYonugor6sw39jvdq58M3h`
 
     const axios = scdl.axios
 
-    const info = await getSetInfo(playlistUrl, clientId, axios)
+    const info = await getSetInfo(playlistUrl, "", axios)
     console.log(
       `🚀 ~ info==>`,
       info.tracks.map((track: { title: string }) => track.title)

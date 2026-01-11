@@ -3,6 +3,7 @@ import { usePathname, useRouter } from "../app/i18n/navigation"
 import { useState, useRef, useEffect } from "react"
 import { ChevronDown, Check } from "lucide-react"
 import { useLocale } from "next-intl"
+import React from "react"
 import { locales } from "../app/i18n/routing"
 
 interface LanguageOption {
@@ -24,12 +25,12 @@ const languageOptions: LanguageOption[] = [
     region: "United States",
   },
   {
-    value: "zh-cn",
-    label: "Chinese (Simplified)",
-    nativeName: "中文（简体）",
-    flag: "🇨🇳",
-    hreflang: "zh-CN",
-    region: "China",
+    value: "ar",
+    label: "Arabic",
+    nativeName: "العربية",
+    flag: "🇸🇦",
+    hreflang: "ar-SA",
+    region: "Saudi Arabia",
   },
   // {
   //   value: "zh-tw",
@@ -103,14 +104,6 @@ const languageOptions: LanguageOption[] = [
     flag: "🇷🇺",
     hreflang: "ru-RU",
     region: "Russia",
-  },
-  {
-    value: "ar",
-    label: "Arabic",
-    nativeName: "العربية",
-    flag: "🇸🇦",
-    hreflang: "ar-SA",
-    region: "Saudi Arabia",
   },
   {
     value: "hi",
@@ -315,6 +308,14 @@ const languageOptions: LanguageOption[] = [
     hreflang: "et-EE",
     region: "Estonia",
   },
+  {
+    value: "zh-cn",
+    label: "Chinese (Simplified)",
+    nativeName: "中文简体",
+    flag: "🇨🇳",
+    hreflang: "zh-CN",
+    region: "China",
+  },
 ]
 
 const hiddenSwitchLang = ["/blog/", "/privacy/", "/tags/"]
@@ -428,14 +429,14 @@ export default function LanguageSelect() {
 
         <div className="relative overflow-hidden rounded-xl border border-slate-700/50 bg-slate-900/95 shadow-2xl backdrop-blur-xl">
           {/* Options List */}
-          <div className="py-2" role="listbox">
+          <div className="grid grid-cols-2 gap-2 px-4 py-3" role="listbox">
             {supportedLanguages.map((option, index) => {
               const isSelected = option.value === currentLocale
               return (
                 <button
                   key={index}
                   onClick={() => handleLanguageChange(option.value)}
-                  className={`group flex w-full items-center justify-between px-4 py-3 text-left transition-all duration-300 ${
+                  className={`group flex w-full items-center justify-between gap-1 rounded-md px-2 py-1 text-left transition-all duration-300 ${
                     isSelected
                       ? "bg-blue-500/20 text-blue-300"
                       : "text-slate-300 hover:bg-slate-800/50 hover:text-white"
@@ -443,12 +444,9 @@ export default function LanguageSelect() {
                   role="option"
                   aria-selected={isSelected}
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-1">
                     <span className="text-lg">{option.flag}</span>
-                    <div className="flex flex-col">
-                      <span className="text-base font-medium">{option.nativeName}</span>
-                      <span className="text-xs text-slate-400">{option.label}</span>
-                    </div>
+                    <span className="text-base font-medium">{option.nativeName}</span>
                   </div>
 
                   {/* Selected indicator */}
