@@ -1,9 +1,8 @@
 "use client"
-
 import { useEffect } from "react"
 import siteMetadata from "@/data/siteMetadata"
 import headerNavLinks from "@/data/headerNavLinks"
-import Logo from "@/public/static/images/logo.png"
+import Logo from "../../public/static/images/logo.png"
 import Link from "./Link"
 import MobileNav from "./MobileNav"
 import SearchButton from "./SearchButton"
