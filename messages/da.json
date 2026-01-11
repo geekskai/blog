@@ -1523,7 +1523,9 @@
         "question_3": "Er tommer det samme som tomme?",
         "answer_3": "Ja, moderne tommer er identisk med den internationale tomme. Begge er lig med præcis 2.54 centimeter.",
         "question_4": "Hvorfor skulle jeg have brug for at konvertere cm til tommer?",
-        "answer_4": "Almindelige anvendelser inkluderer møbelindkøb fra nordiske lande, byggeprojekter, arkitektoniske tegninger og forståelse af produktdimensioner i international handel."
+        "answer_4": "Almindelige anvendelser inkluderer møbelindkøb fra nordiske lande, byggeprojekter, arkitektoniske tegninger og forståelse af produktdimensioner i international handel.",
+        "question_5": "Hvor præcis er dette konverteringsværktøj?",
+        "answer_5": "Vores konverteringsværktøj giver præcision op til 3 decimalpladser og bruger den eksakte konverteringsfaktor (1 tommer = 2.54 cm) for maksimal nøjagtighed."
       }
     },
     "final_cta": {
