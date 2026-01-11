@@ -1,0 +1,703 @@
+---
+title: "React Redux Interview Questions & Answers 2026"
+date: "2026-01-11"
+lastmod: "2026-01-11"
+tags:
+  [
+    "React",
+    "React JS Interview Questions",
+    "React.js Interview Questions",
+    "JavaScript Interview Questions",
+    "React Interview Questions",
+    "Frontend Interview",
+  ]
+draft: false
+images: "/static/images/blog/react/react-js-interview-questions.jpeg"
+summary: "Comprehensive React Redux interview questions covering Redux store, actions, reducers, middleware, and Redux Toolkit. Essential React interview questions."
+layout: "PostLayout"
+canonicalUrl: "https://geekskai.com/blog/react/react-js-interview-questions-react-redux/"
+---
+
+![React Interview Questions & Answers](/static/images/blog/react/react-js-interview-questions.jpeg)
+
+## 📖 Introduction
+
+This comprehensive guide focuses on **React Redux interview questions** covering Redux state management. Whether you're preparing for your first **React.js interview** or looking to refresh your knowledge, this resource provides detailed answers with code examples to help you succeed.
+
+**What you'll learn:**
+
+- **Redux Store**: Understanding the Redux store architecture
+- **Actions & Reducers**: Managing state changes
+- **Middleware**: Using Redux middleware for async operations
+- **Redux Toolkit**: Modern Redux development with RTK
+- **React-Redux**: Connecting React components to Redux
+- **Best Practices**: Redux patterns and optimization techniques
+
+**Perfect for:**
+
+- Developers preparing for **React.js interviews** focusing on Redux
+- Frontend engineers looking to master Redux state management
+- Teams conducting React technical assessments
+- Anyone learning Redux and seeking comprehensive interview preparation
+
+**Keywords:** React Redux interview questions, React JS interview questions, React.js interview questions, interview questions on react js
+**Key Features:**
+
+- <strong>31+ React Redux interview questions</strong> with detailed explanations
+- <strong>Code examples</strong> for every concept
+- <strong>Updated for 2026</strong> with latest React features
+- <strong>Covers all difficulty levels</strong> from beginner to advanced
+- <strong>Practical answers</strong> you can use in real interviews
+
+## React Redux
+
+**[⬆ Back to Top](#table-of-contents)**
+
+1.  ### What is Redux?
+    Redux is a predictable state container for JavaScript applications, most commonly used with React. It helps you manage and centralize your application’s state in a single source of truth, enabling easier debugging, testing, and maintenance—especially in large or complex applications. Redux core is tiny library(about 2.5kB gzipped) and has no dependencies.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+2.  ### What are the core principles of Redux?
+
+    Redux follows three fundamental principles:
+    1.  **Single source of truth:** The state of your whole application is stored in an object tree within a single store. The single state tree makes it easier to keep track of changes over time and debug or inspect the application.
+
+    ```jsx
+    const store = createStore(reducer)
+    ```
+
+    2.  **State is read-only:** The only way to change the state is to emit an action, an object describing what happened. This ensures that neither the views nor the network callbacks will ever write directly to the state.
+
+    ```js
+    const action = { type: "INCREMENT" }
+    store.dispatch(action)
+    ```
+
+    3.  **Changes are made with pure functions(Reducers):** To specify how the state tree is transformed by actions, you write reducers. Reducers are just pure functions that take the previous state and an action as parameters, and return the next state.
+
+    ```jsx
+    function counter(state = 0, action) {
+      switch (action.type) {
+        case "INCREMENT":
+          return state + 1
+        case "DECREMENT":
+          return state - 1
+        default:
+          return state
+      }
+    }
+    ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+3.  ### What are the downsides of Redux?
+
+    While Redux offers a powerful and predictable state management solution, it comes with a few trade-offs when compared to Flux. These include:
+    1.  **Immutability is essential**
+        Redux enforces a strict immutability model for state updates, which differs from Flux’s more relaxed approach. This means you must avoid mutating state directly. Many Redux-related libraries assume immutability, so your team must be disciplined in writing pure update logic. You can use tools like `redux-immutable-state-invariant`, `Immer`, or `Immutable.js` to help enforce this practice, especially during development.
+    2.  **Careful selection of complementary packages**
+        Redux is more minimal by design and provides extension points such as middleware and store enhancers. This has led to a large ecosystem, but it also means you must thoughtfully choose and configure additional packages for features like undo/redo, persistence, or form handling—something Flux explicitly leaves out but may be simpler to manage in smaller setups.
+    3.  **Limited static type integration**
+        While Flux has mature support for static type checking with tools like Flow, Redux’s type integration is less seamless. Although TypeScript is commonly used with Redux now, early Flow support was limited, and more boilerplate was required for static type safety. This may affect teams that rely heavily on type systems for large codebases.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+4.  ### What is the difference between `mapStateToProps()` and `mapDispatchToProps()`?
+
+    `mapStateToProps()` is a utility which helps your component get updated state (which is updated by some other components):
+
+    ```javascript
+    const mapStateToProps = (state) => {
+      return {
+        todos: getVisibleTodos(state.todos, state.visibilityFilter),
+      }
+    }
+    ```
+
+    `mapDispatchToProps()` is a utility which will help your component to fire an action event (dispatching action which may cause change of application state):
+
+    ```javascript
+    const mapDispatchToProps = (dispatch) => {
+      return {
+        onTodoClick: (id) => {
+          dispatch(toggleTodo(id))
+        },
+      }
+    }
+    ```
+
+    It is recommended to always use the “object shorthand” form for the `mapDispatchToProps`.
+
+    Redux wraps it in another function that looks like (…args) => dispatch(onTodoClick(…args)), and pass that wrapper function as a prop to your component.
+
+    ```javascript
+    const mapDispatchToProps = {
+      onTodoClick,
+    }
+    ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+5.  ### Can I dispatch an action in reducer?
+
+    Dispatching an action within a reducer is an **anti-pattern**. Your reducer should be _without side effects_, simply digesting the action payload and returning a new state object. Adding listeners and dispatching actions within the reducer can lead to chained actions and other side effects.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+6.  ### How to access Redux store outside a component?
+
+    You just need to export the store from the module where it created with `createStore()`. Also, it shouldn't pollute the global window object.
+
+    ```javascript
+    store = createStore(myReducer)
+
+    export default store
+    ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+7.  ### What are the drawbacks of MVW pattern?
+    1.  DOM manipulation is very expensive which causes applications to behave slow and inefficient.
+    2.  Due to circular dependencies, a complicated model was created around models and views.
+    3.  Lot of data changes happens for collaborative applications(like Google Docs).
+    4.  No way to do undo (travel back in time) easily without adding so much extra code.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+8.  ### Are there any similarities between Redux and RxJS?
+
+    These libraries are very different for very different purposes, but there are some vague similarities.
+
+    Redux is a tool for managing state throughout the application. It is usually used as an architecture for UIs. Think of it as an alternative to (half of) Angular. RxJS is a reactive programming library. It is usually used as a tool to accomplish asynchronous tasks in JavaScript. Think of it as an alternative to Promises. Redux uses the Reactive paradigm because the Store is reactive. The Store observes actions from a distance, and changes itself. RxJS also uses the Reactive paradigm, but instead of being an architecture, it gives you basic building blocks, Observables, to accomplish this pattern.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+9.  ### How to reset state in Redux?
+
+    You need to write a _root reducer_ in your application which delegate handling the action to the reducer generated by `combineReducers()`.
+
+    For example, let us take `rootReducer()` to return the initial state after `USER_LOGOUT` action. As we know, reducers are supposed to return the initial state when they are called with `undefined` as the first argument, no matter the action.
+
+    ```javascript
+    const appReducer = combineReducers({
+      /* your app's top-level reducers */
+    })
+
+    const rootReducer = (state, action) => {
+      if (action.type === "USER_LOGOUT") {
+        state = undefined
+      }
+
+      return appReducer(state, action)
+    }
+    ```
+
+    In case of using `redux-persist`, you may also need to clean your storage. `redux-persist` keeps a copy of your state in a storage engine. First, you need to import the appropriate storage engine and then, to parse the state before setting it to undefined and clean each storage state key.
+
+    ```javascript
+    const appReducer = combineReducers({
+      /* your app's top-level reducers */
+    })
+
+    const rootReducer = (state, action) => {
+      if (action.type === "USER_LOGOUT") {
+        Object.keys(state).forEach((key) => {
+          storage.removeItem(`persist:${key}`)
+        })
+
+        state = undefined
+      }
+
+      return appReducer(state, action)
+    }
+    ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+10. ### What is the difference between React context and React Redux?
+
+    You can use **Context** in your application directly and is going to be great for passing down data to deeply nested components which what it was designed for.
+
+    Whereas **Redux** is much more powerful and provides a large number of features that the Context API doesn't provide. Also, React Redux uses context internally but it doesn't expose this fact in the public API.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+11. ### Why are Redux state functions called reducers?
+
+    Reducers always return the accumulation of the state (based on all previous and current actions). Therefore, they act as a reducer of state. Each time a Redux reducer is called, the state and action are passed as parameters. This state is then reduced (or accumulated) based on the action, and then the next state is returned. You could _reduce_ a collection of actions and an initial state (of the store) on which to perform these actions to get the resulting final state.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+12. ### How to make AJAX request in Redux?
+
+    You can use `redux-thunk` middleware which allows you to define async actions.
+
+    Let's take an example of fetching specific account as an AJAX call using _fetch API_:
+
+    ```javascript
+    export function fetchAccount(id) {
+      return (dispatch) => {
+        dispatch(setLoadingAccountState()) // Show a loading spinner
+        fetch(`/account/${id}`, (response) => {
+          dispatch(doneFetchingAccount()) // Hide loading spinner
+          if (response.status === 200) {
+            dispatch(setAccount(response.json)) // Use a normal function to set the received state
+          } else {
+            dispatch(someError)
+          }
+        })
+      }
+    }
+
+    function setAccount(data) {
+      return { type: "SET_Account", data: data }
+    }
+    ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+13. ### Should I keep all component's state in Redux store?
+
+    Keep your data in the Redux store, and the UI related state internally in the component.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+14. ### What is the proper way to access Redux store?
+
+    The best way to access your store in a component is to use the `connect()` function, that creates a new component that wraps around your existing one. This pattern is called _Higher-Order Components_, and is generally the preferred way of extending a component's functionality in React. This allows you to map state and action creators to your component, and have them passed in automatically as your store updates.
+
+    Let's take an example of `<FilterLink>` component using connect:
+
+    ```javascript
+    import { connect } from "react-redux"
+    import { setVisibilityFilter } from "../actions"
+    import Link from "../components/Link"
+
+    const mapStateToProps = (state, ownProps) => ({
+      active: ownProps.filter === state.visibilityFilter,
+    })
+
+    const mapDispatchToProps = (dispatch, ownProps) => ({
+      onClick: () => dispatch(setVisibilityFilter(ownProps.filter)),
+    })
+
+    const FilterLink = connect(mapStateToProps, mapDispatchToProps)(Link)
+
+    export default FilterLink
+    ```
+
+    Due to it having quite a few performance optimizations and generally being less likely to cause bugs, the Redux developers almost always recommend using `connect()` over accessing the store directly (using context API).
+
+    ```javascript
+    function MyComponent {
+      someMethod() {
+        doSomethingWith(this.context.store);
+      }
+    }
+    ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+15. ### What is the difference between component and container in React Redux?
+
+    **Component** is a class or function component that describes the presentational part of your application.
+
+    **Container** is an informal term for a component that is connected to a Redux store. Containers _subscribe_ to Redux state updates and _dispatch_ actions, and they usually don't render DOM elements; they delegate rendering to presentational child components.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+16. ### What is the purpose of the constants in Redux?
+
+    Constants allows you to easily find all usages of that specific functionality across the project when you use an IDE. It also prevents you from introducing silly bugs caused by typos – in which case, you will get a `ReferenceError` immediately.
+
+    Normally we will save them in a single file (`constants.js` or `actionTypes.js`).
+
+    ```javascript
+    export const ADD_TODO = "ADD_TODO"
+    export const DELETE_TODO = "DELETE_TODO"
+    export const EDIT_TODO = "EDIT_TODO"
+    export const COMPLETE_TODO = "COMPLETE_TODO"
+    export const COMPLETE_ALL = "COMPLETE_ALL"
+    export const CLEAR_COMPLETED = "CLEAR_COMPLETED"
+    ```
+
+    In Redux, you use them in two places:
+    1.  **During action creation:**
+
+        Let's take `actions.js`:
+
+        ```javascript
+        import { ADD_TODO } from "./actionTypes"
+
+        export function addTodo(text) {
+          return { type: ADD_TODO, text }
+        }
+        ```
+
+    2.  **In reducers:**
+
+        Let's create `reducer.js`:
+
+        ```javascript
+        import { ADD_TODO } from "./actionTypes"
+
+        export default (state = [], action) => {
+          switch (action.type) {
+            case ADD_TODO:
+              return [
+                ...state,
+                {
+                  text: action.text,
+                  completed: false,
+                },
+              ]
+            default:
+              return state
+          }
+        }
+        ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+17. ### What are the different ways to write `mapDispatchToProps()`?
+
+    There are a few ways of binding _action creators_ to `dispatch()` in `mapDispatchToProps()`.
+
+    Below are the possible options:
+
+    ```javascript
+    const mapDispatchToProps = (dispatch) => ({
+      action: () => dispatch(action()),
+    })
+    ```
+
+    ```javascript
+    const mapDispatchToProps = (dispatch) => ({
+      action: bindActionCreators(action, dispatch),
+    })
+    ```
+
+    ```javascript
+    const mapDispatchToProps = { action }
+    ```
+
+    The third option is just a shorthand for the first one.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+18. ### What is the use of the `ownProps` parameter in `mapStateToProps()` and `mapDispatchToProps()`?
+
+    If the `ownProps` parameter is specified, React Redux will pass the props that were passed to the component into your _connect_ functions. So, if you use a connected component:
+
+    ```jsx harmony
+    import ConnectedComponent from "./containers/ConnectedComponent"
+
+    ;<ConnectedComponent user={"john"} />
+    ```
+
+    The `ownProps` inside your `mapStateToProps()` and `mapDispatchToProps()` functions will be an object:
+
+    ```javascript
+    {
+      user: "john"
+    }
+    ```
+
+    You can use this object to decide what to return from those functions.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+19. ### How to structure Redux top level directories?
+
+    Most of the applications has several top-level directories as below:
+    1.  **Components**: Used for _dumb_ components unaware of Redux.
+    2.  **Containers**: Used for _smart_ components connected to Redux.
+    3.  **Actions**: Used for all action creators, where file names correspond to part of the app.
+    4.  **Reducers**: Used for all reducers, where files name correspond to state key.
+    5.  **Store**: Used for store initialization.
+
+    This structure works well for small and medium size apps.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+20. ### What is redux-saga?
+
+    `redux-saga` is a library that aims to make side effects (asynchronous things like data fetching and impure things like accessing the browser cache) in React/Redux applications easier and better.
+
+    It is available in NPM:
+
+    ```console
+    $ npm install --save redux-saga
+    ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+21. ### What is the mental model of redux-saga?
+
+    _Saga_ is like a separate thread in your application, that's solely responsible for side effects. `redux-saga` is a redux _middleware_, which means this thread can be started, paused and cancelled from the main application with normal Redux actions, it has access to the full Redux application state and it can dispatch Redux actions as well.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+22. ### What are the differences between `call()` and `put()` in redux-saga?
+
+    Both `call()` and `put()` are effect creator functions. `call()` function is used to create effect description, which instructs middleware to call the promise. `put()` function creates an effect, which instructs middleware to dispatch an action to the store.
+
+    Let's take example of how these effects work for fetching particular user data.
+
+    ```javascript
+    function* fetchUserSaga(action) {
+      // `call` function accepts rest arguments, which will be passed to `api.fetchUser` function.
+      // Instructing middleware to call promise, it resolved value will be assigned to `userData` variable
+      const userData = yield call(api.fetchUser, action.userId)
+
+      // Instructing middleware to dispatch corresponding action.
+      yield put({
+        type: "FETCH_USER_SUCCESS",
+        userData,
+      })
+    }
+    ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+23. ### What is Redux Thunk?
+
+    _Redux Thunk_ middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met. The inner function receives the store methods `dispatch()` and `getState()` as parameters.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+24. ### What are the differences between `redux-saga` and `redux-thunk`?
+
+    Both _Redux Thunk_ and _Redux Saga_ take care of dealing with side effects. In most of the scenarios, Thunk uses _Promises_ to deal with them, whereas Saga uses _Generators_. Thunk is simple to use and Promises are familiar to many developers, Sagas/Generators are more powerful but you will need to learn them. But both middleware can coexist, so you can start with Thunks and introduce Sagas when/if you need them.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+25. ### What is Redux DevTools?
+
+    _Redux DevTools_ is a live-editing time travel environment for Redux with hot reloading, action replay, and customizable UI. If you don't want to bother with installing Redux DevTools and integrating it into your project, consider using Redux DevTools Extension for Chrome and Firefox.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+26. ### What are the features of Redux DevTools?
+
+    Some of the main features of Redux DevTools are below,
+    1.  Lets you inspect every state and action payload.
+    2.  Lets you go back in time by _cancelling_ actions.
+    3.  If you change the reducer code, each _staged_ action will be re-evaluated.
+    4.  If the reducers throw, you will see during which action this happened, and what the error was.
+    5.  With `persistState()` store enhancer, you can persist debug sessions across page reloads.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+27. ### What are Redux selectors and why use them?
+
+    _Selectors_ are functions that take Redux state as an argument and return some data to pass to the component.
+
+    For example, to get user details from the state:
+
+    ```javascript
+    const getUserData = (state) => state.user.data
+    ```
+
+    These selectors have two main benefits,
+    1.  The selector can compute derived data, allowing Redux to store the minimal possible state
+    2.  The selector is not recomputed unless one of its arguments changes
+
+**[⬆ Back to Top](#table-of-contents)**
+
+28. ### What is Redux Form?
+
+    _Redux Form_ works with React and Redux to enable a form in React to use Redux to store all of its state. Redux Form can be used with raw HTML5 inputs, but it also works very well with common UI frameworks like Material UI, React Widgets and React Bootstrap.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+29. ### What are the main features of Redux Form?
+
+    Some of the main features of Redux Form are:
+    1.  Field values persistence via Redux store.
+    2.  Validation (sync/async) and submission.
+    3.  Formatting, parsing and normalization of field values.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+30. ### How to add multiple middlewares to Redux?
+
+    You can use `applyMiddleware()`.
+
+    For example, you can add `redux-thunk` and `logger` passing them as arguments to `applyMiddleware()`:
+
+    ```javascript
+    import { createStore, applyMiddleware } from "redux"
+    const createStoreWithMiddleware = applyMiddleware(ReduxThunk, logger)(createStore)
+    ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+31. ### How to set initial state in Redux?
+
+    You need to pass initial state as second argument to createStore:
+
+    ```javascript
+    const rootReducer = combineReducers({
+      todos: todos,
+      visibilityFilter: visibilityFilter,
+    })
+
+    const initialState = {
+      todos: [{ id: 123, name: "example", completed: false }],
+    }
+
+    const store = createStore(rootReducer, initialState)
+    ```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+---
+
+## 📚 Related React Interview Questions
+
+Continue your **React JS interview questions** preparation with these related topics:
+
+<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-6">
+
+<div className="rounded-lg border border-gray-200 p-4 transition-shadow hover:shadow-lg dark:border-gray-700">
+  <h3 className="mb-2 text-lg font-semibold">
+    <a
+      href="/blog/react/react-js-interview-questions-react-state-management/"
+      className="text-blue-600 hover:underline dark:text-blue-400"
+    >
+      React State Management Interview Questions
+    </a>
+  </h3>
+  <p className="text-sm text-gray-600 dark:text-gray-400">
+    Master React State Management interview questions covering useState, Context API, Redux, and
+    state optimization. Essenti...
+  </p>
+</div>
+
+<div className="rounded-lg border border-gray-200 p-4 transition-shadow hover:shadow-lg dark:border-gray-700">
+  <h3 className="mb-2 text-lg font-semibold">
+    <a
+      href="/blog/react/react-js-interview-questions-core-react/"
+      className="text-blue-600 hover:underline dark:text-blue-400"
+    >
+      Core React Interview Questions
+    </a>
+  </h3>
+  <p className="text-sm text-gray-600 dark:text-gray-400">
+    Master Core React interview questions covering JSX, Virtual DOM, Components, Props, State, and
+    more. Essential React JS ...
+  </p>
+</div>
+
+<div className="rounded-lg border border-gray-200 p-4 transition-shadow hover:shadow-lg dark:border-gray-700">
+  <h3 className="mb-2 text-lg font-semibold">
+    <a
+      href="/blog/react/react-js-interview-questions-react-hooks/"
+      className="text-blue-600 hover:underline dark:text-blue-400"
+    >
+      React Hooks Interview Questions
+    </a>
+  </h3>
+  <p className="text-sm text-gray-600 dark:text-gray-400">
+    Comprehensive React Hooks interview questions covering useState, useEffect, useCallback,
+    useMemo, useReducer, and custom...
+  </p>
+</div>
+
+</div>
+
+<div className="relative mt-12 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/25 via-purple-500/20 to-pink-500/25 p-8 shadow-2xl backdrop-blur-xl">
+  {/* Decorative background elements */}
+  <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-blue-500/15 to-purple-500/15 blur-3xl"></div>
+  <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/15 blur-3xl"></div>
+
+  <div className="relative">
+    {/* Header */}
+    <div className="mb-6 flex items-center gap-3">
+      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm">
+        <span className="text-2xl">📖</span>
+      </div>
+      <div>
+        <h3 className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-2xl font-bold text-transparent">
+          Complete React Interview Guide
+        </h3>
+        <div className="mt-1 text-sm text-slate-300">
+          Master all aspects of React development
+        </div>
+      </div>
+    </div>
+
+    {/* Description */}
+    <div className="mb-6 text-slate-200">
+      This article is part of our comprehensive <strong className="text-white">React JS interview questions</strong> series covering all aspects of React development. Explore all topics:
+    </div>
+
+    {/* Links Grid */}
+    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <a href="/blog/react/react-js-interview-questions-core-react/" className="group relative overflow-hidden rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-blue-500/5 p-4 transition-all duration-300 hover:border-blue-400/50 hover:shadow-lg hover:shadow-blue-500/25">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <span className="relative text-sm font-semibold text-blue-300 transition-colors group-hover:text-blue-200">Core React</span>
+      </a>
+
+      <a href="/blog/react/react-js-interview-questions-react-arrays-lists/" className="group relative overflow-hidden rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-emerald-500/5 p-4 transition-all duration-300 hover:border-emerald-400/50 hover:shadow-lg hover:shadow-emerald-500/25">
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <span className="relative text-sm font-semibold text-emerald-300 transition-colors group-hover:text-emerald-200">Arrays & Lists</span>
+      </a>
+
+      <a href="/blog/react/react-js-interview-questions-react-forms-events/" className="group relative overflow-hidden rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-emerald-500/5 p-4 transition-all duration-300 hover:border-emerald-400/50 hover:shadow-lg hover:shadow-emerald-500/25">
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <span className="relative text-sm font-semibold text-emerald-300 transition-colors group-hover:text-emerald-200">Forms & Events</span>
+      </a>
+
+      <a href="/blog/react/react-js-interview-questions-react-hooks/" className="group relative overflow-hidden rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-4 transition-all duration-300 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/25">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <span className="relative text-sm font-semibold text-purple-300 transition-colors group-hover:text-purple-200">React Hooks</span>
+      </a>
+
+      <a href="/blog/react/react-js-interview-questions-react-internationalization/" className="group relative overflow-hidden rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-4 transition-all duration-300 hover:border-cyan-400/50 hover:shadow-lg hover:shadow-cyan-500/25">
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <span className="relative text-sm font-semibold text-cyan-300 transition-colors group-hover:text-cyan-200">Internationalization</span>
+      </a>
+
+      <a href="/blog/react/react-js-interview-questions-react-libraries-integration/" className="group relative overflow-hidden rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-orange-500/5 p-4 transition-all duration-300 hover:border-orange-400/50 hover:shadow-lg hover:shadow-orange-500/25">
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <span className="relative text-sm font-semibold text-orange-300 transition-colors group-hover:text-orange-200">Libraries & Integration</span>
+      </a>
+
+      <a href="/blog/react/react-js-interview-questions-react-miscellaneous/" className="group relative overflow-hidden rounded-xl border border-pink-500/30 bg-gradient-to-br from-pink-500/10 to-pink-500/5 p-4 transition-all duration-300 hover:border-pink-400/50 hover:shadow-lg hover:shadow-pink-500/25">
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <span className="relative text-sm font-semibold text-pink-300 transition-colors group-hover:text-pink-200">Miscellaneous</span>
+      </a>
+
+      <a href="/blog/react/react-js-interview-questions-react-redux/" className="group relative overflow-hidden rounded-xl border border-red-500/30 bg-gradient-to-br from-red-500/10 to-red-500/5 p-4 transition-all duration-300 hover:border-red-400/50 hover:shadow-lg hover:shadow-red-500/25">
+        <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <span className="relative text-sm font-semibold text-red-300 transition-colors group-hover:text-red-200">React Redux</span>
+      </a>
+
+      <a href="/blog/react/react-js-interview-questions-react-rendering-performance/" className="group relative overflow-hidden rounded-xl border border-teal-500/30 bg-gradient-to-br from-teal-500/10 to-teal-500/5 p-4 transition-all duration-300 hover:border-teal-400/50 hover:shadow-lg hover:shadow-teal-500/25">
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <span className="relative text-sm font-semibold text-teal-300 transition-colors group-hover:text-teal-200">Rendering & Performance</span>
+      </a>
+
+      <a href="/blog/react/react-js-interview-questions-react-router/" className="group relative overflow-hidden rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-indigo-500/5 p-4 transition-all duration-300 hover:border-indigo-400/50 hover:shadow-lg hover:shadow-indigo-500/25">
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <span className="relative text-sm font-semibold text-indigo-300 transition-colors group-hover:text-indigo-200">React Router</span>
+      </a>
+
+      <a href="/blog/react/react-js-interview-questions-react-state-management/" className="group relative overflow-hidden rounded-xl border border-violet-500/30 bg-gradient-to-br from-violet-500/10 to-violet-500/5 p-4 transition-all duration-300 hover:border-violet-400/50 hover:shadow-lg hover:shadow-violet-500/25">
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <span className="relative text-sm font-semibold text-violet-300 transition-colors group-hover:text-violet-200">State Management</span>
+      </a>
+
+      <a href="/blog/react/react-js-interview-questions-react-testing/" className="group relative overflow-hidden rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-4 transition-all duration-300 hover:border-green-400/50 hover:shadow-lg hover:shadow-green-500/25">
+        <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <span className="relative text-sm font-semibold text-green-300 transition-colors group-hover:text-green-200">React Testing</span>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+134. (#table-of-contents)\*\*
