@@ -557,7 +557,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        <link rel="preload" href="/og-images/home.jpg" as="image" />
+        <link rel="preload" href="/static/images/og/geekskai-home.png" as="image" />
       </head>
       <body>{children}</body>
     </html>
