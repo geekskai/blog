@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
 
     // 过滤掉无效的音轨（没有 title 或 permalink_url）
     const validTracks = info.tracks.filter(
-      (track: { title?: string; permalink_url?: string }) => track.title && track.permalink_url
+      (track: { permalink_url?: string }) => track.permalink_url
     )
 
     if (validTracks.length === 0) {
