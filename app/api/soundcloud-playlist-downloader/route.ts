@@ -99,28 +99,92 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // 过滤掉无效的音轨（没有 title 或 permalink_url）
-    const validTracks = info.tracks.filter(
-      (track: { permalink_url?: string }) => track.permalink_url
+    const totalTracks = info.tracks.length
+    console.log(`🚀 ~ Total tracks in playlist: ${totalTracks}`)
+
+    // 分类音轨：完整信息 vs 只有基本信息
+    const completeTracks = info.tracks.filter(
+      (track: { permalink_url?: string; title?: string }) => track.permalink_url && track.title
     )
 
-    if (validTracks.length === 0) {
+    const incompleteTracks = info.tracks.filter(
+      (track: { permalink_url?: string; title?: string; id?: number }) =>
+        !track.permalink_url && track.id
+    )
+
+    console.log(
+      `🚀 ~ Track breakdown: ${completeTracks.length} complete, ${incompleteTracks.length} incomplete (only ID)`
+    )
+
+    // 如果有不完整的音轨，尝试批量获取它们的完整信息
+    let additionalTracks: Array<{
+      title: string
+      permalink_url: string
+      id?: number
+      artwork_url?: string
+      user?: { username?: string }
+    }> = []
+
+    if (incompleteTracks.length > 0 && incompleteTracks.length <= 100) {
+      // 只尝试获取不超过100个不完整音轨的信息（避免请求过大）
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
+        const { getTrackInfoByID } = require("soundcloud-downloader/dist/info")
+        const incompleteIds = incompleteTracks
+          .map((t: { id?: number }) => t.id)
+          .filter((id: number | undefined): id is number => id !== undefined)
+          .slice(0, 100) // 限制最多100个
+
+        if (incompleteIds.length > 0) {
+          console.log(
+            `🚀 ~ Attempting to fetch ${incompleteIds.length} incomplete track details...`
+          )
+          const trackDetails = await getTrackInfoByID(
+            clientId,
+            scdl.axios,
+            incompleteIds,
+            info.id,
+            info.secret_token
+          )
+
+          // 过滤出有效的音轨（有 permalink_url）
+          additionalTracks = (Array.isArray(trackDetails) ? trackDetails : [trackDetails]).filter(
+            (track: { permalink_url?: string; title?: string }) =>
+              track.permalink_url && track.title
+          )
+
+          console.log(
+            `🚀 ~ Successfully fetched ${additionalTracks.length} additional track details`
+          )
+        }
+      } catch (error) {
+        console.warn(
+          `⚠️ Failed to fetch incomplete track details (this is normal for restricted tracks):`,
+          error instanceof Error ? error.message : String(error)
+        )
+        // 忽略错误，继续处理已有的完整音轨
+      }
+    }
+
+    // 合并所有有效的音轨
+    const allValidTracks = [...completeTracks, ...additionalTracks]
+
+    if (allValidTracks.length === 0) {
       return NextResponse.json(
         {
-          error: "No valid tracks found in this playlist",
-          details: "The playlist may be empty or all tracks are inaccessible.",
+          error: "No accessible tracks found in this playlist",
+          details: `Found ${totalTracks} tracks total, but none are accessible. This may be due to regional restrictions or privacy settings.`,
+          totalTracks,
+          accessibleTracks: 0,
         },
         { status: 404 }
       )
     }
 
-    console.log(
-      `🚀 ~ Found ${validTracks.length} valid tracks:`,
-      validTracks.map((track: { title: string }) => track.title)
-    )
+    console.log(`🚀 ~ Found ${allValidTracks.length} accessible tracks out of ${totalTracks} total`)
 
     // 返回音轨信息，而不是流（流无法序列化为 JSON）
-    const tracks = validTracks.map(
+    const tracks = allValidTracks.map(
       (track: {
         title: string
         permalink_url: string
@@ -140,6 +204,9 @@ export async function POST(request: NextRequest) {
       success: boolean
       message: string
       trackCount: number
+      totalTracks: number
+      accessibleTracks: number
+      restrictedTracks: number
       tracks: Array<{
         title: string
         url: string
@@ -150,8 +217,11 @@ export async function POST(request: NextRequest) {
     }>(
       {
         success: true,
-        message: `Found ${tracks.length} tracks in playlist`,
+        message: `Found ${tracks.length} accessible tracks out of ${totalTracks} total in playlist`,
         trackCount: tracks.length,
+        totalTracks,
+        accessibleTracks: tracks.length,
+        restrictedTracks: totalTracks - tracks.length,
         tracks,
       },
       { status: 200 }
