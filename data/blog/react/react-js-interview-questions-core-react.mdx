@@ -981,13 +981,9 @@ In these components, DOM does not hold the actual data instead React does.
 
     A simple usage of children prop looks as below,
 
-    ```jsx harmony
-    function MyDiv({ children }){
-        return (
-          <div>
-            {children}
-          </div>;
-        );
+    ```jsx
+    function MyDiv({ children }) {
+      return <div>{children}</div>
     }
 
     export default function Greeting() {
@@ -996,7 +992,7 @@ In these components, DOM does not hold the actual data instead React does.
           <span>{"Hello"}</span>
           <span>{"World"}</span>
         </MyDiv>
-      );
+      )
     }
     ```
 
@@ -1211,20 +1207,21 @@ In these components, DOM does not hold the actual data instead React does.
 
     Let's take an example of function stateful component which update the state based on click event,
 
-    ```javascript
-    import React, {useState} from 'react';
+    ```jsx
+    import React, { useState } from "react"
 
-    const App = (props) => {
-    const [count, setCount] = useState(0);
-    handleIncrement() {
-      setCount(count+1);
-    }
+    function App() {
+      const [count, setCount] = useState(0)
 
-    return (
-      <>
-        <button onClick={handleIncrement}>Increment</button>
-        <span>Counter: {count}</span>
-      </>
+      const handleIncrement = () => {
+        setCount(count + 1)
+      }
+
+      return (
+        <>
+          <button onClick={handleIncrement}>Increment</button>
+          <span>Counter: {count}</span>
+        </>
       )
     }
     ```
@@ -1235,25 +1232,27 @@ In these components, DOM does not hold the actual data instead React does.
 <summary><b>See Class</b></summary>
 <p>The equivalent class stateful component with a state that gets initialized in the `constructor`.</p>
 
-````jsx harmony
-    class App extends Component {
-      constructor(props) {
-        super(props);
-        this.state = { count: 0 };
-      }
+```jsx harmony
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { count: 0 }
+  }
 
-      handleIncrement() {
-        setState({ count: this.state.count + 1 });
-      }
+  handleIncrement() {
+    this.setState({ count: this.state.count + 1 })
+  }
 
-      render() {
-        <>
-          <button onClick={() => this.handleIncrement}>Increment</button>
-          <span>Count: {count}</span>
-        </>;
-      }
-    }
-    ```
+  render() {
+    return (
+      <>
+        <button onClick={() => this.handleIncrement()}>Increment</button>
+        <span>Count: {this.state.count}</span>
+      </>
+    )
+  }
+}
+```
 
 </details>
 
@@ -1261,7 +1260,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-33.  ### How to apply validation on props in React?
+33. ### How to apply validation on props in React?
+
 
     When the application is running in _development mode_, React will automatically check all props that we set on components to make sure they have _correct type_. If the type is incorrect, React will generate warning messages in the console. It's disabled in _production mode_ due to performance impact. The mandatory props are defined with `isRequired`.
 
@@ -1326,7 +1326,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-34.  ### What are the advantages of React?
+34. ### What are the advantages of React?
+
 
     Below are the list of main advantages of React,
 
@@ -1338,7 +1339,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-35.  ### What are the limitations of React?
+35. ### What are the limitations of React?
+
 
     Apart from the advantages, there are few limitations of React too,
 
@@ -1350,13 +1352,15 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-36.  ### What are the recommended ways for static type checking?
+36. ### What are the recommended ways for static type checking?
+
 
     Normally we use _PropTypes library_ (`React.PropTypes` moved to a `prop-types` package since React v15.5) for _type checking_ in the React applications. For large code bases, it is recommended to use _static type checkers_ such as Flow or TypeScript, that perform type checking at compile time and provide auto-completion features.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-37.  ### What is the use of `react-dom` package?
+37. ### What is the use of `react-dom` package?
+
 
     The `react-dom` package provides _DOM-specific methods_ that can be used at the top level of your app. Most of the components are not required to use this module. Some of the methods of this package are:
 
@@ -1368,7 +1372,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-38.  ### What is ReactDOMServer?
+38. ### What is ReactDOMServer?
+
 
     The `ReactDOMServer` object enables you to render components to static markup (typically used on node server). This object is mainly used for _server-side rendering_ (SSR). The following methods can be used in both the server and browser environments:
 
@@ -1395,7 +1400,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-39.  ### How to use innerHTML in React?
+39. ### How to use innerHTML in React?
+
 
     The `dangerouslySetInnerHTML` attribute is React's replacement for using `innerHTML` in the browser DOM. Just like `innerHTML`, it is risky to use this attribute considering cross-site scripting (XSS) attacks. You just need to pass a `__html` object as key and HTML text as value.
 
@@ -1413,7 +1419,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-40.  ### How to use styles in React?
+40. ### How to use styles in React?
+
 
     The `style` attribute accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM style JavaScript property, is more efficient, and prevents XSS security holes.
 
@@ -1432,7 +1439,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-41.  ### How events are different in React?
+41. ### How events are different in React?
+
 
     Handling events in React elements has some syntactic differences:
 
@@ -1441,7 +1449,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-42.  ### What is the impact of indexes as keys?
+42. ### What is the impact of indexes as keys?
+
 
     Keys should be stable, predictable, and unique so that React can keep track of elements.
 
@@ -1465,7 +1474,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-43.  ### How do you conditionally render components?
+43. ### How do you conditionally render components?
+
 
     In some cases you want to render different components depending on some state. JSX does not render `false` or `undefined`, so you can use conditional _short-circuiting_ to render a given part of your component only if a certain condition is true.
 
@@ -1491,7 +1501,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-44.  ### Why we need to be careful when spreading props on DOM elements?
+44. ### Why we need to be careful when spreading props on DOM elements?
+
 
     When we _spread props_ we run into the risk of adding unknown HTML attributes, which is a bad practice. Instead we can use prop destructuring with `...rest` operator, so it will add only required props.
 
@@ -1509,7 +1520,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-45.  ### How do you memoize a component?
+45. ### How do you memoize a component?
+
 
     There are memoize libraries available which can be used on function components.
 
@@ -1541,7 +1553,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-46.  ### How you implement Server Side Rendering or SSR?
+46. ### How you implement Server Side Rendering or SSR?
+
 
     React is already equipped to handle rendering on Node servers. A special version of the DOM renderer is available, which follows the same pattern as on the client side.
 
@@ -1556,13 +1569,15 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-47.  ### How to enable production mode in React?
+47. ### How to enable production mode in React?
+
 
     You should use Webpack's `DefinePlugin` method to set `NODE_ENV` to `production`, by which it strip out things like propType validation and extra warnings. Apart from this, if you minify the code, for example, Uglify's dead-code elimination to strip out development only code and comments, it will drastically reduce the size of your bundle.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-48.  ### What is a switching component?
+48. ### What is a switching component?
+
 
     A _switching component_ is a component that renders one of many components. We need to use object to map prop values to components.
 
@@ -1595,7 +1610,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-49.  ### What are the Pointer Events supported in React?
+49. ### What are the Pointer Events supported in React?
+
 
     _Pointer Events_ provide a unified way of handling all input events. In the old days we had a mouse and respective event listeners to handle them but nowadays we have many devices which don't correlate to having a mouse, like phones with touch surface or pens. We need to remember that these events will only work in browsers that support the _Pointer Events_ specification.
 
@@ -1614,23 +1630,23 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-50.  ### Why should component names start with capital letter?
+50. ### Why should component names start with capital letter?
+
 
     If you are rendering your component using JSX, the name of that component has to begin with a capital letter otherwise React will throw an error as an unrecognized tag. This convention is because only HTML elements and SVG tags can begin with a lowercase letter.
 
-    ```jsx harmony
-    function SomeComponent {
+    ```jsx
+    function SomeComponent() {
       // Code goes here
+      return <div>Some Component</div>;
     }
     ```
 
     You can define function component whose name starts with lowercase letter, but when it's imported it should have a capital letter. Here lowercase is fine:
 
-    ```jsx harmony
-    function myComponent {
-      render() {
-        return <div />;
-      }
+    ```jsx
+    function myComponent() {
+      return <div>My Component</div>;
     }
 
     export default myComponent;
@@ -1638,13 +1654,14 @@ In these components, DOM does not hold the actual data instead React does.
 
     While when imported in another file it should start with capital letter:
 
-    ```jsx harmony
+    ```jsx
     import MyComponent from "./myComponent";
     ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
-51.  ### What is React proptype array with shape?
+51. ### What is React proptype array with shape?
+
 
     If you want to pass an array of objects to a component with a particular shape then use `React.PropTypes.shape()` as an argument to `React.PropTypes.arrayOf()`.
 
@@ -1661,7 +1678,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-52.  ### How to conditionally apply class attributes?
+52. ### How to conditionally apply class attributes?
+
 
     You shouldn't use curly braces inside quotes because it is going to be evaluated as a string.
 
@@ -1683,13 +1701,15 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-53.  ### What is the difference between React and ReactDOM?
+53. ### What is the difference between React and ReactDOM?
+
 
     The `react` package contains `React.createElement()`, `React.Component`, `React.Children`, and other helpers related to elements and component classes. You can think of these as the isomorphic or universal helpers that you need to build components. The `react-dom` package contains `ReactDOM.render()`, and in `react-dom/server` we have _server-side rendering_ support with `ReactDOMServer.renderToString()` and `ReactDOMServer.renderToStaticMarkup()`.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-54.  ### Why ReactDOM is separated from React?
+54. ### Why ReactDOM is separated from React?
+
 
     The React team worked on extracting all DOM-related features into a separate library called _ReactDOM_. React v0.14 is the first release in which the libraries are split. By looking at some of the packages, `react-native`, `react-art`, `react-canvas`, and `react-three`, it has become clear that the beauty and essence of React has nothing to do with browsers or the DOM.
 
@@ -1697,7 +1717,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-55.  ### How to use React label element?
+55. ### How to use React label element?
+
 
     If you try to render a `<label>` element bound to a text input using the standard `for` attribute, then it produces HTML missing that attribute and prints a warning to the console.
 
@@ -1715,15 +1736,16 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-56.  ### How to pretty print JSON with React?
+56. ### How to pretty print JSON with React?
+
 
     We can use `<pre>` tag so that the formatting of the `JSON.stringify()` is retained:
 
-    ```jsx harmony
+    ```jsx
     const data = { name: "John", age: 42 };
 
-    function User {
-        return <pre>{JSON.stringify(data, null, 2)}</pre>;
+    function User() {
+      return <pre>{JSON.stringify(data, null, 2)}</pre>;
     }
 
     const container = createRoot(document.getElementById("container"));
@@ -1754,7 +1776,8 @@ In these components, DOM does not hold the actual data instead React does.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-57.  ### How to focus an input element on page load?
+57. ### How to focus an input element on page load?
+
 
     You need to use `useEffect` hook to set focus on input field during page load time for functional component.
 
@@ -1813,7 +1836,8 @@ In these components, DOM does not hold the actual data instead React does.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-58.  ### How does React's automatic batching improve performance?
+58. ### How does React's automatic batching improve performance?
+
 
     Automatic batching in React groups multiple state updates that occur within the same event loop into a single re-render, rather than re-rendering after each update.
 
@@ -1829,7 +1853,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-59.  ### What are React Portals, and what problems do they solve?
+59. ### What are React Portals, and what problems do they solve?
+
 
     React Portals render a component's output outside its parent DOM hierarchy into a different part of the DOM tree.
 
@@ -1852,7 +1877,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-60.  ### What is React Strict Mode and what are its benefits?
+60. ### What is React Strict Mode and what are its benefits?
+
 
     React Strict Mode is a development feature in React that activates extra checks and warnings to help identify potential issues in your app.
 
@@ -1871,7 +1897,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-61.  ### What is code splitting in a React application?
+61. ### What is code splitting in a React application?
+
 
     Code splitting enhances performance by dividing code into smaller chunks loaded on demand, thereby reducing initial load times. This can be achieved through dynamic `import()` statements or using React's `React.lazy` and `Suspense`.
 
@@ -1890,7 +1917,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-62.  ### How would one optimize the performance of React contexts to reduce rerenders?
+62. ### How would one optimize the performance of React contexts to reduce rerenders?
+
 
     Optimizing context performance involves memoizing context values with `useMemo`, splitting contexts for isolated state changes, and employing selectors to rerender only necessary components.
 
@@ -1906,7 +1934,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-63.  ### Explain one-way data flow of React
+63. ### Explain one-way data flow of React
+
 
     In React, one-way data flow means data moves from parent to child components through props.
 
@@ -1928,7 +1957,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-64.  ### What are some pitfalls of using context in React?
+64. ### What are some pitfalls of using context in React?
+
 
     Context in React can lead to performance issues if not handled carefully, causing unnecessary re-renders of components that consume the context, even if only part of the context changes. Overusing context for state management can also make the code harder to maintain and understand. It's best to use context sparingly and consider other state management solutions like Redux or Zustand for more complex scenarios.
 
@@ -1941,7 +1971,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-65.  ### What are some React anti-patterns?
+65. ### What are some React anti-patterns?
+
 
     React anti-patterns are practices that can lead to inefficient or hard-to-maintain code. Common examples include:
 
@@ -1954,7 +1985,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-66.  ### How do you decide between using React state, context, and external state managers?
+66. ### How do you decide between using React state, context, and external state managers?
+
 
     Choosing between React state, context, and external state managers depends on your application's complexity. Use React state for local component state, context for global state shared across multiple components, and external managers like Redux or MobX for complex state management requiring advanced features like optimizing re-renders.
 
@@ -1966,7 +1998,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-67.  ### Explain what happens when `setState` is called in React?
+67. ### Explain what happens when `setState` is called in React?
+
 
     When `setState` is called in React:
 
@@ -1991,7 +2024,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-68.  ### Explain prop drilling
+68. ### Explain prop drilling
+
 
     Prop drilling is when you pass data from a parent component to a deeply nested child component through props, even if intermediate components don't use it.
 
@@ -2014,7 +2048,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-69.  ### Describe lazy loading in React
+69. ### Describe lazy loading in React
+
 
     Lazy loading in React is a technique where components are loaded only when they are needed, rather than at the initial page load. This helps reduce the initial load time and improve performance by splitting the code into smaller chunks.
 
@@ -2036,7 +2071,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-70.  ### Discuss synthetic events in React
+70. ### Discuss synthetic events in React
+
 
     Synthetic events in React are a wrapper around native DOM events that ensure consistent behavior across browsers. They normalize the way events are handled, providing a unified API for React applications.
 
@@ -2057,8 +2093,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
+71. ### What is Concurrent Mode in React, and how does it improve rendering performance?
 
-71.  ### What is Concurrent Mode in React, and how does it improve rendering performance?
 
     Concurrent Mode allows React to work on multiple tasks simultaneously without blocking the main UI thread. It enables React to prioritize updates and provide smoother rendering for complex applications.
 
@@ -2070,7 +2106,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-72.  ### How would you handle long-running tasks or expensive computations in React applications without blocking the UI?
+72. ### How would you handle long-running tasks or expensive computations in React applications without blocking the UI?
+
 
     To avoid blocking the UI, use **Web Workers**, `setTimeout`, or `requestIdleCallback` for offloading heavy computations. Alternatively, break tasks into smaller parts and use React's Suspense or useMemo to only recompute when necessary.
 
@@ -2094,7 +2131,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-73.  ### Explain the presentational vs container component pattern in React
+73. ### Explain the presentational vs container component pattern in React
+
 
     In React, the presentational vs container component pattern distinguishes between components that focus on appearance (presentational components) and those that manage logic and state (container components). Presentational components render HTML and CSS, while container components handle data and behavior. This separation leads to a cleaner and more organized codebase.
 
@@ -2114,7 +2152,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-74.  ### What are render props in React?
+74. ### What are render props in React?
+
 
     Render props in React allow code sharing between components through a prop that is a function. This function returns a React element, enabling data to be passed to child components. This technique facilitates logic reuse without relying on higher-order components or hooks.
 
@@ -2142,7 +2181,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-75.  ### Explain the composition pattern in React
+75. ### Explain the composition pattern in React
+
 
     The composition pattern in React involves building components by combining smaller, reusable ones instead of using inheritance. This encourages creating complex UIs by passing components as children or props.
 
@@ -2170,7 +2210,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-76.  ### How do you handle asynchronous data loading in React applications?
+76. ### How do you handle asynchronous data loading in React applications?
+
 
     Asynchronous data loading uses `useEffect` alongside `useState` hooks; fetching data inside `useEffect` updates state with fetched results ensuring re-renders occur with new data.
 
@@ -2213,7 +2254,8 @@ In these components, DOM does not hold the actual data instead React does.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-77.  ### What are some common pitfalls when doing data fetching in React?
+77. ### What are some common pitfalls when doing data fetching in React?
+
 
     Common pitfalls in data fetching with React include failing to handle loading and error states, neglecting to clean up subscriptions which can cause memory leaks, and improperly using lifecycle methods or hooks. Always ensure proper handling of these states, clean up after components, and utilize `useEffect` for side effects in functional components.
 
@@ -2235,31 +2277,49 @@ Continue your **React JS interview questions** preparation with these related to
 
 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-6">
 
-<div className="p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
-  <h3 className="text-lg font-semibold mb-2">
-    <a href="/blog/react/react-js-interview-questions-react-hooks/" className="text-blue-600 dark:text-blue-400 hover:underline">
+<div className="rounded-lg border border-gray-200 p-4 transition-shadow hover:shadow-lg dark:border-gray-700">
+  <h3 className="mb-2 text-lg font-semibold">
+    <a
+      href="/blog/react/react-js-interview-questions-react-hooks/"
+      className="text-blue-600 hover:underline dark:text-blue-400"
+    >
       React Hooks Interview Questions
     </a>
   </h3>
-  <p className="text-sm text-gray-600 dark:text-gray-400">Comprehensive React Hooks interview questions covering useState, useEffect, useCallback, useMemo, useReducer, and custom...</p>
+  <p className="text-sm text-gray-600 dark:text-gray-400">
+    Comprehensive React Hooks interview questions covering useState, useEffect, useCallback,
+    useMemo, useReducer, and custom...
+  </p>
 </div>
 
-<div className="p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
-  <h3 className="text-lg font-semibold mb-2">
-    <a href="/blog/react/react-js-interview-questions-react-state-management/" className="text-blue-600 dark:text-blue-400 hover:underline">
+<div className="rounded-lg border border-gray-200 p-4 transition-shadow hover:shadow-lg dark:border-gray-700">
+  <h3 className="mb-2 text-lg font-semibold">
+    <a
+      href="/blog/react/react-js-interview-questions-react-state-management/"
+      className="text-blue-600 hover:underline dark:text-blue-400"
+    >
       React State Management Interview Questions
     </a>
   </h3>
-  <p className="text-sm text-gray-600 dark:text-gray-400">Master React State Management interview questions covering useState, Context API, Redux, and state optimization. Essenti...</p>
+  <p className="text-sm text-gray-600 dark:text-gray-400">
+    Master React State Management interview questions covering useState, Context API, Redux, and
+    state optimization. Essenti...
+  </p>
 </div>
 
-<div className="p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
-  <h3 className="text-lg font-semibold mb-2">
-    <a href="/blog/react/react-js-interview-questions-react-rendering-performance/" className="text-blue-600 dark:text-blue-400 hover:underline">
+<div className="rounded-lg border border-gray-200 p-4 transition-shadow hover:shadow-lg dark:border-gray-700">
+  <h3 className="mb-2 text-lg font-semibold">
+    <a
+      href="/blog/react/react-js-interview-questions-react-rendering-performance/"
+      className="text-blue-600 hover:underline dark:text-blue-400"
+    >
       React Rendering & Performance Interview Questions
     </a>
   </h3>
-  <p className="text-sm text-gray-600 dark:text-gray-400">Comprehensive React Rendering & Performance interview questions covering Virtual DOM, memoization, code splitting, and o...</p>
+  <p className="text-sm text-gray-600 dark:text-gray-400">
+    Comprehensive React Rendering & Performance interview questions covering Virtual DOM,
+    memoization, code splitting, and o...
+  </p>
 </div>
 
 </div>
@@ -2347,7 +2407,6 @@ Continue your **React JS interview questions** preparation with these related to
         <span className="relative text-sm font-semibold text-green-300 transition-colors group-hover:text-green-200">React Testing</span>
       </a>
     </div>
+
   </div>
 </div>
-
-````
