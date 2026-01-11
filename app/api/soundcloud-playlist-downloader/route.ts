@@ -56,6 +56,7 @@ export async function POST(request: NextRequest) {
           // 备选方案：直接使用 getInfoBase 获取播放列表信息
           // 这样可以避免库在处理空 IDs 时的 bug
           const baseInfo = await getInfoBase(playlistUrl, clientId, scdl.axios)
+          console.log(`🚀 ~ baseInfo:`, baseInfo)
 
           // 验证返回的是播放列表（set）
           if (!baseInfo.tracks || !Array.isArray(baseInfo.tracks)) {
