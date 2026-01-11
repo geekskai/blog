@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect } from "react"
 import { ArrowLeft, Download } from "lucide-react"
-import Link from "next/link"
+import { Link } from "@/app/i18n/navigation"
 import Image from "next/image"
 import { useTranslations, useLocale } from "next-intl"
 import ShareButtons from "@/components/ShareButtons"

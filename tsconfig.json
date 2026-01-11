@@ -8,7 +8,6 @@
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "composite": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -17,6 +16,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./*"],
       "@/components/*": ["components/*"],
       "@/data/*": ["data/*"],
       "@/layouts/*": ["layouts/*"],
@@ -33,8 +33,10 @@
   },
   "include": [
     "next-env.d.ts",
+    "types/**/*.d.ts",
     "app/**/*.ts",
     "app/**/*.tsx",
+    "app/i18n/**/*.ts",
     "components/**/*.ts",
     "components/**/*.tsx",
     "**/*.js",

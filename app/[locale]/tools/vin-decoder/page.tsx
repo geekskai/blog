@@ -33,7 +33,7 @@ import { validateVIN, isValidVin } from "./lib/validation"
 import { decodeVehicle } from "./lib/api"
 import { vinCache, history, dedupeRequest } from "./lib/cache"
 import { formatVehicleSummary, exportAsJSON, exportAsCSV, exportAsText } from "./lib/mapping"
-import Link from "next/link"
+import { Link } from "@/app/i18n/navigation"
 
 export default function VinDecoder() {
   const t = useTranslations("VinDecoder")

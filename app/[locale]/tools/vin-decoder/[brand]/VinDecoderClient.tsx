@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useCallback, useEffect } from "react"
-import Link from "next/link"
+import { Link } from "@/app/i18n/navigation"
 import { Car, Search, Home, ChevronRight, Database, Share2, Copy, Check } from "lucide-react"
 import { BrandInfo, SUPPORTED_BRANDS } from "../types"
 import VinInput from "../components/VinInput"

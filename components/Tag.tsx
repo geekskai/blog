@@ -1,4 +1,4 @@
-import Link from "next/link"
+import { Link } from "@/app/i18n/navigation"
 import { slug } from "github-slugger"
 interface Props {
   text: string

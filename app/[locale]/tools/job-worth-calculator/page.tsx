@@ -30,7 +30,7 @@ import {
   Briefcase,
   TrendingUp,
 } from "lucide-react"
-import Link from "next/link"
+import { Link } from "@/app/i18n/navigation"
 import { useTranslations, useLocale } from "next-intl"
 import { RadioGroup } from "./components/RadioGroup"
 import { useCalculator } from "./hooks/useCalculator"

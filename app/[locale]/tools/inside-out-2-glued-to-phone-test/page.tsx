@@ -8,7 +8,7 @@ import { SEOContent } from "./components/SEOContent"
 import { LearnMoreSection } from "./components/LearnMoreSection"
 import { useEmotionTest } from "./hooks/useEmotionTest"
 import { ChevronLeft, Home } from "lucide-react"
-import Link from "next/link"
+import { Link } from "@/app/i18n/navigation"
 
 type AppState = "start" | "testing" | "results"
 
