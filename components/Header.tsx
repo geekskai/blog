@@ -62,15 +62,15 @@ const Header = () => {
         <div className="hidden items-center space-x-8 lg:flex">
           <nav className="flex items-center space-x-2">
             {headerNavLinks.map((link) => (
-                <Link
-                  key={link.title}
-                  href={link.href}
-                  className="group relative px-3 py-2 text-sm font-medium text-slate-300 transition-all duration-300 hover:text-white md:text-lg"
-                >
-                  {t(link.title)}
-                  <div className="absolute inset-x-0 bottom-0 h-0.5 scale-x-0 transform bg-gradient-to-r from-blue-500 to-purple-500 transition-transform duration-300 group-hover:scale-x-100" />
-                </Link>
-              ))}
+              <Link
+                key={link.title}
+                href={link.href}
+                className="group relative px-3 py-2 text-sm font-medium text-slate-300 transition-all duration-300 hover:text-white md:text-lg"
+              >
+                {t(link.title)}
+                <div className="absolute inset-x-0 bottom-0 h-0.5 scale-x-0 transform bg-gradient-to-r from-blue-500 to-purple-500 transition-transform duration-300 group-hover:scale-x-100" />
+              </Link>
+            ))}
 
             {/* Tools Dropdown */}
             <div className="group/dropdown relative" data-dropdown>
