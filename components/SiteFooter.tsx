@@ -6,6 +6,8 @@ import Logo from "@/data/logo.png"
 import Image from "next/image"
 import { FileText, Calculator, Zap, Heart, ExternalLink, ArrowLeftRight } from "lucide-react"
 import { useTranslations } from "next-intl"
+import LinkNext from 'next/link'
+
 
 // Popular tools data for footer
 const popularTools = [
@@ -131,34 +133,34 @@ const SiteFooter = () => {
           <div className="lg:col-span-1">
             <h3 className="mb-6 text-lg font-semibold text-white">{t("footer_resources")}</h3>
             <div className="space-y-3">
-              <Link
+              <LinkNext
                 href="/blog"
                 className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
               >
                 <div className="h-1 w-1 rounded-full bg-blue-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-blue-300"></div>
                 <span>{t("footer_blog")}</span>
-              </Link>
-              <Link
+              </LinkNext>
+              <LinkNext
                 href="/tags"
                 className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
               >
                 <div className="h-1 w-1 rounded-full bg-blue-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-blue-300"></div>
                 <span>{t("footer_tags")}</span>
-              </Link>
-              <Link
+              </LinkNext>
+              <LinkNext
                 href="/projects"
                 className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
               >
                 <div className="h-1 w-1 rounded-full bg-purple-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-purple-300"></div>
                 <span>{t("footer_projects")}</span>
-              </Link>
-              <Link
+              </LinkNext>
+              <LinkNext
                 href="/privacy"
                 className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
               >
                 <div className="h-1 w-1 rounded-full bg-emerald-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-emerald-300"></div>
                 <span>{t("footer_privacy_policy")}</span>
-              </Link>
+              </LinkNext>
             </div>
           </div>
 
