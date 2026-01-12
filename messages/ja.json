@@ -618,6 +618,168 @@
         "bed_length": "標準ベッド長さ"
       }
     },
+    "educational_content": {
+      "common_uses": {
+        "title": "一般的な用途",
+        "description": "センチメートルとインチの変換が必要な場合とその理由を発見"
+      },
+      "examples": "例",
+      "use_cases": {
+        "furniture": {
+          "title": "家具と室内デザイン",
+          "description": "北欧国や国際小売業者から購入する際の家具寸法を変換",
+          "examples": {
+            "ikea": "IKEA製品寸法",
+            "scandinavian": "北欧家具カタログ",
+            "renovation": "ホームリノベーションプロジェクト",
+            "kitchen": "キッチンキャビネットとフィットング"
+          }
+        },
+        "construction": {
+          "title": "建築と建設",
+          "description": "異なる単位システムをまたいで精密な測定が必要なプロジェクト",
+          "examples": {
+            "drawings": "建築図面",
+            "materials": "建築材料",
+            "specifications": "技術仕様",
+            "standards": "建設標準"
+          }
+        },
+        "electronics": {
+          "title": "電子機器とショッピング",
+          "description": "国際オンラインストアから購入する際の製品寸法を理解",
+          "examples": {
+            "tv": "TVとスクリーンサイズ",
+            "laptop": "ラップトップサイズ",
+            "tablet": "タブレットサイズ",
+            "shipping": "配送箱"
+          }
+        },
+        "engineering": {
+          "title": "エンジニアリングとデザイン",
+          "description": "公制と北欧測量システムを変換する必要な技術的な作業",
+          "examples": {
+            "cad": "CAD図面",
+            "product_specs": "製品仕様",
+            "tolerances": "製造公差",
+            "quality": "品質管理"
+          }
+        }
+      },
+
+      "about_units": {
+        "title": "インチとセンチメートルについて",
+        "description": "これらの測量単位の歴史と実用的な応用を学ぶ"
+      },
+
+      "facts": {
+        "historical": {
+          "title": "歴史的背景",
+          "content": "インチ（デンマーク語・ノルウェー語で「thumb」を意味）は、北欧諸国で数世紀にわたって使用されてきました。元々は、指幅に基づいていました。"
+        },
+        "modern": {
+          "title": "現代の標準化",
+          "content": "今日、1インチは正確に2.54センチメートルで、国際インチと同一であり、世界的な互換性を確保しています。"
+        },
+        "regional": {
+          "title": "地域の使用",
+          "content": "メートル法が北欧諸国の公式システムですが、インチは建設、家具、伝統工芸で今でも一般的に使用されています。"
+        },
+        "precision": {
+          "title": "精度の重要性",
+          "content": "専門的な用途では、小さな変換エラーでも累積されます。当ツールは最大3桁の小数点以下を提供しています。"
+        }
+      },
+
+      "conversion_formulas": "変換公式",
+      "cm_to_inches": "センチメートルからインチ",
+      "inches_to_cm": "インチからセンチメートル",
+
+      "nordic_tradition": {
+        "title": "北欧測量の伝統",
+        "denmark": {
+          "title": "デンマーク",
+          "content": "デンマークでは、インチは建設、家具製造、伝統工芸で今でも一般的に使用されています。デンマークの家具メーカーは国際市場ではインチで寸法を指定することが多いです。"
+        },
+        "norway": {
+          "title": "ノルウェー",
+          "content": "ノルウェーの建設と木材業界はインチ測量を頻繁に使用しています。当ツールはノルウェーの建設標準と仕様をサポートしています。"
+        }
+      }
+    },
+
+    "usage_guide": {
+      "title": "センチメートルからインチ変換ツールの使い方 – 完全なプロフェッショナルガイド",
+      "description": "北欧家具購入、建設プロジェクト、国際測量のセンチメートルからインチ変換をマスター。デンマーク・ノルウェーインチ変換器はすべての測量要件に対して正確な結果を提供します。",
+      "step_1_title": "測定値を入力",
+      "step_1_description": "センチメートルまたはインチで測定値を入力。変換器は小数値を受け入れ、瞬時に単位を切り替えます。",
+      "step_2_title": "精度レベルを選択",
+      "step_2_description": "必要に応じて0から3桁の小数点以下を選択。建設精度または一般的な家具測量に最適。",
+      "step_3_title": "瞬時に結果を取得",
+      "step_3_description": "正確な公式を使用してリアルタイムの変換結果を表示。北欧測量標準と国際商取引を理解するのに最適。",
+      "step_4_title": "結果をコピーして使用",
+      "step_4_description": "ショッピングリスト、建設計画、または国際製品仕様のために1クリックで変換結果をコピー。"
+    },
+
+    "content_sections": {
+      "what_is_inches_title": "インチとは？北欧測量単位の理解",
+      "what_is_inches_description": "インチ（デンマーク語・ノルウェー語で「thumb」を意味）は、北欧諸国で数世紀にわたって使用されてきました。元々は、指幅に基づいていました。今日、1インチは正確に2.54センチメートルで、国際インチと同一であり、世界的な互換性を確保しています。このセンチメートルからインチ変換ツールは、北欧測量の家具購入、建設プロジェクト、国際商取引を支援します。",
+      "inches_conversion_benefits": "インチ変換の利点",
+      "benefit_1": "北欧測量の正確な変換",
+      "benefit_2": "IKEA家具寸法に最適",
+      "benefit_3": "建設プロジェクトに必須",
+      "benefit_4": "国際商取引の互換性",
+      "benefit_5": "最大3桁の小数点以下の精度",
+      "benefit_6": "無料の瞬時変換",
+
+      "formula_guide_title": "センチメートルからインチ変換公式 & 計算機ガイド",
+      "conversion_formula": "変換公式",
+      "precision_control": "精度制御",
+      "quick_examples": "クイック例",
+
+      "precision_control_content": {
+        "decimals_0": "0桁の小数点以下: 一般的な測量",
+        "decimals_1_2": "1-2桁の小数点以下: 家具寸法",
+        "decimals_3": "3桁の小数点以下: 建設精度",
+        "precision_note": "必要に応じて適切な精度を選択。"
+      },
+
+      "quick_examples_content": {
+        "example_1": "10 cm = 3.94 インチ",
+        "example_2": "25.4 cm = 10 インチ",
+        "example_3": "100 cm = 39.37 インチ",
+        "examples_note": "一般的な測量変換に最適。"
+      },
+
+      "inches_usage_across_nordic_countries": "北欧諸国でのインチの使用",
+      "denmark_usage": "デンマーク",
+      "denmark_usage_text": "デンマークでは、インチは建設、家具製造、伝統工芸で今でも一般的に使用されています。デンマークの家具メーカーは国際市場ではインチで寸法を指定することが多いです。",
+      "norway_usage": "ノルウェー",
+      "norway_usage_text": "ノルウェーの建設と木材業界はインチ測量を頻繁に使用しています。当ツールはノルウェーの建設標準と仕様をサポートしています.",
+      "international_usage": "国際",
+      "international_usage_text": "北欧供給者と協力するグローバル企業は、製品仕様、配送寸法、品質管理標準のために正確なインチ変換を必要とします。",
+
+      "features_title": "プロフェッショナルセンチメートルからインチ変換ツールの機能",
+      "features_subtitle": "正確な北欧測量変換に必要なすべてのもの",
+      "two_way_conversion": "双方向センチメートルからインチ変換",
+      "two_way_conversion_description": "Convert centimeters to inches and inches to centimeters with instant results and precision control for all Nordic measurement needs.センチメートルからインチとインチからセンチメートルを瞬時に変換し、北欧測量のすべての要件に対して精度制御を提供します。",
+      "precision_control_feature": "精度制御",
+      "precision_control_description": "必要に応じて0から3桁の小数点以下を選択。建設精度、家具測量、専門的な用途に最適。",
+      "professional_tools": "プロフェッショナルツール",
+      "professional_tools_description": "結果をコピーし、変換公式を表示し、効率的なワークフロー統合と専門的な用途に対して迅速な参照テーブルにアクセスします。",
+
+      "faq_title": "センチメートルからインチ変換のよくある質問",
+      "faq_how_convert": "センチメートルからインチを正確に変換する方法は？",
+      "faq_how_convert_answer": "センチメートルの値をセンチメートルからインチ変換ツールに入力します。ツールは正確な公式を使用してインチの等価値を自動的に計算します：センチメートル × 0.3937 = インチ。必要に応じて精度を0から3桁の小数点以下に調整できます。",
+      "faq_conversion_formula": "センチメートルからインチの正確な変換公式は？",
+      "faq_conversion_formula_answer": "変換公式は：1センチメートル = 0.3937インチ、1インチ = 2.54センチメートル。これらは国際インチ標準に基づいており、現代の北欧インチと同一です。",
+      "faq_inches_same_as_international": "北欧のインチは国際のインチと同一ですか？",
+      "faq_inches_same_as_international_answer": "はい。現代の北欧インチは国際インチと同一です。両方とも正確に2.54センチメートルです。「インチ」は単にデンマーク語・ノルウェー語で「thumb」を意味します。",
+      "faq_why_need_converter": "IKEA家具寸法をセンチメートルからインチ変換する必要はありますか？",
+      "faq_why_need_converter_answer": "IKEAとその他の北欧家具ブランドはよく国際仕様でインチを使用します。当ツールはスカンジナビア家具を購入する際やサイズを比較する際に正確な寸法を理解するのに役立ちます。",
+      "faq_is_free": "このセンチメートルからインチ変換ツールは無料で使用できますか？",
+      "faq_is_free_answer": "はい！このセンチメートルからインチ変換ツールは完全に無料で、登録は不要です。無制限の変換、完全な精度制御、すべての機能を無制限に使用できます。"
+    },
     "final_cta": {
       "title": "センチメートルをインチに変換する準備はできましたか？",
       "description": "無料で正確、プロ仕様のセンチメートルからインチ変換ツールを今すぐ使い始めましょう。",
@@ -645,7 +807,7 @@
       "fullscreen_button": "フルスクリーン",
       "exit_fullscreen_button": "フルスクリーン終了",
       "download_button": "ダウンロード",
-      "generating": "生成中..."
+      "generating": "ジェネレーション中..."
     },
     "preview": {
       "live_preview": "ライブプレビュー",
@@ -653,11 +815,11 @@
       "default_title": "タイトルを入力",
       "watermark": "geekskai.com で作成",
       "download_title_card": "タイトルカードをダウンロード",
-      "save_button": "保存",
-      "copy_button": "コピー",
+      "save_button": "お気に入りに追加",
+      "copy_button": "設定をコピー",
       "reset_all": "すべてリセット",
-      "saved_configurations": "保存された設定",
-      "click_to_apply": "クリックして適用"
+      "saved_configurations": "お気に入り設定",
+      "click_to_apply": "適用"
     },
     "settings": {
       "customization": "カスタマイズ",

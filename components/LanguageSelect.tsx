@@ -399,7 +399,7 @@ export default function LanguageSelect() {
       {/* Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="group relative z-80 flex items-center gap-2 rounded-lg border border-slate-700/50 bg-slate-800/50 px-3 py-2 text-sm font-medium text-slate-300 transition-all duration-300 hover:border-slate-600/50 hover:bg-slate-700/50 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+        className="group relative z-80 flex items-center gap-2 rounded-lg border border-slate-700/50 bg-slate-800/50 p-2 text-sm font-medium text-slate-300 transition-all duration-300 hover:border-slate-600/50 hover:bg-slate-700/50 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500/20"
         aria-haspopup="listbox"
         aria-expanded={isOpen}
         aria-label="Select language"
@@ -436,7 +436,7 @@ export default function LanguageSelect() {
                 <button
                   key={index}
                   onClick={() => handleLanguageChange(option.value)}
-                  className={`group flex w-full items-center justify-between gap-1 rounded-md px-2 py-1 text-left transition-all duration-300 ${
+                  className={`group flex w-full items-center justify-between gap-1 rounded-md p-1 text-left transition-all duration-300 ${
                     isSelected
                       ? "bg-blue-500/20 text-blue-300"
                       : "text-slate-300 hover:bg-slate-800/50 hover:text-white"
