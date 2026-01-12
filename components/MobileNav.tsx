@@ -91,9 +91,7 @@ const MobileNav = () => {
               {/* Navigation */}
               <nav ref={navRef} className="flex-1 p-6">
                 <div className="space-y-2">
-                  {headerNavLinks
-                    .filter((link) => link.href !== "/" && link.title !== "Tools")
-                    .map((link) => (
+                  {headerNavLinks.map((link) => (
                       <Link
                         key={link.title}
                         href={link.href}
