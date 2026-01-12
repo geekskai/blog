@@ -92,15 +92,15 @@ const MobileNav = () => {
               <nav ref={navRef} className="flex-1 p-6">
                 <div className="space-y-2">
                   {headerNavLinks.map((link) => (
-                      <Link
-                        key={link.title}
-                        href={link.href}
-                        onClick={onToggleNav}
-                        className="flex items-center gap-3 rounded-xl px-4 py-3 text-lg font-medium text-slate-300 transition-all duration-300 hover:bg-slate-800/50 hover:text-white"
-                      >
-                        {link.title}
-                      </Link>
-                    ))}
+                    <Link
+                      key={link.title}
+                      href={link.href}
+                      onClick={onToggleNav}
+                      className="flex items-center gap-3 rounded-xl px-4 py-3 text-lg font-medium text-slate-300 transition-all duration-300 hover:bg-slate-800/50 hover:text-white"
+                    >
+                      {link.title}
+                    </Link>
+                  ))}
 
                   {/* Tools Section */}
                   <div className="mt-2">
