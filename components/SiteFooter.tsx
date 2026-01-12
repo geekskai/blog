@@ -6,7 +6,7 @@ import Logo from "@/data/logo.png"
 import Image from "next/image"
 import { FileText, Calculator, Zap, Heart, ExternalLink, ArrowLeftRight } from "lucide-react"
 import { useTranslations } from "next-intl"
-import LinkNext from 'next/link'
+import LinkNext from "next/link"
 
 // Popular tools data for footer
 const popularTools = [
