@@ -61,9 +61,7 @@ const Header = () => {
         {/* Desktop Navigation */}
         <div className="hidden items-center space-x-8 lg:flex">
           <nav className="flex items-center space-x-2">
-            {headerNavLinks
-              .filter((link) => link.href !== "/" && link.title !== "nav_tools")
-              .map((link) => (
+            {headerNavLinks.map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}
