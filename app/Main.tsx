@@ -1,9 +1,9 @@
-import Link from "@/components/Link"
 import siteMetadata from "@/data/siteMetadata"
 import NewsletterForm from "pliny/ui/NewsletterForm"
 import Hero from "@/components/Hero"
 import ListLayout from "@/layouts/ListLayout"
 import { useTranslations } from "next-intl"
+import Link from "next/link"
 
 const MAX_DISPLAY = 5
 const POSTS_PER_PAGE = 6
