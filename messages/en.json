@@ -3926,6 +3926,26 @@
       "where_to_find_3": "Vehicle registration or insurance documents",
       "where_to_find_4": "Engine block or frame near the windshield washer fluid container"
     },
+    "resultSummary": {
+      "vin_label": "VIN:",
+      "copy": "Copy",
+      "share": "Share",
+      "model_year": "Model Year",
+      "make_model": "Make & Model",
+      "body_class": "Body Class",
+      "engine": "Engine",
+      "drive_type": "Drive Type",
+      "manufacturing": "Manufacturing",
+      "doors": "Doors",
+      "vehicle_type": "Vehicle Type",
+      "gvwr": "GVWR",
+      "transmission": "Transmission",
+      "speeds": "speeds",
+      "safety_features": "Safety Features",
+      "abs": "ABS",
+      "esc": "ESC",
+      "tpms": "TPMS"
+    },
     "errors": {
       "no_data_title": "No Data Found",
       "no_data_message": "No vehicle data found for this VIN. Please verify the VIN is correct.",

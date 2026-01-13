@@ -3746,6 +3746,26 @@
       "where_to_find_3": "차량 등록 또는 보험 문서",
       "where_to_find_4": "엔진 블록 또는 프레임 (윈드실드 세정액 컨테이너 근처)"
     },
+    "resultSummary": {
+      "vin_label": "VIN:",
+      "copy": "복사",
+      "share": "공유",
+      "model_year": "모델 연식",
+      "make_model": "메이커 & 모델",
+      "body_class": "바디 클래스",
+      "engine": "엔진",
+      "drive_type": "구동 타입",
+      "manufacturing": "제조",
+      "doors": "문",
+      "vehicle_type": "차량 타입",
+      "gvwr": "총 무게",
+      "transmission": "변속기",
+      "speeds": "속도",
+      "safety_features": "안전 기능",
+      "abs": "ABS 시스템",
+      "esc": "ESC 시스템",
+      "tpms": "TPMS 시스템"
+    },
     "errors": {
       "no_data_title": "데이터를 찾을 수 없음",
       "no_data_message": "이 VIN에 대한 차량 데이터를 찾을 수 없습니다. VIN이 올바른지 확인하세요.",

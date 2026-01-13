@@ -3926,6 +3926,26 @@
       "where_to_find_3": "Fahrzeugregistrierung oder Versicherungsdokumente",
       "where_to_find_4": "Motor oder Rahmen nahe der Windschutzscheibenwaschflüssigkeitsbehälter"
     },
+    "resultSummary": {
+      "vin_label": "VIN:",
+      "copy": "Kopieren",
+      "share": "Teilen",
+      "model_year": "Modelljahr",
+      "make_model": "Marke & Modell",
+      "body_class": "Körperklasse",
+      "engine": "Motor",
+      "drive_type": "Antriebsart",
+      "manufacturing": "Herstellung",
+      "doors": "Türen",
+      "vehicle_type": "Fahrzeugtyp",
+      "gvwr": "GVWR",
+      "transmission": "Getriebe",
+      "speeds": "Gänge",
+      "safety_features": "Sicherheitsmerkmale",
+      "abs": "ABS-System",
+      "esc": "ESC-System",
+      "tpms": "TPMS-System"
+    },
     "errors": {
       "no_data_title": "Keine Daten gefunden",
       "no_data_message": "Für diese VIN wurden keine Fahrzeugdaten gefunden. Bitte die VIN überprüfen.",

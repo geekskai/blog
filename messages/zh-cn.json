@@ -3897,6 +3897,26 @@
       "where_to_find_3": "车辆登记或保险文件",
       "where_to_find_4": "发动机块或框架（挡风玻璃清洗液容器附近）"
     },
+    "resultSummary": {
+      "vin_label": "VIN:",
+      "copy": "复制",
+      "share": "分享",
+      "model_year": "模型年",
+      "make_model": "制造商 & 型号",
+      "body_class": "车身类型",
+      "engine": "发动机",
+      "drive_type": "驱动类型",
+      "manufacturing": "制造",
+      "doors": "门",
+      "vehicle_type": "车辆类型",
+      "gvwr": "总重量",
+      "transmission": "变速箱",
+      "speeds": "速度",
+      "safety_features": "安全功能",
+      "abs": "ABS系统",
+      "esc": "ESC系统",
+      "tpms": "TPMS系统"
+    },
     "errors": {
       "no_data_title": "未找到数据",
       "no_data_message": "未找到此VIN的车辆数据。请验证VIN是否正确。",

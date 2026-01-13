@@ -3626,6 +3626,26 @@
       "where_to_find_3": "Kjøretøyregistreringsdokumenter eller forsikringsdokumenter",
       "where_to_find_4": "Motoren eller rammen nær spylervæskebeholderen for frontruten"
     },
+    "resultSummary": {
+      "vin_label": "VIN:",
+      "copy": "Kopier",
+      "share": "Del",
+      "model_year": "Modell År",
+      "make_model": "Merk & Modell",
+      "body_class": "Kjøretøykropstype",
+      "engine": "Motor",
+      "drive_type": "Kjøretøykørselstype",
+      "manufacturing": "Produksjon",
+      "doors": "Dører",
+      "vehicle_type": "Kjøretøytype",
+      "gvwr": "Total vekt",
+      "transmission": "Girkasse",
+      "speeds": "Hastigheter",
+      "safety_features": "Sikkerhetsfunksjoner",
+      "abs": "ABS-system",
+      "esc": "ESC-system",
+      "tpms": "TPMS-system"
+    },
     "errors": {
       "no_data_title": "Ingen data funnet",
       "no_data_message": "Ingen kjøretøydata funnet for denne VIN. Vennligst bekreft at VIN er korrekt.",

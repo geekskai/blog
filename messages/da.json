@@ -3609,6 +3609,26 @@
       "where_to_find_3": "Køretøjsregistreringsdokumenter eller forsikringsdokumenter",
       "where_to_find_4": "Motoren eller rammen nær spylervæskebeholderen for frontruten"
     },
+    "resultSummary": {
+      "vin_label": "VIN:",
+      "copy": "Kopier",
+      "share": "Del",
+      "model_year": "Model År",
+      "make_model": "Mærke & Model",
+      "body_class": "Køretøjskropstype",
+      "engine": "Motor",
+      "drive_type": "Køretøjskørselstype",
+      "manufacturing": "Produktion",
+      "doors": "Døre",
+      "vehicle_type": "Køretøjstype",
+      "gvwr": "Vægt",
+      "transmission": "Gearkasse",
+      "speeds": "Sider",
+      "safety_features": "Sikkerhedsfunktioner",
+      "abs": "Anti-blokeringssystem",
+      "esc": "Elektronisk stabilsystem",
+      "tpms": "Trykluftslås"
+    },
     "errors": {
       "no_data_title": "Ingen data fundet",
       "no_data_message": "Ingen køretøjsdata fundet for denne VIN. Bekræft venligst, at VIN er korrekt.",

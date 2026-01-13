@@ -3919,6 +3919,26 @@
       "where_to_find_3": "車両登録書類または保険証書",
       "where_to_find_4": "エンジンブロックまたはフレーム（フロントガラス洗剤容器近く）"
     },
+    "resultSummary": {
+      "vin_label": "VIN:",
+      "copy": "コピー",
+      "share": "共有",
+      "model_year": "モデル年",
+      "make_model": "メーカー & モデル",
+      "body_class": "ボディクラス",
+      "engine": "エンジン",
+      "drive_type": "駆動タイプ",
+      "manufacturing": "製造",
+      "doors": "ドア",
+      "vehicle_type": "車両タイプ",
+      "gvwr": "総重量",
+      "transmission": "トランスミッション",
+      "speeds": "速度",
+      "safety_features": "安全機能",
+      "abs": "ABSシステム",
+      "esc": "ESCシステム",
+      "tpms": "TPMSシステム"
+    },
     "errors": {
       "no_data_title": "データが見つかりません",
       "no_data_message": "このVINの車両データが見つかりませんでした。VINが正しいか確認してください。",

@@ -3926,6 +3926,26 @@
       "where_to_find_3": "Documents d’immatriculation ou d’assurance",
       "where_to_find_4": "Bloc moteur ou cadre près du réservoir de liquide de nettoyage du pare-brise"
     },
+    "resultSummary": {
+      "vin_label": "VIN:",
+      "copy": "Copier",
+      "share": "Partager",
+      "model_year": "Année du modèle",
+      "make_model": "Marque & Modèle",
+      "body_class": "Type de carrosserie",
+      "engine": "Moteur",
+      "drive_type": "Type de propulsion",
+      "manufacturing": "Fabrication",
+      "doors": "Portes",
+      "vehicle_type": "Type de véhicule",
+      "gvwr": "Poids total à vide",
+      "transmission": "Boîte de vitesses",
+      "speeds": "Vitesses",
+      "safety_features": "Caractéristiques de sécurité",
+      "abs": "ABS-système",
+      "esc": "ESC-système",
+      "tpms": "TPMS-système"
+    },
     "errors": {
       "no_data_title": "Aucune donnée trouvée",
       "no_data_message": "Aucune donnée véhicule pour ce VIN. Vérifiez qu’il est correct.",
