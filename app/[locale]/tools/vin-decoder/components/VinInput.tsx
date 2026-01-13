@@ -151,7 +151,7 @@ export default function VinInput({
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
             placeholder={inputPlaceholder}
-            className="w-full bg-transparent py-3 pl-12 pr-20 text-sm font-bold tracking-wide text-white placeholder-slate-400 outline-none transition-all duration-300 focus:placeholder-slate-500 sm:py-4 sm:pl-24 sm:pr-28 sm:text-base sm:tracking-wider md:py-6 md:pr-36 md:text-xl lg:text-2xl"
+            className="w-full bg-transparent py-3 pl-12 pr-12 text-sm font-bold tracking-wide text-white placeholder-slate-400 outline-none transition-all duration-300 focus:placeholder-slate-500 sm:py-4 sm:pl-24 sm:pr-28 sm:text-base sm:tracking-wider md:py-6 md:pr-36 md:text-xl lg:text-2xl"
             spellCheck={false}
             autoComplete="off"
             disabled={isLoading}
