@@ -1023,11 +1023,18 @@
       "copied_all": "모두 복사됨!"
     },
     "conversion_modes": {
-      "bpm_to_ms": "BPM을 MS로",
-      "ms_to_bpm": "MS를 BPM으로",
-      "bpm_to_ms_description": "변환 방향을 선택하세요",
-      "converting_bpm_to_ms": "BPM을 밀리초로 변환 중",
-      "converting_ms_to_bpm": "밀리초를 BPM으로 변환 중"
+      "bpm_to_ms": "BPM → MS",
+      "ms_to_bpm": "MS → BPM",
+      "bpm_to_ms_description": "분당 비트를 밀리초로 변환",
+      "ms_to_bpm_description": "밀리초를 분당 비트로 변환",
+      "bpm_input_label": "BPM (분당 비트)",
+      "bpm_input_placeholder": "BPM (20-300) 입력",
+      "ms_input_label": "밀리초 비트당",
+      "ms_input_placeholder": "MS (100-3000) 입력",
+      "bpm_output_label": "BPM (분당 비트)",
+      "ms_output_label": "밀리초 비트당",
+      "converting_bpm_to_ms": "BPM을 밀리초로 변환",
+      "converting_ms_to_bpm": "밀리초를 BPM으로 변환"
     },
     "input_validation": {
       "range_bpm": "범위: 20-300 BPM",
@@ -1052,51 +1059,16 @@
       }
     },
     "note_values": {
-      "quarter": {
-        "name": "4분음표",
-        "description": "1 비트 - 표준 비트 참조",
-        "common_use": "킥 드럼, 기본 리듬"
-      },
-      "eighth": {
-        "name": "8분음표",
-        "description": "1/2 비트 - 더블 타임 느낌",
-        "common_use": "하이햇, 딜레이 타이밍"
-      },
-      "sixteenth": {
-        "name": "16분음표",
-        "description": "1/4 비트 - 세분화 타이밍",
-        "common_use": "빠른 하이햇, 빠른 딜레이"
-      },
-      "dotted_quarter": {
-        "name": "점 4분음표",
-        "description": "1.5 비트 - 스윙 느낌 추가",
-        "common_use": "스윙 리듬, 삼연음 느낌"
-      },
-      "dotted_eighth": {
-        "name": "점 8분음표",
-        "description": "0.75 비트 - 스윙 딜레이에 일반적",
-        "common_use": "스윙 딜레이, 그루브 요소"
-      },
-      "dotted_sixteenth": {
-        "name": "점 16분음표",
-        "description": "0.375 비트 - 매우 빠른 스윙 딜레이",
-        "common_use": "빠른 스윙 딜레이, 복잡한 패턴"
-      },
-      "triplet_quarter": {
-        "name": "삼연음 4분음표",
-        "description": "2/3 비트 - 삼연음 리듬",
-        "common_use": "삼연음 딜레이, 폴리리듬"
-      },
-      "triplet_eighth": {
-        "name": "삼연음 8분음표",
-        "description": "1/3 비트 - 빠른 삼연음 리듬",
-        "common_use": "빠른 삼연음 딜레이, 아르페지오"
-      },
-      "triplet_sixteenth": {
-        "name": "삼연음 16분음표",
-        "description": "1/6 비트 - 매우 빠른 삼연음 리듬",
-        "common_use": "극도로 빠른 딜레이, 글리치 효과"
-      }
+      "quarter_note": "4분음표",
+      "quarter_note_description": "1 비트 - 표준 비트 참조",
+      "eighth_note": "8분음표",
+      "eighth_note_description": "1/2 비트 - 더블타임 느낌",
+      "sixteenth_note": "16분음표",
+      "sixteenth_note_description": "1/4 비트 - 서브디비전 타이밍",
+      "dotted_quarter": "점음표",
+      "dotted_quarter_description": "1.5 비트 - 스윙 느낌 추가",
+      "eighth_triplet": "8분 3연음",
+      "eighth_triplet_description": "1/3 비트 - 3연음 서브디비전"
     },
     "professional_tips": {
       "title": "음악 제작을 위한 전문 팁",
