@@ -3612,6 +3612,20 @@
       "try_again": "Prøv igjen",
       "decode_vin": "Dekod VIN"
     },
+    "input": {
+      "placeholder": "Skriv inn 17-sifret VIN",
+      "clear": "Tøm",
+      "paste": "Lim inn fra utklippstavle",
+      "decoding": "Dekoder VIN...",
+      "decode_button": "Dekod VIN",
+      "show_examples": "Vis eksempel VIN-er",
+      "hide_examples": "Skjul eksempel VIN-er",
+      "where_to_find_title": "Hvor finner du VIN-en din:",
+      "where_to_find_1": "Førerens side av dashbordet (synlig gjennom frontruten)",
+      "where_to_find_2": "Førerens sidedørkarm klistremerke",
+      "where_to_find_3": "Kjøretøyregistreringsdokumenter eller forsikringsdokumenter",
+      "where_to_find_4": "Motoren eller rammen nær spylervæskebeholderen for frontruten"
+    },
     "errors": {
       "no_data_title": "Ingen data funnet",
       "no_data_message": "Ingen kjøretøydata funnet for denne VIN. Vennligst bekreft at VIN er korrekt.",

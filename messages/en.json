@@ -3912,6 +3912,20 @@
       "try_again": "Try Again",
       "decode_vin": "Decode VIN"
     },
+    "input": {
+      "placeholder": "Enter 17-character VIN",
+      "clear": "Clear",
+      "paste": "Paste from clipboard",
+      "decoding": "Decoding VIN...",
+      "decode_button": "Decode VIN",
+      "show_examples": "Show example VINs",
+      "hide_examples": "Hide example VINs",
+      "where_to_find_title": "Where to find your VIN:",
+      "where_to_find_1": "Driver's side dashboard (visible through windshield)",
+      "where_to_find_2": "Driver's side door jamb sticker",
+      "where_to_find_3": "Vehicle registration or insurance documents",
+      "where_to_find_4": "Engine block or frame near the windshield washer fluid container"
+    },
     "errors": {
       "no_data_title": "No Data Found",
       "no_data_message": "No vehicle data found for this VIN. Please verify the VIN is correct.",

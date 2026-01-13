@@ -3912,6 +3912,20 @@
       "try_again": "Erneut versuchen",
       "decode_vin": "VIN dekodieren"
     },
+    "input": {
+      "placeholder": "17-stellige VIN eingeben",
+      "clear": "Löschen",
+      "paste": "Aus Zwischenablage einfügen",
+      "decoding": "VIN dekodieren...",
+      "decode_button": "VIN dekodieren",
+      "show_examples": "Beispiel VINs anzeigen",
+      "hide_examples": "Beispiel VINs ausblenden",
+      "where_to_find_title": "Wo findest du deine VIN:",
+      "where_to_find_1": "Fahrerseite des Instrumentbrettes (sichtbar durch Windschutzscheibe)",
+      "where_to_find_2": "Fahrerseite des Türrahmens",
+      "where_to_find_3": "Fahrzeugregistrierung oder Versicherungsdokumente",
+      "where_to_find_4": "Motor oder Rahmen nahe der Windschutzscheibenwaschflüssigkeitsbehälter"
+    },
     "errors": {
       "no_data_title": "Keine Daten gefunden",
       "no_data_message": "Für diese VIN wurden keine Fahrzeugdaten gefunden. Bitte die VIN überprüfen.",

@@ -3883,6 +3883,20 @@
       "try_again": "重试",
       "decode_vin": "解码VIN"
     },
+    "input": {
+      "placeholder": "输入17位VIN",
+      "clear": "清除",
+      "paste": "从剪贴板粘贴",
+      "decoding": "解码VIN...",
+      "decode_button": "解码VIN",
+      "show_examples": "显示VIN示例",
+      "hide_examples": "隐藏VIN示例",
+      "where_to_find_title": "在哪里找到您的VIN:",
+      "where_to_find_1": "驾驶员侧仪表盘（通过挡风玻璃可见）",
+      "where_to_find_2": "驾驶员侧门框贴纸",
+      "where_to_find_3": "车辆登记或保险文件",
+      "where_to_find_4": "发动机块或框架（挡风玻璃清洗液容器附近）"
+    },
     "errors": {
       "no_data_title": "未找到数据",
       "no_data_message": "未找到此VIN的车辆数据。请验证VIN是否正确。",

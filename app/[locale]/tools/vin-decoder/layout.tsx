@@ -89,7 +89,7 @@ export default async function VinDecoderLayout({
     "@type": "WebApplication",
     name: t("structured_data.name"),
     description: t("structured_data.description"),
-    url: `${baseUrl}/tools/vin-decoder`,
+    url: `${baseUrl}/${locale}/tools/vin-decoder/`,
     applicationCategory: t("structured_data.application_category"),
     operatingSystem: t("structured_data.operating_system"),
     permissions: t("structured_data.permissions"),

@@ -3732,6 +3732,20 @@
       "try_again": "다시 시도",
       "decode_vin": "VIN 디코딩"
     },
+    "input": {
+      "placeholder": "17자리 VIN 입력",
+      "clear": "지우기",
+      "paste": "클립보드에서 붙여넣기",
+      "decoding": "VIN 디코딩...",
+      "decode_button": "VIN 디코딩",
+      "show_examples": "VIN 예제 보기",
+      "hide_examples": "VIN 예제 숨기기",
+      "where_to_find_title": "VIN을 찾을 수 있는 위치:",
+      "where_to_find_1": "운전석 대시보드 (윈드실드를 통해 보임)",
+      "where_to_find_2": "운전석 도어 잠",
+      "where_to_find_3": "차량 등록 또는 보험 문서",
+      "where_to_find_4": "엔진 블록 또는 프레임 (윈드실드 세정액 컨테이너 근처)"
+    },
     "errors": {
       "no_data_title": "데이터를 찾을 수 없음",
       "no_data_message": "이 VIN에 대한 차량 데이터를 찾을 수 없습니다. VIN이 올바른지 확인하세요.",

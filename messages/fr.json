@@ -3912,6 +3912,20 @@
       "try_again": "Réessayer",
       "decode_vin": "Décoder le VIN"
     },
+    "input": {
+      "placeholder": "Saisir 17-caractères VIN",
+      "clear": "Effacer",
+      "paste": "Coller depuis le presse-papiers",
+      "decoding": "Décodage VIN...",
+      "decode_button": "Décoder VIN",
+      "show_examples": "Voir les exemples VIN",
+      "hide_examples": "Masquer les exemples VIN",
+      "where_to_find_title": "Où trouver votre VIN:",
+      "where_to_find_1": "Tableau de bord côté conducteur (visible à travers le pare-brise)",
+      "where_to_find_2": "Porte côté conducteur",
+      "where_to_find_3": "Documents d’immatriculation ou d’assurance",
+      "where_to_find_4": "Bloc moteur ou cadre près du réservoir de liquide de nettoyage du pare-brise"
+    },
     "errors": {
       "no_data_title": "Aucune donnée trouvée",
       "no_data_message": "Aucune donnée véhicule pour ce VIN. Vérifiez qu’il est correct.",

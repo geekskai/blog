@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useCallback, useEffect } from "react"
+import { useState, useCallback, useEffect } from "react"
 import {
   Home,
   ChevronRight,
@@ -21,14 +21,7 @@ import {
 import { useTranslations } from "next-intl"
 import VinInput from "./components/VinInput"
 import ResultSummary from "./components/ResultSummary"
-import {
-  SearchState,
-  DecodeStatus,
-  DecodedVehicle,
-  HistoryItem,
-  ExportFormat,
-  SUPPORTED_BRANDS,
-} from "./types"
+import { SearchState, DecodeStatus, HistoryItem, ExportFormat, SUPPORTED_BRANDS } from "./types"
 import { validateVIN, isValidVin } from "./lib/validation"
 import { decodeVehicle } from "./lib/api"
 import { vinCache, history, dedupeRequest } from "./lib/cache"
@@ -329,14 +322,6 @@ export default function VinDecoder() {
           <li className="font-medium text-slate-100">{t("breadcrumb.vin_decoder")}</li>
         </ol>
       </nav>
-
-      {/* Enhanced Background decorations */}
-      {/* <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="from-blue-500/8 to-indigo-500/8 absolute -left-1/4 -top-1/4 h-1/2 w-1/2 animate-pulse rounded-full bg-gradient-to-br blur-3xl" />
-        <div className="from-indigo-500/8 to-purple-500/8 absolute -bottom-1/4 -right-1/4 h-1/2 w-1/2 animate-pulse rounded-full bg-gradient-to-br blur-3xl" />
-        <div className="from-cyan-500/4 to-blue-500/4 absolute left-1/3 top-1/2 h-1/3 w-1/3 rounded-full bg-gradient-to-br blur-2xl" />
-        <div className="from-purple-500/4 to-pink-500/4 absolute right-1/4 top-1/4 h-1/4 w-1/4 rounded-full bg-gradient-to-br blur-2xl" />
-      </div> */}
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Header Section */}

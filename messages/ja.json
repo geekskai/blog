@@ -3905,6 +3905,20 @@
       "try_again": "再試行",
       "decode_vin": "VINをデコード"
     },
+    "input": {
+      "placeholder": "17文字のVINを入力",
+      "clear": "クリア",
+      "paste": "クリップボードから貼り付け",
+      "decoding": "VINをデコード...",
+      "decode_button": "VINをデコード",
+      "show_examples": "VINの例を表示",
+      "hide_examples": "VINの例を非表示",
+      "where_to_find_title": "VINを見つける場所:",
+      "where_to_find_1": "運転席側のダッシュボード（フロントガラス越しに見える）",
+      "where_to_find_2": "運転席側のドア枠",
+      "where_to_find_3": "車両登録書類または保険証書",
+      "where_to_find_4": "エンジンブロックまたはフレーム（フロントガラス洗剤容器近く）"
+    },
     "errors": {
       "no_data_title": "データが見つかりません",
       "no_data_message": "このVINの車両データが見つかりませんでした。VINが正しいか確認してください。",

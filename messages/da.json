@@ -3595,6 +3595,20 @@
       "try_again": "Prøv igen",
       "decode_vin": "Dekod VIN"
     },
+    "input": {
+      "placeholder": "Indtast 17-cifret VIN",
+      "clear": "Ryd",
+      "paste": "Indsæt fra udklipsholderen",
+      "decoding": "Dekoder VIN...",
+      "decode_button": "Dekod VIN",
+      "show_examples": "Vis eksempel VINs",
+      "hide_examples": "Skjul eksempel VINs",
+      "where_to_find_title": "Hvor kan du finde din VIN:",
+      "where_to_find_1": "Førerens side af instrumentbrættet (synlig gennem forruden)",
+      "where_to_find_2": "Førerens sidedørkarm",
+      "where_to_find_3": "Køretøjsregistreringsdokumenter eller forsikringsdokumenter",
+      "where_to_find_4": "Motoren eller rammen nær spylervæskebeholderen for frontruten"
+    },
     "errors": {
       "no_data_title": "Ingen data fundet",
       "no_data_message": "Ingen køretøjsdata fundet for denne VIN. Bekræft venligst, at VIN er korrekt.",
