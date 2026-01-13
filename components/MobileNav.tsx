@@ -9,8 +9,10 @@ import { ChevronDown, Zap, Menu, X } from "lucide-react"
 import { toolsData } from "@/data/toolsData"
 import LanguageSelect from "./LanguageSelect"
 import LinkNext from "next/link"
+import { useTranslations } from "next-intl"
 
 const MobileNav = () => {
+  const t = useTranslations("HomePage")
   const [navShow, setNavShow] = useState(false)
   const [toolsExpanded, setToolsExpanded] = useState(false)
   const navRef = useRef(null)
@@ -97,17 +99,17 @@ const MobileNav = () => {
                       onClick={onToggleNav}
                       className="flex items-center gap-3 rounded-xl px-4 py-3 text-lg font-medium text-slate-300 transition-all duration-300 hover:bg-slate-800/50 hover:text-white"
                     >
-                      {link.title}
+                      {t(link.title)}
                     </LinkNext>
                   ))}
 
                   {/* Tools Section */}
-                  <div className="mt-2">
+                  <div className="my-2">
                     <button
                       onClick={onToolsToggle}
                       className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-lg font-medium text-slate-300 transition-all duration-300 hover:bg-slate-800/50 hover:text-white"
                     >
-                      <span>Tools</span>
+                      <span>{t("header_nav_tools")}</span>
                       <ChevronDown
                         className={`h-5 w-5 transition-transform duration-300 ${
                           toolsExpanded ? "rotate-180" : ""
@@ -125,7 +127,7 @@ const MobileNav = () => {
                       leaveFrom="opacity-100 max-h-96"
                       leaveTo="opacity-0 max-h-0"
                     >
-                      <div className="ml-4 mt-2 space-y-2 overflow-hidden border-l-2 border-slate-800/50 pl-4">
+                      <div className="ml-4 mt-2 max-h-[60vh] space-y-1 overflow-hidden overflow-y-auto border-l-2 border-slate-800/50 pl-4">
                         {toolsData.map((tool) => {
                           const IconComponent = tool.icon
                           return (
@@ -158,10 +160,10 @@ const MobileNav = () => {
                         <Link
                           href="/tools"
                           onClick={onToggleNav}
-                          className="mt-3 flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-blue-400 transition-all duration-300 hover:bg-blue-500/20 hover:text-white"
+                          className="mt-4 flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-blue-400 transition-all duration-300 hover:bg-blue-500/20 hover:text-white"
                         >
                           <Zap className="h-4 w-4" />
-                          View All Tools
+                          {t("footer_view_all_tools")}
                         </Link>
                       </div>
                     </Transition>
