@@ -5265,5 +5265,276 @@
     "section_legal_point_3": "Do not redistribute downloaded content without proper authorization from the copyright holder",
     "section_legal_point_4": "Use downloaded content in accordance with SoundCloud's Terms of Service and applicable copyright laws",
     "section_legal_footer": "By using this tool, you agree to use it responsibly and in compliance with all applicable laws and regulations. We are not responsible for any misuse of this tool or any copyright violations."
+  },
+  "HtmlToMarkdown": {
+    "seo_title": "HTML to Markdown Converter - Free Online Tool | Convert HTML to MD",
+    "seo_description": "Free HTML to Markdown converter with batch processing, URL support, and advanced customization. Convert websites and HTML code to clean Markdown format instantly. No registration required.",
+    "seo_keywords": "html to markdown, html to md converter, markdown converter, html converter, convert html to markdown, html to markdown online, html markdown converter",
+    "breadcrumb": {
+      "home": "Home",
+      "tools": "Tools",
+      "html_to_markdown_converter": "HTML to Markdown Converter"
+    },
+    "header": {
+      "badge": "Free HTML to Markdown Tool",
+      "main_title": "HTML to Markdown Converter",
+      "description": "Convert HTML content to clean Markdown format. Support for URLs, raw HTML, batch processing, and advanced customization options. Perfect for developers, writers, and content creators."
+    },
+    "core_facts": {
+      "title": "Core Information",
+      "pricing_label": "Pricing",
+      "pricing_value": "<strong>Free</strong> - No registration required, unlimited conversions",
+      "main_features_label": "Main Features",
+      "main_features_value": "<strong>Batch URL processing</strong>, <strong>Raw HTML conversion</strong>, <strong>Advanced customization</strong>",
+      "positioning_label": "Positioning",
+      "positioning_value": "<strong>Professional HTML to Markdown converter</strong> for developers and content creators",
+      "target_users_label": "Target Users",
+      "target_users_value": "<strong>Web Developers</strong>, <strong>Content Writers</strong>, <strong>Technical Writers</strong>, <strong>Bloggers</strong>"
+    },
+    "quick_stats": {
+      "lightning_fast": "<strong>Lightning Fast</strong> - Convert in seconds",
+      "privacy_focused": "<strong>Privacy Focused</strong> - Local processing",
+      "no_registration": "<strong>No Registration</strong> - Free forever"
+    },
+    "errors": {
+      "dismiss": "Dismiss"
+    },
+    "history": {
+      "title": "Conversion History",
+      "count": "{count}",
+      "clear_all": "Clear All",
+      "download": "Download"
+    },
+    "features": {
+      "title": "Powerful Features",
+      "description": "Everything you need to convert HTML to Markdown efficiently",
+      "url_processing": {
+        "title": "URL Processing",
+        "description": "Convert web pages directly by entering URLs. Supports <strong>batch processing</strong> of multiple websites simultaneously with <strong>smart content extraction</strong>.",
+        "batch_processing": "<strong>Batch URL processing</strong> - Multiple websites at once",
+        "smart_extraction": "<strong>Smart content extraction</strong> - Automatic main content detection",
+        "url_validation": "<strong>URL validation</strong> - Ensures valid website addresses"
+      },
+      "html_processing": {
+        "title": "HTML Processing",
+        "description": "Paste raw HTML and get clean Markdown output. Advanced parsing with support for <strong>tables</strong>, <strong>code blocks</strong>, <strong>images</strong>, and custom elements.",
+        "table_conversion": "<strong>Table conversion</strong> - Preserves table structure",
+        "code_block_detection": "<strong>Code block detection</strong> - Maintains syntax highlighting",
+        "image_preservation": "<strong>Image preservation</strong> - Keeps image links intact"
+      },
+      "customizable_output": {
+        "title": "Customizable Output",
+        "description": "Fine-tune conversion settings including <strong>heading styles</strong>, <strong>list markers</strong>, code block formatting, and link styles to match your preferences.",
+        "heading_style_options": "<strong>Heading style options</strong> - ATX or Setext format",
+        "list_marker_choices": "<strong>List marker choices</strong> - -, *, or + markers",
+        "format_preferences": "<strong>Format preferences</strong> - Customize output style"
+      }
+    },
+    "how_it_works": {
+      "title": "How to Convert HTML to Markdown",
+      "step_1": {
+        "title": "Choose Input Type",
+        "description": "Select whether you want to convert a <strong>website URL</strong> or <strong>paste HTML code</strong> directly. Our HTML to markdown converter supports both input methods."
+      },
+      "step_2": {
+        "title": "Customize Settings",
+        "description": "Adjust conversion options like <strong>heading styles</strong>, <strong>list markers</strong>, and formatting preferences. Fine-tune the output to match your markdown style requirements."
+      },
+      "step_3": {
+        "title": "Convert & Download",
+        "description": "Get <strong>clean Markdown output instantly</strong>. Copy to clipboard or <strong>download as a file</strong>. The HTML to markdown conversion happens in seconds."
+      }
+    },
+    "use_cases": {
+      "title": "Use Cases for HTML to Markdown Converter",
+      "description": "Discover how our HTML to markdown converter helps developers, writers, and content creators",
+      "web_development": {
+        "title": "Web Development",
+        "description": "Convert HTML documentation to Markdown for <strong>GitHub README files</strong>, <strong>developer documentation</strong>, and <strong>technical wikis</strong>. Perfect for maintaining consistent documentation formats."
+      },
+      "content_migration": {
+        "title": "Content Migration",
+        "description": "Migrate content from HTML-based CMS to <strong>Markdown-based platforms</strong> like Jekyll, Hugo, or Gatsby. Batch process multiple pages efficiently with our HTML to markdown converter."
+      },
+      "blog_publishing": {
+        "title": "Blog Publishing",
+        "description": "Convert HTML blog posts to Markdown for platforms like <strong>Medium</strong>, <strong>Dev.to</strong>, or <strong>Ghost</strong>. Preserve formatting, links, and images during conversion."
+      },
+      "documentation_sites": {
+        "title": "Documentation Sites",
+        "description": "Transform HTML documentation into Markdown for <strong>static site generators</strong> and documentation tools. Maintain structure and formatting throughout the conversion process."
+      },
+      "email_to_markdown": {
+        "title": "Email to Markdown",
+        "description": "Convert HTML email content to Markdown format for <strong>archiving</strong>, <strong>note-taking</strong>, or <strong>content repurposing</strong>. Extract clean text from complex HTML emails."
+      },
+      "api_documentation": {
+        "title": "API Documentation",
+        "description": "Convert HTML API documentation to Markdown for <strong>OpenAPI specifications</strong>, <strong>API reference sites</strong>, and developer portals. Preserve code examples and formatting."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "is_free": {
+        "question": "Is this HTML to Markdown converter free?",
+        "answer": "Yes! Our HTML to Markdown converter is <strong>completely free</strong> with <strong>no registration required</strong>. Convert <strong>unlimited content</strong>, save your conversion history, and download results without any restrictions. This free HTML to markdown converter offers unlimited conversions with no subscription fees or usage limits."
+      },
+      "html_elements": {
+        "question": "What HTML elements are supported?",
+        "answer": "We support <strong>all standard HTML elements</strong> including headings, paragraphs, lists, tables, code blocks, blockquotes, images, links, and more. Complex elements are intelligently converted to their Markdown equivalents. Our HTML to markdown converter handles <strong>nested lists</strong>, <strong>multi-column tables</strong>, and <strong>inline code formatting</strong>."
+      },
+      "multiple_urls": {
+        "question": "Can I convert multiple URLs at once?",
+        "answer": "Absolutely! Enable <strong>batch mode</strong> to convert multiple websites simultaneously. You can paste a list of URLs or add them one by one. <strong>Progress tracking</strong> shows the conversion status for each URL. Our HTML to markdown converter supports batch processing of unlimited URLs."
+      },
+      "customize_output": {
+        "question": "How do I customize the Markdown output?",
+        "answer": "Use the settings panel to customize <strong>heading styles</strong> (ATX vs Setext), <strong>list markers</strong> (-, *, +), <strong>code block styles</strong> (fenced vs indented), and many other formatting options to match your preferences. Our HTML to markdown converter provides advanced customization for professional markdown output."
+      },
+      "data_security": {
+        "question": "Is my data secure when using this HTML to markdown converter?",
+        "answer": "Yes, our HTML to markdown converter processes all conversions <strong>locally in your browser</strong>. Your HTML content and URLs are <strong>never sent to our servers</strong>, ensuring complete privacy and security. This HTML to markdown tool is privacy-focused and requires no data upload."
+      },
+      "conversion_speed": {
+        "question": "How fast is the HTML to markdown conversion?",
+        "answer": "Our HTML to markdown converter is <strong>lightning fast</strong>, typically converting HTML to markdown in <strong>less than 5 seconds</strong>. Batch processing handles multiple URLs efficiently with real-time progress updates. The conversion speed depends on the complexity and size of the HTML content."
+      }
+    },
+    "structured_data": {
+      "name": "HTML to Markdown Converter",
+      "description": "Free online HTML to Markdown converter tool with batch processing, URL support, and advanced customization options. Convert HTML content from websites or raw code to clean Markdown format instantly.",
+      "application_category": "UtilityApplication",
+      "operating_system": "Any",
+      "permissions": "none",
+      "price_currency": "USD",
+      "feature_html_to_markdown": "HTML to Markdown conversion",
+      "feature_batch_url": "Batch URL processing",
+      "feature_raw_html": "Raw HTML code conversion",
+      "feature_advanced_customization": "Advanced customization options",
+      "feature_table_conversion": "Table conversion support",
+      "feature_code_block": "Code block preservation",
+      "feature_image_link": "Image link preservation",
+      "feature_custom_heading": "Custom heading styles",
+      "feature_list_marker": "List marker options",
+      "feature_real_time_preview": "Real-time preview",
+      "feature_download": "Download converted files",
+      "feature_copy_clipboard": "Copy to clipboard",
+      "feature_conversion_history": "Conversion history",
+      "feature_mobile_responsive": "Mobile responsive design",
+      "feature_no_registration": "No registration required",
+      "feature_privacy_focused": "Privacy focused processing",
+      "feature_lightning_fast": "Lightning fast conversion",
+      "feature_seo_friendly": "SEO-friendly output",
+      "feature_developer_friendly": "Developer-friendly features",
+      "feature_content_extraction": "Content extraction from websites",
+      "organization_name": "GeeksKai",
+      "faq_free_q": "Is this HTML to Markdown converter free?",
+      "faq_free_a": "Yes! Our HTML to Markdown converter is completely free with no registration required. Convert unlimited content, save your conversion history, and download results without any restrictions. This free HTML to markdown converter offers unlimited conversions with no subscription fees or usage limits.",
+      "faq_elements_q": "What HTML elements are supported by this HTML to markdown converter?",
+      "faq_elements_a": "We support all standard HTML elements including headings, paragraphs, lists, tables, code blocks, blockquotes, images, links, and more. Complex elements are intelligently converted to their Markdown equivalents. Our HTML to markdown converter handles nested lists, multi-column tables, and inline code formatting.",
+      "faq_multiple_urls_q": "Can I convert multiple URLs at once with this HTML to markdown tool?",
+      "faq_multiple_urls_a": "Absolutely! Enable batch mode to convert multiple websites simultaneously. You can paste a list of URLs or add them one by one. Progress tracking shows the conversion status for each URL. Our HTML to markdown converter supports batch processing of unlimited URLs.",
+      "faq_customize_q": "How do I customize the Markdown output from HTML?",
+      "faq_customize_a": "Use the settings panel to customize heading styles (ATX vs Setext), list markers (-, *, +), code block styles (fenced vs indented), and many other formatting options to match your preferences. Our HTML to markdown converter provides advanced customization for professional markdown output.",
+      "faq_security_q": "Is my data secure when using this HTML to markdown converter?",
+      "faq_security_a": "Yes, our HTML to markdown converter processes all conversions locally in your browser. Your HTML content and URLs are never sent to our servers, ensuring complete privacy and security. This HTML to markdown tool is privacy-focused and requires no data upload.",
+      "breadcrumb_home": "Home",
+      "breadcrumb_tools": "Tools",
+      "breadcrumb_html_to_markdown": "HTML to Markdown Converter"
+    },
+    "components": {
+      "input_panel": {
+        "input_source": "Input Source",
+        "website_url": "Website URL",
+        "html_code": "HTML Code",
+        "website_urls": "Website URLs",
+        "batch_mode": "Batch Mode",
+        "paste_urls": "Paste URLs",
+        "enter_url": "Enter URL {index}...",
+        "add_another_url": "Add another URL",
+        "enter_website_url": "Enter website URL (e.g., https://example.com)",
+        "html_content": "HTML Content",
+        "upload_file": "Upload File",
+        "clear": "Clear",
+        "paste_html_placeholder": "Paste your HTML content here...",
+        "error_at_least_one_url": "Please enter at least one URL",
+        "error_enter_url": "Please enter a URL",
+        "error_invalid_url": "Invalid URL",
+        "error_enter_html": "Please enter HTML content",
+        "converting": "Converting...",
+        "convert_to_markdown": "Convert to Markdown",
+        "processing": "Processing...",
+        "current": "Current: {current}",
+        "failed_conversions": "{failed} failed conversions"
+      },
+      "preview_panel": {
+        "preview": "Preview",
+        "ready_to_convert": "Ready to convert content",
+        "ready_description": "Enter a website URL or paste HTML content to see the converted Markdown preview here.",
+        "conversion_result": "Conversion Result",
+        "words": "Words:",
+        "size": "Size:",
+        "read_time": "Read time:",
+        "source": "Source:",
+        "markdown": "Markdown",
+        "copy": "Copy",
+        "copied": "Copied!",
+        "download": "Download",
+        "conversion_settings": "Conversion Settings",
+        "heading_style": "Heading Style",
+        "heading_atx": "ATX (# ## ###)",
+        "heading_setext": "Setext (=== ---)",
+        "list_marker": "List Marker",
+        "list_dash": "Dash (-)",
+        "list_asterisk": "Asterisk (*)",
+        "list_plus": "Plus (+)",
+        "code_block_style": "Code Block Style",
+        "code_fenced": "Fenced (```)",
+        "code_indented": "Indented (4 spaces)",
+        "link_style": "Link Style",
+        "link_inline": "Inline [text](url)",
+        "link_referenced": "Referenced [text][ref]",
+        "preserve_images": "Preserve Images",
+        "convert_tables": "Convert Tables",
+        "clean_html": "Clean HTML",
+        "remove_comments": "Remove Comments",
+        "include_metadata": "Include Metadata",
+        "preserve_whitespace": "Preserve Whitespace",
+        "markdown_preview": "Markdown Preview",
+        "raw_markdown": "Raw Markdown"
+      },
+      "conversion_history": {
+        "title": "Conversion History",
+        "no_conversions": "No conversions yet",
+        "no_conversions_description": "Your conversion history will appear here after you convert some content.",
+        "download_all": "Download All",
+        "download_selected": "Download ({count})",
+        "clear": "Clear",
+        "search_placeholder": "Search conversions...",
+        "filter_all_types": "All Types",
+        "filter_urls": "URLs",
+        "filter_html": "HTML",
+        "sort_newest": "Newest First",
+        "sort_oldest": "Oldest First",
+        "sort_most_words": "Most Words",
+        "sort_least_words": "Least Words",
+        "sort_title_az": "Title A-Z",
+        "sort_title_za": "Title Z-A",
+        "select_all": "Select all visible items",
+        "no_items_match": "No items match your search criteria.",
+        "html_content_label": "HTML Content",
+        "words": "words",
+        "read": "read",
+        "clear_history": "Clear History",
+        "clear_history_warning": "This action cannot be undone",
+        "clear_history_confirm": "Are you sure you want to clear all conversion history? This will permanently delete {count} conversion{plural}.",
+        "cancel": "Cancel",
+        "clear_all": "Clear All",
+        "just_now": "Just now",
+        "minutes_ago": "{minutes}m ago",
+        "hours_ago": "{hours}h ago",
+        "days_ago": "{days}d ago"
+      }
+    }
   }
 }

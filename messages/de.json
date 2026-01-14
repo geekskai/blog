@@ -5265,5 +5265,140 @@
     "section_legal_point_3": "Keine Weiterverbreitung ohne ausdrückliche Genehmigung des Rechteinhabers",
     "section_legal_point_4": "Nutze Downloads gemäß SoundCloud-Nutzungsbedingungen und geltendem Urheberrecht",
     "section_legal_footer": "Mit der Nutzung stimmst du einer verantwortungsvollen Verwendung im Einklang mit allen geltenden Gesetzen zu. Wir übernehmen keine Verantwortung für Missbrauch oder Urheberrechtsverstöße."
+  },
+  "HtmlToMarkdown": {
+    "seo_title": "HTML-zu-Markdown-Konverter – Kostenloses Online-Tool | HTML in MD umwandeln",
+    "seo_description": "Kostenloser HTML-zu-Markdown-Konverter mit Stapelverarbeitung, URL-Unterstützung und erweiterten Anpassungsoptionen. Konvertieren Sie Websites und HTML-Code sofort in sauberes Markdown-Format. Keine Registrierung erforderlich.",
+    "seo_keywords": "html zu markdown, html zu md konverter, markdown konverter, html konverter, html in markdown umwandeln, html zu markdown online, html markdown konverter",
+    "breadcrumb": {
+      "home": "Startseite",
+      "tools": "Tools",
+      "html_to_markdown_converter": "HTML-zu-Markdown-Konverter"
+    },
+    "header": {
+      "badge": "Kostenloses HTML-zu-Markdown-Tool",
+      "main_title": "HTML-zu-Markdown-Konverter",
+      "description": "Konvertieren Sie HTML-Inhalte in ein sauberes Markdown-Format. Unterstützung für URLs, reines HTML, Stapelverarbeitung und erweiterte Anpassungsoptionen. Ideal für Entwickler, Autoren und Content-Ersteller."
+    },
+    "core_facts": {
+      "title": "Kerninformationen",
+      "pricing_label": "Preis",
+      "pricing_value": "<strong>Kostenlos</strong> – Keine Registrierung erforderlich, unbegrenzte Konvertierungen",
+      "main_features_label": "Hauptfunktionen",
+      "main_features_value": "<strong>Stapelverarbeitung von URLs</strong>, <strong>Konvertierung von reinem HTML</strong>, <strong>Erweiterte Anpassung</strong>",
+      "positioning_label": "Positionierung",
+      "positioning_value": "<strong>Professioneller HTML-zu-Markdown-Konverter</strong> für Entwickler und Content-Ersteller",
+      "target_users_label": "Zielgruppen",
+      "target_users_value": "<strong>Webentwickler</strong>, <strong>Content-Autoren</strong>, <strong>Technische Redakteure</strong>, <strong>Blogger</strong>"
+    },
+    "quick_stats": {
+      "lightning_fast": "<strong>Blitzschnell</strong> – Konvertierung in Sekunden",
+      "privacy_focused": "<strong>Datenschutzorientiert</strong> – Lokale Verarbeitung",
+      "no_registration": "<strong>Keine Registrierung</strong> – Für immer kostenlos"
+    },
+    "errors": {
+      "dismiss": "Schließen"
+    },
+    "history": {
+      "title": "Konvertierungsverlauf",
+      "count": "{count}",
+      "clear_all": "Alles löschen",
+      "download": "Herunterladen"
+    },
+    "features": {
+      "title": "Leistungsstarke Funktionen",
+      "description": "Alles, was Sie für eine effiziente HTML-zu-Markdown-Konvertierung benötigen",
+      "url_processing": {
+        "title": "URL-Verarbeitung",
+        "description": "Konvertieren Sie Webseiten direkt durch Eingabe von URLs. Unterstützt die <strong>Stapelverarbeitung</strong> mehrerer Websites gleichzeitig mit <strong>intelligenter Inhaltsextraktion</strong>.",
+        "batch_processing": "<strong>Stapelverarbeitung von URLs</strong> – Mehrere Websites gleichzeitig",
+        "smart_extraction": "<strong>Intelligente Inhaltsextraktion</strong> – Automatische Erkennung des Hauptinhalts",
+        "url_validation": "<strong>URL-Validierung</strong> – Stellt gültige Website-Adressen sicher"
+      },
+      "html_processing": {
+        "title": "HTML-Verarbeitung",
+        "description": "Fügen Sie reines HTML ein und erhalten Sie sauberes Markdown. Erweiterte Analyse mit Unterstützung für <strong>Tabellen</strong>, <strong>Codeblöcke</strong>, <strong>Bilder</strong> und benutzerdefinierte Elemente.",
+        "table_conversion": "<strong>Tabellenkonvertierung</strong> – Erhält die Tabellenstruktur",
+        "code_block_detection": "<strong>Erkennung von Codeblöcken</strong> – Beibehaltung der Syntaxhervorhebung",
+        "image_preservation": "<strong>Beibehaltung von Bildern</strong> – Bildlinks bleiben erhalten"
+      },
+      "customizable_output": {
+        "title": "Anpassbare Ausgabe",
+        "description": "Passen Sie Konvertierungseinstellungen wie <strong>Überschriftenstile</strong>, <strong>Listenmarker</strong>, Codeblock-Formatierung und Link-Stile an Ihre Anforderungen an.",
+        "heading_style_options": "<strong>Überschriftenstil-Optionen</strong> – ATX- oder Setext-Format",
+        "list_marker_choices": "<strong>Listenmarker-Auswahl</strong> – -, * oder + Marker",
+        "format_preferences": "<strong>Format-Einstellungen</strong> – Ausgabestil anpassen"
+      }
+    },
+    "how_it_works": {
+      "title": "So konvertieren Sie HTML in Markdown",
+      "step_1": {
+        "title": "Eingabetyp auswählen",
+        "description": "Wählen Sie, ob Sie eine <strong>Website-URL</strong> konvertieren oder <strong>HTML-Code einfügen</strong> möchten. Unser HTML-zu-Markdown-Konverter unterstützt beide Methoden."
+      },
+      "step_2": {
+        "title": "Einstellungen anpassen",
+        "description": "Passen Sie Optionen wie <strong>Überschriftenstile</strong>, <strong>Listenmarker</strong> und Formatierung an. Optimieren Sie die Ausgabe entsprechend Ihren Markdown-Anforderungen."
+      },
+      "step_3": {
+        "title": "Konvertieren & herunterladen",
+        "description": "Erhalten Sie <strong>sofort sauberes Markdown</strong>. In die Zwischenablage kopieren oder <strong>als Datei herunterladen</strong>. Die Konvertierung erfolgt in Sekunden."
+      }
+    },
+    "use_cases": {
+      "title": "Anwendungsfälle für den HTML-zu-Markdown-Konverter",
+      "description": "Erfahren Sie, wie unser HTML-zu-Markdown-Konverter Entwickler, Autoren und Content-Ersteller unterstützt",
+      "web_development": {
+        "title": "Webentwicklung",
+        "description": "Konvertieren Sie HTML-Dokumentationen in Markdown für <strong>GitHub-README-Dateien</strong>, <strong>Entwicklerdokumentationen</strong> und <strong>technische Wikis</strong>."
+      },
+      "content_migration": {
+        "title": "Content-Migration",
+        "description": "Migrieren Sie Inhalte von HTML-basierten CMS zu <strong>Markdown-basierten Plattformen</strong> wie Jekyll, Hugo oder Gatsby."
+      },
+      "blog_publishing": {
+        "title": "Blog-Veröffentlichung",
+        "description": "Konvertieren Sie HTML-Blogbeiträge in Markdown für Plattformen wie <strong>Medium</strong>, <strong>Dev.to</strong> oder <strong>Ghost</strong>."
+      },
+      "documentation_sites": {
+        "title": "Dokumentationsseiten",
+        "description": "Wandeln Sie HTML-Dokumentationen in Markdown für <strong>statische Site-Generatoren</strong> und Dokumentationstools um."
+      },
+      "email_to_markdown": {
+        "title": "E-Mail zu Markdown",
+        "description": "Konvertieren Sie HTML-E-Mails in Markdown für <strong>Archivierung</strong>, <strong>Notizen</strong> oder <strong>Wiederverwendung von Inhalten</strong>."
+      },
+      "api_documentation": {
+        "title": "API-Dokumentation",
+        "description": "Konvertieren Sie HTML-API-Dokumentationen in Markdown für <strong>OpenAPI-Spezifikationen</strong> und Entwicklerportale."
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "is_free": {
+        "question": "Ist dieser HTML-zu-Markdown-Konverter kostenlos?",
+        "answer": "Ja! Unser HTML-zu-Markdown-Konverter ist <strong>vollständig kostenlos</strong> und erfordert <strong>keine Registrierung</strong>."
+      },
+      "html_elements": {
+        "question": "Welche HTML-Elemente werden unterstützt?",
+        "answer": "Wir unterstützen <strong>alle gängigen HTML-Elemente</strong> wie Überschriften, Absätze, Listen, Tabellen, Codeblöcke, Zitate, Bilder und Links."
+      },
+      "multiple_urls": {
+        "question": "Kann ich mehrere URLs gleichzeitig konvertieren?",
+        "answer": "Ja! Aktivieren Sie den <strong>Stapelmodus</strong>, um mehrere Websites gleichzeitig zu konvertieren."
+      },
+      "customize_output": {
+        "question": "Wie passe ich die Markdown-Ausgabe an?",
+        "answer": "Verwenden Sie das Einstellungsfeld, um <strong>Überschriftenstile</strong>, <strong>Listenmarker</strong> und <strong>Codeblock-Stile</strong> anzupassen."
+      },
+      "data_security": {
+        "question": "Sind meine Daten sicher?",
+        "answer": "Ja, alle Konvertierungen erfolgen <strong>lokal in Ihrem Browser</strong>. Ihre Daten werden <strong>nicht an Server übertragen</strong>."
+      },
+      "conversion_speed": {
+        "question": "Wie schnell ist die Konvertierung?",
+        "answer": "Die Konvertierung ist <strong>extrem schnell</strong> und dauert in der Regel <strong>weniger als 5 Sekunden</strong>."
+      }
+    }
   }
 }

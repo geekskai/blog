@@ -18,6 +18,7 @@ import {
   Hash,
   ExternalLink,
 } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { ConversionResult } from "../types"
 import {
   formatFileSize,
@@ -39,6 +40,7 @@ export default function ConversionHistory({
   onDownload,
   onItemSelect,
 }: ConversionHistoryProps) {
+  const t = useTranslations("HtmlToMarkdown.components.conversion_history")
   const [searchQuery, setSearchQuery] = useState("")
   const [filterType, setFilterType] = useState<"all" | "url" | "html">("all")
   const [selectedItems, setSelectedItems] = useState<Set<string>>(new Set())
@@ -157,10 +159,10 @@ export default function ConversionHistory({
     const diffHours = Math.floor(diffMs / (1000 * 60 * 60))
     const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24))
 
-    if (diffMinutes < 1) return "Just now"
-    if (diffMinutes < 60) return `${diffMinutes}m ago`
-    if (diffHours < 24) return `${diffHours}h ago`
-    if (diffDays < 7) return `${diffDays}d ago`
+    if (diffMinutes < 1) return t("just_now")
+    if (diffMinutes < 60) return t("minutes_ago", { minutes: diffMinutes })
+    if (diffHours < 24) return t("hours_ago", { hours: diffHours })
+    if (diffDays < 7) return t("days_ago", { days: diffDays })
 
     return date.toLocaleDateString()
   }
@@ -169,16 +171,14 @@ export default function ConversionHistory({
     return (
       <div className="overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
         <div className="border-b border-slate-700 px-6 py-4">
-          <h3 className="text-lg font-semibold text-white">Conversion History</h3>
+          <h3 className="text-lg font-semibold text-white">{t("title")}</h3>
         </div>
         <div className="p-12 text-center">
           <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-slate-700">
             <History className="h-8 w-8 text-slate-400" />
           </div>
-          <h4 className="mb-2 text-lg font-semibold text-white">No conversions yet</h4>
-          <p className="text-slate-400">
-            Your conversion history will appear here after you convert some content.
-          </p>
+          <h4 className="mb-2 text-lg font-semibold text-white">{t("no_conversions")}</h4>
+          <p className="text-slate-400">{t("no_conversions_description")}</p>
         </div>
       </div>
     )
@@ -192,7 +192,7 @@ export default function ConversionHistory({
           <div className="flex items-center space-x-3">
             <History className="h-5 w-5 text-slate-400" />
             <h3 className="text-lg font-semibold text-white">
-              Conversion History ({filteredHistory.length})
+              {t("title")} ({filteredHistory.length})
             </h3>
           </div>
           <div className="flex items-center space-x-2">
@@ -202,7 +202,9 @@ export default function ConversionHistory({
             >
               <Download className="h-4 w-4" />
               <span>
-                {selectedItems.size > 0 ? `Download (${selectedItems.size})` : "Download All"}
+                {selectedItems.size > 0
+                  ? t("download_selected", { count: selectedItems.size })
+                  : t("download_all")}
               </span>
             </button>
             <button
@@ -210,7 +212,7 @@ export default function ConversionHistory({
               className="inline-flex items-center space-x-1 rounded-lg bg-red-600 px-3 py-2 text-sm font-medium text-white hover:bg-red-700"
             >
               <Trash2 className="h-4 w-4" />
-              <span>Clear</span>
+              <span>{t("clear")}</span>
             </button>
           </div>
         </div>
@@ -226,7 +228,7 @@ export default function ConversionHistory({
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search conversions..."
+              placeholder={t("search_placeholder")}
               className="w-full rounded-lg border border-slate-600 bg-slate-700 py-2 pl-9 pr-4 text-sm text-white placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500"
             />
           </div>
@@ -238,9 +240,9 @@ export default function ConversionHistory({
               onChange={(e) => setFilterType(e.target.value as "all" | "url" | "html")}
               className="rounded-lg border border-slate-600 bg-slate-700 px-3 py-2 text-sm text-white focus:border-blue-500 focus:ring-blue-500"
             >
-              <option value="all">All Types</option>
-              <option value="url">URLs</option>
-              <option value="html">HTML</option>
+              <option value="all">{t("filter_all_types")}</option>
+              <option value="url">{t("filter_urls")}</option>
+              <option value="html">{t("filter_html")}</option>
             </select>
 
             <select
@@ -252,12 +254,12 @@ export default function ConversionHistory({
               }}
               className="rounded-lg border border-slate-600 bg-slate-700 px-3 py-2 text-sm text-white focus:border-blue-500 focus:ring-blue-500"
             >
-              <option value="date-desc">Newest First</option>
-              <option value="date-asc">Oldest First</option>
-              <option value="wordCount-desc">Most Words</option>
-              <option value="wordCount-asc">Least Words</option>
-              <option value="title-asc">Title A-Z</option>
-              <option value="title-desc">Title Z-A</option>
+              <option value="date-desc">{t("sort_newest")}</option>
+              <option value="date-asc">{t("sort_oldest")}</option>
+              <option value="wordCount-desc">{t("sort_most_words")}</option>
+              <option value="wordCount-asc">{t("sort_least_words")}</option>
+              <option value="title-asc">{t("sort_title_az")}</option>
+              <option value="title-desc">{t("sort_title_za")}</option>
             </select>
           </div>
         </div>
@@ -272,7 +274,7 @@ export default function ConversionHistory({
                 onChange={handleSelectAll}
                 className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
               />
-              <span className="text-sm text-slate-400">Select all visible items</span>
+              <span className="text-sm text-slate-400">{t("select_all")}</span>
             </label>
           </div>
         )}
@@ -282,7 +284,7 @@ export default function ConversionHistory({
       <div className="max-h-96 overflow-y-auto">
         {filteredHistory.length === 0 ? (
           <div className="p-8 text-center">
-            <p className="text-slate-400">No items match your search criteria.</p>
+            <p className="text-slate-400">{t("no_items_match")}</p>
           </div>
         ) : (
           <div className="divide-y divide-slate-700">
@@ -318,7 +320,7 @@ export default function ConversionHistory({
                             </h4>
                           </div>
                           <p className="truncate text-xs text-slate-400">
-                            {item.inputType === "url" ? item.input : "HTML Content"}
+                            {item.inputType === "url" ? item.input : t("html_content_label")}
                           </p>
                         </div>
 
@@ -363,13 +365,17 @@ export default function ConversionHistory({
                         </div>
                         <div className="flex items-center space-x-1">
                           <Hash className="h-3 w-3" />
-                          <span>{item.wordCount.toLocaleString()} words</span>
+                          <span>
+                            {item.wordCount.toLocaleString()} {t("words")}
+                          </span>
                         </div>
                         <div className="flex items-center space-x-1">
                           <FileText className="h-3 w-3" />
                           <span>{formatFileSize(item.size)}</span>
                         </div>
-                        <span>{estimateReadingTime(item.wordCount)} read</span>
+                        <span>
+                          {estimateReadingTime(item.wordCount)} {t("read")}
+                        </span>
                       </div>
 
                       {/* Expanded Content */}
@@ -403,27 +409,28 @@ export default function ConversionHistory({
                   <Trash2 className="h-5 w-5 text-red-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white">Clear History</h3>
-                  <p className="text-sm text-slate-400">This action cannot be undone</p>
+                  <h3 className="text-lg font-semibold text-white">{t("clear_history")}</h3>
+                  <p className="text-sm text-slate-400">{t("clear_history_warning")}</p>
                 </div>
               </div>
               <p className="mb-6 text-slate-300">
-                Are you sure you want to clear all conversion history? This will permanently delete{" "}
-                <span className="font-semibold text-white">{history.length}</span> conversion
-                {history.length === 1 ? "" : "s"}.
+                {t("clear_history_confirm", {
+                  count: history.length,
+                  plural: history.length === 1 ? "" : "s",
+                })}
               </p>
               <div className="flex space-x-3">
                 <button
                   onClick={() => setShowClearConfirm(false)}
                   className="flex-1 rounded-lg border border-slate-600 bg-slate-700 px-4 py-2 text-sm font-medium text-white hover:bg-slate-600"
                 >
-                  Cancel
+                  {t("cancel")}
                 </button>
                 <button
                   onClick={handleClearConfirm}
                   className="flex-1 rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700"
                 >
-                  Clear All
+                  {t("clear_all")}
                 </button>
               </div>
             </div>

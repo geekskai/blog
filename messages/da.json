@@ -4830,5 +4830,172 @@
     "section_legal_point_3": "Videreformidl ikke downloadet indhold uden korrekt tilladelse fra ophavsretsindehaveren",
     "section_legal_point_4": "Brug downloadet indhold i overensstemmelse med SoundClouds servicevilkår og gældende ophavsretslove",
     "section_legal_footer": "Ved at bruge dette værktøj accepterer du at anvende det ansvarligt og i overensstemmelse med alle gældende love og regler. Vi er ikke ansvarlige for misbrug af værktøjet eller eventuelle ophavsretskrænkelser."
+  },
+  "HtmlToMarkdown": {
+    "seo_title": "HTML til Markdown Konverter - Gratis Online Værktøj | Konverter HTML til MD",
+    "seo_description": "Gratis HTML til Markdown-konverter med batchbehandling, URL-understøttelse og avanceret tilpasning. Konverter websites og HTML-kode til et rent Markdown-format med det samme. Ingen registrering påkrævet.",
+    "seo_keywords": "html til markdown, html til md konverter, markdown konverter, html konverter, konverter html til markdown, html til markdown online, html markdown konverter",
+    "breadcrumb": {
+      "home": "Hjem",
+      "tools": "Værktøjer",
+      "html_to_markdown_converter": "HTML til Markdown Konverter"
+    },
+    "header": {
+      "badge": "Gratis HTML til Markdown-værktøj",
+      "main_title": "HTML til Markdown Konverter",
+      "description": "Konverter HTML-indhold til et rent Markdown-format. Understøtter URL’er, rå HTML, batchbehandling og avancerede tilpasningsmuligheder. Perfekt til udviklere, skribenter og indholdsproducenter."
+    },
+    "core_facts": {
+      "title": "Kerneinformation",
+      "pricing_label": "Pris",
+      "pricing_value": "<strong>Gratis</strong> - Ingen registrering påkrævet, ubegrænsede konverteringer",
+      "main_features_label": "Hovedfunktioner",
+      "main_features_value": "<strong>Batchbehandling af URL’er</strong>, <strong>Konvertering af rå HTML</strong>, <strong>Avanceret tilpasning</strong>",
+      "positioning_label": "Positionering",
+      "positioning_value": "<strong>Professionel HTML til Markdown-konverter</strong> til udviklere og indholdsproducenter",
+      "target_users_label": "Målgrupper",
+      "target_users_value": "<strong>Webudviklere</strong>, <strong>Indholdsskribenter</strong>, <strong>Tekniske skribenter</strong>, <strong>Bloggere</strong>"
+    },
+    "quick_stats": {
+      "lightning_fast": "<strong>Lynhurtig</strong> - Konverter på få sekunder",
+      "privacy_focused": "<strong>Fokus på privatliv</strong> - Lokal behandling",
+      "no_registration": "<strong>Ingen registrering</strong> - Gratis for altid"
+    },
+    "errors": {
+      "dismiss": "Luk"
+    },
+    "history": {
+      "title": "Konverteringshistorik",
+      "count": "{count}",
+      "clear_all": "Ryd alle",
+      "download": "Download"
+    },
+    "features": {
+      "title": "Kraftfulde funktioner",
+      "description": "Alt hvad du behøver for effektivt at konvertere HTML til Markdown",
+      "url_processing": {
+        "title": "URL-behandling",
+        "description": "Konverter websider direkte ved at indtaste URL’er. Understøtter <strong>batchbehandling</strong> af flere websites samtidigt med <strong>intelligent indholdsekstraktion</strong>.",
+        "batch_processing": "<strong>Batchbehandling af URL’er</strong> - Flere websites på én gang",
+        "smart_extraction": "<strong>Intelligent indholdsekstraktion</strong> - Automatisk registrering af hovedindhold",
+        "url_validation": "<strong>URL-validering</strong> - Sikrer gyldige webadresser"
+      },
+      "html_processing": {
+        "title": "HTML-behandling",
+        "description": "Indsæt rå HTML og få et rent Markdown-output. Avanceret parsing med understøttelse af <strong>tabeller</strong>, <strong>kodeblokke</strong>, <strong>billeder</strong> og brugerdefinerede elementer.",
+        "table_conversion": "<strong>Konvertering af tabeller</strong> - Bevarer tabelstrukturen",
+        "code_block_detection": "<strong>Registrering af kodeblokke</strong> - Bevarer syntaksfremhævning",
+        "image_preservation": "<strong>Bevarelse af billeder</strong> - Beholder billedlinks"
+      },
+      "customizable_output": {
+        "title": "Tilpasseligt output",
+        "description": "Finjustér konverteringsindstillinger som <strong>overskriftsstile</strong>, <strong>listemarkører</strong>, kodeblokformatering og linkstile, så de matcher dine præferencer.",
+        "heading_style_options": "<strong>Valg af overskriftsstil</strong> - ATX- eller Setext-format",
+        "list_marker_choices": "<strong>Valg af listemarkører</strong> - -, * eller +",
+        "format_preferences": "<strong>Formatpræferencer</strong> - Tilpas outputstil"
+      }
+    },
+    "how_it_works": {
+      "title": "Sådan konverterer du HTML til Markdown",
+      "step_1": {
+        "title": "Vælg inputtype",
+        "description": "Vælg om du vil konvertere en <strong>website-URL</strong> eller <strong>indsætte HTML-kode</strong> direkte. Vores HTML til Markdown-konverter understøtter begge inputmetoder."
+      },
+      "step_2": {
+        "title": "Tilpas indstillinger",
+        "description": "Justér konverteringsmuligheder som <strong>overskriftsstile</strong>, <strong>listemarkører</strong> og formateringspræferencer. Finjustér outputtet, så det matcher dine Markdown-krav."
+      },
+      "step_3": {
+        "title": "Konverter & download",
+        "description": "Få <strong>rent Markdown-output med det samme</strong>. Kopiér til udklipsholderen eller <strong>download som en fil</strong>. HTML til Markdown-konverteringen sker på få sekunder."
+      }
+    },
+    "use_cases": {
+      "title": "Anvendelsesområder for HTML til Markdown-konverter",
+      "description": "Opdag hvordan vores HTML til Markdown-konverter hjælper udviklere, skribenter og indholdsproducenter",
+      "web_development": {
+        "title": "Webudvikling",
+        "description": "Konverter HTML-dokumentation til Markdown til <strong>GitHub README-filer</strong>, <strong>udviklerdokumentation</strong> og <strong>tekniske wikier</strong>. Perfekt til ensartet dokumentationsformat."
+      },
+      "content_migration": {
+        "title": "Indholdsmigrering",
+        "description": "Migrér indhold fra HTML-baserede CMS’er til <strong>Markdown-baserede platforme</strong> som Jekyll, Hugo eller Gatsby. Batchbehandl flere sider effektivt."
+      },
+      "blog_publishing": {
+        "title": "Blogudgivelse",
+        "description": "Konverter HTML-blogindlæg til Markdown til platforme som <strong>Medium</strong>, <strong>Dev.to</strong> eller <strong>Ghost</strong>. Bevar formatering, links og billeder under konverteringen."
+      },
+      "documentation_sites": {
+        "title": "Dokumentationssider",
+        "description": "Omdan HTML-dokumentation til Markdown til <strong>statiske site-generatorer</strong> og dokumentationsværktøjer. Bevar struktur og formatering gennem hele processen."
+      },
+      "email_to_markdown": {
+        "title": "E-mail til Markdown",
+        "description": "Konverter HTML-e-mailindhold til Markdown-format til <strong>arkivering</strong>, <strong>notetagning</strong> eller <strong>genbrug af indhold</strong>. Udtræk ren tekst fra komplekse HTML-e-mails."
+      },
+      "api_documentation": {
+        "title": "API-dokumentation",
+        "description": "Konverter HTML API-dokumentation til Markdown til <strong>OpenAPI-specifikationer</strong>, <strong>API-referencesider</strong> og udviklerportaler. Bevar kodeeksempler og formatering."
+      }
+    },
+    "faq": {
+      "title": "Ofte stillede spørgsmål",
+      "is_free": {
+        "question": "Er denne HTML til Markdown-konverter gratis?",
+        "answer": "Ja! Vores HTML til Markdown-konverter er <strong>helt gratis</strong> og kræver <strong>ingen registrering</strong>. Konverter <strong>ubegrænset indhold</strong>, gem din historik og download resultater uden begrænsninger."
+      },
+      "html_elements": {
+        "question": "Hvilke HTML-elementer understøttes?",
+        "answer": "Vi understøtter <strong>alle standard HTML-elementer</strong> inklusive overskrifter, afsnit, lister, tabeller, kodeblokke, citater, billeder, links og mere."
+      },
+      "multiple_urls": {
+        "question": "Kan jeg konvertere flere URL’er på én gang?",
+        "answer": "Ja! Aktivér <strong>batch-tilstand</strong> for at konvertere flere websites samtidigt. Status for hver URL vises løbende."
+      },
+      "customize_output": {
+        "question": "Hvordan tilpasser jeg Markdown-outputtet?",
+        "answer": "Brug indstillingspanelet til at tilpasse <strong>overskriftsstile</strong>, <strong>listemarkører</strong>, <strong>kodeblokstile</strong> og mange andre formateringsmuligheder."
+      },
+      "data_security": {
+        "question": "Er mine data sikre?",
+        "answer": "Ja, al konvertering sker <strong>lokalt i din browser</strong>. Dit indhold sendes <strong>aldrig til vores servere</strong>, hvilket sikrer fuldt privatliv."
+      },
+      "conversion_speed": {
+        "question": "Hvor hurtig er konverteringen?",
+        "answer": "Konverteringen er <strong>lynhurtig</strong> og tager typisk <strong>under 5 sekunder</strong>, afhængigt af indholdets størrelse og kompleksitet."
+      }
+    },
+    "structured_data": {
+      "name": "HTML til Markdown Konverter",
+      "description": "Gratis online HTML til Markdown-konverter med batchbehandling, URL-understøttelse og avancerede tilpasningsmuligheder.",
+      "application_category": "UtilityApplication",
+      "operating_system": "Alle",
+      "permissions": "ingen",
+      "price_currency": "USD",
+      "feature_html_to_markdown": "HTML til Markdown-konvertering",
+      "feature_batch_url": "Batchbehandling af URL’er",
+      "feature_raw_html": "Konvertering af rå HTML-kode",
+      "feature_advanced_customization": "Avancerede tilpasningsmuligheder",
+      "feature_table_conversion": "Understøttelse af tabelkonvertering",
+      "feature_code_block": "Bevarelse af kodeblokke",
+      "feature_image_link": "Bevarelse af billedlinks",
+      "feature_custom_heading": "Brugerdefinerede overskriftsstile",
+      "feature_list_marker": "Valg af listemarkører",
+      "feature_real_time_preview": "Forhåndsvisning i realtid",
+      "feature_download": "Download konverterede filer",
+      "feature_copy_clipboard": "Kopiér til udklipsholder",
+      "feature_conversion_history": "Konverteringshistorik",
+      "feature_mobile_responsive": "Mobilvenligt design",
+      "feature_no_registration": "Ingen registrering påkrævet",
+      "feature_privacy_focused": "Privatlivsfokuseret behandling",
+      "feature_lightning_fast": "Lynhurtig konvertering",
+      "feature_seo_friendly": "SEO-venligt output",
+      "feature_developer_friendly": "Udviklervenlige funktioner",
+      "feature_content_extraction": "Indholdsekstraktion fra websites",
+      "organization_name": "GeeksKai",
+      "breadcrumb_home": "Hjem",
+      "breadcrumb_tools": "Værktøjer",
+      "breadcrumb_html_to_markdown": "HTML til Markdown Konverter"
+    }
   }
 }

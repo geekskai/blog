@@ -8,12 +8,12 @@ import {
   Plus,
   X,
   AlertCircle,
-  Link,
   FileText,
   Loader2,
   Copy,
   Trash2,
 } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { validateUrl, parseUrlsFromText, validateMultipleUrls } from "../utils/urlValidator"
 import { BatchConversionProgress } from "../types"
 
@@ -34,6 +34,7 @@ export default function InputPanel({
   isConverting,
   batchProgress,
 }: InputPanelProps) {
+  const t = useTranslations("HtmlToMarkdown.components.input_panel")
   const [singleInput, setSingleInput] = useState("")
   const [multipleUrls, setMultipleUrls] = useState<string[]>([""])
   const [batchMode, setBatchMode] = useState(false)
@@ -114,7 +115,7 @@ export default function InputPanel({
       if (batchMode) {
         const nonEmptyUrls = multipleUrls.filter((url) => url.trim())
         if (nonEmptyUrls.length === 0) {
-          setValidationErrors(["Please enter at least one URL"])
+          setValidationErrors([t("error_at_least_one_url")])
           return
         }
 
@@ -129,13 +130,13 @@ export default function InputPanel({
         }
       } else {
         if (!singleInput.trim()) {
-          setValidationErrors(["Please enter a URL"])
+          setValidationErrors([t("error_enter_url")])
           return
         }
 
         const validation = validateUrl(singleInput.trim())
         if (!validation.isValid) {
-          setValidationErrors([validation.error || "Invalid URL"])
+          setValidationErrors([validation.error || t("error_invalid_url")])
           return
         }
 
@@ -144,13 +145,13 @@ export default function InputPanel({
     } else {
       // HTML mode
       if (!singleInput.trim()) {
-        setValidationErrors(["Please enter HTML content"])
+        setValidationErrors([t("error_enter_html")])
         return
       }
 
       await onSingleConversion(singleInput.trim())
     }
-  }, [activeTab, batchMode, multipleUrls, singleInput, onBatchConversion, onSingleConversion])
+  }, [activeTab, t, batchMode, multipleUrls, singleInput, onBatchConversion, onSingleConversion])
 
   const clearAll = () => {
     setSingleInput("")
@@ -164,7 +165,7 @@ export default function InputPanel({
       {/* Input Type Tabs */}
       <div className="rounded-xl bg-slate-800/80 p-6 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
         <div className="mb-6">
-          <h2 className="mb-4 text-lg font-semibold text-white">Input Source</h2>
+          <h2 className="mb-4 text-lg font-semibold text-white">{t("input_source")}</h2>
           <div className="flex space-x-1 rounded-lg bg-slate-700 p-1">
             <button
               onClick={() => handleTabChange("url")}
@@ -175,7 +176,7 @@ export default function InputPanel({
               }`}
             >
               <Globe className="h-4 w-4" />
-              <span>Website URL</span>
+              <span>{t("website_url")}</span>
             </button>
             <button
               onClick={() => handleTabChange("html")}
@@ -186,7 +187,7 @@ export default function InputPanel({
               }`}
             >
               <Code className="h-4 w-4" />
-              <span>HTML Code</span>
+              <span>{t("html_code")}</span>
             </button>
           </div>
         </div>
@@ -196,7 +197,7 @@ export default function InputPanel({
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <label className="text-sm font-medium text-slate-300">
-                {batchMode ? "Website URLs" : "Website URL"}
+                {batchMode ? t("website_urls") : t("website_url")}
               </label>
               <div className="flex space-x-2">
                 <button
@@ -208,14 +209,14 @@ export default function InputPanel({
                   }`}
                 >
                   <Plus className="h-3 w-3" />
-                  <span>Batch Mode</span>
+                  <span>{t("batch_mode")}</span>
                 </button>
                 <button
                   onClick={handlePasteUrls}
                   className="inline-flex items-center space-x-1 rounded-md bg-slate-700 px-3 py-1 text-xs font-medium text-slate-300 transition-colors hover:bg-slate-600"
                 >
                   <Copy className="h-3 w-3" />
-                  <span>Paste URLs</span>
+                  <span>{t("paste_urls")}</span>
                 </button>
               </div>
             </div>
@@ -228,7 +229,7 @@ export default function InputPanel({
                       type="url"
                       value={url}
                       onChange={(e) => handleUrlChange(index, e.target.value)}
-                      placeholder={`Enter URL ${index + 1}...`}
+                      placeholder={t("enter_url", { index: index + 1 })}
                       className="flex-1 rounded-lg border border-slate-600 bg-slate-700 px-4 py-3 text-sm text-white placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500"
                     />
                     {multipleUrls.length > 1 && (
@@ -246,7 +247,7 @@ export default function InputPanel({
                   className="flex w-full items-center justify-center space-x-2 rounded-lg border-2 border-dashed border-slate-600 py-3 text-slate-400 hover:border-slate-500 hover:text-slate-300"
                 >
                   <Plus className="h-4 w-4" />
-                  <span>Add another URL</span>
+                  <span>{t("add_another_url")}</span>
                 </button>
               </div>
             ) : (
@@ -254,7 +255,7 @@ export default function InputPanel({
                 type="url"
                 value={singleInput}
                 onChange={(e) => handleSingleInputChange(e.target.value)}
-                placeholder="Enter website URL (e.g., https://example.com)"
+                placeholder={t("enter_website_url")}
                 className="w-full rounded-lg border border-slate-600 bg-slate-700 px-4 py-3 text-sm text-white placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500"
               />
             )}
@@ -265,21 +266,21 @@ export default function InputPanel({
         {activeTab === "html" && (
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <label className="text-sm font-medium text-slate-300">HTML Content</label>
+              <label className="text-sm font-medium text-slate-300">{t("html_content")}</label>
               <div className="flex space-x-2">
                 <button
                   onClick={() => fileInputRef.current?.click()}
                   className="inline-flex items-center space-x-1 rounded-md bg-slate-700 px-3 py-1 text-xs font-medium text-slate-300 transition-colors hover:bg-slate-600"
                 >
                   <Upload className="h-3 w-3" />
-                  <span>Upload File</span>
+                  <span>{t("upload_file")}</span>
                 </button>
                 <button
                   onClick={clearAll}
                   className="inline-flex items-center space-x-1 rounded-md bg-slate-700 px-3 py-1 text-xs font-medium text-slate-300 transition-colors hover:bg-slate-600"
                 >
                   <Trash2 className="h-3 w-3" />
-                  <span>Clear</span>
+                  <span>{t("clear")}</span>
                 </button>
               </div>
             </div>
@@ -288,7 +289,7 @@ export default function InputPanel({
               ref={textAreaRef}
               value={singleInput}
               onChange={(e) => handleSingleInputChange(e.target.value)}
-              placeholder="Paste your HTML content here..."
+              placeholder={t("paste_html_placeholder")}
               className="w-full rounded-lg border border-slate-600 bg-slate-700 px-4 py-3 text-sm text-white placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500"
               rows={12}
             />
@@ -327,12 +328,12 @@ export default function InputPanel({
           {isConverting ? (
             <div className="flex items-center justify-center space-x-2">
               <Loader2 className="h-5 w-5 animate-spin" />
-              <span>Converting...</span>
+              <span>{t("converting")}</span>
             </div>
           ) : (
             <div className="flex items-center justify-center space-x-2">
               <FileText className="h-5 w-5" />
-              <span>Convert to Markdown</span>
+              <span>{t("convert_to_markdown")}</span>
             </div>
           )}
         </button>
@@ -341,7 +342,7 @@ export default function InputPanel({
         {batchProgress && (
           <div className="mt-4 space-y-2">
             <div className="flex items-center justify-between text-sm text-slate-300">
-              <span>Processing...</span>
+              <span>{t("processing")}</span>
               <span>
                 {batchProgress.completed + batchProgress.failed}/{batchProgress.total}
               </span>
@@ -353,10 +354,14 @@ export default function InputPanel({
               />
             </div>
             {batchProgress.current && (
-              <p className="truncate text-xs text-slate-400">Current: {batchProgress.current}</p>
+              <p className="truncate text-xs text-slate-400">
+                {t("current", { current: batchProgress.current })}
+              </p>
             )}
             {batchProgress.failed > 0 && (
-              <p className="text-xs text-red-400">{batchProgress.failed} failed conversions</p>
+              <p className="text-xs text-red-400">
+                {t("failed_conversions", { failed: batchProgress.failed })}
+              </p>
             )}
           </div>
         )}

@@ -5223,5 +5223,276 @@
     "section_legal_point_3": "未经授权，不得重新分发已下载的内容",
     "section_legal_point_4": "下载内容的使用需符合 SoundCloud 服务条款及相关版权法规",
     "section_legal_footer": "使用本工具即表示你同意以合法、合规的方式使用它。对于任何滥用行为或版权纠纷，我们概不负责。"
+  },
+  "HtmlToMarkdown": {
+    "seo_title": "HTML 转 Markdown 转换器 - 免费在线工具 | 将 HTML 转换为 MD",
+    "seo_description": "免费的 HTML 转 Markdown 转换器，支持批量处理、URL 转换和高级自定义。可将网站和 HTML 代码即时转换为干净的 Markdown 格式。无需注册。",
+    "seo_keywords": "html 转 markdown, html 转 md 转换器, markdown 转换器, html 转换器, 将 html 转换为 markdown, html 转 markdown 在线, html markdown 转换器",
+    "breadcrumb": {
+      "home": "首页",
+      "tools": "工具",
+      "html_to_markdown_converter": "HTML 转 Markdown 转换器"
+    },
+    "header": {
+      "badge": "免费 HTML 转 Markdown 工具",
+      "main_title": "HTML 转 Markdown 转换器",
+      "description": "将 HTML 内容转换为干净的 Markdown 格式。支持 URL、原始 HTML、批量处理以及高级自定义选项。非常适合开发者、写作者和内容创作者。"
+    },
+    "core_facts": {
+      "title": "核心信息",
+      "pricing_label": "价格",
+      "pricing_value": "<strong>免费</strong> - 无需注册，无限次转换",
+      "main_features_label": "主要功能",
+      "main_features_value": "<strong>批量 URL 处理</strong>, <strong>原始 HTML 转换</strong>, <strong>高级自定义</strong>",
+      "positioning_label": "产品定位",
+      "positioning_value": "面向开发者和内容创作者的 <strong>专业 HTML 转 Markdown 转换器</strong>",
+      "target_users_label": "目标用户",
+      "target_users_value": "<strong>Web 开发者</strong>, <strong>内容写作者</strong>, <strong>技术文档作者</strong>, <strong>博客作者</strong>"
+    },
+    "quick_stats": {
+      "lightning_fast": "<strong>极速转换</strong> - 数秒完成",
+      "privacy_focused": "<strong>隐私优先</strong> - 本地处理",
+      "no_registration": "<strong>无需注册</strong> - 永久免费"
+    },
+    "errors": {
+      "dismiss": "关闭"
+    },
+    "history": {
+      "title": "转换历史",
+      "count": "{count}",
+      "clear_all": "全部清除",
+      "download": "下载"
+    },
+    "features": {
+      "title": "强大功能",
+      "description": "高效将 HTML 转换为 Markdown 所需的一切功能",
+      "url_processing": {
+        "title": "URL 处理",
+        "description": "通过输入 URL 直接转换网页内容。支持 <strong>多网站批量处理</strong>，并具备 <strong>智能内容提取</strong> 功能。",
+        "batch_processing": "<strong>批量 URL 处理</strong> - 同时处理多个网站",
+        "smart_extraction": "<strong>智能内容提取</strong> - 自动识别主要内容",
+        "url_validation": "<strong>URL 校验</strong> - 确保网址有效"
+      },
+      "html_processing": {
+        "title": "HTML 处理",
+        "description": "粘贴原始 HTML 即可获得干净的 Markdown 输出。高级解析支持 <strong>表格</strong>、<strong>代码块</strong>、<strong>图片</strong> 及自定义元素。",
+        "table_conversion": "<strong>表格转换</strong> - 保留表格结构",
+        "code_block_detection": "<strong>代码块识别</strong> - 保持语法高亮",
+        "image_preservation": "<strong>图片保留</strong> - 保持图片链接不变"
+      },
+      "customizable_output": {
+        "title": "可自定义输出",
+        "description": "可精细调整转换设置，包括 <strong>标题样式</strong>、<strong>列表标记</strong>、代码块格式和链接样式，以满足你的偏好。",
+        "heading_style_options": "<strong>标题样式选项</strong> - ATX 或 Setext 格式",
+        "list_marker_choices": "<strong>列表标记选择</strong> - -, * 或 +",
+        "format_preferences": "<strong>格式偏好</strong> - 自定义输出样式"
+      }
+    },
+    "how_it_works": {
+      "title": "如何将 HTML 转换为 Markdown",
+      "step_1": {
+        "title": "选择输入类型",
+        "description": "选择转换 <strong>网站 URL</strong> 或 <strong>直接粘贴 HTML 代码</strong>。我们的 HTML 转 Markdown 转换器同时支持这两种方式。"
+      },
+      "step_2": {
+        "title": "自定义设置",
+        "description": "调整 <strong>标题样式</strong>、<strong>列表标记</strong> 及其他格式选项，使输出结果符合你的 Markdown 风格需求。"
+      },
+      "step_3": {
+        "title": "转换并下载",
+        "description": "立即获得 <strong>干净的 Markdown 输出</strong>。可复制到剪贴板或 <strong>下载为文件</strong>。HTML 转 Markdown 只需几秒钟。"
+      }
+    },
+    "use_cases": {
+      "title": "HTML 转 Markdown 转换器的使用场景",
+      "description": "了解我们的 HTML 转 Markdown 转换器如何帮助开发者、写作者和内容创作者",
+      "web_development": {
+        "title": "Web 开发",
+        "description": "将 HTML 文档转换为 Markdown，用于 <strong>GitHub README 文件</strong>、<strong>开发者文档</strong> 和 <strong>技术 Wiki</strong>，便于统一文档格式。"
+      },
+      "content_migration": {
+        "title": "内容迁移",
+        "description": "将基于 HTML 的 CMS 内容迁移到 <strong>基于 Markdown 的平台</strong>（如 Jekyll、Hugo 或 Gatsby）。支持批量高效处理多个页面。"
+      },
+      "blog_publishing": {
+        "title": "博客发布",
+        "description": "将 HTML 博客文章转换为 Markdown，用于 <strong>Medium</strong>、<strong>Dev.to</strong> 或 <strong>Ghost</strong> 等平台，并在转换过程中保留格式、链接和图片。"
+      },
+      "documentation_sites": {
+        "title": "文档站点",
+        "description": "将 HTML 文档转换为 Markdown，用于 <strong>静态站点生成器</strong> 和文档工具，在整个转换过程中保持结构和格式。"
+      },
+      "email_to_markdown": {
+        "title": "邮件转 Markdown",
+        "description": "将 HTML 邮件内容转换为 Markdown，用于 <strong>归档</strong>、<strong>笔记记录</strong> 或 <strong>内容再利用</strong>，从复杂的 HTML 邮件中提取干净文本。"
+      },
+      "api_documentation": {
+        "title": "API 文档",
+        "description": "将 HTML API 文档转换为 Markdown，用于 <strong>OpenAPI 规范</strong>、<strong>API 参考站点</strong> 和开发者门户，同时保留代码示例和格式。"
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "is_free": {
+        "question": "这个 HTML 转 Markdown 转换器是免费的吗？",
+        "answer": "是的！我们的 HTML 转 Markdown 转换器 <strong>完全免费</strong>，且 <strong>无需注册</strong>。你可以 <strong>无限次转换</strong> 内容、保存转换历史并下载结果，没有任何限制。该免费 HTML 转 Markdown 转换器不收取订阅费用，也没有使用次数限制。"
+      },
+      "html_elements": {
+        "question": "支持哪些 HTML 元素？",
+        "answer": "我们支持 <strong>所有标准 HTML 元素</strong>，包括标题、段落、列表、表格、代码块、引用、图片、链接等。复杂元素会被智能转换为对应的 Markdown 形式。该 HTML 转 Markdown 转换器可处理 <strong>嵌套列表</strong>、<strong>多列表格</strong> 以及 <strong>行内代码格式</strong>。"
+      },
+      "multiple_urls": {
+        "question": "可以一次转换多个 URL 吗？",
+        "answer": "当然可以！启用 <strong>批量模式</strong> 即可同时转换多个网站。你可以粘贴 URL 列表或逐个添加。<strong>进度跟踪</strong> 会显示每个 URL 的转换状态。我们的 HTML 转 Markdown 转换器支持无限 URL 的批量处理。"
+      },
+      "customize_output": {
+        "question": "如何自定义 Markdown 输出？",
+        "answer": "通过设置面板自定义 <strong>标题样式</strong>（ATX 或 Setext）、<strong>列表标记</strong>（-, *, +）、<strong>代码块样式</strong>（围栏或缩进）等多种格式选项，以满足你的偏好。我们的 HTML 转 Markdown 转换器提供适合专业 Markdown 输出的高级自定义功能。"
+      },
+      "data_security": {
+        "question": "使用该 HTML 转 Markdown 转换器时数据安全吗？",
+        "answer": "是的，我们的 HTML 转 Markdown 转换器 <strong>在你的浏览器中本地处理</strong> 所有转换。你的 HTML 内容和 URL <strong>不会被发送到我们的服务器</strong>，确保完全的隐私和安全。该工具以隐私为先，无需上传任何数据。"
+      },
+      "conversion_speed": {
+        "question": "HTML 转 Markdown 的速度有多快？",
+        "answer": "我们的 HTML 转 Markdown 转换器 <strong>速度极快</strong>，通常在 <strong>5 秒以内</strong> 即可完成转换。批量处理可高效处理多个 URL，并提供实时进度更新。转换速度取决于 HTML 内容的复杂度和大小。"
+      }
+    },
+    "structured_data": {
+      "name": "HTML 转 Markdown 转换器",
+      "description": "免费的在线 HTML 转 Markdown 转换工具，支持批量处理、URL 转换和高级自定义选项。可将网站或原始代码中的 HTML 内容即时转换为干净的 Markdown 格式。",
+      "application_category": "实用工具应用",
+      "operating_system": "任何系统",
+      "permissions": "无",
+      "price_currency": "USD",
+      "feature_html_to_markdown": "HTML 转 Markdown 转换",
+      "feature_batch_url": "批量 URL 处理",
+      "feature_raw_html": "原始 HTML 代码转换",
+      "feature_advanced_customization": "高级自定义选项",
+      "feature_table_conversion": "表格转换支持",
+      "feature_code_block": "代码块保留",
+      "feature_image_link": "图片链接保留",
+      "feature_custom_heading": "自定义标题样式",
+      "feature_list_marker": "列表标记选项",
+      "feature_real_time_preview": "实时预览",
+      "feature_download": "下载转换文件",
+      "feature_copy_clipboard": "复制到剪贴板",
+      "feature_conversion_history": "转换历史",
+      "feature_mobile_responsive": "移动端自适应设计",
+      "feature_no_registration": "无需注册",
+      "feature_privacy_focused": "隐私优先处理",
+      "feature_lightning_fast": "极速转换",
+      "feature_seo_friendly": "SEO 友好输出",
+      "feature_developer_friendly": "对开发者友好的功能",
+      "feature_content_extraction": "网站内容提取",
+      "organization_name": "GeeksKai",
+      "faq_free_q": "这个 HTML 转 Markdown 转换器是免费的吗？",
+      "faq_free_a": "是的！我们的 HTML 转 Markdown 转换器完全免费且无需注册。你可以无限次转换内容、保存转换历史并下载结果，没有任何限制。该免费 HTML 转 Markdown 转换器不收取订阅费用，也没有使用次数限制。",
+      "faq_elements_q": "这个 HTML 转 Markdown 转换器支持哪些 HTML 元素？",
+      "faq_elements_a": "我们支持所有标准 HTML 元素，包括标题、段落、列表、表格、代码块、引用、图片、链接等。复杂元素会被智能转换为对应的 Markdown 形式。该 HTML 转 Markdown 转换器可处理嵌套列表、多列表格和行内代码格式。",
+      "faq_multiple_urls_q": "使用该 HTML 转 Markdown 工具可以一次转换多个 URL 吗？",
+      "faq_multiple_urls_a": "当然可以！启用批量模式即可同时转换多个网站。你可以粘贴 URL 列表或逐个添加。进度跟踪会显示每个 URL 的转换状态。我们的 HTML 转 Markdown 转换器支持无限 URL 的批量处理。",
+      "faq_customize_q": "如何自定义从 HTML 转换得到的 Markdown 输出？",
+      "faq_customize_a": "通过设置面板自定义标题样式（ATX 或 Setext）、列表标记（-, *, +）、代码块样式（围栏或缩进）等多种格式选项，以满足你的偏好。我们的 HTML 转 Markdown 转换器为专业 Markdown 输出提供高级自定义能力。",
+      "faq_security_q": "使用该 HTML 转 Markdown 转换器时数据安全吗？",
+      "faq_security_a": "是的，我们的 HTML 转 Markdown 转换器在你的浏览器中本地处理所有转换。你的 HTML 内容和 URL 不会被发送到我们的服务器，确保完全的隐私和安全。该 HTML 转 Markdown 工具以隐私为先，无需上传任何数据。",
+      "breadcrumb_home": "首页",
+      "breadcrumb_tools": "工具",
+      "breadcrumb_html_to_markdown": "HTML 转 Markdown 转换器"
+    },
+    "components": {
+      "input_panel": {
+        "input_source": "输入来源",
+        "website_url": "网站 URL",
+        "html_code": "HTML 代码",
+        "website_urls": "网站 URL 列表",
+        "batch_mode": "批量模式",
+        "paste_urls": "粘贴 URL",
+        "enter_url": "输入 URL {index}...",
+        "add_another_url": "添加另一个 URL",
+        "enter_website_url": "输入网站 URL（例如：https://example.com）",
+        "html_content": "HTML 内容",
+        "upload_file": "上传文件",
+        "clear": "清除",
+        "paste_html_placeholder": "在此粘贴你的 HTML 内容...",
+        "error_at_least_one_url": "请至少输入一个 URL",
+        "error_enter_url": "请输入 URL",
+        "error_invalid_url": "无效的 URL",
+        "error_enter_html": "请输入 HTML 内容",
+        "converting": "正在转换...",
+        "convert_to_markdown": "转换为 Markdown",
+        "processing": "处理中...",
+        "current": "当前：{current}",
+        "failed_conversions": "{failed} 个转换失败"
+      },
+      "preview_panel": {
+        "preview": "预览",
+        "ready_to_convert": "已准备好转换内容",
+        "ready_description": "输入网站 URL 或粘贴 HTML 内容，即可在此查看转换后的 Markdown 预览。",
+        "conversion_result": "转换结果",
+        "words": "字数：",
+        "size": "大小：",
+        "read_time": "阅读时间：",
+        "source": "来源：",
+        "markdown": "Markdown",
+        "copy": "复制",
+        "copied": "已复制！",
+        "download": "下载",
+        "conversion_settings": "转换设置",
+        "heading_style": "标题样式",
+        "heading_atx": "ATX (# ## ###)",
+        "heading_setext": "Setext (=== ---)",
+        "list_marker": "列表标记",
+        "list_dash": "短横线 (-)",
+        "list_asterisk": "星号 (*)",
+        "list_plus": "加号 (+)",
+        "code_block_style": "代码块样式",
+        "code_fenced": "围栏式 (```)",
+        "code_indented": "缩进式（4 个空格）",
+        "link_style": "链接样式",
+        "link_inline": "行内 [text](url)",
+        "link_referenced": "引用式 [text][ref]",
+        "preserve_images": "保留图片",
+        "convert_tables": "转换表格",
+        "clean_html": "清理 HTML",
+        "remove_comments": "移除注释",
+        "include_metadata": "包含元数据",
+        "preserve_whitespace": "保留空白字符",
+        "markdown_preview": "Markdown 预览",
+        "raw_markdown": "原始 Markdown"
+      },
+      "conversion_history": {
+        "title": "转换历史",
+        "no_conversions": "暂无转换记录",
+        "no_conversions_description": "当你转换内容后，转换历史将显示在这里。",
+        "download_all": "全部下载",
+        "download_selected": "下载（{count}）",
+        "clear": "清除",
+        "search_placeholder": "搜索转换记录...",
+        "filter_all_types": "所有类型",
+        "filter_urls": "URL",
+        "filter_html": "HTML",
+        "sort_newest": "最新优先",
+        "sort_oldest": "最早优先",
+        "sort_most_words": "字数最多",
+        "sort_least_words": "字数最少",
+        "sort_title_az": "标题 A-Z",
+        "sort_title_za": "标题 Z-A",
+        "select_all": "选择所有可见项目",
+        "no_items_match": "没有符合搜索条件的项目。",
+        "html_content_label": "HTML 内容",
+        "words": "字",
+        "read": "阅读",
+        "clear_history": "清除历史记录",
+        "clear_history_warning": "此操作无法撤销",
+        "clear_history_confirm": "确定要清除所有转换历史吗？这将永久删除 {count} 条转换记录{plural}。",
+        "cancel": "取消",
+        "clear_all": "全部清除",
+        "just_now": "刚刚",
+        "minutes_ago": "{minutes} 分钟前",
+        "hours_ago": "{hours} 小时前",
+        "days_ago": "{days} 天前"
+      }
+    }
   }
 }

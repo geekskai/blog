@@ -5265,5 +5265,276 @@
     "section_legal_point_3": "Ne redistribuez pas le contenu téléchargé sans l'autorisation appropriée du détenteur des droits d'auteur",
     "section_legal_point_4": "Utilisez le contenu téléchargé conformément aux conditions d'utilisation de SoundCloud et aux lois applicables sur le droit d'auteur",
     "section_legal_footer": "En utilisant cet outil, vous acceptez de l'utiliser de manière responsable et conformément à toutes les lois et réglementations applicables. Nous ne sommes pas responsables de toute utilisation abusive de cet outil ou de toute violation du droit d'auteur."
+  },
+  "HtmlToMarkdown": {
+    "seo_title": "Convertisseur HTML vers Markdown - Outil en ligne gratuit | Convertir HTML en MD",
+    "seo_description": "Convertisseur HTML vers Markdown gratuit avec traitement par lots, prise en charge des URL et personnalisation avancée. Convertissez des sites web et du code HTML en Markdown propre instantanément. Aucune inscription requise.",
+    "seo_keywords": "html vers markdown, convertisseur html vers md, convertisseur markdown, convertisseur html, convertir html en markdown, html vers markdown en ligne, convertisseur html markdown",
+    "breadcrumb": {
+      "home": "Accueil",
+      "tools": "Outils",
+      "html_to_markdown_converter": "Convertisseur HTML vers Markdown"
+    },
+    "header": {
+      "badge": "Outil gratuit HTML vers Markdown",
+      "main_title": "Convertisseur HTML vers Markdown",
+      "description": "Convertissez du contenu HTML en Markdown propre. Prise en charge des URL, du HTML brut, du traitement par lots et d’options de personnalisation avancées. Idéal pour les développeurs, rédacteurs et créateurs de contenu."
+    },
+    "core_facts": {
+      "title": "Informations clés",
+      "pricing_label": "Tarification",
+      "pricing_value": "<strong>Gratuit</strong> - Aucune inscription requise, conversions illimitées",
+      "main_features_label": "Fonctionnalités principales",
+      "main_features_value": "<strong>Traitement d’URL par lots</strong>, <strong>Conversion de HTML brut</strong>, <strong>Personnalisation avancée</strong>",
+      "positioning_label": "Positionnement",
+      "positioning_value": "<strong>Convertisseur HTML vers Markdown professionnel</strong> pour développeurs et créateurs de contenu",
+      "target_users_label": "Utilisateurs cibles",
+      "target_users_value": "<strong>Développeurs web</strong>, <strong>Rédacteurs de contenu</strong>, <strong>Rédacteurs techniques</strong>, <strong>Blogueurs</strong>"
+    },
+    "quick_stats": {
+      "lightning_fast": "<strong>Ultra-rapide</strong> - Conversion en quelques secondes",
+      "privacy_focused": "<strong>Respect de la vie privée</strong> - Traitement local",
+      "no_registration": "<strong>Aucune inscription</strong> - Gratuit pour toujours"
+    },
+    "errors": {
+      "dismiss": "Fermer"
+    },
+    "history": {
+      "title": "Historique des conversions",
+      "count": "{count}",
+      "clear_all": "Tout effacer",
+      "download": "Télécharger"
+    },
+    "features": {
+      "title": "Fonctionnalités puissantes",
+      "description": "Tout ce dont vous avez besoin pour convertir efficacement du HTML en Markdown",
+      "url_processing": {
+        "title": "Traitement des URL",
+        "description": "Convertissez des pages web directement en saisissant des URL. Prend en charge le <strong>traitement par lots</strong> de plusieurs sites simultanément avec une <strong>extraction intelligente du contenu</strong>.",
+        "batch_processing": "<strong>Traitement d’URL par lots</strong> - Plusieurs sites à la fois",
+        "smart_extraction": "<strong>Extraction intelligente du contenu</strong> - Détection automatique du contenu principal",
+        "url_validation": "<strong>Validation des URL</strong> - Garantit des adresses de sites valides"
+      },
+      "html_processing": {
+        "title": "Traitement HTML",
+        "description": "Collez du HTML brut et obtenez une sortie Markdown propre. Analyse avancée avec prise en charge des <strong>tableaux</strong>, <strong>blocs de code</strong>, <strong>images</strong> et éléments personnalisés.",
+        "table_conversion": "<strong>Conversion des tableaux</strong> - Préserve la structure des tableaux",
+        "code_block_detection": "<strong>Détection des blocs de code</strong> - Maintient la coloration syntaxique",
+        "image_preservation": "<strong>Préservation des images</strong> - Conserve les liens d’images"
+      },
+      "customizable_output": {
+        "title": "Sortie personnalisable",
+        "description": "Ajustez finement les paramètres de conversion, notamment les <strong>styles de titres</strong>, les <strong>marqueurs de listes</strong>, le formatage des blocs de code et les styles de liens selon vos préférences.",
+        "heading_style_options": "<strong>Options de style de titre</strong> - Format ATX ou Setext",
+        "list_marker_choices": "<strong>Choix des marqueurs de liste</strong> - -, * ou +",
+        "format_preferences": "<strong>Préférences de format</strong> - Personnalisez le style de sortie"
+      }
+    },
+    "how_it_works": {
+      "title": "Comment convertir du HTML en Markdown",
+      "step_1": {
+        "title": "Choisir le type d’entrée",
+        "description": "Sélectionnez si vous souhaitez convertir une <strong>URL de site web</strong> ou <strong>coller du code HTML</strong> directement. Notre convertisseur HTML vers Markdown prend en charge les deux méthodes."
+      },
+      "step_2": {
+        "title": "Personnaliser les paramètres",
+        "description": "Ajustez les options de conversion telles que les <strong>styles de titres</strong>, les <strong>marqueurs de listes</strong> et les préférences de formatage. Affinez la sortie selon vos besoins Markdown."
+      },
+      "step_3": {
+        "title": "Convertir et télécharger",
+        "description": "Obtenez <strong>instantanément une sortie Markdown propre</strong>. Copiez dans le presse-papiers ou <strong>téléchargez sous forme de fichier</strong>. La conversion HTML vers Markdown s’effectue en quelques secondes."
+      }
+    },
+    "use_cases": {
+      "title": "Cas d’utilisation du convertisseur HTML vers Markdown",
+      "description": "Découvrez comment notre convertisseur HTML vers Markdown aide les développeurs, rédacteurs et créateurs de contenu",
+      "web_development": {
+        "title": "Développement web",
+        "description": "Convertissez la documentation HTML en Markdown pour les <strong>README GitHub</strong>, la <strong>documentation développeur</strong> et les <strong>wikis techniques</strong>. Idéal pour maintenir des formats de documentation cohérents."
+      },
+      "content_migration": {
+        "title": "Migration de contenu",
+        "description": "Migrez du contenu depuis des CMS basés sur HTML vers des <strong>plateformes basées sur Markdown</strong> comme Jekyll, Hugo ou Gatsby. Traitez efficacement plusieurs pages par lots."
+      },
+      "blog_publishing": {
+        "title": "Publication de blogs",
+        "description": "Convertissez des articles de blog HTML en Markdown pour des plateformes comme <strong>Medium</strong>, <strong>Dev.to</strong> ou <strong>Ghost</strong>. Préservez la mise en forme, les liens et les images."
+      },
+      "documentation_sites": {
+        "title": "Sites de documentation",
+        "description": "Transformez la documentation HTML en Markdown pour les <strong>générateurs de sites statiques</strong> et les outils de documentation, tout en conservant la structure et le formatage."
+      },
+      "email_to_markdown": {
+        "title": "Email vers Markdown",
+        "description": "Convertissez le contenu des emails HTML en Markdown pour l’<strong>archivage</strong>, la <strong>prise de notes</strong> ou la <strong>réutilisation de contenu</strong>. Extrayez un texte propre à partir d’emails HTML complexes."
+      },
+      "api_documentation": {
+        "title": "Documentation API",
+        "description": "Convertissez la documentation API HTML en Markdown pour les <strong>spécifications OpenAPI</strong>, les <strong>sites de référence API</strong> et les portails développeurs. Préservez les exemples de code et le formatage."
+      }
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "is_free": {
+        "question": "Ce convertisseur HTML vers Markdown est-il gratuit ?",
+        "answer": "Oui ! Notre convertisseur HTML vers Markdown est <strong>entièrement gratuit</strong> et <strong>ne nécessite aucune inscription</strong>. Convertissez du <strong>contenu illimité</strong>, sauvegardez votre historique de conversion et téléchargez les résultats sans aucune restriction."
+      },
+      "html_elements": {
+        "question": "Quels éléments HTML sont pris en charge ?",
+        "answer": "Nous prenons en charge <strong>tous les éléments HTML standards</strong>, y compris les titres, paragraphes, listes, tableaux, blocs de code, citations, images, liens et bien plus encore."
+      },
+      "multiple_urls": {
+        "question": "Puis-je convertir plusieurs URL en même temps ?",
+        "answer": "Absolument ! Activez le <strong>mode par lots</strong> pour convertir plusieurs sites simultanément. Le <strong>suivi de progression</strong> affiche l’état de conversion de chaque URL."
+      },
+      "customize_output": {
+        "question": "Comment personnaliser la sortie Markdown ?",
+        "answer": "Utilisez le panneau de paramètres pour personnaliser les <strong>styles de titres</strong>, les <strong>marqueurs de listes</strong>, les <strong>styles de blocs de code</strong> et de nombreuses autres options."
+      },
+      "data_security": {
+        "question": "Mes données sont-elles sécurisées lors de l’utilisation de ce convertisseur ?",
+        "answer": "Oui, toutes les conversions sont traitées <strong>localement dans votre navigateur</strong>. Votre contenu HTML et vos URL ne sont <strong>jamais envoyés à nos serveurs</strong>."
+      },
+      "conversion_speed": {
+        "question": "Quelle est la vitesse de conversion HTML vers Markdown ?",
+        "answer": "Notre convertisseur est <strong>extrêmement rapide</strong>, convertissant généralement le HTML en Markdown en <strong>moins de 5 secondes</strong>."
+      }
+    },
+    "structured_data": {
+      "name": "Convertisseur HTML vers Markdown",
+      "description": "Outil en ligne gratuit de conversion HTML vers Markdown avec traitement par lots, prise en charge des URL et options de personnalisation avancées.",
+      "application_category": "UtilityApplication",
+      "operating_system": "Tous",
+      "permissions": "aucune",
+      "price_currency": "USD",
+      "feature_html_to_markdown": "Conversion HTML vers Markdown",
+      "feature_batch_url": "Traitement d’URL par lots",
+      "feature_raw_html": "Conversion de code HTML brut",
+      "feature_advanced_customization": "Options de personnalisation avancées",
+      "feature_table_conversion": "Prise en charge de la conversion des tableaux",
+      "feature_code_block": "Préservation des blocs de code",
+      "feature_image_link": "Préservation des liens d’images",
+      "feature_custom_heading": "Styles de titres personnalisés",
+      "feature_list_marker": "Options de marqueurs de liste",
+      "feature_real_time_preview": "Aperçu en temps réel",
+      "feature_download": "Téléchargement des fichiers convertis",
+      "feature_copy_clipboard": "Copie dans le presse-papiers",
+      "feature_conversion_history": "Historique des conversions",
+      "feature_mobile_responsive": "Design responsive mobile",
+      "feature_no_registration": "Aucune inscription requise",
+      "feature_privacy_focused": "Traitement axé sur la confidentialité",
+      "feature_lightning_fast": "Conversion ultra-rapide",
+      "feature_seo_friendly": "Sortie optimisée pour le SEO",
+      "feature_developer_friendly": "Fonctionnalités adaptées aux développeurs",
+      "feature_content_extraction": "Extraction de contenu depuis les sites web",
+      "organization_name": "GeeksKai",
+      "faq_free_q": "Ce convertisseur HTML vers Markdown est-il gratuit ?",
+      "faq_free_a": "Oui ! Notre convertisseur HTML vers Markdown est entièrement gratuit et ne nécessite aucune inscription.",
+      "faq_elements_q": "Quels éléments HTML sont pris en charge par ce convertisseur ?",
+      "faq_elements_a": "Nous prenons en charge tous les éléments HTML standards, y compris les titres, paragraphes, listes, tableaux, blocs de code, images et liens.",
+      "faq_multiple_urls_q": "Puis-je convertir plusieurs URL en même temps ?",
+      "faq_multiple_urls_a": "Oui, le mode par lots permet de convertir plusieurs sites simultanément avec un suivi de progression.",
+      "faq_customize_q": "Comment personnaliser la sortie Markdown à partir du HTML ?",
+      "faq_customize_a": "Utilisez le panneau de paramètres pour personnaliser les styles de titres, les marqueurs de listes et les styles de blocs de code.",
+      "faq_security_q": "Mes données sont-elles sécurisées avec ce convertisseur HTML vers Markdown ?",
+      "faq_security_a": "Oui, toutes les conversions sont effectuées localement dans votre navigateur.",
+      "breadcrumb_home": "Accueil",
+      "breadcrumb_tools": "Outils",
+      "breadcrumb_html_to_markdown": "Convertisseur HTML vers Markdown"
+    },
+    "components": {
+      "input_panel": {
+        "input_source": "Source d’entrée",
+        "website_url": "URL du site web",
+        "html_code": "Code HTML",
+        "website_urls": "URL des sites web",
+        "batch_mode": "Mode par lots",
+        "paste_urls": "Coller des URL",
+        "enter_url": "Saisir l’URL {index}...",
+        "add_another_url": "Ajouter une autre URL",
+        "enter_website_url": "Saisir l’URL du site (ex. https://example.com)",
+        "html_content": "Contenu HTML",
+        "upload_file": "Téléverser un fichier",
+        "clear": "Effacer",
+        "paste_html_placeholder": "Collez votre contenu HTML ici...",
+        "error_at_least_one_url": "Veuillez saisir au moins une URL",
+        "error_enter_url": "Veuillez saisir une URL",
+        "error_invalid_url": "URL invalide",
+        "error_enter_html": "Veuillez saisir du contenu HTML",
+        "converting": "Conversion en cours...",
+        "convert_to_markdown": "Convertir en Markdown",
+        "processing": "Traitement...",
+        "current": "Actuel : {current}",
+        "failed_conversions": "{failed} conversions échouées"
+      },
+      "preview_panel": {
+        "preview": "Aperçu",
+        "ready_to_convert": "Prêt à convertir le contenu",
+        "ready_description": "Saisissez une URL ou collez du contenu HTML pour voir l’aperçu Markdown ici.",
+        "conversion_result": "Résultat de la conversion",
+        "words": "Mots :",
+        "size": "Taille :",
+        "read_time": "Temps de lecture :",
+        "source": "Source :",
+        "markdown": "Markdown",
+        "copy": "Copier",
+        "copied": "Copié !",
+        "download": "Télécharger",
+        "conversion_settings": "Paramètres de conversion",
+        "heading_style": "Style de titre",
+        "heading_atx": "ATX (# ## ###)",
+        "heading_setext": "Setext (=== ---)",
+        "list_marker": "Marqueur de liste",
+        "list_dash": "Tiret (-)",
+        "list_asterisk": "Astérisque (*)",
+        "list_plus": "Plus (+)",
+        "code_block_style": "Style de bloc de code",
+        "code_fenced": "Délimité (```)",
+        "code_indented": "Indenté (4 espaces)",
+        "link_style": "Style de lien",
+        "link_inline": "En ligne [texte](url)",
+        "link_referenced": "Référencé [texte][ref]",
+        "preserve_images": "Conserver les images",
+        "convert_tables": "Convertir les tableaux",
+        "clean_html": "Nettoyer le HTML",
+        "remove_comments": "Supprimer les commentaires",
+        "include_metadata": "Inclure les métadonnées",
+        "preserve_whitespace": "Conserver les espaces",
+        "markdown_preview": "Aperçu Markdown",
+        "raw_markdown": "Markdown brut"
+      },
+      "conversion_history": {
+        "title": "Historique des conversions",
+        "no_conversions": "Aucune conversion pour le moment",
+        "no_conversions_description": "Votre historique apparaîtra ici après quelques conversions.",
+        "download_all": "Tout télécharger",
+        "download_selected": "Télécharger ({count})",
+        "clear": "Effacer",
+        "search_placeholder": "Rechercher des conversions...",
+        "filter_all_types": "Tous les types",
+        "filter_urls": "URL",
+        "filter_html": "HTML",
+        "sort_newest": "Les plus récentes",
+        "sort_oldest": "Les plus anciennes",
+        "sort_most_words": "Le plus de mots",
+        "sort_least_words": "Le moins de mots",
+        "sort_title_az": "Titre A-Z",
+        "sort_title_za": "Titre Z-A",
+        "select_all": "Sélectionner tous les éléments visibles",
+        "no_items_match": "Aucun élément ne correspond à vos critères de recherche.",
+        "html_content_label": "Contenu HTML",
+        "words": "mots",
+        "read": "lecture",
+        "clear_history": "Effacer l’historique",
+        "clear_history_warning": "Cette action est irréversible",
+        "clear_history_confirm": "Êtes-vous sûr de vouloir effacer tout l’historique des conversions ? Cela supprimera définitivement {count} conversion{plural}.",
+        "cancel": "Annuler",
+        "clear_all": "Tout effacer",
+        "just_now": "À l’instant",
+        "minutes_ago": "il y a {minutes} min",
+        "hours_ago": "il y a {hours} h",
+        "days_ago": "il y a {days} j"
+      }
+    }
   }
 }

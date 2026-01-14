@@ -5225,5 +5225,140 @@
     "section_legal_point_3": "著作権者の正式な許可なく、ダウンロードしたコンテンツを再配布しないでください",
     "section_legal_point_4": "SoundCloud の利用規約および適用される著作権法に従ってコンテンツを使用してください",
     "section_legal_footer": "本ツールを使用することで、すべての適用法令および規則を遵守し、責任をもって利用することに同意したものとみなされます。当社は、本ツールの不正使用や著作権侵害について一切の責任を負いません。"
+  },
+  "HtmlToMarkdown": {
+    "seo_title": "HTMLからMarkdownへの変換ツール - 無料オンラインツール | HTMLをMDに変換",
+    "seo_description": "バッチ処理、URL対応、高度なカスタマイズ機能を備えた無料のHTMLからMarkdownへの変換ツール。WebサイトやHTMLコードを即座にクリーンなMarkdown形式に変換できます。登録不要。",
+    "seo_keywords": "html to markdown, html to md converter, markdown 変換, html 変換, htmlをmarkdownに変換, html to markdown オンライン, html markdown 変換ツール",
+    "breadcrumb": {
+      "home": "ホーム",
+      "tools": "ツール",
+      "html_to_markdown_converter": "HTMLからMarkdownへの変換"
+    },
+    "header": {
+      "badge": "無料 HTML→Markdown ツール",
+      "main_title": "HTMLからMarkdownへの変換",
+      "description": "HTMLコンテンツをクリーンなMarkdown形式に変換します。URL、生HTML、バッチ処理、高度なカスタマイズオプションに対応。開発者、ライター、コンテンツ制作者に最適です。"
+    },
+    "core_facts": {
+      "title": "基本情報",
+      "pricing_label": "料金",
+      "pricing_value": "<strong>無料</strong> - 登録不要、無制限で変換可能",
+      "main_features_label": "主な機能",
+      "main_features_value": "<strong>URLの一括処理</strong>, <strong>生HTML変換</strong>, <strong>高度なカスタマイズ</strong>",
+      "positioning_label": "位置づけ",
+      "positioning_value": "開発者やコンテンツ制作者向けの<strong>プロフェッショナルなHTML→Markdown変換ツール</strong>",
+      "target_users_label": "対象ユーザー",
+      "target_users_value": "<strong>Web開発者</strong>, <strong>コンテンツライター</strong>, <strong>テクニカルライター</strong>, <strong>ブロガー</strong>"
+    },
+    "quick_stats": {
+      "lightning_fast": "<strong>超高速</strong> - 数秒で変換",
+      "privacy_focused": "<strong>プライバシー重視</strong> - ローカル処理",
+      "no_registration": "<strong>登録不要</strong> - 永久に無料"
+    },
+    "errors": {
+      "dismiss": "閉じる"
+    },
+    "history": {
+      "title": "変換履歴",
+      "count": "{count}",
+      "clear_all": "すべてクリア",
+      "download": "ダウンロード"
+    },
+    "features": {
+      "title": "強力な機能",
+      "description": "HTMLを効率的にMarkdownへ変換するために必要なすべての機能",
+      "url_processing": {
+        "title": "URL処理",
+        "description": "URLを入力するだけでWebページを直接変換。<strong>スマートなコンテンツ抽出</strong>により、複数サイトの<strong>一括処理</strong>に対応します。",
+        "batch_processing": "<strong>URLの一括処理</strong> - 複数のWebサイトを同時に変換",
+        "smart_extraction": "<strong>スマートコンテンツ抽出</strong> - メインコンテンツを自動検出",
+        "url_validation": "<strong>URL検証</strong> - 正しいWebアドレスを保証"
+      },
+      "html_processing": {
+        "title": "HTML処理",
+        "description": "生のHTMLを貼り付けるだけでクリーンなMarkdownを生成。<strong>表</strong>、<strong>コードブロック</strong>、<strong>画像</strong>、カスタム要素に対応した高度な解析。",
+        "table_conversion": "<strong>表の変換</strong> - 表構造を保持",
+        "code_block_detection": "<strong>コードブロック検出</strong> - シンタックスハイライトを維持",
+        "image_preservation": "<strong>画像の保持</strong> - 画像リンクをそのまま保持"
+      },
+      "customizable_output": {
+        "title": "出力のカスタマイズ",
+        "description": "<strong>見出しスタイル</strong>、<strong>リスト記号</strong>、コードブロック形式、リンクスタイルなど、好みに合わせて変換設定を細かく調整できます。",
+        "heading_style_options": "<strong>見出しスタイルの選択</strong> - ATX または Setext",
+        "list_marker_choices": "<strong>リスト記号の選択</strong> - -, *, +",
+        "format_preferences": "<strong>フォーマット設定</strong> - 出力スタイルをカスタマイズ"
+      }
+    },
+    "how_it_works": {
+      "title": "HTMLをMarkdownに変換する方法",
+      "step_1": {
+        "title": "入力方法を選択",
+        "description": "<strong>WebサイトのURL</strong>を変換するか、<strong>HTMLコードを直接貼り付ける</strong>かを選択します。本ツールは両方に対応しています。"
+      },
+      "step_2": {
+        "title": "設定をカスタマイズ",
+        "description": "<strong>見出しスタイル</strong>、<strong>リスト記号</strong>、フォーマット設定などを調整し、好みのMarkdown形式に仕上げます。"
+      },
+      "step_3": {
+        "title": "変換＆ダウンロード",
+        "description": "<strong>クリーンなMarkdownを即時生成</strong>。クリップボードにコピーするか、<strong>ファイルとしてダウンロード</strong>できます。"
+      }
+    },
+    "use_cases": {
+      "title": "HTML→Markdown変換の活用例",
+      "description": "開発者、ライター、コンテンツ制作者にどのように役立つかをご紹介します",
+      "web_development": {
+        "title": "Web開発",
+        "description": "HTMLドキュメントを<strong>GitHubのREADME</strong>、<strong>開発者向けドキュメント</strong>、<strong>技術Wiki</strong>用のMarkdownに変換し、一貫した形式を維持します。"
+      },
+      "content_migration": {
+        "title": "コンテンツ移行",
+        "description": "HTMLベースのCMSから、Jekyll、Hugo、Gatsbyなどの<strong>Markdownベースのプラットフォーム</strong>へ効率的に移行できます。"
+      },
+      "blog_publishing": {
+        "title": "ブログ公開",
+        "description": "<strong>Medium</strong>、<strong>Dev.to</strong>、<strong>Ghost</strong>など向けにHTMLブログ記事をMarkdownへ変換。書式やリンク、画像を保持します。"
+      },
+      "documentation_sites": {
+        "title": "ドキュメントサイト",
+        "description": "HTMLドキュメントを<strong>静的サイトジェネレーター</strong>やドキュメントツール向けにMarkdownへ変換します。"
+      },
+      "email_to_markdown": {
+        "title": "メールをMarkdownに変換",
+        "description": "HTMLメールを<strong>アーカイブ</strong>、<strong>メモ</strong>、<strong>コンテンツ再利用</strong>のためにMarkdown形式へ変換します。"
+      },
+      "api_documentation": {
+        "title": "APIドキュメント",
+        "description": "HTML形式のAPIドキュメントを<strong>OpenAPI仕様</strong>やAPIリファレンス向けのMarkdownに変換します。"
+      }
+    },
+    "faq": {
+      "title": "よくある質問",
+      "is_free": {
+        "question": "このHTML→Markdown変換ツールは無料ですか？",
+        "answer": "はい。<strong>完全無料</strong>で、<strong>登録も不要</strong>です。無制限に変換でき、履歴の保存やダウンロードにも制限はありません。"
+      },
+      "html_elements": {
+        "question": "どのHTML要素に対応していますか？",
+        "answer": "見出し、段落、リスト、表、コードブロック、引用、画像、リンクなど、<strong>すべての標準HTML要素</strong>に対応しています。"
+      },
+      "multiple_urls": {
+        "question": "複数のURLを同時に変換できますか？",
+        "answer": "はい。<strong>バッチモード</strong>を有効にすることで、複数のWebサイトを同時に変換できます。"
+      },
+      "customize_output": {
+        "question": "Markdown出力はどのようにカスタマイズできますか？",
+        "answer": "設定パネルから<strong>見出しスタイル</strong>、<strong>リスト記号</strong>、<strong>コードブロック形式</strong>などを自由にカスタマイズできます。"
+      },
+      "data_security": {
+        "question": "データの安全性は確保されていますか？",
+        "answer": "はい。すべての変換は<strong>ブラウザ内でローカル処理</strong>され、データがサーバーに送信されることはありません。"
+      },
+      "conversion_speed": {
+        "question": "変換速度はどれくらい速いですか？",
+        "answer": "通常<strong>5秒以内</strong>に変換が完了する超高速処理です。HTMLのサイズや複雑さにより多少異なります。"
+      }
+    }
   }
 }

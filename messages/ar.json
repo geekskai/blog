@@ -5173,5 +5173,276 @@
     "section_legal_point_3": "لا تقم بإعادة توزيع المحتوى الذي تم تنزيله دون الحصول على إذن مناسب من صاحب حقوق الطبع والنشر",
     "section_legal_point_4": "استخدم المحتوى الذي تم تنزيله وفقًا لشروط خدمة SoundCloud وقوانين حقوق الطبع والنشر المعمول بها",
     "section_legal_footer": "باستخدام هذه الأداة، فإنك توافق على استخدامها بمسؤولية وامتثالًا لجميع القوانين واللوائح المعمول بها. نحن لسنا مسؤولين عن أي سوء استخدام لهذه الأداة أو أي انتهاكات لحقوق الطبع والنشر."
+  },
+  "HtmlToMarkdown": {
+    "seo_title": "محول HTML إلى Markdown - أداة مجانية عبر الإنترنت | تحويل HTML إلى MD",
+    "seo_description": "محول HTML إلى Markdown مجاني مع معالجة مجمعة ودعم URL وتخصيص متقدم. حوّل مواقع الويب وكود HTML إلى تنسيق Markdown نظيف على الفور. لا يلزم التسجيل.",
+    "seo_keywords": "html إلى markdown، محول html إلى md، محول markdown، محول html، تحويل html إلى markdown، html إلى markdown عبر الإنترنت، محول html markdown",
+    "breadcrumb": {
+      "home": "الرئيسية",
+      "tools": "أدوات",
+      "html_to_markdown_converter": "محول HTML إلى Markdown"
+    },
+    "header": {
+      "badge": "أداة HTML إلى Markdown مجانية",
+      "main_title": "محول HTML إلى Markdown",
+      "description": "حوّل محتوى HTML إلى تنسيق Markdown نظيف. دعم لـ URLs و HTML خام ومعالجة مجمعة وخيارات تخصيص متقدمة. مثالي للمطورين والكتاب ومنشئي المحتوى."
+    },
+    "core_facts": {
+      "title": "المعلومات الأساسية",
+      "pricing_label": "التسعير",
+      "pricing_value": "<strong>مجاني</strong> - لا يلزم التسجيل، تحويلات غير محدودة",
+      "main_features_label": "الميزات الرئيسية",
+      "main_features_value": "<strong>معالجة URL مجمعة</strong>، <strong>تحويل HTML خام</strong>، <strong>تخصيص متقدم</strong>",
+      "positioning_label": "الموضع",
+      "positioning_value": "<strong>محول HTML إلى Markdown احترافي</strong> للمطورين ومنشئي المحتوى",
+      "target_users_label": "المستخدمون المستهدفون",
+      "target_users_value": "<strong>مطورو الويب</strong>، <strong>كتاب المحتوى</strong>، <strong>الكتاب التقنيون</strong>، <strong>المدونون</strong>"
+    },
+    "quick_stats": {
+      "lightning_fast": "<strong>سريع جداً</strong> - التحويل في ثوانٍ",
+      "privacy_focused": "<strong>يركز على الخصوصية</strong> - معالجة محلية",
+      "no_registration": "<strong>لا يلزم التسجيل</strong> - مجاني للأبد"
+    },
+    "errors": {
+      "dismiss": "إغلاق"
+    },
+    "history": {
+      "title": "سجل التحويل",
+      "count": "{count}",
+      "clear_all": "مسح الكل",
+      "download": "تحميل"
+    },
+    "features": {
+      "title": "ميزات قوية",
+      "description": "كل ما تحتاجه لتحويل HTML إلى Markdown بكفاءة",
+      "url_processing": {
+        "title": "معالجة URL",
+        "description": "حوّل صفحات الويب مباشرة بإدخال عناوين URL. يدعم <strong>المعالجة المجمعة</strong> لعدة مواقع ويب في وقت واحد مع <strong>استخراج المحتوى الذكي</strong>.",
+        "batch_processing": "<strong>معالجة URL مجمعة</strong> - عدة مواقع ويب في وقت واحد",
+        "smart_extraction": "<strong>استخراج المحتوى الذكي</strong> - اكتشاف المحتوى الرئيسي تلقائياً",
+        "url_validation": "<strong>التحقق من URL</strong> - يضمن عناوين مواقع ويب صحيحة"
+      },
+      "html_processing": {
+        "title": "معالجة HTML",
+        "description": "الصق HTML خام واحصل على إخراج Markdown نظيف. تحليل متقدم مع دعم <strong>الجداول</strong> و<strong>كتل الكود</strong> و<strong>الصور</strong> والعناصر المخصصة.",
+        "table_conversion": "<strong>تحويل الجداول</strong> - يحافظ على بنية الجدول",
+        "code_block_detection": "<strong>اكتشاف كتل الكود</strong> - يحافظ على تمييز الصيغة",
+        "image_preservation": "<strong>الحفاظ على الصور</strong> - يحافظ على روابط الصور سليمة"
+      },
+      "customizable_output": {
+        "title": "إخراج قابل للتخصيص",
+        "description": "ضبط إعدادات التحويل بدقة بما في ذلك <strong>أنماط العناوين</strong> و<strong>علامات القوائم</strong> وتنسيق كتل الكود وأنماط الروابط لتتناسب مع تفضيلاتك.",
+        "heading_style_options": "<strong>خيارات نمط العناوين</strong> - تنسيق ATX أو Setext",
+        "list_marker_choices": "<strong>خيارات علامات القوائم</strong> - علامات - أو * أو +",
+        "format_preferences": "<strong>تفضيلات التنسيق</strong> - تخصيص نمط الإخراج"
+      }
+    },
+    "how_it_works": {
+      "title": "كيفية تحويل HTML إلى Markdown",
+      "step_1": {
+        "title": "اختر نوع الإدخال",
+        "description": "اختر ما إذا كنت تريد تحويل <strong>عنوان URL لموقع ويب</strong> أو <strong>لصق كود HTML</strong> مباشرة. يدعم محول HTML إلى markdown الخاص بنا كلا طريقي الإدخال."
+      },
+      "step_2": {
+        "title": "تخصيص الإعدادات",
+        "description": "اضبط خيارات التحويل مثل <strong>أنماط العناوين</strong> و<strong>علامات القوائم</strong> وتفضيلات التنسيق. اضبط الإخراج بدقة لتتناسب مع متطلبات نمط markdown الخاص بك."
+      },
+      "step_3": {
+        "title": "تحويل وتحميل",
+        "description": "احصل على <strong>إخراج Markdown نظيف على الفور</strong>. انسخ إلى الحافظة أو <strong>حمّل كملف</strong>. يحدث تحويل HTML إلى markdown في ثوانٍ."
+      }
+    },
+    "use_cases": {
+      "title": "حالات الاستخدام لمحول HTML إلى Markdown",
+      "description": "اكتشف كيف يساعد محول HTML إلى markdown الخاص بنا المطورين والكتاب ومنشئي المحتوى",
+      "web_development": {
+        "title": "تطوير الويب",
+        "description": "حوّل توثيق HTML إلى Markdown لملفات <strong>GitHub README</strong> و<strong>توثيق المطورين</strong> و<strong>الويكي التقنية</strong>. مثالي للحفاظ على تنسيقات التوثيق المتسقة."
+      },
+      "content_migration": {
+        "title": "هجرة المحتوى",
+        "description": "انقل المحتوى من CMS القائم على HTML إلى <strong>منصات قائمة على Markdown</strong> مثل Jekyll أو Hugo أو Gatsby. عالج عدة صفحات بكفاءة باستخدام محول HTML إلى markdown الخاص بنا."
+      },
+      "blog_publishing": {
+        "title": "نشر المدونات",
+        "description": "حوّل منشورات المدونة HTML إلى Markdown لمنصات مثل <strong>Medium</strong> و<strong>Dev.to</strong> أو <strong>Ghost</strong>. احتفظ بالتنسيق والروابط والصور أثناء التحويل."
+      },
+      "documentation_sites": {
+        "title": "مواقع التوثيق",
+        "description": "حوّل توثيق HTML إلى Markdown لـ <strong>مولدات المواقع الثابتة</strong> وأدوات التوثيق. حافظ على البنية والتنسيق طوال عملية التحويل."
+      },
+      "email_to_markdown": {
+        "title": "البريد الإلكتروني إلى Markdown",
+        "description": "حوّل محتوى البريد الإلكتروني HTML إلى تنسيق Markdown لـ <strong>الأرشفة</strong> و<strong>تدوين الملاحظات</strong> أو <strong>إعادة استخدام المحتوى</strong>. استخرج نصاً نظيفاً من رسائل HTML المعقدة."
+      },
+      "api_documentation": {
+        "title": "توثيق API",
+        "description": "حوّل توثيق API HTML إلى Markdown لـ <strong>مواصفات OpenAPI</strong> و<strong>مواقع مرجع API</strong> وبوابات المطورين. احتفظ بأمثلة الكود والتنسيق."
+      }
+    },
+    "faq": {
+      "title": "الأسئلة الشائعة",
+      "is_free": {
+        "question": "هل محول HTML إلى Markdown هذا مجاني؟",
+        "answer": "نعم! محول HTML إلى Markdown الخاص بنا <strong>مجاني تماماً</strong> مع <strong>عدم الحاجة للتسجيل</strong>. حوّل <strong>محتوى غير محدود</strong> واحفظ سجل التحويلات وحمّل النتائج دون أي قيود. يقدم محول HTML إلى markdown المجاني هذا تحويلات غير محدودة دون رسوم اشتراك أو حدود استخدام."
+      },
+      "html_elements": {
+        "question": "ما هي عناصر HTML المدعومة؟",
+        "answer": "ندعم <strong>جميع عناصر HTML القياسية</strong> بما في ذلك العناوين والفقرات والقوائم والجداول وكتل الكود والاقتباسات والصور والروابط والمزيد. يتم تحويل العناصر المعقدة بذكاء إلى مكافئاتها في Markdown. يتعامل محول HTML إلى markdown الخاص بنا مع <strong>القوائم المتداخلة</strong> و<strong>الجداول متعددة الأعمدة</strong> و<strong>تنسيق الكود المضمن</strong>."
+      },
+      "multiple_urls": {
+        "question": "هل يمكنني تحويل عدة عناوين URL في وقت واحد؟",
+        "answer": "بالتأكيد! فعّل <strong>وضع الدفعة</strong> لتحويل عدة مواقع ويب في وقت واحد. يمكنك لصق قائمة من عناوين URL أو إضافتها واحداً تلو الآخر. يعرض <strong>تتبع التقدم</strong> حالة التحويل لكل عنوان URL. يدعم محول HTML إلى markdown الخاص بنا معالجة مجمعة لعدد غير محدود من عناوين URL."
+      },
+      "customize_output": {
+        "question": "كيف أخصص إخراج Markdown؟",
+        "answer": "استخدم لوحة الإعدادات لتخصيص <strong>أنماط العناوين</strong> (ATX مقابل Setext) و<strong>علامات القوائم</strong> (-، *، +) و<strong>أنماط كتل الكود</strong> (محدد مقابل بمسافة بادئة) والعديد من خيارات التنسيق الأخرى لتتناسب مع تفضيلاتك. يوفر محول HTML إلى markdown الخاص بنا تخصيصاً متقدماً لإخراج markdown احترافي."
+      },
+      "data_security": {
+        "question": "هل بياناتي آمنة عند استخدام محول HTML إلى markdown هذا؟",
+        "answer": "نعم، يعالج محول HTML إلى markdown الخاص بنا جميع التحويلات <strong>محلياً في متصفحك</strong>. لا يتم إرسال محتوى HTML وعناوين URL الخاص بك <strong>أبداً إلى خوادمنا</strong>، مما يضمن الخصوصية والأمان الكاملين. تركز أداة HTML إلى markdown هذه على الخصوصية ولا تتطلب تحميل بيانات."
+      },
+      "conversion_speed": {
+        "question": "ما مدى سرعة تحويل HTML إلى markdown؟",
+        "answer": "محول HTML إلى markdown الخاص بنا <strong>سريع جداً</strong>، عادة ما يحول HTML إلى markdown في <strong>أقل من 5 ثوانٍ</strong>. تتعامل المعالجة المجمعة مع عدة عناوين URL بكفاءة مع تحديثات التقدم في الوقت الفعلي. تعتمد سرعة التحويل على تعقيد وحجم محتوى HTML."
+      }
+    },
+    "structured_data": {
+      "name": "محول HTML إلى Markdown",
+      "description": "أداة محول HTML إلى Markdown مجانية عبر الإنترنت مع معالجة مجمعة ودعم URL وخيارات تخصيص متقدمة. حوّل محتوى HTML من مواقع الويب أو الكود الخام إلى تنسيق Markdown نظيف على الفور.",
+      "application_category": "UtilityApplication",
+      "operating_system": "Any",
+      "permissions": "none",
+      "price_currency": "USD",
+      "feature_html_to_markdown": "تحويل HTML إلى Markdown",
+      "feature_batch_url": "معالجة URL مجمعة",
+      "feature_raw_html": "تحويل كود HTML خام",
+      "feature_advanced_customization": "خيارات تخصيص متقدمة",
+      "feature_table_conversion": "دعم تحويل الجداول",
+      "feature_code_block": "الحفاظ على كتل الكود",
+      "feature_image_link": "الحفاظ على روابط الصور",
+      "feature_custom_heading": "أنماط عناوين مخصصة",
+      "feature_list_marker": "خيارات علامات القوائم",
+      "feature_real_time_preview": "معاينة في الوقت الفعلي",
+      "feature_download": "تحميل الملفات المحولة",
+      "feature_copy_clipboard": "نسخ إلى الحافظة",
+      "feature_conversion_history": "سجل التحويل",
+      "feature_mobile_responsive": "تصميم متجاوب للجوال",
+      "feature_no_registration": "لا يلزم التسجيل",
+      "feature_privacy_focused": "معالجة تركز على الخصوصية",
+      "feature_lightning_fast": "تحويل سريع جداً",
+      "feature_seo_friendly": "إخراج محسّن لمحركات البحث",
+      "feature_developer_friendly": "ميزات صديقة للمطورين",
+      "feature_content_extraction": "استخراج المحتوى من مواقع الويب",
+      "organization_name": "GeeksKai",
+      "faq_free_q": "هل محول HTML إلى Markdown هذا مجاني؟",
+      "faq_free_a": "نعم! محول HTML إلى Markdown الخاص بنا مجاني تماماً ولا يلزم التسجيل. حوّل محتوى غير محدود واحفظ سجل التحويلات وحمّل النتائج دون أي قيود. يقدم محول HTML إلى markdown المجاني هذا تحويلات غير محدودة دون رسوم اشتراك أو حدود استخدام.",
+      "faq_elements_q": "ما هي عناصر HTML المدعومة من قبل محول HTML إلى markdown هذا؟",
+      "faq_elements_a": "ندعم جميع عناصر HTML القياسية بما في ذلك العناوين والفقرات والقوائم والجداول وكتل الكود والاقتباسات والصور والروابط والمزيد. يتم تحويل العناصر المعقدة بذكاء إلى مكافئاتها في Markdown. يتعامل محول HTML إلى markdown الخاص بنا مع القوائم المتداخلة والجداول متعددة الأعمدة وتنسيق الكود المضمن.",
+      "faq_multiple_urls_q": "هل يمكنني تحويل عدة عناوين URL في وقت واحد باستخدام أداة HTML إلى markdown هذه؟",
+      "faq_multiple_urls_a": "بالتأكيد! فعّل وضع الدفعة لتحويل عدة مواقع ويب في وقت واحد. يمكنك لصق قائمة من عناوين URL أو إضافتها واحداً تلو الآخر. يعرض تتبع التقدم حالة التحويل لكل عنوان URL. يدعم محول HTML إلى markdown الخاص بنا معالجة مجمعة لعدد غير محدود من عناوين URL.",
+      "faq_customize_q": "كيف أخصص إخراج Markdown من HTML؟",
+      "faq_customize_a": "استخدم لوحة الإعدادات لتخصيص أنماط العناوين (ATX مقابل Setext) وعلامات القوائم (-، *، +) وأنماط كتل الكود (محدد مقابل بمسافة بادئة) والعديد من خيارات التنسيق الأخرى لتتناسب مع تفضيلاتك. يوفر محول HTML إلى markdown الخاص بنا تخصيصاً متقدماً لإخراج markdown احترافي.",
+      "faq_security_q": "هل بياناتي آمنة عند استخدام محول HTML إلى markdown هذا؟",
+      "faq_security_a": "نعم، يعالج محول HTML إلى markdown الخاص بنا جميع التحويلات محلياً في متصفحك. لا يتم إرسال محتوى HTML وعناوين URL الخاص بك أبداً إلى خوادمنا، مما يضمن الخصوصية والأمان الكاملين. تركز أداة HTML إلى markdown هذه على الخصوصية ولا تتطلب تحميل بيانات.",
+      "breadcrumb_home": "الرئيسية",
+      "breadcrumb_tools": "أدوات",
+      "breadcrumb_html_to_markdown": "محول HTML إلى Markdown"
+    },
+    "components": {
+      "input_panel": {
+        "input_source": "مصدر الإدخال",
+        "website_url": "عنوان URL للموقع",
+        "html_code": "كود HTML",
+        "website_urls": "عناوين URL للمواقع",
+        "batch_mode": "وضع الدفعة",
+        "paste_urls": "لصق عناوين URL",
+        "enter_url": "أدخل عنوان URL {index}...",
+        "add_another_url": "أضف عنوان URL آخر",
+        "enter_website_url": "أدخل عنوان URL للموقع (مثل: https://example.com)",
+        "html_content": "محتوى HTML",
+        "upload_file": "رفع ملف",
+        "clear": "مسح",
+        "paste_html_placeholder": "الصق محتوى HTML الخاص بك هنا...",
+        "error_at_least_one_url": "يرجى إدخال عنوان URL واحد على الأقل",
+        "error_enter_url": "يرجى إدخال عنوان URL",
+        "error_invalid_url": "عنوان URL غير صحيح",
+        "error_enter_html": "يرجى إدخال محتوى HTML",
+        "converting": "جارٍ التحويل...",
+        "convert_to_markdown": "تحويل إلى Markdown",
+        "processing": "جارٍ المعالجة...",
+        "current": "الحالي: {current}",
+        "failed_conversions": "{failed} تحويلات فشلت"
+      },
+      "preview_panel": {
+        "preview": "معاينة",
+        "ready_to_convert": "جاهز لتحويل المحتوى",
+        "ready_description": "أدخل عنوان URL لموقع ويب أو الصق محتوى HTML لرؤية معاينة Markdown المحولة هنا.",
+        "conversion_result": "نتيجة التحويل",
+        "words": "الكلمات:",
+        "size": "الحجم:",
+        "read_time": "وقت القراءة:",
+        "source": "المصدر:",
+        "markdown": "Markdown",
+        "copy": "نسخ",
+        "copied": "تم النسخ!",
+        "download": "تحميل",
+        "conversion_settings": "إعدادات التحويل",
+        "heading_style": "نمط العناوين",
+        "heading_atx": "ATX (# ## ###)",
+        "heading_setext": "Setext (=== ---)",
+        "list_marker": "علامة القائمة",
+        "list_dash": "شرطة (-)",
+        "list_asterisk": "علامة النجمة (*)",
+        "list_plus": "علامة الجمع (+)",
+        "code_block_style": "نمط كتلة الكود",
+        "code_fenced": "محدد (```)",
+        "code_indented": "بمسافة بادئة (4 مسافات)",
+        "link_style": "نمط الرابط",
+        "link_inline": "مضمن [نص](url)",
+        "link_referenced": "مرجع [نص][ref]",
+        "preserve_images": "الحفاظ على الصور",
+        "convert_tables": "تحويل الجداول",
+        "clean_html": "تنظيف HTML",
+        "remove_comments": "إزالة التعليقات",
+        "include_metadata": "تضمين البيانات الوصفية",
+        "preserve_whitespace": "الحفاظ على المسافات البيضاء",
+        "markdown_preview": "معاينة Markdown",
+        "raw_markdown": "Markdown خام"
+      },
+      "conversion_history": {
+        "title": "سجل التحويل",
+        "no_conversions": "لا توجد تحويلات بعد",
+        "no_conversions_description": "سيظهر سجل التحويل الخاص بك هنا بعد تحويل بعض المحتوى.",
+        "download_all": "تحميل الكل",
+        "download_selected": "تحميل ({count})",
+        "clear": "مسح",
+        "search_placeholder": "ابحث في التحويلات...",
+        "filter_all_types": "جميع الأنواع",
+        "filter_urls": "عناوين URL",
+        "filter_html": "HTML",
+        "sort_newest": "الأحدث أولاً",
+        "sort_oldest": "الأقدم أولاً",
+        "sort_most_words": "الأكثر كلمات",
+        "sort_least_words": "الأقل كلمات",
+        "sort_title_az": "العنوان أ-ي",
+        "sort_title_za": "العنوان ي-أ",
+        "select_all": "تحديد جميع العناصر المرئية",
+        "no_items_match": "لا توجد عناصر تطابق معايير البحث الخاصة بك.",
+        "html_content_label": "محتوى HTML",
+        "words": "كلمات",
+        "read": "قراءة",
+        "clear_history": "مسح السجل",
+        "clear_history_warning": "لا يمكن التراجع عن هذا الإجراء",
+        "clear_history_confirm": "هل أنت متأكد أنك تريد مسح جميع سجل التحويل؟ سيتم حذف {count} تحويل{plural} بشكل دائم.",
+        "cancel": "إلغاء",
+        "clear_all": "مسح الكل",
+        "just_now": "الآن",
+        "minutes_ago": "منذ {minutes} دقيقة",
+        "hours_ago": "منذ {hours} ساعة",
+        "days_ago": "منذ {days} يوم"
+      }
+    }
   }
 }

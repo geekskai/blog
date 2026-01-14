@@ -5054,5 +5054,276 @@
     "section_legal_point_3": "저작권자의 정식 허가 없이 다운로드한 콘텐츠를 재배포하지 마세요",
     "section_legal_point_4": "SoundCloud 이용약관 및 적용 가능한 저작권법에 따라 콘텐츠를 사용하세요",
     "section_legal_footer": "이 도구를 사용함으로써 귀하는 모든 관련 법률과 규정을 준수하며 책임감 있게 사용할 것에 동의하게 됩니다. 당사는 이 도구의 오용이나 저작권 침해에 대해 어떠한 책임도 지지 않습니다."
+  },
+  "HtmlToMarkdown": {
+    "seo_title": "HTML을 Markdown으로 변환기 - 무료 온라인 도구 | HTML을 MD로 변환",
+    "seo_description": "배치 처리, URL 지원 및 고급 사용자 정의를 제공하는 무료 HTML to Markdown 변환기입니다. 웹사이트와 HTML 코드를 즉시 깔끔한 Markdown 형식으로 변환하세요. 회원가입이 필요 없습니다.",
+    "seo_keywords": "html to markdown, html to md 변환기, markdown 변환기, html 변환기, html을 markdown으로 변환, html to markdown 온라인, html markdown 변환기",
+    "breadcrumb": {
+      "home": "홈",
+      "tools": "도구",
+      "html_to_markdown_converter": "HTML to Markdown 변환기"
+    },
+    "header": {
+      "badge": "무료 HTML to Markdown 도구",
+      "main_title": "HTML to Markdown 변환기",
+      "description": "HTML 콘텐츠를 깔끔한 Markdown 형식으로 변환하세요. URL, 원본 HTML, 배치 처리 및 고급 사용자 정의 옵션을 지원합니다. 개발자, 작가, 콘텐츠 제작자에게 완벽한 도구입니다."
+    },
+    "core_facts": {
+      "title": "핵심 정보",
+      "pricing_label": "요금",
+      "pricing_value": "<strong>무료</strong> - 회원가입 불필요, 무제한 변환",
+      "main_features_label": "주요 기능",
+      "main_features_value": "<strong>배치 URL 처리</strong>, <strong>원본 HTML 변환</strong>, <strong>고급 사용자 정의</strong>",
+      "positioning_label": "포지셔닝",
+      "positioning_value": "개발자와 콘텐츠 제작자를 위한 <strong>전문 HTML to Markdown 변환기</strong>",
+      "target_users_label": "대상 사용자",
+      "target_users_value": "<strong>웹 개발자</strong>, <strong>콘텐츠 작가</strong>, <strong>기술 문서 작성자</strong>, <strong>블로거</strong>"
+    },
+    "quick_stats": {
+      "lightning_fast": "<strong>초고속</strong> - 몇 초 만에 변환",
+      "privacy_focused": "<strong>개인정보 보호 중심</strong> - 로컬 처리",
+      "no_registration": "<strong>회원가입 불필요</strong> - 영구 무료"
+    },
+    "errors": {
+      "dismiss": "닫기"
+    },
+    "history": {
+      "title": "변환 기록",
+      "count": "{count}",
+      "clear_all": "모두 지우기",
+      "download": "다운로드"
+    },
+    "features": {
+      "title": "강력한 기능",
+      "description": "HTML을 Markdown으로 효율적으로 변환하는 데 필요한 모든 기능",
+      "url_processing": {
+        "title": "URL 처리",
+        "description": "URL을 입력하여 웹 페이지를 직접 변환합니다. <strong>스마트 콘텐츠 추출</strong>을 통해 여러 웹사이트를 동시에 <strong>배치 처리</strong>할 수 있습니다.",
+        "batch_processing": "<strong>배치 URL 처리</strong> - 여러 웹사이트를 한 번에",
+        "smart_extraction": "<strong>스마트 콘텐츠 추출</strong> - 주요 콘텐츠 자동 감지",
+        "url_validation": "<strong>URL 유효성 검사</strong> - 올바른 웹사이트 주소 보장"
+      },
+      "html_processing": {
+        "title": "HTML 처리",
+        "description": "원본 HTML을 붙여넣고 깔끔한 Markdown 결과를 얻으세요. <strong>표</strong>, <strong>코드 블록</strong>, <strong>이미지</strong> 및 사용자 정의 요소를 지원하는 고급 파싱 기능을 제공합니다.",
+        "table_conversion": "<strong>표 변환</strong> - 표 구조 유지",
+        "code_block_detection": "<strong>코드 블록 감지</strong> - 구문 강조 유지",
+        "image_preservation": "<strong>이미지 보존</strong> - 이미지 링크 유지"
+      },
+      "customizable_output": {
+        "title": "사용자 정의 가능한 출력",
+        "description": "<strong>제목 스타일</strong>, <strong>목록 마커</strong>, 코드 블록 형식, 링크 스타일 등 변환 설정을 세밀하게 조정하여 원하는 형식에 맞출 수 있습니다.",
+        "heading_style_options": "<strong>제목 스타일 옵션</strong> - ATX 또는 Setext 형식",
+        "list_marker_choices": "<strong>목록 마커 선택</strong> - -, *, 또는 +",
+        "format_preferences": "<strong>형식 환경설정</strong> - 출력 스타일 사용자 정의"
+      }
+    },
+    "how_it_works": {
+      "title": "HTML을 Markdown으로 변환하는 방법",
+      "step_1": {
+        "title": "입력 유형 선택",
+        "description": "<strong>웹사이트 URL</strong>을 변환할지 또는 <strong>HTML 코드를 직접 붙여넣을지</strong> 선택하세요. 이 HTML to Markdown 변환기는 두 가지 입력 방식을 모두 지원합니다."
+      },
+      "step_2": {
+        "title": "설정 사용자 정의",
+        "description": "<strong>제목 스타일</strong>, <strong>목록 마커</strong>, 형식 환경설정과 같은 변환 옵션을 조정하세요. Markdown 스타일 요구사항에 맞게 결과를 세밀하게 조정할 수 있습니다."
+      },
+      "step_3": {
+        "title": "변환 및 다운로드",
+        "description": "<strong>깔끔한 Markdown 결과를 즉시</strong> 받아보세요. 클립보드에 복사하거나 <strong>파일로 다운로드</strong>할 수 있습니다. HTML to Markdown 변환은 몇 초 만에 완료됩니다."
+      }
+    },
+    "use_cases": {
+      "title": "HTML to Markdown 변환기 활용 사례",
+      "description": "이 HTML to Markdown 변환기가 개발자, 작가, 콘텐츠 제작자에게 어떻게 도움이 되는지 알아보세요",
+      "web_development": {
+        "title": "웹 개발",
+        "description": "HTML 문서를 <strong>GitHub README 파일</strong>, <strong>개발자 문서</strong>, <strong>기술 위키</strong>를 위한 Markdown으로 변환하세요. 일관된 문서 형식을 유지하는 데 적합합니다."
+      },
+      "content_migration": {
+        "title": "콘텐츠 마이그레이션",
+        "description": "HTML 기반 CMS의 콘텐츠를 Jekyll, Hugo, Gatsby와 같은 <strong>Markdown 기반 플랫폼</strong>으로 이전하세요. 이 HTML to Markdown 변환기로 여러 페이지를 효율적으로 배치 처리할 수 있습니다."
+      },
+      "blog_publishing": {
+        "title": "블로그 게시",
+        "description": "HTML 블로그 글을 <strong>Medium</strong>, <strong>Dev.to</strong>, <strong>Ghost</strong>와 같은 플랫폼용 Markdown으로 변환하세요. 변환 중에도 서식, 링크, 이미지를 유지합니다."
+      },
+      "documentation_sites": {
+        "title": "문서 사이트",
+        "description": "HTML 문서를 <strong>정적 사이트 생성기</strong> 및 문서 도구용 Markdown으로 변환하세요. 변환 과정 전반에 걸쳐 구조와 서식을 유지합니다."
+      },
+      "email_to_markdown": {
+        "title": "이메일을 Markdown으로",
+        "description": "HTML 이메일 콘텐츠를 <strong>보관</strong>, <strong>메모</strong>, <strong>콘텐츠 재활용</strong>을 위해 Markdown 형식으로 변환하세요. 복잡한 HTML 이메일에서 깔끔한 텍스트를 추출합니다."
+      },
+      "api_documentation": {
+        "title": "API 문서",
+        "description": "HTML API 문서를 <strong>OpenAPI 사양</strong>, <strong>API 레퍼런스 사이트</strong>, 개발자 포털용 Markdown으로 변환하세요. 코드 예제와 서식을 유지합니다."
+      }
+    },
+    "faq": {
+      "title": "자주 묻는 질문",
+      "is_free": {
+        "question": "이 HTML to Markdown 변환기는 무료인가요?",
+        "answer": "네! 이 HTML to Markdown 변환기는 <strong>완전히 무료</strong>이며 <strong>회원가입이 필요 없습니다</strong>. <strong>무제한 콘텐츠</strong>를 변환하고, 변환 기록을 저장하며, 결과를 제한 없이 다운로드할 수 있습니다. 구독 요금이나 사용 제한이 없습니다."
+      },
+      "html_elements": {
+        "question": "어떤 HTML 요소를 지원하나요?",
+        "answer": "제목, 단락, 목록, 표, 코드 블록, 인용문, 이미지, 링크 등 <strong>모든 표준 HTML 요소</strong>를 지원합니다. 복잡한 요소도 Markdown에 맞게 지능적으로 변환됩니다. <strong>중첩 목록</strong>, <strong>다중 열 표</strong>, <strong>인라인 코드 서식</strong>도 처리합니다."
+      },
+      "multiple_urls": {
+        "question": "여러 URL을 한 번에 변환할 수 있나요?",
+        "answer": "물론입니다! <strong>배치 모드</strong>를 활성화하여 여러 웹사이트를 동시에 변환할 수 있습니다. URL 목록을 붙여넣거나 하나씩 추가할 수 있으며, <strong>진행 상황 추적</strong>을 통해 각 URL의 변환 상태를 확인할 수 있습니다."
+      },
+      "customize_output": {
+        "question": "Markdown 출력은 어떻게 사용자 정의하나요?",
+        "answer": "설정 패널에서 <strong>제목 스타일</strong>(ATX vs Setext), <strong>목록 마커</strong>(-, *, +), <strong>코드 블록 스타일</strong>(펜스형 vs 들여쓰기) 등 다양한 옵션을 사용자 정의할 수 있습니다. 전문적인 Markdown 출력을 위한 고급 사용자 정의를 제공합니다."
+      },
+      "data_security": {
+        "question": "이 HTML to Markdown 변환기를 사용할 때 데이터는 안전한가요?",
+        "answer": "네, 모든 변환은 <strong>브라우저 내에서 로컬로 처리</strong>됩니다. HTML 콘텐츠와 URL은 <strong>서버로 전송되지 않으며</strong>, 완전한 개인정보 보호와 보안을 보장합니다."
+      },
+      "conversion_speed": {
+        "question": "HTML to Markdown 변환 속도는 얼마나 빠른가요?",
+        "answer": "이 변환기는 <strong>초고속</strong>으로, 일반적으로 <strong>5초 이내</strong>에 변환을 완료합니다. 배치 처리 시에도 실시간 진행 업데이트와 함께 효율적으로 처리됩니다. 변환 속도는 HTML 콘텐츠의 크기와 복잡성에 따라 달라질 수 있습니다."
+      }
+    },
+    "structured_data": {
+      "name": "HTML to Markdown 변환기",
+      "description": "배치 처리, URL 지원 및 고급 사용자 정의 옵션을 제공하는 무료 온라인 HTML to Markdown 변환 도구입니다. 웹사이트 또는 원본 코드의 HTML 콘텐츠를 즉시 깔끔한 Markdown 형식으로 변환합니다.",
+      "application_category": "UtilityApplication",
+      "operating_system": "모두",
+      "permissions": "없음",
+      "price_currency": "USD",
+      "feature_html_to_markdown": "HTML to Markdown 변환",
+      "feature_batch_url": "배치 URL 처리",
+      "feature_raw_html": "원본 HTML 코드 변환",
+      "feature_advanced_customization": "고급 사용자 정의 옵션",
+      "feature_table_conversion": "표 변환 지원",
+      "feature_code_block": "코드 블록 보존",
+      "feature_image_link": "이미지 링크 보존",
+      "feature_custom_heading": "사용자 정의 제목 스타일",
+      "feature_list_marker": "목록 마커 옵션",
+      "feature_real_time_preview": "실시간 미리보기",
+      "feature_download": "변환된 파일 다운로드",
+      "feature_copy_clipboard": "클립보드로 복사",
+      "feature_conversion_history": "변환 기록",
+      "feature_mobile_responsive": "모바일 반응형 디자인",
+      "feature_no_registration": "회원가입 불필요",
+      "feature_privacy_focused": "개인정보 보호 중심 처리",
+      "feature_lightning_fast": "초고속 변환",
+      "feature_seo_friendly": "SEO 친화적 출력",
+      "feature_developer_friendly": "개발자 친화적 기능",
+      "feature_content_extraction": "웹사이트 콘텐츠 추출",
+      "organization_name": "GeeksKai",
+      "faq_free_q": "이 HTML to Markdown 변환기는 무료인가요?",
+      "faq_free_a": "네! 이 HTML to Markdown 변환기는 회원가입 없이 완전히 무료입니다. 무제한 콘텐츠를 변환하고, 변환 기록을 저장하며, 결과를 제한 없이 다운로드할 수 있습니다.",
+      "faq_elements_q": "이 HTML to Markdown 변환기는 어떤 HTML 요소를 지원하나요?",
+      "faq_elements_a": "제목, 단락, 목록, 표, 코드 블록, 인용문, 이미지, 링크 등 모든 표준 HTML 요소를 지원합니다. 중첩 목록, 다중 열 표, 인라인 코드 서식도 처리합니다.",
+      "faq_multiple_urls_q": "이 HTML to Markdown 도구로 여러 URL을 한 번에 변환할 수 있나요?",
+      "faq_multiple_urls_a": "물론입니다! 배치 모드를 사용해 여러 웹사이트를 동시에 변환할 수 있으며, 각 URL의 변환 상태를 확인할 수 있습니다.",
+      "faq_customize_q": "HTML에서 Markdown으로 변환할 때 출력을 어떻게 사용자 정의하나요?",
+      "faq_customize_a": "설정 패널에서 제목 스타일, 목록 마커, 코드 블록 스타일 등 다양한 서식 옵션을 사용자 정의할 수 있습니다.",
+      "faq_security_q": "이 HTML to Markdown 변환기를 사용할 때 데이터는 안전한가요?",
+      "faq_security_a": "네, 모든 변환은 브라우저 내에서 로컬로 처리되며 데이터는 서버로 전송되지 않습니다.",
+      "breadcrumb_home": "홈",
+      "breadcrumb_tools": "도구",
+      "breadcrumb_html_to_markdown": "HTML to Markdown 변환기"
+    },
+    "components": {
+      "input_panel": {
+        "input_source": "입력 소스",
+        "website_url": "웹사이트 URL",
+        "html_code": "HTML 코드",
+        "website_urls": "웹사이트 URL",
+        "batch_mode": "배치 모드",
+        "paste_urls": "URL 붙여넣기",
+        "enter_url": "URL {index} 입력...",
+        "add_another_url": "다른 URL 추가",
+        "enter_website_url": "웹사이트 URL 입력 (예: https://example.com)",
+        "html_content": "HTML 콘텐츠",
+        "upload_file": "파일 업로드",
+        "clear": "지우기",
+        "paste_html_placeholder": "여기에 HTML 콘텐츠를 붙여넣으세요...",
+        "error_at_least_one_url": "최소 하나의 URL을 입력하세요",
+        "error_enter_url": "URL을 입력하세요",
+        "error_invalid_url": "유효하지 않은 URL",
+        "error_enter_html": "HTML 콘텐츠를 입력하세요",
+        "converting": "변환 중...",
+        "convert_to_markdown": "Markdown으로 변환",
+        "processing": "처리 중...",
+        "current": "현재: {current}",
+        "failed_conversions": "{failed}개 변환 실패"
+      },
+      "preview_panel": {
+        "preview": "미리보기",
+        "ready_to_convert": "콘텐츠 변환 준비 완료",
+        "ready_description": "웹사이트 URL을 입력하거나 HTML 콘텐츠를 붙여넣으면 변환된 Markdown 미리보기가 여기에 표시됩니다.",
+        "conversion_result": "변환 결과",
+        "words": "단어 수:",
+        "size": "크기:",
+        "read_time": "읽기 시간:",
+        "source": "소스:",
+        "markdown": "Markdown",
+        "copy": "복사",
+        "copied": "복사됨!",
+        "download": "다운로드",
+        "conversion_settings": "변환 설정",
+        "heading_style": "제목 스타일",
+        "heading_atx": "ATX (# ## ###)",
+        "heading_setext": "Setext (=== ---)",
+        "list_marker": "목록 마커",
+        "list_dash": "대시 (-)",
+        "list_asterisk": "별표 (*)",
+        "list_plus": "플러스 (+)",
+        "code_block_style": "코드 블록 스타일",
+        "code_fenced": "펜스형 (```)",
+        "code_indented": "들여쓰기 (공백 4칸)",
+        "link_style": "링크 스타일",
+        "link_inline": "인라인 [텍스트](url)",
+        "link_referenced": "참조형 [텍스트][ref]",
+        "preserve_images": "이미지 보존",
+        "convert_tables": "표 변환",
+        "clean_html": "HTML 정리",
+        "remove_comments": "주석 제거",
+        "include_metadata": "메타데이터 포함",
+        "preserve_whitespace": "공백 유지",
+        "markdown_preview": "Markdown 미리보기",
+        "raw_markdown": "원본 Markdown"
+      },
+      "conversion_history": {
+        "title": "변환 기록",
+        "no_conversions": "아직 변환 내역이 없습니다",
+        "no_conversions_description": "콘텐츠를 변환하면 변환 기록이 여기에 표시됩니다.",
+        "download_all": "모두 다운로드",
+        "download_selected": "다운로드 ({count})",
+        "clear": "지우기",
+        "search_placeholder": "변환 기록 검색...",
+        "filter_all_types": "모든 유형",
+        "filter_urls": "URL",
+        "filter_html": "HTML",
+        "sort_newest": "최신순",
+        "sort_oldest": "오래된 순",
+        "sort_most_words": "단어 수 많은 순",
+        "sort_least_words": "단어 수 적은 순",
+        "sort_title_az": "제목 A-Z",
+        "sort_title_za": "제목 Z-A",
+        "select_all": "보이는 항목 모두 선택",
+        "no_items_match": "검색 조건과 일치하는 항목이 없습니다.",
+        "html_content_label": "HTML 콘텐츠",
+        "words": "단어",
+        "read": "읽기",
+        "clear_history": "기록 지우기",
+        "clear_history_warning": "이 작업은 되돌릴 수 없습니다",
+        "clear_history_confirm": "모든 변환 기록을 삭제하시겠습니까? {count}개의 변환{plural}이 영구적으로 삭제됩니다.",
+        "cancel": "취소",
+        "clear_all": "모두 지우기",
+        "just_now": "방금 전",
+        "minutes_ago": "{minutes}분 전",
+        "hours_ago": "{hours}시간 전",
+        "days_ago": "{days}일 전"
+      }
+    }
   }
 }

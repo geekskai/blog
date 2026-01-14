@@ -15,6 +15,7 @@ import {
   ExternalLink,
   Maximize2,
 } from "lucide-react"
+import { useTranslations } from "next-intl"
 import ReactMarkdown from "react-markdown"
 import { ConversionResult, ConversionOptions } from "../types"
 import {
@@ -32,6 +33,7 @@ interface PreviewPanelProps {
 }
 
 export default function PreviewPanel({ result, options, onOptionsChange }: PreviewPanelProps) {
+  const t = useTranslations("HtmlToMarkdown.components.preview_panel")
   const [activeView, setActiveView] = useState<"preview" | "markdown">("preview")
   const [showSettings, setShowSettings] = useState(false)
   const [copySuccess, setCopySuccess] = useState(false)
@@ -73,16 +75,14 @@ export default function PreviewPanel({ result, options, onOptionsChange }: Previ
       <div className="space-y-6">
         <div className="overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
           <div className="border-b border-slate-700 px-6 py-4">
-            <h2 className="text-lg font-semibold text-white">Preview</h2>
+            <h2 className="text-lg font-semibold text-white">{t("preview")}</h2>
           </div>
           <div className="p-12 text-center">
             <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-600">
               <FileText className="h-12 w-12 text-white" />
             </div>
-            <h3 className="mb-4 text-xl font-semibold text-white">Ready to convert content</h3>
-            <p className="text-slate-400">
-              Enter a website URL or paste HTML content to see the converted Markdown preview here.
-            </p>
+            <h3 className="mb-4 text-xl font-semibold text-white">{t("ready_to_convert")}</h3>
+            <p className="text-slate-400">{t("ready_description")}</p>
           </div>
         </div>
       </div>
@@ -96,7 +96,7 @@ export default function PreviewPanel({ result, options, onOptionsChange }: Previ
         <div className="border-b border-slate-700 px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-lg font-semibold text-white">Conversion Result</h2>
+              <h2 className="text-lg font-semibold text-white">{t("conversion_result")}</h2>
               {result.title && (
                 <p className="max-w-md truncate text-sm text-slate-400">{result.title}</p>
               )}
@@ -123,24 +123,24 @@ export default function PreviewPanel({ result, options, onOptionsChange }: Previ
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             <div className="flex items-center space-x-2 text-sm">
               <Hash className="h-4 w-4 text-blue-400" />
-              <span className="text-slate-400">Words:</span>
+              <span className="text-slate-400">{t("words")}</span>
               <span className="font-medium text-white">{result.wordCount.toLocaleString()}</span>
             </div>
             <div className="flex items-center space-x-2 text-sm">
               <Archive className="h-4 w-4 text-green-400" />
-              <span className="text-slate-400">Size:</span>
+              <span className="text-slate-400">{t("size")}</span>
               <span className="font-medium text-white">{formatFileSize(result.size)}</span>
             </div>
             <div className="flex items-center space-x-2 text-sm">
               <Clock className="h-4 w-4 text-purple-400" />
-              <span className="text-slate-400">Read time:</span>
+              <span className="text-slate-400">{t("read_time")}</span>
               <span className="font-medium text-white">
                 {estimateReadingTime(result.wordCount)}
               </span>
             </div>
             <div className="flex items-center space-x-2 text-sm">
               <ExternalLink className="h-4 w-4 text-orange-400" />
-              <span className="text-slate-400">Source:</span>
+              <span className="text-slate-400">{t("source")}</span>
               <span className="font-medium capitalize text-white">{result.inputType}</span>
             </div>
           </div>
@@ -159,7 +159,7 @@ export default function PreviewPanel({ result, options, onOptionsChange }: Previ
                 }`}
               >
                 <Eye className="mr-2 inline h-4 w-4" />
-                Preview
+                {t("preview")}
               </button>
               <button
                 onClick={() => setActiveView("markdown")}
@@ -170,7 +170,7 @@ export default function PreviewPanel({ result, options, onOptionsChange }: Previ
                 }`}
               >
                 <Code className="mr-2 inline h-4 w-4" />
-                Markdown
+                {t("markdown")}
               </button>
             </div>
 
@@ -185,12 +185,12 @@ export default function PreviewPanel({ result, options, onOptionsChange }: Previ
               {copySuccess ? (
                 <>
                   <Check className="h-4 w-4" />
-                  <span>Copied!</span>
+                  <span>{t("copied")}</span>
                 </>
               ) : (
                 <>
                   <Copy className="h-4 w-4" />
-                  <span>Copy</span>
+                  <span>{t("copy")}</span>
                 </>
               )}
             </button>
@@ -200,7 +200,7 @@ export default function PreviewPanel({ result, options, onOptionsChange }: Previ
               className="inline-flex items-center space-x-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
             >
               <Download className="h-4 w-4" />
-              <span>Download</span>
+              <span>{t("download")}</span>
             </button>
           </div>
         </div>
@@ -210,64 +210,68 @@ export default function PreviewPanel({ result, options, onOptionsChange }: Previ
       {showSettings && (
         <div className="overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
           <div className="border-b border-slate-700 px-6 py-4">
-            <h3 className="text-lg font-semibold text-white">Conversion Settings</h3>
+            <h3 className="text-lg font-semibold text-white">{t("conversion_settings")}</h3>
           </div>
           <div className="space-y-6 p-6">
             <div className="grid gap-6 md:grid-cols-2">
               {/* Heading Style */}
               <div>
                 <label className="mb-2 block text-sm font-medium text-slate-300">
-                  Heading Style
+                  {t("heading_style")}
                 </label>
                 <select
                   value={options.headingStyle}
                   onChange={(e) => handleOptionsChange("headingStyle", e.target.value)}
                   className="w-full rounded-lg border border-slate-600 bg-slate-700 px-3 py-2 text-sm text-white focus:border-blue-500 focus:ring-blue-500"
                 >
-                  <option value="atx">ATX (# ## ###)</option>
-                  <option value="setext">Setext (=== ---)</option>
+                  <option value="atx">{t("heading_atx")}</option>
+                  <option value="setext">{t("heading_setext")}</option>
                 </select>
               </div>
 
               {/* List Marker */}
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-300">List Marker</label>
+                <label className="mb-2 block text-sm font-medium text-slate-300">
+                  {t("list_marker")}
+                </label>
                 <select
                   value={options.bulletListMarker}
                   onChange={(e) => handleOptionsChange("bulletListMarker", e.target.value)}
                   className="w-full rounded-lg border border-slate-600 bg-slate-700 px-3 py-2 text-sm text-white focus:border-blue-500 focus:ring-blue-500"
                 >
-                  <option value="-">Dash (-)</option>
-                  <option value="*">Asterisk (*)</option>
-                  <option value="+">Plus (+)</option>
+                  <option value="-">{t("list_dash")}</option>
+                  <option value="*">{t("list_asterisk")}</option>
+                  <option value="+">{t("list_plus")}</option>
                 </select>
               </div>
 
               {/* Code Block Style */}
               <div>
                 <label className="mb-2 block text-sm font-medium text-slate-300">
-                  Code Block Style
+                  {t("code_block_style")}
                 </label>
                 <select
                   value={options.codeBlockStyle}
                   onChange={(e) => handleOptionsChange("codeBlockStyle", e.target.value)}
                   className="w-full rounded-lg border border-slate-600 bg-slate-700 px-3 py-2 text-sm text-white focus:border-blue-500 focus:ring-blue-500"
                 >
-                  <option value="fenced">Fenced (```)</option>
-                  <option value="indented">Indented (4 spaces)</option>
+                  <option value="fenced">{t("code_fenced")}</option>
+                  <option value="indented">{t("code_indented")}</option>
                 </select>
               </div>
 
               {/* Link Style */}
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-300">Link Style</label>
+                <label className="mb-2 block text-sm font-medium text-slate-300">
+                  {t("link_style")}
+                </label>
                 <select
                   value={options.linkStyle}
                   onChange={(e) => handleOptionsChange("linkStyle", e.target.value)}
                   className="w-full rounded-lg border border-slate-600 bg-slate-700 px-3 py-2 text-sm text-white focus:border-blue-500 focus:ring-blue-500"
                 >
-                  <option value="inlined">Inline [text](url)</option>
-                  <option value="referenced">Referenced [text][ref]</option>
+                  <option value="inlined">{t("link_inline")}</option>
+                  <option value="referenced">{t("link_referenced")}</option>
                 </select>
               </div>
             </div>
@@ -275,12 +279,12 @@ export default function PreviewPanel({ result, options, onOptionsChange }: Previ
             {/* Boolean Options */}
             <div className="grid gap-4 md:grid-cols-2">
               {[
-                { key: "preserveImages", label: "Preserve Images" },
-                { key: "convertTables", label: "Convert Tables" },
-                { key: "cleanHtml", label: "Clean HTML" },
-                { key: "removeComments", label: "Remove Comments" },
-                { key: "includeMetadata", label: "Include Metadata" },
-                { key: "preserveWhitespace", label: "Preserve Whitespace" },
+                { key: "preserveImages", label: t("preserve_images") },
+                { key: "convertTables", label: t("convert_tables") },
+                { key: "cleanHtml", label: t("clean_html") },
+                { key: "removeComments", label: t("remove_comments") },
+                { key: "includeMetadata", label: t("include_metadata") },
+                { key: "preserveWhitespace", label: t("preserve_whitespace") },
               ].map(({ key, label }) => (
                 <label key={key} className="flex items-center space-x-3">
                   <input
@@ -303,7 +307,7 @@ export default function PreviewPanel({ result, options, onOptionsChange }: Previ
       <div className="overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
         <div className="border-b border-slate-700 px-6 py-4">
           <h3 className="text-lg font-semibold text-white">
-            {activeView === "preview" ? "Markdown Preview" : "Raw Markdown"}
+            {activeView === "preview" ? t("markdown_preview") : t("raw_markdown")}
           </h3>
         </div>
 
