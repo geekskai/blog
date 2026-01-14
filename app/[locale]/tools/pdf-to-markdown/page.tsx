@@ -388,8 +388,9 @@ const PdfToMarkdown = () => {
 
           <p className="mx-auto max-w-2xl text-lg text-slate-300">
             Professional PDF to Markdown converter online. Convert PDF to MD format instantly with
-            our free PDF markdown converter. Extract text from PDF documents and transform to clean,
-            editable Markdown files.
+            our <strong>free</strong> PDF markdown converter. Extract text from PDF documents and
+            transform to clean, editable Markdown files. <strong>No registration required</strong>,{" "}
+            <strong>privacy-first</strong> local processing.
           </p>
         </div>
 
@@ -596,9 +597,41 @@ const PdfToMarkdown = () => {
           )}
         </div>
 
-        {/* Features Section - Only show when no result */}
+        {/* Core Facts Section - Only show when no result - Optimized for AI retrieval */}
         {!parseResult && !isLoading && (
           <div className="mt-16">
+            {/* Core Facts Extraction - Key information for AI */}
+            <section className="mb-12 rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 via-blue-500/5 to-blue-500/10 p-8 backdrop-blur-sm">
+              <h2 className="mb-6 text-center text-2xl font-bold text-white">Core Information</h2>
+              <dl className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                <div className="text-center">
+                  <dt className="mb-2 text-sm font-medium text-slate-400">Pricing</dt>
+                  <dd className="text-xl font-bold text-green-400">
+                    <strong>Free Forever</strong>
+                  </dd>
+                </div>
+                <div className="text-center">
+                  <dt className="mb-2 text-sm font-medium text-slate-400">Target Users</dt>
+                  <dd className="text-lg font-semibold text-white">
+                    <strong>Developers, Technical Writers, Content Creators</strong>
+                  </dd>
+                </div>
+                <div className="text-center">
+                  <dt className="mb-2 text-sm font-medium text-slate-400">Positioning</dt>
+                  <dd className="text-lg font-semibold text-white">
+                    <strong>Privacy-First PDF to MD Converter</strong>
+                  </dd>
+                </div>
+                <div className="text-center">
+                  <dt className="mb-2 text-sm font-medium text-slate-400">Key Features</dt>
+                  <dd className="text-lg font-semibold text-white">
+                    <strong>Local Processing, Format Preservation, No Registration</strong>
+                  </dd>
+                </div>
+              </dl>
+            </section>
+
+            {/* Features Section */}
             <div className="grid gap-8 md:grid-cols-3">
               <div className="text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 text-white">
@@ -606,7 +639,8 @@ const PdfToMarkdown = () => {
                 </div>
                 <h3 className="mb-2 text-lg font-semibold text-white">Lightning Fast</h3>
                 <p className="text-slate-400">
-                  Advanced parsing algorithms ensure rapid conversion without compromising quality.
+                  <strong>Advanced parsing algorithms</strong> ensure rapid conversion without
+                  compromising quality. Process PDFs up to <strong>50MB</strong> in seconds.
                 </p>
               </div>
 
@@ -616,7 +650,9 @@ const PdfToMarkdown = () => {
                 </div>
                 <h3 className="mb-2 text-lg font-semibold text-white">Format Preserved</h3>
                 <p className="text-slate-400">
-                  Intelligent parsing maintains document structure, headers, and formatting.
+                  <strong>Intelligent parsing</strong> maintains document structure, headers, and
+                  formatting. Achieves <strong>95%+ accuracy</strong> in preserving original
+                  content.
                 </p>
               </div>
 
@@ -626,15 +662,15 @@ const PdfToMarkdown = () => {
                 </div>
                 <h3 className="mb-2 text-lg font-semibold text-white">Privacy First</h3>
                 <p className="text-slate-400">
-                  All processing happens locally in your browser. Your files never leave your
-                  device.
+                  All processing happens <strong>locally in your browser</strong>. Your files{" "}
+                  <strong>never leave your device</strong>, ensuring complete privacy and security.
                 </p>
               </div>
             </div>
 
             {/* Detailed Content Sections for SEO */}
             <div className="mt-20 space-y-16">
-              {/* How to Use Section */}
+              {/* How to Use Section - Content chunked for AI retrieval */}
               <section className="rounded-xl bg-slate-800 p-8 shadow-lg">
                 <h2 className="mb-6 text-2xl font-bold text-white">
                   How to Use Our PDF to Markdown Converter: Complete Guide
@@ -649,8 +685,9 @@ const PdfToMarkdown = () => {
                         <h3 className="font-semibold text-white">Upload Your PDF Document</h3>
                         <p className="text-slate-400">
                           Click the upload area or drag and drop your PDF file into our PDF to
-                          markdown converter. Our tool supports PDF files up to 50MB for PDF to MD
-                          conversion.
+                          markdown converter. Our tool supports PDF files up to{" "}
+                          <strong>50MB</strong> for PDF to MD conversion.{" "}
+                          <strong>No registration required</strong>.
                         </p>
                       </div>
                     </div>
@@ -661,9 +698,10 @@ const PdfToMarkdown = () => {
                       <div>
                         <h3 className="font-semibold text-white">Automatic PDF to MD Conversion</h3>
                         <p className="text-slate-400">
-                          Our PDF markdown converter automatically processes your document,
-                          extracting text and converting PDF to markdown format while preserving the
-                          original structure.
+                          Our PDF markdown converter <strong>automatically processes</strong> your
+                          document, extracting text and converting PDF to markdown format while{" "}
+                          <strong>preserving the original structure</strong>. Conversion happens{" "}
+                          <strong>locally in your browser</strong>.
                         </p>
                       </div>
                     </div>
@@ -676,8 +714,9 @@ const PdfToMarkdown = () => {
                       <div>
                         <h3 className="font-semibold text-white">Edit & Preview Markdown</h3>
                         <p className="text-slate-400">
-                          Fine-tune your converted markdown content using our built-in editor.
-                          Preview the PDF to markdown conversion results with live formatting.
+                          Fine-tune your converted markdown content using our{" "}
+                          <strong>built-in editor</strong>. Preview the PDF to markdown conversion
+                          results with <strong>live formatting</strong>.
                         </p>
                       </div>
                     </div>
@@ -688,9 +727,11 @@ const PdfToMarkdown = () => {
                       <div>
                         <h3 className="font-semibold text-white">Download MD File</h3>
                         <p className="text-slate-400">
-                          Download your converted markdown file ready for use in documentation,
-                          GitHub, or any markdown-compatible platform after the PDF to MD
-                          conversion.
+                          Download your converted markdown file ready for use in{" "}
+                          <strong>
+                            documentation, GitHub, or any markdown-compatible platform
+                          </strong>{" "}
+                          after the PDF to MD conversion. <strong>Free unlimited downloads</strong>.
                         </p>
                       </div>
                     </div>
@@ -698,29 +739,35 @@ const PdfToMarkdown = () => {
                 </div>
               </section>
 
-              {/* Use Cases Section */}
+              {/* Use Cases Section - Fact chunks for AI */}
               <section className="rounded-xl bg-slate-800 p-8">
                 <h2 className="mb-6 text-2xl font-bold text-white">Why Convert PDF to Markdown?</h2>
                 <div className="grid gap-6 md:grid-cols-3">
                   <div className="rounded-lg bg-slate-700 p-6">
                     <h3 className="mb-3 font-semibold text-white">Documentation</h3>
                     <p className="text-slate-400">
-                      Convert PDF documentation to Markdown for easier editing, version control, and
-                      integration with documentation platforms like GitBook or Notion.
+                      Convert PDF documentation to Markdown for <strong>easier editing</strong>,{" "}
+                      <strong>version control</strong>, and integration with documentation platforms
+                      like <strong>GitBook or Notion</strong>. Perfect for technical writers and
+                      developers.
                     </p>
                   </div>
                   <div className="rounded-lg bg-slate-700 p-6">
                     <h3 className="mb-3 font-semibold text-white">Content Management</h3>
                     <p className="text-slate-400">
-                      Transform PDF reports, articles, and guides into editable Markdown format for
-                      content management systems and static site generators.
+                      Transform PDF reports, articles, and guides into{" "}
+                      <strong>editable Markdown format</strong> for content management systems and{" "}
+                      <strong>static site generators</strong>. Ideal for content creators and
+                      bloggers.
                     </p>
                   </div>
                   <div className="rounded-lg bg-slate-700 p-6">
                     <h3 className="mb-3 font-semibold text-white">GitHub Integration</h3>
                     <p className="text-slate-400">
-                      Convert PDF files to Markdown for README files, project documentation, and
-                      GitHub wikis with proper formatting preserved.
+                      Convert PDF files to Markdown for <strong>README files</strong>,{" "}
+                      <strong>project documentation</strong>, and GitHub wikis with{" "}
+                      <strong>proper formatting preserved</strong>. Essential for open-source
+                      projects.
                     </p>
                   </div>
                 </div>
@@ -737,10 +784,13 @@ const PdfToMarkdown = () => {
                       What is the best free PDF to Markdown converter?
                     </h3>
                     <p className="text-slate-400">
-                      Our PDF to Markdown converter is the best free online tool for converting PDF
-                      to MD format. This PDF markdown converter offers unlimited conversions with no
-                      registration requirements, subscription fees, or usage limits. Convert PDF
-                      documents to markdown format as many times as you need.
+                      Our PDF to Markdown converter is the <strong>best free online tool</strong>{" "}
+                      for converting PDF to MD format. This PDF markdown converter offers{" "}
+                      <strong>unlimited conversions</strong> with{" "}
+                      <strong>no registration requirements</strong>,{" "}
+                      <strong>subscription fees</strong>, or <strong>usage limits</strong>. Convert
+                      PDF documents to markdown format as many times as you need.{" "}
+                      <strong>100% free forever</strong>.
                     </p>
                   </div>
                   <div className="border-b border-slate-700 pb-4">
@@ -748,11 +798,12 @@ const PdfToMarkdown = () => {
                       How accurate is PDF to MD conversion with this converter?
                     </h3>
                     <p className="text-slate-400">
-                      Our PDF to markdown converter uses advanced parsing algorithms to maintain
-                      document structure when converting PDF to MD format. The PDF markdown
-                      conversion preserves headers, lists, and formatting. Most PDF to markdown
-                      conversions achieve 95%+ accuracy in preserving the original content
-                      structure.
+                      Our PDF to markdown converter uses{" "}
+                      <strong>advanced parsing algorithms</strong> to maintain document structure
+                      when converting PDF to MD format. The PDF markdown conversion preserves{" "}
+                      <strong>headers, lists, and formatting</strong>. Most PDF to markdown
+                      conversions achieve <strong>95%+ accuracy</strong> in preserving the original
+                      content structure.
                     </p>
                   </div>
                   <div className="border-b border-slate-700 pb-4">
@@ -760,11 +811,12 @@ const PdfToMarkdown = () => {
                       Is this PDF to markdown converter secure?
                     </h3>
                     <p className="text-slate-400">
-                      Yes, our PDF to MD converter is completely secure. All PDF to markdown
-                      conversion happens locally in your browser using client-side JavaScript. When
-                      you convert PDF to markdown with our tool, your files never leave your device,
-                      ensuring complete privacy and security during the PDF markdown conversion
-                      process.
+                      Yes, our PDF to MD converter is <strong>completely secure</strong>. All PDF to
+                      markdown conversion happens <strong>locally in your browser</strong> using
+                      client-side JavaScript. When you convert PDF to markdown with our tool, your
+                      files <strong>never leave your device</strong>, ensuring{" "}
+                      <strong>complete privacy and security</strong> during the PDF markdown
+                      conversion process.
                     </p>
                   </div>
                   <div className="border-b border-slate-700 pb-4">
@@ -772,9 +824,10 @@ const PdfToMarkdown = () => {
                       What are the file size limits for PDF to markdown conversion?
                     </h3>
                     <p className="text-slate-400">
-                      Our PDF to markdown converter supports files up to 50MB for converting PDF to
-                      MD format. For larger PDF files, consider splitting them into smaller sections
-                      before using the PDF markdown converter for optimal conversion results.
+                      Our PDF to markdown converter supports files up to <strong>50MB</strong> for
+                      converting PDF to MD format. For larger PDF files, consider splitting them
+                      into smaller sections before using the PDF markdown converter for optimal
+                      conversion results.
                     </p>
                   </div>
                   <div>
@@ -782,17 +835,20 @@ const PdfToMarkdown = () => {
                       Can I convert scanned PDFs to markdown format?
                     </h3>
                     <p className="text-slate-400">
-                      This PDF to markdown converter works best with text-based PDF documents. For
-                      scanned PDFs or image-based documents, the PDF to MD conversion may not
-                      extract text accurately as our PDF markdown converter doesn't include OCR
-                      (Optical Character Recognition) functionality. Use text-based PDFs for best
-                      results when converting PDF to markdown.
+                      This PDF to markdown converter works best with{" "}
+                      <strong>text-based PDF documents</strong>. For scanned PDFs or image-based
+                      documents, the PDF to MD conversion may not extract text accurately as our PDF
+                      markdown converter{" "}
+                      <strong>
+                        doesn't include OCR (Optical Character Recognition) functionality
+                      </strong>
+                      . Use text-based PDFs for best results when converting PDF to markdown.
                     </p>
                   </div>
                 </div>
               </section>
 
-              {/* Technical Benefits */}
+              {/* Technical Benefits - Fact chunks */}
               <section className="rounded-xl bg-gradient-to-r from-slate-800 to-slate-700 p-8">
                 <h2 className="mb-6 text-2xl font-bold text-white">
                   Advanced PDF to Markdown Conversion Features
@@ -802,20 +858,35 @@ const PdfToMarkdown = () => {
                     <h3 className="text-lg font-semibold text-white">Smart Format Detection</h3>
                     <ul className="space-y-2 text-slate-400">
                       <li>
-                        • Automatically detects headers and converts to Markdown heading syntax
+                        • <strong>Automatically detects headers</strong> and converts to Markdown
+                        heading syntax
                       </li>
-                      <li>• Preserves bullet points and numbered lists</li>
-                      <li>• Maintains paragraph structure and spacing</li>
-                      <li>• Handles multiple column layouts intelligently</li>
+                      <li>
+                        • <strong>Preserves bullet points</strong> and numbered lists
+                      </li>
+                      <li>
+                        • <strong>Maintains paragraph structure</strong> and spacing
+                      </li>
+                      <li>
+                        • <strong>Handles multiple column layouts</strong> intelligently
+                      </li>
                     </ul>
                   </div>
                   <div className="space-y-4">
                     <h3 className="text-lg font-semibold text-white">Browser-Based Processing</h3>
                     <ul className="space-y-2 text-slate-400">
-                      <li>• No server uploads required for privacy</li>
-                      <li>• Works offline once page is loaded</li>
-                      <li>• Compatible with all modern browsers</li>
-                      <li>• Real-time conversion progress tracking</li>
+                      <li>
+                        • <strong>No server uploads required</strong> for privacy
+                      </li>
+                      <li>
+                        • <strong>Works offline</strong> once page is loaded
+                      </li>
+                      <li>
+                        • <strong>Compatible with all modern browsers</strong>
+                      </li>
+                      <li>
+                        • <strong>Real-time conversion progress</strong> tracking
+                      </li>
                     </ul>
                   </div>
                 </div>
