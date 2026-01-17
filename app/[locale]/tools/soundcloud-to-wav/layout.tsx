@@ -36,7 +36,7 @@ export async function generateMetadata({
       siteName: "GeeksKai",
       images: [
         {
-          url: "/static/images/soundcloud-to-wav.png",
+          url: "/static/images/tools/soundcloud-to-wav/soundcloud-to-wav.png",
           width: 1200,
           height: 630,
           alt: t("metadata_og_image_alt"),

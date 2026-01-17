@@ -3,7 +3,6 @@
 import { formatDistanceToNow } from "date-fns"
 import React from "react"
 import { useTranslations } from "next-intl"
-
 // Content Freshness Badge Component
 export function ContentFreshnessBadge({ lastModified }: { lastModified: Date }) {
   const t = useTranslations("SoundCloudToWAV")
@@ -33,7 +32,10 @@ export function CoreFactsSection() {
     <section className="mb-12" itemScope itemType="https://schema.org/Product">
       <meta itemProp="name" content={t("metadata_title")} />
       <meta itemProp="description" content={t("metadata_description")} />
-      <link itemProp="image" href="https://geekskai.com/static/images/soundcloud-to-wav.png" />
+      <link
+        itemProp="image"
+        href="https://geekskai.com/static/images/tools/soundcloud-to-wav/soundcloud-to-wav.png"
+      />
       <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-md">
         <h2 className="mb-8 text-3xl font-bold text-white">{t("section_core_facts_title")}</h2>
         <dl className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
