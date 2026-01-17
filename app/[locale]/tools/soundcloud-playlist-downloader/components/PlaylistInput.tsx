@@ -2,6 +2,7 @@
 
 import React from "react"
 import { useTranslations } from "next-intl"
+import { Link } from "@/app/i18n/navigation"
 
 interface PlaylistInputProps {
   url: string
@@ -40,12 +41,12 @@ export default function PlaylistInput({
             {t("form_label_playlist_url")}
             <div className="text-sm text-slate-400">
               {t("related_tool_text")} 👉
-              <a
+              <Link
                 href="/tools/soundcloud-to-wav"
                 className="text-cyan-400 underline transition-colors hover:text-cyan-300"
               >
                 {t("related_tool_link")}
-              </a>
+              </Link>
             </div>
           </div>
           <div className="relative">
@@ -56,7 +57,7 @@ export default function PlaylistInput({
               type="text"
               value={url}
               onChange={(e) => onUrlChange(e.target.value)}
-              onKeyPress={handleKeyPress}
+              onKeyDown={handleKeyPress}
               placeholder={t("form_placeholder_url")}
               className="w-full rounded-lg border border-white/10 bg-white/5 py-4 pl-16 pr-6 text-lg text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
               disabled={isLoading}

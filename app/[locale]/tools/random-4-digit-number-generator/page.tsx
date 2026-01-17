@@ -6,6 +6,7 @@ import NumberGeneratorComponent from "./components/NumberGenerator"
 import UseCases from "./components/UseCases"
 import Features from "./components/Features"
 import FAQSection from "./components/FAQSection"
+import { Link } from "@/app/i18n/navigation"
 
 export default function Random4DigitNumberGenerator() {
   const t = useTranslations("Random4DigitNumberGenerator")
@@ -20,19 +21,19 @@ export default function Random4DigitNumberGenerator() {
           itemType="https://schema.org/BreadcrumbList"
         >
           <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-            <a href="/" className="flex items-center hover:text-slate-200" itemProp="item">
+            <Link href="/" className="flex items-center hover:text-slate-200" itemProp="item">
               <Home className="h-4 w-4" />
               <span className="ml-1" itemProp="name">
                 {t("breadcrumb.home")}
               </span>
-            </a>
+            </Link>
             <meta itemProp="position" content="1" />
           </li>
           <ChevronRight className="h-4 w-4" />
           <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-            <a href="/tools" className="hover:text-slate-200" itemProp="item">
+            <Link href="/tools" className="hover:text-slate-200" itemProp="item">
               <span itemProp="name">{t("breadcrumb.tools")}</span>
-            </a>
+            </Link>
             <meta itemProp="position" content="2" />
           </li>
           <ChevronRight className="h-4 w-4" />

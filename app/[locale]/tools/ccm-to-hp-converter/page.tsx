@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl"
 import ConverterCard from "./components/ConverterCard"
 import QuickReference from "./components/QuickReference"
 import EducationalContent from "./components/EducationalContent"
+import { Link } from "@/app/i18n/navigation"
 
 export default function CcmToHpConverter() {
   const t = useTranslations("CcmToHpConverter")
@@ -23,9 +24,9 @@ export default function CcmToHpConverter() {
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <nav className="mb-8 flex items-center space-x-2 text-sm text-slate-400">
-            <a href="/tools" className="transition-colors hover:text-white">
+            <Link href="/tools" className="transition-colors hover:text-white">
               {t("breadcrumb.tools")}
-            </a>
+            </Link>
             <span>/</span>
             <span className="text-white">{t("breadcrumb.ccm_to_hp_converter")}</span>
           </nav>

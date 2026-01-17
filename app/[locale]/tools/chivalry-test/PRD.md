@@ -6,6 +6,7 @@ The **Chivalry Test** is an interactive online quiz designed to help users evalu
 It combines psychology-style self-assessment with contemporary social scenarios, offering a fun, shareable, and insightful experience.
 
 This tool is primarily built for:
+
 - Organic SEO traffic acquisition
 - Social sharing and viral growth
 - User engagement and brand awareness
@@ -15,11 +16,13 @@ This tool is primarily built for:
 ## 2. Goals & Objectives
 
 ### Primary Goals
+
 - Capture organic traffic from the keyword **“chivalry test”** and related long-tail queries
 - Increase average session duration on the website
 - Encourage social sharing of test results
 
 ### Secondary Goals
+
 - Build topical authority around personality tests and lifestyle quizzes
 - Drive internal traffic to other tools on the website
 - Collect anonymous usage insights (non-PII)
@@ -50,6 +53,7 @@ This tool is primarily built for:
   - Social awareness
 
 Example Question:
+
 > If you're on a date and your phone rings, what do you do?
 
 ---
@@ -64,14 +68,15 @@ Example Question:
 
 ### 4.3 Result Levels
 
-| Score Range | Title | Description |
-|------------|------|-------------|
-| 0–30 | The Anti-Chivalrist | Chivalry is not your thing |
-| 31–60 | The Casual Gentleman | You have basic manners |
-| 61–85 | The Modern Knight | You value respect and integrity |
-| 86–100 | The True Gentleman | Chivalry is part of your identity |
+| Score Range | Title                | Description                       |
+| ----------- | -------------------- | --------------------------------- |
+| 0–30        | The Anti-Chivalrist  | Chivalry is not your thing        |
+| 31–60       | The Casual Gentleman | You have basic manners            |
+| 61–85       | The Modern Knight    | You value respect and integrity   |
+| 86–100      | The True Gentleman   | Chivalry is part of your identity |
 
 Each result includes:
+
 - Title
 - Short personality description
 - Strengths

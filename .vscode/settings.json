@@ -2,7 +2,6 @@
   // Prettier 配置
   "prettier.enable": true,
   "prettier.requireConfig": true,
-  "prettier.configPath": "./prettier.config.js",
   "prettier.useEditorConfig": true,
 
   // 编辑器格式化配置

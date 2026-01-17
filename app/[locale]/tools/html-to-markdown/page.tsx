@@ -21,6 +21,7 @@ import { useConversionHistory } from "./hooks/useConversionHistory"
 import InputPanel from "./components/InputPanel"
 import PreviewPanel from "./components/PreviewPanel"
 import ConversionHistory from "./components/ConversionHistory"
+import { Link } from "@/app/i18n/navigation"
 
 export default function HtmlToMarkdownConverter() {
   const t = useTranslations("HtmlToMarkdown")
@@ -73,16 +74,16 @@ export default function HtmlToMarkdownConverter() {
       <nav className="relative mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8" aria-label="Breadcrumb">
         <ol className="flex items-center space-x-2 text-sm text-slate-400">
           <li>
-            <a href="/" className="flex items-center hover:text-slate-200">
+            <Link href="/" className="flex items-center hover:text-slate-200">
               <Home className="h-4 w-4" />
               <span className="ml-1">{t("breadcrumb.home")}</span>
-            </a>
+            </Link>
           </li>
           <ChevronRight className="h-4 w-4" />
           <li>
-            <a href="/tools" className="hover:text-slate-200">
+            <Link href="/tools" className="hover:text-slate-200">
               {t("breadcrumb.tools")}
-            </a>
+            </Link>
           </li>
           <ChevronRight className="h-4 w-4" />
           <li className="font-medium text-slate-100">

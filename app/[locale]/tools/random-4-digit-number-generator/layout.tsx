@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import React from "react"
 import { getTranslations } from "next-intl/server"
 
 export async function generateMetadata({

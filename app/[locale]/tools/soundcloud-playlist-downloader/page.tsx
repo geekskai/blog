@@ -15,7 +15,6 @@ import {
   ContentFreshnessBadge,
 } from "./SEOContent"
 import type {
-  PlaylistTrack,
   PlaylistInfo,
   DownloadProgress as DownloadProgressType,
   DownloadFormat,
