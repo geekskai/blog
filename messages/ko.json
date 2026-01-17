@@ -4675,7 +4675,6 @@
 
     "form_title": "SoundCloud 트랙 변환",
     "form_label_soundcloud_link": "SoundCloud 링크",
-    "form_placeholder_url": "https://soundcloud.com/munaim2007/happy-birthday-to-you-arabic-song",
     "form_button_get_info": "정보 가져오기",
     "form_button_fetching": "불러오는 중...",
     "form_button_download": "다운로드",
@@ -4976,7 +4975,6 @@
     "related_tool_link": "SoundCloud MP3/WAV 변환기 사용해 보기",
     "form_title": "SoundCloud 플레이리스트 다운로더",
     "form_label_playlist_url": "플레이리스트 URL",
-    "form_placeholder_url": "https://soundcloud.com/사용자이름/sets/플레이리스트-이름",
     "form_button_fetch": "플레이리스트 가져오기",
     "form_button_loading": "플레이리스트 불러오는 중...",
     "form_select_format_label": "형식",

@@ -4566,7 +4566,6 @@
 
     "form_title": "Konverter SoundCloud-spor",
     "form_label_soundcloud_link": "SoundCloud-lenke",
-    "form_placeholder_url": "https://soundcloud.com/munaim2007/happy-birthday-to-you-arabic-song",
     "form_button_get_info": "Hent info",
     "form_button_fetching": "Henter...",
     "form_button_download": "Last ned",
@@ -4867,7 +4866,6 @@
     "related_tool_link": "Prøv SoundCloud til MP3/WAV-konverter",
     "form_title": "SoundCloud Spilleliste-nedlaster",
     "form_label_playlist_url": "Spilleliste-URL",
-    "form_placeholder_url": "https://soundcloud.com/username/sets/playlist-name",
     "form_button_fetch": "Hent spilleliste",
     "form_button_loading": "Laster spilleliste …",
     "form_select_format_label": "Format",

@@ -2,7 +2,8 @@
 
 import React, { useState, useCallback } from "react"
 import { useTranslations } from "next-intl"
-import PlaylistInput from "./components/PlaylistInput"
+import dynamic from "next/dynamic"
+// import PlaylistInput from "./components/PlaylistInput"
 import PlaylistTracks from "./components/PlaylistTracks"
 import DownloadProgress from "./components/DownloadProgress"
 import {
@@ -21,6 +22,10 @@ import type {
   LoadingState,
 } from "./types"
 import { isValidSoundCloudPlaylistUrl, createDownloadLink, getSafeFileName } from "./lib/utils"
+
+const PlaylistInput = dynamic(() => import("./components/PlaylistInput"), {
+  ssr: false,
+})
 
 export default function SoundCloudPlaylistDownloaderPage() {
   const t = useTranslations("SoundCloudPlaylistDownloader")

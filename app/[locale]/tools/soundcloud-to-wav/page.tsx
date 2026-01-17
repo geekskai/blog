@@ -392,12 +392,13 @@ export default function Page() {
                     </span>
                     <div className="text-md flex-col gap-3 text-slate-400 md:flex-row">
                       <span>{t("related_tool_text")} 👉</span>
-                      <a
+                      <Link
                         href="/tools/soundcloud-playlist-downloader"
+                        target="_blank"
                         className="text-emerald-400 underline transition-colors hover:text-emerald-300"
                       >
                         {t("related_tool_link")}
-                      </a>
+                      </Link>
                     </div>
                   </div>
 
@@ -413,7 +414,7 @@ export default function Page() {
                         resetError()
                         setLoadingState("idle")
                       }}
-                      placeholder={t("form_placeholder_url")}
+                      placeholder="https://soundcloud.com/username/song-name"
                       className="w-full rounded-lg border border-white/10 bg-white/5 py-4 pl-16 pr-6 text-lg text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
                     />
                   </div>

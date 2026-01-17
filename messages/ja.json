@@ -4848,7 +4848,6 @@
 
     "form_title": "SoundCloud トラックを変換",
     "form_label_soundcloud_link": "SoundCloud リンク",
-    "form_placeholder_url": "https://soundcloud.com/munaim2007/happy-birthday-to-you-arabic-song",
     "form_button_get_info": "情報を取得",
     "form_button_fetching": "取得中...",
     "form_button_download": "ダウンロード",
@@ -5147,7 +5146,6 @@
     "related_tool_link": "SoundCloud MP3/WAV 変換ツールを試す",
     "form_title": "SoundCloud プレイリストダウンローダー",
     "form_label_playlist_url": "プレイリスト URL",
-    "form_placeholder_url": "https://soundcloud.com/ユーザー名/sets/プレイリスト名",
     "form_button_fetch": "プレイリストを取得",
     "form_button_loading": "プレイリストを読み込み中...",
     "form_select_format_label": "形式",

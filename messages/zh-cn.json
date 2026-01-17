@@ -4845,7 +4845,6 @@
 
     "form_title": "转换 SoundCloud 音轨",
     "form_label_soundcloud_link": "SoundCloud 链接",
-    "form_placeholder_url": "https://soundcloud.com/munaim2007/happy-birthday-to-you-arabic-song",
     "form_button_get_info": "获取信息",
     "form_button_fetching": "获取中...",
     "form_button_download": "下载",
@@ -5145,7 +5144,6 @@
     "related_tool_link": "试试 SoundCloud 转 MP3/WAV 转换器",
     "form_title": "SoundCloud 播放列表下载器",
     "form_label_playlist_url": "播放列表链接",
-    "form_placeholder_url": "https://soundcloud.com/username/sets/playlist-name",
     "form_button_fetch": "获取播放列表",
     "form_button_loading": "正在加载播放列表...",
     "form_select_format_label": "格式",
