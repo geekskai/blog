@@ -31,7 +31,7 @@ export async function generateMetadata({
         : `https://geekskai.com/${locale}/tools/vin-decoder`,
       images: [
         {
-          url: "/og-vin-decoder.jpg",
+          url: "/static/images/og/vin-decoder.png",
           width: 1200,
           height: 630,
           alt: t("structured_data.name"),
@@ -42,7 +42,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: t("seo_title"),
       description: t("seo_description"),
-      images: ["/twitter-vin-decoder.jpg"],
+      images: ["/static/images/og/vin-decoder.png"],
     },
     alternates: {
       canonical: isDefaultLocale

@@ -51,7 +51,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
 
   const handleDecode = useCallback(async () => {
     const { vin, validationResult } = searchState
-    console.log(`brand: ${brand.name} vin: ${vin} 🚀 ~ searchState:`, searchState)
+    console.warn(`brand: ${brand.name} vin: ${vin} 🚀 ~ searchState:`, searchState)
 
     if (!validationResult?.isValid) return
 
