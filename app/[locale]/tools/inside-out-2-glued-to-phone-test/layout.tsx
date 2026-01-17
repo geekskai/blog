@@ -115,7 +115,7 @@ export const metadata: Metadata = {
     images: ["/static/images/og/inside-out-2-glued-to-phone-test-og.png"],
   },
   icons: {
-    icon: "/static/images/favicon.ico",
+    icon: "/static/favicons/favicon.ico",
   },
   alternates: {
     canonical: "https://geekskai.com/tools/inside-out-2-glued-to-phone-test/",

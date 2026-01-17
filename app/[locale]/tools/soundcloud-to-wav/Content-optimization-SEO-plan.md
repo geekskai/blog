@@ -485,7 +485,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: "GeeksKai",
   url: "https://geekskai.com",
-  logo: "https://geekskai.com/logo.png",
+  logo: "https://geekskai.com/static/logo.png",
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer service",

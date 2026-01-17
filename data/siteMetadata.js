@@ -9,7 +9,7 @@ const siteMetadata = {
   theme: "dark", // system, dark or light
   siteUrl: "https://geekskai.com",
   siteRepo: "https://github.com/geekskai/blog",
-  siteLogo: `${process.env.BASE_PATH || ""}/static/images/logo.png`,
+  siteLogo: `${process.env.BASE_PATH || ""}/static/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ""}/static/images/geekskai-blog.png`,
   mastodon: "https://mastodon.social/@mastodonuser",
   email: "geeks.kai@gmail.com",
@@ -45,9 +45,9 @@ const siteMetadata = {
     // posthogAnalytics: {
     //   posthogProjectApiKey: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
     // },
-    // googleAnalytics: {
-    //   googleAnalyticsId: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID, // e.g. G-XXXXXXX
-    // },
+    googleAnalytics: {
+      googleAnalyticsId: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID, // e.g. G-XXXXXXX
+    },
   },
   // newsletter: {
   //   // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus, beehive

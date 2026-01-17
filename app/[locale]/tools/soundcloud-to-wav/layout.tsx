@@ -226,7 +226,7 @@ export default async function Layout({
     "@type": "Organization",
     name: "GeeksKai",
     url: "https://geekskai.com",
-    logo: "https://geekskai.com/static/images/logo.png",
+    logo: "https://geekskai.com/static/logo.png",
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",

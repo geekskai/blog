@@ -43,7 +43,7 @@ export async function generateMetadata({
       description: t("seo_description"),
     },
     icons: {
-      icon: "/static/images/favicon.ico",
+      icon: "/static/favicons/favicon.ico",
     },
     alternates: {
       canonical: isDefaultLocale

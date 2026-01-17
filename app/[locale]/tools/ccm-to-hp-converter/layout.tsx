@@ -241,7 +241,7 @@ const getJsonLd = (t: any, locale: string) => ({
       url: "https://geekskai.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://geekskai.com/logo.png",
+        url: "https://geekskai.com/static/logo.png",
       },
       sameAs: ["https://twitter.com/geekskai", "https://github.com/geekskai"],
     },
