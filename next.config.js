@@ -1,6 +1,7 @@
 const { withContentlayer } = require("next-contentlayer2")
 const createNextIntlPlugin = require("next-intl/plugin")
 const withNextIntl = createNextIntlPlugin("./app/i18n/request.ts")
+const { withSentryConfig } = require("@sentry/nextjs")
 
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
@@ -15,7 +16,7 @@ const unoptimized = process.env.UNOPTIMIZED ? true : undefined
  **/
 module.exports = () => {
   const plugins = [withContentlayer, withBundleAnalyzer, withNextIntl]
-  return plugins.reduce((acc, next) => next(acc), {
+  const nextConfig = plugins.reduce((acc, next) => next(acc), {
     async redirects() {
       return [
         {
@@ -107,5 +108,10 @@ module.exports = () => {
     typescript: {
       ignoreBuildErrors: true,
     },
+  })
+
+  return withSentryConfig(nextConfig, {
+    org: "geekskais-organization",
+    project: "geekskai-nextjs",
   })
 }
