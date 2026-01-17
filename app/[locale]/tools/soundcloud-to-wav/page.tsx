@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react"
 import TrackInfoCard, { TrackInfo } from "./TrackInfoCard"
 import React from "react"
 import { useTranslations } from "next-intl"
+import { useParams } from "next/navigation"
 import {
   CoreFactsSection,
   FAQSection,
@@ -17,11 +18,25 @@ import {
 type LoadingState = "idle" | "loading" | "success" | "error"
 
 // Constants
-const SOUNDCLOUD_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/.+/
+// 单个歌曲URL格式: https://soundcloud.com/username/song-name
+// 不匹配播放列表URL: https://soundcloud.com/username/sets/playlist-name
+const SOUNDCLOUD_TRACK_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/[^\/]+\/[^\/]+(?<!\/sets\/.+)$/
+// 播放列表URL格式: https://soundcloud.com/username/sets/playlist-name
+const SOUNDCLOUD_PLAYLIST_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/[^\/]+\/sets\/.+/
 
 // Utility functions
-const isValidSoundCloudUrl = (url: string): boolean => {
-  return SOUNDCLOUD_URL_REGEX.test(url)
+const isPlaylistUrl = (url: string): boolean => {
+  return SOUNDCLOUD_PLAYLIST_URL_REGEX.test(url.trim())
+}
+
+const isValidSoundCloudTrackUrl = (url: string): boolean => {
+  const trimmedUrl = url.trim()
+  // 排除播放列表URL
+  if (isPlaylistUrl(trimmedUrl)) {
+    return false
+  }
+  // 匹配单个歌曲URL: soundcloud.com/username/song-name
+  return SOUNDCLOUD_TRACK_URL_REGEX.test(trimmedUrl)
 }
 
 const formatFileSize = (bytes: number): string => {
@@ -90,9 +105,9 @@ const ProgressBar = ({ progress, status, className = "" }: ProgressBarProps) => 
 
 export default function Page() {
   const t = useTranslations("SoundCloudToWAV")
-  const [url, setUrl] = useState(
-    "https://soundcloud.com/munaim2007/happy-birthday-to-you-arabic-song"
-  )
+  const params = useParams()
+  const locale = params.locale as string
+  const [url, setUrl] = useState("")
   const [downloading, setDownloading] = useState(false)
   const [trackInfo, setTrackInfo] = useState<TrackInfo | null>(null)
   const [loadingState, setLoadingState] = useState<LoadingState>("idle")
