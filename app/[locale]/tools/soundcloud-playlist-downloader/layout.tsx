@@ -36,7 +36,7 @@ export async function generateMetadata({
       siteName: "GeeksKai",
       images: [
         {
-          url: "/static/images/soundcloud-playlist-downloader.png",
+          url: "/static/images/tools/soundcloud-playlist-downloader/soundcloud-playlist-downloader.png",
           width: 1200,
           height: 630,
           alt: t("metadata_og_image_alt"),
