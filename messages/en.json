@@ -4908,6 +4908,8 @@
     "form_select_format_wav": "WAV",
     "error_empty_url": "Please enter a SoundCloud link",
     "error_invalid_url": "Please enter a valid SoundCloud link",
+    "error_playlist_url": "You have entered a playlist URL. This tool does not support downloading entire playlists. You can only download individual SoundCloud tracks.",
+    "error_playlist_url_link": "You can click here to download the entire playlist page",
     "error_network": "Network error, please try again later",
     "error_download_failed": "Download failed, please try again later",
     "error_get_info_failed": "Failed to get info, please check if the link is correct",

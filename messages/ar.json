@@ -4801,6 +4801,8 @@
     "page_title": "محول SoundCloud إلى WAV",
     "page_subtitle": "قم بتنزيل مقاطع SoundCloud كملفات <wav>WAV</wav> أو <mp3>MP3</mp3> فوراً. <free>مجاني</free>، <fast>سريع</fast>، و<no_registration>لا يتطلب تسجيل</no_registration>.",
     "content_freshness_updated": "محدث",
+    "error_playlist_url": "لقد أدخلت رابط قائمة التشغيل. هذا الأداة لا تدعم تنزيل قائمة التشغيل بأكملها. يمكنك فقط تنزيل مقاطع SoundCloud بشكل منفصل.",
+    "error_playlist_url_link": "يمكنك الضغط هنا لتنزيل صفحة قائمة التشغيل بأكملها",
     "content_freshness_last_updated": "آخر تحديث",
     "form_title": "تحويل مقطع SoundCloud",
     "form_label_soundcloud_link": "رابط SoundCloud",

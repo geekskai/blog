@@ -51,6 +51,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
 
   const handleDecode = useCallback(async () => {
     const { vin, validationResult } = searchState
+    console.log(`brand: ${brand.name} vin: ${vin} 🚀 ~ searchState:`, searchState)
 
     if (!validationResult?.isValid) return
 
@@ -103,7 +104,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
 
       vinCache.set(vin, vehicle)
       history.add(vehicle)
-      setHistoryItems(history.get())
+      // setHistoryItems(history.get())
 
       setSearchState((prev) => ({
         ...prev,

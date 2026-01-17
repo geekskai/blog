@@ -4421,6 +4421,8 @@
     "metadata_twitter_title": "SoundCloud til WAV Konverter - Gratis Online Værktøj",
     "metadata_twitter_description": "Download SoundCloud-numre som WAV- eller MP3-filer med det samme. Gratis og hurtigt.",
     "schema_name": "SoundCloud til WAV Konverter",
+    "error_playlist_url": "Du har indtastet en playlist-URL. Dette værktøj understøtter kun enkelt spor nedlægning.",
+    "error_playlist_url_link": "Prøv SoundCloud Playlist Downloader",
     "schema_description": "Gratis online værktøj til at konvertere SoundCloud-numre til WAV- eller MP3-format. Download SoundCloud-lydfiler med det samme uden registrering.",
     "schema_feature_1": "SoundCloud til WAV-konvertering",
     "schema_feature_2": "SoundCloud til MP3-konvertering",

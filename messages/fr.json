@@ -4849,6 +4849,8 @@
     "q_knight_15_d": "Évitez‑le entièrement"
   },
   "SoundCloudToWAV": {
+    "error_playlist_url": "Vous avez entré une URL de playlist. Cet outil ne prend en charge que le téléchargement d'une piste à la fois.",
+    "error_playlist_url_link": "Essayer le téléchargeur de playlist SoundCloud",
     "metadata_title": "Convertisseur SoundCloud vers WAV - Outil en ligne gratuit | Télécharger des pistes SoundCloud",
     "metadata_description": "Convertisseur SoundCloud vers WAV gratuit. Téléchargez instantanément des pistes SoundCloud au format WAV ou MP3. Aucune inscription requise. Conversion audio de haute qualité en moins de 30 secondes.",
     "metadata_keywords": "soundcloud vers wav, téléchargeur soundcloud, convertisseur soundcloud vers wav, télécharger soundcloud wav, convertisseur soundcloud wav, soundcloud vers mp3, téléchargeur soundcloud gratuit, convertir soundcloud vers wav, téléchargeur audio soundcloud",

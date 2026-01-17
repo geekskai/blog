@@ -4620,6 +4620,8 @@
     "q_knight_15_d": "완전히 피한다"
   },
   "SoundCloudToWAV": {
+    "error_playlist_url": "당신이 입력한 것은 플레이리스트 URL입니다. 이 도구는 단일 트랙 다운로드만 지원합니다.",
+    "error_playlist_url_link": "SoundCloud 플레이리스트 다운로더 사용해보기",
     "metadata_title": "SoundCloud WAV 변환기 - 무료 온라인 도구 | SoundCloud 트랙 다운로드",
     "metadata_description": "무료 SoundCloud WAV 변환기. SoundCloud 트랙을 WAV 또는 MP3 파일로 즉시 다운로드하세요. 회원가입 불필요. 30초 이내 고음질 오디오 변환.",
     "metadata_keywords": "soundcloud wav 변환, soundcloud 다운로드, soundcloud wav 변환기, soundcloud wav 다운로드, soundcloud mp3 변환, 무료 soundcloud 다운로더, soundcloud 오디오 다운로드",

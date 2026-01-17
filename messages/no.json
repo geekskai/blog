@@ -4511,6 +4511,8 @@
     "q_knight_15_d": "Unngår det helt"
   },
   "SoundCloudToWAV": {
+    "error_playlist_url": "Du har angitt en playlist-URL. Dette verktøyet støtter kun enkelt spor nedlasting.",
+    "error_playlist_url_link": "Prøv SoundCloud Playlist Downloader",
     "metadata_title": "SoundCloud til WAV-konverterer – Gratis nettverktøy | Last ned SoundCloud-spor",
     "metadata_description": "Gratis SoundCloud til WAV-konverterer. Last ned SoundCloud-spor som WAV- eller MP3-filer umiddelbart. Ingen registrering kreves. Høykvalitets lydkonvertering på under 30 sekunder.",
     "metadata_keywords": "soundcloud til wav, soundcloud nedlaster, soundcloud wav-konverterer, last ned soundcloud wav, soundcloud mp3, gratis soundcloud nedlaster, konverter soundcloud til wav, soundcloud lyd nedlasting",

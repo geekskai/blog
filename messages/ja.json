@@ -4793,6 +4793,8 @@
     "q_knight_15_d": "完全に避ける"
   },
   "SoundCloudToWAV": {
+    "error_playlist_url": "あなたが入力したのはプレイリスト URL です。このツールは単一トラックのダウンロードのみをサポートしています。",
+    "error_playlist_url_link": "SoundCloud プレイリストダウンローダーを試す",
     "metadata_title": "SoundCloud WAV 変換ツール - 無料オンライン | SoundCloud トラックをダウンロード",
     "metadata_description": "無料の SoundCloud WAV 変換ツール。SoundCloud トラックを WAV または MP3 ファイルとして即座にダウンロードできます。登録不要。30 秒以内で高音質変換。",
     "metadata_keywords": "soundcloud wav 変換, soundcloud ダウンローダー, soundcloud wav コンバーター, soundcloud wav ダウンロード, soundcloud mp3 変換, 無料 soundcloud ダウンローダー, soundcloud 音声 ダウンロード",

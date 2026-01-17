@@ -4,7 +4,6 @@ import { FormEvent, useState } from "react"
 import TrackInfoCard, { TrackInfo } from "./TrackInfoCard"
 import React from "react"
 import { useTranslations } from "next-intl"
-import { useParams } from "next/navigation"
 import {
   CoreFactsSection,
   FAQSection,
@@ -14,15 +13,16 @@ import {
   KeyFeaturesSection,
   ContentFreshnessBadge,
 } from "./SEOContent"
+import Link from "@/components/Link"
 
 type LoadingState = "idle" | "loading" | "success" | "error"
 
 // Constants
-// 单个歌曲URL格式: https://soundcloud.com/username/song-name
-// 不匹配播放列表URL: https://soundcloud.com/username/sets/playlist-name
-const SOUNDCLOUD_TRACK_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/[^\/]+\/[^\/]+(?<!\/sets\/.+)$/
 // 播放列表URL格式: https://soundcloud.com/username/sets/playlist-name
-const SOUNDCLOUD_PLAYLIST_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/[^\/]+\/sets\/.+/
+const SOUNDCLOUD_PLAYLIST_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/[^/]+\/sets\/.+/
+// 单个歌曲URL格式: https://soundcloud.com/username/song-name
+// 必须包含域名、用户名和歌曲名，且不包含 /sets/
+const SOUNDCLOUD_TRACK_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/[^/]+\/[^/]+$/
 
 // Utility functions
 const isPlaylistUrl = (url: string): boolean => {
@@ -36,7 +36,8 @@ const isValidSoundCloudTrackUrl = (url: string): boolean => {
     return false
   }
   // 匹配单个歌曲URL: soundcloud.com/username/song-name
-  return SOUNDCLOUD_TRACK_URL_REGEX.test(trimmedUrl)
+  // 确保格式为: domain/username/song-name (不包含 /sets/)
+  return SOUNDCLOUD_TRACK_URL_REGEX.test(trimmedUrl) && !trimmedUrl.includes("/sets/")
 }
 
 const formatFileSize = (bytes: number): string => {
@@ -105,13 +106,12 @@ const ProgressBar = ({ progress, status, className = "" }: ProgressBarProps) => 
 
 export default function Page() {
   const t = useTranslations("SoundCloudToWAV")
-  const params = useParams()
-  const locale = params.locale as string
   const [url, setUrl] = useState("")
   const [downloading, setDownloading] = useState(false)
   const [trackInfo, setTrackInfo] = useState<TrackInfo | null>(null)
   const [loadingState, setLoadingState] = useState<LoadingState>("idle")
   const [errorMessage, setErrorMessage] = useState<string>("")
+  const [isPlaylistError, setIsPlaylistError] = useState<boolean>(false)
   const [infoProgress, setInfoProgress] = useState<number>(0)
   const [downloadProgress, setDownloadProgress] = useState<number>(0)
   const [infoStatus, setInfoStatus] = useState<string>("")
@@ -136,15 +136,24 @@ export default function Page() {
 
   const resetError = () => {
     setErrorMessage("")
+    setIsPlaylistError(false)
   }
 
   // Validate URL
   const validateUrl = (): boolean => {
-    if (!url.trim()) {
+    const trimmedUrl = url.trim()
+    if (!trimmedUrl) {
       setErrorMessage(t("error_empty_url"))
       return false
     }
-    if (!isValidSoundCloudUrl(url.trim())) {
+    // 检测播放列表URL
+    if (isPlaylistUrl(trimmedUrl)) {
+      setIsPlaylistError(true)
+      setErrorMessage(t("error_playlist_url"))
+      return false
+    }
+    // 验证单个歌曲URL
+    if (!isValidSoundCloudTrackUrl(trimmedUrl)) {
       setErrorMessage(t("error_invalid_url"))
       return false
     }
@@ -377,7 +386,7 @@ export default function Page() {
             <div className="p-6">
               <form onSubmit={handleGetInfo} className="space-y-6">
                 <div className="flex flex-col gap-4">
-                  <div className="flex flex-col-reverse justify-between gap-2 gap-3 text-sm text-slate-400 md:flex-row md:flex-row">
+                  <div className="flex flex-col-reverse justify-between gap-3 text-sm text-slate-400 md:flex-row">
                     <span className="text-md font-semibold text-white/90">
                       {t("form_label_soundcloud_link")}
                     </span>
@@ -486,9 +495,20 @@ export default function Page() {
               {/* Error message */}
               {errorMessage && (
                 <div className="mt-6 rounded-lg border border-red-500/30 bg-red-900/20 p-4 backdrop-blur-sm">
-                  <div className="flex items-center gap-3 text-red-400">
+                  <div className="flex items-start gap-3 text-red-400">
                     <span className="text-xl">⚠️</span>
-                    <span className="text-sm font-medium">{errorMessage}</span>
+                    <div className="flex-1 space-y-3 text-sm font-medium">
+                      <p>{errorMessage}</p>
+                      {isPlaylistError && (
+                        <Link
+                          href="/tools/soundcloud-playlist-downloader"
+                          className="inline-flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-emerald-300 transition-all hover:bg-emerald-500/20 hover:text-emerald-200"
+                        >
+                          <span>🎵</span>
+                          <span>{t("error_playlist_url_link")}</span>
+                        </Link>
+                      )}
+                    </div>
                   </div>
                 </div>
               )}

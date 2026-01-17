@@ -4790,6 +4790,8 @@
     "q_knight_15_d": "完全回避"
   },
   "SoundCloudToWAV": {
+    "error_playlist_url": "检测到您输入的是一个播放列表URL，当前工具仅支持单个音轨下载。",
+    "error_playlist_url_link": "你可以点击这里，前往下载整个播放列表页面进行下载",
     "metadata_title": "SoundCloud 转 WAV 转换器 – 免费在线工具 | 下载 SoundCloud 音轨",
     "metadata_description": "免费的 SoundCloud 转 WAV 转换器。可将 SoundCloud 音轨即时下载为 WAV 或 MP3 文件。无需注册，30 秒内完成高质量音频转换。",
     "metadata_keywords": "soundcloud 转 wav, soundcloud 下载器, soundcloud wav 转换器, 下载 soundcloud wav, soundcloud wav 转换, soundcloud 转 mp3, 免费 soundcloud 下载器, 转换 soundcloud 为 wav, soundcloud 音频下载",

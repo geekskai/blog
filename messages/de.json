@@ -4849,6 +4849,8 @@
     "q_knight_15_d": "Vermeidest es ganz"
   },
   "SoundCloudToWAV": {
+    "error_playlist_url": "Sie haben eine Playlist-URL eingegeben. Dieses Tool unterstützt nur den Download einzelner Tracks.",
+    "error_playlist_url_link": "Versuche SoundCloud Playlist Downloader",
     "metadata_title": "SoundCloud-zu-WAV-Konverter – Kostenloses Online-Tool | SoundCloud-Tracks herunterladen",
     "metadata_description": "Kostenloser SoundCloud-zu-WAV-Konverter. SoundCloud-Tracks sofort als WAV- oder MP3-Dateien herunterladen. Keine Registrierung erforderlich. Hochwertige Audio-Konvertierung in unter 30 Sekunden.",
     "metadata_keywords": "soundcloud zu wav, soundcloud downloader, soundcloud zu wav konverter, soundcloud wav herunterladen, soundcloud zu mp3, kostenloser soundcloud downloader, soundcloud audio downloader",
