@@ -87,7 +87,7 @@ export default function VinInput({
   }
 
   return (
-    <div className="relative mx-auto w-full max-w-3xl px-4 sm:px-6">
+    <div className="relative mx-auto w-full max-w-3xl">
       {/* Enhanced Input Container */}
       <div
         className={`group relative overflow-hidden rounded-2xl border-2 bg-gradient-to-br backdrop-blur-xl transition-all duration-500 sm:rounded-3xl ${
