@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
       // 首先尝试使用 getSetInfo（标准方法）
       info = await getSetInfo(playlistUrl, clientId, scdl.axios)
     } catch (error) {
-      console.error(`🚀 getSetInfo error==>`, error)
+      console.error(`🚀 getSetInfo error==>`, error.message)
 
       // 检查是否是空 IDs 导致的错误（400 Bad Request with empty ids parameter）
       const errorStr = error instanceof Error ? error.message : String(error)
@@ -76,7 +76,7 @@ export async function POST(request: NextRequest) {
             `⚠️ Using fallback method, found ${info.tracks.length} tracks (some may be incomplete)`
           )
         } catch (fallbackError) {
-          console.error(`🚀 Fallback method also failed==>`, fallbackError)
+          console.error(`🚀 Fallback method also failed==>`, fallbackError.message)
           return NextResponse.json(
             {
               error: "Failed to fetch playlist tracks. The playlist may be empty or inaccessible.",
