@@ -4873,7 +4873,7 @@
     "form_select_format_wav": "WAV",
     "error_empty_url": "Vennligst skriv inn en spilleliste-URL",
     "error_invalid_url": "Vennligst skriv inn en gyldig SoundCloud-spilleliste-URL",
-    "error_fetch_failed": "Kunne ikke hente spillelisten",
+    "error_fetch_failed": "Kunne ikke hente spillelisten! Denne linken kan være privat og ikke offentlig. Sjekk om du har tillatelse til å tilgå denne spillelisten.",
     "error_no_tracks": "Ingen spor funnet i denne spillelisten",
     "error_network": "Nettverksfeil",
     "empty_state_title": "Klar til nedlasting",

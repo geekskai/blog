@@ -5101,7 +5101,7 @@
     "form_select_format_wav": "WAV",
     "error_empty_url": "الرجاء إدخال عنوان URL لقائمة التشغيل",
     "error_invalid_url": "الرجاء إدخال عنوان URL صالح لقائمة تشغيل SoundCloud",
-    "error_fetch_failed": "فشل جلب قائمة التشغيل",
+    "error_fetch_failed": "فشل جلب قائمة التشغيل! قد يكون هذا الرابط خاصًا وليس عامًا. يرجى التحقق من إذنك للوصول إلى هذه القائمة التشغيلية.",
     "error_no_tracks": "لم يتم العثور على مسارات في قائمة التشغيل هذه",
     "error_network": "خطأ في الشبكة",
     "empty_state_title": "جاهز للتنزيل",

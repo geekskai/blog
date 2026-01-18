@@ -7,7 +7,14 @@ Sentry.init({
   // Capture 100% in dev, 10% in production
   // Adjust based on your traffic volume
   tracesSampleRate: process.env.NODE_ENV === "development" ? 1.0 : 0.1,
-  integrations: [Sentry.replayIntegration()],
+  integrations: [
+    Sentry.replayIntegration({
+      // 关闭默认的“所有文本都打星号”
+      maskAllText: false,
+      // 如果希望图片/视频也正常显示，可以一起关掉
+      blockAllMedia: false,
+    }),
+  ],
   // Capture Replay for 10% of all sessions,
   // plus for 100% of sessions with an error
   replaysSessionSampleRate: 0.1,

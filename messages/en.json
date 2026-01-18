@@ -5193,7 +5193,7 @@
     "form_select_format_wav": "WAV",
     "error_empty_url": "Please enter a playlist URL",
     "error_invalid_url": "Please enter a valid SoundCloud playlist URL",
-    "error_fetch_failed": "Failed to fetch playlist",
+    "error_fetch_failed": "Failed to fetch playlist! This link might be private and not public. Please check if you have permission to access this playlist.",
     "error_no_tracks": "No tracks found in this playlist",
     "error_network": "Network error",
     "empty_state_title": "Ready to Download",

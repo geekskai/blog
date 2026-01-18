@@ -4982,7 +4982,7 @@
     "form_select_format_wav": "WAV",
     "error_empty_url": "플레이리스트 URL을 입력해주세요",
     "error_invalid_url": "유효한 SoundCloud 플레이리스트 URL을 입력해주세요",
-    "error_fetch_failed": "플레이리스트를 가져오지 못했습니다",
+    "error_fetch_failed": "플레이리스트를 가져오지 못했습니다! 이 링크는 비공개일 수 있습니다. 이 플레이리스트에 접근할 수 있는 권한이 있는지 확인해주세요.",
     "error_no_tracks": "이 플레이리스트에서 트랙을 찾을 수 없습니다",
     "error_network": "네트워크 오류",
     "empty_state_title": "다운로드 준비 완료",
