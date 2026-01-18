@@ -3777,7 +3777,69 @@
       "faq_free_q": "Er denne dekoder gratis?",
       "faq_free_a": "Ja, vores {brand} VIN-dekoder er helt gratis at bruge uden begrænsninger. Ingen registrering eller betaling påkrævet - indtast bare din VIN og få øjeblikkelige resultater.",
       "other_brands_title": "Andre mærke VIN-dekoder",
-      "other_brands_subtitle": "Dekode VIN'er for andre populære køretøjmærker"
+      "other_brands_subtitle": "Dekode VIN'er for andre populære køretøjmærker",
+      "brands": {
+        "bmw": {
+          "name": "BMW",
+          "fullName": " BMW Bayerische Motoren Werke",
+          "description": "Dekod BMW køretøjsidentifikationsnumre for at få detaljerede specifikationer for BMW biler og SUVs.",
+          "country": "Tyskland"
+        },
+        "chevrolet": {
+          "name": "Chevrolet Chevrolet",
+          "fullName": "Chevrolet Chevrolet Chevrolet",
+          "description": "Dekod Chevrolet køretøjsidentifikationsnumre for at få komplette køretøjsspecifikationer for Chevy biler, lastbiler og SUVs.",
+          "country": "USA"
+        },
+        "ford": {
+          "name": "Ford",
+          "fullName": "Ford Motor Company",
+          "description": "Dekod Ford køretøjsidentifikationsnumre for at få detaljerede specifikationer for Ford biler, lastbiler og SUVs.",
+          "country": "United States"
+        },
+        "toyota": {
+          "name": "Toyota",
+          "fullName": "Toyota Motor Corporation",
+          "description": "Dekod Toyota køretøjsidentifikationsnumre for at få komplette specifikationer for Toyota biler, lastbiler og SUVs.",
+          "country": "Japan"
+        },
+        "honda": {
+          "name": "Honda",
+          "fullName": "Honda Motor Company",
+          "description": "Dekod Honda køretøjsidentifikationsnumre for at få detaljerede specifikationer for Honda biler og SUVs.",
+          "country": "Japan"
+        },
+        "mercedes": {
+          "name": "Mercedes-Benz",
+          "fullName": "Mercedes-Benz",
+          "description": "Dekod Mercedes-Benz køretøjsidentifikationsnumre for at få specifikationer for Mercedes luxury vehicles.",
+          "country": "Germany"
+        },
+        "audi": {
+          "name": "Audi",
+          "fullName": "Audi AG",
+          "description": "Dekod Audi køretøjsidentifikationsnumre for at få detaljerede specifikationer for Audi luxury vehicles.",
+          "country": "Germany"
+        },
+        "nissan": {
+          "name": "Nissan",
+          "fullName": "Nissan Motor Company",
+          "description": "Dekod Nissan køretøjsidentifikationsnumre for at få komplette specifikationer for Nissan biler og SUVs.",
+          "country": "Japan"
+        },
+        "volkswagen": {
+          "name": "Volkswagen",
+          "fullName": "Volkswagen",
+          "description": "Dekod VW køretøjsidentifikationsnumre for at få specifikationer for Volkswagen biler.",
+          "country": "Tyskland"
+        },
+        "tesla": {
+          "name": "Tesla",
+          "fullName": "Tesla, Inc.",
+          "description": "Dekod Tesla køretøjsidentifikationsnumre for at få specifikationer for Tesla elektriske biler.",
+          "country": "United States"
+        }
+      }
     }
   },
   "HeicToPdf": {

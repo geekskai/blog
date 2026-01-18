@@ -4094,7 +4094,69 @@
       "faq_free_q": "Is this decoder free?",
       "faq_free_a": "Yes, our {brand} VIN decoder is completely free to use with no limits. No registration or payment required - just enter your VIN and get instant results.",
       "other_brands_title": "Other Brand VIN Decoders",
-      "other_brands_subtitle": "Decode VINs for other popular vehicle brands"
+      "other_brands_subtitle": "Decode VINs for other popular vehicle brands",
+      "brands": {
+        "bmw": {
+          "name": "BMW",
+          "fullName": "Bayerische Motoren Werke",
+          "description": "Decode BMW Vehicle Identification Numbers to get detailed specifications for BMW cars and SUVs.",
+          "country": "Germany"
+        },
+        "chevrolet": {
+          "name": "Chevrolet",
+          "fullName": "Chevrolet",
+          "description": "Decode Chevrolet VINs to get complete vehicle specifications for Chevy cars, trucks, and SUVs.",
+          "country": "United States"
+        },
+        "ford": {
+          "name": "Ford",
+          "fullName": "Ford Motor Company",
+          "description": "Decode Ford VINs to get detailed specifications for Ford vehicles including F-Series, Mustang, and more.",
+          "country": "United States"
+        },
+        "toyota": {
+          "name": "Toyota",
+          "fullName": "Toyota Motor Corporation",
+          "description": "Decode Toyota VINs to get complete specifications for Toyota cars, trucks, and SUVs.",
+          "country": "Japan"
+        },
+        "honda": {
+          "name": "Honda",
+          "fullName": "Honda Motor Company",
+          "description": "Decode Honda VINs to get detailed vehicle specifications for Honda cars and SUVs.",
+          "country": "Japan"
+        },
+        "mercedes": {
+          "name": "Mercedes-Benz",
+          "fullName": "Mercedes-Benz",
+          "description": "Decode Mercedes-Benz VINs to get specifications for Mercedes luxury vehicles.",
+          "country": "Germany"
+        },
+        "audi": {
+          "name": "Audi",
+          "fullName": "Audi AG",
+          "description": "Decode Audi VINs to get detailed specifications for Audi luxury vehicles.",
+          "country": "Germany"
+        },
+        "nissan": {
+          "name": "Nissan",
+          "fullName": "Nissan Motor Company",
+          "description": "Decode Nissan VINs to get complete vehicle specifications for Nissan cars and SUVs.",
+          "country": "Japan"
+        },
+        "volkswagen": {
+          "name": "Volkswagen",
+          "fullName": "Volkswagen",
+          "description": "Decode VW VINs to get specifications for Volkswagen vehicles.",
+          "country": "Germany"
+        },
+        "tesla": {
+          "name": "Tesla",
+          "fullName": "Tesla, Inc.",
+          "description": "Decode Tesla VINs to get specifications for Tesla electric vehicles.",
+          "country": "United States"
+        }
+      }
     }
   },
   "HeicToPdf": {

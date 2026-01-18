@@ -4094,7 +4094,69 @@
       "faq_free_q": "Ist dieser Decoder kostenlos?",
       "faq_free_a": "Ja, unser {brand} VIN-Decoder ist komplett kostenlos. Keine Registrierung oder Zahlung erforderlich - einfach Ihre VIN eingeben und sofortige Ergebnisse erhalten.",
       "other_brands_title": "Andere Marken VIN-Decoders",
-      "other_brands_subtitle": "Dekodieren Sie VINs für andere beliebte Fahrzeugmarken"
+      "other_brands_subtitle": "Dekodieren Sie VINs für andere beliebte Fahrzeugmarken",
+      "brands": {
+        "bmw": {
+          "name": "BMW",
+          "fullName": "BMW Bayerische Motoren Werke",
+          "description": "Dekod BMW Fahrzeugidentifikationsnummern für detaillierte Spezifikationen für BMW Autos und SUVs.",
+          "country": "Deutschland"
+        },
+        "chevrolet": {
+          "name": "Chevrolet",
+          "fullName": "Chevrolet",
+          "description": "Dekod Chevrolet Fahrzeugidentifikationsnummern für komplette Fahrzeugspezifikationen für Chevy Autos, Lastwagen und SUVs.",
+          "country": "United States"
+        },
+        "ford": {
+          "name": "Ford",
+          "fullName": "Ford Motor Company",
+          "description": "Dekod Ford Fahrzeugidentifikationsnummern für detaillierte Spezifikationen für Ford Autos, Lastwagen und SUVs.",
+          "country": "United States"
+        },
+        "toyota": {
+          "name": "Toyota",
+          "fullName": "Toyota Motor Corporation",
+          "description": "Dekod Toyota Fahrzeugidentifikationsnummern für komplette Spezifikationen für Toyota Autos, Lastwagen und SUVs.",
+          "country": "Japan"
+        },
+        "honda": {
+          "name": "Honda",
+          "fullName": "Honda Motor Company",
+          "description": "Dekod Honda Fahrzeugidentifikationsnummern für detaillierte Fahrzeugspezifikationen für Honda Autos und SUVs.",
+          "country": "Japan"
+        },
+        "mercedes": {
+          "name": "Mercedes-Benz",
+          "fullName": "Mercedes-Benz",
+          "description": "Dekod Mercedes-Benz Fahrzeugidentifikationsnummern für Spezifikationen für Mercedes Luxury Fahrzeuge.",
+          "country": "Deutschland"
+        },
+        "audi": {
+          "name": "Audi",
+          "fullName": "Audi AG",
+          "description": "Dekod Audi Fahrzeugidentifikationsnummern für detaillierte Spezifikationen für Audi Luxury Fahrzeuge.",
+          "country": "Deutschland"
+        },
+        "nissan": {
+          "name": "Nissan",
+          "fullName": "Nissan Motor Company",
+          "description": "Dekod Nissan Fahrzeugidentifikationsnummern für komplette Fahrzeugspezifikationen für Nissan Autos und SUVs.",
+          "country": "Japan"
+        },
+        "volkswagen": {
+          "name": "Volkswagen",
+          "fullName": "Volkswagen",
+          "description": "Dekod VW Fahrzeugidentifikationsnummern für Spezifikationen für Volkswagen Fahrzeuge.",
+          "country": "Germany"
+        },
+        "tesla": {
+          "name": "Tesla",
+          "fullName": "Tesla, Inc.",
+          "description": "Dekod Tesla Fahrzeugidentifikationsnummern für Spezifikationen für Tesla Elektrische Fahrzeuge.",
+          "country": "United States"
+        }
+      }
     }
   },
   "HeicToPdf": {

@@ -4066,7 +4066,69 @@
       "faq_privacy_a": "Nous stockons localement dans votre navigateur pour l’historique. Aucune donnée n’est collectée ni partagée.",
       "breadcrumb_home": "Accueil",
       "breadcrumb_tools": "Outils",
-      "breadcrumb_vin_decoder": "Décodeur VIN"
+      "breadcrumb_vin_decoder": "Décodeur VIN",
+      "brands": {
+        "bmw": {
+          "name": "BMW",
+          "fullName": "BMW Bayerische Motoren Werke",
+          "description": "Décode BMW Numéros d’Identification de Véhicules pour obtenir des spécifications détaillées pour les voitures BMW et SUVs.",
+          "country": "Allemagne"
+        },
+        "chevrolet": {
+          "name": "Chevrolet",
+          "fullName": "Chevrolet",
+          "description": "Décode Chevrolet Numéros d’Identification de Véhicules pour obtenir des spécifications complètes pour les voitures Chevrolet, camions et SUVs.",
+          "country": "United States"
+        },
+        "ford": {
+          "name": "Ford",
+          "fullName": "Ford Motor Company",
+          "description": "Décode Ford Numéros d’Identification de Véhicules pour obtenir des spécifications détaillées pour les voitures Ford, y compris la série F, Mustang et plus.",
+          "country": "United States"
+        },
+        "toyota": {
+          "name": "Toyota",
+          "fullName": "Toyota Motor Corporation",
+          "description": "Décode Toyota Numéros d’Identification de Véhicules pour obtenir des spécifications complètes pour les voitures Toyota, camions et SUVs.",
+          "country": "Japon"
+        },
+        "honda": {
+          "name": "Honda",
+          "fullName": "Honda Motor Company",
+          "description": "Décode Honda Numéros d’Identification de Véhicules pour obtenir des spécifications détaillées pour les voitures Honda et SUVs.",
+          "country": "Japon"
+        },
+        "mercedes": {
+          "name": "Mercedes-Benz",
+          "fullName": "Mercedes-Benz",
+          "description": "Décode Mercedes-Benz Numéros d’Identification de Véhicules pour obtenir des spécifications pour les véhicules Mercedes luxueux.",
+          "country": "Allemagne"
+        },
+        "audi": {
+          "name": "Audi",
+          "fullName": "Audi AG",
+          "description": "Décode Audi Numéros d’Identification de Véhicules pour obtenir des spécifications détaillées pour les véhicules Audi luxueux.",
+          "country": "Allemagne"
+        },
+        "nissan": {
+          "name": "Nissan",
+          "fullName": "Nissan Motor Company",
+          "description": "Décode Nissan Numéros d’Identification de Véhicules pour obtenir des spécifications complètes pour les voitures Nissan et SUVs.",
+          "country": "Japon"
+        },
+        "volkswagen": {
+          "name": "Volkswagen",
+          "fullName": "Volkswagen",
+          "description": "Décode VW Numéros d’Identification de Véhicules pour obtenir des spécifications pour les véhicules Volkswagen.",
+          "country": "Allemagne"
+        },
+        "tesla": {
+          "name": "Tesla",
+          "fullName": "Tesla, Inc.",
+          "description": "Décode Tesla Numéros d’Identification de Véhicules pour obtenir des spécifications pour les véhicules Tesla électriques.",
+          "country": "États-Unis"
+        }
+      }
     },
     "brandPage": {
       "vin_decoder_suffix": "Décodeur VIN",

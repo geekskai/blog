@@ -4065,7 +4065,69 @@
       "faq_free_q": "这个解码器是免费的吗？",
       "faq_free_a": "是的，我们的{brand} VIN解码器完全免费使用，没有限制。无需注册或支付 - 只需输入您的VIN并立即获得结果。",
       "other_brands_title": "其他品牌VIN解码器",
-      "other_brands_subtitle": "解码其他热门车辆品牌的VIN"
+      "other_brands_subtitle": "解码其他热门车辆品牌的VIN",
+      "brands": {
+        "bmw": {
+          "name": "宝马",
+          "fullName": "巴伐利亚发动机制造厂",
+          "description": "解码宝马车辆识别码，获取宝马轿车和SUV的详细规格信息。",
+          "country": "德国"
+        },
+        "chevrolet": {
+          "name": "雪佛兰",
+          "fullName": "雪佛兰",
+          "description": "解码雪佛兰VIN，获取雪佛兰轿车、卡车和SUV的完整车辆规格。",
+          "country": "美国"
+        },
+        "ford": {
+          "name": "福特",
+          "fullName": "福特汽车公司",
+          "description": "解码福特VIN，获取福特车辆的详细规格，包括F系列、野马等。",
+          "country": "美国"
+        },
+        "toyota": {
+          "name": "丰田",
+          "fullName": "丰田汽车公司",
+          "description": "解码丰田VIN，获取丰田轿车、卡车和SUV的完整规格信息。",
+          "country": "日本"
+        },
+        "honda": {
+          "name": "本田",
+          "fullName": "本田汽车公司",
+          "description": "解码本田VIN，获取本田轿车和SUV的详细车辆规格。",
+          "country": "日本"
+        },
+        "mercedes": {
+          "name": "梅赛德斯-奔驰",
+          "fullName": "梅赛德斯-奔驰",
+          "description": "解码奔驰VIN，获取梅赛德斯豪华车辆的规格信息。",
+          "country": "德国"
+        },
+        "audi": {
+          "name": "奥迪",
+          "fullName": "奥迪股份公司",
+          "description": "解码奥迪VIN，获取奥迪豪华车辆的详细规格。",
+          "country": "德国"
+        },
+        "nissan": {
+          "name": "日产",
+          "fullName": "日产汽车公司",
+          "description": "解码日产VIN，获取日产轿车和SUV的完整车辆规格。",
+          "country": "日本"
+        },
+        "volkswagen": {
+          "name": "大众",
+          "fullName": "大众汽车",
+          "description": "解码大众VIN，获取大众车辆的规格信息。",
+          "country": "德国"
+        },
+        "tesla": {
+          "name": "特斯拉",
+          "fullName": "特斯拉公司",
+          "description": "解码特斯拉VIN，获取特斯拉电动车辆的规格信息。",
+          "country": "美国"
+        }
+      }
     }
   },
   "HeicToPdf": {

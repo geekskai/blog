@@ -3914,7 +3914,69 @@
       "faq_free_q": "이 디코더는 무료로 사용할 수 있습니까?",
       "faq_free_a": "예, {brand} VIN 디코더는 제한 없이 완전히 무료로 사용할 수 있습니다. 등록 또는 결제가 필요하지 않습니다 - 단순히 VIN을 입력하고 즉시 결과를 얻습니다.",
       "other_brands_title": "다른 브랜드의 VIN 디코더",
-      "other_brands_subtitle": "다른 인기 있는 차량 브랜드의 VIN을 디코딩합니다"
+      "other_brands_subtitle": "다른 인기 있는 차량 브랜드의 VIN을 디코딩합니다",
+      "brands": {
+        "bmw": {
+          "name": "BMW",
+          "fullName": "Bayerische Motoren Werke",
+          "description": "BMW 차량 식별 번호를 디코딩하여 BMW 자동차와 SUV의 상세 사양을 얻습니다.",
+          "country": "독일"
+        },
+        "chevrolet": {
+          "name": "Chevrolet",
+          "fullName": "Chevrolet",
+          "description": "Chevrolet 차량 식별 번호를 디코딩하여 Chevy 자동차, 트럭, SUV의 완전한 차량 사양을 얻습니다.",
+          "country": "미국"
+        },
+        "ford": {
+          "name": "Ford",
+          "fullName": "Ford Motor Company",
+          "description": "Ford 차량 식별 번호를 디코딩하여 Ford 자동차, 트럭, SUV의 상세 사양을 얻습니다.",
+          "country": "미국"
+        },
+        "toyota": {
+          "name": "Toyota",
+          "fullName": "Toyota Motor Corporation",
+          "description": "Toyota 차량 식별 번호를 디코딩하여 Toyota 자동차, 트럭, SUV의 완전한 차량 사양을 얻습니다.",
+          "country": "일본"
+        },
+        "honda": {
+          "name": "Honda",
+          "fullName": "Honda Motor Company",
+          "description": "Honda 차량 식별 번호를 디코딩하여 Honda 자동차와 SUV의 상세 사양을 얻습니다.",
+          "country": "일본"
+        },
+        "mercedes": {
+          "name": "Mercedes-Benz",
+          "fullName": "Mercedes-Benz",
+          "description": "Mercedes-Benz 차량 식별 번호를 디코딩하여 Mercedes-Benz 럭셔리 차량의 사양을 얻습니다.",
+          "country": "독일"
+        },
+        "audi": {
+          "name": "Audi",
+          "fullName": "Audi AG",
+          "description": "Audi 차량 식별 번호를 디코딩하여 Audi 럭셔리 차량의 상세 사양을 얻습니다.",
+          "country": "독일"
+        },
+        "nissan": {
+          "name": "Nissan",
+          "fullName": "Nissan Motor Company",
+          "description": "Nissan 차량 식별 번호를 디코딩하여 Nissan 자동차와 SUV의 완전한 차량 사양을 얻습니다.",
+          "country": "일본"
+        },
+        "volkswagen": {
+          "name": "Volkswagen",
+          "fullName": "Volkswagen",
+          "description": "VW 차량 식별 번호를 디코딩하여 Volkswagen 차량의 사양을 얻습니다.",
+          "country": "독일"
+        },
+        "tesla": {
+          "name": "Tesla",
+          "fullName": "Tesla, Inc.",
+          "description": "Tesla 차량 식별 번호를 디코딩하여 Tesla 전기 자동차의 사양을 얻습니다.",
+          "country": "미국"
+        }
+      }
     }
   },
   "HeicToPdf": {

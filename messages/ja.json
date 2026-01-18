@@ -4087,7 +4087,69 @@
       "faq_free_q": "このデコーダーは無料で使用できますか？",
       "faq_free_a": "はい、{brand} VINデコーダーは完全に無料で使用できます。登録や支払いは不要です - 単にVINを入力するだけで、即座に結果を取得できます。",
       "other_brands_title": "他のブランドのVINデコーダー",
-      "other_brands_subtitle": "他の人気のある車両ブランドのVINをデコードします"
+      "other_brands_subtitle": "他の人気のある車両ブランドのVINをデコードします",
+      "brands": {
+        "bmw": {
+          "name": "BMW",
+          "fullName": "Bayerische Motoren Werke",
+          "description": "BMW車両識別番号をデコードして、BMW自動車とSUVの詳細な仕様を取得します。",
+          "country": "ドイツ"
+        },
+        "chevrolet": {
+          "name": "Chevrolet",
+          "fullName": "Chevrolet",
+          "description": "Chevrolet車両識別番号をデコードして、Chevrolet自動車、トラック、およびSUVの完全な車両仕様を取得します。",
+          "country": "アメリカ"
+        },
+        "ford": {
+          "name": "Ford",
+          "fullName": "Ford Motor Company",
+          "description": "Ford車両識別番号をデコードして、Ford自動車、トラック、およびSUVの詳細な仕様を取得します。",
+          "country": "アメリカ"
+        },
+        "toyota": {
+          "name": "Toyota",
+          "fullName": "Toyota Motor Corporation",
+          "description": "Toyota車両識別番号をデコードして、Toyota自動車、トラック、およびSUVの完全な車両仕様を取得します。",
+          "country": "日本"
+        },
+        "honda": {
+          "name": "Honda",
+          "fullName": "Honda Motor Company",
+          "description": "Honda車両識別番号をデコードして、Honda自動車とSUVの詳細な仕様を取得します。",
+          "country": "日本"
+        },
+        "mercedes": {
+          "name": "Mercedes-Benz",
+          "fullName": "Mercedes-Benz",
+          "description": "Mercedes-Benz車両識別番号をデコードして、Mercedes-Benz豪華車両の仕様を取得します。",
+          "country": "ドイツ"
+        },
+        "audi": {
+          "name": "Audi",
+          "fullName": "Audi AG",
+          "description": "Audi車両識別番号をデコードして、Audi豪華車両の詳細な仕様を取得します。",
+          "country": "ドイツ"
+        },
+        "nissan": {
+          "name": "Nissan",
+          "fullName": "Nissan Motor Company",
+          "description": "Nissan車両識別番号をデコードして、Nissan自動車とSUVの完全な車両仕様を取得します。",
+          "country": "日本"
+        },
+        "volkswagen": {
+          "name": "Volkswagen",
+          "fullName": "Volkswagen",
+          "description": "VW車両識別番号をデコードして、Volkswagen車両の仕様を取得します。",
+          "country": "ドイツ"
+        },
+        "tesla": {
+          "name": "Tesla",
+          "fullName": "Tesla, Inc.",
+          "description": "Tesla車両識別番号をデコードして、Tesla電気自動車の仕様を取得します。",
+          "country": "アメリカ"
+        }
+      }
     }
   },
   "HeicToPdf": {

@@ -1,9 +1,10 @@
+import React from "react"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { getTranslations } from "next-intl/server"
 import Script from "next/script"
 import { supportedLocales } from "app/i18n/routing"
-import { getBrandBySlug, SUPPORTED_BRANDS } from "../types"
+import { getBrandWithTranslations, SUPPORTED_BRAND_SLUGS } from "../types"
 import VinDecoderClient from "./VinDecoderClient"
 
 interface BrandPageProps {
@@ -14,16 +15,18 @@ interface BrandPageProps {
 }
 
 export async function generateStaticParams() {
-  return SUPPORTED_BRANDS.map((brand) => ({
-    brand: brand.slug,
+  return SUPPORTED_BRAND_SLUGS.map((slug) => ({
+    brand: slug,
   }))
 }
 
 export async function generateMetadata({ params }: BrandPageProps): Promise<Metadata> {
   const { brand: brandSlug, locale } = params
-  const brand = getBrandBySlug(brandSlug)
   const t = await getTranslations({ locale, namespace: "VinDecoder.brandPage" })
   const isDefaultLocale = locale === "en"
+
+  // Get brand with translations
+  const brand = getBrandWithTranslations(brandSlug, t)
 
   if (!brand) {
     return {
@@ -104,9 +107,11 @@ export async function generateMetadata({ params }: BrandPageProps): Promise<Meta
 
 export default async function BrandVinDecoderPage({ params }: BrandPageProps) {
   const { brand: brandSlug, locale } = params
-  const brand = getBrandBySlug(brandSlug)
   const t = await getTranslations({ locale, namespace: "VinDecoder.brandPage" })
   const tStructured = await getTranslations({ locale, namespace: "VinDecoder.structured_data" })
+
+  // Get brand with translations
+  const brand = getBrandWithTranslations(brandSlug, t)
 
   if (!brand) {
     notFound()

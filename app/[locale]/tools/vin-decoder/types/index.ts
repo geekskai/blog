@@ -135,15 +135,36 @@ export interface HistoryItem {
   vehicle?: DecodedVehicle
 }
 
+// Brand info with i18n support - text fields come from translations
 export interface BrandInfo {
   slug: string
-  name: string
-  fullName: string
-  description: string
+  name: string // Display name (from translations)
+  fullName: string // Full company name (from translations)
+  description: string // Description (from translations)
   commonWMIs: string[]
   popularModels?: string[]
-  country?: string
+  country?: string // Country name (from translations)
 }
+
+// Static brand data without translatable text
+export interface BrandStaticData {
+  slug: string
+  commonWMIs: string[]
+  popularModels?: string[]
+}
+
+// Brand translation keys
+export type BrandSlug =
+  | "bmw"
+  | "chevrolet"
+  | "ford"
+  | "toyota"
+  | "honda"
+  | "mercedes"
+  | "audi"
+  | "nissan"
+  | "volkswagen"
+  | "tesla"
 
 export interface ExportFormat {
   type: "json" | "csv" | "txt"
@@ -234,7 +255,76 @@ export interface ShareExportBarProps {
   onShare: () => void
 }
 
-// Brand Pages
+// Static brand data (non-translatable)
+export const BRAND_STATIC_DATA: Record<BrandSlug, BrandStaticData> = {
+  bmw: {
+    slug: "bmw",
+    commonWMIs: ["WBA", "WBS", "WBY", "WBW", "WBX"],
+    popularModels: ["3 Series", "5 Series", "X3", "X5", "M3"],
+  },
+  chevrolet: {
+    slug: "chevrolet",
+    commonWMIs: ["1G1", "1GB", "1GC", "1GN", "2G1", "3GC", "3GN"],
+    popularModels: ["Silverado", "Equinox", "Malibu", "Tahoe", "Camaro"],
+  },
+  ford: {
+    slug: "ford",
+    commonWMIs: ["1FA", "1FB", "1FC", "1FD", "1FM", "1FT", "2FA", "3FA"],
+    popularModels: ["F-150", "Mustang", "Explorer", "Escape", "Bronco"],
+  },
+  toyota: {
+    slug: "toyota",
+    commonWMIs: ["JTD", "JTE", "JTK", "JTM", "JTN", "4T1", "5TD", "5TE"],
+    popularModels: ["Camry", "Corolla", "RAV4", "Highlander", "Tacoma"],
+  },
+  honda: {
+    slug: "honda",
+    commonWMIs: ["JHM", "1HG", "2HG", "2HK", "2HM", "5FN", "5FP"],
+    popularModels: ["Accord", "Civic", "CR-V", "Pilot", "Odyssey"],
+  },
+  mercedes: {
+    slug: "mercedes",
+    commonWMIs: ["WDB", "WDC", "WDD", "WDF", "W1K", "W1N", "W1V"],
+    popularModels: ["C-Class", "E-Class", "GLE", "GLC", "S-Class"],
+  },
+  audi: {
+    slug: "audi",
+    commonWMIs: ["WAU", "WA1", "WUA", "WUB", "WUC"],
+    popularModels: ["A4", "A6", "Q5", "Q7", "Q3"],
+  },
+  nissan: {
+    slug: "nissan",
+    commonWMIs: ["JN1", "JN3", "JN6", "JN8", "1N4", "1N6", "5N1"],
+    popularModels: ["Altima", "Rogue", "Sentra", "Murano", "Frontier"],
+  },
+  volkswagen: {
+    slug: "volkswagen",
+    commonWMIs: ["WVW", "WVG", "WV1", "WV2", "WV3", "1VW", "3VW", "9VW"],
+    popularModels: ["Jetta", "Tiguan", "Atlas", "Golf", "Passat"],
+  },
+  tesla: {
+    slug: "tesla",
+    commonWMIs: ["5YJ", "7SA", "SFZ", "LRW"],
+    popularModels: ["Model 3", "Model Y", "Model S", "Model X", "Cybertruck"],
+  },
+}
+
+// All supported brand slugs
+export const SUPPORTED_BRAND_SLUGS: BrandSlug[] = [
+  "bmw",
+  "chevrolet",
+  "ford",
+  "toyota",
+  "honda",
+  "mercedes",
+  "audi",
+  "nissan",
+  "volkswagen",
+  "tesla",
+]
+
+// Legacy: SUPPORTED_BRANDS with default English text (for backward compatibility)
+// Use getBrandWithTranslations() for i18n support
 export const SUPPORTED_BRANDS: BrandInfo[] = [
   {
     slug: "bmw",
@@ -334,13 +424,50 @@ export const SUPPORTED_BRANDS: BrandInfo[] = [
   },
 ]
 
+// Get brand by slug (returns default English text)
 export function getBrandBySlug(slug: string): BrandInfo | undefined {
   return SUPPORTED_BRANDS.find((brand) => brand.slug === slug)
 }
 
+// Get brand static data by slug
+export function getBrandStaticData(slug: string): BrandStaticData | undefined {
+  return BRAND_STATIC_DATA[slug as BrandSlug]
+}
+
+// Check if slug is a valid brand
+export function isValidBrandSlug(slug: string): slug is BrandSlug {
+  return SUPPORTED_BRAND_SLUGS.includes(slug as BrandSlug)
+}
+
+// Get brand by WMI code
 export function getBrandByWMI(wmi: string): BrandInfo | undefined {
   const wmiUpper = wmi.toUpperCase()
   return SUPPORTED_BRANDS.find((brand) =>
     brand.commonWMIs.some((brandWmi) => wmiUpper.startsWith(brandWmi))
   )
+}
+
+// Helper to build BrandInfo with translations
+// Usage in server components: const brand = getBrandWithTranslations(slug, t)
+export function getBrandWithTranslations(
+  slug: string,
+  t: (key: string) => string
+): BrandInfo | undefined {
+  const staticData = getBrandStaticData(slug)
+  if (!staticData) return undefined
+
+  return {
+    slug: staticData.slug,
+    name: t(`brands.${slug}.name`),
+    fullName: t(`brands.${slug}.fullName`),
+    description: t(`brands.${slug}.description`),
+    country: t(`brands.${slug}.country`),
+    commonWMIs: staticData.commonWMIs,
+    popularModels: staticData.popularModels,
+  }
+}
+
+// Get all brands with translations
+export function getAllBrandsWithTranslations(t: (key: string) => string): BrandInfo[] {
+  return SUPPORTED_BRAND_SLUGS.map((slug) => getBrandWithTranslations(slug, t)!).filter(Boolean)
 }
