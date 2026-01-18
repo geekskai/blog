@@ -1,5 +1,4 @@
 import { VINValidationResult } from "../types"
-import { isValidVin as validateVinOffline } from "@shaggytools/nhtsa-api-wrapper"
 
 // VIN validation constants
 const VIN_LENGTH = 17 as const
@@ -46,12 +45,21 @@ const CHAR_VALUES: Record<string, number> = {
 }
 
 /**
+ * Re-export official validation function for consistency
+ * @param vin - The VIN to check
+ * @returns true if valid, false otherwise
+ */
+export const isValidVin = (vin: string): boolean => {
+  const vinUpper = formatVIN(vin)
+  return /^[A-HJ-NPR-Z0-9]{17}$/.test(vinUpper)
+}
+
+/**
  * Validates a VIN using official NHTSA wrapper with enhanced error details
  * @param vin - The VIN to validate
  * @returns Validation result with details
  */
 export function validateVIN(vin: string): VINValidationResult {
-  console.log("vin validation:", vin)
   if (!vin) {
     return {
       isValid: false,
@@ -61,9 +69,8 @@ export function validateVIN(vin: string): VINValidationResult {
 
   const vinUpper = formatVIN(vin)
 
-  // Use official validation first
-  if (!validateVinOffline(vinUpper)) {
-    console.log("vinUpper validation failed:", vinUpper)
+  // // Use official validation first
+  if (!isValidVin(vinUpper)) {
     // Provide specific error details for better UX
     if (vinUpper.length !== VIN_LENGTH) {
       return {
@@ -117,13 +124,6 @@ function calculateCheckDigit(vin: string): string {
   const remainder = sum % 11
   return remainder === 10 ? "X" : remainder.toString()
 }
-
-/**
- * Re-export official validation function for consistency
- * @param vin - The VIN to check
- * @returns true if valid, false otherwise
- */
-export const isValidVin = validateVinOffline
 
 /**
  * Formats a VIN for display (uppercase, trimmed)

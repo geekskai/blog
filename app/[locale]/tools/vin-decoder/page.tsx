@@ -156,7 +156,7 @@ export default function VinDecoder() {
         },
       }))
     }
-  }, [searchState.vin, searchState.validationResult])
+  }, [searchState, t])
 
   const handleHistorySelect = useCallback((item: HistoryItem) => {
     setSearchState({
@@ -264,7 +264,7 @@ export default function VinDecoder() {
       setCopyStatus("copied")
       setTimeout(() => setCopyStatus("idle"), 2000)
     }
-  }, [searchState.decodeResult, searchState.vin])
+  }, [searchState.decodeResult, t, searchState.vin])
 
   const handleCopyUrl = useCallback(async () => {
     if (typeof window === "undefined") return

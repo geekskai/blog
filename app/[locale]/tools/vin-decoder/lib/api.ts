@@ -1,23 +1,92 @@
-import {
-  DecodeVinValuesExtended,
-  DecodeVinValues,
-  DecodeWMI,
-  isValidVin as validateVinOffline,
-} from "@shaggytools/nhtsa-api-wrapper"
+import { DecodeVinValuesExtended, DecodeVinValues, DecodeWMI } from "@shaggytools/nhtsa-api-wrapper"
 import { DecodedVehicle } from "../types"
+
+/**
+ * Decode VIN using Auto.dev API via server-side API route (paid fallback)
+ */
+async function decodeWithAutoDev(vin: string): Promise<DecodedVehicle> {
+  const vinUpper = vin.toUpperCase().trim()
+
+  try {
+    const response = await fetch("/api/vin-decode", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ vin: vinUpper }),
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}))
+      throw new Error(
+        errorData.error || `Auto.dev API error: ${response.status} ${response.statusText}`
+      )
+    }
+
+    const vehicle: DecodedVehicle = await response.json()
+    return vehicle
+  } catch (error) {
+    console.error("Auto.dev decode error:", error)
+    throw error instanceof Error ? error : new Error("Failed to decode VIN with Auto.dev API")
+  }
+}
+
+/**
+ * Check if NHTSA API response indicates "cannot decode"
+ */
+function isCannotDecodeResponse(result: any): boolean {
+  if (!result || !result.Results || result.Results.length === 0) {
+    return true
+  }
+
+  const message = result.Message?.toLowerCase() || ""
+  const count = result.Count || 0
+
+  // Check for "cannot decode" messages
+  const cannotDecodePatterns = [
+    "cannot decode",
+    "unable to decode",
+    "no data",
+    "not found",
+    "invalid",
+  ]
+
+  if (cannotDecodePatterns.some((pattern) => message.includes(pattern))) {
+    return true
+  }
+
+  // Check if count is 0 or results are empty
+  if (count === 0 || result.Results.length === 0) {
+    return true
+  }
+
+  // Check if the first result has no meaningful data
+  const firstResult = result.Results[0]
+  if (firstResult) {
+    const hasData =
+      firstResult.Make || firstResult.Model || firstResult.ModelYear || firstResult.Manufacturer
+
+    if (!hasData) {
+      return true
+    }
+  }
+
+  return false
+}
 
 /**
  * Enhanced VIN decode function with comprehensive error handling and data mapping
  * Implements PRD requirements for parallel API calls and graceful fallbacks
+ * Falls back to Auto.dev API if NHTSA API fails or returns "cannot decode"
  */
 export async function decodeVehicle(vin: string): Promise<DecodedVehicle> {
   const vinUpper = vin.toUpperCase().trim()
   const wmi = vinUpper.substring(0, 3)
 
   // Validate VIN offline first
-  if (!validateVinOffline(vinUpper)) {
-    throw new Error("Invalid VIN format")
-  }
+  // if (!validateVinOffline(vinUpper)) {
+  //   throw new Error("Invalid VIN format")
+  // }
 
   try {
     // Execute parallel API calls with enhanced error handling
@@ -25,6 +94,25 @@ export async function decodeVehicle(vin: string): Promise<DecodedVehicle> {
       DecodeVinValuesExtended(vinUpper).catch(() => DecodeVinValues(vinUpper)),
       DecodeWMI(wmi),
     ])
+
+    // Check if NHTSA API failed or returned "cannot decode"
+    const shouldUseFallback =
+      vinResult.status === "rejected" ||
+      (vinResult.status === "fulfilled" && isCannotDecodeResponse(vinResult.value))
+
+    // If NHTSA failed or cannot decode, try Auto.dev API as fallback
+    if (shouldUseFallback) {
+      try {
+        // console.log("NHTSA API failed or cannot decode, falling back to Auto.dev API")
+        return await decodeWithAutoDev(vinUpper)
+      } catch (autoDevError) {
+        // If Auto.dev also fails, throw the original error or Auto.dev error
+        if (vinResult.status === "rejected") {
+          throw vinResult.reason || autoDevError
+        }
+        throw autoDevError
+      }
+    }
 
     // Initialize vehicle with metadata
     const vehicle: DecodedVehicle = {
@@ -232,8 +320,3 @@ export async function decodeVehicle(vin: string): Promise<DecodedVehicle> {
     )
   }
 }
-
-/**
- * Export the official validation function for consistency
- */
-export { validateVinOffline as isValidVin }
