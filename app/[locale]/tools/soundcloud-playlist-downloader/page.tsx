@@ -98,7 +98,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
         setLoadingState("error")
       }
     } catch (error) {
-      console.error("Fetch playlist error:", error)
+      // console.error("Fetch playlist error:", error)
       setErrorMessage(error instanceof Error ? error.message : t("error_network"))
       setLoadingState("error")
     }

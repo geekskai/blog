@@ -206,7 +206,7 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     )
   } catch (error) {
-    console.error(`🚀 route.ts ~ error==>`, error)
+    console.error(`🚀 route.ts ~ error==>`, error.message)
 
     // 提供更详细的错误信息
     const errorMessage = error instanceof Error ? error.message : "Download failed"
