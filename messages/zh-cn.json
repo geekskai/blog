@@ -4042,6 +4042,26 @@
     "brandPage": {
       "vin_decoder_suffix": "VIN解码器",
       "nhtsa_integration": "立即获取我们的官方NHTSA数据库集成结果。",
+      "seo": {
+        "title": "{brand} VIN解码器 - 免费{brand}车辆识别码查询",
+        "title_suffix": "GeeksKai",
+        "description": "{brandDescription} 立即获取{brand}车辆规格，包括发动机、变速箱和安全功能。100%免费，无需注册。",
+        "og_title": "{brand} VIN解码器 - 即时{brand}车辆规格",
+        "twitter_title": "{brand} VIN解码器 - 免费车辆查询",
+        "keywords": {
+          "vin_decoder": "{brand} VIN解码器",
+          "vin_lookup": "{brand} VIN查询",
+          "vin_check": "{brand} VIN校验",
+          "vehicle_identification": "{brand}车辆识别",
+          "decode_vin": "解码{brand} VIN",
+          "car_specs": "{brand}车辆规格",
+          "vehicle_specs": "{brand}车辆规格",
+          "free_decoder": "免费{brand} VIN解码器",
+          "nhtsa_lookup": "{brand} NHTSA查询",
+          "vehicle_history": "{brand}车辆历史"
+        },
+        "image_alt": "{brand} VIN解码器"
+      },
       "copied": "已复制！",
       "copy": "复制",
       "copy_summary": "复制摘要",

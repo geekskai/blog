@@ -3891,6 +3891,26 @@
     "brandPage": {
       "vin_decoder_suffix": "VIN 디코더",
       "nhtsa_integration": "공식 NHTSA 데이터베이스를 사용하여 즉시 결과를 얻습니다.",
+      "seo": {
+        "title": "{brand} VIN 디코더 - 무료 {brand} 차량 식별 번호 검색",
+        "title_suffix": "GeeksKai",
+        "description": "{brandDescription} 엔진, 변속기 및 안전 기능을 포함하여 즉시 {brand} 차량 사양을 얻습니다. 100% 무료, 등록 불필요.",
+        "og_title": "{brand} VIN 디코더 - 즉시 {brand} 차량 사양",
+        "twitter_title": "{brand} VIN 디코더 - 무료 차량 검색",
+        "keywords": {
+          "vin_decoder": "{brand} VIN 디코더",
+          "vin_lookup": "{brand} VIN 검색",
+          "vin_check": "{brand} VIN 체크",
+          "vehicle_identification": "{brand} 차량 식별",
+          "decode_vin": "디코딩 {brand} VIN",
+          "car_specs": "{brand} 차량 사양",
+          "vehicle_specs": "{brand} 차량 사양",
+          "free_decoder": "무료 {brand} VIN 디코더",
+          "nhtsa_lookup": "{brand} NHTSA 검색",
+          "vehicle_history": "{brand} 차량 역사"
+        },
+        "image_alt": "{brand} VIN 디코더"
+      },
       "copied": "복사되었습니다!",
       "copy": "복사",
       "copy_summary": "복사 요약",

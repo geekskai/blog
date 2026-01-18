@@ -4133,6 +4133,26 @@
     "brandPage": {
       "vin_decoder_suffix": "Décodeur VIN",
       "nhtsa_integration": "Obtenez des résultats instantanés avec notre intégration de base officielle NHTSA.",
+      "seo": {
+        "title": "{brand} Décodeur VIN - Recherche gratuite du numéro d’identification de véhicule {brand}",
+        "title_suffix": "GeeksKai",
+        "description": "{brandDescription} Obtenez des spécifications de véhicule instantanées pour les véhicules {brand} y compris le moteur, la transmission et les fonctionnalités de sécurité. 100 % gratuit, pas de création de compte requise.",
+        "og_title": "{brand} Décodeur VIN - Spécifications de véhicule instantanées {brand}",
+        "twitter_title": "{brand} Décodeur VIN - Recherche gratuite de véhicule",
+        "keywords": {
+          "vin_decoder": "{brand} Décodeur VIN",
+          "vin_lookup": "{brand} Recherche de VIN",
+          "vin_check": "{brand} Vérification de VIN",
+          "vehicle_identification": "{brand} Identification de véhicule",
+          "decode_vin": "décoder {brand} VIN",
+          "car_specs": "{brand} Spécifications de véhicule",
+          "vehicle_specs": "{brand} Spécifications de véhicule",
+          "free_decoder": "gratuit {brand} Décodeur VIN",
+          "nhtsa_lookup": "{brand} Recherche NHTSA",
+          "vehicle_history": "{brand} Historique de véhicule"
+        },
+        "image_alt": "{brand} Décodeur VIN"
+      },
       "copied": "Copié !",
       "copy": "Copier",
       "copy_summary": "Copier le résumé",

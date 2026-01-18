@@ -3771,6 +3771,26 @@
     "brandPage": {
       "vin_decoder_suffix": "VIN-dekoder",
       "nhtsa_integration": "Får øyeblikkelige resultater med vår offisielle NHTSA-databasenintegration.",
+      "seo": {
+        "title": "{brand} VIN-dekoder - Gratis {brand} kjøretøjsidentifikasjonsnummer søk",
+        "title_suffix": "GeeksKai",
+        "description": "{brandDescription} Get instant {brand} vehicle specifications including engine, transmission, and safety features. 100% free, no signup required.",
+        "og_title": "{brand} VIN-dekoder - Øyeblikkelige {brand} kjøretøjsspesifikasjoner",
+        "twitter_title": "{brand} VIN-dekoder - Gratis kjøretøjsidentifikasjonsnummer søk",
+        "keywords": {
+          "vin_decoder": "{brand} VIN-dekoder",
+          "vin_lookup": "{brand} VIN-søk",
+          "vin_check": "{brand} VIN-kontroll",
+          "vehicle_identification": "{brand} kjøretøjsidentifikasjon",
+          "decode_vin": "dekod {brand} VIN",
+          "car_specs": "{brand} kjøretøjsspesifikasjoner",
+          "vehicle_specs": "{brand} kjøretøjsspesifikasjoner",
+          "free_decoder": "gratis {brand} VIN-dekoder",
+          "nhtsa_lookup": "{brand} NHTSA-søk",
+          "vehicle_history": "{brand} kjøretøjshistorie"
+        },
+        "image_alt": "{brand} VIN-dekoder"
+      },
       "copied": "Kopieret!",
       "copy": "Kopier",
       "copy_summary": "Kopier sammenfattelse",

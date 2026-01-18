@@ -4064,7 +4064,27 @@
     "brandPage": {
       "vin_decoder_suffix": "VINデコーダー",
       "nhtsa_integration": "公式NHTSAデータベースを使用して、即座に結果を取得します。",
-      "copied": "コピーされました！",
+      "seo": {
+        "title": "{brand} VINデコーダー - 無料{brand}車両識別番号検索",
+        "title_suffix": "GeeksKai",
+        "description": "{brandDescription} 即座に{brand}車両仕様を取得し、エンジン、トランスミッション、および安全機能を含む。100%無料、登録不要。",
+        "og_title": "{brand} VINデコーダー - 即座の{brand}車両仕様",
+        "twitter_title": "{brand} VINデコーダー - 無料車両検索",
+        "keywords": {
+          "vin_decoder": "{brand} VINデコーダー",
+          "vin_lookup": "{brand} VIN検索",
+          "vin_check": "{brand} VINチェック",
+          "vehicle_identification": "{brand} 車両識別",
+          "decode_vin": "デコード{brand} VIN",
+          "car_specs": "{brand} 車両仕様",
+          "vehicle_specs": "{brand} 車両仕様",
+          "free_decoder": "無料{brand} VINデコーダー",
+          "nhtsa_lookup": "{brand} NHTSA検索",
+          "vehicle_history": "{brand} 車両履歴"
+        },
+        "image_alt": "{brand} VINデコーダー"
+      },
+      "copied": "コピーしました！",
       "copy": "コピー",
       "copy_summary": "コピーの要約",
       "json": "JSON",

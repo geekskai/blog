@@ -4071,6 +4071,26 @@
     "brandPage": {
       "vin_decoder_suffix": "VIN Decoder",
       "nhtsa_integration": "Get instant results with our official NHTSA database integration.",
+      "seo": {
+        "title": "{brand} VIN Decoder - Free {brand} Vehicle Identification Number Lookup",
+        "title_suffix": "GeeksKai",
+        "description": "{brandDescription} Get instant {brand} vehicle specifications including engine, transmission, and safety features. 100% free, no signup required.",
+        "og_title": "{brand} VIN Decoder - Instant {brand} Vehicle Specs",
+        "twitter_title": "{brand} VIN Decoder - Free Vehicle Lookup",
+        "keywords": {
+          "vin_decoder": "{brand} VIN decoder",
+          "vin_lookup": "{brand} VIN lookup",
+          "vin_check": "{brand} VIN check",
+          "vehicle_identification": "{brand} vehicle identification",
+          "decode_vin": "decode {brand} VIN",
+          "car_specs": "{brand} car specs",
+          "vehicle_specs": "{brand} vehicle specs",
+          "free_decoder": "free {brand} VIN decoder",
+          "nhtsa_lookup": "{brand} NHTSA lookup",
+          "vehicle_history": "{brand} vehicle history"
+        },
+        "image_alt": "{brand} VIN Decoder"
+      },
       "copied": "Copied!",
       "copy": "Copy",
       "copy_summary": "Copy Summary",

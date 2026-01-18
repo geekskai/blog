@@ -23,6 +23,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: BrandPageProps): Promise<Metadata> {
   const { brand: brandSlug, locale } = params
   const t = await getTranslations({ locale, namespace: "VinDecoder.brandPage" })
+  const tSeo = await getTranslations({ locale, namespace: "VinDecoder.brandPage.seo" })
   const isDefaultLocale = locale === "en"
 
   // Get brand with translations
@@ -47,26 +48,29 @@ export async function generateMetadata({ params }: BrandPageProps): Promise<Meta
     ? `https://geekskai.com/tools/vin-decoder/${brand.slug}`
     : `https://geekskai.com/${locale}/tools/vin-decoder/${brand.slug}`
 
-  const title = `${brand.name} ${t("vin_decoder_suffix")} - Free ${brand.name} Vehicle Identification Number Lookup | GeeksKai`
-  const description = `${brand.description} ${t("nhtsa_integration")} Get instant ${brand.name} vehicle specifications including engine, transmission, and safety features. 100% free, no signup required.`
+  const title = tSeo("title", { brand: brand.name })
+  const description = tSeo("description", {
+    brand: brand.name,
+    brandDescription: brand.description,
+  })
 
   return {
     title,
     description,
     keywords: [
-      `${brand.name} VIN decoder`,
-      `${brand.name} VIN lookup`,
-      `${brand.name} VIN check`,
-      `${brand.name} vehicle identification`,
-      `decode ${brand.name} VIN`,
-      `${brand.name} car specs`,
-      `${brand.name} vehicle specs`,
-      `free ${brand.name} VIN decoder`,
-      `${brand.name} NHTSA lookup`,
-      `${brand.name} vehicle history`,
+      tSeo("keywords.vin_decoder", { brand: brand.name }),
+      tSeo("keywords.vin_lookup", { brand: brand.name }),
+      tSeo("keywords.vin_check", { brand: brand.name }),
+      tSeo("keywords.vehicle_identification", { brand: brand.name }),
+      tSeo("keywords.decode_vin", { brand: brand.name }),
+      tSeo("keywords.car_specs", { brand: brand.name }),
+      tSeo("keywords.vehicle_specs", { brand: brand.name }),
+      tSeo("keywords.free_decoder", { brand: brand.name }),
+      tSeo("keywords.nhtsa_lookup", { brand: brand.name }),
+      tSeo("keywords.vehicle_history", { brand: brand.name }),
     ],
     openGraph: {
-      title: `${brand.name} ${t("vin_decoder_suffix")} - Instant ${brand.name} Vehicle Specs`,
+      title: tSeo("og_title", { brand: brand.name }),
       description,
       type: "website",
       url: pageUrl,
@@ -75,13 +79,13 @@ export async function generateMetadata({ params }: BrandPageProps): Promise<Meta
           url: "/static/images/og/vin-decoder.png",
           width: 1200,
           height: 630,
-          alt: `${brand.name} VIN Decoder`,
+          alt: tSeo("image_alt", { brand: brand.name }),
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${brand.name} ${t("vin_decoder_suffix")} - Free Vehicle Lookup`,
+      title: tSeo("twitter_title", { brand: brand.name }),
       description,
       images: ["/static/images/og/vin-decoder.png"],
     },

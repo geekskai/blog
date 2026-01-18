@@ -3977,6 +3977,26 @@
     "brandPage": {
       "vin_decoder_suffix": "محلل رقم تعريف السيارة",
       "nhtsa_integration": "احصل على نتائج فورية مع قاعدة البيانات الرسمية لـ NHTSA.",
+      "seo": {
+        "title": "{brand} محلل رقم تعريف السيارة - فرصة مجانية للبحث عن رقم تعريف السيارة {brand}",
+        "title_suffix": "GeeksKai",
+        "description": "{brandDescription} احصل على تفاصيل السيارة الفورية للسيارات {brand} بما في ذلك المحرك والناقل والميزات الأمنية. مجاني 100% بدون تسجيل.",
+        "og_title": "{brand} محلل رقم تعريف السيارة - تفاصيل السيارة الفورية للسيارات {brand}",
+        "twitter_title": "{brand} محلل رقم تعريف السيارة - فرصة مجانية للبحث عن رقم تعريف السيارة {brand}",
+        "keywords": {
+          "vin_decoder": "{brand} محلل رقم تعريف السيارة",
+          "vin_lookup": "{brand} للبحث عن رقم تعريف السيارة {brand}",
+          "vin_check": "{brand} للتحقق من رقم تعريف السيارة {brand}",
+          "vehicle_identification": "{brand} للتعرف على السيارة {brand}",
+          "decode_vin": "تحليل رقم تعريف السيارة {brand}",
+          "car_specs": "{brand} تفاصيل السيارة {brand}",
+          "vehicle_specs": "{brand} تفاصيل السيارة {brand}",
+          "free_decoder": "محلل رقم تعريف السيارة {brand} مجاني",
+          "nhtsa_lookup": "{brand} للبحث عن رقم تعريف السيارة {brand}",
+          "vehicle_history": "{brand} تاريخ السيارة {brand}"
+        },
+        "image_alt": "{brand} محلل رقم تعريف السيارة"
+      },
       "copied": "تم النسخ!",
       "copy": "نسخ",
       "copy_summary": "نسخ الملخص",
