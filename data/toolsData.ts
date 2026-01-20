@@ -50,6 +50,37 @@ export const gradients = {
 
 export const toolsData: ToolData[] = [
   {
+    id: "vin-decoder",
+    title: "VIN Decoder & Lookup",
+    description:
+      "Professional Vehicle Identification Number decoder with comprehensive vehicle information. Decode VIN numbers to get detailed vehicle specifications, manufacturer data, and history insights.",
+    icon: Search,
+    href: "/tools/vin-decoder/",
+    features: [
+      "Complete VIN Decoding",
+      "Manufacturer Database",
+      "Vehicle Specifications",
+      "Brand-Specific Pages",
+    ],
+    badge: "Professional",
+    badgeColor: "bg-blue-500",
+    gradient: gradients.utility,
+    category: "Utility",
+  },
+  {
+    id: "soundcloud-to-wav",
+    title: "SoundCloud to WAV Converter",
+    description:
+      "SoundCloud to WAV converter for your SoundCloud. SoundCloud to WAV converter for your SoundCloud. SoundCloud to WAV converter for your SoundCloud.",
+    icon: Music,
+    href: "/tools/soundcloud-to-wav/",
+    features: ["SoundCloud to WAV Converter", "SoundCloud to MP3 Converter"],
+    badge: "New",
+    badgeColor: "bg-blue-500",
+    gradient: gradients.development,
+    category: "Development",
+  },
+  {
     id: "convert-inches-to-decimal",
     title: "Convert Inches to Decimal",
     description:
@@ -405,24 +436,6 @@ export const toolsData: ToolData[] = [
     category: "Utility",
   },
   {
-    id: "vin-decoder",
-    title: "VIN Decoder & Lookup",
-    description:
-      "Professional Vehicle Identification Number decoder with comprehensive vehicle information. Decode VIN numbers to get detailed vehicle specifications, manufacturer data, and history insights.",
-    icon: Search,
-    href: "/tools/vin-decoder/",
-    features: [
-      "Complete VIN Decoding",
-      "Manufacturer Database",
-      "Vehicle Specifications",
-      "Brand-Specific Pages",
-    ],
-    badge: "Professional",
-    badgeColor: "bg-blue-500",
-    gradient: gradients.utility,
-    category: "Utility",
-  },
-  {
     id: "board-foot-calculator",
     title: "Board Foot Calculator",
     description:
@@ -506,19 +519,6 @@ export const toolsData: ToolData[] = [
     badgeColor: "bg-blue-500",
     gradient: gradients.entertainment,
     category: "Entertainment",
-  },
-  {
-    id: "soundcloud-to-wav",
-    title: "SoundCloud to WAV Converter",
-    description:
-      "SoundCloud to WAV converter for your SoundCloud. SoundCloud to WAV converter for your SoundCloud. SoundCloud to WAV converter for your SoundCloud.",
-    icon: Music,
-    href: "/tools/soundcloud-to-wav/",
-    features: ["SoundCloud to WAV Converter", "SoundCloud to MP3 Converter"],
-    badge: "New",
-    badgeColor: "bg-blue-500",
-    gradient: gradients.development,
-    category: "Development",
   },
   {
     id: "print-test-page",
