@@ -83,16 +83,16 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
 
       const vehicle = await dedupeRequest(vin, () => decodeVehicle(vin))
 
+      const base = vehicle.make || vehicle.model || vehicle.year
+      const additional = vehicle.manufacturing?.manufacturerName
+      const bodyClass = vehicle.bodyClass
+      const vehicleType = vehicle.vehicleType
+      const engine = vehicle.engine
+      const transmission = vehicle.transmission
+      const raw = vehicle.raw && Object.keys(vehicle.raw).length > 5
+
       const hasValidData = Boolean(
-        vehicle.make ||
-          vehicle.model ||
-          vehicle.year ||
-          vehicle.manufacturing?.manufacturerName ||
-          vehicle.bodyClass ||
-          vehicle.vehicleType ||
-          vehicle.engine ||
-          vehicle.transmission ||
-          (vehicle.raw && Object.keys(vehicle.raw).length > 5)
+        base || additional || bodyClass || vehicleType || engine || transmission || raw
       )
 
       if (!hasValidData) {
@@ -273,15 +273,6 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
         {/* VIN Input and Results - Mobile Optimized Grid */}
         <div className="grid gap-4 sm:gap-6 lg:grid-cols-12 lg:gap-8">
           <div className="space-y-4 sm:space-y-6 lg:col-span-8">
-            <VinInput
-              value={searchState.vin}
-              onChange={handleVinChange}
-              onSubmit={handleDecode}
-              isValid={searchState.validationResult?.isValid || false}
-              error={searchState.validationResult?.error}
-              isLoading={searchState.isDecoding}
-            />
-
             {/* Results Section */}
             {searchState.decodeResult && (
               <div className="space-y-4 sm:space-y-6 md:space-y-8">
@@ -341,6 +332,15 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
                   )}
               </div>
             )}
+
+            <VinInput
+              value={searchState.vin}
+              onChange={handleVinChange}
+              onSubmit={handleDecode}
+              isValid={searchState.validationResult?.isValid || false}
+              error={searchState.validationResult?.error}
+              isLoading={searchState.isDecoding}
+            />
           </div>
 
           {/* Brand-specific Sidebar - Mobile Optimized */}
