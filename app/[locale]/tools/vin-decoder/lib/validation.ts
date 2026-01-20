@@ -85,7 +85,7 @@ export function validateVIN(vin: string): VINValidationResult {
         error: "VIN contains invalid characters (I, O, or Q are not allowed)",
       }
     }
-
+    console.error(`${vin} format is invalid`)
     return {
       isValid: false,
       error: "VIN format is invalid",
