@@ -12750,7 +12750,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^9.0.0":
+"husky@npm:^9.1.7":
   version: 9.1.7
   resolution: "husky@npm:9.1.7"
   bin:
@@ -18469,7 +18469,7 @@ __metadata:
     hast-util-from-html-isomorphic: ^2.0.0
     heic2any: ^0.0.4
     html2canvas-pro: ^1.5.13
-    husky: ^9.0.0
+    husky: ^9.1.7
     image-size: 1.0.0
     jsdom: ^26.1.0
     jspdf: ^3.0.4
