@@ -1,1 +1,4 @@
-npx --no-install lint-staged
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/h"
+
+lint-staged
