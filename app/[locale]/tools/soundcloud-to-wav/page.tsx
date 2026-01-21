@@ -154,6 +154,7 @@ export default function Page() {
     }
     // 验证单个歌曲URL
     if (!isValidSoundCloudTrackUrl(trimmedUrl)) {
+      console.log("soundcloud to wav invalid url", trimmedUrl)
       setErrorMessage(t("error_invalid_url"))
       return false
     }
