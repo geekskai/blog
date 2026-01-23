@@ -11,6 +11,32 @@ export const runtime = "nodejs"
 const MAX_FILE_SIZE = 100 * 1024 * 1024 // 100MB 最大文件大小限制
 const DOWNLOAD_TIMEOUT = 300000 // 5分钟超时（300秒）
 
+const SOUNDCLOUD_SHORT_URL_REGEX = /^https?:\/\/on\.soundcloud\.com\/[A-Za-z0-9]+(?:[?#].*)?$/
+
+const normalizeSoundCloudUrl = (inputUrl: string): string => {
+  try {
+    const parsedUrl = new URL(inputUrl)
+    if (parsedUrl.hostname === "m.soundcloud.com") {
+      parsedUrl.hostname = "soundcloud.com"
+    }
+    return parsedUrl.toString()
+  } catch {
+    return inputUrl
+  }
+}
+
+const resolveSoundCloudUrl = async (inputUrl: string): Promise<string> => {
+  const normalizedUrl = normalizeSoundCloudUrl(inputUrl.trim())
+  if (SOUNDCLOUD_SHORT_URL_REGEX.test(normalizedUrl)) {
+    const response = await fetch(normalizedUrl, { redirect: "follow" })
+    if (!response.ok) {
+      throw new Error(`Failed to resolve short URL. HTTP ${response.status}`)
+    }
+    return normalizeSoundCloudUrl(response.url || normalizedUrl)
+  }
+  return normalizedUrl
+}
+
 /**
  * 将 Node.js Readable Stream 转换为 Web ReadableStream
  */
@@ -203,11 +229,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid URL format" }, { status: 400 })
     }
 
+    const resolvedUrl = await resolveSoundCloudUrl(url)
+    console.log("Resolved SoundCloud URL:", resolvedUrl)
+
     // 生成文件名
     const fileName = `audio-${Date.now()}.mp3`
 
     // 使用统一的下载函数，优先使用 progressive 流以避免 HLS 流 URL 过期问题
-    const nodeStream = await downloadAudioStream(url)
+    const nodeStream = await downloadAudioStream(resolvedUrl)
 
     // 将 Node.js 流转换为 Web Stream
     const webStream = nodeStreamToWebStream(nodeStream)

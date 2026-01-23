@@ -23,10 +23,27 @@ const SOUNDCLOUD_PLAYLIST_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/[^/]
 // 单个歌曲URL格式: https://soundcloud.com/username/song-name
 // 必须包含域名、用户名和歌曲名，且不包含 /sets/
 const SOUNDCLOUD_TRACK_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/[^/]+\/[^/]+$/
+const SOUNDCLOUD_SHORT_URL_REGEX = /^https?:\/\/on\.soundcloud\.com\/[A-Za-z0-9]+(?:[?#].*)?$/
 
 // Utility functions
+const normalizeSoundCloudUrl = (inputUrl: string): string => {
+  try {
+    const parsedUrl = new URL(inputUrl)
+    if (parsedUrl.hostname === "m.soundcloud.com") {
+      parsedUrl.hostname = "soundcloud.com"
+    }
+    return parsedUrl.toString()
+  } catch {
+    return inputUrl
+  }
+}
+
 const isPlaylistUrl = (url: string): boolean => {
   return SOUNDCLOUD_PLAYLIST_URL_REGEX.test(url.trim())
+}
+
+const isShortSoundCloudUrl = (url: string): boolean => {
+  return SOUNDCLOUD_SHORT_URL_REGEX.test(url.trim())
 }
 
 const isValidSoundCloudTrackUrl = (url: string): boolean => {
@@ -142,19 +159,24 @@ export default function Page() {
   // Validate URL
   const validateUrl = (): boolean => {
     const trimmedUrl = url.trim()
+    const normalizedUrl = normalizeSoundCloudUrl(trimmedUrl)
     if (!trimmedUrl) {
       setErrorMessage(t("error_empty_url"))
       return false
     }
     // 检测播放列表URL
-    if (isPlaylistUrl(trimmedUrl)) {
+    if (isPlaylistUrl(normalizedUrl)) {
       setIsPlaylistError(true)
       setErrorMessage(t("error_playlist_url"))
       return false
     }
+    // 允许短链接，由服务端解析后再校验
+    if (isShortSoundCloudUrl(normalizedUrl)) {
+      return true
+    }
     // 验证单个歌曲URL
-    if (!isValidSoundCloudTrackUrl(trimmedUrl)) {
-      console.log("soundcloud to wav invalid url", trimmedUrl)
+    if (!isValidSoundCloudTrackUrl(normalizedUrl)) {
+      console.log("soundcloud to wav invalid url", normalizedUrl)
       setErrorMessage(t("error_invalid_url"))
       return false
     }
