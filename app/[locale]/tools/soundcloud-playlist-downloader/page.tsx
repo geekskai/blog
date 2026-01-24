@@ -215,7 +215,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
           </h1>
 
           {/* Subtitle */}
-          <p className="mx-auto mb-3 max-w-5xl text-sm leading-relaxed text-slate-300 sm:text-base md:text-lg">
+          <p className="mx-auto mb-3 max-w-6xl text-sm leading-relaxed text-slate-300 sm:text-base md:text-lg">
             {t.rich("page_subtitle", {
               mp3: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
               wav: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
@@ -227,7 +227,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
         </header>
 
         {/* Input Section */}
-        <div className="mx-auto mb-12 max-w-5xl">
+        <div className="mx-auto mb-12 max-w-6xl">
           <PlaylistInput
             url={url}
             onUrlChange={(newUrl) => {
@@ -266,7 +266,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
 
         {/* Empty State */}
         {loadingState === "idle" && !playlistInfo && (
-          <div className="mx-auto max-w-5xl text-center">
+          <div className="mx-auto max-w-6xl text-center">
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-12 shadow-xl backdrop-blur-sm">
               <div className="mb-6 text-7xl">🎼</div>
               <h3 className="mb-3 text-2xl font-bold text-white">{t("empty_state_title")}</h3>
@@ -276,7 +276,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
         )}
 
         {/* SEO Content Sections */}
-        <div className="mx-auto max-w-5xl space-y-8 md:space-y-12">
+        <div className="mx-auto max-w-6xl space-y-8 md:space-y-12">
           {/* What is this tool section */}
           <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10"></div>

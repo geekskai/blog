@@ -115,7 +115,7 @@ export default function PixelsToInchesConverter() {
           <div className="absolute -bottom-16 -left-16 h-36 w-36 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/15 blur-3xl"></div>
           <div className="absolute right-1/4 top-1/3 h-24 w-24 rounded-full bg-gradient-to-br from-cyan-500/15 to-blue-500/10 blur-2xl"></div>
 
-          <div className="relative mx-auto max-w-5xl">
+          <div className="relative mx-auto max-w-6xl">
             {/* Main Title */}
             <div className="mb-8 text-center">
               <h2 className="mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">

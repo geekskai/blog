@@ -356,7 +356,7 @@ const PdfToMarkdown = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Breadcrumb Navigation */}
-      <nav className="mx-auto max-w-5xl px-4 pt-4 sm:px-6 lg:px-8" aria-label="Breadcrumb">
+      <nav className="mx-auto max-w-6xl px-4 pt-4 sm:px-6 lg:px-8" aria-label="Breadcrumb">
         <ol className="flex items-center space-x-2 text-sm text-slate-400">
           <li>
             <Link href="/" className="flex items-center hover:text-slate-200">
@@ -375,7 +375,7 @@ const PdfToMarkdown = () => {
         </ol>
       </nav>
 
-      <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-10 text-center">
           <div className="mb-6 inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-lg">

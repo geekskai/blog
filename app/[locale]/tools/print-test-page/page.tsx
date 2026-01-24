@@ -123,10 +123,11 @@ export default function PrintTestPage() {
           }}
         ></div>
       </div>
-
-      <div className="relative mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-6xl space-y-2 px-4 py-8 md:space-y-6 md:px-6 lg:px-8">
+        {/* Content Freshness Badge */}
+        <ContentFreshnessBadge lastModified={new Date("2026-01-24")} />
         {/* Header Section - SEO Optimized */}
-        <header className="mb-12 text-center">
+        <header className="text-center">
           {/* Tool Badge */}
           <div className="mb-6 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 px-6 py-3 text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/30">
             <div className="rounded-full bg-white/20 p-1">
@@ -148,13 +149,10 @@ export default function PrintTestPage() {
               no_registration: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
             })}
           </p>
-
-          {/* Content Freshness Badge */}
-          <ContentFreshnessBadge lastModified={new Date("2026-01-02")} />
         </header>
 
         {/* Print Test Pages Section */}
-        <div className="mx-auto mb-12 max-w-4xl">
+        <div className="mx-auto max-w-6xl">
           <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
             <div className="border-b border-white/10 bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-6">
               <h2 className="text-xl font-semibold text-white md:text-2xl">
@@ -351,7 +349,7 @@ export default function PrintTestPage() {
         </div>
 
         {/* SEO Content Sections */}
-        <div className="mx-auto mt-32 space-y-24">
+        <div className="mx-auto space-y-2 md:space-y-6">
           {/* What is this tool section */}
           <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-indigo-500/10"></div>
@@ -414,7 +412,6 @@ export default function PrintTestPage() {
           <FAQSection />
         </div>
       </div>
-
       {/* Hidden print content */}
       <div ref={printRef} className="hidden">
         {selectedType && (

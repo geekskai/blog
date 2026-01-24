@@ -387,7 +387,7 @@ export default function Page() {
           </h1>
 
           {/* Subtitle */}
-          <p className="mx-auto mb-3 max-w-5xl text-sm leading-relaxed text-slate-300 sm:text-base md:text-lg">
+          <p className="mx-auto mb-3 max-w-6xl text-sm leading-relaxed text-slate-300 sm:text-base md:text-lg">
             {t.rich("page_subtitle", {
               wav: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
               mp3: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
@@ -399,7 +399,7 @@ export default function Page() {
         </header>
 
         {/* Input area card */}
-        <div className="mx-auto max-w-5xl sm:mb-12">
+        <div className="mx-auto max-w-6xl sm:mb-12">
           <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
             <div className="border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 px-4 py-3">
               <h2 className="text-lg font-semibold text-white sm:text-xl md:text-2xl">
@@ -544,7 +544,7 @@ export default function Page() {
 
         {/* Loading skeleton */}
         {loadingState === "loading" && !trackInfo && (
-          <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-6xl">
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
               <div className="animate-pulse space-y-4 p-8">
                 <div className="h-64 rounded-lg bg-white/10"></div>
@@ -559,7 +559,7 @@ export default function Page() {
 
         {/* Music info card */}
         {trackInfo && (
-          <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-6xl">
             <div className="mb-8 text-center">
               <h2 className="mb-2 text-2xl font-bold text-white sm:text-3xl">
                 {t("track_info_title")}
@@ -578,7 +578,7 @@ export default function Page() {
 
         {/* Empty state message */}
         {loadingState === "idle" && !trackInfo && (
-          <div className="mx-auto max-w-5xl text-center">
+          <div className="mx-auto max-w-6xl text-center">
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-sm sm:p-10">
               <div className="mb-4 text-5xl sm:mb-6 sm:text-7xl">🎼</div>
               <h3 className="mb-2 text-xl font-bold text-white sm:mb-3 sm:text-2xl">
@@ -590,7 +590,7 @@ export default function Page() {
         )}
 
         {/* SEO Content Sections */}
-        <div className="mx-auto max-w-5xl space-y-8 md:space-y-12">
+        <div className="mx-auto max-w-6xl space-y-8 md:space-y-12">
           {/* What is this tool section */}
           <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-md sm:p-8 md:p-12">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10"></div>

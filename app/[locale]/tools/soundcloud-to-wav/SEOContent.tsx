@@ -123,7 +123,7 @@ export function FAQSection() {
   return (
     <section className="mb-12">
       <h2 className="mb-8 text-center text-3xl font-bold text-white">{t("section_faq_title")}</h2>
-      <div className="mx-auto max-w-5xl space-y-4">
+      <div className="mx-auto max-w-6xl space-y-4">
         {faqs.map((faq, index) => (
           <div
             key={index}
@@ -146,7 +146,7 @@ export function HowToSection() {
   return (
     <section className="mb-12">
       <h2 className="mb-8 text-3xl font-bold text-white">{t("section_how_to_title")}</h2>
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <ol className="list-inside list-decimal space-y-6 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-md">
           <li className="text-lg text-slate-300">
             {t.rich("section_how_to_step_1", {
@@ -185,7 +185,7 @@ export function FormatComparisonSection() {
   return (
     <section className="mb-12">
       <h2 className="mb-8 text-3xl font-bold text-white">{t("section_format_comparison_title")}</h2>
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <div className="grid gap-6 md:grid-cols-2">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-md">
             <h3 className="mb-6 text-2xl font-bold text-white">
@@ -268,7 +268,7 @@ export function UseCasesSection() {
   return (
     <section className="mb-12">
       <h2 className="mb-8 text-3xl font-bold text-white">{t("section_use_cases_title")}</h2>
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {useCases.map((useCase, idx) => (
             <div
@@ -310,7 +310,7 @@ export function KeyFeaturesSection() {
   return (
     <section className="mb-12">
       <h2 className="mb-8 text-3xl font-bold text-white">{t("section_features_title")}</h2>
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <div className="grid gap-6 md:grid-cols-3">
           {features.map((feature, idx) => (
             <div

@@ -12,7 +12,7 @@ export function ContentFreshnessBadge({ lastModified }: { lastModified: Date }) 
 
   return (
     <div
-      className={`inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-6 py-3 backdrop-blur-sm ${
+      className={`inline-flex items-center gap-3 ${
         isFresh ? "text-emerald-300" : "text-orange-300"
       }`}
     >
