@@ -1,5 +1,5 @@
 "use client"
-
+import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
 import React, { useState, useCallback } from "react"
 import { useTranslations } from "next-intl"
 import dynamic from "next/dynamic"
@@ -192,26 +192,30 @@ export default function SoundCloudPlaylistDownloaderPage() {
         ></div>
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-6xl space-y-4 py-4">
+        {/* Content Freshness Badge */}
+        <div className="flex flex-col items-center">
+          <ContentFreshnessBadge lastModified={new Date("2026-01-24")} />
+        </div>
         {/* Header Section */}
-        <header className="mb-4 text-center">
+        <header className="text-center">
           <div className="flex items-center justify-center gap-4">
             {/* Tool Badge */}
-            <div className="mb-6 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 px-6 py-3 text-white shadow-lg shadow-purple-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-500/30">
+            <div className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 px-4 py-2 text-sm text-white shadow-lg shadow-purple-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-500/30 sm:text-base md:px-6 md:py-3">
               <div className="rounded-full bg-white/20 p-1">
-                <span className="text-xl">🎵</span>
+                <span className="text-base sm:text-lg md:text-xl">🎵</span>
               </div>
               <span className="font-semibold">{t("tool_badge")}</span>
             </div>
           </div>
 
           {/* Main Title */}
-          <h1 className="my-2 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-3xl font-bold leading-tight text-transparent md:text-5xl lg:text-6xl">
+          <h1 className="my-3 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-2xl font-bold leading-tight text-transparent sm:text-3xl md:text-5xl lg:text-6xl">
             {t("page_title")}
           </h1>
 
           {/* Subtitle */}
-          <p className="text-md mx-auto mb-2 max-w-5xl leading-relaxed text-slate-300 md:text-lg">
+          <p className="mx-auto mb-3 max-w-5xl text-sm leading-relaxed text-slate-300 sm:text-base md:text-lg">
             {t.rich("page_subtitle", {
               mp3: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
               wav: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
@@ -222,13 +226,8 @@ export default function SoundCloudPlaylistDownloaderPage() {
           </p>
         </header>
 
-        {/* Content Freshness Badge */}
-        <div className="flex justify-center">
-          <ContentFreshnessBadge lastModified={new Date("2026-01-06")} />
-        </div>
-
         {/* Input Section */}
-        <div className="my-4">
+        <div className="mx-auto mb-12 max-w-5xl">
           <PlaylistInput
             url={url}
             onUrlChange={(newUrl) => {
@@ -243,6 +242,8 @@ export default function SoundCloudPlaylistDownloaderPage() {
             error={errorMessage}
           />
         </div>
+
+        <GoogleAdUnitWrap />
 
         {/* Download Progress */}
         {downloadProgress.status !== "idle" && (
@@ -275,7 +276,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
         )}
 
         {/* SEO Content Sections */}
-        <div className="mx-auto mt-32 space-y-24">
+        <div className="mx-auto max-w-5xl space-y-8 md:space-y-12">
           {/* What is this tool section */}
           <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10"></div>

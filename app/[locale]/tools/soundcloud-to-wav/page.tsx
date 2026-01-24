@@ -1,5 +1,5 @@
 "use client"
-
+import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
 import { FormEvent, useState } from "react"
 import TrackInfoCard, { TrackInfo } from "./TrackInfoCard"
 import React from "react"
@@ -17,7 +17,6 @@ import Link from "@/components/Link"
 
 type LoadingState = "idle" | "loading" | "success" | "error"
 
-// Constants
 // 播放列表URL格式: https://soundcloud.com/username/sets/playlist-name
 const SOUNDCLOUD_PLAYLIST_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/[^/]+\/sets\/.+/
 // 单个歌曲URL格式: https://soundcloud.com/username/song-name
@@ -367,24 +366,28 @@ export default function Page() {
         ></div>
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-6xl space-y-4 p-4">
+        {/* Content Freshness Badge */}
+        <div className="flex flex-col items-center">
+          <ContentFreshnessBadge lastModified={new Date("2026-01-24")} />
+        </div>
         {/* Header Section - SEO Optimized */}
-        <header className="mb-12 text-center">
+        <header className="text-center">
           {/* Tool Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 px-6 py-3 text-white shadow-lg shadow-purple-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-500/30">
+          <div className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 px-4 py-2 text-sm text-white shadow-lg shadow-purple-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-500/30 sm:text-base md:px-6 md:py-3">
             <div className="rounded-full bg-white/20 p-1">
-              <span className="text-xl">🎵</span>
+              <span className="text-base sm:text-lg md:text-xl">🎵</span>
             </div>
             <span className="font-semibold">{t("tool_badge")}</span>
           </div>
 
           {/* Main Title - H1 for SEO */}
-          <h1 className="my-6 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-3xl font-bold leading-tight text-transparent md:text-5xl lg:text-6xl">
+          <h1 className="my-3 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-2xl font-bold leading-tight text-transparent sm:text-3xl md:text-5xl lg:text-6xl">
             {t("page_title")}
           </h1>
 
           {/* Subtitle */}
-          <p className="text-md mx-auto mb-6 max-w-5xl leading-relaxed text-slate-300 md:text-lg">
+          <p className="mx-auto mb-3 max-w-5xl text-sm leading-relaxed text-slate-300 sm:text-base md:text-lg">
             {t.rich("page_subtitle", {
               wav: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
               mp3: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
@@ -393,27 +396,24 @@ export default function Page() {
               no_registration: (chunks) => <strong className="text-pink-400">{chunks}</strong>,
             })}
           </p>
-
-          {/* Content Freshness Badge */}
-          <div className="flex flex-col items-center gap-4">
-            <ContentFreshnessBadge lastModified={new Date("2026-01-02")} />
-          </div>
         </header>
 
         {/* Input area card */}
-        <div className="mx-auto mb-12 max-w-5xl">
+        <div className="mx-auto max-w-5xl sm:mb-12">
           <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
-            <div className="border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 p-6">
-              <h2 className="text-xl font-semibold text-white md:text-2xl">{t("form_title")}</h2>
+            <div className="border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 px-4 py-3">
+              <h2 className="text-lg font-semibold text-white sm:text-xl md:text-2xl">
+                {t("form_title")}
+              </h2>
             </div>
-            <div className="p-6">
-              <form onSubmit={handleGetInfo} className="space-y-6">
+            <div className="space-y-2">
+              <form onSubmit={handleGetInfo} className="space-y-2 p-4">
                 <div className="flex flex-col gap-4">
-                  <div className="flex flex-col-reverse justify-between gap-3 text-sm text-slate-400 md:flex-row">
-                    <span className="text-md font-semibold text-white/90">
+                  <div className="flex flex-col-reverse justify-between gap-3 text-xs text-slate-400 sm:text-sm md:flex-row">
+                    <span className="text-sm font-semibold text-white/90 sm:text-base">
                       {t("form_label_soundcloud_link")}
                     </span>
-                    <div className="text-md flex-col gap-3 text-slate-400 md:flex-row">
+                    <div className="flex flex-col gap-2 text-xs text-slate-400 sm:text-sm md:flex-row md:gap-3">
                       <span>{t("related_tool_text")} 👉</span>
                       <Link
                         href="/tools/soundcloud-playlist-downloader"
@@ -426,8 +426,8 @@ export default function Page() {
                   </div>
 
                   <div className="relative">
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 rounded-lg bg-white/5 p-2 backdrop-blur-sm">
-                      <span className="text-xl">🔗</span>
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 rounded-lg bg-white/5 p-1 backdrop-blur-sm">
+                      <span className="text-lg sm:text-xl">🔗</span>
                     </div>
                     <input
                       type="text"
@@ -438,18 +438,18 @@ export default function Page() {
                         setLoadingState("idle")
                       }}
                       placeholder="https://soundcloud.com/username/song-name"
-                      className="w-full rounded-lg border border-white/10 bg-white/5 py-4 pl-16 pr-6 text-lg text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
+                      className="w-full rounded-lg border border-white/10 bg-white/5 py-3 pl-14 pr-4 text-base text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20 md:pl-16 md:pr-6 md:text-lg"
                     />
                   </div>
                 </div>
                 {/* Action buttons group */}
-                <div className="space-y-4">
+                <div className="space-y-2 md:space-y-4">
                   <div className="flex flex-col gap-4 sm:flex-row">
                     <div className="flex flex-1 flex-col gap-3">
                       <button
                         type="submit"
                         disabled={loadingState === "loading" || !url.trim()}
-                        className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-base font-medium text-white shadow-lg transition-all hover:from-blue-700 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-2 py-1 text-base font-medium text-white shadow-lg transition-all hover:from-blue-700 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-50 md:px-6 md:py-3 md:text-lg"
                       >
                         <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
                         <span className="relative flex items-center justify-center gap-2">
@@ -460,7 +460,7 @@ export default function Page() {
                             </>
                           ) : (
                             <>
-                              <span className="text-xl">🔍</span>
+                              <span className="text-lg sm:text-xl">🔍</span>
                               <span>{t("form_button_get_info")}</span>
                             </>
                           )}
@@ -476,7 +476,7 @@ export default function Page() {
                         type="button"
                         onClick={handleDownload}
                         disabled={downloading || !url.trim() || loadingState === "loading"}
-                        className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-3 text-base font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 px-2 py-1 text-base font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:cursor-not-allowed disabled:opacity-50 md:px-6 md:py-3 md:text-lg"
                       >
                         <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
                         <span className="relative flex items-center justify-center gap-2">
@@ -487,7 +487,7 @@ export default function Page() {
                             </>
                           ) : (
                             <>
-                              <span className="text-xl">⬇️</span>
+                              <span className="text-lg sm:text-xl">⬇️</span>
                               <span>{t("form_button_download")}</span>
                             </>
                           )}
@@ -502,7 +502,7 @@ export default function Page() {
                       <select
                         value={extension}
                         onChange={(e) => setExtension(e.target.value)}
-                        className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-base text-white backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
+                        className="w-full rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-base text-white backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20 md:px-6 md:py-3 md:text-lg"
                       >
                         <option value="mp3" className="bg-slate-900">
                           {t("form_select_format_mp3")}
@@ -518,7 +518,7 @@ export default function Page() {
 
               {/* Error message */}
               {errorMessage && (
-                <div className="mt-6 rounded-lg border border-red-500/30 bg-red-900/20 p-4 backdrop-blur-sm">
+                <div className="mt-4 rounded-lg border border-red-500/30 bg-red-900/20 p-4 backdrop-blur-sm">
                   <div className="flex items-start gap-3 text-red-400">
                     <span className="text-xl">⚠️</span>
                     <div className="flex-1 space-y-3 text-sm font-medium">
@@ -540,9 +540,11 @@ export default function Page() {
           </div>
         </div>
 
+        <GoogleAdUnitWrap />
+
         {/* Loading skeleton */}
         {loadingState === "loading" && !trackInfo && (
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-5xl">
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
               <div className="animate-pulse space-y-4 p-8">
                 <div className="h-64 rounded-lg bg-white/10"></div>
@@ -557,10 +559,12 @@ export default function Page() {
 
         {/* Music info card */}
         {trackInfo && (
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-5xl">
             <div className="mb-8 text-center">
-              <h2 className="mb-2 text-3xl font-bold text-white">{t("track_info_title")}</h2>
-              <p className="text-sm text-slate-400">{t("track_info_subtitle")}</p>
+              <h2 className="mb-2 text-2xl font-bold text-white sm:text-3xl">
+                {t("track_info_title")}
+              </h2>
+              <p className="text-xs text-slate-400 sm:text-sm">{t("track_info_subtitle")}</p>
             </div>
             <div className="transition-all duration-500 ease-in-out">
               <TrackInfoCard
@@ -575,40 +579,44 @@ export default function Page() {
         {/* Empty state message */}
         {loadingState === "idle" && !trackInfo && (
           <div className="mx-auto max-w-5xl text-center">
-            <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-12 shadow-xl backdrop-blur-sm">
-              <div className="mb-6 text-7xl">🎼</div>
-              <h3 className="mb-3 text-2xl font-bold text-white">{t("empty_state_title")}</h3>
-              <p className="text-slate-300">{t("empty_state_description")}</p>
+            <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-sm sm:p-10">
+              <div className="mb-4 text-5xl sm:mb-6 sm:text-7xl">🎼</div>
+              <h3 className="mb-2 text-xl font-bold text-white sm:mb-3 sm:text-2xl">
+                {t("empty_state_title")}
+              </h3>
+              <p className="text-sm text-slate-300 sm:text-base">{t("empty_state_description")}</p>
             </div>
           </div>
         )}
 
         {/* SEO Content Sections */}
-        <div className="mx-auto mt-32 space-y-24">
+        <div className="mx-auto max-w-5xl space-y-8 md:space-y-12">
           {/* What is this tool section */}
-          <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
+          <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-md sm:p-8 md:p-12">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10"></div>
             <div className="relative z-10">
-              <h2 className="mb-8 text-3xl font-bold text-white">{t("section_what_is_title")}</h2>
-              <div className="grid gap-8 md:grid-cols-2">
+              <h2 className="mb-6 text-2xl font-bold text-white sm:mb-8 sm:text-3xl">
+                {t("section_what_is_title")}
+              </h2>
+              <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
                 <div>
-                  <p className="mb-6 text-lg leading-relaxed text-slate-300">
+                  <p className="mb-4 text-base leading-relaxed text-slate-300 sm:mb-6 sm:text-lg">
                     {t.rich("section_what_is_description_1", {
                       strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
                     })}
                   </p>
-                  <p className="text-lg leading-relaxed text-slate-300">
+                  <p className="text-base leading-relaxed text-slate-300 sm:text-lg">
                     {t.rich("section_what_is_description_2", {
                       strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
                     })}
                   </p>
                 </div>
-                <div className="rounded-2xl border border-white/20 bg-white/5 p-8 backdrop-blur-sm">
-                  <h3 className="mb-6 flex items-center text-xl font-semibold text-white">
-                    <span className="mr-3 text-2xl">✨</span>
+                <div className="rounded-2xl border border-white/20 bg-white/5 p-5 backdrop-blur-sm sm:p-8">
+                  <h3 className="mb-4 flex items-center text-lg font-semibold text-white sm:mb-6 sm:text-xl">
+                    <span className="mr-3 text-xl sm:text-2xl">✨</span>
                     {t("section_what_is_key_benefits")}
                   </h3>
-                  <ul className="space-y-3 text-slate-300">
+                  <ul className="space-y-2 text-sm text-slate-300 sm:space-y-3 sm:text-base">
                     <li className="flex items-center">
                       <div className="mr-3 h-2 w-2 rounded-full bg-purple-400"></div>
                       {t("section_what_is_benefit_1")}
@@ -650,17 +658,19 @@ export default function Page() {
           <FAQSection />
 
           {/* Legal and Ethical Section */}
-          <section className="rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
-            <h2 className="mb-6 text-3xl font-bold text-white">{t("section_legal_title")}</h2>
-            <div className="prose prose-lg max-w-none text-slate-300 prose-headings:text-white prose-strong:font-bold prose-strong:text-orange-300 prose-ul:text-slate-300">
+          <section className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-md sm:p-8 md:p-12">
+            <h2 className="mb-4 text-2xl font-bold text-white sm:mb-6 sm:text-3xl">
+              {t("section_legal_title")}
+            </h2>
+            <div className="prose prose-sm max-w-none text-slate-300 sm:prose-base md:prose-lg prose-headings:text-white prose-strong:font-bold prose-strong:text-orange-300 prose-ul:text-slate-300">
               <p>{t("section_legal_description")}</p>
-              <ul className="list-inside list-disc space-y-3">
+              <ul className="list-inside list-disc space-y-2 sm:space-y-3">
                 <li>{t("section_legal_point_1")}</li>
                 <li>{t("section_legal_point_2")}</li>
                 <li>{t("section_legal_point_3")}</li>
                 <li>{t("section_legal_point_4")}</li>
               </ul>
-              <p className="mt-6">{t("section_legal_footer")}</p>
+              <p className="mt-4 sm:mt-6">{t("section_legal_footer")}</p>
             </div>
           </section>
         </div>

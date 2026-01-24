@@ -75,7 +75,7 @@ export default function PlaylistTracks({
   }
 
   return (
-    <div className="mx-auto max-w-4xl">
+    <div className="mx-auto max-w-5xl">
       <div className="mb-8 flex items-center justify-between">
         <div>
           <h2 className="mb-2 text-3xl font-bold text-white">
