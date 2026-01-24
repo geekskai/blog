@@ -14,6 +14,7 @@ import {
   ChevronRight,
 } from "lucide-react"
 import { Link } from "@/app/i18n/navigation"
+import { useTranslations } from "next-intl"
 
 interface WeatherData {
   location: {
@@ -52,6 +53,7 @@ interface WeatherData {
 }
 
 export default function SnowDayCalculator() {
+  const t = useTranslations("SnowDayCalculator")
   const [location, setLocation] = useState("")
   const [loading, setLoading] = useState(false)
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null)
@@ -81,7 +83,7 @@ export default function SnowDayCalculator() {
     const trimmedInput = input.trim()
 
     if (!trimmedInput) {
-      return { isValid: false, error: "Please enter a location" }
+      return { isValid: false, error: t("search.errors.enter_location") }
     }
 
     switch (type) {
@@ -95,7 +97,7 @@ export default function SnowDayCalculator() {
         ]
         const isValidZip = zipPatterns.some((pattern) => pattern.test(trimmedInput))
         if (!isValidZip) {
-          return { isValid: false, error: "Please enter a valid zip code (e.g., 12345, K1A 0A6)" }
+          return { isValid: false, error: t("search.errors.invalid_zip") }
         }
         break
       }
@@ -105,27 +107,27 @@ export default function SnowDayCalculator() {
         if (!coordPattern.test(trimmedInput)) {
           return {
             isValid: false,
-            error: "Please use format: latitude,longitude (e.g., 40.7,-74.0)",
+            error: t("search.errors.invalid_coords_format"),
           }
         }
         const parts = trimmedInput.split(",").map((p) => p.trim())
         if (parts.length !== 2) {
-          return { isValid: false, error: "Please provide both latitude and longitude" }
+          return { isValid: false, error: t("search.errors.missing_coords") }
         }
         const lat = parseFloat(parts[0])
         const lon = parseFloat(parts[1])
         if (isNaN(lat) || isNaN(lon)) {
-          return { isValid: false, error: "Please enter valid numbers for coordinates" }
+          return { isValid: false, error: t("search.errors.invalid_coords_numbers") }
         }
         if (lat < -90 || lat > 90 || lon < -180 || lon > 180) {
-          return { isValid: false, error: "Latitude: -90 to 90, Longitude: -180 to 180" }
+          return { isValid: false, error: t("search.errors.invalid_coords_range") }
         }
         break
       }
 
       case "city": {
         if (trimmedInput.length < 2) {
-          return { isValid: false, error: "City name must be at least 2 characters" }
+          return { isValid: false, error: t("search.errors.city_too_short") }
         }
         break
       }
@@ -172,7 +174,7 @@ export default function SnowDayCalculator() {
         const data = await response.json()
 
         if (!response.ok) {
-          throw new Error(data.error || "Failed to fetch weather data")
+          throw new Error(data.error || t("search.errors.fetch_failed"))
         }
 
         setWeatherData(data)
@@ -197,7 +199,7 @@ export default function SnowDayCalculator() {
         if (err instanceof Error && err.name === "AbortError") {
           return
         }
-        setError(err instanceof Error ? err.message : "An error occurred")
+        setError(err instanceof Error ? err.message : t("search.errors.unknown_error"))
         setWeatherData(null)
       } finally {
         setLoading(false)
@@ -216,7 +218,7 @@ export default function SnowDayCalculator() {
 
   const handleGeoLocation = () => {
     if (!navigator.geolocation) {
-      setError("Geolocation is not supported by this browser")
+      setError(t("search.errors.geolocation_not_supported"))
       return
     }
 
@@ -232,20 +234,20 @@ export default function SnowDayCalculator() {
       },
       (error) => {
         setLoading(false)
-        let errorMessage = "Unable to get your location. "
+        let errorMessage = t("search.errors.unable_to_get_location")
 
         switch (error.code) {
           case error.PERMISSION_DENIED:
-            errorMessage += "Location access denied. Please allow location access and try again."
+            errorMessage += t("search.errors.location_denied")
             break
           case error.POSITION_UNAVAILABLE:
-            errorMessage += "Location information unavailable. Please enter your location manually."
+            errorMessage += t("search.errors.location_unavailable")
             break
           case error.TIMEOUT:
-            errorMessage += "Location request timed out. Please try again or enter manually."
+            errorMessage += t("search.errors.location_timeout")
             break
           default:
-            errorMessage += "Please enter your location manually."
+            errorMessage += t("search.errors.location_default")
             break
         }
 
@@ -278,24 +280,24 @@ export default function SnowDayCalculator() {
   const getPlaceholderText = (type: "zip" | "city" | "coords") => {
     switch (type) {
       case "zip":
-        return "Enter zip code (e.g., 10001, K1A 0A6)"
+        return t("search.input.zip_placeholder")
       case "city":
-        return "Enter city name (e.g., New York, NY)"
+        return t("search.input.city_placeholder")
       case "coords":
-        return "Enter coordinates (e.g., 40.7128,-74.0060)"
+        return t("search.input.coords_placeholder")
       default:
-        return "Enter location"
+        return t("search.input.zip_placeholder")
     }
   }
 
   const getExampleText = (type: "zip" | "city" | "coords") => {
     switch (type) {
       case "zip":
-        return ["10001", "90210", "K1A 0A6"]
+        return t("search.input.zip_examples").split(", ")
       case "city":
-        return ["New York, NY", "London, UK", "Toronto, ON"]
+        return t("search.input.city_examples").split(", ")
       case "coords":
-        return ["40.7,-74.0", "51.5,-0.1", "43.7,-79.4"]
+        return t("search.input.coords_examples").split(", ")
       default:
         return []
     }
@@ -304,84 +306,68 @@ export default function SnowDayCalculator() {
   // FAQ data with SEO-optimized questions and answers
   const faqData = [
     {
-      question: "How accurate are snow day predictions?",
-      answer:
-        "Our snow day calculator uses real-time weather data from OpenWeatherMap API and advanced meteorological algorithms to provide reliable predictions. The accuracy depends on multiple factors including current snowfall, temperature, wind speed, and visibility. While we can't guarantee 100% accuracy (as school districts make final decisions based on various local factors), our algorithm has been designed to closely mirror the decision-making process used by school administrators.",
+      question: t("faq.items.accuracy.question"),
+      answer: t("faq.items.accuracy.answer"),
     },
     {
-      question: "What weather factors does the calculator consider?",
-      answer:
-        "Our scientific algorithm analyzes five key weather factors: (1) Active snowfall intensity (up to 40% impact), (2) Temperature conditions, especially below -5°C (up to 25% impact), (3) Wind speed over 20 km/h (up to 20% impact), (4) Visibility under 5km (up to 15% impact), and (5) A base probability score. These factors are weighted based on their historical correlation with actual school closures.",
+      question: t("faq.items.factors.question"),
+      answer: t("faq.items.factors.answer"),
     },
     {
-      question: "Can I use this for any location worldwide?",
-      answer:
-        "Yes! Our snow day calculator works for any location globally. You can search by city name (e.g., 'Toronto, Canada'), zip/postal code (e.g., '10001' or 'K1A 0A6'), or exact coordinates (e.g., '40.7128,-74.0060'). The tool supports international locations, though the algorithm is optimized for regions that commonly experience snow-related school closures.",
+      question: t("faq.items.worldwide.question"),
+      answer: t("faq.items.worldwide.answer"),
     },
     {
-      question: "When is the best time to check for snow day predictions?",
-      answer:
-        "For the most accurate predictions, check our calculator in the evening (8-11 PM) for next-day planning, and again in the early morning (5-8 AM) for final confirmation. Weather conditions can change overnight, so we recommend checking multiple times during active winter weather events. Many families find it helpful to check before bedtime to plan ahead.",
+      question: t("faq.items.best_time.question"),
+      answer: t("faq.items.best_time.answer"),
     },
     {
-      question: "Is the snow day calculator free to use?",
-      answer:
-        "Yes, our snow day calculator is completely free and always will be! There's no registration required, no hidden fees, and no premium features locked behind paywalls. We believe every student, parent, and educator should have access to reliable weather-based school closure predictions without any cost.",
+      question: t("faq.items.free.question"),
+      answer: t("faq.items.free.answer"),
     },
     {
-      question: "How often is the weather data updated?",
-      answer:
-        "Our calculator uses real-time weather data that's updated continuously throughout the day. The OpenWeatherMap API provides current conditions that are refreshed every few minutes, ensuring you always get the latest information for your snow day calculations. For the most current predictions, we recommend checking periodically during active weather events.",
+      question: t("faq.items.update_frequency.question"),
+      answer: t("faq.items.update_frequency.answer"),
     },
     {
-      question: "Why might the calculator show different results than actual school decisions?",
-      answer:
-        "School districts consider many factors beyond weather, including road conditions, bus routes, staff availability, and local policies. Our calculator focuses purely on meteorological data, while schools may factor in things like ice on back roads, driver availability, or district-specific policies. Think of our tool as a helpful indicator rather than a definitive prediction of official school decisions.",
+      question: t("faq.items.different_results.question"),
+      answer: t("faq.items.different_results.answer"),
     },
     {
-      question: "Can I save my favorite locations for quick access?",
-      answer:
-        "Yes! Our calculator automatically saves your last 5 searched locations in your browser's local storage. You can quickly re-search any previous location by clicking on it in the 'Recent Searches' section. This feature works across all search types (zip codes, cities, and coordinates) and makes it easy to check multiple school districts or locations.",
+      question: t("faq.items.save_locations.question"),
+      answer: t("faq.items.save_locations.answer"),
     },
     {
-      question: "What's the difference between zip code, city, and coordinate searches?",
-      answer:
-        "Each search type offers different benefits: Zip code searches provide the most accurate local weather data for specific postal areas. City searches work well for general area predictions and support international locations with proper formatting. Coordinate searches offer the highest precision for exact locations and are perfect when you need weather data for specific addresses or rural areas.",
+      question: t("faq.items.search_difference.question"),
+      answer: t("faq.items.search_difference.answer"),
     },
     {
-      question: "How does the snow day algorithm compare to actual school district decisions?",
-      answer:
-        "Our algorithm is based on meteorological data analysis and historical patterns of school closures. While we achieve high correlation with actual decisions, school districts also consider local infrastructure, bus route conditions, staff availability, and district-specific policies. Use our calculator as a reliable indicator, but always check official school announcements for final decisions.",
+      question: t("faq.items.algorithm_comparison.question"),
+      answer: t("faq.items.algorithm_comparison.answer"),
     },
     {
-      question: "Can parents and teachers rely on this for planning purposes?",
-      answer:
-        "Absolutely! Our snow day calculator is designed specifically for planning purposes. Parents can use it to arrange childcare, plan work schedules, and prepare for potential school closures. Teachers can adjust lesson plans and prepare remote learning materials. However, always confirm with official school district communications before making final arrangements.",
+      question: t("faq.items.planning.question"),
+      answer: t("faq.items.planning.answer"),
     },
     {
-      question: "Does the calculator work for private schools and universities?",
-      answer:
-        "Yes, our snow day calculator works for any educational institution. The weather factors affecting closure decisions are similar across public schools, private schools, and universities. However, private institutions and universities may have different closure thresholds and policies, so the probability should be interpreted as a general weather-based indicator.",
+      question: t("faq.items.private_schools.question"),
+      answer: t("faq.items.private_schools.answer"),
     },
     {
-      question: "How does daylight saving time affect the calculations?",
-      answer:
-        "Our snow day calculator automatically handles daylight saving time changes and timezone conversions. The weather data includes proper timezone information, ensuring accurate predictions regardless of seasonal time changes. You don't need to make any manual adjustments - the system manages all time-related calculations automatically.",
+      question: t("faq.items.daylight_saving.question"),
+      answer: t("faq.items.daylight_saving.answer"),
     },
     {
-      question: "What should I do if the calculator shows an error for my location?",
-      answer:
-        "If you encounter an error, first check your input format: use proper city/state format (e.g., 'Boston, MA'), valid zip codes, or precise coordinates. For international locations, include the country name. If problems persist, try using GPS location or alternative search methods. Our system handles most global locations, but very remote areas might have limited weather data.",
+      question: t("faq.items.error_handling.question"),
+      answer: t("faq.items.error_handling.answer"),
     },
     {
-      question: "Can I use this tool for other weather-related closure predictions?",
-      answer:
-        "While specifically designed for snow day predictions, our calculator's weather analysis can provide insights for other winter weather events like ice storms, extreme cold, or blizzards that might affect school operations. The probability score reflects general severe weather impact, but our algorithm is optimized specifically for snow-related school closures.",
+      question: t("faq.items.other_weather.question"),
+      answer: t("faq.items.other_weather.answer"),
     },
     {
-      question: "How does this compare to other snow day prediction tools?",
-      answer:
-        "Our snow day calculator stands out with its scientific algorithm, real-time API integration, multiple search methods, and mobile-optimized design. Unlike simple weather apps, we specifically focus on factors that influence school closure decisions. Our tool is completely free, requires no registration, and provides detailed probability breakdowns with transparent methodology.",
+      question: t("faq.items.comparison.question"),
+      answer: t("faq.items.comparison.answer"),
     },
   ]
 
@@ -407,17 +393,17 @@ export default function SnowDayCalculator() {
           <li>
             <Link href="/" className="flex items-center transition-colors hover:text-slate-200">
               <MapPin className="h-4 w-4" />
-              <span className="ml-1">Home</span>
+              <span className="ml-1">{t("breadcrumb.home")}</span>
             </Link>
           </li>
           <ChevronRight className="h-4 w-4" />
           <li>
             <Link href="/tools" className="transition-colors hover:text-slate-200">
-              Tools
+              {t("breadcrumb.tools")}
             </Link>
           </li>
           <ChevronRight className="h-4 w-4" />
-          <li className="font-medium text-slate-100">Snow Day Calculator</li>
+          <li className="font-medium text-slate-100">{t("breadcrumb.snow_day_calculator")}</li>
         </ol>
       </nav>
 
@@ -426,43 +412,112 @@ export default function SnowDayCalculator() {
         <div className="relative mb-16 text-center">
           <div className="mb-8 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-slate-300 shadow-xl backdrop-blur-sm">
             <Snowflake className="mr-2 h-4 w-4 text-blue-400" />
-            Free Snow Day Probability Calculator
+            {t.rich("header.badge", {
+              strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+            })}
             <CloudSnow className="ml-2 h-4 w-4 text-purple-400" />
           </div>
 
           <h1 className="mb-8 text-5xl font-bold text-white sm:text-6xl lg:text-7xl">
-            <span className="block">Will School Be Closed Tomorrow?</span>
+            <span className="block">{t("header.title_line1")}</span>
             <span className="block bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
-              Snow Day Calculator
+              {t("header.title_line2")}
             </span>
           </h1>
 
           <p className="mx-auto mb-8 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
-            Get instant <strong className="text-white">snow day predictions</strong> for any
-            location worldwide using real-time weather data. Our advanced{" "}
-            <strong className="text-white">school closure predictor</strong> analyzes temperature,
-            snowfall, wind speed, and visibility to calculate precise{" "}
-            <strong className="text-white">snow day probability</strong> with scientific accuracy
-            trusted by millions of students, parents, and educators.
+            {t.rich("header.description", {
+              strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+            })}
           </p>
+
+          {/* Core Facts Section - Optimized for AI Retrieval */}
+          <div className="mx-auto mb-8 max-w-4xl">
+            <div className="grid gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-blue-900/20 via-purple-900/15 to-indigo-900/20 p-6 backdrop-blur-sm sm:grid-cols-2 lg:grid-cols-4">
+              <div className="text-center">
+                <div className="mb-2 text-2xl font-bold text-white">
+                  <strong className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                    {t("header.core_facts.free.label")}
+                  </strong>
+                </div>
+                <div className="text-sm text-slate-400">
+                  {t.rich("header.core_facts.free.description", {
+                    strong: (chunks) => <strong className="text-slate-300">{chunks}</strong>,
+                  })}
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="mb-2 text-2xl font-bold text-white">
+                  <strong className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                    {t("header.core_facts.realtime.label")}
+                  </strong>
+                </div>
+                <div className="text-sm text-slate-400">
+                  {t.rich("header.core_facts.realtime.description", {
+                    strong: (chunks) => <strong className="text-slate-300">{chunks}</strong>,
+                  })}
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="mb-2 text-2xl font-bold text-white">
+                  <strong className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    {t("header.core_facts.global.label")}
+                  </strong>
+                </div>
+                <div className="text-sm text-slate-400">
+                  {t.rich("header.core_facts.global.description", {
+                    strong: (chunks) => <strong className="text-slate-300">{chunks}</strong>,
+                  })}
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="mb-2 text-2xl font-bold text-white">
+                  <strong className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
+                    {t("header.core_facts.instant.label")}
+                  </strong>
+                </div>
+                <div className="text-sm text-slate-400">
+                  {t.rich("header.core_facts.instant.description", {
+                    strong: (chunks) => <strong className="text-slate-300">{chunks}</strong>,
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* Quick Stats */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500">
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <Thermometer className="h-4 w-4 text-red-500" />
-              <span className="font-medium">Real-time Weather API</span>
+              <span className="font-medium">
+                {t.rich("header.stats.realtime_api", {
+                  strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                })}
+              </span>
             </div>
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <Wind className="h-4 w-4 text-blue-500" />
-              <span className="font-medium">Scientific Algorithm</span>
+              <span className="font-medium">
+                {t.rich("header.stats.scientific_algorithm", {
+                  strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                })}
+              </span>
             </div>
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <Eye className="h-4 w-4 text-purple-500" />
-              <span className="font-medium">Worldwide Locations</span>
+              <span className="font-medium">
+                {t.rich("header.stats.worldwide_locations", {
+                  strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                })}
+              </span>
             </div>
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <Info className="h-4 w-4 text-green-500" />
-              <span className="font-medium">100% Free</span>
+              <span className="font-medium">
+                {t.rich("header.stats.free_forever", {
+                  strong: (chunks) => <strong className="text-green-400">{chunks}</strong>,
+                })}
+              </span>
             </div>
           </div>
         </div>
@@ -482,12 +537,13 @@ export default function SnowDayCalculator() {
                   <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-purple-500/30 bg-gradient-to-r from-purple-500/10 to-blue-500/10 px-6 py-3 backdrop-blur-sm">
                     <span className="text-2xl">🔍</span>
                     <h2 className="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 bg-clip-text text-2xl font-bold text-transparent">
-                      Choose Your Location Search Method
+                      {t("search.type_selector.title")}
                     </h2>
                   </div>
                   <p className="mx-auto max-w-2xl text-slate-300">
-                    Select how you'd like to search for{" "}
-                    <strong className="text-white">snow day predictions</strong> in your area:
+                    {t.rich("search.type_selector.description", {
+                      strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                    })}
                   </p>
                 </div>
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -495,7 +551,7 @@ export default function SnowDayCalculator() {
                     {
                       type: "zip" as const,
                       icon: "📮",
-                      label: "Zip Code",
+                      label: t("search.type_selector.zip.label"),
                       examples: getExampleText("zip"),
                       color: "blue",
                       gradient: "from-blue-500/15 to-cyan-500/10",
@@ -507,7 +563,7 @@ export default function SnowDayCalculator() {
                     {
                       type: "city" as const,
                       icon: "📍",
-                      label: "City",
+                      label: t("search.type_selector.city.label"),
                       examples: getExampleText("city"),
                       color: "emerald",
                       gradient: "from-emerald-500/15 to-teal-500/10",
@@ -519,7 +575,7 @@ export default function SnowDayCalculator() {
                     {
                       type: "coords" as const,
                       icon: "🌐",
-                      label: "Coordinates",
+                      label: t("search.type_selector.coords.label"),
                       examples: getExampleText("coords"),
                       color: "purple",
                       gradient: "from-purple-500/15 to-pink-500/10",
@@ -593,7 +649,9 @@ export default function SnowDayCalculator() {
                               <div
                                 className={`h-2 w-2 rounded-full bg-gradient-to-r ${iconBg.replace("bg-gradient-to-br", "")}`}
                               ></div>
-                              <span className="text-xs font-medium text-white">Selected</span>
+                              <span className="text-xs font-medium text-white">
+                                {t("search.type_selector.selected")}
+                              </span>
                             </div>
                           )}
                         </div>
@@ -606,24 +664,21 @@ export default function SnowDayCalculator() {
               <div className="mb-8">
                 <div className="mb-6 text-center">
                   <h3 className="mb-3 text-2xl font-bold text-white">
-                    Enter Your{" "}
+                    {t("search.type_selector.enter_your")}{" "}
                     <span
                       className={`${searchType === "zip" ? "text-blue-300" : searchType === "city" ? "text-emerald-300" : "text-purple-300"}`}
                     >
                       {searchType === "zip"
-                        ? "Zip Code"
+                        ? t("search.type_selector.zip.label")
                         : searchType === "city"
-                          ? "City"
-                          : "Coordinates"}
+                          ? t("search.type_selector.city.label")
+                          : t("search.type_selector.coords.label")}
                     </span>
                   </h3>
                   <p className="mx-auto max-w-2xl text-slate-300">
-                    {searchType === "zip" &&
-                      "Enter your zip code to get accurate snow day predictions for your school district"}
-                    {searchType === "city" &&
-                      "Enter your city name to check school closure probability in your area"}
-                    {searchType === "coords" &&
-                      "Enter precise coordinates for the most accurate weather-based school closure forecast"}
+                    {searchType === "zip" && t("search.type_selector.zip.description")}
+                    {searchType === "city" && t("search.type_selector.city.description")}
+                    {searchType === "coords" && t("search.type_selector.coords.description")}
                   </p>
                 </div>
 
@@ -680,9 +735,10 @@ export default function SnowDayCalculator() {
                                 : "border border-purple-500/30 bg-purple-500/20 text-purple-300"
                           }`}
                         >
-                          {searchType === "city" && "📍 City"}
-                          {searchType === "coords" && "🌐 Coordinates"}
-                          {searchType === "zip" && "📮 Zip Code"}
+                          {searchType === "city" && `📍 ${t("search.type_selector.city.label")}`}
+                          {searchType === "coords" &&
+                            `🌐 ${t("search.type_selector.coords.label")}`}
+                          {searchType === "zip" && `📮 ${t("search.type_selector.zip.label")}`}
                         </div>
                       </div>
                     </div>
@@ -699,12 +755,12 @@ export default function SnowDayCalculator() {
                           {loading ? (
                             <>
                               <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/30 border-t-white"></div>
-                              <span>Analyzing Weather...</span>
+                              <span>{t("search.buttons.analyzing")}</span>
                             </>
                           ) : (
                             <>
                               <Snowflake className="h-6 w-6" />
-                              <span>Calculate Snow Day</span>
+                              <span>{t("search.buttons.calculate")}</span>
                             </>
                           )}
                         </span>
@@ -716,7 +772,7 @@ export default function SnowDayCalculator() {
                         onClick={handleGeoLocation}
                         disabled={loading}
                         className="group relative overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-teal-500/10 px-6 py-4 text-white backdrop-blur-sm transition-all duration-300 hover:border-emerald-400/50 hover:from-emerald-500/20 hover:to-teal-500/15 hover:shadow-lg hover:shadow-emerald-500/25 focus:outline-none focus:ring-4 focus:ring-emerald-500/20 disabled:cursor-not-allowed disabled:opacity-50"
-                        title="Use my current location"
+                        title={t("search.buttons.gps_title")}
                       >
                         <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                         <MapPin className="relative h-6 w-6 text-emerald-300" />
@@ -733,7 +789,9 @@ export default function SnowDayCalculator() {
                     <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-400 to-purple-500">
                       <span className="text-sm">🕒</span>
                     </div>
-                    <h4 className="text-lg font-semibold text-white">Recent Searches</h4>
+                    <h4 className="text-lg font-semibold text-white">
+                      {t("search.history.title")}
+                    </h4>
                   </div>
                   <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                     {searchHistory.map((item, index) => (
@@ -780,7 +838,7 @@ export default function SnowDayCalculator() {
                     </div>
                     <div className="flex-1">
                       <h3 className="mb-2 text-lg font-bold text-red-200">
-                        Oops! Something went wrong
+                        {t("search.errors.error_title")}
                       </h3>
                       <p className="text-red-100">{error}</p>
                       <div className="mt-3 flex gap-2">
@@ -788,7 +846,7 @@ export default function SnowDayCalculator() {
                           onClick={() => setError("")}
                           className="rounded-lg bg-red-500/20 px-3 py-1 text-xs font-medium text-red-200 transition-colors hover:bg-red-500/30"
                         >
-                          Dismiss
+                          {t("search.errors.dismiss")}
                         </button>
                       </div>
                     </div>
@@ -847,7 +905,7 @@ export default function SnowDayCalculator() {
                   </div>
 
                   <div className="mb-4 text-3xl font-bold text-white drop-shadow-lg">
-                    {weatherData.snowDay.level} Chance
+                    {t("results.chance_label", { level: weatherData.snowDay.level })}
                   </div>
 
                   <div className="mx-auto max-w-2xl text-lg font-medium text-white/90 drop-shadow-sm">
@@ -864,10 +922,10 @@ export default function SnowDayCalculator() {
                     ></div>
                   </div>
                   <div className="mt-2 flex justify-between text-xs font-medium text-white/70">
-                    <span>Low</span>
-                    <span>Moderate</span>
-                    <span>High</span>
-                    <span>Very High</span>
+                    <span>{t("results.probability_labels.low")}</span>
+                    <span>{t("results.probability_labels.moderate")}</span>
+                    <span>{t("results.probability_labels.high")}</span>
+                    <span>{t("results.probability_labels.very_high")}</span>
                   </div>
                 </div>
               </div>
@@ -875,10 +933,10 @@ export default function SnowDayCalculator() {
               {/* Current Weather Info */}
               <div className="relative border-t border-white/10 bg-black/20 p-8 backdrop-blur-sm">
                 <h3 className="mb-6 text-center text-2xl font-bold text-white">
-                  Live Weather Data Analysis
+                  {t("results.weather_data.title")}
                 </h3>
                 <p className="mb-6 text-center text-slate-300">
-                  Real-time conditions affecting your snow day probability calculation
+                  {t("results.weather_data.description")}
                 </p>
                 <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
                   <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/10">
@@ -888,9 +946,13 @@ export default function SnowDayCalculator() {
                       <div className="mb-2 text-3xl font-bold text-white">
                         {weatherData.current.temperature}°C
                       </div>
-                      <div className="mb-1 text-sm font-medium text-slate-300">Temperature</div>
+                      <div className="mb-1 text-sm font-medium text-slate-300">
+                        {t("results.weather_data.temperature")}
+                      </div>
                       <div className="text-xs text-slate-400">
-                        Feels like {weatherData.current.feelsLike}°C
+                        {t("results.weather_data.feels_like", {
+                          temp: weatherData.current.feelsLike,
+                        })}
                       </div>
                     </div>
                   </div>
@@ -902,9 +964,13 @@ export default function SnowDayCalculator() {
                       <div className="mb-2 text-3xl font-bold text-white">
                         {weatherData.current.windSpeedKmh.toFixed(1)}
                       </div>
-                      <div className="mb-1 text-sm font-medium text-slate-300">km/h Wind</div>
+                      <div className="mb-1 text-sm font-medium text-slate-300">
+                        {t("results.weather_data.wind_speed")}
+                      </div>
                       <div className="text-xs text-slate-400">
-                        {weatherData.current.windSpeed.toFixed(1)} m/s
+                        {t("results.weather_data.wind_speed_ms", {
+                          speed: weatherData.current.windSpeed.toFixed(1),
+                        })}
                       </div>
                     </div>
                   </div>
@@ -916,9 +982,13 @@ export default function SnowDayCalculator() {
                       <div className="mb-2 text-3xl font-bold text-white">
                         {weatherData.current.visibilityKm.toFixed(1)}
                       </div>
-                      <div className="mb-1 text-sm font-medium text-slate-300">km Visibility</div>
+                      <div className="mb-1 text-sm font-medium text-slate-300">
+                        {t("results.weather_data.visibility")}
+                      </div>
                       <div className="text-xs text-slate-400">
-                        {weatherData.current.visibility} meters
+                        {t("results.weather_data.visibility_meters", {
+                          distance: weatherData.current.visibility,
+                        })}
                       </div>
                     </div>
                   </div>
@@ -930,9 +1000,13 @@ export default function SnowDayCalculator() {
                       <div className="mb-2 text-3xl font-bold text-white">
                         {weatherData.current.snowfall}
                       </div>
-                      <div className="mb-1 text-sm font-medium text-slate-300">mm/h Snow</div>
+                      <div className="mb-1 text-sm font-medium text-slate-300">
+                        {t("results.weather_data.snowfall")}
+                      </div>
                       <div className="text-xs text-slate-400">
-                        {weatherData.current.cloudCover}% cloud cover
+                        {t("results.weather_data.cloud_cover", {
+                          percent: weatherData.current.cloudCover,
+                        })}
                       </div>
                     </div>
                   </div>
@@ -944,41 +1018,48 @@ export default function SnowDayCalculator() {
             <div className="rounded-2xl bg-white p-6 shadow-lg">
               <h3 className="mb-4 flex items-center gap-2 text-xl font-semibold text-gray-800">
                 <Info className="h-5 w-5" />
-                Probability Factors
+                {t("results.factors.title")}
               </h3>
               <div className="space-y-4">
-                {Object.entries(weatherData.snowDay.factors).map(([key, factor]) => (
-                  <div key={key} className="border-l-4 border-blue-200 pl-4">
-                    <div className="mb-1 flex items-center justify-between">
-                      <span className="font-medium capitalize text-gray-700">
-                        {key.replace(/([A-Z])/g, " $1").trim()}
-                      </span>
-                      <span className={`font-bold ${getProbabilityTextColor(factor.impact)}`}>
-                        +{factor.impact}%
-                      </span>
+                {Object.entries(weatherData.snowDay.factors).map(([key, factor]) => {
+                  // Map camelCase keys to translation keys
+                  const factorKeyMap: Record<string, string> = {
+                    snowfall: "snowfall",
+                    temperature: "temperature",
+                    windSpeed: "wind_speed",
+                    visibility: "visibility",
+                    baseScore: "base_score",
+                  }
+                  const factorKey = factorKeyMap[key] || key.toLowerCase()
+                  return (
+                    <div key={key} className="border-l-4 border-blue-200 pl-4">
+                      <div className="mb-1 flex items-center justify-between">
+                        <span className="font-medium capitalize text-gray-700">
+                          {t(`results.factors.${factorKey}`)}
+                        </span>
+                        <span className={`font-bold ${getProbabilityTextColor(factor.impact)}`}>
+                          +{factor.impact}%
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-600">{factor.description}</p>
                     </div>
-                    <p className="text-sm text-gray-600">{factor.description}</p>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
 
             {/* Tips and Information */}
             <div className="rounded-2xl bg-white p-6 shadow-lg">
-              <h3 className="mb-4 text-xl font-semibold text-gray-800">Important Notes</h3>
+              <h3 className="mb-4 text-xl font-semibold text-gray-800">
+                {t("results.notes.title")}
+              </h3>
               <div className="prose text-gray-600">
                 <ul className="space-y-2">
-                  <li>
-                    • School closure decisions are made by individual districts based on local
-                    conditions
-                  </li>
-                  <li>• This calculator provides probability estimates based on weather factors</li>
-                  <li>• Always check official school announcements for final decisions</li>
-                  <li>
-                    • Road conditions and transportation safety are key factors not fully captured
-                    by weather data
-                  </li>
-                  <li>• Updates every few minutes with real-time weather data</li>
+                  <li>• {t("results.notes.note1")}</li>
+                  <li>• {t("results.notes.note2")}</li>
+                  <li>• {t("results.notes.note3")}</li>
+                  <li>• {t("results.notes.note4")}</li>
+                  <li>• {t("results.notes.note5")}</li>
                 </ul>
               </div>
             </div>
@@ -998,14 +1079,13 @@ export default function SnowDayCalculator() {
                   <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-3 backdrop-blur-sm">
                     <span className="text-2xl">⚡</span>
                     <h2 className="bg-gradient-to-r from-blue-300 via-purple-300 to-indigo-300 bg-clip-text text-3xl font-bold text-transparent">
-                      How Our Snow Day Calculator Works
+                      {t("features.title")}
                     </h2>
                   </div>
                   <p className="mx-auto max-w-3xl text-lg text-slate-300">
-                    Our advanced <strong className="text-white">meteorological algorithm</strong>{" "}
-                    analyzes multiple weather factors in real-time to predict{" "}
-                    <strong className="text-white">school closure probability</strong> with
-                    scientific precision
+                    {t.rich("features.description", {
+                      strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                    })}
                   </p>
                 </div>
 
@@ -1018,21 +1098,21 @@ export default function SnowDayCalculator() {
                       <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-400 to-cyan-500 shadow-lg">
                         <Snowflake className="h-8 w-8 text-white" />
                       </div>
-                      <h3 className="mb-4 text-xl font-bold text-white">Real-time Weather Data</h3>
+                      <h3 className="mb-4 text-xl font-bold text-white">
+                        {t("features.realtime.title")}
+                      </h3>
                       <p className="text-slate-300">
-                        Live data streams including{" "}
-                        <strong className="text-blue-300">temperature</strong>,{" "}
-                        <strong className="text-cyan-300">snowfall intensity</strong>,{" "}
-                        <strong className="text-blue-300">wind speed</strong>, and{" "}
-                        <strong className="text-cyan-300">visibility conditions</strong>
+                        {t.rich("features.realtime.description", {
+                          strong: (chunks) => <strong className="text-blue-300">{chunks}</strong>,
+                        })}
                       </p>
 
                       <div className="mt-6 flex justify-center space-x-3">
                         <div className="rounded-lg bg-blue-500/20 px-3 py-1 text-xs font-medium text-blue-300">
-                          🌡️ Temperature
+                          {t("features.realtime.tags.temperature")}
                         </div>
                         <div className="rounded-lg bg-cyan-500/20 px-3 py-1 text-xs font-medium text-cyan-300">
-                          ❄️ Snowfall
+                          {t("features.realtime.tags.snowfall")}
                         </div>
                       </div>
                     </div>
@@ -1046,20 +1126,21 @@ export default function SnowDayCalculator() {
                       <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-400 to-amber-500 shadow-lg">
                         <AlertCircle className="h-8 w-8 text-white" />
                       </div>
-                      <h3 className="mb-4 text-xl font-bold text-white">AI-Powered Algorithm</h3>
+                      <h3 className="mb-4 text-xl font-bold text-white">
+                        {t("features.algorithm.title")}
+                      </h3>
                       <p className="text-slate-300">
-                        Advanced{" "}
-                        <strong className="text-orange-300">machine learning models</strong> analyze
-                        proven meteorological patterns that influence{" "}
-                        <strong className="text-amber-300">school district decisions</strong>
+                        {t.rich("features.algorithm.description", {
+                          strong: (chunks) => <strong className="text-orange-300">{chunks}</strong>,
+                        })}
                       </p>
 
                       <div className="mt-6 flex justify-center space-x-3">
                         <div className="rounded-lg bg-orange-500/20 px-3 py-1 text-xs font-medium text-orange-300">
-                          🧠 AI Models
+                          {t("features.algorithm.tags.ai_models")}
                         </div>
                         <div className="rounded-lg bg-amber-500/20 px-3 py-1 text-xs font-medium text-amber-300">
-                          📊 Pattern Analysis
+                          {t("features.algorithm.tags.pattern_analysis")}
                         </div>
                       </div>
                     </div>
@@ -1073,20 +1154,23 @@ export default function SnowDayCalculator() {
                       <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 shadow-lg">
                         <MapPin className="h-8 w-8 text-white" />
                       </div>
-                      <h3 className="mb-4 text-xl font-bold text-white">Hyper-Local Precision</h3>
+                      <h3 className="mb-4 text-xl font-bold text-white">
+                        {t("features.precision.title")}
+                      </h3>
                       <p className="text-slate-300">
-                        Enter any <strong className="text-emerald-300">city name</strong>,{" "}
-                        <strong className="text-teal-300">zip code</strong>, or use{" "}
-                        <strong className="text-emerald-300">GPS coordinates</strong> for
-                        ultra-precise local weather analysis
+                        {t.rich("features.precision.description", {
+                          strong: (chunks) => (
+                            <strong className="text-emerald-300">{chunks}</strong>
+                          ),
+                        })}
                       </p>
 
                       <div className="mt-6 flex justify-center space-x-3">
                         <div className="rounded-lg bg-emerald-500/20 px-3 py-1 text-xs font-medium text-emerald-300">
-                          🌍 Global Coverage
+                          {t("features.precision.tags.global_coverage")}
                         </div>
                         <div className="rounded-lg bg-teal-500/20 px-3 py-1 text-xs font-medium text-teal-300">
-                          📍 GPS Accuracy
+                          {t("features.precision.tags.gps_accuracy")}
                         </div>
                       </div>
                     </div>
@@ -1097,21 +1181,28 @@ export default function SnowDayCalculator() {
                 <div className="mt-12 text-center">
                   <div className="to-white/2 rounded-2xl border border-white/10 bg-gradient-to-r from-white/5 p-6 backdrop-blur-sm">
                     <p className="mb-4 text-lg text-slate-300">
-                      Ready to get your snow day prediction?{" "}
-                      <strong className="text-white">Start by entering your location above!</strong>
+                      {t.rich("features.cta.description", {
+                        strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                      })}
                     </p>
                     <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-400">
                       <span className="flex items-center gap-2">
                         <div className="h-2 w-2 rounded-full bg-green-400"></div>
-                        Instant Results
+                        {t.rich("features.cta.badges.instant", {
+                          strong: (chunks) => <strong className="text-slate-300">{chunks}</strong>,
+                        })}
                       </span>
                       <span className="flex items-center gap-2">
                         <div className="h-2 w-2 rounded-full bg-blue-400"></div>
-                        100% Free
+                        {t.rich("features.cta.badges.free", {
+                          strong: (chunks) => <strong className="text-green-400">{chunks}</strong>,
+                        })}
                       </span>
                       <span className="flex items-center gap-2">
                         <div className="h-2 w-2 rounded-full bg-purple-400"></div>
-                        No Registration
+                        {t.rich("features.cta.badges.no_registration", {
+                          strong: (chunks) => <strong className="text-slate-300">{chunks}</strong>,
+                        })}
                       </span>
                     </div>
                   </div>
@@ -1131,22 +1222,18 @@ export default function SnowDayCalculator() {
             <div className="relative grid gap-12 lg:grid-cols-2">
               <div>
                 <h2 className="mb-6 text-3xl font-bold text-white">
-                  How Our Snow Day Calculator Works
+                  {t("seo_content.how_it_works.title")}
                 </h2>
                 <div className="space-y-4 text-slate-300">
                   <p>
-                    Our <strong className="text-white">snow day predictor</strong> uses advanced
-                    meteorological algorithms to analyze real-time weather conditions and determine
-                    the likelihood of school closures. By combining temperature, snowfall intensity,
-                    wind speed, and visibility data, we provide accurate{" "}
-                    <strong className="text-white">snow day probability</strong> calculations.
+                    {t.rich("seo_content.how_it_works.description1", {
+                      strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                    })}
                   </p>
                   <p>
-                    Perfect for{" "}
-                    <strong className="text-white">students, parents, and educators</strong> who
-                    need to plan ahead, our tool answers the crucial question:{" "}
-                    <strong className="text-white">"Will school be closed tomorrow?"</strong> with
-                    scientific precision.
+                    {t.rich("seo_content.how_it_works.description2", {
+                      strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                    })}
                   </p>
                   <div className="mt-6 grid gap-4 sm:grid-cols-2">
                     <div className="group relative overflow-hidden rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 p-4 transition-all duration-300 hover:border-blue-400/40 hover:from-blue-500/15 hover:to-cyan-500/10">
@@ -1156,7 +1243,7 @@ export default function SnowDayCalculator() {
                           <Snowflake className="h-5 w-5 text-blue-300" />
                         </div>
                         <span className="text-sm font-medium text-slate-200">
-                          Real-time snowfall analysis
+                          {t("seo_content.how_it_works.features.snowfall")}
                         </span>
                       </div>
                     </div>
@@ -1168,7 +1255,7 @@ export default function SnowDayCalculator() {
                           <Thermometer className="h-5 w-5 text-red-300" />
                         </div>
                         <span className="text-sm font-medium text-slate-200">
-                          Temperature impact assessment
+                          {t("seo_content.how_it_works.features.temperature")}
                         </span>
                       </div>
                     </div>
@@ -1180,7 +1267,7 @@ export default function SnowDayCalculator() {
                           <Wind className="h-5 w-5 text-emerald-300" />
                         </div>
                         <span className="text-sm font-medium text-slate-200">
-                          Wind speed calculations
+                          {t("seo_content.how_it_works.features.wind")}
                         </span>
                       </div>
                     </div>
@@ -1192,7 +1279,7 @@ export default function SnowDayCalculator() {
                           <Eye className="h-5 w-5 text-purple-300" />
                         </div>
                         <span className="text-sm font-medium text-slate-200">
-                          Visibility monitoring
+                          {t("seo_content.how_it_works.features.visibility")}
                         </span>
                       </div>
                     </div>
@@ -1202,15 +1289,13 @@ export default function SnowDayCalculator() {
 
               <div>
                 <h2 className="mb-6 text-3xl font-bold text-white">
-                  Why Use Our Snow Day Forecast Tool?
+                  {t("seo_content.why_use.title")}
                 </h2>
                 <div className="space-y-4 text-slate-300">
                   <p>
-                    Unlike basic weather apps, our specialized{" "}
-                    <strong className="text-white">school closure predictor</strong> is designed
-                    specifically for educational planning. We understand that parents need reliable
-                    information to make childcare arrangements, and students want to know if they
-                    can sleep in tomorrow.
+                    {t.rich("seo_content.why_use.description", {
+                      strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                    })}
                   </p>
                   <div className="space-y-4">
                     <div className="group flex items-start gap-4 rounded-lg border border-cyan-500/20 bg-gradient-to-r from-cyan-500/5 to-blue-500/5 p-3 transition-all duration-300 hover:border-cyan-400/40 hover:from-cyan-500/10 hover:to-blue-500/10">
@@ -1218,12 +1303,15 @@ export default function SnowDayCalculator() {
                         ⚡
                       </div>
                       <div>
-                        <strong className="bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">
-                          Instant Results:
-                        </strong>
+                        {t.rich("seo_content.why_use.benefits.instant.title", {
+                          strong: (chunks) => (
+                            <strong className="bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">
+                              {chunks}
+                            </strong>
+                          ),
+                        })}
                         <span className="text-slate-300">
-                          {" "}
-                          Get your snow day probability in seconds
+                          {t("seo_content.why_use.benefits.instant.description")}
                         </span>
                       </div>
                     </div>
@@ -1233,10 +1321,16 @@ export default function SnowDayCalculator() {
                         🌍
                       </div>
                       <div>
-                        <strong className="bg-gradient-to-r from-emerald-300 to-teal-300 bg-clip-text text-transparent">
-                          Global Coverage:
-                        </strong>
-                        <span className="text-slate-300"> Works for any location worldwide</span>
+                        {t.rich("seo_content.why_use.benefits.global.title", {
+                          strong: (chunks) => (
+                            <strong className="bg-gradient-to-r from-emerald-300 to-teal-300 bg-clip-text text-transparent">
+                              {chunks}
+                            </strong>
+                          ),
+                        })}
+                        <span className="text-slate-300">
+                          {t("seo_content.why_use.benefits.global.description")}
+                        </span>
                       </div>
                     </div>
 
@@ -1245,12 +1339,15 @@ export default function SnowDayCalculator() {
                         🔬
                       </div>
                       <div>
-                        <strong className="bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
-                          Scientific Accuracy:
-                        </strong>
+                        {t.rich("seo_content.why_use.benefits.scientific.title", {
+                          strong: (chunks) => (
+                            <strong className="bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+                              {chunks}
+                            </strong>
+                          ),
+                        })}
                         <span className="text-slate-300">
-                          {" "}
-                          Based on proven meteorological models
+                          {t("seo_content.why_use.benefits.scientific.description")}
                         </span>
                       </div>
                     </div>
@@ -1260,10 +1357,16 @@ export default function SnowDayCalculator() {
                         📱
                       </div>
                       <div>
-                        <strong className="bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent">
-                          Mobile Optimized:
-                        </strong>
-                        <span className="text-slate-300"> Perfect for on-the-go checking</span>
+                        {t.rich("seo_content.why_use.benefits.mobile.title", {
+                          strong: (chunks) => (
+                            <strong className="bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent">
+                              {chunks}
+                            </strong>
+                          ),
+                        })}
+                        <span className="text-slate-300">
+                          {t("seo_content.why_use.benefits.mobile.description")}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -1280,30 +1383,34 @@ export default function SnowDayCalculator() {
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-2 backdrop-blur-sm">
                   <span className="text-2xl">🎓</span>
                   <h3 className="bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-xl font-semibold text-transparent">
-                    Trusted by Millions of Students, Parents & Educators
+                    {t("seo_content.trusted.title")}
                   </h3>
                 </div>
                 <p className="mx-auto max-w-3xl text-slate-300">
-                  Join millions who rely on our{" "}
-                  <strong className="bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent">
-                    snow day calculator
-                  </strong>{" "}
-                  for accurate school closure predictions. Whether you're planning your morning
-                  routine or preparing lesson plans, get the reliable weather-based insights you
-                  need.
+                  {t.rich("seo_content.trusted.description", {
+                    strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                  })}
                 </p>
                 <div className="my-8 flex flex-wrap justify-center gap-4">
                   <div className="rounded-full border border-green-500/30 bg-gradient-to-r from-green-500/10 to-emerald-500/10 px-4 py-2 text-sm text-green-300 backdrop-blur-sm">
-                    ✓ Free Forever
+                    {t.rich("seo_content.trusted.badges.free_forever", {
+                      strong: (chunks) => <strong>{chunks}</strong>,
+                    })}
                   </div>
                   <div className="rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 px-4 py-2 text-sm text-blue-300 backdrop-blur-sm">
-                    ✓ No Registration Required
+                    {t.rich("seo_content.trusted.badges.no_registration", {
+                      strong: (chunks) => <strong>{chunks}</strong>,
+                    })}
                   </div>
                   <div className="rounded-full border border-purple-500/30 bg-gradient-to-r from-purple-500/10 to-pink-500/10 px-4 py-2 text-sm text-purple-300 backdrop-blur-sm">
-                    ✓ Instant Predictions
+                    {t.rich("seo_content.trusted.badges.instant", {
+                      strong: (chunks) => <strong>{chunks}</strong>,
+                    })}
                   </div>
                   <div className="rounded-full border border-amber-500/30 bg-gradient-to-r from-amber-500/10 to-orange-500/10 px-4 py-2 text-sm text-amber-300 backdrop-blur-sm">
-                    ✓ Mobile & Desktop
+                    {t.rich("seo_content.trusted.badges.mobile", {
+                      strong: (chunks) => <strong>{chunks}</strong>,
+                    })}
                   </div>
                 </div>
               </div>
@@ -1316,14 +1423,12 @@ export default function SnowDayCalculator() {
           <div className="mb-8 text-center">
             <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-3 backdrop-blur-sm">
               <span className="text-2xl">❓</span>
-              <h2 className="text-2xl font-bold text-white">
-                Frequently Asked Questions About Snow Day Calculator
-              </h2>
+              <h2 className="text-2xl font-bold text-white">{t("faq.title")}</h2>
             </div>
             <p className="mx-auto max-w-2xl text-slate-400">
-              Get answers to the most common questions about our{" "}
-              <strong className="text-blue-300">snow day calculator</strong> and how to use it
-              effectively.
+              {t.rich("faq.description", {
+                strong: (chunks) => <strong className="text-blue-300">{chunks}</strong>,
+              })}
             </p>
           </div>
 
@@ -1340,10 +1445,7 @@ export default function SnowDayCalculator() {
           <div className="mt-8 text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-gradient-to-r from-green-500/10 to-emerald-500/10 px-6 py-3 backdrop-blur-sm">
               <Info className="h-5 w-5 text-green-300" />
-              <span className="font-medium text-green-300">
-                Still have questions? Our tool provides instant answers to help you plan your snow
-                days!
-              </span>
+              <span className="font-medium text-green-300">{t("faq.footer")}</span>
             </div>
           </div>
         </section>
