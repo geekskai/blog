@@ -5642,5 +5642,310 @@
         "days_ago": "{days}d vorher"
       }
     }
+  },
+  "SnowDayCalculator": {
+    "seo_title": "Schneefrei-Rechner – Schulschließungen mit Wetterdaten vorhersagen",
+    "seo_description": "Kostenloser Schneefrei-Rechner prognostiziert die Wahrscheinlichkeit von Schulschließungen mithilfe von Echtzeit-Wetterdaten. Prüfen Sie, ob Ihre Schule aufgrund von Schneebedingungen geschlossen wird – mit präziser Vorhersage. Von Millionen von Schülern, Eltern und Lehrkräften weltweit genutzt.",
+    "seo_keywords": "Schneefrei Rechner, Schneefrei Vorhersage, Schulschließung Vorhersage, wird die Schule geschlossen, Schneefrei Wahrscheinlichkeit, wetterbedingte Schulschließungen, Schneeprognose Schule, Winterwetter Rechner, Schulverspätung Vorhersage, Schneefrei Prognose, kostenloser Schneefrei Rechner, Schulschließung Wahrscheinlichkeit, Schneefrei Wahrscheinlichkeitsrechner",
+    "og_image_alt": "Schneefrei-Rechner – Schulschließungen vorhersagen",
+    "application_name": "Schneefrei-Rechner",
+    "breadcrumb": {
+      "home": "Startseite",
+      "tools": "Tools",
+      "snow_day_calculator": "Schneefrei-Rechner"
+    },
+    "header": {
+      "badge": "<strong>Kostenlos</strong>er Schneefrei-Wahrscheinlichkeitsrechner",
+      "title_line1": "Wird die Schule morgen geschlossen?",
+      "title_line2": "Schneefrei-Rechner",
+      "description": "Erhalten Sie sofortige <strong>Schneefrei-Vorhersagen</strong> für jeden Ort weltweit mithilfe von Echtzeit-Wetterdaten. Unser fortschrittlicher <strong>Schulschließungs-Prädiktor</strong> analysiert Temperatur, Schneefall, Windgeschwindigkeit und Sichtweite, um eine präzise <strong>Schneefrei-Wahrscheinlichkeit</strong> mit wissenschaftlicher Genauigkeit zu berechnen – vertraut von Millionen von Schülern, Eltern und Lehrkräften.",
+      "core_facts": {
+        "free": {
+          "label": "Kostenlos",
+          "description": "<strong>Preis:</strong> Kostenlos, keine Registrierung"
+        },
+        "realtime": {
+          "label": "Echtzeit",
+          "description": "<strong>Daten:</strong> Live-Wetter-API-Integration"
+        },
+        "global": {
+          "label": "Global",
+          "description": "<strong>Abdeckung:</strong> Weltweit jeder Standort"
+        },
+        "instant": {
+          "label": "Sofort",
+          "description": "<strong>Ergebnisse:</strong> Berechnung in Sekunden"
+        }
+      },
+      "stats": {
+        "realtime_api": "<strong>Echtzeit</strong>-Wetter-API",
+        "scientific_algorithm": "<strong>Wissenschaftlicher</strong> Algorithmus",
+        "worldwide_locations": "<strong>Weltweite</strong> Standorte",
+        "free_forever": "<strong>100 % Kostenlos</strong>"
+      }
+    },
+    "search": {
+      "type_selector": {
+        "title": "Wählen Sie Ihre Suchmethode für den Standort",
+        "description": "Wählen Sie aus, wie Sie <strong>Schneefrei-Vorhersagen</strong> für Ihre Region suchen möchten. Unser Tool unterstützt <strong>Postleitzahlen</strong>, <strong>Städtenamen</strong> und <strong>GPS-Koordinaten</strong> für maximale Flexibilität.",
+        "zip": {
+          "label": "Postleitzahl",
+          "description": "Geben Sie Ihre Postleitzahl ein, um genaue Schneefrei-Vorhersagen für Ihren Schulbezirk zu erhalten"
+        },
+        "city": {
+          "label": "Stadt",
+          "description": "Geben Sie Ihren Stadtnamen ein, um die Wahrscheinlichkeit von Schulschließungen in Ihrer Region zu prüfen"
+        },
+        "coords": {
+          "label": "Koordinaten",
+          "description": "Geben Sie exakte Koordinaten ein, um die genaueste wetterbasierte Schulschließungsprognose zu erhalten"
+        },
+        "selected": "Ausgewählt",
+        "enter_your": "Geben Sie Ihre"
+      },
+      "input": {
+        "zip_placeholder": "Postleitzahl eingeben (z. B. 10001, K1A 0A6)",
+        "city_placeholder": "Stadtname eingeben (z. B. New York, NY)",
+        "coords_placeholder": "Koordinaten eingeben (z. B. 40.7128,-74.0060)",
+        "zip_examples": "10001, 90210, K1A 0A6",
+        "city_examples": "New York, NY, London, UK, Toronto, ON",
+        "coords_examples": "40.7,-74.0, 51.5,-0.1, 43.7,-79.4"
+      },
+      "buttons": {
+        "calculate": "Schneefrei berechnen",
+        "analyzing": "Wetter wird analysiert...",
+        "gps_title": "Meinen aktuellen Standort verwenden"
+      },
+      "history": {
+        "title": "Letzte Suchen"
+      },
+      "errors": {
+        "error_title": "Hoppla! Etwas ist schiefgelaufen",
+        "dismiss": "Schließen",
+        "enter_location": "Bitte geben Sie einen Standort ein",
+        "invalid_zip": "Bitte geben Sie eine gültige Postleitzahl ein (z. B. 12345, K1A 0A6)",
+        "invalid_coords_format": "Bitte verwenden Sie das Format: Breitengrad,Längengrad (z. B. 40.7,-74.0)",
+        "missing_coords": "Bitte geben Sie sowohl Breitengrad als auch Längengrad an",
+        "invalid_coords_numbers": "Bitte geben Sie gültige Zahlen für die Koordinaten ein",
+        "invalid_coords_range": "Breitengrad: -90 bis 90, Längengrad: -180 bis 180",
+        "city_too_short": "Der Stadtname muss mindestens 2 Zeichen lang sein",
+        "geolocation_not_supported": "Geolokalisierung wird von diesem Browser nicht unterstützt",
+        "location_denied": "Standortzugriff verweigert. Bitte erlauben Sie den Zugriff und versuchen Sie es erneut.",
+        "location_unavailable": "Standortinformationen nicht verfügbar. Bitte geben Sie Ihren Standort manuell ein.",
+        "location_timeout": "Zeitüberschreitung bei der Standortabfrage. Bitte versuchen Sie es erneut oder geben Sie den Standort manuell ein.",
+        "location_default": "Bitte geben Sie Ihren Standort manuell ein.",
+        "fetch_failed": "Abrufen der Wetterdaten fehlgeschlagen",
+        "unknown_error": "Ein Fehler ist aufgetreten",
+        "unable_to_get_location": "Ihr Standort konnte nicht ermittelt werden. "
+      }
+    },
+    "results": {
+      "location_label": "{name}, {country}",
+      "probability_label": "{probability}%",
+      "chance_label": "{level}e Chance",
+      "probability_labels": {
+        "low": "Niedrig",
+        "moderate": "Mittel",
+        "high": "Hoch",
+        "very_high": "Sehr hoch"
+      },
+      "weather_data": {
+        "title": "Analyse der Live-Wetterdaten",
+        "description": "Echtzeitbedingungen, die Ihre Berechnung der Schneefrei-Wahrscheinlichkeit beeinflussen",
+        "temperature": "Temperatur",
+        "feels_like": "Gefühlt {temp}°C",
+        "wind_speed": "km/h Wind",
+        "wind_speed_ms": "{speed} m/s",
+        "visibility": "km Sichtweite",
+        "visibility_meters": "{distance} Meter",
+        "snowfall": "mm/h Schnee",
+        "cloud_cover": "{percent}% Wolkenbedeckung"
+      },
+      "factors": {
+        "title": "Wahrscheinlichkeitsfaktoren",
+        "snowfall": "Schneefall",
+        "temperature": "Temperatur",
+        "wind_speed": "Windgeschwindigkeit",
+        "visibility": "Sichtweite",
+        "base_score": "Basiswert"
+      },
+      "notes": {
+        "title": "Wichtige Hinweise",
+        "note1": "Entscheidungen über Schulschließungen werden von einzelnen Schulbezirken auf Grundlage lokaler Bedingungen getroffen",
+        "note2": "Dieser Rechner liefert Wahrscheinlichkeitsabschätzungen auf Basis von Wetterfaktoren",
+        "note3": "Prüfen Sie immer offizielle Schulmitteilungen für endgültige Entscheidungen",
+        "note4": "Straßenverhältnisse und Verkehrssicherheit sind wichtige Faktoren, die nicht vollständig durch Wetterdaten erfasst werden",
+        "note5": "Aktualisierung alle paar Minuten mit Echtzeit-Wetterdaten"
+      }
+    },
+    "features": {
+      "title": "So funktioniert unser Schneefrei-Rechner",
+      "description": "Unser fortschrittlicher <strong>meteorologischer Algorithmus</strong> analysiert mehrere Wetterfaktoren in Echtzeit, um die <strong>Wahrscheinlichkeit von Schulschließungen</strong> mit wissenschaftlicher Präzision vorherzusagen. Entwickelt für <strong>Schüler</strong>, <strong>Eltern</strong> und <strong>Lehrkräfte</strong>, die zuverlässige Planungstools benötigen.",
+      "realtime": {
+        "title": "Echtzeit-Wetterdaten",
+        "description": "Live-Datenströme von der <strong>OpenWeatherMap API</strong> einschließlich <strong>Temperatur</strong>, <strong>Schneefallintensität</strong>, <strong>Windgeschwindigkeit</strong> und <strong>Sichtbedingungen</strong>. Alle paar Minuten aktualisiert für präzise Vorhersagen.",
+        "tags": {
+          "temperature": "🌡️ Temperatur",
+          "snowfall": "❄️ Schneefall"
+        }
+      },
+      "algorithm": {
+        "title": "Wissenschaftlicher Algorithmus",
+        "description": "Fortschrittliche <strong>meteorologische Algorithmen</strong> analysieren bewährte Wettermuster, die <strong>Entscheidungen von Schulbezirken</strong> beeinflussen. Faktoren werden anhand ihrer historischen Korrelation mit tatsächlichen Schließungen gewichtet.",
+        "tags": {
+          "ai_models": "🧠 KI-Modelle",
+          "pattern_analysis": "📊 Musteranalyse"
+        }
+      },
+      "precision": {
+        "title": "Hyperlokale Präzision",
+        "description": "Geben Sie einen <strong>Stadtnamen</strong>, eine <strong>Postleitzahl</strong> ein oder nutzen Sie <strong>GPS-Koordinaten</strong> für eine äußerst präzise lokale Wetteranalyse. Funktioniert für <strong>jeden Standort weltweit</strong>.",
+        "tags": {
+          "global_coverage": "🌍 Globale Abdeckung",
+          "gps_accuracy": "📍 GPS-Genauigkeit"
+        }
+      },
+      "cta": {
+        "title": "Bereit für Ihre Schneefrei-Vorhersage?",
+        "description": "<strong>Beginnen Sie, indem Sie oben Ihren Standort eingeben!</strong> Unser Tool ist <strong>völlig kostenlos</strong>, erfordert <strong>keine Registrierung</strong> und liefert <strong>sofortige Ergebnisse</strong>.",
+        "badges": {
+          "instant": "<strong>Sofortige</strong> Ergebnisse",
+          "free": "<strong>100 % Kostenlos</strong>",
+          "no_registration": "<strong>Keine Registrierung</strong>"
+        }
+      }
+    },
+    "seo_content": {
+      "how_it_works": {
+        "title": "So funktioniert unser Schneefrei-Rechner",
+        "description1": "Unser <strong>Schneefrei-Prädiktor</strong> nutzt fortschrittliche meteorologische Algorithmen, um Echtzeit-Wetterbedingungen zu analysieren und die Wahrscheinlichkeit von Schulschließungen zu bestimmen. Durch die Kombination von <strong>Temperatur</strong>, <strong>Schneefallintensität</strong>, <strong>Windgeschwindigkeit</strong> und <strong>Sichtdaten</strong> liefern wir präzise Berechnungen der <strong>Schneefrei-Wahrscheinlichkeit</strong>.",
+        "description2": "Ideal für <strong>Schüler</strong>, <strong>Eltern</strong> und <strong>Lehrkräfte</strong>, die vorausplanen müssen, beantwortet unser <strong>kostenloses Tool</strong> die entscheidende Frage: <strong>\"Wird die Schule morgen geschlossen?\"</strong> mit wissenschaftlicher Präzision. <strong>Keine Registrierung erforderlich</strong>, sofortige Ergebnisse.",
+        "features": {
+          "snowfall": "Echtzeit-Schneefallanalyse",
+          "temperature": "Bewertung des Temperatureinflusses",
+          "wind": "Berechnung der Windgeschwindigkeit",
+          "visibility": "Überwachung der Sichtweite"
+        }
+      },
+      "why_use": {
+        "title": "Warum unser Schneefrei-Vorhersagetool nutzen?",
+        "description": "Im Gegensatz zu einfachen Wetter-Apps ist unser spezialisierter <strong>Schulschließungs-Prädiktor</strong> speziell für die Bildungsplanung entwickelt. Wir wissen, dass <strong>Eltern</strong> verlässliche Informationen für die Kinderbetreuung benötigen und <strong>Schüler</strong> wissen möchten, ob sie morgen ausschlafen können. Unser <strong>kostenloser Rechner</strong> liefert die nötigen Einblicke.",
+        "benefits": {
+          "instant": {
+            "title": "<strong>Sofortige Ergebnisse:</strong>",
+            "description": " Erhalten Sie Ihre Schneefrei-Wahrscheinlichkeit in Sekunden"
+          },
+          "global": {
+            "title": "<strong>Globale Abdeckung:</strong>",
+            "description": " Funktioniert für jeden Standort weltweit"
+          },
+          "scientific": {
+            "title": "<strong>Wissenschaftliche Genauigkeit:</strong>",
+            "description": " Basierend auf bewährten meteorologischen Modellen"
+          },
+          "mobile": {
+            "title": "<strong>Mobil optimiert:</strong>",
+            "description": " Perfekt für die Nutzung unterwegs"
+          }
+        }
+      },
+      "trusted": {
+        "title": "Vertraut von Millionen von Schülern, Eltern & Lehrkräften",
+        "description": "Schließen Sie sich Millionen an, die auf unseren <strong>Schneefrei-Rechner</strong> für präzise Vorhersagen von Schulschließungen vertrauen. Egal ob Sie <strong>Ihren Morgen planen</strong> oder <strong>Unterricht vorbereiten</strong> – erhalten Sie die zuverlässigen wetterbasierten Einblicke, die Sie benötigen. <strong>Völlig kostenlos</strong>, <strong>keine Registrierung</strong>, <strong>sofortige Ergebnisse</strong>.",
+        "badges": {
+          "free_forever": "✓ <strong>Dauerhaft kostenlos</strong>",
+          "no_registration": "✓ <strong>Keine Registrierung</strong> erforderlich",
+          "instant": "✓ <strong>Sofortige</strong> Vorhersagen",
+          "mobile": "✓ <strong>Mobil & Desktop</strong>"
+        }
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen zum Schneefrei-Rechner",
+      "description": "Erhalten Sie Antworten auf die häufigsten Fragen zu unserem <strong>kostenlosen Schneefrei-Rechner</strong> und zur effektiven Nutzung. Erfahren Sie mehr über <strong>Preise</strong> (er ist kostenlos!), <strong>Funktionen</strong>, <strong>Genauigkeit</strong> und mehr.",
+      "footer": "Noch Fragen? Unser Tool liefert sofortige Antworten, um Ihnen bei der Planung Ihrer Schneefrei-Tage zu helfen!",
+      "items": {
+        "accuracy": {
+          "question": "Wie genau sind Schneefrei-Vorhersagen?",
+          "answer": "Unser Schneefrei-Rechner nutzt Echtzeit-Wetterdaten der OpenWeatherMap API und fortschrittliche meteorologische Algorithmen, um zuverlässige Vorhersagen zu liefern. Die Genauigkeit hängt von mehreren Faktoren ab, darunter aktueller Schneefall, Temperatur, Windgeschwindigkeit und Sichtweite. Obwohl wir keine 100%ige Genauigkeit garantieren können (da Schulbezirke ihre Entscheidungen auf Grundlage verschiedener lokaler Faktoren treffen), wurde unser Algorithmus so entwickelt, dass er den Entscheidungsprozess von Schulverwaltungen möglichst genau widerspiegelt."
+        },
+        "factors": {
+          "question": "Welche Wetterfaktoren berücksichtigt der Rechner?",
+          "answer": "Unser wissenschaftlicher Algorithmus analysiert fünf zentrale Wetterfaktoren: (1) Aktive Schneefallintensität (bis zu 40 % Einfluss), (2) Temperaturbedingungen, insbesondere unter -5 °C (bis zu 25 % Einfluss), (3) Windgeschwindigkeit über 20 km/h (bis zu 20 % Einfluss), (4) Sichtweite unter 5 km (bis zu 15 % Einfluss) und (5) einen Basis-Wahrscheinlichkeitswert. Diese Faktoren werden entsprechend ihrer historischen Korrelation mit tatsächlichen Schulschließungen gewichtet."
+        },
+        "worldwide": {
+          "question": "Kann ich das Tool weltweit nutzen?",
+          "answer": "Ja! Unser Schneefrei-Rechner funktioniert für jeden Standort weltweit. Sie können nach Stadtname (z. B. „Toronto, Kanada“), Postleitzahl (z. B. „10001“ oder „K1A 0A6“) oder exakten Koordinaten (z. B. „40.7128,-74.0060“) suchen. Das Tool unterstützt internationale Standorte, wobei der Algorithmus für Regionen optimiert ist, in denen schneebedingte Schulschließungen häufig vorkommen."
+        },
+        "best_time": {
+          "question": "Wann ist der beste Zeitpunkt, um Schneefrei-Vorhersagen zu prüfen?",
+          "answer": "Für die genauesten Vorhersagen prüfen Sie unseren Rechner am Abend (20–23 Uhr) für die Planung des nächsten Tages und erneut am frühen Morgen (5–8 Uhr) zur finalen Bestätigung. Wetterbedingungen können sich über Nacht ändern, daher empfehlen wir mehrere Überprüfungen während aktiver Winterwetterlagen. Viele Familien empfinden es als hilfreich, vor dem Schlafengehen nachzusehen, um vorauszuplanen."
+        },
+        "free": {
+          "question": "Ist der Schneefrei-Rechner kostenlos?",
+          "answer": "Ja, unser Schneefrei-Rechner ist vollständig kostenlos und wird es immer sein! Es ist keine Registrierung erforderlich, es gibt keine versteckten Gebühren und keine Premium-Funktionen hinter Bezahlschranken. Wir sind der Meinung, dass jeder Schüler, Elternteil und jede Lehrkraft Zugang zu zuverlässigen wetterbasierten Schulschließungsvorhersagen ohne Kosten haben sollte."
+        },
+        "update_frequency": {
+          "question": "Wie oft werden die Wetterdaten aktualisiert?",
+          "answer": "Unser Rechner nutzt Echtzeit-Wetterdaten, die kontinuierlich im Laufe des Tages aktualisiert werden. Die OpenWeatherMap API liefert aktuelle Bedingungen, die alle paar Minuten erneuert werden, sodass Sie stets die neuesten Informationen für Ihre Schneefrei-Berechnungen erhalten. Für die aktuellsten Vorhersagen empfehlen wir, während aktiver Wetterereignisse regelmäßig nachzusehen."
+        },
+        "different_results": {
+          "question": "Warum können die Ergebnisse von tatsächlichen Schulentscheidungen abweichen?",
+          "answer": "Schulbezirke berücksichtigen viele Faktoren über das Wetter hinaus, darunter Straßenverhältnisse, Busstrecken, Personalverfügbarkeit und lokale Richtlinien. Unser Rechner konzentriert sich ausschließlich auf meteorologische Daten, während Schulen beispielsweise auch Eis auf Nebenstraßen, Fahrer-Verfügbarkeit oder bezirksspezifische Vorgaben einbeziehen. Betrachten Sie unser Tool als hilfreichen Indikator und nicht als verbindliche Vorhersage offizieller Schulentscheidungen."
+        },
+        "save_locations": {
+          "question": "Kann ich meine bevorzugten Standorte speichern?",
+          "answer": "Ja! Unser Rechner speichert automatisch Ihre letzten 5 gesuchten Standorte im lokalen Speicher Ihres Browsers. Sie können jeden früheren Standort schnell erneut aufrufen, indem Sie ihn im Bereich „Letzte Suchen“ anklicken. Diese Funktion funktioniert für alle Suchtypen (Postleitzahlen, Städte und Koordinaten) und erleichtert die Überprüfung mehrerer Schulbezirke oder Standorte."
+        },
+        "search_difference": {
+          "question": "Was ist der Unterschied zwischen Postleitzahl-, Stadt- und Koordinatensuche?",
+          "answer": "Jede Suchart bietet unterschiedliche Vorteile: Die Postleitzahlensuche liefert die genauesten lokalen Wetterdaten für bestimmte Postgebiete. Die Stadtsuche eignet sich gut für allgemeine Vorhersagen und unterstützt internationale Standorte bei korrekter Formatierung. Die Koordinatensuche bietet die höchste Präzision für exakte Standorte und ist ideal, wenn Sie Wetterdaten für bestimmte Adressen oder ländliche Gebiete benötigen."
+        },
+        "algorithm_comparison": {
+          "question": "Wie schneidet der Schneefrei-Algorithmus im Vergleich zu echten Schulentscheidungen ab?",
+          "answer": "Unser Algorithmus basiert auf der Analyse meteorologischer Daten und historischer Muster von Schulschließungen. Obwohl wir eine hohe Übereinstimmung mit tatsächlichen Entscheidungen erreichen, berücksichtigen Schulbezirke zusätzlich lokale Infrastruktur, Busbedingungen, Personalverfügbarkeit und bezirksspezifische Richtlinien. Nutzen Sie unseren Rechner als zuverlässigen Indikator, prüfen Sie jedoch immer offizielle Schulmitteilungen für endgültige Entscheidungen."
+        },
+        "planning": {
+          "question": "Können Eltern und Lehrkräfte das Tool zur Planung nutzen?",
+          "answer": "Absolut! Unser Schneefrei-Rechner wurde speziell für Planungszwecke entwickelt. Eltern können ihn nutzen, um Kinderbetreuung zu organisieren, Arbeitszeiten zu planen und sich auf mögliche Schulschließungen vorzubereiten. Lehrkräfte können Unterrichtspläne anpassen und Materialien für den Fernunterricht vorbereiten. Bestätigen Sie jedoch immer offizielle Mitteilungen der Schulbezirke, bevor Sie endgültige Entscheidungen treffen."
+        },
+        "private_schools": {
+          "question": "Funktioniert der Rechner auch für Privatschulen und Universitäten?",
+          "answer": "Ja, unser Schneefrei-Rechner funktioniert für alle Bildungseinrichtungen. Die Wetterfaktoren, die Schließungsentscheidungen beeinflussen, sind bei öffentlichen Schulen, Privatschulen und Universitäten ähnlich. Allerdings können private Einrichtungen und Universitäten unterschiedliche Schwellenwerte und Richtlinien haben, daher sollte die Wahrscheinlichkeit als allgemeiner wetterbasierter Indikator interpretiert werden."
+        },
+        "daylight_saving": {
+          "question": "Wie wirkt sich die Sommerzeit auf die Berechnungen aus?",
+          "answer": "Unser Schneefrei-Rechner berücksichtigt automatisch Änderungen der Sommerzeit sowie Zeitzonenumrechnungen. Die Wetterdaten enthalten korrekte Zeitzoneninformationen, sodass genaue Vorhersagen unabhängig von saisonalen Zeitumstellungen gewährleistet sind. Sie müssen keine manuellen Anpassungen vornehmen – das System verwaltet alle zeitbezogenen Berechnungen automatisch."
+        },
+        "error_handling": {
+          "question": "Was soll ich tun, wenn der Rechner einen Fehler für meinen Standort anzeigt?",
+          "answer": "Wenn ein Fehler auftritt, überprüfen Sie zunächst Ihr Eingabeformat: Verwenden Sie das korrekte Stadt/Bundesland-Format (z. B. „Boston, MA“), gültige Postleitzahlen oder präzise Koordinaten. Für internationale Standorte geben Sie bitte den Ländernamen an. Falls das Problem weiterhin besteht, versuchen Sie die GPS-Ortung oder alternative Suchmethoden. Unser System unterstützt die meisten globalen Standorte, jedoch können für sehr abgelegene Gebiete nur begrenzte Wetterdaten verfügbar sein."
+        },
+        "other_weather": {
+          "question": "Kann ich dieses Tool auch für andere wetterbedingte Schließungsvorhersagen nutzen?",
+          "answer": "Obwohl unser Rechner speziell für Schneefrei-Vorhersagen entwickelt wurde, kann seine Wetteranalyse auch Einblicke in andere winterliche Wetterereignisse wie Eisstürme, extreme Kälte oder Blizzards liefern, die den Schulbetrieb beeinträchtigen könnten. Der Wahrscheinlichkeitswert spiegelt allgemeine Auswirkungen von Extremwetter wider, der Algorithmus ist jedoch speziell auf schneebedingte Schulschließungen optimiert."
+        },
+        "comparison": {
+          "question": "Wie unterscheidet sich dieses Tool von anderen Schneefrei-Vorhersagetools?",
+          "answer": "Unser Schneefrei-Rechner hebt sich durch seinen wissenschaftlichen Algorithmus, die Echtzeit-API-Integration, mehrere Suchmethoden und ein mobiloptimiertes Design ab. Im Gegensatz zu einfachen Wetter-Apps konzentrieren wir uns gezielt auf Faktoren, die Schulschließungsentscheidungen beeinflussen. Unser Tool ist vollständig kostenlos, erfordert keine Registrierung und bietet detaillierte Wahrscheinlichkeitsaufschlüsselungen mit transparenter Methodik."
+        }
+      }
+    },
+    "json_ld": {
+      "name": "Schneefrei-Rechner",
+      "description": "Kostenloser Schneefrei-Rechner prognostiziert die Wahrscheinlichkeit von Schulschließungen mithilfe von Echtzeit-Wetterdaten. Von Millionen von Schülern, Eltern und Lehrkräften weltweit genutzt.",
+      "audience_type": "Schüler, Eltern, Lehrkräfte, Schuladministratoren",
+      "usage_info": "Kostenlos nutzbar, keine Registrierung erforderlich. Standort eingeben, um sofortige Schneefrei-Wahrscheinlichkeitsvorhersagen zu erhalten.",
+      "feature_list": {
+        "realtime_api": "Integration von Echtzeit-Wetterdaten über die OpenWeatherMap API",
+        "probability_calculation": "Berechnung der Schulschließungswahrscheinlichkeit mit wissenschaftlichen Algorithmen",
+        "location_based": "Standortbasierte Vorhersagen für jeden Ort weltweit",
+        "weather_factors": "Analyse mehrerer Wetterfaktoren (Temperatur, Schneefall, Wind, Sichtweite)",
+        "mobile_design": "Mobil-optimiertes Design für den Zugriff unterwegs",
+        "instant_results": "Sofortige Ergebnisse mit detaillierter Wahrscheinlichkeitsaufschlüsselung",
+        "multiple_search": "Mehrere Suchmethoden (Postleitzahl, Stadtname, GPS-Koordinaten)",
+        "search_history": "Suchverlauf für schnellen Zugriff auf bevorzugte Standorte"
+      }
+    }
   }
 }

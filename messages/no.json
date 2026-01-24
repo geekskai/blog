@@ -5323,5 +5323,311 @@
         "days_ago": "{days}d siden"
       }
     }
+  },
+
+  "SnowDayCalculator": {
+    "seo_title": "Snødagskalkulator – Forutsi skole­stengninger med værdata",
+    "seo_description": "Gratis snødagskalkulator som forutsier sannsynligheten for skolestenging ved hjelp av værdata i sanntid. Sjekk om skolen din blir stengt på grunn av snøforhold med nøyaktige prognoser. Brukt av millioner av elever, foreldre og lærere over hele verden.",
+    "seo_keywords": "snødagskalkulator, snødagsprognose, skole­stengnings­prognose, blir skolen stengt, snødags­sannsynlighet, vær skole­stengninger, snøvarsel skole, vinterværkalkulator, skoleforsinkelse prognose, snødagsvarsel, gratis snødagskalkulator, skole­stengnings­sannsynlighet, snødags­sannsynlighets­kalkulator",
+    "og_image_alt": "Snødagskalkulator – Forutsi skole­stengninger",
+    "application_name": "Snødagskalkulator",
+    "breadcrumb": {
+      "home": "Hjem",
+      "tools": "Verktøy",
+      "snow_day_calculator": "Snødagskalkulator"
+    },
+    "header": {
+      "badge": "<strong>Gratis</strong> snødags­sannsynlighets­kalkulator",
+      "title_line1": "Blir skolen stengt i morgen?",
+      "title_line2": "Snødagskalkulator",
+      "description": "Få umiddelbare <strong>snødagsprognoser</strong> for alle steder i verden ved hjelp av værdata i sanntid. Vår avanserte <strong>skole­stengnings­prognose</strong> analyserer temperatur, snøfall, vindhastighet og sikt for å beregne en presis <strong>snødags­sannsynlighet</strong> med vitenskapelig nøyaktighet, betrodd av millioner av elever, foreldre og lærere.",
+      "core_facts": {
+        "free": {
+          "label": "Gratis",
+          "description": "<strong>Pris:</strong> Ingen kostnad, ingen registrering"
+        },
+        "realtime": {
+          "label": "Sanntid",
+          "description": "<strong>Data:</strong> Integrasjon med live vær-API"
+        },
+        "global": {
+          "label": "Global",
+          "description": "<strong>Dekning:</strong> Alle steder i verden"
+        },
+        "instant": {
+          "label": "Umiddelbar",
+          "description": "<strong>Resultater:</strong> Beregnes på sekunder"
+        }
+      },
+      "stats": {
+        "realtime_api": "<strong>Sanntids</strong> vær-API",
+        "scientific_algorithm": "<strong>Vitenskapelig</strong> algoritme",
+        "worldwide_locations": "<strong>Verdensomspennende</strong> steder",
+        "free_forever": "<strong>100 % gratis</strong>"
+      }
+    },
+    "search": {
+      "type_selector": {
+        "title": "Velg søkemetode for sted",
+        "description": "Velg hvordan du vil søke etter <strong>snødagsprognoser</strong> i ditt område. Verktøyet støtter <strong>postnummer</strong>, <strong>bynavn</strong> og <strong>GPS-koordinater</strong> for maksimal fleksibilitet.",
+        "zip": {
+          "label": "Postnummer",
+          "description": "Skriv inn postnummeret ditt for å få nøyaktige snødagsprognoser for skoledistriktet ditt"
+        },
+        "city": {
+          "label": "By",
+          "description": "Skriv inn bynavnet ditt for å sjekke sannsynligheten for skolestenging i området ditt"
+        },
+        "coords": {
+          "label": "Koordinater",
+          "description": "Skriv inn presise koordinater for den mest nøyaktige værbaserte prognosen for skolestenging"
+        },
+        "selected": "Valgt",
+        "enter_your": "Skriv inn"
+      },
+      "input": {
+        "zip_placeholder": "Skriv inn postnummer (f.eks. 10001, K1A 0A6)",
+        "city_placeholder": "Skriv inn bynavn (f.eks. New York, NY)",
+        "coords_placeholder": "Skriv inn koordinater (f.eks. 40.7128,-74.0060)",
+        "zip_examples": "10001, 90210, K1A 0A6",
+        "city_examples": "New York, NY, London, UK, Toronto, ON",
+        "coords_examples": "40.7,-74.0, 51.5,-0.1, 43.7,-79.4"
+      },
+      "buttons": {
+        "calculate": "Beregn snødag",
+        "analyzing": "Analyserer vær...",
+        "gps_title": "Bruk min nåværende posisjon"
+      },
+      "history": {
+        "title": "Nylige søk"
+      },
+      "errors": {
+        "error_title": "Oops! Noe gikk galt",
+        "dismiss": "Lukk",
+        "enter_location": "Vennligst skriv inn et sted",
+        "invalid_zip": "Vennligst skriv inn et gyldig postnummer (f.eks. 12345, K1A 0A6)",
+        "invalid_coords_format": "Bruk formatet: breddegrad,lengdegrad (f.eks. 40.7,-74.0)",
+        "missing_coords": "Oppgi både breddegrad og lengdegrad",
+        "invalid_coords_numbers": "Skriv inn gyldige tall for koordinater",
+        "invalid_coords_range": "Breddegrad: -90 til 90, Lengdegrad: -180 til 180",
+        "city_too_short": "Bynavnet må være minst 2 tegn",
+        "geolocation_not_supported": "Geolokalisering støttes ikke av denne nettleseren",
+        "location_denied": "Tilgang til posisjon ble avslått. Tillat tilgang og prøv igjen.",
+        "location_unavailable": "Posisjonsinformasjon er utilgjengelig. Skriv inn stedet manuelt.",
+        "location_timeout": "Forespørsel om posisjon tok for lang tid. Prøv igjen eller skriv inn manuelt.",
+        "location_default": "Vennligst skriv inn stedet ditt manuelt.",
+        "fetch_failed": "Kunne ikke hente værdata",
+        "unknown_error": "En feil oppstod",
+        "unable_to_get_location": "Kan ikke hente posisjonen din. "
+      }
+    },
+    "results": {
+      "location_label": "{name}, {country}",
+      "probability_label": "{probability}%",
+      "chance_label": "{level} sjanse",
+      "probability_labels": {
+        "low": "Lav",
+        "moderate": "Moderat",
+        "high": "Høy",
+        "very_high": "Svært høy"
+      },
+      "weather_data": {
+        "title": "Analyse av værdata i sanntid",
+        "description": "Sanntidsforhold som påvirker beregningen av snødags­sannsynlighet",
+        "temperature": "Temperatur",
+        "feels_like": "Føles som {temp}°C",
+        "wind_speed": "km/t vind",
+        "wind_speed_ms": "{speed} m/s",
+        "visibility": "km sikt",
+        "visibility_meters": "{distance} meter",
+        "snowfall": "mm/t snø",
+        "cloud_cover": "{percent}% skydekke"
+      },
+      "factors": {
+        "title": "Sannsynlighetsfaktorer",
+        "snowfall": "Snøfall",
+        "temperature": "Temperatur",
+        "wind_speed": "Vindhastighet",
+        "visibility": "Sikt",
+        "base_score": "Grunnscore"
+      },
+      "notes": {
+        "title": "Viktige merknader",
+        "note1": "Beslutninger om skolestenging tas av hvert enkelt skoledistrikt basert på lokale forhold",
+        "note2": "Denne kalkulatoren gir sannsynlighetsestimater basert på værfaktorer",
+        "note3": "Sjekk alltid offisielle skolekunngjøringer for endelige beslutninger",
+        "note4": "Vei- og transportsikkerhet er viktige faktorer som ikke fullt ut fanges opp av værdata",
+        "note5": "Oppdateres hvert par minutter med værdata i sanntid"
+      }
+    },
+    "features": {
+      "title": "Hvordan snødagskalkulatoren fungerer",
+      "description": "Vår avanserte <strong>meteorologiske algoritme</strong> analyserer flere værfaktorer i sanntid for å forutsi <strong>sannsynligheten for skolestenging</strong> med vitenskapelig presisjon. Utviklet for <strong>elever</strong>, <strong>foreldre</strong> og <strong>lærere</strong> som trenger pålitelige planleggingsverktøy.",
+      "realtime": {
+        "title": "Værdata i sanntid",
+        "description": "Direkte datastrømmer fra <strong>OpenWeatherMap API</strong>, inkludert <strong>temperatur</strong>, <strong>snøintensitet</strong>, <strong>vindhastighet</strong> og <strong>siktforhold</strong>. Oppdateres hvert par minutter for nøyaktige prognoser.",
+        "tags": {
+          "temperature": "🌡️ Temperatur",
+          "snowfall": "❄️ Snøfall"
+        }
+      },
+      "algorithm": {
+        "title": "Vitenskapelig algoritme",
+        "description": "Avanserte <strong>meteorologiske algoritmer</strong> analyserer dokumenterte værmønstre som påvirker <strong>beslutninger i skoledistrikter</strong>. Faktorene vektes basert på historisk sammenheng med faktiske stengninger.",
+        "tags": {
+          "ai_models": "🧠 KI-modeller",
+          "pattern_analysis": "📊 Mønsteranalyse"
+        }
+      },
+      "precision": {
+        "title": "Hyperlokal presisjon",
+        "description": "Skriv inn <strong>bynavn</strong>, <strong>postnummer</strong> eller bruk <strong>GPS-koordinater</strong> for svært presis lokal væranalyse. Fungerer for <strong>alle steder i verden</strong>.",
+        "tags": {
+          "global_coverage": "🌍 Global dekning",
+          "gps_accuracy": "📍 GPS-nøyaktighet"
+        }
+      },
+      "cta": {
+        "title": "Klar for å få snødagsprognosen din?",
+        "description": "<strong>Start med å skrive inn stedet ditt ovenfor!</strong> Verktøyet er <strong>helt gratis</strong>, krever <strong>ingen registrering</strong> og gir <strong>umiddelbare resultater</strong>.",
+        "badges": {
+          "instant": "<strong>Umiddelbare</strong> resultater",
+          "free": "<strong>100 % gratis</strong>",
+          "no_registration": "<strong>Ingen registrering</strong>"
+        }
+      }
+    },
+    "seo_content": {
+      "how_it_works": {
+        "title": "Hvordan vår snødagskalkulator fungerer",
+        "description1": "Vår <strong>snødagsprediktor</strong> bruker avanserte meteorologiske algoritmer for å analysere værforhold i sanntid og bestemme sannsynligheten for skolestenginger. Ved å kombinere <strong>temperatur</strong>, <strong>snøintensitet</strong>, <strong>vindhastighet</strong> og <strong>siktdata</strong>, gir vi nøyaktige beregninger av <strong>snødagssannsynlighet</strong>.",
+        "description2": "Perfekt for <strong>studenter</strong>, <strong>foreldre</strong> og <strong>pedagoger</strong> som trenger å planlegge på forhånd, svarer vårt <strong>gratis verktøy</strong> på det avgjørende spørsmålet: <strong>\"Vil skolen være stengt i morgen?\"</strong> med vitenskapelig presisjon. <strong>Ingen registrering påkrevd</strong>, øyeblikkelige resultater.",
+        "features": {
+          "snowfall": "Sanntidsanalyse av snøfall",
+          "temperature": "Vurdering av temperatureffekt",
+          "wind": "Beregninger av vindhastighet",
+          "visibility": "Overvåking av sikt"
+        }
+      },
+      "why_use": {
+        "title": "Hvorfor bruke vårt snødagsvarslingsverktøy?",
+        "description": "I motsetning til grunnleggende værapplikasjoner, er vår spesialiserte <strong>skolestengingsprediktor</strong> designet spesifikt for utdanningsplanlegging. Vi forstår at <strong>foreldre</strong> trenger pålitelig informasjon for å ordne barnevakt, og at <strong>studenter</strong> vil vite om de kan sove ut i morgen. Vår <strong>gratis kalkulator</strong> gir innsikten du trenger.",
+        "benefits": {
+          "instant": {
+            "title": "<strong>Øyeblikkelige resultater:</strong>",
+            "description": " Få din snødagssannsynlighet på sekunder"
+          },
+          "global": {
+            "title": "<strong>Global dekning:</strong>",
+            "description": " Fungerer for hvor som helst i verden"
+          },
+          "scientific": {
+            "title": "<strong>Vitenskapelig nøyaktighet:</strong>",
+            "description": " Basert på påviste meteorologiske modeller"
+          },
+          "mobile": {
+            "title": "<strong>Mobiloptimalisert:</strong>",
+            "description": " Perfekt for sjekking på farten"
+          }
+        }
+      },
+      "trusted": {
+        "title": "Stolt på av millioner av studenter, foreldre og pedagoger",
+        "description": "Bli med millioner som stoler på vår <strong>snødagskalkulator</strong> for nøyaktige spådommer om skolestenginger. Enten du <strong>planlegger morgenrutinen din</strong> eller <strong>forbereder timeplaner</strong>, få de pålitelige værbaserte innsiktene du trenger. <strong>Helt gratis</strong>, <strong>ingen registrering</strong>, <strong>øyeblikkelige resultater</strong>.",
+        "badges": {
+          "free_forever": "✓ <strong>Gratis for alltid</strong>",
+          "no_registration": "✓ <strong>Ingen registrering</strong> påkrevd",
+          "instant": "✓ <strong>Øyeblikkelige</strong> spådommer",
+          "mobile": "✓ <strong>Mobil og skrivebord</strong>"
+        }
+      }
+    },
+    "faq": {
+      "title": "Ofte stilte spørsmål om snødagskalkulator",
+      "description": "Få svar på de vanligste spørsmålene om vår <strong>gratis snødagskalkulator</strong> og hvordan du bruker den effektivt. Lær om <strong>prising</strong> (den er gratis!), <strong>funksjoner</strong>, <strong>nøyaktighet</strong> og mer.",
+      "footer": "Har du fortsatt spørsmål? Vårt verktøy gir øyeblikkelige svar for å hjelpe deg med å planlegge snødagene dine!",
+      "items": {
+        "accuracy": {
+          "question": "Hvor nøyaktige er spådommene om snødager?",
+          "answer": "Vår snødagskalkulator bruker sanntidsværdata fra OpenWeatherMap API og avanserte meteorologiske algoritmer for å gi pålitelige spådommer. Nøyaktigheten avhenger av flere faktorer, inkludert nåværende snøfall, temperatur, vindhastighet og sikt. Selv om vi ikke kan garantere 100% nøyaktighet (siden skoledistrikter tar endelige beslutninger basert på ulike lokale faktorer), har algoritmen vår blitt designet for å speile beslutningsprosessen som brukes av skoleadministratorer."
+        },
+        "factors": {
+          "question": "Hvilke værfaktorer vurderer kalkulatoren?",
+          "answer": "Vår vitenskapelige algoritme analyserer fem nøkkelværfaktorer: (1) Aktiv snøfallintensitet (opptil 40% innvirkning), (2) Temperaturforhold, spesielt under -5°C (opptil 25% innvirkning), (3) Vindhastighet over 20 km/t (opptil 20% innvirkning), (4) Sikt under 5 km (opptil 15% innvirkning), og (5) En grunnsannsynlighetsscore. Disse faktorene er vektet basert på deres historiske korrelasjon med faktiske skolestenginger."
+        },
+        "worldwide": {
+          "question": "Kan jeg bruke dette for hvor som helst i verden?",
+          "answer": "Ja! Vår snødagskalkulator fungerer for hvor som helst globalt. Du kan søke etter bynavn (f.eks. 'Toronto, Canada'), postnummer (f.eks. '10001' eller 'K1A 0A6'), eller eksakte koordinater (f.eks. '40.7128,-74.0060'). Verktøyet støtter internasjonale steder, selv om algoritmen er optimalisert for regioner som ofte opplever snørelaterte skolestenginger."
+        },
+        "best_time": {
+          "question": "Når er det beste tidspunktet å sjekke for snødagsspådommer?",
+          "answer": "For de mest nøyaktige spådommene, sjekk kalkulatoren vår om kvelden (20-23) for planlegging neste dag, og igjen tidlig om morgenen (5-8) for endelig bekreftelse. Værforhold kan endre seg over natten, så vi anbefaler å sjekke flere ganger under aktive vinterværhendelser. Mange familier synes det er nyttig å sjekke før leggetid for å planlegge på forhånd."
+        },
+        "free": {
+          "question": "Er snødagskalkulatoren gratis å bruke?",
+          "answer": "Ja, vår snødagskalkulator er helt gratis og vil alltid være det! Det kreves ingen registrering, ingen skjulte avgifter, og ingen premiumfunksjoner låst bak betalingsmurer. Vi mener at hver student, forelder og pedagog skal ha tilgang til pålitelige værbaserte spådommer om skolestenginger uten noen kostnad."
+        },
+        "update_frequency": {
+          "question": "Hvor ofte oppdateres værdataene?",
+          "answer": "Kalkulatoren vår bruker sanntidsværdata som oppdateres kontinuerlig gjennom dagen. OpenWeatherMap API gir nåværende forhold som oppdateres hvert få minutter, noe som sikrer at du alltid får den siste informasjonen for snødagsberegningene dine. For de mest aktuelle spådommene anbefaler vi å sjekke periodisk under aktive værhendelser."
+        },
+        "different_results": {
+          "question": "Hvorfor kan kalkulatoren vise forskjellige resultater enn faktiske skolebeslutninger?",
+          "answer": "Skoledistrikter vurderer mange faktorer utover været, inkludert veiforhold, bussruter, personaltilgjengelighet og lokale retningslinjer. Kalkulatoren vår fokuserer utelukkende på meteorologiske data, mens skoler kan ta hensyn til ting som is på sideveier, sjåførtilgjengelighet eller distriktsspesifikke retningslinjer. Tenk på verktøyet vårt som en nyttig indikator snarere enn en definitiv spådom om offisielle skolebeslutninger."
+        },
+        "save_locations": {
+          "question": "Kan jeg lagre favorittstedene mine for rask tilgang?",
+          "answer": "Ja! Kalkulatoren vår lagrer automatisk de siste 5 søkte stedene i nettleserens lokale lagring. Du kan raskt søke på nytt på et tidligere sted ved å klikke på det i 'Nylige søk'-seksjonen. Denne funksjonen fungerer på tvers av alle søketyper (postnummer, byer og koordinater) og gjør det enkelt å sjekke flere skoledistrikter eller steder."
+        },
+        "search_difference": {
+          "question": "Hva er forskjellen mellom postnummer-, by- og koordinatsøk?",
+          "answer": "Hver søketype tilbyr ulike fordeler: Postnummersøk gir de mest nøyaktige lokale værdataene for spesifikke postområder. Bysøk fungerer godt for generelle områdespådommer og støtter internasjonale steder med riktig formatering. Koordinatsøk gir høyest presisjon for eksakte steder og er perfekt når du trenger værdata for spesifikke adresser eller landlige områder."
+        },
+        "algorithm_comparison": {
+          "question": "Hvordan sammenligner snødagsalgoritmen seg med faktiske skoledistriktsbeslutninger?",
+          "answer": "Algoritmen vår er basert på meteorologisk dataanalyse og historiske mønstre av skolestenginger. Mens vi oppnår høy korrelasjon med faktiske beslutninger, vurderer skoledistrikter også lokal infrastruktur, bussruteforhold, personaltilgjengelighet og distriktsspesifikke retningslinjer. Bruk kalkulatoren vår som en pålitelig indikator, men sjekk alltid offisielle skolekunngjøringer for endelige beslutninger."
+        },
+        "planning": {
+          "question": "Kan foreldre og lærere stole på dette for planleggingsformål?",
+          "answer": "Absolutt! Vår snødagskalkulator er designet spesifikt for planleggingsformål. Foreldre kan bruke den til å ordne barnevakt, planlegge arbeidsplaner og forberede seg på potensielle skolestenginger. Lærere kan justere timeplaner og forberede fjernlæringsmateriell. Bekreft imidlertid alltid med offisielle skoledistriktskommunikasjoner før du tar endelige arrangementer."
+        },
+        "private_schools": {
+          "question": "Fungerer kalkulatoren for private skoler og universiteter?",
+          "answer": "Ja, vår snødagskalkulator fungerer for alle utdanningsinstitusjoner. Værfaktorene som påvirker stengingsbeslutninger er like på tvers av offentlige skoler, private skoler og universiteter. Private institusjoner og universiteter kan imidlertid ha forskjellige stengingsgrenser og retningslinjer, så sannsynligheten bør tolkes som en generell værbasert indikator."
+        },
+        "daylight_saving": {
+          "question": "Hvordan påvirker sommertid beregningene?",
+          "answer": "Vår snødagskalkulator håndterer automatisk sommertidsendringer og tidssonekonverteringer. Værdataene inkluderer riktig tidssoneinformasjon, noe som sikrer nøyaktige spådommer uavhengig av sesongmessige tidsendringer. Du trenger ikke gjøre noen manuelle justeringer - systemet håndterer alle tidsrelaterte beregninger automatisk."
+        },
+        "error_handling": {
+          "question": "Hva bør jeg gjøre hvis kalkulatoren viser en feil for stedet mitt?",
+          "answer": "Hvis du møter en feil, sjekk først inndataformatet ditt: bruk riktig by/stat-format (f.eks. 'Boston, MA'), gyldige postnummer eller presise koordinater. For internasjonale steder, inkluder landnavnet. Hvis problemene vedvarer, prøv å bruke GPS-plassering eller alternative søkemetoder. Systemet vårt håndterer de fleste globale steder, men svært avsidesliggende områder kan ha begrenset værdata."
+        },
+        "other_weather": {
+          "question": "Kan jeg bruke dette verktøyet for andre værelaterte stengingsspådommer?",
+          "answer": "Selv om den er spesifikt designet for snødagsspådommer, kan væranalysen til kalkulatoren vår gi innsikt for andre vinterværhendelser som isstormer, ekstrem kulde eller snøstormer som kan påvirke skoledriften. Sannsynlighetsscoren reflekterer generell alvorlig værimpakt, men algoritmen vår er optimalisert spesifikt for snørelaterte skolestenginger."
+        },
+        "comparison": {
+          "question": "Hvordan sammenligner dette seg med andre snødagsspådomsverktøy?",
+          "answer": "Vår snødagskalkulator skiller seg ut med sin vitenskapelige algoritme, sanntids API-integrasjon, flere søkemetoder og mobiloptimalisert design. I motsetning til enkle værapplikasjoner, fokuserer vi spesifikt på faktorer som påvirker skolestengingsbeslutninger. Verktøyet vårt er helt gratis, krever ingen registrering og gir detaljerte sannsynlighetsnedbrytninger med transparent metodikk."
+        }
+      }
+    },
+    "json_ld": {
+      "name": "Snødagskalkulator",
+      "description": "Gratis snødagskalkulator som spår sannsynlighet for skolestenginger ved hjelp av sanntidsværdata. Stolt på av millioner av studenter, foreldre og pedagoger over hele verden.",
+      "audience_type": "Studenter, Foreldre, Pedagoger, Skoleadministratorer",
+      "usage_info": "Gratis å bruke, ingen registrering påkrevd. Skriv inn sted for å få øyeblikkelige spådommer om snødagssannsynlighet.",
+      "feature_list": {
+        "realtime_api": "Sanntidsværdata-integrasjon via OpenWeatherMap API",
+        "probability_calculation": "Beregning av sannsynlighet for skolestenginger ved hjelp av vitenskapelige algoritmer",
+        "location_based": "Stedsbaserte spådommer for hvor som helst globalt",
+        "weather_factors": "Analyse av flere værfaktorer (temperatur, snøfall, vind, sikt)",
+        "mobile_design": "Mobilresponsivt design for tilgang på farten",
+        "instant_results": "Øyeblikkelige resultater med detaljert sannsynlighetsnedbrytning",
+        "multiple_search": "Flere søkemetoder (postnummer, bynavn, GPS-koordinater)",
+        "search_history": "Søkehistorikk for rask tilgang til favorittsteder"
+      }
+    }
   }
 }

@@ -5197,5 +5197,310 @@
         "days_ago": "{days}d siden"
       }
     }
+  },
+  "SnowDayCalculator": {
+    "seo_title": "Snevejrsberegner – Forudsig skolelukninger med vejrdata",
+    "seo_description": "Gratis snevejrsberegner, der forudsiger sandsynligheden for skolelukninger ved hjælp af vejrdata i realtid. Tjek om din skole lukker på grund af sneforhold med præcise prognoser. Betroet af millioner af studerende, forældre og undervisere verden over.",
+    "seo_keywords": "snevejrsberegner, snevejrsforudsigelse, skolelukningsforudsigelse, bliver skolen lukket, snevejrsandsynlighed, vejr skolelukninger, sneprognose skole, vintervejr beregner, skoleforsinkelsesforudsigelse, snevejr prognose, gratis snevejrsberegner, skolelukningssandsynlighed, snevejrsandsynlighedsberegner",
+    "og_image_alt": "Snevejrsberegner – Forudsig skolelukninger",
+    "application_name": "Snevejrsberegner",
+    "breadcrumb": {
+      "home": "Hjem",
+      "tools": "Værktøjer",
+      "snow_day_calculator": "Snevejrsberegner"
+    },
+    "header": {
+      "badge": "<strong>Gratis</strong> Snevejrsandsynlighedsberegner",
+      "title_line1": "Bliver skolen lukket i morgen?",
+      "title_line2": "Snevejrsberegner",
+      "description": "Få øjeblikkelige <strong>snevejrsforudsigelser</strong> for enhver placering verden over ved hjælp af vejrdata i realtid. Vores avancerede <strong>skolelukningsforudsigelse</strong> analyserer temperatur, snefald, vindhastighed og sigtbarhed for at beregne en præcis <strong>snevejrsandsynlighed</strong> med videnskabelig nøjagtighed, betroet af millioner af studerende, forældre og undervisere.",
+      "core_facts": {
+        "free": {
+          "label": "Gratis",
+          "description": "<strong>Pris:</strong> Ingen omkostninger, ingen registrering"
+        },
+        "realtime": {
+          "label": "Realtid",
+          "description": "<strong>Data:</strong> Live vejr-API-integration"
+        },
+        "global": {
+          "label": "Global",
+          "description": "<strong>Dækning:</strong> Alle lokationer verden over"
+        },
+        "instant": {
+          "label": "Øjeblikkelig",
+          "description": "<strong>Resultater:</strong> Beregnes på få sekunder"
+        }
+      },
+      "stats": {
+        "realtime_api": "<strong>Realtids</strong> vejr-API",
+        "scientific_algorithm": "<strong>Videnskabelig</strong> algoritme",
+        "worldwide_locations": "<strong>Verdensomspændende</strong> lokationer",
+        "free_forever": "<strong>100% Gratis</strong>"
+      }
+    },
+    "search": {
+      "type_selector": {
+        "title": "Vælg din søgemetode for lokation",
+        "description": "Vælg hvordan du vil søge efter <strong>snevejrsforudsigelser</strong> i dit område. Vores værktøj understøtter <strong>postnumre</strong>, <strong>bynavne</strong> og <strong>GPS-koordinater</strong> for maksimal fleksibilitet.",
+        "zip": {
+          "label": "Postnummer",
+          "description": "Indtast dit postnummer for at få præcise snevejrsforudsigelser for dit skoledistrikt"
+        },
+        "city": {
+          "label": "By",
+          "description": "Indtast bynavn for at tjekke sandsynligheden for skolelukning i dit område"
+        },
+        "coords": {
+          "label": "Koordinater",
+          "description": "Indtast præcise koordinater for den mest nøjagtige vejrbaserede skolelukningsprognose"
+        },
+        "selected": "Valgt",
+        "enter_your": "Indtast din"
+      },
+      "input": {
+        "zip_placeholder": "Indtast postnummer (f.eks. 10001, K1A 0A6)",
+        "city_placeholder": "Indtast bynavn (f.eks. New York, NY)",
+        "coords_placeholder": "Indtast koordinater (f.eks. 40.7128,-74.0060)",
+        "zip_examples": "10001, 90210, K1A 0A6",
+        "city_examples": "New York, NY, London, UK, Toronto, ON",
+        "coords_examples": "40.7,-74.0, 51.5,-0.1, 43.7,-79.4"
+      },
+      "buttons": {
+        "calculate": "Beregn snevejrsdag",
+        "analyzing": "Analyserer vejr...",
+        "gps_title": "Brug min nuværende placering"
+      },
+      "history": {
+        "title": "Seneste søgninger"
+      },
+      "errors": {
+        "error_title": "Ups! Noget gik galt",
+        "dismiss": "Luk",
+        "enter_location": "Indtast venligst en placering",
+        "invalid_zip": "Indtast venligst et gyldigt postnummer (f.eks. 12345, K1A 0A6)",
+        "invalid_coords_format": "Brug venligst formatet: breddegrad,længdegrad (f.eks. 40.7,-74.0)",
+        "missing_coords": "Angiv både breddegrad og længdegrad",
+        "invalid_coords_numbers": "Indtast gyldige tal for koordinater",
+        "invalid_coords_range": "Breddegrad: -90 til 90, Længdegrad: -180 til 180",
+        "city_too_short": "Bynavn skal være mindst 2 tegn",
+        "geolocation_not_supported": "Geolokation understøttes ikke af denne browser",
+        "location_denied": "Adgang til placering nægtet. Tillad adgang og prøv igen.",
+        "location_unavailable": "Placeringsoplysninger er ikke tilgængelige. Indtast venligst manuelt.",
+        "location_timeout": "Anmodning om placering fik timeout. Prøv igen eller indtast manuelt.",
+        "location_default": "Indtast venligst din placering manuelt.",
+        "fetch_failed": "Kunne ikke hente vejrdata",
+        "unknown_error": "Der opstod en fejl",
+        "unable_to_get_location": "Kan ikke hente din placering. "
+      }
+    },
+    "results": {
+      "location_label": "{name}, {country}",
+      "probability_label": "{probability}%",
+      "chance_label": "{level} chance",
+      "probability_labels": {
+        "low": "Lav",
+        "moderate": "Moderat",
+        "high": "Høj",
+        "very_high": "Meget høj"
+      },
+      "weather_data": {
+        "title": "Analyse af live vejrdata",
+        "description": "Realtidsforhold der påvirker din beregning af snevejrsandsynlighed",
+        "temperature": "Temperatur",
+        "feels_like": "Føles som {temp}°C",
+        "wind_speed": "km/t vind",
+        "wind_speed_ms": "{speed} m/s",
+        "visibility": "km sigtbarhed",
+        "visibility_meters": "{distance} meter",
+        "snowfall": "mm/t sne",
+        "cloud_cover": "{percent}% skydække"
+      },
+      "factors": {
+        "title": "Sandsynlighedsfaktorer",
+        "snowfall": "Snefald",
+        "temperature": "Temperatur",
+        "wind_speed": "Vindhastighed",
+        "visibility": "Sigtbarhed",
+        "base_score": "Grundscore"
+      },
+      "notes": {
+        "title": "Vigtige noter",
+        "note1": "Beslutninger om skolelukning træffes af de enkelte distrikter baseret på lokale forhold",
+        "note2": "Denne beregner giver sandsynlighedsvurderinger baseret på vejrforhold",
+        "note3": "Tjek altid officielle skolemeddelelser for endelige beslutninger",
+        "note4": "Vejforhold og transportsikkerhed er vigtige faktorer, som ikke fuldt ud dækkes af vejrdata",
+        "note5": "Opdateres hvert par minutter med vejrdata i realtid"
+      }
+    },
+    "features": {
+      "title": "Sådan fungerer vores snevejrsberegner",
+      "description": "Vores avancerede <strong>meteorologiske algoritme</strong> analyserer flere vejrforhold i realtid for at forudsige <strong>sandsynligheden for skolelukning</strong> med videnskabelig præcision. Designet til <strong>studerende</strong>, <strong>forældre</strong> og <strong>undervisere</strong>, der har brug for pålidelige planlægningsværktøjer.",
+      "realtime": {
+        "title": "Vejrdata i realtid",
+        "description": "Live datastrømme fra <strong>OpenWeatherMap API</strong>, herunder <strong>temperatur</strong>, <strong>snefaldsintensitet</strong>, <strong>vindhastighed</strong> og <strong>sigtbarhedsforhold</strong>. Opdateres hvert par minutter for præcise forudsigelser.",
+        "tags": {
+          "temperature": "🌡️ Temperatur",
+          "snowfall": "❄️ Snefald"
+        }
+      },
+      "algorithm": {
+        "title": "Videnskabelig algoritme",
+        "description": "Avancerede <strong>meteorologiske algoritmer</strong> analyserer dokumenterede vejr­mønstre, der påvirker <strong>skoledistrikters beslutninger</strong>. Faktorer vægtes ud fra historisk sammenhæng med faktiske lukninger.",
+        "tags": {
+          "ai_models": "🧠 AI-modeller",
+          "pattern_analysis": "📊 Mønsteranalyse"
+        }
+      },
+      "precision": {
+        "title": "Hyperlokal præcision",
+        "description": "Indtast et hvilket som helst <strong>bynavn</strong>, <strong>postnummer</strong> eller brug <strong>GPS-koordinater</strong> for ultra-præcis lokal vejr­analyse. Fungerer for <strong>alle lokationer verden over</strong>.",
+        "tags": {
+          "global_coverage": "🌍 Global dækning",
+          "gps_accuracy": "📍 GPS-nøjagtighed"
+        }
+      },
+      "cta": {
+        "title": "Klar til at få din snevejrsforudsigelse?",
+        "description": "<strong>Start med at indtaste din placering ovenfor!</strong> Vores værktøj er <strong>helt gratis</strong>, kræver <strong>ingen registrering</strong> og giver <strong>øjeblikkelige resultater</strong>.",
+        "badges": {
+          "instant": "<strong>Øjeblikkelige</strong> resultater",
+          "free": "<strong>100% Gratis</strong>",
+          "no_registration": "<strong>Ingen registrering</strong>"
+        }
+      }
+    },
+    "seo_content": {
+      "how_it_works": {
+        "title": "Hvordan vores snevejrsberegner virker",
+        "description1": "Vores <strong>snevejrsforudsigelse</strong> bruger avancerede meteorologiske algoritmer til at analysere realtidsvejforhold og bestemme sandsynligheden for skolelukning. Ved at kombinere <strong>temperatur</strong>, <strong>snefaldsintensitet</strong>, <strong>vindhastighed</strong> og <strong>sigtbarhedsdata</strong>, giver vi præcise <strong>sandsynligheden for snevejrsdag</strong> beregninger.",
+        "description2": "Perfekt til <strong>studerende</strong>, <strong>forældre</strong> og <strong>undervisere</strong>, der har brug for at planlægge fremad, vores <strong>gratis værktøj</strong> svarer på det kritiske spørgsmål: <strong>\"Bliver skolen lukket i morgen?\"</strong> med videnskabelig præcision. <strong>Ingen registrering krævet</strong>, øjeblikkelige resultater.",
+        "features": {
+          "snowfall": "Realtidsanalyse af snefald",
+          "temperature": "Temperature påvirkning",
+          "wind": "Vindhastighedsberegning",
+          "visibility": "Sigtbarhedsovervågning"
+        }
+      },
+      "why_use": {
+        "title": "Hvorfor bruge vores snevejrsforudsigelse?",
+        "description": "I modsætning til grundlæggende vejapp, vores specialiserede <strong>skolelukningsforudsigelse</strong> er designet specifikt til undervisningsplanlægning. Vi forstår, at <strong>forældre</strong> har brug for pålidelige oplysninger til at arrangere pleje af børn, og <strong>studerende</strong> vil gerne vide, om de kan sove i morgen. Vores <strong>gratis beregner</strong> giver de oplysninger, du har brug for.",
+        "benefits": {
+          "instant": {
+            "title": "<strong>Øjeblikkelige resultater:</strong>",
+            "description": " Få din sandsynlighed for snevejrsdag på sekunder"
+          },
+          "global": {
+            "title": "<strong>Global dækning:</strong>",
+            "description": " Virker for alle lokationer verden over"
+          },
+          "scientific": {
+            "title": "<strong>Videnskabelig nøjagtighed:</strong>",
+            "description": " Baseret på bevarede meteorologiske modeller"
+          },
+          "mobile": {
+            "title": "<strong>Mobile optimeret:</strong>",
+            "description": "Perfekt til at kontrollere på farten"
+          }
+        }
+      },
+      "trusted": {
+        "title": "Mere end millioner af studerende, forældre og undervisere stoler på os",
+        "description": "Slut dig til millioner, der stoler på vores <strong>snevejrsberegner</strong> for præcise skolelukningsforudsigelser. Uanset om du <strong>planlægger din morgenrutine</strong> eller <strong>bereder undervisningsplaner</strong>, få de pålidelige vejbaserede oplysninger, du har brug for. <strong>Helt gratis</strong>, <strong>ingen registrering</strong>, <strong>øjeblikkelige resultater</strong>.",
+        "badges": {
+          "free_forever": "✓ <strong>Gratis for altid</strong>",
+          "no_registration": "✓ <strong>Ingen registrering krævet</strong>",
+          "instant": "✓ <strong>Øjeblikkelige</strong> forudsigelser",
+          "mobile": "✓ <strong>Mobil & computer</strong>"
+        }
+      }
+    },
+    "faq": {
+      "title": "Ofte stillede spørgsmål om snevejrsberegner",
+      "description": "Få svar på de mest almindelige spørgsmål om vores <strong>gratis snevejrsberegner</strong> og hvordan du bruger den effektivt. Lær om <strong>pris</strong> (det er gratis!), <strong>funktioner</strong>, <strong>nøjagtighed</strong>, og mere.",
+      "footer": "Har du stadig spørgsmål? Vores værktøj giver øjeblikkelige svar for at hjælpe dig med at planlægge dine snevejrsdage!",
+      "items": {
+        "accuracy": {
+          "question": "Hvor præcise er snevejrsforudsigelserne?",
+          "answer": "Vores snevejrsberegner bruger realtidsvejdata fra OpenWeatherMap API og avancerede meteorologiske algoritmer til at give pålidelige forudsigelser. Nøjagtigheden afhænger af flere faktorer, herunder nuværende snefald, temperatur, vindhastighed og sigtbarhed. Selvom vi ikke kan garantere 100% nøjagtighed (da skoledistrikter træffer endelige beslutninger baseret på forskellige lokale faktorer), er vores algoritme designet til at nærme sig beslutningsprocessen, der bruges af skoleadministratorer."
+        },
+        "factors": {
+          "question": "Hvilke vejforhold overvejer beregneren?",
+          "answer": "Vores videnskabelige algoritme analyserer fem vigtige vejforhold: (1) Aktiv snefaldsintensitet (op til 40% påvirkning), (2) Temperaturforhold, især under -5°C (op til 25% påvirkning), (3) Vindhastighed over 20 km/t (op til 20% påvirkning), (4) Sigtbarhed under 5 km (op til 15% påvirkning), og (5) En grundscore. Disse faktorer vejes baseret på deres historiske korrelation med faktiske skolelukninger."
+        },
+        "worldwide": {
+          "question": "Kan jeg bruge dette for alle lokationer verden over?",
+          "answer": "Ja! Vores snevejrsberegner virker for alle lokationer verden over. Du kan søge efter bynavn (f.eks. 'Toronto, Canada'), postnummer (f.eks. '10001' eller 'K1A 0A6'), eller præcise koordinater (f.eks. '40.7128,-74.0060'). Værktøjet understøtter internationalle lokationer, selvom algoritmen er optimeret for områder, der ofte oplever skolelukninger relateret til sne."
+        },
+        "best_time": {
+          "question": "Hvornår er den bedste tid til at kontrollere for snevejrsforudsigelser?",
+          "answer": "For at få de mest præcise forudsigelser, kontroller vores beregner i aften (8-11 PM) for morgendagens planlægning, og igen i morgen (5-8 AM) for endelig bekræftelse. Vejforhold kan ændre sig over natten, så vi anbefaler at kontrollere flere gange under aktive vintervejrsbegivenheder. Mange familier finder det nyttigt at kontrollere før sengen for at planlægge fremad."
+        },
+        "free": {
+          "question": "Er snevejrsberegnerne gratis at bruge?",
+          "answer": "Ja, vores snevejrsberegner er helt gratis og altid vil være! Der er ingen registrering krævet, ingen skjulte gebyrer, og ingen premium-funktioner låst bag betalingsvægge. Vi tror, at alle studerende, forældre og undervisere skal have adgang til pålidelige vejbaserede skolelukningsforudsigelser uden nogen omkostning."
+        },
+        "update_frequency": {
+          "question": "Hvor ofte opdateres vejdataene?",
+          "answer": "Vores beregner bruger realtidsvejdata, der opdateres kontinuerligt i løbet af dagen. OpenWeatherMap API leverer nuværende forhold, der opdateres hvert par minutter, sikrer, at du altid får de seneste oplysninger til dine snevejrsberegninger. For de mest nuværende forudsigelser, anbefaler vi at kontrollere periodisk under aktive vejforhold."
+        },
+        "different_results": {
+          "question": "Hvorfor kan beregneren vise forskellige resultater end faktiske skolebeslutninger?",
+          "answer": "Skoledistrikter overvejer mange faktorer ud over vejforhold, herunder vejforhold, busruter, medarbejdertilgængelighed og lokale politikker. Vores beregner fokuserer kun på meteorologiske data, mens skoler kan tage hensyn til ting som is på bagveje, chaufførtilgængelighed eller distriktsspecifikke politikker. Tænk på vores værktøj som et hjælpsomt indikator snarere end en definitive forudsigelse af offentlige skolebeslutninger."
+        },
+        "save_locations": {
+          "question": "Kan jeg gemme mine foretrukne lokationer for hurtig adgang?",
+          "answer": "Ja! Vores beregner gemmer automatisk dine sidste 5 søgte lokationer i din browsers lokale lager. Du kan hurtigt søge igen efter en tidligere lokation ved at klikke på den i 'Seneste søgninger' sektionen. Denne funktion virker på alle søgetyper (postnumre, byer og koordinater) og gør det nemt at kontrollere flere skoledistrikter eller lokationer."
+        },
+        "search_difference": {
+          "question": "Hvad er forskellen mellem postnummer, by og koordinatsøgninger?",
+          "answer": "Hvert søgetype tilbyder forskellige fordele: Postnummer søgninger leverer de mest præcise lokale vejdata for specifikke postdistrikter. By søgninger virker godt for generelle områdeforudsigelser og understøtter internationalle lokationer med korrekt formatering. Koordinatsøgninger tilbyder den højeste nøjagtighed for præcise lokationer og er perfekt, når du har brug for vejdata for specifikke adresser eller landlige områder."
+        },
+        "algorithm_comparison": {
+          "question": "Hvordan sammenligner snevejrsalgoritmen med faktiske skoledistriktsbeslutninger?",
+          "answer": "Vores algoritme er baseret på meteorologisk dataanalyse og historiske mønstre af skolelukninger. Selvom vi opnår høj korrelation med faktiske beslutninger, overvejer skoledistrikter også lokale infrastruktur, busruter, medarbejdertilgængelighed og distriktsspecifikke politikker. Brug vores beregner som et pålideligt indikator, men altid kontroller offentlige skolemeddelelser for endelige beslutninger."
+        },
+        "planning": {
+          "question": "Kan forældre og undervisere stole på dette til planlægningsformål?",
+          "answer": "Absolut! Vores snevejrsberegner er designet specifikt til planlægningsformål. Forældre kan bruge det til at arrangere pleje af børn, planlægge arbejdsplaner og forberede potentiale skolelukninger. Undervisere kan justere undervisningsplaner og forberede remote undervisning. Men altid kontroller offentlige skolemeddelelser før endelige beslutninger."
+        },
+        "private_schools": {
+          "question": "Er beregneren tilgængelig for private skoler og universiteter?",
+          "answer": "Ja, vores snevejrsberegner virker for alle uddannelsesinstitutioner. Vejforholdene, der påvirker beslutninger om lukning, er ens for offentlige skoler, private skoler og universiteter. Men private institutioner og universiteter kan have forskellige lukningstærskler og politikker, så sandsynligheden bør tolkes som et generelt vejbaseret indikator."
+        },
+        "daylight_saving": {
+          "question": "Hvordan påvirker daglichtsbesparelse tidsberegninger?",
+          "answer": "Vores snevejrsberegner håndterer automatisk daglichtsbesparelse tidsændringer og tidszonetransformationer. Vejdataene inkluderer korrekt tidszoneinformation, sikrer præcise forudsigelser uanset sæsonale tidsændringer. Du behøver ikke at foretage nogen manuelle justeringer - systemet håndterer alle tidsrelaterede beregninger automatisk."
+        },
+        "error_handling": {
+          "question": "Hvad skal jeg gøre, hvis beregneren viser en fejl for min lokation?",
+          "answer": "Hvis du støder på en fejl, tjek først dit inputformat: brug korrekt by/statformat (f.eks. 'Boston, MA'), gyldige postnumre, eller præcise koordinater. For internationalle lokationer, inkluder landnavnet. Hvis problemer fortsætter, prøv at bruge GPS-placering eller alternative søgemethoder. Vores system håndterer de fleste globalle lokationer, men meget fjerne områder kan have begrænset vejdata."
+        },
+        "other_weather": {
+          "question": "Kan jeg bruge dette værktøj til andre vejforhold relaterede lukning forudsigelser?",
+          "answer": "Selvom specifikt designet til snevejrsforudsigelser, kan vores beregners vejanalyse give indsigter i andre vintervejrsbegivenheder som isstorme, ekstremt koldt eller blæstuge, der kan påvirke skoleoperationer. Sandsynlighedsscore reflekterer generelt alvorlig vejforhold, men vores algoritme er optimeret specifikt for skolelukninger relateret til sne."
+        },
+        "comparison": {
+          "question": "Hvordan sammenligner dette med andre snevejrsforudsigelsesværktøjer?",
+          "answer": "Vores snevejrsberegner står ud med sin videnskabelige algoritme, realtids-API-integration, flere søgemethoder og mobiloptimeret design. I modsætning til simple vejapp, fokuserer vi specifikt på faktorer, der påvirker skolelukningsbeslutninger. Vores værktøj er helt gratis, kræver ingen registrering og leverer detaljerede sandsynlighedsopdelinger med transparent metode."
+        }
+      }
+    },
+    "json_ld": {
+      "name": "Snevejrsberegner",
+      "description": "Gratis snevejrsberegner forudsiger skolelukningssandsynlighed ved hjælp af realtidsvejdata. Støttet af millioner af studerende, forældre og undervisere verden over.",
+      "audience_type": "Studerende, Forældre, Undervisere, Skoleadministratorer",
+      "usage_info": "Gratis at bruge, ingen registrering krævet. Indtast placering for at få øjeblikkelige snevejrsforudsigelser.",
+      "feature_list": {
+        "realtime_api": "Real-tidsvejdata-integration via OpenWeatherMap API",
+        "probability_calculation": "Sandsynlighedsberegning for skolelukning ved hjælp af videnskabelige algoritmer",
+        "location_based": "Lokation-baserede forudsigelser for alle globalle lokationer",
+        "weather_factors": "Mange vejforhold analyse (temperatur, snefald, vind, sigtbarhed)",
+        "mobile_design": "Mobile-responsive design for on-the-go access",
+        "instant_results": "Øjeblikkelige resultater med detaljeret sandsynlighedsopdeling",
+        "multiple_search": "Flere søgemethoder (postnummer, bynavn, GPS-koordinater)",
+        "search_history": "Søgehistorik for hurtig adgang til foretrukne lokationer"
+      }
+    }
   }
 }

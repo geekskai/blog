@@ -5602,5 +5602,310 @@
         "days_ago": "{days}日前"
       }
     }
+  },
+  "SnowDayCalculator": {
+    "seo_title": "雪休み計算機 - 天候データで学校休校を予測",
+    "seo_description": "無料の雪休み計算機は、リアルタイムの天候データを使用して学校休校の確率を予測します。正確な予測で、雪の状況により学校が休校になるかを確認できます。世界中の何百万人もの学生、保護者、教育者に信頼されています。",
+    "seo_keywords": "雪休み計算機, 雪休み予測, 学校休校予測, 学校は休校になるか, 雪休み確率, 天候 学校休校, 雪予報 学校, 冬の天候計算機, 学校遅延予測, 雪休み予報, 無料 雪休み計算機, 学校休校確率, 雪休み確率計算機",
+    "og_image_alt": "雪休み計算機 - 学校休校を予測",
+    "application_name": "雪休み計算機",
+    "breadcrumb": {
+      "home": "ホーム",
+      "tools": "ツール",
+      "snow_day_calculator": "雪休み計算機"
+    },
+    "header": {
+      "badge": "<strong>無料</strong> 雪休み確率計算機",
+      "title_line1": "明日、学校は休校になりますか？",
+      "title_line2": "雪休み計算機",
+      "description": "リアルタイムの天候データを使用して、世界中のあらゆる場所の<strong>雪休み予測</strong>を即座に取得できます。当社の高度な<strong>学校休校予測ツール</strong>は、気温、降雪量、風速、視界を分析し、数百万人の学生、保護者、教育者に信頼される科学的精度で正確な<strong>雪休み確率</strong>を算出します。",
+      "core_facts": {
+        "free": {
+          "label": "無料",
+          "description": "<strong>料金:</strong> 無料、登録不要"
+        },
+        "realtime": {
+          "label": "リアルタイム",
+          "description": "<strong>データ:</strong> ライブ天候API連携"
+        },
+        "global": {
+          "label": "グローバル",
+          "description": "<strong>対応範囲:</strong> 世界中のあらゆる場所"
+        },
+        "instant": {
+          "label": "即時",
+          "description": "<strong>結果:</strong> 数秒で計算"
+        }
+      },
+      "stats": {
+        "realtime_api": "<strong>リアルタイム</strong> 天候API",
+        "scientific_algorithm": "<strong>科学的</strong> アルゴリズム",
+        "worldwide_locations": "<strong>世界中</strong> の地域",
+        "free_forever": "<strong>100% 無料</strong>"
+      }
+    },
+    "search": {
+      "type_selector": {
+        "title": "検索方法を選択",
+        "description": "お住まいの地域の<strong>雪休み予測</strong>を検索する方法を選択してください。本ツールは<strong>郵便番号</strong>、<strong>都市名</strong>、<strong>GPS座標</strong>に対応しています。",
+        "zip": {
+          "label": "郵便番号",
+          "description": "郵便番号を入力して、学区の正確な雪休み予測を取得します"
+        },
+        "city": {
+          "label": "都市",
+          "description": "都市名を入力して、お住まいの地域の学校休校確率を確認します"
+        },
+        "coords": {
+          "label": "座標",
+          "description": "最も正確な天候ベースの学校休校予測のために正確な座標を入力します"
+        },
+        "selected": "選択中",
+        "enter_your": "入力してください"
+      },
+      "input": {
+        "zip_placeholder": "郵便番号を入力（例: 10001, K1A 0A6）",
+        "city_placeholder": "都市名を入力（例: New York, NY）",
+        "coords_placeholder": "座標を入力（例: 40.7128,-74.0060）",
+        "zip_examples": "10001, 90210, K1A 0A6",
+        "city_examples": "New York, NY, London, UK, Toronto, ON",
+        "coords_examples": "40.7,-74.0, 51.5,-0.1, 43.7,-79.4"
+      },
+      "buttons": {
+        "calculate": "雪休みを計算",
+        "analyzing": "天候を分析中...",
+        "gps_title": "現在地を使用"
+      },
+      "history": {
+        "title": "最近の検索"
+      },
+      "errors": {
+        "error_title": "エラーが発生しました",
+        "dismiss": "閉じる",
+        "enter_location": "場所を入力してください",
+        "invalid_zip": "有効な郵便番号を入力してください（例: 12345, K1A 0A6）",
+        "invalid_coords_format": "形式を使用してください: 緯度,経度（例: 40.7,-74.0）",
+        "missing_coords": "緯度と経度の両方を入力してください",
+        "invalid_coords_numbers": "座標には有効な数値を入力してください",
+        "invalid_coords_range": "緯度: -90〜90、経度: -180〜180",
+        "city_too_short": "都市名は2文字以上である必要があります",
+        "geolocation_not_supported": "このブラウザは位置情報に対応していません",
+        "location_denied": "位置情報へのアクセスが拒否されました。許可して再試行してください。",
+        "location_unavailable": "位置情報を取得できません。手動で入力してください。",
+        "location_timeout": "位置情報の取得がタイムアウトしました。再試行するか手動で入力してください。",
+        "location_default": "手動で場所を入力してください。",
+        "fetch_failed": "天候データの取得に失敗しました",
+        "unknown_error": "エラーが発生しました",
+        "unable_to_get_location": "位置情報を取得できません。"
+      }
+    },
+    "results": {
+      "location_label": "{name}, {country}",
+      "probability_label": "{probability}%",
+      "chance_label": "{level} の可能性",
+      "probability_labels": {
+        "low": "低い",
+        "moderate": "中程度",
+        "high": "高い",
+        "very_high": "非常に高い"
+      },
+      "weather_data": {
+        "title": "リアルタイム天候データ分析",
+        "description": "雪休み確率の計算に影響するリアルタイムの状況",
+        "temperature": "気温",
+        "feels_like": "体感温度 {temp}°C",
+        "wind_speed": "風速 km/h",
+        "wind_speed_ms": "{speed} m/s",
+        "visibility": "視界 km",
+        "visibility_meters": "{distance} メートル",
+        "snowfall": "降雪量 mm/h",
+        "cloud_cover": "雲量 {percent}%"
+      },
+      "factors": {
+        "title": "確率要因",
+        "snowfall": "降雪量",
+        "temperature": "気温",
+        "wind_speed": "風速",
+        "visibility": "視界",
+        "base_score": "基本スコア"
+      },
+      "notes": {
+        "title": "重要な注意事項",
+        "note1": "学校の休校判断は、地域の状況に基づき各学区が行います",
+        "note2": "本計算機は天候要因に基づく確率の推定値を提供します",
+        "note3": "最終的な判断は必ず公式な学校の発表をご確認ください",
+        "note4": "道路状況や交通の安全性など、天候データだけでは完全に反映されない要因もあります",
+        "note5": "リアルタイム天候データにより数分ごとに更新されます"
+      }
+    },
+    "features": {
+      "title": "雪休み計算機の仕組み",
+      "description": "当社の高度な<strong>気象アルゴリズム</strong>は、複数の天候要因をリアルタイムで分析し、科学的精度で<strong>学校休校確率</strong>を予測します。信頼性の高い計画ツールを必要とする<strong>学生</strong>、<strong>保護者</strong>、<strong>教育者</strong>のために設計されています。",
+      "realtime": {
+        "title": "リアルタイム天候データ",
+        "description": "<strong>OpenWeatherMap API</strong>からのライブデータにより、<strong>気温</strong>、<strong>降雪強度</strong>、<strong>風速</strong>、<strong>視界状況</strong>を取得します。数分ごとに更新され、正確な予測を提供します。",
+        "tags": {
+          "temperature": "🌡️ 気温",
+          "snowfall": "❄️ 降雪"
+        }
+      },
+      "algorithm": {
+        "title": "科学的アルゴリズム",
+        "description": "高度な<strong>気象アルゴリズム</strong>が、<strong>学区の判断</strong>に影響を与える実証済みの天候パターンを分析します。実際の休校との過去の相関に基づいて要因が重み付けされています。",
+        "tags": {
+          "ai_models": "🧠 AIモデル",
+          "pattern_analysis": "📊 パターン分析"
+        }
+      },
+      "precision": {
+        "title": "高精度なローカル分析",
+        "description": "<strong>都市名</strong>、<strong>郵便番号</strong>、または<strong>GPS座標</strong>を入力して、超高精度なローカル天候分析を行えます。<strong>世界中のあらゆる場所</strong>に対応しています。",
+        "tags": {
+          "global_coverage": "🌍 グローバル対応",
+          "gps_accuracy": "📍 GPS精度"
+        }
+      },
+      "cta": {
+        "title": "雪休み予測を確認する準備はできましたか？",
+        "description": "<strong>上記に場所を入力して開始してください！</strong> 本ツールは<strong>完全無料</strong>で、<strong>登録不要</strong>、<strong>即時結果</strong>を提供します。",
+        "badges": {
+          "instant": "<strong>即時</strong> 結果",
+          "free": "<strong>100% 無料</strong>",
+          "no_registration": "<strong>登録不要</strong>"
+        }
+      }
+    },
+    "seo_content": {
+      "how_it_works": {
+        "title": "雪休み計算機の仕組み",
+        "description1": "当社の<strong>雪休み予測ツール</strong>は、高度な気象アルゴリズムを使用してリアルタイムの天候状況を分析し、学校休校の可能性を判定します。<strong>気温</strong>、<strong>降雪強度</strong>、<strong>風速</strong>、<strong>視界データ</strong>を組み合わせることで、正確な<strong>雪休み確率</strong>を算出します。",
+        "description2": "事前計画が必要な<strong>学生</strong>、<strong>保護者</strong>、<strong>教育者</strong>に最適な<strong>無料ツール</strong>として、「<strong>明日、学校は休校になりますか？</strong>」という重要な疑問に科学的精度で答えます。<strong>登録不要</strong>、即時結果。",
+        "features": {
+          "snowfall": "リアルタイム降雪分析",
+          "temperature": "気温の影響評価",
+          "wind": "風速計算",
+          "visibility": "視界の監視"
+        }
+      },
+      "why_use": {
+        "title": "なぜこの雪休み予測ツールを使うのか？",
+        "description": "一般的な天気アプリとは異なり、当社の専門的な<strong>学校休校予測ツール</strong>は教育計画のために特別に設計されています。<strong>保護者</strong>が育児の手配を行うための信頼できる情報や、<strong>学生</strong>が明日ゆっくり眠れるかを知るための情報を提供します。この<strong>無料計算機</strong>が必要な洞察をお届けします。",
+        "benefits": {
+          "instant": {
+            "title": "<strong>即時結果:</strong>",
+            "description": " 数秒で雪休み確率を取得"
+          },
+          "global": {
+            "title": "<strong>グローバル対応:</strong>",
+            "description": " 世界中のあらゆる場所で利用可能"
+          },
+          "scientific": {
+            "title": "<strong>科学的精度:</strong>",
+            "description": " 実証済みの気象モデルに基づく"
+          },
+          "mobile": {
+            "title": "<strong>モバイル最適化:</strong>",
+            "description": " 外出先でも簡単に確認可能"
+          }
+        }
+      },
+      "trusted": {
+        "title": "数百万人の学生・保護者・教育者に信頼されています",
+        "description": "正確な学校休校予測のために<strong>雪休み計算機</strong>を利用する数百万人に参加しましょう。<strong>朝の予定を立てる</strong>場合でも、<strong>授業計画を準備する</strong>場合でも、必要な信頼できる天候ベースの洞察を得られます。<strong>完全無料</strong>、<strong>登録不要</strong>、<strong>即時結果</strong>。",
+        "badges": {
+          "free_forever": "✓ <strong>永久無料</strong>",
+          "no_registration": "✓ <strong>登録不要</strong>",
+          "instant": "✓ <strong>即時</strong> 予測",
+          "mobile": "✓ <strong>モバイル & デスクトップ</strong>"
+        }
+      }
+    },
+    "faq": {
+      "title": "雪休み計算機に関するよくある質問",
+      "description": "<strong>無料の雪休み計算機</strong>に関するよくある質問と、その効果的な使い方についての回答をご覧ください。<strong>料金</strong>（無料です！）、<strong>機能</strong>、<strong>精度</strong>などについて学べます。",
+      "footer": "まだ質問がありますか？本ツールは雪休みの計画をサポートする即時回答を提供します！",
+      "items": {
+        "accuracy": {
+          "question": "雪休み予測の精度はどの程度ですか？",
+          "answer": "当社の雪休み計算機は、OpenWeatherMap APIからのリアルタイム天候データと高度な気象アルゴリズムを使用して信頼性の高い予測を提供します。精度は現在の降雪量、気温、風速、視界など複数の要因に依存します。学校の最終判断は地域のさまざまな要因に基づくため100%の正確性は保証できませんが、本アルゴリズムは学校管理者の意思決定プロセスに近づけるよう設計されています。"
+        },
+        "factors": {
+          "question": "計算機はどの天候要因を考慮しますか？",
+          "answer": "当社の科学的アルゴリズムは5つの主要な天候要因を分析します。(1) 活発な降雪強度（最大40%の影響）、(2) 特に-5°C以下の気温条件（最大25%の影響）、(3) 20km/h以上の風速（最大20%の影響）、(4) 5km未満の視界（最大15%の影響）、(5) 基本確率スコア。これらの要因は、実際の学校休校との過去の相関に基づいて重み付けされています。"
+        },
+        "worldwide": {
+          "question": "世界中のどの場所でも使用できますか？",
+          "answer": "はい！当社の雪休み計算機は世界中のあらゆる場所で利用できます。都市名（例:「Toronto, Canada」）、郵便番号（例:「10001」や「K1A 0A6」）、または正確な座標（例:「40.7128,-74.0060」）で検索できます。国際的な場所にも対応していますが、アルゴリズムは雪による学校休校が一般的な地域向けに最適化されています。"
+        },
+        "best_time": {
+          "question": "雪休み予測を確認する最適なタイミングはいつですか？",
+          "answer": "最も正確な予測を得るには、翌日の計画のために夕方（20〜23時）に確認し、最終確認として早朝（5〜8時）に再度チェックしてください。天候は夜間に変化する可能性があるため、冬の天候が活発な時期には複数回の確認をおすすめします。就寝前に確認して計画を立てるご家庭も多いです。"
+        },
+        "free": {
+          "question": "雪休み計算機は無料で利用できますか？",
+          "answer": "はい、当社の雪休み計算機は完全に無料で、今後もずっと無料です。登録は不要で、隠れた料金や有料機能はありません。すべての学生、保護者、教育者が、費用をかけずに信頼できる天候ベースの学校休校予測にアクセスできるべきだと考えています。"
+        },
+        "update_frequency": {
+          "question": "天候データはどのくらいの頻度で更新されますか？",
+          "answer": "当社の計算機は、1日を通して継続的に更新されるリアルタイム天候データを使用しています。OpenWeatherMap APIは数分ごとに最新の状況を提供するため、常に最新の情報で雪休み計算を行えます。最も正確な予測のため、天候が活発な際には定期的な確認をおすすめします。"
+        },
+        "different_results": {
+          "question": "実際の学校判断と異なる結果が表示されるのはなぜですか？",
+          "answer": "学区は天候以外にも、道路状況、バス路線、職員の確保状況、地域の方針など多くの要因を考慮します。当社の計算機は気象データのみに基づいていますが、学校は裏道の凍結や運転手の確保、学区独自の方針なども考慮します。本ツールは公式判断の代わりではなく、参考指標としてご利用ください。"
+        },
+        "save_locations": {
+          "question": "お気に入りの場所を保存できますか？",
+          "answer": "はい！計算機は、直近5件の検索場所をブラウザのローカルストレージに自動保存します。「最近の検索」セクションから、以前の場所をすぐに再検索できます。この機能は郵便番号、都市、座標のすべての検索方法で利用でき、複数の学区や場所を簡単に確認できます。"
+        },
+        "search_difference": {
+          "question": "郵便番号、都市、座標検索の違いは何ですか？",
+          "answer": "各検索方法には異なる利点があります。郵便番号検索は特定の地域に最も正確な天候データを提供します。都市検索は広い地域の予測に適しており、国際的な場所にも対応します。座標検索は最も高い精度を提供し、特定の住所や地方エリアの天候データが必要な場合に最適です。"
+        },
+        "algorithm_comparison": {
+          "question": "雪休みアルゴリズムは実際の学区判断とどのように比較されますか？",
+          "answer": "当社のアルゴリズムは、気象データ分析と学校休校の過去パターンに基づいています。実際の判断と高い相関性を持っていますが、学区はインフラ、バス路線の状況、職員の確保、学区独自の方針も考慮します。信頼できる指標として使用し、最終判断は公式発表をご確認ください。"
+        },
+        "planning": {
+          "question": "保護者や教師は計画目的で信頼できますか？",
+          "answer": "もちろんです！当社の雪休み計算機は計画目的のために特別に設計されています。保護者は育児の手配や勤務計画、学校休校への備えに利用できます。教師は授業計画の調整や遠隔学習資料の準備に役立てられます。ただし、最終的な手配の前には必ず公式な学区の連絡を確認してください。"
+        },
+        "private_schools": {
+          "question": "私立学校や大学にも対応していますか？",
+          "answer": "はい、当社の雪休み計算機はあらゆる教育機関に対応しています。公立学校、私立学校、大学いずれも休校判断に影響する天候要因は共通しています。ただし、私立機関や大学は異なる基準や方針を持つ場合があるため、確率は一般的な天候ベースの指標として解釈してください。"
+        },
+        "daylight_saving": {
+          "question": "サマータイムは計算にどのように影響しますか？",
+          "answer": "当社の雪休み計算機は、サマータイムの変更やタイムゾーン変換を自動的に処理します。天候データには正しいタイムゾーン情報が含まれているため、季節的な時間変更に関係なく正確な予測が可能です。手動での調整は不要です。"
+        },
+        "error_handling": {
+          "question": "場所でエラーが表示された場合はどうすればよいですか？",
+          "answer": "エラーが発生した場合は、まず入力形式を確認してください。正しい都市/州形式（例:「Boston, MA」）、有効な郵便番号、または正確な座標を使用してください。国際的な場所では国名を含めてください。問題が解決しない場合は、GPS検索や別の検索方法をお試しください。非常に僻地では天候データが制限される場合があります。"
+        },
+        "other_weather": {
+          "question": "他の天候による休校予測にも使えますか？",
+          "answer": "本計算機は雪休み予測用に設計されていますが、氷嵐、極寒、吹雪など、学校運営に影響する他の冬の天候イベントについても参考情報を提供できます。確率スコアは一般的な悪天候の影響を示しますが、アルゴリズムは雪による休校に最適化されています。"
+        },
+        "comparison": {
+          "question": "他の雪休み予測ツールと比べてどうですか？",
+          "answer": "当社の雪休み計算機は、科学的アルゴリズム、リアルタイムAPI連携、複数の検索方法、モバイル最適化設計で際立っています。単なる天気アプリとは異なり、学校休校判断に影響する要因に特化しています。完全無料、登録不要で、透明性のある詳細な確率内訳を提供します。"
+        }
+      }
+    },
+    "json_ld": {
+      "name": "雪休み計算機",
+      "description": "リアルタイムの天候データを使用して学校休校確率を予測する無料の雪休み計算機。世界中の学生、保護者、教育者に信頼されています。",
+      "audience_type": "学生, 保護者, 教育者, 学校管理者",
+      "usage_info": "無料で利用可能、登録不要。場所を入力して即座に雪休み確率予測を取得できます。",
+      "feature_list": {
+        "realtime_api": "OpenWeatherMap APIによるリアルタイム天候データ連携",
+        "probability_calculation": "科学的アルゴリズムによる学校休校確率計算",
+        "location_based": "世界中の任意の場所に対応した位置ベース予測",
+        "weather_factors": "複数の天候要因分析（気温、降雪、風、視界）",
+        "mobile_design": "外出先でも使えるモバイル対応デザイン",
+        "instant_results": "詳細な確率内訳を含む即時結果",
+        "multiple_search": "複数の検索方法（郵便番号、都市名、GPS座標）",
+        "search_history": "お気に入りの場所にすぐアクセスできる検索履歴"
+      }
+    }
   }
 }

@@ -5431,5 +5431,310 @@
         "days_ago": "{days}일 전"
       }
     }
+  },
+  "SnowDayCalculator": {
+    "seo_title": "눈 오는 날 계산기 - 날씨 데이터로 학교 휴교 예측",
+    "seo_description": "무료 눈 오는 날 계산기는 실시간 날씨 데이터를 사용하여 학교 휴교 확률을 예측합니다. 정확한 예측으로 눈으로 인한 학교 휴교 여부를 확인하세요. 전 세계 수백만 명의 학생, 학부모, 교육자가 신뢰합니다.",
+    "seo_keywords": "눈 오는 날 계산기, 눈 오는 날 예측기, 학교 휴교 예측기, 학교가 휴교할까, 눈 오는 날 확률, 날씨 학교 휴교, 눈 예보 학교, 겨울 날씨 계산기, 학교 지연 예측기, 눈 오는 날 예보, 무료 눈 오는 날 계산기, 학교 휴교 확률, 눈 오는 날 확률 계산기",
+    "og_image_alt": "눈 오는 날 계산기 - 학교 휴교 예측",
+    "application_name": "눈 오는 날 계산기",
+    "breadcrumb": {
+      "home": "홈",
+      "tools": "도구",
+      "snow_day_calculator": "눈 오는 날 계산기"
+    },
+    "header": {
+      "badge": "<strong>무료</strong> 눈 오는 날 확률 계산기",
+      "title_line1": "내일 학교가 휴교할까요?",
+      "title_line2": "눈 오는 날 계산기",
+      "description": "실시간 날씨 데이터를 사용하여 전 세계 어느 지역이든 즉시 <strong>눈 오는 날 예측</strong>을 확인하세요. 고급 <strong>학교 휴교 예측기</strong>는 기온, 강설량, 풍속, 가시거리를 분석하여 수백만 명의 학생, 학부모, 교육자가 신뢰하는 과학적으로 정확한 <strong>눈 오는 날 확률</strong>을 계산합니다.",
+      "core_facts": {
+        "free": {
+          "label": "무료",
+          "description": "<strong>요금:</strong> 비용 없음, 회원가입 없음"
+        },
+        "realtime": {
+          "label": "실시간",
+          "description": "<strong>데이터:</strong> 실시간 날씨 API 연동"
+        },
+        "global": {
+          "label": "글로벌",
+          "description": "<strong>범위:</strong> 전 세계 모든 지역"
+        },
+        "instant": {
+          "label": "즉시",
+          "description": "<strong>결과:</strong> 몇 초 내 계산"
+        }
+      },
+      "stats": {
+        "realtime_api": "<strong>실시간</strong> 날씨 API",
+        "scientific_algorithm": "<strong>과학적</strong> 알고리즘",
+        "worldwide_locations": "<strong>전 세계</strong> 지역",
+        "free_forever": "<strong>100% 무료</strong>"
+      }
+    },
+    "search": {
+      "type_selector": {
+        "title": "위치 검색 방법 선택",
+        "description": "지역의 <strong>눈 오는 날 예측</strong>을 확인할 검색 방법을 선택하세요. 이 도구는 최대한의 유연성을 위해 <strong>우편번호</strong>, <strong>도시 이름</strong>, <strong>GPS 좌표</strong>를 지원합니다.",
+        "zip": {
+          "label": "우편번호",
+          "description": "우편번호를 입력하여 학군의 정확한 눈 오는 날 예측을 확인하세요"
+        },
+        "city": {
+          "label": "도시",
+          "description": "도시 이름을 입력하여 지역의 학교 휴교 확률을 확인하세요"
+        },
+        "coords": {
+          "label": "좌표",
+          "description": "가장 정확한 날씨 기반 학교 휴교 예측을 위해 정확한 좌표를 입력하세요"
+        },
+        "selected": "선택됨",
+        "enter_your": "입력하세요"
+      },
+      "input": {
+        "zip_placeholder": "우편번호 입력 (예: 10001, K1A 0A6)",
+        "city_placeholder": "도시 이름 입력 (예: New York, NY)",
+        "coords_placeholder": "좌표 입력 (예: 40.7128,-74.0060)",
+        "zip_examples": "10001, 90210, K1A 0A6",
+        "city_examples": "New York, NY, London, UK, Toronto, ON",
+        "coords_examples": "40.7,-74.0, 51.5,-0.1, 43.7,-79.4"
+      },
+      "buttons": {
+        "calculate": "눈 오는 날 계산",
+        "analyzing": "날씨 분석 중...",
+        "gps_title": "현재 위치 사용"
+      },
+      "history": {
+        "title": "최근 검색"
+      },
+      "errors": {
+        "error_title": "문제가 발생했습니다",
+        "dismiss": "닫기",
+        "enter_location": "위치를 입력해 주세요",
+        "invalid_zip": "유효한 우편번호를 입력해 주세요 (예: 12345, K1A 0A6)",
+        "invalid_coords_format": "형식을 사용해 주세요: 위도,경도 (예: 40.7,-74.0)",
+        "missing_coords": "위도와 경도를 모두 제공해 주세요",
+        "invalid_coords_numbers": "좌표에 유효한 숫자를 입력해 주세요",
+        "invalid_coords_range": "위도: -90 ~ 90, 경도: -180 ~ 180",
+        "city_too_short": "도시 이름은 최소 2자 이상이어야 합니다",
+        "geolocation_not_supported": "이 브라우저는 위치 정보를 지원하지 않습니다",
+        "location_denied": "위치 접근이 거부되었습니다. 접근을 허용한 후 다시 시도하세요.",
+        "location_unavailable": "위치 정보를 사용할 수 없습니다. 수동으로 위치를 입력해 주세요.",
+        "location_timeout": "위치 요청 시간이 초과되었습니다. 다시 시도하거나 수동으로 입력하세요.",
+        "location_default": "수동으로 위치를 입력해 주세요.",
+        "fetch_failed": "날씨 데이터를 가져오지 못했습니다",
+        "unknown_error": "오류가 발생했습니다",
+        "unable_to_get_location": "위치를 가져올 수 없습니다. "
+      }
+    },
+    "results": {
+      "location_label": "{name}, {country}",
+      "probability_label": "{probability}%",
+      "chance_label": "{level} 확률",
+      "probability_labels": {
+        "low": "낮음",
+        "moderate": "보통",
+        "high": "높음",
+        "very_high": "매우 높음"
+      },
+      "weather_data": {
+        "title": "실시간 날씨 데이터 분석",
+        "description": "눈 오는 날 확률 계산에 영향을 미치는 실시간 조건",
+        "temperature": "기온",
+        "feels_like": "체감 온도 {temp}°C",
+        "wind_speed": "풍속 km/h",
+        "wind_speed_ms": "{speed} m/s",
+        "visibility": "가시거리 km",
+        "visibility_meters": "{distance} 미터",
+        "snowfall": "강설 mm/h",
+        "cloud_cover": "구름량 {percent}%"
+      },
+      "factors": {
+        "title": "확률 요소",
+        "snowfall": "강설량",
+        "temperature": "기온",
+        "wind_speed": "풍속",
+        "visibility": "가시거리",
+        "base_score": "기본 점수"
+      },
+      "notes": {
+        "title": "중요 안내",
+        "note1": "학교 휴교 결정은 지역별 교육청이 현지 상황에 따라 결정합니다",
+        "note2": "이 계산기는 날씨 요소를 기반으로 한 확률 추정치를 제공합니다",
+        "note3": "최종 결정은 항상 공식 학교 공지를 확인하세요",
+        "note4": "도로 상황 및 교통 안전은 날씨 데이터에 완전히 반영되지 않는 주요 요소입니다",
+        "note5": "실시간 날씨 데이터로 몇 분마다 업데이트됩니다"
+      }
+    },
+    "features": {
+      "title": "눈 오는 날 계산기 작동 방식",
+      "description": "고급 <strong>기상 알고리즘</strong>이 여러 날씨 요소를 실시간으로 분석하여 과학적으로 정확한 <strong>학교 휴교 확률</strong>을 예측합니다. 신뢰할 수 있는 계획 도구가 필요한 <strong>학생</strong>, <strong>학부모</strong>, <strong>교육자</strong>를 위해 설계되었습니다.",
+      "realtime": {
+        "title": "실시간 날씨 데이터",
+        "description": "<strong>OpenWeatherMap API</strong>의 실시간 데이터 스트림으로 <strong>기온</strong>, <strong>강설 강도</strong>, <strong>풍속</strong>, <strong>가시거리</strong>를 포함합니다. 정확한 예측을 위해 몇 분마다 업데이트됩니다.",
+        "tags": {
+          "temperature": "🌡️ 기온",
+          "snowfall": "❄️ 강설"
+        }
+      },
+      "algorithm": {
+        "title": "과학적 알고리즘",
+        "description": "고급 <strong>기상 알고리즘</strong>이 <strong>학교 휴교 결정</strong>에 영향을 미치는 검증된 날씨 패턴을 분석합니다. 실제 휴교와의 역사적 상관관계를 기반으로 요소에 가중치를 부여합니다.",
+        "tags": {
+          "ai_models": "🧠 AI 모델",
+          "pattern_analysis": "📊 패턴 분석"
+        }
+      },
+      "precision": {
+        "title": "초정밀 지역 분석",
+        "description": "<strong>도시 이름</strong>, <strong>우편번호</strong>를 입력하거나 <strong>GPS 좌표</strong>를 사용하여 초정밀 지역 날씨 분석을 수행하세요. <strong>전 세계 모든 지역</strong>에서 작동합니다.",
+        "tags": {
+          "global_coverage": "🌍 글로벌 커버리지",
+          "gps_accuracy": "📍 GPS 정확도"
+        }
+      },
+      "cta": {
+        "title": "눈 오는 날 예측을 받을 준비가 되셨나요?",
+        "description": "<strong>위에 위치를 입력해 시작하세요!</strong> 이 도구는 <strong>완전히 무료</strong>이며 <strong>회원가입이 필요 없고</strong> <strong>즉시 결과</strong>를 제공합니다.",
+        "badges": {
+          "instant": "<strong>즉시</strong> 결과",
+          "free": "<strong>100% 무료</strong>",
+          "no_registration": "<strong>회원가입 없음</strong>"
+        }
+      }
+    },
+    "seo_content": {
+      "how_it_works": {
+        "title": "눈 오는 날 계산기 작동 방식",
+        "description1": "<strong>눈 오는 날 예측기</strong>는 고급 기상 알고리즘을 사용하여 실시간 날씨 조건을 분석하고 학교 휴교 가능성을 판단합니다. <strong>기온</strong>, <strong>강설 강도</strong>, <strong>풍속</strong>, <strong>가시거리 데이터</strong>를 결합하여 정확한 <strong>눈 오는 날 확률</strong>을 제공합니다.",
+        "description2": "미리 계획이 필요한 <strong>학생</strong>, <strong>학부모</strong>, <strong>교육자</strong>에게 완벽한 <strong>무료 도구</strong>로, 중요한 질문인 <strong>\"내일 학교가 휴교할까요?\"</strong>에 과학적으로 답합니다. <strong>회원가입 필요 없음</strong>, 즉시 결과 제공.",
+        "features": {
+          "snowfall": "실시간 강설 분석",
+          "temperature": "기온 영향 평가",
+          "wind": "풍속 계산",
+          "visibility": "가시거리 모니터링"
+        }
+      },
+      "why_use": {
+        "title": "왜 이 눈 오는 날 예측 도구를 사용해야 할까요?",
+        "description": "일반 날씨 앱과 달리, 이 <strong>학교 휴교 예측기</strong>는 교육 계획을 위해 특별히 설계되었습니다. <strong>학부모</strong>는 보육 계획을 세우기 위해 신뢰할 수 있는 정보가 필요하고, <strong>학생</strong>은 내일 늦잠을 잘 수 있는지 알고 싶어합니다. 이 <strong>무료 계산기</strong>는 필요한 인사이트를 제공합니다.",
+        "benefits": {
+          "instant": {
+            "title": "<strong>즉시 결과:</strong>",
+            "description": " 몇 초 만에 눈 오는 날 확률 확인"
+          },
+          "global": {
+            "title": "<strong>글로벌 커버리지:</strong>",
+            "description": " 전 세계 모든 지역에서 사용 가능"
+          },
+          "scientific": {
+            "title": "<strong>과학적 정확성:</strong>",
+            "description": " 검증된 기상 모델 기반"
+          },
+          "mobile": {
+            "title": "<strong>모바일 최적화:</strong>",
+            "description": " 이동 중에도 확인 가능"
+          }
+        }
+      },
+      "trusted": {
+        "title": "수백만 명의 학생, 학부모, 교육자가 신뢰",
+        "description": "정확한 학교 휴교 예측을 위해 <strong>눈 오는 날 계산기</strong>를 사용하는 수백만 명과 함께하세요. <strong>아침 일과를 계획</strong>하거나 <strong>수업 계획을 준비</strong>할 때 필요한 신뢰할 수 있는 날씨 기반 정보를 제공합니다. <strong>완전 무료</strong>, <strong>회원가입 없음</strong>, <strong>즉시 결과</strong>.",
+        "badges": {
+          "free_forever": "✓ <strong>영구 무료</strong>",
+          "no_registration": "✓ <strong>회원가입 불필요</strong>",
+          "instant": "✓ <strong>즉시</strong> 예측",
+          "mobile": "✓ <strong>모바일 & 데스크톱</strong>"
+        }
+      }
+    },
+    "faq": {
+      "title": "눈 오는 날 계산기에 대한 자주 묻는 질문",
+      "description": "<strong>무료 눈 오는 날 계산기</strong>와 사용 방법에 대한 가장 일반적인 질문의 답변을 확인하세요. <strong>요금</strong>(무료입니다!), <strong>기능</strong>, <strong>정확도</strong> 등 다양한 정보를 알아보세요.",
+      "footer": "아직 질문이 있으신가요? 이 도구는 눈 오는 날 계획을 돕기 위해 즉각적인 답변을 제공합니다!",
+      "items": {
+        "accuracy": {
+          "question": "눈 오는 날 예측은 얼마나 정확한가요?",
+          "answer": "이 눈 오는 날 계산기는 OpenWeatherMap API의 실시간 날씨 데이터와 고급 기상 알고리즘을 사용하여 신뢰할 수 있는 예측을 제공합니다. 정확도는 현재 강설량, 기온, 풍속, 가시거리 등 여러 요소에 따라 달라집니다. 100% 정확성을 보장할 수는 없지만(학교는 다양한 지역 요인을 고려해 최종 결정을 내립니다), 이 알고리즘은 학교 관리자가 사용하는 의사결정 과정을 최대한 반영하도록 설계되었습니다."
+        },
+        "factors": {
+          "question": "이 계산기는 어떤 날씨 요소를 고려하나요?",
+          "answer": "과학적 알고리즘은 다섯 가지 주요 날씨 요소를 분석합니다: (1) 현재 강설 강도(최대 40% 영향), (2) 특히 -5°C 이하의 기온 조건(최대 25% 영향), (3) 시속 20km 이상의 풍속(최대 20% 영향), (4) 5km 이하의 가시거리(최대 15% 영향), (5) 기본 확률 점수. 이러한 요소는 실제 학교 휴교와의 역사적 상관관계를 기반으로 가중치가 부여됩니다."
+        },
+        "worldwide": {
+          "question": "전 세계 어디에서나 사용할 수 있나요?",
+          "answer": "네! 이 눈 오는 날 계산기는 전 세계 모든 지역에서 사용할 수 있습니다. 도시 이름(예: 'Toronto, Canada'), 우편번호(예: '10001' 또는 'K1A 0A6'), 정확한 좌표(예: '40.7128,-74.0060')로 검색할 수 있습니다. 국제 지역을 지원하지만, 알고리즘은 눈으로 인한 학교 휴교가 흔한 지역에 최적화되어 있습니다."
+        },
+        "best_time": {
+          "question": "눈 오는 날 예측을 확인하기 가장 좋은 시간은 언제인가요?",
+          "answer": "가장 정확한 예측을 위해 저녁(오후 8~11시)에 다음 날 계획을 확인하고, 이른 아침(오전 5~8시)에 최종 확인을 권장합니다. 날씨는 밤사이 변할 수 있으므로, 활발한 겨울 날씨 상황에서는 여러 번 확인하는 것이 좋습니다. 많은 가정이 잠자리에 들기 전에 확인하여 미리 계획을 세웁니다."
+        },
+        "free": {
+          "question": "눈 오는 날 계산기는 무료인가요?",
+          "answer": "네, 이 눈 오는 날 계산기는 완전히 무료이며 앞으로도 계속 무료입니다! 회원가입이 필요 없고, 숨겨진 비용이나 유료 기능도 없습니다. 모든 학생, 학부모, 교육자가 비용 없이 신뢰할 수 있는 날씨 기반 학교 휴교 예측에 접근할 수 있어야 한다고 믿습니다."
+        },
+        "update_frequency": {
+          "question": "날씨 데이터는 얼마나 자주 업데이트되나요?",
+          "answer": "이 계산기는 하루 종일 지속적으로 업데이트되는 실시간 날씨 데이터를 사용합니다. OpenWeatherMap API는 몇 분마다 새로 고침되는 현재 상태를 제공하여 항상 최신 정보를 받을 수 있도록 합니다. 가장 최신 예측을 위해 활발한 날씨 상황 동안 주기적으로 확인하는 것을 권장합니다."
+        },
+        "different_results": {
+          "question": "실제 학교 결정과 다른 결과가 표시될 수 있는 이유는 무엇인가요?",
+          "answer": "학교는 날씨 외에도 도로 상태, 통학 버스 노선, 교직원 가용성, 지역 정책 등 다양한 요소를 고려합니다. 이 계산기는 순수하게 기상 데이터에만 집중하지만, 학교는 이면도로의 결빙, 운전자 가용성, 교육청별 정책 등을 함께 고려할 수 있습니다. 이 도구는 공식 결정에 대한 확정 예측이 아닌 유용한 지표로 활용하세요."
+        },
+        "save_locations": {
+          "question": "즐겨찾는 위치를 저장할 수 있나요?",
+          "answer": "네! 이 계산기는 브라우저의 로컬 저장소에 최근 검색한 5개의 위치를 자동으로 저장합니다. '최근 검색' 섹션에서 클릭하여 이전 위치를 빠르게 다시 검색할 수 있습니다. 이 기능은 우편번호, 도시, 좌표 등 모든 검색 유형에서 작동합니다."
+        },
+        "search_difference": {
+          "question": "우편번호, 도시, 좌표 검색의 차이점은 무엇인가요?",
+          "answer": "각 검색 유형에는 장점이 있습니다. 우편번호 검색은 특정 지역에 대한 가장 정확한 현지 날씨 데이터를 제공합니다. 도시 검색은 일반적인 지역 예측에 적합하며 국제 지역도 지원합니다. 좌표 검색은 가장 높은 정확도를 제공하여 특정 주소나 농촌 지역의 날씨 데이터가 필요할 때 이상적입니다."
+        },
+        "algorithm_comparison": {
+          "question": "눈 오는 날 알고리즘은 실제 교육청 결정과 어떻게 비교되나요?",
+          "answer": "이 알고리즘은 기상 데이터 분석과 학교 휴교의 역사적 패턴을 기반으로 합니다. 실제 결정과 높은 상관관계를 보이지만, 교육청은 지역 인프라, 통학 버스 노선 상태, 교직원 가용성, 자체 정책도 함께 고려합니다. 신뢰할 수 있는 지표로 활용하되, 최종 결정은 공식 학교 공지를 확인하세요."
+        },
+        "planning": {
+          "question": "학부모와 교사가 계획 수립에 활용할 수 있나요?",
+          "answer": "물론입니다! 이 눈 오는 날 계산기는 계획 수립을 위해 특별히 설계되었습니다. 학부모는 보육을 준비하고 근무 일정을 계획할 수 있으며, 교사는 수업 계획을 조정하고 원격 학습 자료를 준비할 수 있습니다. 다만 최종 계획 전에는 반드시 공식 교육청 안내를 확인하세요."
+        },
+        "private_schools": {
+          "question": "사립학교와 대학에도 적용되나요?",
+          "answer": "네, 이 눈 오는 날 계산기는 모든 교육 기관에 적용됩니다. 휴교 결정에 영향을 미치는 날씨 요소는 공립학교, 사립학교, 대학 전반에 걸쳐 유사합니다. 다만 기관별 기준과 정책이 다를 수 있으므로 확률은 일반적인 날씨 기반 지표로 해석해야 합니다."
+        },
+        "daylight_saving": {
+          "question": "일광 절약 시간제가 계산에 어떤 영향을 미치나요?",
+          "answer": "이 눈 오는 날 계산기는 일광 절약 시간제 변경과 시간대 변환을 자동으로 처리합니다. 날씨 데이터에는 올바른 시간대 정보가 포함되어 있어 계절 변화와 관계없이 정확한 예측을 제공합니다. 별도의 수동 조정은 필요하지 않습니다."
+        },
+        "error_handling": {
+          "question": "위치 오류가 표시되면 어떻게 해야 하나요?",
+          "answer": "오류가 발생하면 먼저 입력 형식을 확인하세요: 올바른 도시/주 형식(예: 'Boston, MA'), 유효한 우편번호, 또는 정확한 좌표를 사용하세요. 국제 지역의 경우 국가명을 포함하세요. 문제가 지속되면 GPS 위치 또는 다른 검색 방법을 시도해 보세요. 매우 외진 지역은 날씨 데이터가 제한될 수 있습니다."
+        },
+        "other_weather": {
+          "question": "다른 날씨 관련 휴교 예측에도 사용할 수 있나요?",
+          "answer": "눈 오는 날 예측을 위해 특별히 설계되었지만, 이 계산기의 날씨 분석은 빙판 폭풍, 극심한 한파, 눈보라 등 학교 운영에 영향을 미칠 수 있는 다른 겨울 날씨 상황에 대한 인사이트도 제공할 수 있습니다. 확률 점수는 일반적인 악천후 영향을 반영하지만, 알고리즘은 눈 관련 휴교에 최적화되어 있습니다."
+        },
+        "comparison": {
+          "question": "다른 눈 오는 날 예측 도구와 비교하면 어떤가요?",
+          "answer": "이 눈 오는 날 계산기는 과학적 알고리즘, 실시간 API 연동, 다양한 검색 방법, 모바일 최적화 디자인으로 차별화됩니다. 단순한 날씨 앱과 달리, 학교 휴교 결정에 영향을 미치는 요소에 집중합니다. 완전히 무료이며 회원가입이 필요 없고, 투명한 방식으로 상세한 확률 분석을 제공합니다."
+        }
+      }
+    },
+    "json_ld": {
+      "name": "눈 오는 날 계산기",
+      "description": "실시간 날씨 데이터를 사용하여 학교 휴교 확률을 예측하는 무료 눈 오는 날 계산기입니다. 전 세계 수백만 명의 학생, 학부모, 교육자가 신뢰합니다.",
+      "audience_type": "학생, 학부모, 교육자, 학교 관리자",
+      "usage_info": "무료 사용 가능, 회원가입 필요 없음. 위치를 입력하여 즉시 눈 오는 날 확률 예측을 확인하세요.",
+      "feature_list": {
+        "realtime_api": "OpenWeatherMap API를 통한 실시간 날씨 데이터 연동",
+        "probability_calculation": "과학적 알고리즘을 사용한 학교 휴교 확률 계산",
+        "location_based": "전 세계 모든 지역에 대한 위치 기반 예측",
+        "weather_factors": "다양한 날씨 요소 분석 (기온, 강설, 바람, 가시거리)",
+        "mobile_design": "이동 중에도 사용 가능한 모바일 반응형 디자인",
+        "instant_results": "상세한 확률 분석과 함께 즉시 결과 제공",
+        "multiple_search": "다양한 검색 방법 (우편번호, 도시 이름, GPS 좌표)",
+        "search_history": "즐겨찾는 위치에 빠르게 접근할 수 있는 검색 기록"
+      }
+    }
   }
 }

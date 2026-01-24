@@ -5704,5 +5704,311 @@
         "days_ago": "il y a {days} j"
       }
     }
+  },
+  "SnowDayCalculator": {
+    "seo_title": "Calculateur de jour de neige - Prédire les fermetures d’écoles grâce aux données météo",
+    "seo_description": "Calculateur gratuit de jour de neige qui prédit la probabilité de fermeture des écoles à l’aide de données météorologiques en temps réel. Vérifiez si votre école sera fermée en raison des conditions neigeuses grâce à des prévisions précises. Approuvé par des millions d’élèves, de parents et d’éducateurs dans le monde entier.",
+    "seo_keywords": "calculateur de jour de neige, prédicteur de jour de neige, prédicteur de fermeture d’école, l’école sera-t-elle fermée, probabilité de jour de neige, fermetures d’écoles météo, prévisions neige école, calculateur météo hivernale, prédicteur de retard scolaire, prévision jour de neige, calculateur de jour de neige gratuit, probabilité de fermeture d’école, calculateur de probabilité de jour de neige",
+    "og_image_alt": "Calculateur de jour de neige - Prédire les fermetures d’écoles",
+    "application_name": "Calculateur de jour de neige",
+    "breadcrumb": {
+      "home": "Accueil",
+      "tools": "Outils",
+      "snow_day_calculator": "Calculateur de jour de neige"
+    },
+    "header": {
+      "badge": "Calculateur <strong>gratuit</strong> de probabilité de jour de neige",
+      "title_line1": "L’école sera-t-elle fermée demain ?",
+      "title_line2": "Calculateur de jour de neige",
+      "description": "Obtenez instantanément des <strong>prévisions de jour de neige</strong> pour n’importe quel endroit dans le monde grâce aux données météorologiques en temps réel. Notre <strong>prédicteur de fermeture d’école</strong> avancé analyse la température, les chutes de neige, la vitesse du vent et la visibilité afin de calculer une <strong>probabilité précise de jour de neige</strong> avec une exactitude scientifique reconnue par des millions d’élèves, de parents et d’éducateurs.",
+      "core_facts": {
+        "free": {
+          "label": "Gratuit",
+          "description": "<strong>Tarification :</strong> Aucun coût, aucune inscription"
+        },
+        "realtime": {
+          "label": "Temps réel",
+          "description": "<strong>Données :</strong> Intégration d’API météo en direct"
+        },
+        "global": {
+          "label": "Mondial",
+          "description": "<strong>Couverture :</strong> Tous les endroits dans le monde"
+        },
+        "instant": {
+          "label": "Instantané",
+          "description": "<strong>Résultats :</strong> Calcul en quelques secondes"
+        }
+      },
+      "stats": {
+        "realtime_api": "API météo <strong>en temps réel</strong>",
+        "scientific_algorithm": "Algorithme <strong>scientifique</strong>",
+        "worldwide_locations": "Lieux <strong>dans le monde entier</strong>",
+        "free_forever": "<strong>100 % gratuit</strong>"
+      }
+    },
+    "search": {
+      "type_selector": {
+        "title": "Choisissez votre méthode de recherche de localisation",
+        "description": "Sélectionnez la manière dont vous souhaitez rechercher des <strong>prévisions de jour de neige</strong> dans votre région. Notre outil prend en charge les <strong>codes postaux</strong>, les <strong>noms de villes</strong> et les <strong>coordonnées GPS</strong> pour une flexibilité maximale.",
+        "zip": {
+          "label": "Code postal",
+          "description": "Entrez votre code postal pour obtenir des prévisions précises de jour de neige pour votre district scolaire"
+        },
+        "city": {
+          "label": "Ville",
+          "description": "Entrez le nom de votre ville pour vérifier la probabilité de fermeture des écoles dans votre région"
+        },
+        "coords": {
+          "label": "Coordonnées",
+          "description": "Entrez des coordonnées précises pour la prévision de fermeture d’école la plus exacte basée sur la météo"
+        },
+        "selected": "Sélectionné",
+        "enter_your": "Entrez votre"
+      },
+      "input": {
+        "zip_placeholder": "Entrez le code postal (ex. 10001, K1A 0A6)",
+        "city_placeholder": "Entrez le nom de la ville (ex. New York, NY)",
+        "coords_placeholder": "Entrez les coordonnées (ex. 40.7128,-74.0060)",
+        "zip_examples": "10001, 90210, K1A 0A6",
+        "city_examples": "New York, NY, Londres, Royaume-Uni, Toronto, ON",
+        "coords_examples": "40.7,-74.0, 51.5,-0.1, 43.7,-79.4"
+      },
+      "buttons": {
+        "calculate": "Calculer le jour de neige",
+        "analyzing": "Analyse de la météo...",
+        "gps_title": "Utiliser ma position actuelle"
+      },
+      "history": {
+        "title": "Recherches récentes"
+      },
+      "errors": {
+        "error_title": "Oups ! Une erreur est survenue",
+        "dismiss": "Fermer",
+        "enter_location": "Veuillez entrer un emplacement",
+        "invalid_zip": "Veuillez entrer un code postal valide (ex. 12345, K1A 0A6)",
+        "invalid_coords_format": "Veuillez utiliser le format : latitude,longitude (ex. 40.7,-74.0)",
+        "missing_coords": "Veuillez fournir la latitude et la longitude",
+        "invalid_coords_numbers": "Veuillez entrer des nombres valides pour les coordonnées",
+        "invalid_coords_range": "Latitude : -90 à 90, Longitude : -180 à 180",
+        "city_too_short": "Le nom de la ville doit comporter au moins 2 caractères",
+        "geolocation_not_supported": "La géolocalisation n’est pas prise en charge par ce navigateur",
+        "location_denied": "Accès à la localisation refusé. Veuillez autoriser l’accès à la localisation et réessayer.",
+        "location_unavailable": "Informations de localisation indisponibles. Veuillez entrer votre emplacement manuellement.",
+        "location_timeout": "La demande de localisation a expiré. Veuillez réessayer ou entrer manuellement.",
+        "location_default": "Veuillez entrer votre emplacement manuellement.",
+        "fetch_failed": "Impossible de récupérer les données météorologiques",
+        "unknown_error": "Une erreur est survenue",
+        "unable_to_get_location": "Impossible d’obtenir votre emplacement. "
+      }
+    },
+    "results": {
+      "location_label": "{name}, {country}",
+      "probability_label": "{probability}%",
+      "chance_label": "Probabilité {level}",
+      "probability_labels": {
+        "low": "Faible",
+        "moderate": "Modérée",
+        "high": "Élevée",
+        "very_high": "Très élevée"
+      },
+      "weather_data": {
+        "title": "Analyse des données météo en direct",
+        "description": "Conditions en temps réel influençant le calcul de votre probabilité de jour de neige",
+        "temperature": "Température",
+        "feels_like": "Ressenti {temp}°C",
+        "wind_speed": "Vent km/h",
+        "wind_speed_ms": "{speed} m/s",
+        "visibility": "Visibilité km",
+        "visibility_meters": "{distance} mètres",
+        "snowfall": "Neige mm/h",
+        "cloud_cover": "{percent} % de couverture nuageuse"
+      },
+      "factors": {
+        "title": "Facteurs de probabilité",
+        "snowfall": "Chutes de neige",
+        "temperature": "Température",
+        "wind_speed": "Vitesse du vent",
+        "visibility": "Visibilité",
+        "base_score": "Score de base"
+      },
+      "notes": {
+        "title": "Notes importantes",
+        "note1": "Les décisions de fermeture des écoles sont prises par chaque district en fonction des conditions locales",
+        "note2": "Ce calculateur fournit des estimations de probabilité basées sur des facteurs météorologiques",
+        "note3": "Vérifiez toujours les annonces officielles des écoles pour les décisions finales",
+        "note4": "Les conditions routières et la sécurité des transports sont des facteurs clés non entièrement pris en compte par les données météo",
+        "note5": "Mises à jour toutes les quelques minutes avec des données météo en temps réel"
+      }
+    },
+    "features": {
+      "title": "Comment fonctionne notre calculateur de jour de neige",
+      "description": "Notre <strong>algorithme météorologique</strong> avancé analyse plusieurs facteurs météo en temps réel afin de prédire la <strong>probabilité de fermeture des écoles</strong> avec une précision scientifique. Conçu pour les <strong>élèves</strong>, les <strong>parents</strong> et les <strong>éducateurs</strong> qui ont besoin d’outils de planification fiables.",
+      "realtime": {
+        "title": "Données météo en temps réel",
+        "description": "Flux de données en direct provenant de l’<strong>API OpenWeatherMap</strong>, incluant la <strong>température</strong>, l’<strong>intensité des chutes de neige</strong>, la <strong>vitesse du vent</strong> et les <strong>conditions de visibilité</strong>. Mis à jour toutes les quelques minutes pour des prévisions précises.",
+        "tags": {
+          "temperature": "🌡️ Température",
+          "snowfall": "❄️ Chutes de neige"
+        }
+      },
+      "algorithm": {
+        "title": "Algorithme scientifique",
+        "description": "Des <strong>algorithmes météorologiques</strong> avancés analysent des modèles climatiques éprouvés qui influencent les <strong>décisions des districts scolaires</strong>. Les facteurs sont pondérés selon leur corrélation historique avec les fermetures réelles.",
+        "tags": {
+          "ai_models": "🧠 Modèles IA",
+          "pattern_analysis": "📊 Analyse de modèles"
+        }
+      },
+      "precision": {
+        "title": "Précision hyper-locale",
+        "description": "Entrez n’importe quel <strong>nom de ville</strong>, <strong>code postal</strong> ou utilisez des <strong>coordonnées GPS</strong> pour une analyse météo locale ultra-précise. Fonctionne pour <strong>tous les endroits du monde</strong>.",
+        "tags": {
+          "global_coverage": "🌍 Couverture mondiale",
+          "gps_accuracy": "📍 Précision GPS"
+        }
+      },
+      "cta": {
+        "title": "Prêt à obtenir votre prévision de jour de neige ?",
+        "description": "<strong>Commencez par entrer votre emplacement ci-dessus !</strong> Notre outil est <strong>entièrement gratuit</strong>, ne nécessite <strong>aucune inscription</strong> et fournit des <strong>résultats instantanés</strong>.",
+        "badges": {
+          "instant": "Résultats <strong>instantanés</strong>",
+          "free": "<strong>100 % gratuit</strong>",
+          "no_registration": "<strong>Aucune inscription</strong>"
+        }
+      }
+    },
+
+    "seo_content": {
+      "how_it_works": {
+        "title": "Comment fonctionne notre calculateur de jour de neige",
+        "description1": "Notre <strong>prédicteur de jour de neige</strong> utilise des algorithmes météorologiques avancés pour analyser les conditions météorologiques en temps réel et déterminer la probabilité de fermeture des écoles. En combinant la <strong>température</strong>, <strong>l'intensité des chutes de neige</strong>, <strong>la vitesse du vent</strong> et <strong>les données de visibilité</strong>, nous fournissons des calculs précis de <strong>probabilité de jour de neige</strong>.",
+        "description2": "Parfait pour les <strong>étudiants</strong>, les <strong>parents</strong> et les <strong>éducateurs</strong> qui doivent planifier à l'avance, notre <strong>outil gratuit</strong> répond à la question cruciale : <strong>\"L'école sera-t-elle fermée demain ?\"</strong> avec une précision scientifique. <strong>Aucune inscription requise</strong>, résultats instantanés.",
+        "features": {
+          "snowfall": "Analyse des chutes de neige en temps réel",
+          "temperature": "Évaluation de l'impact de la température",
+          "wind": "Calculs de la vitesse du vent",
+          "visibility": "Surveillance de la visibilité"
+        }
+      },
+      "why_use": {
+        "title": "Pourquoi utiliser notre outil de prévision de jour de neige ?",
+        "description": "Contrairement aux applications météo de base, notre <strong>prédicteur de fermeture scolaire</strong> spécialisé est conçu spécifiquement pour la planification éducative. Nous comprenons que les <strong>parents</strong> ont besoin d'informations fiables pour organiser la garde d'enfants, et que les <strong>étudiants</strong> veulent savoir s'ils peuvent faire la grasse matinée demain. Notre <strong>calculateur gratuit</strong> fournit les informations dont vous avez besoin.",
+        "benefits": {
+          "instant": {
+            "title": "<strong>Résultats instantanés :</strong>",
+            "description": " Obtenez votre probabilité de jour de neige en quelques secondes"
+          },
+          "global": {
+            "title": "<strong>Couverture mondiale :</strong>",
+            "description": " Fonctionne pour n'importe quel endroit dans le monde"
+          },
+          "scientific": {
+            "title": "<strong>Précision scientifique :</strong>",
+            "description": " Basé sur des modèles météorologiques éprouvés"
+          },
+          "mobile": {
+            "title": "<strong>Optimisé pour mobile :</strong>",
+            "description": " Parfait pour vérifier en déplacement"
+          }
+        }
+      },
+      "trusted": {
+        "title": "Fiable pour des millions d'étudiants, de parents et d'éducateurs",
+        "description": "Rejoignez des millions de personnes qui comptent sur notre <strong>calculateur de jour de neige</strong> pour des prédictions précises de fermeture scolaire. Que vous <strong>planifiiez votre routine matinale</strong> ou <strong>prépariez des plans de cours</strong>, obtenez les informations fiables basées sur la météo dont vous avez besoin. <strong>Complètement gratuit</strong>, <strong>aucune inscription</strong>, <strong>résultats instantanés</strong>.",
+        "badges": {
+          "free_forever": "✓ <strong>Gratuit pour toujours</strong>",
+          "no_registration": "✓ <strong>Aucune inscription</strong> requise",
+          "instant": "✓ <strong>Prédictions</strong> instantanées",
+          "mobile": "✓ <strong>Mobile et ordinateur</strong>"
+        }
+      }
+    },
+    "faq": {
+      "title": "Questions fréquemment posées sur le calculateur de jour de neige",
+      "description": "Obtenez des réponses aux questions les plus courantes sur notre <strong>calculateur de jour de neige gratuit</strong> et comment l'utiliser efficacement. Découvrez les <strong>tarifs</strong> (c'est gratuit !), les <strong>fonctionnalités</strong>, la <strong>précision</strong>, et plus encore.",
+      "footer": "Vous avez encore des questions ? Notre outil fournit des réponses instantanées pour vous aider à planifier vos jours de neige !",
+      "items": {
+        "accuracy": {
+          "question": "Quelle est la précision des prédictions de jour de neige ?",
+          "answer": "Notre calculateur de jour de neige utilise des données météorologiques en temps réel de l'API OpenWeatherMap et des algorithmes météorologiques avancés pour fournir des prédictions fiables. La précision dépend de plusieurs facteurs, notamment les chutes de neige actuelles, la température, la vitesse du vent et la visibilité. Bien que nous ne puissions pas garantir une précision à 100% (car les districts scolaires prennent des décisions finales basées sur divers facteurs locaux), notre algorithme a été conçu pour refléter étroitement le processus de prise de décision utilisé par les administrateurs scolaires."
+        },
+        "factors": {
+          "question": "Quels facteurs météorologiques le calculateur prend-il en compte ?",
+          "answer": "Notre algorithme scientifique analyse cinq facteurs météorologiques clés : (1) L'intensité des chutes de neige actives (jusqu'à 40% d'impact), (2) Les conditions de température, notamment en dessous de -5°C (jusqu'à 25% d'impact), (3) La vitesse du vent supérieure à 20 km/h (jusqu'à 20% d'impact), (4) La visibilité inférieure à 5 km (jusqu'à 15% d'impact), et (5) Un score de probabilité de base. Ces facteurs sont pondérés en fonction de leur corrélation historique avec les fermetures scolaires réelles."
+        },
+        "worldwide": {
+          "question": "Puis-je utiliser cet outil pour n'importe quel endroit dans le monde ?",
+          "answer": "Oui ! Notre calculateur de jour de neige fonctionne pour n'importe quel endroit dans le monde. Vous pouvez rechercher par nom de ville (par exemple, 'Toronto, Canada'), code postal (par exemple, '10001' ou 'K1A 0A6'), ou coordonnées exactes (par exemple, '40.7128,-74.0060'). L'outil prend en charge les emplacements internationaux, bien que l'algorithme soit optimisé pour les régions qui connaissent couramment des fermetures scolaires liées à la neige."
+        },
+        "best_time": {
+          "question": "Quel est le meilleur moment pour vérifier les prédictions de jour de neige ?",
+          "answer": "Pour les prédictions les plus précises, consultez notre calculateur le soir (20h-23h) pour la planification du lendemain, et à nouveau tôt le matin (5h-8h) pour la confirmation finale. Les conditions météorologiques peuvent changer pendant la nuit, nous recommandons donc de vérifier plusieurs fois pendant les événements météorologiques hivernaux actifs. De nombreuses familles trouvent utile de vérifier avant le coucher pour planifier à l'avance."
+        },
+        "free": {
+          "question": "Le calculateur de jour de neige est-il gratuit à utiliser ?",
+          "answer": "Oui, notre calculateur de jour de neige est complètement gratuit et le sera toujours ! Aucune inscription n'est requise, aucun frais caché, et aucune fonctionnalité premium verrouillée derrière des paywalls. Nous croyons que chaque étudiant, parent et éducateur devrait avoir accès à des prédictions fiables de fermeture scolaire basées sur la météo sans aucun coût."
+        },
+        "update_frequency": {
+          "question": "À quelle fréquence les données météorologiques sont-elles mises à jour ?",
+          "answer": "Notre calculateur utilise des données météorologiques en temps réel qui sont mises à jour en continu tout au long de la journée. L'API OpenWeatherMap fournit des conditions actuelles qui sont actualisées toutes les quelques minutes, garantissant que vous obtenez toujours les dernières informations pour vos calculs de jour de neige. Pour les prédictions les plus récentes, nous recommandons de vérifier périodiquement pendant les événements météorologiques actifs."
+        },
+        "different_results": {
+          "question": "Pourquoi le calculateur pourrait-il afficher des résultats différents des décisions scolaires réelles ?",
+          "answer": "Les districts scolaires considèrent de nombreux facteurs au-delà de la météo, notamment les conditions routières, les itinéraires de bus, la disponibilité du personnel et les politiques locales. Notre calculateur se concentre uniquement sur les données météorologiques, tandis que les écoles peuvent prendre en compte des éléments comme la glace sur les routes secondaires, la disponibilité des conducteurs ou les politiques spécifiques au district. Considérez notre outil comme un indicateur utile plutôt qu'une prédiction définitive des décisions scolaires officielles."
+        },
+        "save_locations": {
+          "question": "Puis-je enregistrer mes emplacements favoris pour un accès rapide ?",
+          "answer": "Oui ! Notre calculateur enregistre automatiquement vos 5 derniers emplacements recherchés dans le stockage local de votre navigateur. Vous pouvez rapidement rechercher à nouveau n'importe quel emplacement précédent en cliquant dessus dans la section 'Recherches récentes'. Cette fonctionnalité fonctionne pour tous les types de recherche (codes postaux, villes et coordonnées) et facilite la vérification de plusieurs districts scolaires ou emplacements."
+        },
+        "search_difference": {
+          "question": "Quelle est la différence entre les recherches par code postal, ville et coordonnées ?",
+          "answer": "Chaque type de recherche offre des avantages différents : Les recherches par code postal fournissent les données météorologiques locales les plus précises pour des zones postales spécifiques. Les recherches par ville fonctionnent bien pour les prédictions de zone générale et prennent en charge les emplacements internationaux avec un formatage approprié. Les recherches par coordonnées offrent la plus haute précision pour les emplacements exacts et sont parfaites lorsque vous avez besoin de données météorologiques pour des adresses spécifiques ou des zones rurales."
+        },
+        "algorithm_comparison": {
+          "question": "Comment l'algorithme de jour de neige se compare-t-il aux décisions réelles des districts scolaires ?",
+          "answer": "Notre algorithme est basé sur l'analyse des données météorologiques et les modèles historiques de fermetures scolaires. Bien que nous obtenions une corrélation élevée avec les décisions réelles, les districts scolaires considèrent également l'infrastructure locale, les conditions des itinéraires de bus, la disponibilité du personnel et les politiques spécifiques au district. Utilisez notre calculateur comme indicateur fiable, mais vérifiez toujours les annonces officielles des écoles pour les décisions finales."
+        },
+        "planning": {
+          "question": "Les parents et les enseignants peuvent-ils s'appuyer sur cet outil à des fins de planification ?",
+          "answer": "Absolument ! Notre calculateur de jour de neige est conçu spécifiquement à des fins de planification. Les parents peuvent l'utiliser pour organiser la garde d'enfants, planifier les horaires de travail et se préparer aux fermetures scolaires potentielles. Les enseignants peuvent ajuster les plans de cours et préparer du matériel d'apprentissage à distance. Cependant, confirmez toujours avec les communications officielles du district scolaire avant de prendre des arrangements définitifs."
+        },
+        "private_schools": {
+          "question": "Le calculateur fonctionne-t-il pour les écoles privées et les universités ?",
+          "answer": "Oui, notre calculateur de jour de neige fonctionne pour n'importe quel établissement d'enseignement. Les facteurs météorologiques affectant les décisions de fermeture sont similaires dans les écoles publiques, les écoles privées et les universités. Cependant, les établissements privés et les universités peuvent avoir des seuils et des politiques de fermeture différents, donc la probabilité doit être interprétée comme un indicateur général basé sur la météo."
+        },
+        "daylight_saving": {
+          "question": "Comment l'heure d'été affecte-t-elle les calculs ?",
+          "answer": "Notre calculateur de jour de neige gère automatiquement les changements d'heure d'été et les conversions de fuseau horaire. Les données météorologiques incluent des informations de fuseau horaire appropriées, garantissant des prédictions précises indépendamment des changements de temps saisonniers. Vous n'avez pas besoin de faire d'ajustements manuels - le système gère automatiquement tous les calculs liés au temps."
+        },
+        "error_handling": {
+          "question": "Que dois-je faire si le calculateur affiche une erreur pour mon emplacement ?",
+          "answer": "Si vous rencontrez une erreur, vérifiez d'abord le format de votre saisie : utilisez un format ville/état approprié (par exemple, 'Boston, MA'), des codes postaux valides ou des coordonnées précises. Pour les emplacements internationaux, incluez le nom du pays. Si les problèmes persistent, essayez d'utiliser l'emplacement GPS ou des méthodes de recherche alternatives. Notre système gère la plupart des emplacements mondiaux, mais les zones très éloignées pourraient avoir des données météorologiques limitées."
+        },
+        "other_weather": {
+          "question": "Puis-je utiliser cet outil pour d'autres prédictions de fermeture liées à la météo ?",
+          "answer": "Bien qu'il soit spécifiquement conçu pour les prédictions de jour de neige, l'analyse météorologique de notre calculateur peut fournir des informations sur d'autres événements météorologiques hivernaux comme les tempêtes de verglas, le froid extrême ou les blizzards qui pourraient affecter les opérations scolaires. Le score de probabilité reflète l'impact général des conditions météorologiques sévères, mais notre algorithme est optimisé spécifiquement pour les fermetures scolaires liées à la neige."
+        },
+        "comparison": {
+          "question": "Comment cela se compare-t-il aux autres outils de prédiction de jour de neige ?",
+          "answer": "Notre calculateur de jour de neige se distingue par son algorithme scientifique, son intégration API en temps réel, ses multiples méthodes de recherche et sa conception optimisée pour mobile. Contrairement aux applications météo simples, nous nous concentrons spécifiquement sur les facteurs qui influencent les décisions de fermeture scolaire. Notre outil est complètement gratuit, ne nécessite aucune inscription et fournit des décompositions détaillées de probabilité avec une méthodologie transparente."
+        }
+      }
+    },
+    "json_ld": {
+      "name": "Calculateur de jour de neige",
+      "description": "Calculateur de jour de neige gratuit qui prédit la probabilité de fermeture scolaire en utilisant des données météorologiques en temps réel. Fiable pour des millions d'étudiants, de parents et d'éducateurs dans le monde entier.",
+      "audience_type": "Étudiants, Parents, Éducateurs, Administrateurs scolaires",
+      "usage_info": "Gratuit à utiliser, aucune inscription requise. Entrez l'emplacement pour obtenir des prédictions instantanées de probabilité de jour de neige.",
+      "feature_list": {
+        "realtime_api": "Intégration de données météorologiques en temps réel via l'API OpenWeatherMap",
+        "probability_calculation": "Calcul de probabilité de fermeture scolaire utilisant des algorithmes scientifiques",
+        "location_based": "Prédictions basées sur l'emplacement pour n'importe quel emplacement mondial",
+        "weather_factors": "Analyse de multiples facteurs météorologiques (température, chutes de neige, vent, visibilité)",
+        "mobile_design": "Conception responsive mobile pour un accès en déplacement",
+        "instant_results": "Résultats instantanés avec décomposition détaillée de probabilité",
+        "multiple_search": "Méthodes de recherche multiples (code postal, nom de ville, coordonnées GPS)",
+        "search_history": "Historique de recherche pour un accès rapide aux emplacements favoris"
+      }
+    }
   }
 }
