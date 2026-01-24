@@ -19,7 +19,7 @@ import EducationalContent from "./components/EducationalContent"
 import React from "react"
 
 // Content freshness metadata - 内容新鲜度
-const lastModified = new Date("2025-01-24")
+const lastModified = new Date("2026-01-25")
 
 // Content Freshness Badge Component - 符合SEO标准
 function ContentFreshnessBadge({ lastModified }: { lastModified: Date }) {
