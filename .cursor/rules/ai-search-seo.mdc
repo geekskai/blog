@@ -1,0 +1,375 @@
+---
+description: AI/LLM search era SEO best practices - content chunking, freshness, brand signals, and information retrieval optimization
+globs: **/*.tsx,**/*.ts,**/*.mdx,**/*.md,next.config.js
+alwaysApply: false
+---
+
+# 🚀 AI Search Era SEO Best Practices
+
+> **Core Insight**: In the LLM search era, the real competitive advantage is brand and retrievable facts, not keyword density.
+
+## 🎯 Core Principles
+
+1. **Information Retrieval Score**: AI must be able to extract your content chunks and core facts
+2. **Content Freshness**: Content updated within 30-90 days performs best
+3. **Topical Authority**: Build complete topic coverage and knowledge graphs
+4. **Brand Signals**: Entity signals matter more than "perfect content"
+5. **Fact Granularity**: AI cares more about fact granularity than complete pages
+
+---
+
+## 🔍 Information Retrieval Optimization
+
+### Content Chunking
+
+```tsx
+// ✅ Good practice: Clear content chunk structure for easy AI extraction
+const ContentChunk = () => (
+  <article>
+    {/* Core facts chunk */}
+    <section className="fact-chunk">
+      <h2>Core Features</h2>
+      <ul>
+        <li>
+          <strong>Feature Name</strong>: Feature description
+        </li>
+        <li>
+          <strong>Pricing</strong>: Free to use
+        </li>
+        <li>
+          <strong>Target Users</strong>: Students, developers, designers
+        </li>
+      </ul>
+    </section>
+
+    {/* Features chunk */}
+    <section className="feature-chunk">
+      <h2>Key Features</h2>
+      <div className="grid gap-4 md:grid-cols-3">
+        {features.map((feature) => (
+          <div key={feature.id} className="feature-card">
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+            {/* Use <strong> tags to highlight key information */}
+            <p>
+              <strong>Use Case</strong>: {feature.useCase}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </article>
+)
+```
+
+### Use `<strong>` Tags to Highlight Key Facts
+
+```tsx
+// ✅ Use <strong> tags for key information (high ROI)
+const SEOContent = () => (
+  <div>
+    <p>
+      Our tool provides <strong>free</strong> online conversion services,
+      supporting multiple formats like <strong>PDF, DOCX, TXT</strong>,
+      with processing speed <strong>under 5 seconds</strong>.
+    </p>
+  </div>
+)
+
+// ✅ Structured fact extraction
+const FactHighlight = ({ fact, value }) => (
+  <div className="fact-highlight">
+    <strong className="text-lg font-bold">{fact}</strong>
+    <span className="text-blue-500 ml-2">{value}</span>
+  </div>
+)
+```
+
+### Core Facts Extraction Optimization
+
+```tsx
+// app/components/CoreFacts.tsx
+export function CoreFacts({ tool }: { tool: Tool }) {
+  const coreFacts = [
+    { label: "Pricing", value: tool.pricing, key: "pricing" },
+    { label: "Key Features", value: tool.features.join(", "), key: "features" },
+    { label: "Positioning", value: tool.positioning, key: "positioning" },
+    { label: "Target Users", value: tool.targetUsers.join(", "), key: "targetUsers" },
+  ]
+
+  return (
+    <section className="core-facts">
+      <h2>Core Information</h2>
+      <dl className="grid gap-4 md:grid-cols-2">
+        {coreFacts.map((fact) => (
+          <div key={fact.key}>
+            <dt className="font-semibold">{fact.label}</dt>
+            <dd className="text-gray-600">{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  )
+}
+```
+
+---
+
+## ⏰ Content Freshness Strategy
+
+### Content Update Mechanism
+
+```typescript
+// app/utils/content-freshness.ts
+export interface ContentMetadata {
+  lastModified: Date
+  updateFrequency: "daily" | "weekly" | "monthly" | "quarterly"
+  nextReviewDate: Date
+}
+
+export function shouldUpdateContent(metadata: ContentMetadata): boolean {
+  const daysSinceUpdate = Math.floor(
+    (Date.now() - metadata.lastModified.getTime()) / (1000 * 60 * 60 * 24)
+  )
+  // If not updated for more than 90 days, mark as needing update
+  return daysSinceUpdate > 90
+}
+```
+
+### Mark Update Date in Metadata
+
+```typescript
+// app/[locale]/tools/[slug]/layout.tsx
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const tool = await getToolData(params.slug)
+
+  return {
+    // ... other metadata
+    other: {
+      "last-modified": tool.lastModified.toISOString(),
+      "update-frequency": "monthly",
+      "next-review": tool.nextReviewDate.toISOString(),
+    },
+  }
+}
+```
+
+---
+
+## 🏆 Topical Authority Building
+
+### Topical Coverage Strategy
+
+```tsx
+// ✅ Build complete topical coverage with deep semantic context
+const TopicalCoverage = () => {
+  const topics = [
+    {
+      title: "Core Features",
+      subtopics: ["Feature 1", "Feature 2", "Feature 3"],
+      depth: 1,
+    },
+    {
+      title: "Use Cases",
+      subtopics: ["Use Case 1", "Use Case 2", "Use Case 3"],
+      depth: 2,
+    },
+  ]
+
+  return (
+    <article>
+      {topics.map((topic, index) => (
+        <section key={index}>
+          <h2>{topic.title}</h2>
+          {topic.subtopics.map((subtopic, subIndex) => (
+            <div key={subIndex}>
+              <h3>{subtopic}</h3>
+              {/* Deep content providing semantic context */}
+              <p>Detailed explanation...</p>
+            </div>
+          ))}
+        </section>
+      ))}
+    </article>
+  )
+}
+```
+
+---
+
+## 🎯 Brand Building
+
+### Entity Signals Optimization
+
+```typescript
+// app/utils/entity-signals.ts
+export interface EntitySignals {
+  founders: Array<{
+    name: string
+    role: string
+    linkedin?: string
+    twitter?: string
+  }>
+  contact: {
+    email: string
+    address?: string
+    phone?: string
+  }
+  organization: {
+    name: string
+    legalName: string
+    foundingDate: Date
+    location: string
+  }
+}
+
+export function generateEntitySchema(signals: EntitySignals) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: signals.organization.name,
+    legalName: signals.organization.legalName,
+    foundingDate: signals.organization.foundingDate.toISOString(),
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: signals.organization.location,
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: signals.contact.email,
+      contactType: "customer service",
+    },
+    founder: signals.founders.map((f) => ({
+      "@type": "Person",
+      name: f.name,
+      jobTitle: f.role,
+      sameAs: [f.linkedin, f.twitter].filter(Boolean),
+    })),
+  }
+}
+```
+
+---
+
+## 🔧 Technical SEO
+
+### Server Speed Optimization (TTFB)
+
+```typescript
+// next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  compress: true,
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 60,
+  },
+  output: "standalone",
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "X-DNS-Prefetch-Control",
+            value: "on",
+          },
+        ],
+      },
+    ]
+  },
+}
+```
+
+### Preload Critical Resources
+
+```tsx
+// app/layout.tsx
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <head>
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link
+          rel="preload"
+          href="/fonts/inter.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </head>
+      <body>{children}</body>
+    </html>
+  )
+}
+```
+
+---
+
+## 📊 Structured Data
+
+### Schema.org Best Practices
+
+```typescript
+// app/utils/schema-generator.ts
+export function generateToolSchema(tool: Tool) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: tool.name,
+    description: tool.description,
+    url: `https://geekskai.com${tool.href}`,
+    applicationCategory: "UtilityApplication",
+    operatingSystem: "Any",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    provider: {
+      "@type": "Organization",
+      name: "GeeksKai",
+      url: "https://geekskai.com",
+    },
+    featureList: tool.features,
+    // Only add accurate data
+    ...(tool.screenshot && {
+      screenshot: tool.screenshot,
+    }),
+  }
+}
+```
+
+**Principle**: More Schema ≠ Better, accuracy matters more
+
+---
+
+## ✅ Implementation Checklist
+
+### Content Optimization
+- [ ] Use `<strong>` tags to highlight all key facts
+- [ ] Chunk content for easy AI extraction
+- [ ] Provide core facts: pricing, features, positioning, target users
+- [ ] Build topical coverage with deep semantic context
+
+### Technical SEO
+- [ ] TTFB < 200ms
+- [ ] Optimize all images (WebP/AVIF)
+- [ ] Enable CDN and caching
+- [ ] Preload critical resources
+- [ ] Structured data is accurate and complete
+
+### Content Freshness
+- [ ] Establish content update schedule (30-90 day cycle)
+- [ ] Mark last update date in metadata
+- [ ] Automatically detect stale content
+
+### Brand Building
+- [ ] Add Organization Schema
+- [ ] Provide real founder information
+- [ ] Add contact information (email, address)
+
+---
+
+**Remember**: SEO is a tool, the real goal is revenue, not traffic. Always focus on conversion rate and user value.
