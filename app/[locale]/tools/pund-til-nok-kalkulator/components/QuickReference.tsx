@@ -2,10 +2,12 @@
 
 import React, { useState, useEffect } from "react"
 import { BookOpen, TrendingUp, RefreshCw } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { getCommonConversions, formatCurrency, getCurrencyFlag } from "../utils/currency"
 import type { CurrencyCode, ExchangeRateData } from "../types"
 
 export default function QuickReference() {
+  const t = useTranslations("GbpNokConverter")
   const [exchangeRateData, setExchangeRateData] = useState<ExchangeRateData | null>(null)
   const [loading, setLoading] = useState(false)
   const [baseCurrency, setBaseCurrency] = useState<CurrencyCode>("GBP")
@@ -65,10 +67,15 @@ export default function QuickReference() {
           <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 px-6 py-3 backdrop-blur-sm">
             <BookOpen className="h-5 w-5 text-emerald-400" />
             <h3 className="bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text text-xl font-bold text-transparent">
-              Quick Reference
+              {t("quick_reference_title")}
             </h3>
           </div>
-          <p className="text-slate-300">Common currency conversions at current exchange rates</p>
+          <p className="text-slate-300">
+            {t.rich("quick_reference_description", {
+              conversions: (chunks) => <strong className="text-white">{chunks}</strong>,
+              rates: (chunks) => <strong className="text-white">{chunks}</strong>,
+            })}
+          </p>
         </div>
 
         {/* Currency selector */}
@@ -83,7 +90,7 @@ export default function QuickReference() {
           >
             <div className="flex items-center justify-center gap-2">
               <span>{getCurrencyFlag("GBP")}</span>
-              <span>GBP → NOK</span>
+              <span>{t("quick_reference_gbp_nok")}</span>
             </div>
           </button>
           <button
@@ -96,7 +103,7 @@ export default function QuickReference() {
           >
             <div className="flex items-center justify-center gap-2">
               <span>{getCurrencyFlag("NOK")}</span>
-              <span>NOK → GBP</span>
+              <span>{t("quick_reference_nok_gbp")}</span>
             </div>
           </button>
         </div>
@@ -106,9 +113,11 @@ export default function QuickReference() {
           <div className="mb-6 rounded-xl bg-slate-800/30 p-4 backdrop-blur-sm">
             <div className="flex items-center justify-between">
               <div className="text-sm text-slate-400">
-                Current Rate:{" "}
+                <strong className="text-slate-300">{t("quick_reference_current_rate")}</strong>:{" "}
                 <span className="font-mono text-white">
-                  1 {baseCurrency} = {exchangeRateData.rate.toFixed(4)} {targetCurrency}
+                  <strong>
+                    1 {baseCurrency} = {exchangeRateData.rate.toFixed(4)} {targetCurrency}
+                  </strong>
                 </span>
               </div>
               <button
@@ -175,7 +184,7 @@ export default function QuickReference() {
               ))
             ) : (
               <div className="py-8 text-center text-slate-400">
-                {loading ? "Loading exchange rates..." : "Unable to load conversion rates"}
+                {loading ? t("quick_reference_loading") : t("quick_reference_error")}
               </div>
             )}
           </div>
@@ -186,10 +195,13 @@ export default function QuickReference() {
           <div className="flex items-start gap-3">
             <TrendingUp className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-400" />
             <div>
-              <h4 className="font-semibold text-emerald-300">Exchange Rate Tip</h4>
+              <h4 className="font-semibold text-emerald-300">{t("quick_reference_tip_title")}</h4>
               <p className="text-sm text-slate-300">
-                Exchange rates fluctuate throughout the day. For large transactions, consider
-                monitoring rates over time to get the best conversion value.
+                {t.rich("quick_reference_tip", {
+                  fluctuate: (chunks) => <strong className="text-white">{chunks}</strong>,
+                  large: (chunks) => <strong className="text-white">{chunks}</strong>,
+                  best: (chunks) => <strong className="text-white">{chunks}</strong>,
+                })}
               </p>
             </div>
           </div>
@@ -198,9 +210,11 @@ export default function QuickReference() {
         {/* Last updated info */}
         {exchangeRateData && (
           <div className="mt-4 text-center text-xs text-slate-500">
-            Last updated: {exchangeRateData.lastUpdated}
+            {t("converter_last_updated")}: {exchangeRateData.lastUpdated}
             {exchangeRateData.source && (
-              <span className="ml-2">• Source: {exchangeRateData.source}</span>
+              <span className="ml-2">
+                • {t("converter_source")}: {exchangeRateData.source}
+              </span>
             )}
           </div>
         )}

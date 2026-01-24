@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from "react"
 import { ArrowUpDown, Copy, Check, AlertCircle, TrendingUp, RefreshCw } from "lucide-react"
+import { useTranslations } from "next-intl"
 import type { CurrencyCode, CopyStatus, ConversionResult, ExchangeRateData } from "../types"
 import {
   convertCurrency,
@@ -17,6 +18,7 @@ interface ConverterCardProps {
 }
 
 export default function ConverterCard({ className = "" }: ConverterCardProps) {
+  const t = useTranslations("GbpNokConverter")
   // State management
   const [inputValue, setInputValue] = useState<string>("100")
   const [inputCurrency, setInputCurrency] = useState<CurrencyCode>("GBP")
@@ -204,11 +206,14 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 px-6 py-3 backdrop-blur-sm">
             <TrendingUp className="h-5 w-5 text-emerald-400" />
             <h2 className="bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text text-xl font-bold text-transparent">
-              GBP ↔ NOK Live Converter
+              {t("converter_title")}
             </h2>
           </div>
           <p className="text-slate-300">
-            Convert British Pounds to Norwegian Krone with real-time exchange rates
+            {t.rich("converter_description", {
+              gbp: (chunks) => <strong className="text-white">{chunks}</strong>,
+              rates: (chunks) => <strong className="text-white">{chunks}</strong>,
+            })}
           </p>
         </div>
 
@@ -217,9 +222,11 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           <div className="mb-6 rounded-xl bg-slate-800/30 p-4 backdrop-blur-sm">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="text-sm text-slate-400">Exchange Rate:</span>
+                <span className="text-sm text-slate-400">
+                  <strong className="text-slate-300">{t("converter_exchange_rate")}</strong>:
+                </span>
                 <span className="font-mono text-white">
-                  1 {inputCurrency} = {exchangeRateData.rate.toFixed(4)} {outputCurrency}
+                  <strong>1 {inputCurrency} = {exchangeRateData.rate.toFixed(4)} {outputCurrency}</strong>
                 </span>
               </div>
               <button
@@ -228,17 +235,19 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
                 className="flex items-center gap-1 rounded-lg bg-slate-700/50 px-3 py-1 text-xs text-slate-300 transition-colors hover:bg-slate-600/50 disabled:opacity-50"
               >
                 <RefreshCw className={`h-3 w-3 ${loading ? "animate-spin" : ""}`} />
-                Refresh
+                {t("converter_refresh")}
               </button>
             </div>
             {/* USD rates breakdown */}
             {exchangeRateData.usdRates && (
               <div className="mt-3 grid grid-cols-2 gap-4 text-xs">
                 <div className="text-slate-400">
-                  1 USD = {exchangeRateData.usdRates[inputCurrency]?.toFixed(6)} {inputCurrency}
+                  {t("converter_via_usd")}: {exchangeRateData.usdRates[inputCurrency]?.toFixed(6)}{" "}
+                  {inputCurrency}
                 </div>
                 <div className="text-slate-400">
-                  1 USD = {exchangeRateData.usdRates[outputCurrency]?.toFixed(4)} {outputCurrency}
+                  {t("converter_via_usd")}: {exchangeRateData.usdRates[outputCurrency]?.toFixed(4)}{" "}
+                  {outputCurrency}
                 </div>
               </div>
             )}
@@ -282,7 +291,13 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           {/* Input section */}
           <div className="space-y-4">
             <label className="block text-sm font-medium text-slate-300">
-              Enter amount in {inputCurrency === "GBP" ? "British Pounds" : "Norwegian Krone"}
+              {inputCurrency === "GBP"
+                ? t.rich("converter_enter_amount_gbp", {
+                    strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                  })
+                : t.rich("converter_enter_amount_nok", {
+                    strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                  })}
             </label>
 
             <div className="relative">
@@ -290,7 +305,7 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Enter amount..."
+                placeholder={t("converter_placeholder")}
                 className={`w-full rounded-2xl border py-4 pl-16 pr-20 text-lg backdrop-blur-sm transition-all duration-300 focus:outline-none ${inputTheme.border} ${inputTheme.bg} ${inputTheme.focus} text-white placeholder-slate-400`}
               />
 
@@ -328,7 +343,10 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           {/* Output section */}
           <div className="space-y-4">
             <label className="block text-sm font-medium text-slate-300">
-              Result in {outputCurrency === "GBP" ? "British Pounds" : "Norwegian Krone"}
+              Result in{" "}
+              <strong className="text-white">
+                {outputCurrency === "GBP" ? "British Pounds (GBP)" : "Norwegian Krone (NOK)"}
+              </strong>
             </label>
 
             <div className="relative">
@@ -378,15 +396,19 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           {conversionResult && (
             <div className="rounded-xl bg-slate-800/50 p-4 text-center backdrop-blur-sm">
               <p className="text-sm text-slate-400">
-                Conversion:{" "}
+                <strong className="text-slate-300">{t("converter_conversion")}</strong>:{" "}
                 <span className="font-mono text-slate-300">
-                  {formatCurrency(conversionResult.input, inputCurrency)} ={" "}
-                  {formatCurrency(conversionResult.output, outputCurrency)}
+                  <strong>
+                    {formatCurrency(conversionResult.input, inputCurrency)} ={" "}
+                    {formatCurrency(conversionResult.output, outputCurrency)}
+                  </strong>
                 </span>
               </p>
               <p className="mt-1 text-xs text-slate-500">
-                Rate: 1 {inputCurrency} = {conversionResult.exchangeRate.toFixed(4)}{" "}
-                {outputCurrency}
+                <strong className="text-slate-400">{t("converter_rate")}</strong>:{" "}
+                <strong className="text-slate-300">
+                  1 {inputCurrency} = {conversionResult.exchangeRate.toFixed(4)} {outputCurrency}
+                </strong>
               </p>
             </div>
           )}

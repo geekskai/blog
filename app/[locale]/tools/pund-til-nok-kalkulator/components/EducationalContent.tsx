@@ -1,7 +1,9 @@
 "use client"
 import { Info, Globe, Calculator, TrendingUp } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export default function EducationalContent() {
+  const t = useTranslations("GbpNokConverter")
   const useCases = [
     {
       icon: "✈️",
@@ -119,11 +121,13 @@ export default function EducationalContent() {
             <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-orange-500/30 bg-gradient-to-r from-orange-500/10 to-red-500/10 px-6 py-3 backdrop-blur-sm">
               <Globe className="h-5 w-5 text-orange-400" />
               <h3 className="bg-gradient-to-r from-orange-300 via-red-300 to-pink-300 bg-clip-text text-xl font-bold text-transparent">
-                Common Use Cases
+                {t("educational_use_cases_title")}
               </h3>
             </div>
             <p className="text-slate-300">
-              Discover when and why you need GBP to NOK currency conversion
+              {t.rich("educational_use_cases_description", {
+                gbp_nok: (chunks) => <strong className="text-white">{chunks}</strong>,
+              })}
             </p>
           </div>
 
@@ -141,7 +145,43 @@ export default function EducationalContent() {
                   <h4 className="text-lg font-semibold text-white">{useCase.title}</h4>
                 </div>
 
-                <p className="mb-4 text-sm text-slate-300">{useCase.description}</p>
+                <p className="mb-4 text-sm text-slate-300">
+                  {useCase.description ===
+                    "Essential for travelers between the UK and Norway to understand costs and budget effectively." && (
+                    <>
+                      <strong className="text-white">Essential</strong> for{" "}
+                      <strong className="text-white">travelers between the UK and Norway</strong> to
+                      understand <strong className="text-white">costs and budget</strong>{" "}
+                      effectively.
+                    </>
+                  )}
+                  {useCase.description ===
+                    "Critical for international business transactions and trade between British and Norwegian companies." && (
+                    <>
+                      <strong className="text-white">Critical</strong> for{" "}
+                      <strong className="text-white">international business transactions</strong>{" "}
+                      and trade between{" "}
+                      <strong className="text-white">British and Norwegian companies</strong>.
+                    </>
+                  )}
+                  {useCase.description ===
+                    "Important for students studying abroad or educational institutions with international programs." && (
+                    <>
+                      <strong className="text-white">Important</strong> for{" "}
+                      <strong className="text-white">students studying abroad</strong> or
+                      educational institutions with{" "}
+                      <strong className="text-white">international programs</strong>.
+                    </>
+                  )}
+                  {useCase.description ===
+                    "Valuable for investors and financial professionals dealing with GBP-NOK currency pairs." && (
+                    <>
+                      <strong className="text-white">Valuable</strong> for{" "}
+                      <strong className="text-white">investors and financial professionals</strong>{" "}
+                      dealing with <strong className="text-white">GBP-NOK currency pairs</strong>.
+                    </>
+                  )}
+                </p>
 
                 <div className="space-y-2">
                   <div className="text-xs font-medium text-orange-400">Examples:</div>
@@ -190,7 +230,46 @@ export default function EducationalContent() {
                   <span className="text-2xl">{fact.flag}</span>
                   {fact.title}
                 </h4>
-                <p className="text-sm leading-relaxed text-slate-300">{fact.content}</p>
+                <p className="text-sm leading-relaxed text-slate-300">
+                  {fact.title === "British Pound Sterling (GBP)" && (
+                    <>
+                      The <strong className="text-white">British Pound</strong> is one of the
+                      world's <strong className="text-white">oldest currencies</strong> still in
+                      use, dating back over 1,200 years. It's the{" "}
+                      <strong className="text-white">fourth most traded currency</strong> globally
+                      and serves as a major reserve currency.
+                    </>
+                  )}
+                  {fact.title === "Norwegian Krone (NOK)" && (
+                    <>
+                      The <strong className="text-white">Norwegian Krone</strong> has been Norway's
+                      currency since 1875. Norway's{" "}
+                      <strong className="text-white">strong oil economy</strong> and sovereign
+                      wealth fund make the <strong className="text-white">NOK</strong> a relatively
+                      stable Nordic currency.
+                    </>
+                  )}
+                  {fact.title === "Exchange Rate Factors" && (
+                    <>
+                      <strong className="text-white">GBP/NOK rates</strong> are influenced by{" "}
+                      <strong className="text-white">oil prices</strong> (affecting NOK),{" "}
+                      <strong className="text-white">Brexit developments</strong>,{" "}
+                      <strong className="text-white">interest rate differences</strong>, and{" "}
+                      <strong className="text-white">economic performance</strong> of both
+                      countries.
+                    </>
+                  )}
+                  {fact.title === "Trading Hours" && (
+                    <>
+                      <strong className="text-white">Currency markets</strong> operate 24/5, but{" "}
+                      <strong className="text-white">GBP/NOK</strong> is most actively traded during{" "}
+                      <strong className="text-white">
+                        European business hours (8 AM - 5 PM GMT)
+                      </strong>{" "}
+                      when both London and Oslo markets overlap.
+                    </>
+                  )}
+                </p>
               </div>
             ))}
           </div>
@@ -211,7 +290,10 @@ export default function EducationalContent() {
                 Exchange Rate Factors
               </h3>
             </div>
-            <p className="text-slate-300">Key factors that influence GBP/NOK exchange rates</p>
+            <p className="text-slate-300">
+              Key factors that influence{" "}
+              <strong className="text-white">GBP/NOK exchange rates</strong>
+            </p>
           </div>
 
           <div className="space-y-4">
@@ -235,7 +317,35 @@ export default function EducationalContent() {
                     {item.impact} Impact
                   </span>
                 </div>
-                <p className="text-sm text-slate-300">{item.description}</p>
+                <p className="text-sm text-slate-300">
+                  {item.factor === "Oil Prices" && (
+                    <>
+                      Norway's <strong className="text-white">oil-dependent economy</strong> makes{" "}
+                      <strong className="text-white">NOK</strong> sensitive to{" "}
+                      <strong className="text-white">crude oil price fluctuations</strong>.
+                    </>
+                  )}
+                  {item.factor === "Interest Rates" && (
+                    <>
+                      <strong className="text-white">Central bank policy differences</strong>{" "}
+                      between <strong className="text-white">Bank of England</strong> and{" "}
+                      <strong className="text-white">Norges Bank</strong> affect rates.
+                    </>
+                  )}
+                  {item.factor === "Economic Data" && (
+                    <>
+                      <strong className="text-white">GDP, inflation, and employment data</strong>{" "}
+                      from both countries influence{" "}
+                      <strong className="text-white">currency strength</strong>.
+                    </>
+                  )}
+                  {item.factor === "Political Events" && (
+                    <>
+                      <strong className="text-white">Brexit developments</strong>, elections, and{" "}
+                      <strong className="text-white">policy changes</strong> can cause volatility.
+                    </>
+                  )}
+                </p>
               </div>
             ))}
           </div>
@@ -251,19 +361,33 @@ export default function EducationalContent() {
                 <div className="space-y-2 text-sm text-slate-300">
                   <div className="flex items-start gap-2">
                     <span className="mt-1 text-green-400">•</span>
-                    <span>Monitor rates during European trading hours for better liquidity</span>
+                    <span>
+                      Monitor{" "}
+                      <strong className="text-white">rates during European trading hours</strong>{" "}
+                      for better liquidity
+                    </span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="mt-1 text-green-400">•</span>
-                    <span>Consider oil price trends when predicting NOK movements</span>
+                    <span>
+                      Consider <strong className="text-white">oil price trends</strong> when
+                      predicting <strong className="text-white">NOK movements</strong>
+                    </span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="mt-1 text-green-400">•</span>
-                    <span>Use limit orders for large conversions to get better rates</span>
+                    <span>
+                      Use <strong className="text-white">limit orders</strong> for large conversions
+                      to get better rates
+                    </span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="mt-1 text-green-400">•</span>
-                    <span>Keep track of central bank announcements from both countries</span>
+                    <span>
+                      Keep track of{" "}
+                      <strong className="text-white">central bank announcements</strong> from both
+                      countries
+                    </span>
                   </div>
                 </div>
               </div>
