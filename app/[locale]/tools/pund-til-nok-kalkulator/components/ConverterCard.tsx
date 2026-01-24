@@ -226,7 +226,9 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
                   <strong className="text-slate-300">{t("converter_exchange_rate")}</strong>:
                 </span>
                 <span className="font-mono text-white">
-                  <strong>1 {inputCurrency} = {exchangeRateData.rate.toFixed(4)} {outputCurrency}</strong>
+                  <strong>
+                    1 {inputCurrency} = {exchangeRateData.rate.toFixed(4)} {outputCurrency}
+                  </strong>
                 </span>
               </div>
               <button
