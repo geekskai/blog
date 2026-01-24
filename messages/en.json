@@ -3896,13 +3896,9 @@
     "header": {
       "official_badge": "Official NHTSA Database",
       "main_title": "Free VIN Decoder & Vehicle Lookup",
-      "description": "Instantly decode any Vehicle Identification Number to get complete vehicle specifications, engine details, safety features, and manufacturing information. 100% free with no registration required.",
-      "share_title": "Share this VIN decoder tool:"
+      "description": "Instantly decode any Vehicle Identification Number to get complete vehicle specifications, engine details, safety features, and manufacturing information. 100% free with no registration required."
     },
     "actions": {
-      "share": "Share",
-      "copy_link": "Copy Link",
-      "copied": "Copied!",
       "copy_summary": "Copy Summary",
       "export_json": "Export JSON",
       "export_csv": "Export CSV",

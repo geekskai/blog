@@ -3896,13 +3896,9 @@
     "header": {
       "official_badge": "Offizielle NHTSA-Datenbank",
       "main_title": "Kostenloser VIN-Decoder & Fahrzeugabfrage",
-      "description": "Dekodiere sofort jede Fahrzeugidentifikationsnummer und erhalte vollständige Spezifikationen, Motordetails, Sicherheitsmerkmale und Fertigungsinfos. 100% kostenlos, ohne Registrierung.",
-      "share_title": "Dieses VIN-Decoder-Tool teilen:"
+      "description": "Dekodiere sofort jede Fahrzeugidentifikationsnummer und erhalte vollständige Spezifikationen, Motordetails, Sicherheitsmerkmale und Fertigungsinfos. 100% kostenlos, ohne Registrierung."
     },
     "actions": {
-      "share": "Teilen",
-      "copy_link": "Link kopieren",
-      "copied": "Kopiert!",
       "copy_summary": "Zusammenfassung kopieren",
       "export_json": "JSON exportieren",
       "export_csv": "CSV exportieren",

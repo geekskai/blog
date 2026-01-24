@@ -3896,13 +3896,9 @@
     "header": {
       "official_badge": "Base officielle NHTSA",
       "main_title": "Décodeur VIN gratuit & recherche véhicule",
-      "description": "Décodez instantanément un VIN pour obtenir les spécifications complètes, le moteur, les équipements de sécurité et les infos de fabrication. 100 % gratuit, sans inscription.",
-      "share_title": "Partager cet outil de décodeur VIN :"
+      "description": "Décodez instantanément un VIN pour obtenir les spécifications complètes, le moteur, les équipements de sécurité et les infos de fabrication. 100 % gratuit, sans inscription."
     },
     "actions": {
-      "share": "Partager",
-      "copy_link": "Copier le lien",
-      "copied": "Copié !",
       "copy_summary": "Copier le résumé",
       "export_json": "Exporter en JSON",
       "export_csv": "Exporter en CSV",

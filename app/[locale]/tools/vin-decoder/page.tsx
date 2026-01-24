@@ -1,5 +1,6 @@
 "use client"
 import React from "react"
+import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
 import { useState, useCallback, useEffect } from "react"
 import {
   Home,
@@ -341,36 +342,7 @@ export default function VinDecoder() {
           {/* Description */}
           <p className="mx-auto max-w-2xl text-lg text-slate-300">{t("header.description")}</p>
 
-          {/* Share Component */}
-          <div className="mt-6 flex justify-center">
-            <div className="rounded-lg bg-slate-800/50 p-4 backdrop-blur-sm">
-              <p className="mb-3 text-center text-sm font-medium text-slate-300">
-                {t("header.share_title")}
-              </p>
-              <div className="flex items-center justify-center gap-3">
-                {mounted && typeof window !== "undefined" && (
-                  <button
-                    onClick={handleShare}
-                    className="flex items-center gap-2 rounded-lg border border-slate-600/30 bg-slate-700/30 px-4 py-2 text-sm text-slate-300 transition-all hover:border-blue-500/40 hover:bg-blue-500/20 hover:text-blue-300"
-                  >
-                    <Share2 className="h-4 w-4" />
-                    {t("actions.share")}
-                  </button>
-                )}
-                <button
-                  onClick={handleCopyUrl}
-                  className="flex items-center gap-2 rounded-lg border border-slate-600/30 bg-slate-700/30 px-4 py-2 text-sm text-slate-300 transition-all hover:border-green-500/40 hover:bg-green-500/20 hover:text-green-300"
-                >
-                  {copyStatus === "copied" ? (
-                    <Check className="h-4 w-4" />
-                  ) : (
-                    <Copy className="h-4 w-4" />
-                  )}
-                  {copyStatus === "copied" ? t("actions.copied") : t("actions.copy_link")}
-                </button>
-              </div>
-            </div>
-          </div>
+          <GoogleAdUnitWrap />
         </div>
 
         {/* Main Content Grid */}

@@ -3716,13 +3716,9 @@
     "header": {
       "official_badge": "공식 NHTSA 데이터베이스",
       "main_title": "무료 VIN 디코더 및 차량 조회",
-      "description": "모든 차량 식별 번호를 즉시 디코딩하여 완전한 차량 사양, 엔진 세부 정보, 안전 기능 및 제조 정보를 확인하세요. 100% 무료, 등록 불필요.",
-      "share_title": "이 VIN 디코더 도구 공유:"
+      "description": "모든 차량 식별 번호를 즉시 디코딩하여 완전한 차량 사양, 엔진 세부 정보, 안전 기능 및 제조 정보를 확인하세요. 100% 무료, 등록 불필요."
     },
     "actions": {
-      "share": "공유",
-      "copy_link": "링크 복사",
-      "copied": "복사됨!",
       "copy_summary": "요약 복사",
       "export_json": "JSON 내보내기",
       "export_csv": "CSV 내보내기",

@@ -3889,13 +3889,9 @@
     "header": {
       "official_badge": "公式NHTSAデータベース",
       "main_title": "無料VINデコーダー＆車両検索",
-      "description": "任意の車両識別番号を即座にデコードして、完全な車両仕様、エンジン詳細、安全機能、製造情報を取得。100%無料、登録不要。",
-      "share_title": "このVINデコーダーツールを共有："
+      "description": "任意の車両識別番号を即座にデコードして、完全な車両仕様、エンジン詳細、安全機能、製造情報を取得。100%無料、登録不要。"
     },
     "actions": {
-      "share": "共有",
-      "copy_link": "リンクをコピー",
-      "copied": "コピーしました！",
       "copy_summary": "概要をコピー",
       "export_json": "JSONをエクスポート",
       "export_csv": "CSVをエクスポート",

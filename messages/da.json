@@ -3579,13 +3579,9 @@
     "header": {
       "official_badge": "Officiel NHTSA-database",
       "main_title": "Gratis VIN-dekoder og køretøjsopslag",
-      "description": "Dekod øjeblikkeligt ethvert køretøjsidentifikationsnummer for at få komplette køretøjsspecifikationer, motordetaljer, sikkerhedsfunktioner og produktionsinformation. 100% gratis uden registrering.",
-      "share_title": "Del dette VIN-dekoder værktøj:"
+      "description": "Dekod øjeblikkeligt ethvert køretøjsidentifikationsnummer for at få komplette køretøjsspecifikationer, motordetaljer, sikkerhedsfunktioner og produktionsinformation. 100% gratis uden registrering."
     },
     "actions": {
-      "share": "Del",
-      "copy_link": "Kopier link",
-      "copied": "Kopieret!",
       "copy_summary": "Kopier resumé",
       "export_json": "Eksporter JSON",
       "export_csv": "Eksporter CSV",

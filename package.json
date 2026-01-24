@@ -19,7 +19,6 @@
   "dependencies": {
     "@headlessui/react": "1.7.19",
     "@json-table/core": "^0.1.0",
-    "@mesmotronic/next-adsense": "^1.0.0",
     "@next/bundle-analyzer": "14.2.3",
     "@sentry/nextjs": "^10.34.0",
     "@shaggytools/nhtsa-api-wrapper": "^3.0.4",

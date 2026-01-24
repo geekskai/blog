@@ -3867,13 +3867,9 @@
     "header": {
       "official_badge": "官方NHTSA数据库",
       "main_title": "免费VIN解码器和车辆查询",
-      "description": "即时解码任何车辆识别码，获取完整的车辆规格、发动机详情、安全功能和制造信息。100%免费，无需注册。",
-      "share_title": "分享此VIN解码工具："
+      "description": "即时解码任何车辆识别码，获取完整的车辆规格、发动机详情、安全功能和制造信息。100%免费，无需注册。"
     },
     "actions": {
-      "share": "分享",
-      "copy_link": "复制链接",
-      "copied": "已复制！",
       "copy_summary": "复制摘要",
       "export_json": "导出JSON",
       "export_csv": "导出CSV",
