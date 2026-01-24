@@ -5123,7 +5123,7 @@
     "content_freshness_updated": "已更新",
     "content_freshness_last_updated": "最后更新",
     "print_section_title": "选择测试页类型",
-    "print_section_description": "请选择下方的测试页类型来打印并测试你的打印机",
+    "print_section_description": "请选择下方的测试页类型来打印并测试你的打印机！如果遇到未知问题可以扫描右边二维码，添加我的微信免费支持👉",
     "print_type_color": "彩色测试页",
     "print_type_color_description": "测试 RGB 颜色输出和整体彩色打印质量",
     "print_type_blackWhite": "黑白测试页",

@@ -8,7 +8,7 @@ import React from "react"
 import Color from "public/static/images/tools/print-test-page/color-print-colors-and-fonts.png"
 import BlackWhite from "public/static/images/tools/print-test-page/gray-print-colors-and-fonts.png"
 import CMYK from "public/static/images/tools/print-test-page/CMYK.png"
-
+import GeeksKaiWechat from "public/static/images/geekskai-wechat.jpg"
 // Public paths for print window (must use absolute paths)
 const PRINT_IMAGE_PATHS = {
   color: "/static/images/tools/print-test-page/color-print-colors-and-fonts.png",
@@ -24,6 +24,7 @@ import {
   UseCasesSection,
   ContentFreshnessBadge,
 } from "./components/SEOContent"
+import Link from "next/link"
 
 type TestPageType = "color" | "blackWhite" | "cmyk"
 
@@ -154,11 +155,14 @@ export default function PrintTestPage() {
         {/* Print Test Pages Section */}
         <div className="mx-auto max-w-6xl">
           <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
-            <div className="border-b border-white/10 bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-6">
+            <div className="relative overflow-hidden border-b border-white/10 bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-6">
               <h2 className="text-xl font-semibold text-white md:text-2xl">
                 {t("print_section_title")}
               </h2>
-              <p className="mt-2 text-sm text-slate-300">{t("print_section_description")}</p>
+              <span className="mt-2 text-sm text-slate-300">{t("print_section_description")}</span>
+              <div className="absolute right-0 top-0 flex items-center gap-2">
+                <Image src={GeeksKaiWechat} alt="GeeksKai Wechat QR Code" width={80} height={80} />
+              </div>
             </div>
             <div className="p-6">
               {/* Test Page Preview Cards */}
