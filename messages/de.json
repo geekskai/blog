@@ -5947,5 +5947,195 @@
         "search_history": "Suchverlauf für schnellen Zugriff auf bevorzugte Standorte"
       }
     }
+  },
+
+  "PERMProcessingTimeTracker": {
+    "seo_title": "PERM Bearbeitungszeit Tracker - Kostenloser Echtzeit DOL Einwanderungsstatus-Checker",
+    "seo_description": "PERM Bearbeitungszeit Tracker mit Echtzeit-DOL-Daten. Offizielle DOL-Datenintegration für genaue Einwanderungszeitpläne.",
+    "seo_keywords": "perm bearbeitungszeit, perm bearbeitungszeit tracker, dol perm bearbeitungszeiten, perm antragsstatus, perm fall tracker",
+    "breadcrumb_home": "Startseite",
+    "breadcrumb_tools": "Tools",
+    "breadcrumb_title": "PERM Bearbeitungszeit Tracker",
+    "badge_text": "Echtzeit PERM Bearbeitung Tracker",
+    "title": "PERM Bearbeitungszeit Tracker",
+    "description": "Verfolgen Sie die Bearbeitungszeiten Ihrer PERM-Anträge mit <strong>Echtzeit-DOL-Daten</strong>. Erhalten Sie <strong>personalisierte Schätzungen</strong>, überwachen Sie <strong>Warteschlangenpositionen</strong> und analysieren Sie <strong>historische Trends</strong> für Ihren Einwanderungsfall.",
+    "quick_stats": {
+      "realtime_dol_data": "<strong>Echtzeit</strong> DOL-Daten",
+      "privacy_first": "<strong>Datenschutz zuerst</strong> - <strong>Kostenlos</strong> zu verwenden",
+      "trend_analysis": "<strong>Trendanalyse</strong>"
+    },
+    "tabs": {
+      "overview": "Übersicht",
+      "my_cases": "Meine Fälle",
+      "historical_trends": "Historische Trends"
+    },
+    "errors": {
+      "data_fetch_error": "Datenabruf-Fehler",
+      "try_again": "Erneut versuchen"
+    },
+    "data_source": {
+      "label": "<strong>Datenquelle</strong>",
+      "dol_link": "<strong>U.S. Department of Labor - Office of Foreign Labor Certification</strong>",
+      "last_updated": "<strong>Zuletzt aktualisiert</strong>"
+    },
+    "core_facts": {
+      "title": "Kerninformationen",
+      "pricing": {
+        "label": "Preise",
+        "value": "<strong>Kostenlos</strong>",
+        "description": "Kostenlos für immer"
+      },
+      "features": {
+        "label": "Hauptfunktionen",
+        "value": "<strong>Echtzeit-DOL-Daten</strong>, <strong>Bearbeitungszeit-Schätzungen</strong>, <strong>Warteschlangenpositionsverfolgung</strong>"
+      },
+      "positioning": {
+        "label": "Positionierung",
+        "value": "<strong>Professionelles PERM Bearbeitungszeit-Tracking-Tool</strong>"
+      },
+      "target_users": {
+        "label": "Zielgruppen",
+        "value": "<strong>Einwanderungsantragsteller</strong>, <strong>Einwanderungsanwälte</strong>, <strong>HR-Fachkräfte</strong>, <strong>Arbeitsplatzbasierte Einwanderungskandidaten</strong>"
+      }
+    },
+    "features": {
+      "title": "Leistungsstarke PERM-Tracking-Funktionen",
+      "subtitle": "Alles, was Sie benötigen, um den Bearbeitungsstatus Ihrer PERM-Anträge zu überwachen",
+      "realtime_data": {
+        "title": "Echtzeit-Bearbeitungsdaten",
+        "description": "Erhalten Sie die neuesten PERM-Bearbeitungszeiten direkt aus <strong>DOL-Daten</strong>. Verfolgen Sie <strong>aktuelle Prioritätsdaten</strong>, <strong>durchschnittliche Bearbeitungszeiten</strong> und <strong>Warteschlangenlängen</strong> mit automatischen Updates.",
+        "live_dol": "<strong>Live-DOL-Daten</strong> Integration",
+        "priority_date": "<strong>Prioritätsdatum</strong> Verfolgung",
+        "queue_position": "<strong>Warteschlangenposition</strong> Berechnung"
+      },
+      "personal_tracking": {
+        "title": "Persönliche Fallverfolgung",
+        "description": "Fügen Sie Ihre PERM-Fälle hinzu und erhalten Sie <strong>personalisierte Bearbeitungsschätzungen</strong>. Verfolgen Sie <strong>mehrere Fälle</strong>, vergleichen Sie <strong>OEWS vs. Non-OEWS</strong> Anträge und überwachen Sie Ihre <strong>Position in der Warteschlange</strong>.",
+        "multi_case": "<strong>Multi-Fall</strong> Verwaltung",
+        "oews_classification": "<strong>OEWS-Klassifizierung</strong> Verfolgung",
+        "processing_estimates": "<strong>Bearbeitungsschätzungen</strong>"
+      },
+      "trend_analysis": {
+        "title": "Historische Trendanalyse",
+        "description": "Analysieren Sie <strong>Bearbeitungszeittrends</strong> über Monate und Jahre. Verstehen Sie <strong>Muster</strong>, prognostizieren Sie <strong>zukünftige Bearbeitungszeiten</strong> und treffen Sie fundierte Entscheidungen über Ihre <strong>Einwanderungszeitachse</strong>.",
+        "interactive_charts": "Interaktive Trenddiagramme",
+        "pattern_recognition": "Mustererkennung",
+        "future_predictions": "Zukunftsprognosen"
+      }
+    },
+    "how_it_works": {
+      "title": "So verfolgen Sie Ihre PERM-Bearbeitungszeit",
+      "step1": {
+        "title": "Aktuelle Daten anzeigen",
+        "description": "Überprüfen Sie die neuesten <strong>PERM-Bearbeitungszeiten</strong>, <strong>Prioritätsdaten</strong> und <strong>Warteschlangeninformationen</strong> direkt aus <strong>DOL-Daten</strong>."
+      },
+      "step2": {
+        "title": "Ihre Fälle hinzufügen",
+        "description": "Geben Sie Ihre <strong>PERM-Einreichungsdetails</strong> ein, um <strong>personalisierte Bearbeitungsschätzungen</strong> zu erhalten und Ihre <strong>Position in der Warteschlange</strong> zu verfolgen."
+      },
+      "step3": {
+        "title": "Überwachen und Analysieren",
+        "description": "Verfolgen Sie <strong>Bearbeitungstrends</strong>, erhalten Sie <strong>Benachrichtigungen über Updates</strong> und treffen Sie fundierte Entscheidungen über Ihre <strong>Einwanderungszeitachse</strong>."
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "accuracy": {
+        "question": "Wie genau sind die Bearbeitungszeitschätzungen?",
+        "answer": "Unsere Schätzungen basieren auf <strong>offiziellen DOL-Daten</strong> und <strong>historischen Trends</strong>. Während wir die genauesten Vorhersagen möglich machen, können die tatsächlichen Bearbeitungszeiten je nach <strong>Fallkomplexität</strong>, <strong>DOL-Arbeitsbelastung</strong> und anderen Faktoren variieren."
+      },
+      "security": {
+        "question": "Werden meine Fallinformationen sicher gespeichert?",
+        "answer": "Alle Ihre Falldaten werden <strong>lokal in Ihrem Browser</strong> gespeichert und <strong>niemals an unsere Server gesendet</strong>. Dies gewährleistet <strong>vollständige Privatsphäre</strong> und <strong>Sicherheit</strong> Ihrer Einwanderungsinformationen."
+      },
+      "oews_difference": {
+        "question": "Was ist der Unterschied zwischen OEWS- und Non-OEWS-Fällen?",
+        "answer": "<strong>OEWS (Occupational Employment Wage Statistics)</strong> Fälle werden typischerweise schneller bearbeitet, da sie <strong>standardisierte Lohndaten</strong> verwenden. <strong>Non-OEWS-Fälle</strong> erfordern <strong>maßgeschneiderte Lohnumfragen</strong> und dauern normalerweise länger zu bearbeiten."
+      },
+      "update_frequency": {
+        "question": "Wie oft werden die DOL-Daten aktualisiert?",
+        "answer": "DOL aktualisiert PERM-Bearbeitungszeitdaten <strong>monatlich</strong>, typischerweise während der <strong>ersten Arbeitswoche jedes Monats</strong>. Unser Tool <strong>ruft automatisch</strong> die neuesten Daten ab, um Genauigkeit zu gewährleisten."
+      }
+    },
+    "data_management": {
+      "title": "Datenverwaltung",
+      "description": "Ihre Falldaten werden lokal in Ihrem Browser gespeichert",
+      "clear_all": "Alle Daten löschen"
+    },
+    "current_data": {
+      "title": "Aktuelle PERM-Bearbeitungszeiten",
+      "no_data_title": "Keine Daten verfügbar",
+      "fetching_title": "Neueste Daten werden abgerufen...",
+      "fetching_description": "Abrufen der neuesten PERM-Bearbeitungszeiten von der DOL-Website. Dies kann einen Moment dauern.",
+      "no_data_description": "Klicken Sie auf die Aktualisierungsschaltfläche, um die neuesten PERM-Bearbeitungszeiten von der DOL-Website abzurufen.",
+      "fetch_button": "Neueste Daten abrufen",
+      "average_processing_time": "Durchschnittliche Bearbeitungszeit",
+      "currently_processing": "Wird derzeit bearbeitet",
+      "priority_date": "Prioritätsdatum",
+      "cases_in_queue": "Fälle in der Warteschlange",
+      "pending_review": "Ausstehende Überprüfung",
+      "processing_trend": "Bearbeitungstrend",
+      "projected_change": "projizierte Änderung",
+      "queue_breakdown": "Warteschlangenaufschlüsselung nach Monat",
+      "currently_processing_badge": "Wird derzeit bearbeitet",
+      "cases": "Fälle",
+      "audit_review": "Revisionsprüfung",
+      "status": "Status",
+      "average": "Durchschnitt",
+      "days": "Tage",
+      "reconsideration": "Neuprüfung",
+      "updated": "Aktualisiert"
+    },
+    "case_tracker": {
+      "title": "Ihre PERM-Fälle",
+      "subtitle": "Verfolgen Sie Ihre <strong>PERM-Anträge</strong> und erhalten Sie <strong>Bearbeitungsschätzungen</strong>",
+      "add_case": "Fall hinzufügen",
+      "add_case_title": "PERM-Fall hinzufügen",
+      "submission_date": "Einreichungsdatum",
+      "case_type": "Falltyp",
+      "analyst_review": "Analytikerprüfung",
+      "audit_review": "Revisionsprüfung",
+      "reconsideration": "Neuprüfung",
+      "oews_label": "OEWS-basierte vorherrschende Lohnbestimmung",
+      "cancel": "Abbrechen",
+      "no_cases_title": "Keine Fälle hinzugefügt",
+      "no_cases_description": "Fügen Sie Ihre PERM-Fälle hinzu, um ihren Fortschritt zu verfolgen und Bearbeitungsschätzungen zu erhalten.",
+      "add_first_case": "Fügen Sie Ihren ersten Fall hinzu",
+      "case_number": "PERM-Fall #{id}",
+      "submitted": "Eingereicht",
+      "submitted_label": "Eingereicht:",
+      "days_pending": "Ausstehende Tage:",
+      "days": "Tage",
+      "queue_type": "Warteschlangentyp:",
+      "review": "Überprüfung",
+      "estimated_completion": "Geschätzte Fertigstellung:",
+      "queue_position": "Warteschlangenposition:",
+      "percentile": "Perzentil",
+      "unable_to_calculate": "Schätzung für {caseType} Überprüfungsfälle kann nicht berechnet werden",
+      "summary_title": "Ihre Fallzusammenfassung",
+      "total_cases": "Gesamtfälle",
+      "oews_cases": "OEWS-Fälle",
+      "avg_days_pending": "Durchschn. ausstehende Tage"
+    },
+    "historical_chart": {
+      "title": "Bearbeitungszeittrends",
+      "historical": "Historisch",
+      "improving": "Verbessernd",
+      "worsening": "Verschlechternd",
+      "no_data_title": "Keine historischen Daten",
+      "no_data_description": "Historische Bearbeitungszeitdaten werden hier angezeigt, sobald sie verfügbar sind.",
+      "average_days": "Durchschnittliche Tage",
+      "peak_processing_time": "Spitzenbearbeitungszeit",
+      "recent_change": "Kürzliche Änderung (Tage)",
+      "processing": "Bearbeitung:",
+      "insights_title": "Bearbeitungszeit-Einblicke",
+      "insights_average": "Durchschnittliche Bearbeitungszeit in den letzten <strong>{months} Monaten</strong>: <strong>{days} Tage</strong>",
+      "insights_trend_increased": "erhöht",
+      "insights_trend_decreased": "verringert",
+      "insights_trend_stable": "blieb stabil",
+      "insights_trend": "Bearbeitungszeiten haben sich kürzlich um <strong>{days} Tage</strong> <strong>{trend}</strong>",
+      "insights_trend_stable_text": "Bearbeitungszeiten haben sich kürzlich <strong>{trend}</strong>",
+      "insights_range": "Historischer Bereich: <strong>{min} bis {max} Tage</strong> (<strong>{range} Tagesvariation</strong>)"
+    }
   }
 }

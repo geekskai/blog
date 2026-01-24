@@ -5502,5 +5502,195 @@
         "search_history": "Søgehistorik for hurtig adgang til foretrukne lokationer"
       }
     }
+  },
+
+  "PERMProcessingTimeTracker": {
+    "seo_title": "PERM Behandlingstid Tracker - Gratis Realtid DOL Indvandringsstatus Checker",
+    "seo_description": "PERM behandlingstid tracker med realtid DOL data. Officiel DOL data integration til præcise indvandringstidslinjer.",
+    "seo_keywords": "perm behandlingstid, perm behandlingstid tracker, dol perm behandlingstider, perm ansøgning status, perm sag tracker",
+    "breadcrumb_home": "Hjem",
+    "breadcrumb_tools": "Værktøjer",
+    "breadcrumb_title": "PERM Behandlingstid Tracker",
+    "badge_text": "Realtid PERM Behandling Tracker",
+    "title": "PERM Behandlingstid Tracker",
+    "description": "Spor dine PERM ansøgningers behandlingstider med <strong>realtid DOL data</strong>. Få <strong>personaliserede estimater</strong>, overvåg <strong>køpositioner</strong> og analyser <strong>historiske tendenser</strong> for din indvandringssag.",
+    "quick_stats": {
+      "realtime_dol_data": "<strong>Realtid</strong> DOL Data",
+      "privacy_first": "<strong>Privatliv Først</strong> - <strong>Gratis</strong> at bruge",
+      "trend_analysis": "<strong>Tendensanalyse</strong>"
+    },
+    "tabs": {
+      "overview": "Oversigt",
+      "my_cases": "Mine Sager",
+      "historical_trends": "Historiske Tendenser"
+    },
+    "errors": {
+      "data_fetch_error": "Data Hentningsfejl",
+      "try_again": "Prøv Igen"
+    },
+    "data_source": {
+      "label": "<strong>Datakilde</strong>",
+      "dol_link": "<strong>U.S. Department of Labor - Office of Foreign Labor Certification</strong>",
+      "last_updated": "<strong>Sidst opdateret</strong>"
+    },
+    "core_facts": {
+      "title": "Kerinformation",
+      "pricing": {
+        "label": "Priser",
+        "value": "<strong>Gratis</strong>",
+        "description": "Gratis for evigt"
+      },
+      "features": {
+        "label": "Hovedfunktioner",
+        "value": "<strong>Realtid DOL data</strong>, <strong>Behandlingstid estimater</strong>, <strong>Køpositionssporing</strong>"
+      },
+      "positioning": {
+        "label": "Positionering",
+        "value": "<strong>Professionelt PERM behandlingstid sporing værktøj</strong>"
+      },
+      "target_users": {
+        "label": "Målbrugere",
+        "value": "<strong>Indvandringsansøgere</strong>, <strong>Indvandringsadvokater</strong>, <strong>HR-fagfolk</strong>, <strong>Arbejdsbaserede indvandringskandidater</strong>"
+      }
+    },
+    "features": {
+      "title": "Kraftfulde PERM Sporingsfunktioner",
+      "subtitle": "Alt hvad du har brug for til at overvåge din PERM ansøgnings behandlingsstatus",
+      "realtime_data": {
+        "title": "Realtid Behandlingsdata",
+        "description": "Få de seneste PERM behandlingstider direkte fra <strong>DOL data</strong>. Spor <strong>aktuelle prioritetsdatoer</strong>, <strong>gennemsnitlige behandlingstider</strong> og <strong>kølængder</strong> med automatiske opdateringer.",
+        "live_dol": "<strong>Live DOL data</strong> integration",
+        "priority_date": "<strong>Prioritetsdato</strong> sporing",
+        "queue_position": "<strong>Køposition</strong> beregning"
+      },
+      "personal_tracking": {
+        "title": "Personlig Sagsopsporing",
+        "description": "Tilføj dine PERM sager og få <strong>personaliserede behandlingsestimater</strong>. Spor <strong>flere sager</strong>, sammenlign <strong>OEWS vs Non-OEWS</strong> ansøgninger og overvåg din <strong>position i køen</strong>.",
+        "multi_case": "<strong>Flersags</strong> administration",
+        "oews_classification": "<strong>OEWS klassifikation</strong> sporing",
+        "processing_estimates": "<strong>Behandlingsestimater</strong>"
+      },
+      "trend_analysis": {
+        "title": "Historisk Tendensanalyse",
+        "description": "Analyser <strong>behandlingstidstendenser</strong> over måneder og år. Forstå <strong>mønstre</strong>, forudsig <strong>fremtidige behandlingstider</strong> og træf informerede beslutninger om din <strong>indvandringstidslinje</strong>.",
+        "interactive_charts": "Interaktive tendensdiagrammer",
+        "pattern_recognition": "Mønstergenkendelse",
+        "future_predictions": "Fremtidige forudsigelser"
+      }
+    },
+    "how_it_works": {
+      "title": "Sådan Sporer Du Din PERM Behandlingstid",
+      "step1": {
+        "title": "Se Aktuelle Data",
+        "description": "Tjek de seneste <strong>PERM behandlingstider</strong>, <strong>prioritetsdatoer</strong> og <strong>køinformation</strong> direkte fra <strong>DOL data</strong>."
+      },
+      "step2": {
+        "title": "Tilføj Dine Sager",
+        "description": "Indtast dine <strong>PERM indsendelsesdetaljer</strong> for at få <strong>personaliserede behandlingsestimater</strong> og spore din <strong>position i køen</strong>."
+      },
+      "step3": {
+        "title": "Overvåg og Analyser",
+        "description": "Spor <strong>behandlingstendenser</strong>, få <strong>notifikationer om opdateringer</strong> og træf informerede beslutninger om din <strong>indvandringstidslinje</strong>."
+      }
+    },
+    "faq": {
+      "title": "Ofte Stillede Spørgsmål",
+      "accuracy": {
+        "question": "Hvor præcise er behandlingstidsestimaterne?",
+        "answer": "Vores estimater er baseret på <strong>officielle DOL data</strong> og <strong>historiske tendenser</strong>. Mens vi giver de mest præcise forudsigelser muligt, kan faktiske behandlingstider variere baseret på <strong>sagskompleksitet</strong>, <strong>DOL arbejdsbelastning</strong> og andre faktorer."
+      },
+      "security": {
+        "question": "Er min sagsinformation gemt sikkert?",
+        "answer": "Alle dine sagsdata gemmes <strong>lokalt i din browser</strong> og <strong>sendes aldrig til vores servere</strong>. Dette sikrer <strong>fuldstændig privatliv</strong> og <strong>sikkerhed</strong> for dine indvandringsoplysninger."
+      },
+      "oews_difference": {
+        "question": "Hvad er forskellen mellem OEWS og Non-OEWS sager?",
+        "answer": "<strong>OEWS (Occupational Employment Wage Statistics)</strong> sager behandles typisk hurtigere, da de bruger <strong>standardiserede løndata</strong>. <strong>Non-OEWS sager</strong> kræver <strong>brugerdefinerede lønundersøgelser</strong> og tager normalt længere tid at behandle."
+      },
+      "update_frequency": {
+        "question": "Hvor ofte opdateres DOL data?",
+        "answer": "DOL opdaterer PERM behandlingstidsdata <strong>månedligt</strong>, typisk i løbet af <strong>den første arbejdsuge i hver måned</strong>. Vores værktøj <strong>henter automatisk</strong> de seneste data for at sikre nøjagtighed."
+      }
+    },
+    "data_management": {
+      "title": "Dataadministration",
+      "description": "Dine sagsdata gemmes lokalt i din browser",
+      "clear_all": "Ryd Alle Data"
+    },
+    "current_data": {
+      "title": "Aktuelle PERM Behandlingstider",
+      "no_data_title": "Ingen Data Tilgængelig",
+      "fetching_title": "Henter Seneste Data...",
+      "fetching_description": "Henter de seneste PERM behandlingstider fra DOL hjemmesiden. Dette kan tage et øjeblik.",
+      "no_data_description": "Klik på opdateringsknappen for at hente de seneste PERM behandlingstider fra DOL hjemmesiden.",
+      "fetch_button": "Hent Seneste Data",
+      "average_processing_time": "Gennemsnitlig Behandlingstid",
+      "currently_processing": "Behandler I Øjeblikket",
+      "priority_date": "Prioritetsdato",
+      "cases_in_queue": "Sager i Kø",
+      "pending_review": "Afventer Gennemgang",
+      "processing_trend": "Behandlingstendens",
+      "projected_change": "forventet ændring",
+      "queue_breakdown": "Køopdeling efter Måned",
+      "currently_processing_badge": "Behandler I Øjeblikket",
+      "cases": "sager",
+      "audit_review": "Revisionsgennemgang",
+      "status": "Status",
+      "average": "Gennemsnit",
+      "days": "dage",
+      "reconsideration": "Genovervejelse",
+      "updated": "Opdateret"
+    },
+    "case_tracker": {
+      "title": "Dine PERM Sager",
+      "subtitle": "Spor dine <strong>PERM ansøgninger</strong> og få <strong>behandlingsestimater</strong>",
+      "add_case": "Tilføj Sag",
+      "add_case_title": "Tilføj PERM Sag",
+      "submission_date": "Indsendelsesdato",
+      "case_type": "Sagstype",
+      "analyst_review": "Analytikergennemgang",
+      "audit_review": "Revisionsgennemgang",
+      "reconsideration": "Genovervejelse",
+      "oews_label": "OEWS-baseret fremherskende lønbestemmelse",
+      "cancel": "Annuller",
+      "no_cases_title": "Ingen Sager Tilføjet",
+      "no_cases_description": "Tilføj dine PERM sager for at spore deres fremskridt og få behandlingsestimater.",
+      "add_first_case": "Tilføj Din Første Sag",
+      "case_number": "PERM Sag #{id}",
+      "submitted": "Indsendt",
+      "submitted_label": "Indsendt:",
+      "days_pending": "Dage afventende:",
+      "days": "dage",
+      "queue_type": "Køtype:",
+      "review": "Gennemgang",
+      "estimated_completion": "Estimeret færdiggørelse:",
+      "queue_position": "Køposition:",
+      "percentile": "percentil",
+      "unable_to_calculate": "Kan ikke beregne estimat for {caseType} gennemgangssager",
+      "summary_title": "Din Sagsoversigt",
+      "total_cases": "Samlede Sager",
+      "oews_cases": "OEWS Sager",
+      "avg_days_pending": "Gns. Dage Afventende"
+    },
+    "historical_chart": {
+      "title": "Behandlingstidstendenser",
+      "historical": "Historisk",
+      "improving": "Forbedrer",
+      "worsening": "Forværrer",
+      "no_data_title": "Ingen Historiske Data",
+      "no_data_description": "Historiske behandlingstidsdata vil vises her, når de er tilgængelige.",
+      "average_days": "Gennemsnitlige Dage",
+      "peak_processing_time": "Top Behandlingstid",
+      "recent_change": "Nylig Ændring (dage)",
+      "processing": "Behandling:",
+      "insights_title": "Behandlingstidsindsigter",
+      "insights_average": "Gennemsnitlig behandlingstid over de sidste <strong>{months} måneder</strong>: <strong>{days} dage</strong>",
+      "insights_trend_increased": "øget",
+      "insights_trend_decreased": "faldet",
+      "insights_trend_stable": "forblev stabil",
+      "insights_trend": "Behandlingstiderne er <strong>{trend}</strong> med <strong>{days} dage</strong> for nylig",
+      "insights_trend_stable_text": "Behandlingstiderne har <strong>{trend}</strong> for nylig",
+      "insights_range": "Historisk område: <strong>{min} til {max} dage</strong> (<strong>{range} dages variation</strong>)"
+    }
   }
 }

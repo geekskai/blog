@@ -5736,5 +5736,194 @@
         "search_history": "즐겨찾는 위치에 빠르게 접근할 수 있는 검색 기록"
       }
     }
+  },
+  "PERMProcessingTimeTracker": {
+    "seo_title": "PERM 처리 시간 추적기 - 무료 실시간 DOL 이민 상태 확인기",
+    "seo_description": "실시간 DOL 데이터를 사용한 PERM 처리 시간 추적기. 정확한 이민 타임라인을 위한 공식 DOL 데이터 통합.",
+    "seo_keywords": "perm 처리 시간, perm 처리 시간 추적기, dol perm 처리 시간, perm 신청 상태, perm 사건 추적기",
+    "breadcrumb_home": "홈",
+    "breadcrumb_tools": "도구",
+    "breadcrumb_title": "PERM 처리 시간 추적기",
+    "badge_text": "실시간 PERM 처리 추적기",
+    "title": "PERM 처리 시간 추적기",
+    "description": "<strong>실시간 DOL 데이터</strong>로 PERM 신청 처리 시간을 추적하세요. <strong>개인화된 예상 시간</strong>을 받고, <strong>대기열 위치</strong>를 모니터링하며, 이민 사건의 <strong>역사적 추세</strong>를 분석하세요.",
+    "quick_stats": {
+      "realtime_dol_data": "<strong>실시간</strong> DOL 데이터",
+      "privacy_first": "<strong>프라이버시 우선</strong> - <strong>무료</strong> 사용",
+      "trend_analysis": "<strong>추세 분석</strong>"
+    },
+    "tabs": {
+      "overview": "개요",
+      "my_cases": "내 사건",
+      "historical_trends": "역사적 추세"
+    },
+    "errors": {
+      "data_fetch_error": "데이터 가져오기 오류",
+      "try_again": "다시 시도"
+    },
+    "data_source": {
+      "label": "<strong>데이터 소스</strong>",
+      "dol_link": "<strong>미국 노동부 - 외국인 노동 인증 사무소</strong>",
+      "last_updated": "<strong>최종 업데이트</strong>"
+    },
+    "core_facts": {
+      "title": "핵심 정보",
+      "pricing": {
+        "label": "가격",
+        "value": "<strong>무료</strong>",
+        "description": "영구 무료"
+      },
+      "features": {
+        "label": "주요 기능",
+        "value": "<strong>실시간 DOL 데이터</strong>, <strong>처리 시간 예상</strong>, <strong>대기열 위치 추적</strong>"
+      },
+      "positioning": {
+        "label": "포지셔닝",
+        "value": "<strong>전문 PERM 처리 시간 추적 도구</strong>"
+      },
+      "target_users": {
+        "label": "타겟 사용자",
+        "value": "<strong>이민 신청자</strong>, <strong>이민 변호사</strong>, <strong>인사 전문가</strong>, <strong>고용 기반 이민 후보자</strong>"
+      }
+    },
+    "features": {
+      "title": "강력한 PERM 추적 기능",
+      "subtitle": "PERM 신청 처리 상태를 모니터링하는 데 필요한 모든 것",
+      "realtime_data": {
+        "title": "실시간 처리 데이터",
+        "description": "<strong>DOL 데이터</strong>에서 최신 PERM 처리 시간을 직접 가져오세요. <strong>현재 우선순위 날짜</strong>, <strong>평균 처리 시간</strong>, <strong>대기열 길이</strong>를 자동 업데이트로 추적하세요.",
+        "live_dol": "<strong>라이브 DOL 데이터</strong> 통합",
+        "priority_date": "<strong>우선순위 날짜</strong> 추적",
+        "queue_position": "<strong>대기열 위치</strong> 계산"
+      },
+      "personal_tracking": {
+        "title": "개인 사건 추적",
+        "description": "PERM 사건을 추가하고 <strong>개인화된 처리 예상 시간</strong>을 받으세요. <strong>여러 사건</strong>을 추적하고, <strong>OEWS 대 Non-OEWS</strong> 신청을 비교하며, <strong>대기열 내 위치</strong>를 모니터링하세요.",
+        "multi_case": "<strong>다중 사건</strong> 관리",
+        "oews_classification": "<strong>OEWS 분류</strong> 추적",
+        "processing_estimates": "<strong>처리 예상</strong>"
+      },
+      "trend_analysis": {
+        "title": "역사적 추세 분석",
+        "description": "수개월 및 수년에 걸친 <strong>처리 시간 추세</strong>를 분석하세요. <strong>패턴</strong>을 이해하고, <strong>미래 처리 시간</strong>을 예측하며, <strong>이민 타임라인</strong>에 대해 정보에 기반한 결정을 내리세요.",
+        "interactive_charts": "대화형 추세 차트",
+        "pattern_recognition": "패턴 인식",
+        "future_predictions": "미래 예측"
+      }
+    },
+    "how_it_works": {
+      "title": "PERM 처리 시간 추적 방법",
+      "step1": {
+        "title": "현재 데이터 보기",
+        "description": "<strong>DOL 데이터</strong>에서 최신 <strong>PERM 처리 시간</strong>, <strong>우선순위 날짜</strong>, <strong>대기열 정보</strong>를 직접 확인하세요."
+      },
+      "step2": {
+        "title": "사건 추가",
+        "description": "<strong>PERM 제출 세부 정보</strong>를 입력하여 <strong>개인화된 처리 예상 시간</strong>을 받고 <strong>대기열 내 위치</strong>를 추적하세요."
+      },
+      "step3": {
+        "title": "모니터링 및 분석",
+        "description": "<strong>처리 추세</strong>를 추적하고, <strong>업데이트 알림</strong>을 받으며, <strong>이민 타임라인</strong>에 대해 정보에 기반한 결정을 내리세요."
+      }
+    },
+    "faq": {
+      "title": "자주 묻는 질문",
+      "accuracy": {
+        "question": "처리 시간 예상은 얼마나 정확한가요?",
+        "answer": "저희 예상은 <strong>공식 DOL 데이터</strong>와 <strong>역사적 추세</strong>를 기반으로 합니다. 가능한 한 가장 정확한 예측을 제공하지만, 실제 처리 시간은 <strong>사건 복잡성</strong>, <strong>DOL 작업량</strong> 및 기타 요인에 따라 다를 수 있습니다."
+      },
+      "security": {
+        "question": "내 사건 정보가 안전하게 저장되나요?",
+        "answer": "모든 사건 데이터는 <strong>브라우저에 로컬로 저장</strong>되며 <strong>저희 서버로 전송되지 않습니다</strong>. 이를 통해 이민 정보의 <strong>완전한 프라이버시</strong>와 <strong>보안</strong>이 보장됩니다."
+      },
+      "oews_difference": {
+        "question": "OEWS 사건과 Non-OEWS 사건의 차이점은 무엇인가요?",
+        "answer": "<strong>OEWS(직업 고용 임금 통계)</strong> 사건은 <strong>표준화된 임금 데이터</strong>를 사용하므로 일반적으로 더 빠르게 처리됩니다. <strong>Non-OEWS 사건</strong>은 <strong>맞춤형 임금 조사</strong>가 필요하며 일반적으로 처리하는 데 더 오래 걸립니다."
+      },
+      "update_frequency": {
+        "question": "DOL 데이터는 얼마나 자주 업데이트되나요?",
+        "answer": "DOL은 PERM 처리 시간 데이터를 <strong>매월</strong> 업데이트하며, 일반적으로 <strong>매월 첫 번째 근무 주</strong>에 수행됩니다. 저희 도구는 <strong>자동으로 최신 데이터를 가져와</strong> 정확성을 보장합니다."
+      }
+    },
+    "data_management": {
+      "title": "데이터 관리",
+      "description": "사건 데이터는 브라우저에 로컬로 저장됩니다",
+      "clear_all": "모든 데이터 지우기"
+    },
+    "current_data": {
+      "title": "현재 PERM 처리 시간",
+      "no_data_title": "사용 가능한 데이터 없음",
+      "fetching_title": "최신 데이터 가져오는 중...",
+      "fetching_description": "DOL 웹사이트에서 최신 PERM 처리 시간을 가져오는 중입니다. 몇 초 정도 걸릴 수 있습니다.",
+      "no_data_description": "새로고침 버튼을 클릭하여 DOL 웹사이트에서 최신 PERM 처리 시간을 가져오세요.",
+      "fetch_button": "최신 데이터 가져오기",
+      "average_processing_time": "평균 처리 시간",
+      "currently_processing": "현재 처리 중",
+      "priority_date": "우선순위 날짜",
+      "cases_in_queue": "대기열의 사건",
+      "pending_review": "검토 대기 중",
+      "processing_trend": "처리 추세",
+      "projected_change": "예상 변경",
+      "queue_breakdown": "월별 대기열 분석",
+      "currently_processing_badge": "현재 처리 중",
+      "cases": "사건",
+      "audit_review": "감사 검토",
+      "status": "상태",
+      "average": "평균",
+      "days": "일",
+      "reconsideration": "재검토",
+      "updated": "업데이트됨"
+    },
+    "case_tracker": {
+      "title": "내 PERM 사건",
+      "subtitle": "<strong>PERM 신청</strong>을 추적하고 <strong>처리 예상 시간</strong>을 받으세요",
+      "add_case": "사건 추가",
+      "add_case_title": "PERM 사건 추가",
+      "submission_date": "제출 날짜",
+      "case_type": "사건 유형",
+      "analyst_review": "분석가 검토",
+      "audit_review": "감사 검토",
+      "reconsideration": "재검토",
+      "oews_label": "OEWS 기반 현행 임금 결정",
+      "cancel": "취소",
+      "no_cases_title": "추가된 사건 없음",
+      "no_cases_description": "PERM 사건을 추가하여 진행 상황을 추적하고 처리 예상 시간을 받으세요.",
+      "add_first_case": "첫 번째 사건 추가",
+      "case_number": "PERM 사건 #{id}",
+      "submitted": "제출됨",
+      "submitted_label": "제출일:",
+      "days_pending": "대기 일수:",
+      "days": "일",
+      "queue_type": "대기열 유형:",
+      "review": "검토",
+      "estimated_completion": "예상 완료:",
+      "queue_position": "대기열 위치:",
+      "percentile": "백분위수",
+      "unable_to_calculate": "{caseType} 검토 사건의 예상을 계산할 수 없습니다",
+      "summary_title": "사건 요약",
+      "total_cases": "총 사건 수",
+      "oews_cases": "OEWS 사건",
+      "avg_days_pending": "평균 대기 일수"
+    },
+    "historical_chart": {
+      "title": "처리 시간 추세",
+      "historical": "역사적",
+      "improving": "개선 중",
+      "worsening": "악화 중",
+      "no_data_title": "역사적 데이터 없음",
+      "no_data_description": "사용 가능해지면 여기에 역사적 처리 시간 데이터가 표시됩니다.",
+      "average_days": "평균 일수",
+      "peak_processing_time": "최고 처리 시간",
+      "recent_change": "최근 변경 (일)",
+      "processing": "처리 중:",
+      "insights_title": "처리 시간 인사이트",
+      "insights_average": "지난 <strong>{months}개월</strong> 동안의 평균 처리 시간: <strong>{days}일</strong>",
+      "insights_trend_increased": "증가",
+      "insights_trend_decreased": "감소",
+      "insights_trend_stable": "안정적",
+      "insights_trend": "처리 시간이 최근 <strong>{days}일</strong> <strong>{trend}</strong>했습니다",
+      "insights_trend_stable_text": "처리 시간이 최근 <strong>{trend}</strong>했습니다",
+      "insights_range": "역사적 범위: <strong>{min}일부터 {max}일</strong> (<strong>{range}일 변동</strong>)"
+    }
   }
 }

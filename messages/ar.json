@@ -5855,5 +5855,195 @@
         "search_history": "سجل البحث للوصول السريع إلى المواقع المفضلة"
       }
     }
+  },
+
+  "PERMProcessingTimeTracker": {
+    "seo_title": "متتبع وقت معالجة PERM - فاحص حالة الهجرة المجاني في الوقت الفعلي من DOL",
+    "seo_description": "متتبع وقت معالجة PERM مع بيانات DOL في الوقت الفعلي. تكامل بيانات DOL الرسمية لجدول زمني دقيق للهجرة.",
+    "seo_keywords": "وقت معالجة perm، متتبع وقت معالجة perm، أوقات معالجة perm من dol، حالة طلب perm، متتبع قضية perm",
+    "breadcrumb_home": "الرئيسية",
+    "breadcrumb_tools": "الأدوات",
+    "breadcrumb_title": "متتبع وقت معالجة PERM",
+    "badge_text": "متتبع معالجة PERM في الوقت الفعلي",
+    "title": "متتبع وقت معالجة PERM",
+    "description": "تتبع أوقات معالجة طلب PERM الخاص بك باستخدام <strong>بيانات DOL في الوقت الفعلي</strong>. احصل على <strong>تقديرات مخصصة</strong>، راقب <strong>مواضع الطابور</strong>، وحلل <strong>الاتجاهات التاريخية</strong> لقضية الهجرة الخاصة بك.",
+    "quick_stats": {
+      "realtime_dol_data": "<strong>بيانات DOL</strong> في الوقت الفعلي",
+      "privacy_first": "<strong>الخصوصية أولاً</strong> - <strong>مجاني</strong> للاستخدام",
+      "trend_analysis": "<strong>تحليل الاتجاهات</strong>"
+    },
+    "tabs": {
+      "overview": "نظرة عامة",
+      "my_cases": "قضاياي",
+      "historical_trends": "الاتجاهات التاريخية"
+    },
+    "errors": {
+      "data_fetch_error": "خطأ في جلب البيانات",
+      "try_again": "حاول مرة أخرى"
+    },
+    "data_source": {
+      "label": "<strong>مصدر البيانات</strong>",
+      "dol_link": "<strong>وزارة العمل الأمريكية - مكتب شهادات العمالة الأجنبية</strong>",
+      "last_updated": "<strong>آخر تحديث</strong>"
+    },
+    "core_facts": {
+      "title": "المعلومات الأساسية",
+      "pricing": {
+        "label": "التسعير",
+        "value": "<strong>مجاني</strong>",
+        "description": "مجاني إلى الأبد"
+      },
+      "features": {
+        "label": "الميزات الرئيسية",
+        "value": "<strong>بيانات DOL في الوقت الفعلي</strong>، <strong>تقديرات وقت المعالجة</strong>، <strong>تتبع موضع الطابور</strong>"
+      },
+      "positioning": {
+        "label": "الموضع",
+        "value": "<strong>أداة احترافية لتتبع وقت معالجة PERM</strong>"
+      },
+      "target_users": {
+        "label": "المستخدمون المستهدفون",
+        "value": "<strong>متقدمو الهجرة</strong>، <strong>محامو الهجرة</strong>، <strong>متخصصو الموارد البشرية</strong>، <strong>مرشحو الهجرة القائمة على العمل</strong>"
+      }
+    },
+    "features": {
+      "title": "ميزات تتبع PERM القوية",
+      "subtitle": "كل ما تحتاجه لمراقبة حالة معالجة طلب PERM الخاص بك",
+      "realtime_data": {
+        "title": "بيانات المعالجة في الوقت الفعلي",
+        "description": "احصل على أحدث أوقات معالجة PERM مباشرة من <strong>بيانات DOL</strong>. تتبع <strong>تواريخ الأولوية الحالية</strong>، <strong>متوسط أوقات المعالجة</strong>، و<strong>أطوال الطوابير</strong> مع التحديثات التلقائية.",
+        "live_dol": "تكامل <strong>بيانات DOL المباشرة</strong>",
+        "priority_date": "تتبع <strong>تاريخ الأولوية</strong>",
+        "queue_position": "حساب <strong>موضع الطابور</strong>"
+      },
+      "personal_tracking": {
+        "title": "تتبع القضايا الشخصية",
+        "description": "أضف قضايا PERM الخاصة بك واحصل على <strong>تقديرات معالجة مخصصة</strong>. تتبع <strong>قضايا متعددة</strong>، قارن طلبات <strong>OEWS مقابل Non-OEWS</strong>، وراقب <strong>موضعك في الطابور</strong>.",
+        "multi_case": "إدارة <strong>قضايا متعددة</strong>",
+        "oews_classification": "تتبع <strong>تصنيف OEWS</strong>",
+        "processing_estimates": "<strong>تقديرات المعالجة</strong>"
+      },
+      "trend_analysis": {
+        "title": "تحليل الاتجاهات التاريخية",
+        "description": "حلل <strong>اتجاهات وقت المعالجة</strong> على مدى أشهر وسنوات. افهم <strong>الأنماط</strong>، توقع <strong>أوقات المعالجة المستقبلية</strong>، واتخذ قرارات مستنيرة بشأن <strong>الجدول الزمني للهجرة</strong> الخاص بك.",
+        "interactive_charts": "مخططات الاتجاهات التفاعلية",
+        "pattern_recognition": "التعرف على الأنماط",
+        "future_predictions": "التنبؤات المستقبلية"
+      }
+    },
+    "how_it_works": {
+      "title": "كيفية تتبع وقت معالجة PERM الخاص بك",
+      "step1": {
+        "title": "عرض البيانات الحالية",
+        "description": "تحقق من أحدث <strong>أوقات معالجة PERM</strong>، <strong>تواريخ الأولوية</strong>، و<strong>معلومات الطابور</strong> مباشرة من <strong>بيانات DOL</strong>."
+      },
+      "step2": {
+        "title": "أضف قضاياك",
+        "description": "أدخل <strong>تفاصيل تقديم PERM</strong> الخاصة بك للحصول على <strong>تقديرات معالجة مخصصة</strong> وتتبع <strong>موضعك في الطابور</strong>."
+      },
+      "step3": {
+        "title": "راقب وحلل",
+        "description": "تتبع <strong>اتجاهات المعالجة</strong>، احصل على <strong>إشعارات بالتحديثات</strong>، واتخذ قرارات مستنيرة بشأن <strong>الجدول الزمني للهجرة</strong> الخاص بك."
+      }
+    },
+    "faq": {
+      "title": "الأسئلة الشائعة",
+      "accuracy": {
+        "question": "ما مدى دقة تقديرات وقت المعالجة؟",
+        "answer": "تعتمد تقديراتنا على <strong>بيانات DOL الرسمية</strong> و<strong>الاتجاهات التاريخية</strong>. بينما نقدم أكثر التوقعات دقة ممكنة، قد تختلف أوقات المعالجة الفعلية بناءً على <strong>تعقيد القضية</strong>، <strong>عبء عمل DOL</strong>، وعوامل أخرى."
+      },
+      "security": {
+        "question": "هل يتم تخزين معلومات قضيتي بشكل آمن؟",
+        "answer": "يتم تخزين جميع بيانات قضيتك <strong>محليًا في متصفحك</strong> و<strong>لا يتم إرسالها أبدًا إلى خوادمنا</strong>. يضمن هذا <strong>الخصوصية الكاملة</strong> و<strong>الأمان</strong> لمعلومات الهجرة الخاصة بك."
+      },
+      "oews_difference": {
+        "question": "ما الفرق بين قضايا OEWS و Non-OEWS؟",
+        "answer": "عادة ما تتم معالجة قضايا <strong>OEWS (إحصائيات التوظيف والأجور المهنية)</strong> بشكل أسرع لأنها تستخدم <strong>بيانات الأجور الموحدة</strong>. تتطلب قضايا <strong>Non-OEWS</strong> <strong>مسوحات أجور مخصصة</strong> وعادة ما تستغرق وقتًا أطول للمعالجة."
+      },
+      "update_frequency": {
+        "question": "كم مرة يتم تحديث بيانات DOL؟",
+        "answer": "يقوم DOL بتحديث بيانات وقت معالجة PERM <strong>شهريًا</strong>، عادة خلال <strong>أسبوع العمل الأول من كل شهر</strong>. تجلب أداةنا <strong>تلقائيًا</strong> أحدث البيانات لضمان الدقة."
+      }
+    },
+    "data_management": {
+      "title": "إدارة البيانات",
+      "description": "يتم تخزين بيانات قضيتك محليًا في متصفحك",
+      "clear_all": "مسح جميع البيانات"
+    },
+    "current_data": {
+      "title": "أوقات معالجة PERM الحالية",
+      "no_data_title": "لا توجد بيانات متاحة",
+      "fetching_title": "جلب أحدث البيانات...",
+      "fetching_description": "الحصول على أحدث أوقات معالجة PERM من موقع DOL. قد يستغرق هذا بضع لحظات.",
+      "no_data_description": "انقر فوق زر التحديث لجلب أحدث أوقات معالجة PERM من موقع DOL.",
+      "fetch_button": "جلب أحدث البيانات",
+      "average_processing_time": "متوسط وقت المعالجة",
+      "currently_processing": "قيد المعالجة حاليًا",
+      "priority_date": "تاريخ الأولوية",
+      "cases_in_queue": "القضايا في الطابور",
+      "pending_review": "قيد المراجعة",
+      "processing_trend": "اتجاه المعالجة",
+      "projected_change": "التغيير المتوقع",
+      "queue_breakdown": "تفصيل الطابور حسب الشهر",
+      "currently_processing_badge": "قيد المعالجة حاليًا",
+      "cases": "قضايا",
+      "audit_review": "مراجعة التدقيق",
+      "status": "الحالة",
+      "average": "المتوسط",
+      "days": "أيام",
+      "reconsideration": "إعادة النظر",
+      "updated": "تم التحديث"
+    },
+    "case_tracker": {
+      "title": "قضايا PERM الخاصة بك",
+      "subtitle": "تتبع <strong>طلبات PERM</strong> الخاصة بك واحصل على <strong>تقديرات المعالجة</strong>",
+      "add_case": "إضافة قضية",
+      "add_case_title": "إضافة قضية PERM",
+      "submission_date": "تاريخ التقديم",
+      "case_type": "نوع القضية",
+      "analyst_review": "مراجعة المحلل",
+      "audit_review": "مراجعة التدقيق",
+      "reconsideration": "إعادة النظر",
+      "oews_label": "تحديد الأجر السائد القائم على OEWS",
+      "cancel": "إلغاء",
+      "no_cases_title": "لم تتم إضافة قضايا",
+      "no_cases_description": "أضف قضايا PERM الخاصة بك لتتبع تقدمها والحصول على تقديرات المعالجة.",
+      "add_first_case": "أضف قضيتك الأولى",
+      "case_number": "قضية PERM رقم #{id}",
+      "submitted": "تم التقديم",
+      "submitted_label": "تم التقديم:",
+      "days_pending": "الأيام المعلقة:",
+      "days": "أيام",
+      "queue_type": "نوع الطابور:",
+      "review": "مراجعة",
+      "estimated_completion": "الاكتمال المتوقع:",
+      "queue_position": "موضع الطابور:",
+      "percentile": "النسبة المئوية",
+      "unable_to_calculate": "تعذر حساب التقدير لقضايا مراجعة {caseType}",
+      "summary_title": "ملخص قضاياك",
+      "total_cases": "إجمالي القضايا",
+      "oews_cases": "قضايا OEWS",
+      "avg_days_pending": "متوسط الأيام المعلقة"
+    },
+    "historical_chart": {
+      "title": "اتجاهات وقت المعالجة",
+      "historical": "تاريخي",
+      "improving": "يتحسن",
+      "worsening": "يتدهور",
+      "no_data_title": "لا توجد بيانات تاريخية",
+      "no_data_description": "ستظهر بيانات وقت المعالجة التاريخية هنا بمجرد توفرها.",
+      "average_days": "متوسط الأيام",
+      "peak_processing_time": "وقت المعالجة الذروة",
+      "recent_change": "التغيير الأخير (أيام)",
+      "processing": "المعالجة:",
+      "insights_title": "رؤى وقت المعالجة",
+      "insights_average": "متوسط وقت المعالجة خلال آخر <strong>{months} أشهر</strong>: <strong>{days} يوم</strong>",
+      "insights_trend_increased": "زاد",
+      "insights_trend_decreased": "انخفض",
+      "insights_trend_stable": "بقي مستقرًا",
+      "insights_trend": "زادت أوقات المعالجة <strong>{trend}</strong> بمقدار <strong>{days} يوم</strong> مؤخرًا",
+      "insights_trend_stable_text": "بقت أوقات المعالجة <strong>{trend}</strong> مؤخرًا",
+      "insights_range": "النطاق التاريخي: <strong>{min} إلى {max} يوم</strong> (<strong>{range} يوم اختلاف</strong>)"
+    }
   }
 }

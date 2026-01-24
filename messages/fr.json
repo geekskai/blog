@@ -6010,5 +6010,195 @@
         "search_history": "Historique de recherche pour un accès rapide aux emplacements favoris"
       }
     }
+  },
+
+  "PERMProcessingTimeTracker": {
+    "seo_title": "Suivi du Temps de Traitement PERM - Vérificateur d'État d'Immigration DOL en Temps Réel Gratuit",
+    "seo_description": "Suivi du temps de traitement PERM avec données DOL en temps réel. Intégration officielle des données DOL pour des calendriers d'immigration précis.",
+    "seo_keywords": "temps de traitement perm, suivi temps de traitement perm, temps de traitement perm dol, statut demande perm, suivi dossier perm",
+    "breadcrumb_home": "Accueil",
+    "breadcrumb_tools": "Outils",
+    "breadcrumb_title": "Suivi du Temps de Traitement PERM",
+    "badge_text": "Suivi du Traitement PERM en Temps Réel",
+    "title": "Suivi du Temps de Traitement PERM",
+    "description": "Suivez les temps de traitement de vos demandes PERM avec des <strong>données DOL en temps réel</strong>. Obtenez des <strong>estimations personnalisées</strong>, surveillez les <strong>positions dans la file d'attente</strong> et analysez les <strong>tendances historiques</strong> pour votre dossier d'immigration.",
+    "quick_stats": {
+      "realtime_dol_data": "Données DOL en <strong>temps réel</strong>",
+      "privacy_first": "<strong>Confidentialité d'abord</strong> - <strong>Gratuit</strong> à utiliser",
+      "trend_analysis": "<strong>Analyse des Tendances</strong>"
+    },
+    "tabs": {
+      "overview": "Vue d'ensemble",
+      "my_cases": "Mes Dossiers",
+      "historical_trends": "Tendances Historiques"
+    },
+    "errors": {
+      "data_fetch_error": "Erreur de Récupération des Données",
+      "try_again": "Réessayer"
+    },
+    "data_source": {
+      "label": "<strong>Source de Données</strong>",
+      "dol_link": "<strong>U.S. Department of Labor - Office of Foreign Labor Certification</strong>",
+      "last_updated": "<strong>Dernière mise à jour</strong>"
+    },
+    "core_facts": {
+      "title": "Informations Essentielles",
+      "pricing": {
+        "label": "Tarification",
+        "value": "<strong>Gratuit</strong>",
+        "description": "Gratuit pour toujours"
+      },
+      "features": {
+        "label": "Fonctionnalités Principales",
+        "value": "<strong>Données DOL en temps réel</strong>, <strong>Estimations du temps de traitement</strong>, <strong>Suivi de la position dans la file</strong>"
+      },
+      "positioning": {
+        "label": "Positionnement",
+        "value": "<strong>Outil professionnel de suivi du temps de traitement PERM</strong>"
+      },
+      "target_users": {
+        "label": "Utilisateurs Ciblés",
+        "value": "<strong>Demandeurs d'immigration</strong>, <strong>Avocats en immigration</strong>, <strong>Professionnels RH</strong>, <strong>Candidats à l'immigration basée sur l'emploi</strong>"
+      }
+    },
+    "features": {
+      "title": "Fonctionnalités de Suivi PERM Puissantes",
+      "subtitle": "Tout ce dont vous avez besoin pour surveiller le statut de traitement de votre demande PERM",
+      "realtime_data": {
+        "title": "Données de Traitement en Temps Réel",
+        "description": "Obtenez les derniers temps de traitement PERM directement depuis les <strong>données DOL</strong>. Suivez les <strong>dates de priorité actuelles</strong>, les <strong>temps de traitement moyens</strong> et les <strong>longueurs de file d'attente</strong> avec des mises à jour automatiques.",
+        "live_dol": "Intégration des <strong>données DOL en direct</strong>",
+        "priority_date": "Suivi de la <strong>date de priorité</strong>",
+        "queue_position": "Calcul de la <strong>position dans la file</strong>"
+      },
+      "personal_tracking": {
+        "title": "Suivi Personnel des Dossiers",
+        "description": "Ajoutez vos dossiers PERM et obtenez des <strong>estimations de traitement personnalisées</strong>. Suivez <strong>plusieurs dossiers</strong>, comparez les demandes <strong>OEWS vs Non-OEWS</strong> et surveillez votre <strong>position dans la file d'attente</strong>.",
+        "multi_case": "Gestion <strong>multi-dossiers</strong>",
+        "oews_classification": "Suivi de la <strong>classification OEWS</strong>",
+        "processing_estimates": "<strong>Estimations de traitement</strong>"
+      },
+      "trend_analysis": {
+        "title": "Analyse des Tendances Historiques",
+        "description": "Analysez les <strong>tendances des temps de traitement</strong> sur des mois et des années. Comprenez les <strong>modèles</strong>, prévoyez les <strong>temps de traitement futurs</strong> et prenez des décisions éclairées concernant votre <strong>calendrier d'immigration</strong>.",
+        "interactive_charts": "Graphiques de tendances interactifs",
+        "pattern_recognition": "Reconnaissance de modèles",
+        "future_predictions": "Prédictions futures"
+      }
+    },
+    "how_it_works": {
+      "title": "Comment Suivre Votre Temps de Traitement PERM",
+      "step1": {
+        "title": "Voir les Données Actuelles",
+        "description": "Vérifiez les derniers <strong>temps de traitement PERM</strong>, les <strong>dates de priorité</strong> et les <strong>informations sur la file d'attente</strong> directement depuis les <strong>données DOL</strong>."
+      },
+      "step2": {
+        "title": "Ajouter Vos Dossiers",
+        "description": "Entrez vos <strong>détails de soumission PERM</strong> pour obtenir des <strong>estimations de traitement personnalisées</strong> et suivre votre <strong>position dans la file d'attente</strong>."
+      },
+      "step3": {
+        "title": "Surveiller et Analyser",
+        "description": "Suivez les <strong>tendances de traitement</strong>, recevez des <strong>notifications sur les mises à jour</strong> et prenez des décisions éclairées concernant votre <strong>calendrier d'immigration</strong>."
+      }
+    },
+    "faq": {
+      "title": "Questions Fréquemment Posées",
+      "accuracy": {
+        "question": "Quelle est la précision des estimations du temps de traitement ?",
+        "answer": "Nos estimations sont basées sur les <strong>données officielles DOL</strong> et les <strong>tendances historiques</strong>. Bien que nous fournissions les prédictions les plus précises possibles, les temps de traitement réels peuvent varier en fonction de la <strong>complexité du dossier</strong>, de la <strong>charge de travail DOL</strong> et d'autres facteurs."
+      },
+      "security": {
+        "question": "Mes informations de dossier sont-elles stockées en toute sécurité ?",
+        "answer": "Toutes vos données de dossier sont stockées <strong>localement dans votre navigateur</strong> et <strong>jamais envoyées à nos serveurs</strong>. Cela garantit une <strong>confidentialité complète</strong> et la <strong>sécurité</strong> de vos informations d'immigration."
+      },
+      "oews_difference": {
+        "question": "Quelle est la différence entre les dossiers OEWS et Non-OEWS ?",
+        "answer": "Les dossiers <strong>OEWS (Occupational Employment Wage Statistics)</strong> sont généralement traités plus rapidement car ils utilisent des <strong>données salariales standardisées</strong>. Les dossiers <strong>Non-OEWS</strong> nécessitent des <strong>enquêtes salariales personnalisées</strong> et prennent généralement plus de temps à traiter."
+      },
+      "update_frequency": {
+        "question": "À quelle fréquence les données DOL sont-elles mises à jour ?",
+        "answer": "DOL met à jour les données du temps de traitement PERM <strong>mensuellement</strong>, généralement pendant la <strong>première semaine de travail de chaque mois</strong>. Notre outil <strong>récupère automatiquement</strong> les dernières données pour assurer la précision."
+      }
+    },
+    "data_management": {
+      "title": "Gestion des Données",
+      "description": "Vos données de dossier sont stockées localement dans votre navigateur",
+      "clear_all": "Effacer Toutes les Données"
+    },
+    "current_data": {
+      "title": "Temps de Traitement PERM Actuels",
+      "no_data_title": "Aucune Donnée Disponible",
+      "fetching_title": "Récupération des Dernières Données...",
+      "fetching_description": "Obtention des derniers temps de traitement PERM depuis le site Web DOL. Cela peut prendre quelques instants.",
+      "no_data_description": "Cliquez sur le bouton d'actualisation pour récupérer les derniers temps de traitement PERM depuis le site Web DOL.",
+      "fetch_button": "Récupérer les Dernières Données",
+      "average_processing_time": "Temps de Traitement Moyen",
+      "currently_processing": "En Cours de Traitement",
+      "priority_date": "Date de Priorité",
+      "cases_in_queue": "Dossiers en File d'Attente",
+      "pending_review": "En Attente d'Examen",
+      "processing_trend": "Tendance de Traitement",
+      "projected_change": "changement projeté",
+      "queue_breakdown": "Répartition de la File par Mois",
+      "currently_processing_badge": "En Cours de Traitement",
+      "cases": "dossiers",
+      "audit_review": "Examen d'Audit",
+      "status": "Statut",
+      "average": "Moyenne",
+      "days": "jours",
+      "reconsideration": "Réexamen",
+      "updated": "Mis à Jour"
+    },
+    "case_tracker": {
+      "title": "Vos Dossiers PERM",
+      "subtitle": "Suivez vos <strong>demandes PERM</strong> et obtenez des <strong>estimations de traitement</strong>",
+      "add_case": "Ajouter un Dossier",
+      "add_case_title": "Ajouter un Dossier PERM",
+      "submission_date": "Date de Soumission",
+      "case_type": "Type de Dossier",
+      "analyst_review": "Examen par l'Analyste",
+      "audit_review": "Examen d'Audit",
+      "reconsideration": "Réexamen",
+      "oews_label": "Détermination du salaire prévalant basée sur OEWS",
+      "cancel": "Annuler",
+      "no_cases_title": "Aucun Dossier Ajouté",
+      "no_cases_description": "Ajoutez vos dossiers PERM pour suivre leur progression et obtenir des estimations de traitement.",
+      "add_first_case": "Ajoutez Votre Premier Dossier",
+      "case_number": "Dossier PERM #{id}",
+      "submitted": "Soumis",
+      "submitted_label": "Soumis :",
+      "days_pending": "Jours en attente :",
+      "days": "jours",
+      "queue_type": "Type de file :",
+      "review": "Examen",
+      "estimated_completion": "Achèvement estimé :",
+      "queue_position": "Position dans la file :",
+      "percentile": "percentile",
+      "unable_to_calculate": "Impossible de calculer l'estimation pour les dossiers d'examen {caseType}",
+      "summary_title": "Résumé de Vos Dossiers",
+      "total_cases": "Total des Dossiers",
+      "oews_cases": "Dossiers OEWS",
+      "avg_days_pending": "Jours Moyens en Attente"
+    },
+    "historical_chart": {
+      "title": "Tendances des Temps de Traitement",
+      "historical": "Historique",
+      "improving": "Amélioration",
+      "worsening": "Détérioration",
+      "no_data_title": "Aucune Donnée Historique",
+      "no_data_description": "Les données historiques du temps de traitement apparaîtront ici une fois disponibles.",
+      "average_days": "Jours Moyens",
+      "peak_processing_time": "Temps de Traitement de Pointe",
+      "recent_change": "Changement Récent (jours)",
+      "processing": "Traitement :",
+      "insights_title": "Aperçus du Temps de Traitement",
+      "insights_average": "Temps de traitement moyen sur les <strong>{months} derniers mois</strong> : <strong>{days} jours</strong>",
+      "insights_trend_increased": "augmenté",
+      "insights_trend_decreased": "diminué",
+      "insights_trend_stable": "resté stable",
+      "insights_trend": "Les temps de traitement ont <strong>{trend}</strong> de <strong>{days} jours</strong> récemment",
+      "insights_trend_stable_text": "Les temps de traitement ont <strong>{trend}</strong> récemment",
+      "insights_range": "Plage historique : <strong>{min} à {max} jours</strong> (<strong>{range} jours de variation</strong>)"
+    }
   }
 }

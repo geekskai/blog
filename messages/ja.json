@@ -5907,5 +5907,194 @@
         "search_history": "お気に入りの場所にすぐアクセスできる検索履歴"
       }
     }
+  },
+  "PERMProcessingTimeTracker": {
+    "seo_title": "PERM処理時間トラッカー - 無料リアルタイムDOL移民ステータスチェッカー",
+    "seo_description": "リアルタイムDOLデータを使用したPERM処理時間トラッカー。正確な移民タイムラインのための公式DOLデータ統合。",
+    "seo_keywords": "perm処理時間, perm処理時間トラッカー, dol perm処理時間, perm申請ステータス, permケーストラッカー",
+    "breadcrumb_home": "ホーム",
+    "breadcrumb_tools": "ツール",
+    "breadcrumb_title": "PERM処理時間トラッカー",
+    "badge_text": "リアルタイムPERM処理トラッカー",
+    "title": "PERM処理時間トラッカー",
+    "description": "<strong>リアルタイムDOLデータ</strong>を使用してPERM申請の処理時間を追跡します。<strong>パーソナライズされた見積もり</strong>を取得し、<strong>キュー位置</strong>を監視し、移民ケースの<strong>歴史的傾向</strong>を分析します。",
+    "quick_stats": {
+      "realtime_dol_data": "<strong>リアルタイム</strong> DOLデータ",
+      "privacy_first": "<strong>プライバシー第一</strong> - <strong>無料</strong>で使用可能",
+      "trend_analysis": "<strong>傾向分析</strong>"
+    },
+    "tabs": {
+      "overview": "概要",
+      "my_cases": "マイケース",
+      "historical_trends": "歴史的傾向"
+    },
+    "errors": {
+      "data_fetch_error": "データ取得エラー",
+      "try_again": "再試行"
+    },
+    "data_source": {
+      "label": "<strong>データソース</strong>",
+      "dol_link": "<strong>米国労働省 - 外国人労働認証局</strong>",
+      "last_updated": "<strong>最終更新</strong>"
+    },
+    "core_facts": {
+      "title": "基本情報",
+      "pricing": {
+        "label": "価格",
+        "value": "<strong>無料</strong>",
+        "description": "永続的に無料"
+      },
+      "features": {
+        "label": "主な機能",
+        "value": "<strong>リアルタイムDOLデータ</strong>、<strong>処理時間見積もり</strong>、<strong>キュー位置追跡</strong>"
+      },
+      "positioning": {
+        "label": "ポジショニング",
+        "value": "<strong>プロフェッショナルなPERM処理時間追跡ツール</strong>"
+      },
+      "target_users": {
+        "label": "ターゲットユーザー",
+        "value": "<strong>移民申請者</strong>、<strong>移民弁護士</strong>、<strong>人事専門家</strong>、<strong>雇用ベースの移民候補者</strong>"
+      }
+    },
+    "features": {
+      "title": "強力なPERM追跡機能",
+      "subtitle": "PERM申請の処理ステータスを監視するために必要なすべて",
+      "realtime_data": {
+        "title": "リアルタイム処理データ",
+        "description": "<strong>DOLデータ</strong>から最新のPERM処理時間を直接取得します。<strong>現在の優先日</strong>、<strong>平均処理時間</strong>、<strong>キューの長さ</strong>を自動更新で追跡します。",
+        "live_dol": "<strong>ライブDOLデータ</strong>統合",
+        "priority_date": "<strong>優先日</strong>追跡",
+        "queue_position": "<strong>キュー位置</strong>計算"
+      },
+      "personal_tracking": {
+        "title": "個人ケース追跡",
+        "description": "PERMケースを追加して<strong>パーソナライズされた処理見積もり</strong>を取得します。<strong>複数のケース</strong>を追跡し、<strong>OEWS対Non-OEWS</strong>申請を比較し、<strong>キュー内の位置</strong>を監視します。",
+        "multi_case": "<strong>マルチケース</strong>管理",
+        "oews_classification": "<strong>OEWS分類</strong>追跡",
+        "processing_estimates": "<strong>処理見積もり</strong>"
+      },
+      "trend_analysis": {
+        "title": "歴史的傾向分析",
+        "description": "数か月から数年にわたる<strong>処理時間の傾向</strong>を分析します。<strong>パターン</strong>を理解し、<strong>将来の処理時間</strong>を予測し、<strong>移民タイムライン</strong>について情報に基づいた決定を行います。",
+        "interactive_charts": "インタラクティブな傾向チャート",
+        "pattern_recognition": "パターン認識",
+        "future_predictions": "将来の予測"
+      }
+    },
+    "how_it_works": {
+      "title": "PERM処理時間の追跡方法",
+      "step1": {
+        "title": "現在のデータを表示",
+        "description": "<strong>DOLデータ</strong>から最新の<strong>PERM処理時間</strong>、<strong>優先日</strong>、<strong>キュー情報</strong>を直接確認します。"
+      },
+      "step2": {
+        "title": "ケースを追加",
+        "description": "<strong>PERM提出の詳細</strong>を入力して<strong>パーソナライズされた処理見積もり</strong>を取得し、<strong>キュー内の位置</strong>を追跡します。"
+      },
+      "step3": {
+        "title": "監視と分析",
+        "description": "<strong>処理傾向</strong>を追跡し、<strong>更新通知</strong>を受け取り、<strong>移民タイムライン</strong>について情報に基づいた決定を行います。"
+      }
+    },
+    "faq": {
+      "title": "よくある質問",
+      "accuracy": {
+        "question": "処理時間の見積もりはどの程度正確ですか？",
+        "answer": "当社の見積もりは<strong>公式DOLデータ</strong>と<strong>歴史的傾向</strong>に基づいています。可能な限り最も正確な予測を提供しますが、実際の処理時間は<strong>ケースの複雑さ</strong>、<strong>DOLの作業負荷</strong>、その他の要因によって異なる場合があります。"
+      },
+      "security": {
+        "question": "ケース情報は安全に保存されますか？",
+        "answer": "すべてのケースデータは<strong>ブラウザにローカルで保存</strong>され、<strong>当社のサーバーに送信されることはありません</strong>。これにより、移民情報の<strong>完全なプライバシー</strong>と<strong>セキュリティ</strong>が確保されます。"
+      },
+      "oews_difference": {
+        "question": "OEWSケースとNon-OEWSケースの違いは何ですか？",
+        "answer": "<strong>OEWS（職業雇用賃金統計）</strong>ケースは、<strong>標準化された賃金データ</strong>を使用するため、通常より迅速に処理されます。<strong>Non-OEWSケース</strong>は<strong>カスタム賃金調査</strong>が必要で、通常処理に時間がかかります。"
+      },
+      "update_frequency": {
+        "question": "DOLデータはどのくらいの頻度で更新されますか？",
+        "answer": "DOLはPERM処理時間データを<strong>毎月</strong>更新します。通常、<strong>毎月の最初の就業週</strong>中に行われます。当社のツールは<strong>自動的に最新データを取得</strong>して精度を確保します。"
+      }
+    },
+    "data_management": {
+      "title": "データ管理",
+      "description": "ケースデータはブラウザにローカルで保存されます",
+      "clear_all": "すべてのデータをクリア"
+    },
+    "current_data": {
+      "title": "現在のPERM処理時間",
+      "no_data_title": "データが利用できません",
+      "fetching_title": "最新データを取得中...",
+      "fetching_description": "DOLウェブサイトから最新のPERM処理時間を取得しています。これには数秒かかる場合があります。",
+      "no_data_description": "更新ボタンをクリックして、DOLウェブサイトから最新のPERM処理時間を取得します。",
+      "fetch_button": "最新データを取得",
+      "average_processing_time": "平均処理時間",
+      "currently_processing": "現在処理中",
+      "priority_date": "優先日",
+      "cases_in_queue": "キュー内のケース",
+      "pending_review": "審査待ち",
+      "processing_trend": "処理傾向",
+      "projected_change": "予測される変更",
+      "queue_breakdown": "月別キュー内訳",
+      "currently_processing_badge": "現在処理中",
+      "cases": "ケース",
+      "audit_review": "監査審査",
+      "status": "ステータス",
+      "average": "平均",
+      "days": "日",
+      "reconsideration": "再審査",
+      "updated": "更新済み"
+    },
+    "case_tracker": {
+      "title": "あなたのPERMケース",
+      "subtitle": "<strong>PERM申請</strong>を追跡し、<strong>処理見積もり</strong>を取得します",
+      "add_case": "ケースを追加",
+      "add_case_title": "PERMケースを追加",
+      "submission_date": "提出日",
+      "case_type": "ケースタイプ",
+      "analyst_review": "アナリスト審査",
+      "audit_review": "監査審査",
+      "reconsideration": "再審査",
+      "oews_label": "OEWSベースの現行賃金決定",
+      "cancel": "キャンセル",
+      "no_cases_title": "ケースが追加されていません",
+      "no_cases_description": "PERMケースを追加して、進捗を追跡し、処理見積もりを取得します。",
+      "add_first_case": "最初のケースを追加",
+      "case_number": "PERMケース #{id}",
+      "submitted": "提出済み",
+      "submitted_label": "提出日：",
+      "days_pending": "保留日数：",
+      "days": "日",
+      "queue_type": "キュータイプ：",
+      "review": "審査",
+      "estimated_completion": "推定完了：",
+      "queue_position": "キュー位置：",
+      "percentile": "パーセンタイル",
+      "unable_to_calculate": "{caseType}審査ケースの見積もりを計算できません",
+      "summary_title": "ケースサマリー",
+      "total_cases": "総ケース数",
+      "oews_cases": "OEWSケース",
+      "avg_days_pending": "平均保留日数"
+    },
+    "historical_chart": {
+      "title": "処理時間の傾向",
+      "historical": "歴史的",
+      "improving": "改善中",
+      "worsening": "悪化中",
+      "no_data_title": "歴史的データがありません",
+      "no_data_description": "利用可能になると、ここに歴史的処理時間データが表示されます。",
+      "average_days": "平均日数",
+      "peak_processing_time": "ピーク処理時間",
+      "recent_change": "最近の変更（日）",
+      "processing": "処理中：",
+      "insights_title": "処理時間の洞察",
+      "insights_average": "過去<strong>{months}か月</strong>の平均処理時間：<strong>{days}日</strong>",
+      "insights_trend_increased": "増加",
+      "insights_trend_decreased": "減少",
+      "insights_trend_stable": "安定",
+      "insights_trend": "処理時間は最近<strong>{days}日</strong><strong>{trend}</strong>しました",
+      "insights_trend_stable_text": "処理時間は最近<strong>{trend}</strong>しています",
+      "insights_range": "歴史的範囲：<strong>{min}から{max}日</strong>（<strong>{range}日の変動</strong>）"
+    }
   }
 }

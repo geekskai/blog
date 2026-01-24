@@ -5904,5 +5904,195 @@
         "search_history": "搜索历史，快速访问收藏的地点"
       }
     }
+  },
+
+  "PERMProcessingTimeTracker": {
+    "seo_title": "PERM处理时间追踪器 - 免费实时DOL移民状态检查器",
+    "seo_description": "使用实时DOL数据的PERM处理时间追踪器。官方DOL数据集成，提供准确的移民时间线。",
+    "seo_keywords": "perm处理时间, perm处理时间追踪器, dol perm处理时间, perm申请状态, perm案件追踪器",
+    "breadcrumb_home": "首页",
+    "breadcrumb_tools": "工具",
+    "breadcrumb_title": "PERM处理时间追踪器",
+    "badge_text": "实时PERM处理追踪器",
+    "title": "PERM处理时间追踪器",
+    "description": "使用<strong>实时DOL数据</strong>追踪您的PERM申请处理时间。获取<strong>个性化估算</strong>，监控<strong>队列位置</strong>，并分析您移民案件的<strong>历史趋势</strong>。",
+    "quick_stats": {
+      "realtime_dol_data": "<strong>实时</strong> DOL数据",
+      "privacy_first": "<strong>隐私优先</strong> - <strong>免费</strong>使用",
+      "trend_analysis": "<strong>趋势分析</strong>"
+    },
+    "tabs": {
+      "overview": "概览",
+      "my_cases": "我的案件",
+      "historical_trends": "历史趋势"
+    },
+    "errors": {
+      "data_fetch_error": "数据获取错误",
+      "try_again": "重试"
+    },
+    "data_source": {
+      "label": "<strong>数据来源</strong>",
+      "dol_link": "<strong>美国劳工部 - 外国劳工认证办公室</strong>",
+      "last_updated": "<strong>最后更新</strong>"
+    },
+    "core_facts": {
+      "title": "核心信息",
+      "pricing": {
+        "label": "价格",
+        "value": "<strong>免费</strong>",
+        "description": "永久免费"
+      },
+      "features": {
+        "label": "主要功能",
+        "value": "<strong>实时DOL数据</strong>、<strong>处理时间估算</strong>、<strong>队列位置追踪</strong>"
+      },
+      "positioning": {
+        "label": "定位",
+        "value": "<strong>专业PERM处理时间追踪工具</strong>"
+      },
+      "target_users": {
+        "label": "目标用户",
+        "value": "<strong>移民申请人</strong>、<strong>移民律师</strong>、<strong>人力资源专业人士</strong>、<strong>基于就业的移民候选人</strong>"
+      }
+    },
+    "features": {
+      "title": "强大的PERM追踪功能",
+      "subtitle": "监控PERM申请处理状态所需的一切",
+      "realtime_data": {
+        "title": "实时处理数据",
+        "description": "直接从<strong>DOL数据</strong>获取最新PERM处理时间。追踪<strong>当前优先日期</strong>、<strong>平均处理时间</strong>和<strong>队列长度</strong>，自动更新。",
+        "live_dol": "<strong>实时DOL数据</strong>集成",
+        "priority_date": "<strong>优先日期</strong>追踪",
+        "queue_position": "<strong>队列位置</strong>计算"
+      },
+      "personal_tracking": {
+        "title": "个人案件追踪",
+        "description": "添加您的PERM案件并获取<strong>个性化处理估算</strong>。追踪<strong>多个案件</strong>，比较<strong>OEWS与非OEWS</strong>申请，并监控您在<strong>队列中的位置</strong>。",
+        "multi_case": "<strong>多案件</strong>管理",
+        "oews_classification": "<strong>OEWS分类</strong>追踪",
+        "processing_estimates": "<strong>处理估算</strong>"
+      },
+      "trend_analysis": {
+        "title": "历史趋势分析",
+        "description": "分析数月和数年的<strong>处理时间趋势</strong>。理解<strong>模式</strong>，预测<strong>未来处理时间</strong>，并就您的<strong>移民时间线</strong>做出明智决策。",
+        "interactive_charts": "交互式趋势图表",
+        "pattern_recognition": "模式识别",
+        "future_predictions": "未来预测"
+      }
+    },
+    "how_it_works": {
+      "title": "如何追踪您的PERM处理时间",
+      "step1": {
+        "title": "查看当前数据",
+        "description": "直接从<strong>DOL数据</strong>检查最新的<strong>PERM处理时间</strong>、<strong>优先日期</strong>和<strong>队列信息</strong>。"
+      },
+      "step2": {
+        "title": "添加您的案件",
+        "description": "输入您的<strong>PERM提交详情</strong>以获取<strong>个性化处理估算</strong>并追踪您在<strong>队列中的位置</strong>。"
+      },
+      "step3": {
+        "title": "监控和分析",
+        "description": "追踪<strong>处理趋势</strong>，获取<strong>更新通知</strong>，并就您的<strong>移民时间线</strong>做出明智决策。"
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "accuracy": {
+        "question": "处理时间估算的准确性如何？",
+        "answer": "我们的估算基于<strong>官方DOL数据</strong>和<strong>历史趋势</strong>。虽然我们提供尽可能准确的预测，但实际处理时间可能因<strong>案件复杂性</strong>、<strong>DOL工作量</strong>和其他因素而有所不同。"
+      },
+      "security": {
+        "question": "我的案件信息是否安全存储？",
+        "answer": "您的所有案件数据都<strong>存储在浏览器本地</strong>，<strong>永远不会发送到我们的服务器</strong>。这确保了您移民信息的<strong>完全隐私</strong>和<strong>安全性</strong>。"
+      },
+      "oews_difference": {
+        "question": "OEWS案件和非OEWS案件有什么区别？",
+        "answer": "<strong>OEWS（职业就业工资统计）</strong>案件通常处理更快，因为它们使用<strong>标准化工资数据</strong>。<strong>非OEWS案件</strong>需要<strong>定制工资调查</strong>，通常需要更长的处理时间。"
+      },
+      "update_frequency": {
+        "question": "DOL数据多久更新一次？",
+        "answer": "DOL<strong>每月</strong>更新PERM处理时间数据，通常在<strong>每月第一周</strong>进行。我们的工具<strong>自动获取</strong>最新数据以确保准确性。"
+      }
+    },
+    "data_management": {
+      "title": "数据管理",
+      "description": "您的案件数据存储在浏览器本地",
+      "clear_all": "清除所有数据"
+    },
+    "current_data": {
+      "title": "当前PERM处理时间",
+      "no_data_title": "无可用数据",
+      "fetching_title": "正在获取最新数据...",
+      "fetching_description": "正在从DOL网站获取最新PERM处理时间。这可能需要几秒钟。",
+      "no_data_description": "点击刷新按钮以从DOL网站获取最新PERM处理时间。",
+      "fetch_button": "获取最新数据",
+      "average_processing_time": "平均处理时间",
+      "currently_processing": "正在处理",
+      "priority_date": "优先日期",
+      "cases_in_queue": "队列中的案件",
+      "pending_review": "待审核",
+      "processing_trend": "处理趋势",
+      "projected_change": "预计变化",
+      "queue_breakdown": "按月队列分解",
+      "currently_processing_badge": "正在处理",
+      "cases": "案件",
+      "audit_review": "审计审核",
+      "status": "状态",
+      "average": "平均",
+      "days": "天",
+      "reconsideration": "重新考虑",
+      "updated": "已更新"
+    },
+    "case_tracker": {
+      "title": "您的PERM案件",
+      "subtitle": "追踪您的<strong>PERM申请</strong>并获取<strong>处理估算</strong>",
+      "add_case": "添加案件",
+      "add_case_title": "添加PERM案件",
+      "submission_date": "提交日期",
+      "case_type": "案件类型",
+      "analyst_review": "分析师审核",
+      "audit_review": "审计审核",
+      "reconsideration": "重新考虑",
+      "oews_label": "基于OEWS的现行工资确定",
+      "cancel": "取消",
+      "no_cases_title": "未添加案件",
+      "no_cases_description": "添加您的PERM案件以追踪其进度并获取处理估算。",
+      "add_first_case": "添加您的第一个案件",
+      "case_number": "PERM案件 #{id}",
+      "submitted": "已提交",
+      "submitted_label": "提交日期：",
+      "days_pending": "待处理天数：",
+      "days": "天",
+      "queue_type": "队列类型：",
+      "review": "审核",
+      "estimated_completion": "预计完成：",
+      "queue_position": "队列位置：",
+      "percentile": "百分位数",
+      "unable_to_calculate": "无法计算{caseType}审核案件的估算",
+      "summary_title": "您的案件摘要",
+      "total_cases": "总案件数",
+      "oews_cases": "OEWS案件",
+      "avg_days_pending": "平均待处理天数"
+    },
+    "historical_chart": {
+      "title": "处理时间趋势",
+      "historical": "历史",
+      "improving": "改善中",
+      "worsening": "恶化中",
+      "no_data_title": "无历史数据",
+      "no_data_description": "历史处理时间数据将在可用时显示在此处。",
+      "average_days": "平均天数",
+      "peak_processing_time": "峰值处理时间",
+      "recent_change": "最近变化（天）",
+      "processing": "处理中：",
+      "insights_title": "处理时间洞察",
+      "insights_average": "过去<strong>{months}个月</strong>的平均处理时间：<strong>{days}天</strong>",
+      "insights_trend_increased": "增加",
+      "insights_trend_decreased": "减少",
+      "insights_trend_stable": "保持稳定",
+      "insights_trend": "处理时间最近<strong>{trend}</strong>了<strong>{days}天</strong>",
+      "insights_trend_stable_text": "处理时间最近<strong>{trend}</strong>",
+      "insights_range": "历史范围：<strong>{min}至{max}天</strong>（<strong>{range}天变化</strong>）"
+    }
   }
 }
