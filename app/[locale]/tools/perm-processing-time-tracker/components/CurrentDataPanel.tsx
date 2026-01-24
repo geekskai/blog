@@ -14,6 +14,7 @@ import {
 } from "lucide-react"
 import { PERMData, TrendAnalysis } from "../types"
 import { formatTimeRemaining, getDataFreshness } from "../utils/permDataParser"
+import { useTranslations } from "../hooks/useTranslations"
 
 interface CurrentDataPanelProps {
   data: PERMData | null
@@ -30,11 +31,13 @@ export default function CurrentDataPanel({
   lastFetched,
   onRefresh,
 }: CurrentDataPanelProps) {
+  const t = useTranslations()
+
   if (!data) {
     return (
       <div className="overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
         <div className="border-b border-slate-700 px-6 py-4">
-          <h2 className="text-lg font-semibold text-white">Current PERM Processing Times</h2>
+          <h2 className="text-lg font-semibold text-white">{t("current_data.title")}</h2>
         </div>
         <div className="p-12 text-center">
           <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-slate-700">
@@ -45,12 +48,12 @@ export default function CurrentDataPanel({
             )}
           </div>
           <h3 className="mb-4 text-lg font-semibold text-white">
-            {isLoading ? "Fetching Latest Data..." : "No Data Available"}
+            {isLoading ? t("current_data.fetching_title") : t("current_data.no_data_title")}
           </h3>
           <p className="mb-6 text-slate-400">
             {isLoading
-              ? "Getting the latest PERM processing times from the DOL website. This may take a few moments."
-              : "Click the refresh button to fetch the latest PERM processing times from the DOL website."}
+              ? t("current_data.fetching_description")
+              : t("current_data.no_data_description")}
           </p>
           {!isLoading && (
             <button
@@ -59,7 +62,7 @@ export default function CurrentDataPanel({
               className="inline-flex items-center space-x-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-50"
             >
               <RefreshCw className="h-4 w-4" />
-              <span>Fetch Latest Data</span>
+              <span>{t("current_data.fetch_button")}</span>
             </button>
           )}
         </div>
@@ -97,13 +100,13 @@ export default function CurrentDataPanel({
   }
 
   return (
-    <div className="space-y-6">
+    <section className="space-y-6" aria-label="Current PERM Processing Data">
       {/* Main Stats Card */}
-      <div className="overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
+      <article className="overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
         <div className="border-b border-slate-700 px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-lg font-semibold text-white">Current PERM Processing Times</h2>
+              <h2 className="text-lg font-semibold text-white">{t("current_data.title")}</h2>
               {dataFreshness && (
                 <div className="mt-1 flex items-center space-x-2">
                   <div
@@ -125,7 +128,9 @@ export default function CurrentDataPanel({
               {lastFetched && (
                 <div className="flex items-center space-x-1 text-xs text-slate-400">
                   <CheckCircle className="h-3 w-3" />
-                  <span>Updated {lastFetched.toLocaleDateString()}</span>
+                  <span>
+                    {t("current_data.updated")} {lastFetched.toLocaleDateString()}
+                  </span>
                 </div>
               )}
               <button
@@ -140,22 +145,26 @@ export default function CurrentDataPanel({
         </div>
 
         <div className="p-6">
-          {/* Key Metrics */}
-          <div className="grid gap-6 md:grid-cols-3">
+          {/* Key Metrics - SEO Optimized with Semantic Structure */}
+          <dl className="grid gap-6 md:grid-cols-3">
             {/* Current Processing Time */}
             <div className="rounded-lg bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-4">
               <div className="flex items-center space-x-3">
                 <div className="rounded-lg bg-blue-500/20 p-2">
-                  <Clock className="h-6 w-6 text-blue-400" />
+                  <Clock className="h-6 w-6 text-blue-400" aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-300">Average Processing Time</p>
-                  <p className="text-2xl font-bold text-white">
-                    {data.analystReview.averageDays} days
-                  </p>
-                  <p className="text-xs text-slate-400">
+                  <dt className="text-sm font-medium text-slate-300">
+                    {t("current_data.average_processing_time")}
+                  </dt>
+                  <dd className="text-2xl font-bold text-white">
+                    <strong>
+                      {data.analystReview.averageDays} {t("current_data.days")}
+                    </strong>
+                  </dd>
+                  <dd className="text-xs text-slate-400">
                     ~{Math.round(data.analystReview.averageDays / 30)} months
-                  </p>
+                  </dd>
                 </div>
               </div>
             </div>
@@ -164,12 +173,16 @@ export default function CurrentDataPanel({
             <div className="rounded-lg bg-gradient-to-r from-green-500/20 to-teal-500/20 p-4">
               <div className="flex items-center space-x-3">
                 <div className="rounded-lg bg-green-500/20 p-2">
-                  <Calendar className="h-6 w-6 text-green-400" />
+                  <Calendar className="h-6 w-6 text-green-400" aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-300">Currently Processing</p>
-                  <p className="text-lg font-bold text-white">{data.analystReview.priorityDate}</p>
-                  <p className="text-xs text-slate-400">Priority Date</p>
+                  <dt className="text-sm font-medium text-slate-300">
+                    {t("current_data.currently_processing")}
+                  </dt>
+                  <dd className="text-lg font-bold text-white">
+                    <strong>{data.analystReview.priorityDate}</strong>
+                  </dd>
+                  <dd className="text-xs text-slate-400">{t("current_data.priority_date")}</dd>
                 </div>
               </div>
             </div>
@@ -178,43 +191,49 @@ export default function CurrentDataPanel({
             <div className="rounded-lg bg-gradient-to-r from-orange-500/20 to-red-500/20 p-4">
               <div className="flex items-center space-x-3">
                 <div className="rounded-lg bg-orange-500/20 p-2">
-                  <Users className="h-6 w-6 text-orange-400" />
+                  <Users className="h-6 w-6 text-orange-400" aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-300">Cases in Queue</p>
-                  <p className="text-2xl font-bold text-white">
-                    {totalRemainingCases.toLocaleString()}
-                  </p>
-                  <p className="text-xs text-slate-400">Pending Review</p>
+                  <dt className="text-sm font-medium text-slate-300">
+                    {t("current_data.cases_in_queue")}
+                  </dt>
+                  <dd className="text-2xl font-bold text-white">
+                    <strong>{totalRemainingCases.toLocaleString()}</strong>
+                  </dd>
+                  <dd className="text-xs text-slate-400">{t("current_data.pending_review")}</dd>
                 </div>
               </div>
             </div>
-          </div>
+          </dl>
 
           {/* Trend Analysis */}
           <div className="mt-6 rounded-lg bg-slate-700/50 p-4">
             <div className="flex items-start space-x-3">
-              {getTrendIcon()}
+              <span aria-hidden="true">{getTrendIcon()}</span>
               <div className="flex-1">
-                <h3 className="font-medium text-white">Processing Trend</h3>
-                <p className="mt-1 text-sm text-slate-300">{trendAnalysis.description}</p>
+                <h3 className="font-medium text-white">{t("current_data.processing_trend")}</h3>
+                <p className="mt-1 text-sm text-slate-300">
+                  <strong>{trendAnalysis.description}</strong>
+                </p>
                 {trendAnalysis.projectedChange !== 0 && (
                   <p className="mt-1 text-xs">
                     <span className={getTrendColor()}>
-                      {trendAnalysis.direction === "improving" ? "-" : "+"}
-                      {Math.abs(trendAnalysis.projectedChange)} days
+                      <strong>
+                        {trendAnalysis.direction === "improving" ? "-" : "+"}
+                        {Math.abs(trendAnalysis.projectedChange)} {t("current_data.days")}
+                      </strong>
                     </span>
-                    <span className="text-slate-400"> projected change</span>
+                    <span className="text-slate-400"> {t("current_data.projected_change")}</span>
                   </p>
                 )}
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </article>
 
       {/* Queue Breakdown */}
-      <div className="overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
+      <article className="overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
         <div className="border-b border-slate-700 px-6 py-4">
           <h3 className="text-lg font-semibold text-white">Queue Breakdown by Month</h3>
         </div>
@@ -237,11 +256,13 @@ export default function CurrentDataPanel({
                         </span>
                         {isCurrentMonth && (
                           <span className="rounded-full bg-blue-500/20 px-2 py-0.5 text-xs text-blue-400">
-                            Currently Processing
+                            {t("current_data.currently_processing_badge")}
                           </span>
                         )}
                       </div>
-                      <span className="font-medium text-white">{cases.toLocaleString()} cases</span>
+                      <span className="font-medium text-white">
+                        {cases.toLocaleString()} {t("current_data.cases")}
+                      </span>
                     </div>
                     <div className="h-2 rounded-full bg-slate-700">
                       <div
@@ -256,37 +277,45 @@ export default function CurrentDataPanel({
               })}
           </div>
         </div>
-      </div>
+      </article>
 
       {/* Additional Processing Queues */}
       <div className="grid gap-6 md:grid-cols-2">
         {/* Audit Review */}
-        <div className="rounded-xl bg-slate-800/80 p-6 ring-1 ring-slate-700 backdrop-blur-sm">
+        <article className="rounded-xl bg-slate-800/80 p-6 ring-1 ring-slate-700 backdrop-blur-sm">
           <div className="flex items-center space-x-3">
-            <AlertCircle className="h-5 w-5 text-yellow-400" />
-            <h3 className="font-semibold text-white">Audit Review</h3>
-          </div>
-          <div className="mt-3">
-            <p className="text-sm text-slate-400">Status: {data.auditReview.status}</p>
-            {data.auditReview.averageDays && (
-              <p className="text-sm text-slate-400">Average: {data.auditReview.averageDays} days</p>
-            )}
-          </div>
-        </div>
-
-        {/* Reconsideration */}
-        <div className="rounded-xl bg-slate-800/80 p-6 ring-1 ring-slate-700 backdrop-blur-sm">
-          <div className="flex items-center space-x-3">
-            <RefreshCw className="h-5 w-5 text-purple-400" />
-            <h3 className="font-semibold text-white">Reconsideration</h3>
+            <AlertCircle className="h-5 w-5 text-yellow-400" aria-hidden="true" />
+            <h3 className="font-semibold text-white">{t("current_data.audit_review")}</h3>
           </div>
           <div className="mt-3">
             <p className="text-sm text-slate-400">
-              Currently Processing: {data.reconsideration.priorityDate}
+              {t("current_data.status")}: <strong>{data.auditReview.status}</strong>
+            </p>
+            {data.auditReview.averageDays && (
+              <p className="text-sm text-slate-400">
+                {t("current_data.average")}:{" "}
+                <strong>
+                  {data.auditReview.averageDays} {t("current_data.days")}
+                </strong>
+              </p>
+            )}
+          </div>
+        </article>
+
+        {/* Reconsideration */}
+        <article className="rounded-xl bg-slate-800/80 p-6 ring-1 ring-slate-700 backdrop-blur-sm">
+          <div className="flex items-center space-x-3">
+            <RefreshCw className="h-5 w-5 text-purple-400" aria-hidden="true" />
+            <h3 className="font-semibold text-white">{t("current_data.reconsideration")}</h3>
+          </div>
+          <div className="mt-3">
+            <p className="text-sm text-slate-400">
+              {t("current_data.currently_processing")}:{" "}
+              <strong>{data.reconsideration.priorityDate}</strong>
             </p>
           </div>
-        </div>
+        </article>
       </div>
-    </div>
+    </section>
   )
 }

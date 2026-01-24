@@ -22,6 +22,7 @@ import {
   formatTimeRemaining,
   getProcessingPriority,
 } from "../utils/permDataParser"
+import { useTranslations } from "../hooks/useTranslations"
 
 interface CaseTrackerProps {
   cases: UserPERMCase[]
@@ -42,6 +43,7 @@ export default function CaseTracker({
   onRemoveCase,
   onUpdateCase,
 }: CaseTrackerProps) {
+  const t = useTranslations()
   const [showAddForm, setShowAddForm] = useState(false)
   const [editingCase, setEditingCase] = useState<string | null>(null)
   const [newCase, setNewCase] = useState({
@@ -87,10 +89,10 @@ export default function CaseTracker({
                 </div>
                 <div>
                   <h3 className="font-medium text-white">
-                    PERM Case #{userCase.id.slice(-8).toUpperCase()}
+                    {t("case_tracker.case_number", { id: userCase.id.slice(-8).toUpperCase() })}
                   </h3>
                   <p className="text-xs text-slate-400">
-                    Submitted {userCase.submissionDate.toLocaleDateString()}
+                    {t("case_tracker.submitted")} {userCase.submissionDate.toLocaleDateString()}
                   </p>
                 </div>
               </div>
@@ -108,34 +110,42 @@ export default function CaseTracker({
 
             <div className="grid gap-4 md:grid-cols-2">
               <div className="space-y-3">
-                <div className="flex items-center space-x-2 text-sm">
-                  <Calendar className="h-4 w-4 text-slate-400" />
-                  <span className="text-slate-300">Submitted:</span>
-                  <span className="font-medium text-white">
-                    {userCase.submissionDate.toLocaleDateString()}
-                  </span>
-                </div>
+                <dl className="space-y-3">
+                  <div className="flex items-center space-x-2 text-sm">
+                    <Calendar className="h-4 w-4 text-slate-400" aria-hidden="true" />
+                    <dt className="text-slate-300">{t("case_tracker.submitted_label")}</dt>
+                    <dd className="font-medium text-white">
+                      <strong>{userCase.submissionDate.toLocaleDateString()}</strong>
+                    </dd>
+                  </div>
 
-                <div className="flex items-center space-x-2 text-sm">
-                  <Clock className="h-4 w-4 text-slate-400" />
-                  <span className="text-slate-300">Days pending:</span>
-                  <span className="font-medium text-white">{daysSinceSubmission} days</span>
-                </div>
+                  <div className="flex items-center space-x-2 text-sm">
+                    <Clock className="h-4 w-4 text-slate-400" aria-hidden="true" />
+                    <dt className="text-slate-300">{t("case_tracker.days_pending")}</dt>
+                    <dd className="font-medium text-white">
+                      <strong>
+                        {daysSinceSubmission} {t("case_tracker.days")}
+                      </strong>
+                    </dd>
+                  </div>
 
-                <div className="flex items-center space-x-2 text-sm">
-                  <MapPin className="h-4 w-4 text-slate-400" />
-                  <span className="text-slate-300">Queue type:</span>
-                  <span className="font-medium capitalize text-white">
-                    {userCase.caseType} Review
-                  </span>
-                </div>
+                  <div className="flex items-center space-x-2 text-sm">
+                    <MapPin className="h-4 w-4 text-slate-400" aria-hidden="true" />
+                    <dt className="text-slate-300">{t("case_tracker.queue_type")}</dt>
+                    <dd className="font-medium capitalize text-white">
+                      <strong>
+                        {userCase.caseType} {t("case_tracker.review")}
+                      </strong>
+                    </dd>
+                  </div>
+                </dl>
               </div>
 
               {estimate && (
                 <div className="space-y-3">
                   <div className="flex items-center space-x-2 text-sm">
-                    <TrendingUp className="h-4 w-4 text-slate-400" />
-                    <span className="text-slate-300">Estimated completion:</span>
+                    <TrendingUp className="h-4 w-4 text-slate-400" aria-hidden="true" />
+                    <span className="text-slate-300">{t("case_tracker.estimated_completion")}</span>
                   </div>
                   <div className="rounded-lg bg-slate-700/50 p-3">
                     <p className="text-sm font-medium text-white">
@@ -147,13 +157,14 @@ export default function CaseTracker({
                   </div>
 
                   <div className="flex items-center space-x-2 text-sm">
-                    <Users className="h-4 w-4 text-slate-400" />
-                    <span className="text-slate-300">Queue position:</span>
+                    <Users className="h-4 w-4 text-slate-400" aria-hidden="true" />
+                    <span className="text-slate-300">{t("case_tracker.queue_position")}</span>
                     <span className="font-medium text-white">
                       #{estimate.queuePosition.position.toLocaleString()}
                     </span>
                     <span className="text-xs text-slate-400">
-                      ({estimate.queuePosition.percentile}th percentile)
+                      ({estimate.queuePosition.percentile}
+                      {t("case_tracker.percentile")})
                     </span>
                   </div>
                 </div>
@@ -165,7 +176,7 @@ export default function CaseTracker({
                 <div className="flex items-center space-x-2">
                   <AlertCircle className="h-4 w-4 text-yellow-400" />
                   <span className="text-sm text-yellow-300">
-                    Unable to calculate estimate for {userCase.caseType} review cases
+                    {t("case_tracker.unable_to_calculate", { caseType: userCase.caseType })}
                   </span>
                 </div>
               </div>
@@ -192,13 +203,15 @@ export default function CaseTracker({
   }
 
   return (
-    <div className="space-y-6">
+    <section className="space-y-6" aria-label="Your PERM Cases">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-semibold text-white">Your PERM Cases</h2>
+          <h2 className="text-lg font-semibold text-white">{t("case_tracker.title")}</h2>
           <p className="text-sm text-slate-400">
-            Track your PERM applications and get processing estimates
+            {t.rich("case_tracker.subtitle", {
+              strong: (chunks) => <strong>{chunks}</strong>,
+            })}
           </p>
         </div>
         <button
@@ -206,7 +219,7 @@ export default function CaseTracker({
           className="inline-flex items-center space-x-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
         >
           <Plus className="h-4 w-4" />
-          <span>Add Case</span>
+          <span>{t("case_tracker.add_case")}</span>
         </button>
       </div>
 
@@ -216,7 +229,9 @@ export default function CaseTracker({
           <div className="mx-4 w-full max-w-md rounded-xl bg-slate-800 shadow-2xl ring-1 ring-slate-700">
             <div className="border-b border-slate-700 px-6 py-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold text-white">Add PERM Case</h3>
+                <h3 className="text-lg font-semibold text-white">
+                  {t("case_tracker.add_case_title")}
+                </h3>
                 <button
                   onClick={() => setShowAddForm(false)}
                   className="rounded-lg p-2 text-slate-400 hover:bg-slate-700 hover:text-white"
@@ -229,7 +244,7 @@ export default function CaseTracker({
             <div className="space-y-4 p-6">
               <div>
                 <label className="mb-2 block text-sm font-medium text-slate-300">
-                  Submission Date
+                  {t("case_tracker.submission_date")}
                 </label>
                 <input
                   type="date"
@@ -242,7 +257,9 @@ export default function CaseTracker({
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-300">Case Type</label>
+                <label className="mb-2 block text-sm font-medium text-slate-300">
+                  {t("case_tracker.case_type")}
+                </label>
                 <select
                   value={newCase.caseType}
                   onChange={(e) =>
@@ -253,9 +270,9 @@ export default function CaseTracker({
                   }
                   className="w-full rounded-lg border border-slate-600 bg-slate-700 px-3 py-2 text-sm text-white focus:border-blue-500 focus:ring-blue-500"
                 >
-                  <option value="analyst">Analyst Review</option>
-                  <option value="audit">Audit Review</option>
-                  <option value="reconsideration">Reconsideration</option>
+                  <option value="analyst">{t("case_tracker.analyst_review")}</option>
+                  <option value="audit">{t("case_tracker.audit_review")}</option>
+                  <option value="reconsideration">{t("case_tracker.reconsideration")}</option>
                 </select>
               </div>
 
@@ -268,7 +285,7 @@ export default function CaseTracker({
                   className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                 />
                 <label htmlFor="isOEWS" className="text-sm text-slate-300">
-                  OEWS-based prevailing wage determination
+                  {t("case_tracker.oews_label")}
                 </label>
               </div>
 
@@ -277,14 +294,14 @@ export default function CaseTracker({
                   onClick={() => setShowAddForm(false)}
                   className="flex-1 rounded-lg border border-slate-600 bg-slate-700 px-4 py-2 text-sm font-medium text-white hover:bg-slate-600"
                 >
-                  Cancel
+                  {t("case_tracker.cancel")}
                 </button>
                 <button
                   onClick={handleAddCase}
                   disabled={!newCase.submissionDate}
                   className="flex-1 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-50"
                 >
-                  Add Case
+                  {t("case_tracker.add_case")}
                 </button>
               </div>
             </div>
@@ -298,16 +315,16 @@ export default function CaseTracker({
           <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-slate-700">
             <FileText className="h-8 w-8 text-slate-400" />
           </div>
-          <h3 className="mb-2 text-lg font-semibold text-white">No Cases Added</h3>
-          <p className="mb-6 text-slate-400">
-            Add your PERM cases to track their progress and get processing estimates.
-          </p>
+          <h3 className="mb-2 text-lg font-semibold text-white">
+            {t("case_tracker.no_cases_title")}
+          </h3>
+          <p className="mb-6 text-slate-400">{t("case_tracker.no_cases_description")}</p>
           <button
             onClick={() => setShowAddForm(true)}
             className="inline-flex items-center space-x-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
           >
             <Plus className="h-4 w-4" />
-            <span>Add Your First Case</span>
+            <span>{t("case_tracker.add_first_case")}</span>
           </button>
         </div>
       ) : (
@@ -320,31 +337,35 @@ export default function CaseTracker({
 
       {/* Summary Statistics */}
       {cases.length > 0 && (
-        <div className="rounded-xl bg-slate-800/80 p-6 ring-1 ring-slate-700 backdrop-blur-sm">
-          <h3 className="mb-4 font-semibold text-white">Your Cases Summary</h3>
-          <div className="grid gap-4 md:grid-cols-3">
+        <article className="rounded-xl bg-slate-800/80 p-6 ring-1 ring-slate-700 backdrop-blur-sm">
+          <h3 className="mb-4 font-semibold text-white">{t("case_tracker.summary_title")}</h3>
+          <dl className="grid gap-4 md:grid-cols-3">
             <div className="text-center">
-              <p className="text-2xl font-bold text-blue-400">{cases.length}</p>
-              <p className="text-sm text-slate-400">Total Cases</p>
+              <dd className="text-2xl font-bold text-blue-400">
+                <strong>{cases.length}</strong>
+              </dd>
+              <dt className="text-sm text-slate-400">{t("case_tracker.total_cases")}</dt>
             </div>
             <div className="text-center">
-              <p className="text-2xl font-bold text-green-400">
-                {cases.filter((c) => c.isOEWS).length}
-              </p>
-              <p className="text-sm text-slate-400">OEWS Cases</p>
+              <dd className="text-2xl font-bold text-green-400">
+                <strong>{cases.filter((c) => c.isOEWS).length}</strong>
+              </dd>
+              <dt className="text-sm text-slate-400">{t("case_tracker.oews_cases")}</dt>
             </div>
             <div className="text-center">
-              <p className="text-2xl font-bold text-purple-400">
-                {Math.round(
-                  cases.reduce((sum, c) => sum + (Date.now() - c.submissionDate.getTime()), 0) /
-                    (cases.length * 24 * 60 * 60 * 1000)
-                )}
-              </p>
-              <p className="text-sm text-slate-400">Avg Days Pending</p>
+              <dd className="text-2xl font-bold text-purple-400">
+                <strong>
+                  {Math.round(
+                    cases.reduce((sum, c) => sum + (Date.now() - c.submissionDate.getTime()), 0) /
+                      (cases.length * 24 * 60 * 60 * 1000)
+                  )}
+                </strong>
+              </dd>
+              <dt className="text-sm text-slate-400">{t("case_tracker.avg_days_pending")}</dt>
             </div>
-          </div>
-        </div>
+          </dl>
+        </article>
       )}
-    </div>
+    </section>
   )
 }

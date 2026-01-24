@@ -1419,7 +1419,7 @@ export default function SnowDayCalculator() {
         </div>
 
         {/* FAQ Section */}
-        <section className="mx-auto mt-20 max-w-4xl rounded-xl bg-slate-800 p-8">
+        <section className="mx-auto mt-20 max-w-6xl rounded-xl bg-slate-800 p-8">
           <div className="mb-8 text-center">
             <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-3 backdrop-blur-sm">
               <span className="text-2xl">❓</span>

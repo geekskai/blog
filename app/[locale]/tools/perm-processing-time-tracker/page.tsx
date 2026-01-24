@@ -20,7 +20,10 @@ import CaseTracker from "./components/CaseTracker"
 import HistoricalChart from "./components/HistoricalChart"
 import ShareButtons from "@/components/ShareButtons"
 import { Link } from "@/app/i18n/navigation"
+import { useTranslations } from "./hooks/useTranslations"
+
 export default function PERMProcessingTimeTracker() {
+  const t = useTranslations()
   const [activeTab, setActiveTab] = useState<"overview" | "cases" | "trends">("overview")
 
   const {
@@ -59,17 +62,17 @@ export default function PERMProcessingTimeTracker() {
           <li>
             <Link href="/" className="flex items-center hover:text-slate-200">
               <Home className="h-4 w-4" />
-              <span className="ml-1">Home</span>
+              <span className="ml-1">{t("breadcrumb_home")}</span>
             </Link>
           </li>
           <ChevronRight className="h-4 w-4" />
           <li>
             <Link href="/tools" className="hover:text-slate-200">
-              Tools
+              {t("breadcrumb_tools")}
             </Link>
           </li>
           <ChevronRight className="h-4 w-4" />
-          <li className="font-medium text-slate-100">PERM Processing Time Tracker</li>
+          <li className="font-medium text-slate-100">{t("breadcrumb_title")}</li>
         </ol>
       </nav>
       {/* Social Share */}
@@ -82,32 +85,44 @@ export default function PERMProcessingTimeTracker() {
         <div className="mb-10 text-center">
           <div className="mb-6 inline-flex items-center rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-4 py-2 text-sm font-medium text-white shadow-lg">
             <Clock className="mr-2 h-4 w-4" />
-            Real-time PERM Processing Tracker
+            {t("badge_text")}
           </div>
 
           <h1 className="mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-4xl font-bold text-transparent">
-            PERM Processing Time Tracker
+            {t("title")}
           </h1>
 
           <p className="mx-auto mb-8 max-w-2xl text-lg text-slate-300">
-            Track your PERM application processing times with real-time DOL data. Get personalized
-            estimates, monitor queue positions, and analyze historical trends for your immigration
-            case.
+            {t.rich("description", {
+              strong: (chunks) => <strong>{chunks}</strong>,
+            })}
           </p>
 
           {/* Quick Stats */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-400">
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <Zap className="h-4 w-4 text-green-500" />
-              <span className="font-medium">Real-time DOL Data</span>
+              <span className="font-medium">
+                {t.rich("quick_stats.realtime_dol_data", {
+                  strong: (chunks) => <strong>{chunks}</strong>,
+                })}
+              </span>
             </div>
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <Shield className="h-4 w-4 text-blue-500" />
-              <span className="font-medium">Privacy First</span>
+              <span className="font-medium">
+                {t.rich("quick_stats.privacy_first", {
+                  strong: (chunks) => <strong>{chunks}</strong>,
+                })}
+              </span>
             </div>
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <TrendingUp className="h-4 w-4 text-purple-500" />
-              <span className="font-medium">Trend Analysis</span>
+              <span className="font-medium">
+                {t.rich("quick_stats.trend_analysis", {
+                  strong: (chunks) => <strong>{chunks}</strong>,
+                })}
+              </span>
             </div>
           </div>
         </div>
@@ -124,7 +139,7 @@ export default function PERMProcessingTimeTracker() {
               }`}
             >
               <BarChart3 className="h-4 w-4" />
-              <span>Overview</span>
+              <span>{t("tabs.overview")}</span>
             </button>
             <button
               onClick={() => handleTabChange("cases")}
@@ -135,7 +150,7 @@ export default function PERMProcessingTimeTracker() {
               }`}
             >
               <FileText className="h-4 w-4" />
-              <span>My Cases</span>
+              <span>{t("tabs.my_cases")}</span>
               {totalCases > 0 && (
                 <span className="rounded-full bg-blue-500/20 px-2 py-0.5 text-xs">
                   {totalCases}
@@ -151,7 +166,7 @@ export default function PERMProcessingTimeTracker() {
               }`}
             >
               <TrendingUp className="h-4 w-4" />
-              <span>Historical Trends</span>
+              <span>{t("tabs.historical_trends")}</span>
             </button>
           </div>
         </div>
@@ -162,14 +177,14 @@ export default function PERMProcessingTimeTracker() {
             <div className="flex items-center">
               <AlertCircle className="mr-3 h-5 w-5 text-red-400" />
               <div>
-                <h3 className="text-sm font-medium text-red-100">Data Fetch Error</h3>
+                <h3 className="text-sm font-medium text-red-100">{t("errors.data_fetch_error")}</h3>
                 <p className="mt-1 text-sm text-red-200">{error}</p>
                 <button
                   onClick={fetchLatestData}
                   disabled={isLoading}
                   className="mt-2 text-sm text-red-100 underline hover:text-white disabled:opacity-50"
                 >
-                  Try Again
+                  {t("errors.try_again")}
                 </button>
               </div>
             </div>
@@ -201,43 +216,109 @@ export default function PERMProcessingTimeTracker() {
           {activeTab === "trends" && <HistoricalChart data={historicalData} />}
         </div>
 
-        {/* Data Source Attribution */}
-        <div className="mt-12 rounded-lg bg-slate-800/50 p-4 text-center">
+        {/* Data Source Attribution - SEO Optimized */}
+        <section
+          className="mt-12 rounded-lg bg-slate-800/50 p-4 text-center"
+          aria-label="Data Source"
+        >
           <p className="text-sm text-slate-400">
-            📊 Data Source:{" "}
+            📊{" "}
+            {t.rich("data_source.label", {
+              strong: (chunks) => <strong>{chunks}</strong>,
+            })}
+            :{" "}
             <a
               href="https://flag.dol.gov/processingtimes"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-400 underline hover:text-blue-300"
             >
-              U.S. Department of Labor - Office of Foreign Labor Certification
+              {t.rich("data_source.dol_link", {
+                strong: (chunks) => <strong>{chunks}</strong>,
+              })}
             </a>
           </p>
           {lastFetched && (
             <p className="mt-1 text-xs text-slate-500">
-              Last updated:{" "}
-              {lastFetched.toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
+              {t.rich("data_source.last_updated", {
+                strong: (chunks) => <strong>{chunks}</strong>,
               })}
+              :{" "}
+              <time dateTime={lastFetched.toISOString()}>
+                {lastFetched.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              </time>
             </p>
           )}
-        </div>
+        </section>
+
+        {/* Core Facts Section - SEO Optimized */}
+        {activeTab === "overview" && (
+          <section className="mt-20" aria-label="Core Information">
+            <div className="mb-8 rounded-xl bg-gradient-to-br from-blue-500/25 via-purple-500/20 to-pink-500/25 p-8 ring-1 ring-white/10 backdrop-blur-xl">
+              <h2 className="mb-6 text-center text-2xl font-bold text-white">
+                {t("core_facts.title")}
+              </h2>
+              <dl className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                <div className="text-center">
+                  <dt className="mb-2 text-sm font-semibold text-slate-300">
+                    {t("core_facts.pricing.label")}
+                  </dt>
+                  <dd className="text-xl font-bold text-green-400">
+                    {t.rich("core_facts.pricing.value", {
+                      strong: (chunks) => <strong>{chunks}</strong>,
+                    })}
+                  </dd>
+                  <dd className="mt-1 text-xs text-slate-400">
+                    {t("core_facts.pricing.description")}
+                  </dd>
+                </div>
+                <div className="text-center">
+                  <dt className="mb-2 text-sm font-semibold text-slate-300">
+                    {t("core_facts.features.label")}
+                  </dt>
+                  <dd className="text-sm font-medium text-white">
+                    {t.rich("core_facts.features.value", {
+                      strong: (chunks) => <strong>{chunks}</strong>,
+                    })}
+                  </dd>
+                </div>
+                <div className="text-center">
+                  <dt className="mb-2 text-sm font-semibold text-slate-300">
+                    {t("core_facts.positioning.label")}
+                  </dt>
+                  <dd className="text-sm font-medium text-white">
+                    {t.rich("core_facts.positioning.value", {
+                      strong: (chunks) => <strong>{chunks}</strong>,
+                    })}
+                  </dd>
+                </div>
+                <div className="text-center">
+                  <dt className="mb-2 text-sm font-semibold text-slate-300">
+                    {t("core_facts.target_users.label")}
+                  </dt>
+                  <dd className="text-sm font-medium text-white">
+                    {t.rich("core_facts.target_users.value", {
+                      strong: (chunks) => <strong>{chunks}</strong>,
+                    })}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </section>
+        )}
 
         {/* Features Section */}
         {activeTab === "overview" && (
           <div className="mt-20">
             <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold text-white">
-                Powerful PERM Tracking Features
-              </h2>
-              <p className="mx-auto max-w-2xl text-lg text-slate-400">
-                Everything you need to monitor your PERM application processing status
-              </p>
+              <h2 className="mb-4 text-3xl font-bold text-white">{t("features.title")}</h2>
+              <p className="mx-auto max-w-2xl text-lg text-slate-400">{t("features.subtitle")}</p>
             </div>
 
             <div className="grid gap-8 md:grid-cols-3">
@@ -245,24 +326,38 @@ export default function PERMProcessingTimeTracker() {
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 text-white">
                   <Clock className="h-8 w-8" />
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-white">Real-time Processing Data</h3>
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  {t("features.realtime_data.title")}
+                </h3>
                 <p className="mb-4 text-slate-400">
-                  Get the latest PERM processing times directly from DOL data. Track current
-                  priority dates, average processing times, and queue lengths with automatic
-                  updates.
+                  {t.rich("features.realtime_data.description", {
+                    strong: (chunks) => <strong>{chunks}</strong>,
+                  })}
                 </p>
                 <div className="space-y-1 text-sm text-slate-500">
                   <div className="flex items-center justify-center space-x-1">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Live DOL data integration</span>
+                    <span>
+                      {t.rich("features.realtime_data.live_dol", {
+                        strong: (chunks) => <strong>{chunks}</strong>,
+                      })}
+                    </span>
                   </div>
                   <div className="flex items-center justify-center space-x-1">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Priority date tracking</span>
+                    <span>
+                      {t.rich("features.realtime_data.priority_date", {
+                        strong: (chunks) => <strong>{chunks}</strong>,
+                      })}
+                    </span>
                   </div>
                   <div className="flex items-center justify-center space-x-1">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Queue position calculation</span>
+                    <span>
+                      {t.rich("features.realtime_data.queue_position", {
+                        strong: (chunks) => <strong>{chunks}</strong>,
+                      })}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -271,24 +366,38 @@ export default function PERMProcessingTimeTracker() {
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white">
                   <Users className="h-8 w-8" />
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-white">Personal Case Tracking</h3>
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  {t("features.personal_tracking.title")}
+                </h3>
                 <p className="mb-4 text-slate-400">
-                  Add your PERM cases and get personalized processing estimates. Track multiple
-                  cases, compare OEWS vs Non-OEWS applications, and monitor your position in the
-                  queue.
+                  {t.rich("features.personal_tracking.description", {
+                    strong: (chunks) => <strong>{chunks}</strong>,
+                  })}
                 </p>
                 <div className="space-y-1 text-sm text-slate-500">
                   <div className="flex items-center justify-center space-x-1">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Multi-case management</span>
+                    <span>
+                      {t.rich("features.personal_tracking.multi_case", {
+                        strong: (chunks) => <strong>{chunks}</strong>,
+                      })}
+                    </span>
                   </div>
                   <div className="flex items-center justify-center space-x-1">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>OEWS classification tracking</span>
+                    <span>
+                      {t.rich("features.personal_tracking.oews_classification", {
+                        strong: (chunks) => <strong>{chunks}</strong>,
+                      })}
+                    </span>
                   </div>
                   <div className="flex items-center justify-center space-x-1">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Processing estimates</span>
+                    <span>
+                      {t.rich("features.personal_tracking.processing_estimates", {
+                        strong: (chunks) => <strong>{chunks}</strong>,
+                      })}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -297,24 +406,26 @@ export default function PERMProcessingTimeTracker() {
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white">
                   <TrendingUp className="h-8 w-8" />
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-white">Historical Trend Analysis</h3>
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  {t("features.trend_analysis.title")}
+                </h3>
                 <p className="mb-4 text-slate-400">
-                  Analyze processing time trends over months and years. Understand patterns, predict
-                  future processing times, and make informed decisions about your immigration
-                  timeline.
+                  {t.rich("features.trend_analysis.description", {
+                    strong: (chunks) => <strong>{chunks}</strong>,
+                  })}
                 </p>
                 <div className="space-y-1 text-sm text-slate-500">
                   <div className="flex items-center justify-center space-x-1">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Interactive trend charts</span>
+                    <span>{t("features.trend_analysis.interactive_charts")}</span>
                   </div>
                   <div className="flex items-center justify-center space-x-1">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Pattern recognition</span>
+                    <span>{t("features.trend_analysis.pattern_recognition")}</span>
                   </div>
                   <div className="flex items-center justify-center space-x-1">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Future predictions</span>
+                    <span>{t("features.trend_analysis.future_predictions")}</span>
                   </div>
                 </div>
               </div>
@@ -322,113 +433,122 @@ export default function PERMProcessingTimeTracker() {
           </div>
         )}
 
-        {/* How It Works Section */}
-        <div className="mt-20">
+        {/* How It Works Section - SEO Optimized with Semantic Structure */}
+        <section className="mt-20" aria-label="How It Works">
           <div className="rounded-xl bg-gradient-to-r from-blue-800 to-purple-700 p-8">
             <h2 className="mb-8 text-center text-2xl font-bold text-white">
-              How to Track Your PERM Processing Time
+              {t("how_it_works.title")}
             </h2>
-            <div className="grid gap-6 md:grid-cols-3">
-              <div className="text-center">
+            <ol className="grid gap-6 md:grid-cols-3">
+              <li className="text-center">
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white">
                   <span className="text-lg font-bold">1</span>
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-white">View Current Data</h3>
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  {t("how_it_works.step1.title")}
+                </h3>
                 <p className="text-blue-100">
-                  Check the latest PERM processing times, priority dates, and queue information
-                  directly from DOL data.
+                  {t.rich("how_it_works.step1.description", {
+                    strong: (chunks) => <strong>{chunks}</strong>,
+                  })}
                 </p>
-              </div>
-              <div className="text-center">
+              </li>
+              <li className="text-center">
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-purple-600 text-white">
                   <span className="text-lg font-bold">2</span>
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-white">Add Your Cases</h3>
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  {t("how_it_works.step2.title")}
+                </h3>
                 <p className="text-blue-100">
-                  Enter your PERM submission details to get personalized processing estimates and
-                  track your position in the queue.
+                  {t.rich("how_it_works.step2.description", {
+                    strong: (chunks) => <strong>{chunks}</strong>,
+                  })}
                 </p>
-              </div>
-              <div className="text-center">
+              </li>
+              <li className="text-center">
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-pink-600 text-white">
                   <span className="text-lg font-bold">3</span>
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-white">Monitor & Analyze</h3>
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  {t("how_it_works.step3.title")}
+                </h3>
                 <p className="text-blue-100">
-                  Track processing trends, get notifications on updates, and make informed decisions
-                  about your immigration timeline.
+                  {t.rich("how_it_works.step3.description", {
+                    strong: (chunks) => <strong>{chunks}</strong>,
+                  })}
                 </p>
-              </div>
-            </div>
+              </li>
+            </ol>
           </div>
-        </div>
+        </section>
 
-        {/* FAQ Section */}
-        <div className="mt-20 space-y-8">
+        {/* FAQ Section - SEO Optimized with Semantic Structure */}
+        <section className="mt-20 space-y-8" aria-label="Frequently Asked Questions">
           <div className="text-center">
-            <h2 className="mb-4 text-2xl font-bold text-white">Frequently Asked Questions</h2>
+            <h2 className="mb-4 text-2xl font-bold text-white">{t("faq.title")}</h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <dl className="grid gap-6 md:grid-cols-2">
             <div className="rounded-xl bg-slate-800 p-6">
-              <h3 className="mb-3 text-lg font-semibold text-white">
-                How accurate are the processing time estimates?
-              </h3>
-              <p className="text-slate-400">
-                Our estimates are based on official DOL data and historical trends. While we provide
-                the most accurate predictions possible, actual processing times may vary based on
-                case complexity, DOL workload, and other factors.
-              </p>
+              <dt className="mb-3 text-lg font-semibold text-white">
+                {t("faq.accuracy.question")}
+              </dt>
+              <dd className="text-slate-400">
+                {t.rich("faq.accuracy.answer", {
+                  strong: (chunks) => <strong>{chunks}</strong>,
+                })}
+              </dd>
             </div>
 
             <div className="rounded-xl bg-slate-800 p-6">
-              <h3 className="mb-3 text-lg font-semibold text-white">
-                Is my case information stored securely?
-              </h3>
-              <p className="text-slate-400">
-                All your case data is stored locally in your browser and never sent to our servers.
-                This ensures complete privacy and security of your immigration information.
-              </p>
+              <dt className="mb-3 text-lg font-semibold text-white">
+                {t("faq.security.question")}
+              </dt>
+              <dd className="text-slate-400">
+                {t.rich("faq.security.answer", {
+                  strong: (chunks) => <strong>{chunks}</strong>,
+                })}
+              </dd>
             </div>
 
             <div className="rounded-xl bg-slate-800 p-6">
-              <h3 className="mb-3 text-lg font-semibold text-white">
-                What's the difference between OEWS and Non-OEWS cases?
-              </h3>
-              <p className="text-slate-400">
-                OEWS (Occupational Employment Wage Statistics) cases typically process faster as
-                they use standardized wage data. Non-OEWS cases require custom wage surveys and
-                usually take longer to process.
-              </p>
+              <dt className="mb-3 text-lg font-semibold text-white">
+                {t("faq.oews_difference.question")}
+              </dt>
+              <dd className="text-slate-400">
+                {t.rich("faq.oews_difference.answer", {
+                  strong: (chunks) => <strong>{chunks}</strong>,
+                })}
+              </dd>
             </div>
 
             <div className="rounded-xl bg-slate-800 p-6">
-              <h3 className="mb-3 text-lg font-semibold text-white">
-                How often is the DOL data updated?
-              </h3>
-              <p className="text-slate-400">
-                DOL updates PERM processing time data monthly, typically during the first work week
-                of each month. Our tool automatically fetches the latest data to ensure accuracy.
-              </p>
+              <dt className="mb-3 text-lg font-semibold text-white">
+                {t("faq.update_frequency.question")}
+              </dt>
+              <dd className="text-slate-400">
+                {t.rich("faq.update_frequency.answer", {
+                  strong: (chunks) => <strong>{chunks}</strong>,
+                })}
+              </dd>
             </div>
-          </div>
-        </div>
+          </dl>
+        </section>
 
         {/* Data Management */}
         {hasUserCases && (
           <div className="mt-12 rounded-xl bg-slate-800/50 p-6 ring-1 ring-slate-700">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="font-semibold text-white">Data Management</h3>
-                <p className="text-sm text-slate-400">
-                  Your case data is stored locally in your browser
-                </p>
+                <h3 className="font-semibold text-white">{t("data_management.title")}</h3>
+                <p className="text-sm text-slate-400">{t("data_management.description")}</p>
               </div>
               <button
                 onClick={clearAllData}
                 className="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700"
               >
-                Clear All Data
+                {t("data_management.clear_all")}
               </button>
             </div>
           </div>

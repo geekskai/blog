@@ -5947,5 +5947,194 @@
         "search_history": "Search history for quick access to favorite locations"
       }
     }
+  },
+  "PERMProcessingTimeTracker": {
+    "seo_title": "PERM Processing Time Tracker - Free Real-time DOL Immigration Status Checker",
+    "seo_description": "PERM processing time tracker with real-time DOL data. Official DOL data integration for accurate immigration timelines.",
+    "seo_keywords": "perm processing time, perm processing time tracker, dol perm processing times, perm application status, perm case tracker",
+    "breadcrumb_home": "Home",
+    "breadcrumb_tools": "Tools",
+    "breadcrumb_title": "PERM Processing Time Tracker",
+    "badge_text": "Real-time PERM Processing Tracker",
+    "title": "PERM Processing Time Tracker",
+    "description": "Track your PERM application processing times with <strong>real-time DOL data</strong>. Get <strong>personalized estimates</strong>, monitor <strong>queue positions</strong>, and analyze <strong>historical trends</strong> for your immigration case.",
+    "quick_stats": {
+      "realtime_dol_data": "<strong>Real-time</strong> DOL Data",
+      "privacy_first": "<strong>Privacy First</strong> - <strong>Free</strong> to use",
+      "trend_analysis": "<strong>Trend Analysis</strong>"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "my_cases": "My Cases",
+      "historical_trends": "Historical Trends"
+    },
+    "errors": {
+      "data_fetch_error": "Data Fetch Error",
+      "try_again": "Try Again"
+    },
+    "data_source": {
+      "label": "<strong>Data Source</strong>",
+      "dol_link": "<strong>U.S. Department of Labor - Office of Foreign Labor Certification</strong>",
+      "last_updated": "<strong>Last updated</strong>"
+    },
+    "core_facts": {
+      "title": "Core Information",
+      "pricing": {
+        "label": "Pricing",
+        "value": "<strong>Free</strong>",
+        "description": "Free forever"
+      },
+      "features": {
+        "label": "Main Features",
+        "value": "<strong>Real-time DOL data</strong>, <strong>Processing time estimates</strong>, <strong>Queue position tracking</strong>"
+      },
+      "positioning": {
+        "label": "Positioning",
+        "value": "<strong>Professional PERM processing time tracking tool</strong>"
+      },
+      "target_users": {
+        "label": "Target Users",
+        "value": "<strong>Immigration applicants</strong>, <strong>Immigration lawyers</strong>, <strong>HR professionals</strong>, <strong>Employment-based immigration candidates</strong>"
+      }
+    },
+    "features": {
+      "title": "Powerful PERM Tracking Features",
+      "subtitle": "Everything you need to monitor your PERM application processing status",
+      "realtime_data": {
+        "title": "Real-time Processing Data",
+        "description": "Get the latest PERM processing times directly from <strong>DOL data</strong>. Track <strong>current priority dates</strong>, <strong>average processing times</strong>, and <strong>queue lengths</strong> with automatic updates.",
+        "live_dol": "<strong>Live DOL data</strong> integration",
+        "priority_date": "<strong>Priority date</strong> tracking",
+        "queue_position": "<strong>Queue position</strong> calculation"
+      },
+      "personal_tracking": {
+        "title": "Personal Case Tracking",
+        "description": "Add your PERM cases and get <strong>personalized processing estimates</strong>. Track <strong>multiple cases</strong>, compare <strong>OEWS vs Non-OEWS</strong> applications, and monitor your <strong>position in the queue</strong>.",
+        "multi_case": "<strong>Multi-case</strong> management",
+        "oews_classification": "<strong>OEWS classification</strong> tracking",
+        "processing_estimates": "<strong>Processing estimates</strong>"
+      },
+      "trend_analysis": {
+        "title": "Historical Trend Analysis",
+        "description": "Analyze <strong>processing time trends</strong> over months and years. Understand <strong>patterns</strong>, predict <strong>future processing times</strong>, and make informed decisions about your <strong>immigration timeline</strong>.",
+        "interactive_charts": "Interactive trend charts",
+        "pattern_recognition": "Pattern recognition",
+        "future_predictions": "Future predictions"
+      }
+    },
+    "how_it_works": {
+      "title": "How to Track Your PERM Processing Time",
+      "step1": {
+        "title": "View Current Data",
+        "description": "Check the latest <strong>PERM processing times</strong>, <strong>priority dates</strong>, and <strong>queue information</strong> directly from <strong>DOL data</strong>."
+      },
+      "step2": {
+        "title": "Add Your Cases",
+        "description": "Enter your <strong>PERM submission details</strong> to get <strong>personalized processing estimates</strong> and track your <strong>position in the queue</strong>."
+      },
+      "step3": {
+        "title": "Monitor & Analyze",
+        "description": "Track <strong>processing trends</strong>, get <strong>notifications on updates</strong>, and make informed decisions about your <strong>immigration timeline</strong>."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "accuracy": {
+        "question": "How accurate are the processing time estimates?",
+        "answer": "Our estimates are based on <strong>official DOL data</strong> and <strong>historical trends</strong>. While we provide the most accurate predictions possible, actual processing times may vary based on <strong>case complexity</strong>, <strong>DOL workload</strong>, and other factors."
+      },
+      "security": {
+        "question": "Is my case information stored securely?",
+        "answer": "All your case data is stored <strong>locally in your browser</strong> and <strong>never sent to our servers</strong>. This ensures <strong>complete privacy</strong> and <strong>security</strong> of your immigration information."
+      },
+      "oews_difference": {
+        "question": "What's the difference between OEWS and Non-OEWS cases?",
+        "answer": "<strong>OEWS (Occupational Employment Wage Statistics)</strong> cases typically process faster as they use <strong>standardized wage data</strong>. <strong>Non-OEWS cases</strong> require <strong>custom wage surveys</strong> and usually take longer to process."
+      },
+      "update_frequency": {
+        "question": "How often is the DOL data updated?",
+        "answer": "DOL updates PERM processing time data <strong>monthly</strong>, typically during the <strong>first work week of each month</strong>. Our tool <strong>automatically fetches</strong> the latest data to ensure accuracy."
+      }
+    },
+    "data_management": {
+      "title": "Data Management",
+      "description": "Your case data is stored locally in your browser",
+      "clear_all": "Clear All Data"
+    },
+    "current_data": {
+      "title": "Current PERM Processing Times",
+      "no_data_title": "No Data Available",
+      "fetching_title": "Fetching Latest Data...",
+      "fetching_description": "Getting the latest PERM processing times from the DOL website. This may take a few moments.",
+      "no_data_description": "Click the refresh button to fetch the latest PERM processing times from the DOL website.",
+      "fetch_button": "Fetch Latest Data",
+      "average_processing_time": "Average Processing Time",
+      "currently_processing": "Currently Processing",
+      "priority_date": "Priority Date",
+      "cases_in_queue": "Cases in Queue",
+      "pending_review": "Pending Review",
+      "processing_trend": "Processing Trend",
+      "projected_change": "projected change",
+      "queue_breakdown": "Queue Breakdown by Month",
+      "currently_processing_badge": "Currently Processing",
+      "cases": "cases",
+      "audit_review": "Audit Review",
+      "status": "Status",
+      "average": "Average",
+      "days": "days",
+      "reconsideration": "Reconsideration",
+      "updated": "Updated"
+    },
+    "case_tracker": {
+      "title": "Your PERM Cases",
+      "subtitle": "Track your <strong>PERM applications</strong> and get <strong>processing estimates</strong>",
+      "add_case": "Add Case",
+      "add_case_title": "Add PERM Case",
+      "submission_date": "Submission Date",
+      "case_type": "Case Type",
+      "analyst_review": "Analyst Review",
+      "audit_review": "Audit Review",
+      "reconsideration": "Reconsideration",
+      "oews_label": "OEWS-based prevailing wage determination",
+      "cancel": "Cancel",
+      "no_cases_title": "No Cases Added",
+      "no_cases_description": "Add your PERM cases to track their progress and get processing estimates.",
+      "add_first_case": "Add Your First Case",
+      "case_number": "PERM Case #{id}",
+      "submitted": "Submitted",
+      "submitted_label": "Submitted:",
+      "days_pending": "Days pending:",
+      "days": "days",
+      "queue_type": "Queue type:",
+      "review": "Review",
+      "estimated_completion": "Estimated completion:",
+      "queue_position": "Queue position:",
+      "percentile": "th percentile",
+      "unable_to_calculate": "Unable to calculate estimate for {caseType} review cases",
+      "summary_title": "Your Cases Summary",
+      "total_cases": "Total Cases",
+      "oews_cases": "OEWS Cases",
+      "avg_days_pending": "Avg Days Pending"
+    },
+    "historical_chart": {
+      "title": "Processing Time Trends",
+      "historical": "Historical",
+      "improving": "Improving",
+      "worsening": "Worsening",
+      "no_data_title": "No Historical Data",
+      "no_data_description": "Historical processing time data will appear here once available.",
+      "average_days": "Average Days",
+      "peak_processing_time": "Peak Processing Time",
+      "recent_change": "Recent Change (days)",
+      "processing": "Processing:",
+      "insights_title": "Processing Time Insights",
+      "insights_average": "Average processing time over the last <strong>{months} months</strong>: <strong>{days} days</strong>",
+      "insights_trend_increased": "increased",
+      "insights_trend_decreased": "decreased",
+      "insights_trend_stable": "remained stable",
+      "insights_trend": "Processing times have <strong>{trend}</strong> by <strong>{days} days</strong> recently",
+      "insights_trend_stable_text": "Processing times have <strong>{trend}</strong> recently",
+      "insights_range": "Historical range: <strong>{min} to {max} days</strong> (<strong>{range} day variation</strong>)"
+    }
   }
 }

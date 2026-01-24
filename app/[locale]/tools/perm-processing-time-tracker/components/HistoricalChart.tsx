@@ -3,12 +3,14 @@
 import React, { useMemo } from "react"
 import { TrendingUp, TrendingDown, BarChart3, Calendar, Info } from "lucide-react"
 import { HistoricalDataPoint } from "../types"
+import { useTranslations } from "../hooks/useTranslations"
 
 interface HistoricalChartProps {
   data: HistoricalDataPoint[]
 }
 
 export default function HistoricalChart({ data }: HistoricalChartProps) {
+  const t = useTranslations()
   const chartData = useMemo(() => {
     if (data.length === 0) return { max: 0, min: 0, range: 0 }
 
@@ -46,25 +48,28 @@ export default function HistoricalChart({ data }: HistoricalChartProps) {
       : 0
 
   return (
-    <div className="overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm">
+    <section
+      className="overflow-hidden rounded-xl bg-slate-800/80 shadow-xl ring-1 ring-slate-700 backdrop-blur-sm"
+      aria-label="Historical Processing Time Trends"
+    >
       <div className="border-b border-slate-700 px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <BarChart3 className="h-5 w-5 text-blue-400" />
-            <h2 className="text-lg font-semibold text-white">Processing Time Trends</h2>
+            <BarChart3 className="h-5 w-5 text-blue-400" aria-hidden="true" />
+            <h2 className="text-lg font-semibold text-white">{t("historical_chart.title")}</h2>
           </div>
           <div className="flex items-center space-x-4 text-sm">
             <div className="flex items-center space-x-2">
               <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-              <span className="text-slate-400">Historical</span>
+              <span className="text-slate-400">{t("historical_chart.historical")}</span>
             </div>
             <div className="flex items-center space-x-2">
               <div className="h-2 w-2 rounded-full bg-green-500"></div>
-              <span className="text-slate-400">Improving</span>
+              <span className="text-slate-400">{t("historical_chart.improving")}</span>
             </div>
             <div className="flex items-center space-x-2">
               <div className="h-2 w-2 rounded-full bg-red-500"></div>
-              <span className="text-slate-400">Worsening</span>
+              <span className="text-slate-400">{t("historical_chart.worsening")}</span>
             </div>
           </div>
         </div>
@@ -81,26 +86,32 @@ export default function HistoricalChart({ data }: HistoricalChartProps) {
           </div>
         ) : (
           <>
-            {/* Summary Stats */}
-            <div className="mb-6 grid gap-4 md:grid-cols-3">
+            {/* Summary Stats - SEO Optimized */}
+            <dl className="mb-6 grid gap-4 md:grid-cols-3">
               <div className="rounded-lg bg-slate-700/50 p-4 text-center">
-                <p className="text-2xl font-bold text-blue-400">{averageProcessingTime}</p>
-                <p className="text-sm text-slate-400">Average Days</p>
+                <dd className="text-2xl font-bold text-blue-400">
+                  <strong>{averageProcessingTime}</strong>
+                </dd>
+                <dt className="text-sm text-slate-400">{t("historical_chart.average_days")}</dt>
               </div>
               <div className="rounded-lg bg-slate-700/50 p-4 text-center">
-                <p className="text-2xl font-bold text-white">{chartData.max}</p>
-                <p className="text-sm text-slate-400">Peak Processing Time</p>
+                <dd className="text-2xl font-bold text-white">
+                  <strong>{chartData.max}</strong>
+                </dd>
+                <dt className="text-sm text-slate-400">
+                  {t("historical_chart.peak_processing_time")}
+                </dt>
               </div>
               <div className="rounded-lg bg-slate-700/50 p-4 text-center">
                 <div className="flex items-center justify-center space-x-2">
                   {recentTrend > 0 ? (
-                    <TrendingUp className="h-5 w-5 text-red-400" />
+                    <TrendingUp className="h-5 w-5 text-red-400" aria-hidden="true" />
                   ) : recentTrend < 0 ? (
-                    <TrendingDown className="h-5 w-5 text-green-400" />
+                    <TrendingDown className="h-5 w-5 text-green-400" aria-hidden="true" />
                   ) : (
-                    <div className="h-5 w-5" />
+                    <div className="h-5 w-5" aria-hidden="true" />
                   )}
-                  <p
+                  <dd
                     className={`text-2xl font-bold ${
                       recentTrend > 0
                         ? "text-red-400"
@@ -109,13 +120,15 @@ export default function HistoricalChart({ data }: HistoricalChartProps) {
                           : "text-slate-400"
                     }`}
                   >
-                    {recentTrend > 0 ? "+" : ""}
-                    {recentTrend}
-                  </p>
+                    <strong>
+                      {recentTrend > 0 ? "+" : ""}
+                      {recentTrend}
+                    </strong>
+                  </dd>
                 </div>
-                <p className="text-sm text-slate-400">Recent Change (days)</p>
+                <dt className="text-sm text-slate-400">{t("historical_chart.recent_change")}</dt>
               </div>
-            </div>
+            </dl>
 
             {/* Chart */}
             <div className="relative">
@@ -139,9 +152,11 @@ export default function HistoricalChart({ data }: HistoricalChartProps) {
                               year: "numeric",
                             })}
                           </p>
-                          <p className="text-slate-400">Processing: {point.priorityDate}</p>
                           <p className="text-slate-400">
-                            {point.remainingCases.toLocaleString()} cases
+                            {t("historical_chart.processing")} {point.priorityDate}
+                          </p>
+                          <p className="text-slate-400">
+                            {point.remainingCases.toLocaleString()} {t("current_data.cases")}
                           </p>
                         </div>
                         <div className="absolute left-1/2 top-full h-2 w-2 -translate-x-1/2 rotate-45 transform bg-slate-900"></div>
@@ -167,35 +182,59 @@ export default function HistoricalChart({ data }: HistoricalChartProps) {
 
               {/* Y-axis labels */}
               <div className="absolute left-0 top-0 flex h-full flex-col justify-between py-4 text-xs text-slate-400">
-                <span>{chartData.max} days</span>
-                <span>{Math.round((chartData.max + chartData.min) / 2)} days</span>
-                <span>{chartData.min} days</span>
+                <span>
+                  {chartData.max} {t("current_data.days")}
+                </span>
+                <span>
+                  {Math.round((chartData.max + chartData.min) / 2)} {t("current_data.days")}
+                </span>
+                <span>
+                  {chartData.min} {t("current_data.days")}
+                </span>
               </div>
             </div>
 
             {/* Insights */}
             <div className="mt-6 rounded-lg border border-blue-800 bg-blue-900/20 p-4">
               <div className="flex items-start space-x-3">
-                <Info className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-400" />
+                <Info className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-400" aria-hidden="true" />
                 <div>
-                  <h3 className="font-medium text-blue-300">Processing Time Insights</h3>
+                  <h3 className="font-medium text-blue-300">
+                    {t("historical_chart.insights_title")}
+                  </h3>
                   <div className="mt-2 space-y-1 text-sm text-blue-200">
                     <p>
-                      • Average processing time over the last {data.length} months:{" "}
-                      {averageProcessingTime} days
+                      {t.rich("historical_chart.insights_average", {
+                        months: data.length.toString(),
+                        days: averageProcessingTime.toString(),
+                        strong: (chunks) => <strong>{chunks}</strong>,
+                      })}
                     </p>
                     <p>
-                      • Processing times have{" "}
-                      {recentTrend > 0
-                        ? "increased"
-                        : recentTrend < 0
-                          ? "decreased"
-                          : "remained stable"}
-                      {recentTrend !== 0 && ` by ${Math.abs(recentTrend)} days`} recently
+                      •{" "}
+                      {recentTrend !== 0
+                        ? t.rich("historical_chart.insights_trend", {
+                            trend: t(
+                              recentTrend > 0
+                                ? "historical_chart.insights_trend_increased"
+                                : "historical_chart.insights_trend_decreased"
+                            ),
+                            days: Math.abs(recentTrend).toString(),
+                            strong: (chunks) => <strong className="text-blue-200">{chunks}</strong>,
+                          })
+                        : t.rich("historical_chart.insights_trend_stable_text", {
+                            trend: t("historical_chart.insights_trend_stable"),
+                            strong: (chunks) => <strong className="text-blue-200">{chunks}</strong>,
+                          })}
                     </p>
                     <p>
-                      • Historical range: {chartData.min} to {chartData.max} days ({chartData.range}{" "}
-                      day variation)
+                      •{" "}
+                      {t.rich("historical_chart.insights_range", {
+                        min: chartData.min.toString(),
+                        max: chartData.max.toString(),
+                        range: chartData.range.toString(),
+                        strong: (chunks) => <strong>{chunks}</strong>,
+                      })}
                     </p>
                   </div>
                 </div>
@@ -204,6 +243,6 @@ export default function HistoricalChart({ data }: HistoricalChartProps) {
           </>
         )}
       </div>
-    </div>
+    </section>
   )
 }
