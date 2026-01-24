@@ -327,7 +327,7 @@ export default function VinDecoder() {
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="mb-10 text-center">
+        <div className="text-center">
           {/* Official Data Badge */}
           <div className="mb-6 inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-lg">
             <Database className="mr-2 h-4 w-4" />
