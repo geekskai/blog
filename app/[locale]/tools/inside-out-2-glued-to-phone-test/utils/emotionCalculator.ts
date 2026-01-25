@@ -1,12 +1,6 @@
 import { Answer, EmotionScore, AddictionLevel, TestResult, EmotionCharacter } from "../types"
-import { EMOTIONS, EMOTION_WEIGHTS, ADDICTION_THRESHOLDS } from "../constants/emotions"
-import { CATEGORY_WEIGHTS } from "../constants/questions"
-import {
-  getRandomInsights,
-  getRandomQuote,
-  getRecommendations,
-  ADDICTION_DESCRIPTIONS,
-} from "../constants/results"
+import { EMOTIONS, ADDICTION_THRESHOLDS } from "../constants/emotions"
+import { getRandomInsights, getRecommendations, ADDICTION_DESCRIPTIONS } from "../constants/results"
 
 /**
  * 情绪计算引擎 - 核心算法类
@@ -78,7 +72,7 @@ export class EmotionCalculator {
   /**
    * 计算手机依赖程度
    */
-  calculateAddictionLevel(answers: Answer[]): AddictionLevel {
+  calculateAddictionLevel(answers: Answer[], t?: (key: string) => string): AddictionLevel {
     let totalScore = 0
     let weightedSum = 0
 
@@ -92,7 +86,7 @@ export class EmotionCalculator {
     const normalizedScore = weightedSum > 0 ? (totalScore / (weightedSum * 4)) * 100 : 0
     const clampedScore = Math.min(100, Math.max(0, normalizedScore))
 
-    return this.getAddictionLevelFromScore(clampedScore)
+    return this.getAddictionLevelFromScore(clampedScore, t)
   }
 
   /**
@@ -107,7 +101,7 @@ export class EmotionCalculator {
   /**
    * 根据分数确定依赖程度
    */
-  private getAddictionLevelFromScore(score: number): AddictionLevel {
+  private getAddictionLevelFromScore(score: number, t?: (key: string) => string): AddictionLevel {
     let level: "Low" | "Moderate" | "High" | "Severe" = "Low"
     let color = ADDICTION_THRESHOLDS.low.color
 
@@ -122,14 +116,14 @@ export class EmotionCalculator {
       color = ADDICTION_THRESHOLDS.moderate.color
     }
 
-    const description =
-      ADDICTION_DESCRIPTIONS[level.toLowerCase() as keyof typeof ADDICTION_DESCRIPTIONS]
+    const descriptionKey = level.toLowerCase() as keyof typeof ADDICTION_DESCRIPTIONS
+    const description = ADDICTION_DESCRIPTIONS[descriptionKey]
 
     return {
       level,
       score: Math.round(score),
       percentage: Math.round(score),
-      description: description.description,
+      description: t ? t(`addiction_${descriptionKey}_description`) : description.description,
       color,
     }
   }
@@ -137,21 +131,31 @@ export class EmotionCalculator {
   /**
    * 生成个性化洞察
    */
-  generateInsights(dominantEmotion: EmotionCharacter, addictionLevel: AddictionLevel): string[] {
+  generateInsights(
+    dominantEmotion: EmotionCharacter,
+    addictionLevel: AddictionLevel,
+    t?: (key: string) => string
+  ): string[] {
     const insights = getRandomInsights(dominantEmotion.id, 3)
 
     // 根据依赖程度添加特定洞察
     if (addictionLevel.level === "Severe") {
       insights.push(
-        "Your phone usage patterns suggest it may be significantly impacting your daily life and well-being."
+        t
+          ? t("insight_severe")
+          : "Your phone usage patterns suggest it may be significantly impacting your daily life and well-being."
       )
     } else if (addictionLevel.level === "High") {
       insights.push(
-        "You show clear signs of phone dependency that could benefit from structured changes."
+        t
+          ? t("insight_high")
+          : "You show clear signs of phone dependency that could benefit from structured changes."
       )
     } else if (addictionLevel.level === "Low") {
       insights.push(
-        "You maintain a relatively healthy relationship with your phone - keep up the good habits!"
+        t
+          ? t("insight_low")
+          : "You maintain a relatively healthy relationship with your phone - keep up the good habits!"
       )
     }
 
@@ -161,7 +165,7 @@ export class EmotionCalculator {
   /**
    * 主要计算方法 - 生成完整测试结果
    */
-  calculateResult(answers: Answer[]): TestResult {
+  calculateResult(answers: Answer[], t?: (key: string) => string): TestResult {
     // 计算情绪分数
     const emotionScores = this.calculateEmotionScores(answers)
 
@@ -169,10 +173,10 @@ export class EmotionCalculator {
     const dominantEmotion = this.findDominantEmotion(emotionScores)
 
     // 计算依赖程度
-    const addictionLevel = this.calculateAddictionLevel(answers)
+    const addictionLevel = this.calculateAddictionLevel(answers, t)
 
     // 生成个性化洞察
-    const personalizedInsights = this.generateInsights(dominantEmotion, addictionLevel)
+    const personalizedInsights = this.generateInsights(dominantEmotion, addictionLevel, t)
 
     // 获取改善建议
     const recommendations = getRecommendations(
@@ -180,16 +184,12 @@ export class EmotionCalculator {
       addictionLevel.level.toLowerCase()
     )
 
-    // 生成分享引用
-    const shareableQuote = getRandomQuote(dominantEmotion.id)
-
     return {
       dominantEmotion,
       emotionScores,
       addictionLevel,
       personalizedInsights,
       recommendations,
-      shareableQuote,
       completedAt: Date.now(),
     }
   }
@@ -240,10 +240,12 @@ export class EmotionCalculator {
     const errors: string[] = []
 
     if (answers.length === 0) {
+      // 验证错误不需要用户看到，只在控制台记录
       errors.push("No answers provided")
     }
 
     if (answers.length < 10) {
+      // 验证错误不需要用户看到，只在控制台记录
       errors.push("Insufficient answers for reliable analysis")
     }
 
@@ -271,8 +273,11 @@ export class EmotionCalculator {
 export const emotionCalculator = new EmotionCalculator()
 
 // 便捷函数
-export const calculateEmotionResult = (answers: Answer[]): TestResult => {
-  return emotionCalculator.calculateResult(answers)
+export const calculateEmotionResult = (
+  answers: Answer[],
+  t?: (key: string) => string
+): TestResult => {
+  return emotionCalculator.calculateResult(answers, t)
 }
 
 export const validateTestAnswers = (answers: Answer[]) => {

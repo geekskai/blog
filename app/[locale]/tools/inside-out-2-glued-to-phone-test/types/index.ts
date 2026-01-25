@@ -74,7 +74,6 @@ export interface TestResult {
   addictionLevel: AddictionLevel
   personalizedInsights: string[]
   recommendations: Recommendation[]
-  shareableQuote: string
   completedAt: number
 }
 
@@ -93,18 +92,6 @@ export interface TestHistory {
   timestamp: number
   result: TestResult
   answers: Answer[]
-}
-
-// 分享卡片数据接口
-export interface ShareCardData {
-  dominantEmotion: EmotionCharacter
-  addictionLevel: AddictionLevel
-  emotionBreakdown: EmotionScore
-  shareableQuote: string
-  userStats: {
-    testDate: string
-    topEmotions: string[]
-  }
 }
 
 // 组件Props接口
@@ -135,7 +122,6 @@ export interface EmotionAvatarProps {
 
 export interface ResultCardProps {
   result: TestResult
-  onShare: () => void
   onRetake: () => void
 }
 

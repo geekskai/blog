@@ -3,14 +3,13 @@
 import React, { useState, useRef } from "react"
 import { ResultCardProps } from "../types"
 import { EMOTIONS } from "../constants/emotions"
-import { Download, RotateCcw, Copy } from "lucide-react"
-import { shareUtils } from "../utils/shareUtils"
-import ShareButtons from "@/components/ShareButtons"
+import { Download, RotateCcw } from "lucide-react"
+import { useTranslations } from "next-intl"
 
-export const ResultCard: React.FC<ResultCardProps> = ({ result, onShare, onRetake }) => {
-  const [copySuccess, setCopySuccess] = useState(false)
+export const ResultCard: React.FC<ResultCardProps> = ({ result, onRetake }) => {
   const [isDownloading, setIsDownloading] = useState(false)
   const resultRef = useRef<HTMLDivElement>(null)
+  const t = useTranslations("InsideOut2GluedToPhoneTest")
 
   const { dominantEmotion, addictionLevel, emotionScores, personalizedInsights, recommendations } =
     result
@@ -25,26 +24,13 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onShare, onRetak
     .sort((a, b) => b.score - a.score)
     .slice(0, 3)
 
-  // 复制结果到剪贴板
-  const handleCopyResult = async () => {
-    try {
-      const success = await shareUtils.copyShareText(result)
-      if (success) {
-        setCopySuccess(true)
-        setTimeout(() => setCopySuccess(false), 2000)
-      }
-    } catch (error) {
-      console.error("Copy failed:", error)
-    }
-  }
-
   // 添加水印到canvas
   const addWatermark = (canvas: HTMLCanvasElement): HTMLCanvasElement => {
     const ctx = canvas.getContext("2d")
     if (!ctx) return canvas
 
     // 设置水印样式
-    const watermarkText = "GeeksKai.com • Inside Out 2 Phone Test"
+    const watermarkText = t("result_watermark")
     const fontSize = Math.max(16, canvas.width / 50) // 响应式字体大小
     ctx.font = `${fontSize}px Inter, system-ui, sans-serif`
     ctx.fillStyle = "rgba(255, 255, 255, 0.6)"
@@ -110,8 +96,8 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onShare, onRetak
       link.click()
       document.body.removeChild(link)
     } catch (error) {
-      console.error("Download failed:", error)
-      alert("下载失败，请重试")
+      console.error(t("error_download_failed"), error)
+      alert(t("error_download_failed"))
     } finally {
       setIsDownloading(false)
     }
@@ -153,7 +139,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onShare, onRetak
                 >
                   {dominantEmotion.displayName}
                 </span>
-                <span className="text-white"> Controls Your Phone Time!</span>
+                <span className="text-white">{t("result_controls")}</span>
               </h1>
               <p className="mx-auto max-w-3xl text-xl leading-relaxed text-slate-300">
                 {dominantEmotion.description}
@@ -163,14 +149,16 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onShare, onRetak
             {/* 依赖程度指示器 */}
             <div className="inline-flex items-center gap-4 rounded-2xl border border-white/20 bg-white/5 px-8 py-4 backdrop-blur-sm">
               <div className="text-center">
-                <div className="mb-1 text-sm font-medium text-slate-400">Phone Stickiness</div>
+                <div className="mb-1 text-sm font-medium text-slate-400">
+                  {t("result_stickiness")}
+                </div>
                 <div className="text-2xl font-bold" style={{ color: addictionLevel.color }}>
                   {addictionLevel.level}
                 </div>
               </div>
               <div className="h-12 w-px bg-white/20" />
               <div className="text-center">
-                <div className="mb-1 text-sm font-medium text-slate-400">Score</div>
+                <div className="mb-1 text-sm font-medium text-slate-400">{t("result_score")}</div>
                 <div className="text-2xl font-bold" style={{ color: addictionLevel.color }}>
                   {addictionLevel.percentage}%
                 </div>
@@ -181,7 +169,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onShare, onRetak
           {/* 情绪分析图表 */}
           <div className="mb-12">
             <h3 className="mb-6 text-center text-2xl font-bold text-white">
-              Your Emotion Breakdown
+              {t("result_emotion_breakdown")}
             </h3>
             <div className="grid gap-4 md:grid-cols-3">
               {emotionRanking.map((item, index) => (
@@ -193,7 +181,9 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onShare, onRetak
                     <div className="text-3xl">{item.emotion.avatar}</div>
                     <div className="flex-1">
                       <div className="font-semibold text-white">{item.emotion.displayName}</div>
-                      <div className="text-sm text-slate-400">#{index + 1} Emotion</div>
+                      <div className="text-sm text-slate-400">
+                        {t("result_emotion_number", { number: index + 1 })}
+                      </div>
                     </div>
                     <div className="text-right">
                       <div className="text-xl font-bold" style={{ color: item.emotion.color }}>
@@ -219,7 +209,9 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onShare, onRetak
 
           {/* 个性化洞察 */}
           <div className="mb-12">
-            <h3 className="mb-6 text-center text-2xl font-bold text-white">Personal Insights</h3>
+            <h3 className="mb-6 text-center text-2xl font-bold text-white">
+              {t("result_personal_insights")}
+            </h3>
             <div className="space-y-4">
               {personalizedInsights.map((insight, index) => (
                 <div
@@ -243,7 +235,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onShare, onRetak
           {/* 改善建议 */}
           <div className="mb-8">
             <h3 className="mb-6 text-center text-2xl font-bold text-white">
-              Recommendations for You
+              {t("result_recommendations")}
             </h3>
             <div className="grid gap-4 md:grid-cols-2">
               {recommendations.map((rec, index) => (
@@ -279,64 +271,31 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onShare, onRetak
               ))}
             </div>
           </div>
-
-          {/* 分享引用 */}
-          <div className="text-center">
-            <div className="inline-block rounded-2xl border border-white/20 bg-white/5 px-8 py-6 backdrop-blur-sm">
-              <p className="mb-4 text-lg italic text-slate-300">"{result.shareableQuote}"</p>
-              <div className="text-sm text-slate-400">
-                Share your results and discover what emotions control your friends' phone habits!
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
       {/* 操作按钮 */}
-      <div className="mt-8 space-y-6">
-        {/* 社交分享按钮 */}
-        <div className="text-center">
-          <h4 className="mb-4 text-lg font-semibold text-white">Share Your Results</h4>
-          <div className="flex justify-center">
-            <ShareButtons />
-          </div>
-        </div>
+      <div className="mt-8 flex flex-wrap justify-center gap-4">
+        {/* 下载按钮 */}
+        <button
+          onClick={handleDownload}
+          disabled={isDownloading}
+          className={`flex items-center gap-2 rounded-xl px-4 py-3 text-white transition-all ${
+            isDownloading ? "cursor-not-allowed bg-purple-400" : "bg-purple-600 hover:bg-purple-700"
+          }`}
+        >
+          <Download className={`h-4 w-4 ${isDownloading ? "animate-bounce" : ""}`} />
+          {isDownloading ? t("result_downloading") : t("result_download")}
+        </button>
 
-        {/* 功能按钮 */}
-        <div className="flex flex-wrap justify-center gap-4">
-          {/* 复制和下载按钮 */}
-          <button
-            onClick={handleCopyResult}
-            className={`flex items-center gap-2 rounded-xl px-4 py-3 text-white transition-all ${
-              copySuccess ? "bg-green-600 hover:bg-green-700" : "bg-slate-600 hover:bg-slate-700"
-            }`}
-          >
-            <Copy className="h-4 w-4" />
-            {copySuccess ? "Copied!" : "Copy Result"}
-          </button>
-
-          <button
-            onClick={handleDownload}
-            disabled={isDownloading}
-            className={`flex items-center gap-2 rounded-xl px-4 py-3 text-white transition-all ${
-              isDownloading
-                ? "cursor-not-allowed bg-purple-400"
-                : "bg-purple-600 hover:bg-purple-700"
-            }`}
-          >
-            <Download className={`h-4 w-4 ${isDownloading ? "animate-bounce" : ""}`} />
-            {isDownloading ? "Generating..." : "Download Image"}
-          </button>
-
-          {/* 重新测试按钮 */}
-          <button
-            onClick={onRetake}
-            className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 text-white transition-all hover:shadow-lg hover:shadow-purple-500/25"
-          >
-            <RotateCcw className="h-4 w-4" />
-            Take Test Again
-          </button>
-        </div>
+        {/* 重新测试按钮 */}
+        <button
+          onClick={onRetake}
+          className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 text-white transition-all hover:shadow-lg hover:shadow-purple-500/25"
+        >
+          <RotateCcw className="h-4 w-4" />
+          {t("result_retake")}
+        </button>
       </div>
     </div>
   )

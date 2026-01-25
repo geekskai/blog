@@ -2,37 +2,39 @@
 
 import React, { useState } from "react"
 import { ChevronDown, ChevronUp, Play } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 interface LearnMoreSectionProps {
   onStart: () => void
 }
 
 export const LearnMoreSection: React.FC<LearnMoreSectionProps> = ({ onStart }) => {
+  const t = useTranslations("InsideOut2GluedToPhoneTest")
   const [expandedSection, setExpandedSection] = useState<string | null>(null)
 
   const sections = [
     {
       id: "how-it-works",
-      title: "How the Test Works",
-      preview: "15 scientifically-designed questions analyze your emotional triggers...",
+      title: t("learn_more_section_1_title"),
+      preview: t("learn_more_section_1_preview"),
       content: (
         <div className="space-y-4">
-          <p className="text-slate-300">
-            Our test uses 15 carefully crafted questions to analyze your phone usage patterns
-            through the lens of Inside Out 2's emotional framework. Each question targets specific
-            behavioral triggers and emotional responses.
-          </p>
+          <p className="text-slate-300">{t("learn_more_section_1_text")}</p>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="rounded-lg bg-blue-500/10 p-4">
-              <h4 className="mb-2 font-semibold text-blue-300">Emotion Analysis</h4>
+              <h4 className="mb-2 font-semibold text-blue-300">
+                {t("learn_more_section_1_feature_1_title")}
+              </h4>
               <p className="text-sm text-slate-400">
-                Identifies which of the 9 Inside Out 2 emotions drives your phone habits
+                {t("learn_more_section_1_feature_1_desc")}
               </p>
             </div>
             <div className="rounded-lg bg-purple-500/10 p-4">
-              <h4 className="mb-2 font-semibold text-purple-300">Addiction Assessment</h4>
+              <h4 className="mb-2 font-semibold text-purple-300">
+                {t("learn_more_section_1_feature_2_title")}
+              </h4>
               <p className="text-sm text-slate-400">
-                Measures your phone dependency level and stickiness patterns
+                {t("learn_more_section_1_feature_2_desc")}
               </p>
             </div>
           </div>
@@ -41,22 +43,43 @@ export const LearnMoreSection: React.FC<LearnMoreSectionProps> = ({ onStart }) =
     },
     {
       id: "emotions",
-      title: "Inside Out 2 Emotions",
-      preview: "Joy, Anxiety, Sadness, and 6 more emotions each create unique phone patterns...",
+      title: t("learn_more_section_2_title"),
+      preview: t("learn_more_section_2_preview"),
       content: (
         <div className="space-y-4">
-          <p className="text-slate-300">
-            Each Inside Out 2 emotion creates distinct phone usage patterns. Understanding your
-            dominant emotion helps identify why you're glued to your phone.
-          </p>
+          <p className="text-slate-300">{t("learn_more_section_2_text")}</p>
           <div className="grid gap-3 md:grid-cols-3">
             {[
-              { emoji: "😊", name: "Joy", pattern: "Social sharing & entertainment" },
-              { emoji: "😰", name: "Anxiety", pattern: "Compulsive checking & FOMO" },
-              { emoji: "😢", name: "Sadness", pattern: "Digital escape & comfort" },
-              { emoji: "😡", name: "Anger", pattern: "Reactive posting & arguments" },
-              { emoji: "😨", name: "Fear", pattern: "Information seeking & safety" },
-              { emoji: "🤢", name: "Disgust", pattern: "Critical browsing & curation" },
+              {
+                emoji: "😊",
+                name: t("learn_more_emotion_joy"),
+                pattern: t("learn_more_emotion_joy_pattern"),
+              },
+              {
+                emoji: "😰",
+                name: t("learn_more_emotion_anxiety"),
+                pattern: t("learn_more_emotion_anxiety_pattern"),
+              },
+              {
+                emoji: "😢",
+                name: t("learn_more_emotion_sadness"),
+                pattern: t("learn_more_emotion_sadness_pattern"),
+              },
+              {
+                emoji: "😡",
+                name: t("learn_more_emotion_anger"),
+                pattern: t("learn_more_emotion_anger_pattern"),
+              },
+              {
+                emoji: "😨",
+                name: t("learn_more_emotion_fear"),
+                pattern: t("learn_more_emotion_fear_pattern"),
+              },
+              {
+                emoji: "🤢",
+                name: t("learn_more_emotion_disgust"),
+                pattern: t("learn_more_emotion_disgust_pattern"),
+              },
             ].map((emotion) => (
               <div key={emotion.name} className="rounded-lg bg-slate-800/50 p-3 text-center">
                 <div className="mb-1 text-2xl">{emotion.emoji}</div>
@@ -70,27 +93,31 @@ export const LearnMoreSection: React.FC<LearnMoreSectionProps> = ({ onStart }) =
     },
     {
       id: "benefits",
-      title: "What You'll Get",
-      preview: "Personalized insights, digital wellness tips, and shareable results...",
+      title: t("learn_more_section_3_title"),
+      preview: t("learn_more_section_3_preview"),
       content: (
         <div className="space-y-4">
           <div className="grid gap-4 md:grid-cols-2">
             <div className="space-y-3">
-              <h4 className="font-semibold text-white">Instant Results</h4>
+              <h4 className="font-semibold text-white">
+                {t("learn_more_section_3_instant_title")}
+              </h4>
               <ul className="space-y-2 text-sm text-slate-300">
-                <li>• Your dominant emotion analysis</li>
-                <li>• Phone addiction level assessment</li>
-                <li>• Detailed emotional breakdown</li>
-                <li>• Personalized character insights</li>
+                <li>• {t("learn_more_section_3_instant_1")}</li>
+                <li>• {t("learn_more_section_3_instant_2")}</li>
+                <li>• {t("learn_more_section_3_instant_3")}</li>
+                <li>• {t("learn_more_section_3_instant_4")}</li>
               </ul>
             </div>
             <div className="space-y-3">
-              <h4 className="font-semibold text-white">Actionable Guidance</h4>
+              <h4 className="font-semibold text-white">
+                {t("learn_more_section_3_action_title")}
+              </h4>
               <ul className="space-y-2 text-sm text-slate-300">
-                <li>• Custom digital wellness tips</li>
-                <li>• Emotion-specific recommendations</li>
-                <li>• Healthy habit suggestions</li>
-                <li>• Shareable social media results</li>
+                <li>• {t("learn_more_section_3_action_1")}</li>
+                <li>• {t("learn_more_section_3_action_2")}</li>
+                <li>• {t("learn_more_section_3_action_3")}</li>
+                <li>• {t("learn_more_section_3_action_4")}</li>
               </ul>
             </div>
           </div>
@@ -107,10 +134,8 @@ export const LearnMoreSection: React.FC<LearnMoreSectionProps> = ({ onStart }) =
     <div className="border-t border-white/10 bg-slate-900/30 py-16">
       <div className="mx-auto max-w-4xl px-4">
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">Learn More About the Test</h2>
-          <p className="text-lg text-slate-400">
-            Get detailed information before you start, or jump right in
-          </p>
+          <h2 className="mb-4 text-3xl font-bold text-white">{t("learn_more_title")}</h2>
+          <p className="text-lg text-slate-400">{t("learn_more_subtitle")}</p>
         </div>
 
         <div className="space-y-4">
@@ -149,15 +174,15 @@ export const LearnMoreSection: React.FC<LearnMoreSectionProps> = ({ onStart }) =
         <div className="mt-12 text-center">
           <div className="inline-flex items-center gap-4 rounded-2xl border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-6 backdrop-blur-sm">
             <div className="text-left">
-              <div className="font-semibold text-white">Ready to discover your emotion?</div>
-              <div className="text-sm text-slate-400">Takes just 3 minutes • Completely free</div>
+              <div className="font-semibold text-white">{t("learn_more_cta_ready")}</div>
+              <div className="text-sm text-slate-400">{t("learn_more_cta_time")}</div>
             </div>
             <button
               onClick={onStart}
               className="group flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
             >
               <Play className="h-4 w-4" />
-              Start Test
+              {t("learn_more_cta_button")}
             </button>
           </div>
         </div>

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react"
 import { QuestionCardProps, Answer } from "../types"
 import { EMOTIONS } from "../constants/emotions"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export const QuestionCard: React.FC<QuestionCardProps> = ({
   question,
@@ -16,6 +17,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
   canGoNext = false,
   isAnimating = false,
 }) => {
+  const t = useTranslations("InsideOut2GluedToPhoneTest")
   const [selectedOption, setSelectedOption] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [autoAdvanceTimer, setAutoAdvanceTimer] = useState<NodeJS.Timeout | null>(null)
@@ -90,10 +92,10 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
       <div className="mb-8">
         <div className="mb-2 flex items-center justify-between">
           <span className="text-sm font-medium text-slate-300">
-            Question {currentIndex + 1} of {totalQuestions}
+            {t("question_progress", { current: currentIndex + 1, total: totalQuestions })}
           </span>
           <span className="text-sm font-medium text-slate-300">
-            {Math.round(progress)}% Complete
+            {t("question_complete", { percent: Math.round(progress) })}
           </span>
         </div>
         <div className="h-2 w-full rounded-full bg-slate-800">
@@ -116,7 +118,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
             <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-3 backdrop-blur-sm">
               <span className="text-2xl">🧠</span>
               <h2 className="bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-xl font-bold text-transparent">
-                Inside Out 2 Emotion Analysis
+                {t("question_analysis")}
               </h2>
             </div>
 
@@ -201,7 +203,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
               `}
             >
               <ChevronLeft className="h-4 w-4" />
-              Previous Question
+              {t("question_previous")}
             </button>
 
             {/* 提交按钮 */}
@@ -226,11 +228,11 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
                 {isSubmitting ? (
                   <>
                     <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white" />
-                    Processing...
+                    {t("question_processing")}
                   </>
                 ) : (
                   <>
-                    {autoAdvanceTimer ? "Auto-advancing..." : "Next Question"}
+                    {autoAdvanceTimer ? t("question_auto_advancing") : t("question_next")}
                     <ChevronRight className="h-5 w-5" />
                   </>
                 )}
@@ -250,7 +252,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
                 }
               `}
             >
-              Next Question
+              {t("question_next")}
               <ChevronRight className="h-4 w-4" />
             </button>
           </div>
@@ -260,7 +262,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
       {/* 情绪预览（可选，显示当前问题可能影响的情绪） */}
       <div className="mt-6 flex justify-center">
         <div className="flex items-center gap-2 text-sm text-slate-400">
-          <span>This question analyzes:</span>
+          <span>{t("question_analyzes")}</span>
           <div className="flex gap-1">
             {Object.entries(question.emotionWeights)
               .sort(([, a], [, b]) => b - a)
