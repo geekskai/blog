@@ -20,8 +20,10 @@ type LoadingState = "idle" | "loading" | "success" | "error"
 // 播放列表URL格式: https://soundcloud.com/username/sets/playlist-name
 const SOUNDCLOUD_PLAYLIST_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/[^/]+\/sets\/.+/
 // 单个歌曲URL格式: https://soundcloud.com/username/song-name
-// 必须包含域名、用户名和歌曲名，且不包含 /sets/
-const SOUNDCLOUD_TRACK_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/[^/]+\/[^/]+$/
+// 支持可选分享token (例如 /s-xxxx) 与查询参数
+// 必须包含域名、用户名和歌曲名，且路径中不包含 /sets/
+const SOUNDCLOUD_TRACK_URL_REGEX =
+  /^https?:\/\/(www\.)?soundcloud\.com\/[^/?#]+\/[^/?#]+(?:\/s-[A-Za-z0-9]+)?\/?(?:[?#].*)?$/
 const SOUNDCLOUD_SHORT_URL_REGEX = /^https?:\/\/on\.soundcloud\.com\/[A-Za-z0-9]+(?:[?#].*)?$/
 
 // Utility functions
@@ -52,8 +54,16 @@ const isValidSoundCloudTrackUrl = (url: string): boolean => {
     return false
   }
   // 匹配单个歌曲URL: soundcloud.com/username/song-name
-  // 确保格式为: domain/username/song-name (不包含 /sets/)
-  return SOUNDCLOUD_TRACK_URL_REGEX.test(trimmedUrl) && !trimmedUrl.includes("/sets/")
+  // 确保格式为: domain/username/song-name (路径中不包含 /sets/)
+  if (!SOUNDCLOUD_TRACK_URL_REGEX.test(trimmedUrl)) {
+    return false
+  }
+  try {
+    const parsedUrl = new URL(trimmedUrl)
+    return !parsedUrl.pathname.includes("/sets/")
+  } catch {
+    return false
+  }
 }
 
 const formatFileSize = (bytes: number): string => {
