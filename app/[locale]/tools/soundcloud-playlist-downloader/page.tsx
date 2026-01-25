@@ -13,8 +13,9 @@ import {
   FormatComparisonSection,
   UseCasesSection,
   KeyFeaturesSection,
-  ContentFreshnessBadge,
 } from "./SEOContent"
+import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
+
 import type {
   PlaylistInfo,
   DownloadProgress as DownloadProgressType,
@@ -194,9 +195,10 @@ export default function SoundCloudPlaylistDownloaderPage() {
 
       <div className="relative mx-auto max-w-6xl space-y-4 py-4">
         {/* Content Freshness Badge */}
-        <div className="flex flex-col items-center">
-          <ContentFreshnessBadge lastModified={new Date("2026-01-24")} />
-        </div>
+        <ContentFreshnessBadge
+          lastModified={new Date("2026-01-24")}
+          namespace="SoundCloudPlaylistDownloader"
+        />
         {/* Header Section */}
         <header className="text-center">
           <div className="flex items-center justify-center gap-4">

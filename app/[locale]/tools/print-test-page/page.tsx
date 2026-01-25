@@ -22,9 +22,8 @@ import {
   HowToSection,
   FeaturesSection,
   UseCasesSection,
-  ContentFreshnessBadge,
 } from "./components/SEOContent"
-import Link from "next/link"
+import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 
 type TestPageType = "color" | "blackWhite" | "cmyk"
 
@@ -126,7 +125,7 @@ export default function PrintTestPage() {
       </div>
       <div className="relative mx-auto max-w-6xl space-y-2 px-4 py-8 md:space-y-6 md:px-6 lg:px-8">
         {/* Content Freshness Badge */}
-        <ContentFreshnessBadge lastModified={new Date("2026-01-24")} />
+        <ContentFreshnessBadge lastModified={new Date("2026-01-24")} namespace="PrintTestPage" />
         {/* Header Section - SEO Optimized */}
         <header className="text-center">
           {/* Tool Badge */}

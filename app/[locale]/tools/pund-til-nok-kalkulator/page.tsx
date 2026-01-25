@@ -12,38 +12,14 @@ import {
 } from "lucide-react"
 import { Link } from "@/app/i18n/navigation"
 import { useTranslations } from "next-intl"
-import { formatDistanceToNow } from "date-fns"
 import ConverterCard from "./components/ConverterCard"
 import QuickReference from "./components/QuickReference"
 import EducationalContent from "./components/EducationalContent"
 import React from "react"
+import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 
 // Content freshness metadata - 内容新鲜度
 const lastModified = new Date("2026-01-25")
-
-// Content Freshness Badge Component - 符合SEO标准
-function ContentFreshnessBadge({ lastModified }: { lastModified: Date }) {
-  const t = useTranslations("GbpNokConverter")
-  const daysSinceUpdate = Math.floor((Date.now() - lastModified.getTime()) / (1000 * 60 * 60 * 24))
-  const isFresh = daysSinceUpdate < 90
-
-  return (
-    <div
-      className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm ${
-        isFresh
-          ? "border border-green-500/30 bg-green-500/20 text-green-300"
-          : "border border-orange-500/30 bg-orange-500/20 text-orange-300"
-      }`}
-    >
-      <span>{isFresh ? "✓" : "⚠"}</span>
-      <span>
-        {isFresh
-          ? `${t("content_freshness_updated")} ${formatDistanceToNow(lastModified, { addSuffix: true })}`
-          : `${t("content_freshness_last_updated")} ${formatDistanceToNow(lastModified, { addSuffix: true })}`}
-      </span>
-    </div>
-  )
-}
 
 // Core Facts Section - 核心事实提取优化
 function CoreFactsSection() {
@@ -125,6 +101,8 @@ export default function GbpNokConverter() {
       </nav>
 
       <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        {/* Content Freshness Badge */}
+        <ContentFreshnessBadge lastModified={lastModified} namespace="GbpNokConverter" />
         {/* Header Section */}
         <div className="relative mb-16">
           {/* SEO-optimized header */}
@@ -141,11 +119,6 @@ export default function GbpNokConverter() {
                 {t("header_title_line2")}
               </span>
             </h1>
-
-            {/* Content Freshness Badge */}
-            <div className="mb-6 flex justify-center">
-              <ContentFreshnessBadge lastModified={lastModified} />
-            </div>
 
             <p className="mx-auto mb-8 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
               {t.rich("header_description", {

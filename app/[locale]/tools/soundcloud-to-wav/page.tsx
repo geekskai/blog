@@ -11,9 +11,9 @@ import {
   FormatComparisonSection,
   UseCasesSection,
   KeyFeaturesSection,
-  ContentFreshnessBadge,
 } from "./SEOContent"
 import Link from "@/components/Link"
+import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 
 type LoadingState = "idle" | "loading" | "success" | "error"
 
@@ -368,9 +368,8 @@ export default function Page() {
 
       <div className="relative mx-auto max-w-6xl space-y-4 p-4">
         {/* Content Freshness Badge */}
-        <div className="flex flex-col items-center">
-          <ContentFreshnessBadge lastModified={new Date("2026-01-24")} />
-        </div>
+        <ContentFreshnessBadge lastModified={new Date("2026-01-24")} namespace="SoundCloudToWAV" />
+
         {/* Header Section - SEO Optimized */}
         <header className="text-center">
           {/* Tool Badge */}

@@ -1,29 +1,7 @@
 "use client"
 
-import { formatDistanceToNow } from "date-fns"
 import React from "react"
 import { useTranslations } from "next-intl"
-// Content Freshness Badge Component
-export function ContentFreshnessBadge({ lastModified }: { lastModified: Date }) {
-  const t = useTranslations("SoundCloudToWAV")
-  const daysSinceUpdate = Math.floor((Date.now() - lastModified.getTime()) / (1000 * 60 * 60 * 24))
-  const isFresh = daysSinceUpdate < 90
-
-  return (
-    <div
-      className={`inline-flex items-center gap-3 ${
-        isFresh ? "text-emerald-300" : "text-orange-300"
-      }`}
-    >
-      <span className="text-lg">{isFresh ? "✓" : "⚠"}</span>
-      <span className="text-sm font-semibold">
-        {isFresh
-          ? `${t("content_freshness_updated")} ${formatDistanceToNow(lastModified, { addSuffix: true })}`
-          : `${t("content_freshness_last_updated")} ${formatDistanceToNow(lastModified, { addSuffix: true })}`}
-      </span>
-    </div>
-  )
-}
 
 // Core Facts Section Component
 export function CoreFactsSection() {
