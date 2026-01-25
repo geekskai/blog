@@ -1,7 +1,7 @@
 ---
 title: "Core React Interview Questions & Answers 2026"
 date: "2026-01-11"
-lastmod: "2026-01-11"
+lastmod: "2026-01-25"
 tags:
   [
     "React",
@@ -72,7 +72,7 @@ This section covers fundamental **React JS interview questions** about React bas
 
     React was created by [Jordan Walke](https://github.com/jordwalke), a software engineer at Facebook (now Meta). It was first deployed on Facebook's News Feed in 2011 and on Instagram in 2012. The library was open-sourced in May 2013 and has since become one of the most popular JavaScript libraries for building modern user interfaces.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 2.  ### What is the history behind React evolution?
 
@@ -125,7 +125,7 @@ This section covers fundamental **React JS interview questions** about React bas
 
     **Note:** JSX, React's syntax extension, was indeed inspired by XHP's approach of embedding XML-like syntax in code.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 3.  ### What is JSX?
 
@@ -168,7 +168,7 @@ class App extends React.Component {
 
     **Note:** JSX is stricter than HTML
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 4.  ### What is the difference between an Element and a Component?
 
@@ -236,7 +236,7 @@ class App extends React.Component {
 
     > Think of **elements** as the instructions for creating UI, and **components** as reusable blueprints that combine logic and structure to generate those instructions.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 5.  ### How to create components in React?
 
@@ -259,7 +259,7 @@ class App extends React.Component {
        }
        ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 6.  ### When to use a Class Component over a Function Component?
 
@@ -294,7 +294,7 @@ class App extends React.Component {
     </ErrorBoundary>
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 7.  ### What are Pure Components?
 
@@ -345,7 +345,7 @@ class App extends React.Component {
 
     **Note:** `React.memo()` is a higher-order component.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 8.  ### What is state in React?
 
@@ -403,7 +403,7 @@ class App extends React.Component {
 
     State is similar to props, but it is private and fully controlled by the component ,i.e., it is not accessible to any other component till the owner component decides to pass it.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 9.  ### What are props in React?
 
@@ -506,7 +506,7 @@ class ParentComponent extends React.Component {
 
 </div>
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 10. ### What is the difference between state and props?
 
@@ -550,7 +550,7 @@ In React, both **state** and **props** are plain JavaScript objects, but they se
 
     ***
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 11. ### What is the difference between HTML and React event handling?
 
@@ -585,7 +585,7 @@ In React, both **state** and **props** are plain JavaScript objects, but they se
     3. In HTML, you need to invoke the function by appending `()`
        Whereas in react you should not append `()` with the function name. (refer "activateLasers" function in the first point for example)
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 12. ### What are synthetic events in React?
 
@@ -616,7 +616,7 @@ In React, both **state** and **props** are plain JavaScript objects, but they se
     - `onMouseEnter`, `onMouseLeave`
     - `onTouchStart`, `onTouchEnd`
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 13. ### What are inline conditional expressions?
 
@@ -633,7 +633,7 @@ In React, both **state** and **props** are plain JavaScript objects, but they se
     }
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 14. ### What is "key" prop and what is the benefit of using it in arrays of elements?
 
@@ -663,13 +663,13 @@ In React, both **state** and **props** are plain JavaScript objects, but they se
     4. The key attribute accepts either string or number and internally convert it as string type.
     5. Don't generate the key on the fly something like `key={Math.random()}`. Because the keys will never match up between re-renders and DOM created everytime.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 15. ### What is Virtual DOM?
 
     The _Virtual DOM_ (VDOM) is a lightweight, in-memory representation of _Real DOM_ used by libraries like React to optimize UI rendering. The representation of a UI is kept in memory and synced with the "real" DOM. It's a step that happens between the render function being called and the displaying of elements on the screen. This entire process is called _reconciliation_.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 16. ### How Virtual DOM works?
 
@@ -696,7 +696,7 @@ In React, both **state** and **props** are plain JavaScript objects, but they se
     **5. Efficient DOM Updates**
     This entire process—working with the Virtual DOM, diffing, and selective updating—makes the UI rendering much faster and more efficient than manipulating the Real DOM directly.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 17. ### What is the difference between Shadow DOM and Virtual DOM?
 
@@ -712,13 +712,13 @@ In React, both **state** and **props** are plain JavaScript objects, but they se
     | Encapsulation | Yes                              | No                                 |
     | Use Case      | Web Components, scoped styling   | UI diffing and minimal DOM updates |
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 18. ### What is React Fiber?
 
     **React Fiber** is the **new reconciliation engine** in React, introduced in React 16. It’s a complete rewrite of React’s core algorithm(old stack-based algorithm) for rendering and updating the UI. Fiber enhances React’s ability to handle **asynchronous rendering**, **prioritized updates**(assign priority to different types of updates), and **interruption**(ability to pause, abort, or reuse work) of rendering work, enabling smoother and more responsive user interfaces.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 19. ### What is the main goal of React Fiber?
 
@@ -733,7 +733,7 @@ In React, both **state** and **props** are plain JavaScript objects, but they se
     - **Suspense Support** – Allows waiting for async data before rendering.
     - **Improved DevTools** – Enables better debugging and performance tracking.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 20. ### What are controlled components?
 
@@ -778,7 +778,7 @@ In these components, DOM does not hold the actual data instead React does.
 - Full control over form data.
 - Easier to test and debug because the data is centralized in the component’s state.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 21. ### What are uncontrolled components?
 
@@ -860,7 +860,7 @@ In these components, DOM does not hold the actual data instead React does.
 
 </div>
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 22. ### What is the difference between createElement and cloneElement?
 
@@ -899,13 +899,13 @@ In these components, DOM does not hold the actual data instead React does.
     // Result: <button className="btn-primary">Click Me</button>
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 23. ### What is Lifting State Up in React?
 
     When several components need to share the same changing data then it is recommended to _lift the shared state up_ to their closest common ancestor. That means if two child components share the same data from its parent, then move the state to parent instead of maintaining local state in both of the child components.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 24. ### What are Higher-Order Components?
 
@@ -973,7 +973,7 @@ In these components, DOM does not hold the actual data instead React does.
     5. withFormik from Formik library
     6. withTheme from styled components
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 25. ### What is children prop?
 
@@ -1027,7 +1027,7 @@ In these components, DOM does not hold the actual data instead React does.
 
     **Note:** There are several methods available in the legacy React API to work with this prop. These include `React.Children.map`, `React.Children.forEach`, `React.Children.count`, `React.Children.only`, `React.Children.toArray`.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 26. ### Does the lazy function support named exports?
 
@@ -1054,7 +1054,7 @@ In these components, DOM does not hold the actual data instead React does.
     const SomeComponent = lazy(() => import("./IntermediateComponent.js"))
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 27. ### Why React uses `className` over `class` attribute?
 
@@ -1107,7 +1107,7 @@ In these components, DOM does not hold the actual data instead React does.
        ```
        React follows this convention, staying consistent with the DOM API's property name rather than HTML’s attribute.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 28. ### What are fragments?
 
@@ -1156,7 +1156,7 @@ In these components, DOM does not hold the actual data instead React does.
     }
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 29. ### Why fragments are better than container divs?
 
@@ -1165,7 +1165,7 @@ In these components, DOM does not hold the actual data instead React does.
     2. Some CSS mechanisms like _Flexbox_ and _CSS Grid_ have a special parent-child relationships, and adding divs in the middle makes it hard to keep the desired layout.
     3. The DOM Inspector is less cluttered.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 30. ### What are portals in React?
 
@@ -1193,13 +1193,13 @@ In these components, DOM does not hold the actual data instead React does.
 
     The above code will render the modal content into the body element in the HTML, not inside the component's usual location.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 31. ### What are stateless components?
 
     If the behaviour of a component is independent of its state then it can be a stateless component. You can use either a function or a class for creating stateless components. But unless you need to use a lifecycle hook in your components, you should go for function components. There are a lot of benefits if you decide to use function components here; they are easy to write, understand, and test, a little faster, and you can avoid the `this` keyword altogether.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 32. ### What are stateful components?
 
@@ -1258,7 +1258,7 @@ class App extends Component {
 
 </div>
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 33. ### How to apply validation on props in React?
 
@@ -1324,7 +1324,7 @@ class App extends Component {
     };
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 34. ### What are the advantages of React?
 
@@ -1337,7 +1337,7 @@ class App extends Component {
     4. Easy to integrate with frameworks (Angular, Backbone) since it is only a view library.
     5. Easy to write unit and integration tests with tools such as Jest.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 35. ### What are the limitations of React?
 
@@ -1350,14 +1350,14 @@ class App extends Component {
     4. The code complexity increases with inline templating and JSX.
     5. Too many smaller components leading to over engineering or boilerplate.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 36. ### What are the recommended ways for static type checking?
 
 
     Normally we use _PropTypes library_ (`React.PropTypes` moved to a `prop-types` package since React v15.5) for _type checking_ in the React applications. For large code bases, it is recommended to use _static type checkers_ such as Flow or TypeScript, that perform type checking at compile time and provide auto-completion features.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 37. ### What is the use of `react-dom` package?
 
@@ -1370,7 +1370,7 @@ class App extends Component {
     4. `findDOMNode()`
     5. `createPortal()`
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 38. ### What is ReactDOMServer?
 
@@ -1398,7 +1398,7 @@ class App extends Component {
     });
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 39. ### How to use innerHTML in React?
 
@@ -1417,7 +1417,7 @@ class App extends Component {
     }
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 40. ### How to use styles in React?
 
@@ -1437,7 +1437,7 @@ class App extends Component {
 
     Style keys are camelCased in order to be consistent with accessing the properties on DOM nodes in JavaScript (e.g. `node.style.backgroundImage`).
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 41. ### How events are different in React?
 
@@ -1447,7 +1447,7 @@ class App extends Component {
     1. React event handlers are named using camelCase, rather than lowercase.
     2. With JSX you pass a function as the event handler, rather than a string.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 42. ### What is the impact of indexes as keys?
 
@@ -1472,7 +1472,7 @@ class App extends Component {
 
     **Note:** If you don't specify `key` prop at all, React will use index as a key's value while iterating over an array of data.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 43. ### How do you conditionally render components?
 
@@ -1499,7 +1499,7 @@ class App extends Component {
     );
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 44. ### Why we need to be careful when spreading props on DOM elements?
 
@@ -1518,7 +1518,7 @@ class App extends Component {
     );
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 45. ### How do you memoize a component?
 
@@ -1551,7 +1551,7 @@ class App extends Component {
     export default React.memo(MyFunctionComponent);
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 46. ### How you implement Server Side Rendering or SSR?
 
@@ -1567,14 +1567,14 @@ class App extends Component {
 
     This method will output the regular HTML as a string, which can be then placed inside a page body as part of the server response. On the client side, React detects the pre-rendered content and seamlessly picks up where it left off.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 47. ### How to enable production mode in React?
 
 
     You should use Webpack's `DefinePlugin` method to set `NODE_ENV` to `production`, by which it strip out things like propType validation and extra warnings. Apart from this, if you minify the code, for example, Uglify's dead-code elimination to strip out development only code and comments, it will drastically reduce the size of your bundle.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 48. ### What is a switching component?
 
@@ -1608,7 +1608,7 @@ class App extends Component {
     };
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 49. ### What are the Pointer Events supported in React?
 
@@ -1628,7 +1628,7 @@ class App extends Component {
     9. `onPointerOver`
     10. `onPointerOut`
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 50. ### Why should component names start with capital letter?
 
@@ -1658,7 +1658,7 @@ class App extends Component {
     import MyComponent from "./myComponent";
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 51. ### What is React proptype array with shape?
 
@@ -1676,7 +1676,7 @@ class App extends Component {
     };
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 52. ### How to conditionally apply class attributes?
 
@@ -1699,14 +1699,14 @@ class App extends Component {
     <div className={`btn-panel ${this.props.visible ? 'show' : 'hidden'}`}>
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 53. ### What is the difference between React and ReactDOM?
 
 
     The `react` package contains `React.createElement()`, `React.Component`, `React.Children`, and other helpers related to elements and component classes. You can think of these as the isomorphic or universal helpers that you need to build components. The `react-dom` package contains `ReactDOM.render()`, and in `react-dom/server` we have _server-side rendering_ support with `ReactDOMServer.renderToString()` and `ReactDOMServer.renderToStaticMarkup()`.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 54. ### Why ReactDOM is separated from React?
 
@@ -1715,7 +1715,7 @@ class App extends Component {
 
     To build more environments that React can render to, React team planned to split the main React package into two: `react` and `react-dom`. This paves the way to writing components that can be shared between the web version of React and React Native.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 55. ### How to use React label element?
 
@@ -1734,7 +1734,7 @@ class App extends Component {
     <input type={'text'} id={'user'} />
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 56. ### How to pretty print JSON with React?
 
@@ -1774,7 +1774,7 @@ class App extends Component {
 
 </div>
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 57. ### How to focus an input element on page load?
 
@@ -1834,7 +1834,7 @@ class App extends Component {
 
 </div>
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 58. ### How does React's automatic batching improve performance?
 
@@ -1851,7 +1851,7 @@ class App extends Component {
 
     Fewer renders → less DOM work, better performance, and smoother UI.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 59. ### What are React Portals, and what problems do they solve?
 
@@ -1875,7 +1875,7 @@ class App extends Component {
     * Avoiding CSS overflow or z-index issues (e.g., when parent has overflow: hidden)
     * Maintaining a logical React hierarchy while adjusting visual placement in the DOM
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 60. ### What is React Strict Mode and what are its benefits?
 
@@ -1895,7 +1895,7 @@ class App extends Component {
 
     Wrapping components in `<React.StrictMode>` activates these development checks without affecting production builds.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 61. ### What is code splitting in a React application?
 
@@ -1915,7 +1915,7 @@ class App extends Component {
     }
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 62. ### How would one optimize the performance of React contexts to reduce rerenders?
 
@@ -1932,7 +1932,7 @@ class App extends Component {
     * Use context selectors to subscribe to specific parts of context
     * Consider using state management libraries for complex scenarios
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 63. ### Explain one-way data flow of React
 
@@ -1955,7 +1955,7 @@ class App extends Component {
 
     This ensures data flows in one direction, making the app more predictable.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 64. ### What are some pitfalls of using context in React?
 
@@ -1969,7 +1969,7 @@ class App extends Component {
     * Can lead to prop drilling in the opposite direction
     * Not suitable for frequently changing values
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 65. ### What are some React anti-patterns?
 
@@ -1983,7 +1983,7 @@ class App extends Component {
     * Excessive inline functions in render
     * Deeply nested state
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 66. ### How do you decide between using React state, context, and external state managers?
 
@@ -1996,7 +1996,7 @@ class App extends Component {
     * **Context API**: For simple global state (theme, user info, language)
     * **Redux/Zustand**: For complex state with frequent updates, time-travel debugging, middleware needs
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 67. ### Explain what happens when `setState` is called in React?
 
@@ -2022,7 +2022,7 @@ class App extends Component {
 
     In this example, calling `setState` (via `setCount`) triggers a re-render with the updated `count`.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 68. ### Explain prop drilling
 
@@ -2046,7 +2046,7 @@ class App extends Component {
 
     In this example, `data` is passed through multiple components, even though only the `Child` component uses it. Prop drilling is acceptable for small applications where the component hierarchy is shallow. When global state is needed to be accessed in deeper levels of the app, using context and/or external state managers might be better.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 69. ### Describe lazy loading in React
 
@@ -2069,7 +2069,7 @@ class App extends Component {
 
     In this example, `LazyComponent` is loaded only when it's rendered, and while loading, a fallback UI (Loading...) is displayed.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 70. ### Discuss synthetic events in React
 
@@ -2091,7 +2091,7 @@ class App extends Component {
 
     In this example, `handleClick` handles the click event consistently across all browsers using a synthetic event.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 71. ### What is Concurrent Mode in React, and how does it improve rendering performance?
 
@@ -2104,7 +2104,7 @@ class App extends Component {
     * Priority-based updates: User interactions get priority over background updates
     * Better perceived performance: UI stays responsive during heavy computations
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 72. ### How would you handle long-running tasks or expensive computations in React applications without blocking the UI?
 
@@ -2129,7 +2129,7 @@ class App extends Component {
     * Use Web Workers for CPU-intensive tasks
     * Implement pagination or virtualization for large lists
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 73. ### Explain the presentational vs container component pattern in React
 
@@ -2150,7 +2150,7 @@ class App extends Component {
     * Pass data to presentational components
     * Handle business logic
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 74. ### What are render props in React?
 
@@ -2179,7 +2179,7 @@ class App extends Component {
     />
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 75. ### Explain the composition pattern in React
 
@@ -2208,7 +2208,7 @@ class App extends Component {
     * Promotes code reuse
     * Better separation of concerns
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 76. ### How do you handle asynchronous data loading in React applications?
 
@@ -2252,7 +2252,7 @@ class App extends Component {
     export default FetchAndDisplayData;
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 77. ### What are some common pitfalls when doing data fetching in React?
 
@@ -2267,7 +2267,7 @@ class App extends Component {
     * Race conditions with async operations
     * Not cleaning up effects properly
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 ---
 

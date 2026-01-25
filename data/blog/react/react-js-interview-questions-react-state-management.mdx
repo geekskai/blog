@@ -1,7 +1,7 @@
 ---
 title: "React State Management Interview Questions 2026"
 date: "2026-01-11"
-lastmod: "2026-01-11"
+lastmod: "2026-01-25"
 tags:
   [
     "React",
@@ -61,7 +61,7 @@ This comprehensive guide focuses on **React State Management interview questions
     | Controlled using useState or useReducer inside the component.  | Managed using Context API, Redux, Zustand, etc.                 |
     | Used for UI-related data like form inputs, modals, or toggles. | Used for app-wide data like authentication, user info, or theme |
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 2.  ### What are some popular state management solutions in React/Next.js?
 
@@ -73,7 +73,7 @@ This comprehensive guide focuses on **React State Management interview questions
     - **Recoil / Jotai / MobX**: Alternative libraries offering fine-grained state control.
     - **Server-side state (Next.js)**: `useSWR`, React Query, or Server Actions for fetching and caching server data efficiently.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 3.  ### When should you use Redux over Context API?
 
@@ -88,7 +88,7 @@ This comprehensive guide focuses on **React State Management interview questions
     - The application is small or medium-sized.
     - You only need to share simple state, such as theme, language, or user info.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 4.  ### What is the difference between Client State and Server State?
 
@@ -99,7 +99,7 @@ This comprehensive guide focuses on **React State Management interview questions
     | Short-lived (browser session)               | Persistent across sessions/users  |
     | Examples: form inputs, UI toggles           | Examples: user data, product list |
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 5.  ### Explain the Context API in React
 
@@ -111,7 +111,7 @@ This comprehensive guide focuses on **React State Management interview questions
     - Best for global values like theme, auth, language.
     - Often combined with `useState`/`useReducer` for updates.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 6.  ### What is the role of useReducer in state management?
 
@@ -122,7 +122,7 @@ This comprehensive guide focuses on **React State Management interview questions
     - Helps keep state updates predictable and organized.
     - Often used in forms, lists, or apps needing Redux-like patterns.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 7.  ### How do you handle persistent state in React apps?
 
@@ -134,7 +134,7 @@ This comprehensive guide focuses on **React State Management interview questions
     - **State management libraries**: Use Redux, Zustand, or Context API with persistence middleware.
     - **Cookies**: Suitable for small pieces of data, like authentication tokens.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 8.  ### What is the difference between derived state and computed state in React?
 
@@ -142,7 +142,7 @@ This comprehensive guide focuses on **React State Management interview questions
     - **Derived state**: State calculated from props or other state. Should be avoided if it can be computed during render.
     - **Computed state**: Calculated on the fly during render or using hooks like `useMemo`. Ensures data stays consistent without storing redundant state.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 9.  ### How can you optimize state updates for performance in React?
 
@@ -153,7 +153,7 @@ This comprehensive guide focuses on **React State Management interview questions
     - Avoid deep nested objects in state; normalize the data.
     - Use state management libraries efficiently (e.g., Redux selectors, Zustand slices).
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 10. ### How do you handle asynchronous state updates in React?
 
@@ -170,7 +170,7 @@ This comprehensive guide focuses on **React State Management interview questions
     * For multiple sequential updates, consider `useReducer` for predictable state transitions.
     * Use effects (`useEffect`) to react to changes in state asynchronously.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 ---
 

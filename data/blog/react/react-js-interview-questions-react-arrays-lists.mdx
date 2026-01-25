@@ -1,7 +1,7 @@
 ---
 title: "React Arrays & Lists Interview Questions 2026"
 date: "2026-01-11"
-lastmod: "2026-01-11"
+lastmod: "2026-01-25"
 tags:
   [
     "React",
@@ -68,7 +68,7 @@ This comprehensive guide focuses on **React Arrays & Lists interview questions**
 
     In this example, `.map()` is used to iterate over the array, and the `key` prop helps React identify each list item uniquely.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 2.  ### Why is the `key` prop important in React lists?
 
@@ -83,7 +83,7 @@ This comprehensive guide focuses on **React Arrays & Lists interview questions**
     }
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 3.  ### What happens if we use the array index as a key in React?
 
@@ -94,7 +94,7 @@ This comprehensive guide focuses on **React Arrays & Lists interview questions**
     - May lead to incorrect updates if items are added or removed
     - Safe only for static lists that never change
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 4.  ### How do you conditionally render list items in React?
 
@@ -116,7 +116,7 @@ This comprehensive guide focuses on **React Arrays & Lists interview questions**
     )
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 5.  ### How do you update or remove an item from a list in React state?
 
@@ -142,7 +142,7 @@ This comprehensive guide focuses on **React Arrays & Lists interview questions**
 
     In these examples, `.filter()` and `.map()` create new arrays without the removed item or with the updated item, and `setList` updates the state.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 6.  ### What are some performance tips when rendering large lists in React?
 
@@ -152,7 +152,7 @@ This comprehensive guide focuses on **React Arrays & Lists interview questions**
     - Memoize list items with `React.memo` to prevent unnecessary re-renders.
     - Implement pagination or lazy loading instead of rendering thousands of items at once.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 7.  ### How would you render a nested list in React?
 
@@ -182,7 +182,7 @@ This comprehensive guide focuses on **React Arrays & Lists interview questions**
 
     In this example, each level of data gets its own `.map()` loop, and both parent and child elements should have unique `key` props.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 8.  ### How do you handle dynamic addition of items in a list?
 
@@ -200,7 +200,7 @@ This comprehensive guide focuses on **React Arrays & Lists interview questions**
     - `[...list, item]` creates a new array with the existing items plus the new one.
     - Calling `setList` with this new array updates the state and triggers a re-render, showing the updated list in the UI.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 9.  ### How do you handle dynamic sorting or filtering of lists in React?
 
@@ -225,7 +225,7 @@ This comprehensive guide focuses on **React Arrays & Lists interview questions**
     - `sort` rearranges the array items; using `[...users]` ensures the original state is not mutated.
     - Updating state with the new array triggers a re-render, displaying the sorted or filtered list in the UI.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 10. ### What is the difference between rendering lists with map() vs forEach()?
 
@@ -249,7 +249,7 @@ This comprehensive guide focuses on **React Arrays & Lists interview questions**
     * `map` returns an array of `<li>` elements, which React renders.
     * Using `forEach` here would not work, because it does not return the array of elements.
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 ---
 

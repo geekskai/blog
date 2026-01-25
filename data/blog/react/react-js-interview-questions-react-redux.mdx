@@ -1,7 +1,7 @@
 ---
 title: "React Redux Interview Questions & Answers 2026"
 date: "2026-01-11"
-lastmod: "2026-01-11"
+lastmod: "2026-01-25"
 tags:
   [
     "React",
@@ -51,12 +51,12 @@ This comprehensive guide focuses on **React Redux interview questions** covering
 
 ## React Redux
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 1.  ### What is Redux?
     Redux is a predictable state container for JavaScript applications, most commonly used with React. It helps you manage and centralize your application’s state in a single source of truth, enabling easier debugging, testing, and maintenance—especially in large or complex applications. Redux core is tiny library(about 2.5kB gzipped) and has no dependencies.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 2.  ### What are the core principles of Redux?
 
@@ -89,7 +89,7 @@ This comprehensive guide focuses on **React Redux interview questions** covering
     }
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 3.  ### What are the downsides of Redux?
 
@@ -101,7 +101,7 @@ This comprehensive guide focuses on **React Redux interview questions** covering
     3.  **Limited static type integration**
         While Flux has mature support for static type checking with tools like Flow, Redux’s type integration is less seamless. Although TypeScript is commonly used with Redux now, early Flow support was limited, and more boilerplate was required for static type safety. This may affect teams that rely heavily on type systems for large codebases.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 4.  ### What is the difference between `mapStateToProps()` and `mapDispatchToProps()`?
 
@@ -137,13 +137,13 @@ This comprehensive guide focuses on **React Redux interview questions** covering
     }
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 5.  ### Can I dispatch an action in reducer?
 
     Dispatching an action within a reducer is an **anti-pattern**. Your reducer should be _without side effects_, simply digesting the action payload and returning a new state object. Adding listeners and dispatching actions within the reducer can lead to chained actions and other side effects.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 6.  ### How to access Redux store outside a component?
 
@@ -155,7 +155,7 @@ This comprehensive guide focuses on **React Redux interview questions** covering
     export default store
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 7.  ### What are the drawbacks of MVW pattern?
     1.  DOM manipulation is very expensive which causes applications to behave slow and inefficient.
@@ -163,7 +163,7 @@ This comprehensive guide focuses on **React Redux interview questions** covering
     3.  Lot of data changes happens for collaborative applications(like Google Docs).
     4.  No way to do undo (travel back in time) easily without adding so much extra code.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 8.  ### Are there any similarities between Redux and RxJS?
 
@@ -171,7 +171,7 @@ This comprehensive guide focuses on **React Redux interview questions** covering
 
     Redux is a tool for managing state throughout the application. It is usually used as an architecture for UIs. Think of it as an alternative to (half of) Angular. RxJS is a reactive programming library. It is usually used as a tool to accomplish asynchronous tasks in JavaScript. Think of it as an alternative to Promises. Redux uses the Reactive paradigm because the Store is reactive. The Store observes actions from a distance, and changes itself. RxJS also uses the Reactive paradigm, but instead of being an architecture, it gives you basic building blocks, Observables, to accomplish this pattern.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 9.  ### How to reset state in Redux?
 
@@ -213,7 +213,7 @@ This comprehensive guide focuses on **React Redux interview questions** covering
     }
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 10. ### What is the difference between React context and React Redux?
 
@@ -221,13 +221,13 @@ This comprehensive guide focuses on **React Redux interview questions** covering
 
     Whereas **Redux** is much more powerful and provides a large number of features that the Context API doesn't provide. Also, React Redux uses context internally but it doesn't expose this fact in the public API.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 11. ### Why are Redux state functions called reducers?
 
     Reducers always return the accumulation of the state (based on all previous and current actions). Therefore, they act as a reducer of state. Each time a Redux reducer is called, the state and action are passed as parameters. This state is then reduced (or accumulated) based on the action, and then the next state is returned. You could _reduce_ a collection of actions and an initial state (of the store) on which to perform these actions to get the resulting final state.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 12. ### How to make AJAX request in Redux?
 
@@ -255,13 +255,13 @@ This comprehensive guide focuses on **React Redux interview questions** covering
     }
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 13. ### Should I keep all component's state in Redux store?
 
     Keep your data in the Redux store, and the UI related state internally in the component.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 14. ### What is the proper way to access Redux store?
 
@@ -297,7 +297,7 @@ This comprehensive guide focuses on **React Redux interview questions** covering
     }
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 15. ### What is the difference between component and container in React Redux?
 
@@ -305,7 +305,7 @@ This comprehensive guide focuses on **React Redux interview questions** covering
 
     **Container** is an informal term for a component that is connected to a Redux store. Containers _subscribe_ to Redux state updates and _dispatch_ actions, and they usually don't render DOM elements; they delegate rendering to presentational child components.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 16. ### What is the purpose of the constants in Redux?
 
@@ -358,7 +358,7 @@ This comprehensive guide focuses on **React Redux interview questions** covering
         }
         ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 17. ### What are the different ways to write `mapDispatchToProps()`?
 
@@ -384,7 +384,7 @@ This comprehensive guide focuses on **React Redux interview questions** covering
 
     The third option is just a shorthand for the first one.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 18. ### What is the use of the `ownProps` parameter in `mapStateToProps()` and `mapDispatchToProps()`?
 
@@ -406,7 +406,7 @@ This comprehensive guide focuses on **React Redux interview questions** covering
 
     You can use this object to decide what to return from those functions.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 19. ### How to structure Redux top level directories?
 
@@ -419,7 +419,7 @@ This comprehensive guide focuses on **React Redux interview questions** covering
 
     This structure works well for small and medium size apps.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 20. ### What is redux-saga?
 
@@ -431,13 +431,13 @@ This comprehensive guide focuses on **React Redux interview questions** covering
     $ npm install --save redux-saga
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 21. ### What is the mental model of redux-saga?
 
     _Saga_ is like a separate thread in your application, that's solely responsible for side effects. `redux-saga` is a redux _middleware_, which means this thread can be started, paused and cancelled from the main application with normal Redux actions, it has access to the full Redux application state and it can dispatch Redux actions as well.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 22. ### What are the differences between `call()` and `put()` in redux-saga?
 
@@ -459,25 +459,25 @@ This comprehensive guide focuses on **React Redux interview questions** covering
     }
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 23. ### What is Redux Thunk?
 
     _Redux Thunk_ middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met. The inner function receives the store methods `dispatch()` and `getState()` as parameters.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 24. ### What are the differences between `redux-saga` and `redux-thunk`?
 
     Both _Redux Thunk_ and _Redux Saga_ take care of dealing with side effects. In most of the scenarios, Thunk uses _Promises_ to deal with them, whereas Saga uses _Generators_. Thunk is simple to use and Promises are familiar to many developers, Sagas/Generators are more powerful but you will need to learn them. But both middleware can coexist, so you can start with Thunks and introduce Sagas when/if you need them.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 25. ### What is Redux DevTools?
 
     _Redux DevTools_ is a live-editing time travel environment for Redux with hot reloading, action replay, and customizable UI. If you don't want to bother with installing Redux DevTools and integrating it into your project, consider using Redux DevTools Extension for Chrome and Firefox.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 26. ### What are the features of Redux DevTools?
 
@@ -488,7 +488,7 @@ This comprehensive guide focuses on **React Redux interview questions** covering
     4.  If the reducers throw, you will see during which action this happened, and what the error was.
     5.  With `persistState()` store enhancer, you can persist debug sessions across page reloads.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 27. ### What are Redux selectors and why use them?
 
@@ -504,13 +504,13 @@ This comprehensive guide focuses on **React Redux interview questions** covering
     1.  The selector can compute derived data, allowing Redux to store the minimal possible state
     2.  The selector is not recomputed unless one of its arguments changes
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 28. ### What is Redux Form?
 
     _Redux Form_ works with React and Redux to enable a form in React to use Redux to store all of its state. Redux Form can be used with raw HTML5 inputs, but it also works very well with common UI frameworks like Material UI, React Widgets and React Bootstrap.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 29. ### What are the main features of Redux Form?
 
@@ -519,7 +519,7 @@ This comprehensive guide focuses on **React Redux interview questions** covering
     2.  Validation (sync/async) and submission.
     3.  Formatting, parsing and normalization of field values.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 30. ### How to add multiple middlewares to Redux?
 
@@ -532,7 +532,7 @@ This comprehensive guide focuses on **React Redux interview questions** covering
     const createStoreWithMiddleware = applyMiddleware(ReduxThunk, logger)(createStore)
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 31. ### How to set initial state in Redux?
 
@@ -551,7 +551,7 @@ This comprehensive guide focuses on **React Redux interview questions** covering
     const store = createStore(rootReducer, initialState)
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 ---
 

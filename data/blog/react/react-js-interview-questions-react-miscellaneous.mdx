@@ -1,7 +1,7 @@
 ---
 title: "React Miscellaneous Interview Questions & Answers 2026"
 date: "2026-01-11"
-lastmod: "2026-01-11"
+lastmod: "2026-01-25"
 tags:
   [
     "React",
@@ -97,19 +97,16 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
     console.log(totalSelector(exampleState)) // { total: 2.322 }
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
 
 3.  ### Can Redux only be used with React?
 
     Redux can be used as a data store for any UI layer. The most common usage is with React and React Native, but there are bindings available for Angular, Angular 2, Vue, Mithril, and more. Redux simply provides a subscription mechanism which can be used by any other code.
 
-**[⬆ Back to Top](#table-of-contents)**
 
 4.  ### Do you need to have a particular build tool to use Redux?
 
     Redux is originally written in ES6 and transpiled for production into ES5 with Webpack and Babel. You should be able to use it regardless of your JavaScript build process. Redux also offers a UMD build that can be used directly without any build process at all.
 
-**[⬆ Back to Top](#table-of-contents)**
 
 5.  ### How Redux Form `initialValues` get updated from state?
 
@@ -124,7 +121,7 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
 
     If your `initialValues` prop gets updated, your form will update too.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 6.  ### How React PropTypes allow different types for one prop?
 
@@ -138,7 +135,7 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
     }
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 7.  ### Can I import an SVG file as react component?
 
@@ -157,13 +154,13 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
 
     **Note**: Don't forget about the curly braces in the import.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 8.  ### What is render hijacking in react?
 
     The concept of render hijacking is the ability to control what a component will output from another component. It means that you decorate your component by wrapping it into a Higher-Order component. By wrapping, you can inject additional props or make other changes, which can cause changing logic of rendering. It does not actually enable hijacking, but by using HOC you make your component behave differently.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 9.  ### How to pass numbers to React component?
 
@@ -191,7 +188,7 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
     export default ParentComponent
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 10. ### Do I need to keep all my state into Redux? Should I ever use react internal state?
 
@@ -204,7 +201,7 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
     4.  Is there value to you in being able to restore this state to a given point in time (ie, time travel debugging)?
     5.  Do you want to cache the data (i.e, use what's in state if it's already there instead of re-requesting it)?
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 11. ### What is the purpose of registerServiceWorker in React?
 
@@ -220,7 +217,7 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
     registerServiceWorker()
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 12. ### What is React memo function?
 
@@ -232,7 +229,7 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
     })
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 13. ### What is React lazy function?
 
@@ -253,7 +250,7 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
     **Note:**
     `React.lazy` and `Suspense` is not yet available for server-side rendering. If you want to do code-splitting in a server rendered app, we still recommend React Loadable.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 14. ### How to prevent unnecessary updates using setState?
 
@@ -274,7 +271,7 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
     }
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 15. ### What are hooks?
 
@@ -300,7 +297,7 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
 
     **Note:** Hooks can be used inside an existing function component without rewriting the component.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 16. ### What rules need to be followed for hooks?
 
@@ -411,7 +408,7 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
 
     In the above incorrect usage example, both `useState` and `useEffect` are used in non-React functions(`normalFunction` and `fetchData`), which is not allowed.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 17. ### How to ensure hooks followed the rules in your project?
 
@@ -451,7 +448,7 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
 
     **Note:** This plugin is intended to use in Create React App by default.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 18. ### What are the differences between Flux and Redux?
 
@@ -466,7 +463,7 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
     | It has a singleton dispatcher                  | There is no concept of dispatcher          |
     | React components subscribe to the store        | Container components uses connect function |
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 19. ### What are the benefits of React Router V4?
 
@@ -475,7 +472,7 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
     2.  You don't need to manually set history. The router module will take care history by wrapping routes with `<BrowserRouter>` component.
     3.  The application size is reduced by adding only the specific router module(Web, core, or native)
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 20. ### Can you describe about componentDidCatch lifecycle method signature?
 
@@ -489,7 +486,7 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
     componentDidCatch(error, info)
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 21. ### In which scenarios do error boundaries not catch errors?
 
@@ -499,14 +496,14 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
     3.  During Server side rendering
     4.  When errors thrown in the error boundary code itself
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 22. ### What is the proper placement for error boundaries?
     The granularity of error boundaries usage is up to the developer based on project needs. You can follow either of these approaches,
     1.  You can wrap top-level route components to display a generic error message for the entire application.
     2.  You can also wrap individual components in an error boundary to protect them from crashing the rest of the application.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 23. ### What is the benefit of component stack trace from error boundary?
 
@@ -516,7 +513,7 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
 
     ![stacktrace](images/error_boundary.png)
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 24. ### What are default props?
 
@@ -542,7 +539,7 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
     }
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 25. ### What is the purpose of displayName class property?
 
@@ -563,12 +560,12 @@ This comprehensive guide focuses on **React Miscellaneous interview questions** 
     }
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 26. ### What is the browser support for react applications?
     React supports all popular browsers, including Internet Explorer 9 and above, although some polyfills are required for older browsers such as IE 9 and IE 10. If you use **es5-shim and es5-sham** polyfill then it even support old browsers that doesn't support ES5 methods.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 27. ### What is code-splitting?
 
@@ -641,7 +638,7 @@ export default App
 
 </div>
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 28. ### What are Keyed Fragments?
 
@@ -665,7 +662,7 @@ export default App
 
     **Note:** key is the only attribute that can be passed to Fragment. In the future, there might be a support for additional attributes, such as event handlers.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 29. ### Does React support all HTML attributes?
 
@@ -681,7 +678,7 @@ export default App
 
     These props work similarly to the corresponding HTML attributes, with the exception of the special cases. It also support all SVG attributes.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 30. ### When component props defaults to true?
 
@@ -697,7 +694,7 @@ export default App
 
     **Note:** It is not recommended to use this approach because it can be confused with the ES6 object shorthand (example, `{name}` which is short for `{name: name}`)
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 31. ### What is NextJS and major features of it?
 
@@ -710,7 +707,7 @@ export default App
 1.  Able to implement with Express or any other Node.js HTTP server
 1.  Customizable with your own Babel and Webpack configurations
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 32. ### How do you pass an event handler to a component?
 
@@ -730,7 +727,7 @@ export default App
     }
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 33. ### How to prevent a function from being called multiple times?
 
@@ -740,7 +737,7 @@ export default App
 1.  **Debouncing:** Publish changes after a period of inactivity. For example, it can be used using \_.debounce lodash function
 1.  **RequestAnimationFrame throttling:** Changes based on requestAnimationFrame. For example, it can be used using raf-schd lodash function
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 34. ### How JSX prevents Injection Attacks?
 
@@ -755,7 +752,7 @@ export default App
 
     This way you can prevent XSS(Cross-site-scripting) attacks in the application.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 35. ### How do you update rendered elements?
 
@@ -777,7 +774,7 @@ export default App
     setInterval(tick, 1000)
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 36. ### How do you say that props are readonly?
 
@@ -793,7 +790,7 @@ export default App
 
     The above function is called “pure” because it does not attempt to change their inputs, and always return the same result for the same inputs. Hence, React has a single rule saying "All React components must act like pure functions with respect to their props."
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 37. ### What are the conditions to safely use the index as a key?
 
@@ -803,7 +800,7 @@ export default App
 1.  The items in the list have no ids
 1.  The list is never reordered or filtered.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 38. ### Should keys be globally unique?
 
@@ -837,7 +834,7 @@ export default App
     }
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 39. ### What is the popular choice for form handling?
 
@@ -851,7 +848,7 @@ export default App
 
     It is used to create a scalable, performant, form helper with a minimal API to solve annoying stuff.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 40. ### What are the advantages of formik over redux form library?
 
@@ -861,13 +858,13 @@ export default App
 1.  Redux-Form calls your entire top-level Redux reducer multiple times ON EVERY SINGLE KEYSTROKE. This way it increases input latency for large apps.
 1.  Redux-Form is 22.5 kB minified gzipped whereas Formik is 12.7 kB
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 41. ### Why are you not required to use inheritance?
     In React, it is recommended to use composition over inheritance to reuse code between components. Both Props and composition give you all the flexibility you need to customize a component’s look and behavior explicitly and safely.
     Whereas, If you want to reuse non-UI functionality between components, it is suggested to extract it into a separate JavaScript module. Later components import it and use that function, object, or class, without extending it.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 42. ### Can I use web components in react application?
 
@@ -887,7 +884,7 @@ export default App
     }
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 43. ### What is dynamic import?
 
@@ -910,7 +907,7 @@ export default App
     })
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 44. ### What are loadable components?
 
@@ -933,7 +930,7 @@ export default App
     Now OtherComponent will be loaded in a separated bundle
     Loadable Components provides additional benefits beyond just code-splitting, such as automatic code reloading, error handling, and preloading. By using Loadable Components, you can ensure that your application loads quickly and efficiently, providing a better user experience for your users.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 45. ### What is suspense component?
 
@@ -980,7 +977,7 @@ export default App
 
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 46. ### What is route based code splitting?
 
@@ -1009,7 +1006,7 @@ export default App
 
     In the above code, the code splitting will happen at each route level.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 47. ### What is the purpose of default value in context?
 
@@ -1021,7 +1018,7 @@ export default App
     const MyContext = React.createContext(defaultValue)
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 48. ### What is diffing algorithm?
 
@@ -1032,7 +1029,7 @@ export default App
 1.  Two elements of different types will produce different trees.
 1.  The developer can hint at which child elements may be stable across different renders with a key prop.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 49. ### What are the rules covered by diffing algorithm?
 
@@ -1084,7 +1081,7 @@ export default App
     </ul>
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 50. ### When do you need to use refs?
 
@@ -1094,7 +1091,7 @@ export default App
 1.  Triggering imperative animations.
 1.  Integrating with third-party DOM libraries.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 51. ### Must prop be named as render for render props?
 
@@ -1130,17 +1127,17 @@ export default App
     }
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 52. ### What are the problems of using render props with pure components?
     If you create a function inside a render method, it negates the purpose of pure component. Because the shallow prop comparison will always return false for new props, and each render in this case will generate a new value for the render prop. You can solve this issue by defining the render function as instance method.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 53. ### What is windowing technique?
     Windowing is a technique that only renders a small subset of your rows at any given time, and can dramatically reduce the time it takes to re-render the components as well as the number of DOM nodes created. If your application renders long lists of data then this technique is recommended. Both react-window and react-virtualized are popular windowing libraries which provides several reusable components for displaying lists, grids, and tabular data.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 54. ### How do you print falsy values in JSX?
 
@@ -1150,7 +1147,7 @@ export default App
     <div>My JavaScript variable is {String(myVariable)}.</div>
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 55. ### What is the typical use case of portals?
 
@@ -1160,7 +1157,7 @@ export default App
 
     That means, you need to visually “break out” of its container. By rendering these UI elements into a separate DOM node (often directly under `<body>`), portals ensure they appear above all other content and are not restricted by the parent’s CSS or layout constraints, resulting in correct positioning and visibility regardless of the parent’s styling.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 56. ### How do you set default value for uncontrolled component?
 
@@ -1185,13 +1182,13 @@ export default App
 
     The same applies for `select` and `textArea` inputs. But you need to use **defaultChecked** for `checkbox` and `radio` inputs.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 57. ### What is your favorite React stack?
     Even though the tech stack varies from developer to developer, the most popular stack is used in react boilerplate project code. It mainly uses Redux and redux-saga for state management and asynchronous side-effects, react-router for routing purpose, styled-components for styling react components, axios for invoking REST api, and other supported stack such as webpack, reselect, ESNext, Babel.
     You can clone the project https://github.com/react-boilerplate/react-boilerplate and start working on any new react project.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 58. ### What is the difference between Real DOM and Virtual DOM?
 
@@ -1205,7 +1202,7 @@ export default App
     | It causes too much of memory wastage | There is no memory wastage           |
     | Creates a new DOM if element updates | It updates the JSX if element update |
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 59. ### How to add Bootstrap to a react application?
 
@@ -1223,7 +1220,7 @@ export default App
     1. react-bootstrap
     2. reactstrap
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 60. ### Can you list down top websites or applications using react as front end framework?
 
@@ -1240,17 +1237,17 @@ export default App
 1.  Netflix
 1.  PayPal
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 61. ### Is it recommended to use CSS In JS technique in React?
     React does not have any opinion about how styles are defined but if you are a beginner then good starting point is to define your styles in a separate \*.css file as usual and refer to them using className. This functionality is not part of React but came from third-party libraries. But If you want to try a different approach(CSS-In-JS) then styled-components library is a good option.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 62. ### Do I need to rewrite all my class components with hooks?
     No. But you can try Hooks in a few components(or new components) without rewriting any existing code. Because there are no plans to remove classes in ReactJS.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 63. ### What is useEffect hook? How to fetch data with React Hooks?
 
@@ -1304,12 +1301,12 @@ export default App
 
     We provided an empty array as second argument to the useEffect hook to avoid activating it on component updates. This way, it only fetches on component mount.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 64. ### Is Hooks cover all use cases for classes?
     Hooks doesn't cover all use cases of classes but there is a plan to add them soon. Currently there are no Hook equivalents to the uncommon **getSnapshotBeforeUpdate** and **componentDidCatch** lifecycles yet.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 65. ### What is the stable release for hooks support?
 
@@ -1320,7 +1317,7 @@ export default App
 1.  React Test Renderer
 1.  React Shallow Renderer
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 66. ### Why do we use array destructuring (square brackets notation) in `useState`?
 
@@ -1340,7 +1337,7 @@ export default App
     const [user, setUser] = useState("userProfile")
     ```
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 67. ### What are the sources used for introducing hooks?
 
@@ -1352,12 +1349,12 @@ export default App
 71. Subscriptions in Rx.
 72. Reducer components in ReasonReact.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 68. ### How do you access imperative API of web components?
     Web Components often expose an imperative API to implement its functions. You will need to use a **ref** to interact with the DOM node directly if you want to access imperative API of a web component. But if you are using third-party Web Components, the best solution is to write a React component that behaves as a **wrapper** for your Web Component.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 69. ### What is formik?
 
@@ -1367,22 +1364,22 @@ export default App
 1.  Validation and error messages
 1.  Handling form submission
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 70. ### What are typical middleware choices for handling asynchronous calls in Redux?
     Some of the popular middleware choices for handling asynchronous calls in Redux eco system are `Redux Thunk, Redux Promise, Redux Saga`.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 71. ### Do browsers understand JSX code?
     No, browsers can't understand JSX code. You need a transpiler to convert your JSX to regular Javascript that browsers can understand. The most widely used transpiler right now is Babel.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 72. ### Describe about data flow in react?
     React implements one-way reactive data flow using props which reduce boilerplate and is easier to understand than traditional two-way data binding.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 73. ### What is MobX?
     MobX is a simple, scalable and battle tested state management solution for applying functional reactive programming (TFRP). For ReactJS application, you need to install below packages,
@@ -1391,7 +1388,7 @@ export default App
     npm install mobx-react --save
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 74. ### What are the differences between Redux and MobX?
 
@@ -1406,7 +1403,7 @@ export default App
     | Performance   | Need to be improved                                           | Provides better performance                                            |
     | How it stores | Uses JS Object to store                                       | Uses observable to store the data                                      |
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 75. ### Should I learn ES6 before learning ReactJS?
 
@@ -1443,7 +1440,7 @@ export default App
     const users = usersList.map((user) => <li>{user.name}</li>)
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 76. ### What is Concurrent Rendering?
 
@@ -1459,12 +1456,12 @@ export default App
     ReactDOM.unstable_createRoot(domNode).render(<App />)
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 77. ### What is the difference between async mode and concurrent mode?
     Both refers the same thing. Previously concurrent Mode being referred to as "Async Mode" by React team. The name has been changed to highlight React’s ability to perform work on different priority levels. So it avoids the confusion from other approaches to Async Rendering.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 78. ### Can I use javascript urls in react16.9?
 
@@ -1480,7 +1477,7 @@ export default App
 
     Remember that the future versions will throw an error for javascript URLs.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 79. ### What is the purpose of eslint plugin for hooks?
 
@@ -1489,7 +1486,7 @@ export default App
 1.  Calls to Hooks are either inside a PascalCase function (assumed to be a component) or another useSomething function (assumed to be a custom Hook).
 1.  Hooks are called in the same order on every render.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 80. ### What is the difference between Imperative and Declarative in React?
 
@@ -1523,7 +1520,7 @@ export default App
 
     Because the declarative approach separates concerns, this part of it only needs to handle how the UI should look in a specific state, and is therefore much simpler to understand.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 81. ### What are the benefits of using TypeScript with ReactJS?
 
@@ -1534,7 +1531,7 @@ export default App
 1.  IDEs such as VS Code was made for TypeScript
 1.  Avoid bugs with the ease of readability and Validation
 
-    **[⬆ Back to Top](#table-of-contents)**
+
 
 1.  ### How do you make sure that user remains authenticated on page refresh while using Context API State Management?
 
@@ -1606,7 +1603,7 @@ export default App
     }
     ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 83. ### What are the benefits of new JSX transform?
 
@@ -1616,7 +1613,7 @@ export default App
 1.  The compiled output might improve the bundle size in a small amount
 1.  The future improvements provides the flexibility to reduce the number of concepts to learn React.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 84. ### How is the new JSX transform different from old transform??
 
@@ -1666,7 +1663,7 @@ export default App
 
     **Note:** You still need to import React to use Hooks.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 85. ### What are React Server components?
 
@@ -1674,19 +1671,19 @@ export default App
 
     **Note:** React Server Components is still under development and not recommended for production yet.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 86. ### What is prop drilling?
     Prop Drilling is the process by which you pass data from one component of the React Component tree to another by going through other components that do not need the data but only help in passing it around.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 87. ### What is the difference between useState and useRef hook?
 1.  useState causes components to re-render after state updates whereas useRef doesn’t cause a component to re-render when the value or state changes.
     Essentially, useRef is like a “box” that can hold a mutable value in its (`.current`) property.
 1.  useState allows us to update the state inside components. While useRef allows referencing DOM elements and tracking values.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 88. ### What is a wrapper component?
 
@@ -1739,7 +1736,7 @@ export default App
 
     This way, the wrapper component can add additional functionality, styling, or layout to the wrapped component while keeping the wrapped component simple and reusable.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 89. ### What are the differences between useEffect and useLayoutEffect hooks?
 
@@ -1754,7 +1751,7 @@ export default App
 
     In general, it's recommended to use useEffect as much as possible, because it is more performant and less prone to errors. useLayoutEffect should only be used when you need to measure or update layout, and you can't achieve the same result using useEffect.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 90. ### What are the differences between Functional and Class Components?
 
@@ -1889,7 +1886,7 @@ function Parent() {
 }
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 91. ### What is strict mode in React?
 
@@ -1918,7 +1915,7 @@ In the example above, the _strict mode_ checks apply to `<ComponentOne>` and `<C
 
 **Note:** Frameworks such as NextJS has this flag enabled by default.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 92. ### What is the benefit of strict mode?
 
@@ -1932,7 +1929,7 @@ The `<StrictMode>` will be helpful in the below cases,
 236.  Detecting **legacy context** API.
 237.  Warning about deprecated **findDOMNode** usage
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 93. ### Why does strict mode render twice in React?
 
@@ -1962,7 +1959,7 @@ To detect side effects the following functions are invoked twice:
 1.  Class component static `getDerivedStateFromProps` method
 1.  State updater functions
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 94. ### What are the rules of JSX?
 
@@ -1979,14 +1976,14 @@ The below 3 rules needs to be followed while using JSX in a react application.
     It is suggested to use camelCase naming for attributes in JSX. For example, the common attributes of HTML elements such as `class`, `tabindex` will be used as `className` and `tabIndex`.
     **Note:** There is an exception for `aria-*` and `data-*` attributes which should be lower cased all the time.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 95. ### What is the reason behind multiple JSX tags to be wrapped?
 
 Behind the scenes, JSX is transformed into plain javascript objects. It is not possible to return two or more objects from a function without wrapping into an array. This is the reason you can't simply return two or more JSX tags from a function without
 wrapping them into a single parent tag or a Fragment.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 96. ### How do you prevent mutating array variables?
 
@@ -1995,7 +1992,7 @@ The preexisting variables outside of the function scope including state, props a
 1. You need to take copy of the original array and perform array operations on it for the rendering purpose. This is called local mutation.
 2. Avoid triggering mutation methods such as push, pop, sort and reverse methods on original array. It is safe to use filter, map and slice method because they create a new array.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 97. ### What are capture phase events?
 
@@ -2038,7 +2035,7 @@ root.render(<App />)
 
 1. **Commit changes to DOM:** After calling components, React will modify the DOM for initial render using `appendChild()` DOM API and apply minimal necessary DOM updates for re-renders based on differences between rerenders.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 99. ### How does React batch multiple state updates?
 
@@ -2074,7 +2071,7 @@ export default function BatchingState() {
 
 The preceding code updated two state variables with in an event handler. However, React will perform automatic batching feature and the component will be re-rendered only once for better performance.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 100.  ### Is it possible to prevent automatic batching?
 
@@ -2096,7 +2093,7 @@ const handleClick = () => {
 
 In the above click handler, React will update DOM at first using flushSync and second time updates DOM because of the counter setter function by avoiding automatic batching.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 101.  ### What is React hydration?
 
@@ -2145,7 +2142,7 @@ hydrateRoot(document.getElementById("root"), <App />)
 
 After this step, you are able to run React application on server-side and hydrating the javascript bundle on client-side for smooth user experience and SEO purposes.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 102.  ### How do you update objects inside state?
 
@@ -2212,7 +2209,7 @@ handleProfileChange(e) {
 
 The above event handler is concise instead of maintaining separate event handler for each field. Now, UI displays the updated field values as expected without an issue.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 103.  ### How do you update nested objects inside state?
 
@@ -2249,7 +2246,7 @@ setUser({
 
 This approach is bit verbose and not easy for deep hierarchical state updates. But this workaround can be used for few levels of nested objects without much hassle.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 104.  ### How do you update arrays inside state?
 
@@ -2279,7 +2276,7 @@ onClick = {
 }
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 105.  ### How do you use immer library for state updates?
 
@@ -2316,11 +2313,11 @@ setUser((draft) => {
 
 The preceding code enables you to update nested objects with a conceise mutation syntax.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 106.  ### What are the benefits of preventing the direct state mutations?
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 107.  ### What are the preferred and non-preferred array operations for updating the state?
 
@@ -2335,19 +2332,19 @@ The below table represent preferred and non-preferred array operations for updat
 
 If you use Immer library then you can able to use all array methods without any problem.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 108.  ### What will happen by defining nested function components?
 
 Technically it is possible to write nested function components but it is not suggested to write nested function definitions. Because it leads to unexpected bugs and performance issues.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 109.  ### Can I use keys for non-list items?
 
 Keys are primarily used for rendering list items but they are not just for list items. You can also use them React to distinguish components. By default, React uses order of the components in
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 110.  ### What are the guidelines to be followed for writing reducers?
 
@@ -2357,7 +2354,7 @@ There are two guidelines to be taken care while writing reducers in your code.
 
 1.  Each action should describe a single user interaction even though there are multiple changes applied to data. For example, if you "reset" registration form which has many user input fields managed by a reducer, it is suggested to send one "reset" action instead of creating separate action for each fields. The proper ordering of actions should reflect the user interactions in the browser and it helps a lot for debugging purpose.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 111.  ### How does ReactJS work behind the scenes?
 
@@ -2426,7 +2423,7 @@ React uses an internal **Scheduler** to control how updates are prioritized:
 - Non-urgent tasks (like data fetching) can be delayed or paused.
 - This improves responsiveness and allows for **time slicing** in Concurrent Mode.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 112.  ### How is `useReducer` Different from `useState`?
 
@@ -2439,7 +2436,7 @@ There are notable differences between `useState` and `useReducer` hooks.
 | Update logic          | In component                         | In reducer function                   |
 | Reusability & testing | Less reusable                        | Highly reusable & testable            |
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 113.  ### What is useContext? What are the steps to follow for useContext?
 
@@ -2489,7 +2486,7 @@ function MyComponent() {
 }
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 114.  ### What are the use cases of useContext hook?
 
@@ -2507,7 +2504,7 @@ The `useContext` hook in React is used to share data across components without h
     When combined with `useReducer`, `useContext` becomes a powerful tool for managing more complex global state logic. This pattern helps maintain cleaner, scalable state logic without introducing external libraries like Redux.
     Some of the common use cases of useContext are listed below,
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 115.  ### When to use client and server components?
 
@@ -2528,7 +2525,7 @@ You can efficiently build nextjs application if you are aware about which part o
 3. When you need to keep sensitive information((access tokens, API keys, etc) ) on the server.
 4. If you want reduce client-side JavaScript and placing large dependencies on the server.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 116.  ### What are the differences between page router and app router in nextjs?
 
@@ -2579,7 +2576,7 @@ app/
 
 **Note:** The App Router is recommended for new Next.js applications as it provides better performance, simpler data fetching patterns, and improved developer experience with React Server Components.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 117.  ### Can you describe the useMemo() Hook?
 
@@ -2653,12 +2650,12 @@ In the above example:
 - Pressing the "Increment Counter" button does not trigger the filtering logic again, as it's not a dependency.
 - The console will only log "Filtering users..." when the search term updates.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 118.  ### Can Hooks be used in class components?
       No, Hooks cannot be used inside class components. They are specially designed for function components. This is because hooks depend on the sequence in which they are called during a component’s render, something that's only guaranteed in functional components. However, both class and function components can coexist in the same application.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 119.  ### What is an updater function? Should an updater function be used in all cases?
 
@@ -2695,7 +2692,7 @@ In many cases, such as setting state based on user input or assigning static val
 setName("Sudheer")
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 120.  ### Can useState take a function as an initial value?
 
@@ -2723,7 +2720,7 @@ For example, the below usage is not recommended.
 const [count, setCount] = useState(expensiveComputation())
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 121.  ### What types of values can `useState` hold?
 
@@ -2743,7 +2740,7 @@ user.name = "Sudheer" //wrong way
 setUser((prev) => ({ ...prev, name: "Sudheer" })) //correct way
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 122.  ### What happens if you call `useState` conditionally?
 
@@ -2757,7 +2754,7 @@ if (someCondition) {
 
 React will throw a runtime error because it **relies on the order of Hook calls**, and conditional logic breaks that order.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 123.  ### Is useState Synchronous or Asynchronous?
 
@@ -2807,7 +2804,7 @@ React will throw a runtime error because it **relies on the order of Hook calls*
       }
       ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 124.  ### Can you explain how useState works internally?
 
@@ -2886,7 +2883,7 @@ function useState(initialValue) {
 }
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 125.  ### What is `useReducer`? Why do you use useReducer?
 
@@ -2914,7 +2911,7 @@ The `useReducer` hook is used when:
   - Shopping cart logic
   - Toggle & conditional UI logic
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 126.  ### How does `useReducer` works? Explain with an example
 
@@ -2969,7 +2966,7 @@ export default Counter
 
 Once the new state has been returned, React re-renders the component with the updated `state.count`.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 127.  ### Can you combine **useReducer** with **useContext**?
 
@@ -2984,7 +2981,7 @@ function AppProvider({ children }) {
 }
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 128.  ### Can you dispatch multiple actions in a row with useReducer?
 
@@ -3020,7 +3017,7 @@ Then dispatch
 dispatch({ type: "increment_twice" })
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 129.  ### How does useContext works? Explain with an example
 
@@ -3131,7 +3128,7 @@ function Dashboard() {
 export default Dashboard
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 130.  ### Can You Use Multiple Contexts in One Component?
 
@@ -3179,7 +3176,7 @@ function App() {
 export default App
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 131.  ### What's a common pitfall when using useContext with objects?
 
@@ -3224,7 +3221,7 @@ const contextValue = useMemo(() => ({ user, setUser, theme, setTheme }), [user, 
 
 However, this only helps if the object structure and dependencies are well controlled.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 132.  ### What would the context value be for no matching provider?
 
@@ -3254,7 +3251,7 @@ function Profile() {
 }
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 133.  ### How do reactive dependencies in the useEffect dependency array affect its execution behavior?
 
@@ -3300,7 +3297,7 @@ React uses shallow comparison of the dependencies. If any value has changed (!==
 
 **Note:** This hook works well when dependencies are primitives or memoized objects/functions.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 134.  ### When and how often does React invoke the setup and cleanup functions inside a useEffect hook?
 
@@ -3316,7 +3313,7 @@ The setup function (or the main function) you pass to `useEffect` runs at specif
 
 The cleanup function is called **before the effect is re-executed** and when the component **unmounts**.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 135.  ### What happens if you return a Promise from useEffect??
 
@@ -3344,7 +3341,7 @@ The cleanup function is called **before the effect is re-executed** and when the
       }, [])
       ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 136.  ### Can you have multiple useEffect hooks in a single component?
 
@@ -3362,7 +3359,7 @@ useEffect(() => {
 
 Each effect runs independently and helps make code modular and easier to debug.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 137.  ### How to prevent infinite loops with useEffect?
 
@@ -3386,7 +3383,7 @@ Each effect runs independently and helps make code modular and easier to debug.
       }, [count])
       ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 138.  ### What are the usecases of useLayoutEffect?
 
@@ -3408,7 +3405,7 @@ useLayoutEffect(() => {
 }, [])
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 139.  ### How does useLayoutEffect work during server-side rendering (SSR)?
 
@@ -3422,7 +3419,7 @@ const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffec
 
 i.e, Use `useIsomorphicLayoutEffect` in components that render both on client and server.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 140.  ### What happens if you use useLayoutEffect for non-layout logic?
 
@@ -3439,7 +3436,7 @@ useLayoutEffect(() => {
 
 The above usage delays the paint of the UI just to send a network request, which could (and should) be done after paint using useEffect.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 141.  ### How does useLayoutEffect cause layout thrashing?
 
@@ -3465,7 +3462,7 @@ In the above code, each read/write cycle triggers synchronous reflows, blocking 
 
 This issue can be avoided by batching your DOM reads and writes and prevent unnecessary reads after writes.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 142.  ### How Do You Use useRef to Access a DOM Element in React? Give an example.
 
@@ -3496,7 +3493,7 @@ function FocusInput() {
 
 **Note:** The DOM reference is only available **after the component has mounted** — typically accessed in `useEffect` or event handlers.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 143.  ### Can you use useRef to persist values across renders??
 
@@ -3516,7 +3513,7 @@ function FocusInput() {
       }
       ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 144.  ### Can useRef be used to store previous values?
 
@@ -3547,7 +3544,7 @@ function PreviousValueExample() {
 }
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 145.  ### Is it possible to access a ref in the render method?
 
@@ -3562,7 +3559,7 @@ console.log(divRef.current) // ❌ null on initial render
 return <div ref={divRef}>Hello</div>
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 146.  ### What are the common usecases of useRef hook?
       Some of the common cases are:
@@ -3573,7 +3570,7 @@ return <div ref={divRef}>Hello</div>
 - Control video/audio playback.
 - Integrate with non-React libraries (like D3 or jQuery).
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 147.  ### What is useImperativeHandle Hook? Give an example.
 
@@ -3631,7 +3628,7 @@ function Parent() {
 export default Parent
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 148.  ### When should you use useImperativeHandle?
 
@@ -3644,12 +3641,12 @@ The useImperativeHandler hook will be used in below cases:
 - You want to **hide internal implementation** but provide controlled external access.
 - You're building **reusable component libraries** (e.g., inputs, modals, form controls).
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 149.  ### Is that possible to use useImperativeHandle without forwardRef?
       **No.** `useImperativeHandle` only works when the component is wrapped in `forwardRef`. It's the combination that allows parent components to use a `ref` on a function component.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 150.  ### How is useMemo different from useCallback?
 
@@ -3667,7 +3664,7 @@ The following table compares both useMemo and useCallback:
 | **Returned Value Type** | Any (number, object, array, etc.)               | Always a function                               |
 | **Overhead**            | Slight (evaluates a function and caches result) | Slight (caches a function reference)            |
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 151.  ### Does useMemo prevent re-rendering of child components?
 
@@ -3675,7 +3672,7 @@ The `useMemo` hook **does not directly prevent re-rendering of child components*
 
 However, `useMemo` **can help prevent re-renders** when the memoized value is passed as a prop to a child component that is wrapped in `React.memo`. In that case, if the memoized value doesn’t change between renders (i.e., it has the same reference), React.memo can skip re-rendering the child. So, while `useMemo` doesn’t stop renders on its own, it **works in combination** with tools like `React.memo` to optimize rendering behavior.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 152.  ### What is `useCallback` and why is it used?
 
@@ -3691,7 +3688,7 @@ const handleClick = useCallback(() => {
 
 Without `useCallback`, a new function is created on every render, potentially causing child components to re-render unnecessarily.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 153.  ### What are Custom React Hooks, and How Can You Develop One?
 
@@ -3767,7 +3764,7 @@ Some of the benefits of custom hooks are:
 - Keeps components **clean and focused**
 - Makes complex logic **easier to test and maintain**
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 154.  ### How does React Fiber works? Explain in detail.
 
@@ -3815,7 +3812,7 @@ Each component in your app is represented by a **Fiber node** in a tree structur
 - React can prepare multiple versions of UI at once (e.g., during slow data loading).
 - Updates can be **assigned priorities**, so urgent updates (like clicks) are handled faster than background work.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 155.  ### What is the useId hook and when should you use it?
 
@@ -3858,7 +3855,7 @@ function EmailField() {
 
 **Note:** The IDs generated by `useId` contain colons (`:`) which may not work in CSS selectors. For multiple related IDs, you can use the same `id` as a prefix: `${id}-firstName`, `${id}-lastName`.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 156.  ### What is the useDeferredValue hook?
 
@@ -3908,7 +3905,7 @@ function SearchPage() {
 
 The input stays responsive while the expensive `SearchResults` component re-renders with a slight delay using the deferred value.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 157.  ### What is the useTransition hook and how does it differ from useDeferredValue?
 
@@ -3958,7 +3955,7 @@ function TabContainer() {
 | Returns       | `[isPending, startTransition]`    | Deferred value                                     |
 | Pending state | Built-in `isPending` flag         | Manual comparison needed                           |
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 158.  ### What is the useSyncExternalStore hook?
 
@@ -4004,7 +4001,7 @@ function StatusBar() {
 
 This hook ensures that when the external store changes, React re-renders consistently without tearing (showing inconsistent data).
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 159.  ### What is the useInsertionEffect hook?
 
@@ -4060,7 +4057,7 @@ return <button className="dynamic-btn">Click me</button>;
 
 **Note:** This hook is not intended for application code. It's specifically for CSS-in-JS libraries like styled-components or Emotion to prevent style flickering.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 160.  ### How do you share state logic between components using custom hooks?
 
@@ -4113,7 +4110,7 @@ function FontSizeSelector() {
 
 Both components use `useLocalStorage`, but each has **its own independent state** that persists to localStorage.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 161.  ### What is the useDebugValue hook?
 
@@ -4169,7 +4166,7 @@ function useUser(userId) {
 
 **Note:** Only use `useDebugValue` in custom hooks that are part of shared libraries. It's not necessary for every custom hook in application code.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 162.  ### How do you handle cleanup in useEffect?
 
@@ -4246,7 +4243,7 @@ useEffect(() => {
 - Before the component unmounts
 - Before re-running the effect when dependencies change
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 163.  ### What are the differences between useEffect and useEvent (experimental)?
 
@@ -4295,7 +4292,7 @@ function Timer({ onTick }) {
 
 **Note:** Until `useEvent` is stable, you can use `useCallback` with `useRef` as a workaround for stable callbacks.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 164.  ### What are the best practices for using React Hooks?
 
@@ -4390,7 +4387,7 @@ useEffect(() => {
 
 Always return a cleanup function when subscribing to events, timers, or external data sources.
 
-**[⬆ Back to Top](#table-of-contents)**
+
 
 ---
 
