@@ -120,7 +120,7 @@ const SSNGeneratorComponent = () => {
       {/* Single SSN Generator */}
       <div className="rounded-xl bg-slate-800 p-6 shadow-xl ring-1 ring-slate-700">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="text-lg font-semibold text-white">{t("generator_single_title")}</h3>
+          <h2 className="text-lg font-semibold text-white">{t("generator_single_title")}</h2>
           <button
             onClick={() => setState((prev) => ({ ...prev, showStructure: !prev.showStructure }))}
             className="flex items-center gap-2 rounded-lg bg-slate-700 px-3 py-1 text-sm text-slate-300 hover:bg-slate-600"
@@ -197,7 +197,7 @@ const SSNGeneratorComponent = () => {
 
       {/* Batch Generator */}
       <div className="rounded-xl bg-slate-800 p-6 shadow-xl ring-1 ring-slate-700">
-        <h3 className="mb-4 text-lg font-semibold text-white">{t("generator_batch_title")}</h3>
+        <h2 className="mb-4 text-lg font-semibold text-white">{t("generator_batch_title")}</h2>
 
         {/* Batch Settings */}
         <div className="mb-6 grid gap-4 md:grid-cols-3">
