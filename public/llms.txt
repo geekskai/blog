@@ -1,0 +1,68 @@
+# GeeksKai
+
+> GeeksKai is a production-ready Next.js blog template with a comprehensive collection of free online tools. Built with TypeScript, Tailwind CSS, and optimized for SEO and AI search engines. Features include MDX blog support, multi-language i18n, and 30+ utility tools including VIN decoder, SoundCloud converter, print test pages, and more.
+
+GeeksKai provides a modern, SEO-optimized blog platform combined with a suite of free online tools. The project emphasizes performance (85kB first load JS), accessibility, and AI-era search optimization through GEO (Generative Engine Optimization) techniques.
+
+Key technical features:
+- Next.js 14+ with React Server Components
+- Contentlayer for MDX content management
+- next-intl for internationalization (supports 10+ languages)
+- Tailwind CSS for styling
+- TypeScript throughout
+- Optimized for AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended)
+- Structured data (Schema.org) for enhanced search visibility
+
+## Core Documentation
+
+- [README](https://github.com/geekskai/blog/blob/main/README.md): Project overview, quick start guide, and deployment instructions
+- [AI SEO Complete Guide](https://github.com/geekskai/blog/blob/main/AI-SEO-Complete-Guide.md): Comprehensive guide to AI-era SEO, GEO optimization, and brand visibility strategies
+- [GEO Guide](https://github.com/geekskai/blog/blob/main/GEO.md): Chinese guide to Generative Engine Optimization principles and practices
+
+## Tools Documentation
+
+- [VIN Decoder PRD](https://github.com/geekskai/blog/blob/main/app/[locale]/tools/vin-decoder/VIN_Decoder-PRD.md): Product requirements and technical specifications for the VIN decoder tool
+- [Print Test Page PRD](https://github.com/geekskai/blog/blob/main/app/[locale]/tools/print-test-page/PRD.md): Requirements for the printer test page generator
+- [Snow Day Calculator PRD](https://github.com/geekskai/blog/blob/main/app/[locale]/tools/snow-day-calculator/PRD.md): Specifications for the snow day calculation tool
+- [Job Worth Calculator Attribution](https://github.com/geekskai/blog/blob/main/app/[locale]/tools/job-worth-calculator/ATTRIBUTION.md): Attribution and licensing information
+
+## Development Documentation
+
+- [Internationalization Guide](https://github.com/geekskai/blog/blob/main/docs/INTERNATIONALIZATION.md): How to add and manage translations
+- [SEO URL Optimization](https://github.com/geekskai/blog/blob/main/docs/SEO_URL_OPTIMIZATION.md): URL structure and SEO best practices
+- [Small Languages Guide](https://github.com/geekskai/blog/blob/main/docs/SMALL_LANGUAGES_GUIDE.md): Guidelines for supporting less common languages
+
+## API Endpoints
+
+- [VIN Decode API](https://geekskai.com/api/vin-decode): POST endpoint for decoding vehicle identification numbers
+- [Exchange Rate API](https://geekskai.com/api/exchange-rate): GET endpoint for currency exchange rates (GBP/NOK)
+- [Weather API](https://geekskai.com/api/weather): GET endpoint for weather data by city, coordinates, or ZIP code
+- [SoundCloud Info API](https://geekskai.com/api/soundcloud-info): POST endpoint for retrieving SoundCloud track information
+- [SoundCloud Download API](https://geekskai.com/api/download-soundcloud): POST endpoint for downloading SoundCloud tracks
+- [SoundCloud Playlist Downloader API](https://geekskai.com/api/soundcloud-playlist-downloader): POST endpoint for downloading entire playlists
+- [PERM Data API](https://geekskai.com/api/perm-data): GET endpoint for PERM processing time tracking data
+- [Cache Status API](https://geekskai.com/api/cache-status): GET endpoint for checking API cache status
+
+## Tool Implementation Guides
+
+- [SoundCloud to WAV SEO Implementation](https://github.com/geekskai/blog/blob/main/app/[locale]/tools/soundcloud-to-wav/SEO-IMPLEMENTATION-SUMMARY.md): SEO optimization details for the SoundCloud converter
+- [SoundCloud Playlist Downloader SEO](https://github.com/geekskai/blog/blob/main/app/[locale]/tools/soundcloud-playlist-downloader/SEO-IMPLEMENTATION-SUMMARY.md): SEO implementation for playlist downloader
+- [Print Test Page SEO](https://github.com/geekskai/blog/blob/main/app/[locale]/tools/print-test-page/SEO.md): SEO strategy for printer test pages
+- [VIN Decoder SEO](https://github.com/geekskai/blog/blob/main/app/[locale]/tools/vin-decoder/SEO.md): SEO optimization for VIN decoder tool
+
+## Popular Tools
+
+- [VIN Decoder](https://geekskai.com/tools/vin-decoder): Free vehicle identification number decoder with brand-specific pages
+- [SoundCloud to WAV Converter](https://geekskai.com/tools/soundcloud-to-wav): Download and convert SoundCloud tracks to WAV or MP3 format
+- [SoundCloud Playlist Downloader](https://geekskai.com/tools/soundcloud-playlist-downloader): Download entire SoundCloud playlists
+- [Print Test Page](https://geekskai.com/tools/print-test-page): Generate printer test pages (color, B&W, CMYK)
+- [Job Worth Calculator](https://geekskai.com/tools/job-worth-calculator): Evaluate job satisfaction and compensation value
+- [Snow Day Calculator](https://geekskai.com/tools/snow-day-calculator): Calculate probability of snow days for schools
+
+## Optional
+
+- [Random Number Generator README](https://github.com/geekskai/blog/blob/main/app/[locale]/tools/random-4-digit-number-generator/README.md): Documentation for random number generation tool
+- [PERM Processing Time Tracker README](https://github.com/geekskai/blog/blob/main/app/[locale]/tools/perm-processing-time-tracker/README.md): Guide for PERM processing time tracking tool
+- [Invincible Title Card Generator README](https://github.com/geekskai/blog/blob/main/app/[locale]/tools/invincible-title-card-generator/README.md): Documentation for title card generator
+- [Chivalry Test PRD](https://github.com/geekskai/blog/blob/main/app/[locale]/tools/chivalry-test/PRD.md): Product requirements for chivalry test tool
+- [Pund til NOK Kalkulator README](https://github.com/geekskai/blog/blob/main/app/[locale]/tools/pund-til-nok-kalkulator/README.md): Norwegian currency converter documentation
