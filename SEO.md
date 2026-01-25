@@ -886,14 +886,6 @@ export function trackRankings(keywords: string[]): Promise<RankingData[]> {
 - [ ] 建立主题覆盖，而非关键词堆砌
 - [ ] 长内容提供深度语义上下文
 
-### 技术SEO
-
-- [ ] TTFB < 200ms
-- [ ] 所有图片优化（WebP/AVIF）
-- [ ] 启用CDN和缓存
-- [ ] 预加载关键资源
-- [ ] 结构化数据准确且完整
-
 ### 内容新鲜度
 
 - [ ] 建立内容更新计划（30-90天周期）
@@ -917,22 +909,6 @@ export function trackRankings(keywords: string[]): Promise<RankingData[]> {
 - [ ] Organization Schema
 - [ ] 只添加准确的数据
 
-### 性能优化
-
-- [ ] LCP < 2.5s
-- [ ] FID < 100ms
-- [ ] CLS < 0.1
-- [ ] TTFB < 200ms
-- [ ] 代码分割和懒加载
-
-### 监控
-
-- [ ] 设置Google Search Console
-- [ ] 追踪AI搜索可见性
-- [ ] 监控内容新鲜度
-- [ ] 追踪排名变化
-- [ ] 分析用户行为
-
 ---
 
 ## 🎯 关键指标 (KPIs)
@@ -955,20 +931,6 @@ export function trackRankings(keywords: string[]): Promise<RankingData[]> {
 
 ---
 
-## 📚 参考资源
+## 参考资料
 
-- [Google Search Central](https://developers.google.com/search)
-- [Schema.org Documentation](https://schema.org/)
-- [Next.js SEO Guide](https://nextjs.org/learn/seo/introduction-to-seo)
-- [Web Vitals](https://web.dev/vitals/)
-
----
-
-## 🔄 更新日志
-
-- **2025-01**: 初始版本，基于CMSEO 2025最佳实践
-- 定期更新以反映最新的SEO趋势和AI搜索变化
-
----
-
-**记住**: SEO是一个工具，真正的目标是收入，而非流量。始终关注转化率和用户价值。
+1. https://www.promptmonitor.io/blog/how-to-get-brand-mentioned-in-ai?utm_source=blog&utm_medium=content&utm_campaign=blog_generative-engine-optimization&utm_content=related_reading

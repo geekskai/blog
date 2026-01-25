@@ -1,6 +1,6 @@
 ---
-description: AI/LLM search era SEO best practices - content chunking, freshness, brand signals, and information retrieval optimization
-globs: **/*.tsx,**/*.ts,**/*.mdx,**/*.md,next.config.js
+description: AI/LLM search era SEO best practices - GEO optimization, content chunking, freshness, brand visibility, AI crawler access, and information retrieval optimization
+globs: **/*.tsx,**/*.ts,**/*.mdx,**/*.md,next.config.js,robots.txt
 alwaysApply: false
 ---
 
@@ -15,6 +15,7 @@ alwaysApply: false
 3. **Topical Authority**: Build complete topic coverage and knowledge graphs
 4. **Brand Signals**: Entity signals matter more than "perfect content"
 5. **Fact Granularity**: AI cares more about fact granularity than complete pages
+6. **AI Crawler Access**: Unblock AI crawlers in robots.txt (critical first step)
 
 ---
 
@@ -345,13 +346,129 @@ export function generateToolSchema(tool: Tool) {
 
 ---
 
+## 🤖 AI Crawler Access (Critical First Step)
+
+### robots.txt Configuration
+
+**The #1 mistake**: Blocking AI crawlers then wondering why your site never gets mentioned.
+
+```txt
+# ✅ Allow all major AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+```
+
+**Common mistakes that block AI:**
+- Cloudflare's AI bot protection (check settings)
+- Password-protected content
+- JavaScript-heavy pages that don't render
+- Paywalls on valuable content
+
+---
+
+## ✍️ Content Writing Patterns for AI
+
+### Answer-First Structure (Wikipedia Principle)
+
+```markdown
+## Question as Heading (Exactly How Users Ask)
+
+Direct answer in first sentence. No buildup, no fluff.
+
+**Key points:**
+- Bullet point 1
+- Bullet point 2
+- Bullet point 3
+
+Details and context here if needed.
+
+**Quick takeaway:** One sentence summary.
+```
+
+**Example:**
+
+❌ **Bad**: "When it comes to email marketing, there are numerous factors to consider..."
+
+✅ **Good**: "The best email marketing tool for small businesses is ConvertKit - it's simple, affordable at $29/month, and includes automation features competitors charge extra for."
+
+### Quick Answer Box Template
+
+```tsx
+// Add at top of articles for 40% better AI extraction
+<div className="quick-answer-box">
+  <strong>Quick Answer:</strong> [Direct answer to main question]
+  <br />
+  <strong>Best for:</strong> [Target audience]
+  <br />
+  <strong>Cost:</strong> [Price range]
+  <br />
+  <strong>Key benefit:</strong> [Main advantage]
+</div>
+```
+
+### Citation Format (Increases Visibility by 40%)
+
+❌ **Wrong**: "Studies show this increases conversion"
+
+✅ **Right**: "[HubSpot's 2024 study](url) of 1,000 businesses found this increases conversion by 34%"
+
+**Citation requirements:**
+- Specific source name
+- Recent date (within 2 years)
+- Exact numbers
+- Clear attribution with link
+
+---
+
+## 📊 10 Proven Strategies Summary
+
+1. **Unblock AI crawlers** - Check robots.txt immediately
+2. **Test current visibility** - Use prompt templates weekly
+3. **Piggyback on cited sources** - Reach out to sites AI already uses
+4. **Create superior content** - Outrank competitors with depth
+5. **Build SEO foundation** - 50% of AI citations come from top 10 Google results
+6. **Answer-first structure** - Wikipedia principle, direct answers
+7. **Add citations** - Increases visibility by 40%
+8. **Dominate Reddit** - AI's opinion source
+9. **Create YouTube videos** - AI Overview king with transcripts
+10. **Strategic PR** - Build authority through media mentions
+
+---
+
 ## ✅ Implementation Checklist
+
+### Technical Setup (Do First)
+- [ ] Unblock AI crawlers in robots.txt (GPTBot, ClaudeBot, PerplexityBot, Google-Extended)
+- [ ] Check Cloudflare settings for AI bot blocking
+- [ ] Ensure JavaScript-heavy pages render properly
+- [ ] Remove paywalls from valuable content
 
 ### Content Optimization
 - [ ] Use `<strong>` tags to highlight all key facts
 - [ ] Chunk content for easy AI extraction
 - [ ] Provide core facts: pricing, features, positioning, target users
 - [ ] Build topical coverage with deep semantic context
+- [ ] Use answer-first structure (Wikipedia principle)
+- [ ] Add Quick Answer boxes at top of articles
+- [ ] Include citations with specific sources, dates, and numbers
 
 ### Technical SEO
 - [ ] TTFB < 200ms
@@ -359,17 +476,22 @@ export function generateToolSchema(tool: Tool) {
 - [ ] Enable CDN and caching
 - [ ] Preload critical resources
 - [ ] Structured data is accurate and complete
+- [ ] Add FAQ Schema where applicable
 
 ### Content Freshness
 - [ ] Establish content update schedule (30-90 day cycle)
 - [ ] Mark last update date in metadata
 - [ ] Automatically detect stale content
+- [ ] Display freshness badges to users
 
-### Brand Building
+### Brand Building & AI Visibility
 - [ ] Add Organization Schema
 - [ ] Provide real founder information
 - [ ] Add contact information (email, address)
+- [ ] Test AI visibility with prompt templates weekly
+- [ ] Build presence on Reddit (relevant subreddits)
+- [ ] Create YouTube videos with transcripts and timestamps
 
 ---
 
-**Remember**: SEO is a tool, the real goal is revenue, not traffic. Always focus on conversion rate and user value.
+**Remember**: SEO is a tool, the real goal is revenue, not traffic. Always focus on conversion rate and user value. For complete details, see [AI-SEO-Complete-Guide.md](../../AI-SEO-Complete-Guide.md).
