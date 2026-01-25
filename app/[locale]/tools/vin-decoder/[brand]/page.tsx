@@ -2,7 +2,6 @@ import React from "react"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { getTranslations } from "next-intl/server"
-import Script from "next/script"
 import { supportedLocales } from "app/i18n/routing"
 import { getBrandWithTranslations, SUPPORTED_BRAND_SLUGS } from "../types"
 import VinDecoderClient from "./VinDecoderClient"
@@ -53,6 +52,9 @@ export async function generateMetadata({ params }: BrandPageProps): Promise<Meta
     brand: brand.name,
     brandDescription: brand.description,
   })
+
+  // Content freshness metadata - Update this monthly
+  const lastModified = new Date("2026-01-25")
 
   return {
     title,
@@ -106,6 +108,11 @@ export async function generateMetadata({ params }: BrandPageProps): Promise<Meta
         "max-snippet": -1,
       },
     },
+    other: {
+      "last-modified": lastModified.toISOString(),
+      "update-frequency": "monthly",
+      "next-review": new Date(lastModified.getTime() + 30 * 24 * 60 * 60 * 1000).toISOString(),
+    },
   }
 }
 
@@ -125,8 +132,11 @@ export default async function BrandVinDecoderPage({ params }: BrandPageProps) {
   const baseUrl = isDefaultLocale ? "https://geekskai.com" : `https://geekskai.com/${locale}`
   const pageUrl = `${baseUrl}/tools/vin-decoder/${brand.slug}`
 
-  // WebApplication structured data for brand-specific page
-  const structuredData = {
+  // Content freshness metadata - Update this monthly
+  const lastModified = new Date("2026-01-25")
+
+  // WebApplication Schema - Enhanced for AI SEO
+  const webApplicationSchema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name: `${brand.name} VIN Decoder`,
@@ -139,6 +149,16 @@ export default async function BrandVinDecoderPage({ params }: BrandPageProps) {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+    },
+    provider: {
+      "@type": "Organization",
+      name: "GeeksKai",
+      url: "https://geekskai.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://geekskai.com/static/logo.png",
+      },
     },
     featureList: [
       `Instant ${brand.name} VIN decoding`,
@@ -150,11 +170,10 @@ export default async function BrandVinDecoderPage({ params }: BrandPageProps) {
       "No registration required",
       "Free forever",
     ],
-    creator: {
-      "@type": "Organization",
-      name: "GeeksKai",
-      url: "https://geekskai.com",
-    },
+    browserRequirements: "Requires JavaScript. Requires HTML5.",
+    softwareVersion: "1.0",
+    datePublished: "2025-01-01",
+    dateModified: lastModified.toISOString().split("T")[0],
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
@@ -204,7 +223,7 @@ export default async function BrandVinDecoderPage({ params }: BrandPageProps) {
     ],
   }
 
-  // Breadcrumb structured data
+  // Breadcrumb structured data - Enhanced for AI SEO
   const breadcrumbStructuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -236,6 +255,26 @@ export default async function BrandVinDecoderPage({ params }: BrandPageProps) {
     ],
   }
 
+  // Organization Schema - Enhanced entity signals
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "GeeksKai",
+    url: "https://geekskai.com",
+    logo: "https://geekskai.com/static/logo.png",
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: "geeks.kai@gmail.com",
+    },
+    sameAs: [
+      "https://twitter.com/GeeksKai",
+      "https://github.com/geekskai",
+      "https://www.facebook.com/geekskai",
+      "https://www.linkedin.com/in/geekskai",
+    ],
+  }
+
   // Product structured data for better search visibility
   const productStructuredData = {
     "@context": "https://schema.org",
@@ -262,28 +301,28 @@ export default async function BrandVinDecoderPage({ params }: BrandPageProps) {
   }
 
   return (
-    <>
-      <Script
-        id="brand-structured-data"
+    <div className="min-h-screen">
+      <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
       />
-      <Script
-        id="brand-faq-structured-data"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
       />
-      <Script
-        id="brand-breadcrumb-structured-data"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
       />
-      <Script
-        id="brand-product-structured-data"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productStructuredData) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
       <VinDecoderClient brand={brand} />
-    </>
+    </div>
   )
 }
