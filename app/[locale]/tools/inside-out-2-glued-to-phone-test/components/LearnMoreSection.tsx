@@ -25,17 +25,13 @@ export const LearnMoreSection: React.FC<LearnMoreSectionProps> = ({ onStart }) =
               <h4 className="mb-2 font-semibold text-blue-300">
                 {t("learn_more_section_1_feature_1_title")}
               </h4>
-              <p className="text-sm text-slate-400">
-                {t("learn_more_section_1_feature_1_desc")}
-              </p>
+              <p className="text-sm text-slate-400">{t("learn_more_section_1_feature_1_desc")}</p>
             </div>
             <div className="rounded-lg bg-purple-500/10 p-4">
               <h4 className="mb-2 font-semibold text-purple-300">
                 {t("learn_more_section_1_feature_2_title")}
               </h4>
-              <p className="text-sm text-slate-400">
-                {t("learn_more_section_1_feature_2_desc")}
-              </p>
+              <p className="text-sm text-slate-400">{t("learn_more_section_1_feature_2_desc")}</p>
             </div>
           </div>
         </div>
@@ -110,9 +106,7 @@ export const LearnMoreSection: React.FC<LearnMoreSectionProps> = ({ onStart }) =
               </ul>
             </div>
             <div className="space-y-3">
-              <h4 className="font-semibold text-white">
-                {t("learn_more_section_3_action_title")}
-              </h4>
+              <h4 className="font-semibold text-white">{t("learn_more_section_3_action_title")}</h4>
               <ul className="space-y-2 text-sm text-slate-300">
                 <li>• {t("learn_more_section_3_action_1")}</li>
                 <li>• {t("learn_more_section_3_action_2")}</li>
