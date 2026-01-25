@@ -136,9 +136,7 @@ export const SEOContent: React.FC = () => {
       <div className="mt-20 space-y-16">
         {/* What is Phone Addiction Section */}
         <section className="rounded-xl bg-gradient-to-r from-blue-800 to-indigo-700 p-8">
-          <h2 className="mb-6 text-2xl font-bold text-white">
-            {t("page_phone_addiction_title")}
-          </h2>
+          <h2 className="mb-6 text-2xl font-bold text-white">{t("page_phone_addiction_title")}</h2>
           <div className="grid gap-6 md:grid-cols-2">
             <div>
               <p className="mb-4 text-slate-200">
@@ -314,8 +312,6 @@ export const SEOContent: React.FC = () => {
           </div>
         </section>
       </div>
-
-
 
       {/* Related Tools Section - Internal Linking */}
       <section className="mt-20 rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900/50 to-slate-800/50 p-8 backdrop-blur-xl">
