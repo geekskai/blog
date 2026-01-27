@@ -4726,6 +4726,11 @@
     "q_knight_15_d": "완전히 피한다"
   },
   "SoundCloudToWAV": {
+    "section_how_to_step_1_title": "1단계: SoundCloud URL 복사",
+    "section_how_to_step_2_title": "2단계: URL 붙여넣기",
+    "section_how_to_step_3_title": "3단계: 트랙 정보 가져오기",
+    "section_how_to_step_4_title": "4단계: 형식 선택",
+    "section_how_to_step_5_title": "5단계: 오디오 다운로드",
     "error_playlist_url": "당신이 입력한 것은 플레이리스트 URL입니다. 이 도구는 단일 트랙 다운로드만 지원합니다.",
     "error_playlist_url_link": "SoundCloud 플레이리스트 다운로더 사용해보기",
     "metadata_title": "SoundCloud WAV 변환기 - 무료 온라인 도구 | SoundCloud 트랙 다운로드",
@@ -5032,6 +5037,10 @@
     "use_cases_technicians_description": "프린터 문제 진단, 수리 후 기능 테스트, 프린터 설정 및 구성 확인에 사용됩니다."
   },
   "SoundCloudPlaylistDownloader": {
+    "section_how_to_step_1_title": "1단계: 플레이리스트 URL 복사",
+    "section_how_to_step_2_title": "2단계: URL 붙여넣기",
+    "section_how_to_step_3_title": "3단계: 불러오기 및 형식 선택",
+    "section_how_to_step_4_title": "4단계: 플레이리스트 다운로드",
     "metadata_title": "SoundCloud 플레이리스트 다운로더 – 무료 온라인 도구 | 전체 플레이리스트 다운로드",
     "metadata_description": "무료 SoundCloud 플레이리스트 다운로더. SoundCloud 전체 플레이리스트를 MP3 또는 WAV 형식으로 다운로드하세요. 빠르고 무제한이며 회원가입이 필요 없습니다. 모든 SoundCloud 플레이리스트의 트랙을 일괄 다운로드할 수 있습니다.",
     "metadata_keywords": "soundcloud playlist downloader, download soundcloud playlist, soundcloud playlist mp3, soundcloud playlist wav, soundcloud 일괄 다운로드, soundcloud playlist converter, 무료 soundcloud playlist downloader, soundcloud 플레이리스트 다운로드, soundcloud 플레이리스트 다운로드 도구",
@@ -5080,7 +5089,7 @@
     "content_freshness_last_updated": "마지막 업데이트",
     "related_tool_text": "단일 트랙을 다운로드하고 싶으신가요?",
     "related_tool_link": "SoundCloud MP3/WAV 변환기 사용해 보기",
-    "form_title": "SoundCloud 플레이리스트 다운로더",
+    "form_title": "SoundCloud 플레이리스트 다운로드 (MP3 또는 WAV)",
     "form_label_playlist_url": "플레이리스트 URL",
     "form_button_fetch": "플레이리스트 가져오기",
     "form_button_loading": "플레이리스트 불러오는 중...",

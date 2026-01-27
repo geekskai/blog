@@ -4518,6 +4518,11 @@
     "q_knight_15_d": "Undgår det helt"
   },
   "SoundCloudToWAV": {
+    "section_how_to_step_1_title": "Trin 1: Kopiér SoundCloud-URL'en",
+    "section_how_to_step_2_title": "Trin 2: Indsæt URL'en",
+    "section_how_to_step_3_title": "Trin 3: Hent sporinformation",
+    "section_how_to_step_4_title": "Trin 4: Vælg format",
+    "section_how_to_step_5_title": "Trin 5: Download lyd",
     "metadata_title": "SoundCloud til WAV Konverter - Gratis Online Værktøj | Download SoundCloud-numre",
     "metadata_description": "Gratis SoundCloud til WAV-konverter. Download SoundCloud-numre som WAV- eller MP3-filer med det samme. Ingen registrering påkrævet. Højkvalitets lydkonvertering på under 30 sekunder.",
     "metadata_keywords": "soundcloud til wav, soundcloud downloader, soundcloud til wav konverter, download soundcloud wav, soundcloud wav konverter, soundcloud til mp3, gratis soundcloud downloader, konverter soundcloud til wav, soundcloud audio downloader",
@@ -4809,6 +4814,10 @@
     "use_cases_technicians_description": "Diagnosticér printerproblemer, test printerfunktionalitet efter reparationer og verificer printeropsætning og -konfiguration."
   },
   "SoundCloudPlaylistDownloader": {
+    "section_how_to_step_1_title": "Trin 1: Kopiér playlist-URL'en",
+    "section_how_to_step_2_title": "Trin 2: Indsæt URL'en",
+    "section_how_to_step_3_title": "Trin 3: Hent og vælg format",
+    "section_how_to_step_4_title": "Trin 4: Download din playliste",
     "metadata_title": "SoundCloud Playlist Downloader – Gratis onlineværktøj | Download hele playlister",
     "metadata_description": "Gratis SoundCloud-playlist-downloader. Download hele SoundCloud-playlister i MP3- eller WAV-format. Hurtig, ubegrænset og uden krav om registrering. Batch-download alle numre fra enhver SoundCloud-playlist.",
     "metadata_keywords": "soundcloud playlist downloader, download soundcloud playlist, soundcloud playlist til mp3, soundcloud playlist til wav, batch download soundcloud, soundcloud playlist converter, gratis soundcloud playlist downloader, download hele soundcloud playlist, soundcloud playlist download værktøj",
@@ -4857,7 +4866,7 @@
     "content_freshness_last_updated": "Sidst opdateret",
     "related_tool_text": "Har du brug for at downloade et enkelt nummer?",
     "related_tool_link": "Prøv SoundCloud til MP3/WAV-konverter",
-    "form_title": "SoundCloud Playlist Downloader",
+    "form_title": "Download SoundCloud-playlister (MP3 eller WAV)",
     "form_label_playlist_url": "Playlist-URL",
     "form_button_fetch": "Hent playlist",
     "form_button_loading": "Indlæser playlist...",

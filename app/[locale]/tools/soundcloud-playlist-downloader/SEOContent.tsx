@@ -112,9 +112,7 @@ export function HowToSection() {
           <div className="space-y-8">
             <div>
               <h3 className="mb-4 text-xl font-bold text-white">
-                {t.rich("section_how_to_step_1_title", {
-                  default: () => "Step 1: Copy the Playlist URL",
-                })}
+                {t("section_how_to_step_1_title")}
               </h3>
               <p className="text-lg text-slate-300">
                 {t.rich("section_how_to_step_1", {
@@ -124,9 +122,7 @@ export function HowToSection() {
             </div>
             <div>
               <h3 className="mb-4 text-xl font-bold text-white">
-                {t.rich("section_how_to_step_2_title", {
-                  default: () => "Step 2: Paste the Link",
-                })}
+                {t("section_how_to_step_2_title")}
               </h3>
               <p className="text-lg text-slate-300">
                 {t.rich("section_how_to_step_2", {
@@ -136,9 +132,7 @@ export function HowToSection() {
             </div>
             <div>
               <h3 className="mb-4 text-xl font-bold text-white">
-                {t.rich("section_how_to_step_3_title", {
-                  default: () => "Step 3: Fetch and Choose Format",
-                })}
+                {t("section_how_to_step_3_title")}
               </h3>
               <p className="text-lg text-slate-300">
                 {t.rich("section_how_to_step_3", {
@@ -153,9 +147,7 @@ export function HowToSection() {
             </div>
             <div>
               <h3 className="mb-4 text-xl font-bold text-white">
-                {t.rich("section_how_to_step_5_title", {
-                  default: () => "Step 4: Download Your Playlist",
-                })}
+                {t("section_how_to_step_5_title")}
               </h3>
               <p className="text-lg text-slate-300">
                 {t.rich("section_how_to_step_5", {

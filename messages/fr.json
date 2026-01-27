@@ -5017,6 +5017,11 @@
     "q_knight_15_d": "Évitez‑le entièrement"
   },
   "SoundCloudToWAV": {
+    "section_how_to_step_1_title": "Étape 1 : Copier l’URL SoundCloud",
+    "section_how_to_step_2_title": "Étape 2 : Coller l’URL",
+    "section_how_to_step_3_title": "Étape 3 : Obtenir les informations du titre",
+    "section_how_to_step_4_title": "Étape 4 : Sélectionner le format",
+    "section_how_to_step_5_title": "Étape 5 : Télécharger l’audio",
     "error_playlist_url": "Vous avez entré une URL de playlist. Cet outil ne prend en charge que le téléchargement d'une piste à la fois.",
     "error_playlist_url_link": "Essayer le téléchargeur de playlist SoundCloud",
     "metadata_title": "Convertisseur SoundCloud vers WAV - Outil en ligne gratuit | Télécharger des pistes SoundCloud",
@@ -5306,6 +5311,10 @@
     "use_cases_technicians_description": "Diagnostiquez les problèmes d'imprimante, testez la fonctionnalité de l'imprimante après les réparations, vérifiez la configuration de l'imprimante."
   },
   "SoundCloudPlaylistDownloader": {
+    "section_how_to_step_1_title": "Étape 1 : Copier l’URL de la playlist",
+    "section_how_to_step_2_title": "Étape 2 : Coller l’URL",
+    "section_how_to_step_3_title": "Étape 3 : Récupérer et choisir le format",
+    "section_how_to_step_4_title": "Étape 4 : Télécharger votre playlist",
     "metadata_title": "Téléchargeur de playlists SoundCloud - Outil en ligne gratuit | Télécharger des playlists complètes",
     "metadata_description": "Téléchargeur de playlists SoundCloud gratuit. Téléchargez des playlists SoundCloud complètes au format MP3 ou WAV. Rapide, illimité et sans inscription. Téléchargez en lot tous les morceaux de n'importe quelle playlist SoundCloud.",
     "metadata_keywords": "téléchargeur de playlists soundcloud, télécharger playlist soundcloud, playlist soundcloud en mp3, playlist soundcloud en wav, téléchargement groupé soundcloud, convertisseur de playlist soundcloud, téléchargeur de playlist soundcloud gratuit, télécharger playlist soundcloud entière, outil de téléchargement de playlist soundcloud",
@@ -5352,9 +5361,9 @@
     "page_subtitle": "Téléchargez des playlists SoundCloud complètes au format <mp3>MP3</mp3> ou <wav>WAV</wav>. <free>Gratuit</free>, <fast>rapide</fast> et <no_registration>sans inscription</no_registration>.",
     "content_freshness_updated": "Mis à jour",
     "content_freshness_last_updated": "Dernière mise à jour",
-    "related_tool_text": "Besoin de télécharger un seul morceau ?",
+    "related_tool_text": "Besoin de télécharger un seul morceau ?",
     "related_tool_link": "Essayez le convertisseur SoundCloud en MP3/WAV",
-    "form_title": "Téléchargeur de playlists SoundCloud",
+    "form_title": "Télécharger des playlists SoundCloud (MP3 ou WAV)",
     "form_label_playlist_url": "URL de la playlist",
     "form_button_fetch": "Récupérer la playlist",
     "form_button_loading": "Chargement de la playlist...",

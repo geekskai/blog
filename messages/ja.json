@@ -4899,6 +4899,11 @@
     "q_knight_15_d": "完全に避ける"
   },
   "SoundCloudToWAV": {
+    "section_how_to_step_1_title": "ステップ1：SoundCloudのURLをコピー",
+  "section_how_to_step_2_title": "ステップ2：URLを貼り付け",
+  "section_how_to_step_3_title": "ステップ3：トラック情報を取得",
+  "section_how_to_step_4_title": "ステップ4：形式を選択",
+  "section_how_to_step_5_title": "ステップ5：音声をダウンロード",
     "error_playlist_url": "あなたが入力したのはプレイリスト URL です。このツールは単一トラックのダウンロードのみをサポートしています。",
     "error_playlist_url_link": "SoundCloud プレイリストダウンローダーを試す",
     "metadata_title": "SoundCloud WAV 変換ツール - 無料オンライン | SoundCloud トラックをダウンロード",
@@ -5203,6 +5208,10 @@
     "use_cases_technicians_description": "プリンターの問題診断、修理後の動作テスト、プリンターのセットアップや設定確認に。"
   },
   "SoundCloudPlaylistDownloader": {
+    "section_how_to_step_1_title": "ステップ1：プレイリストのURLをコピー",
+  "section_how_to_step_2_title": "ステップ2：URLを貼り付け",
+  "section_how_to_step_3_title": "ステップ3：取得して形式を選択",
+  "section_how_to_step_4_title": "ステップ4：プレイリストをダウンロード",
     "metadata_title": "SoundCloud プレイリストダウンローダー – 無料オンラインツール | プレイリストを一括ダウンロード",
     "metadata_description": "無料の SoundCloud プレイリストダウンローダー。SoundCloud のプレイリスト全体を MP3 または WAV 形式でダウンロードできます。高速・無制限・登録不要。任意の SoundCloud プレイリストからすべてのトラックを一括ダウンロード可能。",
     "metadata_keywords": "soundcloud playlist downloader, download soundcloud playlist, soundcloud playlist mp3, soundcloud playlist wav, soundcloud 一括ダウンロード, soundcloud playlist converter, 無料 soundcloud playlist downloader, soundcloud プレイリスト ダウンロード, soundcloud プレイリスト ダウンロード ツール",
@@ -5251,7 +5260,7 @@
     "content_freshness_last_updated": "最終更新",
     "related_tool_text": "単一のトラックをダウンロードしたいですか？",
     "related_tool_link": "SoundCloud MP3/WAV 変換ツールを試す",
-    "form_title": "SoundCloud プレイリストダウンローダー",
+    "form_title": "SoundCloud プレイリストをダウンロード (MP3 または WAV)",
     "form_label_playlist_url": "プレイリスト URL",
     "form_button_fetch": "プレイリストを取得",
     "form_button_loading": "プレイリストを読み込み中...",

@@ -4896,6 +4896,11 @@
     "q_knight_15_d": "完全回避"
   },
   "SoundCloudToWAV": {
+    "section_how_to_step_1_title": "步骤 1：复制 SoundCloud 链接",
+    "section_how_to_step_2_title": "步骤 2：粘贴链接",
+    "section_how_to_step_3_title": "步骤 3：获取音轨信息",
+    "section_how_to_step_4_title": "步骤 4：选择格式",
+    "section_how_to_step_5_title": "步骤 5：下载音频",
     "error_playlist_url": "检测到您输入的是一个播放列表URL，当前工具仅支持单个音轨下载。",
     "error_playlist_url_link": "你可以点击这里，前往下载整个播放列表页面进行下载",
     "metadata_title": "SoundCloud 转 WAV 转换器 – 免费在线工具 | 下载 SoundCloud 音轨",
@@ -5200,6 +5205,10 @@
     "use_cases_technicians_description": "用于诊断打印机故障、维修后的功能测试，以及验证打印机的安装和配置。"
   },
   "SoundCloudPlaylistDownloader": {
+    "section_how_to_step_1_title": "步骤 1：复制播放列表链接",
+    "section_how_to_step_2_title": "步骤 2：粘贴链接",
+    "section_how_to_step_3_title": "步骤 3：获取并选择格式",
+    "section_how_to_step_4_title": "步骤 4：下载你的播放列表",
     "metadata_title": "SoundCloud 播放列表下载器 - 免费在线工具 | 下载完整播放列表",
     "metadata_description": "免费 SoundCloud 播放列表下载器。支持将整个 SoundCloud 播放列表下载为 MP3 或 WAV 格式。速度快、无限制、无需注册。一键批量下载任意 SoundCloud 播放列表中的所有曲目。",
     "metadata_keywords": "soundcloud 播放列表下载器, 下载 soundcloud 播放列表, soundcloud 播放列表 转 mp3, soundcloud 播放列表 转 wav, 批量下载 soundcloud, soundcloud 播放列表转换器, 免费 soundcloud 播放列表下载器, 下载整个 soundcloud 播放列表, soundcloud 播放列表下载工具",
@@ -5248,7 +5257,7 @@
     "content_freshness_last_updated": "最后更新",
     "related_tool_text": "只需要下载单首歌曲？",
     "related_tool_link": "试试 SoundCloud 转 MP3/WAV 转换器",
-    "form_title": "SoundCloud 播放列表下载器",
+    "form_title": "下载 SoundCloud 播放列表 (MP3 或 WAV)",
     "form_label_playlist_url": "播放列表链接",
     "form_button_fetch": "获取播放列表",
     "form_button_loading": "正在加载播放列表...",

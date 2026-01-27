@@ -4955,6 +4955,11 @@
     "q_knight_15_d": "Avoid it entirely"
   },
   "SoundCloudToWAV": {
+    "section_how_to_step_1_title": "Step 1: Copy the SoundCloud URL",
+    "section_how_to_step_2_title": "Step 2: Paste the URL",
+    "section_how_to_step_3_title": "Step 3: Get Track Info",
+    "section_how_to_step_4_title": "Step 4: Select Format",
+    "section_how_to_step_5_title": "Step 5: Download Audio",
     "metadata_title": "SoundCloud to WAV Converter - Free Online Tool | Download SoundCloud Tracks",
     "metadata_description": "Free SoundCloud to WAV converter. Download SoundCloud tracks as WAV or MP3 files instantly. No registration required. High-quality audio conversion in under 30 seconds.",
     "metadata_keywords": "soundcloud to wav, soundcloud downloader, soundcloud to wav converter, download soundcloud wav, soundcloud wav converter, soundcloud to mp3, free soundcloud downloader, convert soundcloud to wav, soundcloud audio downloader",
@@ -5244,6 +5249,10 @@
     "use_cases_technicians_description": "Diagnose printer problems, test printer functionality after repairs, verify printer setup and configuration."
   },
   "SoundCloudPlaylistDownloader": {
+    "section_how_to_step_1_title": "Step 1: Copy the Playlist URL",
+    "section_how_to_step_2_title": "Step 2: Paste the URL",
+    "section_how_to_step_3_title": "Step 3: Fetch and Choose Format",
+    "section_how_to_step_4_title": "Step 4: Download Your Playlist",
     "metadata_title": "SoundCloud Playlist Downloader - Free Online Tool | Download Entire Playlists",
     "metadata_description": "Free SoundCloud playlist downloader. Download entire SoundCloud playlists in MP3 or WAV format. Fast, unlimited, and no registration required. Batch download all tracks from any SoundCloud playlist.",
     "metadata_keywords": "soundcloud playlist downloader, download soundcloud playlist, soundcloud playlist to mp3, soundcloud playlist to wav, batch download soundcloud, soundcloud playlist converter, free soundcloud playlist downloader, download entire soundcloud playlist, soundcloud playlist download tool",
@@ -5292,7 +5301,7 @@
     "content_freshness_last_updated": "Last updated",
     "related_tool_text": "Need to download a single track?",
     "related_tool_link": "Try SoundCloud to MP3/WAV Converter",
-    "form_title": "SoundCloud Playlist Downloader",
+    "form_title": "Download SoundCloud Playlists (MP3 or WAV)",
     "form_label_playlist_url": "Playlist URL",
     "form_button_fetch": "Fetch Playlist",
     "form_button_loading": "Loading Playlist...",

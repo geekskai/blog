@@ -4617,6 +4617,11 @@
     "q_knight_15_d": "Unngår det helt"
   },
   "SoundCloudToWAV": {
+    "section_how_to_step_1_title": "Trinn 1: Kopier SoundCloud-URL",
+    "section_how_to_step_2_title": "Trinn 2: Lim inn URL-en",
+    "section_how_to_step_3_title": "Trinn 3: Hent sporinformasjon",
+    "section_how_to_step_4_title": "Trinn 4: Velg format",
+    "section_how_to_step_5_title": "Trinn 5: Last ned lyd",
     "error_playlist_url": "Du har angitt en playlist-URL. Dette verktøyet støtter kun enkelt spor nedlasting.",
     "error_playlist_url_link": "Prøv SoundCloud Playlist Downloader",
     "metadata_title": "SoundCloud til WAV-konverterer – Gratis nettverktøy | Last ned SoundCloud-spor",
@@ -4923,6 +4928,10 @@
     "use_cases_technicians_description": "Diagnostiser skriverproblemer, test skriverfunksjonalitet etter reparasjoner og verifiser skriveroppsett og konfigurasjon."
   },
   "SoundCloudPlaylistDownloader": {
+    "section_how_to_step_1_title": "Trinn 1: Kopier spilleliste-URL",
+    "section_how_to_step_2_title": "Trinn 2: Lim inn URL-en",
+    "section_how_to_step_3_title": "Trinn 3: Hent og velg format",
+    "section_how_to_step_4_title": "Trinn 4: Last ned spillelisten din",
     "metadata_title": "SoundCloud Spilleliste-nedlaster – Gratis nettverktøy | Last ned hele spillelister",
     "metadata_description": "Gratis SoundCloud spilleliste-nedlaster. Last ned hele SoundCloud-spillelister i MP3- eller WAV-format. Raskt, ubegrenset og ingen registrering kreves. Last ned alle spor fra en hvilken som helst SoundCloud-spilleliste i batch.",
     "metadata_keywords": "soundcloud spilleliste nedlaster, last ned soundcloud spilleliste, soundcloud spilleliste til mp3, soundcloud spilleliste til wav, batch nedlasting soundcloud, soundcloud spilleliste konverter, gratis soundcloud spilleliste nedlaster, last ned hele soundcloud spilleliste, soundcloud spilleliste nedlastingsverktøy",
@@ -4971,7 +4980,7 @@
     "content_freshness_last_updated": "Sist oppdatert",
     "related_tool_text": "Trenger du å laste ned et enkelt spor?",
     "related_tool_link": "Prøv SoundCloud til MP3/WAV-konverter",
-    "form_title": "SoundCloud Spilleliste-nedlaster",
+    "form_title": "Last ned SoundCloud-spillelister (MP3 eller WAV)",
     "form_label_playlist_url": "Spilleliste-URL",
     "form_button_fetch": "Hent spilleliste",
     "form_button_loading": "Laster spilleliste …",
