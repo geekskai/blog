@@ -4923,7 +4923,8 @@
     "schema_software_version": "1.0",
     "schema_provider_name": "GeeksKai",
     "schema_provider_url": "https://geekskai.com",
-
+    "section_convert_online_title": "SoundCloud を WAV または MP3 に変換するオンラインツール",
+    "section_convert_online_description": "SoundCloud を WAV または MP3 に変換するオンラインツールは、SoundCloud トラックを WAV または MP3 ファイルとして即座にダウンロードできる無料オンラインツールです。登録不要。30 秒以内で高音質変換。",
     "faq_question_1": "SoundCloud WAV 変換ツールは無料ですか？",
     "faq_answer_1": "はい、この SoundCloud WAV 変換ツールは 100% 無料です。登録不要、支払い不要、変換回数の制限もありません。",
     "faq_question_2": "対応している音声形式は何ですか？",

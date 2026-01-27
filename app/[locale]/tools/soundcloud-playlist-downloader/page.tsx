@@ -196,7 +196,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
       <div className="relative mx-auto max-w-6xl space-y-4 py-4">
         {/* Content Freshness Badge */}
         <ContentFreshnessBadge
-          lastModified={new Date("2026-01-24")}
+          lastModified={new Date("2026-01-28")}
           namespace="SoundCloudPlaylistDownloader"
         />
         {/* Header Section */}

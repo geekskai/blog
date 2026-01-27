@@ -590,9 +590,9 @@ export default function Page() {
           <div className="mx-auto max-w-6xl text-center">
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-sm sm:p-10">
               <div className="mb-4 text-5xl sm:mb-6 sm:text-7xl">🎼</div>
-              <h3 className="mb-2 text-xl font-bold text-white sm:mb-3 sm:text-2xl">
+              <h2 className="mb-2 text-xl font-bold text-white sm:mb-3 sm:text-2xl">
                 {t("empty_state_title")}
-              </h3>
+              </h2>
               <p className="text-sm text-slate-300 sm:text-base">{t("empty_state_description")}</p>
             </div>
           </div>
@@ -646,6 +646,16 @@ export default function Page() {
                 </div>
               </div>
             </div>
+          </section>
+
+          {/* Convert SoundCloud to WAV Online Section */}
+          <section className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-md sm:p-8 md:p-12">
+            <h2 className="mb-6 text-2xl font-bold text-white sm:text-3xl">
+              {t("section_convert_online_title")}
+            </h2>
+            <p className="text-base leading-relaxed text-slate-300 sm:text-lg">
+              {t("section_convert_online_description")}
+            </p>
           </section>
 
           {/* Core Facts Section */}

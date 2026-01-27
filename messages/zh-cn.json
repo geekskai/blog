@@ -4920,7 +4920,8 @@
     "schema_software_version": "1.0",
     "schema_provider_name": "GeeksKai",
     "schema_provider_url": "https://geekskai.com",
-
+    "section_convert_online_title": "在线将 SoundCloud 转换为 WAV 或者 MP3",
+    "section_convert_online_description": "我们先进的转换工具可帮助您将任何 SoundCloud 曲目转换为高质量的 WAV 或 MP3 文件。通过我们快速、安全、免费的服务，享受将 SoundCloud 在线转换为 WAV 的最佳方式。",
     "faq_question_1": "SoundCloud 转 WAV 转换器是免费的吗？",
     "faq_answer_1": "是的，我们的 SoundCloud 转 WAV 转换器 100% 免费使用。无需注册、无需付费，并且支持无限次转换。",
     "faq_question_2": "支持哪些音频格式？",

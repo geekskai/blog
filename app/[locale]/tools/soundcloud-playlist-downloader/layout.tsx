@@ -20,7 +20,7 @@ export async function generateMetadata({
   })
 
   // Update this monthly
-  const lastModified = new Date("2026-01-24")
+  const lastModified = new Date("2026-01-28")
 
   return {
     title: t("metadata_title"),
