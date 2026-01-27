@@ -271,7 +271,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
           <div className="mx-auto max-w-6xl text-center">
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-12 shadow-xl backdrop-blur-sm">
               <div className="mb-6 text-7xl">🎼</div>
-              <h3 className="mb-3 text-2xl font-bold text-white">{t("empty_state_title")}</h3>
+              <h2 className="mb-3 text-2xl font-bold text-white">{t("empty_state_title")}</h2>
               <p className="text-slate-300">{t("empty_state_description")}</p>
             </div>
           </div>
@@ -323,6 +323,16 @@ export default function SoundCloudPlaylistDownloaderPage() {
                 </div>
               </div>
             </div>
+          </section>
+
+          {/* Download SoundCloud Playlists Online Section */}
+          <section className="rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
+            <h2 className="mb-6 text-3xl font-bold text-white">
+              {t("section_download_online_title")}
+            </h2>
+            <p className="text-lg leading-relaxed text-slate-300">
+              {t("section_download_online_description")}
+            </p>
           </section>
 
           {/* Core Facts Section */}

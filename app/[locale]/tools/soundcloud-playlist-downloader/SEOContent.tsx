@@ -108,33 +108,63 @@ export function HowToSection() {
     <section className="mb-12">
       <h2 className="mb-8 text-3xl font-bold text-white">{t("section_how_to_title")}</h2>
       <div className="mx-auto max-w-6xl">
-        <ol className="list-inside list-decimal space-y-6 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-md">
-          <li className="text-lg text-slate-300">
-            {t.rich("section_how_to_step_1", {
-              strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
-            })}
-          </li>
-          <li className="text-lg text-slate-300">
-            {t.rich("section_how_to_step_2", {
-              strong: (chunks) => <strong className="text-pink-300">{chunks}</strong>,
-            })}
-          </li>
-          <li className="text-lg text-slate-300">
-            {t.rich("section_how_to_step_3", {
-              strong: (chunks) => <strong className="text-blue-300">{chunks}</strong>,
-            })}
-          </li>
-          <li className="text-lg text-slate-300">
-            {t.rich("section_how_to_step_4", {
-              strong: (chunks) => <strong className="text-cyan-300">{chunks}</strong>,
-            })}
-          </li>
-          <li className="text-lg text-slate-300">
-            {t.rich("section_how_to_step_5", {
-              strong: (chunks) => <strong className="text-emerald-300">{chunks}</strong>,
-            })}
-          </li>
-        </ol>
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-md">
+          <div className="space-y-8">
+            <div>
+              <h3 className="mb-4 text-xl font-bold text-white">
+                {t.rich("section_how_to_step_1_title", {
+                  default: () => "Step 1: Copy the Playlist URL",
+                })}
+              </h3>
+              <p className="text-lg text-slate-300">
+                {t.rich("section_how_to_step_1", {
+                  strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
+                })}
+              </p>
+            </div>
+            <div>
+              <h3 className="mb-4 text-xl font-bold text-white">
+                {t.rich("section_how_to_step_2_title", {
+                  default: () => "Step 2: Paste the Link",
+                })}
+              </h3>
+              <p className="text-lg text-slate-300">
+                {t.rich("section_how_to_step_2", {
+                  strong: (chunks) => <strong className="text-pink-300">{chunks}</strong>,
+                })}
+              </p>
+            </div>
+            <div>
+              <h3 className="mb-4 text-xl font-bold text-white">
+                {t.rich("section_how_to_step_3_title", {
+                  default: () => "Step 3: Fetch and Choose Format",
+                })}
+              </h3>
+              <p className="text-lg text-slate-300">
+                {t.rich("section_how_to_step_3", {
+                  strong: (chunks) => <strong className="text-blue-300">{chunks}</strong>,
+                })}
+              </p>
+              <p className="mt-2 text-lg text-slate-300">
+                {t.rich("section_how_to_step_4", {
+                  strong: (chunks) => <strong className="text-cyan-300">{chunks}</strong>,
+                })}
+              </p>
+            </div>
+            <div>
+              <h3 className="mb-4 text-xl font-bold text-white">
+                {t.rich("section_how_to_step_5_title", {
+                  default: () => "Step 4: Download Your Playlist",
+                })}
+              </h3>
+              <p className="text-lg text-slate-300">
+                {t.rich("section_how_to_step_5", {
+                  strong: (chunks) => <strong className="text-emerald-300">{chunks}</strong>,
+                })}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )
