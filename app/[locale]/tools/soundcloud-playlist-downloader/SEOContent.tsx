@@ -147,7 +147,7 @@ export function HowToSection() {
             </div>
             <div>
               <h3 className="mb-4 text-xl font-bold text-white">
-                {t("section_how_to_step_5_title")}
+                {t("section_how_to_step_4_title")}
               </h3>
               <p className="text-lg text-slate-300">
                 {t.rich("section_how_to_step_5", {
