@@ -169,14 +169,6 @@ export default async function Layout({
           text: stripHtml(t("faq_answer_7")),
         },
       },
-      {
-        "@type": "Question",
-        name: t("faq_question_8"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: stripHtml(t("faq_answer_8")),
-        },
-      },
     ],
   }
 
