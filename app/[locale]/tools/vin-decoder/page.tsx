@@ -345,13 +345,13 @@ export default function VinDecoder() {
           </h1>
 
           {/* Description */}
-          <p className="mx-auto max-w-2xl text-lg text-slate-300">{t("header.description")}</p>
+          <p className="mx-auto max-w-6xl text-lg text-slate-300">{t("header.description")}</p>
 
           <GoogleAdUnitWrap />
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid gap-8 lg:grid-cols-12">
+        <div className="grid gap-2 md:gap-4 lg:grid-cols-12">
           {/* Main Content Panel */}
           <div className="space-y-6 lg:col-span-8">
             {/* Results Section - Directly below VIN Input */}
