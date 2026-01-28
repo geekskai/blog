@@ -2,7 +2,22 @@
 import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
 import { useState, useCallback, useEffect } from "react"
 import { Link } from "@/app/i18n/navigation"
-import { Car, Search, Home, ChevronRight, Database, Share2, Copy, Check } from "lucide-react"
+import {
+  Zap,
+  Download,
+  Car,
+  Search,
+  Home,
+  ChevronRight,
+  Database,
+  Share2,
+  Copy,
+  Check,
+  Sparkles,
+  Globe,
+  Shield,
+  Users,
+} from "lucide-react"
 import { useTranslations } from "next-intl"
 import { BrandInfo, SUPPORTED_BRANDS } from "../types"
 import VinInput from "../components/VinInput"
@@ -15,6 +30,188 @@ import { formatVehicleSummary, exportAsJSON, exportAsCSV, exportAsText } from ".
 
 interface VinDecoderClientProps {
   brand: BrandInfo
+}
+
+const EducationSection = () => {
+  const t = useTranslations("VinDecoder")
+
+  return (
+    <>
+      <div className="mt-8 space-y-2 md:mt-12 md:space-y-6">
+        {/* VIN Structure Section */}
+        <section className="rounded-xl bg-gradient-to-r from-blue-800 to-indigo-700 p-8">
+          <h2 className="mb-6 text-2xl font-bold text-white">
+            {t("educational.vin_structure_title")}
+          </h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div>
+              <p className="mb-4 text-slate-200">{t("educational.vin_structure_desc_1")}</p>
+              <p className="text-slate-200">{t("educational.vin_structure_desc_2")}</p>
+            </div>
+            <div className="rounded-lg bg-blue-900/30 p-6">
+              <h3 className="mb-3 text-lg font-semibold text-white">
+                {t("educational.vin_structure_positions_title")}
+              </h3>
+              <ul className="space-y-2 text-slate-200">
+                <li>
+                  • <strong>{t("educational.vin_structure_positions_1_3")}</strong>
+                </li>
+                <li>
+                  • <strong>{t("educational.vin_structure_positions_4_8")}</strong>
+                </li>
+                <li>
+                  • <strong>{t("educational.vin_structure_positions_9")}</strong>
+                </li>
+                <li>
+                  • <strong>{t("educational.vin_structure_positions_10")}</strong>
+                </li>
+                <li>
+                  • <strong>{t("educational.vin_structure_positions_11")}</strong>
+                </li>
+                <li>
+                  • <strong>{t("educational.vin_structure_positions_12_17")}</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* How to Use Section */}
+        <section className="rounded-xl bg-gradient-to-r from-emerald-800 to-teal-700 p-8">
+          <h2 className="mb-6 text-2xl font-bold text-white">
+            {t("educational.how_to_use_title")}
+          </h2>
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="rounded-lg bg-emerald-900/30 p-6">
+              <div className="mb-3 flex items-center gap-2">
+                <Search className="h-5 w-5 text-emerald-300" />
+                <h3 className="text-lg font-semibold text-white">
+                  {t("educational.how_to_use_step_1_title")}
+                </h3>
+              </div>
+              <p className="text-slate-200">{t("educational.how_to_use_step_1_desc")}</p>
+            </div>
+            <div className="rounded-lg bg-emerald-900/30 p-6">
+              <div className="mb-3 flex items-center gap-2">
+                <Zap className="h-5 w-5 text-emerald-300" />
+                <h3 className="text-lg font-semibold text-white">
+                  {t("educational.how_to_use_step_2_title")}
+                </h3>
+              </div>
+              <p className="text-slate-200">{t("educational.how_to_use_step_2_desc")}</p>
+            </div>
+            <div className="rounded-lg bg-emerald-900/30 p-6">
+              <div className="mb-3 flex items-center gap-2">
+                <Download className="h-5 w-5 text-emerald-300" />
+                <h3 className="text-lg font-semibold text-white">
+                  {t("educational.how_to_use_step_3_title")}
+                </h3>
+              </div>
+              <p className="text-slate-200">{t("educational.how_to_use_step_3_desc")}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="rounded-xl bg-gradient-to-r from-purple-800 to-pink-700 p-8">
+          <h2 className="mb-6 text-2xl font-bold text-white">{t("educational.features_title")}</h2>
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="rounded-lg bg-purple-900/30 p-6">
+              <div className="mb-3 flex items-center gap-2">
+                <Shield className="h-5 w-5 text-purple-300" />
+                <h3 className="text-lg font-semibold text-white">
+                  {t("educational.features_official_title")}
+                </h3>
+              </div>
+              <p className="text-slate-200">{t("educational.features_official_desc")}</p>
+            </div>
+            <div className="rounded-lg bg-purple-900/30 p-6">
+              <div className="mb-3 flex items-center gap-2">
+                <Sparkles className="h-5 w-5 text-purple-300" />
+                <h3 className="text-lg font-semibold text-white">
+                  {t("educational.features_free_title")}
+                </h3>
+              </div>
+              <p className="text-slate-200">{t("educational.features_free_desc")}</p>
+            </div>
+            <div className="rounded-lg bg-purple-900/30 p-6">
+              <div className="mb-3 flex items-center gap-2">
+                <Globe className="h-5 w-5 text-purple-300" />
+                <h3 className="text-lg font-semibold text-white">
+                  {t("educational.features_global_title")}
+                </h3>
+              </div>
+              <p className="text-slate-200">{t("educational.features_global_desc")}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* VIN Facts Section */}
+        <section className="rounded-xl bg-gradient-to-r from-orange-800 to-red-700 p-8">
+          <h2 className="mb-6 text-2xl font-bold text-white">{t("educational.vin_facts_title")}</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-white">
+                {t("educational.vin_facts_valid_title")}
+              </h3>
+              <ul className="space-y-2 text-slate-200">
+                <li>✅ {t("educational.vin_facts_valid_1")}</li>
+                <li>✅ {t("educational.vin_facts_valid_2")}</li>
+                <li>✅ {t("educational.vin_facts_valid_3")}</li>
+                <li>✅ {t("educational.vin_facts_valid_4")}</li>
+                <li>✅ {t("educational.vin_facts_valid_5")}</li>
+                <li>✅ {t("educational.vin_facts_valid_6")}</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-white">
+                {t("educational.vin_facts_what_title")}
+              </h3>
+              <ul className="space-y-2 text-slate-200">
+                <li>🚗 {t("educational.vin_facts_what_1")}</li>
+                <li>🔧 {t("educational.vin_facts_what_2")}</li>
+                <li>⚙️ {t("educational.vin_facts_what_3")}</li>
+                <li>🛡️ {t("educational.vin_facts_what_4")}</li>
+                <li>🏭 {t("educational.vin_facts_what_5")}</li>
+                <li>📊 {t("educational.vin_facts_what_6")}</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* Final CTA Section */}
+      <div className="mt-8 rounded-xl bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 p-8 text-center">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-6 flex justify-center">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-600">
+              <Users className="h-8 w-8 text-white" />
+            </div>
+          </div>
+          <h2 className="mb-4 text-2xl font-bold text-white">{t("cta.title")}</h2>
+          <p className="mb-6 text-slate-300">{t("cta.description")}</p>
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-400">
+            <div className="flex items-center gap-2">
+              <div className="h-2 w-2 rounded-full bg-green-400"></div>
+              <span>{t("cta.official_nhtsa")}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="h-2 w-2 rounded-full bg-blue-400"></div>
+              <span>{t("cta.no_registration")}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="h-2 w-2 rounded-full bg-purple-400"></div>
+              <span>{t("cta.instant_results")}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="h-2 w-2 rounded-full bg-orange-400"></div>
+              <span>{t("cta.multiple_formats")}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
@@ -265,13 +462,11 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
           </h1>
 
           {/* Description */}
-          <p className="mx-auto max-w-2xl px-2 text-sm leading-relaxed text-slate-300 md:px-0 md:text-lg">
+          <p className="mx-auto max-w-5xl px-2 text-sm leading-relaxed text-slate-300 md:px-0 md:text-lg">
             {brand.description} {t("nhtsa_integration")}
           </p>
         </div>
-
         <GoogleAdUnitWrap />
-
         {/* VIN Input and Results - Mobile Optimized Grid */}
         <div className="grid gap-4 md:gap-6 lg:grid-cols-12 lg:gap-8">
           {/* Brand-specific Sidebar - Mobile Optimized */}
@@ -431,7 +626,6 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
             />
           </div>
         </div>
-
         {/* Brand-specific FAQ Section - Mobile Optimized */}
         <div className="mt-8 space-y-4 md:mt-12 md:space-y-6">
           <div className="text-center">
@@ -481,7 +675,6 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
             </div>
           </div>
         </div>
-
         {/* Other Brands - Mobile Optimized */}
         <div className="mt-8 md:mt-12">
           <div className="text-center">
@@ -493,54 +686,54 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4">
-            {SUPPORTED_BRANDS.filter((b) => b.slug !== brand.slug)
-              .slice(0, 8)
-              .map((otherBrand, index) => {
-                const colors = [
-                  {
-                    border: "border-blue-500/30",
-                    bg: "from-blue-500/15 to-cyan-500/10",
-                    glow: "hover:shadow-blue-500/25",
-                  },
-                  {
-                    border: "border-emerald-500/30",
-                    bg: "from-emerald-500/15 to-teal-500/10",
-                    glow: "hover:shadow-emerald-500/25",
-                  },
-                  {
-                    border: "border-purple-500/30",
-                    bg: "from-purple-500/15 to-pink-500/10",
-                    glow: "hover:shadow-purple-500/25",
-                  },
-                  {
-                    border: "border-orange-500/30",
-                    bg: "from-orange-500/15 to-red-500/10",
-                    glow: "hover:shadow-orange-500/25",
-                  },
-                ]
-                const colorScheme = colors[index % colors.length]
+          <div className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-4 lg:grid-cols-4 xl:grid-cols-5">
+            {SUPPORTED_BRANDS.filter((b) => b.slug !== brand.slug).map((otherBrand, index) => {
+              const colors = [
+                {
+                  border: "border-blue-500/30",
+                  bg: "from-blue-500/15 to-cyan-500/10",
+                  glow: "hover:shadow-blue-500/25",
+                },
+                {
+                  border: "border-emerald-500/30",
+                  bg: "from-emerald-500/15 to-teal-500/10",
+                  glow: "hover:shadow-emerald-500/25",
+                },
+                {
+                  border: "border-purple-500/30",
+                  bg: "from-purple-500/15 to-pink-500/10",
+                  glow: "hover:shadow-purple-500/25",
+                },
+                {
+                  border: "border-orange-500/30",
+                  bg: "from-orange-500/15 to-red-500/10",
+                  glow: "hover:shadow-orange-500/25",
+                },
+              ]
+              const colorScheme = colors[index % colors.length]
 
-                return (
-                  <Link
-                    key={otherBrand.slug}
-                    href={`/tools/vin-decoder/${otherBrand.slug}`}
-                    className={`group relative overflow-hidden rounded-xl border ${colorScheme.border} bg-gradient-to-br ${colorScheme.bg} p-3 text-center backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:shadow-xl md:rounded-2xl md:p-4 ${colorScheme.glow}`}
-                  >
-                    <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/5 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
-                    <div className="relative">
-                      <h3 className="truncate text-sm font-bold text-white md:text-lg">
-                        {otherBrand.name}
-                      </h3>
-                      <p className="mt-0.5 text-xs text-slate-300 md:mt-1 md:text-lg">
-                        {t("vin_decoder_suffix")}
-                      </p>
-                    </div>
-                  </Link>
-                )
-              })}
+              return (
+                <Link
+                  key={otherBrand.slug}
+                  href={`/tools/vin-decoder/${otherBrand.slug}`}
+                  className={`group relative overflow-hidden rounded-xl border ${colorScheme.border} bg-gradient-to-br ${colorScheme.bg} p-3 text-center backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:shadow-xl md:rounded-2xl md:p-4 ${colorScheme.glow}`}
+                >
+                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/5 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
+                  <div className="relative">
+                    <h3 className="truncate text-sm font-bold text-white md:text-lg">
+                      {otherBrand.name}
+                    </h3>
+                    <p className="mt-0.5 text-xs text-slate-300 md:mt-1 md:text-lg">
+                      {t("vin_decoder_suffix")}
+                    </p>
+                  </div>
+                </Link>
+              )
+            })}
           </div>
         </div>
+
+        <EducationSection />
       </div>
     </div>
   )

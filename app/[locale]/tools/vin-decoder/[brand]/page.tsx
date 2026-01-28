@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: BrandPageProps): Promise<Meta
   })
 
   // Content freshness metadata - Update this monthly
-  const lastModified = new Date("2026-01-25")
+  const lastModified = new Date("2026-01-29")
 
   return {
     title,

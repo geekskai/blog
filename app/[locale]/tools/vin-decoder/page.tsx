@@ -268,22 +268,6 @@ export default function VinDecoder() {
     }
   }, [searchState.decodeResult, t, searchState.vin])
 
-  const handleCopyUrl = useCallback(async () => {
-    if (typeof window === "undefined") return
-
-    const url = `${window.location.origin}/tools/vin-decoder`
-
-    if (typeof navigator !== "undefined" && navigator.clipboard) {
-      try {
-        await navigator.clipboard.writeText(url)
-        setCopyStatus("copied")
-        setTimeout(() => setCopyStatus("idle"), 2000)
-      } catch (error) {
-        console.error("Failed to copy URL:", error)
-      }
-    }
-  }, [])
-
   // Check for VIN in URL params on mount
   useEffect(() => {
     if (typeof window === "undefined") return
@@ -307,7 +291,7 @@ export default function VinDecoder() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       {/* Breadcrumb Navigation */}
-      <nav className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8" aria-label="Breadcrumb">
+      <nav className="mx-auto max-w-7xl px-4 pt-4 md:px-6 lg:px-8" aria-label="Breadcrumb">
         <ol className="flex items-center space-x-2 text-sm text-slate-400">
           <li>
             <Link href="/" className="flex items-center hover:text-slate-200">
@@ -326,7 +310,7 @@ export default function VinDecoder() {
         </ol>
       </nav>
 
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-8 md:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center">
           <ContentFreshnessBadge
@@ -526,7 +510,7 @@ export default function VinDecoder() {
                       {t("actions.clear_all")}
                     </button>
                   </div>
-                  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
                     {historyItems.map((item) => (
                       <button
                         key={item.id}
@@ -701,7 +685,7 @@ export default function VinDecoder() {
             <p className="mb-12 text-lg text-slate-400">{t("brand_links.description")}</p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-4 lg:grid-cols-4 xl:grid-cols-5">
             {SUPPORTED_BRANDS.map((brand, index) => {
               const colors = [
                 {
@@ -735,7 +719,7 @@ export default function VinDecoder() {
                 >
                   <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/5 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
                   <div className="relative">
-                    <h3 className="text-lg font-bold text-white">{brand.name}</h3>
+                    <h3 className="text-md font-bold text-white md:text-lg">{brand.name}</h3>
                     <p className="mt-2 text-sm text-slate-300">{t("brand_links.vin_decoder")}</p>
                   </div>
                 </Link>
