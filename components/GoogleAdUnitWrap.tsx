@@ -35,10 +35,11 @@ export default function GoogleAdUnitWrap() {
     <div className="flex justify-center py-1" ref={containerRef}>
       <ins
         className="adsbygoogle"
-        style={{ display: "inline-block", width: 728, height: 90 }}
+        style={{ display: "block" }}
         data-ad-client="ca-pub-2108246014001009"
         data-ad-slot="5811688701"
-      />
+        data-ad-format="auto"
+      ></ins>
     </div>
   )
 }
