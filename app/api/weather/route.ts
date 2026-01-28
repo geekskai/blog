@@ -345,7 +345,12 @@ export async function GET(request: NextRequest) {
       ...(process.env.NODE_ENV === "development" && { raw: weatherData }),
     }
 
-    return NextResponse.json(enhancedResponse)
+    return NextResponse.json(enhancedResponse, {
+      headers: {
+        // 天气数据可以缓存 10 分钟，因为天气变化相对缓慢
+        "Cache-Control": "public, s-maxage=600, stale-while-revalidate=300",
+      },
+    })
   } catch (error) {
     console.error("Weather API error:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })

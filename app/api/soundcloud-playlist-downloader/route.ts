@@ -203,7 +203,14 @@ export async function POST(request: NextRequest) {
         }),
         tracks,
       },
-      { status: 200 }
+      {
+        status: 200,
+        headers: {
+          // 缓存播放列表信息以减少重复请求
+          // 播放列表信息相对稳定，可以缓存 1 小时
+          "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=1800",
+        },
+      }
     )
   } catch (error) {
     console.error(`🚀 route.ts ~ error==>`, error.message)

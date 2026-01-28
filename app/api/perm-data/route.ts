@@ -167,12 +167,20 @@ export async function GET(request: NextRequest) {
     }
 
     // 返回解析后的数据
-    return NextResponse.json({
-      success: true,
-      data: permData,
-      lastUpdated: new Date().toISOString(),
-      source: "https://flag.dol.gov/processingtimes",
-    })
+    return NextResponse.json(
+      {
+        success: true,
+        data: permData,
+        lastUpdated: new Date().toISOString(),
+        source: "https://flag.dol.gov/processingtimes",
+      },
+      {
+        headers: {
+          // PERM 数据更新频率较低，可以缓存 1 小时
+          "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=1800",
+        },
+      }
+    )
   } catch (error) {
     console.error("Error fetching PERM data:", error)
 
@@ -212,7 +220,13 @@ export async function GET(request: NextRequest) {
         source: "fallback",
         note: "Using fallback data due to fetch error",
       },
-      { status: 200 }
+      {
+        status: 200,
+        headers: {
+          // 降级数据也可以缓存，但时间稍短
+          "Cache-Control": "public, s-maxage=1800, stale-while-revalidate=900",
+        },
+      }
     ) // 返回200状态码，但包含错误信息
   }
 }

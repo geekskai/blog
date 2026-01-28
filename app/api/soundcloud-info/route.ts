@@ -44,10 +44,19 @@ export async function POST(request: NextRequest) {
 
     const info = await scdl.getInfo(resolvedUrl)
 
-    return NextResponse.json({
-      success: true,
-      info,
-    })
+    return NextResponse.json(
+      {
+        success: true,
+        info,
+      },
+      {
+        headers: {
+          // 缓存音轨信息以减少重复请求
+          // 音轨信息相对稳定，可以缓存 30 分钟
+          "Cache-Control": "public, s-maxage=1800, stale-while-revalidate=900",
+        },
+      }
+    )
   } catch (error) {
     console.error("Get info error:", error)
     const errorMessage = error instanceof Error ? error.message : "Failed to get info"
