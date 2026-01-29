@@ -32,7 +32,7 @@ export default function GoogleAdUnitWrap() {
   }, [isMounted])
 
   return (
-    <div className="flex justify-center py-1" ref={containerRef}>
+    <div className="flex min-h-[90px] w-full justify-center py-1" ref={containerRef}>
       <ins
         className="adsbygoogle"
         style={{ display: "block" }}
