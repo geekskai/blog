@@ -314,7 +314,7 @@ export default function VinDecoder() {
         {/* Header Section */}
         <div className="text-center">
           <ContentFreshnessBadge
-            lastModified={new Date("2026-01-25")}
+            lastModified={new Date("2026-01-29")}
             namespace="SoundCloudPlaylistDownloader"
           />
           {/* Official Data Badge */}
