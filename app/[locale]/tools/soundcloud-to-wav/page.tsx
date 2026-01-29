@@ -378,7 +378,7 @@ export default function Page() {
 
       <div className="relative mx-auto max-w-6xl space-y-4 p-4">
         {/* Content Freshness Badge */}
-        <ContentFreshnessBadge lastModified={new Date("2026-01-24")} namespace="SoundCloudToWAV" />
+        <ContentFreshnessBadge lastModified={new Date("2026-01-29")} namespace="SoundCloudToWAV" />
 
         {/* Header Section - SEO Optimized */}
         <header className="text-center">
