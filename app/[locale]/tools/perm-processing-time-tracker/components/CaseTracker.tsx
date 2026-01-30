@@ -22,7 +22,7 @@ import {
   formatTimeRemaining,
   getProcessingPriority,
 } from "../utils/permDataParser"
-import { useTranslations } from "../hooks/useTranslations"
+import { useTranslations } from "next-intl"
 
 interface CaseTrackerProps {
   cases: UserPERMCase[]
@@ -43,7 +43,7 @@ export default function CaseTracker({
   onRemoveCase,
   onUpdateCase,
 }: CaseTrackerProps) {
-  const t = useTranslations()
+  const t = useTranslations("PERMProcessingTimeTracker")
   const [showAddForm, setShowAddForm] = useState(false)
   const [editingCase, setEditingCase] = useState<string | null>(null)
   const [newCase, setNewCase] = useState({

@@ -2,9 +2,9 @@ import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 
 // Content freshness tracking - updated monthly
-const lastModified = new Date("2025-01-24")
+const lastModified = new Date("2026-01-30")
 const updateFrequency = "monthly"
-const nextReviewDate = new Date("2025-02-24")
+const nextReviewDate = new Date("2026-02-24")
 
 export async function generateMetadata({
   params: { locale },
@@ -166,18 +166,18 @@ export default async function Layout({
       {
         "@type": "HowToStep",
         name: t("how_it_works.step1.title"),
-        text: t("how_it_works.step1.description").replace(/<strong>|<\/strong>/g, ""),
+        text: t.raw("how_it_works.step1.description"),
         url: "https://geekskai.com/tools/perm-processing-time-tracker/",
       },
       {
         "@type": "HowToStep",
         name: t("how_it_works.step2.title"),
-        text: t("how_it_works.step2.description").replace(/<strong>|<\/strong>/g, ""),
+        text: t.raw("how_it_works.step2.description"),
       },
       {
         "@type": "HowToStep",
         name: t("how_it_works.step3.title"),
-        text: t("how_it_works.step3.description").replace(/<strong>|<\/strong>/g, ""),
+        text: t.raw("how_it_works.step3.description"),
       },
     ],
   }
@@ -192,7 +192,7 @@ export default async function Layout({
         name: t("faq.accuracy.question"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: t("faq.accuracy.answer").replace(/<strong>|<\/strong>/g, ""),
+          text: t.raw("faq.accuracy.answer"),
         },
       },
       {
@@ -200,7 +200,7 @@ export default async function Layout({
         name: t("faq.update_frequency.question"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: t("faq.update_frequency.answer").replace(/<strong>|<\/strong>/g, ""),
+          text: t.raw("faq.update_frequency.answer"),
         },
       },
       {
@@ -208,7 +208,7 @@ export default async function Layout({
         name: t("faq.oews_difference.question"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: t("faq.oews_difference.answer").replace(/<strong>|<\/strong>/g, ""),
+          text: t.raw("faq.oews_difference.answer"),
         },
       },
       {
@@ -216,7 +216,7 @@ export default async function Layout({
         name: t("faq.security.question"),
         acceptedAnswer: {
           "@type": "Answer",
-          text: t("faq.security.answer").replace(/<strong>|<\/strong>/g, ""),
+          text: t.raw("faq.security.answer"),
         },
       },
     ],

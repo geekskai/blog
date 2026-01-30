@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import React, { useState } from "react"
 import {
   FileText,
   Clock,
@@ -20,10 +20,10 @@ import CaseTracker from "./components/CaseTracker"
 import HistoricalChart from "./components/HistoricalChart"
 import ShareButtons from "@/components/ShareButtons"
 import { Link } from "@/app/i18n/navigation"
-import { useTranslations } from "./hooks/useTranslations"
+import { useTranslations } from "next-intl"
 
 export default function PERMProcessingTimeTracker() {
-  const t = useTranslations()
+  const t = useTranslations("PERMProcessingTimeTracker")
   const [activeTab, setActiveTab] = useState<"overview" | "cases" | "trends">("overview")
 
   const {

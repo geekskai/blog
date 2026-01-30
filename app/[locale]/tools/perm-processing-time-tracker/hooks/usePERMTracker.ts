@@ -1,14 +1,12 @@
 import { useState, useEffect, useCallback } from "react"
-import { PERMTrackerState, UserPERMCase, PERMData, NotificationSettings } from "../types"
+import { PERMTrackerState, UserPERMCase, NotificationSettings } from "../types"
 import {
-  parsePERMData,
   fetchLatestPERMData,
   calculateProcessingEstimate,
   analyzeTrends,
   generateMockHistoricalData,
   updateHistoricalData,
   validatePERMData,
-  getDataFreshness,
 } from "../utils/permDataParser"
 
 const STORAGE_KEY = "perm-tracker-data"

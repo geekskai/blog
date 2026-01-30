@@ -3,14 +3,14 @@
 import React, { useMemo } from "react"
 import { TrendingUp, TrendingDown, BarChart3, Calendar, Info } from "lucide-react"
 import { HistoricalDataPoint } from "../types"
-import { useTranslations } from "../hooks/useTranslations"
+import { useTranslations } from "next-intl"
 
 interface HistoricalChartProps {
   data: HistoricalDataPoint[]
 }
 
 export default function HistoricalChart({ data }: HistoricalChartProps) {
-  const t = useTranslations()
+  const t = useTranslations("PERMProcessingTimeTracker")
   const chartData = useMemo(() => {
     if (data.length === 0) return { max: 0, min: 0, range: 0 }
 

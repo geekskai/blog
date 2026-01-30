@@ -14,7 +14,7 @@ import {
 } from "lucide-react"
 import { PERMData, TrendAnalysis } from "../types"
 import { formatTimeRemaining, getDataFreshness } from "../utils/permDataParser"
-import { useTranslations } from "../hooks/useTranslations"
+import { useTranslations } from "next-intl"
 
 interface CurrentDataPanelProps {
   data: PERMData | null
@@ -31,7 +31,7 @@ export default function CurrentDataPanel({
   lastFetched,
   onRefresh,
 }: CurrentDataPanelProps) {
-  const t = useTranslations()
+  const t = useTranslations("PERMProcessingTimeTracker")
 
   if (!data) {
     return (
