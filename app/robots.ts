@@ -10,7 +10,7 @@ export default function robots(): MetadataRoute.Robots {
   const commonDisallow = [
     "/*/feed.xml",
     "/api/",
-    "/_next/",
+    // "/_next/",
     "/admin/",
     "/private/",
     ...localeDisallowPaths,
