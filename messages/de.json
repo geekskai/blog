@@ -2317,9 +2317,8 @@
   },
   "DiscordTimeConverter": {
     "seo_title": "Discord-Zeitzonen-Konverter – Kostenloses Discord-Zeit- & Timestamp-Tool",
-    "seo_description": "Kostenloser Discord-Zeitzonen-Konverter mit bidirektionaler Timestamp-Umrechnung, globaler Zeitzonenunterstützung und Batch-Verarbeitung.",
-    "seo_keywords": "discord zeitzonen konverter, discord timezone converter, discord zeitzonen umrechnung",
-
+    "seo_description": "Kostenloser Discord-Zeitzonen-Konverter mit bidirektionaler Timestamp-Konvertierung, globaler Zeitzonenunterstützung und Stapelverarbeitung.",
+    "seo_keywords": "discord zeitzonen konverter, discord zeit zonen konverter, discord zeitzonen konvertierung, discord zeit konverter",
     "breadcrumb": {
       "home": "Startseite",
       "tools": "Tools",

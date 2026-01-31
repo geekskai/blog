@@ -2208,8 +2208,8 @@
   },
   "DiscordTimeConverter": {
     "seo_title": "Discord 시간대 변환기 - 무료 Discord 타임스탬프 생성 도구",
-    "seo_description": "양방향 타임스탬프 변환, 글로벌 시간대 지원 및 배치 처리를 제공하는 무료 Discord 시간대 변환기입니다. Discord 타임스탬프를 시간으로 변환하고, 모든 시간대에서 Discord 타임스탬프 형식을 생성하며, 글로벌 Discord 커뮤니티를 조정합니다. Discord 봇 개발자, 서버 관리자 및 국제 이벤트 계획에 완벽합니다.",
-    "seo_keywords": "discord 시간대 변환기, discord 시간 변환기, discord 타임스탬프 변환기, discord 타임스탬프 생성기, discord 시간 형식 변환기, discord 타임스탬프를 시간으로, 시간을 discord 타임스탬프로, discord 시간 계산기, discord 일정 도구, discord 봇 타임스탬프, discord 타임스탬프 형식, unix 타임스탬프를 discord로, discord 에포크 시간 변환기, discord 커뮤니티 도구, discord 서버 관리, discord 이벤트 계획, discord 조정 도구, discord 글로벌 시간대 변환기, discord 국제 시간 변환기, discord 멀티 시간대 도구, discord 세계 시간 변환기, discord 시간대 동기화, discord 교차 시간대 계획, discord 시간대 조정, discord 시간대 관리, discord 봇 시간대 변환기, discord api 시간대 도구, discord webhook 시간대, discord 임베드 시간대, discord 타임스탬프 시간대 변환, discord 다른 시간대의 시간, discord 이벤트 시간대 변환기, discord 회의 시간대 도구",
+    "seo_description": "양방향 타임스탬프 변환, 전 세계 시간대 지원 및 일괄 처리를 제공하는 무료 Discord 시간대 변환기.",
+    "seo_keywords": "discord 시간대 변환기, discord 타임존 변환기, discord 시간대 변환, discord 시간 변환기",
     "breadcrumb": {
       "home": "홈",
       "tools": "도구",

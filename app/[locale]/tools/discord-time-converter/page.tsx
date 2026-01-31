@@ -287,7 +287,7 @@ export default function DiscordTimeConverter() {
           return format(date, "EEEE, MMMM d, yyyy h:mm a")
         case "R":
           // Only show relative time on client to avoid hydration issues
-          if (!isClient) return "relative time"
+          if (!isClient) return t("timestamp_formats.relative.example")
           return formatDistance(date, new Date(), { addSuffix: true })
         default:
           return t("info_messages.invalid_format_type")
@@ -482,43 +482,50 @@ export default function DiscordTimeConverter() {
         </ol>
       </nav>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl space-y-4 px-4 py-8 md:space-y-8 md:px-6">
         {/* Header Section */}
-        <div className="relative mb-16 text-center">
-          <div className="mb-8 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-slate-300 shadow-xl backdrop-blur-sm">
+        <div className="relative space-y-4 text-center md:space-y-8">
+          <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-slate-300 shadow-xl backdrop-blur-sm">
             <ArrowLeftRight className="mr-2 h-4 w-4 text-blue-400" />
             {t("header.badge_text")}
             <Sparkles className="ml-2 h-4 w-4 text-purple-400" />
           </div>
 
-          <h1 className="mb-8 text-5xl font-bold text-white sm:text-6xl lg:text-7xl">
+          <h1 className="text-5xl font-bold text-white sm:text-6xl lg:text-7xl">
             <span className="block">{t("header.main_title_line1")}</span>
             <span className="block bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
               {t("header.main_title_line2")}
             </span>
           </h1>
 
-          <p className="mx-auto mb-8 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
+          <p className="mx-auto max-w-7xl text-xl font-light leading-relaxed text-slate-400">
             {t("header.description")}
           </p>
-
-          {/* Quick Stats */}
+          {/* Quick Stats - Core Facts Highlighted */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500">
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <TrendingUp className="h-4 w-4 text-green-500" />
-              <span className="font-medium">{t("header.stats.timezone_converter")}</span>
+              <span className="font-medium">
+                <strong className="text-white">{t("header.stats.timezone_converter")}</strong>
+              </span>
             </div>
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <Globe className="h-4 w-4 text-blue-500" />
-              <span className="font-medium">{t("header.stats.global_timezone")}</span>
+              <span className="font-medium">
+                <strong className="text-white">{t("header.stats.global_timezone")}</strong>
+              </span>
             </div>
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <Zap className="h-4 w-4 text-purple-500" />
-              <span className="font-medium">{t("header.stats.bot_integration")}</span>
+              <span className="font-medium">
+                <strong className="text-white">{t("header.stats.bot_integration")}</strong>
+              </span>
             </div>
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
               <BookOpen className="h-4 w-4 text-orange-500" />
-              <span className="font-medium">{t("header.stats.free_tool")}</span>
+              <span className="font-medium">
+                <strong className="text-white">{t("header.stats.free_tool")}</strong>
+              </span>
             </div>
           </div>
         </div>
@@ -957,8 +964,49 @@ export default function DiscordTimeConverter() {
           </div>
         </div>
 
+        {/* Quick Answer Box for AI extraction (40% better visibility) */}
+        <div className="mx-auto my-4 max-w-7xl rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 via-purple-500/10 to-blue-500/15 p-6 shadow-xl backdrop-blur-sm md:my-8">
+          <div className="text-left">
+            <div className="mb-3 flex items-center gap-2">
+              <Zap className="h-5 w-5 text-blue-400" />
+              <h2 className="text-lg font-semibold text-white">{t("quick_answer.title")}</h2>
+            </div>
+            <div className="mb-4 text-slate-200">
+              <strong className="mr-1 text-white">
+                {t("quick_answer.discordTimezoneConverter")}
+              </strong>
+              {t("quick_answer.isA")}
+              <strong className="mx-1 text-white">{t("quick_answer.free")}</strong>
+              {t("quick_answer.onlineToolThat")} {t("quick_answer.convertsBetweenRegularTime")}
+              <strong className="ml-1 text-white">
+                {t("quick_answer.fullGlobalTimezoneSupport")}
+              </strong>
+              .{t("quick_answer.perfectFor")}
+              <strong className="mx-1 text-white">{t("quick_answer.discordBotDevelopers")}</strong>,
+              <strong className="mx-1 text-white">{t("quick_answer.serverAdministrators")}</strong>,
+              {t("quick_answer.and")}
+              <strong className="mx-1 text-white">{t("quick_answer.communityManagers")}</strong>
+              {t("quick_answer.schedulingInternationalEvents")}.
+            </div>
+            <div className="md:text-md grid grid-cols-1 text-base md:grid-cols-3">
+              <div>
+                <strong className="text-blue-300">{t("quick_answer.best_for_label")}</strong>{" "}
+                <span className="text-slate-300">{t("quick_answer.best_for_value")}</span>
+              </div>
+              <div>
+                <strong className="text-blue-300">{t("quick_answer.cost_label")}</strong>{" "}
+                <span className="text-green-300">{t("quick_answer.cost_value")}</span>
+              </div>
+              <div>
+                <strong className="text-blue-300">{t("quick_answer.key_benefit_label")}</strong>{" "}
+                <span className="text-slate-300">{t("quick_answer.key_benefit_value")}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Usage guide */}
-        <div className="mt-32 rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold text-white">{t("usage_guide.title")}</h2>
             <p className="mx-auto max-w-2xl text-xl text-slate-400">
@@ -1006,8 +1054,8 @@ export default function DiscordTimeConverter() {
         </div>
 
         {/* Content Sections for SEO */}
-        <div className="mt-20 space-y-16">
-          {/* What is Discord Timestamp Section */}
+        <div className="space-y-4 md:space-y-8">
+          {/* What is Discord Timestamp Section - Core Facts Highlighted */}
           <section className="rounded-xl bg-gradient-to-r from-blue-800 to-indigo-700 p-8">
             <h2 className="mb-6 text-2xl font-bold text-white">
               {t("content_sections.what_are_discord_timestamps.title")}
@@ -1302,15 +1350,21 @@ export default function DiscordTimeConverter() {
             </div>
           </section>
 
-          {/* Features section */}
+          {/* Features section - Core Facts Highlighted */}
           <div className="mt-32">
             <div className="mb-16 text-center">
               <h2 className="mb-4 text-3xl font-bold text-white">
                 {t("content_sections.features.title")}
               </h2>
-              <p className="mx-auto max-w-2xl text-xl text-slate-400">
-                {t("content_sections.features.description")}
-              </p>
+              <div className="mx-auto max-w-2xl text-xl text-slate-400">
+                {t("quick_answer.everythingYouNeedFor")}{" "}
+                <strong className="text-white">
+                  {t("quick_answer.discordTimezoneConversionKeyword")}
+                </strong>
+                , <strong className="text-white">{t("quick_answer.timestampGeneration")}</strong>,{" "}
+                {t("quick_answer.and")}{" "}
+                <strong className="text-white">{t("quick_answer.globalCoordination")}</strong>
+              </div>
             </div>
 
             <div className="grid gap-8 md:grid-cols-3">
@@ -1321,9 +1375,19 @@ export default function DiscordTimeConverter() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("content_sections.features.bidirectional_title")}
                 </h3>
-                <p className="text-lg leading-relaxed text-slate-400">
-                  {t("content_sections.features.bidirectional_description")}
-                </p>
+                <div className="text-lg leading-relaxed text-slate-400">
+                  {t("quick_answer.convertFrom")}
+                  <strong className="mx-1 text-white">
+                    {t("quick_answer.regularTimeToDiscordTimestamps")}
+                  </strong>
+                  {t("quick_answer.with")}
+                  <strong className="mx-1 text-white">{t("quick_answer.timezoneSupport")}</strong>
+                  {t("quick_answer.andConvert")}
+                  <strong className="mx-1 text-white">
+                    {t("quick_answer.discordTimestampsBackToReadableTime")}
+                  </strong>
+                  {t("quick_answer.withFullFormatSupport")}.
+                </div>
               </div>
 
               <div className="group text-center">
@@ -1333,9 +1397,24 @@ export default function DiscordTimeConverter() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("content_sections.features.global_timezone_title")}
                 </h3>
-                <p className="text-lg leading-relaxed text-slate-400">
-                  {t("content_sections.features.global_timezone_description")}
-                </p>
+                <div className="text-lg leading-relaxed text-slate-400">
+                  {t("quick_answer.handle")}{" "}
+                  <strong className="text-white">{t("quick_answer.allGlobalTimezones")}</strong>{" "}
+                  {t("quick_answer.withAutomatic")}{" "}
+                  <strong className="text-white">
+                    {t("quick_answer.discordTimezoneConversion")}
+                  </strong>{" "}
+                  {t("quick_answer.andOffset")} {t("quick_answer.calculations")}.{" "}
+                  {t("quick_answer.perfectFor")}{" "}
+                  <strong className="text-white">
+                    {t("quick_answer.internationalDiscordCommunities")}
+                  </strong>{" "}
+                  {t("quick_answer.and")}{" "}
+                  <strong className="text-white">
+                    {t("quick_answer.worldwideEventCoordination")}
+                  </strong>{" "}
+                  {t("quick_answer.across")} {t("quick_answer.multipleTimezones")}.
+                </div>
               </div>
 
               <div className="group text-center">
@@ -1345,9 +1424,23 @@ export default function DiscordTimeConverter() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("content_sections.features.batch_processing_title")}
                 </h3>
-                <p className="text-lg leading-relaxed text-slate-400">
-                  {t("content_sections.features.batch_processing_description")}
-                </p>
+                <div className="text-lg leading-relaxed text-slate-400">
+                  {t("quick_answer.convert")}{" "}
+                  <strong className="text-white">
+                    {t("quick_answer.multipleTimestampsSimultaneously")}
+                  </strong>{" "}
+                  {t("quick_answer.withTimezoneSupportFor")}{" "}
+                  <strong className="text-white">
+                    {t("quick_answer.efficientBulkOperations")}
+                  </strong>
+                  ,{" "}
+                  <strong className="text-white">{t("quick_answer.discordBotDevelopment")}</strong>,{" "}
+                  {t("quick_answer.and")}{" "}
+                  <strong className="text-white">
+                    {t("quick_answer.largeScaleEventScheduling")}
+                  </strong>{" "}
+                  {t("quick_answer.acrossMultipleTimeZones")}.
+                </div>
               </div>
             </div>
           </div>

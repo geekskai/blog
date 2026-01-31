@@ -2282,15 +2282,13 @@
   },
   "DiscordTimeConverter": {
     "seo_title": "Discord 时区转换器 - 免费 Discord 时间戳生成工具",
-    "seo_description": "免费的 Discord 时区转换器，支持双向时间戳转换、全球时区支持和批量处理。将 Discord 时间戳转换为时间，在所有时区生成 Discord 时间戳格式，协调全球 Discord 社区。适合 Discord 机器人开发者、服务器管理员和国际活动安排。",
-    "seo_keywords": "discord 时区转换器, discord 时间转换器, discord 时间戳转换器, discord 时间戳生成器, discord 时间格式转换器, discord 时间戳转时间, 时间转 discord 时间戳, discord 时间计算器, discord 调度工具, discord 机器人时间戳, discord 时间戳格式, unix 时间戳转 discord, discord 纪元时间转换器, discord 社区工具, discord 服务器管理, discord 活动安排, discord 协调工具, discord 全球时区转换器, discord 国际时间转换器, discord 多时区工具, discord 世界时间转换器, discord 时区同步, discord 跨时区调度, discord 时区协调, discord 时区管理, discord 机器人时区转换器, discord api 时区工具, discord webhook 时区, discord 嵌入时区, 转换 discord 时间戳时区, discord 不同时区时间, discord 活动时区转换器, discord 会议时区工具",
-
+    "seo_description": "免费 Discord 时区转换器，支持双向时间戳转换、全球时区支持与批量处理。",
+    "seo_keywords": "discord 时区转换器, discord 时区转换, discord 时区转换工具, discord 时间转换器",
     "breadcrumb": {
       "home": "首页",
       "tools": "工具",
       "discord_time_converter": "Discord 时间戳转换器"
     },
-
     "header": {
       "badge_text": "免费 Discord 时区转换器和时间戳生成工具",
       "main_title_line1": "Discord 时区",
