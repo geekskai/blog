@@ -2824,18 +2824,18 @@
     },
     "features": {
       "title": "プロフェッショナルグレードの機能",
-      "description": "精度とスタイルで完璧な Discord タイムスタンプを作成するために必要なすべて",
+      "description": "<strong>完璧な Discord タイムスタンプ</strong>を作成するために必要なすべて、<strong>精度</strong>と<strong>スタイル</strong>",
       "real_time_updates": {
         "title": "リアルタイム更新",
-        "description": "自動タイムゾーン変換とインスタント形式切り替えによるライブプレビューで、精密なタイムスタンプ生成を実現。"
+        "description": "<strong>ライブプレビュー</strong>、<strong>自動タイムゾーン変換</strong>と<strong>インスタント形式切り替え</strong>で、精密なタイムスタンプ生成を実現。"
       },
       "multiple_formats": {
         "title": "複数の形式",
-        "description": "相対時間、日付形式、日付時間組み合わせ表示を含む7つの異なるタイムスタンプ形式。"
+        "description": "<strong>7つの異なるタイムスタンプ形式</strong>、<strong>相対時間</strong>、<strong>日付形式</strong>、<strong>日付時間組み合わせ表示</strong>を含む。"
       },
       "save_manage": {
         "title": "保存と管理",
-        "description": "お気に入りの設定を保存し、タイムスタンプ設定を簡単に管理して、異なるプロジェクト間でのクイックアクセスと再利用を可能にします。"
+        "description": "<strong>お気に入りの設定を保存</strong>し、タイムスタンプ設定を簡単に管理して、異なるプロジェクト間でのクイックアクセスと再利用を可能にします。"
       }
     },
     "usage_guide": {
@@ -2983,19 +2983,19 @@
 
     "geo_tldr": {
       "title": "迅速な回答",
-      "content": "Discord タイムスタンプジェネレーターは、無料のオンラインツールで、イベント、カウントダウン、リマインダーのための動的 Discord タイムスタンプを作成します。7つのタイムスタンプ形式をサポートし、すべてのタイムゾーンで自動的に動作し、登録不要です。Discord コミュニティ管理者、ボット開発者、イベント管理者に最適で、イベントをスケジュールし、Discord メッセージ内でリアルタイムに更新されるカウントダウンタイマーを作成できます。"
+      "content": "<strong>Discord タイムスタンプジェネレーター</strong>は、<strong>無料のオンラインツール</strong>で、イベント、カウントダウン、リマインダーのための<strong>動的 Discord タイムスタンプ</strong>を作成します。<strong>7つのタイムスタンプ形式</strong>をサポートし、<strong>すべてのタイムゾーン</strong>で自動的に動作し、<strong>登録不要</strong>です。<strong>Discord コミュニティ管理者</strong>、<strong>ボット開発者</strong>、<strong>イベント管理者</strong>に最適で、イベントをスケジュールし、Discord メッセージ内でリアルタイムに更新されるカウントダウンタイマーを作成できます。"
     },
 
     "core_facts": {
       "title": "基本情報",
       "pricing_label": "価格",
-      "pricing_value": "100% 無料 - 登録不要",
+      "pricing_value": "<strong>100% 無料</strong> - 登録不要",
       "formats_label": "サポートされる形式",
-      "formats_value": "7 Discord タイムスタンプ形式 (R, t, T, d, D, f, F)",
+      "formats_value": "<strong>7種Discord時間スタンプ形式</strong> (R, t, T, d, D, f, F)",
       "speed_label": "処理速度",
-      "speed_value": "瞬時生成 - リアルタイムプレビュー",
+      "speed_value": "<strong>瞬時生成</strong> - リアルタイムプレビュー",
       "target_users_label": "対象ユーザー",
-      "target_users_value": "Discord コミュニティ管理者, ボット開発者, イベント管理者"
+      "target_users_value": "<strong>Discord コミュニティ管理者</strong>, <strong>ボット開発者</strong>, <strong>イベント管理者</strong>"
     }
   },
   "RandomVinGenerator": {

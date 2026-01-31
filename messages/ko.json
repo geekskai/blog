@@ -2651,18 +2651,18 @@
     },
     "features": {
       "title": "전문가급 기능",
-      "description": "정확성과 스타일로 완벽한 Discord 타임스탬프를 생성하는 데 필요한 모든 것",
+      "description": "<strong>완벽한 Discord 타임스탬프</strong>를 생성하는 데 필요한 모든 것, <strong>정확성</strong>과 <strong>스타일</strong>",
       "real_time_updates": {
         "title": "실시간 업데이트",
-        "description": "자동 시간대 변환과 즉시 형식 전환이 포함된 라이브 미리보기로 정밀한 타임스탬프 생성을 실현합니다."
+        "description": "<strong>라이브 미리보기</strong>，<strong>자동 시간대 변환</strong>과 <strong>즉시 형식 전환</strong>이 포함되어 정밀한 타임스탬프 생성을 실현합니다."
       },
       "multiple_formats": {
         "title": "다양한 형식",
-        "description": "상대 시간, 날짜 형식, 날짜-시간 조합 표시를 포함한 7가지 다른 타임스탬프 형식."
+        "description": "<strong>7가지 다른 타임스탬프 형식</strong>，<strong>상대 시간</strong>、<strong>날짜 형식</strong>、<strong>날짜-시간 조합 표시</strong>를 포함한."
       },
       "save_manage": {
         "title": "저장 및 관리",
-        "description": "즐겨찾기 구성을 저장하고 타임스탬프 설정을 쉽게 관리하여 다양한 프로젝트에서 빠른 액세스와 재사용을 가능하게 합니다."
+        "description": "<strong>즐겨찾기 구성을 저장</strong>하고 타임스탬프 설정을 쉽게 관리하여 다양한 프로젝트에서 빠른 액세스와 재사용을 가능하게 합니다."
       }
     },
     "usage_guide": {
@@ -2809,19 +2809,19 @@
 
     "geo_tldr": {
       "title": "빠른 답변",
-      "content": "Discord 타임스탬프 생성기는 이벤트, 카운트다운, 리마인더를 위한 동적 Discord 타임스탬프를 생성하는 무료 온라인 도구입니다. 7개의 타임스탬프 형식을 지원하며, 모든 시간대에서 자동으로 작동하고 등록이 필요 없습니다. Discord 커뮤니티 관리자, 봇 개발자, 이벤트 조정자에게 완벽합니다."
+      "content": "<strong>Discord 타임스탬프 생성기</strong>는 이벤트, 카운트다운, 리마인더를 위한 <strong>동적 Discord 타임스탬프</strong>를 생성하는 <strong>무료 온라인 도구</strong>입니다. <strong>7개의 타임스탬프 형식</strong>을 지원하며, <strong>모든 시간대</strong>에서 자동으로 작동하고 <strong>등록이 필요 없습니다</strong>. <strong>Discord 커뮤니티 관리자</strong>, <strong>봇 개발자</strong>, <strong>이벤트 조정자</strong>에게 완벽합니다."
     },
 
     "core_facts": {
       "title": "핵심 정보",
       "pricing_label": "가격",
-      "pricing_value": "100% 무료 - 등록 불필요",
+      "pricing_value": "<strong>100% 무료</strong> - 등록 불필요",
       "formats_label": "지원되는 형식",
-      "formats_value": "7 Discord 타임스탬프 형식 (R, t, T, d, D, f, F)",
+      "formats_value": "<strong>7 Discord 타임스탬프 형식</strong> (R, t, T, d, D, f, F)",
       "speed_label": "처리 속도",
-      "speed_value": "실시간 타임스탬프 생성 - 실시간 미리보기",
+      "speed_value": "<strong>실시간 타임스탬프 생성</strong> - 실시간 미리보기",
       "target_users_label": "Target Users사용자",
-      "target_users_value": "Discord 커뮤니티 관리자, 봇 개발자, 이벤트 조정자"
+      "target_users_value": "<strong>Discord 커뮤니티 관리자</strong>, <strong>봇 개발자</strong>, <strong>이벤트 조정자</strong>"
     }
   },
   "RandomVinGenerator": {

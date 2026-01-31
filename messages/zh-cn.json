@@ -2753,18 +2753,18 @@
 
     "features": {
       "title": "专业级功能",
-      "description": "创建完美 Discord 时间戳所需的一切，精确且时尚",
+      "description": "创建<strong>完美 Discord 时间戳</strong>所需的一切，<strong>精确</strong>且<strong>时尚</strong>",
       "real_time_updates": {
         "title": "实时更新",
-        "description": "实时预览，自动时区转换和即时格式切换，实现精确的时间戳生成。"
+        "description": "<strong>实时预览</strong>，<strong>自动时区转换</strong>和<strong>即时格式切换</strong>，实现精确的时间戳生成。"
       },
       "multiple_formats": {
         "title": "多种格式",
-        "description": "七种不同的时间戳格式，包括相对时间、日期格式和日期时间组合显示。"
+        "description": "<strong>七种不同的时间戳格式</strong>，包括<strong>相对时间</strong>、<strong>日期格式</strong>和<strong>日期时间组合显示</strong>。"
       },
       "save_manage": {
         "title": "保存和管理",
-        "description": "保存收藏配置，轻松管理时间戳设置，便于在不同项目中快速访问和重复使用。"
+        "description": "<strong>保存收藏配置</strong>，轻松管理时间戳设置，便于在不同项目中快速访问和重复使用。"
       }
     },
 
@@ -2918,19 +2918,19 @@
 
     "geo_tldr": {
       "title": "快速回答",
-      "content": "Discord时间戳生成器是一个免费在线工具, 用于创建动态Discord时间戳, 用于事件, 倒计时和提醒. 它支持7种时间戳格式, 自动适用于所有时区, 无需注册. 完美适用于Discord社区管理员, 机器人开发者, 事件组织者, 需要安排事件和创建倒计时计时器, 在Discord消息中实时更新."
+      "content": "<strong>Discord时间戳生成器</strong>是一个<strong>免费在线工具</strong>, 用于创建<strong>动态Discord时间戳</strong>, 用于事件, 倒计时和提醒. 它支持<strong>7种时间戳格式</strong>, 自动适用于<strong>所有时区</strong>, <strong>无需注册</strong>. 完美适用于<strong>Discord社区管理员</strong>, <strong>机器人开发者</strong>, <strong>事件组织者</strong>, 需要安排事件和创建倒计时计时器, 在Discord消息中实时更新."
     },
 
     "core_facts": {
       "title": "核心信息",
       "pricing_label": "价格",
-      "pricing_value": "100% 免费 - 无需注册",
+      "pricing_value": "<strong>100% 免费</strong> - 无需注册",
       "formats_label": "支持格式",
-      "formats_value": "7 Discord时间戳格式 (R, t, T, d, D, f, F)",
+      "formats_value": "<strong>7种Discord时间戳格式</strong> (R, t, T, d, D, f, F)",
       "speed_label": "处理速度",
-      "speed_value": "即时生成 - 实时预览",
+      "speed_value": "<strong>即时生成</strong> - 实时预览",
       "target_users_label": "目标用户",
-      "target_users_value": "Discord社区管理员, 机器人开发者, 事件组织者"
+      "target_users_value": "<strong>Discord社区管理员</strong>, <strong>机器人开发者</strong>, <strong>事件组织者</strong>"
     }
   },
   "RandomVinGenerator": {

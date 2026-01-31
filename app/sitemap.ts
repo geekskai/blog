@@ -14,15 +14,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .map((post) => ({
       url: `${siteUrl}/${post.path}/`,
       lastModified: post.lastmod || post.date,
-      priority: 0.7,
-      changeFrequency: "monthly" as const,
+      // priority: 0.7,
+      // changeFrequency: "monthly" as const,
     }))
 
   const routes = ["", "blog/", "projects/", "tools/", "tags/", "about/"].map((route) => ({
     url: `${siteUrl}/${route}`,
     lastModified: new Date().toISOString().split("T")[0],
-    priority: route === "" ? 1.0 : route === "tools/" ? 0.9 : 0.8,
-    changeFrequency: "weekly" as const,
+    // priority: route === "" ? 1.0 : route === "tools/" ? 0.9 : 0.8,
+    // changeFrequency: "weekly" as const,
   }))
 
   // Generate static routes for all locales
@@ -31,8 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return supportedLocales.map((locale) => ({
       url: `${siteUrl}${locale === defaultLocale ? "" : `/${locale}`}/${route}`,
       lastModified: new Date().toISOString().split("T")[0],
-      priority: route === "" ? 1.0 : route === "tools/" ? 0.9 : 0.8,
-      changeFrequency: "weekly" as const,
+      // priority: route === "" ? 1.0 : route === "tools/" ? 0.9 : 0.8,
+      // changeFrequency: "weekly" as const,
       // Add alternates for SEO
       alternates: {
         languages: supportedLocales.reduce(
@@ -56,8 +56,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${siteUrl}${locale === defaultLocale ? "" : `/${locale}`}/${toolPath}`,
         lastModified: new Date().toISOString().split("T")[0],
         // Set higher priority for tools since they're important pages
-        priority: 0.8,
-        changeFrequency: "weekly" as const,
+        // priority: 0.8,
+        // changeFrequency: "weekly" as const,
         // Add alternates for SEO
         alternates: {
           languages: supportedLocales.reduce(
@@ -75,9 +75,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const allRoutes = [...routes, ...blogRoutes, ...toolRoutes, ...staticRoutes]
 
   // Remove duplicates and sort by priority
-  const uniqueRoutes = allRoutes
-    .filter((route, index, self) => index === self.findIndex((r) => r.url === route.url))
-    .sort((a, b) => (b.priority || 0.5) - (a.priority || 0.5))
+  const uniqueRoutes = allRoutes.filter(
+    (route, index, self) => index === self.findIndex(({ url }) => url === route.url)
+  )
 
   return uniqueRoutes
 }

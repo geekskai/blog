@@ -843,7 +843,11 @@ export default function DiscordTimestampGenerator() {
       {/* GEO TL;DR Block (Answer Seed) */}
       <div className="mx-auto mb-6 max-w-7xl rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-blue-500/10 p-8 shadow-2xl backdrop-blur-sm">
         <h2 className="mb-4 text-2xl font-bold text-white">{t("geo_tldr.title")}</h2>
-        <p className="text-lg leading-relaxed text-slate-200">{t("geo_tldr.content")}</p>
+        <p className="text-lg leading-relaxed text-slate-200">
+          {t.rich("geo_tldr.content", {
+            strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+          })}
+        </p>
       </div>
 
       {/* Core Facts Section (GEO requirement: Extractable facts) */}
@@ -855,7 +859,9 @@ export default function DiscordTimestampGenerator() {
               {t("core_facts.pricing_label")}
             </dt>
             <dd className="text-lg font-bold text-green-400">
-              <strong>{t("core_facts.pricing_value")}</strong>
+              {t.rich("core_facts.pricing_value", {
+                strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+              })}
             </dd>
           </div>
           <div className="rounded-lg bg-white/5 p-4">
@@ -863,7 +869,9 @@ export default function DiscordTimestampGenerator() {
               {t("core_facts.formats_label")}
             </dt>
             <dd className="text-lg font-bold text-blue-400">
-              <strong>{t("core_facts.formats_value")}</strong>
+              {t.rich("core_facts.formats_value", {
+                strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+              })}
             </dd>
           </div>
           <div className="rounded-lg bg-white/5 p-4">
@@ -871,7 +879,9 @@ export default function DiscordTimestampGenerator() {
               {t("core_facts.speed_label")}
             </dt>
             <dd className="text-lg font-bold text-purple-400">
-              <strong>{t("core_facts.speed_value")}</strong>
+              {t.rich("core_facts.speed_value", {
+                strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+              })}
             </dd>
           </div>
           <div className="rounded-lg bg-white/5 p-4">
@@ -879,7 +889,9 @@ export default function DiscordTimestampGenerator() {
               {t("core_facts.target_users_label")}
             </dt>
             <dd className="text-lg font-bold text-yellow-400">
-              <strong>{t("core_facts.target_users_value")}</strong>
+              {t.rich("core_facts.target_users_value", {
+                strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+              })}
             </dd>
           </div>
         </dl>
@@ -889,7 +901,11 @@ export default function DiscordTimestampGenerator() {
       <div className="mt-32">
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold text-white">{t("features.title")}</h2>
-          <p className="mx-auto max-w-2xl text-xl text-slate-400">{t("features.description")}</p>
+          <p className="mx-auto max-w-2xl text-xl text-slate-400">
+            {t.rich("features.description", {
+              strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+            })}
+          </p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-3">
@@ -901,7 +917,9 @@ export default function DiscordTimestampGenerator() {
               {t("features.real_time_updates.title")}
             </h3>
             <p className="text-lg leading-relaxed text-slate-400">
-              {t("features.real_time_updates.description")}
+              {t.rich("features.real_time_updates.description", {
+                strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+              })}
             </p>
           </div>
 
@@ -913,7 +931,9 @@ export default function DiscordTimestampGenerator() {
               {t("features.multiple_formats.title")}
             </h3>
             <p className="text-lg leading-relaxed text-slate-400">
-              {t("features.multiple_formats.description")}
+              {t.rich("features.multiple_formats.description", {
+                strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+              })}
             </p>
           </div>
 
@@ -925,7 +945,9 @@ export default function DiscordTimestampGenerator() {
               {t("features.save_manage.title")}
             </h3>
             <p className="text-lg leading-relaxed text-slate-400">
-              {t("features.save_manage.description")}
+              {t.rich("features.save_manage.description", {
+                strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+              })}
             </p>
           </div>
         </div>

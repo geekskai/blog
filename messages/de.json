@@ -2788,18 +2788,18 @@
 
     "features": {
       "title": "Funktionen in Profiqualität",
-      "description": "Alles, was du für perfekte Discord-Timestamps mit Präzision und Stil brauchst",
+      "description": "Alles, was du für <strong>perfekte Discord-Timestamps</strong> mit <strong>Präzision</strong> und <strong>Stil</strong> brauchst",
       "real_time_updates": {
         "title": "Echtzeit-Updates",
-        "description": "Live-Vorschau mit automatischer Zeitzonen-Umrechnung und sofortigem Formatwechsel."
+        "description": "<strong>Live-Vorschau</strong> mit <strong>automatischer Zeitzonen-Umrechnung</strong> und <strong>sofortigem Formatwechsel</strong>."
       },
       "multiple_formats": {
         "title": "Mehrere Formate",
-        "description": "Sieben Timestamp-Formate inklusive relativer Zeit, Datums- und Kombi-Anzeigen."
+        "description": "<strong>Sieben Timestamp-Formate</strong> inklusive <strong>relativer Zeit</strong>, <strong>Datums-</strong> und <strong>Kombi-Anzeigen</strong>."
       },
       "save_manage": {
         "title": "Speichern & Verwalten",
-        "description": "Favoriten speichern und Timestamp-Einstellungen für schnellen Zugriff und Wiederverwendung verwalten."
+        "description": "<strong>Favoriten speichern</strong> und Timestamp-Einstellungen für schnellen Zugriff und Wiederverwendung verwalten."
       }
     },
 
@@ -2953,19 +2953,19 @@
 
     "geo_tldr": {
       "title": "Schnellantwort",
-      "content": "Der Discord Timestamp Generator ist ein kostenloses Online-Tool, das dynamische Discord-Timestamps für Events, Countdowns und Erinnerungen erstellt. Es unterstützt 7 Timestamp-Formate, funktioniert automatisch auf allen Zeitzonen und erfordert keine Registrierung. Perfekt für Discord Community Administratoren, Bot Entwickler und Event Organisatoren, die Events planen und Countdown-Timers erstellen müssen, die in Echtzeit innerhalb von Discord-Nachrichten aktualisiert werden."
+      "content": "Der <strong>Discord Timestamp Generator</strong> ist ein <strong>kostenloses Online-Tool</strong>, das <strong>dynamische Discord-Timestamps</strong> für Events, Countdowns und Erinnerungen erstellt. Es unterstützt <strong>7 Timestamp-Formate</strong>, funktioniert automatisch auf <strong>allen Zeitzonen</strong> und erfordert <strong>keine Registrierung</strong>. Perfekt für <strong>Discord Community Administratoren</strong>, <strong>Bot Entwickler</strong> und <strong>Event Organisatoren</strong>, die Events planen und Countdown-Timers erstellen müssen, die in Echtzeit innerhalb von Discord-Nachrichten aktualisiert werden."
     },
 
     "core_facts": {
       "title": "Kerninformationen",
       "pricing_label": "Preis",
-      "pricing_value": "100% Kostenlos - Keine Registrierung erforderlich",
+      "pricing_value": "<strong>100% Kostenlos</strong> - Keine Registrierung erforderlich",
       "formats_label": "Unterstützte Formate",
-      "formats_value": "7 Discord-Timestamp-Formate (R, t, T, d, D, f, F)",
+      "formats_value": "<strong>7 Discord-Timestamp-Formate</strong> (R, t, T, d, D, f, F)",
       "speed_label": "Verarbeitungsgeschwindigkeit",
-      "speed_value": "Instant generation - Realtids Vorschau",
+      "speed_value": "<strong>Instant generation</strong> - Realtime Vorschau",
       "target_users_label": "Zielgruppe",
-      "target_users_value": "Discord Community Administratoren, Discord Bot Entwickler, Event Organisatoren"
+      "target_users_value": "<strong>Discord Community Administratoren</strong>, <strong>Discord Bot Entwickler</strong>, <strong>Event Organisatoren</strong>"
     }
   },
   "RandomVinGenerator": {

@@ -2514,18 +2514,18 @@
     },
     "features": {
       "title": "Professionelle Funktioner",
-      "description": "Alt hvad du har brug for til at oprette perfekte Discord tidsstempler med præcision og stil",
+      "description": "Alt hvad du har brug for til at oprette <strong>perfekte Discord tidsstempler</strong> med <strong>præcision</strong> og <strong>stil</strong>",
       "real_time_updates": {
         "title": "Realtids Opdateringer",
-        "description": "Live forhåndsvisning med automatisk tidszone konvertering og øjeblikkelig format skift for præcis tidsstempel generering."
+        "description": "<strong>Live forhåndsvisning</strong> med <strong>automatisk tidszone konvertering</strong> og <strong>øjeblikkelig format skift</strong> for præcis tidsstempel generering."
       },
       "multiple_formats": {
         "title": "Flere Formater",
-        "description": "Syv forskellige tidsstempel formater inkluderet relativ tid, dato formater og kombinerede dato-tid visninger."
+        "description": "<strong>Syv forskellige tidsstempel formater</strong> inkluderet <strong>relativ tid</strong>, <strong>dato formater</strong> og <strong>kombinerede dato-tid visninger</strong>."
       },
       "save_manage": {
         "title": "Gem og Administrer",
-        "description": "Gem favorit konfigurationer og administrer nemt dine tidsstempel indstillinger for hurtig adgang og genbrug på tværs af forskellige projekter."
+        "description": "<strong>Gem favorit konfigurationer</strong> og administrer nemt dine tidsstempel indstillinger for hurtig adgang og genbrug på tværs af forskellige projekter."
       }
     },
     "usage_guide": {
@@ -2673,19 +2673,19 @@
 
     "geo_tldr": {
       "title": "Hurtig Svar",
-      "content": "Discord Tidsstempel Generator er et gratis online værktøj der opretter dynamiske Discord tidsstempler for begivenheder, nedtællinger og påmindelser. Det understøtter 7 tidsstempel formater, fungerer automatisk på tværs af alle tidszoner og kræver ingen registrering. Perfekt til Discord fællesskab administratorer, bot udviklere og begivenhedsorganisatorer der har brug for at planlægge begivenheder og oprette nedtælling timere der opdateres i realtid inden for Discord beskeder."
+      "content": "<strong>Discord Tidsstempel Generator</strong> er et <strong>gratis online værktøj</strong> der opretter <strong>dynamiske Discord tidsstempler</strong> for begivenheder, nedtællinger og påmindelser. Det understøtter <strong>7 tidsstempel formater</strong>, fungerer automatisk på tværs af <strong>alle tidszoner</strong> og <strong>kræver ingen registrering</strong>. Perfekt til <strong>Discord fællesskab administratorer</strong>, <strong>bot udviklere</strong> og <strong>begivenhedsorganisatorer</strong> der har brug for at planlægge begivenheder og oprette nedtælling timere der opdateres i realtid inden for Discord beskeder."
     },
 
     "core_facts": {
       "title": "Grundlæggende Information",
       "pricing_label": "Pris",
-      "pricing_value": "100% Gratis - Ingen registrering påkrævet",
+      "pricing_value": "<strong>100% Gratis</strong> - Ingen registrering påkrævet",
       "formats_label": "Supported Formatter",
-      "formats_value": "7 Discord tidsstempel formater (R, t, T, d, D, f, F)",
+      "formats_value": "<strong>7 Discord tidsstempel formater</strong> (R, t, T, d, D, f, F)",
       "speed_label": "Behandling Hastighed",
-      "speed_value": "Instant generation - Realtids forhåndsvisning",
+      "speed_value": "<strong>Instant generation</strong> - Realtids forhåndsvisning",
       "target_users_label": "Mål Brugere",
-      "target_users_value": "Discord Fællesskab Administratorer, Discord Bot Udviklere, Begivenhedsorganisatorer"
+      "target_users_value": "<strong>Discord Fællesskab Administratorer</strong>, <strong>Discord Bot Udviklere</strong>, <strong>Begivenhedsorganisatorer</strong>"
     }
   },
   "RandomVinGenerator": {

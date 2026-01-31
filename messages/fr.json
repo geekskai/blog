@@ -346,7 +346,6 @@
       "bf_unit": "bf",
       "untitled_piece": "Pièce sans titre"
     },
-
     "educational_content": {
       "professional_use_cases": "Cas d’usage professionnels",
       "use_cases_description": "Découvrez comment les professionnels utilisent les calculs de pied‑planche",
@@ -522,20 +521,16 @@
     "seo_title": "Convertisseur centimètres en pouces – Outil gratuit cm vers pouces | Précis & rapide",
     "seo_description": "Convertisseur gratuit centimètres en pouces en ligne. Convertissez les centimètres en pouces (pouces danois/norvégiens) avec une précision jusqu’à 3 décimales. Idéal pour le mobilier, la construction et le commerce international.",
     "seo_keywords": "cm en pouces, convertisseur centimètres, pouces en cm, convertisseur pouces danois, convertisseur pouces norvégiens, convertisseur mesures nordiques",
-
     "page_title": "Centimètres en pouces",
     "page_subtitle": "Convertisseur et calculateur",
     "page_description": "Convertisseur gratuit centimètres en pouces et calculateur de mesures nordiques. Convertissez les centimètres en pouces (pouces danois/norvégiens), les pouces en centimètres et calculez des mesures précises avec une précision décimale. Parfait pour l’achat de meubles, les projets de construction, les dimensions IKEA et le commerce international dans les pays nordiques.",
-
     "free_calculator_badge": "Convertisseur centimètres en pouces gratuit & outil de mesure nordique",
-
     "feature_badges": {
       "measurement_calculator": "Calculateur centimètres en pouces",
       "nordic_converter": "Convertisseur pouces danois & norvégiens",
       "ikea_tool": "Outil tailles IKEA",
       "construction_measurement": "Mesures de construction nordiques"
     },
-
     "keywords_tags": {
       "cm_to_inches": "Centimètres en pouces",
       "inches_to_cm": "Pouces en centimètres",
@@ -544,13 +539,11 @@
       "nordic_units": "Unités nordiques",
       "scandinavian_converter": "Convertisseur scandinave"
     },
-
     "breadcrumb": {
       "home": "Accueil",
       "tools": "Outils",
       "cm_to_inches_converter": "Convertisseur centimètres en pouces"
     },
-
     "converter_card": {
       "title": "Convertisseur centimètres en pouces",
       "description": "Convertissez instantanément entre centimètres et pouces (pouces danois/norvégiens)",
@@ -581,7 +574,6 @@
       "failed": "Échec",
       "copy_result": "Copier le résultat"
     },
-
     "converter": {
       "same_unit": "Même unité",
       "inches": "Pouces",
@@ -601,7 +593,6 @@
       "precision": "Précision",
       "decimals": "Décimales"
     },
-
     "quick_reference": {
       "quick_memory_rule": "Règle de mémorisation rapide",
       "professional_tip_text": "Les projets de menuiserie réussis nécessitent des calculs précis, un choix de matériaux de qualité et une planification efficace. Utilisez ce calculateur dans une approche globale incluant stockage, manipulation et installation. Consultez toujours les fournisseurs locaux pour les prix et disponibilités, et tenez compte des facteurs environnementaux.",
@@ -627,7 +618,6 @@
         "bed_length": "Longueur standard de lit"
       }
     },
-
     "educational_content": {
       "common_uses": {
         "title": "Usages courants",
@@ -676,12 +666,10 @@
           }
         }
       },
-
       "about_units": {
         "title": "À propos des pouces et des centimètres",
         "description": "Découvrez l’histoire et les usages pratiques de ces unités"
       },
-
       "facts": {
         "historical": {
           "title": "Contexte historique",
@@ -700,11 +688,9 @@
           "content": "Dans les usages professionnels, de petites erreurs peuvent s’accumuler. Notre outil fournit jusqu’à 3 décimales pour une précision maximale."
         }
       },
-
       "conversion_formulas": "Formules de conversion",
       "cm_to_inches": "Centimètres en pouces",
       "inches_to_cm": "Pouces en centimètres",
-
       "nordic_tradition": {
         "title": "Traditions de mesure nordiques",
         "denmark": {
@@ -717,7 +703,6 @@
         }
       }
     },
-
     "usage_guide": {
       "title": "Comment utiliser le convertisseur centimètres en pouces – guide pro complet",
       "description": "Maîtrisez les conversions cm‑pouces pour achats de meubles nordiques, projets de construction et mesures internationales. Notre convertisseur danois & norvégien fournit des résultats précis.",
@@ -730,7 +715,6 @@
       "step_4_title": "Copier et utiliser les résultats",
       "step_4_description": "Copiez le résultat en un clic pour listes d’achats, plans de construction ou spécifications internationales."
     },
-
     "content_sections": {
       "what_is_inches_title": "Qu’est‑ce qu’un pouce ? Comprendre les unités nordiques",
       "what_is_inches_description": "Un pouce (« tommer » en danois et norvégien) est une unité traditionnelle nordique. Aujourd’hui, 1 pouce = 2,54 centimètres, identique au standard international. Ce convertisseur vous aide pour les mesures nordiques liées au mobilier, aux projets de construction et au commerce international.",
@@ -741,26 +725,22 @@
       "benefit_4": "Compatibilité commerce international",
       "benefit_5": "Précision jusqu’à 3 décimales",
       "benefit_6": "Conversion instantanée gratuite",
-
       "formula_guide_title": "Formule de conversion centimètres‑pouces & guide du calculateur",
       "conversion_formula": "Formule de conversion",
       "precision_control": "Contrôle de précision",
       "quick_examples": "Exemples rapides",
-
       "precision_control_content": {
         "decimals_0": "0 décimale : mesures générales",
         "decimals_1_2": "1–2 décimales : dimensions de mobilier",
         "decimals_3": "3 décimales : précision construction",
         "precision_note": "Choisissez la précision adaptée à vos besoins."
       },
-
       "quick_examples_content": {
         "example_1": "10 cm = 3,94 pouces",
         "example_2": "25,4 cm = 10 pouces",
         "example_3": "100 cm = 39,37 pouces",
         "examples_note": "Parfait pour les conversions courantes."
       },
-
       "inches_usage_across_nordic_countries": "Usage des pouces dans les pays nordiques",
       "denmark_usage": "Danemark",
       "denmark_usage_text": "Au Danemark, les pouces sont très utilisés en construction, fabrication de meubles et artisanat. Les entreprises indiquent souvent les dimensions en pouces pour l’international.",
@@ -768,7 +748,6 @@
       "norway_usage_text": "Les industries norvégiennes de construction et menuiserie utilisent souvent les pouces. Notre convertisseur respecte les normes norvégiennes.",
       "international_usage": "International",
       "international_usage_text": "Les entreprises mondiales travaillant avec des fournisseurs nordiques ont besoin de conversions précises pour spécifications produit, dimensions d’expédition et contrôle qualité.",
-
       "features_title": "Fonctionnalités pro du convertisseur centimètres‑pouces",
       "features_subtitle": "Tout ce qu’il faut pour une conversion nordique précise",
       "two_way_conversion": "Conversion bidirectionnelle",
@@ -777,7 +756,6 @@
       "precision_control_description": "Choisissez entre 0 et 3 décimales selon vos besoins. Idéal pour la construction, le mobilier et l’usage pro.",
       "professional_tools": "Outils professionnels",
       "professional_tools_description": "Copiez les résultats, affichez les formules et utilisez des tableaux de référence pour un flux de travail efficace.",
-
       "faq_title": "FAQ conversion centimètres en pouces",
       "faq_how_convert": "Comment convertir précisément des centimètres en pouces ?",
       "faq_how_convert_answer": "Saisissez la valeur en centimètres. L’outil calcule automatiquement en pouces avec la formule : centimètres × 0,3937 = pouces. Ajustez la précision de 0 à 3 décimales si besoin.",
@@ -790,7 +768,6 @@
       "faq_is_free": "Ce convertisseur est‑il gratuit ?",
       "faq_is_free_answer": "Oui ! Il est entièrement gratuit, sans inscription. Profitez de conversions illimitées et d’un contrôle total de la précision."
     },
-
     "final_cta": {
       "title": "Prêt à convertir des centimètres en pouces ?",
       "description": "Utilisez notre convertisseur gratuit, précis et professionnel pour toutes vos mesures nordiques.",
@@ -804,13 +781,11 @@
     "page_title": "Générateur de cartes‑titre Invincible",
     "page_subtitle": "Créez des cartes‑titre TV personnalisées",
     "page_description": "Générez des cartes‑titre personnalisées inspirées de la série animée Invincible. Créez des cartes‑titre professionnelles avec texte, couleurs, fonds et effets personnalisables. Parfait pour le contenu de fans et les projets créatifs.",
-
     "breadcrumb": {
       "home": "Accueil",
       "tools": "Outils",
       "invincible_title_card_generator": "Générateur de cartes‑titre Invincible"
     },
-
     "header": {
       "professional_badge": "Générateur de cartes‑titre professionnel",
       "main_title": "Invincible",
@@ -822,7 +797,6 @@
       "download_button": "Télécharger",
       "generating": "Génération..."
     },
-
     "preview": {
       "live_preview": "Aperçu en direct",
       "resolution": "1920×1080",
@@ -835,14 +809,12 @@
       "saved_configurations": "Configurations enregistrées",
       "click_to_apply": "Cliquer pour appliquer"
     },
-
     "settings": {
       "customization": "Personnalisation",
       "presets_tab": "préréglages",
       "text_tab": "texte",
       "colors_tab": "couleurs",
       "effects_tab": "effets",
-
       "character_presets": "Préréglages de personnages",
       "text_settings": "Réglages du texte",
       "main_title_label": "Titre principal",
@@ -851,11 +823,9 @@
       "small_subtitle_placeholder": "Petit sous‑titre...",
       "credits_subtitle_label": "Sous‑titre des crédits",
       "credits_subtitle_placeholder": "Sous‑titre des crédits...",
-
       "font_size": "Taille de police",
       "text_outline": "Contour du texte",
       "subtitle_offset": "Décalage du sous‑titre",
-
       "upload_background": "Téléverser un fond personnalisé",
       "remove_image": "Supprimer l’image",
       "uploaded_image": "Image téléversée",
@@ -869,7 +839,6 @@
       "custom_color_hint": "Sélectionnez une couleur unie personnalisée pour le fond",
       "background_style": "Style de fond",
       "text_color": "Couleur du texte",
-
       "display_options": "Options d’affichage",
       "show_credits": "Afficher les crédits",
       "show_credits_description": "Afficher le sous‑titre sous le titre",
@@ -879,7 +848,6 @@
       "visual_effects_description": "Ajouter des effets dramatiques à votre carte‑titre",
       "selected_effects": "Effets sélectionnés"
     },
-
     "presets": {
       "invincible": {
         "name": "Invincible",
@@ -910,7 +878,6 @@
         "description": "Le demi‑frère de Mark"
       }
     },
-
     "backgrounds": {
       "classic_blue": "Bleu classique",
       "hero_gradient": "Dégradé héroïque",
@@ -921,7 +888,6 @@
       "sunset_orange": "Orange coucher de soleil",
       "forest_green": "Vert forêt"
     },
-
     "text_colors": {
       "invincible_yellow": "Jaune Invincible",
       "hero_blue": "Bleu héros",
@@ -934,7 +900,6 @@
       "atom_pink": "Rose Atom",
       "alien_cyan": "Cyan alien"
     },
-
     "effects": {
       "blood_level_1": "Niveau de sang 1",
       "blood_level_1_description": "Marques légères de sang",
@@ -955,24 +920,18 @@
       "sus": "Sus",
       "sus_description": "Effet de superposition suspect"
     },
-
     "content": {
       "professional_features": "Fonctionnalités de niveau professionnel",
       "features_description": "Tout ce qu’il faut pour créer des cartes‑titre époustouflantes avec un rendu studio",
-
       "advanced_typography": "Typographie avancée",
       "typography_description": "Personnalisation du texte professionnelle avec style Invincible authentique, effets de contour et contrôle précis pour des résultats au pixel près.",
-
       "character_presets_feature": "Préréglages de personnages",
       "presets_description": "Appliquez instantanément des palettes authentiques pour Mark, Omni‑Man, Atom Eve et d’autres personnages grâce à des préréglages en un clic.",
-
       "studio_export_quality": "Qualité d’export studio",
       "export_description": "Export en PNG 1920×1080 ultra‑haute résolution, optimisé pour la production vidéo, les réseaux sociaux et les présentations.",
-
       "create_professional_title": "Créez des cartes‑titre professionnelles style Invincible",
       "about_description_1": "Notre générateur avancé permet aux créateurs de produire des cartes‑titre de qualité studio qui capturent l’essence de la série animée. Avec des contrôles intuitifs et un rendu pro, donnez vie à votre vision créative.",
       "about_description_2": "Que vous créiez des vidéos de fans, du contenu YouTube, des supports pédagogiques ou des présentations professionnelles, notre outil offre la flexibilité et la qualité nécessaires pour vous démarquer.",
-
       "premium_features": "Fonctionnalités premium",
       "feature_character_presets": "Préréglages et thèmes de couleurs par personnage",
       "feature_text_customization": "Personnalisation avancée du texte et typographie",
@@ -980,7 +939,6 @@
       "feature_high_resolution": "Export haute résolution (1920×1080)",
       "feature_real_time_preview": "Aperçu et édition en temps réel",
       "feature_save_configurations": "Enregistrer et gérer les configurations favorites",
-
       "how_to_create_title": "Comment créer votre carte‑titre parfaite",
       "step_1_title": "Choisissez votre style",
       "step_1_description": "Sélectionnez un préréglage de personnage ou partez d’une toile vierge. Chaque préréglage propose des couleurs et un style optimisés.",
@@ -990,7 +948,6 @@
       "step_3_description": "Ajustez couleurs, fonds et effets tout en voyant les changements en temps réel. Utilisez le mode plein écran pour une édition détaillée.",
       "step_4_title": "Exporter & partager",
       "step_4_description": "Téléchargez votre carte‑titre en qualité pro et partagez‑la sur vos projets, réseaux sociaux ou plateformes créatives.",
-
       "faq_title": "Questions fréquentes",
       "faq_1_question": "Qu’est‑ce qui rend ce générateur spécial ?",
       "faq_1_answer": "Notre générateur est conçu pour reproduire fidèlement l’esthétique d’Invincible. Nous avons étudié la typographie, les palettes et le style visuel pour proposer des préréglages par personnage et des options de personnalisation pro donnant un rendu studio.",
@@ -1007,13 +964,11 @@
       "faq_7_question": "comment créer une carte‑titre Invincible ?",
       "faq_7_answer": "Pour créer une carte‑titre Invincible, choisissez un préréglage de personnage, personnalisez le texte via « Réglages du texte », ajustez les couleurs et ajoutez un effet si besoin."
     },
-
     "default_state": {
       "text": "Invincible",
       "small_subtitle": "BASÉ SUR LA BD DE",
       "subtitle": "Robert Kirkman, Cory Walker, & Ryan Ottley"
     },
-
     "messages": {
       "settings_copied": "Paramètres copiés dans le presse‑papiers ! 🎬",
       "copy_failed": "Échec de la copie",
@@ -1027,13 +982,11 @@
     "page_title": "Convertisseur BPM en millisecondes",
     "page_subtitle": "Calculateur de timing professionnel pour producteurs de musique & DJs",
     "page_description": "Temps de delay et taux LFO instantanés et précis pour votre DAW",
-
     "value_props": {
       "instant_conversion": "Conversion instantanée",
       "daw_ready": "Prêt pour DAW",
       "studio_grade": "Qualité studio"
     },
-
     "quick_converter": {
       "title": "Convertisseur rapide",
       "input_placeholder": "Saisir BPM (ex. 120) ou millisecondes (ex. 500)",
@@ -1045,7 +998,6 @@
       "click_to_copy": "Cliquer pour copier",
       "copied": "Copié !"
     },
-
     "common_bpm_presets": {
       "title": "Valeurs BPM courantes par genre",
       "genres": {
@@ -1059,7 +1011,6 @@
         "dnb": "Drum & Bass"
       }
     },
-
     "conversion_results": {
       "milliseconds_per_beat": "Millisecondes par temps",
       "beats_per_minute": "Battements par minute",
@@ -1069,7 +1020,6 @@
       "copied": "Copié !",
       "copied_all": "Tout copié !"
     },
-
     "note_values": {
       "quarter_note": "Noire",
       "quarter_note_description": "1 temps - référence standard",
@@ -1082,7 +1032,6 @@
       "eighth_triplet": "Triolet de croches",
       "eighth_triplet_description": "1/3 temps - subdivision en triolets"
     },
-
     "conversion_modes": {
       "bpm_to_ms": "BPM → MS",
       "ms_to_bpm": "MS → BPM",
@@ -1097,7 +1046,6 @@
       "converting_bpm_to_ms": "Conversion BPM en millisecondes",
       "converting_ms_to_bpm": "Conversion millisecondes en BPM"
     },
-
     "input_validation": {
       "range_bpm": "Plage : 20‑300 BPM",
       "range_ms": "Plage : 100‑3000 ms",
@@ -1111,7 +1059,6 @@
       "ms_max_error": "Les millisecondes ne doivent pas dépasser 3000",
       "invalid_input": "Entrée invalide"
     },
-
     "professional_tips": {
       "title": "Conseils pro pour la production musicale",
       "delay_reverb_timing": {
@@ -1129,7 +1076,6 @@
         "triplets": "Triolets : modulation polyrhythmique complexe"
       }
     },
-
     "how_it_works": {
       "title": "Comment fonctionne la conversion BPM → millisecondes",
       "formula_title": "La formule",
@@ -1146,7 +1092,6 @@
         "lighting_sync": "Mise en place d’éclairages synchronisés au tempo"
       }
     },
-
     "breadcrumb": {
       "home": "Accueil",
       "tools": "Outils",
@@ -1161,14 +1106,12 @@
     "page_subtitle": "Estimateur de puissance moteur",
     "page_description": "Convertisseur CCM en HP et calculateur de puissance moteur gratuit. Convertissez la cylindrée (ccm) en chevaux (hp) instantanément avec précision pour moteurs 2‑temps et 4‑temps. Parfait pour passionnés de moto, acheteurs auto, applications marines et projets de course.",
     "free_calculator_badge": "Calculateur de puissance moteur",
-
     "feature_badges": {
       "bidirectional_conversion": "Conversion bidirectionnelle CCM ↔ HP",
       "engine_support": "Moteurs 2‑temps & 4‑temps",
       "turbo_support": "Turbo & atmosphérique",
       "multi_application": "Motos, voitures & moteurs marins"
     },
-
     "keywords_tags": {
       "ccm_to_hp": "ccm en hp",
       "hp_to_ccm": "hp en ccm",
@@ -1177,13 +1120,11 @@
       "motorcycle_power_calculator": "calculateur de puissance moto",
       "2_stroke_4_stroke_converter": "convertisseur 2‑temps 4‑temps"
     },
-
     "breadcrumb": {
       "home": "Accueil",
       "tools": "Outils",
       "ccm_to_hp_converter": "Convertisseur CCM en HP"
     },
-
     "usage_guide": {
       "title": "Comment utiliser le convertisseur CCM en HP – guide complet",
       "description": "Maîtrisez la conversion de cylindrée en puissance pour l’achat de motos, l’évaluation auto, les moteurs marins et la course",
@@ -1196,7 +1137,6 @@
       "step_4_title": "Obtenir des résultats instantanés",
       "step_4_description": "Voir les chevaux estimés avec plage de puissance, copier ou partager les calculs"
     },
-
     "converter_card": {
       "title": "Calculateur moteur CCM ↔ HP",
       "description": "Convertissez la cylindrée en chevaux avec précision",
@@ -1235,17 +1175,14 @@
       "min_hp_error": "La valeur minimale HP est 1",
       "high_hp_warning": "Puissance très élevée. Les résultats peuvent être moins précis au‑delà de 1000 hp"
     },
-
     "engine_types": {
       "2_stroke": "Moteur 2‑temps",
       "4_stroke": "Moteur 4‑temps"
     },
-
     "fuel_systems": {
       "naturally_aspirated": "Atmosphérique",
       "turbocharged": "Turbo"
     },
-
     "history": {
       "title": "Historique des conversions",
       "button_text": "Historique",
@@ -1253,7 +1190,6 @@
       "click_to_use": "Cliquer pour utiliser",
       "recent_conversions_saved": "Les conversions récentes sont enregistrées localement"
     },
-
     "quick_reference": {
       "title": "Référence rapide",
       "description": "Conversions CCM en HP courantes et exemples réels",
@@ -1262,30 +1198,22 @@
       "pro_tip": "Conseil pro",
       "pro_tip_text": "La cylindrée (CCM) n’est qu’un facteur de la puissance. La puissance réelle dépend du taux de compression, du système d’alimentation, du réglage et d’autres facteurs. Utilisez ces estimations comme point de départ."
     },
-
     "faq": {
       "title": "Questions fréquentes",
       "description": "Tout ce qu’il faut savoir sur la conversion CCM → HP et les calculs de puissance",
-
       "q1": "Quelle est la précision de la conversion CCM → HP ?",
       "a1": "La conversion fournit des estimations basées sur des données empiriques et des moyennes du secteur. La puissance réelle peut varier de ±15–25 % selon le réglage, le taux de compression, le système d’alimentation et d’autres facteurs. Notre calculateur utilise des formules éprouvées avec des coefficients différents pour 2‑temps vs 4‑temps et atmosphérique vs turbo.",
-
       "q2": "Quelle différence de puissance entre 2‑temps et 4‑temps ?",
       "a2": "Les moteurs 2‑temps produisent généralement plus de puissance par cc car ils ont une phase motrice à chaque rotation, contre une sur deux pour les 4‑temps. Notre calculateur applique un coefficient de 1,2–1,4× pour 2‑temps et 0,8–1,0× pour 4‑temps.",
-
       "q3": "Quel est l’effet du turbo sur la conversion CCM → HP ?",
       "a3": "Les moteurs turbo produisent bien plus de puissance à cylindrée égale. Notre calculateur applique des coefficients plus élevés (1,0–1,4×) par rapport aux atmosphériques (0,8–1,2×), soit souvent 25–40 % de puissance estimée en plus.",
-
       "q4": "Puis‑je l’utiliser pour motos, voitures et moteurs marins ?",
       "a4": "Oui ! Le convertisseur fonctionne pour tous les moteurs à combustion interne : motos, voitures, bateaux, quads et moteurs de course. Il tient compte des types et configurations courants.",
-
       "q5": "Pourquoi les valeurs constructeur diffèrent‑elles parfois ?",
       "a5": "Les valeurs sont mesurées selon des conditions spécifiques (SAE, DIN, etc.) et incluent l’altitude, la température et les normes de mesure. Notre calculateur donne des estimations basées sur la cylindrée et le type de moteur, tandis que la valeur réelle dépend de la conception, du réglage et des conditions d’essai.",
-
       "q6": "Quelle plage de CCM fonctionne le mieux ?",
       "a6": "Le calculateur est précis pour des moteurs de 50 cc à 8000 cc. En‑dessous de 50 cc ou au‑dessus de 8000 cc, les résultats peuvent être moins précis."
     },
-
     "final_cta": {
       "title": "Prêt à calculer la puissance moteur ?",
       "description": "Utilisez notre convertisseur CCM → HP gratuit pour estimer instantanément la puissance de votre moteur",
@@ -1685,18 +1613,15 @@
     "page_subtitle": "Créez votre persona coloré",
     "page_description": "Libérez votre créativité avec notre générateur de noms Chromakopia. Créez des personas uniques inspirés de la vision artistique de Tyler, the Creator de ramener la couleur dans la vie.",
     "free_tool_badge": "Outil Chromakopia gratuit",
-
     "breadcrumb": {
       "home": "Accueil",
       "tools": "Outils",
       "chromakopia_name_generator": "Générateur de noms Chromakopia"
     },
-
     "header": {
       "main_title": "Générateur de noms Chromakopia",
       "description": "Créez votre alter ego coloré inspiré de Chromakopia de Tyler, the Creator. Générez des personas uniques qui incarnent l’esprit de ramener la couleur dans la vie et de sortir du tout‑ou‑rien."
     },
-
     "persona_display": {
       "title": "Votre persona Chromakopia",
       "st_chroma_style": "Style St. Chroma",
@@ -1706,13 +1631,11 @@
       "radiating_in": "Rayonne en",
       "chromatic_superpower": "Super‑pouvoir chromatique"
     },
-
     "favorites": {
       "title": "Personas favoris",
       "no_personas": "Aucun persona pour le moment",
       "add_first": "Générez votre premier persona pour démarrer votre collection"
     },
-
     "settings": {
       "title": "Paramètres du générateur",
       "generation_style": "Style de génération",
@@ -1731,7 +1654,6 @@
       "add_to_favorites": "Ajouter aux favoris",
       "reset_all": "Tout réinitialiser"
     },
-
     "features": {
       "music_inspired": "Inspiré de la musique",
       "music_description": "Générez des personas inspirés de l’album Chromakopia de Tyler, the Creator et de ses thèmes d’authenticité et d’expression colorée.",
@@ -1740,7 +1662,6 @@
       "share_connect": "Partager & connecter",
       "share_description": "Partagez vos personas générés avec vos amis et découvrez comment chacun exprime son identité colorée."
     },
-
     "about_chromakopia": {
       "title": "Qu’est‑ce que Chromakopia ? Comprendre la vision de Tyler, the Creator",
       "description_1": "Chromakopia est le huitième album studio de Tyler, the Creator, qui explore le fait de ramener la couleur dans la vie et de se libérer des attentes noir‑et‑blanc de la société. L’album met en scène son alter ego St. Chroma, symbole d’expression authentique et du courage de vivre en couleur.",
@@ -1753,7 +1674,6 @@
       "theme_5": "Transparence émotionnelle",
       "theme_6": "Rébellion artistique"
     },
-
     "how_to_use": {
       "title": "Comment créer votre persona Chromakopia",
       "step_1_title": "Choisir votre style",
@@ -1765,7 +1685,6 @@
       "step_4_title": "Partager & s’exprimer",
       "step_4_description": "Téléchargez des images ou copiez le texte pour partager votre persona chromatique sur les réseaux sociaux et inspirer les autres."
     },
-
     "faq": {
       "title": "Questions fréquentes",
       "q1": "Quelle est l’inspiration du générateur de noms Chromakopia ?",
@@ -1777,7 +1696,6 @@
       "q4": "Le générateur de noms Chromakopia est‑il gratuit ?",
       "a4": "Oui ! Cet outil est totalement gratuit, sans inscription. Générez un nombre illimité de personas, enregistrez vos favoris et partagez vos créations sans restriction. Il fonctionne sur tous les appareils, y compris mobiles et tablettes."
     },
-
     "persona_card": {
       "copy_text": "🎨 Mon persona Chromakopia 🎨\n\nNom : {name}\nCouleur : {colorName}\nTrait : {trait}\nDescription : {description}\nSuper‑pouvoir : {superpower}\nCitation : {quote}\n\nGénéré sur : https://geekskai.com/tools/chromakopia-name-generator",
       "copied_message": "Persona copié dans le presse‑papiers ! 🎨",
@@ -1855,7 +1773,6 @@
         "reduced_precision_small": "Des valeurs très petites peuvent réduire la précision"
       }
     },
-
     "quick_reference": {
       "reference_table": {
         "title": "Table de référence rapide",
@@ -2315,13 +2232,11 @@
     "seo_title": "Convertisseur de fuseaux horaires Discord - Outil gratuit d’heure et d’horodatage",
     "seo_description": "Convertisseur de fuseaux horaires Discord gratuit avec conversion bidirectionnelle des horodatages, prise en charge mondiale des fuseaux et traitement par lots.",
     "seo_keywords": "convertisseur fuseau horaire discord, conversion fuseau horaire discord, convertisseur horaire discord",
-
     "breadcrumb": {
       "home": "Accueil",
       "tools": "Outils",
       "discord_time_converter": "Convertisseur d’horodatage Discord"
     },
-
     "header": {
       "badge_text": "Convertisseur de fuseaux horaires Discord & générateur d’horodatages gratuit",
       "main_title_line1": "Fuseaux horaires Discord",
@@ -2334,7 +2249,6 @@
         "free_tool": "Outil Discord gratuit"
       }
     },
-
     "conversion_modes": {
       "to_timestamp": {
         "title": "Heure → Horodatage Discord",
@@ -2345,21 +2259,18 @@
         "description": "Convertir le format Discord en heure lisible"
       }
     },
-
     "input_sections": {
       "conversion_mode": "Mode de conversion",
       "time_input": "Saisie de l’heure",
       "discord_timestamp_input": "Saisie d’horodatage Discord",
       "timezone": "Fuseau horaire"
     },
-
     "form_labels": {
       "select_date_time": "Sélectionner date & heure",
       "discord_timestamp": "Horodatage Discord",
       "select_timezone": "Sélectionnez votre fuseau",
       "input_one_per_line": "Saisie (une par ligne)"
     },
-
     "placeholders": {
       "select_date_time": "Sélectionner la date et l’heure",
       "discord_timestamp": "&lt;t:1640995200:f&gt;",
@@ -2367,7 +2278,6 @@
       "batch_to_timestamp": "2024-01-01 12:00:00\n2024-02-01 15:30:00",
       "batch_from_timestamp": "&lt;t:1640995200:f&gt;\n&lt;t:1640995500:R&gt;"
     },
-
     "timestamp_formats": {
       "relative": {
         "label": "Temps relatif",
@@ -2405,7 +2315,6 @@
         "example": "Mardi 20 avril 2021 16:20"
       }
     },
-
     "timezone_groups": {
       "utc": "UTC",
       "americas": "Amériques",
@@ -2413,7 +2322,6 @@
       "asia": "Asie",
       "oceania": "Océanie"
     },
-
     "common_timezones": {
       "utc": {
         "label": "UTC",
@@ -2476,7 +2384,6 @@
         "description": "Auckland, Wellington (+13:00)"
       }
     },
-
     "buttons": {
       "plus_1_hour": "+1 h",
       "plus_1_day": "+1 jour",
@@ -2498,7 +2405,6 @@
       "hide_advanced": "Masquer les fonctions avancées",
       "convert_all": "Tout convertir"
     },
-
     "results": {
       "conversion_results": "Résultats de conversion",
       "live_preview": "Aperçu en direct",
@@ -2506,18 +2412,15 @@
       "date_time_relative": "Date, heure & relatif",
       "full_date_relative": "Date complète & relatif"
     },
-
     "advanced_features": {
       "batch_converter": "Convertisseur par lots",
       "conversion_history": "Historique des conversions",
       "results_label": "Résultats :"
     },
-
     "info_messages": {
       "format_info": "Format : &lt;t:timestamp:format&gt; (ex. &lt;t:1640995200:f&gt;)",
       "invalid_format_type": "Type de format invalide"
     },
-
     "usage_guide": {
       "title": "Comment utiliser le convertisseur de fuseaux Discord - Guide complet",
       "description": "Maîtrisez la conversion de fuseaux Discord et la génération d’horodatages pour votre serveur, vos bots et la coordination internationale.",
@@ -2530,7 +2433,6 @@
       "step_4_title": "Copier & utiliser",
       "step_4_description": "Copiez l’horodatage Discord au format souhaité et collez‑le dans un message, un bot ou un webhook."
     },
-
     "content_sections": {
       "what_are_discord_timestamps": {
         "title": "Que sont les horodatages Discord ?",
@@ -2654,13 +2556,11 @@
     "seo_title": "Générateur d’horodatages Discord - Créez des horodatages dynamiques | Outil gratuit",
     "seo_description": "Générateur gratuit d’horodatages Discord pour créer des timestamps dynamiques, comptes à rebours et rappels. Tous les formats Discord avec aperçu en temps réel, support des fuseaux et intégration bots. Parfait pour la planification d’événements.",
     "seo_keywords": "générateur d’horodatages discord, créer horodatage discord, générer horodatage discord, générateur d’événements discord, compte à rebours discord, rappel discord",
-
     "breadcrumb": {
       "home": "Accueil",
       "tools": "Outils",
       "discord_timestamp_generator": "Générateur d’horodatages Discord"
     },
-
     "header": {
       "professional_badge": "Horodatages Discord professionnels",
       "main_title": "Discord",
@@ -2673,7 +2573,6 @@
         "free_generator": "Générateur gratuit"
       }
     },
-
     "modes": {
       "input_mode": "Mode de saisie",
       "relative_time": "Temps relatif",
@@ -2681,7 +2580,6 @@
       "absolute_time": "Temps absolu",
       "absolute_time_description": "Date & heure précises"
     },
-
     "quick_presets": {
       "title": "Préréglages rapides",
       "in_1_hour": "Dans 1 heure",
@@ -2689,7 +2587,6 @@
       "next_week": "Semaine prochaine",
       "in_1_month": "Dans 1 mois"
     },
-
     "time_adjustment": {
       "title": "Ajustement du temps",
       "weeks": "Semaines",
@@ -2697,7 +2594,6 @@
       "hours": "Heures",
       "minutes": "Minutes"
     },
-
     "date_time_settings": {
       "title": "Réglages date & heure",
       "year": "Année",
@@ -2707,11 +2603,9 @@
       "minute": "Minute",
       "timezone": "Fuseau : UTC"
     },
-
     "display_format": {
       "title": "Format d’affichage"
     },
-
     "timestamp_formats": {
       "relative": {
         "label": "Relatif",
@@ -2749,12 +2643,10 @@
         "example": "Mardi 20 avril 2021 16:20"
       }
     },
-
     "format_toggle": {
       "show_common_formats": "Afficher les formats courants",
       "show_more_formats": "Afficher plus de formats"
     },
-
     "preview": {
       "discord_preview": "Aperçu Discord",
       "real_time": "Temps réel",
@@ -2764,7 +2656,6 @@
       "bot_label": "BOT",
       "today": "Aujourd’hui"
     },
-
     "generated_result": {
       "title": "Résultat généré",
       "discord_timestamp_code": "Code d’horodatage Discord",
@@ -2774,31 +2665,28 @@
       "copied": "Copié !",
       "failed_to_copy": "Échec de la copie :"
     },
-
     "saved_configurations": {
       "title": "Configurations enregistrées",
       "click_to_apply": "Cliquer pour appliquer",
       "relative_mode": "Relatif",
       "date_mode": "Date"
     },
-
     "features": {
       "title": "Fonctionnalités de niveau pro",
-      "description": "Tout ce qu’il faut pour créer des horodatages Discord parfaits",
+      "description": "Tout ce qu’il faut pour créer des <strong>horodatages Discord parfaits</strong> avec <strong>précision</strong> et <strong>style</strong>",
       "real_time_updates": {
         "title": "Mises à jour en temps réel",
-        "description": "Aperçu en direct avec conversion automatique des fuseaux et changement instantané de format."
+        "description": "<strong>Aperçu en direct</strong> avec <strong>conversion automatique des fuseaux</strong> et <strong>changement instantané de format</strong>."
       },
       "multiple_formats": {
         "title": "Formats multiples",
-        "description": "Sept formats différents : relatif, dates et combinaisons date‑heure."
+        "description": "<strong>Sept formats différents</strong> : <strong>relatif</strong>, <strong>dates</strong> et <strong>combinaisons date‑heure</strong>."
       },
       "save_manage": {
         "title": "Enregistrer & gérer",
-        "description": "Enregistrez vos configurations favorites et réutilisez‑les facilement."
+        "description": "<strong>Enregistrez vos configurations favorites</strong> et réutilisez‑les facilement."
       }
     },
-
     "usage_guide": {
       "title": "Comment créer des horodatages Discord parfaits",
       "description": "Suivez ces étapes pour générer des horodatages professionnels",
@@ -2819,7 +2707,6 @@
         "description": "Copiez le code et collez‑le dans vos messages pour une conversion automatique des fuseaux."
       }
     },
-
     "content_sections": {
       "what_is_generation": {
         "title": "Qu’est‑ce que la génération d’horodatages Discord ?",
@@ -2832,7 +2719,6 @@
         "benefit_5": "Aperçu en temps réel pendant la création",
         "benefit_6": "Plusieurs formats disponibles"
       },
-
       "best_practices": {
         "title": "Bonnes pratiques de création d’horodatages Discord",
         "event_scheduling": {
@@ -2854,7 +2740,6 @@
           "api_compatible": "Compatible avec toutes les intégrations API Discord."
         }
       },
-
       "generator_vs_converter": {
         "title": "Générateur vs convertisseur Discord : choisir le bon outil",
         "generator_section": {
@@ -2878,7 +2763,6 @@
         }
       }
     },
-
     "faq": {
       "title": "Questions fréquentes sur la génération d’horodatages Discord",
       "q1": {
@@ -2914,7 +2798,6 @@
         "answer": "Oui. Le générateur inclut un système de favoris pour réutiliser rapidement des configurations."
       }
     },
-
     "preview_text": {
       "in_days": "dans {days} jours",
       "in_hours": "dans {hours} heures",
@@ -2925,7 +2808,6 @@
       "minutes_ago": "il y a {minutes} minutes",
       "few_seconds_ago": "il y a quelques secondes"
     },
-
     "structured_data": {
       "feature_1": "Génération de timestamp Discord dynamique",
       "feature_2": "Création de compte à rebours en temps réel",
@@ -2946,22 +2828,20 @@
       "educational_use": "Planification d’événements Discord, Gestion de communauté Discord, Développement de bots Discord, Coordination d’événements Discord, Systèmes de rappel Discord, Administration de serveurs Discord",
       "audience_type": "Gestionnaires de communauté Discord, Développeurs de bots Discord, Organisateurs d’événements Discord, Administrateurs de serveurs Discord, Communautés de jeu, Créateurs de contenu"
     },
-
     "geo_tldr": {
       "title": "Réponse rapide",
-      "content": "Le générateur de timestamp Discord est un outil en ligne gratuit qui crée des timestamp Discord dynamiques pour les événements, les comptes à rebours et les rappels. Il prend en charge 7 formats de timestamp, fonctionne automatiquement sur tous les fuseaux horaires et ne nécessite pas d’inscription. Parfait pour les gestionnaires de communauté Discord, les développeurs de bots et les organisateurs d’événements qui doivent planifier des événements et créer des compteurs à rebours qui s’actualisent en temps réel dans les messages Discord."
+      "content": "Le <strong>générateur de timestamp Discord</strong> est un <strong>outil en ligne gratuit</strong> qui crée des <strong>timestamp Discord dynamiques</strong> pour les événements, les comptes à rebours et les rappels. Il prend en charge <strong>7 formats de timestamp</strong>, fonctionne automatiquement sur <strong>tous les fuseaux horaires</strong> et ne nécessite pas d’inscription. Parfait pour les <strong>gestionnaires de communauté Discord</strong>, les <strong>développeurs de bots</strong> et les organisateurs d’événements qui doivent planifier des événements et créer des compteurs à rebours qui s’actualisent en temps réel dans les messages Discord."
     },
-
     "core_facts": {
       "title": "Informations essentielles",
       "pricing_label": "Tarifs",
-      "pricing_value": "100% Gratuit - Aucune inscription requise",
+      "pricing_value": "<strong>100% Gratuit</strong> - Aucune inscription requise",
       "formats_label": "Formats pris en charge",
-      "formats_value": "7 formats de timestamp Discord (R, t, T, d, D, f, F)",
+     "formats_value": "<strong>7 Discord tidsstempel formater</strong> (R, t, T, d, D, f, F)",
       "speed_label": "Vitesse de traitement",
-      "speed_value": "Génération instantanée - Aperçu en temps réel",
+      "speed_value": "<strong>Génération instantanée</strong> - Aperçu en temps réel",
       "target_users_label": "Utilisateurs cibles",
-      "target_users_value": "Gestionnaires de communauté Discord, Développeurs de bots Discord, Organisateurs d’événements Discord"
+      "target_users_value": "<strong>Gestionnaires de communauté Discord</strong>, <strong>Développeurs de bots Discord</strong>, <strong>Organisateurs d'événements Discord</strong>"
     }
   },
   "RandomVinGenerator": {
@@ -3447,9 +3327,7 @@
     "seo_title": "Générateur de nombres aléatoires à 4 chiffres - Générateur de codes gratuit",
     "seo_description": "Générateur gratuit de nombres aléatoires à 4 chiffres pour codes de vérification, PIN et OTP. Générez des nombres sécurisés instantanément. Sans inscription, cryptographiquement sûr, usage illimité.",
     "seo_keywords": "générateur nombres aléatoires 4 chiffres, générateur de codes aléatoires, générateur 4 chiffres, code aléatoire 4 chiffres, générateur quatre chiffres, générateur aléatoire 4 chiffres, générateur codes vérification, générateur PIN, générateur OTP, nombres aléatoires sécurisés, générateur cryptographique, générateur de données de test, générateur en lot, générer code 4 chiffres",
-
     "og_image_alt": "Outil générateur de nombres aléatoires à 4 chiffres",
-
     "json_ld": {
       "name": "Générateur de nombres aléatoires à 4 chiffres",
       "alternate_names": "Générateur 4 chiffres, générateur de codes aléatoires, générateur de nombres aléatoires 4 chiffres",
@@ -3475,13 +3353,11 @@
         "instant": "Génération instantanée via Web Crypto API"
       }
     },
-
     "breadcrumb": {
       "home": "Accueil",
       "tools": "Outils",
       "random_4_digit_number_generator": "Générateur de nombres aléatoires à 4 chiffres"
     },
-
     "header": {
       "badge_text": "Sécurisé cryptographiquement • Gratuit pour toujours",
       "main_title": "Générateur de nombres aléatoires à 4 chiffres",
@@ -3492,18 +3368,15 @@
       "testing_data": "données de test",
       "share_text": "Partagez cet outil gratuit avec votre équipe"
     },
-
     "features_pills": {
       "instant_generation": "Génération instantanée",
       "crypto_secure": "Sécurité crypto",
       "bulk_export": "Export par lots"
     },
-
     "generator": {
       "single_title": "Générateur de nombre unique",
       "settings_show": "Afficher les réglages",
       "settings_hide": "Masquer les réglages",
-
       "settings_panel": {
         "title": "Réglages de génération",
         "range_label": "Plage (min - max)",
@@ -3516,25 +3389,21 @@
         "exclude_sequential": "Exclure les suites (1234, 4321)",
         "exclude_repeated": "Exclure les répétitions (1111, 2222)"
       },
-
       "display": {
         "click_generate": "Cliquez sur Générer pour créer un nombre",
         "features": "Sécurisé • Aléatoire • Instantané",
         "crypto_secure": "Nombre aléatoire cryptographiquement sûr"
       },
-
       "buttons": {
         "generate": "Générer un nombre",
         "generating": "Génération...",
         "copy": "Copier",
         "copied": "Copié !"
       },
-
       "history": {
         "title": "Historique récent",
         "clear": "Effacer"
       },
-
       "bulk": {
         "title": "Générateur par lots",
         "number_of_items": "Nombre d’éléments",
@@ -3547,13 +3416,11 @@
         "results_title": "Nombres générés ({count})",
         "click_to_copy": "Cliquer pour copier"
       },
-
       "stats": {
         "total_generated": "Total généré",
         "unique_numbers": "Nombres uniques",
         "average_value": "Valeur moyenne"
       },
-
       "bulk_title": "Générateur par lots",
       "bulk_settings": {
         "quantity_label": "Nombre d’éléments",
@@ -3563,14 +3430,12 @@
         "export_json": "JSON (.json)",
         "allow_duplicates": "Autoriser les doublons"
       },
-
       "bulk_buttons": {
         "generate": "Générer {count} nombres",
         "export": "Exporter",
         "show": "Afficher",
         "hide": "Masquer"
       },
-
       "statistics": {
         "total_generated": "Total généré",
         "unique_numbers": "Nombres uniques",
@@ -3578,15 +3443,12 @@
         "generated_numbers": "Nombres générés ({count})",
         "click_to_copy": "Cliquer pour copier"
       },
-
       "reset_button": "Tout réinitialiser"
     },
-
     "use_cases": {
       "badge": "Cas d’usage populaires",
       "title": "À quoi sert un générateur de nombres aléatoires à 4 chiffres ?",
       "description": "De la sécurité aux tests de développement, découvrez comment notre générateur peut vous aider",
-
       "verification_codes": {
         "title": "Codes de vérification",
         "description": "Générez des codes OTP et 2FA sécurisés pour les systèmes SMS/email",
@@ -3597,7 +3459,6 @@
           "account_recovery": "Récupération de compte"
         }
       },
-
       "pin_numbers": {
         "title": "Codes PIN",
         "description": "Créez des codes personnels sécurisés pour diverses applications",
@@ -3608,7 +3469,6 @@
           "security_tokens": "Jetons de sécurité"
         }
       },
-
       "testing_development": {
         "title": "Tests & développement",
         "description": "Générez des données de test pour QA, développement et initialisation de bases",
@@ -3619,7 +3479,6 @@
           "database_seeds": "Initialisation de base"
         }
       },
-
       "gaming_lottery": {
         "title": "Jeux & loterie",
         "description": "Créez des nombres aléatoires pour jeux, concours et numéros chance",
@@ -3630,7 +3489,6 @@
           "random_selection": "Sélection aléatoire"
         }
       },
-
       "educational_research": {
         "title": "Éducation & recherche",
         "description": "Parfait pour statistiques, expériences de probabilité et projets académiques",
@@ -3641,7 +3499,6 @@
           "surveys": "Sondages"
         }
       },
-
       "how_it_works": {
         "title": "Comment fonctionne notre générateur",
         "description_1": "Notre {strong_4digit} utilise des algorithmes cryptographiquement sûrs pour garantir un vrai hasard.",
@@ -3650,7 +3507,6 @@
         "strong_crypto": "Web Crypto API",
         "description_3": "Idéal pour {strong_users} et toute personne ayant besoin de nombres fiables pour codes de vérification, PIN ou tests.",
         "strong_users": "développeurs, professionnels de la sécurité",
-
         "steps": {
           "step_1": "Choisissez vos préférences (plage, format, exclusions)",
           "step_2": "Cliquez sur Générer pour créer des nombres sécurisés",
@@ -3658,7 +3514,6 @@
           "step_4": "Utilisez‑les immédiatement dans vos applications"
         }
       },
-
       "why_choose": {
         "title": "Pourquoi choisir notre outil ?",
         "instant_generation": {
@@ -3687,12 +3542,10 @@
         }
       }
     },
-
     "features": {
       "badge": "Fonctionnalités puissantes",
       "title": "Tout ce qu’il faut dans un seul outil",
       "description": "Fonctions de niveau pro conçues pour développeurs, experts sécurité et power users",
-
       "crypto_secure": {
         "title": "Sécurité cryptographique",
         "description": "Utilise Web Crypto API pour un vrai aléatoire, adapté aux usages sensibles"
@@ -3717,9 +3570,7 @@
         "title": "Personnalisation avancée",
         "description": "Contrôlez la plage, le format, les doublons et les exclusions"
       },
-
       "learn_more": "En savoir plus",
-
       "trust_signals": {
         "badge": "Approuvé par développeurs & pros sécurité",
         "description": "Rejoignez des milliers de développeurs, ingénieurs QA et pros sécurité qui l’utilisent au quotidien",
@@ -3732,18 +3583,15 @@
           "cross_platform": "✓ Mobile & desktop"
         }
       },
-
       "security_notice": {
         "title": "Sécurité & confidentialité",
         "description": "Toute génération se fait dans votre navigateur via Web Crypto API. Nous ne stockons ni ne transmettons aucun nombre. Vos données restent sur votre appareil."
       }
     },
-
     "faq": {
       "badge": "Questions fréquentes",
       "title": "Tout ce qu’il faut savoir",
       "description": "Questions courantes sur notre générateur à 4 chiffres",
-
       "items": {
         "how_random": {
           "question": "Quel est le niveau d’aléa des nombres générés ?",
@@ -3794,7 +3642,6 @@
           "answer": "La plage définit un min et un max. Par exemple, 1000‑5000 ne générera que des nombres entre 1000 et 5000. Utile pour cibler une sous‑plage de 0000‑9999."
         }
       },
-
       "q1": {
         "question": "Quel est le niveau d’aléa des nombres générés ?",
         "answer": "Notre générateur utilise la Web Crypto API (crypto.getRandomValues()), qui fournit des nombres aléatoires cryptographiquement sûrs. Ils sont vraiment imprévisibles, adaptés aux usages sensibles comme les codes de vérification et PIN. La qualité d’aléa est bien supérieure à Math.random()."
@@ -3843,14 +3690,12 @@
         "question": "Comment fonctionne la plage ?",
         "answer": "La plage définit min et max. Par exemple, 1000‑5000 génère uniquement des nombres entre 1000 et 5000. Utile pour cibler une sous‑plage de 0000‑9999."
       },
-
       "still_have_questions": {
         "title": "Encore des questions ?",
         "description": "Vous ne trouvez pas la réponse ? Consultez la documentation ou contactez la communauté",
         "view_docs": "Voir la documentation",
         "contact_support": "Contacter le support"
       },
-
       "pro_tips": {
         "tip_1": {
           "icon": "💡",
@@ -3869,7 +3714,6 @@
         }
       }
     },
-
     "cta": {
       "title": "Prêt à générer des nombres aléatoires ?",
       "description": "Commencez à générer des nombres à 4 chiffres sécurisés dès maintenant. Sans inscription, sans limite, gratuit pour toujours.",
@@ -3883,21 +3727,18 @@
         "cross_platform": "✓ Mobile & desktop"
       }
     },
-
     "seo_content": {
       "title": "À propos de notre générateur 4 chiffres",
       "title_suffix": "Générateur de codes aléatoires",
       "paragraph_1": "Notre {strong_generator} est un outil de niveau pro destiné aux développeurs, professionnels de la sécurité, ingénieurs QA et toute personne ayant besoin de nombres fiables. Contrairement aux générateurs basiques, nous utilisons la <rich>{strong_crypto}</rich> pour un aléatoire cryptographiquement sûr.",
       "strong_generator": "générateur de nombres aléatoires à 4 chiffres",
       "strong_crypto": "Web Crypto API",
-
       "perfect_for_title": "Parfait pour de multiples usages",
       "perfect_for_description": "Que vous ayez besoin de {strong_verification} pour l’authentification, de {strong_pins} pour le contrôle d’accès, de {strong_test_data} pour le développement, ou de {strong_random} pour tout autre usage, notre outil offre une génération instantanée et sécurisée.",
       "strong_verification": "codes de vérification",
       "strong_pins": "codes PIN",
       "strong_test_data": "données de test",
       "strong_random": "nombres aléatoires",
-
       "key_features_title": "Fonctionnalités clés",
       "features_list": {
         "crypto_secure": "<strong>Sécurisé cryptographiquement</strong>: utilise Web Crypto API pour un vrai aléatoire",
@@ -3909,14 +3750,12 @@
         "free": "<strong>100 % gratuit</strong>: générations illimitées",
         "privacy": "<strong>Respect de la vie privée</strong>: aucune conservation"
       },
-
       "how_it_works_title": "Comment ça marche",
       "how_it_works_description": "Notre générateur s’appuie sur la méthode native {strong_crypto} du navigateur, qui fournit des valeurs aléatoires cryptographiquement fortes. Cela garantit des nombres imprévisibles adaptés à {strong_otp}, {strong_2fa} et {strong_verification}.",
       "strong_crypto_method": "crypto.getRandomValues()",
       "strong_otp": "génération d’OTP",
       "strong_2fa": "authentification à deux facteurs",
       "strong_verification_codes": "codes de vérification",
-
       "why_choose_title": "Pourquoi choisir notre outil ?",
       "why_choose_description": "Contrairement aux générateurs basés sur Math.random(), notre outil offre {strong_enterprise} avec une interface intuitive. Conçu pour les pros qui veulent des nombres fiables et sûrs sans compromis.",
       "strong_enterprise": "une sécurité de niveau entreprise"
@@ -5928,7 +5767,6 @@
         }
       }
     },
-
     "seo_content": {
       "how_it_works": {
         "title": "Comment fonctionne notre calculateur de jour de neige",
@@ -6062,7 +5900,6 @@
       }
     }
   },
-
   "PERMProcessingTimeTracker": {
     "seo_title": "Suivi du Temps de Traitement PERM - Vérificateur d'État d'Immigration DOL en Temps Réel Gratuit",
     "seo_description": "Suivi du temps de traitement PERM avec données DOL en temps réel. Intégration officielle des données DOL pour des calendriers d'immigration précis.",
