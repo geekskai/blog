@@ -18,6 +18,7 @@ interface ListLayoutProps {
   images?: string
   initialDisplayPosts?: CoreContent<Blog>[]
   pagination?: PaginationProps
+  children?: React.ReactNode
 }
 
 function Pagination({ totalPages, currentPage }: PaginationProps) {
@@ -65,25 +66,25 @@ export default function ListLayoutWithTags({
   title,
   initialDisplayPosts = [],
   pagination,
+  children,
 }: ListLayoutProps) {
   const displayPosts = initialDisplayPosts.length > 0 ? initialDisplayPosts : posts
 
-  // const author = allAuthors.find((p) => p.slug === 'default') as Authors
-  // const { name, occupation } = coreContent(author)
   return (
     <div className="flex flex-col gap-4">
-      <section className="py-12 sm:py-16 lg:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-2 md:py-6">
+        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className="mt-3 whitespace-pre-wrap text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+            <h1 className="mt-3 whitespace-pre-wrap text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
               {title}
             </h1>
           </div>
         </div>
       </section>
-      <div className="flex gap-4 sm:gap-6 xl:gap-8">
+      {children}
+      <div className="flex gap-4 md:gap-6 xl:gap-8">
         <div>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:gap-y-12 xl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-y-12 xl:grid-cols-3">
             {displayPosts.map((post) => {
               const { path, date, title, summary, tags, images } = post
               const author = allAuthors.find((p) => p.slug === "default") as Authors

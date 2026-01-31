@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import React from "react"
 import { hasLocale } from "next-intl"
 import { routing, supportedLocales } from "../../i18n/routing"
 import { notFound } from "next/navigation"
