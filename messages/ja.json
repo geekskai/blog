@@ -2958,6 +2958,44 @@
       "hours_ago": "{hours}時間前",
       "minutes_ago": "{minutes}分前",
       "few_seconds_ago": "数秒前"
+    },
+
+    "structured_data": {
+      "feature_1": "動的 Discord タイムスタンプ生成",
+      "feature_2": "リアルタイムカウントダウン作成",
+      "feature_3": "複数のDiscord タイムスタンプ形式",
+      "feature_4": "イベントリマインダー生成",
+      "feature_5": "タイムゾーン対応タイムスタンプ作成",
+      "feature_6": "Discordシミュレーションでのライブプレビュー",
+      "feature_7": "相対時間計算",
+      "feature_8": "絶対日付入力オプション",
+      "feature_9": "クイップリセット設定",
+      "feature_10": "一クリックコピー機能",
+      "feature_11": "お気に入り設定を保存",
+      "feature_12": "Discord bot 統合サポート",
+      "feature_13": "モバイルレスポンシブインターフェース",
+      "feature_14": "登録不要",
+      "feature_15": "瞬時タイムスタンプ作成",
+      "software_requirements": "モダンウェブブラウザーとJavaScript有効",
+      "educational_use": "Discord イベント計画, Discord コミュニティ管理, Discord Bot 開発, Discord イベント調整, Discord リマインダーシステム, Discord サーバー管理",
+      "audience_type": "Discord コミュニティ管理者, Discord Bot 開発者, イベント管理者, Discord サーバー管理者, ゲームコミュニティ, コンテンツクリエイター"
+    },
+
+    "geo_tldr": {
+      "title": "迅速な回答",
+      "content": "Discord タイムスタンプジェネレーターは、無料のオンラインツールで、イベント、カウントダウン、リマインダーのための動的 Discord タイムスタンプを作成します。7つのタイムスタンプ形式をサポートし、すべてのタイムゾーンで自動的に動作し、登録不要です。Discord コミュニティ管理者、ボット開発者、イベント管理者に最適で、イベントをスケジュールし、Discord メッセージ内でリアルタイムに更新されるカウントダウンタイマーを作成できます。"
+    },
+
+    "core_facts": {
+      "title": "基本情報",
+      "pricing_label": "価格",
+      "pricing_value": "100% 無料 - 登録不要",
+      "formats_label": "サポートされる形式",
+      "formats_value": "7 Discord タイムスタンプ形式 (R, t, T, d, D, f, F)",
+      "speed_label": "処理速度",
+      "speed_value": "瞬時生成 - リアルタイムプレビュー",
+      "target_users_label": "対象ユーザー",
+      "target_users_value": "Discord コミュニティ管理者, ボット開発者, イベント管理者"
     }
   },
   "RandomVinGenerator": {

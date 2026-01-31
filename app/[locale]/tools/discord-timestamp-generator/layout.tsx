@@ -19,6 +19,10 @@ export async function generateMetadata({
     languages[locale] = `https://geekskai.com/${locale}/tools/discord-timestamp-generator/`
   })
 
+  // Content freshness metadata (GEO requirement)
+  const lastModified = new Date("2026-01-31")
+  const nextReview = new Date("2026-04-30") // 90 days later
+
   return {
     title: t("seo_title"),
     description: t("seo_description"),
@@ -64,6 +68,12 @@ export async function generateMetadata({
         "max-snippet": -1,
       },
     },
+    // Content freshness metadata (GEO requirement)
+    other: {
+      "last-modified": lastModified.toISOString(),
+      "update-frequency": "monthly",
+      "next-review": nextReview.toISOString(),
+    },
   }
 }
 
@@ -75,16 +85,19 @@ export default async function Layout({
   params: { locale: string }
 }) {
   const t = await getTranslations({ locale, namespace: "DiscordTimestampGenerator" })
+  const baseUrl = "https://geekskai.com"
+  const isDefaultLocale = locale === "en"
+  const fullUrl = `${baseUrl}${isDefaultLocale ? "" : `/${locale}`}/tools/discord-timestamp-generator/`
 
-  // JSON-LD Structured Data
-  const jsonLd = {
+  // WebApplication Schema (Enhanced)
+  const webApplicationSchema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name: t("seo_title"),
     description: t("seo_description"),
-    url: "https://geekskai.com/tools/discord-timestamp-generator",
-    image: "https://geekskai.com/static/images/og/discord-timestamp-generator-og.png",
-    applicationCategory: "Communication",
+    url: fullUrl,
+    image: `${baseUrl}/static/images/og/discord-timestamp-generator-og.png`,
+    applicationCategory: "CommunicationApplication",
     operatingSystem: "Any",
     permissions: "none",
     offers: {
@@ -94,61 +107,176 @@ export default async function Layout({
       availability: "https://schema.org/InStock",
     },
     featureList: [
-      "Dynamic Discord timestamp generation",
-      "Real-time countdown creation",
-      "Multiple Discord timestamp formats",
-      "Event reminder generation",
-      "Timezone-aware timestamp creation",
-      "Live preview with Discord simulation",
-      "Relative time calculations",
-      "Absolute date input options",
-      "Quick preset configurations",
-      "One-click copy functionality",
-      "Save favorite configurations",
-      "Discord bot integration support",
-      "Mobile-responsive interface",
-      "No registration required",
-      "Instant timestamp creation",
+      t("structured_data.feature_1"),
+      t("structured_data.feature_2"),
+      t("structured_data.feature_3"),
+      t("structured_data.feature_4"),
+      t("structured_data.feature_5"),
+      t("structured_data.feature_6"),
+      t("structured_data.feature_7"),
+      t("structured_data.feature_8"),
+      t("structured_data.feature_9"),
+      t("structured_data.feature_10"),
+      t("structured_data.feature_11"),
+      t("structured_data.feature_12"),
+      t("structured_data.feature_13"),
+      t("structured_data.feature_14"),
+      t("structured_data.feature_15"),
     ].join(", "),
-    softwareRequirements: "Modern web browser with JavaScript enabled",
-    author: {
+    softwareRequirements: t("structured_data.software_requirements"),
+    provider: {
       "@type": "Organization",
       name: "GeeksKai",
-      url: "https://geekskai.com",
+      url: baseUrl,
     },
     keywords: t("seo_keywords"),
-    educationalUse:
-      "Discord Event Planning, Discord Community Management, Discord Bot Development, Discord Event Coordination, Discord Reminder Systems, Discord Server Administration",
+    educationalUse: t("structured_data.educational_use"),
     audience: {
       "@type": "Audience",
-      audienceType:
-        "Discord Community Managers, Discord Bot Developers, Event Organizers, Discord Server Administrators, Gaming Communities, Content Creators",
+      audienceType: t("structured_data.audience_type"),
     },
-    mainEntity: {
-      "@type": "SoftwareApplication",
-      name: "Discord Timestamp Generator",
-      applicationCategory: "Communication Tool",
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
-        availability: "https://schema.org/InStock",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "1420",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    datePublished: "2025-01-15",
+    dateModified: "2026-01-31",
+  }
+
+  // FAQ Schema (GEO requirement: ≥8 questions)
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: t("faq.q1.question"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("faq.q1.answer"),
+        },
       },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.8",
-        ratingCount: "1420",
-        bestRating: "5",
-        worstRating: "1",
+      {
+        "@type": "Question",
+        name: t("faq.q2.question"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("faq.q2.answer"),
+        },
       },
+      {
+        "@type": "Question",
+        name: t("faq.q3.question"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("faq.q3.answer"),
+        },
+      },
+      {
+        "@type": "Question",
+        name: t("faq.q4.question"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("faq.q4.answer"),
+        },
+      },
+      {
+        "@type": "Question",
+        name: t("faq.q5.question"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("faq.q5.answer"),
+        },
+      },
+      {
+        "@type": "Question",
+        name: t("faq.q6.question"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("faq.q6.answer"),
+        },
+      },
+      {
+        "@type": "Question",
+        name: t("faq.q7.question"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("faq.q7.answer"),
+        },
+      },
+      {
+        "@type": "Question",
+        name: t("faq.q8.question"),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: t("faq.q8.answer"),
+        },
+      },
+    ],
+  }
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: t("breadcrumb.home"),
+        item: `${baseUrl}${isDefaultLocale ? "" : `/${locale}/`}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: t("breadcrumb.tools"),
+        item: `${baseUrl}${isDefaultLocale ? "" : `/${locale}/`}tools/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: t("breadcrumb.discord_timestamp_generator"),
+        item: fullUrl,
+      },
+    ],
+  }
+
+  // Organization Schema (Brand signals)
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "GeeksKai",
+    url: baseUrl,
+    logo: `${baseUrl}/static/images/logo.png`,
+    sameAs: ["https://github.com/geekskai", "https://twitter.com/geekskai"],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: "geeks.kai@gmail.com",
     },
   }
 
   return (
     <div className="min-h-screen">
+      {/* Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
       {children}
     </div>

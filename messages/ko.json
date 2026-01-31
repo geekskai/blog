@@ -2785,6 +2785,43 @@
       "hours_ago": "{hours}시간 전",
       "minutes_ago": "{minutes}분 전",
       "few_seconds_ago": "몇 초 전"
+    },
+    "structured_data": {
+      "feature_1": "동적 Discord 타임스탬프 생성",
+      "feature_2": "실시간 카운트다운 생성",
+      "feature_3": "여러 Discord 타임스탬프 형식",
+      "feature_4": "이벤트 리마인더 생성",
+      "feature_5": "타임존 인식 타임스탬프 생성",
+      "feature_6": "Discord 시뮬레이션으로 실시간 미리보기",
+      "feature_7": "상대 시간 계산",
+      "feature_8": "절대 날짜 입력 옵션",
+      "feature_9": "빠른 프리셋 구성",
+      "feature_10": "한 번의 클릭으로 복사 기능",
+      "feature_11": "즐겨찾기 구성 저장",
+      "feature_12": "Discord 봇 통합 지원",
+      "feature_13": "모바일 반응형 인터페이스",
+      "feature_14": "등록 불필요",
+      "feature_15": "실시간 타임스탬프 생성",
+      "software_requirements": "JavaScript 활성화된 모더 웹 브라우저",
+      "educational_use": "Discord 이벤트 계획, Discord 커뮤니티 관리, Discord 봇 개발, Discord 이벤트 조정, Discord 리마인더 시스템, Discord 서버 관리",
+      "audience_type": "Discord 커뮤니티 관리자, Discord 봇 개발자, 이벤트 조정자, Discord 서버 관리자, 게임 커뮤니티, 콘텐츠 크리에이터"
+    },
+
+    "geo_tldr": {
+      "title": "빠른 답변",
+      "content": "Discord 타임스탬프 생성기는 이벤트, 카운트다운, 리마인더를 위한 동적 Discord 타임스탬프를 생성하는 무료 온라인 도구입니다. 7개의 타임스탬프 형식을 지원하며, 모든 시간대에서 자동으로 작동하고 등록이 필요 없습니다. Discord 커뮤니티 관리자, 봇 개발자, 이벤트 조정자에게 완벽합니다."
+    },
+
+    "core_facts": {
+      "title": "핵심 정보",
+      "pricing_label": "가격",
+      "pricing_value": "100% 무료 - 등록 불필요",
+      "formats_label": "지원되는 형식",
+      "formats_value": "7 Discord 타임스탬프 형식 (R, t, T, d, D, f, F)",
+      "speed_label": "처리 속도",
+      "speed_value": "실시간 타임스탬프 생성 - 실시간 미리보기",
+      "target_users_label": "Target Users사용자",
+      "target_users_value": "Discord 커뮤니티 관리자, 봇 개발자, 이벤트 조정자"
     }
   },
   "RandomVinGenerator": {

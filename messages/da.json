@@ -2648,6 +2648,44 @@
       "hours_ago": "{hours} timer siden",
       "minutes_ago": "{minutes} minutter siden",
       "few_seconds_ago": "få sekunder siden"
+    },
+
+    "structured_data": {
+      "feature_1": "Dynamisk Discord tidsstempel generering",
+      "feature_2": "Realtids nedtælling oprettelse",
+      "feature_3": "Multiple Discord tidsstempel formater",
+      "feature_4": "Event påmindelsesgenerering",
+      "feature_5": "Tidszone-bevidst tidsstempel oprettelse",
+      "feature_6": "Live preview with Discord simulation",
+      "feature_7": "Relative tid beregninger",
+      "feature_8": "Absolut dato input muligheder",
+      "feature_9": "Hurtig forudindstilling konfigurationer",
+      "feature_10": "Enkelt klik kopieringsfunktion",
+      "feature_11": "Gem favorit konfigurationer",
+      "feature_12": "Discord bot integration supportning",
+      "feature_13": "Mobil-responsiv interface",
+      "feature_14": "Ingen registrering påkrævet",
+      "feature_15": "Instant tidsstempel oprettelse",
+      "software_requirements": "Modern web browser med JavaScript aktiveret",
+      "educational_use": "Discord Begivenhedsplanlægning, Discord Fællesskab Administration, Discord Bot Udvikling, Discord Begivenhed Koordination, Discord Påmindelsessystemer, Discord Server Administration",
+      "audience_type": "Discord Fællesskab Administratorer, Discord Bot Udviklere, Begivenhedsorganisatorer, Discord Server Administratorer, Spil Fællesskaber, Content Creators"
+    },
+
+    "geo_tldr": {
+      "title": "Hurtig Svar",
+      "content": "Discord Tidsstempel Generator er et gratis online værktøj der opretter dynamiske Discord tidsstempler for begivenheder, nedtællinger og påmindelser. Det understøtter 7 tidsstempel formater, fungerer automatisk på tværs af alle tidszoner og kræver ingen registrering. Perfekt til Discord fællesskab administratorer, bot udviklere og begivenhedsorganisatorer der har brug for at planlægge begivenheder og oprette nedtælling timere der opdateres i realtid inden for Discord beskeder."
+    },
+
+    "core_facts": {
+      "title": "Grundlæggende Information",
+      "pricing_label": "Pris",
+      "pricing_value": "100% Gratis - Ingen registrering påkrævet",
+      "formats_label": "Supported Formatter",
+      "formats_value": "7 Discord tidsstempel formater (R, t, T, d, D, f, F)",
+      "speed_label": "Behandling Hastighed",
+      "speed_value": "Instant generation - Realtids forhåndsvisning",
+      "target_users_label": "Mål Brugere",
+      "target_users_value": "Discord Fællesskab Administratorer, Discord Bot Udviklere, Begivenhedsorganisatorer"
     }
   },
   "RandomVinGenerator": {

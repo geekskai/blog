@@ -2893,6 +2893,44 @@
       "hours_ago": "{hours}小时前",
       "minutes_ago": "{minutes}分钟前",
       "few_seconds_ago": "几秒前"
+    },
+
+    "structured_data": {
+      "feature_1": "动态Discord时间戳生成",
+      "feature_2": "实时倒计时创建",
+      "feature_3": "多种Discord时间戳格式",
+      "feature_4": "事件提醒生成",
+      "feature_5": "时区感知时间戳创建",
+      "feature_6": "Discord模拟实时预览",
+      "feature_7": "相对时间计算",
+      "feature_8": "绝对日期输入选项",
+      "feature_9": "快速预设配置",
+      "feature_10": "一键复制功能",
+      "feature_11": "保存收藏配置",
+      "feature_12": "Discord机器人集成支持",
+      "feature_13": "移动响应式接口",
+      "feature_14": "无需注册",
+      "feature_15": "即时时间戳创建",
+      "software_requirements": "现代网络浏览器, 启用JavaScript",
+      "educational_use": "Discord事件规划, Discord社区管理, Discord机器人开发, Discord事件协调, Discord提醒系统, Discord服务器管理",
+      "audience_type": "Discord社区管理员, Discord机器人开发者, 事件组织者, Discord服务器管理员, 游戏社区, 内容创作者"
+    },
+
+    "geo_tldr": {
+      "title": "快速回答",
+      "content": "Discord时间戳生成器是一个免费在线工具, 用于创建动态Discord时间戳, 用于事件, 倒计时和提醒. 它支持7种时间戳格式, 自动适用于所有时区, 无需注册. 完美适用于Discord社区管理员, 机器人开发者, 事件组织者, 需要安排事件和创建倒计时计时器, 在Discord消息中实时更新."
+    },
+
+    "core_facts": {
+      "title": "核心信息",
+      "pricing_label": "价格",
+      "pricing_value": "100% 免费 - 无需注册",
+      "formats_label": "支持格式",
+      "formats_value": "7 Discord时间戳格式 (R, t, T, d, D, f, F)",
+      "speed_label": "处理速度",
+      "speed_value": "即时生成 - 实时预览",
+      "target_users_label": "目标用户",
+      "target_users_value": "Discord社区管理员, 机器人开发者, 事件组织者"
     }
   },
   "RandomVinGenerator": {

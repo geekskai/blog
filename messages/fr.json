@@ -2924,6 +2924,44 @@
       "hours_ago": "il y a {hours} heures",
       "minutes_ago": "il y a {minutes} minutes",
       "few_seconds_ago": "il y a quelques secondes"
+    },
+
+    "structured_data": {
+      "feature_1": "Génération de timestamp Discord dynamique",
+      "feature_2": "Création de compte à rebours en temps réel",
+      "feature_3": "Multiple formats de timestamp Discord",
+      "feature_4": "Génération de rappels d’événement",
+      "feature_5": "Timestamp création avec prise en compte des fuseaux horaires",
+      "feature_6": "Aperçu en direct avec simulation Discord",
+      "feature_7": "Calculs de temps relatifs",
+      "feature_8": "Options de saisie de date absolue",
+      "feature_9": "Configurations prédéfinies rapides",
+      "feature_10": "Fonction de copie en un clic",
+      "feature_11": "Enregistrer les configurations favorites",
+      "feature_12": "Support de l’intégration de bots Discord",
+      "feature_13": "Interface mobile-responsive",
+      "feature_14": "Aucune inscription requise",
+      "feature_15": "Timestamp création instantanée",
+      "software_requirements": "Navigateur web moderne avec JavaScript activé",
+      "educational_use": "Planification d’événements Discord, Gestion de communauté Discord, Développement de bots Discord, Coordination d’événements Discord, Systèmes de rappel Discord, Administration de serveurs Discord",
+      "audience_type": "Gestionnaires de communauté Discord, Développeurs de bots Discord, Organisateurs d’événements Discord, Administrateurs de serveurs Discord, Communautés de jeu, Créateurs de contenu"
+    },
+
+    "geo_tldr": {
+      "title": "Réponse rapide",
+      "content": "Le générateur de timestamp Discord est un outil en ligne gratuit qui crée des timestamp Discord dynamiques pour les événements, les comptes à rebours et les rappels. Il prend en charge 7 formats de timestamp, fonctionne automatiquement sur tous les fuseaux horaires et ne nécessite pas d’inscription. Parfait pour les gestionnaires de communauté Discord, les développeurs de bots et les organisateurs d’événements qui doivent planifier des événements et créer des compteurs à rebours qui s’actualisent en temps réel dans les messages Discord."
+    },
+
+    "core_facts": {
+      "title": "Informations essentielles",
+      "pricing_label": "Tarifs",
+      "pricing_value": "100% Gratuit - Aucune inscription requise",
+      "formats_label": "Formats pris en charge",
+      "formats_value": "7 formats de timestamp Discord (R, t, T, d, D, f, F)",
+      "speed_label": "Vitesse de traitement",
+      "speed_value": "Génération instantanée - Aperçu en temps réel",
+      "target_users_label": "Utilisateurs cibles",
+      "target_users_value": "Gestionnaires de communauté Discord, Développeurs de bots Discord, Organisateurs d’événements Discord"
     }
   },
   "RandomVinGenerator": {

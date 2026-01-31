@@ -2928,6 +2928,44 @@
       "hours_ago": "vor {hours} Stunden",
       "minutes_ago": "vor {minutes} Minuten",
       "few_seconds_ago": "vor ein paar Sekunden"
+    },
+
+    "structured_data": {
+      "feature_1": "Dynamische Discord-Timestamp-Generierung",
+      "feature_2": "Realtids-Countdown-Erstellung",
+      "feature_3": "Multiple Discord-Timestamp-Formate",
+      "feature_4": "Event Erinnerungserstellung",
+      "feature_5": "Zeitzonenbewusste Timestamp-Erstellung",
+      "feature_6": "Live Vorschau mit Discord-Simulation",
+      "feature_7": "Relative Zeitberechnungen",
+      "feature_8": "Absolute Dateneingabe-Optionen",
+      "feature_9": "Schnelle Voreinstellungskonfigurationen",
+      "feature_10": "Ein-Klick-Kopierfunktion",
+      "feature_11": "Favoriten-Konfigurationen speichern",
+      "feature_12": "Discord Bot-Integration-Unterstützung",
+      "feature_13": "Mobile-responsive Oberfläche",
+      "feature_14": "Keine Registrierung erforderlich",
+      "feature_15": "Instant Timestamp-Erstellung",
+      "software_requirements": "Moderner Webbrowser mit aktiviertem JavaScript",
+      "educational_use": "Discord Event Planung, Discord Community Management, Discord Bot Entwicklung, Discord Event Koordination, Discord Erinnerungssysteme, Discord Server Administration",
+      "audience_type": "Discord Community Administratoren, Discord Bot Entwickler, Event Organisatoren, Discord Server Administratoren, Gaming Communities, Content Creators"
+    },
+
+    "geo_tldr": {
+      "title": "Schnellantwort",
+      "content": "Der Discord Timestamp Generator ist ein kostenloses Online-Tool, das dynamische Discord-Timestamps für Events, Countdowns und Erinnerungen erstellt. Es unterstützt 7 Timestamp-Formate, funktioniert automatisch auf allen Zeitzonen und erfordert keine Registrierung. Perfekt für Discord Community Administratoren, Bot Entwickler und Event Organisatoren, die Events planen und Countdown-Timers erstellen müssen, die in Echtzeit innerhalb von Discord-Nachrichten aktualisiert werden."
+    },
+
+    "core_facts": {
+      "title": "Kerninformationen",
+      "pricing_label": "Preis",
+      "pricing_value": "100% Kostenlos - Keine Registrierung erforderlich",
+      "formats_label": "Unterstützte Formate",
+      "formats_value": "7 Discord-Timestamp-Formate (R, t, T, d, D, f, F)",
+      "speed_label": "Verarbeitungsgeschwindigkeit",
+      "speed_value": "Instant generation - Realtids Vorschau",
+      "target_users_label": "Zielgruppe",
+      "target_users_value": "Discord Community Administratoren, Discord Bot Entwickler, Event Organisatoren"
     }
   },
   "RandomVinGenerator": {

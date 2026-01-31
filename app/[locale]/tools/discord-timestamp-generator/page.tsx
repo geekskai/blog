@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef, useCallback } from "react"
+import React, { useState, useEffect, useRef, useCallback } from "react"
 import { useTranslations } from "next-intl"
 import {
   Clock,
@@ -387,7 +387,6 @@ export default function DiscordTimestampGenerator() {
           <p className="mx-auto mb-8 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
             {t("header.description")}
           </p>
-
           {/* Quick Stats */}
           <div className="mb-12 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500">
             <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
@@ -841,6 +840,51 @@ export default function DiscordTimestampGenerator() {
         </div>
       </div>
 
+      {/* GEO TL;DR Block (Answer Seed) */}
+      <div className="mx-auto mb-6 max-w-7xl rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-blue-500/10 p-8 shadow-2xl backdrop-blur-sm">
+        <h2 className="mb-4 text-2xl font-bold text-white">{t("geo_tldr.title")}</h2>
+        <p className="text-lg leading-relaxed text-slate-200">{t("geo_tldr.content")}</p>
+      </div>
+
+      {/* Core Facts Section (GEO requirement: Extractable facts) */}
+      <div className="mx-auto mb-6 max-w-7xl rounded-2xl border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur-sm">
+        <h2 className="mb-6 text-2xl font-bold text-white">{t("core_facts.title")}</h2>
+        <dl className="grid gap-4 md:grid-cols-2">
+          <div className="rounded-lg bg-white/5 p-4">
+            <dt className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-400">
+              {t("core_facts.pricing_label")}
+            </dt>
+            <dd className="text-lg font-bold text-green-400">
+              <strong>{t("core_facts.pricing_value")}</strong>
+            </dd>
+          </div>
+          <div className="rounded-lg bg-white/5 p-4">
+            <dt className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-400">
+              {t("core_facts.formats_label")}
+            </dt>
+            <dd className="text-lg font-bold text-blue-400">
+              <strong>{t("core_facts.formats_value")}</strong>
+            </dd>
+          </div>
+          <div className="rounded-lg bg-white/5 p-4">
+            <dt className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-400">
+              {t("core_facts.speed_label")}
+            </dt>
+            <dd className="text-lg font-bold text-purple-400">
+              <strong>{t("core_facts.speed_value")}</strong>
+            </dd>
+          </div>
+          <div className="rounded-lg bg-white/5 p-4">
+            <dt className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-400">
+              {t("core_facts.target_users_label")}
+            </dt>
+            <dd className="text-lg font-bold text-yellow-400">
+              <strong>{t("core_facts.target_users_value")}</strong>
+            </dd>
+          </div>
+        </dl>
+      </div>
+
       {/* Modern Features Section */}
       <div className="mt-32">
         <div className="mb-16 text-center">
@@ -943,11 +987,10 @@ export default function DiscordTimestampGenerator() {
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div>
-                {/* <p className="mb-4 text-slate-200">
-                  {t("content_sections.what_is_generation.description_0")}
-                </p> */}
-                <p className="text-slate-200">
-                  {t("content_sections.what_is_generation.description_2")}
+                <p className="mb-4 text-slate-200">
+                  {t.rich("content_sections.what_is_generation.description_2", {
+                    strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                  })}
                 </p>
               </div>
               <div className="rounded-lg bg-blue-900/30 p-6">
@@ -955,12 +998,42 @@ export default function DiscordTimestampGenerator() {
                   {t("content_sections.what_is_generation.benefits_title")}
                 </h3>
                 <ul className="space-y-2 text-slate-200">
-                  <li>• {t("content_sections.what_is_generation.benefit_1")}</li>
-                  <li>• {t("content_sections.what_is_generation.benefit_2")}</li>
-                  <li>• {t("content_sections.what_is_generation.benefit_3")}</li>
-                  <li>• {t("content_sections.what_is_generation.benefit_4")}</li>
-                  <li>• {t("content_sections.what_is_generation.benefit_5")}</li>
-                  <li>• {t("content_sections.what_is_generation.benefit_6")}</li>
+                  <li>
+                    •{" "}
+                    {t.rich("content_sections.what_is_generation.benefit_1", {
+                      strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                    })}
+                  </li>
+                  <li>
+                    •{" "}
+                    {t.rich("content_sections.what_is_generation.benefit_2", {
+                      strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                    })}
+                  </li>
+                  <li>
+                    •{" "}
+                    {t.rich("content_sections.what_is_generation.benefit_3", {
+                      strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                    })}
+                  </li>
+                  <li>
+                    •{" "}
+                    {t.rich("content_sections.what_is_generation.benefit_4", {
+                      strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                    })}
+                  </li>
+                  <li>
+                    •{" "}
+                    {t.rich("content_sections.what_is_generation.benefit_5", {
+                      strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                    })}
+                  </li>
+                  <li>
+                    •{" "}
+                    {t.rich("content_sections.what_is_generation.benefit_6", {
+                      strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+                    })}
+                  </li>
                 </ul>
               </div>
             </div>
