@@ -347,104 +347,111 @@ export default function DiscordTimestampGenerator() {
   return (
     <div className="relative min-h-screen bg-slate-950">
       {/* Breadcrumb Navigation */}
-      <nav className="relative mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8" aria-label="Breadcrumb">
-        <ol className="flex items-center space-x-2 text-sm text-slate-400">
+      <nav
+        className="relative mx-auto max-w-7xl px-3 pt-3 sm:px-4 sm:pt-4 lg:px-8 lg:pt-6"
+        aria-label="Breadcrumb"
+      >
+        <ol className="flex flex-wrap items-center gap-1.5 text-xs text-slate-400 md:text-sm">
           <li>
             <Link href="/" className="flex items-center transition-colors hover:text-slate-200">
-              <Home className="h-4 w-4" />
+              <Home className="h-3 w-3 md:h-4 md:w-4" />
               <span className="ml-1">{t("breadcrumb.home")}</span>
             </Link>
           </li>
-          <ChevronRight className="h-4 w-4" />
+          <ChevronRight className="h-3 w-3 md:h-4 md:w-4" />
           <li>
             <Link href="/tools" className="transition-colors hover:text-slate-200">
               {t("breadcrumb.tools")}
             </Link>
           </li>
-          <ChevronRight className="h-4 w-4" />
+          <ChevronRight className="h-3 w-3 md:h-4 md:w-4" />
           <li className="font-medium text-slate-100">
             {t("breadcrumb.discord_timestamp_generator")}
           </li>
         </ol>
       </nav>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-3 py-4 sm:px-4 sm:py-5 lg:px-8 lg:py-8">
         {/* Clean Header with Professional Design */}
-        <div className="relative mb-16 text-center">
-          <div className="mb-8 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-slate-300 shadow-xl backdrop-blur-sm">
-            <Clock className="mr-2 h-4 w-4 text-blue-400" />
+        <div className="relative mb-5 text-center sm:mb-8 lg:mb-16">
+          <div className="mb-3 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-medium text-slate-300 shadow-xl backdrop-blur-sm sm:mb-4 sm:px-3 sm:py-1.5 md:mb-6 md:px-4 md:py-2 md:text-sm lg:mb-8 lg:px-6 lg:py-3">
+            <Clock className="mr-1.5 h-3 w-3 text-blue-400 md:mr-2 md:h-4 md:w-4" />
             {t("header.professional_badge")}
-            <Sparkles className="ml-2 h-4 w-4 text-purple-400" />
+            <Sparkles className="ml-1.5 h-3 w-3 text-purple-400 md:ml-2 md:h-4 md:w-4" />
           </div>
 
-          <h1 className="mb-8 text-5xl font-bold text-white sm:text-6xl lg:text-7xl">
+          <h1 className="mb-3 text-2xl font-bold text-white sm:mb-4 sm:text-3xl md:mb-6 md:text-5xl lg:mb-8 lg:text-6xl xl:text-7xl">
             <span className="block">{t("header.main_title")}</span>
             <span className="block bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
               {t("header.subtitle")}
             </span>
           </h1>
 
-          <p className="mx-auto mb-8 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
+          <p className="mx-auto mb-4 max-w-3xl text-sm font-light leading-relaxed text-slate-400 sm:mb-5 sm:text-base md:mb-8 md:text-lg lg:max-w-4xl lg:text-xl">
             {t("header.description")}
           </p>
           {/* Quick Stats */}
-          <div className="mb-12 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500">
-            <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
-              <Clock className="h-4 w-4 text-green-500" />
+          <div className="mb-5 flex flex-wrap items-center justify-center gap-2 text-[10px] text-slate-500 sm:mb-6 sm:text-xs md:mb-10 md:gap-3 md:text-sm lg:mb-12 lg:gap-6">
+            <div className="flex items-center gap-1 rounded-lg bg-white/5 px-2 py-1 backdrop-blur-sm sm:gap-1.5 sm:px-2.5 sm:py-1.5 md:gap-2 md:px-3 md:py-2 lg:px-4">
+              <Clock className="h-3 w-3 text-green-500 md:h-4 md:w-4" />
               <span className="font-medium">{t("header.stats.real_time_generation")}</span>
             </div>
-            <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
-              <Zap className="h-4 w-4 text-purple-500" />
+            <div className="flex items-center gap-1 rounded-lg bg-white/5 px-2 py-1 backdrop-blur-sm sm:gap-1.5 sm:px-2.5 sm:py-1.5 md:gap-2 md:px-3 md:py-2 lg:px-4">
+              <Zap className="h-3 w-3 text-purple-500 md:h-4 md:w-4" />
               <span className="font-medium">{t("header.stats.dynamic_timestamps")}</span>
             </div>
-            <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
-              <Star className="h-4 w-4 text-yellow-500" />
+            <div className="flex items-center gap-1 rounded-lg bg-white/5 px-2 py-1 backdrop-blur-sm sm:gap-1.5 sm:px-2.5 sm:py-1.5 md:gap-2 md:px-3 md:py-2 lg:px-4">
+              <Star className="h-3 w-3 text-yellow-500 md:h-4 md:w-4" />
               <span className="font-medium">{t("header.stats.event_creation")}</span>
             </div>
-            <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
-              <Timer className="h-4 w-4 text-blue-500" />
+            <div className="flex items-center gap-1 rounded-lg bg-white/5 px-2 py-1 backdrop-blur-sm sm:gap-1.5 sm:px-2.5 sm:py-1.5 md:gap-2 md:px-3 md:py-2 lg:px-4">
+              <Timer className="h-3 w-3 text-blue-500 md:h-4 md:w-4" />
               <span className="font-medium">{t("header.stats.free_generator")}</span>
             </div>
           </div>
         </div>
 
         {/* Main content area with responsive dual-column layout */}
-        <div className="grid gap-6 lg:grid-cols-5 lg:gap-8">
+        <div className="grid gap-4 sm:gap-5 md:gap-6 lg:grid-cols-5 lg:gap-8">
           {/* Left control panel - 40% */}
-          <div className="space-y-6 lg:col-span-2">
+          <div className="space-y-4 sm:space-y-5 md:space-y-6 lg:col-span-2">
             {/* Mode selection card */}
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
-              <div className="border-b border-white/10 px-6 py-4">
-                <h2 className="flex items-center text-lg font-semibold text-white">
-                  <ArrowUpDown className="mr-3 h-5 w-5 text-blue-400" />
+            <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md md:rounded-2xl">
+              <div className="border-b border-white/10 px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 lg:px-6">
+                <h2 className="flex items-center text-base font-semibold text-white md:text-lg">
+                  <ArrowUpDown className="mr-2 h-4 w-4 text-blue-400 md:mr-3 md:h-5 md:w-5" />
                   {t("modes.input_mode")}
                 </h2>
               </div>
-              <div className="p-6">
-                <div className="grid grid-cols-2 gap-3">
+              <div className="p-3 sm:p-4 lg:p-6">
+                <div className="grid grid-cols-2 gap-2 sm:gap-2.5 md:gap-3">
                   <button
                     onClick={() => setMode("timeframe")}
-                    className={`rounded-xl p-4 text-center transition-all duration-300 ${
+                    className={`rounded-lg p-2.5 text-center transition-all duration-300 md:rounded-xl md:p-3 lg:p-4 ${
                       mode === "timeframe"
                         ? "scale-105 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
                         : "border border-white/20 bg-white/5 text-slate-300 hover:scale-105 hover:bg-white/10"
                     }`}
                   >
-                    <Timer className="mx-auto mb-2 h-6 w-6" />
-                    <div className="text-sm font-medium">{t("modes.relative_time")}</div>
-                    <div className="text-xs opacity-75">{t("modes.relative_time_description")}</div>
+                    <Timer className="mx-auto mb-1 h-4 w-4 md:mb-2 md:h-5 md:w-5 lg:h-6 lg:w-6" />
+                    <div className="text-xs font-medium md:text-sm">{t("modes.relative_time")}</div>
+                    <div className="text-[10px] opacity-75 md:text-xs">
+                      {t("modes.relative_time_description")}
+                    </div>
                   </button>
                   <button
                     onClick={() => setMode("date")}
-                    className={`rounded-xl p-4 text-center transition-all duration-300 ${
+                    className={`rounded-lg p-2.5 text-center transition-all duration-300 md:rounded-xl md:p-3 lg:p-4 ${
                       mode === "date"
                         ? "scale-105 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
                         : "border border-white/20 bg-white/5 text-slate-300 hover:scale-105 hover:bg-white/10"
                     }`}
                   >
-                    <CalendarDays className="mx-auto mb-2 h-6 w-6" />
-                    <div className="text-sm font-medium">{t("modes.absolute_time")}</div>
-                    <div className="text-xs opacity-75">{t("modes.absolute_time_description")}</div>
+                    <CalendarDays className="mx-auto mb-1 h-4 w-4 md:mb-2 md:h-5 md:w-5 lg:h-6 lg:w-6" />
+                    <div className="text-xs font-medium md:text-sm">{t("modes.absolute_time")}</div>
+                    <div className="text-[10px] opacity-75 md:text-xs">
+                      {t("modes.absolute_time_description")}
+                    </div>
                   </button>
                 </div>
               </div>
@@ -452,20 +459,20 @@ export default function DiscordTimestampGenerator() {
 
             {/* Quick presets */}
             {mode === "timeframe" && (
-              <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
-                <div className="border-b border-white/10 px-6 py-4">
-                  <h3 className="flex items-center text-lg font-semibold text-white">
-                    <Zap className="mr-3 h-5 w-5 text-yellow-400" />
+              <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md md:rounded-2xl">
+                <div className="border-b border-white/10 px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 lg:px-6">
+                  <h3 className="flex items-center text-base font-semibold text-white md:text-lg">
+                    <Zap className="mr-2 h-4 w-4 text-yellow-400 md:mr-3 md:h-5 md:w-5" />
                     {t("quick_presets.title")}
                   </h3>
                 </div>
-                <div className="p-6">
-                  <div className="grid grid-cols-2 gap-3">
+                <div className="p-3 sm:p-4 lg:p-6">
+                  <div className="grid grid-cols-2 gap-2 sm:gap-2.5 md:gap-3">
                     {quickPresets.map((preset, index) => (
                       <button
                         key={index}
                         onClick={() => applyQuickPreset(preset)}
-                        className="rounded-lg border border-white/20 bg-white/5 p-3 text-sm font-medium text-slate-300 transition-all hover:scale-105 hover:bg-white/10 hover:text-white"
+                        className="rounded-lg border border-white/20 bg-white/5 p-2 text-xs font-medium text-slate-300 transition-all hover:scale-105 hover:bg-white/10 hover:text-white md:p-2.5 md:text-sm lg:p-3"
                       >
                         {preset.label}
                       </button>
@@ -476,32 +483,32 @@ export default function DiscordTimestampGenerator() {
             )}
 
             {/* Time adjustment section */}
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
-              <div className="border-b border-white/10 px-6 py-4">
-                <h3 className="flex items-center text-lg font-semibold text-white">
+            <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md md:rounded-2xl">
+              <div className="border-b border-white/10 px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 lg:px-6">
+                <h3 className="flex items-center text-base font-semibold text-white md:text-lg">
                   {mode === "timeframe" ? (
                     <>
-                      <Clock className="mr-3 h-5 w-5 text-green-400" />
+                      <Clock className="mr-2 h-4 w-4 text-green-400 md:mr-3 md:h-5 md:w-5" />
                       {t("time_adjustment.title")}
                     </>
                   ) : (
                     <>
-                      <Calendar className="mr-3 h-5 w-5 text-purple-400" />
+                      <Calendar className="mr-2 h-4 w-4 text-purple-400 md:mr-3 md:h-5 md:w-5" />
                       {t("date_time_settings.title")}
                     </>
                   )}
                 </h3>
               </div>
-              <div className="p-6">
+              <div className="p-3 sm:p-4 lg:p-6">
                 {mode === "timeframe" ? (
-                  <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-2">
+                  <div className="grid grid-cols-2 gap-2 sm:gap-2.5 md:gap-3 lg:gap-4">
                     {(["weeks", "days", "hours", "minutes"] as const).map((unit) => (
                       <div
                         key={unit}
-                        className="rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm"
+                        className="rounded-lg border border-white/20 bg-white/5 p-2.5 backdrop-blur-sm md:rounded-xl md:p-3 lg:p-4"
                       >
-                        <div className="mb-3 text-center">
-                          <span className="text-xs font-medium uppercase tracking-wide text-slate-300">
+                        <div className="mb-2 text-center md:mb-3">
+                          <span className="text-[10px] font-medium uppercase tracking-wide text-slate-300 md:text-xs">
                             {unit === "weeks"
                               ? t("time_adjustment.weeks")
                               : unit === "days"
@@ -511,33 +518,33 @@ export default function DiscordTimestampGenerator() {
                                   : t("time_adjustment.minutes")}
                           </span>
                         </div>
-                        <div className="flex items-center justify-center gap-2">
+                        <div className="flex items-center justify-center gap-1.5 md:gap-2">
                           <button
                             onClick={() => adjustTime(unit, -1)}
-                            className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-700 text-slate-300 transition-all duration-200 hover:scale-110 hover:bg-red-500 hover:text-white"
+                            className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-700 text-slate-300 transition-all duration-200 hover:scale-110 hover:bg-red-500 hover:text-white md:h-8 md:w-8"
                           >
-                            <Minus className="h-3 w-3" />
+                            <Minus className="h-2.5 w-2.5 md:h-3 md:w-3" />
                           </button>
                           <div className="flex-1 text-center">
-                            <span className="text-lg font-semibold text-white">
+                            <span className="text-base font-semibold text-white md:text-lg">
                               {timeAdjustment[unit]}
                             </span>
                           </div>
                           <button
                             onClick={() => adjustTime(unit, 1)}
-                            className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-700 text-slate-300 transition-all duration-200 hover:scale-110 hover:bg-blue-500 hover:text-white"
+                            className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-700 text-slate-300 transition-all duration-200 hover:scale-110 hover:bg-blue-500 hover:text-white md:h-8 md:w-8"
                           >
-                            <Plus className="h-3 w-3" />
+                            <Plus className="h-2.5 w-2.5 md:h-3 md:w-3" />
                           </button>
                         </div>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <div className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-3 md:space-y-4">
+                    <div className="grid grid-cols-2 gap-2 sm:gap-2.5 md:gap-3 lg:gap-4">
                       <div>
-                        <label className="mb-2 block text-xs font-medium text-slate-400">
+                        <label className="mb-1.5 block text-[10px] font-medium text-slate-400 md:mb-2 md:text-xs">
                           {t("date_time_settings.year")}
                         </label>
                         <input
@@ -549,11 +556,11 @@ export default function DiscordTimestampGenerator() {
                               year: parseInt(e.target.value) || 0,
                             }))
                           }
-                          className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50"
+                          className="w-full rounded-lg border border-white/20 bg-white/5 px-2.5 py-1.5 text-[13px] text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50 md:px-3 md:py-2 md:text-sm"
                         />
                       </div>
                       <div>
-                        <label className="mb-2 block text-xs font-medium text-slate-400">
+                        <label className="mb-1.5 block text-[10px] font-medium text-slate-400 md:mb-2 md:text-xs">
                           {t("date_time_settings.month")}
                         </label>
                         <input
@@ -567,11 +574,11 @@ export default function DiscordTimestampGenerator() {
                               month: parseInt(e.target.value) || 1,
                             }))
                           }
-                          className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50"
+                          className="w-full rounded-lg border border-white/20 bg-white/5 px-2.5 py-1.5 text-[13px] text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50 md:px-3 md:py-2 md:text-sm"
                         />
                       </div>
                       <div>
-                        <label className="mb-2 block text-xs font-medium text-slate-400">
+                        <label className="mb-1.5 block text-[10px] font-medium text-slate-400 md:mb-2 md:text-xs">
                           {t("date_time_settings.day")}
                         </label>
                         <input
@@ -585,11 +592,11 @@ export default function DiscordTimestampGenerator() {
                               day: parseInt(e.target.value) || 1,
                             }))
                           }
-                          className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50"
+                          className="w-full rounded-lg border border-white/20 bg-white/5 px-2.5 py-1.5 text-[13px] text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50 md:px-3 md:py-2 md:text-sm"
                         />
                       </div>
                       <div>
-                        <label className="mb-2 block text-xs font-medium text-slate-400">
+                        <label className="mb-1.5 block text-[10px] font-medium text-slate-400 md:mb-2 md:text-xs">
                           {t("date_time_settings.hour")}
                         </label>
                         <input
@@ -603,12 +610,12 @@ export default function DiscordTimestampGenerator() {
                               hour: parseInt(e.target.value) || 0,
                             }))
                           }
-                          className="w-full rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50"
+                          className="w-full rounded-lg border border-white/20 bg-white/5 px-2.5 py-1.5 text-[13px] text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50 md:px-3 md:py-2 md:text-sm"
                         />
                       </div>
                     </div>
-                    <div className="rounded-lg bg-blue-500/10 p-3 text-center">
-                      <span className="text-xs text-blue-300">
+                    <div className="rounded-lg bg-blue-500/10 p-2 text-center md:p-2.5 lg:p-3">
+                      <span className="text-[10px] text-blue-300 md:text-xs">
                         {t("date_time_settings.timezone")}
                         {timezoneString}
                       </span>
@@ -619,51 +626,51 @@ export default function DiscordTimestampGenerator() {
             </div>
 
             {/* Format selection - always visible */}
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
-              <div className="border-b border-white/10 px-6 py-4">
-                <h3 className="flex items-center text-lg font-semibold text-white">
-                  <MessageSquare className="mr-3 h-5 w-5 text-pink-400" />
+            <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md md:rounded-2xl">
+              <div className="border-b border-white/10 px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 lg:px-6">
+                <h3 className="flex items-center text-base font-semibold text-white md:text-lg">
+                  <MessageSquare className="mr-2 h-4 w-4 text-pink-400 md:mr-3 md:h-5 md:w-5" />
                   {t("display_format.title")}
                 </h3>
               </div>
-              <div className="p-6">
-                <div className="space-y-3">
+              <div className="p-3 sm:p-4 lg:p-6">
+                <div className="space-y-2 sm:space-y-2.5 md:space-y-3">
                   {TIMESTAMP_FORMATS.slice(0, 4).map((fmt) => (
                     <button
                       key={fmt.id}
                       onClick={() => setFormat(fmt.id)}
-                      className={`w-full rounded-xl p-3 text-left transition-all duration-300 ${
+                      className={`w-full rounded-lg p-2.5 text-left transition-all duration-300 md:rounded-xl md:p-3 ${
                         format === fmt.id
                           ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
                           : "border border-white/20 bg-white/5 text-slate-300 hover:bg-white/10"
                       }`}
                     >
-                      <div className="font-medium">{fmt.label}</div>
-                      <div className="text-xs opacity-75">{fmt.description}</div>
+                      <div className="text-sm font-medium md:text-base">{fmt.label}</div>
+                      <div className="text-[10px] opacity-75 md:text-xs">{fmt.description}</div>
                     </button>
                   ))}
                   <button
                     onClick={() => setShowAdvanced(!showAdvanced)}
-                    className="w-full rounded-xl border border-white/20 bg-white/5 p-3 text-center text-sm text-slate-300 transition-all hover:bg-white/10"
+                    className="w-full rounded-lg border border-white/20 bg-white/5 p-2.5 text-center text-xs text-slate-300 transition-all hover:bg-white/10 md:rounded-xl md:p-3 md:text-sm"
                   >
                     {showAdvanced
                       ? t("format_toggle.show_common_formats")
                       : t("format_toggle.show_more_formats")}
                   </button>
                   {showAdvanced && (
-                    <div className="space-y-3">
+                    <div className="space-y-2 sm:space-y-2.5 md:space-y-3">
                       {TIMESTAMP_FORMATS.slice(4).map((fmt) => (
                         <button
                           key={fmt.id}
                           onClick={() => setFormat(fmt.id)}
-                          className={`w-full rounded-xl p-3 text-left transition-all duration-300 ${
+                          className={`w-full rounded-lg p-2.5 text-left transition-all duration-300 md:rounded-xl md:p-3 ${
                             format === fmt.id
                               ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
                               : "border border-white/20 bg-white/5 text-slate-300 hover:bg-white/10"
                           }`}
                         >
-                          <div className="font-medium">{fmt.label}</div>
-                          <div className="text-xs opacity-75">{fmt.description}</div>
+                          <div className="text-sm font-medium md:text-base">{fmt.label}</div>
+                          <div className="text-[10px] opacity-75 md:text-xs">{fmt.description}</div>
                         </button>
                       ))}
                     </div>
@@ -674,39 +681,41 @@ export default function DiscordTimestampGenerator() {
           </div>
 
           {/* Right preview and output area - 60% */}
-          <div className="space-y-6 lg:col-span-3">
+          <div className="space-y-4 sm:space-y-5 md:space-y-6 lg:col-span-3">
             {/* Discord preview */}
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
-              <div className="border-b border-white/10 px-6 py-4">
-                <div className="flex items-center justify-between">
-                  <h2 className="flex items-center text-lg font-semibold text-white">
-                    <Monitor className="mr-3 h-5 w-5 text-blue-400" />
+            <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md md:rounded-2xl">
+              <div className="border-b border-white/10 px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 lg:px-6">
+                <div className="flex flex-col items-start justify-between gap-2 md:flex-row md:items-center">
+                  <h2 className="flex items-center text-base font-semibold text-white md:text-lg">
+                    <Monitor className="mr-2 h-4 w-4 text-blue-400 md:mr-3 md:h-5 md:w-5" />
                     {t("preview.discord_preview")}
                   </h2>
-                  <div className="flex items-center space-x-2 text-sm text-slate-400">
-                    <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-400"></div>
+                  <div className="flex items-center space-x-1.5 text-xs text-slate-400 md:space-x-2 md:text-sm">
+                    <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400 md:h-2 md:w-2"></div>
                     <span className="font-mono">{t("preview.real_time")}</span>
                   </div>
                 </div>
               </div>
-              <div className="p-6">
+              <div className="p-3 sm:p-4 lg:p-6">
                 <div
-                  className="rounded-xl p-6 shadow-inner"
+                  className="rounded-lg p-3 shadow-inner md:rounded-xl md:p-4 lg:p-6"
                   style={{
                     background: "linear-gradient(135deg, #36393f, #2f3136)",
-                    minHeight: "200px",
+                    minHeight: "140px",
                   }}
                 >
                   {/* Discord 消息 */}
-                  <div className="flex items-start gap-3">
-                    <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
-                    <div className="flex-1">
-                      <div className="mb-2 flex items-center gap-2">
-                        <span className="font-medium text-white">{t("preview.geekskai_bot")}</span>
-                        <span className="rounded bg-blue-600 px-1.5 py-0.5 text-xs font-bold text-white">
+                  <div className="flex items-start gap-2 md:gap-3">
+                    <div className="h-6 w-6 flex-shrink-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 md:h-8 md:w-8"></div>
+                    <div className="min-w-0 flex-1">
+                      <div className="mb-1.5 flex flex-wrap items-center gap-1.5 md:mb-2 md:gap-2">
+                        <span className="text-sm font-medium text-white md:text-base">
+                          {t("preview.geekskai_bot")}
+                        </span>
+                        <span className="rounded bg-blue-600 px-1 py-0.5 text-[10px] font-bold text-white md:px-1.5 md:text-xs">
                           {t("preview.bot_label")}
                         </span>
-                        <span className="text-xs text-slate-400">
+                        <span className="text-[10px] text-slate-400 md:text-xs">
                           {t("preview.today")}{" "}
                           {new Date().toLocaleTimeString([], {
                             hour: "2-digit",
@@ -714,11 +723,13 @@ export default function DiscordTimestampGenerator() {
                           })}
                         </span>
                       </div>
-                      <div className="rounded-lg bg-slate-700/50 p-3">
-                        <div className="mb-2 text-white">{t("preview.event_reminder")}</div>
-                        <div className="text-slate-300">
+                      <div className="rounded-lg bg-slate-700/50 p-2 md:p-3">
+                        <div className="mb-1.5 text-sm text-white md:mb-2 md:text-base">
+                          {t("preview.event_reminder")}
+                        </div>
+                        <div className="text-xs text-slate-300 md:text-sm">
                           {t("preview.event_starts")}{" "}
-                          <span className="rounded bg-blue-600/20 px-2 py-1 font-mono text-sm text-blue-300">
+                          <span className="rounded bg-blue-600/20 px-1.5 py-0.5 font-mono text-[10px] text-blue-300 md:px-2 md:py-1 md:text-sm">
                             {previewText || t("timestamp_formats.relative.example")}
                           </span>
                         </div>
@@ -730,22 +741,22 @@ export default function DiscordTimestampGenerator() {
             </div>
 
             {/* Generated result and actions */}
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
-              <div className="border-b border-white/10 px-6 py-4">
-                <h3 className="flex items-center text-lg font-semibold text-white">
-                  <RotateCw className="mr-3 h-5 w-5 text-green-400" />
+            <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md md:rounded-2xl">
+              <div className="border-b border-white/10 px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 lg:px-6">
+                <h3 className="flex items-center text-base font-semibold text-white md:text-lg">
+                  <RotateCw className="mr-2 h-4 w-4 text-green-400 md:mr-3 md:h-5 md:w-5" />
                   {t("generated_result.title")}
                 </h3>
               </div>
-              <div className="p-6">
-                <div className="space-y-4">
+              <div className="p-3 sm:p-4 lg:p-6">
+                <div className="space-y-3 md:space-y-4">
                   {/* Generated code */}
                   <div>
-                    <label className="mb-2 block text-sm font-medium text-slate-300">
+                    <label className="mb-1.5 block text-xs font-medium text-slate-300 md:mb-2 md:text-sm">
                       {t("generated_result.discord_timestamp_code")}
                     </label>
-                    <div className="rounded-lg border border-slate-600/50 bg-slate-800/50 p-4">
-                      <div className="break-all font-mono text-lg text-green-400">
+                    <div className="rounded-lg border border-slate-600/50 bg-slate-800/50 p-2.5 md:p-3 lg:p-4">
+                      <div className="break-all font-mono text-sm text-green-400 md:text-base lg:text-lg">
                         {generatedTimestamp}
                       </div>
                     </div>
@@ -753,48 +764,50 @@ export default function DiscordTimestampGenerator() {
 
                   {/* Preview effect */}
                   <div>
-                    <label className="mb-2 block text-sm font-medium text-slate-300">
+                    <label className="mb-1.5 block text-xs font-medium text-slate-300 md:mb-2 md:text-sm">
                       {t("generated_result.display_effect")}
                     </label>
-                    <div className="rounded-lg bg-blue-500/10 p-4 text-lg text-blue-300">
+                    <div className="rounded-lg bg-blue-500/10 p-2.5 text-sm text-blue-300 md:p-3 md:text-base lg:p-4 lg:text-lg">
                       {previewText || t("generated_result.preview_placeholder")}
                     </div>
                   </div>
 
                   {/* Action buttons */}
-                  <div className="flex gap-3">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:gap-2.5 md:gap-3">
                     <button
                       onClick={copyToClipboard}
-                      className={`flex-1 rounded-xl px-6 py-4 text-lg font-semibold shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] ${
+                      className={`flex-1 rounded-lg px-4 py-2.5 text-sm font-semibold shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] sm:py-3 md:rounded-xl md:px-5 md:py-3.5 md:text-base lg:px-6 lg:py-4 lg:text-lg ${
                         copySuccess
                           ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white"
                           : "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
                       }`}
                     >
                       {copySuccess ? (
-                        <div className="flex items-center justify-center space-x-2">
-                          <CheckCircle className="h-5 w-5" />
+                        <div className="flex items-center justify-center space-x-1.5 md:space-x-2">
+                          <CheckCircle className="h-4 w-4 md:h-5 md:w-5" />
                           <span>{t("generated_result.copied")}</span>
                         </div>
                       ) : (
-                        <div className="flex items-center justify-center space-x-2">
-                          <Copy className="h-5 w-5" />
+                        <div className="flex items-center justify-center space-x-1.5 md:space-x-2">
+                          <Copy className="h-4 w-4 md:h-5 md:w-5" />
                           <span>{t("generated_result.copy_code")}</span>
                         </div>
                       )}
                     </button>
-                    <button
-                      onClick={addToFavorites}
-                      className="rounded-xl border border-white/20 bg-white/5 px-6 py-4 text-slate-300 transition-all hover:bg-white/10"
-                    >
-                      <BookmarkPlus className="h-5 w-5" />
-                    </button>
-                    <button
-                      onClick={resetValues}
-                      className="rounded-xl border border-white/20 bg-white/5 px-6 py-4 text-slate-300 transition-all hover:bg-white/10"
-                    >
-                      <RotateCcw className="h-5 w-5" />
-                    </button>
+                    <div className="flex gap-2 md:gap-3">
+                      <button
+                        onClick={addToFavorites}
+                        className="rounded-lg border border-white/20 bg-white/5 p-2.5 text-slate-300 transition-all hover:bg-white/10 sm:p-3 md:rounded-xl md:px-4 md:py-3 lg:px-6 lg:py-4"
+                      >
+                        <BookmarkPlus className="h-4 w-4 md:h-5 md:w-5" />
+                      </button>
+                      <button
+                        onClick={resetValues}
+                        className="rounded-lg border border-white/20 bg-white/5 p-2.5 text-slate-300 transition-all hover:bg-white/10 sm:p-3 md:rounded-xl md:px-4 md:py-3 lg:px-6 lg:py-4"
+                      >
+                        <RotateCcw className="h-4 w-4 md:h-5 md:w-5" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -802,19 +815,19 @@ export default function DiscordTimestampGenerator() {
 
             {/* Saved configurations */}
             {favorites.length > 0 && (
-              <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md">
-                <div className="border-b border-white/10 px-6 py-4">
-                  <h3 className="flex items-center text-lg font-semibold text-white">
-                    <Star className="mr-3 h-5 w-5 text-yellow-400" />
+              <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md md:rounded-2xl">
+                <div className="border-b border-white/10 px-3 py-2.5 sm:px-4 sm:py-3 md:py-4 lg:px-6">
+                  <h3 className="flex items-center text-base font-semibold text-white md:text-lg">
+                    <Star className="mr-2 h-4 w-4 text-yellow-400 md:mr-3 md:h-5 md:w-5" />
                     {t("saved_configurations.title")} ({favorites.length})
                   </h3>
                 </div>
-                <div className="p-6">
-                  <div className="grid gap-3">
+                <div className="p-3 sm:p-4 lg:p-6">
+                  <div className="grid gap-2 sm:gap-2.5 md:gap-3">
                     {favorites.map((favorite, index) => (
                       <button
                         key={index}
-                        className="group rounded-xl border border-white/10 bg-white/5 p-4 text-left transition-all hover:bg-white/10"
+                        className="group rounded-lg border border-white/10 bg-white/5 p-3 text-left transition-all hover:bg-white/10 md:rounded-xl md:p-4"
                         onClick={() => {
                           const config = favorite.config
                           setMode(config.mode)
@@ -823,13 +836,17 @@ export default function DiscordTimestampGenerator() {
                           setDateInput(config.dateInput)
                         }}
                       >
-                        <div className="mb-2 flex items-center justify-between">
-                          <span className="font-medium text-white">{favorite.name}</span>
-                          <span className="text-xs text-slate-400">
+                        <div className="mb-1.5 flex flex-col items-start justify-between gap-1 md:mb-2 md:flex-row">
+                          <span className="text-sm font-medium text-white md:text-base">
+                            {favorite.name}
+                          </span>
+                          <span className="text-[10px] text-slate-400 md:text-xs">
                             {t("saved_configurations.click_to_apply")}
                           </span>
                         </div>
-                        <div className="font-mono text-xs text-slate-300">{favorite.timestamp}</div>
+                        <div className="break-all font-mono text-[10px] text-slate-300 md:text-xs">
+                          {favorite.timestamp}
+                        </div>
                       </button>
                     ))}
                   </div>
@@ -841,9 +858,11 @@ export default function DiscordTimestampGenerator() {
       </div>
 
       {/* GEO TL;DR Block (Answer Seed) */}
-      <div className="mx-auto mb-6 max-w-7xl rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-blue-500/10 p-8 shadow-2xl backdrop-blur-sm">
-        <h2 className="mb-4 text-2xl font-bold text-white">{t("geo_tldr.title")}</h2>
-        <p className="text-lg leading-relaxed text-slate-200">
+      <div className="mx-auto mb-6 max-w-7xl rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-blue-500/10 p-4 shadow-2xl backdrop-blur-sm sm:p-6 md:p-8">
+        <h2 className="mb-3 text-xl font-bold text-white sm:mb-4 sm:text-2xl">
+          {t("geo_tldr.title")}
+        </h2>
+        <p className="text-sm leading-relaxed text-slate-200 sm:text-base md:text-lg">
           {t.rich("geo_tldr.content", {
             strong: (chunks) => <strong className="text-white">{chunks}</strong>,
           })}
@@ -851,44 +870,46 @@ export default function DiscordTimestampGenerator() {
       </div>
 
       {/* Core Facts Section (GEO requirement: Extractable facts) */}
-      <div className="mx-auto mb-6 max-w-7xl rounded-2xl border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur-sm">
-        <h2 className="mb-6 text-2xl font-bold text-white">{t("core_facts.title")}</h2>
-        <dl className="grid gap-4 md:grid-cols-2">
-          <div className="rounded-lg bg-white/5 p-4">
+      <div className="mx-auto mb-6 max-w-7xl rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-sm sm:p-6 md:p-8">
+        <h2 className="mb-4 text-xl font-bold text-white sm:mb-6 sm:text-2xl">
+          {t("core_facts.title")}
+        </h2>
+        <dl className="grid gap-3 sm:gap-4 md:grid-cols-2">
+          <div className="rounded-lg bg-white/5 p-3 sm:p-4">
             <dt className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-400">
               {t("core_facts.pricing_label")}
             </dt>
-            <dd className="text-lg font-bold text-green-400">
+            <dd className="text-base font-bold text-green-400 sm:text-lg">
               {t.rich("core_facts.pricing_value", {
                 strong: (chunks) => <strong className="text-white">{chunks}</strong>,
               })}
             </dd>
           </div>
-          <div className="rounded-lg bg-white/5 p-4">
+          <div className="rounded-lg bg-white/5 p-3 sm:p-4">
             <dt className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-400">
               {t("core_facts.formats_label")}
             </dt>
-            <dd className="text-lg font-bold text-blue-400">
+            <dd className="text-base font-bold text-blue-400 sm:text-lg">
               {t.rich("core_facts.formats_value", {
                 strong: (chunks) => <strong className="text-white">{chunks}</strong>,
               })}
             </dd>
           </div>
-          <div className="rounded-lg bg-white/5 p-4">
+          <div className="rounded-lg bg-white/5 p-3 sm:p-4">
             <dt className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-400">
               {t("core_facts.speed_label")}
             </dt>
-            <dd className="text-lg font-bold text-purple-400">
+            <dd className="text-base font-bold text-purple-400 sm:text-lg">
               {t.rich("core_facts.speed_value", {
                 strong: (chunks) => <strong className="text-white">{chunks}</strong>,
               })}
             </dd>
           </div>
-          <div className="rounded-lg bg-white/5 p-4">
+          <div className="rounded-lg bg-white/5 p-3 sm:p-4">
             <dt className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-400">
               {t("core_facts.target_users_label")}
             </dt>
-            <dd className="text-lg font-bold text-yellow-400">
+            <dd className="text-base font-bold text-yellow-400 sm:text-lg">
               {t.rich("core_facts.target_users_value", {
                 strong: (chunks) => <strong className="text-white">{chunks}</strong>,
               })}
@@ -898,25 +919,27 @@ export default function DiscordTimestampGenerator() {
       </div>
 
       {/* Modern Features Section */}
-      <div className="mt-32">
-        <div className="mb-16 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">{t("features.title")}</h2>
-          <p className="mx-auto max-w-2xl text-xl text-slate-400">
+      <div className="mt-16 sm:mt-24 md:mt-32">
+        <div className="mb-10 text-center sm:mb-12 md:mb-16">
+          <h2 className="mb-3 text-2xl font-bold text-white sm:mb-4 sm:text-3xl">
+            {t("features.title")}
+          </h2>
+          <p className="mx-auto max-w-2xl text-base text-slate-400 sm:text-lg md:text-xl">
             {t.rich("features.description", {
               strong: (chunks) => <strong className="text-white">{chunks}</strong>,
             })}
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-3">
           <div className="group text-center">
-            <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10">
+            <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10 sm:mb-6 sm:h-20 sm:w-20 sm:rounded-3xl md:mb-8 md:h-24 md:w-24">
               <Clock className="h-12 w-12 text-blue-400" />
             </div>
-            <h3 className="mb-6 text-xl font-semibold text-white">
+            <h3 className="mb-3 text-lg font-semibold text-white sm:mb-5 sm:text-xl">
               {t("features.real_time_updates.title")}
             </h3>
-            <p className="text-lg leading-relaxed text-slate-400">
+            <p className="text-sm leading-relaxed text-slate-400 sm:text-base md:text-lg">
               {t.rich("features.real_time_updates.description", {
                 strong: (chunks) => <strong className="text-white">{chunks}</strong>,
               })}
@@ -924,13 +947,13 @@ export default function DiscordTimestampGenerator() {
           </div>
 
           <div className="group text-center">
-            <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10">
+            <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10 sm:mb-6 sm:h-20 sm:w-20 sm:rounded-3xl md:mb-8 md:h-24 md:w-24">
               <Zap className="h-12 w-12 text-purple-400" />
             </div>
-            <h3 className="mb-6 text-xl font-semibold text-white">
+            <h3 className="mb-3 text-lg font-semibold text-white sm:mb-5 sm:text-xl">
               {t("features.multiple_formats.title")}
             </h3>
-            <p className="text-lg leading-relaxed text-slate-400">
+            <p className="text-sm leading-relaxed text-slate-400 sm:text-base md:text-lg">
               {t.rich("features.multiple_formats.description", {
                 strong: (chunks) => <strong className="text-white">{chunks}</strong>,
               })}
@@ -938,13 +961,13 @@ export default function DiscordTimestampGenerator() {
           </div>
 
           <div className="group text-center">
-            <div className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10">
+            <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white shadow-xl backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-white/10 sm:mb-6 sm:h-20 sm:w-20 sm:rounded-3xl md:mb-8 md:h-24 md:w-24">
               <Star className="h-12 w-12 text-yellow-400" />
             </div>
-            <h3 className="mb-6 text-xl font-semibold text-white">
+            <h3 className="mb-3 text-lg font-semibold text-white sm:mb-5 sm:text-xl">
               {t("features.save_manage.title")}
             </h3>
-            <p className="text-lg leading-relaxed text-slate-400">
+            <p className="text-sm leading-relaxed text-slate-400 sm:text-base md:text-lg">
               {t.rich("features.save_manage.description", {
                 strong: (chunks) => <strong className="text-white">{chunks}</strong>,
               })}
@@ -953,73 +976,83 @@ export default function DiscordTimestampGenerator() {
         </div>
 
         {/* Usage Instructions */}
-        <div className="mt-32 rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-white">{t("usage_guide.title")}</h2>
-            <p className="mx-auto max-w-2xl text-xl text-slate-400">
+        <div className="mt-16 rounded-3xl border border-white/10 bg-white/5 p-5 shadow-2xl backdrop-blur-md sm:mt-24 sm:p-8 md:mt-32 md:p-12">
+          <div className="mb-8 text-center sm:mb-10 md:mb-12">
+            <h2 className="mb-3 text-2xl font-bold text-white sm:mb-4 sm:text-3xl">
+              {t("usage_guide.title")}
+            </h2>
+            <p className="mx-auto max-w-2xl text-base text-slate-400 sm:text-lg md:text-xl">
               {t("usage_guide.description")}
             </p>
           </div>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-blue-500 text-2xl font-bold text-white">
+              <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-blue-500 text-xl font-bold text-white sm:mb-4 sm:h-14 sm:w-14 sm:text-2xl md:h-16 md:w-16">
                 1
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">
+              <h3 className="mb-2 text-base font-semibold text-white sm:mb-3 sm:text-lg">
                 {t("usage_guide.step_1.title")}
               </h3>
-              <p className="text-slate-400">{t("usage_guide.step_1.description")}</p>
+              <p className="text-sm text-slate-400 sm:text-base">
+                {t("usage_guide.step_1.description")}
+              </p>
             </div>
             <div className="text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-purple-500 text-2xl font-bold text-white">
+              <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-purple-500 text-xl font-bold text-white sm:mb-4 sm:h-14 sm:w-14 sm:text-2xl md:h-16 md:w-16">
                 2
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">
+              <h3 className="mb-2 text-base font-semibold text-white sm:mb-3 sm:text-lg">
                 {t("usage_guide.step_2.title")}
               </h3>
-              <p className="text-slate-400">{t("usage_guide.step_2.description")}</p>
+              <p className="text-sm text-slate-400 sm:text-base">
+                {t("usage_guide.step_2.description")}
+              </p>
             </div>
             <div className="text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-pink-600 to-pink-500 text-2xl font-bold text-white">
+              <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-pink-600 to-pink-500 text-xl font-bold text-white sm:mb-4 sm:h-14 sm:w-14 sm:text-2xl md:h-16 md:w-16">
                 3
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">
+              <h3 className="mb-2 text-base font-semibold text-white sm:mb-3 sm:text-lg">
                 {t("usage_guide.step_3.title")}
               </h3>
-              <p className="text-slate-400">{t("usage_guide.step_3.description")}</p>
+              <p className="text-sm text-slate-400 sm:text-base">
+                {t("usage_guide.step_3.description")}
+              </p>
             </div>
             <div className="text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-green-600 to-green-500 text-2xl font-bold text-white">
+              <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-green-600 to-green-500 text-xl font-bold text-white sm:mb-4 sm:h-14 sm:w-14 sm:text-2xl md:h-16 md:w-16">
                 4
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-white">
+              <h3 className="mb-2 text-base font-semibold text-white sm:mb-3 sm:text-lg">
                 {t("usage_guide.step_4.title")}
               </h3>
-              <p className="text-slate-400">{t("usage_guide.step_4.description")}</p>
+              <p className="text-sm text-slate-400 sm:text-base">
+                {t("usage_guide.step_4.description")}
+              </p>
             </div>
           </div>
         </div>
 
         {/* Content Sections for SEO */}
-        <div className="mt-20 space-y-16">
+        <div className="mt-12 space-y-10 sm:mt-16 sm:space-y-12 md:mt-20 md:space-y-16">
           {/* What is Discord Timestamp Generation Section */}
-          <section className="rounded-xl bg-gradient-to-r from-blue-800 to-indigo-700 p-8">
-            <h2 className="mb-6 text-2xl font-bold text-white">
+          <section className="rounded-xl bg-gradient-to-r from-blue-800 to-indigo-700 p-4 sm:p-6 md:p-8">
+            <h2 className="mb-4 text-xl font-bold text-white sm:mb-6 sm:text-2xl">
               {t("content_sections.what_is_generation.title")}
             </h2>
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
               <div>
-                <p className="mb-4 text-slate-200">
+                <p className="mb-3 text-sm text-slate-200 sm:mb-4 sm:text-base md:text-lg">
                   {t.rich("content_sections.what_is_generation.description_2", {
                     strong: (chunks) => <strong className="text-white">{chunks}</strong>,
                   })}
                 </p>
               </div>
-              <div className="rounded-lg bg-blue-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">
+              <div className="rounded-lg bg-blue-900/30 p-4 sm:p-5 md:p-6">
+                <h3 className="mb-3 text-base font-semibold text-white sm:text-lg">
                   {t("content_sections.what_is_generation.benefits_title")}
                 </h3>
-                <ul className="space-y-2 text-slate-200">
+                <ul className="space-y-1.5 text-sm text-slate-200 sm:space-y-2 sm:text-base">
                   <li>
                     •{" "}
                     {t.rich("content_sections.what_is_generation.benefit_1", {
@@ -1062,16 +1095,16 @@ export default function DiscordTimestampGenerator() {
           </section>
 
           {/* Discord Timestamp Creation Best Practices */}
-          <section className="rounded-xl bg-gradient-to-r from-purple-800 to-pink-700 p-8">
-            <h2 className="mb-6 text-2xl font-bold text-white">
+          <section className="rounded-xl bg-gradient-to-r from-purple-800 to-pink-700 p-4 sm:p-6 md:p-8">
+            <h2 className="mb-4 text-xl font-bold text-white sm:mb-6 sm:text-2xl">
               {t("content_sections.best_practices.title")}
             </h2>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              <div className="rounded-lg bg-purple-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">
+            <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="rounded-lg bg-purple-900/30 p-4 sm:p-5 md:p-6">
+                <h3 className="mb-3 text-base font-semibold text-white sm:text-lg">
                   {t("content_sections.best_practices.event_scheduling.title")}
                 </h3>
-                <div className="space-y-2 text-slate-200">
+                <div className="space-y-1.5 text-sm text-slate-200 sm:space-y-2 sm:text-base">
                   <p>
                     {t("content_sections.best_practices.event_scheduling.format_f_description")}
                   </p>
@@ -1081,21 +1114,21 @@ export default function DiscordTimestampGenerator() {
                   <p>{t("content_sections.best_practices.event_scheduling.use_cases")}</p>
                 </div>
               </div>
-              <div className="rounded-lg bg-purple-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">
+              <div className="rounded-lg bg-purple-900/30 p-4 sm:p-5 md:p-6">
+                <h3 className="mb-3 text-base font-semibold text-white sm:text-lg">
                   {t("content_sections.best_practices.countdown_creation.title")}
                 </h3>
-                <div className="space-y-2 text-slate-200">
+                <div className="space-y-1.5 text-sm text-slate-200 sm:space-y-2 sm:text-base">
                   <p>{t("content_sections.best_practices.countdown_creation.auto_update")}</p>
                   <p>{t("content_sections.best_practices.countdown_creation.dynamic_display")}</p>
                   <p>{t("content_sections.best_practices.countdown_creation.ideal_for")}</p>
                 </div>
               </div>
-              <div className="rounded-lg bg-purple-900/30 p-6">
-                <h3 className="mb-3 text-lg font-semibold text-white">
+              <div className="rounded-lg bg-purple-900/30 p-4 sm:p-5 md:p-6">
+                <h3 className="mb-3 text-base font-semibold text-white sm:text-lg">
                   {t("content_sections.best_practices.bot_integration.title")}
                 </h3>
-                <div className="space-y-2 text-slate-200">
+                <div className="space-y-1.5 text-sm text-slate-200 sm:space-y-2 sm:text-base">
                   <p>{t("content_sections.best_practices.bot_integration.generate_for_bots")}</p>
                   <p>{t("content_sections.best_practices.bot_integration.scheduled_commands")}</p>
                   <p>{t("content_sections.best_practices.bot_integration.api_compatible")}</p>
@@ -1105,19 +1138,19 @@ export default function DiscordTimestampGenerator() {
           </section>
 
           {/* Discord Timestamp Generator vs Converter */}
-          <section className="rounded-xl bg-gradient-to-r from-green-800 to-emerald-700 p-8">
-            <h2 className="mb-6 text-2xl font-bold text-white">
+          <section className="rounded-xl bg-gradient-to-r from-green-800 to-emerald-700 p-4 sm:p-6 md:p-8">
+            <h2 className="mb-4 text-xl font-bold text-white sm:mb-6 sm:text-2xl">
               {t("content_sections.generator_vs_converter.title")}
             </h2>
-            <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-lg bg-green-900/30 p-6">
-                <h3 className="mb-4 text-lg font-semibold text-white">
+            <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
+              <div className="rounded-lg bg-green-900/30 p-4 sm:p-5 md:p-6">
+                <h3 className="mb-3 text-base font-semibold text-white sm:mb-4 sm:text-lg">
                   {t("content_sections.generator_vs_converter.generator_section.title")}
                 </h3>
-                <p className="mb-4 text-slate-200">
+                <p className="mb-3 text-sm text-slate-200 sm:mb-4 sm:text-base">
                   {t("content_sections.generator_vs_converter.generator_section.description")}
                 </p>
-                <ul className="space-y-2 text-slate-200">
+                <ul className="space-y-1.5 text-sm text-slate-200 sm:space-y-2 sm:text-base">
                   <li>
                     • {t("content_sections.generator_vs_converter.generator_section.feature_1")}
                   </li>
@@ -1135,14 +1168,14 @@ export default function DiscordTimestampGenerator() {
                   </li>
                 </ul>
               </div>
-              <div className="rounded-lg bg-green-900/30 p-6">
-                <h3 className="mb-4 text-lg font-semibold text-white">
+              <div className="rounded-lg bg-green-900/30 p-4 sm:p-5 md:p-6">
+                <h3 className="mb-3 text-base font-semibold text-white sm:mb-4 sm:text-lg">
                   {t("content_sections.generator_vs_converter.converter_section.title")}
                 </h3>
-                <p className="mb-4 text-slate-200">
+                <p className="mb-3 text-sm text-slate-200 sm:mb-4 sm:text-base">
                   {t("content_sections.generator_vs_converter.converter_section.description")}
                 </p>
-                <ul className="space-y-2 text-slate-200">
+                <ul className="space-y-1.5 text-sm text-slate-200 sm:space-y-2 sm:text-base">
                   <li>
                     • {t("content_sections.generator_vs_converter.converter_section.feature_1")}
                   </li>
@@ -1159,10 +1192,10 @@ export default function DiscordTimestampGenerator() {
                     • {t("content_sections.generator_vs_converter.converter_section.feature_5")}
                   </li>
                 </ul>
-                <div className="mt-4">
+                <div className="mt-3 sm:mt-4">
                   <a
                     href="/tools/discord-time-converter"
-                    className="inline-flex items-center text-green-300 transition-colors hover:text-green-200"
+                    className="inline-flex items-center text-sm text-green-300 transition-colors hover:text-green-200 sm:text-base"
                   >
                     {t("content_sections.generator_vs_converter.converter_section.link_text")}
                   </a>
@@ -1172,40 +1205,58 @@ export default function DiscordTimestampGenerator() {
           </section>
 
           {/* FAQ Section */}
-          <section className="rounded-xl bg-slate-800 p-8">
-            <h2 className="mb-6 text-2xl font-bold text-white">{t("faq.title")}</h2>
-            <div className="space-y-6">
-              <div className="border-b border-slate-700 pb-4">
-                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q1.question")}</h3>
-                <p className="text-slate-400">{t("faq.q1.answer")}</p>
+          <section className="rounded-xl bg-slate-800 p-4 sm:p-6 md:p-8">
+            <h2 className="mb-4 text-xl font-bold text-white sm:mb-6 sm:text-2xl">
+              {t("faq.title")}
+            </h2>
+            <div className="space-y-4 sm:space-y-6">
+              <div className="border-b border-slate-700 pb-3 sm:pb-4">
+                <h3 className="mb-2 text-base font-semibold text-white sm:text-lg">
+                  {t("faq.q1.question")}
+                </h3>
+                <p className="text-sm text-slate-400 sm:text-base">{t("faq.q1.answer")}</p>
               </div>
-              <div className="border-b border-slate-700 pb-4">
-                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q2.question")}</h3>
-                <p className="text-slate-400">{t("faq.q2.answer")}</p>
+              <div className="border-b border-slate-700 pb-3 sm:pb-4">
+                <h3 className="mb-2 text-base font-semibold text-white sm:text-lg">
+                  {t("faq.q2.question")}
+                </h3>
+                <p className="text-sm text-slate-400 sm:text-base">{t("faq.q2.answer")}</p>
               </div>
-              <div className="border-b border-slate-700 pb-4">
-                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q3.question")}</h3>
-                <p className="text-slate-400">{t("faq.q3.answer")}</p>
+              <div className="border-b border-slate-700 pb-3 sm:pb-4">
+                <h3 className="mb-2 text-base font-semibold text-white sm:text-lg">
+                  {t("faq.q3.question")}
+                </h3>
+                <p className="text-sm text-slate-400 sm:text-base">{t("faq.q3.answer")}</p>
               </div>
-              <div className="border-b border-slate-700 pb-4">
-                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q4.question")}</h3>
-                <p className="text-slate-400">{t("faq.q4.answer")}</p>
+              <div className="border-b border-slate-700 pb-3 sm:pb-4">
+                <h3 className="mb-2 text-base font-semibold text-white sm:text-lg">
+                  {t("faq.q4.question")}
+                </h3>
+                <p className="text-sm text-slate-400 sm:text-base">{t("faq.q4.answer")}</p>
               </div>
-              <div className="border-b border-slate-700 pb-4">
-                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q5.question")}</h3>
-                <p className="text-slate-400">{t("faq.q5.answer")}</p>
+              <div className="border-b border-slate-700 pb-3 sm:pb-4">
+                <h3 className="mb-2 text-base font-semibold text-white sm:text-lg">
+                  {t("faq.q5.question")}
+                </h3>
+                <p className="text-sm text-slate-400 sm:text-base">{t("faq.q5.answer")}</p>
               </div>
-              <div className="border-b border-slate-700 pb-4">
-                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q6.question")}</h3>
-                <p className="text-slate-400">{t("faq.q6.answer")}</p>
+              <div className="border-b border-slate-700 pb-3 sm:pb-4">
+                <h3 className="mb-2 text-base font-semibold text-white sm:text-lg">
+                  {t("faq.q6.question")}
+                </h3>
+                <p className="text-sm text-slate-400 sm:text-base">{t("faq.q6.answer")}</p>
               </div>
-              <div className="border-b border-slate-700 pb-4">
-                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q7.question")}</h3>
-                <p className="text-slate-400">{t("faq.q7.answer")}</p>
+              <div className="border-b border-slate-700 pb-3 sm:pb-4">
+                <h3 className="mb-2 text-base font-semibold text-white sm:text-lg">
+                  {t("faq.q7.question")}
+                </h3>
+                <p className="text-sm text-slate-400 sm:text-base">{t("faq.q7.answer")}</p>
               </div>
               <div>
-                <h3 className="mb-2 text-lg font-semibold text-white">{t("faq.q8.question")}</h3>
-                <p className="text-slate-400">{t("faq.q8.answer")}</p>
+                <h3 className="mb-2 text-base font-semibold text-white sm:text-lg">
+                  {t("faq.q8.question")}
+                </h3>
+                <p className="text-sm text-slate-400 sm:text-base">{t("faq.q8.answer")}</p>
               </div>
             </div>
           </section>
