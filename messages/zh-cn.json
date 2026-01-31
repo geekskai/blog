@@ -5376,7 +5376,7 @@
     "form_select_format_mp3": "MP3",
     "form_select_format_wav": "WAV",
     "error_empty_url": "请输入播放列表链接",
-    "error_invalid_url": "请输入有效的 SoundCloud 播放列表链接",
+    "error_invalid_url": "请输入有效的 SoundCloud 播放列表链接，格式：https://soundcloud.com/username/sets/playlist-name",
     "error_fetch_failed": "获取播放列表失败！这个链接可能是私有的，不是公开的。请检查你是否具有访问这个播放列表的权限。",
     "error_no_tracks": "该播放列表中未找到任何曲目",
     "error_network": "网络错误",

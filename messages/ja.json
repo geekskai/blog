@@ -5350,7 +5350,7 @@
     "form_select_format_mp3": "MP3",
     "form_select_format_wav": "WAV",
     "error_empty_url": "プレイリストの URL を入力してください",
-    "error_invalid_url": "有効な SoundCloud プレイリストの URL を入力してください",
+    "error_invalid_url": "有効な SoundCloud プレイリストの URL を入力してください, 形式: https://soundcloud.com/username/sets/playlist-name",
     "error_fetch_failed": "プレイリストの取得に失敗しました！このリンクはプライベートかもしれません。このプレイリストにアクセスする権限があるかどうか確認してください。",
     "error_no_tracks": "このプレイリストにはトラックが見つかりませんでした",
     "error_network": "ネットワークエラー",

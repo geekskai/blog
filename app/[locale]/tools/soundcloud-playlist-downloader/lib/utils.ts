@@ -1,7 +1,11 @@
 // URL validation
 export const isValidSoundCloudPlaylistUrl = (url: string): boolean => {
-  const playlistRegex = /^https?:\/\/(www\.)?soundcloud\.com\/.+\/sets\/.+/
-  return playlistRegex.test(url.trim())
+  // placeholder="https://soundcloud.com/username/sets/playlist-name"
+  //  https://soundcloud.com/dsprecords/dspromomix19?in=user-401308472/sets/copy-of-hardtek-tribecore/s-UdbdUBNOv6h&si=c74f4c5451604f82ac5bd2fc2b4ae94f&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing
+  // const playlistRegex = /^https?:\/\/(www\.)?soundcloud\.com\/.+\/sets\/.+/
+  // return playlistRegex.test(url.trim())
+
+  return new URL(url.trim()).pathname.includes("/sets/")
 }
 
 // Format file size

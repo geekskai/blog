@@ -5328,7 +5328,7 @@
     "form_select_format_mp3": "MP3",
     "form_select_format_wav": "WAV",
     "error_empty_url": "Veuillez saisir une URL de playlist",
-    "error_invalid_url": "Veuillez saisir une URL de playlist SoundCloud valide",
+    "error_invalid_url": "Veuillez saisir une URL de playlist SoundCloud valide, format: https://soundcloud.com/username/sets/playlist-name",
     "error_fetch_failed": "Échec de la récupération de la playlist! Ce lien peut être privé et non public. Veuillez vérifier si vous avez les permissions pour accéder à cette playlist.",
     "error_no_tracks": "Aucun morceau trouvé dans cette playlist",
     "error_network": "Erreur réseau",
