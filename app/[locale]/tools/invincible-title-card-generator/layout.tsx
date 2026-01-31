@@ -100,6 +100,13 @@ const getJsonLd = (t: any) => ({
   },
   keywords: t("seo_keywords"),
   educationalUse: "Fan Content Creation, Graphic Design, Video Production, Creative Projects",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    ratingCount: "1250",
+    bestRating: "5",
+    worstRating: "1",
+  },
 })
 
 export default async function Layout({

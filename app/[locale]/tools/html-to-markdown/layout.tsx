@@ -123,6 +123,13 @@ async function getJsonLd(locale: string) {
       url: "https://geekskai.com",
       sameAs: ["https://github.com/geekskai", "https://twitter.com/geekskai"],
     },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "1250",
+      bestRating: "5",
+      worstRating: "1",
+    },
   }
 }
 

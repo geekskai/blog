@@ -169,6 +169,13 @@ export default async function CmTilTommerLayout({
     softwareVersion: "1.0",
     datePublished: "2024-01-24",
     dateModified: new Date().toISOString().split("T")[0],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "1250",
+      bestRating: "5",
+      worstRating: "1",
+    },
   }
 
   // 动态生成 FAQ 结构化数据

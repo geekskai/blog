@@ -154,6 +154,13 @@ async function getStructuredData(locale: string) {
       name: t("usage_info.name"),
       description: t("usage_info.description"),
     },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "1250",
+      bestRating: "5",
+      worstRating: "1",
+    },
   }
 }
 

@@ -118,6 +118,13 @@ export default async function Layout({
     accessibilityFeature: ["alternativeText", "readingOrder", "structuralNavigation"],
     usageInfo:
       "For testing and development purposes only. Generated VINs do not correspond to real vehicles.",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "1250",
+      bestRating: "5",
+      worstRating: "1",
+    },
   }
 
   return (

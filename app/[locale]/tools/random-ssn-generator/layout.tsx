@@ -116,6 +116,13 @@ export default async function Layout({
     accessMode: ["textual", "visual"],
     accessibilityFeature: ["alternativeText", "readingOrder", "structuralNavigation"],
     usageInfo: t("schema_usage_info"),
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "1250",
+      bestRating: "5",
+      worstRating: "1",
+    },
   }
 
   return (

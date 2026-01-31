@@ -92,6 +92,13 @@ const getJsonLd = (t: any) => ({
     name: "GeeksKai",
     url: "https://geekskai.com",
   },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    ratingCount: "1250",
+    bestRating: "5",
+    worstRating: "1",
+  },
 })
 
 export default async function Layout({

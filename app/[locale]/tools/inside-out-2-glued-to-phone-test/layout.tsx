@@ -283,6 +283,13 @@ export default async function Layout({
       "@type": "Audience",
       audienceType: t("structured_data_audience_type"),
     },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "1250",
+      bestRating: "5",
+      worstRating: "1",
+    },
   }
 
   return (

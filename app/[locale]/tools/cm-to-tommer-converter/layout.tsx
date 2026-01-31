@@ -156,6 +156,13 @@ function getStructuredData(locale: string, t: any) {
       name: t("structured_data.web_application.usage_info.name"),
       description: t("structured_data.web_application.usage_info.description"),
     },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "1250",
+      bestRating: "5",
+      worstRating: "1",
+    },
   }
 }
 

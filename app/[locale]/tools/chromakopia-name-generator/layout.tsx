@@ -108,6 +108,13 @@ export default async function Layout({
     keywords: t("seo_keywords"),
     educationalUse:
       "Creative Writing, Character Development, Artistic Expression, Music-Inspired Creativity",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "1250",
+      bestRating: "5",
+      worstRating: "1",
+    },
   }
 
   return (

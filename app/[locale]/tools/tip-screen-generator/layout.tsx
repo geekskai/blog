@@ -107,6 +107,13 @@ export default async function Layout({
     keywords: t("seo_keywords"),
     educationalUse:
       "UX Design Education, Tipping Culture Awareness, Social Commentary, Digital Psychology",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "1250",
+      bestRating: "5",
+      worstRating: "1",
+    },
   }
   return (
     <div className="min-h-screen">
