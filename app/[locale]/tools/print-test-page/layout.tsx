@@ -102,6 +102,7 @@ export default async function Layout({
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
     },
     provider: {
       "@type": "Organization",

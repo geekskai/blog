@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { supportedLocales } from "app/i18n/routing"
 import { getTranslations } from "next-intl/server"
+import React from "react"
 
 export async function generateMetadata({
   params: { locale },
@@ -97,6 +98,7 @@ export default async function Layout({
               "@type": "Offer",
               price: "0",
               priceCurrency: "USD",
+              availability: "https://schema.org/InStock",
             },
             provider: {
               "@type": "Organization",

@@ -1,7 +1,7 @@
 import { supportedLocales } from "app/i18n/routing"
 import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
-
+import React from "react"
 export const revalidate = 86400 // 24 hours
 
 export async function generateMetadata({
@@ -79,6 +79,7 @@ const getJsonLd = (t: any) => ({
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
   },
   featureList: [
     "Custom text input",

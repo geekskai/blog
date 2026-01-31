@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 import { supportedLocales } from "../../../i18n/routing"
-
+import React from "react"
 // 动态生成多语言 metadata
 export async function generateMetadata({
   params: { locale },
@@ -209,6 +209,7 @@ const toolStructuredData = {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
   },
   featureList: [
     "Board foot calculation",
@@ -282,6 +283,7 @@ export default async function BoardFootCalculatorLayout({
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
     },
     provider: {
       "@type": "Organization",

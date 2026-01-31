@@ -159,6 +159,7 @@ export default async function Layout({ children, params }: Props) {
             "@type": "Offer",
             price: "0",
             priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
           },
           aggregateRating: {
             "@type": "AggregateRating",
@@ -179,6 +180,7 @@ export default async function Layout({ children, params }: Props) {
             "@type": "Offer",
             price: "0",
             priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
           },
           aggregateRating: {
             "@type": "AggregateRating",

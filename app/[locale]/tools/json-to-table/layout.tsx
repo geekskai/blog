@@ -81,6 +81,7 @@ async function generateJsonLd(locale: string) {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
     },
     featureList: [
       "Convert JSON to HTML table format instantly",
@@ -127,10 +128,18 @@ async function generateJsonLd(locale: string) {
       "@type": "SoftwareApplication",
       name: "JSON to Table Converter Tool",
       applicationCategory: "Productivity Software",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+      },
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "4.9",
         ratingCount: "2150",
+        bestRating: "5",
+        worstRating: "1",
       },
     },
     potentialAction: [

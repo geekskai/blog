@@ -1,6 +1,7 @@
 import { supportedLocales } from "app/i18n/routing"
 import type { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
+import React from "react"
 
 // SEO 优化的 metadata
 export async function generateMetadata({
@@ -111,6 +112,7 @@ function getStructuredData(locale: string, t: any) {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
     },
     provider: {
       "@type": "Organization",

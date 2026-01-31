@@ -75,6 +75,7 @@ const getJsonLd = (t: any) => ({
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
   },
   featureList: [
     t("conversion_modes.bpm_to_ms_description"),

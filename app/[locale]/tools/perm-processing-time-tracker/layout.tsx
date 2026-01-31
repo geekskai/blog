@@ -84,6 +84,7 @@ export default async function Layout({
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
     },
     featureList: [
       "Track PERM processing times with real-time DOL data",
@@ -123,10 +124,18 @@ export default async function Layout({
       "@type": "SoftwareApplication",
       name: t("title"),
       applicationCategory: "ImmigrationTrackingTool",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+      },
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "4.9",
         ratingCount: "1850",
+        bestRating: "5",
+        worstRating: "1",
       },
     },
     potentialAction: [

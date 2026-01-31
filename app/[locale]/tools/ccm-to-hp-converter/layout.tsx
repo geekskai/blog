@@ -95,6 +95,7 @@ const getJsonLd = (t: any, locale: string) => ({
         "@type": "Offer",
         price: "0",
         priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
       },
       featureList: [
         t("feature_badges.bidirectional_conversion"),

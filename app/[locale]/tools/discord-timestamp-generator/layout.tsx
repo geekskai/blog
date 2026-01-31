@@ -128,10 +128,18 @@ export default async function Layout({
       "@type": "SoftwareApplication",
       name: "Discord Timestamp Generator",
       applicationCategory: "Communication Tool",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+      },
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "4.8",
         ratingCount: "1420",
+        bestRating: "5",
+        worstRating: "1",
       },
     },
   }

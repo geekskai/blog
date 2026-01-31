@@ -145,6 +145,7 @@ export default async function CmTilTommerLayout({
       "@type": "Offer",
       price: "0",
       priceCurrency: locale === "da" ? "DKK" : locale === "no" ? "NOK" : "USD",
+      availability: "https://schema.org/InStock",
     },
     provider: {
       "@type": "Organization",

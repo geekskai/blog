@@ -77,6 +77,7 @@ const getJsonLd = (t: any) => ({
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
   },
   featureList: [
     "Modern chivalry assessment",

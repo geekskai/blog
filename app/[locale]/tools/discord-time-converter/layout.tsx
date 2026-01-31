@@ -121,10 +121,18 @@ async function generateJsonLd(locale: string) {
       "@type": "SoftwareApplication",
       name: "Discord Timezone Converter & Timestamp Generator",
       applicationCategory: "Communication Tool",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+      },
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "4.9",
         ratingCount: "1650",
+        bestRating: "5",
+        worstRating: "1",
       },
     },
   }
