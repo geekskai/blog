@@ -128,8 +128,8 @@ export default function PlaylistInput({
           </div>
 
           {error && (
-            <div className="mt-6 rounded-lg border border-red-500/30 bg-red-900/20 p-4 backdrop-blur-sm">
-              <div className="flex items-center gap-3 text-red-400">
+            <div className="mt-6 rounded-lg border border-red-500/30 bg-red-900/20 p-2 backdrop-blur-sm md:p-4">
+              <div className="flex flex-col flex-wrap items-center gap-1 text-red-400 md:flex-row md:gap-3">
                 <span className="text-xl">⚠️</span>
                 <span className="text-sm font-medium">{error}</span>
                 {isTrackError ? (
@@ -137,7 +137,7 @@ export default function PlaylistInput({
                     href="/tools/soundcloud-to-wav"
                     className="inline-flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-emerald-300 transition-all hover:bg-emerald-500/20 hover:text-emerald-200"
                   >
-                    <span>🎵</span>
+                    <span>🔗</span>
                     <span>{t("error_track_url_link")}</span>
                   </Link>
                 ) : null}
