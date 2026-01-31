@@ -5290,6 +5290,7 @@
     "use_cases_technicians_description": "プリンターの問題診断、修理後の動作テスト、プリンターのセットアップや設定確認に。"
   },
   "SoundCloudPlaylistDownloader": {
+    "error_track_url_link": "SoundCloud to WAV Converter を試してください",
     "section_how_to_step_1_title": "ステップ1：プレイリストのURLをコピー",
     "section_how_to_step_2_title": "ステップ2：URLを貼り付け",
     "section_how_to_step_3_title": "ステップ3：取得して形式を選択",

@@ -21,7 +21,12 @@ import type {
   DownloadFormat,
   LoadingState,
 } from "./types"
-import { isValidSoundCloudPlaylistUrl, createDownloadLink, getSafeFileName } from "./lib/utils"
+import {
+  isValidSoundCloudPlaylistUrl,
+  createDownloadLink,
+  getSafeFileName,
+  isValidSoundCloudTrackUrl,
+} from "./lib/utils"
 
 const PlaylistInput = dynamic(() => import("./components/PlaylistInput"), {
   ssr: false,
@@ -33,6 +38,8 @@ export default function SoundCloudPlaylistDownloaderPage() {
   const [format, setFormat] = useState<DownloadFormat>("mp3")
   const [loadingState, setLoadingState] = useState<LoadingState>("idle")
   const [errorMessage, setErrorMessage] = useState<string>("")
+  // is track error means the url is a single track url
+  const [isTrackError, setIsTrackError] = useState<boolean>(false)
   const [playlistInfo, setPlaylistInfo] = useState<PlaylistInfo | null>(null)
   const [downloadProgress, setDownloadProgress] = useState<DownloadProgressType>({
     current: 0,
@@ -48,11 +55,15 @@ export default function SoundCloudPlaylistDownloaderPage() {
 
   // Validate URL
   const validateUrl = useCallback((): boolean => {
+    setIsTrackError(false)
     if (!url.trim()) {
       setErrorMessage(t("error_empty_url"))
       return false
     }
     if (!isValidSoundCloudPlaylistUrl(url.trim())) {
+      if (isValidSoundCloudTrackUrl(url.trim())) {
+        setIsTrackError(true)
+      }
       setErrorMessage(t("error_invalid_url"))
       return false
     }
@@ -238,6 +249,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
             }}
             format={format}
             onFormatChange={setFormat}
+            isTrackError={isTrackError}
             onFetchPlaylist={handleFetchPlaylist}
             isLoading={loadingState === "loading"}
             error={errorMessage}

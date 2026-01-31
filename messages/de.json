@@ -5365,6 +5365,7 @@
     "use_cases_technicians_description": "Druckerprobleme diagnostizieren, Druckerfunktion nach Reparaturen testen, Einrichtung und Konfiguration prüfen."
   },
   "SoundCloudPlaylistDownloader": {
+    "error_track_url_link": "SoundCloud zu MP3/WAV-Konverter ausprobieren",
     "metadata_title": "SoundCloud-Playlist-Downloader – Kostenloses Online-Tool | Ganze Playlists herunterladen",
     "metadata_description": "Kostenloser SoundCloud-Playlist-Downloader. Ganze SoundCloud-Playlists im MP3- oder WAV-Format herunterladen. Schnell, unbegrenzt und ohne Registrierung. Alle Tracks einer Playlist per Batch downloaden.",
     "metadata_keywords": "soundcloud playlist downloader, soundcloud playlist herunterladen, soundcloud playlist zu mp3, soundcloud playlist zu wav, batch download soundcloud, soundcloud playlist konverter, kostenloser playlist downloader",

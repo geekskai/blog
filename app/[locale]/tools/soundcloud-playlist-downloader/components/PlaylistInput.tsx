@@ -9,6 +9,7 @@ interface PlaylistInputProps {
   onUrlChange: (url: string) => void
   format: "mp3" | "wav"
   onFormatChange: (format: "mp3" | "wav") => void
+  isTrackError: boolean
   onFetchPlaylist: () => void
   isLoading: boolean
   error?: string
@@ -19,6 +20,7 @@ export default function PlaylistInput({
   onUrlChange,
   format,
   onFormatChange,
+  isTrackError,
   onFetchPlaylist,
   isLoading,
   error,
@@ -130,6 +132,15 @@ export default function PlaylistInput({
               <div className="flex items-center gap-3 text-red-400">
                 <span className="text-xl">⚠️</span>
                 <span className="text-sm font-medium">{error}</span>
+                {isTrackError ? (
+                  <Link
+                    href="/tools/soundcloud-to-wav"
+                    className="inline-flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-emerald-300 transition-all hover:bg-emerald-500/20 hover:text-emerald-200"
+                  >
+                    <span>🎵</span>
+                    <span>{t("error_track_url_link")}</span>
+                  </Link>
+                ) : null}
               </div>
             </div>
           )}

@@ -1,3 +1,40 @@
+const SOUNDCLOUD_TRACK_URL_REGEX =
+  /^https?:\/\/(www\.)?soundcloud\.com\/[^/?#]+\/[^/?#]+(?:\/s-[A-Za-z0-9]+)?\/?(?:[?#].*)?$/
+// 短链接格式: https://on.soundcloud.com/xxxx
+const SOUNDCLOUD_SHORT_URL_REGEX = /^https?:\/\/on\.soundcloud\.com\/[A-Za-z0-9]+(?:[?#].*)?$/
+
+// Utility functions
+const normalizeSoundCloudUrl = (inputUrl: string): string => {
+  try {
+    const parsedUrl = new URL(inputUrl)
+    if (parsedUrl.hostname === "m.soundcloud.com") {
+      parsedUrl.hostname = "soundcloud.com"
+    }
+    return parsedUrl.toString()
+  } catch {
+    return inputUrl
+  }
+}
+
+const isShortSoundCloudUrl = (url: string): boolean => {
+  return SOUNDCLOUD_SHORT_URL_REGEX.test(url.trim())
+}
+
+// 验证单个歌曲URL
+export const isValidSoundCloudTrackUrl = (url: string): boolean => {
+  const trimmedUrl = url.trim()
+  // 排除播放列表URL
+  if (isValidSoundCloudPlaylistUrl(trimmedUrl)) {
+    return false
+  }
+  // 允许短链接，由服务端解析后再校验
+  const normalizedUrl = normalizeSoundCloudUrl(trimmedUrl)
+  if (isShortSoundCloudUrl(normalizedUrl)) {
+    return true
+  }
+  return SOUNDCLOUD_TRACK_URL_REGEX.test(normalizedUrl)
+}
+
 // URL validation
 export const isValidSoundCloudPlaylistUrl = (url: string): boolean => {
   // placeholder="https://soundcloud.com/username/sets/playlist-name"

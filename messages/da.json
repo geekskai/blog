@@ -4928,6 +4928,7 @@
     "use_cases_technicians_description": "Diagnosticér printerproblemer, test printerfunktionalitet efter reparationer og verificer printeropsætning og -konfiguration."
   },
   "SoundCloudPlaylistDownloader": {
+    "error_track_url_link": "Prøv SoundCloud til MP3/WAV-konverter",
     "section_how_to_step_1_title": "Trin 1: Kopiér playlist-URL'en",
     "section_how_to_step_2_title": "Trin 2: Indsæt URL'en",
     "section_how_to_step_3_title": "Trin 3: Hent og vælg format",

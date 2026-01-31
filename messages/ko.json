@@ -5111,6 +5111,7 @@
     "use_cases_technicians_description": "프린터 문제 진단, 수리 후 기능 테스트, 프린터 설정 및 구성 확인에 사용됩니다."
   },
   "SoundCloudPlaylistDownloader": {
+    "error_track_url_link": "SoundCloud to WAV Converter 를 사용해 보세요",
     "section_how_to_step_1_title": "1단계: 플레이리스트 URL 복사",
     "section_how_to_step_2_title": "2단계: URL 붙여넣기",
     "section_how_to_step_3_title": "3단계: 불러오기 및 형식 선택",

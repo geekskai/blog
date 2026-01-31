@@ -14,11 +14,12 @@ import {
 } from "./SEOContent"
 import Link from "@/components/Link"
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
+import { isValidSoundCloudPlaylistUrl } from "../soundcloud-playlist-downloader/lib/utils"
 
 type LoadingState = "idle" | "loading" | "success" | "error"
 
 // 播放列表URL格式: https://soundcloud.com/username/sets/playlist-name
-const SOUNDCLOUD_PLAYLIST_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/[^/]+\/sets\/.+/
+// const SOUNDCLOUD_PLAYLIST_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/[^/]+\/sets\/.+/
 // 单个歌曲URL格式: https://soundcloud.com/username/song-name
 // 支持可选分享token (例如 /s-xxxx) 与查询参数
 // 必须包含域名、用户名和歌曲名，且路径中不包含 /sets/
@@ -39,9 +40,9 @@ const normalizeSoundCloudUrl = (inputUrl: string): string => {
   }
 }
 
-const isPlaylistUrl = (url: string): boolean => {
-  return SOUNDCLOUD_PLAYLIST_URL_REGEX.test(url.trim())
-}
+// const isPlaylistUrl = (url: string): boolean => {
+//   return SOUNDCLOUD_PLAYLIST_URL_REGEX.test(url.trim())
+// }
 
 const isShortSoundCloudUrl = (url: string): boolean => {
   return SOUNDCLOUD_SHORT_URL_REGEX.test(url.trim())
@@ -50,7 +51,7 @@ const isShortSoundCloudUrl = (url: string): boolean => {
 const isValidSoundCloudTrackUrl = (url: string): boolean => {
   const trimmedUrl = url.trim()
   // 排除播放列表URL
-  if (isPlaylistUrl(trimmedUrl)) {
+  if (isValidSoundCloudPlaylistUrl(trimmedUrl)) {
     return false
   }
   // 匹配单个歌曲URL: soundcloud.com/username/song-name
@@ -58,12 +59,8 @@ const isValidSoundCloudTrackUrl = (url: string): boolean => {
   if (!SOUNDCLOUD_TRACK_URL_REGEX.test(trimmedUrl)) {
     return false
   }
-  try {
-    const parsedUrl = new URL(trimmedUrl)
-    return !parsedUrl.pathname.includes("/sets/")
-  } catch {
-    return false
-  }
+
+  return true
 }
 
 const formatFileSize = (bytes: number): string => {
@@ -174,7 +171,7 @@ export default function Page() {
       return false
     }
     // 检测播放列表URL
-    if (isPlaylistUrl(normalizedUrl)) {
+    if (isValidSoundCloudPlaylistUrl(normalizedUrl)) {
       setIsPlaylistError(true)
       setErrorMessage(t("error_playlist_url"))
       return false

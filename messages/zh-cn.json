@@ -5316,6 +5316,7 @@
     "use_cases_technicians_description": "用于诊断打印机故障、维修后的功能测试，以及验证打印机的安装和配置。"
   },
   "SoundCloudPlaylistDownloader": {
+    "error_track_url_link": "试试 SoundCloud 转 MP3/WAV 转换器",
     "section_how_to_step_1_title": "步骤 1：复制播放列表链接",
     "section_how_to_step_2_title": "步骤 2：粘贴链接",
     "section_how_to_step_3_title": "步骤 3：获取并选择格式",

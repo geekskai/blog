@@ -5268,6 +5268,7 @@
     "use_cases_technicians_description": "Diagnostiquez les problèmes d'imprimante, testez la fonctionnalité de l'imprimante après les réparations, vérifiez la configuration de l'imprimante."
   },
   "SoundCloudPlaylistDownloader": {
+    "error_track_url_link": "Essayez le convertisseur SoundCloud en MP3/WAV",
     "section_how_to_step_1_title": "Étape 1 : Copier l’URL de la playlist",
     "section_how_to_step_2_title": "Étape 2 : Coller l’URL",
     "section_how_to_step_3_title": "Étape 3 : Récupérer et choisir le format",

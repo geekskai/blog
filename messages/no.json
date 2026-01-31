@@ -5017,6 +5017,7 @@
     "use_cases_technicians_description": "Diagnostiser skriverproblemer, test skriverfunksjonalitet etter reparasjoner og verifiser skriveroppsett og konfigurasjon."
   },
   "SoundCloudPlaylistDownloader": {
+    "error_track_url_link": "Prøv SoundCloud til MP3/WAV-konverter",
     "section_how_to_step_1_title": "Trinn 1: Kopier spilleliste-URL",
     "section_how_to_step_2_title": "Trinn 2: Lim inn URL-en",
     "section_how_to_step_3_title": "Trinn 3: Hent og velg format",
