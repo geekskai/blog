@@ -1,18 +1,43 @@
 ---
-title: "cloudflare搭建blog | 2024最新版"
+title: "Cloudflare Pages 搭建博客 | 2026 最新版"
 date: "2024-10-08"
-lastmod: "2024-10-08"
-tags: ["cloudflare", "blog", "pages", "web development"]
+lastmod: "2026-01-31"
+tags: ["cloudflare", "cloudflare pages", "blog", "nextjs", "web development"]
+keywords:
+  ["Cloudflare Pages", "Cloudflare 搭建博客", "Next.js 博客部署", "Pages 部署教程", "Cloudflare Pages 自定义域名"]
 draft: false
-summary: "详细介绍如何使用Cloudflare Pages搭建博客，包括从项目设置到部署的完整流程，以及一些实用的优化技巧。"
+summary: "2026 最新 Cloudflare Pages 博客搭建教程：从 GitHub 仓库到部署上线，覆盖 Next.js 预设、nodejs_compat 兼容性标志、自定义域名与常见问题排查。"
 layout: "PostLayout"
-images: "/static/images/blog/js/image.png"
-canonicalUrl: "https://geekskai.com/blog/cloudflare-blog-setup/"
+images: "/static/images/cloudflare/cloudflare-hero.png"
+canonicalUrl: "https://geekskai.com/blog/cloudflare/cloudflare-blog-setup/"
+faqs:
+  [
+    {
+      "question": "Cloudflare Pages 是否免费？",
+      "answer": "Cloudflare Pages 提供免费套餐，包含全球 CDN 与自动化部署流程，个人博客完全够用。"
+    },
+    {
+      "question": "为什么需要添加 nodejs_compat 标志？",
+      "answer": "当项目依赖 Node.js 相关 API 时，需要开启 nodejs_compat 以保证 Functions 正常运行。"
+    },
+    {
+      "question": "Cloudflare Pages 支持自定义域名吗？",
+      "answer": "支持。只需要在 Pages 项目中添加域名并在域名注册商处配置 CNAME 记录即可。"
+    },
+    {
+      "question": "部署失败最常见的原因是什么？",
+      "answer": "常见原因包括框架预设选择错误、依赖安装失败、未开启 nodejs_compat、或构建命令不匹配。"
+    }
+  ]
 ---
 
 ![Cloudflare Pages](/static/images/cloudflare/cloudflare-hero.png)
 
-## 使用Cloudflare搭建博客，2024年最新版
+## 使用 Cloudflare 搭建博客，2026 年最新版
+
+**适合人群**：想要快速上线个人博客的开发者或内容创作者  
+**预计耗时**：约 15-30 分钟  
+**核心优势**：**免费**、**全球 CDN**、**自动化部署**
 
 在这篇文章中，我将详细介绍如何使用Cloudflare 搭建一个高性能、安全且免费的个人blog。Cloudflare Pages不仅提供了强大的静态网站托管服务，还能确保您的博客快速、安全地传递给全球读者。
 
@@ -137,3 +162,17 @@ canonicalUrl: "https://geekskai.com/blog/cloudflare-blog-setup/"
 6. 在您的域名注册商中添加CNAME记录，指向您的Cloudflare Pages域名，例如：blog-24f.pages.dev
 
 7. 等待DNS生效，然后您的博客就能通过您的自定义域名访问了。
+
+## 常见问题（FAQ）
+
+**Q1：Cloudflare Pages 是否免费？**  
+A：Cloudflare Pages 提供免费套餐，个人博客完全够用，包含全球 CDN 与自动化部署流程。
+
+**Q2：为什么需要添加 nodejs_compat 标志？**  
+A：当项目使用到 Node.js 相关 API 或依赖包时，需要开启 nodejs_compat，以保证 Functions 正常运行。
+
+**Q3：Cloudflare Pages 支持自定义域名吗？**  
+A：支持。只需要在 Pages 项目中添加域名，并在域名注册商处配置 CNAME 记录即可。
+
+**Q4：部署失败最常见的原因是什么？**  
+A：常见原因包括框架预设选择错误、依赖安装失败、未开启 nodejs_compat，或构建命令不匹配。

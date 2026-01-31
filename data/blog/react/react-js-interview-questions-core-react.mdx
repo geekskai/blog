@@ -1,7 +1,7 @@
 ---
 title: "Core React Interview Questions & Answers 2026"
 date: "2026-01-11"
-lastmod: "2026-01-25"
+lastmod: "2026-01-31"
 tags:
   [
     "React",
@@ -18,7 +18,15 @@ layout: "PostLayout"
 canonicalUrl: "https://geekskai.com/blog/react/react-js-interview-questions-core-react/"
 ---
 
-![React Interview Questions & Answers](/static/images/blog/react/react-js-interview-questions.jpeg)
+<figure>
+  <img
+    src="/static/images/blog/react/react-js-interview-questions.jpeg"
+    alt="React interview questions and answers cover core topics like JSX, components, props, and state."
+  />
+  <figcaption>Core React interview questions: JSX, components, props, state, and Virtual DOM.</figcaption>
+</figure>
+
+<section aria-labelledby="introduction">
 
 ## 📖 Introduction
 
@@ -51,6 +59,8 @@ This comprehensive guide focuses on **Core React interview questions** covering 
 - <strong>Covers all difficulty levels</strong> from beginner to advanced
 - <strong>Practical answers</strong> you can use in real interviews
 
+</section>
+
 ## Core React
 
 This section covers fundamental **React JS interview questions** about React basics, including JSX, components, props, state, and the Virtual DOM. These are essential concepts that every React developer should master.
@@ -82,7 +92,7 @@ This section covers fundamental **React JS interview questions** about React bas
 
     But there was a different problem with XHP in which dynamic web applications require many roundtrips to the server, and XHP did not solve this problem. Also, the whole UI was re-rendered for small change in the application. Later, the initial prototype of React is created with the name **FaxJ** by Jordan inspired from XHP. Finally after sometime React has been introduced as a new library into JavaScript world.
 
-  <div>
+  <section aria-label="Deep dive">
 
   <details>
   <summary><b>See deep-dive answer</b></summary>
@@ -121,7 +131,7 @@ This section covers fundamental **React JS interview questions** about React bas
     - React continues to evolve with Server Components, the new React compiler (React Forget), and other performance improvements
     </details>
 
-    </div>
+    </section>
 
     **Note:** JSX, React's syntax extension, was indeed inspired by XHP's approach of embedding XML-like syntax in code.
 
@@ -149,7 +159,7 @@ This section covers fundamental **React JS interview questions** about React bas
     }
     ```
 
-<div>
+<section aria-label="Class component example">
 
 <details>
 <summary><b>See Class</b></summary>
@@ -164,7 +174,7 @@ class App extends React.Component {
 
 </details>
 
-</div>
+</section>
 
     **Note:** JSX is stricter than HTML
 
@@ -351,8 +361,6 @@ class App extends React.Component {
 
     _State_ of a component is an object that holds some information that may change over the lifetime of the component. The important point is whenever the state object changes, the component re-renders. It is always recommended to make our state as simple as possible and minimize the number of stateful components.
 
-    ![state](https://github.com/sudheerj/reactjs-interview-questions/blob/master/images/state.jpg)
-
     Let's take an example of **User** component with `message` state. Here, **useState** hook has been used to add state to the User component and it returns an array with current state and function to update it.
 
     ```jsx harmony
@@ -371,7 +379,7 @@ class App extends React.Component {
 
     Whenever React calls your component or access `useState` hook, it gives you a snapshot of the state for that particular render.
 
-<div>
+<section aria-label="Class component example">
 
 <details>
 <summary><b>See Class</b></summary>
@@ -399,7 +407,7 @@ class App extends React.Component {
 
 </details>
 
-</div>
+</section>
 
     State is similar to props, but it is private and fully controlled by the component ,i.e., it is not accessible to any other component till the owner component decides to pass it.
 
@@ -468,11 +476,11 @@ const ChildComponent = ({ name, age, gender = "male" }) => {
 
 **Note:** The default value won't be used if you pass `null` or `0` value. i.e, default value is only used if the prop value is missed or `undefined` value has been passed.
 
-<div>
+<section aria-label="Class component example">
 
 <details>
 <summary><b>See Class</b></summary>
-<p>The Props accessed in Class Based Component as below</p>
+<div>The Props accessed in Class Based Component as below</div>
 
 ```jsx
 import React from "react"
@@ -504,7 +512,7 @@ class ParentComponent extends React.Component {
 
 </details>
 
-</div>
+</section>
 
 
 
@@ -824,7 +832,7 @@ In these components, DOM does not hold the actual data instead React does.
 
     In most cases, it's recommend to use controlled components to implement forms. In a controlled component, form data is handled by a React component. The alternative is uncontrolled components, where form data is handled by the DOM itself.
 
-<div>
+<section aria-label="Class component example">
 
 <details>
 <summary><b>See Class</b></summary>
@@ -858,7 +866,7 @@ In these components, DOM does not hold the actual data instead React does.
 
 </details>
 
-</div>
+</section>
 
 
 
@@ -1000,7 +1008,7 @@ In these components, DOM does not hold the actual data instead React does.
 
     The children can be text, JSX elements, fragments, arrays and functions(for advance use case like render props).
 
-<div>
+<section aria-label="Class component example">
 
 <details>
 <summary><b>See Class</b></summary>
@@ -1023,7 +1031,7 @@ In these components, DOM does not hold the actual data instead React does.
 
 </details>
 
-</div>
+</section>
 
     **Note:** There are several methods available in the legacy React API to work with this prop. These include `React.Children.map`, `React.Children.forEach`, `React.Children.count`, `React.Children.only`, `React.Children.toArray`.
 
@@ -1226,11 +1234,11 @@ In these components, DOM does not hold the actual data instead React does.
     }
     ```
 
-<div>
+<section aria-label="Class component example">
 
 <details>
 <summary><b>See Class</b></summary>
-<p>The equivalent class stateful component with a state that gets initialized in the `constructor`.</p>
+<div>The equivalent class stateful component with a state that gets initialized in the `constructor`.</div>
 
 ```jsx harmony
 class App extends Component {
@@ -1256,7 +1264,7 @@ class App extends Component {
 
 </details>
 
-</div>
+</section>
 
 
 
@@ -1753,7 +1761,7 @@ class App extends Component {
     container.render(<User />);
     ```
 
-<div>
+<section aria-label="Class component example">
 
 <details>
 <summary><b>See Class</b></summary>
@@ -1772,7 +1780,7 @@ class App extends Component {
 
 </details>
 
-</div>
+</section>
 
 
 
@@ -1802,11 +1810,11 @@ class App extends Component {
     ReactDOM.render(<App />, document.getElementById("app"));
     ```
 
-<div>
+<section aria-label="Class component example">
 
 <details>
 <summary><b>See Class</b></summary>
-<p>You can do it by creating _ref_ for `input` element and using it in `componentDidMount()`:</p>
+<div>You can do it by creating _ref_ for `input` element and using it in `componentDidMount()`:</div>
 
     ```jsx harmony
     class App extends React.Component {
@@ -1832,7 +1840,7 @@ class App extends Component {
 
 </details>
 
-</div>
+</section>
 
 
 
@@ -2286,10 +2294,10 @@ Continue your **React JS interview questions** preparation with these related to
       React Hooks Interview Questions
     </a>
   </h3>
-  <p className="text-sm text-gray-600 dark:text-gray-400">
+  <div className="text-sm text-gray-600 dark:text-gray-400">
     Comprehensive React Hooks interview questions covering useState, useEffect, useCallback,
     useMemo, useReducer, and custom...
-  </p>
+  </div>
 </div>
 
 <div className="rounded-lg border border-gray-200 p-4 transition-shadow hover:shadow-lg dark:border-gray-700">
@@ -2301,10 +2309,10 @@ Continue your **React JS interview questions** preparation with these related to
       React State Management Interview Questions
     </a>
   </h3>
-  <p className="text-sm text-gray-600 dark:text-gray-400">
+  <div className="text-sm text-gray-600 dark:text-gray-400">
     Master React State Management interview questions covering useState, Context API, Redux, and
     state optimization. Essenti...
-  </p>
+  </div>
 </div>
 
 <div className="rounded-lg border border-gray-200 p-4 transition-shadow hover:shadow-lg dark:border-gray-700">
@@ -2316,10 +2324,10 @@ Continue your **React JS interview questions** preparation with these related to
       React Rendering & Performance Interview Questions
     </a>
   </h3>
-  <p className="text-sm text-gray-600 dark:text-gray-400">
+  <div className="text-sm text-gray-600 dark:text-gray-400">
     Comprehensive React Rendering & Performance interview questions covering Virtual DOM,
     memoization, code splitting, and o...
-  </p>
+  </div>
 </div>
 
 </div>
