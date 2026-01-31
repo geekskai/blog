@@ -86,8 +86,7 @@ const getJsonLd = (t: any) => ({
     t("note_values.eighth_triplet"),
     t("conversion_results.copy_result"),
     t("value_props.instant_conversion"),
-    "Mobile responsive design",
-  ],
+  ].join(", "),
   creator: {
     "@type": "Organization",
     name: "GeeksKai",

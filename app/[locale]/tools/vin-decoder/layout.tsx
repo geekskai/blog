@@ -128,7 +128,7 @@ export default async function VinDecoderLayout({
       t("structured_data.feature_no_registration"),
       t("structured_data.feature_free"),
       t("structured_data.feature_mobile"),
-    ],
+    ].join(", "),
     browserRequirements: "Requires JavaScript. Requires HTML5.",
     softwareVersion: "1.0",
     datePublished: "2024-01-01",

@@ -99,7 +99,7 @@ export default async function Layout({
       "Browser-based processing",
       "Mobile-friendly interface",
       "Professional testing tool",
-    ],
+    ].join(", "),
     softwareRequirements: "Modern web browser with JavaScript enabled",
     author: {
       "@type": "Organization",

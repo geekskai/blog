@@ -115,7 +115,7 @@ async function getJsonLd(locale: string) {
       t("feature_seo_friendly"),
       t("feature_developer_friendly"),
       t("feature_content_extraction"),
-    ],
+    ].join(", "),
     softwareRequirements: "Modern web browser with JavaScript enabled",
     provider: {
       "@type": "Organization",

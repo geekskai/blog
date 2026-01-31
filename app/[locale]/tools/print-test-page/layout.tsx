@@ -115,7 +115,7 @@ export default async function Layout({
       t("schema_feature_4"),
       t("schema_feature_5"),
       t("schema_feature_6"),
-    ],
+    ].join(", "),
     browserRequirements: t("schema_browser_requirements"),
     softwareVersion: t("schema_software_version"),
   }

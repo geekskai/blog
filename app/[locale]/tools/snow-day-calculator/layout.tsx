@@ -121,7 +121,7 @@ export default async function SnowDayCalculatorLayout({
       t("json_ld.feature_list.instant_results"),
       t("json_ld.feature_list.multiple_search"),
       t("json_ld.feature_list.search_history"),
-    ],
+    ].join(", "),
     screenshot: "https://www.geekskai.com/tools/snow-day-calculator-screenshot.jpg",
     softwareVersion: "1.0",
     datePublished: "2024-01-20",

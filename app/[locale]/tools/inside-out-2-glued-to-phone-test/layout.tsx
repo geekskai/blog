@@ -233,7 +233,7 @@ export default async function Layout({
       t("structured_data_feature_list_13"),
       t("structured_data_feature_list_14"),
       t("structured_data_feature_list_15"),
-    ],
+    ].join(", "),
     provider: {
       "@type": "Organization",
       name: "GeeksKai",

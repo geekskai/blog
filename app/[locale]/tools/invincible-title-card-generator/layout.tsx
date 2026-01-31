@@ -91,7 +91,7 @@ const getJsonLd = (t: any) => ({
     "High-quality download",
     "Mobile-friendly interface",
     "No registration required",
-  ],
+  ].join(", "),
   softwareRequirements: "Modern web browser with JavaScript enabled",
   author: {
     "@type": "Organization",

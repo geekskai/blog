@@ -209,7 +209,7 @@ export default async function GbpNokConverterLayout({
       t("structured_data.feature_list_6"),
       t("structured_data.feature_list_7"),
       t("structured_data.feature_list_8"),
-    ],
+    ].join(", "),
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "5",

@@ -103,7 +103,7 @@ async function generateJsonLd(locale: string) {
       "Cross-platform compatibility",
       "Free forever",
       "No registration required",
-    ],
+    ].join(", "),
     softwareRequirements: "Modern web browser with JavaScript enabled",
     author: {
       "@type": "Organization",

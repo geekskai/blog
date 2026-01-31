@@ -109,7 +109,7 @@ export default async function Layout({
       "Mobile-responsive interface",
       "No registration required",
       "Instant timestamp creation",
-    ],
+    ].join(", "),
     softwareRequirements: "Modern web browser with JavaScript enabled",
     author: {
       "@type": "Organization",

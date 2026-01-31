@@ -160,7 +160,7 @@ export default async function CmTilTommerLayout({
       t("converter_card.description"),
       t("quick_reference.title"),
       t("educational_content.common_uses.title"),
-    ],
+    ].join(", "),
     screenshot: {
       "@type": "ImageObject",
       url: "/static/tools/cm-til-tommer-screenshot.jpg",

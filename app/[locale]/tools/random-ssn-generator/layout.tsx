@@ -99,7 +99,7 @@ export default async function Layout({
       t("schema_feature_10"),
       t("schema_feature_11"),
       t("schema_feature_12"),
-    ],
+    ].join(", "),
     softwareRequirements: t("schema_software_requirements"),
     author: {
       "@type": "Organization",

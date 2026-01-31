@@ -101,7 +101,7 @@ async function generateJsonLd(locale: string) {
       "Global community coordination tools",
       "Multi-timezone event planning",
       "Discord webhook timezone integration",
-    ],
+    ].join(", "),
     softwareRequirements: "Modern web browser with JavaScript enabled",
     author: {
       "@type": "Organization",

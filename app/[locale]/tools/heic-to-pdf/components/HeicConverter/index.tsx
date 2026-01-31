@@ -452,7 +452,7 @@ export default function HeicConverter() {
               "No file size limits",
               "Advanced customization options",
               "Mobile device support",
-            ],
+            ].join(", "),
             aggregateRating: {
               "@type": "AggregateRating",
               ratingValue: "4.8",

@@ -108,7 +108,7 @@ async function generateJsonLd(locale: string) {
       "JSON file upload support",
       "JSON URL fetching capability",
       "Batch JSON processing",
-    ],
+    ].join(", "),
     softwareRequirements: "Modern web browser with JavaScript enabled",
     author: {
       "@type": "Organization",

@@ -135,7 +135,7 @@ async function getStructuredData(locale: string) {
       t("features.no_registration"),
       t("features.batch_conversion"),
       t("features.formula_display"),
-    ],
+    ].join(", "),
     screenshot: {
       "@type": "ImageObject",
       url: "https://geekskai.com/static/tools/cm-to-pm-converter-screenshot.jpg",

@@ -98,7 +98,7 @@ export default async function Layout({
       "No registration required",
       "Mobile-friendly interface",
       "Instant name generation",
-    ],
+    ].join(", "),
     softwareRequirements: "Modern web browser with JavaScript enabled",
     author: {
       "@type": "Organization",

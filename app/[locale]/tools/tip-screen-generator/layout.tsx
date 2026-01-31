@@ -97,7 +97,7 @@ export default async function Layout({
       "No registration required",
       "Browser-based processing",
       "Mobile-friendly interface",
-    ],
+    ].join(", "),
     softwareRequirements: "Modern web browser with JavaScript enabled",
     author: {
       "@type": "Organization",

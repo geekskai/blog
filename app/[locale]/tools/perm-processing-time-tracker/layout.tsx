@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
+import React from "react"
 
 // Content freshness tracking - updated monthly
 const lastModified = new Date("2026-01-30")
@@ -105,7 +106,7 @@ export default async function Layout({
       "Historical PERM data analysis tools",
       "Employment-based immigration timeline",
       "Real-time DOL processing data integration",
-    ],
+    ].join(", "),
     softwareRequirements: "Modern web browser with JavaScript enabled",
     audience: {
       "@type": "Audience",

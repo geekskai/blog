@@ -141,7 +141,7 @@ export default async function Layout({
       t("json_ld.feature_list.free"),
       t("json_ld.feature_list.privacy"),
       t("json_ld.feature_list.instant"),
-    ],
+    ].join(", "),
     softwareRequirements: "Modern web browser with JavaScript enabled",
     author: {
       "@type": "Organization",

@@ -92,7 +92,7 @@ export default async function Layout({
               t("structured_data.feature_6"),
               t("structured_data.feature_7"),
               t("structured_data.feature_8"),
-            ],
+            ].join(", "),
             offers: {
               "@type": "Offer",
               price: "0",

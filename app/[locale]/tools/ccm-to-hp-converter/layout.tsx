@@ -101,7 +101,7 @@ const getJsonLd = (t: any, locale: string) => ({
         t("feature_badges.engine_support"),
         t("feature_badges.turbo_support"),
         t("feature_badges.multi_application"),
-      ],
+      ].join(", "),
     },
     {
       "@type": "HowTo",

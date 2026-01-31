@@ -155,7 +155,7 @@ export default async function PixelsToInchesLayout({
       t("converter_card.description"),
       t("features_section.two_way_conversion"),
       t("features_section.customizable_ppi"),
-    ],
+    ].join(", "),
     screenshot: {
       "@type": "ImageObject",
       url: "/static/tools/pixels-to-inches-screenshot.jpg",
@@ -284,12 +284,7 @@ export default async function PixelsToInchesLayout({
       t("features_section.two_way_conversion"),
       t("features_section.customizable_ppi"),
       t("features_section.precision_control"),
-      "Convert pixels to inches",
-      "Convert inches to pixels",
-      "DPI to pixels per inch conversion",
-      "Customizable PPI settings",
-      "Instant conversion results",
-    ],
+    ].join(", "),
   }
 
   // 动态生成面包屑结构化数据

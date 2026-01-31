@@ -169,7 +169,7 @@ export default async function BrandVinDecoderPage({ params }: BrandPageProps) {
       "Export results as JSON/CSV",
       "No registration required",
       "Free forever",
-    ],
+    ].join(", "),
     browserRequirements: "Requires JavaScript. Requires HTML5.",
     softwareVersion: "1.0",
     datePublished: "2025-01-01",

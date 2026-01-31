@@ -216,7 +216,7 @@ const toolStructuredData = {
     "Project management",
     "Multiple unit support",
     "Export capabilities",
-  ],
+  ].join(", "),
   screenshot: "https://geekskai.com/static/tools/board-foot-calculator-screenshot.jpg",
   aggregateRating: {
     "@type": "AggregateRating",
@@ -307,7 +307,7 @@ export default async function BoardFootCalculatorLayout({
       "Mobile-friendly interface",
       "No registration required",
       "Professional-grade accuracy",
-    ],
+    ].join(", "),
     screenshot: {
       "@type": "ImageObject",
       url: "https://geekskai.com/static/tools/board-foot-calculator-screenshot.jpg",

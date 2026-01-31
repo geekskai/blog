@@ -130,7 +130,7 @@ function getStructuredData(locale: string, t: any) {
       t("structured_data.web_application.feature_6"),
       t("structured_data.web_application.feature_7"),
       t("structured_data.web_application.feature_8"),
-    ],
+    ].join(", "),
     screenshot: {
       "@type": "ImageObject",
       url: "https://geekskai.com/static/tools/cm-to-tommer-converter-screenshot.jpg",

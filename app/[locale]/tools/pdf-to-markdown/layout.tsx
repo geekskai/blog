@@ -84,7 +84,7 @@ const jsonLd = {
     "Real-time markdown preview",
     "Privacy-first local processing",
     "Multiple page support",
-  ],
+  ].join(", "),
   softwareRequirements: "Modern web browser with JavaScript enabled",
   provider: {
     "@type": "Organization",
