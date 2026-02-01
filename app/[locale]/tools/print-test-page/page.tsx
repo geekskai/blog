@@ -152,11 +152,10 @@ export default function PrintTestPage() {
           </p>
         </header>
         <GoogleAdUnitWrap />
-
         {/* Print Test Pages Section */}
         <div className="mx-auto max-w-6xl">
           <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
-            <div className="relative overflow-hidden border-b border-white/10 bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-2 md:p-6">
+            <div className="relative overflow-hidden border-b border-white/10 bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-2 md:p-4">
               <h2 className="text-lg font-semibold text-white md:text-2xl">
                 {t("print_section_title")}
               </h2>

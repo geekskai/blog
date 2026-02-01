@@ -310,7 +310,7 @@ export default function VinDecoder() {
         </ol>
       </nav>
 
-      <div className="mx-auto max-w-7xl px-4 py-8 md:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pb-4 md:px-6 md:pb-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center">
           <ContentFreshnessBadge

@@ -35,13 +35,21 @@ export default function PlaylistInput({
   return (
     <div className="mx-auto max-w-6xl">
       <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
-        <div className="border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 px-4 py-3">
-          <h2 className="text-lg font-semibold text-white sm:text-xl md:text-2xl">
-            {t("form_title")}
-          </h2>
+        <div className="flex flex-col items-center justify-between border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 px-4 py-3 md:flex-row">
+          <h2 className="text-md font-semibold text-white md:text-xl">{t("form_title")}</h2>
+          <div className="md:text-md text-sm text-slate-400">
+            {t("related_tool_text")} 👉
+            <Link
+              href="/tools/soundcloud-to-wav"
+              target="_blank"
+              className="text-cyan-400 underline transition-colors hover:text-cyan-300"
+            >
+              {t("related_tool_link")}
+            </Link>
+          </div>
         </div>
         <div className="space-y-2 p-4">
-          <div className="mb-3 flex flex-col-reverse justify-between gap-2 text-sm font-semibold text-white/90 md:flex-row">
+          {/* <div className="mb-3 flex flex-col-reverse justify-between gap-2 text-sm font-semibold text-white/90 md:flex-row">
             {t("form_label_playlist_url")}
             <div className="text-sm text-slate-400">
               {t("related_tool_text")} 👉
@@ -53,7 +61,7 @@ export default function PlaylistInput({
                 {t("related_tool_link")}
               </Link>
             </div>
-          </div>
+          </div> */}
           <div className="relative">
             <div className="absolute left-4 top-1/2 -translate-y-1/2 rounded-lg bg-white/5 p-2 backdrop-blur-sm">
               <span className="text-xl">🔗</span>

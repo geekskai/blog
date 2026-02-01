@@ -29,22 +29,27 @@ export default function GoogleAdUnitWrap() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0) {
+          // 使用 isIntersecting 即可，不要求 ratio>0，避免容器初始无高度时永远不触发
+          if (entry.isIntersecting) {
             setIsVisible(true)
             observer.disconnect()
           }
         })
       },
       {
-        threshold: 0.1, // 至少10%可见
-        rootMargin, // 移动端提前20px，桌面端提前50px
+        threshold: 0,
+        rootMargin,
       }
     )
 
     observer.observe(containerRef.current)
 
+    // 首屏广告回退：若 800ms 内未进入视口，仍尝试加载（避免容器无高度导致永不触发）
+    const fallbackTimer = setTimeout(() => setIsVisible(true), 800)
+
     return () => {
       observer.disconnect()
+      clearTimeout(fallbackTimer)
     }
   }, [isMounted])
 
@@ -145,23 +150,22 @@ export default function GoogleAdUnitWrap() {
 
   return (
     <div
-      className="flex h-full w-full justify-center px-1 py-1"
       ref={containerRef}
-      style={{
-        minWidth: "280px", // 移动端最小宽度
-        maxWidth: "100%", // 确保不溢出
-      }}
+      className="flex min-h-[90px] w-full min-w-0 max-w-full justify-center md:min-h-[100px]"
+      style={{ minWidth: "280px" }}
     >
       <ins
         className="adsbygoogle"
         style={{
           display: "block",
+          minHeight: "90px",
+          width: "100%",
         }}
         data-ad-client="ca-pub-2108246014001009"
         data-ad-slot="5811688701"
         data-ad-format="auto"
-        data-full-width-responsive="true" // 启用全宽响应式模式
-      ></ins>
+        data-full-width-responsive="true"
+      />
     </div>
   )
 }
