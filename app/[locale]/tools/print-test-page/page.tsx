@@ -134,11 +134,13 @@ export default function PrintTestPage() {
             <div className="rounded-full bg-white/20 p-1 md:p-1.5">
               <span className="text-base md:text-lg lg:text-xl">🖨️</span>
             </div>
-            <span className="text-xs font-semibold leading-tight md:text-sm lg:text-base">{t("tool_badge")}</span>
+            <span className="text-xs font-semibold leading-tight md:text-sm lg:text-base">
+              {t("tool_badge")}
+            </span>
           </div>
 
           {/* Main Title - H1 for SEO */}
-          <h1 className="mt-3 mb-2 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-2xl font-bold leading-tight text-transparent md:mt-4 md:mb-3 md:text-3xl md:leading-snug lg:text-4xl lg:mb-4 lg:text-5xl">
+          <h1 className="mb-2 mt-3 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-2xl font-bold leading-tight text-transparent md:mb-3 md:mt-4 md:text-3xl md:leading-snug lg:mb-4 lg:text-5xl">
             {t("page_title")}
           </h1>
 
@@ -156,7 +158,7 @@ export default function PrintTestPage() {
         <div className="mx-auto w-full md:max-w-4xl lg:max-w-6xl">
           <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm md:rounded-2xl">
             <div className="relative overflow-hidden border-b border-white/10 bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-4 md:p-5 lg:p-6">
-              <h2 className="text-base font-semibold leading-snug text-white md:text-lg md:leading-snug lg:text-xl lg:text-2xl">
+              <h2 className="text-base font-semibold leading-snug text-white md:text-lg md:leading-snug lg:text-2xl">
                 {t("print_section_title")}
               </h2>
               <span className="mt-1 block text-xs leading-relaxed text-slate-300 md:mt-2 md:text-sm">
@@ -198,7 +200,7 @@ export default function PrintTestPage() {
                   <button
                     onClick={() => handlePrint("color")}
                     disabled={isPrinting}
-                    className="group/btn relative w-full min-h-[48px] overflow-hidden rounded-xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/30 disabled:cursor-not-allowed disabled:opacity-50 md:min-h-[44px] md:px-5 md:py-3 lg:px-6 lg:text-base"
+                    className="group/btn relative min-h-[48px] w-full overflow-hidden rounded-xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/30 disabled:cursor-not-allowed disabled:opacity-50 md:min-h-[44px] md:px-5 md:py-3 lg:px-6 lg:text-base"
                   >
                     <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover/btn:translate-x-full"></div>
                     <span className="relative flex items-center justify-center gap-2">
@@ -258,7 +260,7 @@ export default function PrintTestPage() {
                   <button
                     onClick={() => handlePrint("blackWhite")}
                     disabled={isPrinting}
-                    className="group/btn relative w-full min-h-[48px] overflow-hidden rounded-xl bg-gradient-to-r from-slate-600 via-gray-600 to-slate-700 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-slate-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-gray-500/30 disabled:cursor-not-allowed disabled:opacity-50 md:min-h-[44px] md:px-5 md:py-3 lg:px-6 lg:text-base"
+                    className="group/btn relative min-h-[48px] w-full overflow-hidden rounded-xl bg-gradient-to-r from-slate-600 via-gray-600 to-slate-700 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-slate-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-gray-500/30 disabled:cursor-not-allowed disabled:opacity-50 md:min-h-[44px] md:px-5 md:py-3 lg:px-6 lg:text-base"
                   >
                     <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover/btn:translate-x-full"></div>
                     <span className="relative flex items-center justify-center gap-2">
@@ -318,7 +320,7 @@ export default function PrintTestPage() {
                   <button
                     onClick={() => handlePrint("cmyk")}
                     disabled={isPrinting}
-                    className="group/btn via-magenta-600 hover:shadow-magenta-500/30 relative w-full min-h-[48px] overflow-hidden rounded-xl bg-gradient-to-r from-cyan-600 to-yellow-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-50 md:min-h-[44px] md:px-5 md:py-3 lg:px-6 lg:text-base"
+                    className="group/btn via-magenta-600 hover:shadow-magenta-500/30 relative min-h-[48px] w-full overflow-hidden rounded-xl bg-gradient-to-r from-cyan-600 to-yellow-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-50 md:min-h-[44px] md:px-5 md:py-3 lg:px-6 lg:text-base"
                   >
                     <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover/btn:translate-x-full"></div>
                     <span className="relative flex items-center justify-center gap-2">
@@ -359,7 +361,7 @@ export default function PrintTestPage() {
 
               {/* Info Section */}
               <div className="mt-5 rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-purple-500/10 p-4 backdrop-blur-sm md:mt-6 md:p-5 lg:mt-8 lg:p-6">
-                <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold leading-snug text-white md:text-base lg:text-lg">
+                <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold leading-snug text-white md:text-base lg:text-xl">
                   <span className="text-base md:text-lg lg:text-xl">ℹ️</span>
                   {t("info_title")}
                 </h3>
@@ -394,7 +396,7 @@ export default function PrintTestPage() {
                   </p>
                 </div>
                 <div className="rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm md:rounded-2xl md:p-6 lg:p-8">
-                  <h3 className="mb-3 flex items-center text-sm font-semibold leading-snug text-white md:mb-4 md:text-base lg:mb-6 lg:text-lg lg:text-xl">
+                  <h3 className="mb-3 flex items-center text-sm font-semibold leading-snug text-white md:mb-4 md:text-base lg:mb-6 lg:text-xl">
                     <span className="mr-2 text-lg md:mr-3 md:text-xl lg:text-2xl">✨</span>
                     {t("section_what_is_key_benefits")}
                   </h3>
