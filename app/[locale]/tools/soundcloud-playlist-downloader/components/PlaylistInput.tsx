@@ -122,6 +122,17 @@ export default function PlaylistInput({
               </span>
             </button>
 
+            {isTrackError ? (
+              <Link
+                href="/tools/soundcloud-to-wav"
+                className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-300 transition-all hover:bg-emerald-500/20 hover:text-emerald-200 sm:px-4"
+              >
+                <span>{t("related_tool_text")} 👉</span>
+                <span>{t("error_track_url_link")}</span>
+                <span className="text-lg sm:text-xl">🔗</span>
+              </Link>
+            ) : null}
+
             <select
               value={format}
               onChange={(e) => onFormatChange(e.target.value as "mp3" | "wav")}
@@ -144,7 +155,7 @@ export default function PlaylistInput({
                 <span className="text-center text-xs font-medium sm:text-sm md:text-left">
                   {error}
                 </span>
-                {isTrackError ? (
+                {/* {isTrackError ? (
                   <Link
                     href="/tools/soundcloud-to-wav"
                     className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-300 transition-all hover:bg-emerald-500/20 hover:text-emerald-200 sm:px-4"
@@ -152,7 +163,7 @@ export default function PlaylistInput({
                     <span>🔗</span>
                     <span>{t("error_track_url_link")}</span>
                   </Link>
-                ) : null}
+                ) : null} */}
               </div>
             </div>
           )}
