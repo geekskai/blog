@@ -145,11 +145,13 @@ const InfoItem = ({
       : String(value)
 
   return (
-    <div className="flex items-start space-x-3">
-      {icon && <span className="text-xl">{icon}</span>}
-      <div className="flex-1">
-        <span className="text-xs font-medium text-gray-400">{label}</span>
-        <p className="text-sm font-semibold text-white">{displayValue}</p>
+    <div className="flex items-start gap-2 sm:gap-3 md:gap-3">
+      {icon && <span className="shrink-0 text-lg sm:text-xl">{icon}</span>}
+      <div className="min-w-0 flex-1">
+        <span className="text-xs font-medium text-gray-400 sm:text-sm">{label}</span>
+        <p className="mt-0.5 truncate text-sm font-semibold text-white sm:text-base md:overflow-visible md:whitespace-normal">
+          {displayValue}
+        </p>
       </div>
     </div>
   )
@@ -196,13 +198,13 @@ export default function TrackInfoCard({
   const userAvatarUrl = user?.avatar_url?.replace("-large", "-t300x300") || ""
 
   return (
-    <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-sm">
+    <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-sm sm:rounded-2xl md:rounded-2xl lg:rounded-3xl">
       {/* Header: artwork and basic info */}
-      <div className="border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 p-8 backdrop-blur-sm">
-        <div className="flex flex-col gap-6 md:flex-row md:items-center md:gap-8">
+      <div className="border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 p-4 backdrop-blur-sm sm:p-6 md:p-8 lg:p-10">
+        <div className="flex flex-col gap-4 sm:gap-5 md:flex-row md:items-center md:gap-8 lg:gap-10">
           {/* Artwork */}
           {artworkUrl && (
-            <div className="relative h-48 w-48 flex-shrink-0 overflow-hidden rounded-2xl border-2 border-white/20 shadow-2xl shadow-purple-500/25 md:h-56 md:w-56">
+            <div className="relative mx-auto h-40 w-40 flex-shrink-0 overflow-hidden rounded-xl border-2 border-white/20 shadow-2xl shadow-purple-500/25 sm:h-44 sm:w-44 sm:rounded-2xl md:mx-0 md:h-56 md:w-56 lg:h-64 lg:w-64">
               <Image
                 src={artworkUrl}
                 alt={title || "Track artwork"}
@@ -214,15 +216,15 @@ export default function TrackInfoCard({
           )}
 
           {/* Basic info */}
-          <div className="flex flex-1 flex-col justify-center space-y-4 text-white">
-            <div>
-              <h2 className="text-3xl font-bold md:text-4xl">
+          <div className="flex min-w-0 flex-1 flex-col justify-center space-y-3 text-white sm:space-y-4 md:space-y-4 lg:space-y-5">
+            <div className="min-w-0">
+              <h2 className="truncate text-xl font-bold leading-tight sm:text-2xl md:overflow-visible md:whitespace-normal md:text-3xl md:leading-snug lg:text-4xl lg:leading-snug">
                 {title || t("track_info_unknown_title")}
               </h2>
               {user && (
-                <div className="mt-3 flex items-center space-x-3">
+                <div className="mt-2 flex min-w-0 items-center gap-2 sm:mt-3 sm:gap-3">
                   {userAvatarUrl && (
-                    <div className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white/30">
+                    <div className="relative h-8 w-8 flex-shrink-0 overflow-hidden rounded-full border-2 border-white/30 sm:h-10 sm:w-10">
                       <Image
                         src={userAvatarUrl}
                         alt={user.username || t("track_info_unknown_artist")}
@@ -232,7 +234,7 @@ export default function TrackInfoCard({
                       />
                     </div>
                   )}
-                  <span className="text-lg font-medium text-white/90">
+                  <span className="min-w-0 truncate text-base font-medium text-white/90 sm:text-lg">
                     {user.username || t("track_info_unknown_artist")}
                   </span>
                 </div>
@@ -240,22 +242,22 @@ export default function TrackInfoCard({
             </div>
 
             {/* Duration and status labels */}
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm backdrop-blur-sm">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-3 lg:gap-4">
+              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs backdrop-blur-sm sm:px-4 sm:py-2 sm:text-sm">
                 ⏱️ {formatDuration(duration || full_duration, t)}
               </span>
               {streamable && (
-                <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm backdrop-blur-sm">
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs backdrop-blur-sm sm:px-4 sm:py-2 sm:text-sm">
                   🔊 {t("track_info_streamable")}
                 </span>
               )}
               {downloadable && (
-                <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm backdrop-blur-sm">
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs backdrop-blur-sm sm:px-4 sm:py-2 sm:text-sm">
                   ⬇️ {t("track_info_downloadable")}
                 </span>
               )}
               {genre && (
-                <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm backdrop-blur-sm">
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs backdrop-blur-sm sm:px-4 sm:py-2 sm:text-sm">
                   🎵 {genre}
                 </span>
               )}
@@ -265,46 +267,66 @@ export default function TrackInfoCard({
       </div>
 
       {/* Content area */}
-      <div className="p-8">
+      <div className="p-4 sm:p-6 md:p-8 lg:p-10">
         {/* Description */}
         {description && (
-          <div className="mb-8 rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-            <h3 className="mb-3 text-sm font-semibold text-purple-300">
+          <div className="mb-6 rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur-sm sm:mb-8 sm:p-5 md:p-6 lg:mb-10 lg:p-8">
+            <h3 className="mb-2 text-sm font-semibold leading-snug text-purple-300 sm:mb-3 sm:text-base">
               {t("track_info_description")}
             </h3>
-            <p className="text-sm leading-relaxed text-slate-300">{description}</p>
+            <p className="text-sm leading-relaxed text-slate-300 sm:text-base lg:leading-relaxed">
+              {description}
+            </p>
           </div>
         )}
 
         {/* Statistics */}
-        <div className="mb-8 grid grid-cols-2 gap-4 md:grid-cols-4">
-          <div className="group rounded-lg border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
-            <div className="text-3xl font-bold text-pink-400">{formatNumber(likes_count)}</div>
-            <div className="text-xs text-pink-300">❤️ {t("track_info_likes")}</div>
+        <div className="mb-6 grid grid-cols-2 gap-3 sm:mb-8 sm:gap-4 md:grid-cols-4 md:gap-4 lg:mb-10 lg:gap-6">
+          <div className="group rounded-lg border border-white/10 bg-white/5 p-4 text-center backdrop-blur-sm transition-all duration-300 hover:bg-white/10 sm:p-5 md:p-6 lg:p-6">
+            <div className="text-2xl font-bold text-pink-400 sm:text-3xl lg:text-4xl">
+              {formatNumber(likes_count)}
+            </div>
+            <div className="mt-0.5 text-xs text-pink-300 sm:text-sm">
+              ❤️ {t("track_info_likes")}
+            </div>
           </div>
-          <div className="group rounded-lg border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
-            <div className="text-3xl font-bold text-blue-400">{formatNumber(playback_count)}</div>
-            <div className="text-xs text-blue-300">👁️ {t("track_info_plays")}</div>
+          <div className="group rounded-lg border border-white/10 bg-white/5 p-4 text-center backdrop-blur-sm transition-all duration-300 hover:bg-white/10 sm:p-5 md:p-6 lg:p-6">
+            <div className="text-2xl font-bold text-blue-400 sm:text-3xl lg:text-4xl">
+              {formatNumber(playback_count)}
+            </div>
+            <div className="mt-0.5 text-xs text-blue-300 sm:text-sm">
+              👁️ {t("track_info_plays")}
+            </div>
           </div>
-          <div className="group rounded-lg border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
-            <div className="text-3xl font-bold text-emerald-400">{formatNumber(reposts_count)}</div>
-            <div className="text-xs text-emerald-300">🔄 {t("track_info_reposts")}</div>
+          <div className="group rounded-lg border border-white/10 bg-white/5 p-4 text-center backdrop-blur-sm transition-all duration-300 hover:bg-white/10 sm:p-5 md:p-6 lg:p-6">
+            <div className="text-2xl font-bold text-emerald-400 sm:text-3xl lg:text-4xl">
+              {formatNumber(reposts_count)}
+            </div>
+            <div className="mt-0.5 text-xs text-emerald-300 sm:text-sm">
+              🔄 {t("track_info_reposts")}
+            </div>
           </div>
-          <div className="group rounded-lg border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
-            <div className="text-3xl font-bold text-purple-400">{formatNumber(comment_count)}</div>
-            <div className="text-xs text-purple-300">💬 {t("track_info_comments")}</div>
+          <div className="group rounded-lg border border-white/10 bg-white/5 p-4 text-center backdrop-blur-sm transition-all duration-300 hover:bg-white/10 sm:p-5 md:p-6 lg:p-6">
+            <div className="text-2xl font-bold text-purple-400 sm:text-3xl lg:text-4xl">
+              {formatNumber(comment_count)}
+            </div>
+            <div className="mt-0.5 text-xs text-purple-300 sm:text-sm">
+              💬 {t("track_info_comments")}
+            </div>
           </div>
         </div>
 
         {/* Tags */}
         {tag_list && (
-          <div className="mb-8">
-            <h3 className="mb-3 text-sm font-semibold text-purple-300">{t("track_info_tags")}</h3>
-            <div className="flex flex-wrap gap-3">
+          <div className="mb-6 sm:mb-8 lg:mb-10">
+            <h3 className="mb-2 text-sm font-semibold text-purple-300 sm:mb-3 sm:text-base">
+              {t("track_info_tags")}
+            </h3>
+            <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-3 lg:gap-4">
               {tag_list.split(" ").map((tag, index) => (
                 <span
                   key={index}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-purple-300 backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
+                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-purple-300 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 sm:px-4 sm:py-2"
                 >
                   #{tag}
                 </span>
@@ -314,7 +336,7 @@ export default function TrackInfoCard({
         )}
 
         {/* Detailed info grid */}
-        <div className="mb-8 grid grid-cols-1 gap-4 rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur-sm md:grid-cols-2 lg:grid-cols-3">
+        <div className="mb-6 grid grid-cols-1 gap-3 rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur-sm sm:mb-8 sm:gap-4 sm:p-5 md:grid-cols-2 md:p-6 lg:mb-10 lg:grid-cols-3 lg:gap-6 lg:p-8">
           <InfoItem label={t("track_info_id")} value={trackInfo.id} icon="🆔" t={t} />
           <InfoItem label={t("track_info_type")} value={kind} icon="📋" t={t} />
           <InfoItem label={t("track_info_status")} value={state} icon="📊" t={t} />
@@ -369,19 +391,19 @@ export default function TrackInfoCard({
         </div>
 
         {/* Action buttons area */}
-        <div className="flex flex-wrap gap-4 border-t border-white/10 pt-8">
+        <div className="flex flex-wrap gap-3 border-t border-white/10 pt-6 sm:gap-4 sm:pt-8 md:pt-8 lg:pt-10">
           {onDownload && (
             <button
               onClick={onDownload}
               disabled={isDownloading || !downloadable}
-              className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-3 text-base font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:cursor-not-allowed disabled:opacity-50"
+              className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:cursor-not-allowed disabled:opacity-50 sm:rounded-lg sm:px-6 sm:py-3 sm:text-base md:min-h-[44px]"
             >
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
               <span className="relative flex items-center gap-2">
                 {isDownloading ? (
                   <>
                     <svg
-                      className="h-5 w-5 animate-spin"
+                      className="h-4 w-4 animate-spin sm:h-5 sm:w-5"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -404,7 +426,7 @@ export default function TrackInfoCard({
                   </>
                 ) : (
                   <>
-                    <span className="text-xl">⬇️</span>
+                    <span className="text-lg sm:text-xl">⬇️</span>
                     <span>{t("form_button_download")}</span>
                   </>
                 )}
@@ -416,9 +438,9 @@ export default function TrackInfoCard({
               href={permalink_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center rounded-lg border border-white/10 bg-white/5 px-6 py-3 text-base font-medium text-white shadow-sm backdrop-blur-sm transition-all hover:bg-white/10"
+              className="inline-flex min-h-[44px] items-center rounded-xl border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-medium text-white shadow-sm backdrop-blur-sm transition-all hover:bg-white/10 sm:rounded-lg sm:px-6 sm:py-3 sm:text-base"
             >
-              <span className="mr-2 text-xl">🔗</span>
+              <span className="mr-2 text-lg sm:text-xl">🔗</span>
               <span>{t("track_info_view_on_soundcloud")}</span>
             </a>
           )}
@@ -427,9 +449,9 @@ export default function TrackInfoCard({
               href={waveform_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center rounded-lg border border-white/10 bg-white/5 px-6 py-3 text-base font-medium text-white shadow-sm backdrop-blur-sm transition-all hover:bg-white/10"
+              className="inline-flex min-h-[44px] items-center rounded-xl border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-medium text-white shadow-sm backdrop-blur-sm transition-all hover:bg-white/10 sm:rounded-lg sm:px-6 sm:py-3 sm:text-base"
             >
-              <span className="mr-2 text-xl">📊</span>
+              <span className="mr-2 text-lg sm:text-xl">📊</span>
               <span>{t("track_info_view_waveform")}</span>
             </a>
           )}

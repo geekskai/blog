@@ -119,9 +119,9 @@ export default function VinInput({
 
         <div className="relative flex items-center">
           {/* Enhanced Icon */}
-          <div className="absolute left-2 flex items-center md:left-6">
+          <div className="absolute left-2 flex items-center sm:left-4 md:left-6">
             <div
-              className={`rounded-lg p-1.5 backdrop-blur-sm transition-all duration-500 md:rounded-2xl md:p-4 ${
+              className={`rounded-lg p-1.5 backdrop-blur-sm transition-all duration-500 sm:p-2.5 md:rounded-2xl md:p-4 ${
                 error
                   ? "bg-gradient-to-br from-red-500/25 to-pink-500/20 shadow-lg shadow-red-500/20"
                   : isFocused
@@ -130,7 +130,7 @@ export default function VinInput({
               }`}
             >
               <Car
-                className={`h-4 w-4 transition-all duration-300 md:h-6 md:w-6 ${
+                className={`h-3 w-3 transition-all duration-300 sm:h-4 sm:w-4 md:h-6 md:w-6 ${
                   error
                     ? "text-red-400"
                     : isFocused
@@ -151,14 +151,14 @@ export default function VinInput({
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
             placeholder={inputPlaceholder}
-            className="w-full bg-transparent py-2.5 pl-10 pr-20 text-sm font-bold tracking-wide text-white placeholder-slate-400 outline-none transition-all duration-300 focus:placeholder-slate-500 md:py-4 md:pl-24 md:pr-28 md:text-base md:tracking-wider lg:py-6 lg:pr-36 lg:text-xl xl:text-2xl"
+            className="w-full bg-transparent py-2.5 pl-10 pr-20 text-sm font-bold tracking-wide text-white placeholder-slate-400 outline-none transition-all duration-300 focus:placeholder-slate-500 sm:pl-12 sm:pr-24 sm:text-base md:py-4 md:pl-24 md:pr-28 md:tracking-wider lg:py-6 lg:pr-36 lg:text-xl xl:text-2xl"
             spellCheck={false}
             autoComplete="off"
             disabled={isLoading}
           />
 
           {/* Enhanced Character Counter */}
-          <div className="absolute right-2 flex items-center gap-1 md:right-6 md:gap-3">
+          <div className="absolute right-2 flex items-center gap-1 sm:right-3 sm:gap-2 md:right-6 md:gap-3">
             {value && (
               <div
                 className={`rounded-lg px-1.5 py-0.5 backdrop-blur-sm transition-all duration-300 md:rounded-xl md:px-3 md:py-2 ${
@@ -170,7 +170,7 @@ export default function VinInput({
                 }`}
               >
                 <span
-                  className={`text-xs font-bold md:text-sm lg:text-base ${
+                  className={`text-xs font-bold sm:text-sm md:text-sm lg:text-base ${
                     value.length === 17
                       ? "text-green-400"
                       : value.length > 0
@@ -188,26 +188,26 @@ export default function VinInput({
               {value && !isLoading && (
                 <button
                   onClick={handleClear}
-                  className="group rounded-lg border border-slate-600/30 bg-slate-700/30 p-1.5 text-slate-400 transition-all duration-300 hover:border-red-500/40 hover:bg-red-500/20 hover:text-red-400 hover:shadow-lg hover:shadow-red-500/20 md:rounded-xl md:p-3"
+                  className="group min-h-[40px] min-w-[40px] rounded-lg border border-slate-600/30 bg-slate-700/30 p-1.5 text-slate-400 transition-all duration-300 hover:border-red-500/40 hover:bg-red-500/20 hover:text-red-400 hover:shadow-lg hover:shadow-red-500/20 sm:rounded-xl sm:p-2 md:min-h-[44px] md:min-w-[44px] md:p-3"
                   title={t("clear")}
                 >
-                  <X className="h-3.5 w-3.5 transition-transform duration-300 group-hover:scale-110 md:h-5 md:w-5" />
+                  <X className="h-3 w-3 transition-transform duration-300 group-hover:scale-110 sm:h-4 sm:w-4 md:h-5 md:w-5" />
                 </button>
               )}
 
               {mounted && !value && typeof navigator !== "undefined" && navigator.clipboard && (
                 <button
                   onClick={handlePaste}
-                  className="group rounded-lg border border-slate-600/30 bg-slate-700/30 p-1.5 text-slate-400 transition-all duration-300 hover:border-blue-500/40 hover:bg-blue-500/20 hover:text-blue-400 hover:shadow-lg hover:shadow-blue-500/20 md:rounded-xl md:p-3"
+                  className="group min-h-[40px] min-w-[40px] rounded-lg border border-slate-600/30 bg-slate-700/30 p-1.5 text-slate-400 transition-all duration-300 hover:border-blue-500/40 hover:bg-blue-500/20 hover:text-blue-400 hover:shadow-lg hover:shadow-blue-500/20 sm:rounded-xl sm:p-2 md:min-h-[44px] md:min-w-[44px] md:p-3"
                   title={t("paste")}
                 >
-                  <Clipboard className="h-3.5 w-3.5 transition-transform duration-300 group-hover:scale-110 md:h-5 md:w-5" />
+                  <Clipboard className="h-3 w-3 transition-transform duration-300 group-hover:scale-110 sm:h-4 sm:w-4 md:h-5 md:w-5" />
                 </button>
               )}
 
               {isLoading && (
-                <div className="rounded-lg border border-blue-500/30 bg-blue-500/20 p-1.5 shadow-lg shadow-blue-500/20 md:rounded-xl md:p-3">
-                  <Loader2 className="h-3.5 w-3.5 animate-spin text-blue-400 md:h-5 md:w-5" />
+                <div className="rounded-lg border border-blue-500/30 bg-blue-500/20 p-1.5 shadow-lg shadow-blue-500/20 sm:rounded-xl sm:p-2 md:p-3">
+                  <Loader2 className="h-3 w-3 animate-spin text-blue-400 sm:h-4 sm:w-4 md:h-5 md:w-5" />
                 </div>
               )}
             </div>
@@ -215,11 +215,11 @@ export default function VinInput({
         </div>
 
         {/* Enhanced Submit Button */}
-        <div className="border-t border-white/10 bg-gradient-to-r from-slate-800/40 via-slate-800/30 to-slate-900/40 p-2.5 md:p-4">
+        <div className="border-t border-white/10 bg-gradient-to-r from-slate-800/40 via-slate-800/30 to-slate-900/40 p-2.5 sm:p-3 md:p-4">
           <button
             onClick={onSubmit}
             disabled={!isValid || isLoading}
-            className={`group relative w-full overflow-hidden rounded-xl px-3 py-2.5 text-sm font-bold text-white shadow-2xl transition-all duration-500 md:rounded-3xl md:px-6 md:py-4 md:text-lg lg:px-8 lg:py-5 ${
+            className={`group relative w-full overflow-hidden rounded-xl px-3 py-2.5 text-sm font-bold text-white shadow-2xl transition-all duration-500 sm:min-h-[44px] sm:py-3 sm:text-base md:rounded-3xl md:px-6 md:py-4 md:text-lg lg:px-8 lg:py-5 ${
               isValid && !isLoading
                 ? "hover:shadow-3xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:scale-[1.02] hover:shadow-blue-500/30 active:scale-[0.98]"
                 : "cursor-not-allowed bg-gradient-to-r from-slate-700/60 to-slate-800/60 opacity-50"
@@ -235,14 +235,14 @@ export default function VinInput({
               {isLoading ? (
                 <>
                   <div className="rounded-full bg-white/20 p-1 md:p-2">
-                    <Loader2 className="h-3.5 w-3.5 animate-spin md:h-5 md:w-5 lg:h-6 lg:w-6" />
+                    <Loader2 className="h-3 w-3 animate-spin sm:h-4 sm:w-4 md:h-5 md:w-5 lg:h-6 lg:w-6" />
                   </div>
                   <span className="text-xs md:text-base">{t("decoding")}</span>
                 </>
               ) : (
                 <>
                   <div className="rounded-full bg-white/20 p-1 transition-transform duration-300 group-hover:scale-110 md:p-2">
-                    <Search className="h-3.5 w-3.5 md:h-5 md:w-5 lg:h-6 lg:w-6" />
+                    <Search className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 lg:h-6 lg:w-6" />
                   </div>
                   <span className="text-xs md:text-base">{t("decode_button")}</span>
                 </>
@@ -254,16 +254,18 @@ export default function VinInput({
 
       {/* Enhanced Error Message */}
       {error && (
-        <div className="relative mt-3 overflow-hidden rounded-lg border border-red-500/30 bg-gradient-to-br from-red-500/15 to-pink-500/10 p-3 backdrop-blur-xl md:mt-4 md:rounded-2xl md:p-6">
+        <div className="relative mt-2 overflow-hidden rounded-lg border border-red-500/30 bg-gradient-to-br from-red-500/15 to-pink-500/10 p-2.5 backdrop-blur-xl sm:mt-3 sm:p-3 md:mt-4 md:rounded-2xl md:p-6">
           <div className="absolute -right-4 -top-4 h-10 w-10 rounded-full bg-gradient-to-br from-red-500/10 to-pink-500/10 blur-2xl md:-right-8 md:-top-8 md:h-16 md:w-16" />
-          <div className="relative flex items-start gap-2 md:gap-4">
-            <div className="rounded-lg bg-red-500/20 p-1.5 md:rounded-xl md:p-3">
-              <AlertCircle className="h-4 w-4 text-red-400 md:h-5 md:w-5 lg:h-6 lg:w-6" />
+          <div className="relative flex items-start gap-2 sm:gap-3 md:gap-4">
+            <div className="rounded-lg bg-red-500/20 p-1.5 sm:p-2 md:rounded-xl md:p-3">
+              <AlertCircle className="h-3 w-3 text-red-400 sm:h-4 sm:w-4 md:h-5 md:w-5 lg:h-6 lg:w-6" />
             </div>
             <div className="min-w-0 flex-1">
-              <p className="text-xs font-semibold text-red-300 md:text-base">{error}</p>
+              <p className="text-xs font-semibold leading-relaxed text-red-300 sm:text-sm md:text-base">
+                {error}
+              </p>
               {getValidationHint(error) && (
-                <p className="mt-1 text-xs text-red-200/80 md:mt-2 md:text-sm">
+                <p className="mt-1 text-xs leading-relaxed text-red-200/80 sm:mt-1.5 md:mt-2 md:text-sm">
                   {getValidationHint(error)}
                 </p>
               )}
@@ -273,15 +275,15 @@ export default function VinInput({
       )}
 
       {/* Enhanced Example VINs */}
-      <div className="mt-3 md:mt-6">
+      <div className="mt-2 sm:mt-3 md:mt-6">
         <button
           onClick={() => setShowExamples(!showExamples)}
-          className="group inline-flex items-center gap-1.5 rounded-lg border border-slate-600/30 bg-slate-700/30 px-2.5 py-1.5 text-xs font-medium text-slate-300 transition-all duration-300 hover:border-slate-500/50 hover:bg-slate-600/40 hover:text-white md:gap-2 md:rounded-xl md:px-4 md:py-2 md:text-base"
+          className="group inline-flex min-h-[40px] items-center gap-1.5 rounded-lg border border-slate-600/30 bg-slate-700/30 px-2.5 py-1.5 text-xs font-medium text-slate-300 transition-all duration-300 hover:border-slate-500/50 hover:bg-slate-600/40 hover:text-white sm:gap-2 sm:rounded-xl sm:px-3 sm:py-2 sm:text-sm md:min-h-[44px] md:px-4 md:text-base"
         >
           <span>{showExamples ? t("hide_examples") : t("show_examples")}</span>
           <div className={`transition-transform duration-300 ${showExamples ? "rotate-180" : ""}`}>
             <svg
-              className="h-3 w-3 md:h-4 md:w-4"
+              className="h-3 w-3 sm:h-4 sm:w-4 md:h-4 md:w-4"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -297,7 +299,7 @@ export default function VinInput({
         </button>
 
         {showExamples && (
-          <div className="mt-2 grid grid-cols-1 gap-2 md:mt-4 md:grid-cols-2 md:gap-3">
+          <div className="mt-2 grid grid-cols-1 gap-2 sm:mt-3 sm:gap-2.5 md:mt-4 md:grid-cols-2 md:gap-3">
             {EXAMPLE_VINS.map((example, index) => {
               const colors = [
                 {
@@ -327,14 +329,14 @@ export default function VinInput({
                 <button
                   key={example.vin}
                   onClick={() => handleExampleClick(example.vin)}
-                  className={`group relative overflow-hidden rounded-lg border ${colorScheme.border} bg-gradient-to-br ${colorScheme.bg} p-2.5 text-left backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:shadow-lg md:rounded-2xl md:p-4 ${colorScheme.glow}`}
+                  className={`group relative overflow-hidden rounded-lg border ${colorScheme.border} bg-gradient-to-br ${colorScheme.bg} p-2.5 text-left backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:shadow-lg sm:min-h-[44px] sm:p-3 md:rounded-2xl md:p-4 ${colorScheme.glow}`}
                 >
                   <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/5 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
                   <div className="relative">
-                    <div className="break-all font-mono text-xs font-bold text-white md:text-base">
+                    <div className="break-all font-mono text-xs font-bold text-white sm:text-sm md:text-base">
                       {example.vin}
                     </div>
-                    <div className="mt-1 text-xs text-slate-300 md:mt-2 md:text-sm">
+                    <div className="mt-0.5 text-xs leading-relaxed text-slate-300 sm:mt-1 sm:text-sm md:mt-2">
                       {example.description}
                     </div>
                   </div>
@@ -346,13 +348,13 @@ export default function VinInput({
       </div>
 
       {/* Enhanced VIN Location Hints */}
-      <div className="relative mt-4 overflow-hidden rounded-lg border border-slate-600/30 bg-gradient-to-br from-slate-800/40 via-slate-800/30 to-slate-900/40 p-3 backdrop-blur-xl md:mt-8 md:rounded-2xl md:p-6">
+      <div className="relative mt-3 overflow-hidden rounded-lg border border-slate-600/30 bg-gradient-to-br from-slate-800/40 via-slate-800/30 to-slate-900/40 p-2.5 backdrop-blur-xl sm:mt-4 sm:p-3 md:mt-8 md:rounded-2xl md:p-6">
         <div className="absolute -bottom-4 -right-4 h-10 w-10 rounded-full bg-gradient-to-br from-slate-500/10 to-slate-600/10 blur-2xl md:-bottom-8 md:-right-8 md:h-16 md:w-16" />
         <div className="relative">
-          <h4 className="mb-2 bg-gradient-to-r from-white to-slate-200 bg-clip-text text-sm font-bold text-transparent md:mb-4 md:text-lg">
+          <h4 className="mb-1.5 bg-gradient-to-r from-white to-slate-200 bg-clip-text text-xs font-bold text-transparent sm:mb-2 sm:text-sm md:mb-4 md:text-lg">
             {t("where_to_find_title")}
           </h4>
-          <ul className="space-y-2 text-xs text-slate-300 md:space-y-3 md:text-base">
+          <ul className="space-y-1.5 text-xs leading-relaxed text-slate-300 sm:space-y-2 sm:text-sm md:space-y-3 md:text-base">
             <li className="flex items-start gap-2 md:items-center md:gap-3">
               <div className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 md:mt-0 md:h-2 md:w-2" />
               <span className="leading-relaxed">{t("where_to_find_1")}</span>

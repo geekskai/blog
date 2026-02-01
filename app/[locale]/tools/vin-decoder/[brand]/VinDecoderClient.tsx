@@ -1,6 +1,6 @@
 "use client"
 import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
-import { useState, useCallback, useEffect } from "react"
+import React, { useState, useCallback, useEffect } from "react"
 import { Link } from "@/app/i18n/navigation"
 import {
   Zap,
@@ -457,7 +457,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
           </div>
 
           {/* Title */}
-          <h1 className="mb-3 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-2xl font-bold text-transparent md:mb-4 md:text-4xl">
+          <h1 className="mb-3 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-2xl font-bold text-transparent md:mb-4 md:text-5xl">
             {brand.name} {t("vin_decoder_suffix")}
           </h1>
 

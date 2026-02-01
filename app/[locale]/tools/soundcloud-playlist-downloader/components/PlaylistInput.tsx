@@ -34,10 +34,12 @@ export default function PlaylistInput({
 
   return (
     <div className="mx-auto max-w-6xl">
-      <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
-        <div className="flex flex-col items-center justify-between border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 px-4 py-3 md:flex-row">
-          <h2 className="text-md font-semibold text-white md:text-xl">{t("form_title")}</h2>
-          <div className="md:text-md text-sm text-slate-400">
+      <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm sm:rounded-2xl">
+        <div className="flex flex-col items-center justify-between gap-2 border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 px-3 py-2.5 sm:px-4 sm:py-3 md:flex-row md:gap-4 md:py-3 lg:px-6">
+          <h2 className="text-sm font-semibold text-white sm:text-base md:text-xl">
+            {t("form_title")}
+          </h2>
+          <div className="text-xs text-slate-400 sm:text-sm md:text-base">
             {t("related_tool_text")} 👉
             <Link
               href="/tools/soundcloud-to-wav"
@@ -48,7 +50,7 @@ export default function PlaylistInput({
             </Link>
           </div>
         </div>
-        <div className="space-y-2 p-4">
+        <div className="space-y-2 p-3 sm:p-4 md:p-5 lg:p-6">
           {/* <div className="mb-3 flex flex-col-reverse justify-between gap-2 text-sm font-semibold text-white/90 md:flex-row">
             {t("form_label_playlist_url")}
             <div className="text-sm text-slate-400">
@@ -63,8 +65,8 @@ export default function PlaylistInput({
             </div>
           </div> */}
           <div className="relative">
-            <div className="absolute left-4 top-1/2 -translate-y-1/2 rounded-lg bg-white/5 p-2 backdrop-blur-sm">
-              <span className="text-xl">🔗</span>
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 rounded-lg bg-white/5 p-1.5 backdrop-blur-sm sm:left-4 sm:p-2">
+              <span className="text-base sm:text-xl">🔗</span>
             </div>
             <input
               type="text"
@@ -73,24 +75,24 @@ export default function PlaylistInput({
               onChange={(e) => onUrlChange(e.target.value)}
               onKeyDown={handleKeyPress}
               placeholder="https://soundcloud.com/username/sets/playlist-name"
-              className="w-full rounded-lg border border-white/10 bg-white/5 py-4 pl-16 pr-6 text-lg text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
+              className="w-full rounded-lg border border-white/10 bg-white/5 py-3 pl-12 pr-4 text-base text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20 sm:py-4 sm:pl-16 sm:pr-6 sm:text-lg"
               disabled={isLoading}
             />
           </div>
 
-          <div className="flex flex-col gap-4 sm:flex-row">
+          <div className="flex flex-col gap-3 sm:gap-4 md:flex-row">
             <button
               type="button"
               onClick={onFetchPlaylist}
               disabled={isLoading || !url.trim()}
-              className="group relative flex-1 overflow-hidden rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-base font-medium text-white shadow-lg transition-all hover:from-blue-700 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-50"
+              className="group relative flex-1 overflow-hidden rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2.5 text-sm font-medium text-white shadow-lg transition-all hover:from-blue-700 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-50 sm:rounded-lg sm:px-6 sm:py-3 sm:text-base md:min-h-[44px]"
             >
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
               <span className="relative flex items-center justify-center gap-2">
                 {isLoading ? (
                   <>
                     <svg
-                      className="h-5 w-5 animate-spin"
+                      className="h-4 w-4 animate-spin sm:h-5 sm:w-5"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -113,7 +115,7 @@ export default function PlaylistInput({
                   </>
                 ) : (
                   <>
-                    <span className="text-xl">🔍</span>
+                    <span className="text-lg sm:text-xl">🔍</span>
                     <span>{t("form_button_fetch")}</span>
                   </>
                 )}
@@ -123,7 +125,7 @@ export default function PlaylistInput({
             <select
               value={format}
               onChange={(e) => onFormatChange(e.target.value as "mp3" | "wav")}
-              className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-base text-white backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20 sm:w-32"
+              className="min-h-[44px] w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20 sm:rounded-lg sm:py-3 sm:text-base md:w-32"
               disabled={isLoading}
             >
               <option value="mp3" className="bg-slate-900">
@@ -136,14 +138,16 @@ export default function PlaylistInput({
           </div>
 
           {error && (
-            <div className="mt-6 rounded-lg border border-red-500/30 bg-red-900/20 p-2 backdrop-blur-sm md:p-4">
-              <div className="flex flex-col flex-wrap items-center gap-1 text-red-400 md:flex-row md:gap-3">
-                <span className="text-xl">⚠️</span>
-                <span className="text-sm font-medium">{error}</span>
+            <div className="mt-4 rounded-lg border border-red-500/30 bg-red-900/20 p-2.5 backdrop-blur-sm sm:mt-5 sm:p-3 md:mt-6 md:p-4">
+              <div className="flex flex-col flex-wrap items-center gap-1.5 text-red-400 sm:gap-2 md:flex-row md:gap-3">
+                <span className="text-lg sm:text-xl">⚠️</span>
+                <span className="text-center text-xs font-medium sm:text-sm md:text-left">
+                  {error}
+                </span>
                 {isTrackError ? (
                   <Link
                     href="/tools/soundcloud-to-wav"
-                    className="inline-flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-emerald-300 transition-all hover:bg-emerald-500/20 hover:text-emerald-200"
+                    className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-300 transition-all hover:bg-emerald-500/20 hover:text-emerald-200 sm:px-4"
                   >
                     <span>🔗</span>
                     <span>{t("error_track_url_link")}</span>

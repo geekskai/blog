@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: BrandPageProps): Promise<Meta
   })
 
   // Content freshness metadata - Update this monthly
-  const lastModified = new Date("2026-01-29")
+  const lastModified = new Date("2026-02-01")
 
   return {
     title,
@@ -133,7 +133,7 @@ export default async function BrandVinDecoderPage({ params }: BrandPageProps) {
   const pageUrl = `${baseUrl}/tools/vin-decoder/${brand.slug}`
 
   // Content freshness metadata - Update this monthly
-  const lastModified = new Date("2026-01-29")
+  const lastModified = new Date("2026-02-01")
 
   // WebApplication Schema - Enhanced for AI SEO
   const webApplicationSchema = {
