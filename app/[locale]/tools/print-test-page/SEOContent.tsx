@@ -49,7 +49,9 @@ export function CoreFactsSection() {
             <dt className="mb-1.5 text-xs font-semibold leading-tight text-blue-300 md:mb-2 md:text-sm">
               {t("section_core_facts_speed")}
             </dt>
-            <dd className="text-sm leading-relaxed text-white md:text-base lg:text-lg">{t("section_core_facts_speed_value")}</dd>
+            <dd className="text-sm leading-relaxed text-white md:text-base lg:text-lg">
+              {t("section_core_facts_speed_value")}
+            </dd>
           </div>
 
           <div className="rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur-sm md:p-5 lg:p-6">
@@ -116,7 +118,9 @@ export function FeaturesSection() {
             {t("features_badge")}
           </span>
         </div>
-        <h2 className="text-lg font-bold leading-tight text-white md:text-2xl lg:text-3xl">{t("features_title")}</h2>
+        <h2 className="text-lg font-bold leading-tight text-white md:text-2xl lg:text-3xl">
+          {t("features_title")}
+        </h2>
         <p className="mt-2 text-sm leading-relaxed text-slate-300 md:mt-3 md:text-base lg:mt-4">
           {t("features_description")}
         </p>
@@ -127,11 +131,15 @@ export function FeaturesSection() {
             key={index}
             className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 p-4 transition-all duration-300 hover:border-purple-400/30 hover:shadow-lg hover:shadow-purple-500/25 md:rounded-2xl md:p-5 lg:p-6"
           >
-            <div className="mb-2.5 text-2xl md:mb-3 md:text-3xl lg:mb-4 lg:text-4xl">{feature.icon}</div>
+            <div className="mb-2.5 text-2xl md:mb-3 md:text-3xl lg:mb-4 lg:text-4xl">
+              {feature.icon}
+            </div>
             <h3 className="mb-1.5 text-sm font-bold leading-snug text-white md:text-base lg:mb-2 lg:text-xl">
               {feature.title}
             </h3>
-            <p className="text-xs leading-relaxed text-slate-300 md:text-sm">{feature.description}</p>
+            <p className="text-xs leading-relaxed text-slate-300 md:text-sm">
+              {feature.description}
+            </p>
           </div>
         ))}
       </div>
@@ -174,7 +182,9 @@ export function HowToSection() {
             {t("how_to_badge")}
           </span>
         </div>
-        <h2 className="text-lg font-bold leading-tight text-white md:text-2xl lg:text-3xl">{t("how_to_title")}</h2>
+        <h2 className="text-lg font-bold leading-tight text-white md:text-2xl lg:text-3xl">
+          {t("how_to_title")}
+        </h2>
         <p className="mt-2 text-sm leading-relaxed text-slate-300 md:mt-3 md:text-base lg:mt-4">
           {t("how_to_description")}
         </p>
@@ -189,7 +199,9 @@ export function HowToSection() {
               <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-sm font-bold text-white md:h-10 md:w-10 md:text-base lg:h-12 lg:w-12 lg:text-xl">
                 {step.number}
               </div>
-              <h3 className="text-sm font-bold leading-snug text-white md:text-base lg:text-xl">{step.title}</h3>
+              <h3 className="text-sm font-bold leading-snug text-white md:text-base lg:text-xl">
+                {step.title}
+              </h3>
             </div>
             <p className="text-xs leading-relaxed text-slate-300 md:text-sm">{step.description}</p>
           </div>
@@ -234,7 +246,9 @@ export function UseCasesSection() {
             {t("use_cases_badge")}
           </span>
         </div>
-        <h2 className="text-lg font-bold leading-tight text-white md:text-2xl lg:text-3xl">{t("use_cases_title")}</h2>
+        <h2 className="text-lg font-bold leading-tight text-white md:text-2xl lg:text-3xl">
+          {t("use_cases_title")}
+        </h2>
         <p className="mt-2 text-sm leading-relaxed text-slate-300 md:mt-3 md:text-base lg:mt-4">
           {t("use_cases_description")}
         </p>
@@ -247,9 +261,13 @@ export function UseCasesSection() {
           >
             <div className="mb-2.5 flex items-center gap-3 md:mb-3 md:gap-4">
               <div className="text-2xl md:text-3xl lg:text-4xl">{useCase.icon}</div>
-              <h3 className="text-sm font-bold leading-snug text-white md:text-base lg:text-xl">{useCase.title}</h3>
+              <h3 className="text-sm font-bold leading-snug text-white md:text-base lg:text-xl">
+                {useCase.title}
+              </h3>
             </div>
-            <p className="text-xs leading-relaxed text-slate-300 md:text-sm">{useCase.description}</p>
+            <p className="text-xs leading-relaxed text-slate-300 md:text-sm">
+              {useCase.description}
+            </p>
           </div>
         ))}
       </div>
@@ -292,9 +310,13 @@ export function FAQSection() {
       <div className="mb-4 text-center md:mb-6 lg:mb-8">
         <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-orange-500/30 bg-gradient-to-r from-orange-500/10 to-red-500/10 px-3 py-1.5 md:mb-4 md:gap-2 md:px-5 md:py-2 lg:px-6">
           <span className="text-base md:text-lg lg:text-xl">❓</span>
-          <span className="text-xs font-semibold leading-tight text-orange-300 md:text-sm">{t("faq_badge")}</span>
+          <span className="text-xs font-semibold leading-tight text-orange-300 md:text-sm">
+            {t("faq_badge")}
+          </span>
         </div>
-        <h2 className="text-lg font-bold leading-tight text-white md:text-2xl lg:text-3xl">{t("faq_title")}</h2>
+        <h2 className="text-lg font-bold leading-tight text-white md:text-2xl lg:text-3xl">
+          {t("faq_title")}
+        </h2>
       </div>
       <div className="space-y-3 md:space-y-4 lg:space-y-5">
         {faqs.map((faq, index) => (
@@ -304,7 +326,10 @@ export function FAQSection() {
             itemScope
             itemType="https://schema.org/Question"
           >
-            <h3 className="mb-1.5 text-sm font-bold leading-snug text-white md:mb-2 md:text-base lg:mb-3 lg:text-lg" itemProp="name">
+            <h3
+              className="mb-1.5 text-sm font-bold leading-snug text-white md:mb-2 md:text-base lg:mb-3 lg:text-lg"
+              itemProp="name"
+            >
               {faq.question}
             </h3>
             <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">

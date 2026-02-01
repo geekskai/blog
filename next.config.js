@@ -163,7 +163,7 @@ module.exports = () => {
   })
 
   return withSentryConfig(nextConfig, {
-    org: "geekskais-organization",
-    project: "geekskai-nextjs",
+    org: "test-kdj",
+    project: "javaascript-nextjs",
   })
 }
