@@ -103,7 +103,7 @@ export function FAQSection() {
             <h3 className="mb-2 text-lg font-semibold leading-snug text-white sm:mb-3 sm:text-xl md:mb-4 lg:text-xl lg:leading-snug">
               {faq.question}
             </h3>
-            <p className="prose prose-sm max-w-none text-sm leading-relaxed text-slate-300 prose-strong:text-purple-300 sm:text-base md:text-base lg:leading-relaxed lg:prose-base">
+            <p className="prose prose-sm max-w-none text-sm leading-relaxed text-slate-300 lg:prose-base prose-strong:text-purple-300 sm:text-base md:text-base lg:leading-relaxed">
               {faq.answer}
             </p>
           </div>
@@ -279,7 +279,7 @@ export function UseCasesSection() {
               <h3 className="mb-2 text-lg font-bold leading-snug text-white sm:mb-3 sm:text-xl lg:mb-4 lg:text-xl">
                 {t(useCase.title)}
               </h3>
-              <p className="prose prose-sm max-w-none text-sm leading-relaxed text-slate-300 prose-strong:text-purple-300 sm:text-base lg:leading-relaxed lg:prose-base">
+              <p className="prose prose-sm max-w-none text-sm leading-relaxed text-slate-300 lg:prose-base prose-strong:text-purple-300 sm:text-base lg:leading-relaxed">
                 {t.rich(useCase.description, {
                   strong: (chunks: string) => <strong className="text-purple-300">{chunks}</strong>,
                 })}
@@ -325,7 +325,7 @@ export function KeyFeaturesSection() {
               <h3 className="mb-2 text-lg font-bold leading-snug text-white sm:mb-3 sm:text-xl lg:mb-4 lg:text-xl">
                 <strong>{t(feature.title)}</strong>
               </h3>
-              <p className="prose prose-sm max-w-none text-sm leading-relaxed text-slate-300 prose-strong:text-purple-300 sm:text-base lg:leading-relaxed lg:prose-base">
+              <p className="prose prose-sm max-w-none text-sm leading-relaxed text-slate-300 lg:prose-base prose-strong:text-purple-300 sm:text-base lg:leading-relaxed">
                 {t.rich(feature.description, {
                   strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
                 })}
