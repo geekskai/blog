@@ -12,10 +12,6 @@
     "footer_view_all_tools": "Alle Tools ansehen",
     "footer_blog": "Blog",
     "footer_tags": "Tags",
-    "section_how_to_step_1_title": "Schritt 1: Playlist-URL kopieren",
-    "section_how_to_step_2_title": "Schritt 2: URL einfügen",
-    "section_how_to_step_3_title": "Schritt 3: Abrufen und Format auswählen",
-    "section_how_to_step_4_title": "Schritt 4: Playlist herunterladen",
     "footer_projects": "Projekte",
     "footer_privacy_policy": "Datenschutzrichtlinie",
     "footer_connect_with_us": "Mit uns verbinden",
@@ -5365,6 +5361,10 @@
     "use_cases_technicians_description": "Druckerprobleme diagnostizieren, Druckerfunktion nach Reparaturen testen, Einrichtung und Konfiguration prüfen."
   },
   "SoundCloudPlaylistDownloader": {
+    "section_how_to_step_1_title": "Schritt 1: Playlist-URL kopieren",
+    "section_how_to_step_2_title": "Schritt 2: URL einfügen",
+    "section_how_to_step_3_title": "Schritt 3: Abrufen und Format auswählen",
+    "section_how_to_step_4_title": "Schritt 4: Playlist herunterladen",
     "error_track_url_link": "SoundCloud zu MP3/WAV-Konverter ausprobieren",
     "metadata_title": "SoundCloud-Playlist-Downloader – Kostenloses Online-Tool | Ganze Playlists herunterladen",
     "metadata_description": "Kostenloser SoundCloud-Playlist-Downloader. Ganze SoundCloud-Playlists im MP3- oder WAV-Format herunterladen. Schnell, unbegrenzt und ohne Registrierung. Alle Tracks einer Playlist per Batch downloaden.",

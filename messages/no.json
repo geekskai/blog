@@ -4473,15 +4473,53 @@
       "precision_control_description": "Kontroller desimalpresisjon fra 0 til 3."
     },
     "faq_section": {
-      "title": "Ofte stilte spørsmål",
+      "title": "Ofte stilte spørsmål - Piksler til tommer-konvertering",
       "q1_question": "Hvordan konverterer jeg piksler til tommer?",
-      "q1_answer": "Skriv inn pikselverdien, og tommer beregnes automatisk basert på PPI. Standard PPI er 96.",
-      "q2_question": "Hva er PPI?",
-      "q2_answer": "PPI står for Pixels Per Inch og angir pikseltettheten på en skjerm eller et bilde.",
-      "q3_question": "Kan jeg konvertere tommer til piksler?",
-      "q3_answer": "Ja, skriv inn tommeverdien, så beregnes piksler automatisk.",
-      "q4_question": "Er denne konvertereren gratis?",
-      "q4_answer": "Ja, den er helt gratis og krever ingen registrering."
+      "q1_answer": "For å konvertere piksler til tommer, skriv inn pikselverdien i piksler-feltet. Vår konverterer beregner automatisk tilsvarende tommer basert på PPI-verdien (Pixels Per Inch). Standard PPI er 96, som er standard for de fleste skjermer. Du kan justere PPI for å matche din spesifikke skjermoppløsning eller trykkbehov.",
+      "q2_question": "Hvordan konverterer jeg tommer til piksler?",
+      "q2_answer": "For å konvertere tommer til piksler, skriv inn tommeverdien i tommer-feltet. Konverteren beregner automatisk tilsvarende piksler basert på din valgte PPI-verdi. Dette er perfekt for webdesign og skjermoppløsningsberegninger.",
+      "q3_question": "Hva er forskjellen mellom PPI og DPI?",
+      "q3_answer": "PPI (Pixels Per Inch) refererer til pikseltettheten på digitale skjermer, mens DPI (Dots Per Inch) refererer til punkttettheten i trykk. Vår konverterer støtter både PPI og DPI-beregninger. Standard skjermoppløsning er 96 PPI, mens trykktoppløsning typisk varierer fra 150-300 DPI.",
+      "q4_question": "Hvor mange piksler er det i en tomme?",
+      "q4_answer": "Antall piksler i en tomme avhenger av PPI-innstillingen (Pixels Per Inch). Ved standard 96 PPI er det 96 piksler per tomme. Ved 72 PPI er det 72 piksler per tomme. Vår konverterer lar deg justere PPI-verdien for å matche dine spesifikke behov.",
+      "q5_question": "Kan jeg konvertere DPI til piksler per tomme?",
+      "q5_answer": "Ja! Vår piksler til tommer-konverterer støtter DPI til piksler per tomme-konvertering. Juster PPI/DPI-innstillingen for å matche dine trykk- eller visningsbehov. Dette er spesielt nyttig for trykkdesignprosjekter der du trenger å konvertere mellom DPI og piksler per tomme.",
+      "q6_question": "Er denne piksler til tommer-konvertereren gratis?",
+      "q6_answer": "Ja, vår piksler til tommer-konverterer er helt gratis å bruke uten registrering. Konverter piksler til tommer og tommer til piksler så mange ganger du trenger, uten begrensninger eller skjulte gebyrer.",
+      "q7_question": "Hvilken PPI bør jeg bruke for webdesign?",
+      "q7_answer": "For webdesign er standard PPI 96, som er det som de fleste dataskjermer bruker. Moderne høyoppløsende skjermer (Retina-skjermer, 4K-skjermer) kan bruke høyere PPI-verdier som 144 eller 192. Vår konverterer lar deg justere PPI for å matche din mål-skjerm.",
+      "q8_question": "Hvor nøyaktig er piksler til tommer-konverteringen?",
+      "q8_answer": "Vår piksler til tommer-konverterer gir nøyaktige konverteringer basert på PPI-verdien du velger. Nøyaktigheten avhenger av å matche PPI-innstillingen til din faktiske skjermoppløsning eller trykkbehov. Du kan også justere desimalpresisjon for mer detaljerte resultater."
+    },
+    "intro_section": {
+      "title": "Konverter piksler til tommer umiddelbart - Gratis online konverterer",
+      "paragraph_1": "Trenger du å konvertere piksler til tommer? Vår gratis online piksler til tommer-konverterer gjør det enkelt å konvertere piksler til tommer og tommer til piksler umiddelbart. Uansett om du jobber med webdesign, skjermoppløsning eller trykkdesignprosjekter, gir denne piksler til tommer-kalkulatoren nøyaktige konverteringer med tilpassbare PPI (Pixels Per Inch) og DPI (Dots Per Inch) innstillinger.",
+      "paragraph_2": "Konverter piksler til tommer for alle skjermoppløsninger eller trykkbehov. Vår piksler til tommer-konverterer støtter toveis konvertering - konverter piksler til tommer eller tommer til piksler med ett klikk. Perfekt for designers, utviklere og alle som trenger nøyaktige piksler til tommer-konverteringer.",
+      "key_features_intro": "Nøkkelfunksjoner: Konverter piksler til tommer, tommer til piksler, DPI til piksler per tomme-konvertering, tilpassbare PPI-innstillinger, umiddelbare resultater og helt gratis å bruke."
+    },
+    "conversion_examples_section": {
+      "title": "Vanlige piksler til tommer-konverteringer",
+      "subtitle": "Rask referanse for populære piksler til tommer-konverteringer",
+      "example_1_title": "1920 pixels to inches (96 PPI)",
+      "example_1_result": "20 tommer",
+      "example_2_title": "1080 piksler til tommer (96 PPI)",
+      "example_2_result": "11.25 tommer",
+      "example_3_title": "300 piksler til tommer (96 PPI)",
+      "example_3_result": "3.125 tommer",
+      "example_4_title": "72 piksler til tommer (72 PPI)",
+      "example_4_result": "1 tomme"
+    },
+    "use_cases_section": {
+      "title": "Når du skal bruke piksler til tommer-konvertereren",
+      "subtitle": "Vanlige bruksfall for piksler til tommer-konvertering",
+      "use_case_1_title": "Webdesign",
+      "use_case_1_description": "Konverter designmål fra piksler til tommer for klientpresentasjoner og trykkmaterialer.",
+      "use_case_2_title": "Skjermoppløsning",
+      "use_case_2_description": "Beregn fysisk skjermstørrelse basert på pikselmål og PPI-innstillinger.",
+      "use_case_3_title": "Trykkdesign",
+      "use_case_3_description": "Konverter digitale designs fra piksler til tommer for trykkproduksjon, sikrer nøyaktig størrelse.",
+      "use_case_4_title": "DPI-beregninger",
+      "use_case_4_description": "Konverter mellom DPI og piksler per tomme for trykk- og visningsbehov."
     },
     "final_cta": {
       "title": "Klar til å konvertere piksler til tommer?",

@@ -4748,6 +4748,36 @@
       "precision_control": "精度控制",
       "precision_control_description": "支持 0 到 3 位小数精度，确保计算结果准确。"
     },
+    "intro_section": {
+      "title": "像素转英寸转换器 - 免费在线转换器",
+      "paragraph_1": "需要将像素转换为英寸？我们的免费在线像素转英寸转换器可以轻松地将像素转换为英寸和英寸转换为像素。无论你是在进行网页设计、屏幕分辨率还是印刷设计项目，这个像素转英寸计算器都提供了准确转换，支持可自定义的 PPI（每英寸像素数）和 DPI（每英寸点数）设置。",
+      "paragraph_2": "根据任何屏幕分辨率或印刷需求转换像素为英寸。我们的像素转英寸转换器支持双向转换 - 只需点击一次即可将像素转换为英寸或英寸转换为像素。非常适合设计师、开发者和需要精确像素转英寸转换的任何人。",
+      "key_features_intro": "关键功能：像素转英寸、英寸转像素、DPI转每英寸像素数转换、可自定义的 PPI 设置、即时结果和完全免费使用。"
+    },
+    "conversion_examples_section": {
+      "title": "常见的像素转英寸转换",
+      "subtitle": "常见的像素转英寸转换参考",
+      "example_1_title": "1920像素转英寸 (96 PPI)",
+      "example_1_result": "20英寸",
+      "example_2_title": "1080像素转英寸 (96 PPI)",
+      "example_2_result": "11.25英寸",
+      "example_3_title": "300像素转英寸 (96 PPI)",
+      "example_3_result": "3.125英寸",
+      "example_4_title": "72像素转英寸 (72 PPI)",
+      "example_4_result": "1英寸"
+    },
+    "use_cases_section": {
+      "title": "何时使用像素转英寸转换器",
+      "subtitle": "常见的像素转英寸转换用例",
+      "use_case_1_title": "网页设计",
+      "use_case_1_description": "将设计原型尺寸从像素转换为英寸，用于客户演示和印刷材料。",
+      "use_case_2_title": "屏幕分辨率",
+      "use_case_2_description": "根据像素尺寸和 PPI 设置计算物理屏幕大小。",
+      "use_case_3_title": "印刷设计",
+      "use_case_3_description": "将数字设计从像素转换为英寸，确保准确尺寸。",
+      "use_case_4_title": "DPI 计算",
+      "use_case_4_description": "将 DPI 和每英寸像素数转换为印刷和显示需求。"
+    },
     "faq_section": {
       "title": "常见问题解答（像素转英寸）",
       "q1_question": "如何将像素转换为英寸？",
