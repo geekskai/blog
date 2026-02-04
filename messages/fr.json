@@ -5149,6 +5149,8 @@
     "section_legal_footer": "Notre outil est conçu pour aider les utilisateurs à accéder de manière responsable au contenu SoundCloud accessible au public. Vérifiez toujours les autorisations de téléchargement de la piste et respectez les souhaits du créateur."
   },
   "PrintTestPage": {
+    "print_button_download": "Télécharger",
+    "print_button_downloading": "Téléchargement...",
     "metadata_title": "Page de test d'impression - Page de test en ligne gratuite pour imprimante",
     "metadata_description": "Imprimez instantanément des pages de test couleur, noir et blanc et CMJN. Testez la qualité, l'alignement et les niveaux d'encre de votre imprimante. Aucune inscription requise.",
     "metadata_keywords": "page de test d'impression, page de test d'imprimante, page de test pour imprimante, page de test d'imprimante couleur, page de test d'imprimante pdf, page de test CMJN, page de test noir et blanc, page de diagnostic d'imprimante",
@@ -5208,6 +5210,8 @@
     "print_button_blackWhite": "Imprimer la page N&B",
     "print_button_cmyk": "Imprimer la page CMJN",
     "print_button_printing": "Impression...",
+    "print_button_download": "Télécharger",
+    "print_button_downloading": "Téléchargement...",
     "error_popup_blocked": "Veuillez autoriser les fenêtres contextuelles pour imprimer la page de test",
     "info_title": "Comment utiliser",
     "info_description": "Cliquez sur n'importe quel bouton de page de test ci-dessus. La boîte de dialogue d'impression de votre navigateur s'ouvrira automatiquement. Sélectionnez votre imprimante et cliquez sur Imprimer. La page de test vous aidera à vérifier la qualité d'impression, la précision des couleurs, l'alignement et les niveaux d'encre.",

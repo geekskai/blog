@@ -4992,6 +4992,8 @@
     "section_legal_footer": "본 도구는 공개된 SoundCloud 콘텐츠에 책임감 있게 접근할 수 있도록 설계되었습니다. 항상 다운로드 권한을 확인하고 제작자의 의사를 존중하세요."
   },
   "PrintTestPage": {
+    "print_button_download": "다운로드",
+    "print_button_downloading": "다운로드중...",
     "metadata_title": "프린트 테스트 페이지 – 무료 온라인 프린터 테스트 페이지 도구",
     "metadata_description": "무료 온라인 프린터 테스트 페이지 도구입니다. 컬러, 흑백, CMYK 테스트 페이지를 즉시 인쇄하세요. 프린터 품질, 정렬 및 잉크 잔량을 테스트할 수 있습니다. 회원가입 필요 없음.",
     "metadata_keywords": "프린트 테스트 페이지, 프린터 테스트 페이지, 프린터용 테스트 페이지, 컬러 프린터 테스트 페이지, 프린터 테스트 페이지 pdf, CMYK 테스트 페이지, 흑백 테스트 페이지, 프린터 진단 페이지",
@@ -5051,6 +5053,8 @@
     "print_button_blackWhite": "흑백 페이지 인쇄",
     "print_button_cmyk": "CMYK 페이지 인쇄",
     "print_button_printing": "인쇄 중...",
+    "print_button_download": "다운로드",
+    "print_button_downloading": "다운로드 중...",
     "error_popup_blocked": "테스트 페이지를 인쇄하려면 팝업을 허용해 주세요",
     "info_title": "사용 방법",
     "info_description": "위의 테스트 페이지 버튼 중 하나를 클릭하세요. 브라우저의 인쇄 대화상자가 자동으로 열립니다. 프린터를 선택하고 인쇄를 클릭하면, 테스트 페이지를 통해 인쇄 품질, 색상 정확도, 정렬 및 잉크 잔량을 확인할 수 있습니다.",

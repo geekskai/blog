@@ -4809,6 +4809,8 @@
     "section_legal_footer": "Vores værktøj er designet til at hjælpe brugere med ansvarligt at få adgang til offentligt tilgængeligt SoundCloud-indhold. Kontrollér altid nummerets downloadtilladelser og respekter skaberens ønsker."
   },
   "PrintTestPage": {
+    "print_button_download": "Hent",
+    "print_button_downloading": "Henter...",
     "metadata_title": "Print testside – Gratis online værktøj til printertestside",
     "metadata_description": "Gratis online værktøj til printertestside. Udskriv farve-, sort-hvid- og CMYK-test­sider med det samme. Test printerkvalitet, justering og blækniveauer. Ingen registrering påkrævet.",
     "metadata_keywords": "print testside, printer testside, testside til printer, farve printer testside, printer testside pdf, CMYK testside, sort-hvid testside, printerdiagnostikside",
@@ -4868,6 +4870,8 @@
     "print_button_blackWhite": "Udskriv S/H-side",
     "print_button_cmyk": "Udskriv CMYK-side",
     "print_button_printing": "Udskriver...",
+    "print_button_download": "Download",
+    "print_button_downloading": "Downloader...",
     "error_popup_blocked": "Tillad venligst pop op-vinduer for at udskrive testsiden",
     "info_title": "Sådan bruges",
     "info_description": "Klik på en af testsiderne ovenfor. Din browsers udskriftsdialog åbnes automatisk. Vælg din printer, og klik på Udskriv. Testsiden hjælper dig med at kontrollere printerkvalitet, farvenøjagtighed, justering og blækniveauer.",

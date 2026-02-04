@@ -28,10 +28,17 @@ import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 
 type TestPageType = "color" | "blackWhite" | "cmyk"
 
+const DOWNLOAD_FILENAMES: Record<TestPageType, string> = {
+  color: "color-print-colors-and-fonts.png",
+  blackWhite: "gray-print-colors-and-fonts.png",
+  cmyk: "CMYK.png",
+}
+
 export default function PrintTestPage() {
   const t = useTranslations("PrintTestPage")
   const [selectedType, setSelectedType] = useState<TestPageType | null>(null)
   const [isPrinting, setIsPrinting] = useState(false)
+  const [downloadingType, setDownloadingType] = useState<TestPageType | null>(null)
   const printRef = useRef<HTMLDivElement>(null)
 
   // Print function
@@ -109,6 +116,28 @@ export default function PrintTestPage() {
     }
   }
 
+  const handleDownload = async (type: TestPageType) => {
+    setDownloadingType(type)
+    try {
+      const imageUrl = `${window.location.origin}${PRINT_IMAGE_PATHS[type]}`
+      const res = await fetch(imageUrl)
+      if (!res.ok) throw new Error("Failed to fetch image")
+      const blob = await res.blob()
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement("a")
+      a.href = url
+      a.download = DOWNLOAD_FILENAMES[type]
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(url)
+    } catch {
+      alert(t("error_popup_blocked"))
+    } finally {
+      setDownloadingType(null)
+    }
+  }
+
   return (
     <div className="relative min-h-screen bg-slate-950">
       {/* Subtle geometric background pattern */}
@@ -124,27 +153,28 @@ export default function PrintTestPage() {
           }}
         ></div>
       </div>
-      <div className="relative mx-auto max-w-6xl space-y-4 px-4 py-5 md:max-w-4xl md:space-y-6 md:px-6 md:py-6 lg:max-w-6xl lg:space-y-8 lg:px-8 lg:py-8">
+      <div className="relative mx-auto max-w-4xl space-y-4 px-4 py-5 md:max-w-5xl md:space-y-6 md:px-6 md:py-6 lg:max-w-7xl lg:space-y-8 lg:px-8 lg:py-8">
         {/* Header Section - SEO Optimized */}
         <header className="text-center">
-          {/* Content Freshness Badge */}
-          <ContentFreshnessBadge lastModified={new Date("2026-02-04")} namespace="PrintTestPage" />
-
           {/* Main Title - H1 for SEO */}
-          <h1 className="mb-2 mt-3 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-2xl font-bold leading-tight text-transparent md:mb-3 md:mt-4 md:text-3xl md:leading-snug lg:mb-4 lg:text-5xl">
+          <h1 className="mb-2 text-2xl font-bold leading-tight text-white md:mb-3 md:text-3xl md:leading-snug lg:mb-4 lg:text-5xl">
             {t("page_title")}
           </h1>
 
           {/* Subtitle */}
-          <p className="mx-auto max-w-full px-0 text-sm leading-relaxed text-slate-300 md:max-w-3xl md:px-2 md:text-base md:leading-loose lg:text-lg">
+          <p className="mx-auto max-w-full px-0 text-sm leading-relaxed text-slate-300 md:max-w-5xl md:px-2 md:text-base md:leading-loose lg:text-lg">
             {t.rich("page_subtitle", {
               free: (chunks) => <strong className="text-emerald-400">{chunks}</strong>,
               instant: (chunks) => <strong className="text-blue-400">{chunks}</strong>,
               no_registration: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
             })}
           </p>
+          {/* Content Freshness Badge */}
+          <ContentFreshnessBadge lastModified={new Date("2026-02-04")} namespace="PrintTestPage" />
         </header>
+
         <GoogleAdUnitWrap />
+
         {/* Print Test Pages Section */}
         <div className="mx-auto w-full md:max-w-4xl lg:max-w-6xl">
           <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm md:rounded-2xl">
@@ -163,7 +193,7 @@ export default function PrintTestPage() {
                 {/* Color Test Page */}
                 <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 p-4 transition-all duration-300 hover:border-blue-400/30 hover:shadow-lg hover:shadow-blue-500/25 md:rounded-2xl md:p-5 lg:p-6">
                   <div className="mb-3 flex items-center justify-center md:mb-4">
-                    <div className="relative h-24 w-full overflow-hidden rounded-lg bg-white/5 md:h-28 lg:h-32">
+                    <div className="relative h-24 w-full overflow-hidden rounded-lg bg-white md:h-28 lg:h-32">
                       <Image
                         src={Color}
                         alt={t("print_alt_color")}
@@ -179,6 +209,8 @@ export default function PrintTestPage() {
                   <p className="mb-3 text-xs leading-relaxed text-slate-300 md:mb-4 md:text-sm">
                     {t("print_type_color_description")}
                   </p>
+
+                  {/* Print button */}
                   <button
                     onClick={() => handlePrint("color")}
                     disabled={isPrinting}
@@ -218,12 +250,53 @@ export default function PrintTestPage() {
                       )}
                     </span>
                   </button>
+
+                  {/* Download button */}
+                  <button
+                    onClick={() => handleDownload("color")}
+                    disabled={downloadingType !== null}
+                    className="group/btn relative mt-2 min-h-[48px] w-full overflow-hidden rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-purple-500/10 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:border-blue-400/50 hover:shadow-xl hover:shadow-purple-500/30 disabled:cursor-not-allowed disabled:opacity-50 md:min-h-[44px] md:px-5 md:py-3 lg:px-6 lg:text-base"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100"></div>
+                    <span className="relative flex items-center justify-center gap-2">
+                      {downloadingType === "color" ? (
+                        <>
+                          <svg
+                            className="h-4 w-4 animate-spin md:h-4 md:w-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                            />
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            />
+                          </svg>
+                          <span>{t("print_button_downloading")}</span>
+                        </>
+                      ) : (
+                        <>
+                          <span className="text-sm sm:text-base md:text-lg">⬇️</span>
+                          <span>{t("print_button_download")}</span>
+                        </>
+                      )}
+                    </span>
+                  </button>
                 </div>
 
                 {/* Black & White Test Page */}
                 <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-slate-500/10 via-gray-500/10 to-slate-600/10 p-4 transition-all duration-300 hover:border-slate-400/30 hover:shadow-lg hover:shadow-slate-500/25 md:rounded-2xl md:p-5 lg:p-6">
                   <div className="mb-3 flex items-center justify-center md:mb-4">
-                    <div className="relative h-24 w-full overflow-hidden rounded-lg bg-white/5 md:h-28 lg:h-32">
+                    <div className="relative h-24 w-full overflow-hidden rounded-lg bg-white md:h-28 lg:h-32">
                       <Image
                         src={BlackWhite}
                         alt={t("print_alt_blackWhite")}
@@ -239,6 +312,8 @@ export default function PrintTestPage() {
                   <p className="mb-3 text-xs leading-relaxed text-slate-300 md:mb-4 md:text-sm">
                     {t("print_type_blackWhite_description")}
                   </p>
+
+                  {/* Print button */}
                   <button
                     onClick={() => handlePrint("blackWhite")}
                     disabled={isPrinting}
@@ -278,12 +353,53 @@ export default function PrintTestPage() {
                       )}
                     </span>
                   </button>
+
+                  {/* Download button */}
+                  <button
+                    onClick={() => handleDownload("blackWhite")}
+                    disabled={downloadingType !== null}
+                    className="group/btn relative mt-2 min-h-[48px] w-full overflow-hidden rounded-xl border border-slate-500/30 bg-gradient-to-br from-slate-500/15 to-gray-500/10 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-slate-500/25 transition-all duration-300 hover:border-slate-400/50 hover:shadow-xl hover:shadow-gray-500/30 disabled:cursor-not-allowed disabled:opacity-50 md:min-h-[44px] md:px-5 md:py-3 lg:px-6 lg:text-base"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-slate-500/5 opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100"></div>
+                    <span className="relative flex items-center justify-center gap-2">
+                      {downloadingType === "blackWhite" ? (
+                        <>
+                          <svg
+                            className="h-4 w-4 animate-spin md:h-4 md:w-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                            />
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            />
+                          </svg>
+                          <span>{t("print_button_downloading")}</span>
+                        </>
+                      ) : (
+                        <>
+                          <span className="text-sm sm:text-base md:text-lg">⬇️</span>
+                          <span>{t("print_button_download")}</span>
+                        </>
+                      )}
+                    </span>
+                  </button>
                 </div>
 
                 {/* CMYK Test Page */}
                 <div className="via-magenta-500/10 group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-cyan-500/10 to-yellow-500/10 p-4 transition-all duration-300 hover:border-cyan-400/30 hover:shadow-lg hover:shadow-cyan-500/25 md:rounded-2xl md:p-5 lg:p-6">
                   <div className="mb-3 flex items-center justify-center md:mb-4">
-                    <div className="relative h-24 w-full overflow-hidden rounded-lg bg-white/5 md:h-28 lg:h-32">
+                    <div className="relative h-24 w-full overflow-hidden rounded-lg bg-white md:h-28 lg:h-32">
                       <Image
                         src={CMYK}
                         alt={t("print_alt_cmyk")}
@@ -299,6 +415,8 @@ export default function PrintTestPage() {
                   <p className="mb-3 text-xs leading-relaxed text-slate-300 md:mb-4 md:text-sm">
                     {t("print_type_cmyk_description")}
                   </p>
+
+                  {/* Print button */}
                   <button
                     onClick={() => handlePrint("cmyk")}
                     disabled={isPrinting}
@@ -334,6 +452,47 @@ export default function PrintTestPage() {
                         <>
                           <span className="text-sm md:text-base lg:text-lg">🖨️</span>
                           <span>{t("print_button_cmyk")}</span>
+                        </>
+                      )}
+                    </span>
+                  </button>
+
+                  {/* Download button */}
+                  <button
+                    onClick={() => handleDownload("cmyk")}
+                    disabled={downloadingType !== null}
+                    className="group/btn relative mt-2 min-h-[48px] w-full overflow-hidden rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/15 to-yellow-500/10 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:border-cyan-400/50 hover:shadow-xl hover:shadow-yellow-500/30 disabled:cursor-not-allowed disabled:opacity-50 md:min-h-[44px] md:px-5 md:py-3 lg:px-6 lg:text-base"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100"></div>
+                    <span className="relative flex items-center justify-center gap-2">
+                      {downloadingType === "cmyk" ? (
+                        <>
+                          <svg
+                            className="h-4 w-4 animate-spin md:h-4 md:w-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                            />
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            />
+                          </svg>
+                          <span>{t("print_button_downloading")}</span>
+                        </>
+                      ) : (
+                        <>
+                          <span className="text-sm sm:text-base md:text-lg">⬇️</span>
+                          <span>{t("print_button_download")}</span>
                         </>
                       )}
                     </span>

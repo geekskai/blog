@@ -5304,6 +5304,8 @@
     "print_button_blackWhite": "Print B&W Page",
     "print_button_cmyk": "Print CMYK Page",
     "print_button_printing": "Printing...",
+    "print_button_download": "Download",
+    "print_button_downloading": "Downloading...",
     "error_popup_blocked": "Please allow popups to print the test page",
     "info_title": "How to Use",
     "info_description": "Click on any test page button above. Your browser's print dialog will open automatically. Select your printer and click Print. The test page will help you check printer quality, color accuracy, alignment, and ink levels.",

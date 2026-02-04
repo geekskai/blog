@@ -5171,6 +5171,8 @@
     "section_legal_footer": "本ツールは、公開されている SoundCloud コンテンツへ責任を持ってアクセスするために設計されています。必ずダウンロード権限を確認し、制作者の意向を尊重してください。"
   },
   "PrintTestPage": {
+    "print_button_download": "ダウンロード",
+    "print_button_downloading": "ダウンロード中...",
     "metadata_title": "プリントテストページ – 無料オンラインプリンターテストページツール",
     "metadata_description": "無料のオンラインプリンターテストページツール。カラー、白黒、CMYKのテストページを即座に印刷できます。プリンターの品質、位置合わせ、インク残量を確認できます。登録不要。",
     "metadata_keywords": "プリントテストページ, プリンターテストページ, プリンター用テストページ, カラープリンターテストページ, プリンターテストページ pdf, CMYK テストページ, 白黒テストページ, プリンター診断ページ",
@@ -5230,6 +5232,8 @@
     "print_button_blackWhite": "白黒ページを印刷",
     "print_button_cmyk": "CMYK ページを印刷",
     "print_button_printing": "印刷中...",
+    "print_button_download": "ダウンロード",
+    "print_button_downloading": "ダウンロード中...",
     "error_popup_blocked": "テストページを印刷するためにポップアップを許可してください",
     "info_title": "使い方",
     "info_description": "上記のいずれかのテストページボタンをクリックしてください。ブラウザの印刷ダイアログが自動的に開きます。プリンターを選択して「印刷」をクリックします。テストページで印刷品質、色の正確さ、位置合わせ、インク残量を確認できます。",

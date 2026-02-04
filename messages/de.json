@@ -5242,6 +5242,8 @@
     "section_legal_footer": "Unser Tool hilft, öffentliche SoundCloud-Inhalte verantwortungsvoll zu nutzen. Prüfe immer die Download-Berechtigungen und respektiere die Wünsche der Creator."
   },
   "PrintTestPage": {
+    "print_button_download": "Herunterladen",
+    "print_button_downloading": "Herunterladen...",
     "metadata_title": "Druck-Testseite – Kostenloses Online-Tool für Drucker",
     "metadata_description": "Farb-, Schwarzweiß- und CMYK-Testseiten sofort drucken. Druckqualität, Ausrichtung und Tintenstände prüfen. Keine Registrierung erforderlich.",
     "metadata_keywords": "druck testseite, druckertestseite, testseite drucker, farb testseite drucker, druckertestseite pdf, cmyk testseite, schwarzweiß testseite, drucker diagnose",
@@ -5301,6 +5303,8 @@
     "print_button_blackWhite": "SW-Seite drucken",
     "print_button_cmyk": "CMYK-Seite drucken",
     "print_button_printing": "Wird gedruckt...",
+    "print_button_download": "Herunterladen",
+    "print_button_downloading": "Wird heruntergeladen...",
     "error_popup_blocked": "Bitte Pop-ups erlauben, um die Testseite zu drucken",
     "info_title": "So funktioniert's",
     "info_description": "Klicke oben auf eine Testseite. Das Druckdialogfenster öffnet sich automatisch. Drucker auswählen und Drucken klicken. Die Testseite hilft, Druckqualität, Farbgenauigkeit, Ausrichtung und Tintenstände zu prüfen.",

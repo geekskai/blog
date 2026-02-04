@@ -5286,6 +5286,8 @@
     "print_button_blackWhite": "打印黑白页",
     "print_button_cmyk": "打印 CMYK 页",
     "print_button_printing": "正在打印...",
+    "print_button_download": "下载到本地",
+    "print_button_downloading": "正在下载...",
     "error_popup_blocked": "请允许弹窗以打印测试页",
     "info_title": "使用方法",
     "info_description": "点击上方任意测试页按钮，浏览器的打印对话框会自动打开。选择你的打印机并点击“打印”。测试页可帮助你检查打印质量、颜色准确性、对齐情况和墨水余量。",

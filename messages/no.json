@@ -4936,6 +4936,8 @@
     "section_legal_footer": "Verktøyet er laget for å hjelpe brukere med ansvarlig tilgang til offentlig tilgjengelig SoundCloud-innhold. Sjekk alltid nedlastingstillatelser og respekter skaperens ønsker."
   },
   "PrintTestPage": {
+    "print_button_download": "Hent",
+    "print_button_downloading": "Henter...",
     "metadata_title": "Skriv ut testside – Gratis nettbasert verktøy for skriver-testside",
     "metadata_description": "Gratis nettbasert verktøy for skriver-testside. Skriv ut farge-, svart-hvitt- og CMYK-testsider umiddelbart. Test skriverkvalitet, justering og blekknivåer. Ingen registrering kreves.",
     "metadata_keywords": "skriv ut testside, skriver testside, testside for skriver, farge skriver testside, skriver testside pdf, CMYK testside, svart-hvitt testside, skriver diagnostikkside",
@@ -4995,6 +4997,8 @@
     "print_button_blackWhite": "Skriv ut S/H-side",
     "print_button_cmyk": "Skriv ut CMYK-side",
     "print_button_printing": "Skriver ut...",
+    "print_button_download": "Last ned",
+    "print_button_downloading": "Laster ned...",
     "error_popup_blocked": "Tillat popup-vinduer for å skrive ut testsiden",
     "info_title": "Slik bruker du",
     "info_description": "Klikk på en av testsidene ovenfor. Nettleserens utskriftsdialog åpnes automatisk. Velg skriveren din og klikk på Skriv ut. Testsiden hjelper deg med å kontrollere utskriftskvalitet, fargenøyaktighet, justering og blekknivåer.",
