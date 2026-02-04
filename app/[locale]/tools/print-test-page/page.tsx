@@ -128,16 +128,7 @@ export default function PrintTestPage() {
         {/* Header Section - SEO Optimized */}
         <header className="text-center">
           {/* Content Freshness Badge */}
-          <ContentFreshnessBadge lastModified={new Date("2026-02-01")} namespace="PrintTestPage" />
-          {/* Tool Badge - Mobile first: compact, then md/lg */}
-          <div className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 px-3 py-2 text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/30 md:gap-2 md:rounded-2xl md:px-5 md:py-2.5 lg:px-6 lg:py-3">
-            <div className="rounded-full bg-white/20 p-1 md:p-1.5">
-              <span className="text-base md:text-lg lg:text-xl">🖨️</span>
-            </div>
-            <span className="text-xs font-semibold leading-tight md:text-sm lg:text-base">
-              {t("tool_badge")}
-            </span>
-          </div>
+          <ContentFreshnessBadge lastModified={new Date("2026-02-04")} namespace="PrintTestPage" />
 
           {/* Main Title - H1 for SEO */}
           <h1 className="mb-2 mt-3 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-2xl font-bold leading-tight text-transparent md:mb-3 md:mt-4 md:text-3xl md:leading-snug lg:mb-4 lg:text-5xl">
@@ -164,15 +155,6 @@ export default function PrintTestPage() {
               <span className="mt-1 block text-xs leading-relaxed text-slate-300 md:mt-2 md:text-sm">
                 {t("print_section_description")}
               </span>
-              {/* <div className="absolute right-0 top-0 flex items-center gap-1 md:gap-2">
-                <Image
-                  src={GeeksKaiWechat}
-                  alt="GeeksKai Wechat QR Code"
-                  width={60}
-                  height={80}
-                  className="md:h-20 md:w-20"
-                />
-              </div> */}
             </div>
 
             <div className="p-4 md:p-5 lg:p-6">
