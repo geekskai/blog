@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl"
 import ConversionResults from "./components/ConversionResults"
 import { ConversionState, ConversionMode } from "./types"
 import { performConversion, copyToClipboard } from "./utils"
+import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
 
 export default function BPMMSConverter() {
   const t = useTranslations("BpmMsConverter")
@@ -81,8 +82,8 @@ export default function BPMMSConverter() {
 
       <div className="relative">
         {/* Hero Section - SEO Optimized */}
-        <div className="border-b border-white/5 bg-gradient-to-b from-slate-900/50 to-transparent">
-          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-b from-slate-900/50 to-transparent">
+          <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
             <div className="text-center">
               {/* SEO-Optimized Title */}
               <h1 className="mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl lg:text-6xl">
@@ -114,10 +115,12 @@ export default function BPMMSConverter() {
           </div>
         </div>
 
+        <GoogleAdUnitWrap />
+
         {/* Main Content */}
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl space-y-4 px-4 py-4 sm:px-6 md:space-y-6 md:py-8 lg:px-8">
           {/* Quick Converter Section */}
-          <div className="mb-16">
+          <div>
             <h2 className="mb-8 text-center text-3xl font-bold text-white">
               {t("quick_converter.title")}
             </h2>
@@ -188,7 +191,7 @@ export default function BPMMSConverter() {
           </div>
 
           {/* Common BPM Presets */}
-          <div className="mb-16">
+          <div>
             <h2 className="mb-8 text-center text-2xl font-bold text-white">
               {t("common_bpm_presets.title")}
             </h2>
@@ -218,7 +221,7 @@ export default function BPMMSConverter() {
 
           {/* Detailed Results */}
           {state.result && (
-            <div className="mb-16">
+            <div>
               <ConversionResults result={state.result} mode={state.mode} />
             </div>
           )}
