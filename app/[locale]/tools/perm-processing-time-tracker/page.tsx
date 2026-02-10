@@ -21,6 +21,7 @@ import HistoricalChart from "./components/HistoricalChart"
 import ShareButtons from "@/components/ShareButtons"
 import { Link } from "@/app/i18n/navigation"
 import { useTranslations } from "next-intl"
+import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
 
 export default function PERMProcessingTimeTracker() {
   const t = useTranslations("PERMProcessingTimeTracker")
@@ -92,7 +93,7 @@ export default function PERMProcessingTimeTracker() {
             {t("title")}
           </h1>
 
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-slate-300">
+          <p className="mx-auto mb-8 max-w-7xl text-lg text-slate-300">
             {t.rich("description", {
               strong: (chunks) => <strong>{chunks}</strong>,
             })}
@@ -126,6 +127,8 @@ export default function PERMProcessingTimeTracker() {
             </div>
           </div>
         </div>
+
+        <GoogleAdUnitWrap />
 
         {/* Navigation Tabs */}
         <div className="mb-8">

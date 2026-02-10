@@ -163,7 +163,7 @@ export default function GoogleAdUnitWrap() {
         }}
         data-ad-client="ca-pub-2108246014001009"
         data-ad-slot="5811688701"
-        data-ad-format="auto"
+        data-ad-format="horizontal"
         data-full-width-responsive="true"
       />
     </div>

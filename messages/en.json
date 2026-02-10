@@ -4015,6 +4015,7 @@
     },
     "actions": {
       "copy_summary": "Copy Summary",
+      "share": "Share",
       "export_json": "Export JSON",
       "export_csv": "Export CSV",
       "view_history": "View History",

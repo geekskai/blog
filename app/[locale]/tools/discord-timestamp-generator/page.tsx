@@ -24,6 +24,7 @@ import {
   ArrowUpDown,
 } from "lucide-react"
 import { Link } from "@/app/i18n/navigation"
+import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
 
 // Type definitions
 interface TimestampFormat {
@@ -373,25 +374,28 @@ export default function DiscordTimestampGenerator() {
 
       <div className="relative mx-auto max-w-7xl px-3 py-4 sm:px-4 sm:py-5 lg:px-8 lg:py-8">
         {/* Clean Header with Professional Design */}
-        <div className="relative mb-5 text-center sm:mb-8 lg:mb-16">
-          <div className="mb-3 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-medium text-slate-300 shadow-xl backdrop-blur-sm sm:mb-4 sm:px-3 sm:py-1.5 md:mb-6 md:px-4 md:py-2 md:text-sm lg:mb-8 lg:px-6 lg:py-3">
+        <div className="relative mb-5 text-center sm:mb-6 lg:mb-8">
+          <div className="mb-3 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-medium text-slate-300 shadow-xl backdrop-blur-sm sm:mb-4 sm:px-3 sm:py-1.5 md:mb-6 md:px-4 md:py-2 md:text-sm lg:px-6 lg:py-3">
             <Clock className="mr-1.5 h-3 w-3 text-blue-400 md:mr-2 md:h-4 md:w-4" />
             {t("header.professional_badge")}
             <Sparkles className="ml-1.5 h-3 w-3 text-purple-400 md:ml-2 md:h-4 md:w-4" />
           </div>
 
-          <h1 className="mb-3 text-2xl font-bold text-white sm:mb-4 sm:text-3xl md:mb-6 md:text-5xl lg:mb-8 lg:text-6xl xl:text-7xl">
-            <span className="block">{t("header.main_title")}</span>
+          <h1 className="mb-3 text-2xl font-bold text-white sm:mb-4 sm:text-3xl md:mb-6 md:text-5xl lg:mb-6 lg:text-6xl xl:text-7xl">
+            {/* <span className="block">{t("header.main_title")}</span> */}
             <span className="block bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
-              {t("header.subtitle")}
+              {t("header.main_title")} {t("header.subtitle")}
             </span>
           </h1>
 
-          <p className="mx-auto mb-4 max-w-3xl text-sm font-light leading-relaxed text-slate-400 sm:mb-5 sm:text-base md:mb-8 md:text-lg lg:max-w-4xl lg:text-xl">
+          <p className="max-w-7xl text-sm font-light leading-relaxed text-slate-400 sm:text-base md:text-lg lg:text-xl">
             {t("header.description")}
           </p>
+
+          <GoogleAdUnitWrap />
+
           {/* Quick Stats */}
-          <div className="mb-5 flex flex-wrap items-center justify-center gap-2 text-[10px] text-slate-500 sm:mb-6 sm:text-xs md:mb-10 md:gap-3 md:text-sm lg:mb-12 lg:gap-6">
+          <div className="my-5 flex flex-wrap items-center justify-center gap-2 text-[10px] text-slate-500 sm:text-xs md:gap-3 md:text-sm lg:gap-6">
             <div className="flex items-center gap-1 rounded-lg bg-white/5 px-2 py-1 backdrop-blur-sm sm:gap-1.5 sm:px-2.5 sm:py-1.5 md:gap-2 md:px-3 md:py-2 lg:px-4">
               <Clock className="h-3 w-3 text-green-500 md:h-4 md:w-4" />
               <span className="font-medium">{t("header.stats.real_time_generation")}</span>

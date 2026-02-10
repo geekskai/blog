@@ -4015,6 +4015,7 @@
       "export_json": "JSON exportieren",
       "export_csv": "CSV exportieren",
       "view_history": "Verlauf anzeigen",
+      "share": "Teilen",
       "hide_history": "Verlauf ausblenden",
       "clear_all": "Alles löschen",
       "try_again": "Erneut versuchen",
@@ -5242,8 +5243,6 @@
     "section_legal_footer": "Unser Tool hilft, öffentliche SoundCloud-Inhalte verantwortungsvoll zu nutzen. Prüfe immer die Download-Berechtigungen und respektiere die Wünsche der Creator."
   },
   "PrintTestPage": {
-    "print_button_download": "Herunterladen",
-    "print_button_downloading": "Herunterladen...",
     "metadata_title": "Druck-Testseite – Kostenloses Online-Tool für Drucker",
     "metadata_description": "Farb-, Schwarzweiß- und CMYK-Testseiten sofort drucken. Druckqualität, Ausrichtung und Tintenstände prüfen. Keine Registrierung erforderlich.",
     "metadata_keywords": "druck testseite, druckertestseite, testseite drucker, farb testseite drucker, druckertestseite pdf, cmyk testseite, schwarzweiß testseite, drucker diagnose",

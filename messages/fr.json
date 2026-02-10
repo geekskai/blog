@@ -2917,7 +2917,7 @@
       "pricing_label": "Tarifs",
       "pricing_value": "<strong>100% Gratuit</strong> - Aucune inscription requise",
       "formats_label": "Formats pris en charge",
-     "formats_value": "<strong>7 Discord tidsstempel formater</strong> (R, t, T, d, D, f, F)",
+      "formats_value": "<strong>7 Discord tidsstempel formater</strong> (R, t, T, d, D, f, F)",
       "speed_label": "Vitesse de traitement",
       "speed_value": "<strong>Génération instantanée</strong> - Aperçu en temps réel",
       "target_users_label": "Utilisateurs cibles",
@@ -3860,6 +3860,7 @@
       "export_json": "Exporter en JSON",
       "export_csv": "Exporter en CSV",
       "view_history": "Voir l’historique",
+      "share": "Partager",
       "hide_history": "Masquer l’historique",
       "clear_all": "Tout effacer",
       "try_again": "Réessayer",
@@ -5149,8 +5150,6 @@
     "section_legal_footer": "Notre outil est conçu pour aider les utilisateurs à accéder de manière responsable au contenu SoundCloud accessible au public. Vérifiez toujours les autorisations de téléchargement de la piste et respectez les souhaits du créateur."
   },
   "PrintTestPage": {
-    "print_button_download": "Télécharger",
-    "print_button_downloading": "Téléchargement...",
     "metadata_title": "Page de test d'impression - Page de test en ligne gratuite pour imprimante",
     "metadata_description": "Imprimez instantanément des pages de test couleur, noir et blanc et CMJN. Testez la qualité, l'alignement et les niveaux d'encre de votre imprimante. Aucune inscription requise.",
     "metadata_keywords": "page de test d'impression, page de test d'imprimante, page de test pour imprimante, page de test d'imprimante couleur, page de test d'imprimante pdf, page de test CMJN, page de test noir et blanc, page de diagnostic d'imprimante",

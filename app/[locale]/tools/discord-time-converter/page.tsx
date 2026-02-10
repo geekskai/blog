@@ -24,7 +24,7 @@ import { format, formatDistance } from "date-fns"
 import CustomDateTimePicker from "@/components/ui/CustomDateTimePicker"
 import CustomSelector from "@/components/ui/CustomSelector"
 import { Link } from "@/app/i18n/navigation"
-
+import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
 // Type definitions
 interface TimestampFormat {
   id: string
@@ -484,17 +484,17 @@ export default function DiscordTimeConverter() {
 
       <div className="relative mx-auto max-w-7xl space-y-4 px-4 py-8 md:space-y-8 md:px-6">
         {/* Header Section */}
-        <div className="relative space-y-4 text-center md:space-y-8">
+        <div className="relative space-y-2 text-center md:space-y-4">
           <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-slate-300 shadow-xl backdrop-blur-sm">
             <ArrowLeftRight className="mr-2 h-4 w-4 text-blue-400" />
             {t("header.badge_text")}
             <Sparkles className="ml-2 h-4 w-4 text-purple-400" />
           </div>
 
-          <h1 className="text-5xl font-bold text-white sm:text-6xl lg:text-7xl">
-            <span className="block">{t("header.main_title_line1")}</span>
+          <h1 className="mb-3 text-2xl font-bold text-white sm:mb-4 sm:text-3xl md:mb-5 md:text-5xl lg:mb-6 lg:text-6xl">
+            {/* <span className="block">{t("header.main_title_line1")}</span> */}
             <span className="block bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
-              {t("header.main_title_line2")}
+              {t("header.main_title_line1")} {t("header.main_title_line2")}
             </span>
           </h1>
 
@@ -529,6 +529,8 @@ export default function DiscordTimeConverter() {
             </div>
           </div>
         </div>
+
+        <GoogleAdUnitWrap />
 
         {/* Main conversion area */}
         <div className="grid gap-8 lg:grid-cols-3">
