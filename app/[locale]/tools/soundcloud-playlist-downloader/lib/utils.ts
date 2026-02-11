@@ -42,7 +42,11 @@ export const isValidSoundCloudPlaylistUrl = (url: string): boolean => {
   // const playlistRegex = /^https?:\/\/(www\.)?soundcloud\.com\/.+\/sets\/.+/
   // return playlistRegex.test(url.trim())
 
-  return new URL(url.trim()).pathname.includes("/sets/")
+  try {
+    return new URL(url.trim()).pathname.includes("/sets/")
+  } catch {
+    return false
+  }
 }
 
 // Format file size
