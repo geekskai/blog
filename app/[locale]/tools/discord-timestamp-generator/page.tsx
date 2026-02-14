@@ -1,5 +1,5 @@
 "use client"
-
+import ShareButtons from "@/components/ShareButtons"
 import React, { useState, useEffect, useRef, useCallback } from "react"
 import { useTranslations } from "next-intl"
 import {
@@ -392,8 +392,6 @@ export default function DiscordTimestampGenerator() {
             {t("header.description")}
           </p>
 
-          <GoogleAdUnitWrap />
-
           {/* Quick Stats */}
           <div className="my-5 flex flex-wrap items-center justify-center gap-2 text-[10px] text-slate-500 sm:text-xs md:gap-3 md:text-sm lg:gap-6">
             <div className="flex items-center gap-1 rounded-lg bg-white/5 px-2 py-1 backdrop-blur-sm sm:gap-1.5 sm:px-2.5 sm:py-1.5 md:gap-2 md:px-3 md:py-2 lg:px-4">
@@ -414,6 +412,8 @@ export default function DiscordTimestampGenerator() {
             </div>
           </div>
         </div>
+        <GoogleAdUnitWrap />
+        <ShareButtons />
 
         {/* Main content area with responsive dual-column layout */}
         <div className="grid gap-4 sm:gap-5 md:gap-6 lg:grid-cols-5 lg:gap-8">

@@ -15,6 +15,7 @@ import {
 import Link from "@/components/Link"
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 import { isValidSoundCloudPlaylistUrl } from "../soundcloud-playlist-downloader/lib/utils"
+import ShareButtons from "@/components/ShareButtons"
 
 type LoadingState = "idle" | "loading" | "success" | "error"
 
@@ -545,6 +546,8 @@ export default function Page() {
             </div>
           </div>
         </div>
+
+         <ShareButtons />
 
         {/* Loading skeleton */}
         {loadingState === "loading" && !trackInfo && (

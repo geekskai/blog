@@ -51,25 +51,27 @@ export default function Random4DigitNumberGenerator() {
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* === Hero Section === */}
-        <div className="mb-12 text-center">
+        <div className="mb-8 text-center md:mb-12">
           {/* Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-2 backdrop-blur-sm">
-            <Shield className="h-5 w-5 text-blue-400" />
-            <span className="text-sm font-medium text-blue-300">{t("header.badge_text")}</span>
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-4 py-1.5 backdrop-blur-sm md:mb-6 md:px-6 md:py-2">
+            <Shield className="h-4 w-4 text-blue-400 md:h-5 md:w-5" />
+            <span className="text-xs font-medium text-blue-300 md:text-sm">
+              {t("header.badge_text")}
+            </span>
           </div>
 
           {/* Main Title - SEO Optimized */}
-          <h1 className="mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
+          <h1 className="mb-4 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl md:mb-6 md:text-6xl">
             {t("header.main_title")}
           </h1>
 
           {/* SEO-optimized subtitle with keywords */}
-          <p className="mx-auto mb-4 max-w-2xl text-lg font-semibold text-blue-200">
+          <p className="mx-auto mb-3 max-w-2xl text-base font-semibold text-blue-200 md:mb-4 md:text-lg">
             {t("header.seo_subtitle")}
           </p>
 
           {/* Description */}
-          <p className="mx-auto mb-8 max-w-3xl text-xl text-slate-300">
+          <p className="mx-auto mb-6 max-w-3xl text-lg text-slate-300 md:mb-8 md:text-xl">
             {t("header.description", {
               verification_codes: t("header.verification_codes"),
               pins: t("header.pins"),
@@ -78,7 +80,7 @@ export default function Random4DigitNumberGenerator() {
           </p>
 
           {/* Key Features Pills */}
-          <div className="mb-8 flex flex-wrap justify-center gap-3">
+          <div className="mb-8 flex flex-wrap justify-center gap-2 md:gap-3">
             {[
               { icon: Zap, text: t("features_pills.instant_generation"), color: "blue" },
               { icon: Shield, text: t("features_pills.crypto_secure"), color: "emerald" },
@@ -88,10 +90,12 @@ export default function Random4DigitNumberGenerator() {
               return (
                 <div
                   key={index}
-                  className={`inline-flex items-center gap-2 rounded-full border border-${feature.color}-500/30 bg-gradient-to-r from-${feature.color}-500/10 to-${feature.color}-500/5 px-4 py-2 backdrop-blur-sm`}
+                  className={`inline-flex items-center gap-1.5 rounded-full border border-${feature.color}-500/30 bg-gradient-to-r from-${feature.color}-500/10 to-${feature.color}-500/5 px-3 py-1.5 backdrop-blur-sm md:gap-2 md:px-4 md:py-2`}
                 >
-                  <Icon className={`h-4 w-4 text-${feature.color}-400`} />
-                  <span className="text-sm font-medium text-slate-200">{feature.text}</span>
+                  <Icon className={`h-3.5 w-3.5 text-${feature.color}-400 md:h-4 md:w-4`} />
+                  <span className="text-xs font-medium text-slate-200 md:text-sm">
+                    {feature.text}
+                  </span>
                 </div>
               )
             })}
@@ -99,8 +103,8 @@ export default function Random4DigitNumberGenerator() {
 
           {/* Share Component */}
           <div className="flex justify-center">
-            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-6 backdrop-blur-sm">
-              <p className="mb-3 text-center text-sm font-medium text-slate-300">
+            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-4 backdrop-blur-sm md:p-6">
+              <p className="mb-2 text-center text-xs font-medium text-slate-300 md:mb-3 md:text-sm">
                 {t("header.share_text")}
               </p>
               <ShareButtons />
@@ -121,34 +125,36 @@ export default function Random4DigitNumberGenerator() {
         <FAQSection />
 
         {/* === Final CTA Section === */}
-        <div className="mt-20 rounded-3xl border border-white/10 bg-gradient-to-r from-blue-900/30 via-purple-900/30 to-pink-900/30 p-12 text-center backdrop-blur-xl">
+        <div className="mt-12 rounded-3xl border border-white/10 bg-gradient-to-r from-blue-900/30 via-purple-900/30 to-pink-900/30 p-6 text-center backdrop-blur-xl md:mt-20 md:p-12">
           <div className="mx-auto max-w-3xl">
             {/* Icon */}
             <div className="mb-6 flex justify-center">
-              <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500 shadow-2xl shadow-blue-500/50">
-                <Hash className="h-10 w-10 text-white" />
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-500 shadow-2xl shadow-blue-500/50 md:h-20 md:w-20">
+                <Hash className="h-8 w-8 text-white md:h-10 md:w-10" />
               </div>
             </div>
 
             {/* Title */}
-            <h2 className="mb-4 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-4xl font-bold text-transparent">
+            <h2 className="mb-4 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
               {t("cta.title")}
             </h2>
 
             {/* Description */}
-            <p className="mb-8 text-lg text-slate-300">{t("cta.description")}</p>
+            <p className="mb-6 text-base text-slate-300 md:mb-8 md:text-lg">
+              {t("cta.description")}
+            </p>
 
             {/* CTA Button */}
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-blue-500/30 transition-all duration-300 hover:shadow-purple-500/40"
+              className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-6 py-3 text-base font-bold text-white shadow-2xl shadow-blue-500/30 transition-all duration-300 hover:shadow-purple-500/40 md:px-8 md:py-4 md:text-lg"
             >
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
               <span className="relative">{t("cta.button")}</span>
             </button>
 
             {/* Trust Badges */}
-            <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-slate-400">
+            <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs text-slate-400 md:mt-8 md:gap-4 md:text-sm">
               {[
                 t("cta.trust_badges.crypto_secure"),
                 t("cta.trust_badges.no_registration"),
@@ -159,7 +165,7 @@ export default function Random4DigitNumberGenerator() {
               ].map((badge, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm"
+                  className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm md:px-4 md:py-2"
                 >
                   <span>{badge}</span>
                 </div>
@@ -169,10 +175,10 @@ export default function Random4DigitNumberGenerator() {
         </div>
 
         {/* === Enhanced SEO Content Section === */}
-        <div className="mt-20 rounded-3xl border border-white/10 bg-gradient-to-br from-slate-800/30 to-slate-900/30 p-8 backdrop-blur-sm md:p-12">
+        <div className="mt-12 rounded-3xl border border-white/10 bg-gradient-to-br from-slate-800/30 to-slate-900/30 p-6 backdrop-blur-sm md:mt-20 md:p-12">
           <div className="prose prose-invert max-w-none">
             {/* H2 with primary keyword */}
-            <h2 className="mb-6 text-3xl font-bold text-white">
+            <h2 className="mb-4 text-2xl font-bold text-white md:mb-6 md:text-3xl">
               {t("seo_content.title")} - {t("seo_content.title_suffix")}
             </h2>
 

@@ -214,7 +214,7 @@ const NumberGeneratorComponent = () => {
   return (
     <div className="space-y-6">
       {/* === Single Number Generator === */}
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-900/25 via-purple-900/20 to-indigo-900/25 p-8 shadow-2xl backdrop-blur-xl">
+      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-900/25 via-purple-900/20 to-indigo-900/25 p-4 shadow-2xl backdrop-blur-xl sm:p-6 md:p-8">
         {/* Decorative background elements */}
         <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-blue-500/15 to-purple-500/15 blur-3xl"></div>
         <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/15 blur-3xl"></div>
@@ -222,9 +222,9 @@ const NumberGeneratorComponent = () => {
         <div className="relative">
           {/* Header */}
           <div className="mb-6 flex items-center justify-between">
-            <div className="inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-3 backdrop-blur-sm">
-              <Hash className="h-6 w-6 text-blue-400" />
-              <h3 className="bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-2xl font-bold text-transparent">
+            <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-4 py-2 backdrop-blur-sm md:gap-3 md:px-6 md:py-3">
+              <Hash className="h-5 w-5 text-blue-400 md:h-6 md:w-6" />
+              <h3 className="bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-xl font-bold text-transparent md:text-2xl">
                 {t("single_title")}
               </h3>
             </div>
@@ -245,7 +245,7 @@ const NumberGeneratorComponent = () => {
 
           {/* Settings Panel */}
           {showSettings && (
-            <div className="mb-6 rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-6 backdrop-blur-sm">
+            <div className="mb-6 rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-4 backdrop-blur-sm md:p-6">
               <h4 className="mb-4 text-lg font-semibold text-white">{t("settings_panel.title")}</h4>
 
               <div className="grid gap-6 md:grid-cols-2">
@@ -358,19 +358,21 @@ const NumberGeneratorComponent = () => {
           {/* Generated Number Display */}
           <div className="mb-6">
             <div className="relative">
-              <div className="flex min-h-[200px] items-center justify-center rounded-2xl border-2 border-dashed border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-purple-500/5 p-8 backdrop-blur-sm">
+              <div className="flex min-h-[160px] items-center justify-center rounded-2xl border-2 border-dashed border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-purple-500/5 p-4 backdrop-blur-sm md:min-h-[200px] md:p-8">
                 {state.generatedNumber ? (
                   <div className="text-center">
-                    <div className="mb-4 font-mono text-6xl font-bold text-transparent">
+                    <div className="mb-2 font-mono text-4xl font-bold text-transparent sm:text-5xl md:mb-4 md:text-6xl">
                       <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text">
                         {state.generatedNumber}
                       </span>
                     </div>
-                    <div className="text-sm text-slate-400">{t("display.crypto_secure")}</div>
+                    <div className="text-xs text-slate-400 md:text-sm">
+                      {t("display.crypto_secure")}
+                    </div>
                   </div>
                 ) : (
                   <div className="text-center text-slate-400">
-                    <Hash className="mx-auto mb-4 h-16 w-16 text-slate-600" />
+                    <Hash className="mx-auto mb-3 h-12 w-12 text-slate-600 md:mb-4 md:h-16 md:w-16" />
                     <div className="mb-2 text-xl font-medium">{t("display.click_generate")}</div>
                     <div className="text-sm">{t("display.features")}</div>
                   </div>
@@ -380,15 +382,17 @@ const NumberGeneratorComponent = () => {
           </div>
 
           {/* Single Number Controls */}
-          <div className="flex gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row">
             <button
               onClick={generateSingle}
               disabled={state.isGenerating}
-              className="group relative flex-1 overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30 disabled:opacity-50"
+              className="group relative flex-1 overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-6 py-3 text-base font-bold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30 disabled:opacity-50 md:px-8 md:py-4 md:text-lg"
             >
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
               <span className="relative flex items-center justify-center gap-2">
-                <Shuffle className={`h-5 w-5 ${state.isGenerating ? "animate-spin" : ""}`} />
+                <Shuffle
+                  className={`h-4 w-4 md:h-5 md:w-5 ${state.isGenerating ? "animate-spin" : ""}`}
+                />
                 {state.isGenerating ? t("buttons.generating") : t("buttons.generate")}
               </span>
             </button>
@@ -396,7 +400,7 @@ const NumberGeneratorComponent = () => {
             {state.generatedNumber && (
               <button
                 onClick={() => copyNumber(state.generatedNumber)}
-                className="group relative overflow-hidden rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-blue-500/10 px-6 py-4 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
+                className="group relative overflow-hidden rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-blue-500/10 px-6 py-3 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 md:px-6 md:py-4"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                 <span className="relative flex items-center gap-2 text-white">
@@ -448,15 +452,15 @@ const NumberGeneratorComponent = () => {
       </div>
 
       {/* === Batch Generator === */}
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-900/25 via-teal-900/20 to-cyan-900/25 p-8 shadow-2xl backdrop-blur-xl">
+      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-900/25 via-teal-900/20 to-cyan-900/25 p-4 shadow-2xl backdrop-blur-xl sm:p-6 md:p-8">
         {/* Decorative background */}
         <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-emerald-500/15 to-teal-500/15 blur-3xl"></div>
 
         <div className="relative">
           {/* Header */}
-          <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 px-6 py-3 backdrop-blur-sm">
-            <TrendingUp className="h-6 w-6 text-emerald-400" />
-            <h3 className="bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text text-2xl font-bold text-transparent">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 px-4 py-2 backdrop-blur-sm md:gap-3 md:px-6 md:py-3">
+            <TrendingUp className="h-5 w-5 text-emerald-400 md:h-6 md:w-6" />
+            <h3 className="bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text text-xl font-bold text-transparent md:text-2xl">
               {t("bulk.title")}
             </h3>
           </div>
@@ -518,15 +522,17 @@ const NumberGeneratorComponent = () => {
           </div>
 
           {/* Batch Controls */}
-          <div className="flex gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row">
             <button
               onClick={generateBatch}
               disabled={state.isGenerating}
-              className="group relative flex-1 overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-emerald-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/30 disabled:opacity-50"
+              className="group relative flex-1 overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 px-6 py-3 text-base font-bold text-white shadow-xl shadow-emerald-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/30 disabled:opacity-50 md:px-8 md:py-4 md:text-lg"
             >
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
               <span className="relative flex items-center justify-center gap-2">
-                <Shuffle className={`h-5 w-5 ${state.isGenerating ? "animate-spin" : ""}`} />
+                <Shuffle
+                  className={`h-4 w-4 md:h-5 md:w-5 ${state.isGenerating ? "animate-spin" : ""}`}
+                />
                 {state.isGenerating
                   ? t("buttons.generating")
                   : t("bulk.generate_button", { count: state.batchCount })}
@@ -537,7 +543,7 @@ const NumberGeneratorComponent = () => {
               <>
                 <button
                   onClick={exportData}
-                  className="group relative overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-emerald-500/10 px-6 py-4 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/25"
+                  className="group relative overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-emerald-500/10 px-6 py-3 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/25 md:px-6 md:py-4"
                 >
                   <span className="relative flex items-center gap-2 text-white">
                     <Download className="h-5 w-5" />
@@ -547,7 +553,7 @@ const NumberGeneratorComponent = () => {
 
                 <button
                   onClick={() => setShowBatch(!showBatch)}
-                  className="group relative overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-emerald-500/10 px-6 py-4 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/25"
+                  className="group relative overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-emerald-500/10 px-6 py-3 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/25 md:px-6 md:py-4"
                 >
                   <span className="relative flex items-center gap-2 text-white">
                     {showBatch ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
@@ -560,7 +566,7 @@ const NumberGeneratorComponent = () => {
 
           {/* Statistics */}
           {showStats && stats && (
-            <div className="mt-6 grid gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/30 to-slate-900/30 p-6 backdrop-blur-sm md:grid-cols-3">
+            <div className="mt-6 grid grid-cols-1 gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/30 to-slate-900/30 p-4 backdrop-blur-sm sm:grid-cols-3 md:p-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-emerald-400">{stats.totalGenerated}</div>
                 <div className="text-sm text-slate-400">{t("stats.total_generated")}</div>
@@ -614,7 +620,7 @@ const NumberGeneratorComponent = () => {
         <div className="text-center">
           <button
             onClick={resetAll}
-            className="to-white/2 group relative inline-flex items-center gap-2 overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-white/5 px-8 py-4 transition-all duration-300 hover:border-white/40"
+            className="to-white/2 group relative inline-flex items-center gap-2 overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-white/5 px-6 py-3 transition-all duration-300 hover:border-white/40 md:px-8 md:py-4"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
             <RotateCcw className="relative h-5 w-5 text-slate-300" />

@@ -1,4 +1,5 @@
 "use client"
+import ShareButtons from "@/components/ShareButtons"
 import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
 import React, { useState, useCallback, useEffect } from "react"
 import { Link } from "@/app/i18n/navigation"
@@ -448,7 +449,8 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
       </nav>
 
       {/* Simplified Brand Hero - Mobile Optimized */}
-      <div className="mx-auto max-w-7xl px-3 py-4 md:px-4 md:py-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-3 pb-4 md:px-4 md:pb-6 lg:px-8">
+        <ShareButtons />
         <div className="mb-6 text-center md:mb-8">
           {/* Brand Badge */}
           <div className="mb-4 inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-1.5 text-xs font-medium text-white shadow-lg md:mb-6 md:px-4 md:py-2 md:text-sm">

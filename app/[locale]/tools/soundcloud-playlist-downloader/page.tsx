@@ -14,6 +14,7 @@ import {
   KeyFeaturesSection,
 } from "./SEOContent"
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
+import ShareButtons from "@/components/ShareButtons"
 
 import type {
   PlaylistInfo,
@@ -203,7 +204,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
         ></div>
       </div>
 
-      <div className="relative mx-auto max-w-6xl space-y-4 px-4 py-4 sm:space-y-5 sm:px-6 sm:py-6 md:space-y-6 md:py-8 lg:space-y-8 lg:px-8 lg:py-10">
+      <div className="relative mx-auto max-w-6xl space-y-2 px-4 py-2 sm:space-y-3 sm:px-6 sm:py-6 md:space-y-5 md:py-5">
         {/* Content Freshness Badge */}
         <ContentFreshnessBadge
           lastModified={new Date("2026-02-01")}
@@ -239,7 +240,6 @@ export default function SoundCloudPlaylistDownloaderPage() {
         </header>
 
         <GoogleAdUnitWrap />
-
         {/* Input Section */}
         <div className="mx-auto mb-8 max-w-6xl sm:mb-10 md:mb-12">
           <PlaylistInput
@@ -264,10 +264,11 @@ export default function SoundCloudPlaylistDownloaderPage() {
             <DownloadProgress progress={downloadProgress} />
           </div>
         )}
+        <ShareButtons />
 
         {/* Playlist Tracks */}
         {playlistInfo && playlistInfo.tracks.length > 0 && (
-          <div className="mb-8 sm:mb-10 md:mb-12">
+          <div className="mb-6 sm:mb-8 md:mb-10">
             <PlaylistTracks
               tracks={playlistInfo.tracks}
               onDownloadAll={handleDownloadAll}

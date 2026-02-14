@@ -1,5 +1,6 @@
 "use client"
 import React from "react"
+import ShareButtons from "@/components/ShareButtons"
 import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
 import { useState, useCallback, useEffect } from "react"
 import {
@@ -316,10 +317,8 @@ export default function VinDecoder() {
       <div className="mx-auto max-w-7xl px-4 pb-4 sm:pb-5 md:px-6 md:pb-6 lg:px-8 lg:pb-8">
         {/* Header Section */}
         <div className="text-center">
-          <ContentFreshnessBadge
-            lastModified={new Date("2026-01-29")}
-            namespace="SoundCloudPlaylistDownloader"
-          />
+          <ShareButtons />
+
           {/* Official Data Badge */}
           <div className="mb-4 inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-1.5 text-xs font-medium text-white shadow-lg sm:mb-5 sm:px-4 sm:py-2 sm:text-sm">
             <Database className="mr-1.5 h-3 w-3 sm:mr-2 sm:h-4 sm:w-4" />

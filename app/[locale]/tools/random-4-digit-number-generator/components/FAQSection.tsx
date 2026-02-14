@@ -60,12 +60,12 @@ const FAQSection = () => {
   ]
 
   return (
-    <section className="mt-20">
+    <section className="mt-12 md:mt-20">
       {/* Section Header */}
-      <div className="mb-12 text-center">
-        <div className="to-white/2 mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-gradient-to-r from-white/5 px-6 py-2 backdrop-blur-sm">
-          <span className="text-2xl">❓</span>
-          <span className="text-sm font-medium text-slate-300">{t("badge")}</span>
+      <div className="mb-8 text-center md:mb-12">
+        <div className="to-white/2 mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-gradient-to-r from-white/5 px-4 py-1.5 backdrop-blur-sm md:px-6 md:py-2">
+          <span className="text-xl md:text-2xl">❓</span>
+          <span className="text-xs font-medium text-slate-300 md:text-sm">{t("badge")}</span>
         </div>
         <h2 className="mb-4 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-4xl font-bold text-transparent">
           {t("title")}
@@ -85,7 +85,7 @@ const FAQSection = () => {
             >
               <button
                 onClick={() => setOpenIndex(isOpen ? null : index)}
-                className="flex w-full items-center justify-between p-6 text-left transition-colors hover:bg-white/5"
+                className="flex w-full items-center justify-between p-4 text-left transition-colors hover:bg-white/5 md:p-6"
               >
                 <h3 className="pr-8 text-lg font-semibold text-white">{faq.question}</h3>
                 <ChevronDown
@@ -100,7 +100,7 @@ const FAQSection = () => {
                   isOpen ? "max-h-96" : "max-h-0"
                 }`}
               >
-                <div className="border-t border-white/10 p-6 pt-4">
+                <div className="border-t border-white/10 p-4 pt-4 md:p-6">
                   <p className="leading-relaxed text-slate-300">{faq.answer}</p>
                 </div>
               </div>

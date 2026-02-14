@@ -52,12 +52,12 @@ const Features = () => {
   ]
 
   return (
-    <section className="mt-20">
+    <section className="mt-12 md:mt-20">
       {/* Section Header */}
-      <div className="mb-12 text-center">
-        <div className="to-white/2 mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-gradient-to-r from-white/5 px-6 py-2 backdrop-blur-sm">
-          <span className="text-2xl">✨</span>
-          <span className="text-sm font-medium text-slate-300">{t("badge")}</span>
+      <div className="mb-8 text-center md:mb-12">
+        <div className="to-white/2 mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-gradient-to-r from-white/5 px-4 py-1.5 backdrop-blur-sm md:px-6 md:py-2">
+          <span className="text-xl md:text-2xl">✨</span>
+          <span className="text-xs font-medium text-slate-300 md:text-sm">{t("badge")}</span>
         </div>
         <h2 className="mb-4 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-4xl font-bold text-transparent">
           {t("title")}
@@ -66,7 +66,7 @@ const Features = () => {
       </div>
 
       {/* Features Grid */}
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
         {features.map((feature, index) => {
           const Icon = feature.icon
 
@@ -120,7 +120,7 @@ const Features = () => {
       </div>
 
       {/* Trust Signals */}
-      <div className="mt-16 rounded-3xl border border-white/10 bg-gradient-to-r from-blue-900/20 via-purple-900/20 to-pink-900/20 p-8 text-center backdrop-blur-xl">
+      <div className="mt-12 rounded-3xl border border-white/10 bg-gradient-to-r from-blue-900/20 via-purple-900/20 to-pink-900/20 p-6 text-center backdrop-blur-xl md:mt-16 md:p-8">
         <div className="mb-6 flex justify-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-2">
             <span className="text-2xl">🎓</span>
