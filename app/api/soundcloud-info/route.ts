@@ -51,8 +51,8 @@ export async function POST(request: NextRequest) {
       },
       {
         headers: {
-          // 缓存音轨信息以减少重复请求
-          // 音轨信息相对稳定，可以缓存 30 分钟
+          // Cache track information to reduce repeated requests
+          // Track information is relatively stable, can be cached for 30 minutes
           "Cache-Control": "public, s-maxage=1800, stale-while-revalidate=900",
         },
       }

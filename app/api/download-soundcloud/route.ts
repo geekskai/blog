@@ -7,9 +7,9 @@ const { fromMediaObj, fromDownloadLink } = require("soundcloud-downloader/dist/d
 
 export const runtime = "nodejs"
 
-// 配置常量
-const MAX_FILE_SIZE = 100 * 1024 * 1024 // 100MB 最大文件大小限制
-const DOWNLOAD_TIMEOUT = 300000 // 5分钟超时（300秒）
+// Configure constants
+const MAX_FILE_SIZE = 100 * 1024 * 1024 // 100MB maximum file size limit
+const DOWNLOAD_TIMEOUT = 300000 // 5-minute timeout (300 seconds)
 
 const SOUNDCLOUD_SHORT_URL_REGEX = /^https?:\/\/on\.soundcloud\.com\/[A-Za-z0-9]+(?:[?#].*)?$/
 
@@ -214,15 +214,15 @@ async function downloadAudioStream(url: string): Promise<Readable> {
 
 export async function POST(request: NextRequest) {
   try {
-    const { url } = await request.json()
+    const { url, directUrl } = await request.json()
 
-    console.log("Download request received for URL:", url)
+    console.log("Download request received for URL:", url, "directUrl:", directUrl)
 
     if (!url) {
       return NextResponse.json({ error: "URL is required" }, { status: 400 })
     }
 
-    // 验证 URL 格式
+    // Validate URL format
     try {
       new URL(url)
     } catch {
@@ -232,16 +232,60 @@ export async function POST(request: NextRequest) {
     const resolvedUrl = await resolveSoundCloudUrl(url)
     console.log("Resolved SoundCloud URL:", resolvedUrl)
 
-    // 生成文件名
+    // Optimize: Try to get direct download link to save Vercel traffic
+    if (directUrl) {
+      try {
+        const info = await scdl.getInfo(resolvedUrl)
+        const clientID = await scdl.getClientID()
+        const axiosInstance = scdl.axios
+
+        // Try to find progressive stream (most suitable for direct browser download)
+        if (info.media?.transcodings && Array.isArray(info.media.transcodings)) {
+          const progressive = info.media.transcodings.find(
+            (t: any) =>
+              t.format?.protocol === "progressive" ||
+              t.url?.includes("/progressive") ||
+              t.format?.mime_type?.includes("mp3")
+          )
+
+          if (progressive) {
+            // Get the actual media link (SoundCloud's transcoding.url returns a JSON containing the actual download link)
+            const mediaResponse = await axiosInstance.get(progressive.url, {
+              params: { client_id: clientID },
+            })
+            const directMediaUrl = mediaResponse.data?.url
+
+            if (directMediaUrl) {
+              console.log("Successfully obtained direct stream URL for client")
+              return NextResponse.json({
+                success: true,
+                directUrl: directMediaUrl,
+                info: {
+                  title: info.title,
+                  duration: info.duration,
+                  id: info.id,
+                },
+              })
+            }
+          }
+        }
+        // If no progressive stream is found, or if the extraction fails, fall back to the original stream method (without interrupting service)
+        console.warn("Could not find direct progressive URL, falling back to proxy stream")
+      } catch (e) {
+        console.error("Failed to extract direct URL, falling back to proxy stream:", e)
+      }
+    }
+
+    // Generate file name
     const fileName = `audio-${Date.now()}.mp3`
 
-    // 使用统一的下载函数，优先使用 progressive 流以避免 HLS 流 URL 过期问题
+    // Use the unified download function, prioritizing progressive streams to avoid HLS stream URL expiration issues
     const nodeStream = await downloadAudioStream(resolvedUrl)
 
-    // 将 Node.js 流转换为 Web Stream
+    // Convert Node.js stream to Web Stream
     const webStream = nodeStreamToWebStream(nodeStream)
 
-    // 返回流式响应
+    // Return streaming response
     return new NextResponse(webStream, {
       headers: {
         "Content-Type": "audio/mpeg",

@@ -12,14 +12,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "playlistUrl is required" }, { status: 400 })
     }
 
-    // 验证 URL 格式
+    // Validate URL format
     try {
       new URL(playlistUrl)
     } catch {
       return NextResponse.json({ error: "Invalid playlist URL format" }, { status: 400 })
     }
 
-    // 验证是否为 SoundCloud 播放列表 URL
+    // Validate whether it is a SoundCloud playlist URL
     if (!playlistUrl.includes("soundcloud.com") || !playlistUrl.includes("/sets/")) {
       return NextResponse.json(
         { error: "URL must be a SoundCloud playlist (sets) URL" },
@@ -33,18 +33,18 @@ export async function POST(request: NextRequest) {
 
     let info
     try {
-      // 首先尝试使用 getSetInfo（标准方法）
+      // First try using getSetInfo (standard method)
       info = await getSetInfo(playlistUrl, clientId, scdl.axios)
     } catch (error) {
       console.error(`🚀 getSetInfo error==>`, error.message)
 
-      // 检查是否是空 IDs 导致的错误（400 Bad Request with empty ids parameter）
+      // Check if it is an error caused by empty IDs (400 Bad Request with empty ids parameter)
       const errorStr = error instanceof Error ? error.message : String(error)
       const isAxiosError = (error as { isAxiosError?: boolean; response?: { status?: number } })
         ?.isAxiosError
       const statusCode = (error as { response?: { status?: number } })?.response?.status
 
-      // 如果是 400 错误且可能是空 IDs 问题，尝试使用 getInfoBase 作为备选方案
+      // If it is a 400 error and may be an empty IDs issue, try using getInfoBase as a fallback method
       if (
         (statusCode === 400 || errorStr.includes("400")) &&
         (errorStr.includes("Bad Request") ||
@@ -53,12 +53,12 @@ export async function POST(request: NextRequest) {
       ) {
         console.log("⚠️ Detected empty IDs error, trying fallback method with getInfoBase...")
         try {
-          // 备选方案：直接使用 getInfoBase 获取播放列表信息
-          // 这样可以避免库在处理空 IDs 时的 bug
+          // Fallback method: directly use getInfoBase to get playlist information
+          // This can avoid the bug when the library handles empty IDs
           const baseInfo = await getInfoBase(playlistUrl, clientId, scdl.axios)
           console.log(`🚀 ~ baseInfo:`, baseInfo)
 
-          // 验证返回的是播放列表（set）
+          // Verify that it is a playlist (set)
           if (!baseInfo.tracks || !Array.isArray(baseInfo.tracks)) {
             return NextResponse.json(
               {
@@ -70,7 +70,7 @@ export async function POST(request: NextRequest) {
             )
           }
 
-          // 使用基础信息（可能某些音轨信息不完整，但至少可以返回可用的音轨）
+          // Use base information (some track information may be incomplete, but at least some tracks are available)
           info = baseInfo
           console.log(
             `⚠️ Using fallback method, found ${info.tracks.length} tracks (some may be incomplete)`
@@ -86,12 +86,12 @@ export async function POST(request: NextRequest) {
           )
         }
       } else {
-        // 其他类型的错误，直接抛出
+        // Other types of errors, throw directly
         throw error
       }
     }
 
-    // 验证返回的数据结构
+    // Verify the returned data structure
     if (!info || !info.tracks || !Array.isArray(info.tracks)) {
       return NextResponse.json(
         { error: "Invalid playlist data received from SoundCloud" },
@@ -102,7 +102,7 @@ export async function POST(request: NextRequest) {
     const totalTracks = info.tracks.length
     console.log(`🚀 ~ Total tracks in playlist: ${totalTracks}`)
 
-    // 分类音轨：完整信息 vs 只有基本信息
+    // Classify tracks: complete information vs only basic information
     const completeTracks = info.tracks.filter(
       (track: { permalink_url?: string; title?: string }) => track.permalink_url && track.title
     )
@@ -116,7 +116,7 @@ export async function POST(request: NextRequest) {
       `🚀 ~ Track breakdown: ${completeTracks.length} complete, ${incompleteTracks.length} incomplete (private tracks)`
     )
 
-    // 如果所有音轨都是非公开的，直接返回错误
+    // If all tracks are private, return error directly
     if (completeTracks.length === 0 && incompleteTracks.length > 0) {
       return NextResponse.json(
         {
@@ -130,12 +130,12 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // 如果有不完整的音轨（非公开音轨），记录警告但不尝试获取（因为它们是非公开的）
+    // If there are incomplete tracks (private tracks), log a warning but do not attempt to retrieve them (since they are private)
     if (incompleteTracks.length > 0) {
       console.warn(`⚠️ Found ${incompleteTracks.length} private tracks that cannot be accessed`)
     }
 
-    // 合并所有有效的音轨（只包含公开的音轨）
+    // Merge all valid tracks (only containing public tracks)
     const allValidTracks = [...completeTracks]
 
     if (allValidTracks.length === 0) {
@@ -153,7 +153,7 @@ export async function POST(request: NextRequest) {
 
     console.log(`🚀 ~ Found ${allValidTracks.length} accessible tracks out of ${totalTracks} total`)
 
-    // 返回音轨信息，而不是流（流无法序列化为 JSON）
+    // Return track information, not stream (stream cannot be serialized to JSON)
     const tracks = allValidTracks.map(
       (track: {
         title: string
@@ -206,8 +206,8 @@ export async function POST(request: NextRequest) {
       {
         status: 200,
         headers: {
-          // 缓存播放列表信息以减少重复请求
-          // 播放列表信息相对稳定，可以缓存 1 小时
+          // Cache playlist information to reduce repeated requests
+          // Playlist information is relatively stable, can be cached for 1 hour
           "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=1800",
         },
       }
@@ -215,10 +215,10 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error(`🚀 route.ts ~ error==>`, error.message)
 
-    // 提供更详细的错误信息
+    // Provide more detailed error information
     const errorMessage = error instanceof Error ? error.message : "Download failed"
 
-    // 检查是否是 404 错误
+    // Check if it is a 404 error
     if (errorMessage.includes("404") || errorMessage.includes("Not Found")) {
       return NextResponse.json(
         {

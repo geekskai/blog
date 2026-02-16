@@ -19,11 +19,11 @@ import ShareButtons from "@/components/ShareButtons"
 
 type LoadingState = "idle" | "loading" | "success" | "error"
 
-// 播放列表URL格式: https://soundcloud.com/username/sets/playlist-name
+// Playlist URL format: https://soundcloud.com/username/sets/playlist-name
 // const SOUNDCLOUD_PLAYLIST_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/[^/]+\/sets\/.+/
-// 单个歌曲URL格式: https://soundcloud.com/username/song-name
-// 支持可选分享token (例如 /s-xxxx) 与查询参数
-// 必须包含域名、用户名和歌曲名，且路径中不包含 /sets/
+// Single track URL format: https://soundcloud.com/username/song-name
+// Support optional share token (e.g. /s-xxxx) and query parameters
+// Must contain domain, username, and song name, and path must not contain /sets/
 const SOUNDCLOUD_TRACK_URL_REGEX =
   /^https?:\/\/(www\.)?soundcloud\.com\/[^/?#]+\/[^/?#]+(?:\/s-[A-Za-z0-9]+)?\/?(?:[?#].*)?$/
 const SOUNDCLOUD_SHORT_URL_REGEX = /^https?:\/\/on\.soundcloud\.com\/[A-Za-z0-9]+(?:[?#].*)?$/
@@ -51,12 +51,12 @@ const isShortSoundCloudUrl = (url: string): boolean => {
 
 const isValidSoundCloudTrackUrl = (url: string): boolean => {
   const trimmedUrl = url.trim()
-  // 排除播放列表URL
+  // Exclude playlist URL
   if (isValidSoundCloudPlaylistUrl(trimmedUrl)) {
     return false
   }
-  // 匹配单个歌曲URL: soundcloud.com/username/song-name
-  // 确保格式为: domain/username/song-name (路径中不包含 /sets/)
+  // Match single track URL: soundcloud.com/username/song-name
+  // Ensure format is: domain/username/song-name (path does not contain /sets/)
   if (!SOUNDCLOUD_TRACK_URL_REGEX.test(trimmedUrl)) {
     return false
   }
@@ -171,17 +171,17 @@ export default function Page() {
       setErrorMessage(t("error_empty_url"))
       return false
     }
-    // 检测播放列表URL
+    // Detect playlist URL
     if (isValidSoundCloudPlaylistUrl(normalizedUrl)) {
       setIsPlaylistError(true)
       setErrorMessage(t("error_playlist_url"))
       return false
     }
-    // 允许短链接，由服务端解析后再校验
+    // Allow short links, parsed and validated by the server
     if (isShortSoundCloudUrl(normalizedUrl)) {
       return true
     }
-    // 验证单个歌曲URL
+    // Validate single track URL
     if (!isValidSoundCloudTrackUrl(normalizedUrl)) {
       console.log("soundcloud to wav invalid url", normalizedUrl)
       setErrorMessage(t("error_invalid_url"))
@@ -240,8 +240,8 @@ export default function Page() {
         setLoadingState("success")
         setTimeout(resetInfoState, 1000)
 
-        // 可选：提示用户立即下载以避免 URL 过期
-        // 或者自动开始下载
+        // Optional: Prompt user to download immediately to avoid URL expiration
+        // Or automatically start download
       } else {
         setErrorMessage(data.error || t("error_get_info_failed"))
         setLoadingState("error")
@@ -273,11 +273,54 @@ export default function Page() {
       setDownloadStatus(t("progress_sending_request"))
       setDownloadProgress(5)
 
-      const response = await fetch("/api/download-soundcloud", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: url.trim() }),
-      })
+      // --- Optimize: Try to get direct download link to save Vercel traffic ---
+      let response: Response
+      let isDirectDownload = false
+
+      try {
+        const directUrlResponse = await fetch("/api/download-soundcloud", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url: url.trim(), directUrl: true }),
+        })
+
+        const directData = await directUrlResponse.json()
+        if (directData.success && directData.directUrl) {
+          console.log("Using direct download link to save Vercel bandwidth")
+          // Try to download from the direct link
+          try {
+            response = await fetch(directData.directUrl)
+            if (response.ok) {
+              isDirectDownload = true
+            } else {
+              throw new Error("Direct link fetch failed")
+            }
+          } catch (e) {
+            console.warn("Direct download failed (CORS?), falling back to proxy", e)
+            // If direct download fails, fall back to the original proxy method
+            response = await fetch("/api/download-soundcloud", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ url: url.trim() }),
+            })
+          }
+        } else {
+          // If no direct link, use the original proxy method
+          response = await fetch("/api/download-soundcloud", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ url: url.trim() }),
+          })
+        }
+      } catch (e) {
+        console.warn("Direct URL check failed, falling back to proxy", e)
+        response = await fetch("/api/download-soundcloud", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url: url.trim() }),
+        })
+      }
+      // --- Optimize end ---
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({
@@ -376,7 +419,7 @@ export default function Page() {
 
       <div className="relative mx-auto max-w-6xl space-y-4 p-4">
         {/* Content Freshness Badge */}
-        <ContentFreshnessBadge lastModified={new Date("2026-02-01")} namespace="SoundCloudToWAV" />
+        <ContentFreshnessBadge lastModified={new Date("2026-02-16")} namespace="SoundCloudToWAV" />
 
         {/* Header Section - SEO Optimized */}
         <header className="text-center">
