@@ -590,7 +590,7 @@ export default function Page() {
           </div>
         </div>
 
-         <ShareButtons />
+        <ShareButtons />
 
         {/* Loading skeleton */}
         {loadingState === "loading" && !trackInfo && (

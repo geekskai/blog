@@ -16,12 +16,13 @@ import {
   WeiboShareButton,
 } from "react-share"
 import siteMetadata from "@/data/siteMetadata"
+import React from "react"
 
 const shareUrl = typeof window !== "undefined" ? window.location?.href : siteMetadata.siteUrl
 
 const title = typeof document !== "undefined" ? document.title : siteMetadata.title
 
-const ReactShare = [
+const ReactShare: React.ReactNode[] = [
   <FacebookShareButton key="facebook" url={shareUrl} title={title}>
     <FacebookIcon size={32} round />
   </FacebookShareButton>,
@@ -53,7 +54,7 @@ const ReactShare = [
 
 export default function ShareButtons() {
   return (
-    <ul className="flex flex-wrap items-center my-2 md:my-4 justify-center gap-2 md:gap-3 lg:gap-4 xl:flex-row">
+    <ul className="my-2 flex flex-wrap items-center justify-center gap-2 md:my-4 md:gap-3 lg:gap-4 xl:flex-row">
       {ReactShare.map((shareButton, index) => (
         <li className="flex items-center space-x-2" key={index}>
           {shareButton}

@@ -7,7 +7,7 @@ Sentry.init({
   sendDefaultPii: true,
   // Capture 100% in dev, 10% in production
   // Adjust based on your traffic volume
-  tracesSampleRate: process.env.NODE_ENV === "development" ? 1.0 : 0.1,
+  tracesSampleRate: process.env.NODE_ENV === "development" ? 1.0 : 1.0,
   integrations: [
     Sentry.replayIntegration({
       // 关闭默认的“所有文本都打星号”
@@ -18,7 +18,7 @@ Sentry.init({
   ],
   // Capture Replay for 10% of all sessions,
   // plus for 100% of sessions with an error
-  replaysSessionSampleRate: 0.1,
+  replaysSessionSampleRate: 1.0,
   replaysOnErrorSampleRate: 1.0,
   // Enable logs to be sent to Sentry
   enableLogs: true,

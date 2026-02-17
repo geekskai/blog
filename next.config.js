@@ -9,7 +9,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 const output = process.env.EXPORT ? "export" : undefined
 const basePath = process.env.BASE_PATH || undefined
-const unoptimized = process.env.UNOPTIMIZED ? true : undefined
+// const unoptimized = process.env.UNOPTIMIZED ? true : undefined
 
 /**
  * @type {import('next/dist/next-server/server/config').NextConfig}
@@ -163,7 +163,7 @@ module.exports = () => {
   })
 
   return withSentryConfig(nextConfig, {
-    org: "test-kdj",
+    org: "gangkai666gmailcom",
     project: "javaascript-nextjs",
   })
 }
