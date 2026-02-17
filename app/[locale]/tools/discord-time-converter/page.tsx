@@ -550,10 +550,11 @@ export default function DiscordTimeConverter() {
                 <div className="grid grid-cols-1 gap-3">
                   <button
                     onClick={() => setConversionMode("toTimestamp")}
-                    className={`rounded-xl p-4 text-center transition-all duration-300 ${conversionMode === "toTimestamp"
-                      ? "scale-105 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
-                      : "border border-white/20 bg-white/5 text-slate-300 hover:scale-105 hover:bg-white/10"
-                      }`}
+                    className={`rounded-xl p-4 text-center transition-all duration-300 ${
+                      conversionMode === "toTimestamp"
+                        ? "scale-105 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
+                        : "border border-white/20 bg-white/5 text-slate-300 hover:scale-105 hover:bg-white/10"
+                    }`}
                   >
                     <Timer className="mx-auto mb-2 h-6 w-6" />
                     <div className="text-sm font-medium">
@@ -565,10 +566,11 @@ export default function DiscordTimeConverter() {
                   </button>
                   <button
                     onClick={() => setConversionMode("fromTimestamp")}
-                    className={`rounded-xl p-4 text-center transition-all duration-300 ${conversionMode === "fromTimestamp"
-                      ? "scale-105 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
-                      : "border border-white/20 bg-white/5 text-slate-300 hover:scale-105 hover:bg-white/10"
-                      }`}
+                    className={`rounded-xl p-4 text-center transition-all duration-300 ${
+                      conversionMode === "fromTimestamp"
+                        ? "scale-105 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
+                        : "border border-white/20 bg-white/5 text-slate-300 hover:scale-105 hover:bg-white/10"
+                    }`}
                   >
                     <CalendarDays className="mx-auto mb-2 h-6 w-6" />
                     <div className="text-sm font-medium">
@@ -800,10 +802,11 @@ export default function DiscordTimeConverter() {
                               <h4 className="text-sm font-medium text-white">{combo.label}</h4>
                               <button
                                 onClick={() => copyToClipboard(combo.code, `combo-${index}`)}
-                                className={`rounded-lg p-2 transition-all ${copySuccess === `combo-${index}`
-                                  ? "bg-green-500 text-white"
-                                  : "bg-white/10 text-slate-300 hover:bg-white/20"
-                                  }`}
+                                className={`rounded-lg p-2 transition-all ${
+                                  copySuccess === `combo-${index}`
+                                    ? "bg-green-500 text-white"
+                                    : "bg-white/10 text-slate-300 hover:bg-white/20"
+                                }`}
                               >
                                 {copySuccess === `combo-${index}` ? (
                                   <CheckCircle className="h-3 w-3" />
@@ -837,10 +840,11 @@ export default function DiscordTimeConverter() {
                             <h3 className="font-medium text-white">{format.label}</h3>
                             <button
                               onClick={() => copyToClipboard(result.split(" → ")[0], format.id)}
-                              className={`rounded-lg p-2 transition-all ${copySuccess === format.id
-                                ? "bg-green-500 text-white"
-                                : "bg-white/10 text-slate-300 hover:bg-white/20"
-                                }`}
+                              className={`rounded-lg p-2 transition-all ${
+                                copySuccess === format.id
+                                  ? "bg-green-500 text-white"
+                                  : "bg-white/10 text-slate-300 hover:bg-white/20"
+                              }`}
                             >
                               {copySuccess === format.id ? (
                                 <CheckCircle className="h-4 w-4" />

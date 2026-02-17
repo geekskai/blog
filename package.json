@@ -39,6 +39,7 @@
     "gray-matter": "^4.0.2",
     "hast-util-from-html-isomorphic": "^2.0.0",
     "heic2any": "^0.0.4",
+    "hls.js": "^1.6.15",
     "html2canvas-pro": "^1.5.13",
     "image-size": "1.0.0",
     "jsdom": "^26.1.0",

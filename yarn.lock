@@ -9585,6 +9585,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hls.js@npm:^1.6.15":
+  version: 1.6.15
+  resolution: "hls.js@npm:1.6.15"
+  checksum: 7362ff6979f7d3729757ea98f8debf4146c53a019fb68933ba811382eaa7a3220829816b46bc22a87900fb00c8d1f376022ebd9f037407f590bf2d3936fda661
+  languageName: node
+  linkType: hard
+
 "html-encoding-sniffer@npm:^4.0.0":
   version: 4.0.0
   resolution: "html-encoding-sniffer@npm:4.0.0"
@@ -15122,6 +15129,7 @@ __metadata:
     gray-matter: ^4.0.2
     hast-util-from-html-isomorphic: ^2.0.0
     heic2any: ^0.0.4
+    hls.js: ^1.6.15
     html2canvas-pro: ^1.5.13
     husky: ^9.1.7
     image-size: 1.0.0

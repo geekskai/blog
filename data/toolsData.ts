@@ -81,6 +81,19 @@ export const toolsData: ToolData[] = [
     category: "Development",
   },
   {
+    id: "streaming-music-player",
+    title: "Streaming Music Player",
+    description:
+      "Streaming Music Player for your streaming music. Streaming Music Player for your streaming music. Streaming Music Player for your streaming music.",
+    icon: Music,
+    href: "/tools/streaming-music-player/",
+    features: ["Streaming Music Player"],
+    badge: "New",
+    badgeColor: "bg-blue-500",
+    gradient: gradients.development,
+    category: "Development",
+  },
+  {
     id: "convert-inches-to-decimal",
     title: "Convert Inches to Decimal",
     description:
