@@ -117,50 +117,83 @@ const MobileNav = () => {
                       />
                     </button>
 
-                    {/* Tools Dropdown */}
+                    {/* Tools Categorized for Mobile */}
                     <Transition
                       show={toolsExpanded}
                       enter="transition-all duration-300 ease-out"
                       enterFrom="opacity-0 max-h-0"
-                      enterTo="opacity-100 max-h-96"
+                      enterTo="opacity-100 max-h-[80vh]"
                       leave="transition-all duration-200 ease-in"
-                      leaveFrom="opacity-100 max-h-96"
+                      leaveFrom="opacity-100 max-h-[80vh]"
                       leaveTo="opacity-0 max-h-0"
                     >
-                      <div className="ml-4 mt-2 max-h-[60vh] space-y-1 overflow-hidden overflow-y-auto border-l-2 border-slate-800/50 pl-4">
-                        {toolsData.map((tool) => {
-                          const IconComponent = tool.icon
-                          return (
-                            <Link
-                              key={tool.id}
-                              href={tool.href}
-                              onClick={onToggleNav}
-                              className="group flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-slate-400 transition-all duration-300 hover:bg-slate-800/30 hover:text-white"
-                            >
-                              <div className="flex-shrink-0 rounded-md bg-slate-800/50 p-1.5 transition-transform duration-300 group-hover:scale-110">
-                                <IconComponent className="h-3.5 w-3.5 text-slate-400 group-hover:text-white" />
-                              </div>
-                              <div className="min-w-0 flex-1">
-                                <div className="flex items-center justify-between">
-                                  <span className="truncate font-medium group-hover:text-blue-300">
-                                    {tool.title}
-                                  </span>
-                                  <span
-                                    className={`rounded px-1.5 py-0.5 text-xs font-medium text-white ${tool.badgeColor} ml-2 flex-shrink-0`}
-                                  >
-                                    {tool.badge}
-                                  </span>
-                                </div>
-                              </div>
-                            </Link>
+                      <div className="custom-scrollbar ml-4 mt-2 space-y-4 overflow-hidden overflow-y-auto border-l-2 border-slate-800/50 pl-4">
+                        {Object.entries(
+                          toolsData.reduce(
+                            (acc, tool) => {
+                              let category = tool.category
+                              if (category === "Development") {
+                                category =
+                                  tool.title.includes("Converter") || tool.title.includes("to")
+                                    ? "Converters"
+                                    : "Dev Tools"
+                              } else if (
+                                ["Education", "Entertainment", "Finance"].includes(category)
+                              ) {
+                                category = "Others"
+                              } else if (["Productivity", "Communication"].includes(category)) {
+                                category = "Productivity"
+                              }
+                              if (!acc[category]) acc[category] = []
+                              acc[category].push(tool)
+                              return acc
+                            },
+                            {} as Record<string, typeof toolsData>
                           )
-                        })}
+                        ).map(([category, tools]) => (
+                          <div key={category} className="space-y-2">
+                            <h4 className="text-[10px] font-bold uppercase tracking-widest text-blue-400/80">
+                              {category}
+                            </h4>
+                            <div className="space-y-1">
+                              {tools.map((tool) => {
+                                return (
+                                  <Link
+                                    key={tool.id}
+                                    href={tool.href}
+                                    onClick={onToggleNav}
+                                    className="group flex items-center gap-2 rounded-lg py-1.5 text-sm text-slate-400 transition-all duration-300 hover:text-white"
+                                  >
+                                    <span className="text-slate-600 transition-colors group-hover:text-blue-400">
+                                      to
+                                    </span>
+                                    <span className="truncate group-hover:text-blue-300">
+                                      {tool.title
+                                        .split(" - ")[0]
+                                        .replace(
+                                          / Converter| Generator| Tracker| Calculator| Decoder & Lookup| Test/g,
+                                          ""
+                                        )}
+                                    </span>
+                                    {tool.badge && (
+                                      <span
+                                        className={`rounded px-1.5 py-0.5 text-[8px] font-medium text-white ${tool.badgeColor} ml-auto flex-shrink-0`}
+                                      >
+                                        {tool.badge}
+                                      </span>
+                                    )}
+                                  </Link>
+                                )
+                              })}
+                            </div>
+                          </div>
+                        ))}
 
                         {/* View All Tools */}
                         <Link
                           href="/tools"
                           onClick={onToggleNav}
-                          className="mt-4 flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-blue-400 transition-all duration-300 hover:bg-blue-500/20 hover:text-white"
+                          className="mt-4 flex items-center gap-2 rounded-xl bg-slate-800/50 px-4 py-3 text-sm font-medium text-blue-400 transition-all duration-300 hover:bg-blue-500/20 hover:text-white"
                         >
                           <Zap className="h-4 w-4" />
                           {t("footer_view_all_tools")}
