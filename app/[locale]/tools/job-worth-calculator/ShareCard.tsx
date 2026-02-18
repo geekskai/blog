@@ -804,8 +804,8 @@ const ShareCard: React.FC<ShareCardProps> = (props) => {
                                 <span className="font-medium text-gray-800">{detail.value}</span>
                               </div>
                             ) : (
-                              <div key={i} className="flex items-center justify-between">
-                                <span className="text-xs text-gray-500">{detail.label}</span>
+                              <div key={i} className="flex items-center gap-2">
+                                <span className="text-xs text-gray-500">{detail.label}:</span>
                                 <span className="text-xs font-medium text-gray-800 md:text-sm">
                                   {detail.value}
                                 </span>

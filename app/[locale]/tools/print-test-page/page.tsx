@@ -162,7 +162,7 @@ export default function PrintTestPage() {
           </h1>
 
           {/* Subtitle */}
-          <p className="mx-auto max-w-full px-0 text-sm leading-relaxed text-slate-300 md:max-w-5xl md:px-2 md:text-base md:leading-loose lg:text-lg">
+          <p className="mx-auto max-w-full px-0 text-sm leading-relaxed text-slate-300 md:max-w-6xl md:px-2 md:text-base md:leading-loose lg:text-lg">
             {t.rich("page_subtitle", {
               free: (chunks) => <strong className="text-emerald-400">{chunks}</strong>,
               instant: (chunks) => <strong className="text-blue-400">{chunks}</strong>,

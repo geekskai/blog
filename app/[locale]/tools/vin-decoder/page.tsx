@@ -29,7 +29,7 @@ import { decodeVehicle } from "./lib/api"
 import { vinCache, history, dedupeRequest } from "./lib/cache"
 import { formatVehicleSummary, exportAsJSON, exportAsCSV, exportAsText } from "./lib/mapping"
 import { Link } from "@/app/i18n/navigation"
-import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
+// import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 
 export default function VinDecoder() {
   const t = useTranslations("VinDecoder")
@@ -74,92 +74,97 @@ export default function VinDecoder() {
     }))
   }, [])
 
-  const handleDecode = useCallback(async () => {
-    const { vin, validationResult } = searchState
-    console.warn(`🚀 ~ searchState:`, searchState)
+  const handleDecode = useCallback(
+    async (vinToProcess?: string) => {
+      const vin = vinToProcess || searchState.vin
+      const validationResult = vinToProcess
+        ? validateVIN(vinToProcess)
+        : searchState.validationResult
 
-    if (!validationResult?.isValid) return
+      if (!validationResult?.isValid) return
 
-    // Set loading state
-    setSearchState((prev) => ({
-      ...prev,
-      isDecoding: true,
-      decodeResult: { status: "loading" as DecodeStatus },
-    }))
+      // Set loading state
+      setSearchState((prev) => ({
+        ...prev,
+        isDecoding: true,
+        decodeResult: { status: "loading" as DecodeStatus },
+      }))
 
-    try {
-      // Check cache first
-      const cached = vinCache.get(vin)
-      if (cached) {
+      try {
+        // Check cache first
+        const cached = vinCache.get(vin)
+        if (cached) {
+          setSearchState((prev) => ({
+            ...prev,
+            isDecoding: false,
+            decodeResult: {
+              status: "success" as DecodeStatus,
+              vehicle: cached,
+              timestamp: Date.now(),
+            },
+          }))
+          return
+        }
+
+        // Decode with deduplication
+        const vehicle = await dedupeRequest(vin, () => decodeVehicle(vin))
+
+        // Enhanced data validation - check for meaningful data
+        const hasValidData = Boolean(
+          vehicle.make ||
+            vehicle.model ||
+            vehicle.year ||
+            vehicle.manufacturing?.manufacturerName ||
+            vehicle.bodyClass ||
+            vehicle.vehicleType ||
+            vehicle.engine ||
+            vehicle.transmission ||
+            (vehicle.raw && Object.keys(vehicle.raw).length > 5)
+        )
+
+        if (!hasValidData) {
+          setSearchState((prev) => ({
+            ...prev,
+            isDecoding: false,
+            decodeResult: {
+              status: "no_data" as DecodeStatus,
+              message: t("errors.no_data_message"),
+            },
+          }))
+          return
+        }
+
+        // Success - cache and save to history
+        vinCache.set(vin, vehicle)
+        history.add(vehicle)
+        setHistoryItems(history.get())
+
         setSearchState((prev) => ({
           ...prev,
           isDecoding: false,
           decodeResult: {
             status: "success" as DecodeStatus,
-            vehicle: cached,
+            vehicle,
             timestamp: Date.now(),
           },
         }))
-        return
-      }
+      } catch (error) {
+        console.error("Decode error:", error)
+        const errorMessage =
+          error instanceof Error ? error.message : t("errors.network_error_message")
 
-      // Decode with deduplication
-      const vehicle = await dedupeRequest(vin, () => decodeVehicle(vin))
-
-      // Enhanced data validation - check for meaningful data
-      const hasValidData = Boolean(
-        vehicle.make ||
-          vehicle.model ||
-          vehicle.year ||
-          vehicle.manufacturing?.manufacturerName ||
-          vehicle.bodyClass ||
-          vehicle.vehicleType ||
-          vehicle.engine ||
-          vehicle.transmission ||
-          (vehicle.raw && Object.keys(vehicle.raw).length > 5)
-      )
-
-      if (!hasValidData) {
         setSearchState((prev) => ({
           ...prev,
           isDecoding: false,
           decodeResult: {
-            status: "no_data" as DecodeStatus,
-            message: t("errors.no_data_message"),
+            status: "network_error" as DecodeStatus,
+            message: errorMessage,
           },
         }))
-        return
       }
-
-      // Success - cache and save to history
-      vinCache.set(vin, vehicle)
-      history.add(vehicle)
-      setHistoryItems(history.get())
-
-      setSearchState((prev) => ({
-        ...prev,
-        isDecoding: false,
-        decodeResult: {
-          status: "success" as DecodeStatus,
-          vehicle,
-          timestamp: Date.now(),
-        },
-      }))
-    } catch (error) {
-      console.error("Decode error:", error)
-      const errorMessage =
-        error instanceof Error ? error.message : t("errors.network_error_message")
-
-      setSearchState((prev) => ({
-        ...prev,
-        isDecoding: false,
-        decodeResult: {
-          status: "network_error" as DecodeStatus,
-          message: errorMessage,
-        },
-      }))
-    }
-  }, [searchState, t])
+    },
+    [searchState.vin, searchState.validationResult, t]
+  )
 
   const handleHistorySelect = useCallback((item: HistoryItem) => {
     setSearchState({
@@ -275,19 +280,24 @@ export default function VinDecoder() {
 
     const params = new URLSearchParams(window.location.search)
     const vinParam = params.get("vin")
+
     if (vinParam && isValidVin(vinParam)) {
-      handleVinChange(vinParam)
+      // Update state with VIN from URL
+      setSearchState((prev) => ({
+        ...prev,
+        vin: vinParam,
+        validationResult: validateVIN(vinParam),
+      }))
+
       // Auto-decode after a short delay
-      setTimeout(() => {
-        setSearchState((prev) => ({
-          ...prev,
-          vin: vinParam,
-          validationResult: validateVIN(vinParam),
-        }))
-        handleDecode()
+      const timer = setTimeout(() => {
+        handleDecode(vinParam)
       }, 500)
+
+      return () => clearTimeout(timer)
     }
-  }, [handleVinChange, handleDecode])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
@@ -443,7 +453,7 @@ export default function VinDecoder() {
                         {searchState.decodeResult.message}
                       </p>
                       <button
-                        onClick={handleDecode}
+                        onClick={() => handleDecode()}
                         className="group relative min-h-[44px] overflow-hidden rounded-xl bg-gradient-to-r from-red-600 to-pink-600 px-5 py-2.5 text-sm font-semibold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/30 sm:rounded-2xl sm:px-6 sm:py-3 sm:text-base md:px-8 md:py-4"
                       >
                         <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
@@ -458,7 +468,7 @@ export default function VinDecoder() {
             <VinInput
               value={searchState.vin}
               onChange={handleVinChange}
-              onSubmit={handleDecode}
+              onSubmit={() => handleDecode()}
               isValid={searchState.validationResult?.isValid || false}
               error={searchState.validationResult?.error}
               isLoading={searchState.isDecoding}
