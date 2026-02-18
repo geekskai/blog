@@ -147,7 +147,7 @@ export default function CmTilTommerConverter() {
         <div className="mt-32 rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold text-white">{t("usage_guide.title")}</h2>
-            <p className="mx-auto max-w-2xl text-xl text-slate-400">
+            <p className="mx-auto max-w-7xl text-xl text-slate-400">
               {t("usage_guide.description")}
             </p>
           </div>
@@ -301,7 +301,7 @@ export default function CmTilTommerConverter() {
               <h2 className="mb-4 text-3xl font-bold text-white">
                 {t("content_sections.features_title")}
               </h2>
-              <p className="mx-auto max-w-2xl text-xl text-slate-400">
+              <p className="mx-auto max-w-7xl text-xl text-slate-400">
                 {t("content_sections.features_subtitle")}
               </p>
             </div>

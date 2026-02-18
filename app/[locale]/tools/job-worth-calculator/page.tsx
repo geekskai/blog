@@ -280,7 +280,7 @@ const SalaryCalculator = () => {
             </h1>
 
             {/* 副标题描述 */}
-            <p className="text-md mx-auto mb-4 max-w-2xl leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
+            <p className="text-md mx-auto mb-4 max-w-7xl leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
               {t("subtitle_description")}
             </p>
 

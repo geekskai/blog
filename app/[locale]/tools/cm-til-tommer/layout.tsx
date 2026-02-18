@@ -9,7 +9,7 @@ export async function generateMetadata({
   params: { locale: string }
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "CmTilTommerConverter" })
-
+  const lastModified = new Date("2026-02-18")
   // 语言映射
   const localeMap: Record<string, string> = {
     en: "en_US",
@@ -41,7 +41,6 @@ export async function generateMetadata({
     authors: [{ name: "GeeksKai" }],
     creator: "GeeksKai",
     publisher: "GeeksKai",
-
     // Open Graph
     openGraph: {
       title: t("seo_title"),
@@ -112,6 +111,7 @@ export async function generateMetadata({
       "geo.region": locale === "da" ? "DK" : locale === "no" ? "NO" : "GLOBAL",
       "geo.placename": locale === "da" ? "Denmark" : locale === "no" ? "Norway" : "Global",
       "DC.language": ogLocale.replace("_", "-"),
+      "last-modified": lastModified.toISOString(),
     },
   }
 }

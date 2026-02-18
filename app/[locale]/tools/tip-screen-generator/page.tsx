@@ -17,6 +17,7 @@ import {
   Users,
   Copy,
 } from "lucide-react"
+import { Link } from "@/app/i18n/navigation"
 import ShareButtons from "@/components/ShareButtons"
 import { useTranslations } from "next-intl"
 import {
@@ -35,7 +36,6 @@ import {
   MAX_BILL_AMOUNT,
   MIN_BILL_AMOUNT,
 } from "./constants"
-import { Link } from "@/app/i18n/navigation"
 
 // Define tip screen themes
 type TipTheme = "ipad-pos" | "uber-eats" | "dark-pattern"
@@ -360,7 +360,7 @@ const TipScreenGenerator = () => {
             {t("header.main_title")}
           </h1>
 
-          <p className="mx-auto max-w-2xl text-lg text-slate-300">{t("header.description")}</p>
+          <p className="mx-auto max-w-7xl text-lg text-slate-300">{t("header.description")}</p>
 
           {/* Share Button */}
           <div className="mt-6 flex justify-center">

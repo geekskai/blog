@@ -1,6 +1,7 @@
 import { supportedLocales } from "app/i18n/routing"
 import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
+import React from "react"
 
 export const revalidate = 86400 // 24 hours
 export async function generateMetadata({
@@ -13,6 +14,7 @@ export async function generateMetadata({
   const languages = {
     "x-default": "https://geekskai.com/tools/tip-screen-generator/",
   }
+  const lastModified = new Date("2026-02-18")
 
   supportedLocales.forEach((locale) => {
     languages[locale] = `https://geekskai.com/${locale}/tools/tip-screen-generator/`
@@ -21,6 +23,9 @@ export async function generateMetadata({
     title: t("seo_title"),
     description: t("seo_description"),
     keywords: t("seo_keywords").split(", "),
+    other: {
+      "last-modified": lastModified.toISOString(),
+    },
     openGraph: {
       title: t("seo_title"),
       description: t("seo_description"),

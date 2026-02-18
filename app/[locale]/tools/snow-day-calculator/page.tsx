@@ -540,7 +540,7 @@ export default function SnowDayCalculator() {
                       {t("search.type_selector.title")}
                     </h2>
                   </div>
-                  <p className="mx-auto max-w-2xl text-slate-300">
+                  <p className="mx-auto max-w-7xl text-slate-300">
                     {t.rich("search.type_selector.description", {
                       strong: (chunks) => <strong className="text-white">{chunks}</strong>,
                     })}
@@ -675,7 +675,7 @@ export default function SnowDayCalculator() {
                           : t("search.type_selector.coords.label")}
                     </span>
                   </h3>
-                  <p className="mx-auto max-w-2xl text-slate-300">
+                  <p className="mx-auto max-w-7xl text-slate-300">
                     {searchType === "zip" && t("search.type_selector.zip.description")}
                     {searchType === "city" && t("search.type_selector.city.description")}
                     {searchType === "coords" && t("search.type_selector.coords.description")}
@@ -908,7 +908,7 @@ export default function SnowDayCalculator() {
                     {t("results.chance_label", { level: weatherData.snowDay.level })}
                   </div>
 
-                  <div className="mx-auto max-w-2xl text-lg font-medium text-white/90 drop-shadow-sm">
+                  <div className="mx-auto max-w-7xl text-lg font-medium text-white/90 drop-shadow-sm">
                     {weatherData.snowDay.recommendation}
                   </div>
                 </div>
@@ -1425,7 +1425,7 @@ export default function SnowDayCalculator() {
               <span className="text-2xl">❓</span>
               <h2 className="text-2xl font-bold text-white">{t("faq.title")}</h2>
             </div>
-            <p className="mx-auto max-w-2xl text-slate-400">
+            <p className="mx-auto max-w-7xl text-slate-400">
               {t.rich("faq.description", {
                 strong: (chunks) => <strong className="text-blue-300">{chunks}</strong>,
               })}

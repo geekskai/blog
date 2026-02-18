@@ -113,7 +113,7 @@ export default function CcmToHpConverter() {
         <div className="mt-32 rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold text-white">{t("usage_guide.title")}</h2>
-            <p className="mx-auto max-w-2xl text-xl text-slate-400">
+            <p className="mx-auto max-w-7xl text-xl text-slate-400">
               {t("usage_guide.description")}
             </p>
           </div>
@@ -246,7 +246,7 @@ export default function CcmToHpConverter() {
 
           {/* CTA Section */}
           <div className="mt-16 text-center">
-            <div className="mx-auto max-w-2xl rounded-3xl border border-white/10 bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-8 backdrop-blur-sm">
+            <div className="mx-auto max-w-7xl rounded-3xl border border-white/10 bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-8 backdrop-blur-sm">
               <h3 className="mb-4 text-2xl font-bold text-white">{t("final_cta.title")}</h3>
               <p className="mb-6 text-slate-300">{t("final_cta.description")}</p>
               <a

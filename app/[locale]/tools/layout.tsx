@@ -16,7 +16,7 @@ type Props = {
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: "ToolsPage" })
-
+  const lastModified = new Date("2026-02-18")
   // 语言映射
   const localeMap: Record<string, string> = {
     en: "en_US",
@@ -118,6 +118,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
       "apple-mobile-web-app-status-bar-style": "black-translucent",
       "theme-color": "#0f172a",
       "DC.language": ogLocale.replace("_", "-"),
+      "last-modified": lastModified.toISOString(),
     },
   }
 }

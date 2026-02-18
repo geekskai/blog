@@ -138,7 +138,7 @@ export const StartScreen: React.FC<StartScreenProps> = ({ onStart }) => {
         <div className="mx-auto max-w-6xl px-4">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold text-white">{t("start_features_title")}</h2>
-            <p className="mx-auto max-w-2xl text-lg text-slate-400">
+            <p className="mx-auto max-w-7xl text-lg text-slate-400">
               {t("start_features_subtitle")}
             </p>
           </div>

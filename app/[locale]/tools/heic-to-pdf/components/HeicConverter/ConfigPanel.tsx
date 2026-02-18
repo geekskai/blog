@@ -53,7 +53,7 @@ const ConfigPanel: React.FC<ConfigPanelProps> = ({
         tabIndex={-1}
       />
       <div
-        className="animate-fade-in relative z-10 flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/25 via-teal-500/20 to-cyan-500/25 p-8 shadow-2xl backdrop-blur-xl"
+        className="animate-fade-in relative z-10 flex max-h-[90vh] w-full max-w-7xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/25 via-teal-500/20 to-cyan-500/25 p-8 shadow-2xl backdrop-blur-xl"
         onClick={(e) => e.stopPropagation()}
         onKeyDown={(e) => {
           // Stop propagation for keyboard events

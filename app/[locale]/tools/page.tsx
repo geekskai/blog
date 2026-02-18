@@ -228,7 +228,7 @@ export default function ToolsPage() {
                 {t("tools_professional_tools")}
               </span>
             </h2>
-            <p className="mx-auto max-w-2xl text-lg text-slate-300">
+            <p className="mx-auto max-w-7xl text-lg text-slate-300">
               {t(
                 "tools_hand_picked_tools_designed_to_streamline_your_workflow_and_boost_productivity"
               )}
@@ -524,7 +524,7 @@ export default function ToolsPage() {
             </h2>
 
             {/* Enhanced Description */}
-            <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-slate-300">
+            <p className="mx-auto mb-10 max-w-7xl text-lg leading-relaxed text-slate-300">
               {t(
                 "tools_join_our_mission_to_build_tools_that_empower_creators_and_solve_real_problems"
               )}

@@ -10,7 +10,7 @@ export async function generateMetadata({
   params: { locale: string }
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "PixelsToInchesConverter" })
-
+  const lastModified = new Date("2026-02-18")
   // 语言映射
   const localeMap: Record<string, string> = {
     en: "en_US",
@@ -99,6 +99,7 @@ export async function generateMetadata({
 
     // Verification and other meta tags
     other: {
+      "last-modified": lastModified.toISOString(),
       "application-name": t("page_title"),
       "apple-mobile-web-app-title": t("page_title"),
       "format-detection": "telephone=no",

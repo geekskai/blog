@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 import { supportedLocales } from "app/i18n/routing"
+import React from "react"
 
 export async function generateMetadata({
   params: { locale },
@@ -9,6 +10,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "RandomVinGenerator" })
   const isDefaultLocale = locale === "en"
+
+  const lastModified = new Date("2026-02-18")
 
   const languages = {
     "x-default": "https://geekskai.com/tools/random-vin-generator/",
@@ -22,6 +25,9 @@ export async function generateMetadata({
     title: t("seo_title"),
     description: t("seo_description"),
     keywords: t("seo_keywords").split(", "),
+    other: {
+      "last-modified": lastModified.toISOString(),
+    },
     openGraph: {
       title: t("seo_title"),
       description: t("seo_description"),

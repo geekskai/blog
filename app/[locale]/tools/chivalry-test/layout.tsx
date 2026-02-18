@@ -18,11 +18,15 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
   supportedLocales.forEach((loc) => {
     languages[loc] = `https://geekskai.com/${loc}/tools/chivalry-test/`
   })
+  const lastModified = new Date("2026-02-18")
 
   return {
     title: t("seo_title"),
     description: t("seo_description"),
     keywords: t("seo_keywords").split(", "),
+    other: {
+      "last-modified": lastModified.toISOString(),
+    },
     openGraph: {
       title: t("seo_title"),
       description: t("seo_description"),

@@ -8,6 +8,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "SnowDayCalculator" })
   const isDefaultLocale = locale === "en"
+  const lastModified = new Date("2026-02-18")
 
   const baseUrl = "https://geekskai.com"
   const toolPath = "/tools/snow-day-calculator/"
@@ -68,7 +69,7 @@ export async function generateMetadata({
       "apple-mobile-web-app-status-bar-style": "default",
       "apple-mobile-web-app-title": t("application_name"),
       "format-detection": "telephone=no",
-      "last-modified": "2025-01-24T00:00:00Z",
+      "last-modified": lastModified.toISOString(),
       "update-frequency": "monthly",
       "next-review": "2025-02-24T00:00:00Z",
     },

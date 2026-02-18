@@ -10,7 +10,7 @@ export async function generateMetadata({
   params: { locale: string }
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "CmToTommerConverter" })
-
+  const lastModified = new Date("2026-02-18")
   const isDefaultLocale = locale === "en"
   const languages = {
     "x-default": "https://geekskai.com/tools/cm-to-tommer-converter/",
@@ -27,7 +27,6 @@ export async function generateMetadata({
     authors: [{ name: "GeeksKai" }],
     creator: "GeeksKai",
     publisher: "GeeksKai",
-
     // Open Graph
     openGraph: {
       title: t("seo_title"),
@@ -92,6 +91,7 @@ export async function generateMetadata({
       "mobile-web-app-capable": "yes",
       "apple-mobile-web-app-capable": "yes",
       "apple-mobile-web-app-status-bar-style": "black-translucent",
+      "last-modified": lastModified.toISOString(),
     },
   }
 }

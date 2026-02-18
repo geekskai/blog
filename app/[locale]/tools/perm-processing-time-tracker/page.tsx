@@ -321,7 +321,7 @@ export default function PERMProcessingTimeTracker() {
           <div className="mt-20">
             <div className="mb-12 text-center">
               <h2 className="mb-4 text-3xl font-bold text-white">{t("features.title")}</h2>
-              <p className="mx-auto max-w-2xl text-lg text-slate-400">{t("features.subtitle")}</p>
+              <p className="mx-auto max-w-7xl text-lg text-slate-400">{t("features.subtitle")}</p>
             </div>
 
             <div className="grid gap-8 md:grid-cols-3">

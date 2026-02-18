@@ -11,7 +11,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "CmToPmConverter" })
   const isDefaultLocale = locale === "en"
-
+  const lastModified = new Date("2026-02-18")
   const languages = {
     "x-default": "https://geekskai.com/tools/cm-to-pm-converter",
   }
@@ -83,6 +83,7 @@ export async function generateMetadata({
 
     // Verification and other meta tags
     other: {
+      "last-modified": lastModified.toISOString(),
       "application-name": "CM to PM Scientific Converter",
       "apple-mobile-web-app-title": "CM to PM Converter",
       "format-detection": "telephone=no",

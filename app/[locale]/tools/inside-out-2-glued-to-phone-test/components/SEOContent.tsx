@@ -51,7 +51,7 @@ export const SEOContent: React.FC = () => {
       {/* Features Section */}
       <div className="mb-16 text-center">
         <h2 className="mb-4 text-3xl font-bold text-white">{t("page_features_title")}</h2>
-        <p className="mx-auto max-w-2xl text-xl text-slate-400">{t("page_features_subtitle")}</p>
+        <p className="mx-auto max-w-7xl text-xl text-slate-400">{t("page_features_subtitle")}</p>
       </div>
 
       <div className="grid gap-8 md:grid-cols-3">
@@ -96,7 +96,7 @@ export const SEOContent: React.FC = () => {
       <div className="mt-32 rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
         <div className="mb-12 text-center">
           <h2 className="mb-4 text-3xl font-bold text-white">{t("page_how_it_works_title")}</h2>
-          <p className="mx-auto max-w-2xl text-xl text-slate-400">
+          <p className="mx-auto max-w-7xl text-xl text-slate-400">
             {t("page_how_it_works_subtitle")}
           </p>
         </div>

@@ -5,18 +5,26 @@ import { useTranslations } from "next-intl"
 const EducationalContent = () => {
   const t = useTranslations("RandomVinGenerator.educational_content")
   return (
-    <div className="mt-20 space-y-16">
+    <div className="mt-12 space-y-8 sm:space-y-12 md:mt-16 md:space-y-16 lg:mt-20">
       {/* VIN Structure Section */}
-      <section className="rounded-xl bg-gradient-to-r from-emerald-800 to-teal-700 p-8">
-        <h2 className="mb-6 text-2xl font-bold text-white">{t("vin_structure_title")}</h2>
-        <div className="grid gap-6 md:grid-cols-2">
+      <section className="rounded-xl bg-gradient-to-r from-emerald-800 to-teal-700 p-4 sm:p-6 md:p-8">
+        <h2 className="mb-4 text-lg font-bold text-white sm:text-xl md:mb-6 md:text-2xl">
+          {t("vin_structure_title")}
+        </h2>
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
           <div>
-            <p className="mb-4 text-slate-200">{t("vin_structure_desc")}</p>
-            <p className="text-slate-200">{t("vin_structure_desc2")}</p>
+            <p className="mb-3 text-xs text-slate-200 sm:text-sm md:mb-4 md:text-base">
+              {t("vin_structure_desc")}
+            </p>
+            <p className="text-xs text-slate-200 sm:text-sm md:text-base">
+              {t("vin_structure_desc2")}
+            </p>
           </div>
-          <div className="rounded-lg bg-emerald-900/30 p-6">
-            <h3 className="mb-3 text-lg font-semibold text-white">{t("character_positions")}</h3>
-            <ul className="space-y-2 text-slate-200">
+          <div className="rounded-lg bg-emerald-900/30 p-4 sm:p-6">
+            <h3 className="mb-2 text-base font-semibold text-white sm:mb-3 sm:text-lg">
+              {t("character_positions")}
+            </h3>
+            <ul className="space-y-1.5 text-xs text-slate-200 sm:space-y-2 sm:text-sm md:text-base">
               <li>
                 • <strong>{t("positions_1_3")}</strong> {t("positions_1_3_desc")}
               </li>
@@ -41,68 +49,100 @@ const EducationalContent = () => {
       </section>
 
       {/* VIN Validation */}
-      <section className="rounded-xl bg-gradient-to-r from-orange-800 to-red-700 p-8">
-        <h2 className="mb-6 text-2xl font-bold text-white">{t("validation_title")}</h2>
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="rounded-lg bg-orange-900/30 p-6">
-            <div className="mb-3 flex items-center gap-2">
-              <Code className="h-5 w-5 text-orange-300" />
-              <h3 className="text-lg font-semibold text-white">{t("check_digit_algorithm")}</h3>
+      <section className="rounded-xl bg-gradient-to-r from-orange-800 to-red-700 p-4 sm:p-6 md:p-8">
+        <h2 className="mb-4 text-lg font-bold text-white sm:text-xl md:mb-6 md:text-2xl">
+          {t("validation_title")}
+        </h2>
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
+          <div className="rounded-lg bg-orange-900/30 p-4 sm:p-6">
+            <div className="mb-2 flex items-center gap-2 sm:mb-3">
+              <Code className="h-4 w-4 flex-shrink-0 text-orange-300 sm:h-5 sm:w-5" />
+              <h3 className="text-sm font-semibold text-white sm:text-base md:text-lg">
+                {t("check_digit_algorithm")}
+              </h3>
             </div>
-            <p className="text-slate-200">{t("check_digit_algorithm_desc")}</p>
+            <p className="text-xs text-slate-200 sm:text-sm md:text-base">
+              {t("check_digit_algorithm_desc")}
+            </p>
           </div>
-          <div className="rounded-lg bg-orange-900/30 p-6">
-            <div className="mb-3 flex items-center gap-2">
-              <Car className="h-5 w-5 text-orange-300" />
-              <h3 className="text-lg font-semibold text-white">{t("manufacturer_codes")}</h3>
+          <div className="rounded-lg bg-orange-900/30 p-4 sm:p-6">
+            <div className="mb-2 flex items-center gap-2 sm:mb-3">
+              <Car className="h-4 w-4 flex-shrink-0 text-orange-300 sm:h-5 sm:w-5" />
+              <h3 className="text-sm font-semibold text-white sm:text-base md:text-lg">
+                {t("manufacturer_codes")}
+              </h3>
             </div>
-            <p className="text-slate-200">{t("manufacturer_codes_desc")}</p>
+            <p className="text-xs text-slate-200 sm:text-sm md:text-base">
+              {t("manufacturer_codes_desc")}
+            </p>
           </div>
-          <div className="rounded-lg bg-orange-900/30 p-6">
-            <div className="mb-3 flex items-center gap-2">
-              <Wrench className="h-5 w-5 text-orange-300" />
-              <h3 className="text-lg font-semibold text-white">{t("year_encoding")}</h3>
+          <div className="rounded-lg bg-orange-900/30 p-4 sm:p-6">
+            <div className="mb-2 flex items-center gap-2 sm:mb-3">
+              <Wrench className="h-4 w-4 flex-shrink-0 text-orange-300 sm:h-5 sm:w-5" />
+              <h3 className="text-sm font-semibold text-white sm:text-base md:text-lg">
+                {t("year_encoding")}
+              </h3>
             </div>
-            <p className="text-slate-200">{t("year_encoding_desc")}</p>
+            <p className="text-xs text-slate-200 sm:text-sm md:text-base">
+              {t("year_encoding_desc")}
+            </p>
           </div>
         </div>
       </section>
 
       {/* Testing Best Practices */}
-      <section className="rounded-xl bg-gradient-to-r from-purple-800 to-pink-700 p-8">
-        <h2 className="mb-6 text-2xl font-bold text-white">{t("testing_best_practices")}</h2>
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="rounded-lg bg-purple-900/30 p-6">
-            <div className="mb-3 flex items-center gap-2">
-              <Shield className="h-5 w-5 text-purple-300" />
-              <h3 className="text-lg font-semibold text-white">{t("security_first")}</h3>
+      <section className="rounded-xl bg-gradient-to-r from-purple-800 to-pink-700 p-4 sm:p-6 md:p-8">
+        <h2 className="mb-4 text-lg font-bold text-white sm:text-xl md:mb-6 md:text-2xl">
+          {t("testing_best_practices")}
+        </h2>
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
+          <div className="rounded-lg bg-purple-900/30 p-4 sm:p-6">
+            <div className="mb-2 flex items-center gap-2 sm:mb-3">
+              <Shield className="h-4 w-4 flex-shrink-0 text-purple-300 sm:h-5 sm:w-5" />
+              <h3 className="text-sm font-semibold text-white sm:text-base md:text-lg">
+                {t("security_first")}
+              </h3>
             </div>
-            <p className="text-slate-200">{t("security_first_desc")}</p>
+            <p className="text-xs text-slate-200 sm:text-sm md:text-base">
+              {t("security_first_desc")}
+            </p>
           </div>
-          <div className="rounded-lg bg-purple-900/30 p-6">
-            <div className="mb-3 flex items-center gap-2">
-              <Code className="h-5 w-5 text-purple-300" />
-              <h3 className="text-lg font-semibold text-white">{t("testing_scenarios")}</h3>
+          <div className="rounded-lg bg-purple-900/30 p-4 sm:p-6">
+            <div className="mb-2 flex items-center gap-2 sm:mb-3">
+              <Code className="h-4 w-4 flex-shrink-0 text-purple-300 sm:h-5 sm:w-5" />
+              <h3 className="text-sm font-semibold text-white sm:text-base md:text-lg">
+                {t("testing_scenarios")}
+              </h3>
             </div>
-            <p className="text-slate-200">{t("testing_scenarios_desc")}</p>
+            <p className="text-xs text-slate-200 sm:text-sm md:text-base">
+              {t("testing_scenarios_desc")}
+            </p>
           </div>
-          <div className="rounded-lg bg-purple-900/30 p-6">
-            <div className="mb-3 flex items-center gap-2">
-              <Book className="h-5 w-5 text-purple-300" />
-              <h3 className="text-lg font-semibold text-white">{t("documentation")}</h3>
+          <div className="rounded-lg bg-purple-900/30 p-4 sm:p-6">
+            <div className="mb-2 flex items-center gap-2 sm:mb-3">
+              <Book className="h-4 w-4 flex-shrink-0 text-purple-300 sm:h-5 sm:w-5" />
+              <h3 className="text-sm font-semibold text-white sm:text-base md:text-lg">
+                {t("documentation")}
+              </h3>
             </div>
-            <p className="text-slate-200">{t("documentation_desc")}</p>
+            <p className="text-xs text-slate-200 sm:text-sm md:text-base">
+              {t("documentation_desc")}
+            </p>
           </div>
         </div>
       </section>
 
       {/* VIN Character Rules */}
-      <section className="rounded-xl bg-gradient-to-r from-blue-800 to-indigo-700 p-8">
-        <h2 className="mb-6 text-2xl font-bold text-white">{t("character_rules_title")}</h2>
-        <div className="grid gap-6 md:grid-cols-2">
+      <section className="rounded-xl bg-gradient-to-r from-blue-800 to-indigo-700 p-4 sm:p-6 md:p-8">
+        <h2 className="mb-4 text-lg font-bold text-white sm:text-xl md:mb-6 md:text-2xl">
+          {t("character_rules_title")}
+        </h2>
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-white">{t("valid_characteristics")}</h3>
-            <ul className="space-y-2 text-slate-200">
+            <h3 className="mb-3 text-base font-semibold text-white sm:mb-4 sm:text-lg">
+              {t("valid_characteristics")}
+            </h3>
+            <ul className="space-y-1.5 text-xs text-slate-200 sm:space-y-2 sm:text-sm md:text-base">
               <li>✅ {t("valid_17_chars")}</li>
               <li>✅ {t("valid_chars")}</li>
               <li>✅ {t("valid_excludes")}</li>
@@ -112,8 +152,10 @@ const EducationalContent = () => {
             </ul>
           </div>
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-white">{t("invalid_patterns")}</h3>
-            <ul className="space-y-2 text-slate-200">
+            <h3 className="mb-3 text-base font-semibold text-white sm:mb-4 sm:text-lg">
+              {t("invalid_patterns")}
+            </h3>
+            <ul className="space-y-1.5 text-xs text-slate-200 sm:space-y-2 sm:text-sm md:text-base">
               <li>❌ {t("invalid_ioq")}</li>
               <li>❌ {t("invalid_length")}</li>
               <li>❌ {t("invalid_check_digit")}</li>
@@ -126,52 +168,76 @@ const EducationalContent = () => {
       </section>
 
       {/* Use Cases */}
-      <section className="rounded-xl bg-gradient-to-r from-slate-800 to-slate-700 p-8">
-        <h2 className="mb-6 text-2xl font-bold text-white">{t("use_cases_title")}</h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          <div className="rounded-lg bg-slate-800 p-4">
-            <h3 className="mb-2 font-semibold text-white">🚗 {t("automotive_testing")}</h3>
-            <p className="text-sm text-slate-200">{t("automotive_testing_desc")}</p>
+      <section className="rounded-xl bg-gradient-to-r from-slate-800 to-slate-700 p-4 sm:p-6 md:p-8">
+        <h2 className="mb-4 text-lg font-bold text-white sm:text-xl md:mb-6 md:text-2xl">
+          {t("use_cases_title")}
+        </h2>
+        <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 md:gap-6 lg:grid-cols-4">
+          <div className="rounded-lg bg-slate-800 p-3 sm:p-4">
+            <h3 className="mb-1.5 text-sm font-semibold text-white sm:mb-2 sm:text-base">
+              🚗 {t("automotive_testing")}
+            </h3>
+            <p className="text-xs text-slate-200 sm:text-sm">{t("automotive_testing_desc")}</p>
           </div>
-          <div className="rounded-lg bg-slate-800 p-4">
-            <h3 className="mb-2 font-semibold text-white">🏫 {t("education")}</h3>
-            <p className="text-sm text-slate-200">{t("education_desc")}</p>
+          <div className="rounded-lg bg-slate-800 p-3 sm:p-4">
+            <h3 className="mb-1.5 text-sm font-semibold text-white sm:mb-2 sm:text-base">
+              🏫 {t("education")}
+            </h3>
+            <p className="text-xs text-slate-200 sm:text-sm">{t("education_desc")}</p>
           </div>
-          <div className="rounded-lg bg-slate-800 p-4">
-            <h3 className="mb-2 font-semibold text-white">🔧 {t("development")}</h3>
-            <p className="text-sm text-slate-200">{t("development_desc")}</p>
+          <div className="rounded-lg bg-slate-800 p-3 sm:p-4">
+            <h3 className="mb-1.5 text-sm font-semibold text-white sm:mb-2 sm:text-base">
+              🔧 {t("development")}
+            </h3>
+            <p className="text-xs text-slate-200 sm:text-sm">{t("development_desc")}</p>
           </div>
-          <div className="rounded-lg bg-slate-800 p-4">
-            <h3 className="mb-2 font-semibold text-white">📊 {t("analytics")}</h3>
-            <p className="text-sm text-slate-200">{t("analytics_desc")}</p>
+          <div className="rounded-lg bg-slate-800 p-3 sm:p-4">
+            <h3 className="mb-1.5 text-sm font-semibold text-white sm:mb-2 sm:text-base">
+              📊 {t("analytics")}
+            </h3>
+            <p className="text-xs text-slate-200 sm:text-sm">{t("analytics_desc")}</p>
           </div>
         </div>
       </section>
 
       {/* Automotive Compliance */}
-      <section className="rounded-xl bg-gradient-to-r from-green-800 to-emerald-700 p-8">
-        <h2 className="mb-6 text-2xl font-bold text-white">{t("compliance_title")}</h2>
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="rounded-lg bg-green-900/30 p-6">
-            <div className="mb-3 flex items-center gap-2">
-              <AlertTriangle className="h-5 w-5 text-yellow-400" />
-              <h3 className="text-lg font-semibold text-white">{t("iso_standard")}</h3>
+      <section className="rounded-xl bg-gradient-to-r from-green-800 to-emerald-700 p-4 sm:p-6 md:p-8">
+        <h2 className="mb-4 text-lg font-bold text-white sm:text-xl md:mb-6 md:text-2xl">
+          {t("compliance_title")}
+        </h2>
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
+          <div className="rounded-lg bg-green-900/30 p-4 sm:p-6">
+            <div className="mb-2 flex items-center gap-2 sm:mb-3">
+              <AlertTriangle className="h-4 w-4 flex-shrink-0 text-yellow-400 sm:h-5 sm:w-5" />
+              <h3 className="text-sm font-semibold text-white sm:text-base md:text-lg">
+                {t("iso_standard")}
+              </h3>
             </div>
-            <p className="text-slate-300">{t("iso_standard_desc")}</p>
+            <p className="text-xs text-slate-300 sm:text-sm md:text-base">
+              {t("iso_standard_desc")}
+            </p>
           </div>
-          <div className="rounded-lg bg-green-900/30 p-6">
-            <div className="mb-3 flex items-center gap-2">
-              <Shield className="h-5 w-5 text-green-400" />
-              <h3 className="text-lg font-semibold text-white">{t("data_protection")}</h3>
+          <div className="rounded-lg bg-green-900/30 p-4 sm:p-6">
+            <div className="mb-2 flex items-center gap-2 sm:mb-3">
+              <Shield className="h-4 w-4 flex-shrink-0 text-green-400 sm:h-5 sm:w-5" />
+              <h3 className="text-sm font-semibold text-white sm:text-base md:text-lg">
+                {t("data_protection")}
+              </h3>
             </div>
-            <p className="text-slate-300">{t("data_protection_desc")}</p>
+            <p className="text-xs text-slate-300 sm:text-sm md:text-base">
+              {t("data_protection_desc")}
+            </p>
           </div>
-          <div className="rounded-lg bg-green-900/30 p-6">
-            <div className="mb-3 flex items-center gap-2">
-              <Book className="h-5 w-5 text-blue-400" />
-              <h3 className="text-lg font-semibold text-white">{t("ethical_usage")}</h3>
+          <div className="rounded-lg bg-green-900/30 p-4 sm:p-6">
+            <div className="mb-2 flex items-center gap-2 sm:mb-3">
+              <Book className="h-4 w-4 flex-shrink-0 text-blue-400 sm:h-5 sm:w-5" />
+              <h3 className="text-sm font-semibold text-white sm:text-base md:text-lg">
+                {t("ethical_usage")}
+              </h3>
             </div>
-            <p className="text-slate-300">{t("ethical_usage_desc")}</p>
+            <p className="text-xs text-slate-300 sm:text-sm md:text-base">
+              {t("ethical_usage_desc")}
+            </p>
           </div>
         </div>
       </section>

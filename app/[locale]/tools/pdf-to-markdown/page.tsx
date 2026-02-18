@@ -387,7 +387,7 @@ const PdfToMarkdown = () => {
             PDF to Markdown Converter
           </h1>
 
-          <p className="mx-auto max-w-2xl text-lg text-slate-300">
+          <p className="mx-auto max-w-7xl text-lg text-slate-300">
             Professional PDF to Markdown converter online. Convert PDF to MD format instantly with
             our <strong>free</strong> PDF markdown converter. Extract text from PDF documents and
             transform to clean, editable Markdown files. <strong>No registration required</strong>,{" "}

@@ -12,7 +12,7 @@ export const ContentSections: React.FC = () => {
           <h2 className="mb-4 text-3xl font-bold text-white">
             {t("content.professional_features")}
           </h2>
-          <p className="mx-auto max-w-2xl text-xl text-slate-400">
+          <p className="mx-auto max-w-7xl text-xl text-slate-400">
             {t("content.features_description")}
           </p>
         </div>

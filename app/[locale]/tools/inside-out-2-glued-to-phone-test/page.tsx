@@ -155,7 +155,7 @@ const EmotionPhoneTest: React.FC = () => {
                 {/* Features Section */}
                 <div className="mb-16 text-center">
                   <h2 className="mb-4 text-3xl font-bold text-white">{t("page_features_title")}</h2>
-                  <p className="mx-auto max-w-2xl text-xl text-slate-400">
+                  <p className="mx-auto max-w-7xl text-xl text-slate-400">
                     {t("page_features_subtitle")}
                   </p>
                 </div>
@@ -210,7 +210,7 @@ const EmotionPhoneTest: React.FC = () => {
                     <h2 className="mb-4 text-3xl font-bold text-white">
                       {t("page_how_it_works_title")}
                     </h2>
-                    <p className="mx-auto max-w-2xl text-xl text-slate-400">
+                    <p className="mx-auto max-w-7xl text-xl text-slate-400">
                       {t("page_how_it_works_subtitle")}
                     </p>
                   </div>

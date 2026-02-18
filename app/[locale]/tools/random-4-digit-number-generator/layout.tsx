@@ -9,6 +9,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "Random4DigitNumberGenerator" })
   const isDefaultLocale = locale === "en"
+  const lastModified = new Date("2026-02-18")
 
   const title = t("seo_title")
   const description = t("seo_description")
@@ -76,6 +77,9 @@ export async function generateMetadata({
       },
     },
     category: "Technology",
+    other: {
+      "last-modified": lastModified.toISOString(),
+    },
   }
 }
 

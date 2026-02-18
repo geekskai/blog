@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useRef, useCallback, useEffect } from "react"
+import React, { useState, useRef, useCallback } from "react"
 import { useTranslations } from "next-intl"
 import {
   Palette,
@@ -19,7 +19,6 @@ import {
   Wand2,
 } from "lucide-react"
 import { Link } from "@/app/i18n/navigation"
-// import ShareButtons from "@/components/ShareButtons"
 
 // Color themes inspired by Chromakopia
 const chromaColors = [
@@ -359,7 +358,7 @@ const ChromakopiaNameGenerator = () => {
             {t("header.main_title")}
           </h1>
 
-          <p className="mx-auto max-w-2xl text-lg text-slate-300">{t("header.description")}</p>
+          <p className="mx-auto max-w-7xl text-lg text-slate-300">{t("header.description")}</p>
         </div>
 
         {/* Main Content */}

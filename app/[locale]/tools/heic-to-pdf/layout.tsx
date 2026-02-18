@@ -10,6 +10,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "HeicToPdf" })
 
   const isDefaultLocale = locale === "en"
+  const lastModified = new Date("2026-02-18")
 
   const languages = {
     "x-default": "https://geekskai.com/tools/heic-to-pdf/",
@@ -23,6 +24,9 @@ export async function generateMetadata({
     title: t("seo_title"),
     description: t("seo_description"),
     keywords: t("seo_keywords").split(", "),
+    other: {
+      "last-modified": lastModified.toISOString(),
+    },
     openGraph: {
       title: t("seo_title"),
       description: t("seo_description"),

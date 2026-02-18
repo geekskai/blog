@@ -159,7 +159,7 @@ export default function PixelsToInchesConverter() {
             <h2 className="mb-4 text-3xl font-bold text-white">
               {t("conversion_examples_section.title")}
             </h2>
-            <p className="mx-auto max-w-2xl text-xl text-slate-400">
+            <p className="mx-auto max-w-7xl text-xl text-slate-400">
               {t("conversion_examples_section.subtitle")}
             </p>
           </div>
@@ -203,7 +203,7 @@ export default function PixelsToInchesConverter() {
         <div className="mt-32 rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold text-white">{t("usage_guide.title")}</h2>
-            <p className="mx-auto max-w-2xl text-xl text-slate-400">
+            <p className="mx-auto max-w-7xl text-xl text-slate-400">
               {t("usage_guide.description")}
             </p>
           </div>
@@ -251,7 +251,7 @@ export default function PixelsToInchesConverter() {
         <div className="mt-32">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold text-white">{t("features_section.title")}</h2>
-            <p className="mx-auto max-w-2xl text-xl text-slate-400">
+            <p className="mx-auto max-w-7xl text-xl text-slate-400">
               {t("features_section.subtitle")}
             </p>
           </div>
@@ -299,7 +299,7 @@ export default function PixelsToInchesConverter() {
         <div className="mt-32 rounded-3xl border border-white/10 bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-orange-500/10 p-12 shadow-2xl backdrop-blur-xl">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold text-white">{t("use_cases_section.title")}</h2>
-            <p className="mx-auto max-w-2xl text-xl text-slate-400">
+            <p className="mx-auto max-w-7xl text-xl text-slate-400">
               {t("use_cases_section.subtitle")}
             </p>
           </div>

@@ -48,13 +48,19 @@ const FAQSection = () => {
   ]
 
   return (
-    <section className="mt-20 rounded-xl bg-slate-800 p-8">
-      <h2 className="mb-6 text-2xl font-bold text-white">{t("title")}</h2>
-      <div className="space-y-6">
+    <section className="mt-12 rounded-xl bg-slate-800 p-4 sm:p-6 md:mt-16 md:p-8 lg:mt-20">
+      <h2 className="mb-4 text-lg font-bold text-white sm:text-xl md:mb-6 md:text-2xl">
+        {t("title")}
+      </h2>
+      <div className="space-y-4 sm:space-y-6">
         {faqs.map((faq, index) => (
-          <div key={index} className="border-b border-slate-700 pb-4 last:border-b-0">
-            <h3 className="mb-2 text-lg font-semibold text-white">{faq.question}</h3>
-            <p className="leading-relaxed text-slate-400">{faq.answer}</p>
+          <div key={index} className="border-b border-slate-700 pb-3 last:border-b-0 sm:pb-4">
+            <h3 className="mb-1.5 text-sm font-semibold leading-snug text-white sm:mb-2 sm:text-base md:text-lg">
+              {faq.question}
+            </h3>
+            <p className="text-xs leading-relaxed text-slate-400 sm:text-sm md:text-base">
+              {faq.answer}
+            </p>
           </div>
         ))}
       </div>

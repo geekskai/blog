@@ -104,7 +104,7 @@ export default function HtmlToMarkdownConverter() {
             {t("header.main_title")}
           </h1>
 
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-slate-300">{t("header.description")}</p>
+          <p className="mx-auto mb-8 max-w-7xl text-lg text-slate-300">{t("header.description")}</p>
 
           {/* Core Facts Section - Optimized for AI Retrieval */}
           <section className="mx-auto mb-8 max-w-4xl rounded-xl border border-white/10 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 p-6 backdrop-blur-sm">
@@ -258,7 +258,7 @@ export default function HtmlToMarkdownConverter() {
           <div className="mt-20">
             <div className="mb-12 text-center">
               <h2 className="mb-4 text-3xl font-bold text-white">{t("features.title")}</h2>
-              <p className="mx-auto max-w-2xl text-lg text-slate-400">
+              <p className="mx-auto max-w-7xl text-lg text-slate-400">
                 {t("features.description")}
               </p>
             </div>
@@ -441,7 +441,7 @@ export default function HtmlToMarkdownConverter() {
         <section className="mt-20">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold text-white">{t("use_cases.title")}</h2>
-            <p className="mx-auto max-w-2xl text-lg text-slate-400">{t("use_cases.description")}</p>
+            <p className="mx-auto max-w-7xl text-lg text-slate-400">{t("use_cases.description")}</p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

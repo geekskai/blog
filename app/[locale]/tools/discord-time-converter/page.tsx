@@ -1013,7 +1013,7 @@ export default function DiscordTimeConverter() {
         <div className="rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold text-white">{t("usage_guide.title")}</h2>
-            <p className="mx-auto max-w-2xl text-xl text-slate-400">
+            <p className="mx-auto max-w-7xl text-xl text-slate-400">
               {t("usage_guide.description")}
             </p>
           </div>
@@ -1360,7 +1360,7 @@ export default function DiscordTimeConverter() {
               <h2 className="mb-4 text-3xl font-bold text-white">
                 {t("content_sections.features.title")}
               </h2>
-              <div className="mx-auto max-w-2xl text-xl text-slate-400">
+              <div className="mx-auto max-w-7xl text-xl text-slate-400">
                 {t("quick_answer.everythingYouNeedFor")}{" "}
                 <strong className="text-white">
                   {t("quick_answer.discordTimezoneConversionKeyword")}

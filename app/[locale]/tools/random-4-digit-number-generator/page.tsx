@@ -66,7 +66,7 @@ export default function Random4DigitNumberGenerator() {
           </h1>
 
           {/* SEO-optimized subtitle with keywords */}
-          <p className="mx-auto mb-3 max-w-2xl text-base font-semibold text-blue-200 md:mb-4 md:text-lg">
+          <p className="mx-auto mb-3 max-w-7xl text-base font-semibold text-blue-200 md:mb-4 md:text-lg">
             {t("header.seo_subtitle")}
           </p>
 

@@ -15,6 +15,7 @@ export async function generateMetadata({
   const languages = {
     "x-default": "https://geekskai.com/tools/ccm-to-hp-converter/",
   }
+  const lastModified = new Date("2026-02-18")
 
   supportedLocales.forEach((locale) => {
     languages[locale] = `https://geekskai.com/${locale}/tools/ccm-to-hp-converter/`
@@ -74,6 +75,7 @@ export async function generateMetadata({
       "application-name": t("page_title"),
       "apple-mobile-web-app-title": t("page_title"),
       "format-detection": "telephone=no",
+      "last-modified": lastModified.toISOString(),
     },
   }
 }

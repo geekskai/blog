@@ -369,7 +369,7 @@ const ChivalryTest = () => {
                   <div className={`mb-4 text-6xl font-bold ${resultLevel.color} md:text-7xl`}>
                     {score}
                   </div>
-                  <p className="mx-auto max-w-2xl text-lg text-slate-300">
+                  <p className="mx-auto max-w-7xl text-lg text-slate-300">
                     {resultLevel.description}
                   </p>
                 </div>

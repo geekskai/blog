@@ -29,6 +29,7 @@ export async function generateMetadata({
   const languages = {
     "x-default": "https://geekskai.com/tools/board-foot-calculator/",
   }
+  const lastModified = new Date("2026-02-18")
 
   supportedLocales.forEach((locale) => {
     languages[locale] = `https://geekskai.com/${locale}/tools/board-foot-calculator/`
@@ -41,7 +42,6 @@ export async function generateMetadata({
     authors: [{ name: "GeeksKai" }],
     creator: "GeeksKai",
     publisher: "GeeksKai",
-
     // Open Graph
     openGraph: {
       title: t("seo_title"),
@@ -104,6 +104,7 @@ export async function generateMetadata({
       "mobile-web-app-capable": "yes",
       "apple-mobile-web-app-capable": "yes",
       "apple-mobile-web-app-status-bar-style": "black-translucent",
+      "last-modified": lastModified.toISOString(),
     },
   }
 }

@@ -11,7 +11,7 @@ export const ContentSections: React.FC = () => {
       <div className="mt-32">
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold text-white">{t("what_test_measures")}</h2>
-          <p className="mx-auto max-w-2xl text-xl text-slate-400">
+          <p className="mx-auto max-w-7xl text-xl text-slate-400">
             {t("what_test_measures_description")}
           </p>
         </div>
