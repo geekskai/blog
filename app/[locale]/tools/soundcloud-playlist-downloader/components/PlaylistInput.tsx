@@ -42,7 +42,7 @@ export default function PlaylistInput({
           <div className="text-xs text-slate-400 sm:text-sm md:text-base">
             {t("related_tool_text")} 👉
             <Link
-              href="/tools/soundcloud-to-wav"
+              href="/tools/soundcloud-to-mp3"
               target="_blank"
               className="text-cyan-400 underline transition-colors hover:text-cyan-300"
             >

@@ -5,6 +5,7 @@ export const supportedLocales: string[] = [
   "ar",
   "de",
   "fr",
+  "es",
   // "ro",
   "ja",
   "ko",
@@ -13,7 +14,7 @@ export const supportedLocales: string[] = [
   "da",
 ]
 // export const locales: string[] = ["en", "ar", "de", "fr", "ro", "ja", "ko", "no", "zh-cn", "da"]
-export const locales: string[] = ["en", "ar", "de", "fr", "ja", "ko", "no", "zh-cn", "da"]
+export const locales: string[] = ["en", "ar", "de", "fr", "es", "ja", "ko", "no", "zh-cn", "da"]
 
 export const defaultLocale = "en"
 

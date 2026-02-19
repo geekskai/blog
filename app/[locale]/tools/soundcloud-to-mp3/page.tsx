@@ -11,6 +11,8 @@ import {
   FormatComparisonSection,
   UseCasesSection,
   KeyFeaturesSection,
+  BoundaryDefinitionSection,
+  FreeVsPaidSection,
 } from "./SEOContent"
 import Link from "@/components/Link"
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
@@ -128,8 +130,8 @@ const ProgressBar = ({ progress, status, className = "" }: ProgressBarProps) => 
   </div>
 )
 
-export default function Page() {
-  const t = useTranslations("SoundCloudToWAV")
+export default function SoundCloudToMP3Page() {
+  const t = useTranslations("SoundCloudToMP3")
   const [url, setUrl] = useState("")
   const [downloading, setDownloading] = useState(false)
   const [trackInfo, setTrackInfo] = useState<TrackInfo | null>(null)
@@ -184,7 +186,7 @@ export default function Page() {
     }
     // Validate single track URL
     if (!isValidSoundCloudTrackUrl(normalizedUrl)) {
-      console.log("soundcloud to wav invalid url", normalizedUrl)
+      console.log("soundcloud to mp3 invalid url", normalizedUrl)
       setErrorMessage(t("error_invalid_url"))
       return false
     }
@@ -270,7 +272,7 @@ export default function Page() {
     }
   }
 
-  const [extension, setExtension] = useState("wav")
+  const [extension, setExtension] = useState("mp3")
 
   // Download audio (using fetch + ReadableStream to track progress)
   const handleDownload = async () => {
@@ -438,17 +440,17 @@ export default function Page() {
 
       <div className="relative mx-auto max-w-6xl space-y-4 p-4">
         {/* Content Freshness Badge */}
-        <ContentFreshnessBadge lastModified={new Date("2026-02-16")} namespace="SoundCloudToWAV" />
+        <ContentFreshnessBadge lastModified={new Date("2026-02-19")} namespace="SoundCloudToMP3" />
 
         {/* Header Section - SEO Optimized */}
         <header className="text-center">
           {/* Tool Badge */}
-          <div className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 px-4 py-2 text-sm text-white shadow-lg shadow-purple-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-500/30 md:px-6 md:py-3 md:text-base">
+          {/* <div className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 px-4 py-2 text-sm text-white shadow-lg shadow-purple-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-500/30 md:px-6 md:py-3 md:text-base">
             <div className="rounded-full bg-white/20 p-1">
               <span className="text-base md:text-lg">🎵</span>
             </div>
             <span className="font-semibold">{t("tool_badge")}</span>
-          </div>
+          </div> */}
 
           {/* Main Title - H1 for SEO */}
           <h1 className="my-3 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-2xl font-bold leading-tight text-transparent md:text-5xl">
@@ -458,13 +460,23 @@ export default function Page() {
           {/* Subtitle */}
           <p className="mx-auto mb-3 max-w-6xl text-base leading-relaxed text-slate-300 md:text-lg">
             {t.rich("page_subtitle", {
-              wav: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
-              mp3: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
+              mp3: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
+              wav: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
               free: (chunks) => <strong className="text-emerald-400">{chunks}</strong>,
               fast: (chunks) => <strong className="text-blue-400">{chunks}</strong>,
               no_registration: (chunks) => <strong className="text-pink-400">{chunks}</strong>,
             })}
           </p>
+
+          {/* TL;DR Block - GEO Requirement: Answer Seed (80-150 words) */}
+          <div className="mx-auto mt-8 max-w-6xl rounded-2xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10 p-5 shadow-2xl backdrop-blur-md sm:p-6 md:mt-12 md:p-10">
+            <h2 className="mb-4 text-base font-bold text-purple-300 sm:text-lg md:text-2xl">
+              {t("page_tldr_title")}
+            </h2>
+            <p className="text-sm leading-relaxed text-slate-200 sm:text-base md:text-lg md:leading-loose">
+              {t("page_tldr_content")}
+            </p>
+          </div>
         </header>
 
         <GoogleAdUnitWrap />
@@ -476,7 +488,7 @@ export default function Page() {
               <h2 className="text-lg font-semibold text-white md:text-2xl">{t("form_title")}</h2>
             </div>
             <div className="space-y-2">
-              <form id="soundcloud-to-wav-form" onSubmit={handleGetInfo} className="space-y-2 p-4">
+              <form id="soundcloud-to-mp3-form" onSubmit={handleGetInfo} className="space-y-2 p-4">
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col-reverse justify-between gap-3 text-xs text-slate-400 md:flex-row md:text-sm">
                     <span className="text-sm font-semibold text-white/90 md:text-base">
@@ -485,7 +497,7 @@ export default function Page() {
                     <div className="flex flex-col gap-2 text-xs text-slate-400 md:flex-row md:gap-3 md:text-sm">
                       <span>{t("related_tool_text")} 👉</span>
                       <Link
-                        href="/tools/soundcloud-to-mp3"
+                        href="/tools/soundcloud-to-wav"
                         target="_blank"
                         className="text-emerald-400 underline transition-colors hover:text-emerald-300"
                       >
@@ -708,7 +720,7 @@ export default function Page() {
             </div>
           </section>
 
-          {/* Convert SoundCloud to WAV Online Section */}
+          {/* Convert SoundCloud to MP3/WAV Online Section */}
           <section className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-md md:p-8">
             <h2 className="mb-6 text-2xl font-bold text-white md:text-3xl">
               {t("section_convert_online_title")}
@@ -729,6 +741,12 @@ export default function Page() {
 
           {/* Format Comparison Section */}
           <FormatComparisonSection />
+
+          {/* Boundary Definition Section - GEO Requirement */}
+          <BoundaryDefinitionSection />
+
+          {/* Free vs Paid Comparison Section - GEO Requirement */}
+          <FreeVsPaidSection />
 
           {/* Use Cases Section */}
           <UseCasesSection />
