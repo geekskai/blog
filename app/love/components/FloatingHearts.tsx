@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 interface Heart {
   id: number
@@ -17,11 +17,11 @@ export default function FloatingHearts() {
   const [hearts, setHearts] = useState<Heart[]>([])
 
   useEffect(() => {
-    // 初始化一些爱心
-    const initialHearts: Heart[] = Array.from({ length: 15 }, (_, i) => ({
+    // 初始化8个爱心
+    const initialHearts: Heart[] = Array.from({ length: 8 }, (_, i) => ({
       id: Date.now() + i,
       x: Math.random() * 100,
-      size: Math.random() * 20 + 20,
+      size: Math.random() * 15 + 18,
       duration: Math.random() * 8 + 10,
       delay: Math.random() * 5,
       emoji: HEART_EMOJIS[Math.floor(Math.random() * HEART_EMOJIS.length)],
@@ -34,58 +34,74 @@ export default function FloatingHearts() {
       const newHeart: Heart = {
         id: Date.now(),
         x: Math.random() * 100,
-        size: Math.random() * 20 + 20,
+        size: Math.random() * 15 + 18,
         duration: Math.random() * 8 + 10,
         delay: 0,
         emoji: HEART_EMOJIS[Math.floor(Math.random() * HEART_EMOJIS.length)],
       }
 
-      setHearts((prev) => [...prev.slice(-14), newHeart])
-    }, 2000)
+      setHearts((prev) => [...prev, newHeart])
+    }, 3000)
 
     return () => clearInterval(interval)
   }, [])
+
+  // 动画结束后自动移除爱心
+  useEffect(() => {
+    const timers: NodeJS.Timeout[] = []
+
+    hearts.forEach((heart) => {
+      const totalTime = (heart.duration + heart.delay) * 1000
+      const timer = setTimeout(() => {
+        setHearts((prev) => prev.filter((h) => h.id !== heart.id))
+      }, totalTime)
+      timers.push(timer)
+    })
+
+    return () => {
+      timers.forEach((timer) => clearTimeout(timer))
+    }
+  }, [hearts])
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[3] overflow-hidden">
       {hearts.map((heart) => (
         <div
           key={heart.id}
-          className="animate-float-up absolute opacity-70"
+          className="absolute opacity-70"
           style={{
             left: `${heart.x}%`,
             bottom: "-50px",
             fontSize: `${heart.size}px`,
-            animationDuration: `${heart.duration}s`,
-            animationDelay: `${heart.delay}s`,
+            animation: `float-up ${heart.duration}s linear ${heart.delay}s forwards`,
           }}
         >
           {heart.emoji}
         </div>
       ))}
 
-      <style jsx>{`
-        @keyframes float-up {
-          0% {
-            transform: translateY(0) rotate(0deg);
-            opacity: 0;
-          }
-          10% {
-            opacity: 0.7;
-          }
-          90% {
-            opacity: 0.5;
-          }
-          100% {
-            transform: translateY(-100vh) rotate(360deg);
-            opacity: 0;
-          }
-        }
-
-        .animate-float-up {
-          animation: float-up linear forwards;
-        }
-      `}</style>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            @keyframes float-up {
+              0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+              }
+              10% {
+                opacity: 0.7;
+              }
+              90% {
+                opacity: 0.5;
+              }
+              100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+              }
+            }
+          `,
+        }}
+      />
     </div>
   )
 }

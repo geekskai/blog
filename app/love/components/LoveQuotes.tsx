@@ -33,9 +33,10 @@ export default function LoveQuotes() {
   return (
     <div className="pointer-events-none fixed bottom-8 left-1/2 z-[15] w-full max-w-2xl -translate-x-1/2 px-6">
       <div
-        className={`rounded-2xl border border-pink-400/30 bg-gradient-to-r from-pink-900/40 via-purple-900/40 to-pink-900/40 p-6 text-center backdrop-blur-xl transition-all duration-500 ${
+        className={`rounded-2xl border border-pink-400/30 bg-gradient-to-r from-pink-900/40 via-purple-900/40 to-pink-900/40 p-6 text-center backdrop-blur-lg transition-all duration-500 ${
           isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
         }`}
+        style={{ willChange: "transform, opacity" }}
       >
         <p className="text-lg italic leading-relaxed text-pink-100 md:text-xl">
           &ldquo;{QUOTES[currentQuote]}&rdquo;
