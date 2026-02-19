@@ -58,6 +58,28 @@ export default function Barrage() {
   const [barrages, setBarrages] = useState<BarrageItem[]>([])
   const timersRef = useRef<Map<number, NodeJS.Timeout>>(new Map())
 
+  // 强制限制弹幕数量不超过5个
+  useEffect(() => {
+    if (barrages.length > 5) {
+      setBarrages((prev) => {
+        // 保留最新的5个，移除最旧的
+        const sorted = [...prev].sort((a, b) => a.createdAt - b.createdAt)
+        const toRemove = sorted.slice(0, prev.length - 5)
+
+        // 清理被移除弹幕的定时器
+        toRemove.forEach((barrage) => {
+          const timer = timersRef.current.get(barrage.id)
+          if (timer) {
+            clearTimeout(timer)
+            timersRef.current.delete(barrage.id)
+          }
+        })
+
+        return sorted.slice(-5)
+      })
+    }
+  }, [barrages.length])
+
   // 为每个弹幕设置5秒后消失的定时器
   useEffect(() => {
     barrages.forEach((barrage) => {
@@ -105,21 +127,6 @@ export default function Barrage() {
   useEffect(() => {
     // 创建新弹幕的函数
     const createBarrage = () => {
-      // 限制同时存在的弹幕数量（最多5个）
-      setBarrages((prev) => {
-        if (prev.length >= 5) {
-          // 移除最旧的弹幕
-          const oldest = prev[0]
-          const timer = timersRef.current.get(oldest.id)
-          if (timer) {
-            clearTimeout(timer)
-            timersRef.current.delete(oldest.id)
-          }
-          return prev.slice(1)
-        }
-        return prev
-      })
-
       const text = QUOTES[Math.floor(Math.random() * QUOTES.length)]
       const position = getRandomPosition()
       const now = Date.now()
@@ -133,7 +140,45 @@ export default function Barrage() {
         createdAt: now,
       }
 
-      setBarrages((prev) => [...prev, newBarrage])
+      // 原子性操作：检查数量并添加新弹幕（严格限制最多5个）
+      setBarrages((prev) => {
+        // 如果已经有5个或更多，先移除最旧的
+        let updated = prev
+        if (prev.length >= 5) {
+          // 按创建时间排序，移除最旧的
+          const sorted = [...prev].sort((a, b) => a.createdAt - b.createdAt)
+          const toRemove = sorted[0]
+
+          // 清理被移除弹幕的定时器
+          const timer = timersRef.current.get(toRemove.id)
+          if (timer) {
+            clearTimeout(timer)
+            timersRef.current.delete(toRemove.id)
+          }
+
+          // 保留最新的4个
+          updated = sorted.slice(1)
+        }
+
+        // 添加新弹幕（确保不超过5个）
+        const result = [...updated, newBarrage]
+
+        // 双重检查：如果还是超过5个，强制限制
+        if (result.length > 5) {
+          const sorted = result.sort((a, b) => a.createdAt - b.createdAt)
+          const toRemove = sorted.slice(0, result.length - 5)
+          toRemove.forEach((barrage) => {
+            const timer = timersRef.current.get(barrage.id)
+            if (timer) {
+              clearTimeout(timer)
+              timersRef.current.delete(barrage.id)
+            }
+          })
+          return sorted.slice(-5)
+        }
+
+        return result
+      })
     }
 
     // 初始创建2个弹幕
@@ -151,12 +196,14 @@ export default function Barrage() {
       },
       Math.random() * 2000 + 4000 // 4-6秒随机间隔
     )
+    const timersMap = timersRef.current
 
     return () => {
       clearInterval(interval)
       initialTimers.forEach((timer) => clearTimeout(timer))
-      timersRef.current.forEach((timer) => clearTimeout(timer))
-      timersRef.current.clear()
+      // 清理所有定时器
+      timersMap.forEach((timer) => clearTimeout(timer))
+      timersMap.clear()
     }
   }, [])
 
