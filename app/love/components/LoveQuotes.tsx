@@ -25,7 +25,7 @@ export default function LoveQuotes() {
         setCurrentQuote((prev) => (prev + 1) % QUOTES.length)
         setIsVisible(true)
       }, 500)
-    }, 8000)
+    }, 5000)
 
     return () => clearInterval(interval)
   }, [])

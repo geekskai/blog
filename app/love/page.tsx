@@ -1,12 +1,13 @@
 "use client"
 
-import { useEffect, useRef, useState, useCallback, useMemo } from "react"
+import React, { useEffect, useRef, useState, useCallback, useMemo } from "react"
 import dynamic from "next/dynamic"
 
 // 懒加载非关键组件
 const LoveButton = dynamic(() => import("./components/LoveButton"), { ssr: false })
 const FloatingHearts = dynamic(() => import("./components/FloatingHearts"), { ssr: false })
 const LoveQuotes = dynamic(() => import("./components/LoveQuotes"), { ssr: false })
+const Barrage = dynamic(() => import("./components/Barrage"), { ssr: false })
 const MusicPlayer = dynamic(() => import("./components/MusicPlayer"), { ssr: false })
 const SecretMessage = dynamic(() => import("./components/SecretMessage"), { ssr: false })
 
@@ -581,6 +582,7 @@ export default function LovePage() {
       <canvas ref={fwCanvasRef} className="fixed left-0 top-0 z-[2]" />
 
       {/* 组件 */}
+      <Barrage />
       <FloatingHearts />
       <LoveQuotes />
       <MusicPlayer />
@@ -593,7 +595,7 @@ export default function LovePage() {
       >
         <div
           ref={cardRef}
-          className={`relative my-auto w-full max-w-[95vw] rounded-3xl border-2 border-pink-400/50 p-6 text-center backdrop-blur-lg transition-all duration-1000 sm:max-w-[700px] sm:p-10 md:p-14 ${
+          className={`relative mb-auto w-full max-w-[95vw] rounded-3xl border-2 border-pink-400/50 p-6 text-center backdrop-blur-lg transition-all duration-1000 sm:max-w-[700px] sm:p-10 md:p-14 ${
             cardVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
           }`}
           style={{
@@ -669,7 +671,7 @@ export default function LovePage() {
                 textShadow: config.ENABLE_SHADOWS ? "0 0 25px #ff69b4, 0 0 50px #ff1493" : "none",
               }}
             >
-              我喜欢你 ❤
+              ❤ 我喜欢你 ❤
             </div>
 
             <div className="mb-6 text-base leading-[1.9] tracking-[0.08em] text-pink-50/90 sm:mb-8 sm:text-lg sm:leading-[2.2] md:text-xl">
