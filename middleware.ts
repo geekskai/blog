@@ -10,6 +10,7 @@ export const config = {
     /*
      * Match all request paths except for the ones starting with:
      * - api (API routes)
+     * - love (love page)
      * - blog (blog pages)
      * - privacy (privacy page)
      * - tags (tags pages)
@@ -19,6 +20,6 @@ export const config = {
      * - favicon.ico, robots.txt, sitemap.xml (static files)
      * - files with extensions (images, fonts, etc.)
      */
-    "/((?!api|blog|privacy|tags|_next/static|_next/image|_vercel|favicon.ico|robots.txt|sitemap.xml|.*\\..*).*)",
+    "/((?!api|love|blog|privacy|tags|_next/static|_next/image|_vercel|favicon.ico|robots.txt|sitemap.xml|.*\\..*).*)",
   ],
 }
