@@ -1,9 +1,9 @@
 "use client"
 import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
-import { FormEvent, useState } from "react"
-import TrackInfoCard, { TrackInfo } from "./TrackInfoCard"
 import React from "react"
+import TrackInfoCard, { TrackInfo } from "./TrackInfoCard"
 import { useTranslations } from "next-intl"
+import dynamic from "next/dynamic"
 import {
   CoreFactsSection,
   FAQSection,
@@ -12,61 +12,14 @@ import {
   UseCasesSection,
   KeyFeaturesSection,
 } from "./SEOContent"
-import Link from "@/components/Link"
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
-import { isValidSoundCloudPlaylistUrl } from "../soundcloud-playlist-downloader/lib/utils"
 import ShareButtons from "@/components/ShareButtons"
+import { useSoundCloudTrackDownloadForm } from "../soundcloud-downloader/hooks/useSoundCloudTrackDownloadForm"
 
-type LoadingState = "idle" | "loading" | "success" | "error"
-
-// Playlist URL format: https://soundcloud.com/username/sets/playlist-name
-// const SOUNDCLOUD_PLAYLIST_URL_REGEX = /^https?:\/\/(www\.)?soundcloud\.com\/[^/]+\/sets\/.+/
-// Single track URL format: https://soundcloud.com/username/song-name
-// Support optional share token (e.g. /s-xxxx) and query parameters
-// Must contain domain, username, and song name, and path must not contain /sets/
-const SOUNDCLOUD_TRACK_URL_REGEX =
-  /^https?:\/\/(www\.)?soundcloud\.com\/[^/?#]+\/[^/?#]+(?:\/s-[A-Za-z0-9]+)?\/?(?:[?#].*)?$/
-const SOUNDCLOUD_SHORT_URL_REGEX = /^https?:\/\/on\.soundcloud\.com\/[A-Za-z0-9]+(?:[?#].*)?$/
-
-// Utility functions
-const normalizeSoundCloudUrl = (inputUrl: string): string => {
-  try {
-    const parsedUrl = new URL(inputUrl)
-    if (parsedUrl.hostname === "m.soundcloud.com") {
-      parsedUrl.hostname = "soundcloud.com"
-    }
-    return parsedUrl.toString()
-  } catch {
-    return inputUrl
-  }
-}
-
-// const isPlaylistUrl = (url: string): boolean => {
-//   return SOUNDCLOUD_PLAYLIST_URL_REGEX.test(url.trim())
-// }
-
-const isShortSoundCloudUrl = (url: string): boolean => {
-  return SOUNDCLOUD_SHORT_URL_REGEX.test(url.trim())
-}
-
-const isValidSoundCloudTrackUrl = (url: string): boolean => {
-  const trimmedUrl = url.trim()
-  // Exclude playlist URL
-  if (isValidSoundCloudPlaylistUrl(trimmedUrl)) {
-    return false
-  }
-  // Match single track URL: soundcloud.com/username/song-name
-  // Ensure format is: domain/username/song-name (path does not contain /sets/)
-  if (!SOUNDCLOUD_TRACK_URL_REGEX.test(trimmedUrl)) {
-    return false
-  }
-
-  return true
-}
-
-const formatFileSize = (bytes: number): string => {
-  return (bytes / 1024 / 1024).toFixed(2)
-}
+const TrackDownloadForm = dynamic(
+  () => import("../soundcloud-downloader/components/TrackDownloadForm"),
+  { ssr: false }
+)
 
 const createDownloadLink = (blob: Blob, fileName: string): void => {
   const url = window.URL.createObjectURL(blob)
@@ -83,342 +36,31 @@ const getFileName = (trackInfo: TrackInfo | null, extension: string): string => 
   return trackInfo?.title ? `${trackInfo.title}.${extension}` : `audio-${Date.now()}.${extension}`
 }
 
-// Loading spinner component
-const LoadingSpinner = () => (
-  <svg
-    className="h-5 w-5 animate-spin"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-  >
-    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-    <path
-      className="opacity-75"
-      fill="currentColor"
-      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-    />
-  </svg>
-)
-
-// Progress bar component
-interface ProgressBarProps {
-  progress: number
-  status: string
-  className?: string
-}
-
-const ProgressBar = ({ progress, status, className = "" }: ProgressBarProps) => (
-  <div className={`space-y-2 ${className}`}>
-    <div className="flex items-center justify-between text-xs text-white/90">
-      <span className={progress > 0 ? "truncate" : ""}>{status || "Processing..."}</span>
-      {progress > 0 && (
-        <span className="ml-2 flex-shrink-0 font-semibold text-purple-300">{progress}%</span>
-      )}
-    </div>
-    <div className="h-2.5 overflow-hidden rounded-full bg-white/10 backdrop-blur-sm">
-      {progress > 0 ? (
-        <div
-          className="h-full rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 shadow-lg shadow-purple-500/50 transition-all duration-300 ease-out"
-          style={{ width: `${progress}%` }}
-        />
-      ) : (
-        <div className="h-full w-full animate-pulse rounded-full bg-gradient-to-r from-purple-500/50 via-pink-500/50 to-cyan-500/50" />
-      )}
-    </div>
-  </div>
-)
-
 export default function Page() {
   const t = useTranslations("SoundCloudToWAV")
-  const [url, setUrl] = useState("")
-  const [downloading, setDownloading] = useState(false)
-  const [trackInfo, setTrackInfo] = useState<TrackInfo | null>(null)
-  const [loadingState, setLoadingState] = useState<LoadingState>("idle")
-  console.log(url, `🚀 ~ loadingState:`, loadingState)
-  const [errorMessage, setErrorMessage] = useState<string>("")
-  const [isPlaylistError, setIsPlaylistError] = useState<boolean>(false)
-  const [infoProgress, setInfoProgress] = useState<number>(0)
-  const [downloadProgress, setDownloadProgress] = useState<number>(0)
-  const [infoStatus, setInfoStatus] = useState<string>("")
-  const [downloadStatus, setDownloadStatus] = useState<string>("")
-
-  // Reset state
-  const resetInfoState = () => {
-    setInfoProgress(0)
-    setInfoStatus("")
-  }
-
-  const resetDownloadState = () => {
-    setDownloadProgress(0)
-    setDownloadStatus("")
-    setDownloading(false)
-  }
-
-  const resetDownloadProgress = () => {
-    setDownloadProgress(0)
-    setDownloadStatus("")
-  }
-
-  const resetError = () => {
-    setErrorMessage("")
-    setIsPlaylistError(false)
-  }
-
-  // Validate URL
-  const validateUrl = (): boolean => {
-    const trimmedUrl = url.trim()
-    const normalizedUrl = normalizeSoundCloudUrl(trimmedUrl)
-    if (!trimmedUrl) {
-      setErrorMessage(t("error_empty_url"))
-      return false
-    }
-    // Detect playlist URL
-    if (isValidSoundCloudPlaylistUrl(normalizedUrl)) {
-      setIsPlaylistError(true)
-      setErrorMessage(t("error_playlist_url"))
-      return false
-    }
-    // Allow short links, parsed and validated by the server
-    if (isShortSoundCloudUrl(normalizedUrl)) {
-      return true
-    }
-    // Validate single track URL
-    if (!isValidSoundCloudTrackUrl(normalizedUrl)) {
-      console.log("soundcloud to wav invalid url", normalizedUrl)
-      setErrorMessage(t("error_invalid_url"))
-      return false
-    }
-    return true
-  }
-
-  // Get audio info
-  const handleGetInfo = async (e?: FormEvent) => {
-    e?.preventDefault()
-
-    if (!validateUrl()) {
-      setLoadingState("error")
-      return
-    }
-
-    try {
-      setLoadingState("loading")
-      resetError()
-      setTrackInfo(null)
-      resetInfoState()
-      setInfoStatus(t("progress_connecting"))
-
-      const startTime = Date.now()
-      const progressInterval = setInterval(() => {
-        const elapsed = Date.now() - startTime
-        if (elapsed < 1000) {
-          setInfoStatus(t("progress_connecting"))
-          setInfoProgress(10)
-        } else if (elapsed < 3000) {
-          setInfoStatus(t("progress_fetching"))
-          setInfoProgress(30)
-        } else {
-          setInfoStatus(t("progress_processing"))
-          setInfoProgress(60)
-        }
-      }, 500)
-
-      const response = await fetch("/api/soundcloud-info", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: url.trim() }),
-      })
-
-      clearInterval(progressInterval)
-      setInfoStatus(t("progress_parsing"))
-      setInfoProgress(90)
-
-      // Check if response is ok before parsing JSON
-      if (!response.ok) {
-        let errorMsg = t("error_get_info_failed")
-        try {
-          const errorData = await response.json()
-          errorMsg = errorData.error || errorMsg
-        } catch {
-          // If JSON parsing fails, use default error message
-          errorMsg = `${t("error_get_info_failed")} (${response.status})`
-        }
-        throw new Error(errorMsg)
-      }
-
-      const data = await response.json()
-
-      if (data.success) {
-        setInfoProgress(100)
-        setInfoStatus(t("progress_complete"))
-        setTrackInfo({ ...data.info, downloadable: true })
-        setLoadingState("success")
-        setTimeout(resetInfoState, 1000)
-
-        // Optional: Prompt user to download immediately to avoid URL expiration
-        // Or automatically start download
-      } else {
-        setErrorMessage(data.error || t("error_get_info_failed"))
-        setLoadingState("error")
-        resetInfoState()
-      }
-    } catch (error) {
-      const errorMsg = error instanceof Error ? error.message : t("error_network")
-      setErrorMessage(errorMsg)
-      setLoadingState("error")
-      resetInfoState()
-      console.error("Get info error:", error)
-    }
-  }
-
-  const [extension, setExtension] = useState("wav")
-
-  // Download audio (using fetch + ReadableStream to track progress)
-  const handleDownload = async () => {
-    if (!validateUrl()) return
-
-    // Prevent duplicate clicks
-    if (downloading) return
-
-    try {
-      setDownloading(true)
-      resetError()
-      resetDownloadProgress()
-      setDownloadStatus(t("progress_connecting"))
-
-      setDownloadStatus(t("progress_sending_request"))
-      setDownloadProgress(5)
-
-      // --- Optimize: Try to get direct download link to save Vercel traffic ---
-      let response: Response
-      let isDirectDownload = false
-
-      try {
-        const directUrlResponse = await fetch("/api/download-soundcloud", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ url: url.trim(), directUrl: true }),
-        })
-
-        if (!directUrlResponse.ok) {
-          throw new Error("Direct URL request failed")
-        }
-
-        const directData = await directUrlResponse.json()
-        if (directData.success && directData.directUrl) {
-          console.log("Using direct download link to save Vercel bandwidth")
-          // Try to download from the direct link
-          try {
-            response = await fetch(directData.directUrl)
-            if (response.ok) {
-              isDirectDownload = true
-            } else {
-              throw new Error("Direct link fetch failed")
-            }
-          } catch (e) {
-            console.warn("Direct download failed (CORS?), falling back to proxy", e)
-            // If direct download fails, fall back to the original proxy method
-            response = await fetch("/api/download-soundcloud", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ url: url.trim() }),
-            })
-          }
-        } else {
-          // If no direct link, use the original proxy method
-          response = await fetch("/api/download-soundcloud", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ url: url.trim() }),
-          })
-        }
-      } catch (e) {
-        console.warn("Direct URL check failed, falling back to proxy", e)
-        response = await fetch("/api/download-soundcloud", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ url: url.trim() }),
-        })
-      }
-      // --- Optimize end ---
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({
-          error: t("error_download_failed"),
-        }))
-        setErrorMessage(errorData.error || t("error_download_failed"))
-        resetDownloadState()
-        return
-      }
-
-      setDownloadStatus(t("progress_server_processing"))
-      setDownloadProgress(10)
-
-      // Get file size and SoundCloud info from response headers
-      const contentLength = response.headers.get("Content-Length")
-      const totalBytes = contentLength ? parseInt(contentLength, 10) : 0
-      const infoHeader = response.headers.get("X-SoundCloud-Info")
-      let downloadedInfo: TrackInfo | null = null
-
-      if (infoHeader) {
-        try {
-          downloadedInfo = {
-            ...JSON.parse(infoHeader),
-            downloadable: true,
-          }
-          setTrackInfo(downloadedInfo)
-        } catch (e) {
-          console.warn("Failed to parse SoundCloud info:", e)
-        }
-      }
-
-      // Use ReadableStream to track download progress
-      if (!response.body) {
-        throw new Error("Response body is null")
-      }
-
-      const reader = response.body.getReader()
-      const chunks: BlobPart[] = []
-      let loadedBytes = 0
-
-      // Read stream data
-      // eslint-disable-next-line no-constant-condition
-      while (true) {
-        const { done, value } = await reader.read()
-
-        if (done) break
-
-        chunks.push(value)
-        loadedBytes += value.length
-
-        // Update progress
-        if (totalBytes > 0) {
-          const progress = Math.round((loadedBytes / totalBytes) * 80 + 20)
-          setDownloadProgress(progress)
-          const loadedMB = formatFileSize(loadedBytes)
-          const totalMB = formatFileSize(totalBytes)
-          setDownloadStatus(`${t("progress_downloading_file")}: ${loadedMB}MB / ${totalMB}MB`)
-        } else {
-          setDownloadStatus(t("progress_downloading_file"))
-          setDownloadProgress((prev) => Math.min(prev + 2, 95))
-        }
-      }
-
-      // Build Blob
-      setDownloadProgress(100)
-      setDownloadStatus(t("progress_saving_file"))
-
-      const isMP3 = extension === "mp3"
-
-      const blob = new Blob(chunks, { type: isMP3 ? "audio/mpeg" : "audio/wav" })
-      createDownloadLink(blob, getFileName(downloadedInfo || trackInfo, isMP3 ? "mp3" : "wav"))
-
-      setTimeout(resetDownloadState, 1000)
-    } catch (error) {
-      console.error("Download error:", error)
-      setErrorMessage(error instanceof Error ? error.message : t("error_download_failed"))
-      resetDownloadState()
-    }
-  }
+  const {
+    url,
+    extension,
+    downloading,
+    trackInfo,
+    loadingState,
+    errorMessage,
+    isPlaylistError,
+    infoProgress,
+    downloadProgress,
+    infoStatus,
+    downloadStatus,
+    setExtension,
+    handleUrlChange,
+    handleGetInfo,
+    handleDownload,
+  } = useSoundCloudTrackDownloadForm<TrackInfo>({
+    initialExtension: "wav",
+    t,
+    invalidUrlLogPrefix: "soundcloud to wav",
+    getFileName,
+    createDownloadLink,
+  })
 
   return (
     <div className="relative min-h-screen bg-slate-950">
@@ -475,137 +117,27 @@ export default function Page() {
             <div className="border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 px-4 py-3">
               <h2 className="text-lg font-semibold text-white md:text-2xl">{t("form_title")}</h2>
             </div>
-            <div className="space-y-2">
-              <form id="soundcloud-to-wav-form" onSubmit={handleGetInfo} className="space-y-2 p-4">
-                <div className="flex flex-col gap-4">
-                  <div className="flex flex-col-reverse justify-between gap-3 text-xs text-slate-400 md:flex-row md:text-sm">
-                    <span className="text-sm font-semibold text-white/90 md:text-base">
-                      {t("form_label_soundcloud_link")}
-                    </span>
-                    <div className="flex flex-col gap-2 text-xs text-slate-400 md:flex-row md:gap-3 md:text-sm">
-                      <span>{t("related_tool_text")} 👉</span>
-                      <Link
-                        href="/tools/soundcloud-to-mp3"
-                        target="_blank"
-                        className="text-emerald-400 underline transition-colors hover:text-emerald-300"
-                      >
-                        {t("related_tool_link")}
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div className="relative">
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 rounded-lg bg-white/5 p-1 backdrop-blur-sm">
-                      <span className="text-lg md:text-xl">🔗</span>
-                    </div>
-                    <input
-                      type="text"
-                      value={url}
-                      onChange={(e) => {
-                        setUrl(e.target.value)
-                        resetError()
-                        setLoadingState("idle")
-                      }}
-                      placeholder="https://soundcloud.com/username/song-name"
-                      className="w-full rounded-lg border border-white/10 bg-white/5 py-3 pl-14 pr-4 text-base text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20 md:pl-16 md:pr-6 md:text-lg"
-                    />
-                  </div>
-                </div>
-                {/* Action buttons group */}
-                <div className="space-y-2 md:space-y-4">
-                  <div className="flex flex-col gap-4 md:flex-row">
-                    <div className="flex flex-1 flex-col gap-3">
-                      <button
-                        type="submit"
-                        disabled={loadingState === "loading" || !url.trim()}
-                        className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-2 py-1 text-base font-medium text-white shadow-lg transition-all hover:from-blue-700 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-50 md:px-6 md:py-3 md:text-lg"
-                      >
-                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
-                        <span className="relative flex items-center justify-center gap-2">
-                          {loadingState === "loading" ? (
-                            <>
-                              <LoadingSpinner />
-                              <span>{t("form_button_fetching")}</span>
-                            </>
-                          ) : (
-                            <>
-                              <span className="text-lg md:text-xl">🔍</span>
-                              <span>{t("form_button_get_info")}</span>
-                            </>
-                          )}
-                        </span>
-                      </button>
-                      {loadingState === "loading" && (
-                        <ProgressBar progress={infoProgress} status={infoStatus} />
-                      )}
-                    </div>
-
-                    <div className="flex flex-1 flex-col gap-3">
-                      <button
-                        type="button"
-                        onClick={handleDownload}
-                        disabled={downloading || !url.trim() || loadingState === "loading"}
-                        className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 px-2 py-1 text-base font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:cursor-not-allowed disabled:opacity-50 md:px-6 md:py-3 md:text-lg"
-                      >
-                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
-                        <span className="relative flex items-center justify-center gap-2">
-                          {downloading ? (
-                            <>
-                              <LoadingSpinner />
-                              <span>{t("form_button_downloading")}</span>
-                            </>
-                          ) : (
-                            <>
-                              <span className="text-lg md:text-xl">⬇️</span>
-                              <span>{t("form_button_download")}</span>
-                            </>
-                          )}
-                        </span>
-                      </button>
-                      {downloading && (
-                        <ProgressBar progress={downloadProgress} status={downloadStatus} />
-                      )}
-                    </div>
-                    {/* MP3 or WAV */}
-                    <div className="flex w-full flex-col gap-3 md:w-32">
-                      <select
-                        value={extension}
-                        onChange={(e) => setExtension(e.target.value)}
-                        className="w-full rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-base text-white backdrop-blur-sm transition-all duration-300 focus:border-purple-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500/20 md:px-6 md:py-3 md:text-lg"
-                      >
-                        <option value="mp3" className="bg-slate-900">
-                          {t("form_select_format_mp3")}
-                        </option>
-                        <option value="wav" className="bg-slate-900">
-                          {t("form_select_format_wav")}
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </form>
-
-              {/* Error message */}
-              {errorMessage && (
-                <div className="mt-4 rounded-lg border border-red-500/30 bg-red-900/20 p-4 backdrop-blur-sm">
-                  <div className="flex items-start gap-3 text-red-400">
-                    <span className="text-xl">⚠️</span>
-                    <div className="flex-1 space-y-3 text-sm font-medium">
-                      <p>{errorMessage}</p>
-                      {isPlaylistError && (
-                        <Link
-                          href="/tools/soundcloud-playlist-downloader"
-                          className="inline-flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-emerald-300 transition-all hover:bg-emerald-500/20 hover:text-emerald-200"
-                        >
-                          <span>🎵</span>
-                          <span>{t("error_playlist_url_link")}</span>
-                        </Link>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
+            <TrackDownloadForm
+              namespace="SoundCloudToWAV"
+              variant="track"
+              formId="soundcloud-to-wav-form"
+              url={url}
+              placeholder="https://soundcloud.com/username/song-name"
+              relatedToolHref="/tools/soundcloud-downloader"
+              extension={extension}
+              loadingState={loadingState}
+              downloading={downloading}
+              errorMessage={errorMessage}
+              isPlaylistError={isPlaylistError}
+              infoProgress={infoProgress}
+              infoStatus={infoStatus}
+              downloadProgress={downloadProgress}
+              downloadStatus={downloadStatus}
+              onUrlChange={handleUrlChange}
+              onExtensionChange={setExtension}
+              onSubmit={handleGetInfo}
+              onDownload={handleDownload}
+            />
           </div>
         </div>
 

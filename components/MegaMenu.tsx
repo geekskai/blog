@@ -1,7 +1,8 @@
 "use client"
 
 import React from "react"
-import Link from "@/components/Link"
+// import Link from "@/components/Link"
+import { Link } from "@/app/i18n/navigation"
 import { toolsData, ToolData } from "@/data/toolsData"
 import { useTranslations } from "next-intl"
 

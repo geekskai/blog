@@ -5,14 +5,14 @@ import { useTranslations } from "next-intl"
 import { COMMON_FRACTIONS } from "../utils/fractionParser"
 
 // Common construction measurements
-const CONSTRUCTION_MEASUREMENTS = [
-  { fraction: "1/2", decimal: "0.5", description: "Half inch - common lumber thickness" },
-  { fraction: "3/4", decimal: "0.75", description: "Three-quarter inch - plywood thickness" },
-  { fraction: "1 1/2", decimal: "1.5", description: "Standard 2x lumber actual thickness" },
-  { fraction: "3 1/2", decimal: "3.5", description: "Standard 2x4 actual width" },
-  { fraction: "5 1/2", decimal: "5.5", description: "Standard 2x6 actual width" },
-  { fraction: "7 1/4", decimal: "7.25", description: "Standard 2x8 actual width" },
-]
+// const CONSTRUCTION_MEASUREMENTS = [
+//   { fraction: "1/2", decimal: "0.5", description: "Half inch - common lumber thickness" },
+//   { fraction: "3/4", decimal: "0.75", description: "Three-quarter inch - plywood thickness" },
+//   { fraction: "1 1/2", decimal: "1.5", description: "Standard 2x lumber actual thickness" },
+//   { fraction: "3 1/2", decimal: "3.5", description: "Standard 2x4 actual width" },
+//   { fraction: "5 1/2", decimal: "5.5", description: "Standard 2x6 actual width" },
+//   { fraction: "7 1/4", decimal: "7.25", description: "Standard 2x8 actual width" },
+// ]
 
 // Woodworking measurements
 const WOODWORKING_MEASUREMENTS = [
@@ -61,8 +61,8 @@ export default function QuickReference({ className = "" }: QuickReferenceProps) 
         {/* Header */}
         <div className="mb-8 text-center">
           <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-purple-500/30 bg-gradient-to-r from-purple-500/10 to-pink-500/10 px-6 py-3 backdrop-blur-sm">
-            <span className="text-2xl">📚</span>
-            <h2 className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-2xl font-bold text-transparent">
+            <span className="text-xl md:text-2xl">📚</span>
+            <h2 className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-xl font-bold text-transparent">
               {t("quick_reference.title")}
             </h2>
           </div>

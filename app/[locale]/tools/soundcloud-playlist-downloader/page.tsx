@@ -22,16 +22,15 @@ import type {
   DownloadFormat,
   LoadingState,
 } from "./types"
-import {
-  isValidSoundCloudPlaylistUrl,
-  createDownloadLink,
-  getSafeFileName,
-  isValidSoundCloudTrackUrl,
-} from "./lib/utils"
+import { createDownloadLink, getSafeFileName } from "./lib/utils"
+import { detectSoundCloudUrlKind } from "../soundcloud-downloader/lib/url"
 
-const PlaylistInput = dynamic(() => import("./components/PlaylistInput"), {
-  ssr: false,
-})
+const TrackDownloadForm = dynamic(
+  () => import("../soundcloud-downloader/components/TrackDownloadForm"),
+  {
+    ssr: false,
+  }
+)
 
 export default function SoundCloudPlaylistDownloaderPage() {
   const t = useTranslations("SoundCloudPlaylistDownloader")
@@ -57,17 +56,21 @@ export default function SoundCloudPlaylistDownloaderPage() {
   // Validate URL
   const validateUrl = useCallback((): boolean => {
     setIsTrackError(false)
-    if (!url.trim()) {
+    const trimmedUrl = url.trim()
+    if (!trimmedUrl) {
       setErrorMessage(t("error_empty_url"))
       return false
     }
-    if (!isValidSoundCloudPlaylistUrl(url.trim())) {
-      if (isValidSoundCloudTrackUrl(url.trim())) {
+
+    const urlKind = detectSoundCloudUrlKind(trimmedUrl)
+    if (urlKind !== "playlist") {
+      if (urlKind === "track") {
         setIsTrackError(true)
       }
       setErrorMessage(t("error_invalid_url"))
       return false
     }
+
     return true
   }, [url, t])
 
@@ -279,19 +282,27 @@ export default function SoundCloudPlaylistDownloaderPage() {
         <GoogleAdUnitWrap />
         {/* Input Section */}
         <div className="mx-auto mb-8 max-w-6xl sm:mb-10 md:mb-12">
-          <PlaylistInput
+          <TrackDownloadForm
+            namespace="SoundCloudPlaylistDownloader"
+            variant="playlist"
+            formId="soundcloud-playlist-form"
             url={url}
             onUrlChange={(newUrl) => {
               setUrl(newUrl)
               resetError()
               setLoadingState("idle")
             }}
-            format={format}
-            onFormatChange={setFormat}
+            placeholder="https://soundcloud.com/username/sets/playlist-name"
+            relatedToolHref="/tools/soundcloud-downloader"
+            extension={format}
+            loadingState={loadingState}
+            errorMessage={errorMessage}
             isTrackError={isTrackError}
-            onFetchPlaylist={handleFetchPlaylist}
-            isLoading={loadingState === "loading"}
-            error={errorMessage}
+            onExtensionChange={setFormat}
+            onSubmit={(e) => {
+              e.preventDefault()
+              handleFetchPlaylist()
+            }}
           />
         </div>
 

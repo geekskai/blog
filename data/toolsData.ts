@@ -68,6 +68,37 @@ export const toolsData: ToolData[] = [
     category: "Utility",
   },
   {
+    id: "soundcloud-downloader",
+    title: "SoundCloud Downloader (Track + Playlist)",
+    description:
+      "Unified SoundCloud downloader that auto-detects track or playlist URLs. Fetch track info, load playlist items, and download in MP3 or WAV from one tool.",
+    icon: Music,
+    href: "/tools/soundcloud-downloader/",
+    features: [
+      "Auto-detect SoundCloud track or playlist URL",
+      "Single-track download (MP3/WAV)",
+      "Playlist fetch with single or bulk download",
+      "One unified SoundCloud workflow",
+    ],
+    badge: "New",
+    badgeColor: "bg-purple-500",
+    gradient: gradients.development,
+    category: "Development",
+  },
+  {
+    id: "soundcloud-to-mp3",
+    title: "SoundCloud to MP3 Converter",
+    description:
+      "SoundCloud to MP3 converter for your SoundCloud. SoundCloud to MP3 converter for your SoundCloud. SoundCloud to MP3 converter for your SoundCloud.",
+    icon: Music,
+    href: "/tools/soundcloud-to-mp3/",
+    features: ["SoundCloud to MP3 Converter"],
+    badge: "New",
+    badgeColor: "bg-blue-500",
+    gradient: gradients.development,
+    category: "Development",
+  },
+  {
     id: "soundcloud-to-wav",
     title: "SoundCloud to WAV Converter",
     description:

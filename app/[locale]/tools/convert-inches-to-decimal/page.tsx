@@ -1,11 +1,13 @@
 "use client"
 
-import { useState, useCallback, useEffect } from "react"
+import React, { useState, useCallback, useEffect } from "react"
 import { useTranslations } from "next-intl"
+import { Link } from "@/app/i18n/navigation"
 import type { ConversionResult } from "./types"
 import ConverterInterface from "./components/ConverterInterface"
 import VisualRuler, { CompactRuler } from "./components/VisualRuler"
 import QuickReference from "./components/QuickReference"
+import { CONTENT_VERSION, LAST_MODIFIED_ISO } from "./seoData"
 
 // Custom hook for managing conversion history
 function useConversionHistory() {
@@ -70,6 +72,17 @@ export default function InchesToDecimalConverter() {
     "converter"
   )
   const { addConversion } = useConversionHistory()
+  const coreFacts = Array.from({ length: 8 }, (_, index) => ({
+    label: t(`geo_sections.core_facts.fact_${index + 1}_label`),
+    value: t(`geo_sections.core_facts.fact_${index + 1}_value`),
+  }))
+  const limitations = Array.from({ length: 4 }, (_, index) =>
+    t(`geo_sections.limitations.item_${index + 1}`)
+  )
+  const faqItems = Array.from({ length: 8 }, (_, index) => ({
+    question: t(`geo_sections.faq.question_${index + 1}`),
+    answer: t(`geo_sections.faq.answer_${index + 1}`),
+  }))
 
   // Handle new conversion
   const handleConversion = useCallback(
@@ -86,18 +99,27 @@ export default function InchesToDecimalConverter() {
       <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900"></div>
 
       {/* Content */}
-      <div className="relative">
+      <div className="relative space-y-4 sm:space-y-6 md:space-y-8">
         {/* Hero Section */}
-        <section className="px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl">
+        <section className="px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl space-y-4 sm:space-y-6 md:space-y-8">
             {/* Main heading */}
-            <div className="mb-12 text-center">
-              <h1 className="mb-6 text-5xl font-bold leading-tight text-white sm:text-6xl lg:text-7xl">
+            <div className="space-y-2 text-center md:space-y-4 lg:space-y-6">
+              <h1 className="text-2xl font-bold leading-tight text-white sm:text-4xl lg:text-6xl">
                 {t("page_title")}
               </h1>
-              <p className="mx-auto max-w-3xl text-xl text-slate-300 sm:text-2xl">
+              <p className="mx-auto max-w-6xl text-xl text-slate-300 sm:text-2xl">
                 {t("page_subtitle")}
               </p>
+
+              <div className="mx-auto mt-6 max-w-7xl rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 via-cyan-500/5 to-blue-500/10 p-5 text-left shadow-2xl backdrop-blur-md sm:p-6">
+                <h2 className="mb-3 text-lg font-bold text-blue-200 sm:text-2xl">
+                  {t("geo_sections.quick_answer_title")}
+                </h2>
+                <p className="text-base leading-relaxed text-slate-200 sm:text-lg">
+                  {t("geo_sections.quick_answer_content")}
+                </p>
+              </div>
 
               {/* Key features */}
               <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -199,80 +221,78 @@ export default function InchesToDecimalConverter() {
         </section>
 
         {/* Educational Content Section */}
-        <section className="px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-6xl">
-            <div className="grid gap-12 lg:grid-cols-2">
-              {/* How it works */}
-              <div className="rounded-3xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-cyan-500/10 p-8 backdrop-blur-xl">
-                <h2 className="mb-6 text-3xl font-bold text-white">
-                  {t("educational_content.how_it_works.title")}
-                </h2>
-                <div className="space-y-4 text-slate-300">
-                  <p>{t("educational_content.how_it_works.description_1")}</p>
-                  <p>{t("educational_content.how_it_works.description_2")}</p>
-                  <div className="mt-6 space-y-2">
-                    {[1, 2, 3, 4].map((index) => (
-                      <div key={index} className="flex items-center gap-3">
-                        <span className="text-green-400">✓</span>
-                        <span>{t(`educational_content.how_it_works.feature_${index}`)}</span>
-                      </div>
-                    ))}
-                  </div>
+        <section className="px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-1 sm:gap-2 md:gap-3 lg:grid-cols-2 lg:gap-4">
+            {/* How it works */}
+            <div className=" space-y-1 rounded-3xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-cyan-500/10 p-8 backdrop-blur-xl sm:space-y-2 md:space-y-3 lg:space-y-4">
+              <h2 className="text-xl font-bold text-white sm:text-2xl md:text-3xl">
+                {t("educational_content.how_it_works.title")}
+              </h2>
+              <div className="space-y-4 text-slate-300">
+                <p>{t("educational_content.how_it_works.description_1")}</p>
+                <p>{t("educational_content.how_it_works.description_2")}</p>
+                <div className="mt-6 space-y-2">
+                  {[1, 2, 3, 4].map((index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <span className="text-green-400">✓</span>
+                      <span>{t(`educational_content.how_it_works.feature_${index}`)}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
+            </div>
 
-              {/* Why use our tool */}
-              <div className="rounded-3xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-teal-500/10 p-8 backdrop-blur-xl">
-                <h2 className="mb-6 text-3xl font-bold text-white">
-                  {t("educational_content.best_features.title")}
-                </h2>
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/20">
-                        <span className="text-2xl">📱</span>
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-white">
-                        {t("educational_content.best_features.mobile_optimized.title")}
-                      </h3>
-                      <p className="text-slate-300">
-                        {t("educational_content.best_features.mobile_optimized.description")}
-                      </p>
+            {/* Why use our tool */}
+            <div className=" space-y-1 rounded-3xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-teal-500/10 p-8 backdrop-blur-xl sm:space-y-2 md:space-y-3 lg:space-y-4">
+              <h2 className="text-xl font-bold text-white sm:text-2xl md:text-3xl">
+                {t("educational_content.best_features.title")}
+              </h2>
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/20">
+                      <span className="text-2xl">📱</span>
                     </div>
                   </div>
+                  <div>
+                    <h3 className="text-base font-semibold text-white sm:text-lg md:text-xl lg:text-2xl">
+                      {t("educational_content.best_features.mobile_optimized.title")}
+                    </h3>
+                    <p className="text-slate-300">
+                      {t("educational_content.best_features.mobile_optimized.description")}
+                    </p>
+                  </div>
+                </div>
 
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/20">
-                        <span className="text-2xl">⚡</span>
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-white">
-                        {t("educational_content.best_features.lightning_fast.title")}
-                      </h3>
-                      <p className="text-slate-300">
-                        {t("educational_content.best_features.lightning_fast.description")}
-                      </p>
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/20">
+                      <span className="text-2xl">⚡</span>
                     </div>
                   </div>
+                  <div>
+                    <h3 className="text-base font-semibold text-white sm:text-lg md:text-xl lg:text-2xl">
+                      {t("educational_content.best_features.lightning_fast.title")}
+                    </h3>
+                    <p className="text-slate-300">
+                      {t("educational_content.best_features.lightning_fast.description")}
+                    </p>
+                  </div>
+                </div>
 
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/20">
-                        <span className="text-2xl">🎯</span>
-                      </div>
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/20">
+                      <span className="text-2xl">🎯</span>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-white">
-                        {t("educational_content.best_features.professional_accuracy.title")}
-                      </h3>
-                      <p className="text-slate-300">
-                        {t("educational_content.best_features.professional_accuracy.description")}
-                      </p>
-                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-base font-semibold text-white sm:text-lg md:text-xl lg:text-2xl">
+                      {t("educational_content.best_features.professional_accuracy.title")}
+                    </h3>
+                    <p className="text-slate-300">
+                      {t("educational_content.best_features.professional_accuracy.description")}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -281,14 +301,14 @@ export default function InchesToDecimalConverter() {
         </section>
 
         {/* Trust signals */}
-        <section className="px-4 py-12 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center">
+        <section className="px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-gradient-to-r from-green-500/10 to-emerald-500/10 px-6 py-2">
               <span className="text-2xl">🏆</span>
               <h3 className="text-xl font-semibold text-white">{t("trust_signals.title")}</h3>
             </div>
 
-            <p className="mx-auto mt-4 max-w-3xl text-slate-300">
+            <p className="mx-auto mt-4 max-w-6xl text-slate-300">
               {t("trust_signals.description")}
             </p>
 
@@ -310,6 +330,107 @@ export default function InchesToDecimalConverter() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl space-y-8">
+            <article className="rounded-3xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/15 to-blue-500/10 p-8 shadow-2xl backdrop-blur-xl">
+              <h2 className="mb-4 text-2xl font-bold text-white sm:text-3xl">
+                {t("geo_sections.core_facts_title")}
+              </h2>
+              <p className="mb-6 text-slate-300">{t("geo_sections.quick_answer_content")}</p>
+              <dl className="grid gap-4 md:grid-cols-2">
+                {coreFacts.map((fact) => (
+                  <div
+                    key={fact.label}
+                    className="rounded-2xl border border-cyan-400/20 bg-cyan-500/5 p-4 text-left"
+                  >
+                    <dt className="text-sm text-cyan-200">{fact.label}</dt>
+                    <dd className="mt-1 text-base text-slate-200">
+                      <strong>{fact.value}</strong>
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </article>
+
+            <section className="rounded-3xl border border-orange-500/30 bg-gradient-to-br from-orange-500/15 to-red-500/10 p-8 shadow-2xl backdrop-blur-xl">
+              <h2 className="mb-4 text-2xl font-bold text-white sm:text-3xl">
+                {t("geo_sections.limitations_title")}
+              </h2>
+              <ul className="space-y-3 text-slate-200">
+                {limitations.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-xl border border-orange-400/20 bg-orange-500/5 p-3"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="rounded-3xl border border-purple-500/30 bg-gradient-to-br from-purple-500/15 to-pink-500/10 p-8 shadow-2xl backdrop-blur-xl">
+              <h2 className="mb-6 text-2xl font-bold text-white sm:text-3xl">
+                {t("geo_sections.faq_title")}
+              </h2>
+              <div className="space-y-4">
+                {faqItems.map((faq, index) => (
+                  <article
+                    key={faq.question}
+                    className="rounded-2xl border border-purple-400/20 bg-white/5 p-5"
+                  >
+                    <h3 className="text-lg font-semibold text-purple-200">
+                      {index + 1}. {faq.question}
+                    </h3>
+                    <p className="mt-2 text-slate-200">{faq.answer}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="rounded-3xl border border-slate-500/30 bg-gradient-to-br from-slate-700/20 to-slate-900/30 p-8 shadow-2xl backdrop-blur-xl">
+              <h2 className="mb-4 text-2xl font-bold text-white sm:text-3xl">
+                {t("geo_sections.data_sources_title")}
+              </h2>
+              <p className="text-slate-200">
+                {t("geo_sections.data_sources_prefix")}{" "}
+                <a
+                  className="text-cyan-300 underline decoration-cyan-400/60 underline-offset-4"
+                  href="https://www.nist.gov/pml/owm/metric-si/si-units"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {t("geo_sections.data_sources_link_text")}
+                </a>{" "}
+                {t("geo_sections.data_sources_suffix")}
+              </p>
+            </section>
+
+            <section className="rounded-3xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-teal-500/10 p-8 shadow-2xl backdrop-blur-xl">
+              <h2 className="mb-4 text-2xl font-bold text-white sm:text-3xl">
+                {t("geo_sections.last_updated_related_title")}
+              </h2>
+              <p className="text-slate-200">
+                <strong>{t("geo_sections.last_updated_label")}</strong> {LAST_MODIFIED_ISO} |{" "}
+                <strong>{t("geo_sections.content_version_label")}</strong> {CONTENT_VERSION}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-3">
+                <Link
+                  href="/tools/"
+                  className="rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-4 py-2 text-sm text-emerald-200 transition-colors duration-300 hover:bg-emerald-500/20"
+                >
+                  {t("geo_sections.browse_all_tools")}
+                </Link>
+                <Link
+                  href="/tools/cm-to-tommer-converter/"
+                  className="rounded-xl border border-teal-400/30 bg-teal-500/10 px-4 py-2 text-sm text-teal-200 transition-colors duration-300 hover:bg-teal-500/20"
+                >
+                  {t("geo_sections.related_tool_cm_tommer")}
+                </Link>
+              </div>
+            </section>
           </div>
         </section>
       </div>

@@ -3,11 +3,7 @@
 import { useState, useCallback, useEffect } from "react"
 import { useTranslations } from "next-intl"
 import type { ConversionResult, CommonFraction } from "../types"
-import {
-  convertFractionToDecimal,
-  convertDecimalToFractionResult,
-  formatDecimal,
-} from "../utils/converter"
+import { convertFractionToDecimal, convertDecimalToFractionResult } from "../utils/converter"
 import { copyConversionResult, shareConversionResult } from "../utils/clipboard"
 import { validateInput } from "../utils/fractionParser"
 
