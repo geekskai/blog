@@ -82,7 +82,7 @@ export default function SoundCloudToMP3Page() {
 
       <div className="relative mx-auto max-w-6xl space-y-4 p-4">
         {/* Content Freshness Badge */}
-        <ContentFreshnessBadge lastModified={new Date("2026-02-19")} namespace="SoundCloudToMP3" />
+        <ContentFreshnessBadge lastModified={new Date("2026-02-20")} namespace="SoundCloudToMP3" />
 
         {/* Header Section - SEO Optimized */}
         <header className="text-center">
