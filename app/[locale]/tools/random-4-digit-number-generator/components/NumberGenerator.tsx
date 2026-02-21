@@ -212,31 +212,31 @@ const NumberGeneratorComponent = () => {
       : null
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5 sm:space-y-6 md:space-y-8">
       {/* === Single Number Generator === */}
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-900/25 via-purple-900/20 to-indigo-900/25 p-4 shadow-2xl backdrop-blur-xl sm:p-6 md:p-8">
+      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-900/25 via-purple-900/20 to-indigo-900/25 p-3.5 shadow-2xl backdrop-blur-xl sm:p-5 md:p-7 lg:p-8">
         {/* Decorative background elements */}
         <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-blue-500/15 to-purple-500/15 blur-3xl"></div>
         <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/15 blur-3xl"></div>
 
         <div className="relative">
           {/* Header */}
-          <div className="mb-6 flex items-center justify-between">
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-4 py-2 backdrop-blur-sm md:gap-3 md:px-6 md:py-3">
-              <Hash className="h-5 w-5 text-blue-400 md:h-6 md:w-6" />
-              <h3 className="bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-xl font-bold text-transparent md:text-2xl">
+          <div className="mb-5 flex flex-col gap-3 sm:mb-6 sm:flex-row sm:items-center sm:justify-between">
+            <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-3 py-1.5 backdrop-blur-sm sm:px-4 sm:py-2 md:gap-3 md:px-6 md:py-3">
+              <Hash className="h-4 w-4 text-blue-400 sm:h-5 sm:w-5 md:h-6 md:w-6" />
+              <h3 className="bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-lg font-bold text-transparent sm:text-xl md:text-2xl">
                 {t("single_title")}
               </h3>
             </div>
 
             <button
               onClick={() => setShowSettings(!showSettings)}
-              className="to-white/2 group relative overflow-hidden rounded-xl border border-white/20 bg-gradient-to-br from-white/5 px-4 py-2 transition-all duration-300 hover:border-white/40"
+              className="to-white/2 group relative w-full overflow-hidden rounded-xl border border-white/20 bg-gradient-to-br from-white/5 px-4 py-2.5 transition-all duration-300 hover:border-white/40 sm:w-auto"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
               <div className="relative flex items-center gap-2">
                 <Settings className="h-4 w-4 text-slate-300" />
-                <span className="text-sm text-slate-300">
+                <span className="text-xs text-slate-300 sm:text-sm">
                   {showSettings ? t("settings_hide") : t("settings_show")}
                 </span>
               </div>
@@ -245,16 +245,18 @@ const NumberGeneratorComponent = () => {
 
           {/* Settings Panel */}
           {showSettings && (
-            <div className="mb-6 rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-4 backdrop-blur-sm md:p-6">
-              <h4 className="mb-4 text-lg font-semibold text-white">{t("settings_panel.title")}</h4>
+            <div className="mb-6 rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-3.5 backdrop-blur-sm sm:p-4 md:p-6">
+              <h4 className="mb-4 text-base font-semibold text-white sm:text-lg">
+                {t("settings_panel.title")}
+              </h4>
 
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="grid gap-4 sm:gap-5 md:grid-cols-2 md:gap-6">
                 {/* Range Settings */}
                 <div>
                   <label className="mb-2 block text-sm font-medium text-slate-300">
                     {t("settings_panel.range_label")}
                   </label>
-                  <div className="flex gap-2">
+                  <div className="flex items-center gap-2">
                     <input
                       type="number"
                       min="0"
@@ -266,7 +268,7 @@ const NumberGeneratorComponent = () => {
                           rangeStart: Math.max(0, Math.min(9999, parseInt(e.target.value) || 0)),
                         }))
                       }
-                      className="w-full rounded-lg border border-blue-500/30 bg-blue-500/10 px-3 py-2 text-white backdrop-blur-sm transition-all duration-300 focus:border-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/20"
+                      className="w-full rounded-lg border border-blue-500/30 bg-blue-500/10 px-3 py-2.5 text-sm text-white backdrop-blur-sm transition-all duration-300 focus:border-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/20 sm:text-base"
                     />
                     <span className="flex items-center text-slate-400">-</span>
                     <input
@@ -280,7 +282,7 @@ const NumberGeneratorComponent = () => {
                           rangeEnd: Math.max(0, Math.min(9999, parseInt(e.target.value) || 9999)),
                         }))
                       }
-                      className="w-full rounded-lg border border-blue-500/30 bg-blue-500/10 px-3 py-2 text-white backdrop-blur-sm transition-all duration-300 focus:border-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/20"
+                      className="w-full rounded-lg border border-blue-500/30 bg-blue-500/10 px-3 py-2.5 text-sm text-white backdrop-blur-sm transition-all duration-300 focus:border-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/20 sm:text-base"
                     />
                   </div>
                 </div>
@@ -295,7 +297,7 @@ const NumberGeneratorComponent = () => {
                     onChange={(e) =>
                       setState((prev) => ({ ...prev, format: e.target.value as NumberFormat }))
                     }
-                    className="w-full rounded-lg border border-blue-500/30 bg-blue-500/10 px-3 py-2 text-white backdrop-blur-sm transition-all duration-300 focus:border-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/20"
+                    className="w-full rounded-lg border border-blue-500/30 bg-blue-500/10 px-3 py-2.5 text-sm text-white backdrop-blur-sm transition-all duration-300 focus:border-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/20 sm:text-base"
                   >
                     <option value="plain">{t("settings_panel.format_plain")}</option>
                     <option value="hyphen">{t("settings_panel.format_hyphen")}</option>
@@ -309,7 +311,7 @@ const NumberGeneratorComponent = () => {
                   <label className="mb-3 block text-sm font-medium text-slate-300">
                     {t("settings_panel.exclusion_rules_label")}
                   </label>
-                  <div className="flex flex-wrap gap-4">
+                  <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
                     <label className="flex items-center gap-2">
                       <input
                         type="checkbox"
@@ -325,7 +327,7 @@ const NumberGeneratorComponent = () => {
                         }
                         className="rounded border-blue-500/30 bg-blue-500/10 text-blue-500 focus:ring-blue-500/20"
                       />
-                      <span className="text-sm text-slate-300">
+                      <span className="text-sm leading-6 text-slate-300">
                         {t("settings_panel.exclude_sequential")}
                       </span>
                     </label>
@@ -345,7 +347,7 @@ const NumberGeneratorComponent = () => {
                         }
                         className="rounded border-blue-500/30 bg-blue-500/10 text-blue-500 focus:ring-blue-500/20"
                       />
-                      <span className="text-sm text-slate-300">
+                      <span className="text-sm leading-6 text-slate-300">
                         {t("settings_panel.exclude_repeated")}
                       </span>
                     </label>
@@ -358,23 +360,25 @@ const NumberGeneratorComponent = () => {
           {/* Generated Number Display */}
           <div className="mb-6">
             <div className="relative">
-              <div className="flex min-h-[160px] items-center justify-center rounded-2xl border-2 border-dashed border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-purple-500/5 p-4 backdrop-blur-sm md:min-h-[200px] md:p-8">
+              <div className="flex min-h-[140px] items-center justify-center rounded-2xl border-2 border-dashed border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-purple-500/5 p-3.5 backdrop-blur-sm sm:min-h-[160px] sm:p-4 md:min-h-[200px] md:p-8">
                 {state.generatedNumber ? (
                   <div className="text-center">
-                    <div className="mb-2 font-mono text-4xl font-bold text-transparent sm:text-5xl md:mb-4 md:text-6xl">
+                    <div className="mb-2 font-mono text-3xl font-bold text-transparent sm:text-4xl md:mb-4 md:text-6xl">
                       <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text">
                         {state.generatedNumber}
                       </span>
                     </div>
-                    <div className="text-xs text-slate-400 md:text-sm">
+                    <div className="text-[11px] text-slate-400 sm:text-xs md:text-sm">
                       {t("display.crypto_secure")}
                     </div>
                   </div>
                 ) : (
                   <div className="text-center text-slate-400">
-                    <Hash className="mx-auto mb-3 h-12 w-12 text-slate-600 md:mb-4 md:h-16 md:w-16" />
-                    <div className="mb-2 text-xl font-medium">{t("display.click_generate")}</div>
-                    <div className="text-sm">{t("display.features")}</div>
+                    <Hash className="mx-auto mb-3 h-10 w-10 text-slate-600 sm:h-12 sm:w-12 md:mb-4 md:h-16 md:w-16" />
+                    <div className="mb-2 text-lg font-medium sm:text-xl">
+                      {t("display.click_generate")}
+                    </div>
+                    <div className="text-xs sm:text-sm">{t("display.features")}</div>
                   </div>
                 )}
               </div>
@@ -382,16 +386,16 @@ const NumberGeneratorComponent = () => {
           </div>
 
           {/* Single Number Controls */}
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-stretch">
             <button
               onClick={generateSingle}
               disabled={state.isGenerating}
-              className="group relative flex-1 overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-6 py-3 text-base font-bold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30 disabled:opacity-50 md:px-8 md:py-4 md:text-lg"
+              className="group relative flex-1 overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-5 py-3 text-sm font-bold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30 disabled:opacity-50 sm:px-6 sm:text-base md:px-8 md:py-4 md:text-lg"
             >
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
               <span className="relative flex items-center justify-center gap-2">
                 <Shuffle
-                  className={`h-4 w-4 md:h-5 md:w-5 ${state.isGenerating ? "animate-spin" : ""}`}
+                  className={`h-4 w-4 sm:h-5 sm:w-5 ${state.isGenerating ? "animate-spin" : ""}`}
                 />
                 {state.isGenerating ? t("buttons.generating") : t("buttons.generate")}
               </span>
@@ -400,10 +404,10 @@ const NumberGeneratorComponent = () => {
             {state.generatedNumber && (
               <button
                 onClick={() => copyNumber(state.generatedNumber)}
-                className="group relative overflow-hidden rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-blue-500/10 px-6 py-3 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 md:px-6 md:py-4"
+                className="group relative w-full overflow-hidden rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-blue-500/10 px-5 py-3 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 sm:w-auto sm:px-6 md:py-4"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-                <span className="relative flex items-center gap-2 text-white">
+                <span className="relative flex items-center justify-center gap-2 text-sm text-white sm:text-base">
                   {copiedNumber === state.generatedNumber ? (
                     <>
                       <Check className="h-5 w-5 text-green-400" />
@@ -422,7 +426,7 @@ const NumberGeneratorComponent = () => {
 
           {/* History Section */}
           {history.length > 0 && (
-            <div className="mt-6 rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/30 to-slate-900/30 p-4 backdrop-blur-sm">
+            <div className="mt-6 rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/30 to-slate-900/30 p-3.5 backdrop-blur-sm sm:p-4">
               <div className="mb-3 flex items-center justify-between">
                 <h4 className="text-sm font-semibold text-slate-300">{t("history.title")}</h4>
                 <button
@@ -440,7 +444,7 @@ const NumberGeneratorComponent = () => {
                   <button
                     key={index}
                     onClick={() => copyNumber(num)}
-                    className="rounded-lg bg-slate-800/50 px-3 py-1 font-mono text-sm text-slate-300 transition-colors hover:bg-slate-700/50"
+                    className="rounded-lg bg-slate-800/50 px-3 py-1.5 font-mono text-xs text-slate-300 transition-colors hover:bg-slate-700/50 sm:text-sm"
                   >
                     {num}
                   </button>
@@ -452,21 +456,21 @@ const NumberGeneratorComponent = () => {
       </div>
 
       {/* === Batch Generator === */}
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-900/25 via-teal-900/20 to-cyan-900/25 p-4 shadow-2xl backdrop-blur-xl sm:p-6 md:p-8">
+      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-900/25 via-teal-900/20 to-cyan-900/25 p-3.5 shadow-2xl backdrop-blur-xl sm:p-5 md:p-7 lg:p-8">
         {/* Decorative background */}
         <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-emerald-500/15 to-teal-500/15 blur-3xl"></div>
 
         <div className="relative">
           {/* Header */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 px-4 py-2 backdrop-blur-sm md:gap-3 md:px-6 md:py-3">
-            <TrendingUp className="h-5 w-5 text-emerald-400 md:h-6 md:w-6" />
-            <h3 className="bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text text-xl font-bold text-transparent md:text-2xl">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 px-3 py-1.5 backdrop-blur-sm sm:px-4 sm:py-2 md:mb-6 md:gap-3 md:px-6 md:py-3">
+            <TrendingUp className="h-4 w-4 text-emerald-400 sm:h-5 sm:w-5 md:h-6 md:w-6" />
+            <h3 className="bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text text-lg font-bold text-transparent sm:text-xl md:text-2xl">
               {t("bulk.title")}
             </h3>
           </div>
 
           {/* Batch Settings */}
-          <div className="mb-6 grid gap-4 md:grid-cols-3">
+          <div className="mb-6 grid gap-4 sm:gap-5 md:grid-cols-3 md:gap-6">
             <div>
               <label className="mb-2 block text-sm font-medium text-slate-300">
                 {t("bulk.number_of_items")}
@@ -482,7 +486,7 @@ const NumberGeneratorComponent = () => {
                     batchCount: Math.max(1, Math.min(1000, parseInt(e.target.value) || 10)),
                   }))
                 }
-                className="w-full rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-white backdrop-blur-sm transition-all duration-300 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
+                className="w-full rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2.5 text-sm text-white backdrop-blur-sm transition-all duration-300 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20 sm:text-base"
               />
             </div>
 
@@ -498,7 +502,7 @@ const NumberGeneratorComponent = () => {
                     exportFormat: e.target.value as "txt" | "csv" | "json",
                   }))
                 }
-                className="w-full rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-white backdrop-blur-sm transition-all duration-300 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
+                className="w-full rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2.5 text-sm text-white backdrop-blur-sm transition-all duration-300 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20 sm:text-base"
               >
                 <option value="txt">{t("bulk.format_txt")}</option>
                 <option value="csv">{t("bulk.format_csv")}</option>
@@ -506,7 +510,7 @@ const NumberGeneratorComponent = () => {
               </select>
             </div>
 
-            <div className="flex items-end">
+            <div className="flex items-end md:justify-start">
               <label className="flex items-center gap-2">
                 <input
                   type="checkbox"
@@ -522,16 +526,16 @@ const NumberGeneratorComponent = () => {
           </div>
 
           {/* Batch Controls */}
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-stretch">
             <button
               onClick={generateBatch}
               disabled={state.isGenerating}
-              className="group relative flex-1 overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 px-6 py-3 text-base font-bold text-white shadow-xl shadow-emerald-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/30 disabled:opacity-50 md:px-8 md:py-4 md:text-lg"
+              className="group relative flex-1 overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 px-5 py-3 text-sm font-bold text-white shadow-xl shadow-emerald-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/30 disabled:opacity-50 sm:px-6 sm:text-base md:px-8 md:py-4 md:text-lg"
             >
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
               <span className="relative flex items-center justify-center gap-2">
                 <Shuffle
-                  className={`h-4 w-4 md:h-5 md:w-5 ${state.isGenerating ? "animate-spin" : ""}`}
+                  className={`h-4 w-4 sm:h-5 sm:w-5 ${state.isGenerating ? "animate-spin" : ""}`}
                 />
                 {state.isGenerating
                   ? t("buttons.generating")
@@ -543,7 +547,7 @@ const NumberGeneratorComponent = () => {
               <>
                 <button
                   onClick={exportData}
-                  className="group relative overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-emerald-500/10 px-6 py-3 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/25 md:px-6 md:py-4"
+                  className="group relative w-full overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-emerald-500/10 px-5 py-3 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/25 sm:w-auto sm:px-6 md:py-4"
                 >
                   <span className="relative flex items-center gap-2 text-white">
                     <Download className="h-5 w-5" />
@@ -553,7 +557,7 @@ const NumberGeneratorComponent = () => {
 
                 <button
                   onClick={() => setShowBatch(!showBatch)}
-                  className="group relative overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-emerald-500/10 px-6 py-3 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/25 md:px-6 md:py-4"
+                  className="group relative w-full overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-emerald-500/10 px-5 py-3 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/25 sm:w-auto sm:px-6 md:py-4"
                 >
                   <span className="relative flex items-center gap-2 text-white">
                     {showBatch ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
@@ -566,17 +570,21 @@ const NumberGeneratorComponent = () => {
 
           {/* Statistics */}
           {showStats && stats && (
-            <div className="mt-6 grid grid-cols-1 gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/30 to-slate-900/30 p-4 backdrop-blur-sm sm:grid-cols-3 md:p-6">
+            <div className="mt-6 grid grid-cols-1 gap-3 rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/30 to-slate-900/30 p-3.5 backdrop-blur-sm sm:grid-cols-3 sm:gap-4 sm:p-4 md:p-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-400">{stats.totalGenerated}</div>
+                <div className="text-2xl font-bold text-emerald-400 sm:text-3xl">
+                  {stats.totalGenerated}
+                </div>
                 <div className="text-sm text-slate-400">{t("stats.total_generated")}</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-teal-400">{stats.uniqueCount}</div>
+                <div className="text-2xl font-bold text-teal-400 sm:text-3xl">
+                  {stats.uniqueCount}
+                </div>
                 <div className="text-sm text-slate-400">{t("stats.unique_numbers")}</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-cyan-400">
+                <div className="text-2xl font-bold text-cyan-400 sm:text-3xl">
                   {stats.averageValue.toFixed(0)}
                 </div>
                 <div className="text-sm text-slate-400">{t("stats.average_value")}</div>
@@ -593,13 +601,13 @@ const NumberGeneratorComponent = () => {
                 </h4>
                 <div className="text-xs text-slate-500">{t("bulk.click_to_copy")}</div>
               </div>
-              <div className="max-h-96 overflow-y-auto rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900/50 to-slate-800/50 p-4 backdrop-blur-sm">
+              <div className="max-h-96 overflow-y-auto rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900/50 to-slate-800/50 p-3.5 backdrop-blur-sm sm:p-4">
                 <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {state.generatedBatch.map((number, index) => (
                     <button
                       key={index}
                       onClick={() => copyNumber(number)}
-                      className="group relative overflow-hidden rounded-lg border border-white/10 bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-3 text-left font-mono text-lg transition-all duration-300 hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/20"
+                      className="group relative overflow-hidden rounded-lg border border-white/10 bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-3 text-left font-mono text-base transition-all duration-300 hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/20 sm:text-lg"
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                       <div className="relative flex items-center justify-between">
@@ -620,7 +628,7 @@ const NumberGeneratorComponent = () => {
         <div className="text-center">
           <button
             onClick={resetAll}
-            className="to-white/2 group relative inline-flex items-center gap-2 overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-white/5 px-6 py-3 transition-all duration-300 hover:border-white/40 md:px-8 md:py-4"
+            className="to-white/2 group relative inline-flex items-center gap-2 overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-white/5 px-5 py-3 text-sm transition-all duration-300 hover:border-white/40 sm:px-6 sm:text-base md:px-8 md:py-4"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
             <RotateCcw className="relative h-5 w-5 text-slate-300" />

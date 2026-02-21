@@ -5481,6 +5481,7 @@
     "use_cases_technicians_description": "Druckerprobleme diagnostizieren, Druckerfunktion nach Reparaturen testen, Einrichtung und Konfiguration prüfen."
   },
   "SoundCloudPlaylistDownloader": {
+    "form_label_soundcloud_link": "SoundCloud-link",
     "section_how_to_step_1_title": "Schritt 1: Playlist-URL kopieren",
     "section_how_to_step_2_title": "Schritt 2: URL einfügen",
     "section_how_to_step_3_title": "Schritt 3: Abrufen und Format auswählen",
@@ -7186,6 +7187,7 @@
     "section_legal_footer": "Durch die Nutzung dieses Tools erklären Sie sich damit einverstanden, alle geltenden Gesetze einzuhalten und die kreativen Werke von Musikern weltweit zu respektieren."
   },
   "SoundCloudDownloader": {
+    "form_label_soundcloud_link": "SoundCloud-Link",
     "tool_badge": "Vereinheitlichtes SoundCloud-Tool",
     "page_title": "SoundCloud Downloader (Track + Playlist)",
     "page_subtitle": "Füge eine SoundCloud-URL ein. Das Tool erkennt automatisch Track oder Playlist und führt dich zum passenden MP3- oder WAV-Ablauf.",

@@ -5323,6 +5323,7 @@
     "use_cases_technicians_description": "Diagnosticar problemas de la impresora, probar la funcionalidad de la impresora después de las reparaciones, verificar la instalación y configuración de la impresora."
   },
   "SoundCloudPlaylistDownloader": {
+    "form_label_soundcloud_link": "URL de la lista de reproducción de SoundCloud",
     "section_how_to_step_1_title": "Paso 1: copia la URL de la lista de reproducción",
     "section_how_to_step_2_title": "Paso 2: pega la URL",
     "section_how_to_step_3_title": "Paso 3: buscar y elegir formato",
@@ -7027,6 +7028,7 @@
     "section_legal_footer": "Al utilizar esta herramienta, acepta cumplir con todas las leyes aplicables y respetar el trabajo creativo de los músicos de todo el mundo."
   },
   "SoundCloudDownloader": {
+    "form_label_soundcloud_link": "URL de la pista de SoundCloud",
     "tool_badge": "Herramienta unificada de SoundCloud",
     "page_title": "Descargador de SoundCloud (Pista + Lista de reproducción)",
     "page_subtitle": "Pega una URL de SoundCloud. La herramienta detecta automáticamente si es pista o lista y aplica el flujo correcto para MP3 o WAV.",

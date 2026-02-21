@@ -5388,6 +5388,7 @@
     "use_cases_technicians_description": "Diagnostiquez les problèmes d'imprimante, testez la fonctionnalité de l'imprimante après les réparations, vérifiez la configuration de l'imprimante."
   },
   "SoundCloudPlaylistDownloader": {
+    "form_label_soundcloud_link": "URL de la playlist SoundCloud",
     "error_track_url_link": "Essayez le convertisseur SoundCloud en MP3/WAV",
     "section_how_to_step_1_title": "Étape 1 : Copier l’URL de la playlist",
     "section_how_to_step_2_title": "Étape 2 : Coller l’URL",
@@ -7092,6 +7093,7 @@
     "section_legal_footer": "En utilisant cet outil, vous acceptez de vous conformer à toutes les lois applicables et de respecter le travail des musiciens."
   },
   "SoundCloudDownloader": {
+    "form_label_soundcloud_link": "URL de la playlist SoundCloud",
     "tool_badge": "Outil SoundCloud unifié",
     "page_title": "Téléchargeur SoundCloud (Piste + Playlist)",
     "page_subtitle": "Collez une URL SoundCloud. L'outil détecte automatiquement s'il s'agit d'une piste ou d'une playlist et vous guide vers le bon flux MP3 ou WAV.",

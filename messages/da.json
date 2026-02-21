@@ -5048,6 +5048,7 @@
     "use_cases_technicians_description": "Diagnosticér printerproblemer, test printerfunktionalitet efter reparationer og verificer printeropsætning og -konfiguration."
   },
   "SoundCloudPlaylistDownloader": {
+    "form_label_soundcloud_link": "SoundCloud-link",
     "error_track_url_link": "Prøv SoundCloud til MP3/WAV-konverter",
     "section_how_to_step_1_title": "Trin 1: Kopiér playlist-URL'en",
     "section_how_to_step_2_title": "Trin 2: Indsæt URL'en",
@@ -6754,6 +6755,7 @@
     "section_legal_footer": "Ved at bruge dette værktøj accepterer du at overholde alle gældende love og respektere de kreative værker fra musikere over hele verden."
   },
   "SoundCloudDownloader": {
+    "form_label_soundcloud_link": "SoundCloud-URL",
     "tool_badge": "Samlet SoundCloud-værktøj",
     "page_title": "SoundCloud Downloader (Track + Playliste)",
     "page_subtitle": "Indsæt én SoundCloud-URL. Værktøjet registrerer automatisk track eller playliste og guider dig til korrekt MP3- eller WAV-flow.",

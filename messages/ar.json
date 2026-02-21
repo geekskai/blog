@@ -5392,6 +5392,7 @@
   },
 
   "SoundCloudPlaylistDownloader": {
+    "form_label_soundcloud_link": "رابط SoundCloud",
     "error_track_url_link": "جرب محول SoundCloud إلى MP3/WAV",
     "metadata_title": "تنزيل قائمة تشغيل SoundCloud - أداة مجانية عبر الإنترنت | تنزيل قوائم التشغيل بأكملها",
     "metadata_description": "أداة مجانية لتنزيل قوائم تشغيل SoundCloud. قم بتنزيل قوائم تشغيل SoundCloud بأكملها بتنسيق MP3 أو WAV. سريع وغير محدود ولا يتطلب التسجيل. قم بتنزيل جميع المسارات من أي قائمة تشغيل SoundCloud دفعة واحدة.",
@@ -7098,6 +7099,7 @@
     "section_legal_footer": "باستخدام هذه الأداة، فإنك توافق على الالتزام بجميع القوانين المعمول بها واحترام الأعمال الإبداعية للموسيقيين في جميع أنحاء العالم."
   },
   "SoundCloudDownloader": {
+    "form_label_soundcloud_link": "رابط SoundCloud",
     "tool_badge": "أداة SoundCloud موحّدة",
     "page_title": "مُنزّل SoundCloud (مقطع + قائمة تشغيل)",
     "page_subtitle": "الصق رابط SoundCloud واحدًا. تقوم الأداة باكتشاف ما إذا كان الرابط لمقطع أو لقائمة تشغيل وتوجّهك تلقائيًا إلى مسار MP3 أو WAV المناسب.",

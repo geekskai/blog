@@ -5231,6 +5231,7 @@
     "use_cases_technicians_description": "프린터 문제 진단, 수리 후 기능 테스트, 프린터 설정 및 구성 확인에 사용됩니다."
   },
   "SoundCloudPlaylistDownloader": {
+    "form_label_soundcloud_link": "SoundCloud 플레이리스트 URL",
     "error_track_url_link": "SoundCloud to WAV Converter 를 사용해 보세요",
     "section_how_to_step_1_title": "1단계: 플레이리스트 URL 복사",
     "section_how_to_step_2_title": "2단계: URL 붙여넣기",
@@ -6935,6 +6936,7 @@
     "section_legal_footer": "이 도구를 사용함으로써 귀하는 모든 관련 법률을 준수하고 전 세계 뮤지션의 창작물을 존중하는 데 동의하게 됩니다."
   },
   "SoundCloudDownloader": {
+    "form_label_soundcloud_link": "SoundCloud 트랙 URL",
     "tool_badge": "통합 SoundCloud 도구",
     "page_title": "SoundCloud 다운로더 (트랙 + 플레이리스트)",
     "page_subtitle": "SoundCloud URL 하나를 붙여넣으세요. 도구가 트랙/플레이리스트를 자동으로 감지하고 MP3 또는 WAV 다운로드 흐름으로 안내합니다.",

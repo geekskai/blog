@@ -60,21 +60,23 @@ const FAQSection = () => {
   ]
 
   return (
-    <section className="mt-12 md:mt-20">
+    <section className="mt-12 md:mt-20 lg:mt-24">
       {/* Section Header */}
       <div className="mb-8 text-center md:mb-12">
-        <div className="to-white/2 mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-gradient-to-r from-white/5 px-4 py-1.5 backdrop-blur-sm md:px-6 md:py-2">
+        <div className="to-white/2 mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-gradient-to-r from-white/5 px-3 py-1.5 backdrop-blur-sm sm:px-4 md:px-6 md:py-2">
           <span className="text-xl md:text-2xl">❓</span>
           <span className="text-xs font-medium text-slate-300 md:text-sm">{t("badge")}</span>
         </div>
-        <h2 className="mb-4 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-4xl font-bold text-transparent">
+        <h2 className="mb-4 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-2xl font-bold text-transparent sm:text-3xl md:text-4xl">
           {t("title")}
         </h2>
-        <p className="mx-auto max-w-3xl text-lg text-slate-400">{t("description")}</p>
+        <p className="mx-auto max-w-3xl text-base leading-7 text-slate-400 md:text-lg">
+          {t("description")}
+        </p>
       </div>
 
       {/* FAQ Accordion */}
-      <div className="mx-auto max-w-4xl space-y-4">
+      <div className="mx-auto max-w-4xl space-y-3 sm:space-y-4">
         {faqs.map((faq, index) => {
           const isOpen = openIndex === index
 
@@ -85,9 +87,11 @@ const FAQSection = () => {
             >
               <button
                 onClick={() => setOpenIndex(isOpen ? null : index)}
-                className="flex w-full items-center justify-between p-4 text-left transition-colors hover:bg-white/5 md:p-6"
+                className="flex w-full items-center justify-between p-3.5 text-left transition-colors hover:bg-white/5 sm:p-4 md:p-6"
               >
-                <h3 className="pr-8 text-lg font-semibold text-white">{faq.question}</h3>
+                <h3 className="pr-6 text-base font-semibold leading-7 text-white sm:pr-8 sm:text-lg">
+                  {faq.question}
+                </h3>
                 <ChevronDown
                   className={`h-5 w-5 flex-shrink-0 text-slate-400 transition-transform duration-300 ${
                     isOpen ? "rotate-180" : ""
@@ -100,8 +104,8 @@ const FAQSection = () => {
                   isOpen ? "max-h-96" : "max-h-0"
                 }`}
               >
-                <div className="border-t border-white/10 p-4 pt-4 md:p-6">
-                  <p className="leading-relaxed text-slate-300">{faq.answer}</p>
+                <div className="border-t border-white/10 p-3.5 pt-3.5 sm:p-4 sm:pt-4 md:p-6">
+                  <p className="text-sm leading-7 text-slate-300 sm:text-base">{faq.answer}</p>
                 </div>
               </div>
             </div>
@@ -110,21 +114,25 @@ const FAQSection = () => {
       </div>
 
       {/* Additional Help */}
-      <div className="mt-12 rounded-2xl border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-8 text-center backdrop-blur-sm">
-        <h3 className="mb-3 text-2xl font-bold text-white">{t("still_have_questions.title")}</h3>
-        <p className="mb-6 text-slate-300">{t("still_have_questions.description")}</p>
-        <div className="flex flex-wrap justify-center gap-4">
+      <div className="mt-12 rounded-2xl border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-5 text-center backdrop-blur-sm sm:p-6 md:p-8">
+        <h3 className="mb-3 text-xl font-bold text-white sm:text-2xl">
+          {t("still_have_questions.title")}
+        </h3>
+        <p className="mb-6 text-sm leading-7 text-slate-300 sm:text-base">
+          {t("still_have_questions.description")}
+        </p>
+        <div className="flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
           <a
             href="https://geekskai.com/blog/"
             target="_blank"
-            className="group relative overflow-hidden rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-blue-500/10 px-6 py-3 font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
+            className="group relative overflow-hidden rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-blue-500/10 px-5 py-3 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 sm:px-6 sm:text-base"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
             <span className="relative">{t("still_have_questions.view_docs")}</span>
           </a>
           <a
             href="mailto:geeks.kai@gmail.com"
-            className="group relative overflow-hidden rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/15 to-purple-500/10 px-6 py-3 font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
+            className="group relative overflow-hidden rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/15 to-purple-500/10 px-5 py-3 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 sm:px-6 sm:text-base"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
             <span className="relative">{t("still_have_questions.contact_support")}</span>
@@ -133,7 +141,7 @@ const FAQSection = () => {
       </div>
 
       {/* Quick Tips */}
-      <div className="mt-8 grid gap-4 md:grid-cols-3">
+      <div className="mt-8 grid gap-3 sm:gap-4 md:grid-cols-3">
         {[
           {
             icon: t("pro_tips.tip_1.icon"),
@@ -153,11 +161,11 @@ const FAQSection = () => {
         ].map((tip, index) => (
           <div
             key={index}
-            className="to-white/2 rounded-xl border border-white/10 bg-gradient-to-br from-white/5 p-4 backdrop-blur-sm"
+            className="to-white/2 rounded-xl border border-white/10 bg-gradient-to-br from-white/5 p-3.5 backdrop-blur-sm sm:p-4"
           >
-            <div className="mb-2 text-2xl">{tip.icon}</div>
-            <h4 className="mb-1 font-semibold text-white">{tip.title}</h4>
-            <p className="text-sm text-slate-400">{tip.text}</p>
+            <div className="mb-2 text-xl sm:text-2xl">{tip.icon}</div>
+            <h4 className="mb-1 text-sm font-semibold text-white sm:text-base">{tip.title}</h4>
+            <p className="text-xs leading-6 text-slate-400 sm:text-sm">{tip.text}</p>
           </div>
         ))}
       </div>

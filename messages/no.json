@@ -5175,6 +5175,7 @@
     "use_cases_technicians_description": "Diagnostiser skriverproblemer, test skriverfunksjonalitet etter reparasjoner og verifiser skriveroppsett og konfigurasjon."
   },
   "SoundCloudPlaylistDownloader": {
+    "form_label_soundcloud_link": "SoundCloud spilleliste-URL",
     "error_track_url_link": "Prøv SoundCloud til MP3/WAV-konverter",
     "section_how_to_step_1_title": "Trinn 1: Kopier spilleliste-URL",
     "section_how_to_step_2_title": "Trinn 2: Lim inn URL-en",
@@ -6879,6 +6880,7 @@
     "section_legal_footer": "Ved å bruke dette verktøyet samtykker du i å overholde alle gjeldende lover og respektere det kreative arbeidet til musikere over hele verden."
   },
   "SoundCloudDownloader": {
+    "form_label_soundcloud_link": "SoundCloud-URL",
     "tool_badge": "Samlet SoundCloud-verktøy",
     "page_title": "SoundCloud-nedlaster (Låt + Spilleliste)",
     "page_subtitle": "Lim inn én SoundCloud-URL. Verktøyet oppdager automatisk låt eller spilleliste og leder deg til riktig MP3- eller WAV-flyt.",

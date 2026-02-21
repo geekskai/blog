@@ -5614,6 +5614,7 @@
     "section_use_cases_3_description": "Save your favorite <strong>SoundCloud playlists</strong> offline. Download entire playlists in your preferred format to enjoy music without internet connection.",
     "section_faq_title": "Frequently Asked Questions",
     "section_legal_title": "Legal and Ethical Considerations",
+    "form_label_soundcloud_link": "SoundCloud Link",
     "section_legal_description": "Our SoundCloud playlist downloader is provided as a tool for users who have the legal right to download content. It is your responsibility to ensure you have permission to download any content you access through this tool.",
     "section_legal_point_1": "Only download content you have permission to use or that is explicitly available for free download",
     "section_legal_point_2": "Respect copyright laws and the rights of content creators and copyright holders",
@@ -7188,6 +7189,7 @@
     "section_legal_footer": "By using this tool, you agree to comply with all applicable laws and respect the creative works of musicians worldwide."
   },
   "SoundCloudDownloader": {
+    "form_label_soundcloud_link": "SoundCloud Link",
     "tool_badge": "Unified SoundCloud Tool",
     "page_title": "SoundCloud Downloader (Track + Playlist)",
     "page_subtitle": "Paste one SoundCloud URL. The tool auto-detects track or playlist and guides you to the right MP3 or WAV flow.",

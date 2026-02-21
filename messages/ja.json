@@ -5405,6 +5405,7 @@
     "use_cases_technicians_description": "プリンターの問題診断、修理後の動作テスト、プリンターのセットアップや設定確認に。"
   },
   "SoundCloudPlaylistDownloader": {
+    "form_label_soundcloud_link": "SoundCloud プレイリストの URL",
     "error_track_url_link": "SoundCloud to WAV Converter を試してください",
     "section_how_to_step_1_title": "ステップ1：プレイリストのURLをコピー",
     "section_how_to_step_2_title": "ステップ2：URLを貼り付け",
@@ -7109,6 +7110,7 @@
     "section_legal_footer": "このツールを使用することで、適用されるすべての法律を遵守し、世界中のミュージシャンの創造的な著作物を尊重することに同意したものとみなされます。"
   },
   "SoundCloudDownloader": {
+    "form_label_soundcloud_link": "SoundCloud URL",
     "tool_badge": "統合 SoundCloud ツール",
     "page_title": "SoundCloud ダウンローダー（トラック + プレイリスト）",
     "page_subtitle": "SoundCloud URL を 1 つ貼り付けるだけ。ツールがトラックかプレイリストかを自動判定し、適切な MP3 / WAV フローに案内します。",
