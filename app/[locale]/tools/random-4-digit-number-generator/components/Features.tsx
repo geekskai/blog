@@ -93,10 +93,14 @@ const Features = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="mb-2 text-xl font-bold text-white sm:mb-3 sm:text-2xl">{feature.title}</h3>
+                <h3 className="mb-2 text-xl font-bold text-white sm:mb-3 sm:text-2xl">
+                  {feature.title}
+                </h3>
 
                 {/* Description */}
-                <p className="text-sm leading-7 text-slate-300 sm:text-base">{feature.description}</p>
+                <p className="text-sm leading-7 text-slate-300 sm:text-base">
+                  {feature.description}
+                </p>
 
                 {/* Hover indicator */}
                 <div className="mt-4 hidden items-center gap-2 text-sm font-medium text-slate-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:flex">
