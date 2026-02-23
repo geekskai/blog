@@ -14,6 +14,8 @@ export async function generateMetadata({
     "x-default": "https://geekskai.com/tools/bpm-ms-converter",
   }
 
+  const lastModified = new Date("2026-02-23")
+
   supportedLocales.forEach((locale) => {
     languages[locale] = `https://geekskai.com/${locale}/tools/bpm-ms-converter`
   })
@@ -53,6 +55,7 @@ export async function generateMetadata({
       },
     },
     other: {
+      "last-modified": lastModified.toISOString(),
       "application-name": "GeeksKai BPM MS Converter",
       "mobile-web-app-capable": "yes",
       "apple-mobile-web-app-capable": "yes",

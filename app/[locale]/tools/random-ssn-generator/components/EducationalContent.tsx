@@ -8,16 +8,22 @@ const EducationalContent = () => {
   const t = useTranslations("RandomSSNGenerator")
 
   return (
-    <div className="mt-20 space-y-16">
+    <div className="mt-12 space-y-10 md:mt-20 md:space-y-16">
       {/* SSN Structure Section */}
-      <section className="rounded-xl bg-gradient-to-r from-blue-800 to-indigo-700 p-8">
-        <h2 className="mb-6 text-2xl font-bold text-white">{t("educational_structure_title")}</h2>
+      <section className="rounded-xl bg-gradient-to-r from-blue-800 to-indigo-700 p-6 md:p-8">
+        <h2 className="mb-4 text-xl font-bold text-white md:mb-6 md:text-2xl">
+          {t("educational_structure_title")}
+        </h2>
         <div className="grid gap-6 md:grid-cols-2">
           <div>
-            <p className="mb-4 text-slate-200">{t("educational_structure_description_1")}</p>
-            <p className="text-slate-200">{t("educational_structure_description_2")}</p>
+            <p className="mb-4 text-sm text-slate-200 md:text-base">
+              {t("educational_structure_description_1")}
+            </p>
+            <p className="text-sm text-slate-200 md:text-base">
+              {t("educational_structure_description_2")}
+            </p>
           </div>
-          <div className="rounded-lg bg-blue-900/30 p-6">
+          <div className="rounded-lg bg-blue-900/30 p-5 md:p-6">
             <h3 className="mb-3 text-lg font-semibold text-white">
               {t("educational_structure_breakdown_title")}
             </h3>
@@ -52,8 +58,8 @@ const EducationalContent = () => {
       </section>
 
       {/* Testing Best Practices */}
-      <section className="rounded-xl bg-gradient-to-r from-purple-800 to-pink-700 p-8">
-        <h2 className="mb-6 text-2xl font-bold text-white">
+      <section className="rounded-xl bg-gradient-to-r from-purple-800 to-pink-700 p-6 md:p-8">
+        <h2 className="mb-6 text-xl font-bold text-white md:text-2xl">
           {t("educational_best_practices_title")}
         </h2>
         <div className="grid gap-6 md:grid-cols-3">
@@ -88,8 +94,10 @@ const EducationalContent = () => {
       </section>
 
       {/* Validation Rules */}
-      <section className="rounded-xl bg-gradient-to-r from-emerald-800 to-teal-700 p-8">
-        <h2 className="mb-6 text-2xl font-bold text-white">{t("educational_validation_title")}</h2>
+      <section className="rounded-xl bg-gradient-to-r from-emerald-800 to-teal-700 p-6 md:p-8">
+        <h2 className="mb-6 text-xl font-bold text-white md:text-2xl">
+          {t("educational_validation_title")}
+        </h2>
         <div className="grid gap-6 md:grid-cols-2">
           <div>
             <h3 className="mb-4 text-lg font-semibold text-white">
@@ -121,9 +129,11 @@ const EducationalContent = () => {
       </section>
 
       {/* Use Cases */}
-      <section className="rounded-xl bg-gradient-to-r from-orange-800 to-red-700 p-8">
-        <h2 className="mb-6 text-2xl font-bold text-white">{t("educational_use_cases_title")}</h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <section className="rounded-xl bg-gradient-to-r from-orange-800 to-red-700 p-6 md:p-8">
+        <h2 className="mb-6 text-xl font-bold text-white md:text-2xl">
+          {t("educational_use_cases_title")}
+        </h2>
+        <div className="grid gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
           <div className="rounded-lg bg-orange-900/30 p-4">
             <h3 className="mb-2 font-semibold text-white">
               🧪 {t("educational_use_cases_qa_title")}
@@ -152,8 +162,10 @@ const EducationalContent = () => {
       </section>
 
       {/* Privacy and Ethics */}
-      <section className="rounded-xl bg-gradient-to-r from-slate-800 to-slate-700 p-8">
-        <h2 className="mb-6 text-2xl font-bold text-white">{t("educational_privacy_title")}</h2>
+      <section className="rounded-xl bg-gradient-to-r from-slate-800 to-slate-700 p-6 md:p-8">
+        <h2 className="mb-6 text-xl font-bold text-white md:text-2xl">
+          {t("educational_privacy_title")}
+        </h2>
         <div className="grid gap-6 md:grid-cols-3">
           <div className="rounded-lg bg-slate-800 p-6">
             <div className="mb-3 flex items-center gap-2">

@@ -42,12 +42,12 @@ export default function ConversionResults({ result, mode }: ConversionResultsPro
   return (
     <div className="space-y-8">
       {/* Primary Result */}
-      <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-8 backdrop-blur-xl">
+      <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-6 backdrop-blur-xl md:p-8">
         <div className="text-center">
           {/* Result Header */}
           <div className="mb-6 flex items-center justify-center gap-4">
-            <PrimaryIcon className="h-8 w-8 text-white" />
-            <h3 className="text-2xl font-bold text-white">
+            <PrimaryIcon className="h-6 w-6 text-white md:h-8 md:w-8" />
+            <h3 className="text-xl font-bold text-white md:text-2xl">
               {isBPMMode
                 ? t("conversion_results.milliseconds_per_beat")
                 : t("conversion_results.beats_per_minute")}
@@ -57,15 +57,17 @@ export default function ConversionResults({ result, mode }: ConversionResultsPro
           {/* Primary Value Display */}
           <div className="mb-6">
             <div
-              className={`inline-block rounded-2xl border bg-gradient-to-r px-8 py-6 ${
+              className={`inline-block rounded-2xl border bg-gradient-to-r px-6 py-4 md:px-8 md:py-6 ${
                 isBPMMode
                   ? "border-blue-500/30 from-blue-500/10 to-blue-500/5"
                   : "border-purple-500/30 from-purple-500/10 to-purple-500/5"
               }`}
             >
-              <span className="text-5xl font-bold text-white">{result.primaryValue}</span>
+              <span className="text-3xl font-bold text-white md:text-5xl">
+                {result.primaryValue}
+              </span>
               <span
-                className={`ml-3 text-2xl font-medium ${
+                className={`ml-2 text-xl font-medium md:ml-3 md:text-2xl ${
                   isBPMMode ? "text-blue-300" : "text-purple-300"
                 }`}
               >
@@ -83,17 +85,17 @@ export default function ConversionResults({ result, mode }: ConversionResultsPro
                 "primary"
               )
             }
-            className="rounded-xl border border-slate-600/30 bg-slate-700/50 px-6 py-3 transition-all duration-300 hover:border-slate-500/50 hover:bg-slate-600/50"
+            className="rounded-xl border border-slate-600/30 bg-slate-700/50 px-4 py-2 text-sm transition-all duration-300 hover:border-slate-500/50 hover:bg-slate-600/50 md:px-6 md:py-3 md:text-base"
           >
             <div className="flex items-center gap-2">
               {copyState.copied && copyState.copiedItem === "primary" ? (
                 <>
-                  <Check className="h-5 w-5 text-emerald-400" />
+                  <Check className="h-4 w-4 text-emerald-400 md:h-5 md:w-5" />
                   <span className="text-emerald-400">{t("conversion_results.copied")}</span>
                 </>
               ) : (
                 <>
-                  <Copy className="h-5 w-5 text-slate-300" />
+                  <Copy className="h-4 w-4 text-slate-300 md:h-5 md:w-5" />
                   <span className="text-slate-300">{t("conversion_results.copy_result")}</span>
                 </>
               )}
@@ -104,13 +106,13 @@ export default function ConversionResults({ result, mode }: ConversionResultsPro
 
       {/* Note Values */}
       <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <h3 className="text-2xl font-bold text-white">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <h3 className="text-xl font-bold text-white md:text-2xl">
             {t("conversion_results.common_note_values")}
           </h3>
           <button
             onClick={handleCopyAll}
-            className="rounded-xl border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-emerald-500/5 px-6 py-3 font-medium text-emerald-300 transition-all duration-300 hover:border-emerald-400/50"
+            className="rounded-xl border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-emerald-500/5 px-4 py-2 text-sm font-medium text-emerald-300 transition-all duration-300 hover:border-emerald-400/50 md:px-6 md:py-3 md:text-base"
           >
             <div className="flex items-center gap-2">
               {copyState.copied && copyState.copiedItem === "all" ? (
@@ -128,7 +130,7 @@ export default function ConversionResults({ result, mode }: ConversionResultsPro
           </button>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {result.noteValues.map((noteResult) => {
             const noteConfig = NOTE_VALUES.find((n) => n.id === noteResult.noteId)
 

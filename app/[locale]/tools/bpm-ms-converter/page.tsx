@@ -86,28 +86,30 @@ export default function BPMMSConverter() {
           <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
             <div className="text-center">
               {/* SEO-Optimized Title */}
-              <h1 className="mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl lg:text-6xl">
+              <h1 className="mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-2xl font-bold text-transparent sm:text-4xl lg:text-5xl">
                 {t("page_title")}
               </h1>
 
-              <p className="mb-2 text-xl font-semibold text-white sm:text-2xl">
+              <p className="mb-2 text-lg font-semibold text-white sm:text-xl md:text-2xl">
                 {t("page_subtitle")}
               </p>
 
-              <p className="mb-8 text-lg text-slate-300">{t("page_description")}</p>
+              <p className="mb-6 text-base text-slate-300 md:mb-8 md:text-lg">
+                {t("page_description")}
+              </p>
 
               {/* Value Props */}
-              <div className="flex flex-wrap justify-center gap-6 text-sm">
+              <div className="flex flex-wrap justify-center gap-4 text-xs md:gap-6 md:text-sm">
                 <div className="flex items-center gap-2 text-emerald-400">
-                  <Zap className="h-4 w-4" />
+                  <Zap className="h-3.5 w-3.5 md:h-4 md:w-4" />
                   <span>{t("value_props.instant_conversion")}</span>
                 </div>
                 <div className="flex items-center gap-2 text-blue-400">
-                  <Music className="h-4 w-4" />
+                  <Music className="h-3.5 w-3.5 md:h-4 md:w-4" />
                   <span>{t("value_props.daw_ready")}</span>
                 </div>
                 <div className="flex items-center gap-2 text-purple-400">
-                  <Headphones className="h-4 w-4" />
+                  <Headphones className="h-3.5 w-3.5 md:h-4 md:w-4" />
                   <span>{t("value_props.studio_grade")}</span>
                 </div>
               </div>
@@ -121,7 +123,7 @@ export default function BPMMSConverter() {
         <div className="mx-auto max-w-6xl space-y-4 px-4 py-4 sm:px-6 md:space-y-6 md:py-8 lg:px-8">
           {/* Quick Converter Section */}
           <div>
-            <h2 className="mb-8 text-center text-3xl font-bold text-white">
+            <h2 className="mb-6 text-center text-2xl font-bold text-white md:mb-8 md:text-3xl">
               {t("quick_converter.title")}
             </h2>
 
@@ -133,12 +135,12 @@ export default function BPMMSConverter() {
                   value={state.inputValue}
                   onChange={(e) => handleInputChange(e.target.value)}
                   placeholder={t("quick_converter.input_placeholder")}
-                  className="w-full rounded-2xl border border-white/20 bg-white/5 px-6 py-6 text-center text-3xl font-bold text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-blue-400/50 focus:bg-white/10 focus:outline-none focus:ring-4 focus:ring-blue-500/20"
+                  className="w-full rounded-2xl border border-white/20 bg-white/5 px-4 py-5 text-center text-2xl font-bold text-white placeholder-slate-400 backdrop-blur-sm transition-all duration-300 focus:border-blue-400/50 focus:bg-white/10 focus:outline-none focus:ring-4 focus:ring-blue-500/20 md:px-6 md:py-6 md:text-3xl"
                 />
 
                 {/* Auto-detect indicator */}
                 {state.inputValue && (
-                  <div className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-emerald-500/20 px-3 py-1 text-sm font-semibold text-emerald-300">
+                  <div className="absolute right-2 top-2 rounded-full bg-emerald-500/20 px-2 py-0.5 text-[10px] font-semibold text-emerald-300 md:right-4 md:top-1/2 md:-translate-y-1/2 md:px-3 md:py-1 md:text-sm">
                     {t("quick_converter.auto_prefix")}{" "}
                     {state.mode === "bpm-to-ms"
                       ? t("quick_converter.auto_detect_bpm_to_ms")
@@ -150,17 +152,19 @@ export default function BPMMSConverter() {
               {/* Instant Results */}
               {state.result && (
                 <div className="mb-8 grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-blue-500/20 bg-blue-500/10 p-6 text-center backdrop-blur-sm">
+                  <div className="rounded-2xl border border-blue-500/20 bg-blue-500/10 p-4 text-center backdrop-blur-sm md:p-6">
                     <div className="mb-2 flex items-center justify-center gap-2">
-                      <Music className="h-5 w-5 text-blue-400" />
-                      <span className="text-sm font-semibold text-blue-300">
+                      <Music className="h-4 w-4 text-blue-400 md:h-5 md:w-5" />
+                      <span className="text-xs font-semibold text-blue-300 md:text-sm">
                         {t("quick_converter.bpm_label")}
                       </span>
                     </div>
-                    <div className="mb-2 text-3xl font-bold text-white">{state.result.bpm}</div>
+                    <div className="mb-1 text-2xl font-bold text-white md:mb-2 md:text-3xl">
+                      {state.result.bpm}
+                    </div>
                     <button
                       onClick={() => handleCopy(state.result!.bpm!.toString(), "bpm")}
-                      className="text-xs text-slate-400 hover:text-white"
+                      className="text-[10px] text-slate-400 hover:text-white md:text-xs"
                     >
                       {copyState.copied && copyState.item === "bpm"
                         ? t("quick_converter.copied")
@@ -168,17 +172,19 @@ export default function BPMMSConverter() {
                     </button>
                   </div>
 
-                  <div className="rounded-2xl border border-purple-500/20 bg-purple-500/10 p-6 text-center backdrop-blur-sm">
+                  <div className="rounded-2xl border border-purple-500/20 bg-purple-500/10 p-4 text-center backdrop-blur-sm md:p-6">
                     <div className="mb-2 flex items-center justify-center gap-2">
-                      <Clock className="h-5 w-5 text-purple-400" />
-                      <span className="text-sm font-semibold text-purple-300">
+                      <Clock className="h-4 w-4 text-purple-400 md:h-5 md:w-5" />
+                      <span className="text-xs font-semibold text-purple-300 md:text-sm">
                         {t("quick_converter.milliseconds_label")}
                       </span>
                     </div>
-                    <div className="mb-2 text-3xl font-bold text-white">{state.result.ms}</div>
+                    <div className="mb-1 text-2xl font-bold text-white md:mb-2 md:text-3xl">
+                      {state.result.ms}
+                    </div>
                     <button
                       onClick={() => handleCopy(state.result!.ms!.toString(), "ms")}
-                      className="text-xs text-slate-400 hover:text-white"
+                      className="text-[10px] text-slate-400 hover:text-white md:text-xs"
                     >
                       {copyState.copied && copyState.item === "ms"
                         ? t("quick_converter.copied")
@@ -196,12 +202,12 @@ export default function BPMMSConverter() {
               {t("common_bpm_presets.title")}
             </h2>
 
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
               {commonBPMs.map((preset) => (
                 <button
                   key={preset.bpm}
                   onClick={() => handlePresetSelect(preset.bpm)}
-                  className={`group rounded-xl border p-4 text-left transition-all duration-200 hover:scale-105 ${
+                  className={`group rounded-xl border p-3 text-left transition-all duration-200 hover:scale-105 md:p-4 ${
                     parseFloat(state.inputValue) === preset.bpm
                       ? `border-${preset.color}-500/50 bg-${preset.color}-500/20`
                       : "border-slate-600/30 bg-slate-700/30 hover:border-slate-500/50"
@@ -209,10 +215,12 @@ export default function BPMMSConverter() {
                 >
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-lg font-bold text-white">{preset.bpm}</div>
-                      <div className="text-sm text-slate-400">{preset.genre}</div>
+                      <div className="text-base font-bold text-white md:text-lg">{preset.bpm}</div>
+                      <div className="text-xs text-slate-400 md:text-sm">{preset.genre}</div>
                     </div>
-                    <div className="text-xs text-slate-500">{Math.round(60000 / preset.bpm)}ms</div>
+                    <div className="text-[10px] text-slate-500 md:text-xs">
+                      {Math.round(60000 / preset.bpm)}ms
+                    </div>
                   </div>
                 </button>
               ))}
@@ -228,7 +236,7 @@ export default function BPMMSConverter() {
 
           {/* Professional Tips - SEO Content */}
           <div className="mb-16">
-            <h2 className="mb-8 text-center text-2xl font-bold text-white">
+            <h2 className="mb-6 text-center text-xl font-bold text-white md:mb-8 md:text-2xl">
               {t("professional_tips.title")}
             </h2>
 
@@ -260,8 +268,8 @@ export default function BPMMSConverter() {
           </div>
 
           {/* How It Works - SEO Content */}
-          <div className="rounded-2xl border border-white/10 bg-slate-800/20 p-8 backdrop-blur-sm">
-            <h2 className="mb-6 text-center text-2xl font-bold text-white">
+          <div className="rounded-2xl border border-white/10 bg-slate-800/20 p-6 backdrop-blur-sm md:p-8">
+            <h2 className="mb-6 text-center text-xl font-bold text-white md:text-2xl">
               {t("how_it_works.title")}
             </h2>
 

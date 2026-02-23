@@ -50,8 +50,8 @@ const FAQSection = () => {
   ]
 
   return (
-    <section className="mt-20 rounded-xl bg-slate-800 p-8">
-      <h2 className="mb-6 text-2xl font-bold text-white">{t("faq_title")}</h2>
+    <section className="mt-12 rounded-xl bg-slate-800 p-6 md:mt-20 md:p-8">
+      <h2 className="mb-6 text-xl font-bold text-white md:text-2xl">{t("faq_title")}</h2>
       <div className="space-y-6">
         {faqs.map((faq, index) => (
           <div key={index} className="border-b border-slate-700 pb-4 last:border-b-0">

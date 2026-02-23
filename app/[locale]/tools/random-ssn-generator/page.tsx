@@ -36,22 +36,24 @@ export default function RandomSSNGenerator() {
         </ol>
       </nav>
 
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-12">
         {/* Header Section */}
-        <div className="mb-10 text-center">
+        <div className="mb-8 text-center md:mb-12">
           {/* Legal Notice Badge */}
-          <div className="mb-6 inline-flex items-center rounded-full bg-gradient-to-r from-amber-500 to-orange-600 px-4 py-2 text-sm font-medium text-white shadow-lg">
-            <AlertTriangle className="mr-2 h-4 w-4" />
+          <div className="mb-4 inline-flex items-center rounded-full bg-gradient-to-r from-amber-500 to-orange-600 px-3 py-1.5 text-xs font-medium text-white shadow-lg md:mb-6 md:px-4 md:py-2 md:text-sm">
+            <AlertTriangle className="mr-2 h-3.5 w-3.5 md:h-4 md:w-4" />
             {t("legal_notice_badge")}
           </div>
 
           {/* Tool Title */}
-          <h1 className="mb-4 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-4xl font-bold text-transparent">
+          <h1 className="mb-4 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-3xl font-bold text-transparent md:text-4xl lg:text-5xl">
             {t("page_title")}
           </h1>
 
           {/* Description */}
-          <p className="mx-auto max-w-7xl text-lg text-slate-300">{t("page_description")}</p>
+          <p className="mx-auto max-w-3xl text-base text-slate-300 md:text-lg">
+            {t("page_description")}
+          </p>
 
           {/* Share Component */}
           {/* <div className="mt-6 flex justify-center">
@@ -140,7 +142,7 @@ export default function RandomSSNGenerator() {
         </div>
 
         {/* Features Section */}
-        <div className="mt-20">
+        <div className="mt-12 md:mt-20">
           <div className="grid gap-8 md:grid-cols-3">
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 text-white">
@@ -181,7 +183,7 @@ export default function RandomSSNGenerator() {
         <FAQSection />
 
         {/* Final CTA Section */}
-        <div className="mt-20 rounded-xl bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 p-8 text-center">
+        <div className="mt-12 rounded-xl bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 p-6 text-center md:mt-20 md:p-12">
           <div className="mx-auto max-w-3xl">
             <div className="mb-6 flex justify-center">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-600">

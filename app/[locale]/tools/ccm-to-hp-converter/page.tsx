@@ -48,7 +48,7 @@ export default function CcmToHpConverter() {
               <span className="text-3xl lg:text-4xl">{t("page_subtitle")}</span>
             </h1>
 
-            <p className="mx-auto mb-8 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
+            <p className="mx-auto mb-8 max-w-6xl text-xl font-light leading-relaxed text-slate-400">
               {t("page_description")}
             </p>
 
@@ -172,7 +172,7 @@ export default function CcmToHpConverter() {
             </span>
           </div>
           <h2 className="mb-4 text-4xl font-bold text-white">{t("educational_content.title")}</h2>
-          <p className="mx-auto max-w-3xl text-xl text-slate-400">
+          <p className="mx-auto max-w-6xl text-xl text-slate-400">
             {t("educational_content.description")}
           </p>
         </div>
@@ -201,10 +201,10 @@ export default function CcmToHpConverter() {
             </div>
 
             <h2 className="mb-6 text-4xl font-bold text-white lg:text-5xl">{t("faq.title")}</h2>
-            <p className="mx-auto mb-16 max-w-3xl text-xl text-slate-400">{t("faq.description")}</p>
+            <p className="mx-auto mb-16 max-w-6xl text-xl text-slate-400">{t("faq.description")}</p>
           </div>
 
-          <div className="mx-auto max-w-4xl space-y-6">
+          <div className="mx-auto max-w-6xl space-y-6">
             {[
               {
                 question: t("faq.q1"),

@@ -80,7 +80,7 @@ export default function CmToPmConverter() {
               </span>
             </h1>
 
-            <p className="mx-auto mb-8 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
+            <p className="mx-auto mb-8 max-w-6xl text-xl font-light leading-relaxed text-slate-400">
               {t("header.description")}
             </p>
 
@@ -456,7 +456,7 @@ export default function CmToPmConverter() {
 
         {/* Final CTA Section */}
         <div className="mt-32 rounded-3xl border border-white/10 bg-gradient-to-r from-blue-900/20 to-purple-900/20 p-12 text-center backdrop-blur-md">
-          <div className="mx-auto max-w-3xl">
+          <div className="mx-auto max-w-5xl">
             <h2 className="mb-6 text-3xl font-bold text-white">{t("final_cta.title")}</h2>
             <p className="mb-8 text-xl text-slate-300">{t("final_cta.description")}</p>
             <button

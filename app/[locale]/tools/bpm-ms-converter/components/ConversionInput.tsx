@@ -76,12 +76,14 @@ export default function ConversionInput({
   return (
     <div className="mb-8">
       {/* Input Section Header */}
-      <div className="mb-6 text-center">
-        <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-white/10 bg-gradient-to-r from-slate-800/50 to-slate-700/50 px-6 py-3 backdrop-blur-sm">
-          <IconComponent className="h-6 w-6 text-slate-300" />
-          <h3 className="text-xl font-bold text-white">{currentModeConfig.inputLabel}</h3>
+      <div className="mb-4 text-center md:mb-6">
+        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-gradient-to-r from-slate-800/50 to-slate-700/50 px-4 py-2 backdrop-blur-sm md:mb-4 md:gap-3 md:px-6 md:py-3">
+          <IconComponent className="h-5 w-5 text-slate-300 md:h-6 md:w-6" />
+          <h3 className="text-lg font-bold text-white md:text-xl">
+            {currentModeConfig.inputLabel}
+          </h3>
         </div>
-        <p className="text-slate-400">{currentModeConfig.description}</p>
+        <p className="text-sm text-slate-400 md:text-base">{currentModeConfig.description}</p>
       </div>
 
       {/* Input Field Container */}
@@ -103,24 +105,26 @@ export default function ConversionInput({
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
             placeholder={currentModeConfig.inputPlaceholder}
-            className={`w-full bg-transparent py-6 pl-20 pr-24 text-2xl font-bold text-white placeholder-slate-400 outline-none transition-all duration-300 ${
+            className={`w-full bg-transparent py-4 pl-14 pr-20 text-xl font-bold text-white placeholder-slate-400 outline-none transition-all duration-300 md:py-6 md:pl-20 md:pr-24 md:text-2xl ${
               error ? "" : `focus:ring-4 ${inputTheme.focusRing}`
             }`}
           />
 
           {/* Input Icon */}
           <div
-            className={`absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-xl backdrop-blur-sm ${
+            className={`absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-lg backdrop-blur-sm md:left-4 md:h-12 md:w-12 md:rounded-xl ${
               error ? "bg-red-500/20" : inputTheme.iconBg
             }`}
           >
-            <IconComponent className={`h-6 w-6 ${error ? "text-red-400" : "text-white"}`} />
+            <IconComponent
+              className={`h-5 w-5 ${error ? "text-red-400" : "text-white"} md:h-6 md:w-6`}
+            />
           </div>
 
           {/* Unit Label */}
-          <div className="absolute right-4 top-1/2 -translate-y-1/2">
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 md:right-4">
             <span
-              className={`rounded-lg px-3 py-2 text-lg font-bold backdrop-blur-sm ${
+              className={`rounded-lg px-2 py-1 text-sm font-bold backdrop-blur-sm md:px-3 md:py-2 md:text-lg ${
                 error
                   ? "bg-red-500/20 text-red-300"
                   : isBPMMode

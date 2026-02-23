@@ -18,11 +18,13 @@ export default function ConversionModeToggle({
   return (
     <div className="mb-8">
       {/* Mode Toggle Header */}
-      <div className="mb-6 text-center">
-        <h2 className="mb-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-3xl font-bold text-transparent">
+      <div className="mb-4 text-center md:mb-6">
+        <h2 className="mb-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-2xl font-bold text-transparent md:text-3xl">
           {t("conversion_modes.bpm_to_ms")} / {t("conversion_modes.ms_to_bpm")}
         </h2>
-        <p className="text-slate-400">{t("conversion_modes.bpm_to_ms_description")}</p>
+        <p className="text-sm text-slate-400 md:text-base">
+          {t("conversion_modes.bpm_to_ms_description")}
+        </p>
       </div>
 
       {/* Toggle Buttons */}
@@ -40,7 +42,7 @@ export default function ConversionModeToggle({
             <button
               key={mode.id}
               onClick={() => onModeChange(mode.id)}
-              className={`group relative flex-1 overflow-hidden rounded-2xl border bg-gradient-to-br p-6 transition-all duration-300 hover:shadow-lg ${borderClass} ${gradientClass}`}
+              className={`group relative flex-1 overflow-hidden rounded-2xl border bg-gradient-to-br p-4 transition-all duration-300 hover:shadow-lg md:p-6 ${borderClass} ${gradientClass}`}
             >
               {/* Shine effect for active mode */}
               {isActive && (
@@ -49,19 +51,21 @@ export default function ConversionModeToggle({
 
               <div className="relative">
                 {/* Mode Icon */}
-                <div className="mb-3 text-center">
-                  <span className="text-3xl">{mode.icon}</span>
+                <div className="mb-2 text-center md:mb-3">
+                  <span className="text-2xl md:text-3xl">{mode.icon}</span>
                 </div>
 
                 {/* Mode Title */}
                 <h3
-                  className={`mb-2 text-xl font-bold ${isActive ? "text-white" : "text-slate-300"}`}
+                  className={`mb-1 text-lg font-bold md:mb-2 md:text-xl ${isActive ? "text-white" : "text-slate-300"}`}
                 >
                   {mode.label}
                 </h3>
 
                 {/* Mode Description */}
-                <p className={`text-sm ${isActive ? "text-slate-200" : "text-slate-400"}`}>
+                <p
+                  className={`text-xs md:text-sm ${isActive ? "text-slate-200" : "text-slate-400"}`}
+                >
                   {mode.description}
                 </p>
 

@@ -118,14 +118,18 @@ const SSNGeneratorComponent = () => {
   return (
     <div className="space-y-6">
       {/* Single SSN Generator */}
-      <div className="rounded-xl bg-slate-800 p-6 shadow-xl ring-1 ring-slate-700">
+      <div className="rounded-xl bg-slate-800 p-4 shadow-xl ring-1 ring-slate-700 md:p-6">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-lg font-semibold text-white">{t("generator_single_title")}</h2>
           <button
             onClick={() => setState((prev) => ({ ...prev, showStructure: !prev.showStructure }))}
-            className="flex items-center gap-2 rounded-lg bg-slate-700 px-3 py-1 text-sm text-slate-300 hover:bg-slate-600"
+            className="flex items-center gap-1.5 rounded-lg bg-slate-700 px-2 py-1 text-xs text-slate-300 hover:bg-slate-600 md:gap-2 md:px-3 md:text-sm"
           >
-            {state.showStructure ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+            {state.showStructure ? (
+              <EyeOff className="h-3.5 w-3.5 md:h-4 md:w-4" />
+            ) : (
+              <Eye className="h-3.5 w-3.5 md:h-4 md:w-4" />
+            )}
             {state.showStructure ? t("generator_hide_structure") : t("generator_show_structure")}
           </button>
         </div>
@@ -133,26 +137,32 @@ const SSNGeneratorComponent = () => {
         {/* Generated SSN Display */}
         <div className="mb-6">
           <div className="relative">
-            <div className="flex items-center justify-center rounded-xl border-2 border-dashed border-slate-600 bg-slate-900/50 p-8">
+            <div className="flex items-center justify-center rounded-xl border-2 border-dashed border-slate-600 bg-slate-900/50 p-6 md:p-8">
               {state.generatedSSN ? (
                 <div className="text-center">
-                  <div className="mb-2 font-mono text-3xl font-bold text-blue-300">
+                  <div className="mb-2 font-mono text-2xl font-bold text-blue-300 sm:text-3xl md:text-4xl">
                     {state.generatedSSN}
                   </div>
                   {state.showStructure && (
-                    <div className="text-sm text-slate-400">
-                      <div className="flex items-center justify-center gap-4">
+                    <div className="text-xs text-slate-400 md:text-sm">
+                      <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
                         <span>
                           {t("generator_area")}:{" "}
-                          <strong>{getSSNStructure(state.generatedSSN)?.area}</strong>
+                          <strong className="text-slate-200">
+                            {getSSNStructure(state.generatedSSN)?.area}
+                          </strong>
                         </span>
                         <span>
                           {t("generator_group")}:{" "}
-                          <strong>{getSSNStructure(state.generatedSSN)?.group}</strong>
+                          <strong className="text-slate-200">
+                            {getSSNStructure(state.generatedSSN)?.group}
+                          </strong>
                         </span>
                         <span>
                           {t("generator_serial")}:{" "}
-                          <strong>{getSSNStructure(state.generatedSSN)?.serial}</strong>
+                          <strong className="text-slate-200">
+                            {getSSNStructure(state.generatedSSN)?.serial}
+                          </strong>
                         </span>
                       </div>
                     </div>
@@ -160,8 +170,10 @@ const SSNGeneratorComponent = () => {
                 </div>
               ) : (
                 <div className="text-center text-slate-500">
-                  <div className="mb-2 text-lg">{t("generator_placeholder")}</div>
-                  <div className="text-sm">{t("generator_format_hint")}</div>
+                  <div className="mb-1 text-base md:mb-2 md:text-lg">
+                    {t("generator_placeholder")}
+                  </div>
+                  <div className="text-xs md:text-sm">{t("generator_format_hint")}</div>
                 </div>
               )}
             </div>
@@ -173,7 +185,7 @@ const SSNGeneratorComponent = () => {
           <button
             onClick={generateSingle}
             disabled={state.isGenerating}
-            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 px-4 py-3 font-medium text-white shadow-lg transition-all hover:from-blue-700 hover:to-cyan-700 disabled:opacity-50"
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 px-4 py-3 text-sm font-medium text-white shadow-lg transition-all hover:from-blue-700 hover:to-cyan-700 disabled:opacity-50 md:py-3.5 md:text-base"
           >
             <Shuffle className={`h-4 w-4 ${state.isGenerating ? "animate-spin" : ""}`} />
             {state.isGenerating ? t("generator_generating") : t("generator_generate_button")}
@@ -182,12 +194,12 @@ const SSNGeneratorComponent = () => {
           {state.generatedSSN && (
             <button
               onClick={() => copySSN(state.generatedSSN)}
-              className="flex items-center gap-2 rounded-xl border border-slate-600 bg-slate-700 px-4 py-3 text-slate-300 hover:bg-slate-600"
+              className="flex items-center gap-2 rounded-xl border border-slate-600 bg-slate-700 px-3 py-3 text-xs text-slate-300 hover:bg-slate-600 md:px-4 md:text-sm"
             >
               {copiedSSN === state.generatedSSN ? (
-                <Check className="h-4 w-4 text-green-400" />
+                <Check className="h-3.5 w-3.5 text-green-400 md:h-4 md:w-4" />
               ) : (
-                <Copy className="h-4 w-4" />
+                <Copy className="h-3.5 w-3.5 md:h-4 md:w-4" />
               )}
               {copiedSSN === state.generatedSSN ? t("generator_copied") : t("generator_copy")}
             </button>
@@ -196,7 +208,7 @@ const SSNGeneratorComponent = () => {
       </div>
 
       {/* Batch Generator */}
-      <div className="rounded-xl bg-slate-800 p-6 shadow-xl ring-1 ring-slate-700">
+      <div className="rounded-xl bg-slate-800 p-4 shadow-xl ring-1 ring-slate-700 md:p-6">
         <h2 className="mb-4 text-lg font-semibold text-white">{t("generator_batch_title")}</h2>
 
         {/* Batch Settings */}
@@ -234,15 +246,15 @@ const SSNGeneratorComponent = () => {
             </select>
           </div>
 
-          <div className="flex items-end">
-            <label className="flex items-center gap-2">
+          <div className="flex items-center pt-2">
+            <label className="flex cursor-pointer items-center gap-2">
               <input
                 type="checkbox"
                 checked={state.includeValidation}
                 onChange={(e) =>
                   setState((prev) => ({ ...prev, includeValidation: e.target.checked }))
                 }
-                className="rounded border-slate-600 text-blue-600 focus:ring-blue-500"
+                className="h-4 w-4 rounded border-slate-600 bg-slate-700 text-blue-600 focus:ring-blue-500 focus:ring-offset-slate-800"
               />
               <span className="text-sm text-slate-300">{t("generator_include_metadata")}</span>
             </label>
@@ -254,7 +266,7 @@ const SSNGeneratorComponent = () => {
           <button
             onClick={generateBatch}
             disabled={state.isGenerating}
-            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-4 py-3 font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:opacity-50"
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-4 py-3 text-sm font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:opacity-50 md:py-3.5 md:text-base"
           >
             <Shuffle className={`h-4 w-4 ${state.isGenerating ? "animate-spin" : ""}`} />
             {state.isGenerating
@@ -266,18 +278,30 @@ const SSNGeneratorComponent = () => {
             <>
               <button
                 onClick={exportData}
-                className="flex items-center gap-2 rounded-xl border border-slate-600 bg-slate-700 px-4 py-3 text-slate-300 hover:bg-slate-600"
+                className="flex items-center gap-2 rounded-xl border border-slate-600 bg-slate-700 px-3 py-3 text-xs text-slate-300 hover:bg-slate-600 md:px-4 md:text-sm"
               >
-                <Download className="h-4 w-4" />
-                {t("generator_export")}
+                <Download className="h-3.5 w-3.5 md:h-4 md:w-4" />
+                <span className="hidden sm:inline">{t("generator_export")}</span>
+                <span className="sm:hidden">{t("generator_export").split(" ")[0]}</span>
               </button>
 
               <button
                 onClick={() => setShowBatch(!showBatch)}
-                className="flex items-center gap-2 rounded-xl border border-slate-600 bg-slate-700 px-4 py-3 text-slate-300 hover:bg-slate-600"
+                className="flex items-center gap-2 rounded-xl border border-slate-600 bg-slate-700 px-3 py-3 text-xs text-slate-300 hover:bg-slate-600 md:px-4 md:text-sm"
               >
-                {showBatch ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                {showBatch ? t("generator_hide") : t("generator_show")}
+                {showBatch ? (
+                  <EyeOff className="h-3.5 w-3.5 md:h-4 md:w-4" />
+                ) : (
+                  <Eye className="h-3.5 w-3.5 md:h-4 md:w-4" />
+                )}
+                <span className="hidden sm:inline">
+                  {showBatch ? t("generator_hide") : t("generator_show")}
+                </span>
+                <span className="sm:hidden">
+                  {showBatch
+                    ? t("generator_hide").split(" ")[0]
+                    : t("generator_show").split(" ")[0]}
+                </span>
               </button>
             </>
           )}

@@ -13,6 +13,7 @@ export async function generateMetadata({
   const languages = {
     "x-default": "https://geekskai.com/tools/random-ssn-generator/",
   }
+  const lastModified = new Date("2026-02-23")
 
   supportedLocales.forEach((loc) => {
     languages[loc] = `https://geekskai.com/${loc}/tools/random-ssn-generator/`
@@ -22,6 +23,9 @@ export async function generateMetadata({
     title: t("metadata_title"),
     description: t("metadata_description"),
     keywords: t("metadata_keywords").split(", "),
+    other: {
+      "last-modified": lastModified.toISOString(),
+    },
     openGraph: {
       title: t("metadata_og_title"),
       description: t("metadata_og_description"),

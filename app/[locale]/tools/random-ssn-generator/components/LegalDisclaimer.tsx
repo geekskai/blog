@@ -8,8 +8,10 @@ const LegalDisclaimer = () => {
   const t = useTranslations("RandomSSNGenerator")
 
   return (
-    <section className="rounded-xl bg-gradient-to-r from-orange-800 to-red-700 p-8">
-      <h2 className="mb-6 text-2xl font-bold text-white">{t("legal_disclaimer_title")}</h2>
+    <section className="rounded-xl bg-gradient-to-r from-orange-800 to-red-700 p-6 md:p-8">
+      <h2 className="mb-6 text-xl font-bold text-white md:text-2xl">
+        {t("legal_disclaimer_title")}
+      </h2>
       <div className="grid gap-6 md:grid-cols-2">
         <div>
           <h3 className="mb-4 text-lg font-semibold text-white">
@@ -52,7 +54,7 @@ export const UsageRestrictions = () => {
   const t = useTranslations("RandomSSNGenerator")
 
   return (
-    <div className="mt-6 rounded-lg bg-slate-800 p-4">
+    <div className="mt-4 rounded-lg bg-slate-800 p-4 md:mt-6">
       <div className="mb-3 flex items-center gap-3">
         <Shield className="h-5 w-5 text-green-400" />
         <h4 className="font-medium text-green-300">{t("usage_restrictions_approved_title")}</h4>
