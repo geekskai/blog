@@ -3722,7 +3722,12 @@
         "generate": "Generate Number",
         "generating": "Generating...",
         "copy": "Copy",
-        "copied": "Copied!"
+        "copied": "Copied!",
+        "export": "Export",
+        "show": "Show",
+        "hide": "Hide",
+        "reset": "Reset",
+        "reset_all": "Reset All"
       },
 
       "history": {

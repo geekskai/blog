@@ -3551,7 +3551,12 @@
         "generate": "숫자 생성",
         "generating": "생성 중...",
         "copy": "복사",
-        "copied": "복사됨!"
+        "copied": "복사됨!",
+        "export": "내보내기",
+        "show": "보이기",
+        "hide": "숨기기",
+        "reset": "초기화",
+        "reset_all": "모두 초기화"
       },
       "history": {
         "title": "최근 기록",

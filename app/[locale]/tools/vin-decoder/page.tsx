@@ -1,8 +1,8 @@
 "use client"
-import React from "react"
+// import React from "react"
 import ShareButtons from "@/components/ShareButtons"
 import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
-import { useState, useCallback, useEffect } from "react"
+import React, { useState, useCallback, useEffect } from "react"
 import {
   Home,
   ChevronRight,
@@ -27,8 +27,8 @@ import { SearchState, DecodeStatus, HistoryItem, ExportFormat, SUPPORTED_BRANDS 
 import { validateVIN, isValidVin } from "./lib/validation"
 import { decodeVehicle } from "./lib/api"
 import { vinCache, history, dedupeRequest } from "./lib/cache"
-import { formatVehicleSummary, exportAsJSON, exportAsCSV, exportAsText } from "./lib/mapping"
 import { Link } from "@/app/i18n/navigation"
+import { formatVehicleSummary, exportAsJSON, exportAsCSV, exportAsText } from "./lib/mapping"
 // import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 
 export default function VinDecoder() {

@@ -5803,7 +5803,12 @@
       "buttons": {
         "calculate": "Calcular el día de nieve",
         "analyzing": "Analizando el tiempo...",
-        "gps_title": "Usar mi ubicación actual"
+        "gps_title": "Usar mi ubicación actual",
+        "export": "Exportar",
+        "show": "Espectáculo",
+        "hide": "Esconder",
+        "reset": "Restablecer",
+        "reset_all": "Restablecer todo"
       },
       "history": {
         "title": "Búsquedas recientes"

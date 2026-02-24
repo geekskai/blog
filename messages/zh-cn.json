@@ -3689,7 +3689,12 @@
         "generate": "生成数字",
         "generating": "生成中...",
         "copy": "复制",
-        "copied": "已复制！"
+        "copied": "已复制！",
+        "export": "导出",
+        "show": "显示",
+        "hide": "隐藏",
+        "reset": "重置",
+        "reset_all": "全部重置"
       },
 
       "history": {

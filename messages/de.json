@@ -3719,7 +3719,12 @@
         "generate": "Zahl generieren",
         "generating": "Wird generiert...",
         "copy": "Kopieren",
-        "copied": "Kopiert!"
+        "copied": "Kopiert!",
+        "export": "Exportieren",
+        "show": "Anzeigen",
+        "hide": "Ausblenden",
+        "reset": "Zurücksetzen",
+        "reset_all": "Alles zurücksetzen"
       },
 
       "history": {

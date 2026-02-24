@@ -3436,7 +3436,12 @@
         "generate": "Generer tal",
         "generating": "Genererer...",
         "copy": "Kopiér",
-        "copied": "Kopieret!"
+        "copied": "Kopieret!",
+        "export": "Eksportér",
+        "show": "Vis",
+        "hide": "Skjul",
+        "reset": "Nulstil",
+        "reset_all": "Nulstil alle"
       },
       "history": {
         "title": "Seneste historik",

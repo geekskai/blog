@@ -3596,7 +3596,12 @@
         "generate": "Générer un nombre",
         "generating": "Génération...",
         "copy": "Copier",
-        "copied": "Copié !"
+        "copied": "Copié !",
+        "export": "Exporter",
+        "show": "Afficher",
+        "hide": "Masquer",
+        "reset": "Réinitialiser",
+        "reset_all": "Réinitialiser tout"
       },
       "history": {
         "title": "Historique récent",

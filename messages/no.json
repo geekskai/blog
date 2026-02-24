@@ -3445,7 +3445,12 @@
         "generate": "Generer tall",
         "generating": "Genererer...",
         "copy": "Kopier",
-        "copied": "Kopiert!"
+        "copied": "Kopiert!",
+        "export": "Eksporter",
+        "show": "Vis",
+        "hide": "Skjul",
+        "reset": "Nullstill",
+        "reset_all": "Nullstill alle"
       },
       "history": {
         "title": "Nylig historikk",

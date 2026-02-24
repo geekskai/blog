@@ -5885,7 +5885,12 @@
       "buttons": {
         "calculate": "雪休みを計算",
         "analyzing": "天候を分析中...",
-        "gps_title": "現在地を使用"
+        "gps_title": "現在地を使用",
+        "export": "エクスポート",
+        "show": "表示",
+        "hide": "非表示",
+        "reset": "リセット",
+        "reset_all": "すべてリセット"
       },
       "history": {
         "title": "最近の検索"
