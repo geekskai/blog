@@ -62,6 +62,7 @@ const MegaMenu = ({ closeMenu }: { closeMenu?: () => void }) => {
                 <li key={tool.id}>
                   <Link
                     href={tool.href}
+                    target="_blank"
                     onClick={closeMenu}
                     className="group flex items-center gap-3 whitespace-nowrap text-[15px] font-medium text-slate-400 transition-all duration-200 hover:text-white"
                   >
