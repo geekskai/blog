@@ -78,7 +78,7 @@ export const useCalculator = (t: (key: string) => string) => {
   const getWorkingDays = useCallback(() => calculateWorkingDays(formData), [formData])
 
   const getDisplayDailySalary = useCallback(
-    () => getDisplaySalary(formData, selectedCountry, calculateWorkingDays),
+    () => getDisplaySalary(formData, selectedCountry),
     [formData, selectedCountry]
   )
 

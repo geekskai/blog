@@ -521,7 +521,7 @@ const SalaryCalculator = () => {
         <div className="space-y-6">
           {/* 步骤1: 基础信息 */}
           {currentStep === 1 && (
-            <div className="overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+            <div className="rounded-xl bg-white shadow-xl ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
               <div className="border-b border-slate-200 bg-gradient-to-r from-blue-50 to-indigo-50 p-6 dark:border-slate-700 dark:from-blue-900/20 dark:to-indigo-900/20">
                 <div className="flex items-center">
                   <Wallet className="mr-3 h-6 w-6 text-blue-600 dark:text-blue-400" />
@@ -632,7 +632,7 @@ const SalaryCalculator = () => {
 
           {/* 步骤2: 工作时间 */}
           {currentStep === 2 && (
-            <div className="overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+            <div className="rounded-xl bg-white shadow-xl ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
               <div className="border-b border-slate-200 bg-gradient-to-r from-orange-50 to-yellow-50 p-6 dark:border-slate-700 dark:from-orange-900/20 dark:to-yellow-900/20">
                 <div className="flex items-center">
                   <Clock className="mr-3 h-6 w-6 text-orange-600 dark:text-orange-400" />
@@ -819,7 +819,7 @@ const SalaryCalculator = () => {
 
           {/* 步骤3: 工作环境 */}
           {currentStep === 3 && (
-            <div className="overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+            <div className="rounded-xl bg-white shadow-xl ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
               <div className="border-b border-slate-200 bg-gradient-to-r from-green-50 to-emerald-50 p-6 dark:border-slate-700 dark:from-green-900/20 dark:to-emerald-900/20">
                 <div className="flex items-center">
                   <Users className="mr-3 h-6 w-6 text-green-600 dark:text-green-400" />
@@ -1029,7 +1029,7 @@ const SalaryCalculator = () => {
 
           {/* 步骤4: 教育与经验 */}
           {currentStep === 4 && (
-            <div className="overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+            <div className="rounded-xl bg-white shadow-xl ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
               <div className="border-b border-slate-200 bg-gradient-to-r from-purple-50 to-pink-50 p-6 dark:border-slate-700 dark:from-purple-900/20 dark:to-pink-900/20">
                 <div className="flex items-center">
                   <GraduationCap className="mr-3 h-6 w-6 text-purple-600 dark:text-purple-400" />
@@ -1194,7 +1194,7 @@ const SalaryCalculator = () => {
               {/* 结果卡片 */}
               <div
                 ref={shareResultsRef}
-                className="overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700"
+                className="rounded-xl bg-white shadow-xl ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700"
               >
                 <div className="border-b border-slate-200 bg-gradient-to-r from-emerald-50 to-teal-50 p-6 dark:border-slate-700 dark:from-emerald-900/20 dark:to-teal-900/20">
                   <div className="flex items-center justify-between">

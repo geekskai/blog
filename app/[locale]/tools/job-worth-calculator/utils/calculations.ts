@@ -30,15 +30,7 @@ export const calculateDailySalary = (
 }
 
 // 获取显示用的日薪（转回原始货币）
-export const getDisplaySalary = (
-  formData: FormData,
-  selectedCountry: string,
-  calculateDailySalary: (
-    formData: FormData,
-    selectedCountry: string,
-    calculateWorkingDays: (formData: FormData) => number
-  ) => number
-): string => {
+export const getDisplaySalary = (formData: FormData, selectedCountry: string): string => {
   const dailySalaryInCNY = calculateDailySalary(formData, selectedCountry, calculateWorkingDays)
   const isNonChina = selectedCountry !== "CN"
   if (isNonChina) {

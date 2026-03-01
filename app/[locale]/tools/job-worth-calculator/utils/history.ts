@@ -37,7 +37,7 @@ export const createHistoryItem = (
     workHours: formData.workHours,
     commuteHours: formData.commuteHours,
     restTime: formData.restTime,
-    dailySalary: getDisplaySalary(formData, selectedCountry, calculateWorkingDays),
+    dailySalary: getDisplaySalary(formData, selectedCountry),
     workDaysPerYear: calculateWorkingDays(formData).toString(),
     workDaysPerWeek: formData.workDaysPerWeek,
     wfhDaysPerWeek: formData.wfhDaysPerWeek,

@@ -23,7 +23,7 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
               ${
                 value === option.value
                   ? "bg-blue-100 font-medium text-blue-700 dark:bg-blue-900 dark:text-blue-300"
-                  : "bg-gray-50 hover:bg-gray-100 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+                  : "bg-gray-50 text-gray-900 hover:bg-gray-200"
               }`}
             onClick={(e) => {
               e.preventDefault() // 阻止默认行为
