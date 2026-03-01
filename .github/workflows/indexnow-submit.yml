@@ -1,0 +1,30 @@
+name: Submit IndexNow
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Every day at 02:00 UTC
+    - cron: "0 2 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "indexnow-submit"
+  cancel-in-progress: false
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Submit sitemap URLs to IndexNow
+        run: node ./scripts/submit-indexnow.mjs --key-location "https://geekskai.com/319ccd32fd714727af6aea1835d9b02a.txt"
