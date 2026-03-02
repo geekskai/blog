@@ -1,0 +1,88 @@
+"use client"
+
+import React from "react"
+import { useTranslations } from "next-intl"
+import UnicodeToolTemplate from "../upside-down-text-generator/components/UnicodeToolTemplate"
+
+export default function FancyTextGeneratorPage() {
+  const t = useTranslations("FancyTextGenerator")
+
+  const faqItems = [
+    { q: t("faq.items.0.q"), a: t("faq.items.0.a") },
+    { q: t("faq.items.1.q"), a: t("faq.items.1.a") },
+    { q: t("faq.items.2.q"), a: t("faq.items.2.a") },
+    { q: t("faq.items.3.q"), a: t("faq.items.3.a") },
+    { q: t("faq.items.4.q"), a: t("faq.items.4.a") },
+    { q: t("faq.items.5.q"), a: t("faq.items.5.a") },
+    { q: t("faq.items.6.q"), a: t("faq.items.6.q") },
+    { q: t("faq.items.7.q"), a: t("faq.items.7.a") },
+  ]
+
+  const useCaseItems = [t("use_cases.0"), t("use_cases.1"), t("use_cases.2"), t("use_cases.3")]
+
+  const boundaryItems = [t("boundaries.0"), t("boundaries.1"), t("boundaries.2"), t("boundaries.3")]
+
+  const relatedTools = [
+    {
+      label: t("related_tools.instagram_bio.label"),
+      href: "/tools/instagram-bio-fonts/",
+      description: t("related_tools.instagram_bio.description"),
+    },
+    {
+      label: t("related_tools.discord_font.label"),
+      href: "/tools/discord-font-generator/",
+      description: t("related_tools.discord_font.description"),
+    },
+    {
+      label: t("related_tools.bubble_text.label"),
+      href: "/tools/bubble-letter-generator/",
+      description: t("related_tools.bubble_text.description"),
+    },
+    {
+      label: t("related_tools.vaporwave.label"),
+      href: "/tools/vaporwave-text-generator/",
+      description: t("related_tools.vaporwave.description"),
+    },
+  ]
+
+  return (
+    <UnicodeToolTemplate
+      badgeEmoji="✨"
+      badgeText={t("free_tool_badge")}
+      title={t("seo_title")}
+      description={t("seo_description")}
+      tldr={t("tldr")}
+      keywordLabel={t("keyword_label")}
+      lastUpdated="2026-03-03"
+      enabledEffectIds={[
+        "plain",
+        "negative-circle",
+        "hollow-circle",
+        "hollow-square",
+        "solid-square",
+        "serif-bold",
+        "sans-bold",
+        "italic",
+        "bold-italic",
+        "script",
+        "bold-script",
+        "fraktur",
+        "bold-fraktur",
+        "double-struck",
+        "strikethrough",
+        "wavy-underline",
+        "upside-down",
+        "mirror",
+        "fullwidth",
+      ]}
+      useCaseItems={useCaseItems}
+      boundaryItems={boundaryItems}
+      relatedTools={relatedTools}
+      faqItems={faqItems}
+      seoSynonyms={t("seo_keywords").split(", ")}
+      bestFor={t("best_for")}
+      keyBenefit={t("key_benefit")}
+      defaultInput={t("default_input")}
+    />
+  )
+}

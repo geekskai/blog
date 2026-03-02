@@ -1400,6 +1400,179 @@
       "disclaimer_footer": "Use these estimates as a starting point for understanding engine power potential. For precise measurements, consult manufacturer specifications or professional dyno testing."
     }
   },
+  "UnicodeTool": {
+    "qanda_title": "Quick Answer (TL;DR)",
+    "core_facts_title": "Core Facts",
+    "primary_intent_label": "Primary intent:",
+    "pricing_label": "Pricing:",
+    "free_label": "Free",
+    "best_for_label": "Best for:",
+    "key_benefit_label": "Key benefit:",
+    "related_searches_label": "Related searches:",
+    "playground_title": "Text Effects Playground",
+    "last_updated_label": "Last updated",
+    "primary_keyword_label": "Primary keyword:",
+    "input_label": "Input text",
+    "input_placeholder": "Type text, words, letters, or symbols...",
+    "select_style_label": "Select style",
+    "base_style_label": "1) Base Style",
+    "decorations_label": "2) Decorations (Multi-select)",
+    "transform_emoji_label": "3) Transform + Emoji",
+    "add_emoji_wrapper_label": "Add emoji wrapper",
+    "custom_output_label": "Custom combined output",
+    "primary_output_label": "Primary output",
+    "copy_button_label": "Copy",
+    "copied_button_label": "Copied",
+    "copy_failed_label": "Copy failed",
+    "ready_to_copy_status": "Ready to copy",
+    "one_click_preview_title": "One-click preview for all effects",
+    "one_click_preview_description": "Click any card below to copy that transformed result instantly.",
+    "how_to_use_title": "How to use this",
+    "how_to_use_step1": "Type your text into the input box and keep it short for better",
+    "how_to_use_step2": "copy and paste",
+    "how_to_use_step3": "readability.",
+    "how_to_use_step4": "Choose one effect or combine styles if the composer is enabled.",
+    "how_to_use_step5": "Click any preview card or output copy button and paste into your target app.",
+    "taxonomy_title": "Effect taxonomy implemented",
+    "use_cases_title": "Use cases",
+    "limits_title": "Limits and boundaries",
+    "related_tools_title": "Related tools",
+    "faq_title": "FAQ",
+    "plain_style": "Plain",
+    "none_style": "None",
+    "empty_input_placeholder": "(empty input)",
+    "default_best_for": "Creators, social media users, and community managers",
+    "default_key_benefit": "Instant copy-paste Unicode text styles in one place",
+    "categories": {
+      "enclosed": "Enclosed Alphanumerics",
+      "math": "Mathematical Styles",
+      "marks": "Combining Marks",
+      "transform": "Transformation",
+      "width": "Width"
+    }
+  },
+  "UpsideDownTextGenerator": {
+    "seo_title": "Upside Down Text Generator (2026) - Mirror Text Converter",
+    "seo_description": "Transform text into upside down, backwards, and mirrored styles instantly. Perfect for social media, fun messages, and profile decoration.",
+    "seo_keywords": "upside down text generator, flip text on head, mirror text, 180 degree text converter, letters upside down copy paste",
+    "page_title": "Upside Down Text Generator",
+    "page_subtitle": "Backwards & Mirror Text Converter",
+    "free_tool_badge": "Unicode Text Tool",
+    "tldr_title": "Quick Answer (TL;DR)",
+    "tldr": "An upside-down text generator uses special Unicode characters to simulate text being rotated 180 degrees or mirrored horizontally. It is a purely visual technique used to decorate usernames and social media posts without external fonts.",
+
+    "last_updated_label": "Last updated",
+    "keyword_label": "upside-down text generator",
+    "best_for": "Profile names, eye-catching messages, and creative visual effects",
+    "key_benefit": "Instant transformation with flip and mirror options for maximum customization",
+    "default_input": "Hello World",
+    "use_cases": [
+      "Decorating unique profile names",
+      "Creating eye-catching social media posts",
+      "Fun messages and visual puzzles",
+      "Visual emphasis in comments and chats"
+    ],
+    "boundaries": [
+      "Upside-down text uses Unicode replacement characters and may not be perfectly readable for everyone.",
+      "Some screen readers may have difficulty processing the transformed text.",
+      "Character availability may vary depending on the recipient's system font.",
+      "Use it primarily for decorative purposes and not for critical content."
+    ],
+    "limits_title": "Limits and boundaries",
+    "feature_list": [
+      "180-degree text rotation",
+      "Mirror and backwards text",
+      "Unicode-based emoji wrappers",
+      "Social media ready output"
+    ],
+    "feature_list_schemas": [
+      "Upside down text transformation",
+      "Mirror text effects",
+      "Unicode emoji decoration",
+      "Copy-paste utility for social media"
+    ],
+    "categories": {
+      "enclosed": "Enclosed Alphanumerics",
+      "math": "Mathematical Styles",
+      "marks": "Combining Marks",
+      "transform": "Transformation",
+      "width": "Width"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "q": "What is an upside-down text generator?",
+          "a": "It's a tool that maps standard characters to their Unicode counterparts that appear to be rotated or inverted."
+        },
+        {
+          "q": "How does upside-down text work?",
+          "a": "It uses a mapping table that replaces 'a' with 'ɐ', 'b' with 'q', etc., to create the illusion of rotation."
+        },
+        {
+          "q": "Does it work on Instagram and Facebook?",
+          "a": "Yes, since they are standard Unicode characters, they work on most modern social media platforms."
+        },
+        {
+          "q": "What is the difference between upside-down and mirror text?",
+          "a": "Upside down rotates the text 180 degrees, while mirror flips it horizontally, as if seen in a mirror."
+        }
+      ]
+    },
+    "effects": {
+      "plain": { "name": "Plain", "desc": "Original text with no transformation" },
+      "negative-circle": {
+        "name": "Solid Circle",
+        "desc": "Negative circled digits and enclosed letters"
+      },
+      "hollow-circle": { "name": "Hollow Circle", "desc": "Circled alphanumeric style" },
+      "hollow-square": { "name": "Hollow Square", "desc": "Outlined square enclosure style" },
+      "solid-square": { "name": "Solid Square", "desc": "Negative square enclosure style" },
+      "serif-bold": { "name": "Serif Bold", "desc": "Mathematical bold serif characters" },
+      "sans-bold": { "name": "Sans Bold", "desc": "Mathematical bold sans-serif characters" },
+      "italic": { "name": "Math Italic", "desc": "Mathematical italic characters" },
+      "bold-italic": { "name": "Bold Italic", "desc": "Mathematical bold italic characters" },
+      "script": { "name": "Script", "desc": "Handwritten script-like characters" },
+      "bold-script": { "name": "Bold Script", "desc": "Bold handwritten script characters" },
+      "fraktur": { "name": "Fraktur", "desc": "Gothic-style Fraktur characters" },
+      "bold-fraktur": { "name": "Bold Fraktur", "desc": "Bold gothic Fraktur characters" },
+      "double-struck": { "name": "Double Struck", "desc": "Blackboard bold character style" },
+      "strikethrough": {
+        "name": "Strikethrough",
+        "desc": "Cross-out style using combining overlay"
+      },
+      "wavy-underline": { "name": "Wavy Underline", "desc": "Decorative wave underline style" },
+      "tail-mark": { "name": "Tail Mark", "desc": "Adds a small hook-like mark to each character" },
+      "lightning": {
+        "name": "Lightning",
+        "desc": "Inserts lightning separators between characters"
+      },
+      "zalgo": { "name": "Zalgo", "desc": "Stacked marks for glitchy zalgo style" },
+      "upside-down": { "name": "Upside Down", "desc": "Flips letters and reverses order" },
+      "mirror": { "name": "Mirror", "desc": "Mirrors letters and reverses order" },
+      "fullwidth": { "name": "Fullwidth", "desc": "Converts ASCII to fullwidth forms" }
+    },
+    "ui": {
+      "playground_title": "Text Effects Playground",
+      "input_label": "Input text",
+      "input_placeholder": "Type text, words, letters, or symbols...",
+      "base_style_title": "1) Base Style",
+      "plain": "Plain",
+      "decorations_title": "2) Decorations (Multi-select)",
+      "transform_emoji_title": "3) Transform + Emoji",
+      "none": "None",
+      "emoji_wrapper": "Add emoji wrapper",
+      "custom_output_title": "Custom combined output",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "ready_to_copy": "Ready to copy",
+      "copy_failed": "Copy failed",
+      "preview_title": "One-click preview for all effects",
+      "preview_description": "Click any card below to copy that transformed result instantly.",
+      "taxonomy_title": "Effect taxonomy implemented",
+      "empty_input": "(empty input)"
+    }
+  },
   "CmToTommerConverter": {
     "seo_title": "CM to Tommer Converter – Centimeter to Inch Online Tool | Free & Accurate",
     "seo_description": "Free online CM to Tommer converter. Convert centimeters to tommer (Danish/Norwegian inches) instantly with precision up to 3 decimal places. Perfect for furniture, construction, and international commerce.",
@@ -1843,6 +2016,656 @@
       "copied_message": "Persona copied to clipboard! 🎨",
       "download_failed": "Download failed. Please try again."
     }
+  },
+  "BubbleTextGenerator": {
+    "seo_title": "Bubble Text Generator (2026) - Enclosed Alphanumerics Converter",
+    "seo_description": "Generate bubble letters and enclosed Unicode text styles including circled and squared variants. Copy and paste instantly.",
+    "seo_keywords": "bubble text generator, enclosed alphanumerics, circled text generator, bubble letters copy paste",
+    "feature_list": [
+      "Circled and squared Unicode styles",
+      "One-click copy",
+      "Fast browser transformation",
+      "Social-ready text output"
+    ],
+    "feature_list_schemas": [
+      "Hollow and solid circle styles",
+      "Hollow and solid square styles",
+      "Copy and paste output",
+      "Focused enclosed alphanumerics workflow"
+    ],
+    "page_title": "Bubble Text Generator",
+    "page_subtitle": "Enclosed Alphanumerics Converter",
+    "free_tool_badge": "Enclosed Alphanumerics Tool",
+    "tldr": "A bubble text generator converts plain text into enclosed alphanumeric Unicode styles such as circles and squares. Type once, compare all bubble variants, and copy your preferred output instantly.",
+
+    "keyword_label": "bubble text generator",
+    "best_for": "Profile names, playful captions, and lightweight decorative labels",
+    "key_benefit": "Focused enclosed styles with fast compare-and-copy workflow",
+    "use_cases": [
+      "Nicknames and display name decoration",
+      "Post title emphasis with enclosed text",
+      "Stylized comment signatures",
+      "Simple visual labels in chat groups"
+    ],
+    "boundaries": [
+      "Enclosed Unicode coverage is limited and not uniform for every character.",
+      "Some clients may display fallback boxes for unsupported symbols.",
+      "This tool does not create custom vector or image fonts.",
+      "Use plain text fallback for mission-critical readability."
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "Fancy Text Generator",
+        "description": "Switch from enclosed styles to script, fraktur, and bold families."
+      },
+      "instagram_bio": {
+        "label": "Instagram Bio Fonts Generator",
+        "description": "Profile-focused social text styling with quick copy flow."
+      },
+      "discord_font": {
+        "label": "Discord Font Generator",
+        "description": "Nickname and chat-friendly Unicode text styles."
+      },
+      "vaporwave_text": {
+        "label": "Vaporwave Text Generator",
+        "description": "Fullwidth aesthetic output for retro visual identity."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "q": "What is a bubble text generator?",
+          "a": "A bubble text generator transforms letters and numbers into enclosed Unicode symbols such as circles and squares for decorative text."
+        },
+        {
+          "q": "What is enclosed alphanumerics?",
+          "a": "Enclosed alphanumerics is a Unicode block containing letters and digits displayed inside circles or squares."
+        },
+        {
+          "q": "Can I use bubble text on social media?",
+          "a": "Yes, many platforms support enclosed Unicode characters in bios, comments, and posts."
+        },
+        {
+          "q": "Why are lowercase bubble styles inconsistent?",
+          "a": "Unicode enclosed ranges are not perfectly symmetrical across all letters and cases."
+        },
+        {
+          "q": "Can I convert numbers into bubble style too?",
+          "a": "Yes. This tool supports circled and enclosed number styles where Unicode equivalents exist."
+        },
+        {
+          "q": "Is this bubble text tool free?",
+          "a": "Yes, it is completely free with copy-paste output."
+        },
+        {
+          "q": "Does bubble text affect searchability?",
+          "a": "Stylized Unicode may reduce readability and search matching in some contexts, so use it mainly for decoration."
+        },
+        {
+          "q": "Can I combine bubble text with emoji?",
+          "a": "Yes. You can enable emoji wrapper in the composer to create social-ready output."
+        }
+      ]
+    }
+  },
+  "InstagramBioFonts": {
+    "seo_title": "Instagram Bio Fonts Generator (2026) - Copy & Paste Stylish Text",
+    "seo_description": "Create Instagram bio fonts and stylish Unicode text for profile, captions, and comments with one-click copy.",
+    "seo_keywords": "instagram bio fonts, instagram font generator, copy and paste fonts, instagram stylish text",
+    "page_title": "Instagram Bio Fonts Generator",
+    "page_subtitle": "Copy & Paste Stylish Text",
+    "badge_text": "Instagram Scenario Tool",
+    "tldr": "Instagram bio fonts convert plain text into stylish Unicode characters you can copy and paste into your profile. This tool focuses on readable social styles for bios, captions, and quick profile refresh.",
+
+    "keyword_label": "instagram bio fonts",
+    "best_for": "Creators, influencers, and brand profile optimization",
+    "key_benefit": "Readable Instagram-ready text styles with instant copy",
+    "default_input": "Creator | Designer | Building in public",
+    "use_cases": [
+      "Personal and creator Instagram bios",
+      "Brand account profile refresh",
+      "Caption hook formatting",
+      "A/B testing profile text style"
+    ],
+    "boundaries": [
+      "This tool cannot bypass Instagram moderation or username rules.",
+      "Different app versions may display some characters differently.",
+      "Very complex combining marks may reduce readability on mobile.",
+      "Always verify final rendering inside your Instagram app."
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "Fancy Text Generator",
+        "description": "Broader Unicode font families for multi-platform social usage."
+      },
+      "vaporwave": {
+        "label": "Vaporwave Text Generator",
+        "description": "Fullwidth aesthetic style for retro profile identity."
+      },
+      "bubble_text": {
+        "label": "Bubble Text Generator",
+        "description": "Circled and squared text that stands out in bios."
+      },
+      "strikethrough": {
+        "label": "Strikethrough Text Generator",
+        "description": "Quick cross-out emphasis for profile and caption editing."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "q": "How do Instagram bio fonts work?",
+          "a": "Instagram bio fonts are Unicode character styles that look different from normal text. You can copy and paste them into your profile bio."
+        },
+        {
+          "q": "Do these fonts require an app install?",
+          "a": "No. You can generate text in the browser and paste directly into Instagram."
+        },
+        {
+          "q": "Can I use these styles in Instagram captions too?",
+          "a": "Yes, most styles work in captions and comments, not only in bios."
+        },
+        {
+          "q": "Why does one style look different on another phone?",
+          "a": "Character rendering depends on each device OS and app font support."
+        },
+        {
+          "q": "What is the best style for readability?",
+          "a": "Moderate styles like sans bold, script, and double-struck are usually easier to read than heavy glitch effects."
+        },
+        {
+          "q": "Can I combine stylish text with emoji decorations?",
+          "a": "Yes. This tool supports optional emoji wrappers for bio-ready output."
+        },
+        {
+          "q": "Is this Instagram bio fonts generator free?",
+          "a": "Yes, it is free and supports unlimited conversions."
+        },
+        {
+          "q": "Does this tool store my profile text?",
+          "a": "No server-side storage is required for your text conversion workflow."
+        }
+      ]
+    },
+    "feature_list": [
+      "Instagram-friendly Unicode styles",
+      "One-click copy",
+      "Bio-ready formatting",
+      "Mobile social use case focus"
+    ],
+    "feature_list_schemas": [
+      "Stylish bio text output",
+      "Copy and paste workflow",
+      "Readable social styles",
+      "Emoji wrapper support"
+    ]
+  },
+  "StrikethroughTextGenerator": {
+    "seo_title": "Strikethrough Text Generator (2026) - Cross Out Text Online",
+    "seo_description": "Generate strikethrough and wavy underline text effects online. Copy and paste crossed-out Unicode text instantly.",
+    "seo_keywords": "strikethrough text generator, cross out text, line through text generator, strikethrough copy paste",
+    "page_title": "Strikethrough Text Generator",
+    "page_subtitle": "Cross Out Text Online",
+    "badge_text": "Cross-Out Text Tool",
+    "tldr": "A strikethrough text generator converts plain text into crossed-out Unicode output you can copy and paste immediately. It is optimized for quick edits, chats, and social emphasis.",
+
+    "keyword_label": "strikethrough text generator",
+    "best_for": "Quick social edits, task notes, and conversational emphasis",
+    "key_benefit": "Minimal interface for fast crossed-out text output",
+    "default_input": "Revision: This is no longer valid.",
+    "use_cases": [
+      "Quick text edits and revisions",
+      "Humor and sarcasm formatting",
+      "Task list visual completion style",
+      "Chat emphasis without markdown"
+    ],
+    "boundaries": [
+      "This is Unicode-based, not semantic HTML formatting.",
+      "Some editors may strip combining marks on paste.",
+      "Too many combining marks reduce text readability.",
+      "For accessibility-critical text, prefer plain alternatives."
+    ],
+    "related_tools": {
+      "zalgo": {
+        "label": "Zalgo Text Generator",
+        "description": "Increase visual intensity with glitch-style combining marks."
+      },
+      "fancy_text": {
+        "label": "Fancy Text Generator",
+        "description": "Pair cross-out text with script, serif, and bold Unicode styles."
+      },
+      "discord_font": {
+        "label": "Discord Font Generator",
+        "description": "Build chat-ready emphasis text for community updates."
+      },
+      "instagram_bio": {
+        "label": "Instagram Bio Fonts Generator",
+        "description": "Use readable profile fonts alongside light strike accents."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "q": "What is a strikethrough text generator?",
+          "a": "A strikethrough text generator adds combining Unicode marks to create crossed-out text that you can copy and paste."
+        },
+        {
+          "q": "Can I use this in social media posts?",
+          "a": "Yes, many social platforms support strikethrough-like combining output."
+        },
+        {
+          "q": "What styles are available?",
+          "a": "This tool provides classic strikethrough and wavy underline variants for lightweight emphasis."
+        },
+        {
+          "q": "Is this the same as HTML <s> tag?",
+          "a": "No. This is Unicode text transformation, not HTML styling."
+        },
+        {
+          "q": "Will every app display strikethrough correctly?",
+          "a": "Not always. Rendering can vary by app, OS, and font engine."
+        },
+        {
+          "q": "Can I combine strikethrough with other styles?",
+          "a": "Yes, in the all-in-one tool. This focused page keeps the workflow simple for quick strike effects."
+        },
+        {
+          "q": "Is the tool free?",
+          "a": "Yes. It is free with unlimited copy and paste usage."
+        },
+        {
+          "q": "Do you store my crossed-out text?",
+          "a": "No server-side storage is required for the conversion process."
+        }
+      ]
+    },
+    "feature_list": [
+      "Classic strikethrough effect",
+      "Wavy underline effect",
+      "Copy and paste workflow",
+      "Fast browser conversion"
+    ],
+    "feature_list_schemas": [
+      "Cross-out text conversion",
+      "Wavy underline text conversion",
+      "Copy and paste output",
+      "Focused quick workflow"
+    ]
+  },
+  "ZalgoTextGenerator": {
+    "seo_title": "Zalgo Text Generator (2026) - Glitch and Corrupted Unicode Text",
+    "seo_description": "Create glitchy zalgo text, lightning text, and combining-mark distortions for memes and dramatic social content.",
+    "seo_keywords": "glitch text generator, corrupted text, zalgo copy paste, zalgo text, corrupted text generator, unicode zalgo",
+    "page_title": "Zalgo Text Generator",
+    "page_subtitle": "Create glitchy Unicode text with combining marks.",
+    "badge_text": "Glitch Text Tool",
+    "tldr": "A zalgo text generator creates glitch-like Unicode output by stacking combining marks around characters. Use it for dramatic visual effects, preview alternatives, and copy instantly.",
+
+    "keyword_label": "zalgo text",
+    "best_for": "Meme creators, horror-themed posts, and gaming communities",
+    "key_benefit": "Fast glitch-text generation with safer readable alternatives",
+    "default_input": "SYSTEM ERROR // REALITY COLLAPSE",
+    "use_cases": [
+      "Horror and spooky social captions",
+      "Meme and reaction text",
+      "Gaming and stream announcement styling",
+      "Experimental visual typography"
+    ],
+    "boundaries": [
+      "Heavy combining marks may hurt readability and accessibility.",
+      "Some apps normalize or suppress extreme combining sequences.",
+      "This tool is decorative and not suited for official communication.",
+      "Preview before publishing to avoid broken layout behavior."
+    ],
+    "related_tools": {
+      "strikethrough": {
+        "label": "Strikethrough Text Generator",
+        "description": "Use lower-noise decoration when readability still matters."
+      },
+      "fancy_text": {
+        "label": "Fancy Text Generator",
+        "description": "Switch from glitch output to cleaner Unicode font styles."
+      },
+      "discord_font": {
+        "label": "Discord Font Generator",
+        "description": "Create chat-safe stylized text with better compatibility."
+      },
+      "vaporwave": {
+        "label": "Vaporwave Text Generator",
+        "description": "Try fullwidth aesthetic text for retro styling."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "q": "What is zalgo text?",
+          "a": "Zalgo text uses many Unicode combining marks stacked around letters to create a glitchy, chaotic visual style."
+        },
+        {
+          "q": "Is zalgo text readable?",
+          "a": "At low intensity it can be readable, but high intensity often reduces readability significantly."
+        },
+        {
+          "q": "Where is zalgo text commonly used?",
+          "a": "It is often used in memes, horror-themed posts, gaming chats, and stylized headings."
+        },
+        {
+          "q": "Can zalgo text break layouts?",
+          "a": "Yes, dense combining marks can impact line height and text rendering in some apps."
+        },
+        {
+          "q": "Does this tool include safer alternatives?",
+          "a": "Yes. You can use lighter effects like lightning or tail marks for better readability."
+        },
+        {
+          "q": "Can I copy and paste zalgo output directly?",
+          "a": "Yes. The output is plain Unicode text, so you can copy and paste it where supported."
+        },
+        {
+          "q": "Is this tool free to use?",
+          "a": "Yes. It is free with unlimited copy-paste usage."
+        },
+        {
+          "q": "Do all platforms support heavy zalgo?",
+          "a": "Support varies. Some apps may clip or normalize complex combining sequences."
+        }
+      ]
+    },
+    "feature_list": [
+      "Zalgo combining mark generator",
+      "Lightning and tail mark effects",
+      "One-click copy output",
+      "Browser-only conversion workflow"
+    ],
+    "feature_list_schemas": [
+      "Glitchy combining marks",
+      "Multiple distortion presets",
+      "Copy and paste output",
+      "Meme and social use cases"
+    ]
+  },
+  "VaporwaveTextGenerator": {
+    "seo_title": "Vaporwave Text Generator (2026) - Fullwidth Aesthetic Text",
+    "seo_description": "Convert plain text into vaporwave fullwidth Unicode style for retro aesthetic bios, captions, and social content.",
+    "seo_keywords": "vaporwave text, vaporwave text generator, aesthetic text, fullwidth text generator",
+    "page_title": "Vaporwave Text Generator",
+    "page_subtitle": "Fullwidth Aesthetic Text",
+    "badge_text": "Aesthetic Fullwidth Tool",
+    "tldr": "A vaporwave text generator converts regular ASCII text into fullwidth Unicode output with retro spacing. It is designed for aesthetic bios, captions, and quick copy-and-paste workflows.",
+
+    "keyword_label": "vaporwave text generator",
+    "best_for": "Aesthetic creators, retro-style profiles, and short-form captions",
+    "key_benefit": "Instant fullwidth styling without external apps",
+    "default_input": "aesthetic internet archive",
+    "use_cases": [
+      "Aesthetic profile bios",
+      "Retro caption styling",
+      "Meme text decoration",
+      "Creative title formatting"
+    ],
+    "boundaries": [
+      "Not all punctuation and symbols have fullwidth versions.",
+      "Some platforms normalize spacing in certain contexts.",
+      "Overuse may reduce readability for long paragraphs.",
+      "Use plain text fallback for formal communication."
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "Fancy Text Generator",
+        "description": "Compare fullwidth style with broader Unicode font families."
+      },
+      "instagram_bio": {
+        "label": "Instagram Bio Fonts Generator",
+        "description": "Apply readable aesthetic styles for social profiles."
+      },
+      "bubble_letter": {
+        "label": "Bubble Text Generator",
+        "description": "Use enclosed styles when you need stronger glyph boundaries."
+      },
+      "zalgo": {
+        "label": "Zalgo Text Generator",
+        "description": "Try high-distortion glitch styles for dramatic visual contrast."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "q": "What is vaporwave text?",
+          "a": "Vaporwave text is usually fullwidth Unicode text that gives a retro digital aesthetic and wider spacing."
+        },
+        {
+          "q": "Is this the same as changing font files?",
+          "a": "No. The output is Unicode character substitution, not a downloadable font."
+        },
+        {
+          "q": "Can I use vaporwave text in social media bios?",
+          "a": "Yes, many social platforms support fullwidth Unicode output for bios and captions."
+        },
+        {
+          "q": "Why do spaces look wider?",
+          "a": "Fullwidth style replaces normal space with fullwidth space to keep visual rhythm consistent."
+        },
+        {
+          "q": "Can I combine vaporwave with other effects?",
+          "a": "Yes. You can apply light decorations or wrappers depending on readability goals."
+        },
+        {
+          "q": "Is this vaporwave text generator free?",
+          "a": "Yes, it is free and browser-based."
+        },
+        {
+          "q": "Will all symbols convert to fullwidth?",
+          "a": "Only standard ASCII range has direct fullwidth equivalents. Unsupported symbols remain as-is."
+        },
+        {
+          "q": "Can I copy and paste the output directly?",
+          "a": "Yes, generated text is copy-paste ready."
+        }
+      ]
+    },
+    "feature_list": [
+      "Fullwidth conversion",
+      "Aesthetic text styles",
+      "Copy and paste output",
+      "Browser-based workflow"
+    ],
+    "feature_list_schemas": [
+      "Fullwidth vaporwave output",
+      "Simple one-click copy",
+      "Readable aesthetic styling",
+      "Social media use cases"
+    ]
+  },
+  "FancyTextGenerator": {
+    "seo_title": "Fancy Text Generator (2026) - Copy and Paste Unicode Fonts",
+    "seo_description": "Free fancy text generator for script, fraktur, bold, and cool Unicode text styles. Copy and paste instantly.",
+    "seo_keywords": "fancy text generator, cool text fonts, unicode text converter, copy and paste fonts",
+    "page_title": "Fancy Text Generator",
+    "page_subtitle": "Copy and Paste Unicode Fonts",
+    "free_tool_badge": "Fancy Text Tool",
+    "tldr": "A fancy text generator converts plain text into decorative Unicode styles you can copy and paste anywhere. Use it for bios, captions, usernames, and quick visual differentiation without installing fonts.",
+
+    "keyword_label": "fancy text generator",
+    "best_for": "Creators, social media managers, and personal branding",
+    "key_benefit": "Generate and copy multiple stylish text variants in seconds",
+    "default_input": "Type something fancy",
+    "use_cases": [
+      "Instagram and TikTok display name styling",
+      "Creative captions and profile bios",
+      "Discord server nickname formatting",
+      "Personal brand headline variations"
+    ],
+    "boundaries": [
+      "This tool outputs Unicode characters, not installable font files.",
+      "Rendering may differ across operating systems and apps.",
+      "Some symbols cannot be transformed because Unicode has no equivalent.",
+      "Always test output in your target platform before posting."
+    ],
+    "related_tools": {
+      "instagram_bio": {
+        "label": "Instagram Bio Fonts Generator",
+        "description": "Social-profile focused fancy text styles with copy-and-paste output."
+      },
+      "discord_font": {
+        "label": "Discord Font Generator",
+        "description": "Readable Unicode styles for Discord nicknames and messages."
+      },
+      "bubble_text": {
+        "label": "Bubble Text Generator",
+        "description": "Enclosed alphanumeric styles like circled and squared characters."
+      },
+      "vaporwave": {
+        "label": "Vaporwave Text Generator",
+        "description": "Fullwidth aesthetic text for retro-style bios and captions."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "q": "What is a fancy text generator?",
+          "a": "A fancy text generator transforms plain letters into decorative Unicode styles you can copy and paste into social profiles, posts, and chats."
+        },
+        {
+          "q": "Is fancy text the same as a real font file?",
+          "a": "No. Most fancy text tools output Unicode characters, not installed font files. This means you can use them directly in many apps."
+        },
+        {
+          "q": "Can I combine multiple fancy text effects?",
+          "a": "Yes. You can stack a base style with decorations and optional transformations for a custom result."
+        },
+        {
+          "q": "Does this work on Instagram and TikTok?",
+          "a": "Usually yes. Compatibility depends on each platform and device font support."
+        },
+        {
+          "q": "Is this fancy text generator free?",
+          "a": "Yes, the tool is free and browser-based with unlimited copy and paste usage."
+        },
+        {
+          "q": "Do you store what I type?",
+          "a": "No server-side storage is required for conversion flow in this tool."
+        },
+        {
+          "q": "Why do some symbols stay unchanged?",
+          "a": "Unicode does not include styled equivalents for every symbol, so unsupported characters remain unchanged."
+        },
+        {
+          "q": "Can I use this for usernames?",
+          "a": "Yes, but each platform has its own character rules, so always test before finalizing a username."
+        }
+      ]
+    },
+    "feature_list": [
+      "Multiple Unicode font styles",
+      "One-click copy",
+      "Style composition",
+      "Social media ready output"
+    ],
+    "feature_list_schemas": [
+      "Script and bold styles",
+      "Fraktur and double-struck",
+      "Copy and paste output",
+      "Combinable effects"
+    ]
+  },
+  "DiscordFontGenerator": {
+    "seo_title": "Discord Font Generator (2026) - Copy and Paste Stylish Discord Text",
+    "seo_description": "Create stylish Discord text for nicknames and messages with Unicode font effects. Copy and paste instantly.",
+    "seo_keywords": "discord font generator, discord font changer, discord text generator, copy and paste fonts",
+    "page_title": "Discord Font Generator",
+    "page_subtitle": "Copy and Paste Stylish Discord Text",
+    "free_tool_badge": "Discord Scenario Tool",
+    "tldr": "A Discord font generator converts plain text into Unicode styles for nicknames, profile text, and messages. Choose readable options first, then copy and paste directly into Discord.",
+
+    "keyword_label": "discord font generator",
+    "best_for": "Discord communities, gamer tags, and server profile customization",
+    "key_benefit": "Discord-focused style presets with instant copy workflow",
+    "default_input": "Raid tonight 20:00 UTC",
+    "use_cases": [
+      "Discord nickname styling",
+      "Profile bio decoration",
+      "Server announcement formatting",
+      "Gaming identity customization"
+    ],
+    "boundaries": [
+      "Cannot bypass server moderation or blocked character policies.",
+      "Some channels or bots may normalize special characters.",
+      "Overly complex text may be hard to read in fast chats.",
+      "Always preview in Discord before final use."
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "Fancy Text Generator",
+        "description": "Explore broader Unicode styles for usernames and messages."
+      },
+      "strikethrough": {
+        "label": "Strikethrough Text Generator",
+        "description": "Add clean crossed-out emphasis for quick chat edits."
+      },
+      "zalgo": {
+        "label": "Zalgo Text Generator",
+        "description": "Create glitch-style text for meme and gaming contexts."
+      },
+      "instagram_bio": {
+        "label": "Instagram Bio Fonts Generator",
+        "description": "Repurpose profile-ready styles across social platforms."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "q": "What is a Discord font generator?",
+          "a": "A Discord font generator converts plain text into Unicode styles you can paste into nicknames, channel messages, and profile sections."
+        },
+        {
+          "q": "Do I need Discord Nitro for this?",
+          "a": "No. Unicode text styling works independently from Nitro features."
+        },
+        {
+          "q": "Can I use styled text in Discord nickname?",
+          "a": "Yes, if the server and Discord rules allow those characters."
+        },
+        {
+          "q": "Will all fancy styles render on mobile Discord?",
+          "a": "Most do, but rendering can vary by device and font support."
+        },
+        {
+          "q": "Can this bypass moderation rules?",
+          "a": "No. This tool does not bypass moderation, filters, or platform policies."
+        },
+        {
+          "q": "What styles are best for readability?",
+          "a": "Moderate styles like sans bold and script are usually easier to read than heavy distortion effects."
+        },
+        {
+          "q": "Is this Discord font generator free?",
+          "a": "Yes, free with unlimited copy and paste usage."
+        },
+        {
+          "q": "Does the tool store my chat text?",
+          "a": "No server-side storage is required for conversion."
+        }
+      ]
+    },
+    "feature_list": [
+      "Discord-friendly Unicode styles",
+      "Nickname and message scenarios",
+      "One-click copy",
+      "Combinable effects"
+    ],
+    "feature_list_schemas": [
+      "Nickname-ready text styles",
+      "Message formatting variants",
+      "Copy and paste output",
+      "Fast browser workflow"
+    ]
   },
   "CmToPmConverter": {
     "seo_title": "PM to CM & CM to PM Converter | Free Picometer to Centimeter Calculator Tool",

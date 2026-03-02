@@ -1609,6 +1609,822 @@
       "button_text": "Bruk CM til Tommer Konverter"
     }
   },
+  "UnicodeTool": {
+    "qanda_title": "Hurtig svar (TL;DR)",
+    "core_facts_title": "Viktigste fakta",
+    "primary_intent_label": "Primær hensikt:",
+    "pricing_label": "Pris:",
+    "free_label": "Gratis",
+    "best_for_label": "Best for:",
+    "key_benefit_label": "Hovedfordel:",
+    "related_searches_label": "Relaterte søk",
+    "playground_title": "Teksteffekt-lekeplass",
+    "last_updated_label": "Sist oppdatert",
+    "primary_keyword_label": "Primært nøkkelord:",
+    "input_label": "Inputtekst",
+    "input_placeholder": "Skriv inn tekst, ord, bokstaver eller symboler...",
+    "select_style_label": "Velg stil",
+    "base_style_label": "1) Basisstil",
+    "decorations_label": "2) Dekorasjoner (velg flere)",
+    "transform_emoji_label": "3) Transformer + Emoji",
+    "add_emoji_wrapper_label": "Legg til emoji-ramme",
+    "custom_output_label": "Egendefinert kombinert utdata",
+    "primary_output_label": "Primær utdata",
+    "copy_button_label": "Kopier",
+    "copied_button_label": "Kopiert!",
+    "copy_failed_label": "Kopiering feilet",
+    "ready_to_copy_status": "Klar til kopiering",
+    "one_click_preview_title": "Forhåndsvis alle effekter med ett klikk",
+    "one_click_preview_description": "Klikk på et kort nedenfor for å kopiere det transformerte resultatet umiddelbart.",
+    "how_to_use_title": "Slik bruker du verktøyet",
+    "how_to_use_step1": "Skriv inn teksten din i feltet. Hold den kort for bedre lesbarhet ved",
+    "how_to_use_step2": "kopier og lim inn",
+    "how_to_use_step3": ".",
+    "how_to_use_step4": "Velg en effekt eller kombiner stiler hvis kompositøren er aktivert.",
+    "how_to_use_step5": "Klikk på et forhåndsvisningskort eller kopier-knappen, og lim det inn i mål-appen din.",
+    "taxonomy_title": "Implementert effekt-taksonomi",
+    "use_cases_title": "Bruksområder",
+    "limits_title": "Begrensninger og grensetilfeller",
+    "related_tools_title": "Relaterte verktøy",
+    "faq_title": "Ofte stilte spørsmål",
+    "plain_style": "Standard",
+    "none_style": "Ingen",
+    "empty_input_placeholder": "(Ingen inndata)",
+    "default_best_for": "Skapere, SNS-brukere og administratorer",
+    "default_key_benefit": "Unicode-tekststiler for umiddelbar kopiering og liming på ett sted",
+    "categories": {
+      "enclosed": "Innsirklede alfanumeriske tegn",
+      "math": "Matematiske stiler",
+      "marks": "Kombineringsmerker",
+      "transform": "Transformasjon",
+      "width": "Bredde"
+    }
+  },
+  "InstagramBioFonts": {
+    "seo_title": "Instagram Bio Fonts Generator (2026) - Kopier og lim inn stilig tekst",
+    "seo_description": "Lag Instagram bio-skrifttyper og stilig Unicode-tekst for profil, bildetekster og kommentarer med ett-klikks kopiering.",
+    "seo_keywords": "instagram bio fonts, instagram skrifttype generator, kopier og lim inn fonter, instagram stilig tekst",
+    "page_title": "Instagram Bio Fonts Generator",
+    "page_subtitle": "Kopier og lim inn stilig tekst",
+    "badge_text": "Instagram Scenario-verktøy",
+    "tldr": "Instagram bio-skrifttyper konverterer vanlig tekst til stilige Unicode-tegn som du kan kopiere og lime inn i profilen din. Dette verktøyet fokuserer på lesbare sosiale stiler for biografier, bildetekster og rask profiloppdatering.",
+
+    "keyword_label": "instagram bio fonts",
+    "best_for": "Skapere, influencere og optimalisering av merkevareprofiler",
+    "key_benefit": "Lesbare Instagram-klare tekststiler med umiddelbar kopiering",
+    "default_input": "Skaper | Designer | Bygger i offentligheten",
+    "use_cases": [
+      "Personlige og skaper Instagram-biografier",
+      "Oppdatering av merkevareprofil",
+      "Formatering af bildetekst-hooks",
+      "A/B-testing av profiltekst-stil"
+    ],
+    "boundaries": [
+      "Dette verktøyet kan ikke omgå Instagrams moderering eller regler for brukernavn.",
+      "Forskjellige app-versjoner kan vise noen tegn forskjellig.",
+      "Veldig komplekse kombineringsmerker kan redusere lesbarheten på mobil.",
+      "Bekreft alltid den endelige visningen inne i Instagram-appen din."
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "Fancy Tekst Generator",
+        "description": "Bredere Unicode-skrifttypefamilier for bruk på tvers av sosiale plattformer."
+      },
+      "vaporwave": {
+        "label": "Vaporwave Tekst Generator",
+        "description": "Estetisk stil i full bredde for retro profilidentitet."
+      },
+      "bubble_text": {
+        "label": "Bubble Text Generator",
+        "description": "Sirklede og firkantede tegn som skiller seg ut i biografier."
+      },
+      "strikethrough": {
+        "label": "Gjennomstreket Tekst Generator",
+        "description": "Hurtig gjennomstreking for profil- og bildetekstredigering."
+      }
+    },
+    "faq": {
+      "title": "Ofte stilte spørsmål",
+      "items": [
+        {
+          "q": "Hvordan fungerer Instagram bio-skrifttyper?",
+          "a": "Instagram bio-skrifttyper er Unicode-tegnstiler som ser annerledes ut enn vanlig tekst. Du kan kopiere og lime dem inn i profilbiografien din."
+        },
+        {
+          "q": "Krever disse skrifttypene installasjon av en app?",
+          "a": "Nei. Du kan generere tekst i nettleseren og lime den direkte inn på Instagram."
+        },
+        {
+          "q": "Kan jeg også bruke disse stilene i Instagram-bildetekster?",
+          "a": "Ja, de fleste stilene fungerer i bildetekster og kommentarer, ikke bare i biografier."
+        },
+        {
+          "q": "Hvorfor ser en stil annerledes ut på en annen telefon?",
+          "a": "Tegngjengivelse avhenger av hver enkelt enhets OS og appens støtte for skrifttyper."
+        },
+        {
+          "q": "Hvilken stil er best for lesbarhet?",
+          "a": "Moderate stiler som sans bold, script og double-struck er vanligvis lettere å lese enn kraftige glitch-effekter."
+        },
+        {
+          "q": "Kan jeg kombinere stilig tekst med emoji-dekorasjoner?",
+          "a": "Ja. Dette verktøyet støtter valgfri emoji-innpakning for bio-klart resultat."
+        },
+        {
+          "q": "Er denne Instagram bio-skrifttypegeneratoren gratis?",
+          "a": "Ja, den er gratis og støtter ubegrensede konverteringer."
+        },
+        {
+          "q": "Lagrer dette verktøyet profilteksten min?",
+          "a": "Det kreves ingen lagring på serveren for din tekstkonverterings-arbeidsflyt."
+        }
+      ]
+    },
+    "feature_list": [
+      "Instagram-vennlige Unicode-stiler",
+      "Ett-klikks kopiering",
+      "Bio-klar formatering",
+      "Fokus på sosiale bruksområder på mobil"
+    ],
+    "feature_list_schemas": [
+      "Stilig bio-tekstresultat",
+      "Kopier og lim inn arbeidsflyt",
+      "Lesbare sosiale stiler",
+      "Støtte for emoji-innpakning"
+    ]
+  },
+  "StrikethroughTextGenerator": {
+    "seo_title": "Gjennomstreking Tekst Generator (2026) - Strek over tekst på nett",
+    "seo_description": "Generer gjennomstreket og bølget understreket tekst på nett. Kopier og lim inn gjennomstreket Unicode-tekst umiddelbart.",
+    "seo_keywords": "gjennomstreking tekst generator, strek over tekst, gjennomstreket tekst, gjennomstreking kopier lim inn",
+    "page_title": "Gjennomstreking Tekst Generator",
+    "page_subtitle": "Strek over tekst på nett",
+    "badge_text": "Tekst Gjennomstreking Verktøy",
+    "tldr": "En gjennomstreking tekst generator konverterer vanlig tekst til gjennomstreket Unicode-utdata som du kan kopiere og lime inn umiddelbart. Den er optimalisert for raske redigeringer, chatter og sosial fremheving.",
+
+    "keyword_label": "gjennomstreking tekst generator",
+    "best_for": "Raske sosiale redigeringer, oppgavenotater og samtalemessig fremheving",
+    "key_benefit": "Minimalt grensesnitt for rask gjennomstreket tekst-utdata",
+    "default_input": "Revisjon: Dette er ikke lenger gyldig.",
+    "use_cases": [
+      "Raske tekstredigeringer og revisjoner",
+      "Formatering for humor og sarkasme",
+      "Visuell fullføringsstil for oppgavelister",
+      "Chat-fremheving uten markdown"
+    ],
+    "boundaries": [
+      "Dette er Unicode-basert, ikke semantisk HTML-formatering.",
+      "Noen editorer kan fjerne kombineringsmerker ved innliming.",
+      "For mange kombineringsmerker reduserer tekstens lesbarhet.",
+      "For tekst der tilgjengelighet er kritisk, bør vanlige alternativer foretrekkes."
+    ],
+    "related_tools": {
+      "zalgo": {
+        "label": "Zalgo Tekst Generator",
+        "description": "Øk visuell intensitet med kombineringsmerker i glitch-stil."
+      },
+      "fancy_text": {
+        "label": "Fancy Tekst Generator",
+        "description": "Kombiner gjennomstreket tekst med Unicode-stiler som håndskrift, serif og fet."
+      },
+      "discord_font": {
+        "label": "Discord Font Generator",
+        "description": "Bygg chat-klar fremhevingstekst for fellesskapsoppdateringer."
+      },
+      "instagram_bio": {
+        "label": "Instagram Bio Font Generator",
+        "description": "Bruk lesbare profilskrifttyper sammen med lett gjennomstreking."
+      }
+    },
+    "faq": {
+      "title": "Ofte stilte spørsmål",
+      "items": [
+        {
+          "q": "Hva er en gjennomstreking tekst generator?",
+          "a": "En gjennomstreking tekst generator legger til kombinerende Unicode-merker for å lage gjennomstreket tekst som du kan kopiere og lime inn."
+        },
+        {
+          "q": "Kan jeg bruke dette i sosiale medier-innlegg?",
+          "a": "Ja, mange sosiale plattformer støtter gjennomstrekings-lignende kombinerings-utdata."
+        },
+        {
+          "q": "Hvilke stiler er tilgjengelige?",
+          "a": "Dette verktøyet tilbyr klassisk gjennomstreking og bølgete understrekingsvarianter for lett fremheving."
+        },
+        {
+          "q": "Er dette det samme som HTML <s>-taggen?",
+          "a": "Nei. Dette er Unicode-tekstkonvertering, ikke HTML-styling."
+        },
+        {
+          "q": "Vil alle apper vise gjennomstreking riktig?",
+          "a": "Ikke alltid. Rendring kan variere etter app, operativsystem og skrifttypemotor."
+        },
+        {
+          "q": "Kan jeg kombinere gjennomstreking med andre stiler?",
+          "a": "Ja, i alt-i-ett verktøyet. Denne fokuserte siden holder arbeidsflyten enkel for raske gjennomstrekingseffekter."
+        },
+        {
+          "q": "Er verktøyet gratis?",
+          "a": "Ja. Det er gratis med ubegrenset bruk av kopier og lim inn."
+        },
+        {
+          "q": "Lagrer dere min gjennomstrekede tekst?",
+          "a": "Det kreves ingen server-side lagring for konverteringsprosessen."
+        }
+      ]
+    },
+    "feature_list": [
+      "Klassisk gjennomstrekingseffekt",
+      "Bølgete understrekingseffekt",
+      "Kopier og lim inn arbeidsflyt",
+      "Rask browser-konvertering"
+    ],
+    "feature_list_schemas": [
+      "Gjennomstreking av tekst",
+      "Bølget understreking av tekst",
+      "Kopier og lim inn utdata",
+      "Fokusert rask arbeidsflyt"
+    ]
+  },
+  "ZalgoTextGenerator": {
+    "seo_title": "Zalgo-tekstgenerator (2026) – Glitch- og korrupt Unicode-tekst",
+    "seo_description": "Lag glitchy zalgo-tekst, lyn-tekst og forvrengninger med kombinasjonstegn for memes og dramatisk sosialt innhold.",
+    "seo_keywords": "glitch-tekstgenerator, korrupt tekst, zalgo kopier og lim inn, zalgo-tekst, korrupt tekstgenerator, unicode zalgo",
+    "page_title": "Zalgo-tekstgenerator",
+    "page_subtitle": "Lag glitchy Unicode-tekst med kombinasjonstegn.",
+    "badge_text": "Glitch-tekstverktøy",
+    "tldr": "En zalgo-tekstgenerator lager glitch-lignende Unicode-utdata ved å stable kombinasjonstegn rundt tegn. Bruk det for dramatiske visuelle effekter, forhåndsvis alternativer og kopier umiddelbart.",
+
+    "keyword_label": "zalgo-tekst",
+    "best_for": "Meme-skapere, horror-tema-innlegg og gaming-samfunn",
+    "key_benefit": "Rask glitch-tekstgenerering med sikrere lesbare alternativer",
+    "default_input": "SYSTEM ERROR // REALITY COLLAPSE",
+    "use_cases": [
+      "Horror og uhyggelige sosiale tekster",
+      "Meme- og reaksjonstekst",
+      "Gaming- og stream-annonseringsstyling",
+      "Eksperimentell visuell typografi"
+    ],
+    "boundaries": [
+      "Tunge kombinasjonstegn kan skade lesbarhet og tilgjengelighet.",
+      "Noen apper normaliserer eller undertrykker ekstreme kombinasjonssekvenser.",
+      "Dette verktøyet er dekorativt og ikke egnet for offisiell kommunikasjon.",
+      "Se forhåndsvisning før publisering for å unngå ødelagt layoutatferd."
+    ],
+    "related_tools": {
+      "strikethrough": {
+        "label": "Gjennomstreking-tekstgenerator",
+        "description": "Bruk dekorasjon med lite støy når lesbarhet fortsatt er viktig."
+      },
+      "fancy_text": {
+        "label": "Fancy-tekstgenerator",
+        "description": "Bytt fra glitch-utdata til renere Unicode-fontstiler."
+      },
+      "discord_font": {
+        "label": "Discord-fontgenerator",
+        "description": "Lag chat-sikker stilisert tekst med bedre kompatibilitet."
+      },
+      "vaporwave": {
+        "label": "Vaporwave-tekstgenerator",
+        "description": "Prøv fullwidth estetisk tekst for retro-styling."
+      }
+    },
+    "faq": {
+      "title": "Ofte stilte spørsmål",
+      "items": [
+        {
+          "q": "Hva er zalgo-tekst?",
+          "a": "Zalgo-tekst bruker mange Unicode-kombinasjonstegn stablet rundt bokstaver for å skape en glitchy, kaotisk visuell stil."
+        },
+        {
+          "q": "Er zalgo-tekst lesbar?",
+          "a": "Ved lav intensitet kan det være lesbart, men høy intensitet reduserer ofte lesbarheten betydelig."
+        },
+        {
+          "q": "Hvor brukes zalgo-tekst vanligvis?",
+          "a": "Det brukes ofte i memes, horror-tema-innlegg, gaming-chatter og stiliserte overskrifter."
+        },
+        {
+          "q": "Kan zalgo-tekst ødelegge layouter?",
+          "a": "Ja, tette kombinasjonstegn kan påvirke linjehøyde og tekstgjengivelse i noen apper."
+        },
+        {
+          "q": "Inneholder dette verktøyet sikrere alternativer?",
+          "a": "Ja. Du kan bruke lettere effekter som lyn- eller halemerker for bedre lesbarhet."
+        },
+        {
+          "q": "Kan jeg kopiere og lime inn zalgo-utdata direkte?",
+          "a": "Ja. Utdataene er vanlig Unicode-tekst, så du kan kopiere og lime den inn der det er støtte."
+        },
+        {
+          "q": "Er dette verktøyet gratis å bruke?",
+          "a": "Ja. Det er gratis med ubegrenset copy-paste-bruk."
+        },
+        {
+          "q": "Støtter alle plattformer tung zalgo?",
+          "a": "Støtte varierer. Noen apper kan kutte eller normalisere komplekse kombinasjonssekvenser."
+        }
+      ]
+    },
+    "feature_list": [
+      "Zalgo-kombinasjonstegngenerator",
+      "Lyn- og halemerg-effekter",
+      "Ett-klikks kopiering",
+      "Nettleserbasert arbeidsflyt"
+    ],
+    "feature_list_schemas": [
+      "Glitchy kombinasjonstegn",
+      "Flere forvrengnings-presets",
+      "Copy-and-paste-utdata",
+      "Meme og sosiale use cases"
+    ]
+  },
+  "VaporwaveTextGenerator": {
+    "seo_title": "Vaporwave-tekstgenerator (2026) – Estetisk Fullwidth-tekst",
+    "seo_description": "Konverter vanlig tekst til vaporwave-fullwidth Unicode-stil for estetiske bios, bildetekster und kreativt sosialt innhold.",
+    "seo_keywords": "vaporwave-tekst, vaporwave-tekstgenerator, estetisk tekst, fullwidth-tekstgenerator",
+    "page_title": "Vaporwave-tekstgenerator",
+    "page_subtitle": "Estetisk Fullwidth-tekst",
+    "badge_text": "Estetisk Fullwidth-verktøy",
+    "tldr": "En vaporwave-tekstgenerator konverterer vanlig ASCII-tekst til fullwidth Unicode-utdata med retro-avstand. Den er designet for estetiske bios, bildetekster og raske copy-paste-arbeidsflyter.",
+
+    "keyword_label": "vaporwave-tekstgenerator",
+    "best_for": "Estetiske skapere, profiler i retrostil og korte bildetekster",
+    "key_benefit": "Umiddelbar fullwidth-styling uten eksterne apper",
+    "default_input": "aesthetic internet archive",
+    "use_cases": [
+      "Estetiske profil-bios",
+      "Retro-bildetekststyling",
+      "Tekstdekorasjon for memes",
+      "Kreativ tittelformatering"
+    ],
+    "boundaries": [
+      "Ikke alle tegn og symboler har fullwidth-versjoner.",
+      "Noen plattformer normaliserer avstanden i visse sammenhenger.",
+      "Overdreven bruk kan redusere lesbarheten for lange avsnitt.",
+      "Bruk vanlig tekst som alternativ for formell kommunikasjon."
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "Fancy-tekstgenerator",
+        "description": "Sammenlign fullwidth-stil med bredere Unicode-fontfamilier."
+      },
+      "instagram_bio": {
+        "label": "Instagram-bio-fontgenerator",
+        "description": "Bruk lesbare estetiske stiler for sosiale profiler."
+      },
+      "bubble_letter": {
+        "label": "Boble-tekstgenerator",
+        "description": "Bruk lukkede stiler når du trenger sterkere glyf-grenser."
+      },
+      "zalgo": {
+        "label": "Zalgo-tekstgenerator",
+        "description": "Prøv glitch-stiler med høy forvrengning for dramatisk visuell kontrast."
+      }
+    },
+    "faq": {
+      "title": "Ofte stilte spørgsmål",
+      "items": [
+        {
+          "q": "Hva er vaporwave-tekst?",
+          "a": "Vaporwave-tekst er vanligvis fullwidth Unicode-tekst som gir en retro digital estetikk og bredere avstand."
+        },
+        {
+          "q": "Er det det samme som å endre fontfiler?",
+          "a": "Nei. Utdataene er Unicode-tegnerstatning, ikke en font som kan lastes ned."
+        },
+        {
+          "q": "Kan jeg bruke vaporwave-tekst i bios på sosiale medier?",
+          "a": "Ja, mange sosiale plattformer støtter fullwidth Unicode-utdata for bios og bildetekster."
+        },
+        {
+          "q": "Hvorfor ser mellomrom bredere ut?",
+          "a": "Fullwidth-stil erstatter vanlige mellomrom med fullwidth-mellomrom for å holde den visuelle rytmen konsekvent."
+        },
+        {
+          "q": "Kan jeg kombinere vaporwave med andre effekter?",
+          "a": "Ja. Du kan bruke lette dekorasjoner eller innpakninger avhengig av dine lesbarhetsmål."
+        },
+        {
+          "q": "Er denne vaporwave-tekstgeneratoren gratis?",
+          "a": "Ja, den er gratis og nettleserbasert."
+        },
+        {
+          "q": "Vil alle symboler bli konvertert til fullwidth?",
+          "a": "Bare standard ASCII-området har direkte fullwidth-ekvivalenter. Ikke-støttede symboler forblir uendret."
+        },
+        {
+          "q": "Kan jeg kopiere og lime inn utdataene direkte?",
+          "a": "Ja, generert tekst er klar for copy-paste."
+        }
+      ]
+    },
+    "feature_list": [
+      "Fullwidth-konvertering",
+      "Estetiske tekststiler",
+      "Copy-paste-utdata",
+      "Nettleserbasert arbeidsflyt"
+    ],
+    "feature_list_schemas": [
+      "Fullwidth-vaporwave-utdata",
+      "Enkelt ett-klikks-kopiering",
+      "Lesbar estetisk styling",
+      "Brukstilfeller for sosiale medier"
+    ]
+  },
+  "FancyTextGenerator": {
+    "seo_title": "Fancy Text Generator (2026) - Kopier og lim inn Unicode-fonter",
+    "seo_description": "Gratis fancy tekstgenerator for Unicode-tekststiler som løkkeskrift, fraktur, fet og mer. Kopier og lim inn umiddelbart.",
+    "seo_keywords": "fancy tekstgenerator, flotte fonter, unicode-tekstkonverterer, kopier og lim inn fonter",
+    "page_title": "Fancy Text Generator",
+    "page_subtitle": "Kopier og lim inn Unicode-fonter",
+    "free_tool_badge": "Fancy Tekst-verktøy",
+    "tldr": "En fancy tekstgenerator konverterer vanlig tekst til dekorative Unicode-stiler som du kan kopiere og lime inn hvor som helst. Bruk det til biografier, bildetekster, brukernavn og rask visuell differensiering uten å installere fonter.",
+
+    "keyword_label": "fancy tekstgenerator",
+    "best_for": "Skapere, sosiale medier-managere og personlig merkevarebygging",
+    "key_benefit": "Generer og kopier flere stilige tekstvarianter på få sekunder",
+    "default_input": "Skriv noe stilig",
+    "use_cases": [
+      "Styling av visningsnavn på Instagram og TikTok",
+      "Kreative bildetekster og profilbiografier",
+      "Formatering av kallenavn på Discord-servere",
+      "Variasjoner av overskrifter for personlig merkevarebygging"
+    ],
+    "boundaries": [
+      "Dette verktøyet produserer Unicode-tegn, ikke fontfiler som kan installeres.",
+      "Gjengivelsen kan variere på tvers av operativsystemer og apper.",
+      "Noen symboler kan ikke transformeres fordi Unicode ikke har et tilsvarende tegn.",
+      "Test alltid resultatet på målplattformen din før du poster."
+    ],
+    "related_tools": {
+      "instagram_bio": {
+        "label": "Instagram Bio Fonts Generator",
+        "description": "Fancy tekststiler fokusert på sosiale profiler med kopier-og-lim inn-output."
+      },
+      "discord_font": {
+        "label": "Discord Font Generator",
+        "description": "Lesbare Unicode-stiler for Discord-kallenavn og meldinger."
+      },
+      "bubble_text": {
+        "label": "Bubble Text Generator",
+        "description": "Innkapslede alfanumeriske stiler som sirklede og firkantede tegn."
+      },
+      "vaporwave": {
+        "label": "Vaporwave Text Generator",
+        "description": "Estetisk tekst i full bredde for profilbiografier og bildetekster i retrostil."
+      }
+    },
+    "faq": {
+      "title": "Ofte stilte spørsmål",
+      "items": [
+        {
+          "q": "Hva er en fancy tekstgenerator?",
+          "a": "En fancy tekstgenerator forvandler vanlige bokstaver til dekorative Unicode-stiler som du kan kopiere og lime inn i sosiale profiler, innlegg og chatter."
+        },
+        {
+          "q": "Er fancy tekst det samme som en ekte fontfil?",
+          "a": "Nei. De fleste fancy tekstverktøy gir Unicode-tegn, ikke installerte fontfiler. Dette betyr at du kan bruke dem direkte i mange apper."
+        },
+        {
+          "q": "Kan jeg kombinere flere fancy teksteffekter?",
+          "a": "Ja. Du kan kombinere en grunnstil med dekorasjoner og valgfrie transformasjoner for et personlig resultat."
+        },
+        {
+          "q": "Fungerer dette på Instagram og TikTok?",
+          "a": "Vanligvis ja. Kompatibilitet avhenger av den enkelte plattformen og enhetens fontstøtte."
+        },
+        {
+          "q": "Er denne fancy tekstgeneratoren gratis?",
+          "a": "Ja, verktøyet er gratis og nettleserbasert med ubegrenset bruk av kopier og lim inn."
+        },
+        {
+          "q": "Lagrer dere det jeg skriver?",
+          "a": "Ingen lagring på serveren er nødvendig for konverteringsflyten i dette verktøyet."
+        },
+        {
+          "q": "Hvorfor forblir noen symboler uendret?",
+          "a": "Unicode inneholder ikke stilede ekvivalenter for hvert symbol, så tegn som ikke støttes forblir uendret."
+        },
+        {
+          "q": "Kan jeg bruke dette til brukernavn?",
+          "a": "Ja, men hver plattform har sine egne regler for tegn, så test alltid før du endelig velger et brukernavn."
+        }
+      ]
+    },
+    "feature_list": [
+      "Flere Unicode-fontstiler",
+      "Kopier med ett klikk",
+      "Stilsammensetning",
+      "Output klar for sosiale medier"
+    ],
+    "feature_list_schemas": [
+      "Løkkeskrift og fete stiler",
+      "Fraktur- og dobbeltstrek-stiler",
+      "Kopier og lim inn output",
+      "Kombinerbare effekter"
+    ]
+  },
+  "DiscordFontGenerator": {
+    "seo_title": "Discord Font Generator (2026) - Kopier og lim inn stilig Discord-tekst",
+    "seo_description": "Lag stilig Discord-tekst for kallenavn og meldinger med Unicode-fonteffekter. Kopier og lim inn umiddelbart.",
+    "seo_keywords": "discord font generator, discord font changer, discord tekst generator, kopier og lim inn fonter",
+    "page_title": "Discord Font Generator",
+    "page_subtitle": "Kopier og lim inn stilig Discord-tekst",
+    "free_tool_badge": "Discord Scenario-verktøy",
+    "tldr": "En Discord font generator konverterer vanlig tekst til Unicode-stiler for kallenavn, profiltekster og meldinger. Velg lesbare alternativer først, og kopier og lim inn direkte i Discord.",
+
+    "keyword_label": "discord font generator",
+    "best_for": "Discord-samfunn, gamertags og tilpasning av serverprofiler",
+    "key_benefit": "Discord-fokuserte stil-presets med øyeblikkelig kopiering",
+    "default_input": "Raid i kveld 20:00 UTC",
+    "use_cases": [
+      "Styling av Discord-kallenavn",
+      "Dekorering av profil-bio",
+      "Formatering av serverannonseringer",
+      "Tilpasning av spillidentitet"
+    ],
+    "boundaries": [
+      "Kan ikke omgå servermoderering eller retningslinjer for blokkerte tegn.",
+      "Noen kanaler eller boter kan normalisere spesialtegn.",
+      "Overdrevent kompleks tekst kan være vanskelig å lese i raske chatter.",
+      "Forhåndsvis alltid i Discord før endelig bruk."
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "Fancy Tekst Generator",
+        "description": "Utforsk bredere Unicode-stiler for brukernavn og meldinger."
+      },
+      "strikethrough": {
+        "label": "Gjennomstreket Tekst Generator",
+        "description": "Legg til ren gjennomstreket vekt for raske chattedits."
+      },
+      "zalgo": {
+        "label": "Zalgo Tekst Generator",
+        "description": "Lag tekst i glitch-stil for meme- og spillkontekster."
+      },
+      "instagram_bio": {
+        "label": "Instagram Bio Fonts Generator",
+        "description": "Gjenbruk profilklare stiler på tvers av sosiale plattformer."
+      }
+    },
+    "faq": {
+      "title": "Ofte stilte spørsmål",
+      "items": [
+        {
+          "q": "Hva er en Discord font generator?",
+          "a": "En Discord font generator konverterer vanlig tekst til Unicode-stiler du kan lime inn i kallenavn, kanalmeldinger og profilseksjoner."
+        },
+        {
+          "q": "Trenger jeg Discord Nitro for dette?",
+          "a": "Nei. Unicode-tekststyling fungerer uavhengig av Nitro-funksjoner."
+        },
+        {
+          "q": "Kan jeg bruke stilisert tekst i Discord-kallenavn?",
+          "a": "Ja, hvis serveren og Discords regler tillater disse tegnene."
+        },
+        {
+          "q": "Vil alle fancy stiler vises på mobil Discord?",
+          "a": "De fleste gjør det, men visningen kan variere etter enhet og fontstøtte."
+        },
+        {
+          "q": "Kan dette omgå modereringsregler?",
+          "a": "Nei. Dette verktøyet omgår ikke moderering, filtre eller plattformretningslinjer."
+        },
+        {
+          "q": "Hvilke stiler er best for lesbarhet?",
+          "a": "Moderate stiler som sans bold og script er vanligvis lettere å lese enn kraftige forvrengningseffekter."
+        },
+        {
+          "q": "Er denne Discord font generatoren gratis?",
+          "a": "Ja, gratis med ubegrenset bruk av kopier og lim inn."
+        },
+        {
+          "q": "Lagrer verktøjet min chat-tekst?",
+          "a": "Ingen serverlagring er nødvendig for konvertering."
+        }
+      ]
+    },
+    "feature_list": [
+      "Discord-vennlige Unicode-stiler",
+      "Scenarioer for kallenavn og meldinger",
+      "Ett-klikks kopiering",
+      "Kombinerbare effekter"
+    ],
+    "feature_list_schemas": [
+      "Kallenavn-klare tekststiler",
+      "Varianter av meldingsformatering",
+      "Kopier og lim inn output",
+      "Rask nettleser-workflow"
+    ]
+  },
+  "UpsideDownTextGenerator": {
+    "seo_title": "Opp-ned tekstgenerator (2026) - Speiltekst-konverterer",
+    "seo_description": "Transformer tekst til opp-ned, baklengs og speilede stilarter umiddelbart. Perfekt for sosiale medier, morsomme meldinger og profil-dekorasjon.",
+    "seo_keywords": "opp ned tekst generator, vend tekst på hodet, speiltekst, 180 grader tekst konverterer, bokstaver på hodet kopier lim inn",
+    "page_title": "Opp-ned tekstgenerator",
+    "page_subtitle": "Baklengs & speiltekst-konverterer",
+    "free_tool_badge": "Unicode-tekstverktøy",
+    "tldr_title": "Hurtigsvar (TL;DR)",
+    "tldr": "En opp-ned tekstgenerator bruker spesielle Unicode-tegn for å simulere tekst som er rotert 180 grader eller speilet horisontalt. Det er en rent visuell teknikk for å dekorere brukernavn og innlegg på sosiale medier uten eksterne fonter.",
+
+    "last_updated_label": "Sist oppdatert",
+    "keyword_label": "opp-ned-tekstgenerator",
+    "best_for": "Profilnavn, iøynefallende meldinger og kreative visuelle effekter",
+    "key_benefit": "Øyeblikkelig transformasjon med vend- og speilalternativer for maksimal tilpasning",
+    "default_input": "Hei Verden Hello World",
+    "use_cases": [
+      "Dekorere unike profilnavn",
+      "Lage iøynefallende innlegg på sosiale medier",
+      "Morsomme meldinger og visuelle gåder",
+      "Visuell utheving i kommentarer og chatter"
+    ],
+    "boundaries": [
+      "Opp-ned tekst bruker Unicode-erstatninger og er kanskje ikke perfekt lesbar for alle.",
+      "Noen skjermlesere kan ha problemer med å behandle transformert tekst.",
+      "Tegntilgjengelighet kan variere avhengig av mottakerens systemfont.",
+      "Brukes hovedsakelig til dekorative formål og ikke til kritisk innhold."
+    ],
+    "limits_title": "Begrensninger og grensetilfeller",
+    "feature_list": [
+      "180 graders tekstrotasjon",
+      "Speil- og baglengs teksteffekter",
+      "Unicode-baserte emoji-rammer",
+      "Sosiale medier-klar utdata"
+    ],
+    "feature_list_schemas": [
+      "Snu tekst på hodet transformation",
+      "Speiltekst-effekter",
+      "Unicode-emoji-dekorasjon",
+      "Kopier og lim inn verktøy for sosiale medier"
+    ],
+    "categories": {
+      "enclosed": "Innsirklede alfanumeriske tegn",
+      "math": "Matematiske stilarter",
+      "marks": "Kombineringsmerker",
+      "transform": "Transformasjon",
+      "width": "Bredde"
+    },
+    "faq": {
+      "title": "Ofte stilte spørsmål",
+      "items": [
+        {
+          "q": "Hva er en opp-ned tekstgenerator?",
+          "a": "Det er et verktøy som kobler standardtegn til deres Unicode-ekvivalenter som ser rotert eller speilet ut."
+        },
+        {
+          "q": "Hvordan fungerer opp-ned tekst?",
+          "a": "Den bruker en oppslagstabell som erstatter 'a' med 'ɐ', 'b' med 'q' og så videre for å skape en illusjon av rotasjon."
+        },
+        {
+          "q": "Fungerer det på Instagram og Facebook?",
+          "a": "Ja, siden det er standard Unicode-tegn, fungerer de på de fleste moderne sosiale plattformer."
+        },
+        {
+          "q": "Hva er forskjellen mellom opp-ned og speilet?",
+          "a": "Opp-ned (Upside Down) roterer teksten 180 grader, mens speilet (Mirror) vender den horisontalt som om man ser den i et speil."
+        }
+      ]
+    },
+    "effects": {
+      "plain": { "name": "Normal", "desc": "Originaltekst uten konvertering" },
+      "negative-circle": { "name": "Fylt sirkel", "desc": "Inverterte tall og sirklede bokstaver" },
+      "hollow-circle": { "name": "Åpen sirkel", "desc": "Sirkulær alfanumerisk stil" },
+      "hollow-square": { "name": "Åpen firkant", "desc": "Stil innesluttet i rammer" },
+      "solid-square": { "name": "Fylt firkant", "desc": "Invertert stil innesluttet i rammer" },
+      "serif-bold": { "name": "Serif Fet", "desc": "Matematiske serif-tegn i fet skrift" },
+      "sans-bold": { "name": "Sans Fet", "desc": "Matematiske sans-serif-tegn i fet skrift" },
+      "italic": { "name": "Matematisk Kursiv", "desc": "Matematiske kursivtegn" },
+      "bold-italic": { "name": "Fet Kursiv", "desc": "Matematiske fete og kursive tegn" },
+      "script": { "name": "Skjønnskrift", "desc": "Kalligrafiske tegn som ligner håndskrift" },
+      "bold-script": { "name": "Fet Skjønnskrift", "desc": "Kalligrafiske tegn i fet skrift" },
+      "fraktur": { "name": "Fraktur", "desc": "Gammel-tysk stil Fraktur-tegn" },
+      "bold-fraktur": { "name": "Fet Fraktur", "desc": "Fete Fraktur-tegn" },
+      "double-struck": { "name": "Dobbel strek", "desc": "Tavleskrift-stil fete tegn" },
+      "strikethrough": {
+        "name": "Gjennomstreking",
+        "desc": "Gjennomstrekingsstil ved bruk av overlegg"
+      },
+      "wavy-underline": {
+        "name": "Bølgete understreking",
+        "desc": "Dekorativ bølgete understrekingsstil"
+      },
+      "tail-mark": { "name": "Halemerke", "desc": "Legger til et lite halemerke på hvert tegn" },
+      "lightning": { "name": "Lyn", "desc": "Setter inn lyn-separatorer mellom tegn" },
+      "zalgo": { "name": "Zalgo", "desc": "Glitch-art stil implementert med stablede merker" },
+      "upside-down": { "name": "Opp-ned", "desc": "Vender bokstavene og speiler rekkefølgen" },
+      "mirror": { "name": "Speil", "desc": "Speiler bokstavene og reverserer rekkefølgen" },
+      "fullwidth": { "name": "Full bredde", "desc": "Konverterer ASCII til fullbredde-former" }
+    },
+    "ui": {
+      "playground_title": "Teksteffekt-lekeplass",
+      "input_label": "Inputtekst",
+      "input_placeholder": "Skriv inn tekst, ord, bogstaver eller symboler...",
+      "base_style_title": "1) Basisstil",
+      "plain": "Standard",
+      "decorations_title": "2) Dekorasjoner (velg flere)",
+      "transform_emoji_title": "3) Transformer + Emoji",
+      "none": "Ingen",
+      "emoji_wrapper": "Legg til emoji-ramme",
+      "custom_output_title": "Egendefinert kombinert utdata",
+      "copy": "Kopier",
+      "copied": "Kopiert!",
+      "ready_to_copy": "Klar til kopiering",
+      "copy_failed": "Kopiering feilet",
+      "preview_title": "Forhåndsvis alle effekter med ett klikk",
+      "preview_description": "Klikk på et kort nedenfor for at kopiere det transformerte resultatet umiddelbart.",
+      "taxonomy_title": "Implementert effekt-taksonomi",
+      "empty_input": "(Ingen inndata)"
+    }
+  },
+  "BubbleTextGenerator": {
+    "seo_title": "Boble Tekst Generator (2026) - Sirklede Bokstaver & Tall Konverter",
+    "seo_description": "Generer boble bokstaver og sirklede Unicode tekststiler, inkludert sirklede og firkantede varianter. Øyeblikkelig kopier og lim inn.",
+    "seo_keywords": "boble tekst generator, sirklede bokstaver og tall, sirkel tekst generator, kopier lim inn boble bokstaver",
+    "feature_list": [
+      "Sirklede og firkantede Unicode stiler",
+      "Ett-klikks kopiering",
+      "Rask konvertering i nettleseren",
+      "Sosiale medier-klar tekstutdata"
+    ],
+    "feature_list_schemas": [
+      "Utfylte og tomme sirkel-stiler",
+      "Utfylte og tomme firkant-stiler",
+      "Kopier og lim inn utdata",
+      "Sirklede bokstaver og tall fokusert arbeidsflyt"
+    ],
+    "page_title": "Boble Tekst Generator",
+    "page_subtitle": "Sirklede Bokstaver & Tall Konverter",
+    "free_tool_badge": "Sirklede Bokstaver & Tall Verktøy",
+    "tldr": "Boble Tekst Generatoren transformerer vanlig tekst til sirklede Unicode bokstaver og tall stiler som sirkler og firkanter. Skriv én gang, sammenlign alle boble varianter, og kopier ditt foretrukne resultat umiddelbart.",
+
+    "keyword_label": "boble tekst generator",
+    "best_for": "Profilnavn, morsomme bildetekster, lette dekorative etiketter",
+    "key_benefit": "Fokuserte sirklede stiler med rask sammenlignings- og kopieringsarbeidsflyt",
+    "use_cases": [
+      "Kallenavn og visningsnavn dekorasjon",
+      "Fremhev innleggstitler med sirklet tekst",
+      "Styliserte kommentar-signaturer",
+      "Enkle visuelle etiketter i chatgrupper"
+    ],
+    "boundaries": [
+      "Sirklede Unicode dekning er begrenset og ikke ensartet for hvert tegn.",
+      "Noen klienter kan vise erstatningsbokser for ikke-støttede symboler.",
+      "Dette verktøyet oppretter ikke vektor-fonter eller tilpassede bilder.",
+      "Bruk vanlig tekst som backup for kritisk læsbarhet."
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "Fancy Tekst Generator",
+        "description": "Bytt fra sirklede stiler til kursive, fraktur og fete skrifttypefamilier."
+      },
+      "instagram_bio": {
+        "label": "Instagram Bio Font Generator",
+        "description": "Profil-fokusert sosial tekststyling med rask kopiering flyt."
+      },
+      "discord_font": {
+        "label": "Discord Font Generator",
+        "description": "Unicode tekststiler egnet for kallenavn og chats."
+      },
+      "vaporwave_text": {
+        "label": "Vaporwave Tekst Generator",
+        "description": "Estetisk fullbredde utdata for retro visuell identitet."
+      }
+    },
+    "faq": {
+      "title": "Ofte Stilte Spørsmål",
+      "items": [
+        {
+          "q": "Hva er en boble tekst generator?",
+          "a": "En boble tekst generator konverterer bokstaver eller tall til sirklede Unicode symboler som sirkler og firkanter for dekorativ tekst."
+        },
+        {
+          "q": "Hva er sirklede bokstaver og tall?",
+          "a": "Sirklede bokstaver og tall er en Unicode blokk som inneholder bokstaver og tall vist i sirkler eller firkanter."
+        },
+        {
+          "q": "Kan jeg bruke boble tekst på sosiale medier?",
+          "a": "Ja, mange plattformer støtter sirklede Unicode symboler i bios, kommentarer og innlegg."
+        },
+        {
+          "q": "Hvorfor ser små bokstaver boble stiler inkonsekvente ut?",
+          "a": "Unicode sirklede intervaller er ikke helt symmetriske for alle bokstaver og størrelser."
+        },
+        {
+          "q": "Kan jeg også konvertere tall til boble stil?",
+          "a": "Ja. Dette verktøyet støtter sirklede og firkantede tallstiler der Unicode ekvivalenter finnes."
+        },
+        {
+          "q": "Er dette boble tekst verktøyet gratis?",
+          "a": "Ja, det er et helt gratis verktøy med kopier-og-lim inn utdata."
+        },
+        {
+          "q": "Påvirker boble tekst søkbarhet?",
+          "a": "Stylisert Unicode kan redusere lesbarhet og søkematch i noen kontekster, så bruk det primært til dekorasjon."
+        }
+      ]
+    }
+  },
   "ChromakopiaNamGenerator": {
     "seo_title": "Chromakopia Navngenerator - Lag Din St. Chroma Persona | Gratis Verktøy",
     "seo_description": "Generer unike Chromakopia-inspirerte navn og personaer med vårt gratis online verktøy. Lag fargerike alter egoer inspirert av Tyler, the Creator's Chromakopia album. Perfekt for kreative prosjekter og selvuttrykk.",

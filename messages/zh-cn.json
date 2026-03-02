@@ -1705,6 +1705,743 @@
       }
     }
   },
+  "UnicodeTool": {
+    "qanda_title": "快速问答 (TL;DR)",
+    "core_facts_title": "核心事实",
+    "primary_intent_label": "主要意图：",
+    "pricing_label": "价格：",
+    "free_label": "免费",
+    "best_for_label": "最适合：",
+    "key_benefit_label": "主要优势：",
+    "related_searches_label": "相关搜索：",
+    "playground_title": "文字特效实验室",
+    "last_updated_label": "最后更新",
+    "primary_keyword_label": "主关键词：",
+    "input_label": "输入文字",
+    "input_placeholder": "输入文字、单词、字母或符号...",
+    "select_style_label": "选择样式",
+    "base_style_label": "1) 基础样式",
+    "decorations_label": "2) 装饰特效（多选）",
+    "transform_emoji_label": "3) 变换 + 表情",
+    "add_emoji_wrapper_label": "添加表情环绕",
+    "custom_output_label": "自定义组合输出",
+    "primary_output_label": "主要输出",
+    "copy_button_label": "复制",
+    "copied_button_label": "已复制",
+    "copy_failed_label": "复制失败",
+    "ready_to_copy_status": "准备复制",
+    "one_click_preview_title": "全效果一键预览",
+    "one_click_preview_description": "点击下方任意卡片即可即时复制转换结果。",
+    "how_to_use_title": "如何使用",
+    "how_to_use_step1": "在输入框中输入文字，建议保持简短以获得更好的",
+    "how_to_use_step2": "复制和粘贴",
+    "how_to_use_step3": "可读性。",
+    "how_to_use_step4": "选择一种效果，或者在组合器启用时结合多种样式。",
+    "how_to_use_step5": "点击任意预览卡片或输出复制按钮，然后粘贴到目标应用中。",
+    "taxonomy_title": "实现的特效分类",
+    "use_cases_title": "使用场景",
+    "limits_title": "限制与边界",
+    "related_tools_title": "相关工具",
+    "faq_title": "常见问题",
+    "plain_style": "普通",
+    "none_style": "无",
+    "empty_input_placeholder": "（输入为空）",
+    "default_best_for": "创作者、社交媒体用户和社区管理员",
+    "default_key_benefit": "一站式即时复制粘贴 Unicode 文字样式",
+    "categories": {
+      "enclosed": "带圈/方框字符",
+      "math": "数学样式",
+      "marks": "组合标记",
+      "transform": "文字变换",
+      "width": "字符宽度"
+    }
+  },
+  "BubbleTextGenerator": {
+    "seo_title": "气泡文字生成器 (2026) - 封闭式字母数字转换器",
+    "seo_description": "生成气泡字母和封闭式 Unicode 文本样式，包括圆圈和方框变体。即时复制粘贴。",
+    "seo_keywords": "气泡文字生成器, 封闭式字母数字, 圆圈文字生成器, 气泡字母复制粘贴",
+    "feature_list": [
+      "圆圈和方框 Unicode 样式",
+      "一键复制",
+      "快速浏览器转换",
+      "社交媒体就绪文本输出"
+    ],
+    "feature_list_schemas": [
+      "中空和实心圆圈样式",
+      "中空和实心方框样式",
+      "复制粘贴输出",
+      "专注于封闭式字母数字工作流程"
+    ],
+    "page_title": "气泡文字生成器",
+    "page_subtitle": "封闭式字母数字转换器",
+    "free_tool_badge": "封闭式字母数字工具",
+    "tldr": "气泡文字生成器可将普通文本转换为封闭式字母数字 Unicode 样式，如圆圈和方框。输入一次，比较所有气泡变体，并立即复制您生成的输出。",
+    "keyword_label": "气泡文字生成器",
+    "best_for": "个人资料名称、俏皮的标题和轻量级装饰标签",
+    "key_benefit": "专注于封闭样式，具有快速比较和复制的工作流程",
+    "use_cases": [
+      "昵称和显示名称装饰",
+      "使用封闭文本强调帖子标题",
+      "风格化的评论签名",
+      "聊天群组中的简单视觉标签"
+    ],
+    "boundaries": [
+      "封闭式 Unicode 覆盖范围有限，并非每个字符都统一。",
+      "某些客户端可能会为不支持的符号显示回退方框。",
+      "此工具不创建自定义矢量或图像字体。",
+      "对于关键的可读性，请使用纯文本回退。"
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "花式文字生成器",
+        "description": "从封闭样式切换到手写体、哥特体和粗体系列。"
+      },
+      "instagram_bio": {
+        "label": "Instagram 简介字体生成器",
+        "description": "专注于个人资料的社交文本样式，具有快速复制流程。"
+      },
+      "discord_font": {
+        "label": "Discord 字体生成器",
+        "description": "昵称和聊天友好的 Unicode 文本样式。"
+      },
+      "vaporwave_text": {
+        "label": "蒸汽波文字生成器",
+        "description": "用于复古视觉身份的全宽美学输出。"
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "items": [
+        {
+          "q": "什么是气泡文字生成器？",
+          "a": "气泡文字生成器将字母和数字转换为封闭的 Unicode 符号，如圆圈和方框，用于装饰性文本。"
+        },
+        {
+          "q": "什么是封闭式字母数字？",
+          "a": "封闭式字母数字是一个 Unicode 区块，包含显示在圆圈或方框内的字母和数字。"
+        },
+        {
+          "q": "我可以在社交媒体上使用气泡文字吗？",
+          "a": "是的，许多平台支持在个人简介、评论和帖子中使用封闭的 Unicode 字符。"
+        },
+        {
+          "q": "为什么小写气泡样式不一致？",
+          "a": "Unicode 封闭范围在所有字母和大小写中并非完全对称。"
+        },
+        {
+          "q": "我也可以将数字转换为气泡样式吗？",
+          "a": "是的。此工具支持存在 Unicode 等效项的圆圈和封闭数字样式。"
+        },
+        {
+          "q": "这个气泡文字工具是免费的吗？",
+          "a": "是的，它完全免费，并提供复制粘贴输出。"
+        },
+        {
+          "q": "气泡文字会影响可搜索性吗？",
+          "a": "风格化的 Unicode 可能会在某些上下文中降低可读性和搜索匹配，因此主要将其用于装饰。"
+        },
+        {
+          "q": "我可以将气泡文字与表情符号结合使用吗？",
+          "a": "是的。您可以在撰写器中启用表情符号包装器，以创建适合社交媒体的输出。"
+        }
+      ]
+    }
+  },
+  "InstagramBioFonts": {
+    "seo_title": "Instagram 简介字体生成器 (2026) - 复制粘贴时尚文本",
+    "seo_description": "为 Instagram 简介、标题和评论创建时尚的 Unicode 字体和文本。一键复制。",
+    "seo_keywords": "instagram 简介字体, instagram 字体生成器, 复制粘贴字体, instagram 时尚文本",
+    "page_title": "Instagram 简介字体生成器",
+    "page_subtitle": "复制粘贴时尚文本",
+    "badge_text": "Instagram 场景工具",
+    "tldr": "Instagram 简介字体将普通文本转换为时尚的 Unicode 字符，您可以将其复制并粘贴到您的个人简介中。此工具专注于适用于简介、标题和快速个人资料刷新且易于阅读的社交样式。",
+    "keyword_label": "instagram 简介字体",
+    "best_for": "创作者、影响者和品牌个人资料优化",
+    "key_benefit": "易于阅读的 Instagram 就绪文本样式，支持即时复制",
+    "default_input": "创作者 | 设计师 | 公开构建",
+    "use_cases": [
+      "个人和创作者 Instagram 简介",
+      "品牌账号资料刷新",
+      "标题钩子格式化",
+      "A/B 测试个人资料文本样式"
+    ],
+    "boundaries": [
+      "此工具无法绕过 Instagram 的审核或用户名规则。",
+      "不同的应用程序版本可能会以不同的方式显示某些字符。",
+      "非常复杂的组合标记可能会降低移动端的可读性。",
+      "发布前请务必在您的 Instagram 应用程序内验证最终渲染效果。"
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "花式字体生成器",
+        "description": "适用于多平台社交使用的更广泛的 Unicode 字体系列。"
+      },
+      "vaporwave": {
+        "label": "蒸汽波文字生成器",
+        "description": "用于复古风格个人身份的全角美学样式。"
+      },
+      "bubble_text": {
+        "label": "气泡文字生成器",
+        "description": "在简介中脱颖而出的圆圈和方框文字。"
+      },
+      "strikethrough": {
+        "label": "删除线文本生成器",
+        "description": "用于个人资料和标题编辑的快速划线强调。"
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "items": [
+        {
+          "q": "Instagram 简介字体是如何工作的？",
+          "a": "Instagram 简介字体是看起来与普通文本不同的 Unicode 字符样式。您可以将其复制并粘贴到您的个人简介中。"
+        },
+        {
+          "q": "这些字体需要安装应用程序吗？",
+          "a": "不需要。您可以在浏览器中生成文本并直接粘贴到 Instagram。"
+        },
+        {
+          "q": "我也能在 Instagram 标题中使用这些样式吗？",
+          "a": "可以，大多数样式不仅适用于简介，也适用于标题和评论。"
+        },
+        {
+          "q": "为什么一种样式在另一部手机上看起来不同？",
+          "a": "字符渲染取决于每个设备的操作系统和应用程序的字体支持。"
+        },
+        {
+          "q": "哪种样式最具可读性？",
+          "a": "中等样式（如无衬线粗体、手写体和双线体）通常比重度的故障效果更容易阅读。"
+        },
+        {
+          "q": "我可以将时尚文本与表情符号装饰结合使用吗？",
+          "a": "可以。此工具支持可选的表情符号包裹，以实现可直接用于简介的输出。"
+        },
+        {
+          "q": "这个 Instagram 简介字体生成器免费吗？",
+          "a": "是的，它是免费的，支持无限次数的转换。"
+        },
+        {
+          "q": "这个工具会存储我的简介文本吗？",
+          "a": "您的文本转换工作流程不需要服务器端存储。"
+        }
+      ]
+    },
+    "feature_list": [
+      "适配 Instagram 的 Unicode 样式",
+      "一键复制",
+      "简介就绪格式化",
+      "专注于移动端社交用例"
+    ],
+    "feature_list_schemas": [
+      "时尚的简介文本输出",
+      "一键复制粘贴流程",
+      "易于阅读的社交样式",
+      "表情符号包裹支持"
+    ]
+  },
+  "StrikethroughTextGenerator": {
+    "seo_title": "删除线文本生成器 (2026) - 在线划掉文字",
+    "seo_description": "在线生成删除线和波浪下划线文本效果。即时复制粘贴划掉的 Unicode 文本。",
+    "seo_keywords": "删除线文本生成器, 划掉文字, 删除线, 删除线复制粘贴",
+    "page_title": "删除线文本生成器",
+    "page_subtitle": "在线划掉文字",
+    "badge_text": "划掉文字工具",
+    "tldr": "删除线文本生成器将普通文本转换为您可以立即复制并粘贴的划掉的 Unicode 输出。它针对快速编辑、聊天和社交强调进行了优化。",
+    "keyword_label": "删除线文本生成器",
+    "best_for": "快速社交编辑、任务笔记和对话强调",
+    "key_benefit": "用于快速输出划掉文本的极简界面",
+    "default_input": "修改：这已不再有效。",
+    "use_cases": [
+      "快速文本编辑和修订",
+      "幽默和讽刺格式化",
+      "任务列表视觉完成样式",
+      "无需 markdown 的聊天强调"
+    ],
+    "boundaries": [
+      "这是基于 Unicode 的，而非语义化的 HTML 格式化。",
+      "某些编辑器可能会在粘贴时剥离组合标记。",
+      "过多的组合标记会降低文本的可读性。",
+      "对于对可访问性有要求的文本，请优先选择纯文本替代方案。"
+    ],
+    "related_tools": {
+      "zalgo": {
+        "label": "Zalgo 文本生成器",
+        "description": "使用故障风格组合标记增加视觉强度。"
+      },
+      "fancy_text": {
+        "label": "花式字体生成器",
+        "description": "将划掉文本与手写体、衬线体和粗体 Unicode 样式配对。"
+      },
+      "discord_font": {
+        "label": "Discord 字体生成器",
+        "description": "为社区更新构建聊天就绪的强调文本。"
+      },
+      "instagram_bio": {
+        "label": "Instagram 简介字体生成器",
+        "description": "在轻微的划掉点缀下使用易于阅读的个人资料字体。"
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "items": [
+        {
+          "q": "什么是删除线文本生成器？",
+          "a": "删除线文本生成器添加组合 Unicode 标记，创建您可以复制并粘贴的划掉文本。"
+        },
+        {
+          "q": "我可以在社交媒体帖子中使用它吗？",
+          "a": "可以，许多社交平台支持类似删除线的组合输出。"
+        },
+        {
+          "q": "有哪些样式可用？",
+          "a": "此工具提供经典删除线和波浪下划线变体，用于轻量级强调。"
+        },
+        {
+          "q": "这与 HTML 的 <s> 标签一样吗？",
+          "a": "不一样。这是 Unicode 文本转换，而不是 HTML 样式。"
+        },
+        {
+          "q": "所有应用程序都能正确显示删除线吗？",
+          "a": "不一定。渲染效果可能因应用程序、操作系统和字体引擎而异。"
+        },
+        {
+          "q": "我可以将删除线与其他样式结合使用吗？",
+          "a": "可以，在多合一工具中。这个专注的页面保持了简单的工作流程，以便快速实现划线效果。"
+        },
+        {
+          "q": "这个工具是免费的吗？",
+          "a": "是的。它是免费的，支持无限次的复制粘贴使用。"
+        },
+        {
+          "q": "你们会存储我划掉的文本吗？",
+          "a": "转换过程不需要服务器端存储。"
+        }
+      ]
+    },
+    "feature_list": ["经典删除线效果", "波浪下划线效果", "一键复制粘贴流程", "快速浏览器转换"],
+    "feature_list_schemas": [
+      "删除线文本转换",
+      "波浪下划线文本转换",
+      "复制粘贴输出",
+      "专注的快速工作流程"
+    ]
+  },
+  "ZalgoTextGenerator": {
+    "seo_title": "Zalgo 文本生成器 (2026) - 故障与损坏的 Unicode 文本",
+    "seo_description": "为迷因和富有戏剧性的社交内容创建故障风 Zalgo 文本、闪电文本和组合字符变形效果。",
+    "seo_keywords": "故障文本生成器, 损坏文本, Zalgo 复制粘贴, Zalgo 文本, 损坏文本生成器, unicode zalgo",
+    "page_title": "Zalgo 文本生成器",
+    "page_subtitle": "使用组合字符创建故障风格的 Unicode 文本。",
+    "badge_text": "故障文本工具",
+    "tldr": "Zalgo 文本生成器通过在字符周围堆叠组合字符来创建类似故障的 Unicode 输出。将其用于戏剧性的视觉效果，预览备选项并立即复制。",
+    "keyword_label": "Zalgo 文本",
+    "best_for": "迷因创作者、恐怖主题帖子和游戏社区",
+    "key_benefit": "快速生成故障文本，并提供更安全的可读备选项",
+    "default_input": "SYSTEM ERROR // REALITY COLLAPSE",
+    "use_cases": ["恐怖和怪异的社交标题", "迷因和反应文本", "游戏和直播公告样式", "实验性视觉排版"],
+    "boundaries": [
+      "密集的组合字符可能会损害可读性和辅助功能。",
+      "某些应用可能会规范化或抑制极端的组合序列。",
+      "此工具仅用于装饰，不适合正式沟通。",
+      "发布前请预览以避免布局破坏行为。"
+    ],
+    "related_tools": {
+      "strikethrough": {
+        "label": "删除线文本生成器",
+        "description": "在仍需保持可读性时使用低噪装饰。"
+      },
+      "fancy_text": {
+        "label": "花体字生成器",
+        "description": "从故障输出切换到更整洁的 Unicode 字体样式。"
+      },
+      "discord_font": {
+        "label": "Discord 字体生成器",
+        "description": "创建兼容性更好且适合聊天预览的样式化文本。"
+      },
+      "vaporwave": {
+        "label": "蒸汽波文本生成器",
+        "description": "尝试使用全角美学文本进行复古造型。"
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "items": [
+        {
+          "q": "什么是 Zalgo 文本？",
+          "a": "Zalgo 文本使用许多堆叠在字母周围的 Unicode 组合字符，营造出一种故障、混乱的视觉风格。"
+        },
+        {
+          "q": "Zalgo 文本可读吗？",
+          "a": "在低强度下它是可读的，但高强度通常会显著降低可读性。"
+        },
+        {
+          "q": "Zalgo 文本通常在哪使用？",
+          "a": "它经常用于迷因、恐怖主题帖子、游戏聊天和样式化标题。"
+        },
+        {
+          "q": "Zalgo 文本会破坏布局吗？",
+          "a": "是的，密集的组合字符可能会影响某些应用中的行高和文本渲染。"
+        },
+        {
+          "q": "这个工具包含更安全的替代方案吗？",
+          "a": "是的。你可以使用闪电或尾部标记等较轻的效果以获得更好的可读性。"
+        },
+        {
+          "q": "我可以直接复制并粘贴 Zalgo 输出吗？",
+          "a": "是的。输出是纯 Unicode 文本，因此你可以在支持的地方复制并粘贴。"
+        },
+        {
+          "q": "这个工具可以免费使用吗？",
+          "a": "是的。它是免费的，支持无限次复制粘贴使用。"
+        },
+        {
+          "q": "所有平台都支持重度 Zalgo 吗？",
+          "a": "支持程度各不相同。某些应用可能会裁剪或规范化复杂的组合序列。"
+        }
+      ]
+    },
+    "feature_list": [
+      "Zalgo 组合字符生成器",
+      "闪电和尾标效果",
+      "一键复制输出",
+      "仅限浏览器的转换工作流"
+    ],
+    "feature_list_schemas": ["故障组合字符", "多种变形预设", "复制并粘贴输出", "迷因和社交用例"]
+  },
+  "VaporwaveTextGenerator": {
+    "seo_title": "蒸汽波文本生成器 (2026) - 全角美学文字",
+    "seo_description": "将普通文本转换为蒸汽波全角 Unicode 风格，用于复古美学个人简介、标题和社交内容。",
+    "seo_keywords": "蒸汽波文本, 蒸汽波文本生成器, 美学文本, 全角文本生成器",
+    "page_title": "蒸汽波文本生成器",
+    "page_subtitle": "全角美学文字",
+    "badge_text": "美学全角工具",
+    "tldr": "蒸汽波文本生成器将常规 ASCII 文本转换为具有复古间距的全角 Unicode 输出。它专为美学个人简介、标题和快速复制粘贴工作流程而设计。",
+    "keyword_label": "蒸汽波文本生成器",
+    "best_for": "美学创作者、复古风格个人资料和短篇标题",
+    "key_benefit": "无需外部应用程序即可即时实现全角样式",
+    "default_input": "美学互联网档案",
+    "use_cases": ["美学个人简介", "复古标题样式", "表情包文本装饰", "创意标题格式化"],
+    "boundaries": [
+      "并非所有标点符号和符号都有全角版本。",
+      "某些平台在某些情况下会标准化间距。",
+      "过度使用可能会降低长段落的可读性。",
+      "对于正式沟通，请优先使用纯文本备选方案。"
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "花式字体生成器",
+        "description": "将全角样式与更广泛的 Unicode 字体系列进行比较。"
+      },
+      "instagram_bio": {
+        "label": "Instagram 简介字体生成器",
+        "description": "为社交主页应用易读的美学样式。"
+      },
+      "bubble_letter": {
+        "label": "气泡文字生成器",
+        "description": "当您需要更强的字形边界时，请使用包围样式。"
+      },
+      "zalgo": {
+        "label": "Zalgo 文本生成器",
+        "description": "尝试高失真故障样式以获得剧烈的视觉对比。"
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "items": [
+        {
+          "q": "什么是蒸汽波文本？",
+          "a": "蒸汽波文本通常是全角 Unicode 文本，具有复古数字美学和更宽的间距。"
+        },
+        {
+          "q": "这与更改字体文件是一样的吗？",
+          "a": "不一样。输出是 Unicode 字符替换，而不是可下载的字体。"
+        },
+        {
+          "q": "我可以在社交媒体简介中使用蒸汽波文本吗？",
+          "a": "可以，许多社交平台支持用于简介和标题的全角 Unicode 输出。"
+        },
+        {
+          "q": "为什么空格看起来更宽？",
+          "a": "全角样式用全角空格替换普通空格，以保持视觉节奏的一致性。"
+        },
+        {
+          "q": "我可以将蒸汽波与其他效果结合使用吗？",
+          "a": "可以。您可以根据可读性目标应用轻微的装饰或包装。"
+        },
+        {
+          "q": "这个蒸汽波文本生成器是免费的吗？",
+          "a": "是的，它是免费的且基于浏览器。"
+        },
+        {
+          "q": "所有符号都会转换为全角吗？",
+          "a": "只有标准 ASCII 范围具有直接的全角对应项。不支持的符号保持原样。"
+        },
+        {
+          "q": "我可以直接复制并粘贴输出吗？",
+          "a": "是的，生成的文本已经可以进行复制粘贴。"
+        }
+      ]
+    },
+    "feature_list": ["全角转换", "美学文本样式", "复制并粘贴输出", "基于浏览器的流程"],
+    "feature_list_schemas": ["全角蒸汽波输出", "简单的一键复制", "易读的美学样式", "社交媒体用例"]
+  },
+  "FancyTextGenerator": {
+    "seo_title": "花式字体生成器 (2026) - 复制粘贴 Unicode 字体",
+    "seo_description": "免费的花式字体生成器，提供手写体、德文尖角体、粗体和酷炫的 Unicode 文本样式。即时复制粘贴。",
+    "seo_keywords": "花式字体生成器, 酷炫字体, unicode 文本转换器, 复制粘贴字体",
+    "page_title": "花式字体生成器",
+    "page_subtitle": "复制粘贴 Unicode 字体",
+    "free_tool_badge": "花式字体工具",
+    "tldr": "花式字体生成器将普通文本转换为装饰性的 Unicode 样式，您可以将其复制并粘贴到任何地方。适用于个人简介、标题、用户名以及无需安装字体即可实现的视觉区分。",
+    "keyword_label": "花式字体生成器",
+    "best_for": "创作者、社交媒体经理和个人品牌建设",
+    "key_benefit": "在几秒钟内生成并复制多种时尚的文本变体",
+    "default_input": "输入一些花式文字",
+    "use_cases": [
+      "Instagram 和 TikTok 显示名称样式",
+      "创意标题和个人简介",
+      "Discord 服务器昵称格式化",
+      "个人品牌标题变体"
+    ],
+    "boundaries": [
+      "此工具输出 Unicode 字符，而不是可安装的字体文件。",
+      "在不同操作系统和应用程序中的渲染效果可能有所不同。",
+      "由于 Unicode 没有对应的字符，某些符号无法转换。",
+      "在发布之前，请务必在目标平台测试输出效果。"
+    ],
+    "related_tools": {
+      "instagram_bio": {
+        "label": "Instagram 简介字体生成器",
+        "description": "专注于社交个人资料的花式文本样式，支持复制粘贴输出。"
+      },
+      "discord_font": {
+        "label": "Discord 字体生成器",
+        "description": "适用于 Discord 昵称和消息的可读 Unicode 样式。"
+      },
+      "bubble_text": {
+        "label": "气泡文字生成器",
+        "description": "带圆圈和方框字符的封闭式字母数字样式。"
+      },
+      "vaporwave": {
+        "label": "蒸汽波文字生成器",
+        "description": "用于复古风格个人简介和标题的全角美学文本。"
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "items": [
+        {
+          "q": "什么是花式字体生成器？",
+          "a": "花式字体生成器将普通字母转换为装饰性的 Unicode 样式，您可以将其复制并粘贴到社交资料、帖子和聊天中。"
+        },
+        {
+          "q": "花式字体与真实的字体文件相同吗？",
+          "a": "不同。大多数花式字体工具输出 Unicode 字符，而不是安装的字体文件。这意味着您可以直接在许多应用程序中使用它们。"
+        },
+        {
+          "q": "我可以组合多种花式文本效果吗？",
+          "a": "可以。您可以将基础样式与装饰和可选转换叠加，以获得自定义结果。"
+        },
+        {
+          "q": "这在 Instagram 和 TikTok 上有效吗？",
+          "a": "通常有效。兼容性取决于各个平台和设备的字体支持。"
+        },
+        {
+          "q": "这个花式字体生成器免费吗？",
+          "a": "是的，该工具是基于浏览器的免费工具，支持无限次复制粘贴使用。"
+        },
+        {
+          "q": "你们会存储我输入的内容吗？",
+          "a": "此工具的转换流程不需要服务器端存储。"
+        },
+        {
+          "q": "为什么有些符号保持不变？",
+          "a": "Unicode 并不包含每个符号的样式等效项，因此不支持的字符保持不变。"
+        },
+        {
+          "q": "我可以将其用于用户名吗？",
+          "a": "可以，但每个平台都有自己的字符规则，因此在最终确定用户名之前请务必进行测试。"
+        }
+      ]
+    },
+    "feature_list": ["多种 Unicode 字体样式", "一键复制", "样式组合", "社交媒体就绪输出"],
+    "feature_list_schemas": ["手写体和粗体样式", "德文尖角体和空心体", "复制粘贴输出", "可组合效果"]
+  },
+  "DiscordFontGenerator": {
+    "seo_title": "Discord 字体生成器 (2026) - 复制并粘贴时尚的 Discord 文本",
+    "seo_description": "为 Discord 昵称和消息创建带有 Unicode 字体效果的时尚文本。即时复制粘贴。",
+    "seo_keywords": "discord 字体生成器, discord 字体转换器, discord 文本生成器, 复制粘贴字体",
+    "page_title": "Discord 字体生成器",
+    "page_subtitle": "复制并粘贴时尚的 Discord 文本",
+    "free_tool_badge": "Discord 场景工具",
+    "tldr": "Discord 字体生成器可将普通文本转换为用于昵称、个人资料文本和消息的 Unicode 样式。首先选择可读选项，然后直接复制并粘贴到 Discord 中。",
+    "keyword_label": "discord 字体生成器",
+    "best_for": "Discord 社区、游戏玩家标签和服务器个人资料自定义",
+    "key_benefit": "具有即时复制工作流程的 Discord 专用样式预设",
+    "default_input": "今晚突袭 20:00 UTC",
+    "use_cases": ["Discord 昵称样式", "个人资料简介装饰", "服务器公告格式化", "游戏身份自定义"],
+    "boundaries": [
+      "无法绕过服务器审核或阻止的字符策略。",
+      "某些频道或机器人可能会对特殊字符进行规范化处理。",
+      "过于复杂的文本在快速聊天中可能难以阅读。",
+      "在最终使用前务必在 Discord 中进行预览。"
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "花式文字生成器",
+        "description": "为用户名和消息探索更广泛的 Unicode 样式。"
+      },
+      "strikethrough": {
+        "label": "删除线文字生成器",
+        "description": "为快速聊天编辑添加简洁的划掉强调。"
+      },
+      "zalgo": {
+        "label": "Zalgo 文字生成器",
+        "description": "为迷因和游戏语境创建故障风格文本。"
+      },
+      "instagram_bio": {
+        "label": "Instagram 简介字体生成器",
+        "description": "在社交平台间重复使用个人资料就绪的样式。"
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "items": [
+        {
+          "q": "什么是 Discord 字体生成器？",
+          "a": "Discord 字体生成器可将普通文本转换为您可以粘贴到昵称、频道消息和个人资料部分的 Unicode 样式。"
+        },
+        {
+          "q": "我需要 Discord Nitro 吗？",
+          "a": "不。Unicode 文本样式转换独立于 Nitro 功能。"
+        },
+        {
+          "q": "我可以在 Discord 昵称中使用样式化文本吗？",
+          "a": "可以，只要服务器和 Discord 规则允许这些字符。"
+        },
+        {
+          "q": "所有花式样式在移动端 Discord 上都能渲染吗？",
+          "a": "大多数都可以，但渲染效果可能因设备和字体支持而异。"
+        },
+        {
+          "q": "这能绕过审核规则吗？",
+          "a": "不能。此工具不会绕过审核、过滤器或平台策略。"
+        },
+        {
+          "q": "哪些样式最适合阅读？",
+          "a": "适度的样式（如 sans bold 和 script）通常比重度扭曲效果更容易阅读。"
+        },
+        {
+          "q": "这个 Discord 字体生成器是免费的吗？",
+          "a": "是的，免费提供无限次复制粘贴使用。"
+        },
+        {
+          "q": "该工具会存储我的聊天文本吗？",
+          "a": "不需要服务器端存储即可进行转换。"
+        }
+      ]
+    },
+    "feature_list": ["Discord 友好型 Unicode 样式", "昵称和消息场景", "一键复制", "可组合效果"],
+    "feature_list_schemas": [
+      "昵称就绪型文本样式",
+      "消息格式变体",
+      "复制并粘贴输出",
+      "快速浏览器工作流程"
+    ]
+  },
+  "UpsideDownTextGenerator": {
+    "seo_title": "倒置文字生成器 (2026) - 镜像文字转换工具",
+    "seo_description": "即时将文字转换为倒置、反向和镜像样式。非常适合社交媒体、有趣的消息和个人资料装饰。",
+    "seo_keywords": "倒置文字生成器, 文字倒过来, 镜像文字, 180度文字转换, 倒置字母复制粘贴",
+    "page_title": "倒置文字生成器",
+    "page_subtitle": "反向及镜像文字转换器",
+    "free_tool_badge": "Unicode 文字工具",
+    "tldr_title": "快速问答 (TL;DR)",
+    "tldr": "倒置文字生成器使用特殊的 Unicode 字符来模拟文字旋转 180 度 or 水平镜像的效果。这是一种纯视觉技术，用于装饰用户名和社交媒体帖子，无需外部字体。",
+    "last_updated_label": "最后更新",
+    "keyword_label": "倒置文字生成器",
+    "best_for": "资料名称、醒目的消息和创意视觉效果",
+    "key_benefit": "即时转换，支持翻转和镜像选项，实现最大程度的自定义",
+    "default_input": "你好世界 Hello World",
+    "use_cases": [
+      "装饰独特的个人资料名称",
+      "创建醒目的社交媒体帖子",
+      "有趣的消息和视觉谜题",
+      "评论和聊天中的视觉强调"
+    ],
+    "boundaries": [
+      "倒置文字使用 Unicode 替换字符，可能并非对所有人都能完美阅读。",
+      "某些屏幕阅读器在处理转换后的文字时可能存在困难。",
+      "字符可用性可能取决于接收者的系统字体。",
+      "主要用于装饰目的，而非关键内容。"
+    ],
+    "limits_title": "限制与边界",
+    "faq": {
+      "title": "常见问题",
+      "items": [
+        {
+          "q": "什么是倒置文字生成器？",
+          "a": "这是一个将标准字符映射到看起来被旋转或反转的 Unicode 对应字符的工具。"
+        },
+        {
+          "q": "倒置文字是如何工作的？",
+          "a": "它使用映射表，将 'a' 替换为 'ɐ'，'b' 替换为 'q' 等，以创建旋转的错觉。"
+        },
+        {
+          "q": "它在 Instagram 和 Facebook 上有效吗？",
+          "a": "是的，由于它们是标准 Unicode 字符，在大多数现代社交媒体平台上都有效。"
+        },
+        {
+          "q": "倒置和镜像文字有什么区别？",
+          "a": "倒置是将文字旋转 180 度，而镜像是水平翻转，就像在镜子里看到的一样。"
+        }
+      ]
+    },
+    "effects": {
+      "plain": { "name": "普通", "desc": "无转换的原始文字" },
+      "negative-circle": { "name": "实心圆圈", "desc": "反色圆圈数字和包围字母" },
+      "hollow-circle": { "name": "空心圆圈", "desc": "圆圈字母数字样式" },
+      "hollow-square": { "name": "空心方块", "desc": "轮廓方框包围样式" },
+      "solid-square": { "name": "实心方块", "desc": "反色方框包围样式" },
+      "serif-bold": { "name": "衬线粗体", "desc": "数学粗体衬线字符" },
+      "sans-bold": { "name": "无衬线粗体", "desc": "数学粗体无衬线字符" },
+      "italic": { "name": "数学斜体", "desc": "数学斜体字符" },
+      "bold-italic": { "name": "粗斜体", "desc": "数学粗斜体字符" },
+      "script": { "name": "手写体", "desc": "类似手写的花体字符" },
+      "bold-script": { "name": "粗手写体", "desc": "粗体手写花体字符" },
+      "fraktur": { "name": "哥特体", "desc": "哥特式 Fraktur 字符" },
+      "bold-fraktur": { "name": "粗哥特体", "desc": "粗体哥特式 Fraktur 字符" },
+      "double-struck": { "name": "空心体", "desc": "黑板粗体字符样式" },
+      "strikethrough": { "name": "删除线", "desc": "使用组合叠加层的划掉样式" },
+      "wavy-underline": { "name": "波浪下划线", "desc": "装饰性波浪下划线样式" },
+      "tail-mark": { "name": "尾标", "desc": "为每个字符添加一个小钩状标记" },
+      "lightning": { "name": "闪电", "desc": "在字符间插入闪电分隔符" },
+      "zalgo": { "name": "Zalgo", "desc": "堆叠标记实现的故障艺术风格" },
+      "upside-down": { "name": "倒置", "desc": "翻转字母并反转顺序" },
+      "mirror": { "name": "镜像", "desc": "镜像字母并反转顺序" },
+      "fullwidth": { "name": "全角", "desc": "将 ASCII 转换为全角形式" }
+    },
+    "ui": {
+      "playground_title": "文字特效实验室",
+      "input_label": "输入文字",
+      "input_placeholder": "输入文字、单词、字母或符号...",
+      "base_style_title": "1) 基础样式",
+      "plain": "普通",
+      "decorations_title": "2) 装饰特效（多选）",
+      "transform_emoji_title": "3) 变换 + 表情",
+      "none": "无",
+      "emoji_wrapper": "添加表情环绕",
+      "custom_output_title": "自定义组合输出",
+      "copy": "复制",
+      "copied": "已复制！",
+      "ready_to_copy": "准备复制",
+      "copy_failed": "复制失败",
+      "preview_title": "全效果一键预览",
+      "preview_description": "点击下方任意卡片即可即时复制转换结果。",
+      "taxonomy_title": "实现的特效分类",
+      "empty_input": "（输入为空）"
+    }
+  },
   "ChromakopiaNamGenerator": {
     "seo_title": "Chromakopia 名字生成器 - 创建你的 St. Chroma 人格 | 免费工具",
     "seo_description": "使用我们的免费在线工具生成独特的 Chromakopia 风格名字和人格。创建受 Tyler, the Creator 的 Chromakopia 专辑启发的彩色化身。完美适用于创意项目和自我表达。",

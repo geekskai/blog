@@ -1737,6 +1737,843 @@
       }
     }
   },
+  "UnicodeTool": {
+    "qanda_title": "Fragen und Antworten (TL;DR)",
+    "core_facts_title": "Wichtigste Fakten",
+    "primary_intent_label": "Primäre Absicht:",
+    "pricing_label": "Preis:",
+    "free_label": "Kostenlos",
+    "best_for_label": "Ideal für:",
+    "key_benefit_label": "Hauptvorteil:",
+    "related_searches_label": "Ähnliche Suchen:",
+    "playground_title": "Texteffekte-Labor",
+    "last_updated_label": "Zuletzt aktualisiert",
+    "primary_keyword_label": "Haupt-Keyword:",
+    "input_label": "Eingabetext",
+    "input_placeholder": "Text, Wörter, Buchstaben oder Symbole eingeben...",
+    "select_style_label": "Stil auswählen",
+    "base_style_label": "1) Basis-Stil",
+    "decorations_label": "2) Dekorationen (Mehrfachauswahl)",
+    "transform_emoji_label": "3) Transformieren + Emoji",
+    "add_emoji_wrapper_label": "Emoji-Rahmen hinzufügen",
+    "custom_output_label": "Benutzerdefinierte kombinierte Ausgabe",
+    "primary_output_label": "Hauptausgabe",
+    "copy_button_label": "Kopieren",
+    "copied_button_label": "Kopiert!",
+    "copy_failed_label": "Kopieren fehlgeschlagen",
+    "ready_to_copy_status": "Bereit zum Kopieren",
+    "one_click_preview_title": "Vorschau aller Effekte mit einem Klick",
+    "one_click_preview_description": "Klicke auf eine Karte unten, um das transformierte Ergebnis sofort zu kopieren.",
+    "how_to_use_title": "Bedienungsanleitung",
+    "how_to_use_step1": "Gib deinen Text in das Feld ein. Halte ihn kurz für bessere Lesbarkeit beim",
+    "how_to_use_step2": "Kopieren und Einfügen",
+    "how_to_use_step3": ".",
+    "how_to_use_step4": "Wähle einen Effekt oder kombiniere Stile, wenn der Composer aktiviert ist.",
+    "how_to_use_step5": "Klicke auf eine Vorschaukarte oder den Kopieren-Button und füge den Text in deine Ziel-App ein.",
+    "taxonomy_title": "Implementierte Effekte-Taxonomie",
+    "use_cases_title": "Anwendungsfälle",
+    "limits_title": "Einschränkungen und Grenzen",
+    "related_tools_title": "Verwandte Tools",
+    "faq_title": "Häufig gestellte Fragen",
+    "plain_style": "Normal",
+    "none_style": "Keine",
+    "empty_input_placeholder": "(Leere Eingabe)",
+    "default_best_for": "Ersteller, Social-Media-Nutzer und Community-Manager",
+    "default_key_benefit": "Sofortiges Kopieren und Einfügen von Unicode-Textstilen an einem Ort",
+    "categories": {
+      "enclosed": "Umschlossene alphanumerische Zeichen",
+      "math": "Mathematische Stile",
+      "marks": "Kombinationszeichen",
+      "transform": "Transformation",
+      "width": "Breite"
+    }
+  },
+  "InstagramBioFonts": {
+    "seo_title": "Instagram Bio Fonts Generator (2026) - Stylischen Text kopieren & einfügen",
+    "seo_description": "Erstellen Sie Instagram Bio Fonts und stylischen Unicode-Text für Profile, Bildunterschriften und Kommentare mit Ein-Klick-Kopie.",
+    "seo_keywords": "instagram bio fonts, instagram schriftarten generator, schriftarten kopieren und einfügen, instagram stylischer text",
+    "page_title": "Instagram Bio Fonts Generator",
+    "page_subtitle": "Stylischen Text kopieren & einfügen",
+    "badge_text": "Instagram-Szenario-Tool",
+    "tldr": "Instagram Bio Fonts wandeln normalen Text in stylische Unicode-Zeichen um, die Sie in Ihr Profil kopieren und einfügen können. Dieses Tool konzentriert sich auf gut lesbare Social-Styles für Bios, Bildunterschriften und schnelle Profil-Updates.",
+
+    "keyword_label": "instagram bio fonts",
+    "best_for": "Creator, Influencer und Markenprofil-Optimierung",
+    "key_benefit": "Gut lesbare, Instagram-taugliche Textstile mit Sofort-Kopie",
+    "default_input": "Creator | Designer | Building in public",
+    "use_cases": [
+      "Persönliche und Creator Instagram-Bios",
+      "Profil-Refresh für Marken-Accounts",
+      "Formatierung von Caption-Hooks",
+      "A/B-Testen von Profiltext-Stilen"
+    ],
+    "boundaries": [
+      "Dieses Tool kann die Instagram-Moderation oder Benutzernamen-Regeln nicht umgehen.",
+      "Verschiedene App-Versionen können einige Zeichen unterschiedlich darstellen.",
+      "Sehr komplexe Kombinationszeichen können die Lesbarkeit auf Mobilgeräten einschränken.",
+      "Prüfen Sie die endgültige Darstellung immer direkt in Ihrer Instagram-App."
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "Schriftarten-Generator",
+        "description": "Umfangreichere Unicode-Schriftfamilien für die plattformübergreifende Social-Nutzung."
+      },
+      "vaporwave": {
+        "label": "Vaporwave Text Generator",
+        "description": "Ästhetischer Fullwidth-Stil für retro-inspirierte Profil-Identitäten."
+      },
+      "bubble_text": {
+        "label": "Bubble Text Generator",
+        "description": "Eingekreiste und quadratische Texte, die in Bios auffallen."
+      },
+      "strikethrough": {
+        "label": "Durchgestrichener Text Generator",
+        "description": "Schnelle durchgestrichene Hervorhebung für Profil- und Caption-Bearbeitung."
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "items": [
+        {
+          "q": "Wie funktionieren Instagram Bio Fonts?",
+          "a": "Instagram Bio Fonts sind Unicode-Zeichenstile, die anders aussehen als normaler Text. Sie können sie in Ihre Profil-Bio kopieren und einfügen."
+        },
+        {
+          "q": "Erfordern diese Schriften eine App-Installation?",
+          "a": "Nein. Sie können den Text im Browser generieren und direkt bei Instagram einfügen."
+        },
+        {
+          "q": "Kann ich diese Styles auch in Instagram Bildunterschriften verwenden?",
+          "a": "Ja, die meisten Stile funktionieren in Bildunterschriften und Kommentaren, nicht nur in Bios."
+        },
+        {
+          "q": "Warum sieht ein Style auf einem anderen Handy anders aus?",
+          "a": "Die Zeichendarstellung hängt vom Betriebssystem des jeweiligen Geräts und der Schriftunterstützung der App ab."
+        },
+        {
+          "q": "Welcher Style ist am besten für die Lesbarkeit?",
+          "a": "Moderate Stile wie Sans Bold, Schreibschrift und Doppelstrich sind meist einfacher zu lesen als starke Glitch-Effekte."
+        },
+        {
+          "q": "Kann ich stylischen Text mit Emoji-Dekorationen kombinieren?",
+          "a": "Ja. Dieses Tool unterstützt optionale Emoji-Rahmen für Bio-fertige Ausgaben."
+        },
+        {
+          "q": "Ist dieser Instagram Bio Fonts Generator kostenlos?",
+          "a": "Ja, er ist kostenlos und unterstützt unbegrenzte Konvertierungen."
+        },
+        {
+          "q": "Speichert dieses Tool meinen Profiltext?",
+          "a": "Für den Prozess der Textkonvertierung ist keine serverseitige Speicherung erforderlich."
+        }
+      ]
+    },
+    "feature_list": [
+      "Instagram-freundliche Unicode-Stile",
+      "Ein-Klick-Kopie",
+      "Bio-fertige Formatierung",
+      "Fokus auf mobile Social-Anwendungen"
+    ],
+    "feature_list_schemas": [
+      "Stylische Bio-Textausgabe",
+      "Ein-Klick-Kopieren und Einfügen",
+      "Gut lesbare Social-Styles",
+      "Unterstützung für Emoji-Rahmen"
+    ]
+  },
+  "StrikethroughTextGenerator": {
+    "seo_title": "Durchgestrichener Text Generator (2026) - Text online durchstreichen",
+    "seo_description": "Erzeugen Sie online durchgestrichenen Text und wellige Unterstreichungen. Kopieren und fügen Sie durchgestrichenen Unicode-Text sofort ein.",
+    "seo_keywords": "durchgestrichener text generator, text durchstreichen, durchgestrichener text, durchgestrichen kopieren und einfügen",
+    "page_title": "Durchgestrichener Text Generator",
+    "page_subtitle": "Text online durchstreichen",
+    "badge_text": "Durchstreichen-Tool",
+    "tldr": "Ein Generator für durchgestrichenen Text verwandelt einfachen Text in durchgestrichenen Unicode-Text, den Sie sofort kopieren und einfügen können. Er ist für schnelle Bearbeitungen, Chats und Akzente in sozialen Medien optimiert.",
+
+    "keyword_label": "durchgestrichener text generator",
+    "best_for": "Schnelle Social-Media-Edits, Aufgabennotizen und konversationale Hervorhebungen",
+    "key_benefit": "Minimalistische Benutzeroberfläche für eine schnelle Ausgabe von durchgestrichenem Text",
+    "default_input": "Revision: Dies ist nicht mehr gültig.",
+    "use_cases": [
+      "Schnelle Textbearbeitungen und Revisionen",
+      "Formatierung für Humor und Sarkasmus",
+      "Visueller Abschluss-Stil für Aufgabenlisten",
+      "Chat-Hervorhebung ohne Markdown"
+    ],
+    "boundaries": [
+      "Dies basiert auf Unicode, nicht auf semantischer HTML-Formatierung.",
+      "Einige Editoren entfernen beim Einfügen möglicherweise kombinierende Zeichen.",
+      "Zu viele kombinierende Zeichen verringern die Lesbarkeit des Textes.",
+      "Für barrierefreiheitskritische Texte sollten einfache Alternativen bevorzugt werden."
+    ],
+    "related_tools": {
+      "zalgo": {
+        "label": "Zalgo-Textgenerator",
+        "description": "Erhöhen Sie die visuelle Intensität mit kombinierenden Zeichen im Glitch-Stil."
+      },
+      "fancy_text": {
+        "label": "Fancy Text Generator",
+        "description": "Kombinieren Sie durchgestrichenen Text mit Schreibschrift-, Serif- und fettgedruckten Unicode-Stilen."
+      },
+      "discord_font": {
+        "label": "Discord Font Generator",
+        "description": "Erstellen Sie chatbereite Hervorhebungen für Community-Updates."
+      },
+      "instagram_bio": {
+        "label": "Instagram Bio Fonts Generator",
+        "description": "Verwenden Sie lesbare Profilschriftarten zusammen mit leichten Durchstreich-Akzenten."
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "items": [
+        {
+          "q": "Was ist ein Generator für durchgestrichenen Text?",
+          "a": "Ein Generator für durchgestrichenen Text fügt kombinierende Unicode-Zeichen hinzu, um durchgestrichenen Text zu erstellen, den Sie kopieren und einfügen können."
+        },
+        {
+          "q": "Kann ich dies in Social-Media-Posts verwenden?",
+          "a": "Ja, viele soziale Plattformen unterstützen eine kombinierende Ausgabe, die wie durchgestrichener Text aussieht."
+        },
+        {
+          "q": "Welche Stile sind verfügbar?",
+          "a": "Dieses Tool bietet klassische Durchstreichungen und wellige Unterstreichungen für eine leichte Hervorhebungen."
+        },
+        {
+          "q": "Ist das dasselbe wie das HTML <s> Tag?",
+          "a": "Nein. Dies ist eine Unicode-Texttransformation, keine HTML-Formatierung."
+        },
+        {
+          "q": "Wird jede App durchgestrichenen Text korrekt anzeigen?",
+          "a": "Nicht immer. Die Darstellung kann je nach App, Betriebssystem und Schriftarten-Engine variieren."
+        },
+        {
+          "q": "Kann ich durchgestrichenen Text mit anderen Stilen kombinieren?",
+          "a": "Ja, im All-in-One-Tool. Diese spezialisierte Seite hält den Workflow für schnelle Durchstreich-Effekte einfach."
+        },
+        {
+          "q": "Ist das Tool kostenlos?",
+          "a": "Ja. Es ist kostenlos und erlaubt unbegrenztes Kopieren und Einfügen."
+        },
+        {
+          "q": "Speichern Sie meinen durchgestrichenen Text?",
+          "a": "Für den Konvertierungsvorgang ist keine serverseitige Speicherung erforderlich."
+        }
+      ]
+    },
+    "feature_list": [
+      "Klassischer Durchstreich-Effekt",
+      "Wellige Unterstreichung",
+      "Kopieren-und-Einfügen-Workflow",
+      "Schnelle Konvertierung im Browser"
+    ],
+    "feature_list_schemas": [
+      "Durchstreich-Text-Konvertierung",
+      "Textwellen-Unterstreichung-Konvertierung",
+      "Kopieren-und-Einfügen-Ausgabe",
+      "Fokussierter schneller Workflow"
+    ]
+  },
+  "ZalgoTextGenerator": {
+    "seo_title": "Zalgo-Textgenerator (2026) – Glitch- und beschädigter Unicode-Text",
+    "seo_description": "Erstellen Sie glitchigen Zalgo-Text, Blitz-Text und kombinationszeichenbasierte Verzerrungen für Memes und dramatische soziale Inhalte.",
+    "seo_keywords": "Glitch-Textgenerator, beschädigter Text, Zalgo kopieren und einfügen, Zalgo-Text, beschädigter Textgenerator, Unicode-Zalgo",
+    "page_title": "Zalgo-Textgenerator",
+    "page_subtitle": "Erstellen Sie glitchigen Unicode-Text mit Kombinationszeichen.",
+    "badge_text": "Glitch-Text-Tool",
+    "tldr": "Ein Zalgo-Textgenerator erstellt glitch-ähnliche Unicode-Ausgaben, indem er Kombinationszeichen um Buchstaben stapelt. Verwenden Sie ihn für dramatische visuelle Effekte, Vorschauen und sofortiges Kopieren.",
+
+    "keyword_label": "Zalgo-Text",
+    "best_for": "Meme-Ersteller, Posts im Horror-Stil und Gaming-Communities",
+    "key_benefit": "Schnelle Glitch-Texterstellung mit sichereren, lesbaren Alternativen",
+    "default_input": "SYSTEM ERROR // REALITY COLLAPSE",
+    "use_cases": [
+      "Horror- und gruselige Social-Media-Untertitel",
+      "Meme- und Reaktionstext",
+      "Gaming- und Stream-Ankündigungs-Styling",
+      "Experimentelle visuelle Typografie"
+    ],
+    "boundaries": [
+      "Starke Kombinationszeichen können die Lesbarkeit und Barrierefreiheit beeinträchtigen.",
+      "Einige Apps normalisieren oder unterdrücken extreme Kombinationssequenzen.",
+      "Dieses Tool ist dekorativ und nicht für die offizielle Kommunikation geeignet.",
+      "Vorschau vor dem Veröffentlichen anzeigen, um Layoutfehler zu vermeiden."
+    ],
+    "related_tools": {
+      "strikethrough": {
+        "label": "Strikethrough-Textgenerator",
+        "description": "Verwenden Sie Dekorationen mit geringem Rauschen, wenn Lesbarkeit noch wichtig ist."
+      },
+      "fancy_text": {
+        "label": "Fancy-Textgenerator",
+        "description": "Wechseln Sie von der Glitch-Ausgabe zu saubereren Unicode-Schriftstilen."
+      },
+      "discord_font": {
+        "label": "Discord-Font-Generator",
+        "description": "Erstellen Sie chat-sicheren, stilisierten Text mit besserer Kompatibilität."
+      },
+      "vaporwave": {
+        "label": "Vaporwave-Textgenerator",
+        "description": "Probieren Sie ästhetischen Fullwidth-Text für Retro-Styling aus."
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "items": [
+        {
+          "q": "Was ist Zalgo-Text?",
+          "a": "Zalgo-Text verwendet viele Unicode-Kombinationszeichen, die um Buchstaben gestapelt sind, um einen glitchigen, chaotischen visuellen Stil zu erzeugen."
+        },
+        {
+          "q": "Ist Zalgo-Text lesbar?",
+          "a": "Bei geringer Intensität kann er lesbar sein, aber hohe Intensität verringert die Lesbarkeit oft erheblich."
+        },
+        {
+          "q": "Wo wird Zalgo-Text häufig verwendet?",
+          "a": "Er wird oft in Memes, Horror-Posts, Gaming-Chats und stilisierten Überschriften verwendet."
+        },
+        {
+          "q": "Kann Zalgo-Text Layouts zerstören?",
+          "a": "Ja, dichte Kombinationszeichen können die Zeilenhöhe und die Textdarstellung in einigen Apps beeinflussen."
+        },
+        {
+          "q": "Enthält dieses Tool sicherere Alternativen?",
+          "a": "Ja. Sie können leichtere Effekte wie Blitze oder Schweifmarkierungen für eine bessere Lesbarkeit verwenden."
+        },
+        {
+          "q": "Kann ich die Zalgo-Ausgabe direkt kopieren und einfügen?",
+          "a": "Ja. Die Ausgabe ist einfacher Unicode-Text, sodass Sie ihn überall dort kopieren und einfügen können, wo er unterstützt wird."
+        },
+        {
+          "q": "Ist dieses Tool kostenlos?",
+          "a": "Ja. Es ist kostenlos und bietet unbegrenzte Nutung für Copy-and-Paste."
+        },
+        {
+          "q": "Unterstützen alle Plattformen starken Zalgo?",
+          "a": "Die Unterstützung variiert. Einige Apps können komplexe Kombinationssequenzen abschneiden oder normalisieren."
+        }
+      ]
+    },
+    "feature_list": [
+      "Zalgo-Kombinationszeichengenerator",
+      "Blitz- und Schweifeffekte",
+      "Ein-Klick-Kopie",
+      "Browserbasierter Workflow"
+    ],
+    "feature_list_schemas": [
+      "Glitch-Kombinationszeichen",
+      "Mehrere Verzerrungs-Presets",
+      "Copy-and-Paste-Ausgabe",
+      "Meme- und Social-Anwendungsfälle"
+    ]
+  },
+  "VaporwaveTextGenerator": {
+    "seo_title": "Vaporwave-Textgenerator (2026) – Ästhetischer Fullwidth-Text",
+    "seo_description": "Konvertieren Sie einfachen Text in den Vaporwave-Fullwidth-Unicode-Stil für ästhetische Bios, Bildunterschriften und kreative Social-Media-Inhalte.",
+    "seo_keywords": "Vaporwave-Text, Vaporwave-Textgenerator, ästhetischer Text, Fullwidth-Textgenerator",
+    "page_title": "Vaporwave-Textgenerator",
+    "page_subtitle": "Ästhetischer Fullwidth-Text",
+    "badge_text": "Ästhetisches Fullwidth-Tool",
+    "tldr": "Ein Vaporwave-Textgenerator wandelt normalen ASCII-Text in Fullwidth-Unicode-Ausgaben mit Retro-Abständen um. Er ist für ästhetische Bios, Bildunterschriften und schnelle Copy-and-Paste-Workflows konzipiert.",
+
+    "keyword_label": "Vaporwave-Textgenerator",
+    "best_for": "Ästhetische Ersteller, Profile im Retro-Stil und kurze Bildunterschriften",
+    "key_benefit": "Sofortiges Fullwidth-Styling ohne externe Apps",
+    "default_input": "aesthetic internet archive",
+    "use_cases": [
+      "Ästhetische Profil-Bios",
+      "Retro-Styling für Bildunterschriften",
+      "Textdekoration für Memes",
+      "Kreative Titelfortmatierung"
+    ],
+    "boundaries": [
+      "Nicht alle Satzzeichen und Symbole haben Fullwidth-Versionen.",
+      "Einige Plattformen normalisieren die Abstände in bestimmten Kontexten.",
+      "Übermäßiger Gebrauch kann die Lesbarkeit bei langen Absätzen verringern.",
+      "Verwenden Sie bei offizieller Kommunikation die Nur-Text-Alternative."
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "Fancy-Textgenerator",
+        "description": "Vergleichen Sie den Fullwidth-Stil mit breiteren Unicode-Schriftfamilien."
+      },
+      "instagram_bio": {
+        "label": "Instagram-Bio-Schriftengenerator",
+        "description": "Wenden Sie lesbare ästhetische Stile für soziale Profile an."
+      },
+      "bubble_letter": {
+        "label": "Bubble-Textgenerator",
+        "description": "Verwenden Sie umschlossene Stile, wenn Sie stärkere Glyphengrenzen benötigen."
+      },
+      "zalgo": {
+        "label": "Zalgo-Textgenerator",
+        "description": "Probieren Sie hochgradig verzerrte Glitch-Styles für dramatische visuelle Kontraste aus."
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "items": [
+        {
+          "q": "Was ist Vaporwave-Text?",
+          "a": "Vaporwave-Text ist in der Regel Fullwidth-Unicode-Text, der eine digitale Retro-Ästhetik und breitere Abstände bietet."
+        },
+        {
+          "q": "Ist das dasselbe wie das Ändern von Schriftartdateien?",
+          "a": "Nein. Die Ausgabe ist eine Unicode-Zeichenersetzung, keine herunterladbare Schriftart."
+        },
+        {
+          "q": "Kann ich Vaporwave-Text in Social-Media-Bios verwenden?",
+          "a": "Ja, viele soziale Plattformen unterstützen Fullwidth-Unicode-Ausgaben für Bios und Bildunterschriften."
+        },
+        {
+          "q": "Warum sehen Leerzeichen breiter aus?",
+          "a": "Der Fullwidth-Stil ersetzt normale Leerzeichen durch Fullwidth-Leerzeichen, um den visuellen Rhythmus konsistent zu halten."
+        },
+        {
+          "q": "Kann ich Vaporwave mit anderen Effekten kombinieren?",
+          "a": "Ja. Sie können je nach Lesbarkeitszielen leichte Dekorationen oder Wrapper anwenden."
+        },
+        {
+          "q": "Ist dieser Vaporwave-Textgenerator kostenlos?",
+          "a": "Ja, er ist kostenlos und browserbasiert."
+        },
+        {
+          "q": "Werden alle Symbole in Fullwidth konvertiert?",
+          "a": "Nur der Standard-ASCII-Bereich verfügt über direkte Fullwidth-Entsprechungen. Nicht unterstützte Symbole bleiben unverändert."
+        },
+        {
+          "q": "Kann ich die Ausgabe direkt kopieren und einfügen?",
+          "a": "Ja, der generierte Text ist bereit zum Kopieren und Einfügen."
+        }
+      ]
+    },
+    "feature_list": [
+      "Fullwidth-Konvertierung",
+      "Ästhetische Textstile",
+      "Copy-and-Paste-Ausgabe",
+      "Browserbasierter Workflow"
+    ],
+    "feature_list_schemas": [
+      "Fullwidth-Vaporwave-Ausgabe",
+      "Einfaches Ein-Klick-Kopieren",
+      "Lesbares ästhetisches Styling",
+      "Social-Media-Anwendungsfälle"
+    ]
+  },
+  "FancyTextGenerator": {
+    "seo_title": "Schriftarten-Generator (2026) - Unicode-Schriften kopieren und einfügen",
+    "seo_description": "Kostenloser Schriftarten-Generator für Unicode-Textstile wie Schreibschrift, Fraktur, Fett und mehr. Sofort kopieren und einfügen.",
+    "seo_keywords": "schriftarten generator, schöne schriftarten, unicode text konverter, schriften kopieren und einfügen",
+    "page_title": "Schriftarten-Generator",
+    "page_subtitle": "Unicode-Schriften kopieren und einfügen",
+    "free_tool_badge": "Schriftdesign-Tool",
+    "tldr": "Ein Schriftarten-Generator wandelt normalen Text in dekorative Unicode-Stile um, die Sie überall kopieren und einfügen können. Ideal für Bios, Bildunterschriften, Benutzernamen und schnelle visuelle Differenzierung ohne Installation von Schriftarten.",
+
+    "keyword_label": "schriftarten generator",
+    "best_for": "Creator, Social-Media-Manager und Personal Branding",
+    "key_benefit": "Erzeugen und kopieren Sie mehrere stylische Textvarianten in Sekundenschnelle",
+    "default_input": "Schreibe etwas Besonderes",
+    "use_cases": [
+      "Styling von Anzeigenamen auf Instagram und TikTok",
+      "Kreative Bildunterschriften und Profil-Bios",
+      "Formatierung von Discord-Server-Nicknames",
+      "Variationen von Schlagzeilen für Personal Branding"
+    ],
+    "boundaries": [
+      "Dieses Tool gibt Unicode-Zeichen aus, keine installierbaren Schriftdateien.",
+      "Die Darstellung kann je nach Betriebssystem und App variieren.",
+      "Einige Symbole können nicht transformiert werden, da Unicode kein Äquivalent besitzt.",
+      "Testen Sie das Ergebnis immer auf Ihrer Zielplattform, bevor Sie es veröffentlichen."
+    ],
+    "related_tools": {
+      "instagram_bio": {
+        "label": "Instagram Bio Fonts Generator",
+        "description": "Auf Social-Media-Profile ausgerichtete Schriftstile mit Kopieren-und-Einfügen-Ausgabe."
+      },
+      "discord_font": {
+        "label": "Discord Font Generator",
+        "description": "Gut lesbare Unicode-Stile für Discord-Nicknames und Nachrichten."
+      },
+      "bubble_text": {
+        "label": "Bubble Text Generator",
+        "description": "Eingeschlossene alphanumerische Stile wie eingekreiste und quadratische Zeichen."
+      },
+      "vaporwave": {
+        "label": "Vaporwave Text Generator",
+        "description": "Ästhetischer Fullwidth-Text für Profil-Bios und Bildunterschriften im Retro-Stil."
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "items": [
+        {
+          "q": "Was ist ein Schriftarten-Generator?",
+          "a": "Ein Schriftarten-Generator wandelt normale Buchstaben in dekorative Unicode-Stile um, die Sie in Social-Media-Profile, Beiträge und Chats kopieren und einfügen können."
+        },
+        {
+          "q": "Sind diese Schriftarten dasselbe wie eine echte Schriftdatei?",
+          "a": "Nein. Die meisten dieser Tools geben Unicode-Zeichen aus, keine installierten Schriftdateien. Das bedeutet, dass Sie sie direkt in vielen Apps verwenden können."
+        },
+        {
+          "q": "Kann ich mehrere Schrifteffekte kombinieren?",
+          "a": "Ja. Sie können einen Basisstil mit Dekorationen und optionalen Transformationen für ein individuelles Ergebnis kombinieren."
+        },
+        {
+          "q": "Funktioniert das auf Instagram und TikTok?",
+          "a": "Normalerweise ja. Die Kompatibilität hängt von der jeweiligen Plattform und der Schriftunterstützung des Geräts ab."
+        },
+        {
+          "q": "Ist dieser Schriftarten-Generator kostenlos?",
+          "a": "Ja, das Tool ist kostenlos, browserbasiert und bietet unbegrenzte Nutzung von Kopieren und Einfügen."
+        },
+        {
+          "q": "Speichern Sie, was ich schreibe?",
+          "a": "Für den Konvertierungsprozess in diesem Tool ist keine serverseitige Speicherung erforderlich."
+        },
+        {
+          "q": "Warum bleiben einige Symbole unverändert?",
+          "a": "Unicode enthält nicht für jedes Symbol ein stilisiertes Äquivalent, daher bleiben nicht unterstützte Zeichen unverändert."
+        },
+        {
+          "q": "Kann ich dies für Benutzernamen verwenden?",
+          "a": "Ja, aber jede Plattform hat ihre eigenen Zeichenregeln. Testen Sie daher immer, bevor Sie einen Benutzernamen festlegen."
+        }
+      ]
+    },
+    "feature_list": [
+      "Vielzahl an Unicode-Schriftstilen",
+      "Ein-Klick-Kopie",
+      "Stil-Komposition",
+      "Social-Media-bereite Ausgabe"
+    ],
+    "feature_list_schemas": [
+      "Schreibschrift- und Fettstile",
+      "Fraktur- und Doppelstrichstile",
+      "Kopieren-und-Einfügen-Ausgabe",
+      "Kombinierbare Effekte"
+    ]
+  },
+  "DiscordFontGenerator": {
+    "seo_title": "Discord Font Generator (2026) - Stylischen Discord-Text kopieren und einfügen",
+    "seo_description": "Erstellen Sie stylischen Discord-Text für Nicknames und Nachrichten mit Unicode-Schrifteffekten. Sofort kopieren und einfügen.",
+    "seo_keywords": "discord font generator, discord schriftart ändern, discord text generator, schriftarten kopieren und einfügen",
+    "page_title": "Discord Font Generator",
+    "page_subtitle": "Stylischen Discord-Text kopieren und einfügen",
+    "free_tool_badge": "Discord-Szenario-Tool",
+    "tldr": "Ein Discord Font Generator wandelt normalen Text in Unicode-Styles für Nicknames, Profiltexte und Nachrichten um. Wählen Sie zuerst lesbare Optionen aus und kopieren Sie sie dann direkt in Discord.",
+
+    "keyword_label": "discord font generator",
+    "best_for": "Discord-Communities, Gamer-Tags und Serverprofil-Anpassung",
+    "key_benefit": "Discord-fokussierte Style-Presets mit sofortigem Kopier-Workflow",
+    "default_input": "Raid heute Abend 20:00 Uhr UTC",
+    "use_cases": [
+      "Discord-Nickname-Styling",
+      "Profil-Bio-Dekoration",
+      "Formatierung von Server-Ankündigungen",
+      "Anpassung der Gaming-Identität"
+    ],
+    "boundaries": [
+      "Kann Server-Moderation oder Richtlinien für blockierte Zeichen nicht umgehen.",
+      "Einige Kanäle oder Bots können Sonderzeichen normalisieren.",
+      "Übermäßig komplexer Text kann in schnellen Chats schwer zu lesen sein.",
+      "Vor der endgültigen Verwendung immer in Discord in der Vorschau anzeigen."
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "Fancy Text Generator",
+        "description": "Entdecken Sie umfassendere Unicode-Styles für Benutzernamen und Nachrichten."
+      },
+      "strikethrough": {
+        "label": "Durchgestrichener Text Generator",
+        "description": "Fügen Sie saubere durchgestrichene Betonungen für schnelle Chat-Bearbeitungen hinzu."
+      },
+      "zalgo": {
+        "label": "Zalgo Text Generator",
+        "description": "Erstellen Sie Glitch-Style-Text für Meme- und Gaming-Kontexte."
+      },
+      "instagram_bio": {
+        "label": "Instagram Bio Fonts Generator",
+        "description": "Verwenden Sie profilfertige Styles auf allen sozialen Plattformen wieder."
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "items": [
+        {
+          "q": "Was ist ein Discord Font Generator?",
+          "a": "Ein Discord Font Generator wandelt normalen Text in Unicode-Styles um, die Sie in Nicknames, Kanalnachrichten und Profilbereiche einfügen können."
+        },
+        {
+          "q": "Benötige ich dafür Discord Nitro?",
+          "a": "Nein. Die Konvertierung von Unicode-Textstilen funktioniert unabhängig von Nitro-Funktionen."
+        },
+        {
+          "q": "Kann ich stylischen Text im Discord-Nicknamen verwenden?",
+          "a": "Ja, sofern der Server und die Discord-Regeln diese Zeichen zulassen."
+        },
+        {
+          "q": "Werden alle Fancy-Styles im mobilen Discord gerendert?",
+          "a": "Die meisten ja, aber das Rendering kann je nach Gerät und Schriftartunterstützung variieren."
+        },
+        {
+          "q": "Kann dies Moderationsregeln umgehen?",
+          "a": "Nein. Dieses Tool umgeht keine Moderation, Filter oder Plattformrichtlinien."
+        },
+        {
+          "q": "Welche Styles eignen sich am besten für die Lesbarkeit?",
+          "a": "Moderate Styles wie Sans Bold und Script sind normalerweise einfacher zu lesen als starke Verzerrungseffekte."
+        },
+        {
+          "q": "Ist dieser Discord Font Generator kostenlos?",
+          "a": "Ja, kostenlos mit unbegrenzter Nutzung von Kopieren und Einfügen."
+        },
+        {
+          "q": "Speichert das Tool meinen Chat-Text?",
+          "a": "Für die Konvertierung ist keine serverseitige Speicherung erforderlich."
+        }
+      ]
+    },
+    "feature_list": [
+      "Discord-freundliche Unicode-Styles",
+      "Szenarien für Nicknames und Nachrichten",
+      "Ein-Klick-Kopie",
+      "Kombinierbare Effekte"
+    ],
+    "feature_list_schemas": [
+      "Nickname-fertige Textstile",
+      "Varianten der Nachrichtenformatierung",
+      "Kopieren-und-Einfügen-Ausgabe",
+      "Schneller Browser-Workflow"
+    ]
+  },
+  "UpsideDownTextGenerator": {
+    "seo_title": "Kopfstehender Textgenerator (2026) - Umgedrehter & Spiegeltext-Konverter",
+    "seo_description": "Wandle Text sofort in kopfstehende, umgedrehte und gespiegelte Stile um. Perfekt für Social Media, lustige Nachrichten und Profil-Deko.",
+    "seo_keywords": "kopfstehender text generator, text umdrehen, spiegeltext, 180 grad text konverter, buchstaben auf dem kopf kopieren einfügen",
+    "page_title": "Kopfstehender Textgenerator",
+    "page_subtitle": "Umgedrehter & Spiegeltext-Konverter",
+    "free_tool_badge": "Unicode-Text-Tool",
+    "tldr_title": "Kurzantwort (TL;DR)",
+    "tldr": "Ein kopfstehender Textgenerator verwendet spezielle Unicode-Zeichen, um Text zu simulieren, der um 180 Grad gedreht oder horizontal gespiegelt wurde. Es ist eine rein visuelle Technik zur Dekoration von Benutzernamen und Social-Media-Beiträgen ohne externe Schriftarten.",
+
+    "last_updated_label": "Zuletzt aktualisiert",
+    "keyword_label": "kopfstehender text generator",
+    "best_for": "Profilnamen, auffällige Nachrichten und kreative visuelle Effekte",
+    "key_benefit": "Sofortige Transformation mit Umdreh- und Spiegeloptionen für maximale Anpassung",
+    "default_input": "Hallo Welt Hello World",
+    "use_cases": [
+      "Dekoration einzigartiger Profilnamen",
+      "Erstellung auffälliger Social-Media-Beiträge",
+      "Lustige Nachrichten und visuelle Rätsel",
+      "Visuelle Hervorhebung in Kommentaren und Chats"
+    ],
+    "boundaries": [
+      "Kopfstehender Text verwendet Unicode-Ersatzzeichen und ist möglicherweise nicht für jeden perfekt lesbar.",
+      "Einige Screenreader haben eventuell Schwierigkeiten bei der Verarbeitung des transformierten Textes.",
+      "Die Verfügbarkeit von Zeichen kann je nach Systemschriftart des Empfängers variieren.",
+      "Hauptsächlich für dekorative Zwecke und nicht für kritische Inhalte verwenden."
+    ],
+    "limits_title": "Einschränkungen und Grenzen",
+    "feature_list": [
+      "180-Grad-Textrotation",
+      "Spiegel- und Rückwärtstexteffekte",
+      "Unicode-basierte Emoji-Wrapper",
+      "Social-Media-bereite Ausgabe"
+    ],
+    "feature_list_schemas": [
+      "Umgedrehte Texttransformation",
+      "Spiegeltexteffekte",
+      "Unicode-Emoji-Dekoration",
+      "Copy-Paste-Tool für soziale Medien"
+    ],
+    "categories": {
+      "enclosed": "Umschlossene alphanumerische Zeichen",
+      "math": "Mathematische Stile",
+      "marks": "Kombinationszeichen",
+      "transform": "Transformation",
+      "width": "Breite"
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "items": [
+        {
+          "q": "Was ist ein kopfstehender Textgenerator?",
+          "a": "Es ist ein Tool, das Standardzeichen ihren Unicode-Entsprechungen zuordnet, die wie gedreht oder gespiegelt aussehen."
+        },
+        {
+          "q": "Wie funktioniert kopfstehender Text?",
+          "a": "Es verwendet eine Mapping-Tabelle, die 'a' durch 'ɐ', 'b' durch 'q' usw. ersetzt, um die Illusion einer Rotation zu erzeugen."
+        },
+        {
+          "q": "Funktioniert das auf Instagram und Facebook?",
+          "a": "Ja, da es sich um Standard-Unicode-Zeichen handelt, funktionieren sie auf den meisten modernen Social-Media-Plattformen."
+        },
+        {
+          "q": "Was ist der Unterschied zwischen kopfstehend und gespiegelt?",
+          "a": "Kopfstehend (Upside Down) dreht den Text um 180 Grad, während gespiegelt (Mirror) ihn horizontal umkehrt, als würde man ihn in einem Spiegel sehen."
+        }
+      ]
+    },
+    "effects": {
+      "plain": { "name": "Normal", "desc": "Originaltext ohne Konvertierung" },
+      "negative-circle": {
+        "name": "Gefüllter Kreis",
+        "desc": "Umgekehrte Zahlen und eingekreiste Buchstaben"
+      },
+      "hollow-circle": { "name": "Leerer Kreis", "desc": "Kreisförmiger alphanumerischer Stil" },
+      "hollow-square": { "name": "Leeres Quadrat", "desc": "In Rahmen eingeschlossener Stil" },
+      "solid-square": {
+        "name": "Gefülltes Quadrat",
+        "desc": "Umgekehrter, in Rahmen eingeschlossener Stil"
+      },
+      "serif-bold": { "name": "Serif Fett", "desc": "Mathematische Serifenzeichen in Fettschrift" },
+      "sans-bold": {
+        "name": "Sans Fett",
+        "desc": "Mathematische serifenlose Zeichen in Fettschrift"
+      },
+      "italic": { "name": "Mathematisch Kursiv", "desc": "Mathematische Zeichen in Kursivschrift" },
+      "bold-italic": {
+        "name": "Fett Kursiv",
+        "desc": "Mathematische Zeichen in Fett- und Kursivschrift"
+      },
+      "script": {
+        "name": "Schreibschrift",
+        "desc": "Kalligrafische Zeichen, die wie Handschrift aussehen"
+      },
+      "bold-script": {
+        "name": "Schreibschrift Fett",
+        "desc": "Kalligrafische Zeichen in Fettschrift"
+      },
+      "fraktur": { "name": "Fraktur", "desc": "Zeichen im gotischen Fraktur-Stil" },
+      "bold-fraktur": { "name": "Fraktur Fett", "desc": "Fraktur-Zeichen in Fettschrift" },
+      "double-struck": { "name": "Doppelstrich", "desc": "Fetter Blackboard-Zeichenstil" },
+      "strikethrough": { "name": "Durchgestrichen", "desc": "Durchgestrichener Stil mit Overlays" },
+      "wavy-underline": {
+        "name": "Wellen-Unterstreichung",
+        "desc": "Dekorativer wellenförmiger Unterstreichungsstil"
+      },
+      "tail-mark": {
+        "name": "Schwanz-Markierung",
+        "desc": "Fügt jedem Zeichen eine kleine Schwanz-Markierung hinzu"
+      },
+      "lightning": { "name": "Blitz", "desc": "Fügt Blitz-Separatoren zwischen Zeichen ein" },
+      "zalgo": { "name": "Zalgo", "desc": "Glitch-Art-Stil mit gestapelten Zeichen" },
+      "upside-down": {
+        "name": "Auf dem Kopf",
+        "desc": "Dreht Buchstaben um und kehrt die Reihenfolge um"
+      },
+      "mirror": { "name": "Spiegeln", "desc": "Spiegelt Buchstaben und kehrt die Reihenfolge um" },
+      "fullwidth": { "name": "Volle Breite", "desc": "Konvertiert ASCII in Vollbreitenformen" }
+    },
+    "ui": {
+      "playground_title": "Texteffekte-Labor",
+      "input_label": "Eingabetext",
+      "input_placeholder": "Text, Wörter, Buchstaben oder Symbole eingeben...",
+      "base_style_title": "1) Basis-Stil",
+      "plain": "Normal",
+      "decorations_title": "2) Dekorationen (Mehrfachauswahl)",
+      "transform_emoji_title": "3) Transformieren + Emoji",
+      "none": "Keine",
+      "emoji_wrapper": "Emoji-Rahmen hinzufügen",
+      "custom_output_title": "Benutzerdefinierte kombinierte Ausgabe",
+      "copy": "Kopieren",
+      "copied": "Kopiert!",
+      "ready_to_copy": "Bereit zum Kopieren",
+      "copy_failed": "Kopieren fehlgeschlagen",
+      "preview_title": "Vorschau aller Effekte mit einem Klick",
+      "preview_description": "Klicke auf eine Karte unten, um das transformierte Ergebnis sofort zu kopieren.",
+      "taxonomy_title": "Implementierte Effekte-Taxonomie",
+      "empty_input": "(Leere Eingabe)"
+    }
+  },
+  "BubbleTextGenerator": {
+    "seo_title": "Blasenschrift-Generator (2026) - Eingekreiste Alphanumerik-Konverter",
+    "seo_description": "Erstellen Sie Blasenschrift und eingekreiste Unicode-Textstile, einschließlich kreisförmiger und quadratischer Varianten. Sofort kopieren und einfügen.",
+    "seo_keywords": "blasenschrift generator, eingekreiste alphanumerik, kreis-text-generator, blasenschrift kopieren einfügen",
+    "feature_list": [
+      "Kreisförmige und quadratische Unicode-Stile",
+      "Ein-Klick-Kopie",
+      "Schnelle Browser-Transformation",
+      "Social-Media-bereite Textausgabe"
+    ],
+    "feature_list_schemas": [
+      "Hohle und ausgefüllte Kreisstile",
+      "Hohle und ausgefüllte Quadratsstile",
+      "Kopieren-und-Einfügen-Ausgabe",
+      "Fokussierter Workflow für eingekreiste Alphanumerik"
+    ],
+    "page_title": "Blasenschrift-Generator",
+    "page_subtitle": "Eingekreiste Alphanumerik-Konverter",
+    "free_tool_badge": "Eingekreiste Alphanumerik-Tool",
+    "tldr": "Ein Blasenschrift-Generator wandelt einfachen Text in eingekreiste alphanumerische Unicode-Stile wie Kreise und Quadrate um. Einmal tippen, alle Blasenvarianten vergleichen und bevorzugtes Ergebnis sofort kopieren.",
+
+    "keyword_label": "blasenschrift generator",
+    "best_for": "Profilnamen, spielerische Bildunterschriften und leichte dekorative Etiketten",
+    "key_benefit": "Fokussierte eingekreiste Stile mit schnellem Vergleichs- und Kopier-Workflow",
+    "use_cases": [
+      "Spitznamen und Dekoration von Anzeigenamen",
+      "Hervorhebung von Beitragstiteln mit eingekreistem Text",
+      "Stilisierte Kommentarsignaturen",
+      "Einfache visuelle Etiketten in Chatgruppen"
+    ],
+    "boundaries": [
+      "Die Unicode-Abdeckung für eingekreiste Zeichen ist begrenzt und nicht für jedes Zeichen einheitlich.",
+      "Einige Clients zeigen möglicherweise Platzhalter-Boxen für nicht unterstützte Symbole an.",
+      "Dieses Tool erstellt keine benutzerdefinierten Vektor- oder Bildschriften.",
+      "Verwenden Sie Klartext als Rückfalloption für kritische Lesbarkeit."
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "Fancy-Text-Generator",
+        "description": "Wechseln Sie von eingekreisten Stilen zu Schreibschrift-, Fraktur- und Fettschriftfamilien."
+      },
+      "instagram_bio": {
+        "label": "Instagram Bio Schriftarten Generator",
+        "description": "Profilzentriertes Social-Text-Styling mit schnellem Kopierfluss."
+      },
+      "discord_font": {
+        "label": "Discord Schriftarten Generator",
+        "description": "Spitznamen- und Chat-freundliche Unicode-Textstile."
+      },
+      "vaporwave_text": {
+        "label": "Vaporwave-Text-Generator",
+        "description": "Ästhetische Ausgabe in voller Breite für eine Retro-Identität."
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen (FAQ)",
+      "items": [
+        {
+          "q": "Was ist ein Blasenschrift-Generator?",
+          "a": "Ein Blasenschrift-Generator wandelt Buchstaben und Zahlen in eingekreiste Unicode-Symbole wie Kreise und Quadrate für dekorativen Text um."
+        },
+        {
+          "q": "Was sind eingekreiste Alphanumerika?",
+          "a": "Eingekreiste Alphanumerika sind ein Unicode-Block mit Buchstaben und Ziffern, die in Kreisen oder Quadraten dargestellt werden."
+        },
+        {
+          "q": "Kann ich Blasenschrift in sozialen Medien verwenden?",
+          "a": "Ja, viele Plattformen unterstützen eingekreiste Unicode-Zeichen in Bios, Kommentaren und Beiträgen."
+        },
+        {
+          "q": "Warum sind Kleinbuchstaben-Blasenstile inkonsistent?",
+          "a": "Die eingekreisten Unicode-Bereiche sind nicht für alle Buchstaben und Groß-/Kleinschreibungen perfekt symmetrisch."
+        },
+        {
+          "q": "Kann ich auch Zahlen in den Blasenstil umwandeln?",
+          "a": "Ja. Dieses Tool unterstützt eingekreiste und kreisförmige Zahlenstile, sofern Unicode-Entsprechungen vorhanden sind."
+        },
+        {
+          "q": "Ist dieses Blasenschrift-Tool kostenlos?",
+          "a": "Ja, es ist völlig kostenlos mit Kopieren-und-Einfügen-Ausgabe."
+        },
+        {
+          "q": "Beeinflusst Blasenschrift die Suchbarkeit?",
+          "a": "Stilisierter Unicode kann die Lesbarkeit und Suchübereinstimmung in einigen Kontexten verringern. Verwenden Sie ihn daher hauptsächlich zur Dekoration."
+        }
+      ]
+    }
+  },
   "ChromakopiaNamGenerator": {
     "seo_title": "Chromakopia-Namensgenerator – Erstelle deine St.-Chroma-Persona | Kostenloses Tool",
     "seo_description": "Erzeuge einzigartige, von Chromakopia inspirierte Namen und Personas mit unserem kostenlosen Online-Tool. Kreiere farbenfrohe Alter Egos im Stil von Tyler, the Creators Album Chromakopia. Perfekt für kreative Projekte und Selbstentfaltung.",

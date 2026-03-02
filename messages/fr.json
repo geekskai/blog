@@ -1665,6 +1665,834 @@
       }
     }
   },
+  "UnicodeTool": {
+    "qanda_title": "Questions et Réponses (TL;DR)",
+    "core_facts_title": "Faits principaux",
+    "primary_intent_label": "Intention principale :",
+    "pricing_label": "Prix :",
+    "free_label": "Gratuit",
+    "best_for_label": "Idéal pour :",
+    "key_benefit_label": "Bénéfice clé :",
+    "related_searches_label": "Recherches associées :",
+    "playground_title": "Laboratoire d'effets de texte",
+    "last_updated_label": "Dernière mise à jour",
+    "primary_keyword_label": "Mot-clé principal :",
+    "input_label": "Texte d'entrée",
+    "input_placeholder": "Tapez du texte, des mots, des lettres ou des symboles...",
+    "select_style_label": "Sélectionner le style",
+    "base_style_label": "1) Style de base",
+    "decorations_label": "2) Décorations (Sélection multiple)",
+    "transform_emoji_label": "3) Transformer + Emoji",
+    "add_emoji_wrapper_label": "Ajouter un wrapper emoji",
+    "custom_output_label": "Sortie combinée personnalisée",
+    "primary_output_label": "Sortie principale",
+    "copy_button_label": "Copier",
+    "copied_button_label": "Copié !",
+    "copy_failed_label": "Échec de la copie",
+    "ready_to_copy_status": "Prêt à copier",
+    "one_click_preview_title": "Aperçu de tous les effets en un clic",
+    "one_click_preview_description": "Cliquez sur n'importe quelle carte ci-dessous pour copier instantanément ce résultat transformé.",
+    "how_to_use_title": "Comment utiliser cet outil",
+    "how_to_use_step1": "Tapez votre texte dans la zone de saisie et gardez-le court pour une meilleure lisibilité lors du",
+    "how_to_use_step2": "copier-coller",
+    "how_to_use_step3": ".",
+    "how_to_use_step4": "Choisissez un effet ou combinez les styles si le compositeur est activé.",
+    "how_to_use_step5": "Cliquez sur n'importe quelle carte d'aperçu ou bouton de copie et collez-le dans votre application cible.",
+    "taxonomy_title": "Taxonomie des effets implémentée",
+    "use_cases_title": "Cas d'utilisation",
+    "limits_title": "Limites et frontières",
+    "related_tools_title": "Outils connexes",
+    "faq_title": "Questions fréquemment posées",
+    "plain_style": "Normal",
+    "none_style": "Aucun",
+    "empty_input_placeholder": "(Entrée vide)",
+    "default_best_for": "Créateurs, utilisateurs de réseaux sociaux et gestionnaires de communauté",
+    "default_key_benefit": "Styles de texte Unicode prêts à copier-coller en un seul endroit",
+    "categories": {
+      "enclosed": "Alphanumériques encerclés",
+      "math": "Styles mathématiques",
+      "marks": "Marques de combinaison",
+      "transform": "Transformation",
+      "width": "Largeur"
+    }
+  },
+  "InstagramBioFonts": {
+    "seo_title": "Générateur de polices pour bio Instagram (2026) - Copier et coller du texte",
+    "seo_description": "Créez des polices pour votre bio Instagram et du texte Unicode élégant pour profil, légendes et commentaires avec copie en un clic.",
+    "seo_keywords": "polices pour bio instagram, générateur de polices instagram, copier et coller des polices, texte élégant instagram",
+    "page_title": "Générateur de polices pour bio Instagram",
+    "page_subtitle": "Copier et coller du texte élégant",
+    "badge_text": "Outil pour Instagram",
+    "tldr": "Les polices pour bio Instagram convertissent le texte brut en caractères Unicode élégants que vous pouvez copier et coller dans votre profil. Cet outil se concentre sur des styles sociaux lisibles pour les bios, les légendes et les mises à jour rapides de profil.",
+
+    "keyword_label": "polices pour bio instagram",
+    "best_for": "Créateurs, influenceurs et optimisation de profil de marque",
+    "key_benefit": "Styles de texte lisibles prêts pour Instagram avec copie instantanée",
+    "default_input": "Créateur | Designer | En train de construire en public",
+    "use_cases": [
+      "Biographies Instagram personnelles et de créateurs",
+      "Mise à jour de profil pour comptes de marque",
+      "Formatage d'accroches de légendes",
+      "Tests A/B de styles de texte de profil"
+    ],
+    "boundaries": [
+      "Cet outil ne peut pas contourner la modération d'Instagram ni les règles relatives aux noms d'utilisateur.",
+      "Différentes versions de l'application peuvent afficher certains caractères différemment.",
+      "Les marques combinées très complexes peuvent réduire la lisibilité sur mobile.",
+      "Vérifiez toujours le rendu final directement dans votre application Instagram."
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "Générateur de polices stylées",
+        "description": "Familles de polices Unicode plus larges pour un usage social multi-plateforme."
+      },
+      "vaporwave": {
+        "label": "Générateur de texte Vaporwave",
+        "description": "Style esthétique pleine largeur pour une identité de profil rétro."
+      },
+      "bubble_text": {
+        "label": "Générateur de texte bulle",
+        "description": "Texte entouré de cercles et de carrés qui se démarque dans les bios."
+      },
+      "strikethrough": {
+        "label": "Générateur de texte barré",
+        "description": "Mise en évidence par texte barré rapide pour l'édition de profil et de légendes."
+      }
+    },
+    "faq": {
+      "title": "Foire aux questions",
+      "items": [
+        {
+          "q": "Comment fonctionnent les polices pour la bio Instagram ?",
+          "a": "Les polices pour la bio Instagram sont des styles de caractères Unicode qui ont un aspect différent du texte normal. Vous pouvez les copier et les coller dans la bio de votre profil."
+        },
+        {
+          "q": "Ces polices nécessitent-elles l'installation d'une application ?",
+          "a": "Non. Vous pouvez générer du texte dans le navigateur et le coller directement sur Instagram."
+        },
+        {
+          "q": "Puis-je utiliser ces styles également dans les légendes Instagram ?",
+          "a": "Oui, la plupart des styles fonctionnent dans les légendes et les commentaires, pas seulement dans les bios."
+        },
+        {
+          "q": "Pourquoi un style est-il différent sur un autre téléphone ?",
+          "a": "Le rendu des caractères dépend du système d'exploitation de chaque appareil et du support des polices de l'application."
+        },
+        {
+          "q": "Quel est le meilleur style pour la lisibilité ?",
+          "a": "Les styles modérés comme sans bold, script et double ligne sont généralement plus faciles à lire que les effets de glitch lourds."
+        },
+        {
+          "q": "Puis-je combiner du texte élégant avec des décorations d'emoji ?",
+          "a": "Oui. Cet outil prend en charge des enveloppes d'emoji optionnelles pour une sortie prête pour la bio."
+        },
+        {
+          "q": "Ce générateur de polices pour Instagram est-il gratuit ?",
+          "a": "Oui, il est gratuit et prend en charge des conversions illimitées."
+        },
+        {
+          "q": "Cet outil stocke-t-il mon texte de profil ?",
+          "a": "Aucun stockage côté serveur n'est requis pour votre flux de conversion de texte."
+        }
+      ]
+    },
+    "feature_list": [
+      "Styles Unicode adaptés à Instagram",
+      "Copie en un clic",
+      "Formatage prêt pour la bio",
+      "Focus sur les cas d'utilisation sociale mobile"
+    ],
+    "feature_list_schemas": [
+      "Sortie de texte élégante pour bio",
+      "Flux de copier-coller en un clic",
+      "Styles sociaux lisibles",
+      "Support d'enveloppes d'emoji"
+    ]
+  },
+  "StrikethroughTextGenerator": {
+    "seo_title": "Générateur de Texte Barré (2026) - Barrer du Texte en Ligne",
+    "seo_description": "Générez en ligne des effets de texte barré et de soulignement ondulé. Copiez et collez instantanément du texte Unicode barré.",
+    "seo_keywords": "générateur de texte barré, barrer texte, texte barré, barré copier coller",
+    "page_title": "Générateur de Texte Barré",
+    "page_subtitle": "Barrer du Texte en Ligne",
+    "badge_text": "Outil de Texte Barré",
+    "tldr": "Un générateur de texte barré convertit du texte brut en un résultat Unicode barré que vous pouvez copier et coller immédiatement. Il est optimisé pour les modifications rapides, les chats et l'accentuation sociale.",
+
+    "keyword_label": "générateur de texte barré",
+    "best_for": "Modifications rapides sur les réseaux sociaux, notes de tâches et accentuation conversationnelle",
+    "key_benefit": "Interface minimale pour une production rapide de texte barré",
+    "default_input": "Révision : Ceci n'est plus valide.",
+    "use_cases": [
+      "Modifications et révisions rapides de texte",
+      "Formatage pour l'humour et le sarcasme",
+      "Style visuel d'achèvement pour les listes de tâches",
+      "Accentuation dans les chats sans markdown"
+    ],
+    "boundaries": [
+      "Ceci est basé sur l'Unicode, et non sur un formatage HTML sémantique.",
+      "Certains éditeurs peuvent supprimer les marques de combinaison lors du coller.",
+      "Trop de marques de combinaison réduisent la lisibilité du texte.",
+      "Pour les textes critiques en matière d'accessibilité, préférez les alternatives simples."
+    ],
+    "related_tools": {
+      "zalgo": {
+        "label": "Générateur de Texte Zalgo",
+        "description": "Augmentez l'intensité visuelle avec des marques de combinaison de style glitch."
+      },
+      "fancy_text": {
+        "label": "Générateur de Texte Stylé",
+        "description": "Associez le texte barré avec des styles Unicode manuscrits, serif et gras."
+      },
+      "discord_font": {
+        "label": "Générateur de Police pour Discord",
+        "description": "Créez du texte d'accentuation prêt pour le chat pour les mises à jour de communauté."
+      },
+      "instagram_bio": {
+        "label": "Générateur de Polices pour Instagram",
+        "description": "Utilisez des polices de profil lisibles avec de légers accents barrés."
+      }
+    },
+    "faq": {
+      "title": "Foire Aux Questions",
+      "items": [
+        {
+          "q": "Qu'est-ce qu'un générateur de texte barré ?",
+          "a": "Un générateur de texte barré ajoute des marques de combinaison Unicode pour créer du texte barré que vous pouvez copier et coller."
+        },
+        {
+          "q": "Puis-je utiliser cela dans des publications sur les réseaux sociaux ?",
+          "a": "Oui, de nombreuses plateformes sociales prennent en charge les résultats de combinaison de type barré."
+        },
+        {
+          "q": "Quels styles sont disponibles ?",
+          "a": "Cet outil propose le barré classique et des variantes de soulignement ondulé pour une accentuation légère."
+        },
+        {
+          "q": "Est-ce la même chose que la balise HTML <s> ?",
+          "a": "Non. Il s'agit d'une transformation de texte Unicode, pas d'un style HTML."
+        },
+        {
+          "q": "Toutes les applications afficheront-elles correctement le texte barré ?",
+          "a": "Pas toujours. Le rendu peut varier selon l'application, l'OS et le moteur de police."
+        },
+        {
+          "q": "Puis-je combiner le texte barré avec d'autres styles ?",
+          "a": "Oui, dans l'outil tout-en-un. Cette page dédiée simplifie le flux de travail pour des effets de texte barré rapides."
+        },
+        {
+          "q": "L'outil est-il gratuit ?",
+          "a": "Oui. Il est gratuit avec une utilisation illimitée du copier-coller."
+        },
+        {
+          "q": "Stockez-vous mon texte barré ?",
+          "a": "Aucun stockage côté serveur n'est requis pour le processus de conversion."
+        }
+      ]
+    },
+    "feature_list": [
+      "Effet barré classique",
+      "Effet de soulignement ondulé",
+      "Flux de travail copier-coller",
+      "Conversion rapide par navigateur"
+    ],
+    "feature_list_schemas": [
+      "Conversion de texte barré",
+      "Conversion de texte avec soulignement ondulé",
+      "Résultat en copier-coller",
+      "Flux de travail rapide et dédié"
+    ]
+  },
+  "ZalgoTextGenerator": {
+    "seo_title": "Générateur de Texte Zalgo (2026) - Texte Unicode Glitch et Corrompu",
+    "seo_description": "Créez du texte zalgo glitchy, du texte éclair et des distorsions de marques de combinaison pour les mèmes et le contenu social dramatique.",
+    "seo_keywords": "générateur de texte glitch, texte corrompu, copier-coller zalgo, texte zalgo, générateur de texte corrompu, unicode zalgo",
+    "page_title": "Générateur de Texte Zalgo",
+    "page_subtitle": "Créez du texte Unicode glitchy avec des marques de combinaison.",
+    "badge_text": "Outil de Texte Glitch",
+    "tldr": "Un générateur de texte zalgo crée une sortie Unicode de type glitch en empilant des marques de combinaison autour des caractères. Utilisez-le pour des effets visuels dramatiques, prévisualisez des alternatives et copiez instantanément.",
+
+    "keyword_label": "texte zalgo",
+    "best_for": "Créateurs de mèmes, publications sur le thème de l'horreur et communautés de joueurs",
+    "key_benefit": "Génération rapide de texte glitch avec des alternatives lisibles plus sûres",
+    "default_input": "SYSTEM ERROR // REALITY COLLAPSE",
+    "use_cases": [
+      "Légendes sociales d'horreur et effrayantes",
+      "Mèmes et texte de réaction",
+      "Stylisation des annonces de jeux et de flux",
+      "Typographie visuelle expérimentale"
+    ],
+    "boundaries": [
+      "Les marques de combinaison denses peuvent nuire à la lisibilité et à l'accessibilité.",
+      "Certaines applications normalisent ou suppriment les séquences de combinaison extrêmes.",
+      "Cet outil est décoratif et ne convient pas à une communication officielle.",
+      "Prévisualisez avant de publier pour éviter les comportements de mise en page cassés."
+    ],
+    "related_tools": {
+      "strikethrough": {
+        "label": "Générateur de Texte Barré",
+        "description": "Utilisez une décoration à faible bruit lorsque la lisibilité compte encore."
+      },
+      "fancy_text": {
+        "label": "Générateur de Texte Fantaisie",
+        "description": "Passez de la sortie glitch à des styles de police Unicode plus propres."
+      },
+      "discord_font": {
+        "label": "Générateur de Polices pour Discord",
+        "description": "Créez du texte stylisé sûr pour le chat avec une meilleure compatibilité."
+      },
+      "vaporwave": {
+        "label": "Générateur de Texte Vaporwave",
+        "description": "Essayez le texte esthétique pleine largeur pour un style rétro."
+      }
+    },
+    "faq": {
+      "title": "Foire Aux Questions",
+      "items": [
+        {
+          "q": "Qu'est-ce que le texte zalgo ?",
+          "a": "Le texte zalgo utilise de nombreuses marques de combinaison Unicode empilées autour des lettres pour créer un style visuel chaotique et glitchy."
+        },
+        {
+          "q": "Le texte zalgo est-il lisible ?",
+          "a": "À faible intensité, il peut être lisible, mais une intensité élevée réduit souvent considérablement la lisibilité."
+        },
+        {
+          "q": "Où le texte zalgo est-il couramment utilisé ?",
+          "a": "Il est souvent utilisé dans les mèmes, les publications sur le thème de l'horreur, les chats de jeux et les titres stylisés."
+        },
+        {
+          "q": "Le texte zalgo peut-il casser les mises en page ?",
+          "a": "Oui, les marques de combinaison denses peuvent avoir un impact sur la hauteur de ligne et le rendu du texte dans certaines applications."
+        },
+        {
+          "q": "Cet outil inclut-il des alternatives plus sûres ?",
+          "a": "Oui. Vous pouvez utiliser des effets plus légers comme l'éclair ou les marques de queue pour une meilleure lisibilité."
+        },
+        {
+          "q": "Puis-je copier et coller la sortie zalgo directement ?",
+          "a": "Oui. La sortie est du texte Unicode brut, vous pouvez donc la copier et la coller là où elle est prise en charge."
+        },
+        {
+          "q": "Cet outil est-il gratuit ?",
+          "a": "Oui. Il est gratuit avec une utilisation illimitée du copier-coller."
+        },
+        {
+          "q": "Toutes les plateformes supportent-elles le zalgo lourd ?",
+          "a": "Le support varie. Certaines applications peuvent rogner ou normaliser les séquences de combinaison complexes."
+        }
+      ]
+    },
+    "feature_list": [
+      "Générateur de marques de combinaison zalgo",
+      "Effets d'éclair et de marque de queue",
+      "Sortie de copie en un clic",
+      "Flux de travail de conversion via navigateur"
+    ],
+    "feature_list_schemas": [
+      "Marques de combinaison glitchy",
+      "Plusieurs préréglages de distorsion",
+      "Sortie copier-coller",
+      "Cas d'utilisation pour les mèmes et les réseaux sociaux"
+    ]
+  },
+  "VaporwaveTextGenerator": {
+    "seo_title": "Générateur de Texte Vaporwave (2026) - Texte Esthétique Pleine Largeur",
+    "seo_description": "Convertissez du texte brut en style Unicode pleine largeur Vaporwave pour des biographies esthétiques, des légendes et du contenu social créatif.",
+    "seo_keywords": "texte vaporwave, générateur de texte vaporwave, texte esthétique, générateur de texte pleine largeur",
+    "page_title": "Générateur de Texte Vaporwave",
+    "page_subtitle": "Texte Esthétique Pleine Largeur",
+    "badge_text": "Outil Pleine Largeur Esthétique",
+    "tldr": "Un générateur de texte vaporwave convertit le texte ASCII standard en une sortie Unicode pleine largeur avec un espacement rétro. Il est conçu pour les biographies esthétiques, les légendes et les flux de travail rapides de copier-coller.",
+
+    "keyword_label": "générateur de texte vaporwave",
+    "best_for": "Créateurs esthétiques, profils de style rétro et légendes courtes",
+    "key_benefit": "Style pleine largeur instantané sans applications externes",
+    "default_input": "aesthetic internet archive",
+    "use_cases": [
+      "Biographies de profil esthétiques",
+      "Stylisation de légendes rétro",
+      "Décoration de texte de mème",
+      "Formatage de titres créatifs"
+    ],
+    "boundaries": [
+      "Tous les signes de ponctuation et symboles n'ont pas de versions pleine largeur.",
+      "Certaines plateformes normalisent l'espacement dans certains contextes.",
+      "Une utilisation excessive peut réduire la lisibilité pour les longs paragraphes.",
+      "Utilisez l'alternative en texte brut pour les communications formelles."
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "Générateur de Texte Fantaisie",
+        "description": "Comparez le style pleine largeur avec des familles de polices Unicode plus larges."
+      },
+      "instagram_bio": {
+        "label": "Générateur de Polices pour Bio Instagram",
+        "description": "Appliquez des styles esthétiques lisibles pour les profils sociaux."
+      },
+      "bubble_letter": {
+        "label": "Générateur de Texte à Bulles",
+        "description": "Utilisez des styles fermés lorsque vous avez besoin de limites de glyphes plus marquées."
+      },
+      "zalgo": {
+        "label": "Générateur de Texte Zalgo",
+        "description": "Essayez des styles de glitch à haute distorsion pour un contraste visuel dramatique."
+      }
+    },
+    "faq": {
+      "title": "Foire Aux Questions",
+      "items": [
+        {
+          "q": "Qu'est-ce que le texte vaporwave ?",
+          "a": "Le texte vaporwave est généralement du texte Unicode pleine largeur qui donne une esthétique numérique rétro et un espacement plus large."
+        },
+        {
+          "q": "¿C'est la même chose que de changer les fichiers de police ?",
+          "a": "Non. Le résultat est une substitution de caractères Unicode, pas une police téléchargeable."
+        },
+        {
+          "q": "Puis-je utiliser du texte vaporwave dans les biographies de réseaux sociaux ?",
+          "a": "Oui, de nombreuses plateformes sociales prennent en charge la sortie Unicode pleine largeur pour les biographies et les légendes."
+        },
+        {
+          "q": "Pourquoi les espaces semblent-ils plus larges ?",
+          "a": "Le style pleine largeur remplace l'espace normal par un espace pleine largeur pour maintenir la cohérence du rythme visuel."
+        },
+        {
+          "q": "Puis-je combiner vaporwave avec d'autres effets ?",
+          "a": "Oui. Vous pouvez appliquer des décorations légères ou des wrappers en fonction de vos objectifs de lisibilité."
+        },
+        {
+          "q": "Ce générateur de texte vaporwave est-il gratuit ?",
+          "a": "Oui, il est gratuit et basé sur un navigateur."
+        },
+        {
+          "q": "Tous les symboles seront-ils convertis en pleine largeur ?",
+          "a": "Seule la plage ASCII standard a des équivalents directs en pleine largeur. Les symboles non pris en charge restent tels quels."
+        },
+        {
+          "q": "Puis-je copier et coller la sortie directement ?",
+          "a": "Oui, le texte généré est prêt à être copié et collé."
+        }
+      ]
+    },
+    "feature_list": [
+      "Conversion pleine largeur",
+      "Styles de texte esthétiques",
+      "Sortie copier-coller",
+      "Flux de travail via navigateur"
+    ],
+    "feature_list_schemas": [
+      "Sortie vaporwave pleine largeur",
+      "Copie simple en un clic",
+      "Stylisation esthétique lisible",
+      "Cas d'utilisation sur les réseaux sociaux"
+    ]
+  },
+  "FancyTextGenerator": {
+    "seo_title": "Générateur de polices stylées (2026) - Copier et coller des polices Unicode",
+    "seo_description": "Générateur de polices stylées gratuit pour les styles de texte Unicode comme l'écriture manuscrite, le gothique, le gras et plus. Copiez et collez instantanément.",
+    "seo_keywords": "générateur de polices stylées, jolies polices de texte, convertisseur de texte unicode, copier et coller des polices",
+    "page_title": "Générateur de polices stylées",
+    "page_subtitle": "Copier et coller des polices Unicode",
+    "free_tool_badge": "Outil de polices",
+    "tldr": "Un générateur de polices stylées convertit le texte brut en styles Unicode décoratifs que vous pouvez copier et coller n'importe où. Utilisez-le pour les bios, les légendes, les noms d'utilisateur et une différenciation visuelle rapide sans installer de polices.",
+
+    "keyword_label": "générateur de polices stylées",
+    "best_for": "Créateurs, gestionnaires de réseaux sociaux et image de marque personnelle",
+    "key_benefit": "Générez et copiez plusieurs variantes de texte élégantes en quelques secondes",
+    "default_input": "Écrivez quelque chose d'élégant",
+    "use_cases": [
+      "Style de nom d'affichage sur Instagram et TikTok",
+      "Légendes créatives et biographies de profil",
+      "Formatage de pseudo sur serveur Discord",
+      "Variations de titres pour l'image de marque personnelle"
+    ],
+    "boundaries": [
+      "Cet outil génère des caractères Unicode, pas des fichiers de polices installables.",
+      "L'affichage peut varier selon le système d'exploitation et l'application.",
+      "Certains symboles ne peuvent pas être transformés car il n'existe pas d'équivalent Unicode.",
+      "Testez toujours le résultat sur votre plateforme cible avant de publier."
+    ],
+    "related_tools": {
+      "instagram_bio": {
+        "label": "Générateur de polices pour bio Instagram",
+        "description": "Styles de polices stylées axés sur les profils sociaux avec sortie copier-coller."
+      },
+      "discord_font": {
+        "label": "Générateur de polices pour Discord",
+        "description": "Styles Unicode lisibles pour les pseudos et messages Discord."
+      },
+      "bubble_text": {
+        "label": "Générateur de texte bulle",
+        "description": "Styles alphanumériques entourés comme des caractères cerclés et carrés."
+      },
+      "vaporwave": {
+        "label": "Générateur de texte Vaporwave",
+        "description": "Texte esthétique pleine largeur pour les bios et légendes de style rétro."
+      }
+    },
+    "faq": {
+      "title": "Foire aux questions",
+      "items": [
+        {
+          "q": "Qu'est-ce qu'un générateur de polices stylées ?",
+          "a": "Un générateur de polices stylées transforme des lettres simples en styles Unicode décoratifs que vous pouvez copier et coller dans des profils sociaux, des publications et des chats."
+        },
+        {
+          "q": "Les polices stylées sont-elles les mêmes qu'un vrai fichier de police ?",
+          "a": "Non. La plupart de ces outils génèrent des caractères Unicode, pas des fichiers de polices installables. Cela signifie que vous pouvez les utiliser directement dans de nombreuses applications."
+        },
+        {
+          "q": "Puis-je combiner plusieurs effets de texte ?",
+          "a": "Oui. Vous pouvez superposer un style de base avec des décorations et des transformations facultatives pour un résultat personnalisé."
+        },
+        {
+          "q": "Cela fonctionne-t-il sur Instagram et TikTok ?",
+          "a": "Généralement oui. La compatibilité dépend de chaque plateforme et du support des polices de l'appareil."
+        },
+        {
+          "q": "Ce générateur de polices stylées est-il gratuit ?",
+          "a": "Oui, l'outil est gratuit, basé sur un navigateur et avec une utilisation illimitée de copier-coller."
+        },
+        {
+          "q": "Stockez-vous ce que je tape ?",
+          "a": "Aucun stockage côté serveur n'est requis pour le flux de conversion dans cet outil."
+        },
+        {
+          "q": "Pourquoi certains symboles ne changent-ils pas ?",
+          "a": "Unicode n'inclut pas d'équivalents stylisés pour chaque symbole, donc les caractères non pris en charge restent inchangés."
+        },
+        {
+          "q": "Puis-je utiliser cela pour des noms d'utilisateur ?",
+          "a": "Oui, mais chaque plateforme a ses propres règles de caractères, alors testez toujours avant de finaliser un nom d'utilisateur."
+        }
+      ]
+    },
+    "feature_list": [
+      "Plusieurs styles de polices Unicode",
+      "Copie en un clic",
+      "Composition de styles",
+      "Sortie prête pour les réseaux sociaux"
+    ],
+    "feature_list_schemas": [
+      "Styles cursifs et gras",
+      "Styles gothiques et double ligne",
+      "Sortie copier-coller",
+      "Effets combinables"
+    ]
+  },
+  "DiscordFontGenerator": {
+    "seo_title": "Générateur de polices pour Discord (2026) - Copier et coller du texte élégant pour Discord",
+    "seo_description": "Créez du texte élégant pour les pseudos et messages Discord avec des effets de polices Unicode. Copier et coller instantanément.",
+    "seo_keywords": "générateur de polices discord, changeur de police discord, générateur de texte discord, copier-coller des polices",
+    "page_title": "Générateur de polices pour Discord",
+    "page_subtitle": "Copier et coller du texte élégant pour Discord",
+    "free_tool_badge": "Outil de scénario Discord",
+    "tldr": "Un générateur de polices pour Discord convertit le texte brut en styles Unicode pour les pseudos, les textes de profil et les messages. Choisissez d'abord des options lisibles, puis copiez et collez directement dans Discord.",
+
+    "keyword_label": "générateur de polices pour discord",
+    "best_for": "Communautés Discord, tags de joueurs et personnalisation de profils de serveur",
+    "key_benefit": "Préréglages de style axés sur Discord avec flux de travail de copie instantanée",
+    "default_input": "Raid ce soir 20:00 UTC",
+    "use_cases": [
+      "Style de pseudo Discord",
+      "Décoration de bio de profil",
+      "Formatage d'annonces de serveur",
+      "Personnalisation de l'identité de jeu"
+    ],
+    "boundaries": [
+      "Ne peut pas contourner la modération du serveur ou les politiques de caractères bloqués.",
+      "Certains salons ou bots peuvent normaliser les caractères spéciaux.",
+      "Le texte excessivement complexe peut être difficile à lire dans les chats rapides.",
+      "Toujours prévisualiser dans Discord avant l'utilisation finale."
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "Générateur de texte stylé",
+        "description": "Explorez des styles Unicode plus larges pour les noms d'utilisateur et les messages."
+      },
+      "strikethrough": {
+        "label": "Générateur de texte barré",
+        "description": "Ajoutez un accent barré propre pour les modifications rapides de chat."
+      },
+      "zalgo": {
+        "label": "Générateur de texte Zalgo",
+        "description": "Créez du texte de style glitch pour les contextes de mèmes et de jeux."
+      },
+      "instagram_bio": {
+        "label": "Générateur de polices pour bio Instagram",
+        "description": "Réutilisez des styles prêts pour les profils sur toutes les plateformes sociales."
+      }
+    },
+    "faq": {
+      "title": "Questions fréquemment posées",
+      "items": [
+        {
+          "q": "Qu'est-ce qu'un générateur de polices pour Discord ?",
+          "a": "Un générateur de polices pour Discord convertit le texte brut en styles Unicode que vous pouvez coller dans les pseudos, les messages de salon et les sections de profil."
+        },
+        {
+          "q": "Ai-je besoin de Discord Nitro pour cela ?",
+          "a": "Non. Le stylisme de texte Unicode fonctionne indépendamment des fonctionnalités Nitro."
+        },
+        {
+          "q": "Puis-je utiliser du texte stylisé dans mon pseudo Discord ?",
+          "a": "Oui, si le serveur et les règles de Discord autorisent ces caractères."
+        },
+        {
+          "q": "Tous les styles fantaisie s'afficheront-ils sur Discord mobile ?",
+          "a": "La plupart oui, mais l'affichage peut varier selon l'appareil et le support des polices."
+        },
+        {
+          "q": "Cela peut-il contourner les règles de modération ?",
+          "a": "Non. Cet outil ne contourne pas la modération, les filtres ou les politiques de plateforme."
+        },
+        {
+          "q": "Quels styles sont les meilleurs pour la lisibilité ?",
+          "a": "Les styles modérés comme sans bold et script sont généralement plus faciles à lire que les effets de distorsion lourde."
+        },
+        {
+          "q": "Ce générateur de polices Discord est-il gratuit ?",
+          "a": "Oui, gratuit avec une utilisation illimitée de copier-coller."
+        },
+        {
+          "q": "L'outil stocke-t-il mon texte de chat ?",
+          "a": "Aucun stockage côté serveur n'est requis pour la conversion."
+        }
+      ]
+    },
+    "feature_list": [
+      "Styles Unicode compatibles Discord",
+      "Scénarios pour pseudos et messages",
+      "Copie en un clic",
+      "Effets combinables"
+    ],
+    "feature_list_schemas": [
+      "Styles de texte prêts pour les pseudos",
+      "Variantes de formatage de messages",
+      "Sortie copier-coller",
+      "Flux de travail rapide sur navigateur"
+    ]
+  },
+  "UpsideDownTextGenerator": {
+    "seo_title": "Générateur de texte à l'envers (2026) - Outil de conversion miroir",
+    "seo_description": "Convertissez instantanément du texte en styles à l'envers, retournés et miroir. Parfait pour les réseaux sociaux, les messages amusants et la décoration de profil.",
+    "seo_keywords": "générateur de texte à l'envers, texte retourné, texte miroir, convertisseur de texte 180 degrés, lettres à l'envers copier coller",
+    "page_title": "Générateur de Texte à l'Envers",
+    "page_subtitle": "Convertisseur de Texte Retourné et Miroir",
+    "free_tool_badge": "Outil de Texte Unicode",
+    "tldr_title": "Réponse rapide (TL;DR)",
+    "tldr": "Un générateur de texte à l'envers utilise des caractères Unicode spéciaux pour simuler un texte qui a été tourné de 180 degrés ou inversé horizontalement. C'est une technique purement visuelle pour décorer les noms d'utilisateur et les publications sur les réseaux sociaux sans avoir besoin de polices externes.",
+
+    "last_updated_label": "Dernière mise à jour",
+    "keyword_label": "générateur de texte à l'envers",
+    "best_for": "Noms de profil, messages marquants et effets visuels créatifs",
+    "key_benefit": "Transformation instantanée avec options de retournement et miroir pour une personnalisation maximale",
+    "default_input": "Bonjour le monde Hello World",
+    "use_cases": [
+      "Décoration de noms de profil uniques",
+      "Création de publications accrocheuses sur les réseaux sociaux",
+      "Messages amusants et énigmes visuelles",
+      "Mise en évidence visuelle dans les commentaires et les chats"
+    ],
+    "boundaries": [
+      "Le texte à l'envers utilise des substituts Unicode et peut ne pas être parfaitement lisible pour tout le monde.",
+      "Certains lecteurs d'écran peuvent avoir des difficultés à traiter le texte transformé.",
+      "La disponibilité des caractères peut varier en fonction de la police système du destinataire.",
+      "À utiliser principalement à des fins décoratives et non pour un contenu critique."
+    ],
+    "limits_title": "Limites et frontières",
+    "feature_list": [
+      "Rotation de texte à 180 degrés",
+      "Effets de texte miroir et inversé",
+      "Enveloppes d'emoji basées sur Unicode",
+      "Sortie prête pour les réseaux sociaux"
+    ],
+    "feature_list_schemas": [
+      "Transformation de texte à l'envers",
+      "Effets de texte miroir",
+      "Décoration d'emoji Unicode",
+      "Utilitaire de copier-coller pour les réseaux sociaux"
+    ],
+    "categories": {
+      "enclosed": "Alphanumériques encerclés",
+      "math": "Styles mathématiques",
+      "marks": "Marques de combinaison",
+      "transform": "Transformation",
+      "width": "Largeur"
+    },
+    "faq": {
+      "title": "Questions fréquemment posées",
+      "items": [
+        {
+          "q": "Qu'est-ce qu'un générateur de texte à l'envers ?",
+          "a": "C'est un outil qui associe des caractères standards à leurs équivalents Unicode qui semblent être tournés ou inversés."
+        },
+        {
+          "q": "Comment fonctionne le texte à l'envers ?",
+          "a": "Il utilise une table de correspondance qui remplace 'a' par 'ɐ', 'b' par 'q', etc., pour créer l'illusion d'une rotation."
+        },
+        {
+          "q": "Cela fonctionnera-t-il sur Instagram et Facebook ?",
+          "a": "Oui, comme il s'agit de caractères Unicode standards, ils fonctionnent sur la plupart des plateformes sociales modernes."
+        },
+        {
+          "q": "Quelle est la différence entre à l'envers et miroir ?",
+          "a": "À l'envers fait pivoter le texte de 180 degrés, tandis que miroir (mirror) l'inverse horizontalement comme s'il était vu dans un miroir."
+        }
+      ]
+    },
+    "effects": {
+      "plain": { "name": "Normal", "desc": "Texte original sans conversion" },
+      "negative-circle": {
+        "name": "Cercle Plein",
+        "desc": "Nombres inversés et lettres encerclées"
+      },
+      "hollow-circle": { "name": "Cercle Creux", "desc": "Style alfanumérique circulaire" },
+      "hollow-square": { "name": "Carré Creux", "desc": "Style encerclé dans des cadres" },
+      "solid-square": { "name": "Carré Plein", "desc": "Style inversé encerclé dans des cadres" },
+      "serif-bold": { "name": "Serif Gras", "desc": "Caractères avec serif mathématiques en gras" },
+      "sans-bold": { "name": "Sans Gras", "desc": "Caractères sans serif mathématiques en gras" },
+      "italic": { "name": "Italique Mathématique", "desc": "Caractères en italique mathématique" },
+      "bold-italic": {
+        "name": "Gras Italique",
+        "desc": "Caractères en gras et italique mathématiques"
+      },
+      "script": {
+        "name": "Script",
+        "desc": "Caractères calligraphiques ressemblant à une écriture manuscrite"
+      },
+      "bold-script": { "name": "Script Gras", "desc": "Caractères calligraphiques en gras" },
+      "fraktur": { "name": "Fraktur", "desc": "Caractères de style gothique Fraktur" },
+      "bold-fraktur": { "name": "Fraktur Gras", "desc": "Caractères Fraktur en gras" },
+      "double-struck": {
+        "name": "Double Frappe",
+        "desc": "Style de caractères en gras de tableau noir"
+      },
+      "strikethrough": { "name": "Barré", "desc": "Style barré utilisant des superpositions" },
+      "wavy-underline": { "name": "Souligné Ondulé", "desc": "Style de souligné décoratif ondulé" },
+      "tail-mark": {
+        "name": "Marque de Queue",
+        "desc": "Ajoute une petite marque de queue à chaque caractère"
+      },
+      "lightning": {
+        "name": "Éclair",
+        "desc": "Insère des séparateurs d'éclair entre les caractères"
+      },
+      "zalgo": { "name": "Zalgo", "desc": "Style glitch art implémenté avec des marques empilées" },
+      "upside-down": { "name": "À l'envers", "desc": "Retourne les lettres et inverse l'ordre" },
+      "mirror": { "name": "Miroir", "desc": "Inverse les lettres et inverse l'ordre" },
+      "fullwidth": { "name": "Pleine Largeur", "desc": "Convertit ASCII en formes pleine largeur" }
+    },
+    "ui": {
+      "playground_title": "Laboratoire d'effets de texte",
+      "input_label": "Texte d'entrée",
+      "input_placeholder": "Tapez du texte, des mots, des lettres ou des symboles...",
+      "base_style_title": "1) Style de base",
+      "plain": "Normal",
+      "decorations_title": "2) Décorations (Sélection multiple)",
+      "transform_emoji_title": "3) Transformer + Emoji",
+      "none": "Aucun",
+      "emoji_wrapper": "Ajouter un wrapper emoji",
+      "custom_output_title": "Sortie combinée personnalisée",
+      "copy": "Copier",
+      "copied": "Copié !",
+      "ready_to_copy": "Prêt à copier",
+      "copy_failed": "Échec de la copie",
+      "preview_title": "Aperçu de tous les effets en un clic",
+      "preview_description": "Cliquez sur n'importe quelle carte ci-dessous pour copier instantanément ce résultat transformé.",
+      "taxonomy_title": "Taxonomie des effets implémentée",
+      "empty_input": "(Entrée vide)"
+    }
+  },
+  "BubbleTextGenerator": {
+    "seo_title": "Générateur de Texte à Bulles (2026) - Convertisseur d'Alphanumériques Encerclés",
+    "seo_description": "Générez des lettres à bulles et des styles de texte Unicode encerclés, y compris des variantes cerclées et carrées. Copiez et collez instantanément.",
+    "seo_keywords": "générateur de texte à bulles, alphanumériques encerclés, générateur de texte cerclé, lettres à bulles copier coller",
+    "feature_list": [
+      "Styles Unicode cerclés et carrés",
+      "Copie en un clic",
+      "Transformation rapide dans le navigateur",
+      "Sortie texte prête pour les réseaux sociaux"
+    ],
+    "feature_list_schemas": [
+      "Styles de cercles creux et pleins",
+      "Styles de carrés creux et pleins",
+      "Sortie copier-coller",
+      "Flux de travail axé sur les alphanumériques encerclés"
+    ],
+    "page_title": "Générateur de Texte à Bulles",
+    "page_subtitle": "Convertisseur d'Alphanumériques Encerclés",
+    "free_tool_badge": "Outil d'Alphanumériques Encerclés",
+    "tldr": "Un générateur de texte à bulles convertit le texte brut en styles Unicode alphanumériques encerclés tels que des cercles et des carrés. Tapez une fois, comparez toutes les variantes de bulles et copiez votre sortie préférée instantanément.",
+
+    "keyword_label": "générateur de texte à bulles",
+    "best_for": "Noms de profil, légendes ludiques et étiquettes décoratives légères",
+    "key_benefit": "Styles encerclés ciblés avec un flux de travail rapide de comparaison et de copie",
+    "use_cases": [
+      "Pseudonymes et décoration de noms d'affichage",
+      "Mise en évidence des titres de publications avec du texte encerclé",
+      "Signatures de commentaires stylisées",
+      "Étiquettes visuelles simples dans les groupes de discussion"
+    ],
+    "boundaries": [
+      "La couverture Unicode encerclée est limitée et non uniforme pour chaque caractère.",
+      "Certains clients peuvent afficher des carrés de remplacement pour les symboles non pris en charge.",
+      "Cet outil ne crée pas de polices vectorielles ou d'images personnalisées.",
+      "Utilisez le texte brut comme solution de secours pour une lisibilité critique."
+    ],
+    "related_tools": {
+      "fancy_text": {
+        "label": "Générateur de Texte Fantaisie",
+        "description": "Passez des styles encerclés aux familles script, fraktur et gras."
+      },
+      "instagram_bio": {
+        "label": "Générateur de Polices pour Bio Instagram",
+        "description": "Stylisation de texte social axée sur le profil avec un flux de copie rapide."
+      },
+      "discord_font": {
+        "label": "Générateur de Polices Discord",
+        "description": "Styles de texte Unicode conviviaux pour les pseudonymes et les chats."
+      },
+      "vaporwave_text": {
+        "label": "Générateur de Texte Vaporwave",
+        "description": "Sortie esthétique pleine largeur pour une identité visuelle rétro."
+      }
+    },
+    "faq": {
+      "title": "Foire Aux Questions",
+      "items": [
+        {
+          "q": "Qu'est-ce qu'un générateur de texte à bulles ?",
+          "a": "Un générateur de texte à bulles transforme les lettres et les chiffres en symboles Unicode encerclés tels que des cercles et des carrés pour du texte décoratif."
+        },
+        {
+          "q": "Qu'est-ce que les alphanumériques encerclés ?",
+          "a": "Les alphanumériques encerclés sont un bloc Unicode contenant des lettres et des chiffres affichés à l'intérieur de cercles ou de carrés."
+        },
+        {
+          "q": "Puis-je utiliser du texte à bulles sur les réseaux sociaux ?",
+          "a": "Oui, de nombreuses plateformes prennent en charge les caractères Unicode encerclés dans les bios, les commentaires et les publications."
+        },
+        {
+          "q": "Pourquoi les styles de bulles en minuscules sont-ils incohérents ?",
+          "a": "Les plages encerclées Unicode ne sont pas parfaitement symétriques pour toutes les lettres et casses."
+        },
+        {
+          "q": "Puis-je aussi convertir des chiffres en style bulle ?",
+          "a": "Oui. Cet outil prend en charge les styles de chiffres cerclés et encerclés lorsqu'il existe des équivalents Unicode."
+        },
+        {
+          "q": "Cet outil de texte à bulles est-il gratuit ?",
+          "a": "Oui, il est totalement gratuit avec une sortie copier-coller."
+        },
+        {
+          "q": "Le texte à bulles affecte-t-il la recherche ?",
+          "a": "L'Unicode stylisé peut réduire la lisibilité et la correspondance de recherche dans certains contextes, utilisez-le donc principalement pour la décoration."
+        }
+      ]
+    }
+  },
   "ChromakopiaNamGenerator": {
     "seo_title": "Générateur de noms Chromakopia - Créez votre persona St. Chroma | Outil gratuit",
     "seo_description": "Générez des noms et personas uniques inspirés de Chromakopia avec notre outil en ligne gratuit. Créez des alter egos colorés inspirés de l’album Chromakopia de Tyler, the Creator. Parfait pour les projets créatifs et l’expression de soi.",
