@@ -270,7 +270,9 @@ export default function UnicodeToolTemplate({
         </header>
 
         <section className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl md:p-8">
-          <h2 className="mb-4 text-2xl font-bold text-white md:text-3xl">{t("core_facts_title")}</h2>
+          <h2 className="mb-4 text-2xl font-bold text-white md:text-3xl">
+            {t("core_facts_title")}
+          </h2>
           <div className="grid gap-3 md:grid-cols-2">
             <p className="rounded-2xl border border-blue-500/25 bg-blue-500/10 p-4 text-slate-200">
               <strong>{t("primary_intent_label")}</strong> {keywordLabel}
@@ -365,7 +367,7 @@ export default function UnicodeToolTemplate({
                       const selected = baseStyleId === id
                       return (
                         <button
-                           key={id}
+                          key={id}
                           type="button"
                           onClick={() => setBaseStyleId(id)}
                           className={`rounded-xl border px-3 py-1.5 text-xs transition-all duration-300 ${
