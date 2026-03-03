@@ -2421,6 +2421,13 @@
       "mirror": { "name": "镜像", "desc": "镜像字母并反转顺序" },
       "fullwidth": { "name": "全角", "desc": "将 ASCII 转换为全角形式" }
     },
+    "categories": {
+      "enclosed": "封闭字母数字",
+      "math": "数学样式",
+      "marks": "组合标记",
+      "transform": "变换",
+      "width": "宽度"
+    },
     "ui": {
       "playground_title": "文字特效实验室",
       "input_label": "输入文字",
