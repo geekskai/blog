@@ -1702,7 +1702,6 @@
     "add_emoji_wrapper_label": "絵文字枠を追加",
     "custom_output_label": "カスタム結合出力",
     "primary_output_label": "メイン出力",
-    "copy_button_label": "コピー",
     "copied_button_label": "コピーしました！",
     "copy_failed_label": "コピーに失敗しました",
     "ready_to_copy_status": "コピー準備完了",
@@ -1724,6 +1723,9 @@
     "empty_input_placeholder": "(入力なし)",
     "default_best_for": "クリエイター、SNSユーザー、コミュニティマネージャー",
     "default_key_benefit": "コピペで使えるUnicodeテキストスタイルを1か所に集約",
+    "latin_only_badge": "ラテン文字限定",
+    "latin_compatibility_note": "注意：一部のスタイルはラテン文字限定です。非ラテン文字（例：中文、日本語、한국어）は変化しない場合があります。",
+    "latin_compatibility_warning": "現在の入力には非ラテン文字が含まれているため、選択した一部スタイルでは文字が見た目上変化しない場合があります：{effects}。",
     "categories": {
       "enclosed": "囲み英数字",
       "math": "数学スタイル",
@@ -1740,7 +1742,6 @@
     "page_subtitle": "おしゃれな文字をコピペ",
     "badge_text": "Instagram専用ツール",
     "tldr": "Instagramプロフィールフォントは、普通のテキストをプロフィールにコピー＆ペーストできるおしゃれなUnicode文字に変換します。このツールは、プロフィールやキャプションの更新に最適な、読みやすいソーシャルスタイルに特化しています。",
-
     "keyword_label": "instagram プロフィール 字体",
     "best_for": "クリエイター、インフルエンサー、ブランドプロフィールの最適化",
     "key_benefit": "Instagramですぐに使える読みやすいテキストスタイルを即座にコピー可能",
@@ -1833,7 +1834,6 @@
     "page_subtitle": "オンラインでテキストを打ち消す",
     "badge_text": "打ち消しテキストツール",
     "tldr": "打ち消し線テキストジェネレーターは、プレーンテキストを即座にコピー＆ペーストできる打ち消し線のUnicodeに出力変換します。素早い編集、チャット、SNSでの強調に最適化されています。",
-
     "keyword_label": "打ち消し線テキストジェネレーター",
     "best_for": "SNSでの素早い編集、タスクノート、会話での強調",
     "key_benefit": "打ち消しテキストを素早く出力するための最小限のインターフェース",
@@ -1926,7 +1926,6 @@
     "page_subtitle": "結合文字を使用してグリッチのある Unicode テキストを作成します。",
     "badge_text": "グリッチテキストツール",
     "tldr": "Zalgo テキストジェネレーターは、文字の周囲に結合文字を積み重ねることで、グリッチのような Unicode 出力を作成します。ドラマチックな視覚効果、プレビュー、即時コピーに使用してください。",
-
     "keyword_label": "Zalgo テキスト",
     "best_for": "ミームクリエイター、ホラー系の投稿、ゲームコミュニティ",
     "key_benefit": "安全で読みやすい代替案を備えた高速グリッチテキスト生成",
@@ -2019,7 +2018,6 @@
     "page_subtitle": "全角美学テキスト",
     "badge_text": "美学全角ツール",
     "tldr": "ヴェイパーウェイヴ テキストジェネレーターは、通常のASCIIテキストをレトロな間隔の全角Unicode出力に変換します。美学的なプロフィールやキャプション、素早いコピー＆ペーストのワークフロー用に設計されています。",
-
     "keyword_label": "ヴェイパーウェイヴ テキストジェネレーター",
     "best_for": "美学的なクリエイター、レトロスタイルのプロフィール、短文のキャプション",
     "key_benefit": "外部アプリなしで即座に全角スタイルを適用",
@@ -2112,7 +2110,6 @@
     "page_subtitle": "Unicodeフォントをコピー＆ペースト",
     "free_tool_badge": "おしゃれ文字ツール",
     "tldr": "おしゃれ文字作成器は、普通のテキストを装飾的なUnicodeスタイルに変換し、どこにでもコピー＆ペーストできるようにするツールです。プロフィール、キャプション、ユーザー名など、フォントをインストールせずに視覚的な変化を付けたい場合に最適です。",
-
     "keyword_label": "おしゃれ文字作成器",
     "best_for": "クリエイター、SNSマネージャー、パーソナルブランディング",
     "key_benefit": "数秒でおしゃれなテキストバリエーションを生成・コピー可能",
@@ -2205,7 +2202,6 @@
     "page_subtitle": "おしゃれな Discord テキストをコピー & ペースト",
     "free_tool_badge": "Discord シナリオツール",
     "tldr": "Discord フォントジェネレーターは、普通のテキストをニックネーム、プロフィール、メッセージ用の Unicode スタイルに変換します。読みやすいオプションを選択し、Discord に直接コピー & ペーストしてください。",
-
     "keyword_label": "discord フォントジェネレーター",
     "best_for": "Discord コミュニティ、ゲーマータグ、サーバープロフィールのカスタマイ즈",
     "key_benefit": "即座にコピーできる Discord 特化のスタイルプリセット",
@@ -2299,7 +2295,6 @@
     "free_tool_badge": "Unicodeテキストツール",
     "tldr_title": "クイック回答 (TL;DR)",
     "tldr": "逆さま文字ジェネレーターは、特殊な Unicode 文字を使用して、180度回転したり水平方向に反転したりしたように見えるテキストをシミュレートします。外部フォントを使わずに、ユーザー名や SNS の投稿を装飾するための純粋な視覚的テクニックです。",
-
     "last_updated_label": "最終更新日",
     "keyword_label": "逆さま文字ジェネレーター",
     "best_for": "プロフィール名、目立つメッセージ、独創的な視覚エフェクト",
@@ -2359,28 +2354,94 @@
       ]
     },
     "effects": {
-      "plain": { "name": "標準", "desc": "変換なしの元のテキスト" },
-      "negative-circle": { "name": "塗りつぶし円", "desc": "反転数字と囲み文字" },
-      "hollow-circle": { "name": "白抜き円", "desc": "円形の英数字スタイル" },
-      "hollow-square": { "name": "白抜き四角", "desc": "枠で囲まれたスタイル" },
-      "solid-square": { "name": "塗りつぶし四角", "desc": "反転した枠入りスタイル" },
-      "serif-bold": { "name": "セリフ太字", "desc": "数学用セリフ付き太字文字" },
-      "sans-bold": { "name": "サンセリフ太字", "desc": "数学用サンセリフ太字文字" },
-      "italic": { "name": "数式斜体", "desc": "数学用斜体文字" },
-      "bold-italic": { "name": "数式太字斜体", "desc": "数学用太字斜体文字" },
-      "script": { "name": "筆記体", "desc": "手書き風のカリグラフィー文字" },
-      "bold-script": { "name": "太字筆記体", "desc": "太字のカリグラフィー文字" },
-      "fraktur": { "name": "フラクトゥール", "desc": "ゴシック形式のフラクトゥール文字" },
-      "bold-fraktur": { "name": "太字フラクトゥール", "desc": "太字のフラクトゥール文字" },
-      "double-struck": { "name": "黒板太字", "desc": "太いブラッシュド・ブラックスタイル" },
-      "strikethrough": { "name": "取り消し線", "desc": "オーバーレイを使用した打ち消し線スタイル" },
-      "wavy-underline": { "name": "波状下線", "desc": "装飾的な波状の下線スタイル" },
-      "tail-mark": { "name": "テールマーク", "desc": "各文字に小さな尾のようなマークを追加" },
-      "lightning": { "name": "稲妻", "desc": "文字の間に稲妻の区切りを挿入" },
-      "zalgo": { "name": "ザルゴ", "desc": "積み重ねられた文字によるグリッチアートスタイル" },
-      "upside-down": { "name": "逆さま", "desc": "文字を反転させて順序を逆にします" },
-      "mirror": { "name": "鏡文字", "desc": "文字を鏡映しにして順序を逆にします" },
-      "fullwidth": { "name": "全角", "desc": "ASCII文字を全角形式に変換します" }
+      "plain": {
+        "name": "標準",
+        "desc": "変換なしの元のテキスト"
+      },
+      "negative-circle": {
+        "name": "塗りつぶし円",
+        "desc": "反転数字と囲み文字"
+      },
+      "hollow-circle": {
+        "name": "白抜き円",
+        "desc": "円形の英数字スタイル"
+      },
+      "hollow-square": {
+        "name": "白抜き四角",
+        "desc": "枠で囲まれたスタイル"
+      },
+      "solid-square": {
+        "name": "塗りつぶし四角",
+        "desc": "反転した枠入りスタイル"
+      },
+      "serif-bold": {
+        "name": "セリフ太字",
+        "desc": "数学用セリフ付き太字文字"
+      },
+      "sans-bold": {
+        "name": "サンセリフ太字",
+        "desc": "数学用サンセリフ太字文字"
+      },
+      "italic": {
+        "name": "数式斜体",
+        "desc": "数学用斜体文字"
+      },
+      "bold-italic": {
+        "name": "数式太字斜体",
+        "desc": "数学用太字斜体文字"
+      },
+      "script": {
+        "name": "筆記体",
+        "desc": "手書き風のカリグラフィー文字"
+      },
+      "bold-script": {
+        "name": "太字筆記体",
+        "desc": "太字のカリグラフィー文字"
+      },
+      "fraktur": {
+        "name": "フラクトゥール",
+        "desc": "ゴシック形式のフラクトゥール文字"
+      },
+      "bold-fraktur": {
+        "name": "太字フラクトゥール",
+        "desc": "太字のフラクトゥール文字"
+      },
+      "double-struck": {
+        "name": "黒板太字",
+        "desc": "太いブラッシュド・ブラックスタイル"
+      },
+      "strikethrough": {
+        "name": "取り消し線",
+        "desc": "オーバーレイを使用した打ち消し線スタイル"
+      },
+      "wavy-underline": {
+        "name": "波状下線",
+        "desc": "装飾的な波状の下線スタイル"
+      },
+      "tail-mark": {
+        "name": "テールマーク",
+        "desc": "各文字に小さな尾のようなマークを追加"
+      },
+      "lightning": {
+        "name": "稲妻",
+        "desc": "文字の間に稲妻の区切りを挿入"
+      },
+      "zalgo": {
+        "name": "ザルゴ",
+        "desc": "積み重ねられた文字によるグリッチアートスタイル"
+      },
+      "upside-down": {
+        "name": "逆さま",
+        "desc": "文字を反転させて順序を逆にします"
+      },
+      "mirror": {
+        "name": "鏡文字",
+        "desc": "文字を鏡映しにして順序を逆にします"
+      },
+      "fullwidth": {
+        "name": "全角",
+        "desc": "ASCII文字を全角形式に変換します"
+      }
     },
     "ui": {
       "playground_title": "テキストエフェクト・ラボ",
@@ -2423,7 +2484,6 @@
     "page_subtitle": "囲み英数字コンバーター",
     "free_tool_badge": "囲み英数字ツール",
     "tldr": "気泡文字生成器は、通常のテキストを丸や四角などの囲み英数字 Unicode スタイルに変換します。一度入力するだけで、すべての気泡バリエーションを比較し、お好みの出力を即座にコピーできます。",
-
     "keyword_label": "気泡文字生成器",
     "best_for": "プロフィール名、遊び心のあるキャプション、軽量な装飾ラベル",
     "key_benefit": "比較とコピーが速いワークフローを備えた、囲みスタイルに特化したツール",
@@ -7982,5 +8042,206 @@
     "boundary_description": "このツールは、利用が許可された音声のダウンロードを支援します。著作権、クリエイターの権利、プラットフォーム規約を必ず尊重してください。個人利用、ライセンス済み、またはその他正当に許可されたコンテンツのみに使用してください。",
     "content_freshness_updated": "更新済み",
     "content_freshness_last_updated": "最終更新"
+  },
+  "MorseCodeTranslator": {
+    "seo": {
+      "title": "Morse Code Translator & Generator",
+      "description": "Free online Morse Code Translator & Generator to encode text, decode Morse code, and play Morse audio instantly in your browser.",
+      "keywords": "morse code translator, morse code generator, morse code generator online, text to morse code, morse code to text, morse code decoder, what is morse code, how does morse code work, how to read morse code, how to learn morse code, morse code alphabet, morse code chart, morse code converter, morse code converter online, sos in morse code, what is sos in morse code, who invented morse code, when was morse code invented, morse code sound",
+      "og_alt": "Morse Code Translator on GeeksKai"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "tools": "Tools",
+      "current": "Morse Code Translator"
+    },
+    "defaults": {
+      "input_text": "HELLO WORLD",
+      "morse_sos": "... --- ..."
+    },
+    "placeholders": {
+      "encode": "Type message, e.g. HELLO WORLD",
+      "decode": "Use . and -, space between letters, / between words"
+    },
+    "header": {
+      "title": "Morse Code Translator",
+      "quick_answer": "<strong>Quick answer:</strong> This page provides a free online <blue>Morse code translator</blue> for <cyan>text to Morse</cyan>, <purple>Morse to text</purple>, plus browser audio playback with no account needed."
+    },
+    "core_facts": {
+      "title": "Core Facts",
+      "pricing_label": "Pricing",
+      "pricing_value": "<strong>Free</strong>, no sign-up.",
+      "features_label": "Main Features",
+      "features_value": "<strong>Encode</strong>, <strong>decode</strong>, and <strong>audio playback</strong>.",
+      "positioning_label": "Positioning",
+      "positioning_value": "Fast, browser-native Morse utility for learning and practical conversion.",
+      "users_label": "Target Users",
+      "users_value": "Students, ham radio users, puzzle makers, developers."
+    },
+    "overview": {
+      "title": "What is Morse code?",
+      "description": "<strong>Direct answer:</strong> Morse code is a communication system that encodes letters and numbers with <blue>dots</blue> and <cyan>dashes</cyan>. It is still useful for learning signal timing, emergency patterns, and radio basics.",
+      "card_1_title": "How Morse code works",
+      "card_1_desc": "Each character maps to a unique dot-dash sequence, for example <strong>A = .-</strong> and <strong>B = -...</strong>.",
+      "card_2_title": "How to read Morse code",
+      "card_2_desc": "Read short signals as dots and long signals as dashes, then split by letter spaces and word separators.",
+      "card_3_title": "How to learn Morse code",
+      "card_3_desc": "Practice 5-10 minutes daily with common letters, then train listening speed using flash and audio playback."
+    },
+    "tool": {
+      "mode_label": "Mode",
+      "mode_encode": "Text to Morse",
+      "mode_decode": "Morse to Text",
+      "input_text_label": "Input text",
+      "input_morse_label": "Input Morse code",
+      "output_morse": "Morse output",
+      "output_text": "Decoded text",
+      "output_placeholder": "Output will appear here.",
+      "signal_playing": "Morse flashlight is blinking by signal timing",
+      "signal_preview": "Signal lamp preview",
+      "no_signal": "No signal to preview.",
+      "stop_playback": "Stop playback",
+      "play_audio_flash": "Play audio + flash",
+      "play_flash": "Play flash",
+      "audio_title_on": "Audio and flash enabled",
+      "audio_title_off": "Flash-only mode enabled",
+      "audio_on": "Audio on",
+      "flash_only": "Flash only",
+      "copied": "Copied",
+      "copy_output": "Copy output"
+    },
+    "how_to": {
+      "title": "How to use this Morse code translator (step-by-step)",
+      "step_1_title": "1) Normalize input",
+      "step_1_desc": "Text is uppercased for consistent mapping; Morse input is split by spaces and `/`.",
+      "step_2_title": "2) Convert by dictionary",
+      "step_2_desc": "Characters map to dots and dashes using the ITU-style Morse table; unknown tokens return `?`.",
+      "step_3_title": "3) Render and playback",
+      "step_3_desc": "The output is shown as plain text and can be played as short/long tones in the browser audio engine."
+    },
+    "boundaries": {
+      "title": "Boundaries and limitations",
+      "can_do": "<strong>Can do:</strong> text and Morse conversion, browser playback, quick educational reference.",
+      "cannot_do": "<strong>Cannot do:</strong> advanced radio protocol timing, signal-noise simulation, or long-form transmission logging.",
+      "input_scope": "<strong>Input scope:</strong> A-Z, 0-9, spaces, and standard Morse separators."
+    },
+    "sos": {
+      "title": "SOS in Morse code",
+      "text_label": "Text",
+      "morse_label": "Morse",
+      "use_case_label": "Use case",
+      "use_case_desc": "A standard emergency signal. You can paste it into Morse input and play flash or audio instantly."
+    },
+    "history": {
+      "title": "Who invented Morse code and when?",
+      "description": "<strong>Short answer:</strong> Samuel Morse and Alfred Vail developed Morse code in the <amber>1830s</amber>, and it was adopted in practical telegraph systems during the <amber>1840s</amber>."
+    },
+    "guide": {
+      "title": "Complete Morse code guide for beginners",
+      "p1": "<strong>Direct answer:</strong> Morse code is a practical signal language where each letter or number is represented by a sequence of dots and dashes. If your goal is to <cyan>translate text to Morse</cyan>, <blue>decode Morse to text</blue>, or simply learn the alphabet quickly, this page combines all three in one place: real-time conversion, flash rhythm playback, and an alphabet chart for fast lookup.",
+      "p2": "Many users search phrases like <strong>what is morse code</strong>, <strong>how to read morse code</strong>, and <strong>how to learn morse code</strong> because they need both a tool and a clear explanation. The fastest way to read Morse is to treat it as sound and timing patterns rather than visual symbols only. A dot is a short signal and a dash is a longer signal; letters are separated by short gaps and words are separated by longer breaks. Once this rhythm is clear, decoding speed improves quickly.",
+      "p3": "If you are practicing from scratch, start with a small set of high-frequency letters such as <strong>E, T, A, N, I, M, S, O</strong>. Then type simple words in the converter and switch between both modes to reinforce memory from both directions. For emergency awareness, memorize <rose>SOS = ... --- ...</rose> first. That one sequence appears in many learning resources and is one of the easiest Morse patterns to recognize at speed.",
+      "p4": "Historically, Morse code was developed by Samuel Morse and Alfred Vail in the 1830s and became widely used through telegraph networks in the 1840s. Today, people still use it for radio training, education, puzzle design, and creative projects like jewelry pattern encoding. In short, a modern <strong>morse code generator</strong> should do more than output symbols: it should help users understand meaning, timing, and practical use.",
+      "quick_a": "A in Morse code",
+      "quick_b": "B in Morse code",
+      "quick_c": "C in Morse code",
+      "quick_e": "E in Morse code",
+      "quick_s": "S in Morse code",
+      "quick_o": "O in Morse code"
+    },
+    "alphabet_chart": {
+      "title": "Morse code alphabet chart (A-Z and 0-9)"
+    },
+    "faq": {
+      "title": "Morse code translator FAQ"
+    },
+    "faq_1": {
+      "question": "What is a Morse code translator and how does it work?",
+      "answer": "A Morse code translator converts text to Morse code and Morse code back to text in seconds. This page also provides browser-based Morse audio and flash playback for timing practice."
+    },
+    "faq_2": {
+      "question": "How do I convert text to Morse code online for free?",
+      "answer": "Use Text to Morse mode, type your message, and copy the generated Morse output instantly. The converter is free, browser-based, and requires no sign-up."
+    },
+    "faq_3": {
+      "question": "How do I decode Morse code to text correctly?",
+      "answer": "Use one space between Morse letters and a slash `/` between words for accurate decoding. Then switch to Morse to Text mode; example input is `... --- ... / .... . .-.. .--.`."
+    },
+    "faq_4": {
+      "question": "Where can I find a Morse code alphabet chart for letters and numbers?",
+      "answer": "Open the Morse code alphabet chart section on this page to view A-Z and 0-9 mappings. It works as a quick reference while translating or learning Morse."
+    },
+    "faq_5": {
+      "question": "What is SOS in Morse code?",
+      "answer": "SOS in Morse code is `... --- ...`. You can copy it directly into the Morse input field and play it with audio or flash timing."
+    },
+    "faq_6": {
+      "question": "Can this Morse code converter handle invalid Morse symbols?",
+      "answer": "Yes. Unknown or malformed Morse tokens are shown as `?`, so you can quickly identify where the Morse sequence needs correction."
+    },
+    "faq_7": {
+      "question": "Can I use this Morse code translator without sending data to a server?",
+      "answer": "Yes. Translation and playback run locally in your browser, helping protect privacy and keeping the converter fast."
+    },
+    "faq_8": {
+      "question": "Who should use this Morse code generator and decoder?",
+      "answer": "It is useful for students, radio hobbyists, puzzle creators, and developers who need fast text-to-Morse and Morse-to-text conversion in one place."
+    },
+    "faq_9": {
+      "question": "How often is this Morse translator page updated for accuracy?",
+      "answer": "The page follows a 30-90 day GEO review cycle and displays a last updated date to provide freshness and confidence signals."
+    },
+    "faq_10": {
+      "question": "What is Morse code?",
+      "answer": "Morse code is a character encoding system that represents letters and numbers using short and long signals known as dots and dashes."
+    },
+    "faq_11": {
+      "question": "How can I learn Morse code quickly?",
+      "answer": "Start with high-frequency letters, practice daily with short sessions, and use audio or flash playback to train rhythm recognition."
+    },
+    "faq_12": {
+      "question": "Who invented Morse code and when was it invented?",
+      "answer": "Samuel Morse and Alfred Vail developed Morse code in the 1830s, and it became widely used in telegraph communication in the 1840s."
+    },
+    "sources": {
+      "title": "Data sources and trust signals",
+      "item_1": "<strong>ITU-R M.1677-1:</strong> International Morse code reference for letters, digits, and transmission pattern.",
+      "item_2": "<strong>Web Audio API:</strong> Browser-side audio generation used for dot/dash playback.",
+      "last_updated": "Last updated: <strong>{date}</strong> (review cycle: every 30-90 days)."
+    },
+    "hidden_seo": {
+      "title": "Morse code generator vs translator",
+      "description": "A Morse code generator takes plain text input and encodes it into Morse symbols, while a Morse code translator typically supports both directions: encode text to Morse and decode Morse to readable text. This page includes both generator and translator behavior, plus audio playback for signal timing practice."
+    },
+    "schema": {
+      "webapp_name": "Morse Code Translator",
+      "alternate_names": "Morse Code Generator, Morse Code Decoder, Morse Code Converter",
+      "feature_1": "Text to Morse conversion",
+      "feature_2": "Morse to text decoding",
+      "feature_3": "Morse code alphabet chart",
+      "feature_4": "SOS in Morse code quick reference",
+      "feature_5": "Morse audio playback",
+      "feature_6": "Reference table",
+      "feature_7": "No registration required",
+      "howto_name": "How to translate text and Morse code online",
+      "howto_description": "Use this step-by-step guide to encode text to Morse code, decode Morse to text, and play Morse audio.",
+      "howto_step_1_name": "Choose conversion mode",
+      "howto_step_1_text": "Select Text to Morse to encode plain text, or Morse to Text to decode Morse signals.",
+      "howto_step_2_name": "Paste your content",
+      "howto_step_2_text": "Enter text, or provide Morse with spaces between letters and slash between words.",
+      "howto_step_3_name": "Copy or play Morse output",
+      "howto_step_3_text": "Copy the generated result, or click play to hear and visualize Morse timing.",
+      "howto_step_4_name": "Use the alphabet chart and SOS reference",
+      "howto_step_4_text": "Open the Morse code alphabet chart and SOS example section to read or learn Morse patterns faster.",
+      "itemlist_name": "Morse code alphabet chart",
+      "itemlist_1": "A .-",
+      "itemlist_2": "B -...",
+      "itemlist_3": "C -.-.",
+      "itemlist_4": "S ...",
+      "itemlist_5": "O ---",
+      "itemlist_6": "1 .----",
+      "itemlist_7": "5 .....",
+      "itemlist_8": "0 -----"
+    }
   }
 }

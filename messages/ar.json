@@ -834,7 +834,6 @@
       "button_text": "استخدم محول السنتيمترات إلى بوصات"
     }
   },
-
   "InvincibleTitleCardGenerator": {
     "seo_title": "مولد بطاقات عنوان Invincible - أنشئ بطاقات عنوان مخصصة للبرامج التلفزيونية | أداة مجانية",
     "seo_description": "أنشئ بطاقات عنوان مخصصة مستوحاة من سلسلة الرسوم المتحركة Invincible. أنشئ بطاقات عنوان احترافية بنصوص وألوان وخلفيات وتأثيرات قابلة للتخصيص. مثالية لمحتوى المعجبين والمشاريع الإبداعية.",
@@ -1036,7 +1035,6 @@
       "download_failed": "فشل التنزيل. يرجى المحاولة مرة أخرى."
     }
   },
-
   "BpmMsConverter": {
     "seo_title": "محول BPM إلى MS | حاسبة توقيت الإيقاع المجانية عبر الإنترنت",
     "seo_description": "محول احترافي من BPM إلى مللي ثانية لمنتجي الموسيقى والدي جي ومهندسي الصوت. قم بتحويل النبضات في الدقيقة إلى أوقات التأخير ومعدلات LFO ومعلمات المزامنة على الفور. يدعم علامات الربع والثمن والسادس عشر والنقاط المنقطة والثلاثيات.",
@@ -1160,7 +1158,6 @@
       "bpm_ms_converter": "محول BPM MS"
     }
   },
-
   "CcmToHpConverter": {
     "seo_title": "محول CCM إلى HP – حاسبة مجانية لقوة المحرك | أداة محرك الدراجات النارية والسيارات",
     "seo_description": "محول مجاني عبر الإنترنت من CCM إلى HP لحساب إزاحة المحرك إلى القدرة الحصانية. قم بتحويل السنتيمترات المكعبة إلى القدرة الحصانية للدراجات النارية والسيارات والمحركات البحرية. يدعم المحركات ثنائية الأشواط ورباعية الأشواط والمحركات التوربينية مع تحكم دقيق.",
@@ -1331,7 +1328,6 @@
       "disclaimer_footer": "استخدم هذه التقديرات كنقطة انطلاق لفهم إمكانات قوة المحرك. للحصول على قياسات دقيقة، استشر مواصفات الشركة المصنعة أو اختبار dyno الاحترافي."
     }
   },
-
   "CmToTommerConverter": {
     "seo_title": "محول سم إلى تومر – أداة عبر الإنترنت لتحويل السنتيمتر إلى بوصة | مجانية ودقيقة",
     "seo_description": "محول سم إلى تومر مجاني عبر الإنترنت. قم بتحويل السنتيمترات إلى تومر (بوصات دنماركية/نرويجية) على الفور بدقة تصل إلى 3 منازل عشرية. مثالي للأثاث والبناء والتجارة الدولية.",
@@ -1690,7 +1686,6 @@
     "add_emoji_wrapper_label": "إضافة إيموجي محيط",
     "custom_output_label": "المخرج المدمج المخصص",
     "primary_output_label": "المخرج الأساسي",
-    "copy_button_label": "نسخ",
     "copied_button_label": "تم النسخ!",
     "copy_failed_label": "فشل النسخ",
     "ready_to_copy_status": "جاهز للنسخ",
@@ -1712,6 +1707,9 @@
     "empty_input_placeholder": "(إدخال فارغ)",
     "default_best_for": "صناع المحتوى، مستخدمو وسائل التواصل الاجتماعي ومديرو المجتمعات",
     "default_key_benefit": "أنماط نصوص يونيكود جاهزة للنسخ واللصق في مكان واحد",
+    "latin_only_badge": "لاتيني فقط",
+    "latin_compatibility_note": "ملاحظة: بعض الأنماط تدعم الأحرف اللاتينية فقط. قد تبقى الأحرف غير اللاتينية (مثل 中文 و日本語 و한국어) دون تغيير.",
+    "latin_compatibility_warning": "يحتوي الإدخال الحالي على أحرف غير لاتينية، لذلك قد لا تُغيّر بعض الأنماط المحددة هذه الأحرف بشكل مرئي: {effects}.",
     "categories": {
       "enclosed": "حروف وأرقام محاطة بدوائر",
       "math": "أنماط رياضية",
@@ -1728,7 +1726,6 @@
     "page_subtitle": "نسخ ولصق زخرفة النصوص",
     "badge_text": "أداة تخصيص انستقرام",
     "tldr": "يقوم مولد خطوط سير انستقرام بتحويل النص العادي إلى أحرف يونيكود أنيقة يمكنك نسخها ولصقها في ملفك الشخصي. تركز هذه الأداة على الأنماط الاجتماعية القابلة للقراءة لملفات التعريف والعناوين والتحديثات السريعة.",
-
     "keyword_label": "خطوط سير انستقرام",
     "best_for": "المبدعون، والمؤثرون، وتحسين الملفات الشخصية للعلامات التجارية",
     "key_benefit": "أنماط نصوص جاهزة لانستقرام وقابلة للقراءة مع ميزة النسخ الفوري",
@@ -1821,7 +1818,6 @@
     "page_subtitle": "شطب النص أونلاين",
     "badge_text": "أداة شطب النص",
     "tldr": "يقوم مولد النص المشطوب بتحويل النص العادي إلى نص يونيكود مشطوب يمكنك نسخه ولصقه فوراً. تم تحسينه للتعديلات السريعة والدردشات والتركيز في منصات التواصل.",
-
     "keyword_label": "مولد نص مشطوب",
     "best_for": "التعديلات السريعة في التواصل الاجتماعي، ملاحظات المهام، والتركيز في المحادثات",
     "key_benefit": "واجهة بسيطة للحصول على نص مشطوب بسرعة",
@@ -1914,7 +1910,6 @@
     "page_subtitle": "قم بإنشاء نص يونيكود معيب باستخدام علامات الدمج.",
     "badge_text": "أداة النص المعيب",
     "tldr": "يقوم مولد نص زالغو بإنشاء مخرجات يونيكود تشبه العيوب من خلال تكديس علامات الدمج حول الأحرف. استخدمه للتأثيرات البصرية الدرامية، ومعاينة البدائل، والنسخ الفوري.",
-
     "keyword_label": "نص زالغو",
     "best_for": "صناع الميمات، المنشورات ذات الطابع الرعبي، ومجتمعات الألعاب",
     "key_benefit": "توليد سريع للنصوص المعيبة مع بدائل مقروءة أكثر أماناً",
@@ -2007,7 +2002,6 @@
     "page_subtitle": "نص جمالي عريض",
     "badge_text": "أداة عرض جمالية",
     "tldr": "يقوم مولد نص فيبورويف بتحويل نص ASCII العادي إلى مخرجات Unicode عريضة بتباعد قديم. تم تصميمه للسير الذاتية الجمالية، والتعليقات التوضيحية، وسير عمل النسخ واللصق السريع.",
-
     "keyword_label": "مولد نص فيبورويف",
     "best_for": "المبدعين الجماليين، والملفات الشخصية ذات النمط القديم، والتعليقات التوضيحية القصيرة",
     "key_benefit": "تنسيق عريض فوري بدون تطبيقات خارجية",
@@ -2100,7 +2094,6 @@
     "page_subtitle": "نسخ ولصق خطوط يونيكود",
     "free_tool_badge": "أداة نصوص زخرفية",
     "tldr": "يقوم مولد النصوص الزخرفية بتحويل النص العادي إلى أنماط يونيكود زخرفية يمكنك نسخها ولصقها في أي مكان. استخدمها للسير الذاتية، والعناوين، وأسماء المستخدمين، والتمييز البصري السريع دون تثبيت خطوط.",
-
     "keyword_label": "مولد نصوص زخرفية",
     "best_for": "المبدعون، ومديرو وسائل التواصل الاجتماعي، والعلامات التجارية الشخصية",
     "key_benefit": "توليد ونسخ متغيرات نصية أنيقة متعددة في ثوانٍ",
@@ -2193,7 +2186,6 @@
     "page_subtitle": "نسخ ولصق نص ديسكورد أنيق",
     "free_tool_badge": "أداة سيناريو ديسكورد",
     "tldr": "يقوم مولد خطوط ديسكورد بتحويل النص العادي إلى أنماط يونيكود للأسماء المستعارة ونصوص الملف الشخصي والرسائل. اختر الخيارات القابلة للقراءة أولاً، ثم انسخ والصق مباشرة في ديسكورد.",
-
     "keyword_label": "مولد خطوط ديسكورد",
     "best_for": "مجتمعات ديسكورد، تاقات اللاعبين، وتخصيص ملف تعريف الخادم",
     "key_benefit": "إعدادات نمط مسبقة تركز على ديسكورد مع سير عمل نسخ فوري",
@@ -2287,7 +2279,6 @@
     "free_tool_badge": "أداة نصوص يونيكود",
     "tldr_title": "إجابة سريعة (TL;DR)",
     "tldr": "يستخدم مولد النص المقلوب رموز يونيكود خاصة لمحاكاة النص الذي تم تدويره 180 درجة أو عكسه أفقيًا. هي تقنية بصرية بحتة لتزيين أسماء المستخدمين ومنشورات التواصل الاجتماعي دون الحاجة لخطوط خارجية.",
-
     "last_updated_label": "آخر تحديث",
     "keyword_label": "مولد نص مقلوب",
     "best_for": "أسماء الملفات الشخصية، والرسائل البارزة، والتأثيرات البصرية الإبداعية",
@@ -2347,28 +2338,94 @@
       ]
     },
     "effects": {
-      "plain": { "name": "عادي", "desc": "النص الأصلي بدون تحويل" },
-      "negative-circle": { "name": "دائرة مملوءة", "desc": "أرقام معكوسة وحروف محاطة بدوائر" },
-      "hollow-circle": { "name": "دائرة مفرغة", "desc": "نمط حروف وأرقام دائري" },
-      "hollow-square": { "name": "مربع مفرغ", "desc": "نمط محاصر في إطارات" },
-      "solid-square": { "name": "مربع مملوء", "desc": "نمط معكوس محاصر في إطارات" },
-      "serif-bold": { "name": "سريف عريض", "desc": "حروف سريف رياضية عريضة" },
-      "sans-bold": { "name": "سانس عريض", "desc": "حروف بدون سريف رياضية عريضة" },
-      "italic": { "name": "مائل رياضي", "desc": "حروف مائلة رياضية" },
-      "bold-italic": { "name": "عريض مائل", "desc": "حروف عريضة ومائلة رياضية" },
-      "script": { "name": "مخطوط", "desc": "حروف كاليغرافية تشبه الكتابة اليدوية" },
-      "bold-script": { "name": "مخطوط عريض", "desc": "حروف كاليغرافية عريضة" },
-      "fraktur": { "name": "فركتور", "desc": "حروف بنمط قوطي فركتور" },
-      "bold-fraktur": { "name": "فركتور عريض", "desc": "حروف فركتور عريضة" },
-      "double-struck": { "name": "ضرب مزدوج", "desc": "نمط حروف عريضة للسبورة" },
-      "strikethrough": { "name": "مشطوب", "desc": "نمط مشطوب باستخدام التراكبات" },
-      "wavy-underline": { "name": "تسطير متموج", "desc": "نمط تسطير زخرفي متموج" },
-      "tail-mark": { "name": "علامة ذيل", "desc": "يضيف علامة ذيل صغيرة لكل حرف" },
-      "lightning": { "name": "برق", "desc": "يدرج فواصل برق بين الحروف" },
-      "zalgo": { "name": "زالغو", "desc": "نمط غليتش آرت منفذ بعلامات مكدسة" },
-      "upside-down": { "name": "مقلوب", "desc": "يقلب الحروف ويعكس الترتيب" },
-      "mirror": { "name": "مرآة", "desc": "يعكس الحروف ويعكس الترتيب" },
-      "fullwidth": { "name": "عرض كامل", "desc": "يحول ASCII إلى أشكال كاملة العرض" }
+      "plain": {
+        "name": "عادي",
+        "desc": "النص الأصلي بدون تحويل"
+      },
+      "negative-circle": {
+        "name": "دائرة مملوءة",
+        "desc": "أرقام معكوسة وحروف محاطة بدوائر"
+      },
+      "hollow-circle": {
+        "name": "دائرة مفرغة",
+        "desc": "نمط حروف وأرقام دائري"
+      },
+      "hollow-square": {
+        "name": "مربع مفرغ",
+        "desc": "نمط محاصر في إطارات"
+      },
+      "solid-square": {
+        "name": "مربع مملوء",
+        "desc": "نمط معكوس محاصر في إطارات"
+      },
+      "serif-bold": {
+        "name": "سريف عريض",
+        "desc": "حروف سريف رياضية عريضة"
+      },
+      "sans-bold": {
+        "name": "سانس عريض",
+        "desc": "حروف بدون سريف رياضية عريضة"
+      },
+      "italic": {
+        "name": "مائل رياضي",
+        "desc": "حروف مائلة رياضية"
+      },
+      "bold-italic": {
+        "name": "عريض مائل",
+        "desc": "حروف عريضة ومائلة رياضية"
+      },
+      "script": {
+        "name": "مخطوط",
+        "desc": "حروف كاليغرافية تشبه الكتابة اليدوية"
+      },
+      "bold-script": {
+        "name": "مخطوط عريض",
+        "desc": "حروف كاليغرافية عريضة"
+      },
+      "fraktur": {
+        "name": "فركتور",
+        "desc": "حروف بنمط قوطي فركتور"
+      },
+      "bold-fraktur": {
+        "name": "فركتور عريض",
+        "desc": "حروف فركتور عريضة"
+      },
+      "double-struck": {
+        "name": "ضرب مزدوج",
+        "desc": "نمط حروف عريضة للسبورة"
+      },
+      "strikethrough": {
+        "name": "مشطوب",
+        "desc": "نمط مشطوب باستخدام التراكبات"
+      },
+      "wavy-underline": {
+        "name": "تسطير متموج",
+        "desc": "نمط تسطير زخرفي متموج"
+      },
+      "tail-mark": {
+        "name": "علامة ذيل",
+        "desc": "يضيف علامة ذيل صغيرة لكل حرف"
+      },
+      "lightning": {
+        "name": "برق",
+        "desc": "يدرج فواصل برق بين الحروف"
+      },
+      "zalgo": {
+        "name": "زالغو",
+        "desc": "نمط غليتش آرت منفذ بعلامات مكدسة"
+      },
+      "upside-down": {
+        "name": "مقلوب",
+        "desc": "يقلب الحروف ويعكس الترتيب"
+      },
+      "mirror": {
+        "name": "مرآة",
+        "desc": "يعكس الحروف ويعكس الترتيب"
+      },
+      "fullwidth": {
+        "name": "عرض كامل",
+        "desc": "يحول ASCII إلى أشكال كاملة العرض"
+      }
     },
     "ui": {
       "playground_title": "مختبر تأثيرات النصوص",
@@ -2411,7 +2468,6 @@
     "page_subtitle": "محول الحروف والأرقام المحاطة بدوائر",
     "free_tool_badge": "أداة الحروف والأرقام المحاطة بدوائر",
     "tldr": "يقوم مولد النص الفقاعي بتحويل النص العادي إلى أنماط يونيكود للحروف والأرقام المحاطة بدوائر مثل الدوائر والمربعات. اكتب مرة واحدة، وقارن بين جميع متغيرات الفقاعات، وانسخ مخرجاتك المفضلة على الفور.",
-
     "keyword_label": "مولد نص فقاعي",
     "best_for": "أسماء الملفات الشخصية، والتعليقات التوضيحية المرحة، والملصقات الزخرفية الخفيفة",
     "key_benefit": "أنماط محاطة بدوائر مركزة مع سير عمل سريع للمقارنة والنسخ",
@@ -2487,18 +2543,15 @@
     "page_subtitle": "أنشئ شخصيتك الملونة",
     "page_description": "أطلق العنان لإبداعك مع مولد أسماء Chromakopia الخاص بنا. أنشئ شخصيات فريدة مستوحاة من رؤية تايلر ذا كرييتور الفنية لإعادة اللون إلى الحياة.",
     "free_tool_badge": "أداة Chromakopia مجانية",
-
     "breadcrumb": {
       "home": "الرئيسية",
       "tools": "أدوات",
       "chromakopia_name_generator": "مولد أسماء Chromakopia"
     },
-
     "header": {
       "main_title": "مولد أسماء Chromakopia",
       "description": "أنشئ شخصيتك البديلة الملونة المستوحاة من Chromakopia للمغني تايلر ذا كرييتور. قم بإنشاء شخصيات فريدة تجسد روح إعادة اللون إلى الحياة والتحرر من التفكير بالأبيض والأسود."
     },
-
     "persona_display": {
       "title": "شخصية Chromakopia الخاصة بك",
       "st_chroma_style": "نمط St. Chroma",
@@ -2508,13 +2561,11 @@
       "radiating_in": "يشع في",
       "chromatic_superpower": "قوة لونية خارقة"
     },
-
     "favorites": {
       "title": "الشخصيات المفضلة",
       "no_personas": "لا توجد شخصيات حتى الآن",
       "add_first": "أنشئ شخصيتك الأولى لبدء مجموعتك"
     },
-
     "settings": {
       "title": "إعدادات المولد",
       "generation_style": "نمط الإنشاء",
@@ -2533,7 +2584,6 @@
       "add_to_favorites": "إضافة إلى المفضلة",
       "reset_all": "إعادة الضبط"
     },
-
     "features": {
       "music_inspired": "مستوحى من الموسيقى",
       "music_description": "أنشئ شخصيات مستوحاة من ألبوم Chromakopia للمغني تايلر ذا كرييتور وموضوعاته حول الأصالة والتعبير الملون.",
@@ -2542,7 +2592,6 @@
       "share_connect": "شارك وتواصل",
       "share_description": "شارك شخصياتك التي تم إنشاؤها مع الأصدقاء واكتشف كيف يعبر مختلف الأشخاص عن هوياتهم الملونة."
     },
-
     "about_chromakopia": {
       "title": "ما هي Chromakopia؟ فهم رؤية تايلر ذا كرييتور",
       "description_1": "Chromakopia هو الألبوم الاستوديو الثامن للمغني تايلر ذا كرييتور الذي يستكشف موضوعات إعادة اللون إلى الحياة والتحرر من توقعات المجتمع بالأبيض والأسود. يتمحور الألبوم حول شخصيته البديلة St. Chroma، الذي يمثل التعبير الأصيل عن الذات والشجاعة على العيش بألوان زاهية.",
@@ -2555,7 +2604,6 @@
       "theme_5": "الشفافية العاطفية",
       "theme_6": "التمرد الفني"
     },
-
     "how_to_use": {
       "title": "كيفية إنشاء شخصية Chromakopia الخاصة بك",
       "step_1_title": "اختر أسلوبك",
@@ -2567,7 +2615,6 @@
       "step_4_title": "شارك وعبر",
       "step_4_description": "قم بتنزيل الصور أو نسخ النص لمشاركة شخصيتك اللونية على وسائل التواصل الاجتماعي وإلهام الآخرين."
     },
-
     "faq": {
       "title": "الأسئلة الشائعة",
       "q1": "ما الذي ألهم مولد أسماء Chromakopia؟",
@@ -2579,7 +2626,6 @@
       "q4": "هل مولد أسماء Chromakopia مجاني؟",
       "a4": "نعم! هذه الأداة مجانية تمامًا ولا تتطلب أي تسجيل. قم بإنشاء شخصيات غير محدودة وحفظ مفضلاتك ومشاركة إبداعاتك دون أي قيود. إنه يعمل على جميع الأجهزة بما في ذلك الهواتف المحمولة والأجهزة اللوحية."
     },
-
     "persona_card": {
       "copy_text": "🎨 شخصية Chromakopia الخاصة بي 🎨\n\nالاسم: {name}\nاللون: {colorName}\nالسمة: {trait}\nالوصف: {description}\nالقوة الخارقة: {superpower}\nالاقتباس: {quote}\n\nتم الإنشاء في: https://geekskai.com/tools/chromakopia-name-generator",
       "copied_message": "تم نسخ الشخصية إلى الحافظة! 🎨",
@@ -3170,7 +3216,6 @@
       "audience_type_4": "المصنعين"
     }
   },
-
   "DiscordTimeConverter": {
     "seo_title": "محول المنطقة الزمنية في ديسكورد - أداة مجانية لإنشاء الوقت والطابع الزمني في ديسكورد",
     "seo_description": "محول مجاني للمنطقة الزمنية في ديسكورد مع تحويل ثنائي الاتجاه للطابع الزمني، ودعم عالمي للمنطقة الزمنية، ومعالجة الدفعات.",
@@ -3192,7 +3237,6 @@
         "free_tool": "أداة المنطقة الزمنية المجانية في ديسكورد"
       }
     },
-
     "quick_answer": {
       "title": "إجابة سريعة",
       "description": "<strong>محول المنطقة الزمنية في ديسكورد</strong> هو أداة <strong>مجانية</strong> عبر الإنترنت تحول بين الوقت العادي وتنسيقات الطابع الزمني في ديسكورد مع <strong>دعم كامل للمنطقة الزمنية العالمية</strong>. مثالي لـ<strong>مطوري روبوتات ديسكورد</strong> و<strong>مديري الخوادم</strong> و<strong>مديري المجتمعات</strong> الذين يجدولون الأحداث الدولية.",
@@ -3243,7 +3287,6 @@
       "onlineToolThat": "أداة عبر الإنترنت تقوم بـ",
       "everythingYouNeedFor": "كل ما تحتاجه لـ"
     },
-
     "schema": {
       "feature_list_1": "محول المنطقة الزمنية في ديسكورد لجميع المناطق الزمنية العالمية",
       "feature_list_2": "تحويل ثنائي الاتجاه للطابع الزمني في ديسكورد",
@@ -3267,7 +3310,6 @@
       "audienceType": "مديرو مجتمعات ديسكورد، مطورو روبوتات ديسكورد، منظمو الأحداث الدولية، الفرق العالمية، مجتمعات الألعاب، مديرو خوادم ديسكورد، منسقو المناطق الزمنية المتعددة، مجتمعات ديسكورد الدولية",
       "softwareRequirements": "متصفح ويب حديث مع تمكين JavaScript"
     },
-
     "conversion_modes": {
       "to_timestamp": {
         "title": "الوقت ← الطابع الزمني في ديسكورد",
@@ -3278,21 +3320,18 @@
         "description": "تحويل تنسيق ديسكورد إلى وقت عادي"
       }
     },
-
     "input_sections": {
       "conversion_mode": "وضع التحويل",
       "time_input": "إدخال الوقت",
       "discord_timestamp_input": "إدخال الطابع الزمني في ديسكورد",
       "timezone": "المنطقة الزمنية"
     },
-
     "form_labels": {
       "select_date_time": "اختر التاريخ والوقت",
       "discord_timestamp": "الطابع الزمني في ديسكورد",
       "select_timezone": "اختر منطقتك الزمنية",
       "input_one_per_line": "إدخال (واحد في كل سطر)"
     },
-
     "placeholders": {
       "select_date_time": "اختر التاريخ والوقت",
       "discord_timestamp": "&lt;t:1640995200:f&gt;",
@@ -3300,7 +3339,6 @@
       "batch_to_timestamp": "2024-01-01 12:00:00\n2024-02-01 15:30:00",
       "batch_from_timestamp": "&lt;t:1640995200:f&gt;\n&lt;t:1640995500:R&gt;"
     },
-
     "timestamp_formats": {
       "relative": {
         "label": "الوقت النسبي",
@@ -3338,7 +3376,6 @@
         "example": "الثلاثاء، 20 أبريل 2021 16:20"
       }
     },
-
     "timezone_groups": {
       "utc": "UTC",
       "americas": "الأمريكتان",
@@ -3346,7 +3383,6 @@
       "asia": "آسيا",
       "oceania": "أوقيانوسيا"
     },
-
     "common_timezones": {
       "utc": {
         "label": "UTC",
@@ -3409,7 +3445,6 @@
         "description": "أوكلاند، ويلينغتون (+13:00)"
       }
     },
-
     "buttons": {
       "plus_1_hour": "+1 ساعة",
       "plus_1_day": "+1 يوم",
@@ -3431,7 +3466,6 @@
       "hide_advanced": "إخفاء الميزات المتقدمة",
       "convert_all": "تحويل الكل"
     },
-
     "results": {
       "conversion_results": "نتائج التحويل",
       "live_preview": "معاينة مباشرة",
@@ -3439,18 +3473,15 @@
       "date_time_relative": "التاريخ والوقت والوقت النسبي",
       "full_date_relative": "التاريخ الكامل والوقت النسبي"
     },
-
     "advanced_features": {
       "batch_converter": "محول الدفعات",
       "conversion_history": "سجل التحويل",
       "results_label": "النتائج:"
     },
-
     "info_messages": {
       "format_info": "التنسيق: &lt;t:timestamp:format&gt; (على سبيل المثال، &lt;t:1640995200:f&gt;)",
       "invalid_format_type": "نوع تنسيق غير صالح"
     },
-
     "usage_guide": {
       "title": "كيفية استخدام محول المنطقة الزمنية في ديسكورد - دليل كامل",
       "description": "إتقان تحويل المنطقة الزمنية في ديسكورد وإنشاء الطابع الزمني لخادمك وتطوير الروبوتات وتنسيق المجتمع العالمي عبر جميع المناطق الزمنية",
@@ -3463,7 +3494,6 @@
       "step_4_title": "نسخ وتنفيذ",
       "step_4_description": "انسخ الطابع الزمني الذي تم إنشاؤه في ديسكورد بالتنسيق المفضل لديك والصقه في رسائل ديسكورد أو كود الروبوت أو محتوى webhook للعرض التلقائي للمنطقة الزمنية."
     },
-
     "content_sections": {
       "what_are_discord_timestamps": {
         "title": "ما هي الطوابع الزمنية في ديسكورد؟ فهم تنسيق الوقت في ديسكورد",
@@ -3587,18 +3617,15 @@
       }
     }
   },
-
   "DiscordTimestampGenerator": {
     "seo_title": "مولد الطابع الزمني في Discord - أنشئ طوابع زمنية ديناميكية في Discord | أداة مجانية",
     "seo_description": "مولد طابع زمني مجاني لـ Discord لإنشاء طوابع زمنية ديناميكية، وعد تنازلي للأحداث، وأنظمة تذكير. قم بإنشاء جميع تنسيقات الطوابع الزمنية في Discord مع معاينة في الوقت الفعلي، ودعم المنطقة الزمنية، وتكامل روبوت Discord. مثالي لجدولة الأحداث وإدارة المجتمع.",
     "seo_keywords": "مولد الطابع الزمني في discord، إنشاء طابع زمني في discord، إنشاء طابع زمني في discord، مولد أحداث discord، مولد العد التنازلي discord، طابع زمني للتذكير discord",
-
     "breadcrumb": {
       "home": "الرئيسية",
       "tools": "الأدوات",
       "discord_timestamp_generator": "مولد الطابع الزمني في Discord"
     },
-
     "header": {
       "professional_badge": "طوابع زمنية احترافية في Discord",
       "main_title": "Discord",
@@ -3611,7 +3638,6 @@
         "free_generator": "مولد مجاني"
       }
     },
-
     "modes": {
       "input_mode": "وضع الإدخال",
       "relative_time": "الوقت النسبي",
@@ -3619,7 +3645,6 @@
       "absolute_time": "الوقت المطلق",
       "absolute_time_description": "تاريخ ووقت محددان"
     },
-
     "quick_presets": {
       "title": "إعدادات مسبقة سريعة",
       "in_1_hour": "في غضون ساعة واحدة",
@@ -3627,7 +3652,6 @@
       "next_week": "الأسبوع القادم",
       "in_1_month": "في غضون شهر واحد"
     },
-
     "time_adjustment": {
       "title": "تعديل الوقت",
       "weeks": "أسابيع",
@@ -3635,7 +3659,6 @@
       "hours": "ساعات",
       "minutes": "دقائق"
     },
-
     "date_time_settings": {
       "title": "إعدادات التاريخ والوقت",
       "year": "السنة",
@@ -3645,11 +3668,9 @@
       "minute": "الدقيقة",
       "timezone": "المنطقة الزمنية: UTC"
     },
-
     "display_format": {
       "title": "تنسيق العرض"
     },
-
     "timestamp_formats": {
       "relative": {
         "label": "نسبي",
@@ -3687,12 +3708,10 @@
         "example": "الثلاثاء، 20 أبريل 2021 16:20"
       }
     },
-
     "format_toggle": {
       "show_common_formats": "إظهار التنسيقات الشائعة",
       "show_more_formats": "إظهار المزيد من التنسيقات"
     },
-
     "preview": {
       "discord_preview": "معاينة Discord",
       "real_time": "في الوقت الفعلي",
@@ -3702,7 +3721,6 @@
       "bot_label": "روبوت",
       "today": "اليوم"
     },
-
     "generated_result": {
       "title": "النتيجة التي تم إنشاؤها",
       "discord_timestamp_code": "رمز الطابع الزمني في Discord",
@@ -3712,14 +3730,12 @@
       "copied": "تم النسخ!",
       "failed_to_copy": "فشل النسخ:"
     },
-
     "saved_configurations": {
       "title": "التكوينات المحفوظة",
       "click_to_apply": "انقر للتطبيق",
       "relative_mode": "نسبي",
       "date_mode": "تاريخ"
     },
-
     "features": {
       "title": "ميزات احترافية",
       "description": "كل ما تحتاجه لإنشاء <strong>طوابع زمنية مثالية في Discord</strong> مع <strong>دقة</strong> و<strong>أناقة</strong>",
@@ -3736,7 +3752,6 @@
         "description": "<strong>احفظ التكوينات المفضلة</strong> وقم بإدارة إعدادات الطابع الزمني بسهولة للوصول السريع وإعادة الاستخدام عبر المشاريع المختلفة."
       }
     },
-
     "usage_guide": {
       "title": "كيفية إنشاء طوابع زمنية مثالية في Discord",
       "description": "اتبع هذه الخطوات البسيطة لإنشاء طوابع زمنية احترافية في Discord من البداية",
@@ -3757,7 +3772,6 @@
         "description": "انسخ رمز الطابع الزمني الذي تم إنشاؤه في Discord والصقه في الرسائل لتحويل المنطقة الزمنية تلقائيًا."
       }
     },
-
     "content_sections": {
       "what_is_generation": {
         "title": "ما هو إنشاء الطابع الزمني في Discord؟ إنشاء عروض وقت ديناميكية",
@@ -3770,7 +3784,6 @@
         "benefit_5": "معاينة في الوقت الفعلي أثناء الإنشاء",
         "benefit_6": "خيارات تنسيق متعددة متاحة"
       },
-
       "best_practices": {
         "title": "أفضل الممارسات لإنشاء الطابع الزمني في Discord",
         "event_scheduling": {
@@ -3792,7 +3805,6 @@
           "api_compatible": "متوافق مع جميع عمليات تكامل Discord API."
         }
       },
-
       "generator_vs_converter": {
         "title": "مولد الطابع الزمني في Discord مقابل المحول: اختر الأداة المناسبة",
         "generator_section": {
@@ -3816,7 +3828,6 @@
         }
       }
     },
-
     "faq": {
       "title": "الأسئلة الشائعة حول إنشاء الطابع الزمني في Discord",
       "q1": {
@@ -3852,7 +3863,6 @@
         "answer": "نعم! يتضمن المولد الخاص بنا نظام مفضلات حيث يمكنك حفظ تكوينات الطابع الزمني المستخدمة بشكل متكرر. مثالي للأحداث المتكررة أو جداول الاجتماعات المنتظمة أو تنسيقات العد التنازلي شائعة الاستخدام التي يمكنك تطبيقها وإنشاؤها بسرعة مرة أخرى."
       }
     },
-
     "preview_text": {
       "in_days": "في {days} أيام",
       "in_hours": "في {hours} ساعات",
@@ -3863,7 +3873,6 @@
       "minutes_ago": "منذ {minutes} دقائق",
       "few_seconds_ago": "منذ ثوان قليلة"
     },
-
     "structured_data": {
       "feature_1": "إنشاء طوابع زمنية مخصصة في Discord",
       "feature_2": "إنشاء عد التنازلي في الوقت الفعلي",
@@ -3884,12 +3893,10 @@
       "educational_use": "تخطيط الأحداث في Discord, إدارة المجتمعات في Discord, تطوير الروبوتات في Discord, تنسيق الأحداث في Discord, نظم التذكيرات في Discord, إدارة الخوادم في Discord",
       "audience_type": "مديري المجتمعات في Discord, مطوري الروبوتات في Discord, منظمي الأحداث في Discord, مديري الخوادم في Discord, مجتمعات الألعاب في Discord, منشئي المحتوى في Discord"
     },
-
     "geo_tldr": {
       "title": "الجواب السريع",
       "content": "<strong>مولد الطوابع الزمنية في Discord</strong> هو <strong>أداة مجانية عبر الإنترنت</strong> تقوم بإنشاء <strong>طوابع زمنية ديناميكية في Discord</strong> للأحداث، وعد التنازلي، وتذكيرات. يدعم <strong>7 تنسيقات طوابع زمنية</strong>، ويعمل تلقائيًا على <strong>جميع المناطق الزمنية</strong>، و<strong>لا يتطلب تسجيل</strong>. مثالي ل<strong>مديري المجتمعات في Discord</strong>، <strong>مطوري الروبوتات</strong>، و<strong>منظمي الأحداث</strong> الذين يحتاجون إلى تنسيق الأحداث وإنشاء عد التنازلي الذي يتم تحديثه في الوقت الفعلي داخل رسائل Discord."
     },
-
     "core_facts": {
       "title": "المعلومات الأساسية",
       "pricing_label": "الأسعار",
@@ -4385,9 +4392,7 @@
     "seo_title": "مولد أرقام عشوائية مكونة من 4 أرقام - أداة مجانية عبر الإنترنت",
     "seo_description": "مولد أرقام عشوائية مكونة من 4 أرقام مجاني لرموز التحقق وPIN وOTP. أنشئ أرقامًا عشوائية آمنة فورًا. بدون تسجيل، أمان تشفيري، استخدام غير محدود. مثالي للمطورين والاختبارات والتطبيقات الأمنية.",
     "seo_keywords": "مولد أرقام عشوائية من 4 أرقام, مولد رموز عشوائية, مولد أرقام 4 أرقام, مولد كود عشوائي من 4 أرقام, مولد أرقام عشوائية رباعية, رمز تحقق, مولد PIN, مولد OTP, أرقام عشوائية آمنة, مولد تشفيري, بيانات اختبار, توليد أرقام بالجملة",
-
     "og_image_alt": "أداة توليد أرقام عشوائية من 4 أرقام",
-
     "json_ld": {
       "name": "مولد أرقام عشوائية من 4 أرقام",
       "alternate_names": "مولد أرقام عشوائية من 4 أرقام, مولد رموز عشوائية, مولد أرقام رباعية",
@@ -4413,13 +4418,11 @@
         "instant": "توليد فوري باستخدام Web Crypto API"
       }
     },
-
     "breadcrumb": {
       "home": "الرئيسية",
       "tools": "الأدوات",
       "random_4_digit_number_generator": "مولد أرقام عشوائية من 4 أرقام"
     },
-
     "header": {
       "badge_text": "آمن تشفيريًا • مجاني دائمًا",
       "main_title": "مولد أرقام عشوائية من 4 أرقام",
@@ -4430,18 +4433,15 @@
       "testing_data": "بيانات الاختبار",
       "share_text": "شارك هذه الأداة المجانية مع فريقك"
     },
-
     "features_pills": {
       "instant_generation": "توليد فوري",
       "crypto_secure": "أمان تشفيري",
       "bulk_export": "تصدير جماعي"
     },
-
     "generator": {
       "single_title": "مولد رقم واحد",
       "settings_show": "إظهار الإعدادات",
       "settings_hide": "إخفاء الإعدادات",
-
       "settings_panel": {
         "title": "إعدادات التوليد",
         "range_label": "النطاق (الحد الأدنى - الحد الأقصى)",
@@ -4454,13 +4454,11 @@
         "exclude_sequential": "استبعاد المتسلسل (1234، 4321)",
         "exclude_repeated": "استبعاد المتكرر (1111، 2222)"
       },
-
       "display": {
         "click_generate": "اضغط على توليد لإنشاء رقم",
         "features": "آمن • عشوائي • فوري",
         "crypto_secure": "رقم عشوائي آمن تشفيريًا"
       },
-
       "buttons": {
         "generate": "توليد الرقم",
         "generating": "جارٍ التوليد...",
@@ -4472,12 +4470,10 @@
         "reset": "إعادة ضبط",
         "reset_all": "إعادة ضبط الكل"
       },
-
       "history": {
         "title": "السجل الأخير",
         "clear": "مسح"
       },
-
       "bulk": {
         "title": "مولد جماعي",
         "number_of_items": "عدد العناصر",
@@ -4490,21 +4486,17 @@
         "results_title": "الأرقام المولدة ({count})",
         "click_to_copy": "اضغط للنسخ"
       },
-
       "stats": {
         "total_generated": "إجمالي ما تم توليده",
         "unique_numbers": "أرقام فريدة",
         "average_value": "المتوسط"
       },
-
       "reset_button": "إعادة ضبط الكل"
     },
-
     "use_cases": {
       "badge": "الاستخدامات الشائعة",
       "title": "ما يمكنك استخدام مولد أرقام عشوائية مكونة من 4 أرقام ل؟",
       "description": "من التطبيقات الأمنية إلى الاختبارات التطويرية، اكتشف العديد من الطرق التي يمكن أن يساعدك مولد أرقام عشوائية مكونة من 4 أرقام",
-
       "verification_codes": {
         "title": "رموز التحقق",
         "description": "إنشئ رموز OTP و 2FA آمنة لنظم التحقق من البريد الإلكتروني/الهاتف",
@@ -4515,7 +4507,6 @@
           "account_recovery": "استرجاع الحساب"
         }
       },
-
       "pin_numbers": {
         "title": "أرقام PIN",
         "description": "إنشئ أرقام تعريف شخصي آمنة لتطبيقات مختلفة",
@@ -4526,7 +4517,6 @@
           "security_tokens": "رموز الأمان"
         }
       },
-
       "testing_development": {
         "title": "اختبار وتطوير",
         "description": "إنشئ بيانات اختبار لأغراض QA, التطوير, وتهيئة قواعد البيانات",
@@ -4537,7 +4527,6 @@
           "database_seeds": "تهيئة قواعد البيانات"
         }
       },
-
       "gaming_lottery": {
         "title": "الألعاب والمواد الإحصائية",
         "description": "إنشئ أرقام عشوائية لألعاب, مسابقات, وأرقام الحظ",
@@ -4548,7 +4537,6 @@
           "random_selection": "اختيار عشوائي"
         }
       },
-
       "educational_research": {
         "title": "التعليم والبحث",
         "description": "مثالي للإحصائيات, تجارب الاحتمال, والمشاريع الأكاديمية",
@@ -4559,7 +4547,6 @@
           "surveys": "الاستبيانات"
         }
       },
-
       "how_it_works": {
         "title": "كيف يعمل مولد أرقام عشوائية مكونة من 4 أرقام",
         "description_1": "يستخدم {strong_4digit} خوارزميات آمنة للتأكد من العشوائية الحقيقية والغير متوقعة.",
@@ -4575,7 +4562,6 @@
           "step_4": "استخدمها في تطبيقاتك مباشرة"
         }
       },
-
       "why_choose": {
         "title": "لماذا نحن؟",
         "instant_generation": {
@@ -4604,12 +4590,10 @@
         }
       }
     },
-
     "features": {
       "badge": "الميزات القوية",
       "title": "كل ما تحتاجه في أداة",
       "description": "الميزات المهنية المصممة للمطورين, المختصين بالأمن, والمستخدمين القويين",
-
       "crypto_secure": {
         "title": "أمان تشفيري",
         "description": "يستخدم Web Crypto API للعشوائية الحقيقية, مناسب للتطبيقات الأمنية"
@@ -4634,9 +4618,7 @@
         "title": "التخصيص المتقدم",
         "description": "تحكم في النطاق, التنسيق, التكرار, وتطبيق قواعد الاستبعاد للأرقام المتتالية أو المتكررة"
       },
-
       "learn_more": "اعرف المزيد",
-
       "trust_signals": {
         "badge": "موثوق بها من قبل المطورين والمختصين بالأمن",
         "description": "انضم إلى آلاف المطورين, مهندسي QA, والمختصين بالأمن الذين يعتمدون على مولد أرقام عشوائية مكونة من 4 أرقام لسير العمل اليومي",
@@ -4649,18 +4631,15 @@
           "cross_platform": "✓ الجوال والكمبيوتر المكتبي"
         }
       },
-
       "security_notice": {
         "title": "الأمان والخصوصية",
         "description": "يحدث جميع التوليدات العشوائية في متصفحك باستخدام Web Crypto API. لا نخزن, نتتبع, أو ننقل أي أرقام مولدة. تبقى بياناتك على جهازك, تضمن الخصوصية الكاملة والأمان."
       }
     },
-
     "faq": {
       "badge": "الأسئلة الشائعة",
       "title": "كل ما تحتاج إلى معرفته",
       "description": "الأسئلة الشائعة حول مولد أرقام عشوائية مكونة من 4 أرقام",
-
       "items": {
         "how_random": {
           "question": "كم تكون الأرقام المولدة عشوائية؟",
@@ -4711,7 +4690,6 @@
           "answer": "يتيح إعداد النطاق إعطاء الحد الأدنى والحد الأقصى للتوليد. على سبيل المثال, إعداد النطاق 1000-5000 سينتج أرقام بين 1000 و5000 فقط. هذا مفيد عندما تحتاج إلى أرقام داخل مجموعة محددة من النطاق 0000-9999."
         }
       },
-
       "q1": {
         "question": "كم تكون الأرقام المولدة عشوائية؟",
         "answer": "يستخدم مولد أرقام عشوائية مكونة من 4 أرقام Web Crypto API (crypto.getRandomValues()), الذي يوفر أرقام عشوائية آمنة تشفيرياً. هذا يعني أن الأرقام عشوائية وغير متوقعة, مناسبة لتطبيقات الأمان الحساسة مثل رموز التحقق وأرقام PIN. الجودة العشوائية هي أعلى بشكل ملحوظ من Math.random()."
@@ -4760,14 +4738,12 @@
         "question": "كيف يعمل إعداد النطاق؟",
         "answer": "يتيح لك إعداد النطاق تحديد الحد الأدنى والحد الأقصى لقيم التوليد. على سبيل المثال، ضبط النطاق 1000-5000 سيؤدي إلى توليد أرقام بين 1000 و5000 فقط. هذا مفيد عندما تحتاج إلى أرقام ضمن مجموعة فرعية محددة من نطاق 0000-9999."
       },
-
       "still_have_questions": {
         "title": "ما زلت لديك أسئلة؟",
         "description": "لم تجد الإجابة التي تبحث عنها؟ اطلع على وثائقنا أو تواصل مع مجتمعنا",
         "view_docs": "عرض الوثائق",
         "contact_support": "اتصل بالدعم"
       },
-
       "pro_tips": {
         "tip_1": {
           "icon": "💡",
@@ -4786,7 +4762,6 @@
         }
       }
     },
-
     "cta": {
       "title": "هل أنت مستعد لتوليد أرقام عشوائية؟",
       "description": "ابدأ الآن في توليد أرقام عشوائية آمنة مكونة من 4 أرقام. بدون تسجيل، بدون قيود، مجاني للأبد.",
@@ -4806,14 +4781,12 @@
       "paragraph_1": "مولد أرقام عشوائية مكونة من 4 أرقام هو أداة حاسوبية مهنية مصممة للمطورين، والمهندسين الأمنيين، ومهندسي الجودة المراقبة، وأي شخص يحتاج إلى أرقام عشوائية موثوقة. بدلاً من مولدات الأرقام العشوائية الأساسية، نستخدم <rich>{strong_crypto}</rich> لضمان عشوائية مطلقة وآمنة مناسبة لتطبيقات الأمان الحساسة.",
       "strong_generator": "مولد أرقام عشوائية مكونة من 4 أرقام",
       "strong_crypto": "Web Crypto API التشفيرية",
-
       "perfect_for_title": "مثالي لمختلف الأغراض",
       "perfect_for_description": "بغض النظر عن ما إذا كنت تحتاج إلى {strong_verification} لنظام المصادقة، أو {strong_pins} للتحكم في الوصول، أو {strong_test_data} للتطوير، أو {strong_random} لأي غرض آخر، فإن أداةنا توفر توليد آمن وفوري مع خيارات التخصيص المتقدمة.",
       "strong_verification": "رموز التحقق",
       "strong_pins": "أرقام PIN",
       "strong_test_data": "بيانات الاختبار",
       "strong_random": "أرقام عشوائية",
-
       "key_features_title": "الميزات الرئيسية",
       "features_list": {
         "crypto_secure": "<strong>آمن تشفيريًا</strong>: يستخدم Web Crypto API للعشوائية الحقيقية",
@@ -4825,14 +4798,12 @@
         "free": "<strong>مجاني 100%</strong>: عدد غير محدود من الأجيال إلى الأبد",
         "privacy": "<strong>مُركز على الخصوصية</strong>: لا يتم تخزين البيانات أو تتبعها"
       },
-
       "how_it_works_title": "كيف يعمل",
       "how_it_works_description": "يستفيد مولدنا من طريقة التشفير الأصلية للمتصفح، والتي توفر قيمًا عشوائية قوية من الناحية التشفيرية. يضمن هذا أن تكون الأرقام المُولَّدة غير قابلة للتنبؤ تمامًا ومناسبة لتطبيقات الأمان مثل {strong_otp}, {strong_2fa}, و{strong_verification}.",
       "strong_crypto_method": "crypto.getRandomValues()",
       "strong_otp": "توليد كلمة مرور لمرة واحدة",
       "strong_2fa": "المصادقة الثنائية",
       "strong_verification_codes": "رموز التحقق",
-
       "why_choose_title": "لماذا تختار أداتنا؟",
       "why_choose_description": "على عكس مولدات الأرقام العشوائية الأخرى التي تستخدم Math.random() الأساسية، توفر أداةنا {strong_enterprise} واجهة جميلة وبديهية. لقد صممناها خصيصًا للمحترفين الذين يحتاجون إلى أرقام عشوائية موثوقة وآمنة دون المساس بسهولة الاستخدام أو الميزات.",
       "strong_enterprise": "أمان على مستوى المؤسسات"
@@ -5130,7 +5101,6 @@
       }
     }
   },
-
   "HeicToPdf": {
     "seo_title": "محول HEIC إلى PDF - أداة مجانية عبر الإنترنت",
     "seo_description": "قم بتحويل صور HEIC إلى تنسيق PDF أو JPEG على الفور في متصفحك. مجاني 100٪، لا حاجة للتحميلات، مع مراعاة الخصوصية أولاً، ودعم المعالجة المجمعة.",
@@ -6205,7 +6175,6 @@
     "use_cases_technicians_title": "دعم IT والمهنيين",
     "use_cases_technicians_description": "تشخيص مشاكل الطابعة, اختبر وظيفة الطابعة بعد الإصلاحات, التحقق من إعداد وتكوين الطابعة."
   },
-
   "SoundCloudPlaylistDownloader": {
     "form_label_soundcloud_link": "رابط SoundCloud",
     "error_track_url_link": "جرب محول SoundCloud إلى MP3/WAV",
@@ -6921,7 +6890,6 @@
       }
     }
   },
-
   "PERMProcessingTimeTracker": {
     "seo_title": "متتبع وقت معالجة PERM - فاحص حالة الهجرة المجاني في الوقت الفعلي من DOL",
     "seo_description": "متتبع وقت معالجة PERM مع بيانات DOL في الوقت الفعلي. تكامل بيانات DOL الرسمية لجدول زمني دقيق للهجرة.",
@@ -7111,7 +7079,6 @@
       "insights_range": "النطاق التاريخي: <strong>{min} إلى {max} يوم</strong> (<strong>{range} يوم اختلاف</strong>)"
     }
   },
-
   "GbpNokConverter": {
     "breadcrumb_home": "الصفحة الرئيسية",
     "breadcrumb_tools": "الأدوات",
@@ -7971,5 +7938,206 @@
     "boundary_description": "تساعدك هذه الأداة على تنزيل الصوت المسموح لك باستخدامه. احرص دائمًا على احترام حقوق النشر وحقوق المنشئين وشروط المنصة. استخدمها فقط للمحتوى الشخصي أو المرخّص أو المصرّح به قانونيًا.",
     "content_freshness_updated": "تم التحديث",
     "content_freshness_last_updated": "آخر تحديث"
+  },
+  "MorseCodeTranslator": {
+    "seo": {
+      "title": "Morse Code Translator & Generator",
+      "description": "Free online Morse Code Translator & Generator to encode text, decode Morse code, and play Morse audio instantly in your browser.",
+      "keywords": "morse code translator, morse code generator, morse code generator online, text to morse code, morse code to text, morse code decoder, what is morse code, how does morse code work, how to read morse code, how to learn morse code, morse code alphabet, morse code chart, morse code converter, morse code converter online, sos in morse code, what is sos in morse code, who invented morse code, when was morse code invented, morse code sound",
+      "og_alt": "Morse Code Translator on GeeksKai"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "tools": "Tools",
+      "current": "Morse Code Translator"
+    },
+    "defaults": {
+      "input_text": "HELLO WORLD",
+      "morse_sos": "... --- ..."
+    },
+    "placeholders": {
+      "encode": "Type message, e.g. HELLO WORLD",
+      "decode": "Use . and -, space between letters, / between words"
+    },
+    "header": {
+      "title": "Morse Code Translator",
+      "quick_answer": "<strong>Quick answer:</strong> This page provides a free online <blue>Morse code translator</blue> for <cyan>text to Morse</cyan>, <purple>Morse to text</purple>, plus browser audio playback with no account needed."
+    },
+    "core_facts": {
+      "title": "Core Facts",
+      "pricing_label": "Pricing",
+      "pricing_value": "<strong>Free</strong>, no sign-up.",
+      "features_label": "Main Features",
+      "features_value": "<strong>Encode</strong>, <strong>decode</strong>, and <strong>audio playback</strong>.",
+      "positioning_label": "Positioning",
+      "positioning_value": "Fast, browser-native Morse utility for learning and practical conversion.",
+      "users_label": "Target Users",
+      "users_value": "Students, ham radio users, puzzle makers, developers."
+    },
+    "overview": {
+      "title": "What is Morse code?",
+      "description": "<strong>Direct answer:</strong> Morse code is a communication system that encodes letters and numbers with <blue>dots</blue> and <cyan>dashes</cyan>. It is still useful for learning signal timing, emergency patterns, and radio basics.",
+      "card_1_title": "How Morse code works",
+      "card_1_desc": "Each character maps to a unique dot-dash sequence, for example <strong>A = .-</strong> and <strong>B = -...</strong>.",
+      "card_2_title": "How to read Morse code",
+      "card_2_desc": "Read short signals as dots and long signals as dashes, then split by letter spaces and word separators.",
+      "card_3_title": "How to learn Morse code",
+      "card_3_desc": "Practice 5-10 minutes daily with common letters, then train listening speed using flash and audio playback."
+    },
+    "tool": {
+      "mode_label": "Mode",
+      "mode_encode": "Text to Morse",
+      "mode_decode": "Morse to Text",
+      "input_text_label": "Input text",
+      "input_morse_label": "Input Morse code",
+      "output_morse": "Morse output",
+      "output_text": "Decoded text",
+      "output_placeholder": "Output will appear here.",
+      "signal_playing": "Morse flashlight is blinking by signal timing",
+      "signal_preview": "Signal lamp preview",
+      "no_signal": "No signal to preview.",
+      "stop_playback": "Stop playback",
+      "play_audio_flash": "Play audio + flash",
+      "play_flash": "Play flash",
+      "audio_title_on": "Audio and flash enabled",
+      "audio_title_off": "Flash-only mode enabled",
+      "audio_on": "Audio on",
+      "flash_only": "Flash only",
+      "copied": "Copied",
+      "copy_output": "Copy output"
+    },
+    "how_to": {
+      "title": "How to use this Morse code translator (step-by-step)",
+      "step_1_title": "1) Normalize input",
+      "step_1_desc": "Text is uppercased for consistent mapping; Morse input is split by spaces and `/`.",
+      "step_2_title": "2) Convert by dictionary",
+      "step_2_desc": "Characters map to dots and dashes using the ITU-style Morse table; unknown tokens return `?`.",
+      "step_3_title": "3) Render and playback",
+      "step_3_desc": "The output is shown as plain text and can be played as short/long tones in the browser audio engine."
+    },
+    "boundaries": {
+      "title": "Boundaries and limitations",
+      "can_do": "<strong>Can do:</strong> text and Morse conversion, browser playback, quick educational reference.",
+      "cannot_do": "<strong>Cannot do:</strong> advanced radio protocol timing, signal-noise simulation, or long-form transmission logging.",
+      "input_scope": "<strong>Input scope:</strong> A-Z, 0-9, spaces, and standard Morse separators."
+    },
+    "sos": {
+      "title": "SOS in Morse code",
+      "text_label": "Text",
+      "morse_label": "Morse",
+      "use_case_label": "Use case",
+      "use_case_desc": "A standard emergency signal. You can paste it into Morse input and play flash or audio instantly."
+    },
+    "history": {
+      "title": "Who invented Morse code and when?",
+      "description": "<strong>Short answer:</strong> Samuel Morse and Alfred Vail developed Morse code in the <amber>1830s</amber>, and it was adopted in practical telegraph systems during the <amber>1840s</amber>."
+    },
+    "guide": {
+      "title": "Complete Morse code guide for beginners",
+      "p1": "<strong>Direct answer:</strong> Morse code is a practical signal language where each letter or number is represented by a sequence of dots and dashes. If your goal is to <cyan>translate text to Morse</cyan>, <blue>decode Morse to text</blue>, or simply learn the alphabet quickly, this page combines all three in one place: real-time conversion, flash rhythm playback, and an alphabet chart for fast lookup.",
+      "p2": "Many users search phrases like <strong>what is morse code</strong>, <strong>how to read morse code</strong>, and <strong>how to learn morse code</strong> because they need both a tool and a clear explanation. The fastest way to read Morse is to treat it as sound and timing patterns rather than visual symbols only. A dot is a short signal and a dash is a longer signal; letters are separated by short gaps and words are separated by longer breaks. Once this rhythm is clear, decoding speed improves quickly.",
+      "p3": "If you are practicing from scratch, start with a small set of high-frequency letters such as <strong>E, T, A, N, I, M, S, O</strong>. Then type simple words in the converter and switch between both modes to reinforce memory from both directions. For emergency awareness, memorize <rose>SOS = ... --- ...</rose> first. That one sequence appears in many learning resources and is one of the easiest Morse patterns to recognize at speed.",
+      "p4": "Historically, Morse code was developed by Samuel Morse and Alfred Vail in the 1830s and became widely used through telegraph networks in the 1840s. Today, people still use it for radio training, education, puzzle design, and creative projects like jewelry pattern encoding. In short, a modern <strong>morse code generator</strong> should do more than output symbols: it should help users understand meaning, timing, and practical use.",
+      "quick_a": "A in Morse code",
+      "quick_b": "B in Morse code",
+      "quick_c": "C in Morse code",
+      "quick_e": "E in Morse code",
+      "quick_s": "S in Morse code",
+      "quick_o": "O in Morse code"
+    },
+    "alphabet_chart": {
+      "title": "Morse code alphabet chart (A-Z and 0-9)"
+    },
+    "faq": {
+      "title": "Morse code translator FAQ"
+    },
+    "faq_1": {
+      "question": "What is a Morse code translator and how does it work?",
+      "answer": "A Morse code translator converts text to Morse code and Morse code back to text in seconds. This page also provides browser-based Morse audio and flash playback for timing practice."
+    },
+    "faq_2": {
+      "question": "How do I convert text to Morse code online for free?",
+      "answer": "Use Text to Morse mode, type your message, and copy the generated Morse output instantly. The converter is free, browser-based, and requires no sign-up."
+    },
+    "faq_3": {
+      "question": "How do I decode Morse code to text correctly?",
+      "answer": "Use one space between Morse letters and a slash `/` between words for accurate decoding. Then switch to Morse to Text mode; example input is `... --- ... / .... . .-.. .--.`."
+    },
+    "faq_4": {
+      "question": "Where can I find a Morse code alphabet chart for letters and numbers?",
+      "answer": "Open the Morse code alphabet chart section on this page to view A-Z and 0-9 mappings. It works as a quick reference while translating or learning Morse."
+    },
+    "faq_5": {
+      "question": "What is SOS in Morse code?",
+      "answer": "SOS in Morse code is `... --- ...`. You can copy it directly into the Morse input field and play it with audio or flash timing."
+    },
+    "faq_6": {
+      "question": "Can this Morse code converter handle invalid Morse symbols?",
+      "answer": "Yes. Unknown or malformed Morse tokens are shown as `?`, so you can quickly identify where the Morse sequence needs correction."
+    },
+    "faq_7": {
+      "question": "Can I use this Morse code translator without sending data to a server?",
+      "answer": "Yes. Translation and playback run locally in your browser, helping protect privacy and keeping the converter fast."
+    },
+    "faq_8": {
+      "question": "Who should use this Morse code generator and decoder?",
+      "answer": "It is useful for students, radio hobbyists, puzzle creators, and developers who need fast text-to-Morse and Morse-to-text conversion in one place."
+    },
+    "faq_9": {
+      "question": "How often is this Morse translator page updated for accuracy?",
+      "answer": "The page follows a 30-90 day GEO review cycle and displays a last updated date to provide freshness and confidence signals."
+    },
+    "faq_10": {
+      "question": "What is Morse code?",
+      "answer": "Morse code is a character encoding system that represents letters and numbers using short and long signals known as dots and dashes."
+    },
+    "faq_11": {
+      "question": "How can I learn Morse code quickly?",
+      "answer": "Start with high-frequency letters, practice daily with short sessions, and use audio or flash playback to train rhythm recognition."
+    },
+    "faq_12": {
+      "question": "Who invented Morse code and when was it invented?",
+      "answer": "Samuel Morse and Alfred Vail developed Morse code in the 1830s, and it became widely used in telegraph communication in the 1840s."
+    },
+    "sources": {
+      "title": "Data sources and trust signals",
+      "item_1": "<strong>ITU-R M.1677-1:</strong> International Morse code reference for letters, digits, and transmission pattern.",
+      "item_2": "<strong>Web Audio API:</strong> Browser-side audio generation used for dot/dash playback.",
+      "last_updated": "Last updated: <strong>{date}</strong> (review cycle: every 30-90 days)."
+    },
+    "hidden_seo": {
+      "title": "Morse code generator vs translator",
+      "description": "A Morse code generator takes plain text input and encodes it into Morse symbols, while a Morse code translator typically supports both directions: encode text to Morse and decode Morse to readable text. This page includes both generator and translator behavior, plus audio playback for signal timing practice."
+    },
+    "schema": {
+      "webapp_name": "Morse Code Translator",
+      "alternate_names": "Morse Code Generator, Morse Code Decoder, Morse Code Converter",
+      "feature_1": "Text to Morse conversion",
+      "feature_2": "Morse to text decoding",
+      "feature_3": "Morse code alphabet chart",
+      "feature_4": "SOS in Morse code quick reference",
+      "feature_5": "Morse audio playback",
+      "feature_6": "Reference table",
+      "feature_7": "No registration required",
+      "howto_name": "How to translate text and Morse code online",
+      "howto_description": "Use this step-by-step guide to encode text to Morse code, decode Morse to text, and play Morse audio.",
+      "howto_step_1_name": "Choose conversion mode",
+      "howto_step_1_text": "Select Text to Morse to encode plain text, or Morse to Text to decode Morse signals.",
+      "howto_step_2_name": "Paste your content",
+      "howto_step_2_text": "Enter text, or provide Morse with spaces between letters and slash between words.",
+      "howto_step_3_name": "Copy or play Morse output",
+      "howto_step_3_text": "Copy the generated result, or click play to hear and visualize Morse timing.",
+      "howto_step_4_name": "Use the alphabet chart and SOS reference",
+      "howto_step_4_text": "Open the Morse code alphabet chart and SOS example section to read or learn Morse patterns faster.",
+      "itemlist_name": "Morse code alphabet chart",
+      "itemlist_1": "A .-",
+      "itemlist_2": "B -...",
+      "itemlist_3": "C -.-.",
+      "itemlist_4": "S ...",
+      "itemlist_5": "O ---",
+      "itemlist_6": "1 .----",
+      "itemlist_7": "5 .....",
+      "itemlist_8": "0 -----"
+    }
   }
 }

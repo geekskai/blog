@@ -175,7 +175,7 @@ export default function UpsideDownTextGeneratorPage() {
                 {t("ui.playground_title")}
               </h2>
               <p className="rounded-xl border border-white/15 bg-white/5 px-3 py-1 text-xs text-slate-300">
-                {t("last_updated_label")}: 2026-03-03
+                {t("last_updated_label")}: 2026-03-04
               </p>
             </div>
 

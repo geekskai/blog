@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server"
 import React from "react"
 
 const TOOL_SLUG = "upside-down-text-generator"
-const LAST_MODIFIED = new Date("2026-03-03")
+const LAST_MODIFIED = new Date("2026-03-04")
 
 export async function generateMetadata({
   params: { locale },

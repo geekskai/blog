@@ -841,13 +841,11 @@
     "page_title": "无敌标题卡生成器",
     "page_subtitle": "创建自定义电视剧标题卡",
     "page_description": "生成受无敌动画系列启发的自定义标题卡。创建具有可自定义文本、颜色、背景和效果的专业标题卡。完美适用于粉丝内容和创意项目。",
-
     "breadcrumb": {
       "home": "首页",
       "tools": "工具",
       "invincible_title_card_generator": "无敌标题卡生成器"
     },
-
     "header": {
       "professional_badge": "专业标题卡生成器",
       "main_title": "无敌",
@@ -859,7 +857,6 @@
       "download_button": "下载",
       "generating": "生成中..."
     },
-
     "preview": {
       "live_preview": "实时预览",
       "resolution": "1920×1080",
@@ -872,14 +869,12 @@
       "saved_configurations": "已保存配置",
       "click_to_apply": "点击应用"
     },
-
     "settings": {
       "customization": "自定义",
       "presets_tab": "预设",
       "text_tab": "文本",
       "colors_tab": "颜色",
       "effects_tab": "效果",
-
       "character_presets": "角色预设",
       "text_settings": "文本设置",
       "main_title_label": "主标题",
@@ -888,11 +883,9 @@
       "small_subtitle_placeholder": "小副标题...",
       "credits_subtitle_label": "制作人员副标题",
       "credits_subtitle_placeholder": "制作人员副标题...",
-
       "font_size": "字体大小",
       "text_outline": "文本轮廓",
       "subtitle_offset": "副标题偏移",
-
       "upload_background": "上传自定义背景",
       "remove_image": "移除图片",
       "uploaded_image": "已上传图片",
@@ -906,7 +899,6 @@
       "custom_color_hint": "为背景选择自定义纯色",
       "background_style": "背景样式",
       "text_color": "文本颜色",
-
       "display_options": "显示选项",
       "show_credits": "显示制作人员",
       "show_credits_description": "在标题下方显示副标题信息",
@@ -916,7 +908,6 @@
       "visual_effects_description": "为标题卡添加戏剧性效果",
       "selected_effects": "已选择的效果"
     },
-
     "presets": {
       "invincible": {
         "name": "无敌",
@@ -947,7 +938,6 @@
         "description": "马克的同父异母兄弟"
       }
     },
-
     "backgrounds": {
       "classic_blue": "经典蓝",
       "hero_gradient": "英雄渐变",
@@ -958,7 +948,6 @@
       "sunset_orange": "日落橙",
       "forest_green": "森林绿"
     },
-
     "text_colors": {
       "invincible_yellow": "无敌黄",
       "hero_blue": "英雄蓝",
@@ -971,7 +960,6 @@
       "atom_pink": "原子粉",
       "alien_cyan": "外星青"
     },
-
     "effects": {
       "blood_level_1": "血迹等级 1",
       "blood_level_1_description": "轻微血迹",
@@ -992,24 +980,18 @@
       "sus": "可疑效果",
       "sus_description": "可疑叠加效果"
     },
-
     "content": {
       "professional_features": "专业级功能",
       "features_description": "创建令人惊叹的标题卡所需的一切，具有工作室质量的效果",
-
       "advanced_typography": "高级排版",
       "typography_description": "专业文本自定义，具有真实的无敌风格、轮廓效果和精确的排版控制，实现像素完美的效果。",
-
       "character_presets_feature": "角色预设",
       "presets_description": "一键应用马克、全能侠、原子夏娃和其他受喜爱角色的真实配色方案和预设配置。",
-
       "studio_export_quality": "工作室导出质量",
       "export_description": "以超高分辨率1920×1080 PNG格式导出，针对专业视频制作、社交媒体和演示使用进行优化。",
-
       "create_professional_title": "创建专业的无敌风格标题卡",
       "about_description_1": "我们先进的无敌标题卡生成器使创作者能够制作工作室质量的标题卡，捕捉受喜爱动画系列的精髓。通过直观的控制和专业级输出，将您的创意愿景变为现实。",
       "about_description_2": "无论您是创建粉丝视频、YouTube内容、教育材料还是专业演示，我们的工具都提供了从人群中脱颖而出所需的灵活性和质量。",
-
       "premium_features": "高级功能",
       "feature_character_presets": "基于角色的配色预设和主题",
       "feature_text_customization": "高级文本自定义和排版",
@@ -1017,7 +999,6 @@
       "feature_high_resolution": "高分辨率导出（1920×1080）",
       "feature_real_time_preview": "实时预览和编辑",
       "feature_save_configurations": "保存和管理喜爱的配置",
-
       "how_to_create_title": "如何创建完美的标题卡",
       "step_1_title": "选择您的风格",
       "step_1_description": "从角色预设中选择或从空白画布开始。每个预设都包含优化的颜色和样式，以获得真实的效果。",
@@ -1027,7 +1008,6 @@
       "step_3_description": "调整颜色、背景和效果，同时实时观看您的更改。使用全屏模式进行详细编辑。",
       "step_4_title": "导出和分享",
       "step_4_description": "以专业质量下载您的标题卡，并在您的项目、社交媒体或创意平台上分享。",
-
       "faq_title": "常见问题",
       "faq_1_question": "是什么让这个标题卡生成器特别？",
       "faq_1_answer": "我们的生成器专门设计用于复制无敌动画系列的真实外观和感觉。我们仔细研究了该剧的排版、配色方案和视觉风格，以提供角色特定的预设和专业级自定义选项，产生工作室质量的效果。",
@@ -1044,13 +1024,11 @@
       "faq_7_question": "如何制作《无敌少侠》标题卡？",
       "faq_7_answer": "要制作《无敌少侠》标题卡，您可以使用“角色预设”选项选择一个角色模版。您还可以使用“文本设置”选项自定义文字，使用“颜色”选项自定义配色，以及使用“效果”选项为标题卡添加视觉效果。"
     },
-
     "default_state": {
       "text": "无敌",
       "small_subtitle": "根据漫画改编",
       "subtitle": "罗伯特·柯克曼、科里·沃克和瑞安·奥特利"
     },
-
     "messages": {
       "settings_copied": "设置已复制到剪贴板！🎬",
       "copy_failed": "复制失败",
@@ -1064,13 +1042,11 @@
     "page_title": "BPM转毫秒转换器",
     "page_subtitle": "音乐制作人和DJ的专业时间计算器",
     "page_description": "为您的DAW提供即时、准确的延迟时间和LFO速率",
-
     "value_props": {
       "instant_conversion": "即时转换",
       "daw_ready": "DAW就绪",
       "studio_grade": "录音室级别"
     },
-
     "quick_converter": {
       "title": "快速转换器",
       "input_placeholder": "输入BPM（例如120）或毫秒（例如500）",
@@ -1082,7 +1058,6 @@
       "click_to_copy": "点击复制",
       "copied": "已复制！"
     },
-
     "common_bpm_presets": {
       "title": "按音乐风格分类的常见BPM值",
       "genres": {
@@ -1096,7 +1071,6 @@
         "dnb": "鼓打贝斯"
       }
     },
-
     "conversion_results": {
       "milliseconds_per_beat": "每拍毫秒数",
       "beats_per_minute": "每分钟节拍数",
@@ -1106,7 +1080,6 @@
       "copied": "已复制！",
       "copied_all": "全部已复制！"
     },
-
     "note_values": {
       "quarter_note": "四分音符",
       "quarter_note_description": "1拍 - 标准节拍参考",
@@ -1119,7 +1092,6 @@
       "eighth_triplet": "八分音符三连音",
       "eighth_triplet_description": "1/3拍 - 三连音细分"
     },
-
     "conversion_modes": {
       "bpm_to_ms": "BPM → 毫秒",
       "ms_to_bpm": "毫秒 → BPM",
@@ -1134,7 +1106,6 @@
       "converting_bpm_to_ms": "正在将BPM转换为毫秒",
       "converting_ms_to_bpm": "正在将毫秒转换为BPM"
     },
-
     "input_validation": {
       "range_bpm": "范围：20-300 BPM",
       "range_ms": "范围：100-3000 毫秒",
@@ -1148,7 +1119,6 @@
       "ms_max_error": "毫秒不能超过3000",
       "invalid_input": "无效输入"
     },
-
     "professional_tips": {
       "title": "音乐制作专业技巧",
       "delay_reverb_timing": {
@@ -1166,7 +1136,6 @@
         "triplets": "三连音：复杂的多节奏调制"
       }
     },
-
     "how_it_works": {
       "title": "BPM转毫秒转换的工作原理",
       "formula_title": "转换公式",
@@ -1183,7 +1152,6 @@
         "lighting_sync": "设置节拍同步的灯光系统"
       }
     },
-
     "breadcrumb": {
       "home": "首页",
       "tools": "工具",
@@ -1198,14 +1166,12 @@
     "page_subtitle": "发动机功率估算器",
     "page_description": "免费CCM转HP转换器和发动机功率计算器。为2冲程和4冲程发动机精确即时地将发动机排量(ccm)转换为马力(hp)。完美适用于摩托车爱好者、汽车买家、船用应用和赛车项目。",
     "free_calculator_badge": "发动机功率计算器",
-
     "feature_badges": {
       "bidirectional_conversion": "双向CCM ↔ HP转换",
       "engine_support": "2冲程和4冲程发动机支持",
       "turbo_support": "涡轮增压和自然吸气",
       "multi_application": "摩托车、汽车和船用发动机"
     },
-
     "educational_content": {
       "badge": "发动机功率教育",
       "title": "理解发动机排量与马力",
@@ -1254,7 +1220,6 @@
       "disclaimer_factors": "发动机调校及改装|压缩比|燃油质量及辛烷值|排气系统设计|进气系统|发动机状况及磨损|海拔及大气条件|冷却系统效率",
       "disclaimer_footer": "请将这些估算作为理解发动机功率潜力的起点。若需精确数据，请参阅厂家规格或专业测功机测试。"
     },
-
     "keywords_tags": {
       "ccm_to_hp": "ccm转hp",
       "hp_to_ccm": "hp转ccm",
@@ -1263,13 +1228,11 @@
       "motorcycle_power_calculator": "摩托车功率计算器",
       "2_stroke_4_stroke_converter": "2冲程4冲程转换器"
     },
-
     "breadcrumb": {
       "home": "首页",
       "tools": "工具",
       "ccm_to_hp_converter": "CCM转HP转换器"
     },
-
     "usage_guide": {
       "title": "如何使用CCM转HP转换器 - 完整发动机功率指南",
       "description": "掌握摩托车购买、汽车评估、船用发动机和赛车应用的发动机排量到马力转换",
@@ -1282,7 +1245,6 @@
       "step_4_title": "获得即时结果",
       "step_4_description": "查看带功率范围的估算马力，复制结果或分享计算"
     },
-
     "converter_card": {
       "title": "CCM ↔ HP发动机计算器",
       "description": "精确地将发动机排量转换为马力",
@@ -1321,17 +1283,14 @@
       "min_hp_error": "最小HP值为1",
       "high_hp_warning": "马力非常高。超过1000hp的发动机结果可能不够准确"
     },
-
     "engine_types": {
       "2_stroke": "2冲程发动机",
       "4_stroke": "4冲程发动机"
     },
-
     "fuel_systems": {
       "naturally_aspirated": "自然吸气",
       "turbocharged": "涡轮增压"
     },
-
     "history": {
       "title": "转换历史",
       "button_text": "历史",
@@ -1339,7 +1298,6 @@
       "click_to_use": "点击使用",
       "recent_conversions_saved": "最近的转换保存在本地"
     },
-
     "quick_reference": {
       "title": "快速参考",
       "description": "常见的CCM转HP转换和实际示例",
@@ -1348,30 +1306,22 @@
       "pro_tip": "专业提示",
       "pro_tip_text": "发动机排量（CCM）只是决定马力的因素之一。实际功率输出取决于压缩比、燃油系统、调校和许多其他因素。将这些估算值作为起点使用。"
     },
-
     "faq": {
       "title": "常见问题",
       "description": "关于CCM转HP转换和发动机功率计算您需要了解的一切",
-
       "q1": "CCM转HP转换有多准确？",
       "a1": "CCM转HP转换基于经验数据和行业平均值提供估算。实际马力可能因发动机调校、压缩比、燃油系统和其他因素而变化±15-25%。我们的计算器使用经过验证的公式，对2冲程vs4冲程和自然吸气vs涡轮增压发动机使用不同系数。",
-
       "q2": "2冲程和4冲程功率输出有什么区别？",
       "a2": "2冲程发动机通常比4冲程发动机产生更多的每cc功率，因为它们每转都有一次功率冲程，而不是每两转一次。我们的计算器对2冲程发动机应用1.2-1.4x系数，对4冲程发动机应用0.8-1.0x系数，反映实际功率差异。",
-
       "q3": "涡轮增压如何影响CCM转HP转换？",
       "a3": "涡轮增压发动机从相同排量产生显著更多功率。我们的计算器对涡轮增压发动机应用更高系数（1.0-1.4x），相比自然吸气发动机（0.8-1.2x），通常产生25-40%更多的估算马力。",
-
       "q4": "我可以将此用于摩托车、汽车和船用发动机吗？",
       "a4": "是的！我们的CCM转HP转换器适用于所有内燃机，包括摩托车、汽车、船只、ATV和赛车发动机。计算器考虑了这些应用中常见的不同发动机类型和配置。",
-
       "q5": "为什么制造商的HP额定值有时与计算不同？",
       "a5": "制造商额定值在特定条件下测量（SAE、DIN等），可能包括海拔、温度和测量标准等因素。我们的计算器基于排量和发动机类型提供估算，而实际额定值取决于完整的发动机设计、调校和测试条件。",
-
       "q6": "此计算器最适合哪个CCM范围？",
       "a6": "我们的计算器对50cc到8000cc的发动机准确工作。对于非常小的发动机（50cc以下）或极大的发动机（8000cc以上），由于不同的设计原理和效率因素，结果可能不够准确。"
     },
-
     "final_cta": {
       "title": "准备计算发动机功率了吗？",
       "description": "使用我们的免费CCM转HP转换器即时估算您的发动机马力",
@@ -1726,7 +1676,6 @@
     "add_emoji_wrapper_label": "添加表情环绕",
     "custom_output_label": "自定义组合输出",
     "primary_output_label": "主要输出",
-    "copy_button_label": "复制",
     "copied_button_label": "已复制",
     "copy_failed_label": "复制失败",
     "ready_to_copy_status": "准备复制",
@@ -1748,6 +1697,9 @@
     "empty_input_placeholder": "（输入为空）",
     "default_best_for": "创作者、社交媒体用户和社区管理员",
     "default_key_benefit": "一站式即时复制粘贴 Unicode 文字样式",
+    "latin_only_badge": "仅拉丁字母",
+    "latin_compatibility_note": "注意：部分样式仅支持拉丁字母。非拉丁文字（如中文、日文、韩文）可能保持不变。",
+    "latin_compatibility_warning": "当前输入包含非拉丁字母，因此所选部分样式可能不会明显改变这些字符：{effects}。",
     "categories": {
       "enclosed": "带圈/方框字符",
       "math": "数学样式",
@@ -2398,28 +2350,94 @@
       ]
     },
     "effects": {
-      "plain": { "name": "普通", "desc": "无转换的原始文字" },
-      "negative-circle": { "name": "实心圆圈", "desc": "反色圆圈数字和包围字母" },
-      "hollow-circle": { "name": "空心圆圈", "desc": "圆圈字母数字样式" },
-      "hollow-square": { "name": "空心方块", "desc": "轮廓方框包围样式" },
-      "solid-square": { "name": "实心方块", "desc": "反色方框包围样式" },
-      "serif-bold": { "name": "衬线粗体", "desc": "数学粗体衬线字符" },
-      "sans-bold": { "name": "无衬线粗体", "desc": "数学粗体无衬线字符" },
-      "italic": { "name": "数学斜体", "desc": "数学斜体字符" },
-      "bold-italic": { "name": "粗斜体", "desc": "数学粗斜体字符" },
-      "script": { "name": "手写体", "desc": "类似手写的花体字符" },
-      "bold-script": { "name": "粗手写体", "desc": "粗体手写花体字符" },
-      "fraktur": { "name": "哥特体", "desc": "哥特式 Fraktur 字符" },
-      "bold-fraktur": { "name": "粗哥特体", "desc": "粗体哥特式 Fraktur 字符" },
-      "double-struck": { "name": "空心体", "desc": "黑板粗体字符样式" },
-      "strikethrough": { "name": "删除线", "desc": "使用组合叠加层的划掉样式" },
-      "wavy-underline": { "name": "波浪下划线", "desc": "装饰性波浪下划线样式" },
-      "tail-mark": { "name": "尾标", "desc": "为每个字符添加一个小钩状标记" },
-      "lightning": { "name": "闪电", "desc": "在字符间插入闪电分隔符" },
-      "zalgo": { "name": "Zalgo", "desc": "堆叠标记实现的故障艺术风格" },
-      "upside-down": { "name": "倒置", "desc": "翻转字母并反转顺序" },
-      "mirror": { "name": "镜像", "desc": "镜像字母并反转顺序" },
-      "fullwidth": { "name": "全角", "desc": "将 ASCII 转换为全角形式" }
+      "plain": {
+        "name": "普通",
+        "desc": "无转换的原始文字"
+      },
+      "negative-circle": {
+        "name": "实心圆圈",
+        "desc": "反色圆圈数字和包围字母"
+      },
+      "hollow-circle": {
+        "name": "空心圆圈",
+        "desc": "圆圈字母数字样式"
+      },
+      "hollow-square": {
+        "name": "空心方块",
+        "desc": "轮廓方框包围样式"
+      },
+      "solid-square": {
+        "name": "实心方块",
+        "desc": "反色方框包围样式"
+      },
+      "serif-bold": {
+        "name": "衬线粗体",
+        "desc": "数学粗体衬线字符"
+      },
+      "sans-bold": {
+        "name": "无衬线粗体",
+        "desc": "数学粗体无衬线字符"
+      },
+      "italic": {
+        "name": "数学斜体",
+        "desc": "数学斜体字符"
+      },
+      "bold-italic": {
+        "name": "粗斜体",
+        "desc": "数学粗斜体字符"
+      },
+      "script": {
+        "name": "手写体",
+        "desc": "类似手写的花体字符"
+      },
+      "bold-script": {
+        "name": "粗手写体",
+        "desc": "粗体手写花体字符"
+      },
+      "fraktur": {
+        "name": "哥特体",
+        "desc": "哥特式 Fraktur 字符"
+      },
+      "bold-fraktur": {
+        "name": "粗哥特体",
+        "desc": "粗体哥特式 Fraktur 字符"
+      },
+      "double-struck": {
+        "name": "空心体",
+        "desc": "黑板粗体字符样式"
+      },
+      "strikethrough": {
+        "name": "删除线",
+        "desc": "使用组合叠加层的划掉样式"
+      },
+      "wavy-underline": {
+        "name": "波浪下划线",
+        "desc": "装饰性波浪下划线样式"
+      },
+      "tail-mark": {
+        "name": "尾标",
+        "desc": "为每个字符添加一个小钩状标记"
+      },
+      "lightning": {
+        "name": "闪电",
+        "desc": "在字符间插入闪电分隔符"
+      },
+      "zalgo": {
+        "name": "Zalgo",
+        "desc": "堆叠标记实现的故障艺术风格"
+      },
+      "upside-down": {
+        "name": "倒置",
+        "desc": "翻转字母并反转顺序"
+      },
+      "mirror": {
+        "name": "镜像",
+        "desc": "镜像字母并反转顺序"
+      },
+      "fullwidth": {
+        "name": "全角",
+        "desc": "将 ASCII 转换为全角形式"
+      }
     },
     "categories": {
       "enclosed": "封闭字母数字",
@@ -2457,18 +2475,15 @@
     "page_subtitle": "创建你的彩色人格",
     "page_description": "释放你的创造力，使用我们的 Chromakopia 名字生成器。创建受 Tyler, the Creator 艺术愿景启发的独特人格，将色彩带回生活。",
     "free_tool_badge": "免费 Chromakopia 工具",
-
     "breadcrumb": {
       "home": "首页",
       "tools": "工具",
       "chromakopia_name_generator": "Chromakopia 名字生成器"
     },
-
     "header": {
       "main_title": "Chromakopia 名字生成器",
       "description": "创建受 Tyler, the Creator 的 Chromakopia 启发的彩色化身。生成体现将色彩带回生活精神的独特人格，摆脱黑白思维。"
     },
-
     "persona_display": {
       "title": "你的 Chromakopia 人格",
       "st_chroma_style": "St. Chroma 风格",
@@ -2478,13 +2493,11 @@
       "radiating_in": "散发着",
       "chromatic_superpower": "色彩超能力"
     },
-
     "favorites": {
       "title": "收藏的人格",
       "no_personas": "还没有人格",
       "add_first": "生成你的第一个人格来开始收藏"
     },
-
     "settings": {
       "title": "生成器设置",
       "generation_style": "生成风格",
@@ -2503,7 +2516,6 @@
       "add_to_favorites": "添加到收藏",
       "reset_all": "重置全部"
     },
-
     "features": {
       "music_inspired": "音乐启发",
       "music_description": "生成受 Tyler, the Creator 的 Chromakopia 专辑及其真实性和彩色表达主题启发的人格。",
@@ -2512,7 +2524,6 @@
       "share_connect": "分享与连接",
       "share_description": "与朋友分享你生成的人格，发现不同的人如何表达他们的彩色身份。"
     },
-
     "about_chromakopia": {
       "title": "什么是 Chromakopia？理解 Tyler, the Creator 的愿景",
       "description_1": "Chromakopia 是 Tyler, the Creator 的第八张录音室专辑，探索将色彩带回生活和摆脱社会黑白期望的主题。专辑围绕他的化身 St. Chroma 展开，代表真实的自我表达和彩色生活的勇气。",
@@ -2525,7 +2536,6 @@
       "theme_5": "情感透明",
       "theme_6": "艺术叛逆"
     },
-
     "how_to_use": {
       "title": "如何创建你的 Chromakopia 人格",
       "step_1_title": "选择你的风格",
@@ -2537,7 +2547,6 @@
       "step_4_title": "分享和表达",
       "step_4_description": "下载图片或复制文本，在社交媒体上分享你的色彩人格并启发他人。"
     },
-
     "faq": {
       "title": "常见问题",
       "q1": "Chromakopia 名字生成器的灵感来源是什么？",
@@ -2549,7 +2558,6 @@
       "q4": "Chromakopia 名字生成器是免费的吗？",
       "a4": "是的！这个工具完全免费，无需注册。生成无限人格，保存你的收藏，分享你的创作，没有任何限制。它适用于包括手机和平板电脑在内的所有设备。"
     },
-
     "persona_card": {
       "copy_text": "🎨 我的 Chromakopia 人格 🎨\n\n名字：{name}\n颜色：{colorName}\n特征：{trait}\n描述：{description}\n超能力：{superpower}\n名言：{quote}\n\n生成于：https://geekskai.com/tools/chromakopia-name-generator",
       "copied_message": "人格已复制到剪贴板！🎨",
@@ -2628,7 +2636,6 @@
         "reduced_precision_small": "非常小的值可能精度降低"
       }
     },
-
     "quick_reference": {
       "reference_table": {
         "title": "快速参考表",
@@ -3163,7 +3170,6 @@
         "free_tool": "免费 Discord 时区工具"
       }
     },
-
     "quick_answer": {
       "title": "快速回答",
       "description": "<strong>Discord 时区转换器</strong>是一个<strong>免费</strong>的在线工具，可以在常规时间和 Discord 时间戳格式之间转换，具有<strong>全球时区支持</strong>。适合<strong>Discord 机器人开发者</strong>、<strong>服务器管理员</strong>和<strong>社区管理员</strong>安排国际活动。",
@@ -3214,7 +3220,6 @@
       "onlineToolThat": "在线工具，",
       "everythingYouNeedFor": "您需要的一切，用于"
     },
-
     "schema": {
       "feature_list_1": "适用于所有全球时区的 Discord 时区转换器",
       "feature_list_2": "双向 Discord 时间戳转换",
@@ -3238,7 +3243,6 @@
       "audienceType": "Discord 社区管理员、Discord 机器人开发者、国际活动组织者、全球团队、游戏社区、Discord 服务器管理员、跨时区协调员、国际 Discord 社区",
       "softwareRequirements": "启用 JavaScript 的现代网络浏览器"
     },
-
     "conversion_modes": {
       "to_timestamp": {
         "title": "时间 → Discord 时间戳",
@@ -3249,21 +3253,18 @@
         "description": "将 Discord 格式转换为常规时间"
       }
     },
-
     "input_sections": {
       "conversion_mode": "转换模式",
       "time_input": "时间输入",
       "discord_timestamp_input": "Discord 时间戳输入",
       "timezone": "时区"
     },
-
     "form_labels": {
       "select_date_time": "选择日期和时间",
       "discord_timestamp": "Discord 时间戳",
       "select_timezone": "选择您的时区",
       "input_one_per_line": "输入（每行一个）"
     },
-
     "placeholders": {
       "select_date_time": "选择日期和时间",
       "discord_timestamp": "&lt;t:1640995200:f&gt;",
@@ -3271,7 +3272,6 @@
       "batch_to_timestamp": "2024-01-01 12:00:00\n2024-02-01 15:30:00",
       "batch_from_timestamp": "&lt;t:1640995200:f&gt;\n&lt;t:1640995500:R&gt;"
     },
-
     "timestamp_formats": {
       "relative": {
         "label": "相对时间",
@@ -3309,7 +3309,6 @@
         "example": "2021年4月20日星期二 16:20"
       }
     },
-
     "timezone_groups": {
       "utc": "UTC",
       "americas": "美洲",
@@ -3317,7 +3316,6 @@
       "asia": "亚洲",
       "oceania": "大洋洲"
     },
-
     "common_timezones": {
       "utc": {
         "label": "UTC",
@@ -3380,7 +3378,6 @@
         "description": "奥克兰、惠灵顿 (+13:00)"
       }
     },
-
     "buttons": {
       "plus_1_hour": "+1小时",
       "plus_1_day": "+1天",
@@ -3402,7 +3399,6 @@
       "hide_advanced": "隐藏高级功能",
       "convert_all": "全部转换"
     },
-
     "results": {
       "conversion_results": "转换结果",
       "live_preview": "实时预览",
@@ -3410,18 +3406,15 @@
       "date_time_relative": "日期、时间和相对时间",
       "full_date_relative": "完整日期和相对时间"
     },
-
     "advanced_features": {
       "batch_converter": "批量转换器",
       "conversion_history": "转换历史",
       "results_label": "结果："
     },
-
     "info_messages": {
       "format_info": "格式：&lt;t:时间戳:格式&gt;（例如：&lt;t:1640995200:f&gt;）",
       "invalid_format_type": "无效的格式类型"
     },
-
     "usage_guide": {
       "title": "如何使用 Discord 时区转换器 - 完整指南",
       "description": "掌握 Discord 时区转换和时间戳生成，用于您的服务器、机器人开发和跨所有时区的全球社区协调",
@@ -3434,7 +3427,6 @@
       "step_4_title": "复制和实施",
       "step_4_description": "复制生成的 Discord 时间戳（您首选的格式），并将其粘贴到 Discord 消息、机器人代码或 webhook 内容中，以实现自动时区显示。"
     },
-
     "content_sections": {
       "what_are_discord_timestamps": {
         "title": "什么是 Discord 时间戳？了解 Discord 时间格式",
@@ -3558,13 +3550,11 @@
     "seo_title": "Discord 时间戳生成器 - 创建动态 Discord 时间戳 | 免费工具",
     "seo_description": "免费 Discord 时间戳生成器，创建动态时间戳、活动倒计时和提醒系统。生成所有 Discord 时间戳格式，支持实时预览、时区支持和 Discord 机器人集成。完美适用于活动安排和社区管理。",
     "seo_keywords": "discord 时间戳生成器, 创建 discord 时间戳, 生成 discord 时间戳, discord 活动生成器, discord 倒计时生成器, discord 提醒时间戳",
-
     "breadcrumb": {
       "home": "首页",
       "tools": "工具",
       "discord_timestamp_generator": "Discord 时间戳生成器"
     },
-
     "header": {
       "professional_badge": "专业 Discord 时间戳",
       "main_title": "Discord",
@@ -3577,7 +3567,6 @@
         "free_generator": "免费生成器"
       }
     },
-
     "modes": {
       "input_mode": "输入模式",
       "relative_time": "相对时间",
@@ -3585,7 +3574,6 @@
       "absolute_time": "绝对时间",
       "absolute_time_description": "具体日期和时间"
     },
-
     "quick_presets": {
       "title": "快速预设",
       "in_1_hour": "1小时后",
@@ -3593,7 +3581,6 @@
       "next_week": "下周",
       "in_1_month": "1个月后"
     },
-
     "time_adjustment": {
       "title": "时间调整",
       "weeks": "周",
@@ -3601,7 +3588,6 @@
       "hours": "小时",
       "minutes": "分钟"
     },
-
     "date_time_settings": {
       "title": "日期和时间设置",
       "year": "年",
@@ -3611,11 +3597,9 @@
       "minute": "分钟",
       "timezone": "时区：UTC"
     },
-
     "display_format": {
       "title": "显示格式"
     },
-
     "timestamp_formats": {
       "relative": {
         "label": "相对时间",
@@ -3653,12 +3637,10 @@
         "example": "2021年4月20日星期二 16:20"
       }
     },
-
     "format_toggle": {
       "show_common_formats": "显示常用格式",
       "show_more_formats": "显示更多格式"
     },
-
     "preview": {
       "discord_preview": "Discord 预览",
       "real_time": "实时",
@@ -3668,7 +3650,6 @@
       "bot_label": "机器人",
       "today": "今天"
     },
-
     "generated_result": {
       "title": "生成结果",
       "discord_timestamp_code": "Discord 时间戳代码",
@@ -3678,14 +3659,12 @@
       "copied": "已复制！",
       "failed_to_copy": "复制失败："
     },
-
     "saved_configurations": {
       "title": "已保存配置",
       "click_to_apply": "点击应用",
       "relative_mode": "相对时间",
       "date_mode": "日期"
     },
-
     "features": {
       "title": "专业级功能",
       "description": "创建<strong>完美 Discord 时间戳</strong>所需的一切，<strong>精确</strong>且<strong>时尚</strong>",
@@ -3702,7 +3681,6 @@
         "description": "<strong>保存收藏配置</strong>，轻松管理时间戳设置，便于在不同项目中快速访问和重复使用。"
       }
     },
-
     "usage_guide": {
       "title": "如何创建完美的 Discord 时间戳",
       "description": "按照这些简单步骤从零开始生成专业的 Discord 时间戳",
@@ -3723,7 +3701,6 @@
         "description": "复制生成的 Discord 时间戳代码并粘贴到消息中，实现自动时区转换。"
       }
     },
-
     "content_sections": {
       "what_is_generation": {
         "title": "什么是 Discord 时间戳生成？创建动态时间显示",
@@ -3736,7 +3713,6 @@
         "benefit_5": "创建过程中的实时预览",
         "benefit_6": "多种格式选项可用"
       },
-
       "best_practices": {
         "title": "Discord 时间戳创建最佳实践",
         "event_scheduling": {
@@ -3758,7 +3734,6 @@
           "api_compatible": "与所有 Discord API 集成兼容。"
         }
       },
-
       "generator_vs_converter": {
         "title": "Discord 时间戳生成器 vs 转换器：选择合适的工具",
         "generator_section": {
@@ -3782,7 +3757,6 @@
         }
       }
     },
-
     "faq": {
       "title": "关于 Discord 时间戳生成的常见问题",
       "q1": {
@@ -3818,7 +3792,6 @@
         "answer": "可以！我们的生成器包含收藏系统，您可以保存常用的时间戳配置。完美适用于重复活动、定期会议安排或常用倒计时格式，您可以快速应用并再次生成。"
       }
     },
-
     "preview_text": {
       "in_days": "{days}天后",
       "in_hours": "{hours}小时后",
@@ -3829,7 +3802,6 @@
       "minutes_ago": "{minutes}分钟前",
       "few_seconds_ago": "几秒前"
     },
-
     "structured_data": {
       "feature_1": "动态Discord时间戳生成",
       "feature_2": "实时倒计时创建",
@@ -3850,12 +3822,10 @@
       "educational_use": "Discord事件规划, Discord社区管理, Discord机器人开发, Discord事件协调, Discord提醒系统, Discord服务器管理",
       "audience_type": "Discord社区管理员, Discord机器人开发者, 事件组织者, Discord服务器管理员, 游戏社区, 内容创作者"
     },
-
     "geo_tldr": {
       "title": "快速回答",
       "content": "<strong>Discord时间戳生成器</strong>是一个<strong>免费在线工具</strong>, 用于创建<strong>动态Discord时间戳</strong>, 用于事件, 倒计时和提醒. 它支持<strong>7种时间戳格式</strong>, 自动适用于<strong>所有时区</strong>, <strong>无需注册</strong>. 完美适用于<strong>Discord社区管理员</strong>, <strong>机器人开发者</strong>, <strong>事件组织者</strong>, 需要安排事件和创建倒计时计时器, 在Discord消息中实时更新."
     },
-
     "core_facts": {
       "title": "核心信息",
       "pricing_label": "价格",
@@ -4347,19 +4317,15 @@
       }
     }
   },
-
   "Random4DigitNumberGenerator": {
     "seo_title": "随机4位数字生成器 - 免费在线随机验证码生成工具",
     "seo_description": "免费在线随机4位数字生成器,适用于验证码、PIN码和OTP。即时生成安全的4位随机数字,无需注册,加密安全,无限使用。完美适用于开发者、测试和安全应用。支持批量生成、多种格式导出。",
     "seo_keywords": "随机4位数字生成器, 随机验证码生成器, 4位数字生成器, 随机4位代码生成器, 四位随机数字生成器, 4位随机数生成器, 随机四位数字生成器, 验证码生成器, PIN码生成器, OTP生成器, 4位随机数字生成器在线, 安全随机数字, 加密随机生成器, 测试数据生成器, 批量数字生成器, 随机4位数字, 生成随机4位代码, 在线随机数生成器",
-
     "og_image_alt": "随机4位数字生成器工具",
-
     "json_ld": {
       "name": "随机4位数字生成器",
       "alternate_names": "随机4位数字生成器, 随机验证码生成器, 4位数字生成器, 随机4位代码生成器",
       "description": "即时生成安全的随机4位数字。非常适合{verification_codes}、{pins}、{testing_data}和开发用途。加密安全、无限制、完全免费。",
-
       "keywords": "随机数字生成器, 4位生成器, 验证码, PIN生成器, OTP, 安全随机, 加密",
       "educational_use": "软件开发, 安全测试, QA测试, 数据库填充, 统计分析",
       "audience_type": "开发者, QA工程师, 安全专业人士, 学生",
@@ -4381,13 +4347,11 @@
         "instant": "使用Web Crypto API即时生成"
       }
     },
-
     "breadcrumb": {
       "home": "首页",
       "tools": "工具",
       "random_4_digit_number_generator": "随机4位数字生成器"
     },
-
     "header": {
       "badge_text": "加密安全 • 永久免费",
       "main_title": "随机4位数字生成器",
@@ -4398,18 +4362,15 @@
       "testing_data": "测试数据",
       "share_text": "与您的团队分享这个免费工具"
     },
-
     "features_pills": {
       "instant_generation": "即时生成",
       "crypto_secure": "加密安全",
       "bulk_export": "批量导出"
     },
-
     "generator": {
       "single_title": "单个数字生成器",
       "settings_show": "显示设置",
       "settings_hide": "隐藏设置",
-
       "settings_panel": {
         "title": "生成设置",
         "range_label": "范围（最小 - 最大）",
@@ -4422,13 +4383,11 @@
         "exclude_sequential": "排除连续 (1234, 4321)",
         "exclude_repeated": "排除重复 (1111, 2222)"
       },
-
       "display": {
         "crypto_secure": "加密安全的随机数字",
         "click_generate": "点击生成创建数字",
         "features": "安全 • 随机 • 即时"
       },
-
       "buttons": {
         "generate": "生成数字",
         "generating": "生成中...",
@@ -4440,12 +4399,10 @@
         "reset": "重置",
         "reset_all": "全部重置"
       },
-
       "history": {
         "title": "最近历史",
         "clear": "清除"
       },
-
       "bulk": {
         "title": "批量生成器",
         "number_of_items": "项目数量",
@@ -4458,13 +4415,11 @@
         "results_title": "已生成数字 ({count})",
         "click_to_copy": "点击复制"
       },
-
       "stats": {
         "total_generated": "总生成数",
         "unique_numbers": "唯一数字",
         "average_value": "平均值"
       },
-
       "bulk_title": "批量生成器",
       "bulk_settings": {
         "quantity_label": "项目数量",
@@ -4474,14 +4429,12 @@
         "export_json": "JSON (.json)",
         "allow_duplicates": "允许重复"
       },
-
       "bulk_buttons": {
         "generate": "生成 {count} 个数字",
         "export": "导出",
         "show": "显示",
         "hide": "隐藏"
       },
-
       "statistics": {
         "total_generated": "总生成数",
         "unique_numbers": "唯一数字",
@@ -4489,15 +4442,12 @@
         "generated_numbers": "已生成数字 ({count})",
         "click_to_copy": "点击复制"
       },
-
       "reset_button": "全部重置"
     },
-
     "use_cases": {
       "badge": "热门使用场景",
       "title": "4位随机数字生成器可以用来做什么？",
       "description": "从安全应用到开发测试，探索我们的随机数字生成器可以帮助您的多种方式",
-
       "verification_codes": {
         "title": "验证码",
         "description": "为短信/邮件验证系统生成安全的OTP和2FA代码",
@@ -4508,7 +4458,6 @@
           "account_recovery": "账户恢复"
         }
       },
-
       "pin_numbers": {
         "title": "PIN码",
         "description": "为各种应用创建安全的个人识别码",
@@ -4519,7 +4468,6 @@
           "security_tokens": "安全令牌"
         }
       },
-
       "testing_development": {
         "title": "测试与开发",
         "description": "为QA、开发和数据库填充目的生成测试数据",
@@ -4530,7 +4478,6 @@
           "database_seeds": "数据库种子"
         }
       },
-
       "gaming_lottery": {
         "title": "游戏与抽奖",
         "description": "为游戏、比赛和幸运数字生成创建随机数字",
@@ -4541,7 +4488,6 @@
           "random_selection": "随机选择"
         }
       },
-
       "educational_research": {
         "title": "教育与研究",
         "description": "非常适合统计、概率实验和学术项目",
@@ -4552,7 +4498,6 @@
           "surveys": "调查"
         }
       },
-
       "how_it_works": {
         "title": "我们的生成器如何工作",
         "description_1": "我们的{strong_4digit}使用加密安全算法确保真正的随机性和不可预测性。",
@@ -4561,7 +4506,6 @@
         "strong_crypto": "Web Crypto API",
         "description_3": "非常适合{strong_users}以及任何需要可靠随机数字用于验证码、PIN码或测试目的的人。",
         "strong_users": "开发者、安全专业人士",
-
         "steps": {
           "step_1": "选择您的偏好（范围、格式、排除项）",
           "step_2": "点击生成以创建安全的随机数字",
@@ -4569,7 +4513,6 @@
           "step_4": "立即在您的应用中使用它们"
         }
       },
-
       "why_choose": {
         "title": "为什么选择我们的工具？",
         "instant_generation": {
@@ -4598,12 +4541,10 @@
         }
       }
     },
-
     "features": {
       "badge": "强大功能",
       "title": "一个工具满足所有需求",
       "description": "为开发者、安全专业人士和高级用户设计的专业级功能",
-
       "crypto_secure": {
         "title": "加密安全",
         "description": "使用Web Crypto API进行真正的随机数字生成，适用于安全敏感的应用"
@@ -4628,9 +4569,7 @@
         "title": "高级自定义",
         "description": "控制数字范围、格式、重复，并应用连续或重复数字的排除规则"
       },
-
       "learn_more": "了解更多",
-
       "trust_signals": {
         "badge": "受开发者和安全专业人士信赖",
         "description": "加入数千名依赖我们随机数字生成器进行日常工作流程的开发者、QA工程师和安全专业人士",
@@ -4643,18 +4582,15 @@
           "cross_platform": "✓ 移动和桌面"
         }
       },
-
       "security_notice": {
         "title": "安全与隐私",
         "description": "所有随机数字生成都在您的浏览器中使用Web Crypto API进行。我们不存储、跟踪或传输任何生成的数字。您的数据保留在您的设备上，确保完全的隐私和安全。"
       }
     },
-
     "faq": {
       "badge": "常见问题",
       "title": "您需要了解的一切",
       "description": "关于我们的随机4位数字生成器的常见问题",
-
       "items": {
         "how_random": {
           "question": "生成的数字有多随机？",
@@ -4705,7 +4641,6 @@
           "answer": "范围设置允许您指定生成的最小值和最大值。例如，设置范围1000-5000将只生成1000到5000之间的数字。当您需要0000-9999范围的特定子集内的数字时，这很有用。"
         }
       },
-
       "q1": {
         "question": "生成的数字有多随机？",
         "answer": "我们的生成器使用Web Crypto API（crypto.getRandomValues()），它提供加密安全的随机数字。这意味着数字是真正随机和不可预测的，适用于验证码和PIN码等安全敏感应用。随机性质量明显高于Math.random()。"
@@ -4754,14 +4689,12 @@
         "question": "范围设置如何工作？",
         "answer": "范围设置允许您指定生成的最小值和最大值。例如，设置范围1000-5000将只生成1000到5000之间的数字。当您需要0000-9999范围的特定子集内的数字时，这很有用。"
       },
-
       "still_have_questions": {
         "title": "还有问题吗？",
         "description": "找不到您要找的答案？查看我们的文档或联系我们的社区",
         "view_docs": "查看文档",
         "contact_support": "联系支持"
       },
-
       "pro_tips": {
         "tip_1": {
           "icon": "💡",
@@ -4780,7 +4713,6 @@
         }
       }
     },
-
     "cta": {
       "title": "准备好生成随机数字了吗？",
       "description": "立即开始生成安全的随机4位数字。无需注册，无限制，永久免费。",
@@ -4794,21 +4726,18 @@
         "cross_platform": "✓ 移动和桌面"
       }
     },
-
     "seo_content": {
       "title": "关于我们的随机4位数字生成器",
       "title_suffix": "随机验证码生成器",
       "paragraph_1": "我们的{strong_generator}是为开发者、安全专业人士、QA工程师和任何需要可靠随机数字的人设计的专业级工具。与基本的随机数字生成器不同，我们使用<rich>{strong_crypto}</rich>来确保适用于安全敏感应用的加密安全随机性。",
       "strong_generator": "随机4位数字生成器",
       "strong_crypto": "Web Crypto API",
-
       "perfect_for_title": "适用于多种使用场景",
       "perfect_for_description": "无论您需要用于身份验证系统的{strong_verification}、用于访问控制的{strong_pins}、用于开发的{strong_test_data}，还是用于其他目的的{strong_random}，我们的工具都能提供具有高级自定义选项的即时、安全的生成。",
       "strong_verification": "验证码",
       "strong_pins": "PIN码",
       "strong_test_data": "测试数据",
       "strong_random": "随机数字",
-
       "key_features_title": "主要功能",
       "features_list": {
         "crypto_secure": "<strong>加密安全</strong>：使用Web Crypto API实现真正的随机性",
@@ -4820,14 +4749,12 @@
         "free": "<strong>100%免费</strong>：永久无限生成",
         "privacy": "<strong>注重隐私</strong>：无数据存储或跟踪"
       },
-
       "how_it_works_title": "工作原理",
       "how_it_works_description": "我们的生成器利用浏览器的原生{strong_crypto}方法，该方法提供加密强随机值。这确保生成的数字真正不可预测，适用于{strong_otp}、{strong_2fa}和{strong_verification}等安全应用。",
       "strong_crypto_method": "crypto.getRandomValues()",
       "strong_otp": "OTP生成",
       "strong_2fa": "双因素认证",
       "strong_verification_codes": "验证码",
-
       "why_choose_title": "为什么选择我们的工具？",
       "why_choose_description": "与使用基本Math.random()的其他随机数字生成器不同，我们的工具提供{strong_enterprise}，配有美观直观的界面。我们专门为需要可靠、安全的随机数字而不牺牲可用性或功能的专业人士设计。",
       "strong_enterprise": "企业级安全"
@@ -5952,18 +5879,14 @@
     "faq_answer_7": "不需要。无需创建账号或注册，SoundCloud 转 WAV 转换器可直接使用。",
     "faq_question_8": "可下载的最大文件大小是多少？",
     "faq_answer_8": "没有明确的文件大小限制。但音轨越长，处理时间可能越久。大多数标准音轨（3–5 分钟）都可以顺利下载。",
-
     "breadcrumb_home": "首页",
     "breadcrumb_tools": "工具",
     "breadcrumb_title": "SoundCloud 转 WAV 转换器",
     "tool_badge": "SoundCloud 转换器",
-
     "page_title": "SoundCloud 转 WAV 转换器",
     "page_subtitle": "立即将 SoundCloud 音轨下载为 <wav>WAV</wav> 或 <mp3>MP3</mp3> 文件。<free>免费</free>、<fast>快速</fast>、<no_registration>无需注册</no_registration>。",
-
     "content_freshness_updated": "已更新",
     "content_freshness_last_updated": "最后更新",
-
     "form_title": "转换 SoundCloud 音轨",
     "form_label_soundcloud_link": "SoundCloud 链接",
     "form_button_get_info": "获取信息",
@@ -5977,7 +5900,6 @@
     "error_network": "网络错误，请稍后重试",
     "error_download_failed": "下载失败，请稍后再试",
     "error_get_info_failed": "获取信息失败，请检查链接是否正确",
-
     "progress_connecting": "正在连接服务器...",
     "progress_fetching": "正在获取音频信息...",
     "progress_processing": "正在处理数据...",
@@ -5987,10 +5909,8 @@
     "progress_server_processing": "服务器处理中（从 SoundCloud 下载音频）...",
     "progress_downloading_file": "正在下载文件",
     "progress_saving_file": "正在保存文件...",
-
     "empty_state_title": "开始使用",
     "empty_state_description": "在上方输入 SoundCloud 链接，然后点击“获取信息”即可开始",
-
     "track_info_title": "音轨信息",
     "track_info_subtitle": "查看详细信息并下载音乐",
     "track_info_unknown_title": "未知标题",
@@ -6027,7 +5947,6 @@
     "track_info_years_ago": "年前",
     "track_info_view_on_soundcloud": "在 SoundCloud 上查看",
     "track_info_view_waveform": "查看波形",
-
     "section_what_is_title": "什么是 SoundCloud 转 WAV 转换器？",
     "section_what_is_description_1": "我们的 <strong>SoundCloud 转 WAV 转换器</strong> 是一款 <strong>免费的在线工具</strong>，可帮助你下载 SoundCloud 音轨并将其转换为 <strong>WAV 格式</strong> 或 <strong>MP3 格式</strong>。它能够从任意公开的 SoundCloud 链接中提取音频，并提供高质量的离线音频文件。",
     "section_what_is_description_2": "无论你是 <strong>DJ</strong>、<strong>音乐制作人</strong>、<strong>内容创作者</strong> 还是 <strong>音频爱好者</strong>，该工具都能让你无需注册或付费，快速轻松地下载 SoundCloud 音轨。",
@@ -6036,10 +5955,8 @@
     "section_what_is_benefit_2": "高品质 – 支持 WAV 与 MP3",
     "section_what_is_benefit_3": "处理快速 – 30 秒内完成",
     "section_what_is_benefit_4": "无限使用 – 无任何限制",
-
     "related_tool_text": "需要下载整个播放列表？",
     "related_tool_link": "试试 SoundCloud 播放列表下载",
-
     "section_core_facts_title": "核心信息",
     "section_core_facts_pricing": "价格",
     "section_core_facts_pricing_value": "100% 免费 – 无需注册",
@@ -6049,7 +5966,6 @@
     "section_core_facts_speed_value": "大多数音轨少于 30 秒",
     "section_core_facts_users": "适用人群",
     "section_core_facts_users_value": "<musicians>音乐人</musicians>、<djs>DJs</djs>、<creators>内容创作者</creators> 和 <enthusiasts>音频爱好者</enthusiasts>",
-
     "section_features_title": "主要功能",
     "section_features_1_title": "免费且不限次数",
     "section_features_1_description": "无费用、无注册，<strong>无限次转换</strong>",
@@ -6057,27 +5973,23 @@
     "section_features_2_description": "以 <strong>WAV 或 MP3 格式</strong> 下载并保持原始音质",
     "section_features_3_title": "极速处理",
     "section_features_3_description": "在 <strong>30 秒内</strong> 完成转换并下载",
-
     "section_how_to_title": "如何将 SoundCloud 转换为 WAV",
     "section_how_to_step_1": "<strong>复制 SoundCloud 链接</strong>",
     "section_how_to_step_2": "<strong>将链接粘贴</strong> 到上方转换工具中",
     "section_how_to_step_3": "<strong>点击“获取信息”</strong> 预览音轨详情",
     "section_how_to_step_4": "<strong>选择格式</strong>（WAV 或 MP3）",
     "section_how_to_step_5": "<strong>点击“下载”</strong> 开始转换并下载",
-
     "section_format_comparison_title": "WAV 与 MP3 格式对比",
     "section_format_comparison_wav_title": "WAV 格式",
     "section_format_comparison_wav_1": "<strong>无损音质</strong> – 无压缩",
     "section_format_comparison_wav_2": "<strong>文件较大</strong> – 通常每首 10–50MB",
     "section_format_comparison_wav_3": "<strong>适合用途</strong> – 专业音频编辑与制作",
     "section_format_comparison_wav_4": "<strong>采样率</strong> – 保留原始音质",
-
     "section_format_comparison_mp3_title": "MP3 格式",
     "section_format_comparison_mp3_1": "<strong>压缩音频</strong> – 文件更小",
     "section_format_comparison_mp3_2": "<strong>文件大小</strong> – 通常每首 3–8MB",
     "section_format_comparison_mp3_3": "<strong>适合用途</strong> – 移动设备与日常聆听",
     "section_format_comparison_mp3_4": "<strong>比特率</strong> – 320kbps 下的高音质",
-
     "section_use_cases_title": "谁在使用 SoundCloud 转 WAV 转换器？",
     "section_use_cases_1_title": "DJ 与音乐制作人",
     "section_use_cases_1_description": "下载音轨用于 <strong>混音、重混和 Mashup 创作</strong>，非常适合 DJ 演出和音乐制作流程。",
@@ -6929,7 +6841,6 @@
       }
     }
   },
-
   "PERMProcessingTimeTracker": {
     "seo_title": "PERM处理时间追踪器 - 免费实时DOL移民状态检查器",
     "seo_description": "使用实时DOL数据的PERM处理时间追踪器。官方DOL数据集成，提供准确的移民时间线。",
@@ -7978,5 +7889,206 @@
     "boundary_description": "此工具仅用于下载你有权使用的音频内容。请始终遵守版权、创作者权利和平台条款。仅用于个人、已授权或具有合法许可的内容。",
     "content_freshness_updated": "已更新",
     "content_freshness_last_updated": "最后更新"
+  },
+  "MorseCodeTranslator": {
+    "seo": {
+      "title": "Morse Code Translator & Generator",
+      "description": "Free online Morse Code Translator & Generator to encode text, decode Morse code, and play Morse audio instantly in your browser.",
+      "keywords": "morse code translator, morse code generator, morse code generator online, text to morse code, morse code to text, morse code decoder, what is morse code, how does morse code work, how to read morse code, how to learn morse code, morse code alphabet, morse code chart, morse code converter, morse code converter online, sos in morse code, what is sos in morse code, who invented morse code, when was morse code invented, morse code sound",
+      "og_alt": "Morse Code Translator on GeeksKai"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "tools": "Tools",
+      "current": "Morse Code Translator"
+    },
+    "defaults": {
+      "input_text": "HELLO WORLD",
+      "morse_sos": "... --- ..."
+    },
+    "placeholders": {
+      "encode": "Type message, e.g. HELLO WORLD",
+      "decode": "Use . and -, space between letters, / between words"
+    },
+    "header": {
+      "title": "Morse Code Translator",
+      "quick_answer": "<strong>Quick answer:</strong> This page provides a free online <blue>Morse code translator</blue> for <cyan>text to Morse</cyan>, <purple>Morse to text</purple>, plus browser audio playback with no account needed."
+    },
+    "core_facts": {
+      "title": "Core Facts",
+      "pricing_label": "Pricing",
+      "pricing_value": "<strong>Free</strong>, no sign-up.",
+      "features_label": "Main Features",
+      "features_value": "<strong>Encode</strong>, <strong>decode</strong>, and <strong>audio playback</strong>.",
+      "positioning_label": "Positioning",
+      "positioning_value": "Fast, browser-native Morse utility for learning and practical conversion.",
+      "users_label": "Target Users",
+      "users_value": "Students, ham radio users, puzzle makers, developers."
+    },
+    "overview": {
+      "title": "What is Morse code?",
+      "description": "<strong>Direct answer:</strong> Morse code is a communication system that encodes letters and numbers with <blue>dots</blue> and <cyan>dashes</cyan>. It is still useful for learning signal timing, emergency patterns, and radio basics.",
+      "card_1_title": "How Morse code works",
+      "card_1_desc": "Each character maps to a unique dot-dash sequence, for example <strong>A = .-</strong> and <strong>B = -...</strong>.",
+      "card_2_title": "How to read Morse code",
+      "card_2_desc": "Read short signals as dots and long signals as dashes, then split by letter spaces and word separators.",
+      "card_3_title": "How to learn Morse code",
+      "card_3_desc": "Practice 5-10 minutes daily with common letters, then train listening speed using flash and audio playback."
+    },
+    "tool": {
+      "mode_label": "Mode",
+      "mode_encode": "Text to Morse",
+      "mode_decode": "Morse to Text",
+      "input_text_label": "Input text",
+      "input_morse_label": "Input Morse code",
+      "output_morse": "Morse output",
+      "output_text": "Decoded text",
+      "output_placeholder": "Output will appear here.",
+      "signal_playing": "Morse flashlight is blinking by signal timing",
+      "signal_preview": "Signal lamp preview",
+      "no_signal": "No signal to preview.",
+      "stop_playback": "Stop playback",
+      "play_audio_flash": "Play audio + flash",
+      "play_flash": "Play flash",
+      "audio_title_on": "Audio and flash enabled",
+      "audio_title_off": "Flash-only mode enabled",
+      "audio_on": "Audio on",
+      "flash_only": "Flash only",
+      "copied": "Copied",
+      "copy_output": "Copy output"
+    },
+    "how_to": {
+      "title": "How to use this Morse code translator (step-by-step)",
+      "step_1_title": "1) Normalize input",
+      "step_1_desc": "Text is uppercased for consistent mapping; Morse input is split by spaces and `/`.",
+      "step_2_title": "2) Convert by dictionary",
+      "step_2_desc": "Characters map to dots and dashes using the ITU-style Morse table; unknown tokens return `?`.",
+      "step_3_title": "3) Render and playback",
+      "step_3_desc": "The output is shown as plain text and can be played as short/long tones in the browser audio engine."
+    },
+    "boundaries": {
+      "title": "Boundaries and limitations",
+      "can_do": "<strong>Can do:</strong> text and Morse conversion, browser playback, quick educational reference.",
+      "cannot_do": "<strong>Cannot do:</strong> advanced radio protocol timing, signal-noise simulation, or long-form transmission logging.",
+      "input_scope": "<strong>Input scope:</strong> A-Z, 0-9, spaces, and standard Morse separators."
+    },
+    "sos": {
+      "title": "SOS in Morse code",
+      "text_label": "Text",
+      "morse_label": "Morse",
+      "use_case_label": "Use case",
+      "use_case_desc": "A standard emergency signal. You can paste it into Morse input and play flash or audio instantly."
+    },
+    "history": {
+      "title": "Who invented Morse code and when?",
+      "description": "<strong>Short answer:</strong> Samuel Morse and Alfred Vail developed Morse code in the <amber>1830s</amber>, and it was adopted in practical telegraph systems during the <amber>1840s</amber>."
+    },
+    "guide": {
+      "title": "Complete Morse code guide for beginners",
+      "p1": "<strong>Direct answer:</strong> Morse code is a practical signal language where each letter or number is represented by a sequence of dots and dashes. If your goal is to <cyan>translate text to Morse</cyan>, <blue>decode Morse to text</blue>, or simply learn the alphabet quickly, this page combines all three in one place: real-time conversion, flash rhythm playback, and an alphabet chart for fast lookup.",
+      "p2": "Many users search phrases like <strong>what is morse code</strong>, <strong>how to read morse code</strong>, and <strong>how to learn morse code</strong> because they need both a tool and a clear explanation. The fastest way to read Morse is to treat it as sound and timing patterns rather than visual symbols only. A dot is a short signal and a dash is a longer signal; letters are separated by short gaps and words are separated by longer breaks. Once this rhythm is clear, decoding speed improves quickly.",
+      "p3": "If you are practicing from scratch, start with a small set of high-frequency letters such as <strong>E, T, A, N, I, M, S, O</strong>. Then type simple words in the converter and switch between both modes to reinforce memory from both directions. For emergency awareness, memorize <rose>SOS = ... --- ...</rose> first. That one sequence appears in many learning resources and is one of the easiest Morse patterns to recognize at speed.",
+      "p4": "Historically, Morse code was developed by Samuel Morse and Alfred Vail in the 1830s and became widely used through telegraph networks in the 1840s. Today, people still use it for radio training, education, puzzle design, and creative projects like jewelry pattern encoding. In short, a modern <strong>morse code generator</strong> should do more than output symbols: it should help users understand meaning, timing, and practical use.",
+      "quick_a": "A in Morse code",
+      "quick_b": "B in Morse code",
+      "quick_c": "C in Morse code",
+      "quick_e": "E in Morse code",
+      "quick_s": "S in Morse code",
+      "quick_o": "O in Morse code"
+    },
+    "alphabet_chart": {
+      "title": "Morse code alphabet chart (A-Z and 0-9)"
+    },
+    "faq": {
+      "title": "Morse code translator FAQ"
+    },
+    "faq_1": {
+      "question": "What is a Morse code translator and how does it work?",
+      "answer": "A Morse code translator converts text to Morse code and Morse code back to text in seconds. This page also provides browser-based Morse audio and flash playback for timing practice."
+    },
+    "faq_2": {
+      "question": "How do I convert text to Morse code online for free?",
+      "answer": "Use Text to Morse mode, type your message, and copy the generated Morse output instantly. The converter is free, browser-based, and requires no sign-up."
+    },
+    "faq_3": {
+      "question": "How do I decode Morse code to text correctly?",
+      "answer": "Use one space between Morse letters and a slash `/` between words for accurate decoding. Then switch to Morse to Text mode; example input is `... --- ... / .... . .-.. .--.`."
+    },
+    "faq_4": {
+      "question": "Where can I find a Morse code alphabet chart for letters and numbers?",
+      "answer": "Open the Morse code alphabet chart section on this page to view A-Z and 0-9 mappings. It works as a quick reference while translating or learning Morse."
+    },
+    "faq_5": {
+      "question": "What is SOS in Morse code?",
+      "answer": "SOS in Morse code is `... --- ...`. You can copy it directly into the Morse input field and play it with audio or flash timing."
+    },
+    "faq_6": {
+      "question": "Can this Morse code converter handle invalid Morse symbols?",
+      "answer": "Yes. Unknown or malformed Morse tokens are shown as `?`, so you can quickly identify where the Morse sequence needs correction."
+    },
+    "faq_7": {
+      "question": "Can I use this Morse code translator without sending data to a server?",
+      "answer": "Yes. Translation and playback run locally in your browser, helping protect privacy and keeping the converter fast."
+    },
+    "faq_8": {
+      "question": "Who should use this Morse code generator and decoder?",
+      "answer": "It is useful for students, radio hobbyists, puzzle creators, and developers who need fast text-to-Morse and Morse-to-text conversion in one place."
+    },
+    "faq_9": {
+      "question": "How often is this Morse translator page updated for accuracy?",
+      "answer": "The page follows a 30-90 day GEO review cycle and displays a last updated date to provide freshness and confidence signals."
+    },
+    "faq_10": {
+      "question": "What is Morse code?",
+      "answer": "Morse code is a character encoding system that represents letters and numbers using short and long signals known as dots and dashes."
+    },
+    "faq_11": {
+      "question": "How can I learn Morse code quickly?",
+      "answer": "Start with high-frequency letters, practice daily with short sessions, and use audio or flash playback to train rhythm recognition."
+    },
+    "faq_12": {
+      "question": "Who invented Morse code and when was it invented?",
+      "answer": "Samuel Morse and Alfred Vail developed Morse code in the 1830s, and it became widely used in telegraph communication in the 1840s."
+    },
+    "sources": {
+      "title": "Data sources and trust signals",
+      "item_1": "<strong>ITU-R M.1677-1:</strong> International Morse code reference for letters, digits, and transmission pattern.",
+      "item_2": "<strong>Web Audio API:</strong> Browser-side audio generation used for dot/dash playback.",
+      "last_updated": "Last updated: <strong>{date}</strong> (review cycle: every 30-90 days)."
+    },
+    "hidden_seo": {
+      "title": "Morse code generator vs translator",
+      "description": "A Morse code generator takes plain text input and encodes it into Morse symbols, while a Morse code translator typically supports both directions: encode text to Morse and decode Morse to readable text. This page includes both generator and translator behavior, plus audio playback for signal timing practice."
+    },
+    "schema": {
+      "webapp_name": "Morse Code Translator",
+      "alternate_names": "Morse Code Generator, Morse Code Decoder, Morse Code Converter",
+      "feature_1": "Text to Morse conversion",
+      "feature_2": "Morse to text decoding",
+      "feature_3": "Morse code alphabet chart",
+      "feature_4": "SOS in Morse code quick reference",
+      "feature_5": "Morse audio playback",
+      "feature_6": "Reference table",
+      "feature_7": "No registration required",
+      "howto_name": "How to translate text and Morse code online",
+      "howto_description": "Use this step-by-step guide to encode text to Morse code, decode Morse to text, and play Morse audio.",
+      "howto_step_1_name": "Choose conversion mode",
+      "howto_step_1_text": "Select Text to Morse to encode plain text, or Morse to Text to decode Morse signals.",
+      "howto_step_2_name": "Paste your content",
+      "howto_step_2_text": "Enter text, or provide Morse with spaces between letters and slash between words.",
+      "howto_step_3_name": "Copy or play Morse output",
+      "howto_step_3_text": "Copy the generated result, or click play to hear and visualize Morse timing.",
+      "howto_step_4_name": "Use the alphabet chart and SOS reference",
+      "howto_step_4_text": "Open the Morse code alphabet chart and SOS example section to read or learn Morse patterns faster.",
+      "itemlist_name": "Morse code alphabet chart",
+      "itemlist_1": "A .-",
+      "itemlist_2": "B -...",
+      "itemlist_3": "C -.-.",
+      "itemlist_4": "S ...",
+      "itemlist_5": "O ---",
+      "itemlist_6": "1 .----",
+      "itemlist_7": "5 .....",
+      "itemlist_8": "0 -----"
+    }
   }
 }

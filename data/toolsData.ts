@@ -68,6 +68,19 @@ export const toolsData: ToolData[] = [
     category: "Utility",
   },
   {
+    id: "morse-code-translator",
+    title: "Morse Code Translator",
+    description:
+      "Professional Morse code translator with comprehensive Morse code dictionary and playback support. Convert text to Morse code and vice versa with audio and flash preview.",
+    icon: ArrowLeftRight,
+    href: "/tools/morse-code-translator/",
+    features: ["Morse Code Translator"],
+    badge: "New",
+    badgeColor: "bg-purple-500",
+    gradient: gradients.communication,
+    category: "Communication",
+  },
+  {
     id: "upside-down-text-generator",
     title: "Upside Down Text Generator + Unicode Styles",
     description:
@@ -226,8 +239,8 @@ export const toolsData: ToolData[] = [
     ],
     badge: "New",
     badgeColor: "bg-purple-500",
-    gradient: gradients.development,
-    category: "Development",
+    gradient: gradients.creative,
+    category: "Creative",
   },
   {
     id: "soundcloud-to-mp3",
@@ -239,8 +252,8 @@ export const toolsData: ToolData[] = [
     features: ["SoundCloud to MP3 Converter"],
     badge: "New",
     badgeColor: "bg-blue-500",
-    gradient: gradients.development,
-    category: "Development",
+    gradient: gradients.creative,
+    category: "Creative",
   },
   {
     id: "soundcloud-to-wav",
@@ -252,8 +265,8 @@ export const toolsData: ToolData[] = [
     features: ["SoundCloud to WAV Converter", "SoundCloud to MP3 Converter"],
     badge: "New",
     badgeColor: "bg-blue-500",
-    gradient: gradients.development,
-    category: "Development",
+    gradient: gradients.creative,
+    category: "Creative",
   },
   {
     id: "streaming-music-player",
@@ -265,8 +278,8 @@ export const toolsData: ToolData[] = [
     features: ["Streaming Music Player"],
     badge: "New",
     badgeColor: "bg-blue-500",
-    gradient: gradients.development,
-    category: "Development",
+    gradient: gradients.creative,
+    category: "Creative",
   },
   {
     id: "convert-inches-to-decimal",
@@ -621,7 +634,7 @@ export const toolsData: ToolData[] = [
     badge: "Scientific",
     badgeColor: "bg-purple-500",
     gradient: gradients.education,
-    category: "Utility",
+    category: "Education",
   },
   {
     id: "board-foot-calculator",
@@ -718,8 +731,8 @@ export const toolsData: ToolData[] = [
     features: ["Print Test Page"],
     badge: "New",
     badgeColor: "bg-blue-500",
-    gradient: gradients.development,
-    category: "Development",
+    gradient: gradients.utility,
+    category: "Utility",
   },
   {
     id: "soundcloud-playlist-downloader",
@@ -735,9 +748,25 @@ export const toolsData: ToolData[] = [
     ],
     badge: "New",
     badgeColor: "bg-blue-500",
-    gradient: gradients.development,
-    category: "Development",
+    gradient: gradients.creative,
+    category: "Creative",
   },
-]
+].sort((a, b) => {
+  const categoryOrder: Record<string, number> = {
+    Utility: 1,
+    Communication: 2,
+    Development: 3,
+    Creative: 4,
+    Productivity: 5,
+    Education: 6,
+    Entertainment: 7,
+    Finance: 8,
+  }
+
+  const categoryDiff = (categoryOrder[a.category] || 999) - (categoryOrder[b.category] || 999)
+  if (categoryDiff !== 0) return categoryDiff
+
+  return a.title.localeCompare(b.title)
+})
 
 export default toolsData

@@ -53,7 +53,7 @@ export default function VaporwaveTextGeneratorPage() {
       description={t("seo_description")}
       tldr={t("tldr")}
       keywordLabel={t("keyword_label")}
-      lastUpdated="2026-03-03"
+      lastUpdated="2026-03-04"
       enabledEffectIds={["plain", "fullwidth", "sans-bold", "double-struck"]}
       useCaseItems={useCaseItems}
       boundaryItems={boundaryItems}

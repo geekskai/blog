@@ -6,7 +6,7 @@ import {
   buildUnicodeToolSchemas,
 } from "../upside-down-text-generator/lib/seo"
 
-const LAST_MODIFIED = new Date("2026-03-03")
+const LAST_MODIFIED = new Date("2026-03-04")
 const SLUG = "instagram-bio-fonts"
 
 export async function generateMetadata({

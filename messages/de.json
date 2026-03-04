@@ -406,7 +406,6 @@
       "bf_unit": "bf",
       "untitled_piece": "Unbenanntes Stück"
     },
-
     "educational_content": {
       "professional_use_cases": "Professionelle Anwendungsfälle",
       "use_cases_description": "Entdecke, wie Fachleute in verschiedenen Branchen Board-Foot-Berechnungen nutzen",
@@ -582,20 +581,16 @@
     "seo_title": "Zentimeter-zu-Zoll-Rechner – Kostenloses Online-Tool cm in Zoll | Genau & schnell",
     "seo_description": "Kostenloser Online-Konverter von Zentimetern zu Zoll. Wandle Zentimeter in Zoll (dänische/norwegische Zoll) mit Präzision bis zu 3 Dezimalstellen. Perfekt für Möbel, Bau und internationalen Handel.",
     "seo_keywords": "cm in zoll, zentimeter-konverter, zoll in cm, dänischer zoll konverter, norwegischer zoll konverter, nordischer maßeinheiten konverter",
-
     "page_title": "Zentimeter in Zoll",
     "page_subtitle": "Konverter und Rechner",
     "page_description": "Kostenloser Zentimeter-zu-Zoll-Konverter und nordischer Maßrechner. Wandle Zentimeter in Zoll (dänische/norwegische Zoll), Zoll in Zentimeter und berechne präzise Maße mit Dezimalgenauigkeit. Perfekt für Möbelkauf, Bauprojekte, IKEA-Maße und internationalen Handel in nordischen Ländern.",
-
     "free_calculator_badge": "Kostenloser Zentimeter-zu-Zoll-Rechner & nordisches Maß-Tool",
-
     "feature_badges": {
       "measurement_calculator": "Zentimeter-zu-Zoll-Rechner",
       "nordic_converter": "Dänischer & norwegischer Zoll-Konverter",
       "ikea_tool": "IKEA-Möbelgrößen-Tool",
       "construction_measurement": "Nordische Bau-Maße"
     },
-
     "keywords_tags": {
       "cm_to_inches": "Zentimeter in Zoll",
       "inches_to_cm": "Zoll in Zentimeter",
@@ -604,13 +599,11 @@
       "nordic_units": "Nordische Einheiten",
       "scandinavian_converter": "Skandinavischer Konverter"
     },
-
     "breadcrumb": {
       "home": "Startseite",
       "tools": "Tools",
       "cm_to_inches_converter": "Zentimeter-zu-Zoll-Rechner"
     },
-
     "converter_card": {
       "title": "Zentimeter-zu-Zoll-Konverter",
       "description": "Konvertiere sofort zwischen Zentimetern und Zoll (dänische/norwegische Zoll)",
@@ -641,7 +634,6 @@
       "failed": "Fehlgeschlagen",
       "copy_result": "Ergebnis kopieren"
     },
-
     "converter": {
       "same_unit": "Gleiche Einheit",
       "inches": "Zoll",
@@ -661,7 +653,6 @@
       "precision": "Genauigkeit",
       "decimals": "Dezimalstellen"
     },
-
     "quick_reference": {
       "quick_memory_rule": "Merkregel",
       "professional_tip_text": "Erfolgreiche Holzprojekte erfordern genaue Berechnungen, hochwertige Materialauswahl und effiziente Planung. Nutze diesen Rechner als Teil eines umfassenden Projektmanagements, einschließlich korrekter Lagerung, Handhabung und Montagetechniken. Konsultiere stets lokale Anbieter für aktuelle Preise und Verfügbarkeit und berücksichtige Umweltfaktoren, die die Materialleistung in deiner Anwendung beeinflussen können.",
@@ -687,7 +678,6 @@
         "bed_length": "Standard-Bettlänge"
       }
     },
-
     "educational_content": {
       "common_uses": {
         "title": "Häufige Anwendungen",
@@ -736,12 +726,10 @@
           }
         }
       },
-
       "about_units": {
         "title": "Über Zoll und Zentimeter",
         "description": "Lerne die Geschichte und praktischen Anwendungen dieser Maßeinheiten kennen"
       },
-
       "facts": {
         "historical": {
           "title": "Historischer Hintergrund",
@@ -760,11 +748,9 @@
           "content": "In professionellen Anwendungen können sich selbst kleine Umrechnungsfehler summieren. Unser Tool bietet bis zu 3 Dezimalstellen für maximale Genauigkeit."
         }
       },
-
       "conversion_formulas": "Umrechnungsformeln",
       "cm_to_inches": "Zentimeter in Zoll",
       "inches_to_cm": "Zoll in Zentimeter",
-
       "nordic_tradition": {
         "title": "Nordische Messtraditionen",
         "denmark": {
@@ -777,7 +763,6 @@
         }
       }
     },
-
     "usage_guide": {
       "title": "So nutzt du den Zentimeter-zu-Zoll-Konverter – vollständige Profi-Anleitung",
       "description": "Beherrsche Zentimeter-zu-Zoll-Umrechnungen für nordischen Möbelkauf, Bauprojekte und internationale Maße. Unser dänisch-norwegischer Zoll-Konverter liefert genaue Ergebnisse für all deine Messbedarfe.",
@@ -790,7 +775,6 @@
       "step_4_title": "Ergebnisse kopieren und nutzen",
       "step_4_description": "Kopiere das Ergebnis mit einem Klick für Einkaufslisten, Baupläne oder internationale Produktspezifikationen."
     },
-
     "content_sections": {
       "what_is_inches_title": "Was ist ein Zoll? Nordische Maßeinheiten verstehen",
       "what_is_inches_description": "Ein Zoll (\"tommer\" auf Dänisch und Norwegisch) ist eine traditionelle nordische Maßeinheit. In der modernen Nutzung entspricht ein Zoll genau 2,54 Zentimetern, identisch mit dem internationalen Zollstandard. Dieser Zentimeter-zu-Zoll-Konverter hilft dir, nordische Maße für Möbelkauf, Bauprojekte und internationalen Handel zu verstehen.",
@@ -801,26 +785,22 @@
       "benefit_4": "Kompatibel mit internationalem Handel",
       "benefit_5": "Präzision bis zu 3 Dezimalstellen",
       "benefit_6": "Kostenlose Sofort-Umrechnung",
-
       "formula_guide_title": "Zentimeter-zu-Zoll-Umrechnungsformel & Rechner-Guide",
       "conversion_formula": "Umrechnungsformel",
       "precision_control": "Präzisionskontrolle",
       "quick_examples": "Schnellbeispiele",
-
       "precision_control_content": {
         "decimals_0": "0 Dezimalstellen: allgemeine Messungen",
         "decimals_1_2": "1–2 Dezimalstellen: Möbelmaße",
         "decimals_3": "3 Dezimalstellen: Baupräzision",
         "precision_note": "Wähle die passende Präzision für deine Anforderungen."
       },
-
       "quick_examples_content": {
         "example_1": "10 cm = 3,94 Zoll",
         "example_2": "25,4 cm = 10 Zoll",
         "example_3": "100 cm = 39,37 Zoll",
         "examples_note": "Perfekt für gängige Umrechnungen."
       },
-
       "inches_usage_across_nordic_countries": "Zollnutzung in den nordischen Ländern",
       "denmark_usage": "Dänemark",
       "denmark_usage_text": "In Dänemark werden Zollmaße häufig im Bau, in der Möbelproduktion und im traditionellen Handwerk verwendet. Dänische Möbelhersteller kennzeichnen Maße für internationale Märkte oft in Zoll.",
@@ -828,7 +808,6 @@
       "norway_usage_text": "Norwegische Bau- und Holzindustrien verwenden häufig Zollmaße. Unser Konverter unterstützt norwegische Baustandards und Spezifikationen.",
       "international_usage": "International",
       "international_usage_text": "Globale Unternehmen, die mit nordischen Lieferanten arbeiten, benötigen genaue Zollumrechnungen für Produktspezifikationen, Versandmaße und Qualitätsstandards.",
-
       "features_title": "Professionelle Zentimeter-zu-Zoll-Konverter-Funktionen",
       "features_subtitle": "Alles, was du für präzise nordische Umrechnungen brauchst",
       "two_way_conversion": "Zweiseitige Zentimeter-zu-Zoll-Umrechnung",
@@ -837,7 +816,6 @@
       "precision_control_description": "Wähle zwischen 0 und 3 Dezimalstellen je nach Umrechnungsbedarf. Ideal für Baugenauigkeit, Möbelmaße und professionelle Nutzung.",
       "professional_tools": "Professionelle Tools",
       "professional_tools_description": "Kopiere Ergebnisse, sieh Umrechnungsformeln ein und nutze Schnellreferenztabellen für effiziente Workflows und professionelle Anwendungen.",
-
       "faq_title": "Zentimeter-zu-Zoll-FAQ",
       "faq_how_convert": "Wie rechne ich Zentimeter präzise in Zoll um?",
       "faq_how_convert_answer": "Gib den Zentimeterwert in unseren Zentimeter-zu-Zoll-Konverter ein. Das Tool berechnet automatisch den Zollwert mit der präzisen Formel: Zentimeter × 0,3937 = Zoll. Du kannst die Genauigkeit von 0 bis 3 Dezimalstellen anpassen.",
@@ -850,7 +828,6 @@
       "faq_is_free": "Ist dieser Zentimeter-zu-Zoll-Konverter kostenlos?",
       "faq_is_free_answer": "Ja! Unser Zentimeter-zu-Zoll-Konverter ist komplett kostenlos, ohne Registrierung. Genieße unbegrenzte Umrechnungen, volle Präzisionskontrolle und alle Funktionen ohne Einschränkungen oder versteckte Kosten."
     },
-
     "final_cta": {
       "title": "Bereit, Zentimeter in Zoll umzuwandeln?",
       "description": "Nutze unseren kostenlosen, präzisen und professionellen Zentimeter-zu-Zoll-Konverter für all deine nordischen Messbedarfe.",
@@ -864,13 +841,11 @@
     "page_title": "Invincible-Titelkartengenerator",
     "page_subtitle": "Eigene TV-Show-Titelkarten erstellen",
     "page_description": "Erstelle eigene Titelkarten im Stil der animierten Serie Invincible. Professionelle Titelkarten mit anpassbarem Text, Farben, Hintergründen und Effekten. Perfekt für Fan-Content und kreative Projekte.",
-
     "breadcrumb": {
       "home": "Startseite",
       "tools": "Tools",
       "invincible_title_card_generator": "Invincible-Titelkartengenerator"
     },
-
     "header": {
       "professional_badge": "Professioneller Titelkartengenerator",
       "main_title": "Invincible",
@@ -882,7 +857,6 @@
       "download_button": "Herunterladen",
       "generating": "Wird erstellt..."
     },
-
     "preview": {
       "live_preview": "Live-Vorschau",
       "resolution": "1920×1080",
@@ -895,14 +869,12 @@
       "saved_configurations": "Gespeicherte Konfigurationen",
       "click_to_apply": "Zum Anwenden klicken"
     },
-
     "settings": {
       "customization": "Anpassung",
       "presets_tab": "Voreinstellungen",
       "text_tab": "Text",
       "colors_tab": "Farben",
       "effects_tab": "Effekte",
-
       "character_presets": "Charakter-Voreinstellungen",
       "text_settings": "Texteinstellungen",
       "main_title_label": "Haupttitel",
@@ -911,11 +883,9 @@
       "small_subtitle_placeholder": "Kleiner Untertitel...",
       "credits_subtitle_label": "Untertitel für Credits",
       "credits_subtitle_placeholder": "Credits-Untertitel...",
-
       "font_size": "Schriftgröße",
       "text_outline": "Textkontur",
       "subtitle_offset": "Untertitel-Versatz",
-
       "upload_background": "Eigenen Hintergrund hochladen",
       "remove_image": "Bild entfernen",
       "uploaded_image": "Hochgeladenes Bild",
@@ -929,7 +899,6 @@
       "custom_color_hint": "Wähle eine benutzerdefinierte Volltonfarbe für den Hintergrund",
       "background_style": "Hintergrundstil",
       "text_color": "Textfarbe",
-
       "display_options": "Anzeigeoptionen",
       "show_credits": "Credits anzeigen",
       "show_credits_description": "Untertitelinformationen unter dem Titel anzeigen",
@@ -939,7 +908,6 @@
       "visual_effects_description": "Füge dramatische Effekte zu deiner Titelkarte hinzu",
       "selected_effects": "Ausgewählte Effekte"
     },
-
     "presets": {
       "invincible": {
         "name": "Invincible",
@@ -970,7 +938,6 @@
         "description": "Marks Halbbruder"
       }
     },
-
     "backgrounds": {
       "classic_blue": "Klassisches Blau",
       "hero_gradient": "Helden-Gradient",
@@ -981,7 +948,6 @@
       "sunset_orange": "Sonnenuntergangsorange",
       "forest_green": "Waldgrün"
     },
-
     "text_colors": {
       "invincible_yellow": "Invincible-Gelb",
       "hero_blue": "Heldenblau",
@@ -994,7 +960,6 @@
       "atom_pink": "Atom-Pink",
       "alien_cyan": "Alien-Cyan"
     },
-
     "effects": {
       "blood_level_1": "Blutlevel 1",
       "blood_level_1_description": "Leichte Blutflecken",
@@ -1015,24 +980,18 @@
       "sus": "Sus",
       "sus_description": "Verdächtiger Overlay-Effekt"
     },
-
     "content": {
       "professional_features": "Professionelle Funktionen",
       "features_description": "Alles, was du brauchst, um beeindruckende Titelkarten in Studioqualität zu erstellen",
-
       "advanced_typography": "Fortgeschrittene Typografie",
       "typography_description": "Professionelle Textanpassung mit authentischem Invincible-Styling, Kontureffekten und präziser Typografie-Steuerung für pixelgenaue Ergebnisse.",
-
       "character_presets_feature": "Charakter-Voreinstellungen",
       "presets_description": "Wende per Klick authentische Farbschemata für Mark, Omni-Man, Atom Eve und andere beliebte Charaktere an.",
-
       "studio_export_quality": "Studio-Exportqualität",
       "export_description": "Exportiere im hochauflösenden PNG-Format 1920×1080, optimiert für professionelle Videoproduktion, Social Media und Präsentationen.",
-
       "create_professional_title": "Erstelle professionelle Titelkarten im Invincible-Stil",
       "about_description_1": "Unser fortschrittlicher Invincible-Titelkartengenerator ermöglicht Creator, Titelkarten in Studioqualität zu erstellen, die die Essenz der beliebten Animationsserie einfangen. Mit intuitiver Bedienung und Profi-Ausgabe wird deine kreative Vision lebendig.",
       "about_description_2": "Ob du Fan-Videos, YouTube-Content, Lernmaterialien oder professionelle Präsentationen erstellst: Unser Tool bietet dir die Flexibilität und Qualität, um herauszustechen.",
-
       "premium_features": "Premium-Funktionen",
       "feature_character_presets": "Charakterbasierte Farb-Presets und Themes",
       "feature_text_customization": "Erweiterte Textanpassung und Typografie",
@@ -1040,7 +999,6 @@
       "feature_high_resolution": "Hochauflösender Export (1920×1080)",
       "feature_real_time_preview": "Echtzeit-Vorschau und Bearbeitung",
       "feature_save_configurations": "Favoriten speichern und verwalten",
-
       "how_to_create_title": "So erstellst du deine perfekte Titelkarte",
       "step_1_title": "Wähle deinen Stil",
       "step_1_description": "Wähle eine Charakter-Voreinstellung oder starte mit einer leeren Leinwand. Jede Voreinstellung enthält optimierte Farben und Styling für authentische Ergebnisse.",
@@ -1050,7 +1008,6 @@
       "step_3_description": "Passe Farben, Hintergründe und Effekte an, während du Änderungen in Echtzeit siehst. Nutze den Vollbildmodus für detailliertes Editing.",
       "step_4_title": "Exportieren & teilen",
       "step_4_description": "Lade deine Titelkarte in professioneller Qualität herunter und teile sie in Projekten, auf Social Media oder kreativen Plattformen.",
-
       "faq_title": "Häufige Fragen",
       "faq_1_question": "Was macht diesen Titelkartengenerator besonders?",
       "faq_1_answer": "Unser Generator ist speziell darauf ausgelegt, den authentischen Look der animierten Serie Invincible nachzubilden. Wir haben Typografie, Farbschemata und visuellen Stil sorgfältig analysiert, um charakterbezogene Presets und professionelle Anpassungen zu bieten, die Ergebnisse in Studioqualität liefern.",
@@ -1067,13 +1024,11 @@
       "faq_7_question": "Wie erstelle ich eine Invincible-Titelkarte?",
       "faq_7_answer": "Für eine Invincible-Titelkarte kannst du \"Charakter-Voreinstellungen\" auswählen. Über \"Texteinstellungen\" passt du den Text an, unter \"Farben\" legst du die Farben fest und mit \"Effekte\" fügst du visuelle Effekte hinzu."
     },
-
     "default_state": {
       "text": "Invincible",
       "small_subtitle": "BASIERT AUF DEM COMIC VON",
       "subtitle": "Robert Kirkman, Cory Walker, & Ryan Ottley"
     },
-
     "messages": {
       "settings_copied": "Einstellungen in die Zwischenablage kopiert! 🎬",
       "copy_failed": "Kopieren fehlgeschlagen",
@@ -1087,13 +1042,11 @@
     "page_title": "BPM-zu-Millisekunden-Konverter",
     "page_subtitle": "Professioneller Timing-Rechner für Musikproduzenten & DJs",
     "page_description": "Sofortige, präzise Delay-Zeiten und LFO-Raten für deine DAW",
-
     "value_props": {
       "instant_conversion": "Sofort-Umrechnung",
       "daw_ready": "DAW-tauglich",
       "studio_grade": "Studioqualität"
     },
-
     "quick_converter": {
       "title": "Schnell-Konverter",
       "input_placeholder": "BPM (z. B. 120) oder Millisekunden (z. B. 500) eingeben",
@@ -1105,7 +1058,6 @@
       "click_to_copy": "Zum Kopieren klicken",
       "copied": "Kopiert!"
     },
-
     "common_bpm_presets": {
       "title": "Häufige BPM-Werte nach Genre",
       "genres": {
@@ -1119,7 +1071,6 @@
         "dnb": "D&B"
       }
     },
-
     "conversion_results": {
       "milliseconds_per_beat": "Millisekunden pro Beat",
       "beats_per_minute": "Beats pro Minute",
@@ -1129,7 +1080,6 @@
       "copied": "Kopiert!",
       "copied_all": "Alles kopiert!"
     },
-
     "note_values": {
       "quarter_note": "Viertelnote",
       "quarter_note_description": "1 Beat – Standard-Referenz",
@@ -1142,7 +1092,6 @@
       "eighth_triplet": "Achteltriole",
       "eighth_triplet_description": "1/3 Beat – Triolen-Unterteilung"
     },
-
     "conversion_modes": {
       "bpm_to_ms": "BPM → MS",
       "ms_to_bpm": "MS → BPM",
@@ -1157,7 +1106,6 @@
       "converting_bpm_to_ms": "BPM werden in Millisekunden umgerechnet",
       "converting_ms_to_bpm": "Millisekunden werden in BPM umgerechnet"
     },
-
     "input_validation": {
       "range_bpm": "Bereich: 20-300 BPM",
       "range_ms": "Bereich: 100-3000 ms",
@@ -1171,7 +1119,6 @@
       "ms_max_error": "Millisekunden dürfen höchstens 3000 sein",
       "invalid_input": "Ungültige Eingabe"
     },
-
     "professional_tips": {
       "title": "Profi-Tipps für Musikproduktion",
       "delay_reverb_timing": {
@@ -1189,7 +1136,6 @@
         "triplets": "Triolen: Komplexe polyrhythmische Modulation"
       }
     },
-
     "how_it_works": {
       "title": "So funktioniert die BPM-zu-Millisekunden-Umrechnung",
       "formula_title": "Die Formel",
@@ -1206,7 +1152,6 @@
         "lighting_sync": "Tempo-synchronisierte Lichtsysteme einrichten"
       }
     },
-
     "breadcrumb": {
       "home": "Startseite",
       "tools": "Tools",
@@ -1221,14 +1166,12 @@
     "page_subtitle": "Motorleistungs-Schätzer",
     "page_description": "Kostenloser CCM-zu-HP-Konverter und Motorleistungsrechner. Wandle Hubraum (ccm) mit hoher Präzision in Pferdestärke (HP) für 2-Takt- und 4-Takt-Motoren um. Perfekt für Motorradfans, Autokäufer, Marine-Anwendungen und Rennprojekte.",
     "free_calculator_badge": "Motorleistungsrechner",
-
     "feature_badges": {
       "bidirectional_conversion": "Bidirektionale CCM ↔ HP-Umrechnung",
       "engine_support": "2-Takt- & 4-Takt-Motoren",
       "turbo_support": "Turbo & Saugmotor",
       "multi_application": "Motorrad-, Auto- & Marine-Motoren"
     },
-
     "keywords_tags": {
       "ccm_to_hp": "ccm zu hp",
       "hp_to_ccm": "hp zu ccm",
@@ -1237,13 +1180,11 @@
       "motorcycle_power_calculator": "motorrad-leistungsrechner",
       "2_stroke_4_stroke_converter": "2-takt-4-takt-konverter"
     },
-
     "breadcrumb": {
       "home": "Startseite",
       "tools": "Tools",
       "ccm_to_hp_converter": "CCM-zu-HP-Konverter"
     },
-
     "usage_guide": {
       "title": "So nutzt du den CCM-zu-HP-Konverter – kompletter Motorleistungs-Guide",
       "description": "Beherrsche die Umrechnung von Hubraum in Leistung für Motorradkauf, Auto-Bewertung, Marine-Motoren und Rennanwendungen",
@@ -1256,7 +1197,6 @@
       "step_4_title": "Sofortige Ergebnisse erhalten",
       "step_4_description": "Sieh geschätzte Leistung mit Bereich, kopiere Ergebnisse oder teile Berechnungen"
     },
-
     "converter_card": {
       "title": "CCM ↔ HP-Motorrechner",
       "description": "Wandle Hubraum präzise in Leistung um",
@@ -1295,17 +1235,14 @@
       "min_hp_error": "Der Mindestwert für HP ist 1",
       "high_hp_warning": "Sehr hohe Leistung. Ergebnisse können bei Motoren über 1000 HP ungenauer sein"
     },
-
     "engine_types": {
       "2_stroke": "2-Takt-Motor",
       "4_stroke": "4-Takt-Motor"
     },
-
     "fuel_systems": {
       "naturally_aspirated": "Saugmotor",
       "turbocharged": "Turboaufgeladen"
     },
-
     "history": {
       "title": "Umrechnungsverlauf",
       "button_text": "Verlauf",
@@ -1313,7 +1250,6 @@
       "click_to_use": "Zum Verwenden klicken",
       "recent_conversions_saved": "Letzte Umrechnungen werden lokal gespeichert"
     },
-
     "quick_reference": {
       "title": "Schnellreferenz",
       "description": "Häufige CCM-zu-HP-Umrechnungen und Beispiele aus der Praxis",
@@ -1322,30 +1258,22 @@
       "pro_tip": "Profi-Tipp",
       "pro_tip_text": "Der Hubraum (CCM) ist nur ein Faktor zur Bestimmung der Leistung. Die tatsächliche Leistung hängt von Verdichtung, Kraftstoffsystem, Tuning und vielen weiteren Faktoren ab. Nutze diese Schätzungen als Ausgangspunkt."
     },
-
     "faq": {
       "title": "Häufige Fragen",
       "description": "Alles, was du über CCM-zu-HP-Umrechnung und Motorleistungsberechnungen wissen musst",
-
       "q1": "Wie genau ist die CCM-zu-HP-Umrechnung?",
       "a1": "Die CCM-zu-HP-Umrechnung liefert Schätzwerte auf Basis empirischer Daten und Branchenmittelwerte. Die tatsächliche Leistung kann je nach Tuning, Verdichtung, Kraftstoffsystem und weiteren Faktoren um ±15-25% variieren. Unser Rechner nutzt bewährte Formeln mit unterschiedlichen Koeffizienten für 2-Takt vs. 4-Takt sowie Saugmotoren vs. Turbo.",
-
       "q2": "Was ist der Unterschied zwischen 2-Takt- und 4-Takt-Leistung?",
       "a2": "2-Takt-Motoren liefern typischerweise mehr Leistung pro ccm als 4-Takt-Motoren, da sie bei jeder Umdrehung einen Arbeitstakt haben. Unser Rechner verwendet einen Faktor von 1,2-1,4x für 2-Takt und 0,8-1,0x für 4-Takt, entsprechend realen Leistungsunterschieden.",
-
       "q3": "Wie beeinflusst Turboaufladung die CCM-zu-HP-Umrechnung?",
       "a3": "Turboaufgeladene Motoren liefern deutlich mehr Leistung bei gleichem Hubraum. Unser Rechner verwendet höhere Koeffizienten (1,0-1,4x) für Turbo gegenüber Saugmotoren (0,8-1,2x), was typischerweise 25-40% mehr geschätzte Leistung ergibt.",
-
       "q4": "Kann ich den Rechner für Motorrad-, Auto- und Marine-Motoren nutzen?",
       "a4": "Ja! Unser CCM-zu-HP-Konverter funktioniert für alle Verbrennungsmotoren, darunter Motorräder, Autos, Boote, ATVs und Rennmotoren. Der Rechner berücksichtigt verschiedene Motortypen und Konfigurationen aus diesen Bereichen.",
-
       "q5": "Warum weichen Herstellerangaben manchmal von den Berechnungen ab?",
       "a5": "Herstellerwerte werden unter spezifischen Bedingungen (SAE, DIN usw.) gemessen und können Faktoren wie Höhe, Temperatur und Messstandards berücksichtigen. Unser Rechner liefert Schätzwerte basierend auf Hubraum und Motortyp, während tatsächliche Werte vom Motordesign, Tuning und Testbedingungen abhängen.",
-
       "q6": "Für welchen CCM-Bereich ist der Rechner am genauesten?",
       "a6": "Unser Rechner ist für Motoren von 50 ccm bis 8000 ccm ausgelegt. Bei sehr kleinen Motoren (unter 50 ccm) oder extrem großen Motoren (über 8000 ccm) können die Ergebnisse weniger genau sein, da andere Konstruktions- und Effizienzfaktoren wirken."
     },
-
     "final_cta": {
       "title": "Bereit, Motorleistung zu berechnen?",
       "description": "Nutze unseren kostenlosen CCM-zu-HP-Konverter, um die Leistung deines Motors sofort zu schätzen",
@@ -1758,7 +1686,6 @@
     "add_emoji_wrapper_label": "Emoji-Rahmen hinzufügen",
     "custom_output_label": "Benutzerdefinierte kombinierte Ausgabe",
     "primary_output_label": "Hauptausgabe",
-    "copy_button_label": "Kopieren",
     "copied_button_label": "Kopiert!",
     "copy_failed_label": "Kopieren fehlgeschlagen",
     "ready_to_copy_status": "Bereit zum Kopieren",
@@ -1780,6 +1707,9 @@
     "empty_input_placeholder": "(Leere Eingabe)",
     "default_best_for": "Ersteller, Social-Media-Nutzer und Community-Manager",
     "default_key_benefit": "Sofortiges Kopieren und Einfügen von Unicode-Textstilen an einem Ort",
+    "latin_only_badge": "Nur Latein",
+    "latin_compatibility_note": "Hinweis: Einige Stile sind nur für lateinische Schrift. Nicht-lateinische Buchstaben (z. B. 中文, 日本語, 한국어) bleiben ggf. unverändert.",
+    "latin_compatibility_warning": "Die aktuelle Eingabe enthält nicht-lateinische Buchstaben, daher ändern einige ausgewählte Stile diese Zeichen möglicherweise nicht sichtbar: {effects}.",
     "categories": {
       "enclosed": "Umschlossene alphanumerische Zeichen",
       "math": "Mathematische Stile",
@@ -1796,7 +1726,6 @@
     "page_subtitle": "Stylischen Text kopieren & einfügen",
     "badge_text": "Instagram-Szenario-Tool",
     "tldr": "Instagram Bio Fonts wandeln normalen Text in stylische Unicode-Zeichen um, die Sie in Ihr Profil kopieren und einfügen können. Dieses Tool konzentriert sich auf gut lesbare Social-Styles für Bios, Bildunterschriften und schnelle Profil-Updates.",
-
     "keyword_label": "instagram bio fonts",
     "best_for": "Creator, Influencer und Markenprofil-Optimierung",
     "key_benefit": "Gut lesbare, Instagram-taugliche Textstile mit Sofort-Kopie",
@@ -1889,7 +1818,6 @@
     "page_subtitle": "Text online durchstreichen",
     "badge_text": "Durchstreichen-Tool",
     "tldr": "Ein Generator für durchgestrichenen Text verwandelt einfachen Text in durchgestrichenen Unicode-Text, den Sie sofort kopieren und einfügen können. Er ist für schnelle Bearbeitungen, Chats und Akzente in sozialen Medien optimiert.",
-
     "keyword_label": "durchgestrichener text generator",
     "best_for": "Schnelle Social-Media-Edits, Aufgabennotizen und konversationale Hervorhebungen",
     "key_benefit": "Minimalistische Benutzeroberfläche für eine schnelle Ausgabe von durchgestrichenem Text",
@@ -1982,7 +1910,6 @@
     "page_subtitle": "Erstellen Sie glitchigen Unicode-Text mit Kombinationszeichen.",
     "badge_text": "Glitch-Text-Tool",
     "tldr": "Ein Zalgo-Textgenerator erstellt glitch-ähnliche Unicode-Ausgaben, indem er Kombinationszeichen um Buchstaben stapelt. Verwenden Sie ihn für dramatische visuelle Effekte, Vorschauen und sofortiges Kopieren.",
-
     "keyword_label": "Zalgo-Text",
     "best_for": "Meme-Ersteller, Posts im Horror-Stil und Gaming-Communities",
     "key_benefit": "Schnelle Glitch-Texterstellung mit sichereren, lesbaren Alternativen",
@@ -2075,7 +2002,6 @@
     "page_subtitle": "Ästhetischer Fullwidth-Text",
     "badge_text": "Ästhetisches Fullwidth-Tool",
     "tldr": "Ein Vaporwave-Textgenerator wandelt normalen ASCII-Text in Fullwidth-Unicode-Ausgaben mit Retro-Abständen um. Er ist für ästhetische Bios, Bildunterschriften und schnelle Copy-and-Paste-Workflows konzipiert.",
-
     "keyword_label": "Vaporwave-Textgenerator",
     "best_for": "Ästhetische Ersteller, Profile im Retro-Stil und kurze Bildunterschriften",
     "key_benefit": "Sofortiges Fullwidth-Styling ohne externe Apps",
@@ -2168,7 +2094,6 @@
     "page_subtitle": "Unicode-Schriften kopieren und einfügen",
     "free_tool_badge": "Schriftdesign-Tool",
     "tldr": "Ein Schriftarten-Generator wandelt normalen Text in dekorative Unicode-Stile um, die Sie überall kopieren und einfügen können. Ideal für Bios, Bildunterschriften, Benutzernamen und schnelle visuelle Differenzierung ohne Installation von Schriftarten.",
-
     "keyword_label": "schriftarten generator",
     "best_for": "Creator, Social-Media-Manager und Personal Branding",
     "key_benefit": "Erzeugen und kopieren Sie mehrere stylische Textvarianten in Sekundenschnelle",
@@ -2261,7 +2186,6 @@
     "page_subtitle": "Stylischen Discord-Text kopieren und einfügen",
     "free_tool_badge": "Discord-Szenario-Tool",
     "tldr": "Ein Discord Font Generator wandelt normalen Text in Unicode-Styles für Nicknames, Profiltexte und Nachrichten um. Wählen Sie zuerst lesbare Optionen aus und kopieren Sie sie dann direkt in Discord.",
-
     "keyword_label": "discord font generator",
     "best_for": "Discord-Communities, Gamer-Tags und Serverprofil-Anpassung",
     "key_benefit": "Discord-fokussierte Style-Presets mit sofortigem Kopier-Workflow",
@@ -2355,7 +2279,6 @@
     "free_tool_badge": "Unicode-Text-Tool",
     "tldr_title": "Kurzantwort (TL;DR)",
     "tldr": "Ein kopfstehender Textgenerator verwendet spezielle Unicode-Zeichen, um Text zu simulieren, der um 180 Grad gedreht oder horizontal gespiegelt wurde. Es ist eine rein visuelle Technik zur Dekoration von Benutzernamen und Social-Media-Beiträgen ohne externe Schriftarten.",
-
     "last_updated_label": "Zuletzt aktualisiert",
     "keyword_label": "kopfstehender text generator",
     "best_for": "Profilnamen, auffällige Nachrichten und kreative visuelle Effekte",
@@ -2415,23 +2338,38 @@
       ]
     },
     "effects": {
-      "plain": { "name": "Normal", "desc": "Originaltext ohne Konvertierung" },
+      "plain": {
+        "name": "Normal",
+        "desc": "Originaltext ohne Konvertierung"
+      },
       "negative-circle": {
         "name": "Gefüllter Kreis",
         "desc": "Umgekehrte Zahlen und eingekreiste Buchstaben"
       },
-      "hollow-circle": { "name": "Leerer Kreis", "desc": "Kreisförmiger alphanumerischer Stil" },
-      "hollow-square": { "name": "Leeres Quadrat", "desc": "In Rahmen eingeschlossener Stil" },
+      "hollow-circle": {
+        "name": "Leerer Kreis",
+        "desc": "Kreisförmiger alphanumerischer Stil"
+      },
+      "hollow-square": {
+        "name": "Leeres Quadrat",
+        "desc": "In Rahmen eingeschlossener Stil"
+      },
       "solid-square": {
         "name": "Gefülltes Quadrat",
         "desc": "Umgekehrter, in Rahmen eingeschlossener Stil"
       },
-      "serif-bold": { "name": "Serif Fett", "desc": "Mathematische Serifenzeichen in Fettschrift" },
+      "serif-bold": {
+        "name": "Serif Fett",
+        "desc": "Mathematische Serifenzeichen in Fettschrift"
+      },
       "sans-bold": {
         "name": "Sans Fett",
         "desc": "Mathematische serifenlose Zeichen in Fettschrift"
       },
-      "italic": { "name": "Mathematisch Kursiv", "desc": "Mathematische Zeichen in Kursivschrift" },
+      "italic": {
+        "name": "Mathematisch Kursiv",
+        "desc": "Mathematische Zeichen in Kursivschrift"
+      },
       "bold-italic": {
         "name": "Fett Kursiv",
         "desc": "Mathematische Zeichen in Fett- und Kursivschrift"
@@ -2444,10 +2382,22 @@
         "name": "Schreibschrift Fett",
         "desc": "Kalligrafische Zeichen in Fettschrift"
       },
-      "fraktur": { "name": "Fraktur", "desc": "Zeichen im gotischen Fraktur-Stil" },
-      "bold-fraktur": { "name": "Fraktur Fett", "desc": "Fraktur-Zeichen in Fettschrift" },
-      "double-struck": { "name": "Doppelstrich", "desc": "Fetter Blackboard-Zeichenstil" },
-      "strikethrough": { "name": "Durchgestrichen", "desc": "Durchgestrichener Stil mit Overlays" },
+      "fraktur": {
+        "name": "Fraktur",
+        "desc": "Zeichen im gotischen Fraktur-Stil"
+      },
+      "bold-fraktur": {
+        "name": "Fraktur Fett",
+        "desc": "Fraktur-Zeichen in Fettschrift"
+      },
+      "double-struck": {
+        "name": "Doppelstrich",
+        "desc": "Fetter Blackboard-Zeichenstil"
+      },
+      "strikethrough": {
+        "name": "Durchgestrichen",
+        "desc": "Durchgestrichener Stil mit Overlays"
+      },
       "wavy-underline": {
         "name": "Wellen-Unterstreichung",
         "desc": "Dekorativer wellenförmiger Unterstreichungsstil"
@@ -2456,14 +2406,26 @@
         "name": "Schwanz-Markierung",
         "desc": "Fügt jedem Zeichen eine kleine Schwanz-Markierung hinzu"
       },
-      "lightning": { "name": "Blitz", "desc": "Fügt Blitz-Separatoren zwischen Zeichen ein" },
-      "zalgo": { "name": "Zalgo", "desc": "Glitch-Art-Stil mit gestapelten Zeichen" },
+      "lightning": {
+        "name": "Blitz",
+        "desc": "Fügt Blitz-Separatoren zwischen Zeichen ein"
+      },
+      "zalgo": {
+        "name": "Zalgo",
+        "desc": "Glitch-Art-Stil mit gestapelten Zeichen"
+      },
       "upside-down": {
         "name": "Auf dem Kopf",
         "desc": "Dreht Buchstaben um und kehrt die Reihenfolge um"
       },
-      "mirror": { "name": "Spiegeln", "desc": "Spiegelt Buchstaben und kehrt die Reihenfolge um" },
-      "fullwidth": { "name": "Volle Breite", "desc": "Konvertiert ASCII in Vollbreitenformen" }
+      "mirror": {
+        "name": "Spiegeln",
+        "desc": "Spiegelt Buchstaben und kehrt die Reihenfolge um"
+      },
+      "fullwidth": {
+        "name": "Volle Breite",
+        "desc": "Konvertiert ASCII in Vollbreitenformen"
+      }
     },
     "ui": {
       "playground_title": "Texteffekte-Labor",
@@ -2506,7 +2468,6 @@
     "page_subtitle": "Eingekreiste Alphanumerik-Konverter",
     "free_tool_badge": "Eingekreiste Alphanumerik-Tool",
     "tldr": "Ein Blasenschrift-Generator wandelt einfachen Text in eingekreiste alphanumerische Unicode-Stile wie Kreise und Quadrate um. Einmal tippen, alle Blasenvarianten vergleichen und bevorzugtes Ergebnis sofort kopieren.",
-
     "keyword_label": "blasenschrift generator",
     "best_for": "Profilnamen, spielerische Bildunterschriften und leichte dekorative Etiketten",
     "key_benefit": "Fokussierte eingekreiste Stile mit schnellem Vergleichs- und Kopier-Workflow",
@@ -2582,18 +2543,15 @@
     "page_subtitle": "Erstelle deine farbenfrohe Persona",
     "page_description": "Entfessele deine Kreativität mit unserem Chromakopia-Namensgenerator. Erstelle einzigartige Personas, inspiriert von Tyler, the Creators künstlerischer Vision, Farbe zurück ins Leben zu bringen.",
     "free_tool_badge": "Kostenloses Chromakopia-Tool",
-
     "breadcrumb": {
       "home": "Startseite",
       "tools": "Tools",
       "chromakopia_name_generator": "Chromakopia-Namensgenerator"
     },
-
     "header": {
       "main_title": "Chromakopia-Namensgenerator",
       "description": "Erstelle dein farbenfrohes Alter Ego im Stil von Tyler, the Creators Chromakopia. Generiere einzigartige Personas, die den Geist verkörpern, Farbe zurück ins Leben zu bringen und Schwarz-Weiß-Denken zu überwinden."
     },
-
     "persona_display": {
       "title": "Deine Chromakopia-Persona",
       "st_chroma_style": "St.-Chroma-Stil",
@@ -2603,13 +2561,11 @@
       "radiating_in": "Strahlend in",
       "chromatic_superpower": "Chromatische Superkraft"
     },
-
     "favorites": {
       "title": "Lieblings-Personas",
       "no_personas": "Noch keine Personas",
       "add_first": "Erstelle deine erste Persona, um deine Sammlung zu starten"
     },
-
     "settings": {
       "title": "Generator-Einstellungen",
       "generation_style": "Erzeugungsstil",
@@ -2628,7 +2584,6 @@
       "add_to_favorites": "Zu Favoriten hinzufügen",
       "reset_all": "Alles zurücksetzen"
     },
-
     "features": {
       "music_inspired": "Musik-inspiriert",
       "music_description": "Erstelle Personas, inspiriert von Tyler, the Creators Album Chromakopia und seinen Themen von Authentizität und farbenfroher Ausdruckskraft.",
@@ -2637,7 +2592,6 @@
       "share_connect": "Teilen & verbinden",
       "share_description": "Teile deine generierten Personas mit Freunden und entdecke, wie andere ihre farbenfrohe Identität ausdrücken."
     },
-
     "about_chromakopia": {
       "title": "Was ist Chromakopia? Tyler, the Creators Vision verstehen",
       "description_1": "Chromakopia ist Tyler, the Creators achtes Studioalbum und thematisiert, wie man Farbe zurück ins Leben bringt und sich von den Schwarz-Weiß-Erwartungen der Gesellschaft löst. Im Zentrum steht sein Alter Ego St. Chroma, das für authentischen Selbstausdruck und den Mut steht, farbenfroh zu leben.",
@@ -2650,7 +2604,6 @@
       "theme_5": "Emotionale Transparenz",
       "theme_6": "Künstlerische Rebellion"
     },
-
     "how_to_use": {
       "title": "So erstellst du deine Chromakopia-Persona",
       "step_1_title": "Stil wählen",
@@ -2662,7 +2615,6 @@
       "step_4_title": "Teilen & ausdrücken",
       "step_4_description": "Lade Bilder herunter oder kopiere Text, um deine chromatische Persona in Social Media zu teilen und andere zu inspirieren."
     },
-
     "faq": {
       "title": "Häufige Fragen",
       "q1": "Was hat den Chromakopia-Namensgenerator inspiriert?",
@@ -2674,7 +2626,6 @@
       "q4": "Ist der Chromakopia-Namensgenerator kostenlos?",
       "a4": "Ja! Dieses Tool ist komplett kostenlos und erfordert keine Registrierung. Erstelle unbegrenzt viele Personas, speichere Favoriten und teile deine Kreationen ohne Einschränkungen. Es funktioniert auf allen Geräten, inklusive Smartphones und Tablets."
     },
-
     "persona_card": {
       "copy_text": "🎨 Meine Chromakopia-Persona 🎨\n\nName: {name}\nFarbe: {colorName}\nMerkmal: {trait}\nBeschreibung: {description}\nSuperkraft: {superpower}\nZitat: {quote}\n\nErstellt am: https://geekskai.com/tools/chromakopia-name-generator",
       "copied_message": "Persona in die Zwischenablage kopiert! 🎨",
@@ -2752,7 +2703,6 @@
         "reduced_precision_small": "Sehr kleine Werte können geringere Präzision haben"
       }
     },
-
     "quick_reference": {
       "reference_table": {
         "title": "Schnellreferenztabelle",
@@ -3275,7 +3225,6 @@
       "tools": "Tools",
       "discord_time_converter": "Discord-Timestamp-Konverter"
     },
-
     "header": {
       "badge_text": "Kostenloser Discord-Zeitzonen-Konverter & Timestamp-Generator",
       "main_title_line1": "Discord Timezone",
@@ -3288,7 +3237,6 @@
         "free_tool": "Kostenloses Discord-Zeitzonen-Tool"
       }
     },
-
     "quick_answer": {
       "title": "Schnelle Antwort",
       "description": "<strong>Discord-Zeitzonen-Konverter</strong> ist ein <strong>kostenloses</strong> Online-Tool, das zwischen normaler Zeit und Discord-Timestamp-Formaten mit <strong>voller globaler Zeitzonenunterstützung</strong> konvertiert. Perfekt für <strong>Discord-Bot-Entwickler</strong>, <strong>Server-Administratoren</strong> und <strong>Community-Manager</strong>, die internationale Events planen.",
@@ -3339,7 +3287,6 @@
       "onlineToolThat": "Online-Tool, das",
       "everythingYouNeedFor": "Alles was du brauchst für"
     },
-
     "schema": {
       "feature_list_1": "Discord-Zeitzonen-Konverter für alle globalen Zeitzonen",
       "feature_list_2": "Bidirektionale Discord-Timestamp-Konvertierung",
@@ -3363,7 +3310,6 @@
       "audienceType": "Discord-Community-Manager, Discord-Bot-Entwickler, Internationale Event-Organisatoren, Globale Teams, Gaming-Communities, Discord-Server-Administratoren, Zeitzonen-übergreifende Koordinatoren, Internationale Discord-Communities",
       "softwareRequirements": "Moderner Webbrowser mit aktiviertem JavaScript"
     },
-
     "conversion_modes": {
       "to_timestamp": {
         "title": "Zeit → Discord-Timestamp",
@@ -3374,21 +3320,18 @@
         "description": "Discord-Format in normale Zeit umwandeln"
       }
     },
-
     "input_sections": {
       "conversion_mode": "Umrechnungsmodus",
       "time_input": "Zeiteingabe",
       "discord_timestamp_input": "Discord-Timestamp-Eingabe",
       "timezone": "Zeitzone"
     },
-
     "form_labels": {
       "select_date_time": "Datum & Uhrzeit wählen",
       "discord_timestamp": "Discord-Timestamp",
       "select_timezone": "Zeitzone wählen",
       "input_one_per_line": "Eingabe (eine pro Zeile)"
     },
-
     "placeholders": {
       "select_date_time": "Datum und Uhrzeit wählen",
       "discord_timestamp": "&lt;t:1640995200:f&gt;",
@@ -3396,7 +3339,6 @@
       "batch_to_timestamp": "2024-01-01 12:00:00\n2024-02-01 15:30:00",
       "batch_from_timestamp": "&lt;t:1640995200:f&gt;\n&lt;t:1640995500:R&gt;"
     },
-
     "timestamp_formats": {
       "relative": {
         "label": "Relative Zeit",
@@ -3434,7 +3376,6 @@
         "example": "Dienstag, 20. April 2021 16:20"
       }
     },
-
     "timezone_groups": {
       "utc": "UTC",
       "americas": "Amerika",
@@ -3442,7 +3383,6 @@
       "asia": "Asien",
       "oceania": "Ozeanien"
     },
-
     "common_timezones": {
       "utc": {
         "label": "UTC",
@@ -3505,7 +3445,6 @@
         "description": "Auckland, Wellington (+13:00)"
       }
     },
-
     "buttons": {
       "plus_1_hour": "+1 Stunde",
       "plus_1_day": "+1 Tag",
@@ -3527,7 +3466,6 @@
       "hide_advanced": "Erweiterte Funktionen ausblenden",
       "convert_all": "Alle umrechnen"
     },
-
     "results": {
       "conversion_results": "Umrechnungsergebnisse",
       "live_preview": "Live-Vorschau",
@@ -3535,18 +3473,15 @@
       "date_time_relative": "Datum, Uhrzeit & relativ",
       "full_date_relative": "Vollständiges Datum & relativ"
     },
-
     "advanced_features": {
       "batch_converter": "Batch-Konverter",
       "conversion_history": "Umrechnungsverlauf",
       "results_label": "Ergebnisse:"
     },
-
     "info_messages": {
       "format_info": "Format: &lt;t:timestamp:format&gt; (z. B. &lt;t:1640995200:f&gt;)",
       "invalid_format_type": "Ungültiger Formattyp"
     },
-
     "usage_guide": {
       "title": "So nutzt du den Discord-Zeitzonen-Konverter – komplette Anleitung",
       "description": "Beherrsche Discord-Zeitzonen-Umrechnung und Timestamp-Generierung für deinen Server, Bot-Entwicklung und globale Community-Koordination über alle Zeitzonen hinweg",
@@ -3559,7 +3494,6 @@
       "step_4_title": "Kopieren & nutzen",
       "step_4_description": "Kopiere den generierten Discord-Timestamp im gewünschten Format und füge ihn in Discord-Nachrichten, Bot-Code oder Webhooks ein."
     },
-
     "content_sections": {
       "what_are_discord_timestamps": {
         "title": "Was sind Discord-Timestamps? Discord-Zeitformat verstehen",
@@ -3683,13 +3617,11 @@
     "seo_title": "Discord-Timestamp-Generator – Dynamische Discord-Timestamps erstellen | Kostenloses Tool",
     "seo_description": "Kostenloser Discord-Timestamp-Generator für dynamische Timestamps, Event-Countdowns und Erinnerungssysteme. Erzeuge alle Discord-Formate mit Echtzeitvorschau, Zeitzonenunterstützung und Bot-Integration. Perfekt für Eventplanung und Community-Management.",
     "seo_keywords": "discord timestamp generator, discord timestamp erstellen, discord timestamp erzeugen, discord event generator, discord countdown generator, discord reminder timestamp",
-
     "breadcrumb": {
       "home": "Startseite",
       "tools": "Tools",
       "discord_timestamp_generator": "Discord-Timestamp-Generator"
     },
-
     "header": {
       "professional_badge": "Professionelle Discord-Timestamps",
       "main_title": "Discord",
@@ -3702,7 +3634,6 @@
         "free_generator": "Kostenloser Generator"
       }
     },
-
     "modes": {
       "input_mode": "Eingabemodus",
       "relative_time": "Relative Zeit",
@@ -3710,7 +3641,6 @@
       "absolute_time": "Absolute Zeit",
       "absolute_time_description": "Konkretes Datum & Uhrzeit"
     },
-
     "quick_presets": {
       "title": "Schnell-Presets",
       "in_1_hour": "In 1 Stunde",
@@ -3718,7 +3648,6 @@
       "next_week": "Nächste Woche",
       "in_1_month": "In 1 Monat"
     },
-
     "time_adjustment": {
       "title": "Zeitanpassung",
       "weeks": "Wochen",
@@ -3726,7 +3655,6 @@
       "hours": "Stunden",
       "minutes": "Minuten"
     },
-
     "date_time_settings": {
       "title": "Datum- & Uhrzeit-Einstellungen",
       "year": "Jahr",
@@ -3736,11 +3664,9 @@
       "minute": "Minute",
       "timezone": "Zeitzone: UTC"
     },
-
     "display_format": {
       "title": "Anzeigeformat"
     },
-
     "timestamp_formats": {
       "relative": {
         "label": "Relativ",
@@ -3778,12 +3704,10 @@
         "example": "Dienstag, 20. April 2021 16:20"
       }
     },
-
     "format_toggle": {
       "show_common_formats": "Häufige Formate anzeigen",
       "show_more_formats": "Mehr Formate anzeigen"
     },
-
     "preview": {
       "discord_preview": "Discord-Vorschau",
       "real_time": "Echtzeit",
@@ -3793,7 +3717,6 @@
       "bot_label": "BOT",
       "today": "Heute"
     },
-
     "generated_result": {
       "title": "Generiertes Ergebnis",
       "discord_timestamp_code": "Discord-Timestamp-Code",
@@ -3803,14 +3726,12 @@
       "copied": "Kopiert!",
       "failed_to_copy": "Kopieren fehlgeschlagen:"
     },
-
     "saved_configurations": {
       "title": "Gespeicherte Konfigurationen",
       "click_to_apply": "Zum Anwenden klicken",
       "relative_mode": "Relativ",
       "date_mode": "Datum"
     },
-
     "features": {
       "title": "Funktionen in Profiqualität",
       "description": "Alles, was du für <strong>perfekte Discord-Timestamps</strong> mit <strong>Präzision</strong> und <strong>Stil</strong> brauchst",
@@ -3827,7 +3748,6 @@
         "description": "<strong>Favoriten speichern</strong> und Timestamp-Einstellungen für schnellen Zugriff und Wiederverwendung verwalten."
       }
     },
-
     "usage_guide": {
       "title": "So erstellst du perfekte Discord-Timestamps",
       "description": "Folge diesen Schritten, um professionelle Discord-Timestamps von Grund auf zu erstellen",
@@ -3848,7 +3768,6 @@
         "description": "Kopiere den generierten Code und füge ihn in Nachrichten ein."
       }
     },
-
     "content_sections": {
       "what_is_generation": {
         "title": "Was ist Discord-Timestamp-Generierung? Dynamische Zeitanzeigen erstellen",
@@ -3861,7 +3780,6 @@
         "benefit_5": "Echtzeit-Vorschau beim Erstellen",
         "benefit_6": "Mehrere Formatoptionen"
       },
-
       "best_practices": {
         "title": "Best Practices für Discord-Timestamps",
         "event_scheduling": {
@@ -3883,7 +3801,6 @@
           "api_compatible": "Kompatibel mit allen Discord-API-Integrationen."
         }
       },
-
       "generator_vs_converter": {
         "title": "Discord-Timestamp-Generator vs. Konverter: Das richtige Tool wählen",
         "generator_section": {
@@ -3907,7 +3824,6 @@
         }
       }
     },
-
     "faq": {
       "title": "Häufige Fragen zur Discord-Timestamp-Generierung",
       "q1": {
@@ -3943,7 +3859,6 @@
         "answer": "Ja! Du kannst häufig genutzte Konfigurationen speichern und schnell wieder anwenden – perfekt für wiederkehrende Events."
       }
     },
-
     "preview_text": {
       "in_days": "in {days} Tagen",
       "in_hours": "in {hours} Stunden",
@@ -3954,7 +3869,6 @@
       "minutes_ago": "vor {minutes} Minuten",
       "few_seconds_ago": "vor ein paar Sekunden"
     },
-
     "structured_data": {
       "feature_1": "Dynamische Discord-Timestamp-Generierung",
       "feature_2": "Realtids-Countdown-Erstellung",
@@ -3975,12 +3889,10 @@
       "educational_use": "Discord Event Planung, Discord Community Management, Discord Bot Entwicklung, Discord Event Koordination, Discord Erinnerungssysteme, Discord Server Administration",
       "audience_type": "Discord Community Administratoren, Discord Bot Entwickler, Event Organisatoren, Discord Server Administratoren, Gaming Communities, Content Creators"
     },
-
     "geo_tldr": {
       "title": "Schnellantwort",
       "content": "Der <strong>Discord Timestamp Generator</strong> ist ein <strong>kostenloses Online-Tool</strong>, das <strong>dynamische Discord-Timestamps</strong> für Events, Countdowns und Erinnerungen erstellt. Es unterstützt <strong>7 Timestamp-Formate</strong>, funktioniert automatisch auf <strong>allen Zeitzonen</strong> und erfordert <strong>keine Registrierung</strong>. Perfekt für <strong>Discord Community Administratoren</strong>, <strong>Bot Entwickler</strong> und <strong>Event Organisatoren</strong>, die Events planen und Countdown-Timers erstellen müssen, die in Echtzeit innerhalb von Discord-Nachrichten aktualisiert werden."
     },
-
     "core_facts": {
       "title": "Kerninformationen",
       "pricing_label": "Preis",
@@ -4476,9 +4388,7 @@
     "seo_title": "Zufälliger 4-stelliger Zahlengenerator – Kostenloser Online-Codegenerator",
     "seo_description": "Kostenloser 4-stelliger Zufallszahlengenerator für Verifizierungscodes, PINs und OTP. Erzeuge sichere 4-stellige Zufallszahlen sofort. Keine Registrierung, kryptografisch sicher, unbegrenzt nutzbar. Ideal für Entwickler, Tests und Sicherheitsanwendungen.",
     "seo_keywords": "zufälliger 4-stelliger zahlengenerator, zufalls-codegenerator, 4-stelliger zahlengenerator, zufälliger 4-stelliger code, vierstelliger zufallszahlengenerator, 4-stelliger zufallsgenerator, verifizierungscode generator, PIN generator, OTP generator, sichere zufallszahlen, kryptografischer zufallsgenerator, testdaten generator, bulk generator, zufällige 4-stellige zahlen, 4-stelligen code erzeugen",
-
     "og_image_alt": "Zufälliger 4-stelliger Zahlengenerator",
-
     "json_ld": {
       "name": "Zufälliger 4-stelliger Zahlengenerator",
       "alternate_names": "4-stelliger Zufallszahlengenerator, Zufalls-Codegenerator, 4-stelliger Codegenerator",
@@ -4504,13 +4414,11 @@
         "instant": "Sofortige Generierung mit Web Crypto API"
       }
     },
-
     "breadcrumb": {
       "home": "Startseite",
       "tools": "Tools",
       "random_4_digit_number_generator": "Zufälliger 4-stelliger Zahlengenerator"
     },
-
     "header": {
       "badge_text": "Kryptografisch sicher • Für immer kostenlos",
       "main_title": "Zufälliger 4-stelliger Zahlengenerator",
@@ -4521,18 +4429,15 @@
       "testing_data": "Testdaten",
       "share_text": "Teile dieses kostenlose Tool mit deinem Team"
     },
-
     "features_pills": {
       "instant_generation": "Sofort-Generierung",
       "crypto_secure": "Krypto-sicher",
       "bulk_export": "Bulk-Export"
     },
-
     "generator": {
       "single_title": "Einzel-Zahlengenerator",
       "settings_show": "Einstellungen anzeigen",
       "settings_hide": "Einstellungen ausblenden",
-
       "settings_panel": {
         "title": "Generierungseinstellungen",
         "range_label": "Bereich (Min - Max)",
@@ -4545,13 +4450,11 @@
         "exclude_sequential": "Sequenzen ausschließen (1234, 4321)",
         "exclude_repeated": "Wiederholungen ausschließen (1111, 2222)"
       },
-
       "display": {
         "click_generate": "Klicke auf „Generieren“, um eine Zahl zu erstellen",
         "features": "Sicher • Zufällig • Sofort",
         "crypto_secure": "Kryptografisch sichere Zufallszahl"
       },
-
       "buttons": {
         "generate": "Zahl generieren",
         "generating": "Wird generiert...",
@@ -4563,12 +4466,10 @@
         "reset": "Zurücksetzen",
         "reset_all": "Alles zurücksetzen"
       },
-
       "history": {
         "title": "Letzte Historie",
         "clear": "Leeren"
       },
-
       "bulk": {
         "title": "Bulk-Generator",
         "number_of_items": "Anzahl der Einträge",
@@ -4581,13 +4482,11 @@
         "results_title": "Generierte Zahlen ({count})",
         "click_to_copy": "Zum Kopieren klicken"
       },
-
       "stats": {
         "total_generated": "Gesamt generiert",
         "unique_numbers": "Eindeutige Zahlen",
         "average_value": "Durchschnittswert"
       },
-
       "bulk_title": "Bulk-Generator",
       "bulk_settings": {
         "quantity_label": "Anzahl der Einträge",
@@ -4597,14 +4496,12 @@
         "export_json": "JSON (.json)",
         "allow_duplicates": "Duplikate erlauben"
       },
-
       "bulk_buttons": {
         "generate": "{count} Zahlen generieren",
         "export": "Exportieren",
         "show": "Anzeigen",
         "hide": "Ausblenden"
       },
-
       "statistics": {
         "total_generated": "Gesamt generiert",
         "unique_numbers": "Eindeutige Zahlen",
@@ -4612,15 +4509,12 @@
         "generated_numbers": "Generierte Zahlen ({count})",
         "click_to_copy": "Zum Kopieren klicken"
       },
-
       "reset_button": "Alles zurücksetzen"
     },
-
     "use_cases": {
       "badge": "Beliebte Anwendungsfälle",
       "title": "Wofür nutzt man einen 4-stelligen Zufallszahlengenerator?",
       "description": "Von Sicherheitsanwendungen bis Entwicklungstests – entdecke die vielen Einsatzmöglichkeiten",
-
       "verification_codes": {
         "title": "Verifizierungscodes",
         "description": "Erzeuge sichere OTP- und 2FA-Codes für SMS-/E-Mail-Verifizierung",
@@ -4631,7 +4525,6 @@
           "account_recovery": "Kontowiederherstellung"
         }
       },
-
       "pin_numbers": {
         "title": "PIN-Nummern",
         "description": "Erstelle sichere PINs für verschiedene Anwendungen",
@@ -4642,7 +4535,6 @@
           "security_tokens": "Sicherheits-Token"
         }
       },
-
       "testing_development": {
         "title": "Testing & Entwicklung",
         "description": "Erzeuge Testdaten für QA, Entwicklung und Datenbank-Seeding",
@@ -4653,7 +4545,6 @@
           "database_seeds": "Datenbank-Seeds"
         }
       },
-
       "gaming_lottery": {
         "title": "Gaming & Lotto",
         "description": "Erzeuge Zufallszahlen für Spiele, Wettbewerbe und Glückszahlen",
@@ -4664,7 +4555,6 @@
           "random_selection": "Zufallsauswahl"
         }
       },
-
       "educational_research": {
         "title": "Bildung & Forschung",
         "description": "Ideal für Statistik, Wahrscheinlichkeits-Experimente und akademische Projekte",
@@ -4675,7 +4565,6 @@
           "surveys": "Umfragen"
         }
       },
-
       "how_it_works": {
         "title": "So funktioniert der Generator",
         "description_1": "Unser {strong_4digit} nutzt kryptografisch sichere Algorithmen für echte Zufälligkeit.",
@@ -4684,7 +4573,6 @@
         "strong_crypto": "Web Crypto API",
         "description_3": "Ideal für {strong_users} und alle, die zuverlässige Zufallszahlen für Verifizierungscodes, PINs oder Tests benötigen.",
         "strong_users": "Entwickler, Sicherheitsexperten",
-
         "steps": {
           "step_1": "Einstellungen wählen (Bereich, Format, Ausschlüsse)",
           "step_2": "Generieren klicken, um sichere Zufallszahlen zu erstellen",
@@ -4692,7 +4580,6 @@
           "step_4": "Sofort in Anwendungen verwenden"
         }
       },
-
       "why_choose": {
         "title": "Warum unser Tool?",
         "instant_generation": {
@@ -4721,12 +4608,10 @@
         }
       }
     },
-
     "features": {
       "badge": "Starke Funktionen",
       "title": "Alles in einem Tool",
       "description": "Profi-Funktionen für Entwickler, Sicherheitsexperten und Power-User",
-
       "crypto_secure": {
         "title": "Kryptografisch sicher",
         "description": "Web Crypto API für echte Zufallszahlen, geeignet für sicherheitskritische Anwendungen"
@@ -4751,9 +4636,7 @@
         "title": "Erweiterte Anpassung",
         "description": "Zahlenbereich, Format, Duplikate und Ausschlussregeln steuern"
       },
-
       "learn_more": "Mehr erfahren",
-
       "trust_signals": {
         "badge": "Vertrauen von Entwicklern und Sicherheitsexperten",
         "description": "Schließe dich Tausenden von Entwicklern, QA-Ingenieuren und Sicherheitsexperten an, die unseren Generator täglich nutzen",
@@ -4766,18 +4649,15 @@
           "cross_platform": "✓ Mobile & Desktop"
         }
       },
-
       "security_notice": {
         "title": "Sicherheit & Datenschutz",
         "description": "Die Generierung erfolgt vollständig im Browser mit Web Crypto API. Wir speichern, verfolgen oder übertragen keine Zahlen. Deine Daten bleiben auf deinem Gerät."
       }
     },
-
     "faq": {
       "badge": "Häufige Fragen",
       "title": "Alles, was du wissen musst",
       "description": "Häufige Fragen zum 4-stelligen Zufallszahlengenerator",
-
       "items": {
         "how_random": {
           "question": "Wie zufällig sind die generierten Zahlen?",
@@ -4828,7 +4708,6 @@
           "answer": "Du kannst Min- und Max-Wert festlegen. Beispiel: 1000-5000 erzeugt nur Zahlen in diesem Bereich. Nützlich für Teilbereiche von 0000-9999."
         }
       },
-
       "q1": {
         "question": "Wie zufällig sind die generierten Zahlen?",
         "answer": "Unser Generator nutzt die Web Crypto API (crypto.getRandomValues()) und liefert kryptografisch sichere Zufallszahlen. Dadurch sind sie wirklich zufällig und unvorhersehbar, geeignet für sicherheitskritische Anwendungen wie Verifizierungscodes und PINs. Die Zufallsqualität ist deutlich höher als bei Math.random()."
@@ -4877,14 +4756,12 @@
         "question": "Wie funktioniert die Bereichseinstellung?",
         "answer": "Du kannst Min- und Max-Wert festlegen. Beispiel: 1000-5000 erzeugt nur Zahlen in diesem Bereich. Nützlich für Teilbereiche von 0000-9999."
       },
-
       "still_have_questions": {
         "title": "Noch Fragen?",
         "description": "Keine passende Antwort gefunden? Sieh in die Doku oder kontaktiere unsere Community",
         "view_docs": "Dokumentation ansehen",
         "contact_support": "Support kontaktieren"
       },
-
       "pro_tips": {
         "tip_1": {
           "icon": "💡",
@@ -4903,7 +4780,6 @@
         }
       }
     },
-
     "cta": {
       "title": "Bereit, Zufallszahlen zu generieren?",
       "description": "Starte jetzt mit sicheren 4-stelligen Zufallszahlen. Keine Registrierung, keine Limits, für immer kostenlos.",
@@ -4917,21 +4793,18 @@
         "cross_platform": "✓ Mobile & Desktop"
       }
     },
-
     "seo_content": {
       "title": "Über unseren 4-stelligen Zufallszahlengenerator",
       "title_suffix": "Random Code Generator",
       "paragraph_1": "Unser {strong_generator} ist ein Profi-Tool für Entwickler, Sicherheitsexperten, QA-Ingenieure und alle, die zuverlässige Zufallszahlen brauchen. Anders als einfache Generatoren nutzen wir <rich>{strong_crypto}</rich> für kryptografisch sichere Zufälligkeit.",
       "strong_generator": "4-stelliger Zufallszahlengenerator",
       "strong_crypto": "Web Crypto API",
-
       "perfect_for_title": "Perfekt für viele Anwendungsfälle",
       "perfect_for_description": "Ob {strong_verification} fürs Auth-System, {strong_pins} für Zugriffskontrolle, {strong_test_data} für Entwicklung oder {strong_random} für andere Zwecke – unser Tool liefert sofortige, sichere Ergebnisse mit erweiterten Optionen.",
       "strong_verification": "Verifizierungscodes",
       "strong_pins": "PIN-Nummern",
       "strong_test_data": "Testdaten",
       "strong_random": "Zufallszahlen",
-
       "key_features_title": "Kernfunktionen",
       "features_list": {
         "crypto_secure": "<strong>Kryptografisch sicher</strong>: Web Crypto API für echte Zufälligkeit",
@@ -4943,14 +4816,12 @@
         "free": "<strong>100% kostenlos</strong>: Unbegrenzte Generierung",
         "privacy": "<strong>Datenschutzfokus</strong>: Keine Speicherung oder Nachverfolgung"
       },
-
       "how_it_works_title": "So funktioniert es",
       "how_it_works_description": "Unser Generator nutzt die native {strong_crypto}-Methode des Browsers für kryptografisch starke Zufallswerte. Dadurch sind die Zahlen wirklich unvorhersehbar und geeignet für {strong_otp}, {strong_2fa} und {strong_verification}.",
       "strong_crypto_method": "crypto.getRandomValues()",
       "strong_otp": "OTP-Generierung",
       "strong_2fa": "Zwei-Faktor-Authentifizierung",
       "strong_verification_codes": "Verifizierungscodes",
-
       "why_choose_title": "Warum unser Tool?",
       "why_choose_description": "Im Gegensatz zu Tools mit einfachem Math.random() bietet unser Tool {strong_enterprise} in einer intuitiven Oberfläche. Entwickelt für Profis, die zuverlässige, sichere Zufallszahlen ohne Kompromisse benötigen.",
       "strong_enterprise": "Enterprise-Grade-Sicherheit"
@@ -7037,7 +6908,6 @@
       }
     }
   },
-
   "PERMProcessingTimeTracker": {
     "seo_title": "PERM Bearbeitungszeit Tracker - Kostenloser Echtzeit DOL Einwanderungsstatus-Checker",
     "seo_description": "PERM Bearbeitungszeit Tracker mit Echtzeit-DOL-Daten. Offizielle DOL-Datenintegration für genaue Einwanderungszeitpläne.",
@@ -8086,5 +7956,206 @@
     "boundary_description": "Dieses Tool hilft dir beim Herunterladen von Audio, das du verwenden darfst. Beachte stets Urheberrecht, Rechte der Creator und Plattformbedingungen. Verwende es nur für persönliche, lizenzierte oder anderweitig autorisierte Inhalte.",
     "content_freshness_updated": "Aktualisiert",
     "content_freshness_last_updated": "Zuletzt aktualisiert"
+  },
+  "MorseCodeTranslator": {
+    "seo": {
+      "title": "Morse Code Translator & Generator",
+      "description": "Free online Morse Code Translator & Generator to encode text, decode Morse code, and play Morse audio instantly in your browser.",
+      "keywords": "morse code translator, morse code generator, morse code generator online, text to morse code, morse code to text, morse code decoder, what is morse code, how does morse code work, how to read morse code, how to learn morse code, morse code alphabet, morse code chart, morse code converter, morse code converter online, sos in morse code, what is sos in morse code, who invented morse code, when was morse code invented, morse code sound",
+      "og_alt": "Morse Code Translator on GeeksKai"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "tools": "Tools",
+      "current": "Morse Code Translator"
+    },
+    "defaults": {
+      "input_text": "HELLO WORLD",
+      "morse_sos": "... --- ..."
+    },
+    "placeholders": {
+      "encode": "Type message, e.g. HELLO WORLD",
+      "decode": "Use . and -, space between letters, / between words"
+    },
+    "header": {
+      "title": "Morse Code Translator",
+      "quick_answer": "<strong>Quick answer:</strong> This page provides a free online <blue>Morse code translator</blue> for <cyan>text to Morse</cyan>, <purple>Morse to text</purple>, plus browser audio playback with no account needed."
+    },
+    "core_facts": {
+      "title": "Core Facts",
+      "pricing_label": "Pricing",
+      "pricing_value": "<strong>Free</strong>, no sign-up.",
+      "features_label": "Main Features",
+      "features_value": "<strong>Encode</strong>, <strong>decode</strong>, and <strong>audio playback</strong>.",
+      "positioning_label": "Positioning",
+      "positioning_value": "Fast, browser-native Morse utility for learning and practical conversion.",
+      "users_label": "Target Users",
+      "users_value": "Students, ham radio users, puzzle makers, developers."
+    },
+    "overview": {
+      "title": "What is Morse code?",
+      "description": "<strong>Direct answer:</strong> Morse code is a communication system that encodes letters and numbers with <blue>dots</blue> and <cyan>dashes</cyan>. It is still useful for learning signal timing, emergency patterns, and radio basics.",
+      "card_1_title": "How Morse code works",
+      "card_1_desc": "Each character maps to a unique dot-dash sequence, for example <strong>A = .-</strong> and <strong>B = -...</strong>.",
+      "card_2_title": "How to read Morse code",
+      "card_2_desc": "Read short signals as dots and long signals as dashes, then split by letter spaces and word separators.",
+      "card_3_title": "How to learn Morse code",
+      "card_3_desc": "Practice 5-10 minutes daily with common letters, then train listening speed using flash and audio playback."
+    },
+    "tool": {
+      "mode_label": "Mode",
+      "mode_encode": "Text to Morse",
+      "mode_decode": "Morse to Text",
+      "input_text_label": "Input text",
+      "input_morse_label": "Input Morse code",
+      "output_morse": "Morse output",
+      "output_text": "Decoded text",
+      "output_placeholder": "Output will appear here.",
+      "signal_playing": "Morse flashlight is blinking by signal timing",
+      "signal_preview": "Signal lamp preview",
+      "no_signal": "No signal to preview.",
+      "stop_playback": "Stop playback",
+      "play_audio_flash": "Play audio + flash",
+      "play_flash": "Play flash",
+      "audio_title_on": "Audio and flash enabled",
+      "audio_title_off": "Flash-only mode enabled",
+      "audio_on": "Audio on",
+      "flash_only": "Flash only",
+      "copied": "Copied",
+      "copy_output": "Copy output"
+    },
+    "how_to": {
+      "title": "How to use this Morse code translator (step-by-step)",
+      "step_1_title": "1) Normalize input",
+      "step_1_desc": "Text is uppercased for consistent mapping; Morse input is split by spaces and `/`.",
+      "step_2_title": "2) Convert by dictionary",
+      "step_2_desc": "Characters map to dots and dashes using the ITU-style Morse table; unknown tokens return `?`.",
+      "step_3_title": "3) Render and playback",
+      "step_3_desc": "The output is shown as plain text and can be played as short/long tones in the browser audio engine."
+    },
+    "boundaries": {
+      "title": "Boundaries and limitations",
+      "can_do": "<strong>Can do:</strong> text and Morse conversion, browser playback, quick educational reference.",
+      "cannot_do": "<strong>Cannot do:</strong> advanced radio protocol timing, signal-noise simulation, or long-form transmission logging.",
+      "input_scope": "<strong>Input scope:</strong> A-Z, 0-9, spaces, and standard Morse separators."
+    },
+    "sos": {
+      "title": "SOS in Morse code",
+      "text_label": "Text",
+      "morse_label": "Morse",
+      "use_case_label": "Use case",
+      "use_case_desc": "A standard emergency signal. You can paste it into Morse input and play flash or audio instantly."
+    },
+    "history": {
+      "title": "Who invented Morse code and when?",
+      "description": "<strong>Short answer:</strong> Samuel Morse and Alfred Vail developed Morse code in the <amber>1830s</amber>, and it was adopted in practical telegraph systems during the <amber>1840s</amber>."
+    },
+    "guide": {
+      "title": "Complete Morse code guide for beginners",
+      "p1": "<strong>Direct answer:</strong> Morse code is a practical signal language where each letter or number is represented by a sequence of dots and dashes. If your goal is to <cyan>translate text to Morse</cyan>, <blue>decode Morse to text</blue>, or simply learn the alphabet quickly, this page combines all three in one place: real-time conversion, flash rhythm playback, and an alphabet chart for fast lookup.",
+      "p2": "Many users search phrases like <strong>what is morse code</strong>, <strong>how to read morse code</strong>, and <strong>how to learn morse code</strong> because they need both a tool and a clear explanation. The fastest way to read Morse is to treat it as sound and timing patterns rather than visual symbols only. A dot is a short signal and a dash is a longer signal; letters are separated by short gaps and words are separated by longer breaks. Once this rhythm is clear, decoding speed improves quickly.",
+      "p3": "If you are practicing from scratch, start with a small set of high-frequency letters such as <strong>E, T, A, N, I, M, S, O</strong>. Then type simple words in the converter and switch between both modes to reinforce memory from both directions. For emergency awareness, memorize <rose>SOS = ... --- ...</rose> first. That one sequence appears in many learning resources and is one of the easiest Morse patterns to recognize at speed.",
+      "p4": "Historically, Morse code was developed by Samuel Morse and Alfred Vail in the 1830s and became widely used through telegraph networks in the 1840s. Today, people still use it for radio training, education, puzzle design, and creative projects like jewelry pattern encoding. In short, a modern <strong>morse code generator</strong> should do more than output symbols: it should help users understand meaning, timing, and practical use.",
+      "quick_a": "A in Morse code",
+      "quick_b": "B in Morse code",
+      "quick_c": "C in Morse code",
+      "quick_e": "E in Morse code",
+      "quick_s": "S in Morse code",
+      "quick_o": "O in Morse code"
+    },
+    "alphabet_chart": {
+      "title": "Morse code alphabet chart (A-Z and 0-9)"
+    },
+    "faq": {
+      "title": "Morse code translator FAQ"
+    },
+    "faq_1": {
+      "question": "What is a Morse code translator and how does it work?",
+      "answer": "A Morse code translator converts text to Morse code and Morse code back to text in seconds. This page also provides browser-based Morse audio and flash playback for timing practice."
+    },
+    "faq_2": {
+      "question": "How do I convert text to Morse code online for free?",
+      "answer": "Use Text to Morse mode, type your message, and copy the generated Morse output instantly. The converter is free, browser-based, and requires no sign-up."
+    },
+    "faq_3": {
+      "question": "How do I decode Morse code to text correctly?",
+      "answer": "Use one space between Morse letters and a slash `/` between words for accurate decoding. Then switch to Morse to Text mode; example input is `... --- ... / .... . .-.. .--.`."
+    },
+    "faq_4": {
+      "question": "Where can I find a Morse code alphabet chart for letters and numbers?",
+      "answer": "Open the Morse code alphabet chart section on this page to view A-Z and 0-9 mappings. It works as a quick reference while translating or learning Morse."
+    },
+    "faq_5": {
+      "question": "What is SOS in Morse code?",
+      "answer": "SOS in Morse code is `... --- ...`. You can copy it directly into the Morse input field and play it with audio or flash timing."
+    },
+    "faq_6": {
+      "question": "Can this Morse code converter handle invalid Morse symbols?",
+      "answer": "Yes. Unknown or malformed Morse tokens are shown as `?`, so you can quickly identify where the Morse sequence needs correction."
+    },
+    "faq_7": {
+      "question": "Can I use this Morse code translator without sending data to a server?",
+      "answer": "Yes. Translation and playback run locally in your browser, helping protect privacy and keeping the converter fast."
+    },
+    "faq_8": {
+      "question": "Who should use this Morse code generator and decoder?",
+      "answer": "It is useful for students, radio hobbyists, puzzle creators, and developers who need fast text-to-Morse and Morse-to-text conversion in one place."
+    },
+    "faq_9": {
+      "question": "How often is this Morse translator page updated for accuracy?",
+      "answer": "The page follows a 30-90 day GEO review cycle and displays a last updated date to provide freshness and confidence signals."
+    },
+    "faq_10": {
+      "question": "What is Morse code?",
+      "answer": "Morse code is a character encoding system that represents letters and numbers using short and long signals known as dots and dashes."
+    },
+    "faq_11": {
+      "question": "How can I learn Morse code quickly?",
+      "answer": "Start with high-frequency letters, practice daily with short sessions, and use audio or flash playback to train rhythm recognition."
+    },
+    "faq_12": {
+      "question": "Who invented Morse code and when was it invented?",
+      "answer": "Samuel Morse and Alfred Vail developed Morse code in the 1830s, and it became widely used in telegraph communication in the 1840s."
+    },
+    "sources": {
+      "title": "Data sources and trust signals",
+      "item_1": "<strong>ITU-R M.1677-1:</strong> International Morse code reference for letters, digits, and transmission pattern.",
+      "item_2": "<strong>Web Audio API:</strong> Browser-side audio generation used for dot/dash playback.",
+      "last_updated": "Last updated: <strong>{date}</strong> (review cycle: every 30-90 days)."
+    },
+    "hidden_seo": {
+      "title": "Morse code generator vs translator",
+      "description": "A Morse code generator takes plain text input and encodes it into Morse symbols, while a Morse code translator typically supports both directions: encode text to Morse and decode Morse to readable text. This page includes both generator and translator behavior, plus audio playback for signal timing practice."
+    },
+    "schema": {
+      "webapp_name": "Morse Code Translator",
+      "alternate_names": "Morse Code Generator, Morse Code Decoder, Morse Code Converter",
+      "feature_1": "Text to Morse conversion",
+      "feature_2": "Morse to text decoding",
+      "feature_3": "Morse code alphabet chart",
+      "feature_4": "SOS in Morse code quick reference",
+      "feature_5": "Morse audio playback",
+      "feature_6": "Reference table",
+      "feature_7": "No registration required",
+      "howto_name": "How to translate text and Morse code online",
+      "howto_description": "Use this step-by-step guide to encode text to Morse code, decode Morse to text, and play Morse audio.",
+      "howto_step_1_name": "Choose conversion mode",
+      "howto_step_1_text": "Select Text to Morse to encode plain text, or Morse to Text to decode Morse signals.",
+      "howto_step_2_name": "Paste your content",
+      "howto_step_2_text": "Enter text, or provide Morse with spaces between letters and slash between words.",
+      "howto_step_3_name": "Copy or play Morse output",
+      "howto_step_3_text": "Copy the generated result, or click play to hear and visualize Morse timing.",
+      "howto_step_4_name": "Use the alphabet chart and SOS reference",
+      "howto_step_4_text": "Open the Morse code alphabet chart and SOS example section to read or learn Morse patterns faster.",
+      "itemlist_name": "Morse code alphabet chart",
+      "itemlist_1": "A .-",
+      "itemlist_2": "B -...",
+      "itemlist_3": "C -.-.",
+      "itemlist_4": "S ...",
+      "itemlist_5": "O ---",
+      "itemlist_6": "1 .----",
+      "itemlist_7": "5 .....",
+      "itemlist_8": "0 -----"
+    }
   }
 }
