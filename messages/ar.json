@@ -575,6 +575,139 @@
       "home": "الصفحة الرئيسية",
       "tools": "الأدوات",
       "board_foot_calculator": "حاسبة الأقدام الخشبية"
+    },
+    "growth": {
+      "read_compare_prefix": "Need used-car due diligence?",
+      "read_compare_link": "Read VIN Decoder vs VIN Check",
+      "vehicle_types_title": "Decode by Vehicle Type",
+      "vehicle_types_description": "Explore dedicated VIN decoder pages for high-demand vehicle categories and long-tail search queries.",
+      "vehicle_types": {
+        "motorcycle": {
+          "title": "Motorcycle VIN Decoder",
+          "description": "Decode motorcycle VINs for engine specs, model year, and manufacturer details."
+        },
+        "rv": {
+          "title": "RV VIN Decoder",
+          "description": "Check motorhome and RV VIN numbers with official data-backed decoding."
+        },
+        "trailer": {
+          "title": "Trailer VIN Decoder",
+          "description": "Decode trailer VINs to verify plant, model year, and build details."
+        },
+        "classic-car": {
+          "title": "Classic Car VIN Decoder",
+          "description": "Understand legacy VIN formats and identify key vintage vehicle attributes."
+        }
+      }
+    },
+    "comparePage": {
+      "seo_title": "VIN Decoder vs VIN Check - What's the Difference? | GeeksKai",
+      "seo_description": "Learn the difference between a VIN decoder and a VIN check report. Understand what data is included, what each tool is best for, and when to use both.",
+      "keywords": {
+        "1": "vin decoder vs vin check",
+        "2": "what is vin check",
+        "3": "vin decoder meaning",
+        "4": "vin lookup vs vin report",
+        "5": "vehicle history report vs vin decode"
+      },
+      "og_title": "VIN Decoder vs VIN Check - Which One Do You Need?",
+      "og_description": "Compare VIN decode data and full VIN check reports to choose the right workflow before buying a used vehicle.",
+      "og_image_alt": "VIN Decoder vs VIN Check",
+      "twitter_title": "VIN Decoder vs VIN Check",
+      "twitter_description": "Understand the difference between decoding a VIN and checking vehicle history.",
+      "title": "VIN Decoder vs VIN Check",
+      "badge": "Buying Workflow Guide",
+      "quick_answer_label": "Quick answer:",
+      "quick_answer_text": "VIN decoder tells you what the vehicle is. VIN check helps you understand what happened to that vehicle over time.",
+      "breadcrumb": {
+        "home": "Home",
+        "tools": "Tools",
+        "vin_decoder": "VIN Decoder"
+      },
+      "decoder_card": {
+        "title": "VIN Decoder",
+        "purpose_label": "Purpose:",
+        "purpose_value": "Identify vehicle specs",
+        "includes_label": "Includes:",
+        "includes_value": "Make, model, year, engine, body class",
+        "source_label": "Data Source:",
+        "source_value": "Official NHTSA/vPIC style records",
+        "best_for_label": "Best For:",
+        "best_for_value": "Validating listing accuracy",
+        "cost_label": "Cost:",
+        "cost_value": "Usually free"
+      },
+      "check_card": {
+        "title": "VIN Check Report",
+        "purpose_label": "Purpose:",
+        "purpose_value": "Assess historical risk",
+        "includes_label": "Includes:",
+        "includes_value": "Title events, accident claims, salvage flags",
+        "source_label": "Data Source:",
+        "source_value": "Commercial/insurance records",
+        "best_for_label": "Best For:",
+        "best_for_value": "Used-car purchase due diligence",
+        "cost_label": "Cost:",
+        "cost_value": "Often paid"
+      },
+      "workflow_title": "Recommended workflow",
+      "workflow": {
+        "step1": {
+          "label": "Decode VIN first",
+          "text": "to verify the vehicle identity and technical specs."
+        },
+        "step2": {
+          "label": "Compare listing details",
+          "text": "with decoded output to catch mismatches early."
+        },
+        "step3": {
+          "label": "Run a VIN check report",
+          "text": "before payment for ownership and accident history."
+        }
+      },
+      "faq_title": "FAQ",
+      "faq": {
+        "1": {
+          "q": "Is a VIN decoder the same as a VIN check?",
+          "a": "No. A VIN decoder identifies vehicle specifications like make, model, year, engine, and manufacturing data. A VIN check usually includes ownership, accident, title, salvage, and theft history from third-party databases."
+        },
+        "2": {
+          "q": "When should I use a VIN decoder first?",
+          "a": "Use a VIN decoder first to validate that the VIN format is correct and that the advertised vehicle specs match the seller information. Then use a VIN check if you need ownership and incident history."
+        },
+        "3": {
+          "q": "Can I buy a used car with only VIN decoder results?",
+          "a": "For important purchases, VIN decoder results alone are not enough. Decoder data confirms technical identity, while VIN check reports help reveal historical risks such as accidents or title issues."
+        }
+      },
+      "faq_summary": {
+        "1": "No. They solve different problems: identity/spec verification versus risk/history verification.",
+        "2_q": "Should I use both before buying?",
+        "2_a": "Yes. Using both gives better confidence for pricing, negotiation, and fraud prevention."
+      },
+      "cta_try": "Try VIN Decoder",
+      "cta_explore_types": "Explore Vehicle Types"
+    },
+    "vehicleTypePage": {
+      "badge_suffix": "VIN Search Intent Page",
+      "last_updated_label": "Last updated:",
+      "best_use_cases_title": "Best use cases",
+      "quick_answer_title": "Quick answer",
+      "direct_answer_label": "Direct answer:",
+      "quick_answer_text": "You can use this VIN decoder page to match high-intent queries and then decode VINs instantly via the",
+      "main_tool_link": "main VIN tool",
+      "quick_answer_suffix": "It is free, no registration, and backed by official NHTSA data.",
+      "faq_title": "FAQ",
+      "related_brand_title": "Related Brand Decoders",
+      "related_brand_description": "Jump into popular brand-specific VIN pages for faster lookup workflows.",
+      "brand_decoder_suffix": "VIN Decoder",
+      "cta_decode_now": "Decode a VIN Now",
+      "cta_compare": "Compare VIN Decoder vs VIN Check",
+      "breadcrumb": {
+        "home": "Home",
+        "tools": "Tools",
+        "vin_decoder": "VIN Decoder"
+      }
     }
   },
   "CmTilTommerConverter": {
@@ -5097,6 +5230,357 @@
           "fullName": "شركة تيسلا لصناعة السيارات",
           "description": "تحليل رقم تعريف السيارات للسيارات تيسلا والسيارات SUV.",
           "country": "الولايات المتحدة"
+        }
+      }
+    },
+    "growth": {
+      "read_compare_prefix": "هل تحتاج إلى العناية الواجبة بالسيارة المستعملة؟",
+      "read_compare_link": "قراءة VIN Decoder vs VIN Check",
+      "vehicle_types_title": "فك التشفير حسب نوع السيارة",
+      "vehicle_types_description": "استكشف صفحات وحدة فك ترميز VIN المخصصة لفئات المركبات ذات الطلب العالي واستعلامات البحث الطويلة.",
+      "vehicle_types": {
+        "motorcycle": {
+          "title": "جهاز فك ترميز VIN للدراجة النارية",
+          "description": "قم بفك تشفير أرقام VIN الخاصة بالدراجة النارية لمعرفة مواصفات المحرك وسنة الطراز وتفاصيل الشركة المصنعة."
+        },
+        "rv": {
+          "title": "وحدة فك ترميز RV VIN",
+          "description": "تحقق من أرقام VIN للمنزل المتنقل وRV باستخدام فك التشفير الرسمي المدعوم بالبيانات."
+        },
+        "trailer": {
+          "title": "جهاز فك ترميز VIN للمقطورة",
+          "description": "قم بفك تشفير أرقام VIN للمقطورة للتحقق من المصنع وسنة الطراز وتفاصيل البناء."
+        },
+        "classic-car": {
+          "title": "جهاز فك ترميز VIN للسيارة الكلاسيكية",
+          "description": "فهم تنسيقات VIN القديمة وتحديد السمات الرئيسية للمركبة القديمة."
+        }
+      }
+    },
+    "comparePage": {
+      "seo_title": "VIN Decoder مقابل VIN Check - ما الفرق؟ | جيكسكاي",
+      "seo_description": "تعرف على الفرق بين وحدة فك ترميز VIN وتقرير فحص VIN. افهم البيانات المضمنة، وما هو الأفضل لكل أداة، ومتى تستخدم كليهما.",
+      "keywords": {
+        "0": "فك فين",
+        "1": "فك فين مقابل فحص فين",
+        "2": "ما هو فين الاختيار",
+        "3": "معنى فك فين",
+        "4": "بحث vin مقابل تقرير vin",
+        "5": "تقرير تاريخ السيارة مقابل فك تشفير vin",
+        "6": "فك فين مجاني",
+        "7": "فك رقم فين",
+        "8": "NHTSA فين فك",
+        "9": "فك فين مجانا",
+        "10": "أفضل وحدة فك ترميز vin مجانية",
+        "11": "أداة فك التشفير فين"
+      },
+      "og_title": "VIN Decoder vs VIN Check - أيهما تحتاج؟",
+      "og_description": "قارن بين بيانات فك تشفير VIN وتقارير فحص VIN الكاملة لاختيار سير العمل المناسب قبل شراء سيارة مستعملة.",
+      "og_image_alt": "وحدة فك ترميز VIN مقابل فحص VIN",
+      "twitter_title": "وحدة فك ترميز VIN مقابل فحص VIN",
+      "twitter_description": "فهم الفرق بين فك تشفير VIN والتحقق من تاريخ السيارة.",
+      "title": "وحدة فك ترميز VIN مقابل فحص VIN",
+      "badge": "شراء دليل سير العمل",
+      "quick_answer_label": "إجابة سريعة:",
+      "quick_answer_text": "يخبرك جهاز فك ترميز VIN عن ماهية السيارة. يساعدك فحص VIN على فهم ما حدث لتلك السيارة مع مرور الوقت.",
+      "last_updated_label": "آخر تحديث:",
+      "core_facts_title": "الحقائق الأساسية",
+      "core_facts": {
+        "cost": "خط الأساس للتكلفة",
+        "cost_value": "وحدة فك ترميز VIN مجانية + تقرير مدفوع اختياري",
+        "keyword": "الاستعلام الأساسي",
+        "keyword_value": "فك فين مقابل فحص فين",
+        "decoder": "إخراج فك التشفير VIN",
+        "decoder_value": "مواصفات الطراز/الطراز/السنة/المحرك من منطق وحدة فك ترميز رقم VIN",
+        "check": "إخراج فحص VIN",
+        "check_value": "الملكية والملكية والحوادث وتاريخ المخاطر"
+      },
+      "source_boundary_note": "ملاحظة حدودية: تدعم بيانات وحدة فك ترميز VIN التحقق من المواصفات. لا تزال الملكية والملكية ومخاطر الحوادث تتطلب تقرير فحص VIN مخصصًا.",
+      "breadcrumb": {
+        "home": "بيت",
+        "tools": "أدوات",
+        "vin_decoder": "وحدة فك ترميز VIN"
+      },
+      "decoder_card": {
+        "title": "وحدة فك ترميز VIN",
+        "purpose_label": "غاية:",
+        "purpose_value": "التعرف على مواصفات السيارة",
+        "includes_label": "يشمل:",
+        "includes_value": "الطراز، الطراز، السنة، المحرك، فئة الجسم",
+        "source_label": "مصدر البيانات:",
+        "source_value": "سجلات نمط NHTSA/vPIC الرسمية",
+        "best_for_label": "الأفضل لـ:",
+        "best_for_value": "التحقق من دقة القائمة",
+        "cost_label": "يكلف:",
+        "cost_value": "عادة ما تكون مجانية"
+      },
+      "check_card": {
+        "title": "تقرير فحص VIN",
+        "purpose_label": "غاية:",
+        "purpose_value": "تقييم المخاطر التاريخية",
+        "includes_label": "يشمل:",
+        "includes_value": "أحداث العنوان، مطالبات الحوادث، أعلام الإنقاذ",
+        "source_label": "مصدر البيانات:",
+        "source_value": "السجلات التجارية/التأمينية",
+        "best_for_label": "الأفضل لـ:",
+        "best_for_value": "العناية الواجبة بشراء السيارات المستعملة",
+        "cost_label": "يكلف:",
+        "cost_value": "غالبا ما تدفع"
+      },
+      "workflow_title": "سير العمل الموصى به",
+      "workflow": {
+        "step1": {
+          "label": "قم بفك تشفير VIN أولاً",
+          "text": "للتحقق من هوية السيارة ومواصفاتها الفنية."
+        },
+        "step2": {
+          "label": "قارن تفاصيل القائمة",
+          "text": "مع إخراج تم فك تشفيره لاكتشاف حالات عدم التطابق مبكرًا."
+        },
+        "step3": {
+          "label": "قم بتشغيل تقرير فحص VIN",
+          "text": "قبل دفع ثمن الملكية وتاريخ الحوادث."
+        }
+      },
+      "faq_title": "التعليمات",
+      "faq": {
+        "1": {
+          "q": "هل وحدة فك ترميز VIN هي نفسها فحص VIN؟",
+          "a": "لا. يحدد جهاز فك ترميز VIN مواصفات السيارة مثل بيانات الصنع والطراز والسنة والمحرك وبيانات التصنيع. يتضمن فحص VIN عادةً تاريخ الملكية والحوادث والملكية والإنقاذ والسرقة من قواعد بيانات الطرف الثالث."
+        },
+        "2": {
+          "q": "متى يجب علي استخدام وحدة فك ترميز VIN أولاً؟",
+          "a": "استخدم وحدة فك ترميز VIN أولاً للتحقق من صحة تنسيق VIN وأن مواصفات السيارة المعلن عنها تتطابق مع معلومات البائع. ثم استخدم فحص VIN إذا كنت بحاجة إلى الملكية وسجل الحوادث."
+        },
+        "3": {
+          "q": "هل يمكنني شراء سيارة مستعملة بنتائج وحدة فك ترميز VIN فقط؟",
+          "a": "بالنسبة للمشتريات المهمة، فإن نتائج وحدة فك ترميز VIN وحدها ليست كافية. تؤكد بيانات وحدة فك التشفير الهوية الفنية، بينما تساعد تقارير فحص VIN في الكشف عن المخاطر التاريخية مثل الحوادث أو مشكلات الملكية."
+        },
+        "4": {
+          "q": "هل هناك خيار مجاني لفك تشفير VIN؟",
+          "a": "نعم. يمكن لوحدة فك ترميز VIN المجانية التعرف بسرعة على الطراز والطراز والسنة والمواصفات الفنية. غالبًا ما تكون هذه هي أسرع خطوة أولى قبل الدفع مقابل التقرير الكامل."
+        },
+        "5": {
+          "q": "ما الذي لا يتضمنه جهاز فك ترميز رقم VIN؟",
+          "a": "عادةً لا تتضمن نتائج وحدة فك ترميز رقم VIN سجل الحوادث أو أحداث الملكية أو الامتيازات أو سجلات الإنقاذ. يتم تغطيتها عادةً بواسطة تقارير فحص VIN."
+        },
+        "6": {
+          "q": "هل بيانات وحدة فك ترميز NHTSA VIN كافية لاتخاذ قرارات الشراء؟",
+          "a": "تعد بيانات وحدة فك ترميز NHTSA VIN قوية للتحقق من صحة الهوية والمواصفات. لاتخاذ قرارات المخاطر، قم بإقرانها بفحص تاريخ السيارة."
+        },
+        "7": {
+          "q": "ما هو أفضل سير عمل للعناية الواجبة للسيارات المستعملة؟",
+          "a": "قم أولاً بفك تشفير تفاصيل رقم VIN للتحقق من دقة القائمة. ثم قم بتشغيل تقرير فحص VIN لتقييم مخاطر الملكية والأضرار والملكية."
+        },
+        "8": {
+          "q": "هل يمكنني استخدام كلا الأداتين معًا؟",
+          "a": "نعم. إن الجمع بين مخرجات وحدة فك ترميز VIN المجانية وسجل فحص VIN يعطي الصورة الأكثر اكتمالاً لقرارات الشراء أو البيع."
+        },
+        "9": {
+          "q": "هل يعتبر أفضل برنامج فك ترميز VIN مجانيًا كافيًا إذا تخطيت تقرير التحقق من VIN؟",
+          "a": "لا. يعد جهاز فك ترميز VIN المجاني ممتازًا للتحقق من الهوية والمواصفات، ولكن لا تزال هناك حاجة إلى تقرير فحص VIN للحصول على إشارات الملكية والحوادث والسرقة ومخاطر الملكية."
+        }
+      },
+      "boundaries_title": "النطاق والحدود",
+      "boundaries": {
+        "1": {
+          "label": "يمكن لوحدة فك ترميز VIN:",
+          "text": "التحقق من الهوية وفك تشفير مواصفات السيارة من هيكل VIN."
+        },
+        "2": {
+          "label": "لا يمكن لوحدة فك ترميز VIN:",
+          "text": "تأكيد أحداث الحادث أو الملكية أو السرقة أو الملكية من تلقاء نفسها."
+        },
+        "3": {
+          "label": "يمكن التحقق من VIN:",
+          "text": "إضافة سياق المخاطر التاريخية لقرارات الشراء والتأمين."
+        }
+      },
+      "faq_summary": {
+        "1": "لا، فهي تحل مشكلات مختلفة: التحقق من الهوية/المواصفات مقابل التحقق من المخاطر/التاريخ.",
+        "2_q": "هل يجب أن أستخدم كلاهما قبل الشراء؟",
+        "2_a": "نعم. إن استخدام كليهما يعطي ثقة أفضل في التسعير والتفاوض ومنع الاحتيال."
+      },
+      "cta_try": "حاول فك ترميز VIN",
+      "cta_explore_types": "اكتشف أنواع المركبات"
+    },
+    "vehicleTypePage": {
+      "badge_suffix": "صفحة هدف البحث عن VIN",
+      "last_updated_label": "آخر تحديث:",
+      "core_facts_title": "الحقائق الأساسية لاسترجاع الذكاء الاصطناعي السريع",
+      "core_fact": {
+        "primary_keyword": "الكلمة الأساسية",
+        "cost": "يكلف",
+        "cost_value": "فك تشفير VIN مجاني",
+        "source": "مصدر البيانات",
+        "source_value": "البيانات المرجعية لـ NHTSA vPIC",
+        "intent": "نوع النية",
+        "intent_value": "نية البحث المعلوماتية + التجارية عن رقم VIN"
+      },
+      "source_boundary_note": "ملاحظة حدودية: يقوم فك تشفير VIN بالتحقق من صحة حقول الهوية التقنية. ولا يحل محل مجموعات بيانات سجل المركبات المدفوعة.",
+      "best_use_cases_title": "أفضل حالات الاستخدام",
+      "quick_answer_title": "إجابة سريعة",
+      "direct_answer_label": "الجواب المباشر:",
+      "quick_answer_text": "يمكنك استخدام صفحة وحدة فك ترميز VIN هذه لمطابقة الاستعلامات ذات النوايا العالية ثم فك تشفير أرقام VIN على الفور عبر",
+      "main_tool_link": "أداة VIN الرئيسية",
+      "quick_answer_suffix": "إنه مجاني، بدون تسجيل، ومدعوم ببيانات NHTSA الرسمية.",
+      "faq_title": "التعليمات",
+      "common_faq": {
+        "1": {
+          "q": "هل هذا جهاز فك ترميز VIN مجاني لهذا النوع من المركبات؟",
+          "a": "نعم. تم تصميم هذه الصفحة لدعم سير العمل المجاني لوحدة فك ترميز VIN والارتباطات المباشرة بأداة البحث المجانية عن VIN."
+        },
+        "2": {
+          "q": "هل يمكنني استخدام هذا مثل وحدة فك ترميز رقم VIN؟",
+          "a": "نعم. يتم استخدام وحدة فك ترميز VIN ووحدة فك ترميز رقم VIN بشكل شائع كأهداف بحث مكافئة. هذه الصفحة تدعم كلا المصطلحين."
+        },
+        "3": {
+          "q": "هل يستخدم هذا بيانات وحدة فك ترميز NHTSA VIN الرسمية؟",
+          "a": "يشير سير عمل فك تشفير VIN الخاص بنا إلى بيانات NHTSA vPIC الرسمية لمطابقة المواصفات الأساسية للمركبة."
+        },
+        "4": {
+          "q": "ماذا لو كان رقم VIN الخاص بي لا يتكون من 17 حرفًا؟",
+          "a": "تستخدم معظم السيارات الحديثة أرقام VIN مكونة من 17 حرفًا. قد تتطلب المركبات القديمة أو الخاصة إرشادات فك التشفير القديمة."
+        },
+        "5": {
+          "q": "هل يمكن أن يحل هذا محل تقرير فحص VIN الكامل؟",
+          "a": "لا، فك تشفير VIN يتحقق من هوية/مواصفات السيارة. لا تزال هناك حاجة إلى تقرير فحص VIN للتعرف على الحوادث والملكية وتاريخ الملكية."
+        },
+        "6": {
+          "q": "أين يجب أن أبدأ قبل شراء سيارة مستعملة؟",
+          "a": "ابدأ بفك تشفير رقم VIN للتحقق من المواصفات، ثم قم بتشغيل تقرير فحص VIN للمخاطر والأحداث التاريخية."
+        }
+      },
+      "related_brand_title": "أجهزة فك ترميز العلامات التجارية ذات الصلة",
+      "related_brand_description": "انتقل إلى صفحات VIN الشهيرة الخاصة بالعلامة التجارية لسير عمل البحث بشكل أسرع.",
+      "brand_decoder_suffix": "وحدة فك ترميز VIN",
+      "cta_decode_now": "قم بفك تشفير VIN الآن",
+      "cta_compare": "قارن بين وحدة فك ترميز VIN وفحص VIN",
+      "breadcrumb": {
+        "home": "بيت",
+        "tools": "أدوات",
+        "vin_decoder": "وحدة فك ترميز VIN"
+      },
+      "types": {
+        "motorcycle": {
+          "name": "دراجة نارية",
+          "title": "وحدة فك ترميز VIN للدراجة النارية - بحث مجاني عن VIN للدراجات | جيكسكاي",
+          "description": "وحدة فك ترميز VIN للدراجة النارية مجانًا للبحث الفوري عن VIN. قم بفك تشفير أرقام VIN للدراجة لعرض سنة الطراز والشركة المصنعة وتفاصيل المحرك والمواصفات الرئيسية.",
+          "h1": "جهاز فك ترميز VIN للدراجة النارية",
+          "keywords": {
+            "1": "دراجة نارية فين فك",
+            "2": "بحث فين الدراجة",
+            "3": "فحص فين الدراجة النارية",
+            "4": "فك شفرة الدراجة فين",
+            "5": "هارلي فين فك",
+            "6": "ياماها فين فك",
+            "7": "مركبة فين فك",
+            "8": "هارلي ديفيدسون فين فك"
+          },
+          "use_cases": {
+            "1": "تحقق من مواصفات الدراجة النارية المستعملة قبل الشراء",
+            "2": "تحقق من سنة VIN وقم بالتأمين",
+            "3": "تأكيد معلومات الشركة المصنعة من WMI",
+            "4": "تصدير التفاصيل التي تم فك تشفيرها لسجلات الصيانة"
+          },
+          "faq": {
+            "1": {
+              "q": "هل يمكنني فك تشفير أي رقم VIN للدراجة النارية مكون من 17 حرفًا؟",
+              "a": "نعم. تستخدم معظم الدراجات النارية الحديثة تنسيق VIN المكون من 17 حرفًا ويمكن فك تشفيره باستخدام هذه الأداة."
+            },
+            "2": {
+              "q": "ما هي التفاصيل التي يمكنني الحصول عليها من رقم VIN للدراجة النارية؟",
+              "a": "يمكنك استرداد البيانات الأساسية مثل سنة الطراز والتصنيع ومعلومات الشركة المصنعة والسمات الفنية المتاحة."
+            }
+          }
+        },
+        "rv": {
+          "name": "عربة سكن متنقلة",
+          "title": "وحدة فك ترميز RV VIN - بحث مجاني عن VIN للمنزل المتنقل | جيكسكاي",
+          "description": "وحدة فك ترميز RV VIN مجانية للبيوت المتنقلة والمركبات الترفيهية. قم بفك تشفير أرقام VIN للمركبة للتحقق من السنة وتفاصيل الشركة المصنعة والمواصفات الأساسية للمركبة.",
+          "h1": "وحدة فك ترميز RV VIN",
+          "keywords": {
+            "1": "فك فين rv",
+            "2": "وحدة فك ترميز رقم vin",
+            "3": "بحث فين بيت متنقل",
+            "4": "فحص العربة فين",
+            "5": "فك ترميز rv vin مجانًا"
+          },
+          "use_cases": {
+            "1": "التحقق من صحة هوية عربة سكن متنقلة قبل الشراء",
+            "2": "تحقق من سنة الطراز للتسجيل والتأمين",
+            "3": "التحقق من بيانات الشركة المصنعة والمصنع",
+            "4": "تخزين البيانات التي تم فك تشفيرها لعمليات الأسطول"
+          },
+          "faq": {
+            "1": {
+              "q": "هل هذا يعمل للبيوت المتنقلة والمعسكرات؟",
+              "a": "نعم. يدعم فك تشفير RV VIN العديد من المنازل المتنقلة والمركبات الترفيهية بتنسيقات VIN القياسية."
+            },
+            "2": {
+              "q": "هل وحدة فك ترميز RV VIN مجانية؟",
+              "a": "نعم. هذه الأداة مجانية للاستخدام دون الحاجة إلى الاشتراك."
+            }
+          }
+        },
+        "trailer": {
+          "name": "جَرَّار",
+          "title": "وحدة فك ترميز مقطورة VIN - فحص VIN للمقطورة مجانًا | جيكسكاي",
+          "description": "وحدة فك ترميز VIN للمقطورة مجانًا للبحث السريع عن VIN. قم بفك تشفير أرقام VIN للمقطورة للتحقق من تفاصيل الشركة المصنعة وسنة الطراز وسمات التعريف.",
+          "h1": "جهاز فك ترميز VIN للمقطورة",
+          "keywords": {
+            "1": "فك ترميز المقطورة",
+            "2": "جهاز فك ترميز رقم vin للمقطورة",
+            "3": "مقطورة السفر فين فك",
+            "4": "البحث عن مقطورة فين",
+            "5": "فحص فين المقطورة",
+            "6": "فك شفرة مقطورة فين"
+          },
+          "use_cases": {
+            "1": "تحقق من رقم VIN للمقطورة قبل النقل",
+            "2": "تأكيد السنة وتفاصيل المصنع",
+            "3": "التحقق من السجلات للتأكد من الامتثال",
+            "4": "تصدير تقارير VIN للمقطورة في ثوانٍ"
+          },
+          "faq": {
+            "1": {
+              "q": "هل يمكن لهذا فك تشفير أرقام VIN الخاصة بمقطورة المرافق والبضائع؟",
+              "a": "نعم. يمكن فك تشفير العديد من أنواع المقطورات التي تستخدم تنسيق VIN القياسي لحقول التعريف الرئيسية."
+            },
+            "2": {
+              "q": "ماذا لو كانت بعض حقول المقطورة مفقودة؟",
+              "a": "يختلف توفر البيانات حسب الشركة المصنعة وسنة الطراز. قد تحتوي بعض السجلات على تفاصيل جزئية."
+            }
+          }
+        },
+        "classic-car": {
+          "name": "سيارة كلاسيكية",
+          "title": "وحدة فك ترميز VIN للسيارة الكلاسيكية - دليل VIN للمركبة القديمة | جيكسكاي",
+          "description": "دليل فك تشفير VIN للسيارة الكلاسيكية مع دعم البحث للعديد من تنسيقات VIN القديمة والحديثة. قم بفك تشفير معرفات المركبات القديمة والتحقق من التفاصيل الأساسية.",
+          "h1": "جهاز فك ترميز VIN للسيارة الكلاسيكية",
+          "keywords": {
+            "1": "جهاز فك ترميز السيارة الكلاسيكية",
+            "2": "جهاز فك ترميز رقم vin الكلاسيكي",
+            "3": "بحث فين خمر",
+            "4": "فحص فين السيارة القديمة",
+            "5": "تحديد هوية السيارة الكلاسيكية"
+          },
+          "use_cases": {
+            "1": "بحث عن هوية السيارة القديمة",
+            "2": "التحقق من صحة أدلة السنة والشركة المصنعة",
+            "3": "إعداد الوثائق لمشاريع الترميم",
+            "4": "التقاط المواصفات التي تم فك تشفيرها لسجلات الأرشيف"
+          },
+          "faq": {
+            "1": {
+              "q": "هل تستخدم جميع السيارات الكلاسيكية أرقام VIN مكونة من 17 حرفًا؟",
+              "a": "لا. تستخدم العديد من المركبات القديمة معرفات قديمة أقصر. قد تستمر السجلات الحديثة في رسم خريطة للبيانات المفيدة حيثما كان ذلك متاحًا."
+            },
+            "2": {
+              "q": "هل لا يزال بإمكاني استخدام هذا للبحث عن المركبات الكلاسيكية؟",
+              "a": "نعم. من المفيد التحقق من بيانات VIN المتاحة وفهم الحقول التي يمكن التحقق من صحتها للسيارات القديمة."
+            }
+          }
         }
       }
     }

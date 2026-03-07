@@ -575,6 +575,139 @@
       "home": "Hogar",
       "tools": "Herramientas",
       "board_foot_calculator": "Calculadora de pie tablar"
+    },
+    "growth": {
+      "read_compare_prefix": "Need used-car due diligence?",
+      "read_compare_link": "Read VIN Decoder vs VIN Check",
+      "vehicle_types_title": "Decode by Vehicle Type",
+      "vehicle_types_description": "Explore dedicated VIN decoder pages for high-demand vehicle categories and long-tail search queries.",
+      "vehicle_types": {
+        "motorcycle": {
+          "title": "Motorcycle VIN Decoder",
+          "description": "Decode motorcycle VINs for engine specs, model year, and manufacturer details."
+        },
+        "rv": {
+          "title": "RV VIN Decoder",
+          "description": "Check motorhome and RV VIN numbers with official data-backed decoding."
+        },
+        "trailer": {
+          "title": "Trailer VIN Decoder",
+          "description": "Decode trailer VINs to verify plant, model year, and build details."
+        },
+        "classic-car": {
+          "title": "Classic Car VIN Decoder",
+          "description": "Understand legacy VIN formats and identify key vintage vehicle attributes."
+        }
+      }
+    },
+    "comparePage": {
+      "seo_title": "VIN Decoder vs VIN Check - What's the Difference? | GeeksKai",
+      "seo_description": "Learn the difference between a VIN decoder and a VIN check report. Understand what data is included, what each tool is best for, and when to use both.",
+      "keywords": {
+        "1": "vin decoder vs vin check",
+        "2": "what is vin check",
+        "3": "vin decoder meaning",
+        "4": "vin lookup vs vin report",
+        "5": "vehicle history report vs vin decode"
+      },
+      "og_title": "VIN Decoder vs VIN Check - Which One Do You Need?",
+      "og_description": "Compare VIN decode data and full VIN check reports to choose the right workflow before buying a used vehicle.",
+      "og_image_alt": "VIN Decoder vs VIN Check",
+      "twitter_title": "VIN Decoder vs VIN Check",
+      "twitter_description": "Understand the difference between decoding a VIN and checking vehicle history.",
+      "title": "VIN Decoder vs VIN Check",
+      "badge": "Buying Workflow Guide",
+      "quick_answer_label": "Quick answer:",
+      "quick_answer_text": "VIN decoder tells you what the vehicle is. VIN check helps you understand what happened to that vehicle over time.",
+      "breadcrumb": {
+        "home": "Home",
+        "tools": "Tools",
+        "vin_decoder": "VIN Decoder"
+      },
+      "decoder_card": {
+        "title": "VIN Decoder",
+        "purpose_label": "Purpose:",
+        "purpose_value": "Identify vehicle specs",
+        "includes_label": "Includes:",
+        "includes_value": "Make, model, year, engine, body class",
+        "source_label": "Data Source:",
+        "source_value": "Official NHTSA/vPIC style records",
+        "best_for_label": "Best For:",
+        "best_for_value": "Validating listing accuracy",
+        "cost_label": "Cost:",
+        "cost_value": "Usually free"
+      },
+      "check_card": {
+        "title": "VIN Check Report",
+        "purpose_label": "Purpose:",
+        "purpose_value": "Assess historical risk",
+        "includes_label": "Includes:",
+        "includes_value": "Title events, accident claims, salvage flags",
+        "source_label": "Data Source:",
+        "source_value": "Commercial/insurance records",
+        "best_for_label": "Best For:",
+        "best_for_value": "Used-car purchase due diligence",
+        "cost_label": "Cost:",
+        "cost_value": "Often paid"
+      },
+      "workflow_title": "Recommended workflow",
+      "workflow": {
+        "step1": {
+          "label": "Decode VIN first",
+          "text": "to verify the vehicle identity and technical specs."
+        },
+        "step2": {
+          "label": "Compare listing details",
+          "text": "with decoded output to catch mismatches early."
+        },
+        "step3": {
+          "label": "Run a VIN check report",
+          "text": "before payment for ownership and accident history."
+        }
+      },
+      "faq_title": "FAQ",
+      "faq": {
+        "1": {
+          "q": "Is a VIN decoder the same as a VIN check?",
+          "a": "No. A VIN decoder identifies vehicle specifications like make, model, year, engine, and manufacturing data. A VIN check usually includes ownership, accident, title, salvage, and theft history from third-party databases."
+        },
+        "2": {
+          "q": "When should I use a VIN decoder first?",
+          "a": "Use a VIN decoder first to validate that the VIN format is correct and that the advertised vehicle specs match the seller information. Then use a VIN check if you need ownership and incident history."
+        },
+        "3": {
+          "q": "Can I buy a used car with only VIN decoder results?",
+          "a": "For important purchases, VIN decoder results alone are not enough. Decoder data confirms technical identity, while VIN check reports help reveal historical risks such as accidents or title issues."
+        }
+      },
+      "faq_summary": {
+        "1": "No. They solve different problems: identity/spec verification versus risk/history verification.",
+        "2_q": "Should I use both before buying?",
+        "2_a": "Yes. Using both gives better confidence for pricing, negotiation, and fraud prevention."
+      },
+      "cta_try": "Try VIN Decoder",
+      "cta_explore_types": "Explore Vehicle Types"
+    },
+    "vehicleTypePage": {
+      "badge_suffix": "VIN Search Intent Page",
+      "last_updated_label": "Last updated:",
+      "best_use_cases_title": "Best use cases",
+      "quick_answer_title": "Quick answer",
+      "direct_answer_label": "Direct answer:",
+      "quick_answer_text": "You can use this VIN decoder page to match high-intent queries and then decode VINs instantly via the",
+      "main_tool_link": "main VIN tool",
+      "quick_answer_suffix": "It is free, no registration, and backed by official NHTSA data.",
+      "faq_title": "FAQ",
+      "related_brand_title": "Related Brand Decoders",
+      "related_brand_description": "Jump into popular brand-specific VIN pages for faster lookup workflows.",
+      "brand_decoder_suffix": "VIN Decoder",
+      "cta_decode_now": "Decode a VIN Now",
+      "cta_compare": "Compare VIN Decoder vs VIN Check",
+      "breadcrumb": {
+        "home": "Home",
+        "tools": "Tools",
+        "vin_decoder": "VIN Decoder"
+      }
     }
   },
   "CmTilTommerConverter": {
@@ -5114,6 +5247,357 @@
           "fullName": "Tesla, Inc.",
           "description": "Decodifica los VIN de Tesla para obtener especificaciones de los vehículos eléctricos Tesla.",
           "country": "Estados Unidos"
+        }
+      }
+    },
+    "growth": {
+      "read_compare_prefix": "¿Necesita debida diligencia de autos usados?",
+      "read_compare_link": "Leer Decodificador VIN vs Verificación VIN",
+      "vehicle_types_title": "Decodificar por tipo de vehículo",
+      "vehicle_types_description": "Explore páginas dedicadas de decodificadores VIN para categorías de vehículos de alta demanda y consultas de búsqueda detalladas.",
+      "vehicle_types": {
+        "motorcycle": {
+          "title": "Decodificador VIN de motocicletas",
+          "description": "Decodifique VIN de motocicletas para obtener especificaciones del motor, año del modelo y detalles del fabricante."
+        },
+        "rv": {
+          "title": "Decodificador VIN de vehículos recreativos (RV)",
+          "description": "Verifique los números VIN de autocaravanas y vehículos recreativos con decodificación respaldada por datos oficiales."
+        },
+        "trailer": {
+          "title": "Decodificador VIN de remolques",
+          "description": "Decodifique VIN de remolques para verificar la planta, el año del modelo y los detalles de construcción."
+        },
+        "classic-car": {
+          "title": "Decodificador VIN de autos clásicos",
+          "description": "Comprenda los formatos de VIN antiguos e identifique atributos clave de los vehículos antiguos."
+        }
+      }
+    },
+    "comparePage": {
+      "seo_title": "Decodificador VIN vs Verificación VIN - ¿Cuál es la diferencia? | GeeksKai",
+      "seo_description": "Conozca la diferencia entre un decodificador VIN y un informe de verificación VIN. Entienda qué datos se incluyen, para qué es mejor cada herramienta y cuándo usar ambas.",
+      "keywords": {
+        "0": "decodificador vin",
+        "1": "decodificador vin vs verificación vin",
+        "2": "qué es la verificación vin",
+        "3": "significado del decodificador vin",
+        "4": "búsqueda vin vs informe vin",
+        "5": "informe de historial del vehículo vs decodificación vin",
+        "6": "decodificador vin gratis",
+        "7": "decodificador de número vin",
+        "8": "decodificador vin nhtsa",
+        "9": "decodificador vin gratuito",
+        "10": "mejor decodificador vin gratuito",
+        "11": "herramienta decodificadora vin"
+      },
+      "og_title": "Decodificador VIN vs Verificación VIN - ¿Cuál necesita?",
+      "og_description": "Compare los datos de decodificación VIN y los informes completos de verificación VIN para elegir el flujo de trabajo adecuado antes de comprar un vehículo usado.",
+      "og_image_alt": "Decodificador VIN vs Verificación VIN",
+      "twitter_title": "Decodificador VIN vs Verificación VIN",
+      "twitter_description": "Comprenda la diferencia entre decodificar un VIN y verificar el historial del vehículo.",
+      "title": "Decodificador VIN vs Verificación VIN",
+      "badge": "Guía de flujo de trabajo de compra",
+      "quick_answer_label": "Respuesta rápida:",
+      "quick_answer_text": "El decodificador VIN le dice qué es el vehículo. La verificación VIN le ayuda a comprender qué le sucedió a ese vehículo a lo largo del tiempo.",
+      "last_updated_label": "Última actualización:",
+      "core_facts_title": "Datos principales",
+      "core_facts": {
+        "cost": "Costo base",
+        "cost_value": "Decodificador VIN gratuito + informe pagado opcional",
+        "keyword": "Consulta principal",
+        "keyword_value": "decodificador vin vs verificación vin",
+        "decoder": "Resultado del decodificador VIN",
+        "decoder_value": "Marca/modelo/año/especificaciones del motor según la lógica del decodificador de números VIN",
+        "check": "Resultado de la verificación VIN",
+        "check_value": "Historial de propiedad, título, accidentes y riesgos"
+      },
+      "source_boundary_note": "Nota de límite: Los datos del decodificador VIN sirven para la verificación de especificaciones. La propiedad, el título y el riesgo de accidentes todavía requieren un informe de verificación VIN dedicado.",
+      "breadcrumb": {
+        "home": "Inicio",
+        "tools": "Herramientas",
+        "vin_decoder": "Decodificador VIN"
+      },
+      "decoder_card": {
+        "title": "Decodificador VIN",
+        "purpose_label": "Propósito:",
+        "purpose_value": "Identificar especificaciones del vehículo",
+        "includes_label": "Incluye:",
+        "includes_value": "Marca, modelo, año, motor, clase de carrocería",
+        "source_label": "Fuente de datos:",
+        "source_value": "Registros oficiales estilo NHTSA/vPIC",
+        "best_for_label": "Mejor para:",
+        "best_for_value": "Validar la precisión del anuncio",
+        "cost_label": "Costo:",
+        "cost_value": "Usualmente gratis"
+      },
+      "check_card": {
+        "title": "Informe de verificación VIN",
+        "purpose_label": "Propósito:",
+        "purpose_value": "Evaluar el riesgo histórico",
+        "includes_label": "Incluye:",
+        "includes_value": "Eventos de título, reclamos por accidentes, banderas de salvamento",
+        "source_label": "Fuente de datos:",
+        "source_value": "Registros comerciales/seguros",
+        "best_for_label": "Mejor para:",
+        "best_for_value": "Debida diligencia en compra de autos usados",
+        "cost_label": "Costo:",
+        "cost_value": "A menudo pagado"
+      },
+      "workflow_title": "Flujo de trabajo recomendado",
+      "workflow": {
+        "step1": {
+          "label": "Decodifique el VIN primero",
+          "text": "para verificar la identidad del vehículo y las especificaciones técnicas."
+        },
+        "step2": {
+          "label": "Compare los detalles del anuncio",
+          "text": "con el resultado decodificado para detectar discrepancias tempranamente."
+        },
+        "step3": {
+          "label": "Solicite un informe de verificación VIN",
+          "text": "antes del pago para conocer el historial de propiedad y accidentes."
+        }
+      },
+      "faq_title": "Preguntas frecuentes",
+      "faq": {
+        "1": {
+          "q": "¿Es un decodificador VIN lo mismo que una verificación VIN?",
+          "a": "No. Un decodificador VIN identifica las especificaciones del vehículo como marca, modelo, año, motor y datos de fabricación. Una verificación VIN generalmente incluye historial de propiedad, accidentes, título, salvamento y robo de bases de datos de terceros."
+        },
+        "2": {
+          "q": "¿Cuándo debo usar un decodificador VIN primero?",
+          "a": "Use un decodificador VIN primero para validar que el formato del VIN sea correcto y que las especificaciones del vehículo anunciado coincidan con la información del vendedor. Luego use una verificación VIN si necesita historial de propiedad e incidentes."
+        },
+        "3": {
+          "q": "¿Puedo comprar un auto usado solo con resultados del decodificador VIN?",
+          "a": "Para compras importantes, los resultados del decodificador VIN por sí solos no son suficientes. Los datos del decodificador confirman la identidad técnica, mientras que los informes de verificación VIN ayudan a revelar riesgos históricos como accidentes o problemas de título."
+        },
+        "4": {
+          "q": "¿Existe una opción de decodificador VIN gratuito?",
+          "a": "Sí. Un decodificador VIN gratuito puede identificar rápidamente la marca, el modelo, el año y las especificaciones técnicas. A menudo es el primer paso más rápido antes de pagar por un informe completo."
+        },
+        "5": {
+          "q": "¿Qué no incluye un decodificador de números VIN?",
+          "a": "Los resultados del decodificador de números VIN generalmente no incluyen historial de accidentes, eventos de propiedad, gravámenes o registros de salvamento. Esos suelen estar cubiertos por los informes de verificación VIN."
+        },
+        "6": {
+          "q": "¿Son suficientes los datos del decodificador VIN de la NHTSA para decisiones de compra?",
+          "a": "Los datos del decodificador VIN de la NHTSA son excelentes para la validación de identidad y especificaciones. Para decisiones de riesgo, acompáñelos con una verificación del historial del vehículo."
+        },
+        "7": {
+          "q": "¿Cuál es el mejor flujo de trabajo para la debida diligencia de autos usados?",
+          "a": "Primero decodifique los detalles del número VIN para verificar la precisión del anuncio. Luego ejecute un informe de verificación VIN para evaluar los riesgos de propiedad, daños y título."
+        },
+        "8": {
+          "q": "¿Puedo usar ambas herramientas juntas?",
+          "a": "Sí. Combinar los resultados de un decodificador VIN gratuito con el historial de una verificación VIN ofrece la imagen más completa para decisiones de compra o venta."
+        },
+        "9": {
+          "q": "¿Es suficiente el mejor decodificador VIN gratuito si omito el informe de verificación VIN?",
+          "a": "No. Un decodificador VIN gratuito es excelente para la validación de identidad y especificaciones, pero todavía se necesita un informe de verificación VIN para señales de riesgo de título, accidentes, robos y propiedad."
+        }
+      },
+      "boundaries_title": "Alcance y límites",
+      "boundaries": {
+        "1": {
+          "label": "Un decodificador VIN puede:",
+          "text": "verificar la identidad y decodificar las especificaciones del vehículo a partir de la estructura del VIN."
+        },
+        "2": {
+          "label": "Un decodificador VIN no puede:",
+          "text": "confirmar eventos de accidentes, título, robo o propiedad por sí solo."
+        },
+        "3": {
+          "label": "Una verificación VIN puede:",
+          "text": "añadir contexto de riesgo histórico para decisiones de compra y seguros."
+        }
+      },
+      "faq_summary": {
+        "1": "No. Resuelven problemas diferentes: verificación de identidad/especificaciones frente a verificación de riesgo/historial.",
+        "2_q": "¿Debo usar ambos antes de comprar?",
+        "2_a": "Sí. Usar ambos brinda mayor confianza para el precio, la negociación y la prevención de fraudes."
+      },
+      "cta_try": "Probar Decodificador VIN",
+      "cta_explore_types": "Explorar tipos de vehículos"
+    },
+    "vehicleTypePage": {
+      "badge_suffix": "Página de intención de búsqueda VIN",
+      "last_updated_label": "Última actualización:",
+      "core_facts_title": "Datos principales para recuperación rápida de IA",
+      "core_fact": {
+        "primary_keyword": "Palabra clave principal",
+        "cost": "Costo",
+        "cost_value": "Decodificador VIN gratuito",
+        "source": "Fuente de datos",
+        "source_value": "Datos de referencia vPIC de la NHTSA",
+        "intent": "Tipo de intención",
+        "intent_value": "Intención informativa + comercial de búsqueda de VIN"
+      },
+      "source_boundary_note": "Nota de límite: La decodificación de VIN valida los campos de identidad técnica. No reemplaza los conjuntos de datos de historial de vehículos pagados.",
+      "best_use_cases_title": "Mejores casos de uso",
+      "quick_answer_title": "Respuesta rápida",
+      "direct_answer_label": "Respuesta directa:",
+      "quick_answer_text": "Puede utilizar esta página de decodificador VIN para que coincida con consultas de alta intención y luego decodificar VIN al instante a través de la",
+      "main_tool_link": "herramienta principal de VIN",
+      "quick_answer_suffix": "Es gratis, sin registro y respaldado por datos oficiales de la NHTSA.",
+      "faq_title": "Preguntas frecuentes",
+      "common_faq": {
+        "1": {
+          "q": "¿Es este un decodificador VIN gratuito para este tipo de vehículo?",
+          "a": "Sí. Esta página está diseñada para admitir flujos de trabajo de decodificador VIN gratuitos y enlaza directamente con nuestra herramienta de búsqueda de VIN gratuita."
+        },
+        "2": {
+          "q": "¿Puedo usar esto como un decodificador de números VIN?",
+          "a": "Sí. Decodificador VIN y decodificador de número VIN se utilizan comúnmente como intenciones de búsqueda equivalentes. Esta página admite ambos términos."
+        },
+        "3": {
+          "q": "¿Utiliza esto datos oficiales del decodificador VIN de la NHTSA?",
+          "a": "Nuestro flujo de trabajo de decodificación de VIN hace referencia a los datos oficiales de vPIC de la NHTSA para la coincidencia de especificaciones principales del vehículo."
+        },
+        "4": {
+          "q": "¿Qué pasa si mi VIN no tiene 17 caracteres?",
+          "a": "La mayoría de los vehículos modernos utilizan VIN de 17 caracteres. Los vehículos más antiguos o especiales pueden requerir una guía de decodificación heredada."
+        },
+        "5": {
+          "q": "¿Puede esto reemplazar un informe completo de verificación de VIN?",
+          "a": "No. La decodificación de VIN verifica la identidad/especificaciones del vehículo. Todavía se necesita un informe de verificación de VIN para el historial de accidentes, título y propiedad."
+        },
+        "6": {
+          "q": "¿Por dónde debo empezar antes de comprar un vehículo usado?",
+          "a": "Comience decodificando el número VIN para verificar las especificaciones, luego ejecute un informe de verificación VIN para riesgos y eventos históricos."
+        }
+      },
+      "related_brand_title": "Decodificadores de marcas relacionadas",
+      "related_brand_description": "Vaya a páginas populares de VIN específicas de marcas para flujos de trabajo de búsqueda más rápidos.",
+      "brand_decoder_suffix": "Decodificador VIN",
+      "cta_decode_now": "Decodificar un VIN ahora",
+      "cta_compare": "Comparar Decodificador VIN vs Verificación VIN",
+      "breadcrumb": {
+        "home": "Inicio",
+        "tools": "Herramientas",
+        "vin_decoder": "Decodificador VIN"
+      },
+      "types": {
+        "motorcycle": {
+          "name": "Motocicleta",
+          "title": "Decodificador VIN de motocicletas - Búsqueda de VIN gratuita para motos | GeeksKai",
+          "description": "Decodificador de VIN para motocicletas gratis para búsqueda instantánea de VIN. Decodifique números de VIN de motos para ver el año del modelo, el fabricante, los detalles del motor y las especificaciones clave.",
+          "h1": "Decodificador VIN de motocicletas",
+          "keywords": {
+            "1": "decodificador vin de motocicletas",
+            "2": "búsqueda de vin de moto",
+            "3": "verificación de vin de motocicleta",
+            "4": "decodificar vin de moto",
+            "5": "decodificador vin harley",
+            "6": "decodificador vin yamaha",
+            "7": "decodificador vin atv",
+            "8": "decodificador vin harley davidson"
+          },
+          "use_cases": {
+            "1": "Verifique las especificaciones de la moto usada antes de comprar",
+            "2": "Verifique el año del VIN y la marca para el seguro",
+            "3": "Confirme la información del fabricante desde el WMI",
+            "4": "Exporte detalles decodificados para registros de mantenimiento"
+          },
+          "faq": {
+            "1": {
+              "q": "¿Puedo decodificar cualquier VIN de motocicleta de 17 caracteres?",
+              "a": "Sí. La mayoría de las motocicletas modernas utilizan un formato de VIN de 17 caracteres y se pueden decodificar con esta herramienta."
+            },
+            "2": {
+              "q": "¿Qué detalles puedo obtener de un VIN de motocicleta?",
+              "a": "Puede recuperar datos clave como el año del modelo, la marca, la información del fabricante y los atributos técnicos disponibles."
+            }
+          }
+        },
+        "rv": {
+          "name": "RV",
+          "title": "Decodificador VIN de RV - Búsqueda gratuita de VIN de autocaravanas | GeeksKai",
+          "description": "Decodificador de VIN de RV gratuito para autocaravanas y vehículos recreativos. Decodifique los VIN de RV para verificar el año, los detalles del fabricante y las especificaciones principales del vehículo.",
+          "h1": "Decodificador VIN de RV",
+          "keywords": {
+            "1": "decodificador vin rv",
+            "2": "decodificador de número vin rv",
+            "3": "búsqueda de vin de autocaravana",
+            "4": "verificación de vin de camper",
+            "5": "decodificador vin rv gratuito"
+          },
+          "use_cases": {
+            "1": "Valide la identidad de la RV antes de la compra",
+            "2": "Verifique el año del modelo para el registro y el seguro",
+            "3": "Verifique los datos del fabricante y de la planta",
+            "4": "Almacene datos decodificados para operaciones de flota"
+          },
+          "faq": {
+            "1": {
+              "q": "¿Esto funciona para autocaravanas y campers?",
+              "a": "Sí. La decodificación de VIN de RV admite muchas autocaravanas y vehículos recreativos con formatos de VIN estándar."
+            },
+            "2": {
+              "q": "¿Es gratuito el decodificador de VIN de RV?",
+              "a": "Sí. Esta herramienta es de uso gratuito sin necesidad de registrarse."
+            }
+          }
+        },
+        "trailer": {
+          "name": "Remolque",
+          "title": "Decodificador VIN de remolques - Verificación gratuita de VIN de remolques | GeeksKai",
+          "description": "Decodificador de VIN de remolques gratis para una búsqueda rápida de VIN. Decodifique los VIN de los remolques para verificar los detalles del fabricante, el año del modelo y los atributos de identificación.",
+          "h1": "Decodificador VIN de remolques",
+          "keywords": {
+            "1": "decodificador vin de remolque",
+            "2": "decodificador de número vin de remolque",
+            "3": "decodificador vin de remolque de viaje",
+            "4": "búsqueda de vin de remolque",
+            "5": "verificación de vin de remolque",
+            "6": "decodificar vin de remolque"
+          },
+          "use_cases": {
+            "1": "Verifique el VIN del remolque antes de la transferencia",
+            "2": "Confirme el año y los detalles de la planta",
+            "3": "Coteje los registros para cumplimiento",
+            "4": "Exporte informes de VIN de remolques en segundos"
+          },
+          "faq": {
+            "1": {
+              "q": "¿Puede esto decodificar VIN de remolques utilitarios y de carga?",
+              "a": "Sí. Muchos tipos de remolques que utilizan un formato de VIN estándar se pueden decodificar para los campos de identificación clave."
+            },
+            "2": {
+              "q": "¿Qué pasa si faltan algunos campos del remolque?",
+              "a": "La disponibilidad de datos varía según el fabricante y el año del modelo. Algunos registros pueden tener detalles parciales."
+            }
+          }
+        },
+        "classic-car": {
+          "name": "Auto clásico",
+          "title": "Decodificador VIN de autos clásicos - Guía de VIN de vehículos antiguos | GeeksKai",
+          "description": "Guía decodificadora de VIN de autos clásicos con soporte de búsqueda para muchos formatos de VIN heredados y modernos. Decodifique identificadores de vehículos antiguos y verifique detalles clave.",
+          "h1": "Decodificador VIN de autos clásicos",
+          "keywords": {
+            "1": "decodificador vin de autos clásicos",
+            "2": "decodificador de número vin clásico",
+            "3": "búsqueda de vin antiguo",
+            "4": "verificación de vin de auto viejo",
+            "5": "identificación de vehículos clásicos"
+          },
+          "use_cases": {
+            "1": "Investigar la identidad de vehículos antiguos",
+            "2": "Validar pistas de año y fabricante",
+            "3": "Preparar documentación para proyectos de restauración",
+            "4": "Capturar especificaciones decodificadas para registros de archivo"
+          },
+          "faq": {
+            "1": {
+              "q": "¿Todos los autos clásicos usan VIN de 17 caracteres?",
+              "a": "No. Muchos vehículos más antiguos utilizan identificadores heredados más cortos. Los registros modernizados aún pueden mapear datos útiles donde estén disponibles."
+            },
+            "2": {
+              "q": "¿Puedo seguir usando esto para la investigación de vehículos clásicos?",
+              "a": "Sí. Es útil para verificar los datos de VIN disponibles y comprender qué campos se pueden validar para autos más antiguos."
+            }
+          }
         }
       }
     }

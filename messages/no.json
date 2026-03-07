@@ -575,6 +575,139 @@
       "home": "Hjem",
       "tools": "Verktøy",
       "board_foot_calculator": "Board Foot Kalkulator"
+    },
+    "growth": {
+      "read_compare_prefix": "Need used-car due diligence?",
+      "read_compare_link": "Read VIN Decoder vs VIN Check",
+      "vehicle_types_title": "Decode by Vehicle Type",
+      "vehicle_types_description": "Explore dedicated VIN decoder pages for high-demand vehicle categories and long-tail search queries.",
+      "vehicle_types": {
+        "motorcycle": {
+          "title": "Motorcycle VIN Decoder",
+          "description": "Decode motorcycle VINs for engine specs, model year, and manufacturer details."
+        },
+        "rv": {
+          "title": "RV VIN Decoder",
+          "description": "Check motorhome and RV VIN numbers with official data-backed decoding."
+        },
+        "trailer": {
+          "title": "Trailer VIN Decoder",
+          "description": "Decode trailer VINs to verify plant, model year, and build details."
+        },
+        "classic-car": {
+          "title": "Classic Car VIN Decoder",
+          "description": "Understand legacy VIN formats and identify key vintage vehicle attributes."
+        }
+      }
+    },
+    "comparePage": {
+      "seo_title": "VIN Decoder vs VIN Check - What's the Difference? | GeeksKai",
+      "seo_description": "Learn the difference between a VIN decoder and a VIN check report. Understand what data is included, what each tool is best for, and when to use both.",
+      "keywords": {
+        "1": "vin decoder vs vin check",
+        "2": "what is vin check",
+        "3": "vin decoder meaning",
+        "4": "vin lookup vs vin report",
+        "5": "vehicle history report vs vin decode"
+      },
+      "og_title": "VIN Decoder vs VIN Check - Which One Do You Need?",
+      "og_description": "Compare VIN decode data and full VIN check reports to choose the right workflow before buying a used vehicle.",
+      "og_image_alt": "VIN Decoder vs VIN Check",
+      "twitter_title": "VIN Decoder vs VIN Check",
+      "twitter_description": "Understand the difference between decoding a VIN and checking vehicle history.",
+      "title": "VIN Decoder vs VIN Check",
+      "badge": "Buying Workflow Guide",
+      "quick_answer_label": "Quick answer:",
+      "quick_answer_text": "VIN decoder tells you what the vehicle is. VIN check helps you understand what happened to that vehicle over time.",
+      "breadcrumb": {
+        "home": "Home",
+        "tools": "Tools",
+        "vin_decoder": "VIN Decoder"
+      },
+      "decoder_card": {
+        "title": "VIN Decoder",
+        "purpose_label": "Purpose:",
+        "purpose_value": "Identify vehicle specs",
+        "includes_label": "Includes:",
+        "includes_value": "Make, model, year, engine, body class",
+        "source_label": "Data Source:",
+        "source_value": "Official NHTSA/vPIC style records",
+        "best_for_label": "Best For:",
+        "best_for_value": "Validating listing accuracy",
+        "cost_label": "Cost:",
+        "cost_value": "Usually free"
+      },
+      "check_card": {
+        "title": "VIN Check Report",
+        "purpose_label": "Purpose:",
+        "purpose_value": "Assess historical risk",
+        "includes_label": "Includes:",
+        "includes_value": "Title events, accident claims, salvage flags",
+        "source_label": "Data Source:",
+        "source_value": "Commercial/insurance records",
+        "best_for_label": "Best For:",
+        "best_for_value": "Used-car purchase due diligence",
+        "cost_label": "Cost:",
+        "cost_value": "Often paid"
+      },
+      "workflow_title": "Recommended workflow",
+      "workflow": {
+        "step1": {
+          "label": "Decode VIN first",
+          "text": "to verify the vehicle identity and technical specs."
+        },
+        "step2": {
+          "label": "Compare listing details",
+          "text": "with decoded output to catch mismatches early."
+        },
+        "step3": {
+          "label": "Run a VIN check report",
+          "text": "before payment for ownership and accident history."
+        }
+      },
+      "faq_title": "FAQ",
+      "faq": {
+        "1": {
+          "q": "Is a VIN decoder the same as a VIN check?",
+          "a": "No. A VIN decoder identifies vehicle specifications like make, model, year, engine, and manufacturing data. A VIN check usually includes ownership, accident, title, salvage, and theft history from third-party databases."
+        },
+        "2": {
+          "q": "When should I use a VIN decoder first?",
+          "a": "Use a VIN decoder first to validate that the VIN format is correct and that the advertised vehicle specs match the seller information. Then use a VIN check if you need ownership and incident history."
+        },
+        "3": {
+          "q": "Can I buy a used car with only VIN decoder results?",
+          "a": "For important purchases, VIN decoder results alone are not enough. Decoder data confirms technical identity, while VIN check reports help reveal historical risks such as accidents or title issues."
+        }
+      },
+      "faq_summary": {
+        "1": "No. They solve different problems: identity/spec verification versus risk/history verification.",
+        "2_q": "Should I use both before buying?",
+        "2_a": "Yes. Using both gives better confidence for pricing, negotiation, and fraud prevention."
+      },
+      "cta_try": "Try VIN Decoder",
+      "cta_explore_types": "Explore Vehicle Types"
+    },
+    "vehicleTypePage": {
+      "badge_suffix": "VIN Search Intent Page",
+      "last_updated_label": "Last updated:",
+      "best_use_cases_title": "Best use cases",
+      "quick_answer_title": "Quick answer",
+      "direct_answer_label": "Direct answer:",
+      "quick_answer_text": "You can use this VIN decoder page to match high-intent queries and then decode VINs instantly via the",
+      "main_tool_link": "main VIN tool",
+      "quick_answer_suffix": "It is free, no registration, and backed by official NHTSA data.",
+      "faq_title": "FAQ",
+      "related_brand_title": "Related Brand Decoders",
+      "related_brand_description": "Jump into popular brand-specific VIN pages for faster lookup workflows.",
+      "brand_decoder_suffix": "VIN Decoder",
+      "cta_decode_now": "Decode a VIN Now",
+      "cta_compare": "Compare VIN Decoder vs VIN Check",
+      "breadcrumb": {
+        "home": "Home",
+        "tools": "Tools",
+        "vin_decoder": "VIN Decoder"
+      }
     }
   },
   "CmTilTommerConverter": {
@@ -4973,6 +5106,357 @@
           "country": "USA"
         }
       }
+    },
+    "growth": {
+      "read_compare_prefix": "Trenger du aktsomhetsvurdering for bruktbil?",
+      "read_compare_link": "Les VIN-dekoder vs. VIN-sjekk",
+      "vehicle_types_title": "Dekoding etter kjøretøytype",
+      "vehicle_types_description": "Utforsk dedikerte VIN-dekodersider for høyeatspurte kjøretøykategorier og long-tail søkehenvendelser.",
+      "vehicle_types": {
+        "motorcycle": {
+          "title": "VIN-dekoder for motorsykkel",
+          "description": "Dekod VIN-numre for motorsykler for å se motorspesifikasjoner, modellår og produsentdetaljer."
+        },
+        "rv": {
+          "title": "VIN-dekoder for bobil",
+          "description": "Sjekk VIN-numre for bobiler og campingvogner med offisielle datastøttede dekodinger."
+        },
+        "trailer": {
+          "title": "VIN-dekoder for tilhenger",
+          "description": "Dekod VIN-numre for tilhengere for å verifisere fabrikk, modellår og byggedetaljer."
+        },
+        "classic-car": {
+          "title": "VIN-dekoder for veteranbil",
+          "description": "Forstå eldre VIN-formater og identifiser viktige egenskaper for veteranbiler."
+        }
+      }
+    },
+    "comparePage": {
+      "seo_title": "VIN-dekoder vs. VIN-sjekk - Hva er forskjellen? | GeeksKai",
+      "seo_description": "Lær forskjellen mellom en VIN-dekoder og en VIN-sjekkrapport. Forstå hvilke data som er inkludert, hva hvert verktøy er best for, og når du bør bruke begge.",
+      "keywords": {
+        "0": "vin dekoder",
+        "1": "vin dekoder vs vin sjekk",
+        "2": "hva er vin sjekk",
+        "3": "vin dekoder betydning",
+        "4": "vin oppslag vs vin rapport",
+        "5": "kjøretøyhistorikkrapport vs vin dekoding",
+        "6": "gratis vin dekoder",
+        "7": "vin nummer dekoder",
+        "8": "nhtsa vin dekoder",
+        "9": "vin dekoder gratis",
+        "10": "beste gratis vin dekoder",
+        "11": "vin dekoder verktøy"
+      },
+      "og_title": "VIN-dekoder vs. VIN-sjekk - Hvilken trenger du?",
+      "og_description": "Sammenlign VIN-dekodingsdata og fulle VIN-sjekkrapporter for å velge riktig arbeidsflyt før du kjøper et brukt kjøretøy.",
+      "og_image_alt": "VIN-dekoder vs. VIN-sjekk",
+      "twitter_title": "VIN-dekoder vs. VIN-sjekk",
+      "twitter_description": "Forstå forskjellen mellom å dekode en VIN og å sjekke kjøretøyets historikk.",
+      "title": "VIN-dekoder vs. VIN-sjekk",
+      "badge": "Arbeidsflytguide for kjøp",
+      "quick_answer_label": "Hurtigsvar:",
+      "quick_answer_text": "En VIN-dekoder forteller deg hva kjøretøyet er. En VIN-sjekk hjelper deg å forstå hva som har skjedd med det kjøretøyet over tid.",
+      "last_updated_label": "Sist oppdatert:",
+      "core_facts_title": "Kjernefakta",
+      "core_facts": {
+        "cost": "Kostnadsutgangspunkt",
+        "cost_value": "Gratis VIN-dekoder + valgfri betalt rapport",
+        "keyword": "Primær forespørsel",
+        "keyword_value": "vin dekoder vs vin sjekk",
+        "decoder": "VIN-dekoder resultat",
+        "decoder_value": "Merke/modell/år/motorspesifikasjoner fra VIN-nummer dekoderlogikk",
+        "check": "VIN-sjekk resultat",
+        "check_value": "Eierskap, heftelser, ulykker og risikohistorikk"
+      },
+      "source_boundary_note": "Grensemerknad: VIN-dekoderdata støtter spesifikasjonsverifisering. Eierskap, heftelser og ulykkesrisiko krever fortsatt en dedikert VIN-sjekkrapport.",
+      "breadcrumb": {
+        "home": "Hjem",
+        "tools": "Verktøy",
+        "vin_decoder": "VIN-dekoder"
+      },
+      "decoder_card": {
+        "title": "VIN-dekoder",
+        "purpose_label": "Formål:",
+        "purpose_value": "Identifisere kjøretøyspesifikasjoner",
+        "includes_label": "Inkluderer:",
+        "includes_value": "Merke, modell, år, motor, karosseriklasse",
+        "source_label": "Datakilde:",
+        "source_value": "Offisielle NHTSA/vPIC-stils oppføringer",
+        "best_for_label": "Best for:",
+        "best_for_value": "Validere nøyaktigheten i annonser",
+        "cost_label": "Kostnad:",
+        "cost_value": "Vanligvis gratis"
+      },
+      "check_card": {
+        "title": "VIN-sjekkrapport",
+        "purpose_label": "Formål:",
+        "purpose_value": "Vurdere historisk risiko",
+        "includes_label": "Inkluderer:",
+        "includes_value": "Heftelser, ulykkeskrav, vrakpant-flagg",
+        "source_label": "Datakilde:",
+        "source_value": "Kommersielle/forsikringsoppføringer",
+        "best_for_label": "Best for:",
+        "best_for_value": "Aktsomhetsvurdering ved kjøp av bruktbil",
+        "cost_label": "Kostnad:",
+        "cost_value": "Ofte betalt"
+      },
+      "workflow_title": "Anbefalt arbeidsflyt",
+      "workflow": {
+        "step1": {
+          "label": "Dekod VIN først",
+          "text": "for å verifisere kjøretøyets identitet og tekniske spesifikasjoner."
+        },
+        "step2": {
+          "label": "Sammenlign annonsedetaljer",
+          "text": "med dekodet resultat for å oppdage avvik tidlig."
+        },
+        "step3": {
+          "label": "Kjør en VIN-sjekkrapport",
+          "text": "før betaling for å sjekke eierskap og ulykkeshistorikk."
+        }
+      },
+      "faq_title": "Ofte stilte spørsmål",
+      "faq": {
+        "1": {
+          "q": "Er en VIN-dekoder det samme som en VIN-sjekk?",
+          "a": "Nei. En VIN-dekoder identifiserer kjøretøyspesifikasjoner som merke, modell, år, motor og produksjonsdata. En VIN-sjekk inkluderer vanligvis eierskap, ulykker, heftelser, vrakpant og tyverihistorikk fra tredjepartsdatabaser."
+        },
+        "2": {
+          "q": "Når bør jeg bruke en VIN-dekoder først?",
+          "a": "Bruk en VIN-dekoder først for å validere at VIN-formatet er riktig og at de annonserte spesifikasjonene stemmer overens med selgerens informasjon. Bruk deretter en VIN-sjekk hvis du trenger eierskap og historikk over hendelser."
+        },
+        "3": {
+          "q": "Kan jeg kjøpe en bruktbil med bare VIN-dekoderresultater?",
+          "a": "For viktige kjøp er ikke VIN-dekoderresultater alene nok. Dekoderdata bekrefter teknisk identitet, mens VIN-sjekkrapporter hjelper med å avdekke historisk risiko som ulykker eller heftelser."
+        },
+        "4": {
+          "q": "Finnes det et gratis VIN-dekoderalternativ?",
+          "a": "Ja. En gratis VIN-dekoder kan raskt identifisere merke, modell, år og tekniske spesifikasjoner. Dette er ofte det raskeste første steget før du betaler for en full rapport."
+        },
+        "5": {
+          "q": "Hva er det en VIN-nummerdekoder ikke inkluderer?",
+          "a": "Resultater fra en VIN-nummerdekoder inkluderer vanligvis ikke ulykkeshistorikk, eierskapshistorikk, pant eller vrakpantoppføringer. Disse dekkes vanligvis av VIN-sjekkrapporter."
+        },
+        "6": {
+          "q": "Er NHTSA VIN-dekoderdata nok for kjøpsbeslutninger?",
+          "a": "NHTSA VIN-dekoderdata er sterke for validering av identitet og spesifikasjoner. For risikovurderinger bør du kombinere det med en historikksjekk for kjøretøyet."
+        },
+        "7": {
+          "q": "Hva er den beste arbeidsflyten for aktsomhetsvurdering av bruktbil?",
+          "a": "Dekod først VIN-nummerdetaljene for å bekrefte at annonsen er nøyaktig. Kjør deretter en VIN-sjekkrapport for å evaluere risiko knyttet til eierskap, skader og heftelser."
+        },
+        "8": {
+          "q": "Kan jeg bruke begge verktøyene sammen?",
+          "a": "Ja. Å kombinere resultater fra en gratis VIN-dekoder med VIN-sjekkhistorikk gir det mest komplette bildet for kjøps- eller salgsbeslutninger."
+        },
+        "9": {
+          "q": "Er en god gratis VIN-dekoder nok hvis jeg dropper VIN-sjekkrapporten?",
+          "a": "Nei. En gratis VIN-dekoder er utmerket for validering av identitet og spesifikasjoner, men en VIN-sjekkrapport er fortsatt nødvendig for informasjon om heftelser, ulykker, tyveri og eierskapsrisiko."
+        }
+      },
+      "boundaries_title": "Omfang og begrensninger",
+      "boundaries": {
+        "1": {
+          "label": "VIN-dekoder kan:",
+          "text": "verifisere identitet og dekode kjøretøyspesifikasjoner fra VIN-strukturen."
+        },
+        "2": {
+          "label": "VIN-dekoder kan ikke:",
+          "text": "bekrefte ulykker, heftelser, tyveri eller eierskapshistorikk alene."
+        },
+        "3": {
+          "label": "VIN-sjekk kan:",
+          "text": "legge til historisk risikokontekst for kjøps- og forsikringsbeslutninger."
+        }
+      },
+      "faq_summary": {
+        "1": "Nej. De løser ulike problemer: identitets-/spesifikasjonsverifisering versus risiko-/historikkverifisering.",
+        "2_q": "Bør jeg bruke begge før jeg kjøper?",
+        "2_a": "Ja. Å bruke begge gir bedre trygghet for prissetting, forhandling og forebygging av svindel."
+      },
+      "cta_try": "Prøv VIN-dekoder",
+      "cta_explore_types": "Utforsk kjøretøytyper"
+    },
+    "vehicleTypePage": {
+      "badge_suffix": "Side for VIN-søkeintensjon",
+      "last_updated_label": "Sist oppdatert:",
+      "core_facts_title": "Kjernefakta for rask AI-henting",
+      "core_fact": {
+        "primary_keyword": "Primært nøkkelord",
+        "cost": "Kostnad",
+        "cost_value": "Gratis VIN-dekoder",
+        "source": "Datakilde",
+        "source_value": "Referansedata fra NHTSA vPIC",
+        "intent": "Intensjonstype",
+        "intent_value": "Informasjons- og kommersiell VIN-søkeintensjon"
+      },
+      "source_boundary_note": "Grensemerknad: VIN-dekoding validerer tekniske identitetsfelt. Det erstatter ikke betalte datasett for kjøretøyhistorikk.",
+      "best_use_cases_title": "Beste bruksområder",
+      "quick_answer_title": "Hurtigsvar",
+      "direct_answer_label": "Direktesvar:",
+      "quick_answer_text": "Du kan bruke denne VIN-dekodersiden for å matche søk med høy intensitet og deretter dekode VIN-numre umiddelbart via det",
+      "main_tool_link": "viktigste VIN-verktøyet",
+      "quick_answer_suffix": "Det er gratis, ingen registrering, og støttes av offisielle data fra NHTSA.",
+      "faq_title": "Ofte stilte spørsmål",
+      "common_faq": {
+        "1": {
+          "q": "Er dette en gratis VIN-dekoder for denne kjøretøytypen?",
+          "a": "Ja. Denne siden er designet for å støtte arbeidsflyter for gratis VIN-dekoding og lenker direkte til vårt gratis VIN-oppslagsverktøy."
+        },
+        "2": {
+          "q": "Kan jeg bruke dette som en VIN-nummerdekoder?",
+          "a": "Ja. VIN-dekoder og VIN-nummerdekoder brukes ofte som likeverdige søkebegreper. Denne siden støtter begge termene."
+        },
+        "3": {
+          "q": "Bruker dette offisielle NHTSA VIN-dekoderdata?",
+          "a": "Vår arbeidsflyt for VIN-dekoding refererer til offisielle NHTSA vPIC-data for matching av kjerne-spesifikasjoner for kjøretøy."
+        },
+        "4": {
+          "q": "Hva om min VIN ikke er på 17 tegn?",
+          "a": "De fleste moderne kjøretøy bruker 17-tegns VIN-numre. Eldre eller spesielle kjøretøy kan kreve veiledning for eldre dekodingsformater."
+        },
+        "5": {
+          "q": "Kan dette erstatte en full VIN-sjekkrapport?",
+          "a": "Nei. VIN-dekoding verifiserer kjøretøyets identitet/spesifikasjoner. En VIN-sjekkrapport er fortsatt nødvendig for ulykkes-, heftelses- og eierskapshistorikk."
+        },
+        "6": {
+          "q": "Hvor bør jeg starte før jeg kjøper et brukt kjøretøy?",
+          "a": "Start med å dekode VIN-nummeret for å bekrefte spesifikasjoner, og kjør deretter en VIN-sjekkrapport for risiko og historiske hendelser."
+        }
+      },
+      "related_brand_title": "Relaterte merke-dekodere",
+      "related_brand_description": "Hopp til populære merkespesifikke VIN-sider for raskere oppslag.",
+      "brand_decoder_suffix": "VIN-dekoder",
+      "cta_decode_now": "Dekod en VIN nå",
+      "cta_compare": "Sammenlign VIN-dekoder vs. VIN-sjekk",
+      "breadcrumb": {
+        "home": "Hjem",
+        "tools": "Verktøy",
+        "vin_decoder": "VIN-dekoder"
+      },
+      "types": {
+        "motorcycle": {
+          "name": "Motorsykkel",
+          "title": "VIN-dekoder for motorsykkel - Gratis VIN-oppslag for sykler | GeeksKai",
+          "description": "Gratis VIN-dekoder for motorsykkel for øyeblikkelig oppslag. Dekod VIN-numre for å se modellår, produsent, motordetaljer og nøkkelspesifikasjoner.",
+          "h1": "VIN-dekoder for motorsykkel",
+          "keywords": {
+            "1": "motorsykkel vin dekoder",
+            "2": "sykkel vin oppslag",
+            "3": "motorsykkel vin sjekk",
+            "4": "dekode sykkel vin",
+            "5": "harley vin dekoder",
+            "6": "yamaha vin dekoder",
+            "7": "atv vin dekoder",
+            "8": "harley davidson vin dekoder"
+          },
+          "use_cases": {
+            "1": "Sjekk spesifikasjoner for brukt motorsykkel før kjøp",
+            "2": "Verifiser VIN-år og merke for forsikring",
+            "3": "Bekreft produsentinformasjon fra WMI",
+            "4": "Eksporter dekodede detaljer for vedlikeholdshistorikk"
+          },
+          "faq": {
+            "1": {
+              "q": "Kan jeg dekode hvilken som helst 17-tegns VIN for motorsykkel?",
+              "a": "Ja. De fleste moderne motorsykler bruker et 17-tegns VIN-format og kan dekodes med dette verktøyet."
+            },
+            "2": {
+              "q": "Hvilke detaljer kan jeg få fra en motorsykkel-VIN?",
+              "a": "Du kan hente ut nøkkeldata som modellår, merke, produsentinformasjon og tilgjengelige tekniske egenskaper."
+            }
+          }
+        },
+        "rv": {
+          "name": "Bobil",
+          "title": "VIN-dekoder for bobil - Gratis oppslag for campingvogner | GeeksKai",
+          "description": "Gratis VIN-dekoder for bobiler og fritidskjøretøy. Dekod VIN-numre for å sjekke år, produsentdetaljer og kjerne-spesifikasjoner.",
+          "h1": "VIN-dekoder for bobil",
+          "keywords": {
+            "1": "bobil vin dekoder",
+            "2": "rv vin nummer dekoder",
+            "3": "campingvogn vin oppslag",
+            "4": "camper vin sjekk",
+            "5": "gratis bobil vin dekoder"
+          },
+          "use_cases": {
+            "1": "Valider bobilens identitet før kjøp",
+            "2": "Sjekk modellår for registrering og forsikring",
+            "3": "Verifiser produsent- og fabrikkdata",
+            "4": "Lagre dekodede data for flåtestyring"
+          },
+          "faq": {
+            "1": {
+              "q": "Fungerer dette for bobiler og campere?",
+              "a": "Ja. VIN-dekoding for bobil støtter mange bobiler og fritidskøretøy med standard VIN-formater."
+            },
+            "2": {
+              "q": "Er VIN-dekoderen for bobil gratis?",
+              "a": "Ja. Dette verktøyet er gratis å bruke uten krav om registrering."
+            }
+          }
+        },
+        "trailer": {
+          "name": "Tilhenger",
+          "title": "VIN-dekoder for tilhenger - Gratis VIN-sjekk for tilhenger | GeeksKai",
+          "description": "Gratis VIN-dekoder for tilhenger for raskt oppslag. Dekod VIN-numre for å verifisere produsentdetaljer, modellår og identifikasjonsegenskaper.",
+          "h1": "VIN-dekoder for tilhenger",
+          "keywords": {
+            "1": "tilhenger vin dekoder",
+            "2": "tilhenger vin nummer dekoder",
+            "3": "travel trailer vin dekoder",
+            "4": "tilhenger vin oppslag",
+            "5": "tilhenger vin sjekk",
+            "6": "dekode tilhenger vin"
+          },
+          "use_cases": {
+            "1": "Verifiser tilhengerens VIN før omregistrering",
+            "2": "Bekreft år og fabrikkdetaljer",
+            "3": "Kryssjekk oppføringer for samsvar",
+            "4": "Eksporter VIN-rapporter for tilhenger på sekunder"
+          },
+          "faq": {
+            "1": {
+              "q": "Kan denne dekode VIN-numre for nytte- og varehengere?",
+              "a": "Ja. Mange tilhengertyper som bruker et standard VIN-format kan dekodes for viktige identifikasjonsfelt."
+            },
+            "2": {
+              "q": "Hva om noen felt for tilhengeren mangler?",
+              "a": "Datatilgjengelighet varierer etter produsent og modellår. Enkelte oppføringer kan ha delvise detaljer."
+            }
+          }
+        },
+        "classic-car": {
+          "name": "Veteranbil",
+          "title": "VIN-dekoder for veteranbil - Guide for eldre kjøretøy | GeeksKai",
+          "description": "Guide for VIN-dekoding av veteranbiler med støtte for mange eldre og moderne VIN-formater. Dekod identifikatoren for veteranbiler og verifiser nøkkeldetaljer.",
+          "h1": "VIN-dekoder for veteranbil",
+          "keywords": {
+            "1": "veteranbil vin dekoder",
+            "2": "klassisk vin nummer dekoder",
+            "3": "vintage vin oppslag",
+            "4": "gammel bil vin sjekk",
+            "5": "veteranbil identifikasjon"
+          },
+          "use_cases": {
+            "1": "Undersøk identiteten til veteranbiler",
+            "2": "Valider år og produsent-spor",
+            "3": "Forbered dokumentasjon for restaureringsprosjekter",
+            "4": "Registrer dekodede spesifikasjoner for arkivoppføringer"
+          },
+          "faq": {
+            "1": {
+              "q": "Bruker alle veteranbiler 17-tegns VIN-numre?",
+              "a": "Nei. Mange eldre kjøretøy bruker kortere, eldre identifikatorer. Moderniserte oppføringer kan fortsatt kartlegge nyttig data der det er tilgjengelig."
+            },
+            "2": {
+              "q": "Kan jeg fortsatt bruke denne til research på veteranbiler?",
+              "a": "Ja. Det er nyttig for å sjekke tilgjengelig VIN-data og forstå hvilke felt som kan valideres for eldre biler."
+            }
+          }
+        }
+      }
     }
   },
   "HeicToPdf": {
@@ -7488,530 +7972,4 @@
     "section_advanced_abr_title": "Adaptiv bitrate (ABR) logikk",
     "section_advanced_abr_desc": "ABR is «magien» i HLS. Spilleren vår overvåker båndbredden din i sanntid. Hvis den oppdager et fall i hastighet, bytter den automatisk til en bit med lavere oppløsning fra manifestet for å holde videoen i gang. Når hastigheten gjenopprettes, bytter den sømløst tilbake til høy definisjon (HD).",
     "section_advanced_latency_title": "Hensyn til lav latens",
-    "section_advanced_latency_desc": "Mens tradisjonell HLS har en forsinkelse på 10–30 sekunder bak direktehendelser, optimaliserer moderne HLS (og vår spiller) bufferstørrelser for å minimere denne forsinkelsen. Dette er avgjørende for sport, gaming og interaktive livesendinger.",
-    "section_privacy_full_title": "Personvern, sikkerhet og etterlevelse",
-    "section_privacy_full_content": "Hos GeeksKai er sikkerhet en kjerne pilar. Denne <strong>streaming musikkspilleren</strong> bruker <strong>ikke</strong> en proxyserver. Når du limer inn en URL, snakker nettleseren din direkte med strømmeverten. Vi ser aldri innholdet ditt eller logger hva du spiller. <strong>Kun HTTPS</strong> og <strong>ingen sporing</strong> – slik at dine musikk- eller videostrømme-URL-er forblir private. Ideell for testing og personlig bruk.",
-    "section_specs_title": "Tekniske spesifikasjoner",
-    "spec_library_title": "Motorkjerne",
-    "spec_library_value": "hls.js (Media Source Extensions)",
-    "spec_version_title": "HLS-etterlevelse",
-    "spec_version_value": "Apple HLS (RFC 8216) v7+",
-    "spec_latency_title": "Latensstrategi",
-    "spec_latency_value": "Adaptiv bufferhåndtering",
-    "section_core_facts_title": "Kjernefakta",
-    "section_core_facts_pricing": "Pris",
-    "section_core_facts_pricing_value": "100 % gratis",
-    "section_core_facts_support": "Formatstøtte",
-    "section_core_facts_support_value": "HLS (.m3u8) lyd og video",
-    "section_core_facts_speed": "Ytelse",
-    "section_core_facts_speed_value": "Adaptiv HD-strømming",
-    "section_core_facts_privacy": "Personvern",
-    "section_core_facts_privacy_value": "Klientside / Ingen sporing",
-    "section_faq_title": "Ofte stilte spørsmål",
-    "faq_question_1": "Hva er en streaming musikkspiller? Kan denne spille musikk?",
-    "faq_answer_1": "En streaming musikkspiller spiller lyd (og ofte video) over internett i sanntid. Ja – dette verktøyet er en streaming musikkspiller som støtter HLS (.m3u8) lyd og video. HLS er en adaptiv bitrate-protokol (fra Apple) som brukes av mange musikk- og radiotjenester.",
-    "faq_question_2": "Kan jeg spille .m3u8-filer her?",
-    "faq_answer_2": "Ja, bare lim inn .m3u8-URL-en i inntastingsfeltet og klikk på spill av. Den støtter både VOD og livestrømmer.",
-    "faq_question_3": "Er det helt gratis?",
-    "faq_answer_3": "Absolutt! Alle verktøy på GeeksKai er gratis å bruke.",
-    "faq_question_4": "Fungerer det på mobil?",
-    "faq_answer_4": "Ja. Denne streaming musikkspilleren er fullstendig responsiv og støtter avspilling på mobile enheder.",
-    "faq_question_5": "Samler dere inn strømmedataene mine?",
-    "faq_answer_5": "Nei. Denne streaming musikkspilleren kjører helt i nettleseren din. Vi sporer, logger eller lagrer ikke URL-ene eller innholdet du strømmer.",
-    "faq_question_6": "Hvorfor spiller ikke strømmen min?",
-    "faq_answer_6": "Vanlige årsaker inkluderer CORS-problemer (serveren må tillate forespørsler fra vårt domene), utløpte manifester eller DRM-beskyttelse som vi ikke støtter.",
-    "faq_question_7": "Hva er hls.js?",
-    "faq_answer_7": "hls.js er et JavaScript-bibliotek som implementerer en HLS-klient. Det avhenger av HTML5-video og Media Source Extensions for avspilling.",
-    "faq_question_8": "Kan jeg justere avspillingshastigheten?",
-    "faq_answer_8": "Ja, spilleren vår inkluderer kontroller for å justere hastigheten fra 1x opp til 2x for effektiv visning.",
-    "section_how_to_title": "Slik bruker du den",
-    "section_how_to_step_1_title": "1. Finn en strøm",
-    "section_how_to_step_1": "Kopier HLS (.m3u8)-URL-en til musikk- eller videostrømmen du vil spille av.",
-    "section_how_to_step_2_title": "2. Lim inn URL-en",
-    "section_how_to_step_2": "Lim inn den kopierte URL-en i inntastingsfeltet øverst på denne siden.",
-    "section_how_to_step_3_title": "3. Start strømming",
-    "section_how_to_step_3": "Klikk på «Start strømming». Nyt musikk- eller videoavspilling med fullskjerm- og hastighetskontroller.",
-    "section_features_title": "Hovedfunksjoner",
-    "section_features_1_title": "Musikk- og videostrømming",
-    "section_features_1_description": "Streaming musikkspiller og video: HLS (.m3u8) med adaptiv kvalitet for både lyd og video.",
-    "section_features_2_title": "Premiumopplevelse",
-    "section_features_2_description": "Moderne kontroller, fullskjerm og avspillingshastighet – ideelt for strømming av musikk og video.",
-    "section_features_3_title": "Nettleserovergripende",
-    "section_features_3_description": "Drevet av hls.js for pålitelig strømming av musikk og video in alle moderne nettlesere.",
-    "tool_badge": "Gratis streaming musikkspiller",
-    "page_title": "Streaming musikkspiller",
-    "page_subtitle": "Gratis online HLS (.m3u8) streaming musikk- og videospiller. Ingen påmelding, klientside, privat.",
-    "form_label_url": "HLS strømme-URL (.m3u8)",
-    "form_button_play": "Start strømming",
-    "error_empty_url": "Vennligst oppgi en HLS-URL.",
-    "error_invalid_url": "Ugyldig HLS-URL. Den må slutte med .m3u8",
-    "empty_state_title": "Klar til å strømme",
-    "empty_state_description": "Skriv inn en .m3u8 musikk- eller videostrømme-URL ovenfor for å starte avspilling.",
-    "last_updated_label": "Sist oppdatert"
-  },
-  "SoundCloudToMP3": {
-    "section_how_to_step_1_title": "Trinn 1: Kopier SoundCloud-URL-en",
-    "section_how_to_step_2_title": "Trinn 2: Lim inn URL-en",
-    "section_how_to_step_3_title": "Trinn 3: Hent informasjon om sporet",
-    "section_how_to_step_4_title": "Trinn 4: Velg format",
-    "section_how_to_step_5_title": "Trinn 5: Last ned MP3",
-    "metadata_title": "SoundCloud til MP3-konverter – Gratis og rask nedlasting på nett",
-    "metadata_description": "Konverter SoundCloud til MP3 umiddelbart. Gratis SoundCloud MP3-nedlaster på nett med lydstøtte av høy kvalitet. Ingen registrering nødvendig. Rask og trygg.",
-    "metadata_keywords": "soundcloud til mp3, soundcloud-nedlaster, soundcloud to mp3 converter, soundcloud mp3-nedlasting, gratis soundcloud-nedlaster, konverter soundcloud til mp3, soundcloud lydnedlaster",
-    "metadata_og_title": "SoundCloud til MP3-konverter – Gratis online-verktøy",
-    "metadata_og_description": "Konverter og last ned SoundCloud-spor som MP3-filer av høy kvalitet umiddelbart. Gratis, raskt og uten registrering.",
-    "metadata_og_image_alt": "SoundCloud til MP3-konverter",
-    "metadata_twitter_title": "SoundCloud til MP3-konverter – Gratis online-verktøy",
-    "metadata_twitter_description": "Last ned SoundCloud-spor som MP3-filer av høy kvalitet umiddelbart. Gratis og raskt.",
-    "schema_name": "SoundCloud til MP3-konverter",
-    "schema_description": "Gratis online-verktøy for å konvertere SoundCloud-spor til MP3-format. Last ned SoundCloud-lydfiler av høy kvalitet umiddelbart uten registrering.",
-    "schema_feature_1": "Konvertering fra SoundCloud til MP3",
-    "schema_feature_2": "Støtte for MP3 av høy kvalitet (320 kbps)",
-    "schema_feature_3": "Utvinning av sporinformasjon",
-    "schema_feature_4": "Rask prosessering",
-    "schema_feature_5": "Ingen registrering nødvendig",
-    "schema_feature_6": "Gratis ubegrænset bruk",
-    "schema_feature_7": "Mobilvennlig grensesnitt",
-    "schema_feature_8": "Støtte for alle offentlige SoundCloud-spor",
-    "schema_browser_requirements": "Krever JavaScript. Krever HTML5.",
-    "schema_software_version": "1.0",
-    "schema_provider_name": "GeeksKai",
-    "schema_provider_url": "https://geekskai.com",
-    "faq_question_1": "Er det lovlig å konvertere SoundCloud til MP3?",
-    "faq_answer_1": "Nedlasting av spor avhenger av artistens vilkår og opphavsrett. Respekter alltid lover om opphavsrett, og bruk nedlastede spor kun til personlig, ikke-kommerciel bruk. Verktøyet vårt er ment for pedagogiske og personlige formål.",
-    "faq_question_2": "Hvordan laste ned SoundCloud som MP3?",
-    "faq_answer_2": "Bare kopier URL-en til SoundCloud-sporet, lim den inn i konverteren ovenfor, klikk på 'Hent info', velg MP3-format og klikke på 'Last ned'. Prosessen tar vanligvis mindre enn 30 sekunder.",
-    "faq_question_3": "Kan jeg laste ned private spor?",
-    "faq_answer_3": "Nei, verktøyet vårt støtter bare nedlasting av spor som er offentlig tilgjengelige på SoundCloud. Av personvernhensyn kan ikke private spor aksesseres eller lastes ned.",
-    "faq_question_4": "Hva er den beste SoundCloud-konverteren?",
-    "faq_answer_4": "GeeksKais SoundCloud til MP3-konverter er blant de beste på grunn av hastigheten, den høye lydkvaliteten (opptil 320 kbps) og det faktum at den ikke krever registrering eller programvareinstallasjon.",
-    "faq_question_5": "Er denne SoundCloud-konverteren gratis?",
-    "faq_answer_5": "Ja, verktøyet vårt er 100 % gratis uten skjulte kostnader. Du kan konvertere og laste ned så mange spor du vil uten å betale eller opprette en konto.",
-    "faq_question_6": "Støtter den nedlasting av spillelister?",
-    "faq_answer_6": "Dette verktøyet er optimalisert for enkeltspor. Hvis du trenger å laste ned hele spillelister, vennligst bruk vårt dedikerte verktøy for nedlasting av SoundCloud-spillelister.",
-    "faq_question_7": "Hvilken lydkvalitet gir MP3-konverteren?",
-    "faq_answer_7": "Konverteren vår leverer MP3-filer av høy kvalitet med en bithastighet på opptil 320 kbps, noe som gir en utmerket lydkvalitet som for de fleste lyttere er nesten umulig å skille fra den originale SoundCloud-strømmen.",
-    "faq_question_8": "Kan jeg bruke nedlastede MP3-filer kommersielt?",
-    "faq_answer_8": "Nei. Nedlastede filer er kun for personlig, ikke-kommersiell bruk. Kommersiell bruk krever en korrekt lisens fra opphavsrettsinnehaveren. Respekter alltid artistens rettigheter og SoundClouds tjenestevilkår.",
-    "section_boundary_title": "Hva dette verktøyet kan og ikke kan",
-    "section_boundary_can_title": "Dette kan det gjøre",
-    "section_boundary_can_1": "Laste ned offentlig tilgjengelige SoundCloud-spor som MP3-filer",
-    "section_boundary_can_2": "Konvertere spor til MP3-format av høy kvalitet (opptil 320 kbps)",
-    "section_boundary_can_3": "Fungerer på alle enheter med en nettleser (ingen programvareinstallasjon)",
-    "section_boundary_can_4": "Prosesserer konverteringer på 15–30 sekunder",
-    "section_boundary_can_5": "Støtter nedlasting i både MP3- og WAV-format",
-    "section_boundary_cannot_title": "Dette kan det ikke gjøre",
-    "section_boundary_cannot_1": "Laste ned private eller begrensede SoundCloud-spor",
-    "section_boundary_cannot_2": "Laste ned hele spillelister (bruk vår spillelistenes nedlaster i stedet)",
-    "section_boundary_cannot_3": "Omgå opphavsrettsbeskyttelse eller lisensbegrensninger",
-    "section_boundary_cannot_4": "Garantere nedlasting for spor med nedlastingsbegrensninger",
-    "section_boundary_cannot_5": "Tilby kommersiell lisensiering for nedlastet innhold",
-    "section_free_vs_paid_title": "Gratis vs. betalte SoundCloud-konvertere",
-    "section_free_vs_paid_intro": "Vår SoundCloud til MP3-konverter er helt gratis, men hvordan er den sammenlignet med betalte alternativer?",
-    "section_free_vs_paid_free_title": "Gratis konvertere (som vårt verktøy)",
-    "section_free_vs_paid_free_1": "<strong>Kostnad:</strong> 0 kr, ingen skjulte gebyrer",
-    "section_free_vs_paid_free_2": "<strong>Begrensninger:</strong> Ubegrenset antall konverteringer",
-    "section_free_vs_paid_free_3": "<strong>Registrering:</strong> Ikke nødvendig",
-    "section_free_vs_paid_free_4": "<strong>Kvalitet:</strong> Opptil 320 kbps MP3",
-    "section_free_vs_paid_free_5": "<strong>Best for:</strong> Personlig bruk, hverdagsbrukere",
-    "section_free_vs_paid_paid_title": "Betalte konvertere",
-    "section_free_vs_paid_paid_1": "<strong>Kostnad:</strong> 50–200 kr/måned abonnement",
-    "section_free_vs_paid_paid_2": "<strong>Begrensninger:</strong> Ofte ubegrenset (med abonnement)",
-    "section_free_vs_paid_paid_3": "<strong>Registrering:</strong> Obligatorisk",
-    "section_free_vs_paid_paid_4": "<strong>Kvalitet:</strong> Lignende (320 kbps MP3)",
-    "section_free_vs_paid_paid_5": "<strong>Best for:</strong> Storbrukere som ønsker premium-støtte",
-    "section_free_vs_paid_conclusion": "For de fleste brukere gir gratis konvertere som vår alt som trengs uten kostnader. Betalte alternativer tilbyr hovedsakelig kundestøtte og noen ganger raskere prosessering, men kjernefunksjonaliteten er den samme.",
-    "breadcrumb_home": "Hjem",
-    "breadcrumb_tools": "Verktøy",
-    "breadcrumb_title": "SoundCloud til MP3-konverter",
-    "tool_badge": "MP3-konverter",
-    "page_title": "SoundCloud til MP3-konverter (2026)",
-    "page_subtitle": "Konverter SoundCloud-spor til <mp3>MP3</mp3>-filer av høy kvalitet umiddelbart. <free>Gratis</free>, <fast>raskt</fast> og <no_registration>uten registrering</no_registration>.",
-    "page_tldr_title": "Kort fortalt",
-    "page_tldr_content": "SoundCloud til MP3-konverter er et gratis online-verktøy som laster ned offentlig tilgjengelige SoundCloud-spor som MP3-filer av høy kvalitet (opptil 320 kbps) på 15–30 sekunder. Ingen registrering, programvareinstallasjon eller betaling nødvendig. Fungerer på alle enheter med en nettleser. Støtter kun enkeltspor (ikke spillelister). Beregnet for personlig, ikke-kommersiell bruk. Brukere må respektere artistenes opphavsrett og lisensavtaler.",
-    "content_freshness_updated": "Oppdatert",
-    "content_freshness_last_updated": "Sist oppdatert",
-    "form_title": "SoundCloud til MP3-konverter",
-    "form_label_soundcloud_link": "SoundCloud-spor-URL",
-    "related_tool_text": "Trenger du å laste ned WAV i stedet?",
-    "related_tool_link": "Prøv SoundCloud til WAV-konverter",
-    "form_button_get_info": "Hent info",
-    "form_button_fetching": "Henter...",
-    "form_button_download": "Last ned MP3",
-    "form_button_downloading": "Laster ned...",
-    "form_select_format_mp3": "MP3",
-    "form_select_format_wav": "WAV",
-    "error_empty_url": "Vennligst lim inn en lenke til et SoundCloud-spor",
-    "error_invalid_url": "Vennligst oppgi en gyldig SoundCloud-lenke",
-    "error_playlist_url": "Dette verktøyet er for enkeltspor. For spillelister, vennligst bruk vår nedlaster for spillelister.",
-    "error_playlist_url_link": "Gå til SoundCloud-nedlaster for spillelister",
-    "error_network": "Nettverksfeil, vennligst prøv igjen",
-    "error_download_failed": "Nedlasting mislyktes, vennligst prøv igjen senere",
-    "error_get_info_failed": "Kunne ikke hente sporinformasjon",
-    "progress_connecting": "Kobler til...",
-    "progress_fetching": "Henter metadata...",
-    "progress_processing": "Behandler lyd...",
-    "progress_parsing": "Ferdigstiller...",
-    "progress_complete": "Ferdig!",
-    "progress_sending_request": "Starter nedlasting...",
-    "progress_server_processing": "Serveren behandler lyden...",
-    "progress_downloading_file": "Laster ned MP3",
-    "progress_saving_file": "Lagrer på enheten...",
-    "empty_state_title": "Konverter SoundCloud til MP3",
-    "empty_state_description": "Lim inn en SoundCloud-URL ovenfor for å konvertere den til en MP3-fil av høy kvalitet for offline-lytting.",
-    "track_info_title": "Spordetaljer",
-    "track_info_subtitle": "Se gjennom informasjon og last ned MP3-filen din",
-    "track_info_unknown_title": "Ukjent tittel",
-    "track_info_unknown_artist": "Ukendt artist",
-    "track_info_streamable": "Kan strømmes",
-    "track_info_downloadable": "Kan lastes ned",
-    "track_info_description": "Beskrivelse",
-    "track_info_tags": "Tagger",
-    "track_info_likes": "Likerklikk",
-    "track_info_plays": "Avspillinger",
-    "track_info_reposts": "Reposts",
-    "track_info_comments": "Kommentarer",
-    "track_info_id": "Spor-ID",
-    "track_info_type": "Format",
-    "track_info_status": "Status",
-    "track_info_download_count": "Nedlastinger",
-    "track_info_downloadable_remaining": "Gjenstår",
-    "track_info_commentable": "Kommentarer tillatt",
-    "track_info_public": "Offentlig",
-    "track_info_monetization_model": "Monetisering",
-    "track_info_policy": "Retningslinjer",
-    "track_info_label": "Plateselskap",
-    "track_info_created_at": "Publisert",
-    "track_info_last_modified": "Endret",
-    "track_info_display_date": "Visningsdato",
-    "track_info_yes": "Ja",
-    "track_info_no": "Nei",
-    "track_info_unknown": "Ukjent",
-    "track_info_just_now": "Akkurat nå",
-    "track_info_minutes_ago": "minutter siden",
-    "track_info_hours_ago": "timer siden",
-    "track_info_days_ago": "dage siden",
-    "track_info_months_ago": "måneder siden",
-    "track_info_years_ago": "år siden",
-    "track_info_view_on_soundcloud": "Se på SoundCloud",
-    "track_info_view_waveform": "Se bølgeform",
-    "section_what_is_title": "Hva er SoundCloud til MP3-konverter?",
-    "section_what_is_description_1": "Vår <strong>SoundCloud til MP3-konverter</strong> er et spesialisert online-verktøy designet for å hjelpe deg med å laste ned dine favorittspor fra SoundCloud i <strong>MP3-format</strong> av høy kvalitet. Det er den mest pålitelige måten å lagre musikk for offline-lytting på en hvilken som helst enhet.",
-    "section_what_is_description_2": "Dette verktøyet er bygget for <strong>musikkelskere</strong>, <strong>DJ-er</strong> og <strong>kreative</strong>, og tilbyr en sømløs opplevelse uten krav om registrering, kontoer eller komplisert programvareinstallasjon.",
-    "section_what_is_key_benefits": "Hvorfor velge vår MP3-konverter?",
-    "section_what_is_benefit_1": "Høy kvalitet: Opptil 320 kbps MP3-utgang",
-    "section_what_is_benefit_2": "Helt gratis: Ingen grenser eller skjulte kostnader",
-    "section_what_is_benefit_3": "Lynrask: Konvertering på få sekunder",
-    "section_what_is_benefit_4": "Plattformuavhengig: Fungerer på alle enheter",
-    "section_convert_online_title": "Konverter SoundCloud til MP3 online umiddelbart",
-    "section_convert_online_description": "Opplev overlegen lydkvalitet og hastighet. Verktøyet vårt sikrer at dine SoundCloud til MP3-konverteringer behandles med høyeste kvalitet, slik at artistens originale lyd bevares samtidig som du får bekvemmeligheten med en kompakt MP3-fil.",
-    "section_core_facts_title": "Tekniske spesifikasjoner",
-    "section_core_facts_pricing": "Kostnad",
-    "section_core_facts_pricing_value": "Gratis online-verktøy",
-    "section_core_facts_formats": "Primærformat",
-    "section_core_facts_formats_value": "MP3 av høy kvalitet (320 kbps)",
-    "section_core_facts_speed": "Gjennomsnittlig tid",
-    "section_core_facts_speed_value": "15–30 sekunder",
-    "section_core_facts_users": "Perfekt for",
-    "section_core_facts_users_value": "<musicians>Musikere</musicians>, <djs>Mobilbrukere</djs>, <creators>Hverdagsbrukere</creators> og <enthusiasts>Lydsamlere</enthusiasts>",
-    "section_features_title": "Profesjonelle funksjoner",
-    "section_features_1_title": "Ingen registrering nødvendig",
-    "section_features_1_description": "Begynn å konvertere med en gang. Vi ber ikke om e-post eller personlig informasjon. <strong>Personvern i fokus</strong>.",
-    "section_features_2_title": "High-Fidelity-lyd",
-    "section_features_2_description": "Vi prioriterer lydkvalitet og sikrer at MP3-filene dine høres så likt ut som den originale SoundCloud-strømmen som mulig.",
-    "section_features_3_title": "Trygt og sikkert",
-    "section_features_3_description": "Hver konvertering behandles via våre sikre servere, noe som beskytter deg mot skadelig programvare og påtrengende reklame.",
-    "section_how_to_title": "Slik konverterer du SoundCloud til MP3 i 3 trinn",
-    "section_how_to_step_1": "<strong>Kopier URL:</strong> Kopier SoundCloud-koblingen fra nettleserens adresselinje.",
-    "section_how_to_step_2": "<strong>Lim inn og hent:</strong> Lim inn koblingen i konverteren vår og klikk på \"Hent info\".",
-    "section_how_to_step_3": "<strong>Last ned:</strong> Når spordetaljene vises, klikker du på \"Last ned MP3\" for å lagre den.",
-    "section_how_to_step_4": "<strong>Valgfritt:</strong> Du kan også velge mellom formatene MP3 og WAV ved behov.",
-    "section_how_to_step_5": "<strong>Nyt:</strong> Lytt til den nedlastede musikken din når som helst og hvor som helst!",
-    "section_format_comparison_title": "MP3 vs. WAV: Hva bør du velge?",
-    "section_format_comparison_wav_title": "WAV (Tapsfri)",
-    "section_format_comparison_wav_1": "<strong>Uovertruffen kvalitet:</strong> Hver detalje er bevaret",
-    "section_format_comparison_wav_2": "<strong>Store filer:</strong> 20–50 MB per sang",
-    "section_format_comparison_wav_3": "<strong>Profesjonell bruk:</strong> Best for redigering og studioarbeid",
-    "section_format_comparison_wav_4": "<strong>Ukomprimert:</strong> Den reneste lydformen",
-    "section_format_comparison_mp3_title": "MP3 (Komprimert)",
-    "section_format_comparison_mp3_1": "<strong>God kvalitet:</strong> Nesten umulig å skille ved 320 kbps",
-    "section_format_comparison_mp3_2": "<strong>Små filer:</strong> Bare 5–10 MB (sparer plass)",
-    "section_format_comparison_mp3_3": "<strong>Universell:</strong> Kompatibel med alle telefoner og spillere",
-    "section_format_comparison_mp3_4": "<strong>Effektiv:</strong> Rask å laste ned og dele",
-    "section_use_cases_title": "Beste bruksområder for SoundCloud MP3-er",
-    "section_use_cases_1_title": "Offline-lytting",
-    "section_use_cases_1_description": "Spar data på farten ved å lagre musikkbiblioteket ditt <strong>lokalt</strong> på smarttelefonen eller nettbrettet.",
-    "section_use_cases_2_title": "MP3-spillere og bilstereo",
-    "section_use_cases_2_description": "Overfør favorittene dine fra SoundCloud til <strong>eldre MP3-spillere</strong> eller bilstereoanlegg via USB.",
-    "section_use_cases_3_title": "Kreative prosjekter",
-    "section_use_cases_3_description": "Bruk MP3-filer som <strong>skisselyd</strong> eller bakgrunnsmusikk til personlige videoer og innlegg i sosiale medier.",
-    "section_faq_title": "Ofte stilte spørsmål om SoundCloud til MP3",
-    "section_legal_title": "Juridisk ansvarsfraskrivelse",
-    "section_legal_description": "Vår SoundCloud til MP3-konverter er kun ment for personlig bruk:",
-    "section_legal_point_1": "Brukere er selv ansvarlige for å sikre at de har rett til å laste ned innholdet",
-    "section_legal_point_2": "Respekter intellektuell eiendom og artistenes lisensavtaler",
-    "section_legal_point_3": "Ikke distribuer opphavsrettsbeskyttet materiale uten tillatelse",
-    "section_legal_point_4": "Støtt artister ved å følge dem på SoundCloud og kjøpe musikken deres",
-    "section_legal_footer": "Ved å bruke dette verktøyet samtykker du i å overholde alle gjeldende lover og respektere det kreative arbeidet til musikere over hele verden."
-  },
-  "SoundCloudDownloader": {
-    "form_label_soundcloud_link": "SoundCloud-URL",
-    "tool_badge": "Samlet SoundCloud-verktøy",
-    "page_title": "SoundCloud-nedlaster (Låt + Spilleliste)",
-    "page_subtitle": "Lim inn én SoundCloud-URL. Verktøyet oppdager automatisk låt eller spilleliste og leder deg til riktig MP3- eller WAV-flyt.",
-    "page_quick_answer_title": "Kort svar",
-    "page_quick_answer_content": "Dette samlede verktøyet støtter både enkeltlåter og spillelister fra ett inputfelt. Låt-URL-er lar deg hente metadata og laste ned med en gang. Spilleliste-URL-er laster inn sporlisten slik at du kan laste ned ett spor eller alle spor samtidig.",
-    "auto_mode_label": "Automodus",
-    "auto_mode_playlist": "Playlist",
-    "auto_mode_track": "Track",
-    "track_info_title": "Låtinfo",
-    "track_info_subtitle": "Se gjennom metadata før du laster ned lyd.",
-    "empty_state_title": "Lim inn en SoundCloud-URL for å starte",
-    "empty_state_description": "Låter og spillelister støttes i samme arbeidsflyt.",
-    "metadata_title": "SoundCloud-nedlaster - Last ned låter og spillelister gratis på nett",
-    "metadata_description": "Samlet SoundCloud-nedlaster for låter og spillelister. Lim inn en gyldig SoundCloud-URL, oppdag type automatisk, og last ned i MP3 eller WAV.",
-    "metadata_keywords": "soundcloud downloader, download soundcloud track, download soundcloud playlist, soundcloud to mp3, soundcloud to wav, free soundcloud downloader, online soundcloud downloader",
-    "metadata_og_title": "SoundCloud-nedlaster - Støtte for låt og spilleliste",
-    "metadata_og_description": "Én SoundCloud-nedlaster for både enkeltlåter og spillelister. Gratis MP3/WAV-nedlasting på nett.",
-    "metadata_og_image_alt": "SoundCloud Downloader",
-    "metadata_twitter_title": "SoundCloud-nedlaster - Støtte for låt og spilleliste",
-    "metadata_twitter_description": "Ett URL-felt, automatisk oppdagelse av låt eller spilleliste, nedlasting i MP3/WAV.",
-    "schema_name": "SoundCloud-nedlaster",
-    "schema_description": "Samlet SoundCloud-nedlaster som støtter både enkeltlåter og spillelister med MP3/WAV-utdata.",
-    "schema_price": "0",
-    "schema_provider_name": "GeeksKai",
-    "schema_provider_url": "https://geekskai.com",
-    "schema_feature_1": "Auto-detect SoundCloud track or playlist URL",
-    "schema_feature_2": "Download SoundCloud tracks in MP3 or WAV",
-    "schema_feature_3": "Fetch playlist tracks and download one or all",
-    "schema_feature_4": "Ingen registrering kreves",
-    "section_core_facts_title": "Kjernefakta",
-    "core_facts_label_1": "Pris",
-    "core_facts_value_1": "100 % gratis, ingen registrering kreves",
-    "core_facts_label_2": "URL-støtte",
-    "core_facts_value_2": "Enkeltlåter, spillelister og korte lenker",
-    "core_facts_label_3": "Formater",
-    "core_facts_value_3": "MP3 og WAV",
-    "core_facts_label_4": "Arbeidsflyt",
-    "core_facts_value_4": "Automatisk oppdagelse av låt eller spilleliste fra ett URL-felt",
-    "section_how_it_works_title": "Slik fungerer den samlede nedlasteren",
-    "how_it_works_step_1": "Lim inn en gyldig SoundCloud-URL.",
-    "how_it_works_step_2": "Verktøyet oppdager automatisk om det er en låt eller en spilleliste.",
-    "how_it_works_step_3": "For låter: hent metadata først, og last deretter ned i MP3 eller WAV.",
-    "how_it_works_step_4": "For spillelister: hent sporlisten først, og last ned ett spor eller alle spor.",
-    "section_faq_title": "FAQ",
-    "faq_question_1": "Kan dette verktøyet laste ned både SoundCloud-låter og spillelister?",
-    "faq_answer_1": "Ja. Det oppdager URL-typen automatisk og bytter til riktig arbeidsflyt.",
-    "faq_question_2": "Må jeg velge låt- eller spillelistemodus manuelt?",
-    "faq_answer_2": "Nei. URL-gjenkjenning skjer automatisk basert på lenken du limer inn.",
-    "faq_question_3": "Hvilke formater støttes?",
-    "faq_answer_3": "Du kan laste ned i MP3 eller WAV, og bytte format før nedlasting.",
-    "faq_question_4": "Kan jeg bare laste ned én sang fra en spilleliste?",
-    "faq_answer_4": "Ja. Etter at spillelisten er lastet inn kan du laste ned spor ett og ett eller alle samtidig.",
-    "boundary_title": "Avgrensning og juridiske merknader",
-    "boundary_description": "Dette verktøyet hjelper deg med å laste ned lyd du har lov til å bruke. Respekter alltid opphavsrett, skaperrettigheter og plattformens vilkår. Bruk kun for personlig, lisensiert eller på annen måte autorisert innhold.",
-    "content_freshness_updated": "Oppdatert",
-    "content_freshness_last_updated": "Sist oppdatert"
-  },
-  "MorseCodeTranslator": {
-    "seo": {
-      "title": "Morse Code Translator & Generator",
-      "description": "Free online Morse Code Translator & Generator to encode text, decode Morse code, and play Morse audio instantly in your browser.",
-      "keywords": "morse code translator, morse code generator, morse code generator online, text to morse code, morse code to text, morse code decoder, what is morse code, how does morse code work, how to read morse code, how to learn morse code, morse code alphabet, morse code chart, morse code converter, morse code converter online, sos in morse code, what is sos in morse code, who invented morse code, when was morse code invented, morse code sound",
-      "og_alt": "Morse Code Translator on GeeksKai"
-    },
-    "breadcrumb": {
-      "home": "Home",
-      "tools": "Tools",
-      "current": "Morse Code Translator"
-    },
-    "defaults": {
-      "input_text": "HELLO WORLD",
-      "morse_sos": "... --- ..."
-    },
-    "placeholders": {
-      "encode": "Type message, e.g. HELLO WORLD",
-      "decode": "Use . and -, space between letters, / between words"
-    },
-    "header": {
-      "title": "Morse Code Translator",
-      "quick_answer": "<strong>Quick answer:</strong> This page provides a free online <blue>Morse code translator</blue> for <cyan>text to Morse</cyan>, <purple>Morse to text</purple>, plus browser audio playback with no account needed."
-    },
-    "core_facts": {
-      "title": "Core Facts",
-      "pricing_label": "Pricing",
-      "pricing_value": "<strong>Free</strong>, no sign-up.",
-      "features_label": "Main Features",
-      "features_value": "<strong>Encode</strong>, <strong>decode</strong>, and <strong>audio playback</strong>.",
-      "positioning_label": "Positioning",
-      "positioning_value": "Fast, browser-native Morse utility for learning and practical conversion.",
-      "users_label": "Target Users",
-      "users_value": "Students, ham radio users, puzzle makers, developers."
-    },
-    "overview": {
-      "title": "What is Morse code?",
-      "description": "<strong>Direct answer:</strong> Morse code is a communication system that encodes letters and numbers with <blue>dots</blue> and <cyan>dashes</cyan>. It is still useful for learning signal timing, emergency patterns, and radio basics.",
-      "card_1_title": "How Morse code works",
-      "card_1_desc": "Each character maps to a unique dot-dash sequence, for example <strong>A = .-</strong> and <strong>B = -...</strong>.",
-      "card_2_title": "How to read Morse code",
-      "card_2_desc": "Read short signals as dots and long signals as dashes, then split by letter spaces and word separators.",
-      "card_3_title": "How to learn Morse code",
-      "card_3_desc": "Practice 5-10 minutes daily with common letters, then train listening speed using flash and audio playback."
-    },
-    "tool": {
-      "mode_label": "Mode",
-      "mode_encode": "Text to Morse",
-      "mode_decode": "Morse to Text",
-      "input_text_label": "Input text",
-      "input_morse_label": "Input Morse code",
-      "output_morse": "Morse output",
-      "output_text": "Decoded text",
-      "output_placeholder": "Output will appear here.",
-      "signal_playing": "Morse flashlight is blinking by signal timing",
-      "signal_preview": "Signal lamp preview",
-      "no_signal": "No signal to preview.",
-      "stop_playback": "Stop playback",
-      "play_audio_flash": "Play audio + flash",
-      "play_flash": "Play flash",
-      "audio_title_on": "Audio and flash enabled",
-      "audio_title_off": "Flash-only mode enabled",
-      "audio_on": "Audio on",
-      "flash_only": "Flash only",
-      "copied": "Copied",
-      "copy_output": "Copy output"
-    },
-    "how_to": {
-      "title": "How to use this Morse code translator (step-by-step)",
-      "step_1_title": "1) Normalize input",
-      "step_1_desc": "Text is uppercased for consistent mapping; Morse input is split by spaces and `/`.",
-      "step_2_title": "2) Convert by dictionary",
-      "step_2_desc": "Characters map to dots and dashes using the ITU-style Morse table; unknown tokens return `?`.",
-      "step_3_title": "3) Render and playback",
-      "step_3_desc": "The output is shown as plain text and can be played as short/long tones in the browser audio engine."
-    },
-    "boundaries": {
-      "title": "Boundaries and limitations",
-      "can_do": "<strong>Can do:</strong> text and Morse conversion, browser playback, quick educational reference.",
-      "cannot_do": "<strong>Cannot do:</strong> advanced radio protocol timing, signal-noise simulation, or long-form transmission logging.",
-      "input_scope": "<strong>Input scope:</strong> A-Z, 0-9, spaces, and standard Morse separators."
-    },
-    "sos": {
-      "title": "SOS in Morse code",
-      "text_label": "Text",
-      "morse_label": "Morse",
-      "use_case_label": "Use case",
-      "use_case_desc": "A standard emergency signal. You can paste it into Morse input and play flash or audio instantly."
-    },
-    "history": {
-      "title": "Who invented Morse code and when?",
-      "description": "<strong>Short answer:</strong> Samuel Morse and Alfred Vail developed Morse code in the <amber>1830s</amber>, and it was adopted in practical telegraph systems during the <amber>1840s</amber>."
-    },
-    "guide": {
-      "title": "Complete Morse code guide for beginners",
-      "p1": "<strong>Direct answer:</strong> Morse code is a practical signal language where each letter or number is represented by a sequence of dots and dashes. If your goal is to <cyan>translate text to Morse</cyan>, <blue>decode Morse to text</blue>, or simply learn the alphabet quickly, this page combines all three in one place: real-time conversion, flash rhythm playback, and an alphabet chart for fast lookup.",
-      "p2": "Many users search phrases like <strong>what is morse code</strong>, <strong>how to read morse code</strong>, and <strong>how to learn morse code</strong> because they need both a tool and a clear explanation. The fastest way to read Morse is to treat it as sound and timing patterns rather than visual symbols only. A dot is a short signal and a dash is a longer signal; letters are separated by short gaps and words are separated by longer breaks. Once this rhythm is clear, decoding speed improves quickly.",
-      "p3": "If you are practicing from scratch, start with a small set of high-frequency letters such as <strong>E, T, A, N, I, M, S, O</strong>. Then type simple words in the converter and switch between both modes to reinforce memory from both directions. For emergency awareness, memorize <rose>SOS = ... --- ...</rose> first. That one sequence appears in many learning resources and is one of the easiest Morse patterns to recognize at speed.",
-      "p4": "Historically, Morse code was developed by Samuel Morse and Alfred Vail in the 1830s and became widely used through telegraph networks in the 1840s. Today, people still use it for radio training, education, puzzle design, and creative projects like jewelry pattern encoding. In short, a modern <strong>morse code generator</strong> should do more than output symbols: it should help users understand meaning, timing, and practical use.",
-      "quick_a": "A in Morse code",
-      "quick_b": "B in Morse code",
-      "quick_c": "C in Morse code",
-      "quick_e": "E in Morse code",
-      "quick_s": "S in Morse code",
-      "quick_o": "O in Morse code"
-    },
-    "alphabet_chart": {
-      "title": "Morse code alphabet chart (A-Z and 0-9)"
-    },
-    "faq": {
-      "title": "Morse code translator FAQ"
-    },
-    "faq_1": {
-      "question": "What is a Morse code translator and how does it work?",
-      "answer": "A Morse code translator converts text to Morse code and Morse code back to text in seconds. This page also provides browser-based Morse audio and flash playback for timing practice."
-    },
-    "faq_2": {
-      "question": "How do I convert text to Morse code online for free?",
-      "answer": "Use Text to Morse mode, type your message, and copy the generated Morse output instantly. The converter is free, browser-based, and requires no sign-up."
-    },
-    "faq_3": {
-      "question": "How do I decode Morse code to text correctly?",
-      "answer": "Use one space between Morse letters and a slash `/` between words for accurate decoding. Then switch to Morse to Text mode; example input is `... --- ... / .... . .-.. .--.`."
-    },
-    "faq_4": {
-      "question": "Where can I find a Morse code alphabet chart for letters and numbers?",
-      "answer": "Open the Morse code alphabet chart section on this page to view A-Z and 0-9 mappings. It works as a quick reference while translating or learning Morse."
-    },
-    "faq_5": {
-      "question": "What is SOS in Morse code?",
-      "answer": "SOS in Morse code is `... --- ...`. You can copy it directly into the Morse input field and play it with audio or flash timing."
-    },
-    "faq_6": {
-      "question": "Can this Morse code converter handle invalid Morse symbols?",
-      "answer": "Yes. Unknown or malformed Morse tokens are shown as `?`, so you can quickly identify where the Morse sequence needs correction."
-    },
-    "faq_7": {
-      "question": "Can I use this Morse code translator without sending data to a server?",
-      "answer": "Yes. Translation and playback run locally in your browser, helping protect privacy and keeping the converter fast."
-    },
-    "faq_8": {
-      "question": "Who should use this Morse code generator and decoder?",
-      "answer": "It is useful for students, radio hobbyists, puzzle creators, and developers who need fast text-to-Morse and Morse-to-text conversion in one place."
-    },
-    "faq_9": {
-      "question": "How often is this Morse translator page updated for accuracy?",
-      "answer": "The page follows a 30-90 day GEO review cycle and displays a last updated date to provide freshness and confidence signals."
-    },
-    "faq_10": {
-      "question": "What is Morse code?",
-      "answer": "Morse code is a character encoding system that represents letters and numbers using short and long signals known as dots and dashes."
-    },
-    "faq_11": {
-      "question": "How can I learn Morse code quickly?",
-      "answer": "Start with high-frequency letters, practice daily with short sessions, and use audio or flash playback to train rhythm recognition."
-    },
-    "faq_12": {
-      "question": "Who invented Morse code and when was it invented?",
-      "answer": "Samuel Morse and Alfred Vail developed Morse code in the 1830s, and it became widely used in telegraph communication in the 1840s."
-    },
-    "sources": {
-      "title": "Data sources and trust signals",
-      "item_1": "<strong>ITU-R M.1677-1:</strong> International Morse code reference for letters, digits, and transmission pattern.",
-      "item_2": "<strong>Web Audio API:</strong> Browser-side audio generation used for dot/dash playback.",
-      "last_updated": "Last updated: <strong>{date}</strong> (review cycle: every 30-90 days)."
-    },
-    "hidden_seo": {
-      "title": "Morse code generator vs translator",
-      "description": "A Morse code generator takes plain text input and encodes it into Morse symbols, while a Morse code translator typically supports both directions: encode text to Morse and decode Morse to readable text. This page includes both generator and translator behavior, plus audio playback for signal timing practice."
-    },
-    "schema": {
-      "webapp_name": "Morse Code Translator",
-      "alternate_names": "Morse Code Generator, Morse Code Decoder, Morse Code Converter",
-      "feature_1": "Text to Morse conversion",
-      "feature_2": "Morse to text decoding",
-      "feature_3": "Morse code alphabet chart",
-      "feature_4": "SOS in Morse code quick reference",
-      "feature_5": "Morse audio playback",
-      "feature_6": "Reference table",
-      "feature_7": "No registration required",
-      "howto_name": "How to translate text and Morse code online",
-      "howto_description": "Use this step-by-step guide to encode text to Morse code, decode Morse to text, and play Morse audio.",
-      "howto_step_1_name": "Choose conversion mode",
-      "howto_step_1_text": "Select Text to Morse to encode plain text, or Morse to Text to decode Morse signals.",
-      "howto_step_2_name": "Paste your content",
-      "howto_step_2_text": "Enter text, or provide Morse with spaces between letters and slash between words.",
-      "howto_step_3_name": "Copy or play Morse output",
-      "howto_step_3_text": "Copy the generated result, or click play to hear and visualize Morse timing.",
-      "howto_step_4_name": "Use the alphabet chart and SOS reference",
-      "howto_step_4_text": "Open the Morse code alphabet chart and SOS example section to read or learn Morse patterns faster.",
-      "itemlist_name": "Morse code alphabet chart",
-      "itemlist_1": "A .-",
-      "itemlist_2": "B -...",
-      "itemlist_3": "C -.-.",
-      "itemlist_4": "S ...",
-      "itemlist_5": "O ---",
-      "itemlist_6": "1 .----",
-      "itemlist_7": "5 .....",
-      "itemlist_8": "0 -----"
-    }
-  }
-}
+    "section_advanced_latency_desc": "Mens tradisjonell HLS har en forsinkelse på 10–30 sekunder bak direktehendelser, optimaliserer moderne HLS (og vår spiller) b

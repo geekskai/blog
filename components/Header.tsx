@@ -1,5 +1,5 @@
 "use client"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import siteMetadata from "@/data/siteMetadata"
 import headerNavLinks from "@/data/headerNavLinks"
 import Link from "./Link"
@@ -16,8 +16,13 @@ import MegaMenu from "./MegaMenu"
 const Header = () => {
   // Close dropdown on escape key
   const t = useTranslations("HomePage")
+  const tt = useTranslations("ToolsPage")
+  const [toolCount, setToolCount] = useState<number | null>(null)
 
   useEffect(() => {
+    // Keep header count client-resolved to avoid hydration mismatches.
+    setToolCount(toolsData.length)
+
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         // Find the dropdown and remove hover state
@@ -100,14 +105,16 @@ const Header = () => {
                         <div>
                           <h2 className="text-xl font-bold text-white">{t("header_nav_tools")}</h2>
                           <p className="text-sm text-slate-400">
-                            Discover our collection of professional tools
+                            {tt(
+                              "tools_hand_picked_tools_designed_to_streamline_your_workflow_and_boost_productivity"
+                            )}
                           </p>
                         </div>
                       </div>
                       <div className="flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2">
                         <Star className="h-4 w-4 text-blue-400" />
                         <span className="text-sm font-semibold text-blue-300">
-                          {toolsData.length} {t("header_nav_tools")}
+                          {toolCount ?? ""} {t("header_nav_tools")}
                         </span>
                       </div>
                     </div>
@@ -120,7 +127,7 @@ const Header = () => {
                     {/* Footer */}
                     <div className="mt-8 flex items-center justify-between border-t border-slate-700/50 pt-6">
                       <p className="text-sm italic text-slate-400">
-                        Ready to convert? Choose a tool and start now.
+                        {tt("tools_no_signup_required_always_free_built_with_care")}
                       </p>
                       <Link
                         href="/tools"
