@@ -5108,68 +5108,68 @@
       }
     },
     "growth": {
-      "read_compare_prefix": "Trenger du aktsomhetsvurdering for bruktbil?",
-      "read_compare_link": "Les VIN-dekoder vs. VIN-sjekk",
-      "vehicle_types_title": "Dekoding etter kjøretøytype",
-      "vehicle_types_description": "Utforsk dedikerte VIN-dekodersider for høyeatspurte kjøretøykategorier og long-tail søkehenvendelser.",
+      "read_compare_prefix": "Need used-car due diligence?",
+      "read_compare_link": "Read VIN Decoder vs VIN Check",
+      "vehicle_types_title": "Decode by Vehicle Type",
+      "vehicle_types_description": "Explore dedicated VIN decoder pages for high-demand vehicle categories and long-tail search queries.",
       "vehicle_types": {
         "motorcycle": {
-          "title": "VIN-dekoder for motorsykkel",
-          "description": "Dekod VIN-numre for motorsykler for å se motorspesifikasjoner, modellår og produsentdetaljer."
+          "title": "Motorcycle VIN Decoder",
+          "description": "Decode motorcycle VINs for engine specs, model year, and manufacturer details."
         },
         "rv": {
-          "title": "VIN-dekoder for bobil",
-          "description": "Sjekk VIN-numre for bobiler og campingvogner med offisielle datastøttede dekodinger."
+          "title": "RV VIN Decoder",
+          "description": "Check motorhome and RV VIN numbers with official data-backed decoding."
         },
         "trailer": {
-          "title": "VIN-dekoder for tilhenger",
-          "description": "Dekod VIN-numre for tilhengere for å verifisere fabrikk, modellår og byggedetaljer."
+          "title": "Trailer VIN Decoder",
+          "description": "Decode trailer VINs to verify plant, model year, and build details."
         },
         "classic-car": {
-          "title": "VIN-dekoder for veteranbil",
-          "description": "Forstå eldre VIN-formater og identifiser viktige egenskaper for veteranbiler."
+          "title": "Classic Car VIN Decoder",
+          "description": "Understand legacy VIN formats and identify key vintage vehicle attributes."
         }
       }
     },
     "comparePage": {
-      "seo_title": "VIN-dekoder vs. VIN-sjekk - Hva er forskjellen? | GeeksKai",
-      "seo_description": "Lær forskjellen mellom en VIN-dekoder og en VIN-sjekkrapport. Forstå hvilke data som er inkludert, hva hvert verktøy er best for, og når du bør bruke begge.",
+      "seo_title": "VIN-dekoder vs VIN-sjekk - Hva er forskjellen? | GeeksKai",
+      "seo_description": "Lær forskjellen mellom en VIN-dekoder og en VIN-sjekkrapport. Forstå hvilke data som er inkludert, hva hvert verktøy er best for, og når du skal bruke begge.",
       "keywords": {
         "0": "vin dekoder",
         "1": "vin dekoder vs vin sjekk",
         "2": "hva er vin sjekk",
         "3": "vin dekoder betydning",
-        "4": "vin oppslag vs vin rapport",
-        "5": "kjøretøyhistorikkrapport vs vin dekoding",
-        "6": "gratis vin dekoder",
+        "4": "vin lookup vs vin rapport",
+        "5": "kjøretøyhistorierapport vs vin-dekoding",
+        "6": "gratis vin-dekoder",
         "7": "vin nummer dekoder",
         "8": "nhtsa vin dekoder",
         "9": "vin dekoder gratis",
-        "10": "beste gratis vin dekoder",
-        "11": "vin dekoder verktøy"
+        "10": "beste gratis vin-dekoder",
+        "11": "vin dekoderverktøy"
       },
-      "og_title": "VIN-dekoder vs. VIN-sjekk - Hvilken trenger du?",
-      "og_description": "Sammenlign VIN-dekodingsdata og fulle VIN-sjekkrapporter for å velge riktig arbeidsflyt før du kjøper et brukt kjøretøy.",
-      "og_image_alt": "VIN-dekoder vs. VIN-sjekk",
-      "twitter_title": "VIN-dekoder vs. VIN-sjekk",
-      "twitter_description": "Forstå forskjellen mellom å dekode en VIN og å sjekke kjøretøyets historikk.",
-      "title": "VIN-dekoder vs. VIN-sjekk",
-      "badge": "Arbeidsflytguide for kjøp",
-      "quick_answer_label": "Hurtigsvar:",
-      "quick_answer_text": "En VIN-dekoder forteller deg hva kjøretøyet er. En VIN-sjekk hjelper deg å forstå hva som har skjedd med det kjøretøyet over tid.",
+      "og_title": "VIN-dekoder vs VIN-sjekk - hvilken trenger du?",
+      "og_description": "Sammenlign VIN-dekodedata og fullstendige VIN-sjekkrapporter for å velge riktig arbeidsflyt før du kjøper et brukt kjøretøy.",
+      "og_image_alt": "VIN-dekoder vs VIN-sjekk",
+      "twitter_title": "VIN-dekoder vs VIN-sjekk",
+      "twitter_description": "Forstå forskjellen mellom å dekode en VIN og sjekke kjøretøyets historie.",
+      "title": "VIN-dekoder vs VIN-sjekk",
+      "badge": "Arbeidsflytveiledning for kjøp",
+      "quick_answer_label": "Raskt svar:",
+      "quick_answer_text": "VIN-dekoder forteller deg hva kjøretøyet er. VIN-sjekk hjelper deg å forstå hva som skjedde med kjøretøyet over tid.",
       "last_updated_label": "Sist oppdatert:",
       "core_facts_title": "Kjernefakta",
       "core_facts": {
-        "cost": "Kostnadsutgangspunkt",
+        "cost": "Kostnadsgrunnlag",
         "cost_value": "Gratis VIN-dekoder + valgfri betalt rapport",
-        "keyword": "Primær forespørsel",
+        "keyword": "Primært søk",
         "keyword_value": "vin dekoder vs vin sjekk",
-        "decoder": "VIN-dekoder resultat",
-        "decoder_value": "Merke/modell/år/motorspesifikasjoner fra VIN-nummer dekoderlogikk",
-        "check": "VIN-sjekk resultat",
-        "check_value": "Eierskap, heftelser, ulykker og risikohistorikk"
+        "decoder": "VIN-dekoderutgang",
+        "decoder_value": "Merke/modell/år/motorspesifikasjoner fra VIN-nummerdekoderlogikk",
+        "check": "VIN-sjekk utgang",
+        "check_value": "Eierskap, tittel, ulykke og risikohistorie"
       },
-      "source_boundary_note": "Grensemerknad: VIN-dekoderdata støtter spesifikasjonsverifisering. Eierskap, heftelser og ulykkesrisiko krever fortsatt en dedikert VIN-sjekkrapport.",
+      "source_boundary_note": "Grensemerknad: VIN-dekoderdata støtter spesifikasjonsverifisering. Eierskap, tittel og ulykkesrisiko krever fortsatt en dedikert VIN-sjekkrapport.",
       "breadcrumb": {
         "home": "Hjem",
         "tools": "Verktøy",
@@ -5177,28 +5177,28 @@
       },
       "decoder_card": {
         "title": "VIN-dekoder",
-        "purpose_label": "Formål:",
-        "purpose_value": "Identifisere kjøretøyspesifikasjoner",
+        "purpose_label": "Hensikt:",
+        "purpose_value": "Identifiser kjøretøyspesifikasjoner",
         "includes_label": "Inkluderer:",
-        "includes_value": "Merke, modell, år, motor, karosseriklasse",
+        "includes_value": "Merke, modell, årgang, motor, karosseriklasse",
         "source_label": "Datakilde:",
-        "source_value": "Offisielle NHTSA/vPIC-stils oppføringer",
+        "source_value": "Offisielle NHTSA/vPIC-stilrekorder",
         "best_for_label": "Best for:",
-        "best_for_value": "Validere nøyaktigheten i annonser",
-        "cost_label": "Kostnad:",
+        "best_for_value": "Validerer oppføringens nøyaktighet",
+        "cost_label": "Koste:",
         "cost_value": "Vanligvis gratis"
       },
       "check_card": {
         "title": "VIN-sjekkrapport",
-        "purpose_label": "Formål:",
-        "purpose_value": "Vurdere historisk risiko",
+        "purpose_label": "Hensikt:",
+        "purpose_value": "Vurder historisk risiko",
         "includes_label": "Inkluderer:",
-        "includes_value": "Heftelser, ulykkeskrav, vrakpant-flagg",
+        "includes_value": "Tittelhendelser, ulykkeskrav, bergingsflagg",
         "source_label": "Datakilde:",
-        "source_value": "Kommersielle/forsikringsoppføringer",
+        "source_value": "Kommersiell/forsikringsjournal",
         "best_for_label": "Best for:",
-        "best_for_value": "Aktsomhetsvurdering ved kjøp av bruktbil",
-        "cost_label": "Kostnad:",
+        "best_for_value": "Due diligence ved kjøp av bruktbil",
+        "cost_label": "Koste:",
         "cost_value": "Ofte betalt"
       },
       "workflow_title": "Anbefalt arbeidsflyt",
@@ -5208,128 +5208,128 @@
           "text": "for å verifisere kjøretøyets identitet og tekniske spesifikasjoner."
         },
         "step2": {
-          "label": "Sammenlign annonsedetaljer",
-          "text": "med dekodet resultat for å oppdage avvik tidlig."
+          "label": "Sammenlign oppføringsdetaljer",
+          "text": "med dekodet utgang for å fange opp uoverensstemmelser tidlig."
         },
         "step3": {
           "label": "Kjør en VIN-sjekkrapport",
-          "text": "før betaling for å sjekke eierskap og ulykkeshistorikk."
+          "text": "før betaling for eierskap og ulykkeshistorikk."
         }
       },
-      "faq_title": "Ofte stilte spørsmål",
+      "faq_title": "FAQ",
       "faq": {
         "1": {
           "q": "Er en VIN-dekoder det samme som en VIN-sjekk?",
-          "a": "Nei. En VIN-dekoder identifiserer kjøretøyspesifikasjoner som merke, modell, år, motor og produksjonsdata. En VIN-sjekk inkluderer vanligvis eierskap, ulykker, heftelser, vrakpant og tyverihistorikk fra tredjepartsdatabaser."
+          "a": "Nei. En VIN-dekoder identifiserer kjøretøyspesifikasjoner som merke, modell, år, motor og produksjonsdata. En VIN-sjekk inkluderer vanligvis eierskap, ulykke, tittel, berging og tyverihistorie fra tredjeparts databaser."
         },
         "2": {
           "q": "Når bør jeg bruke en VIN-dekoder først?",
-          "a": "Bruk en VIN-dekoder først for å validere at VIN-formatet er riktig og at de annonserte spesifikasjonene stemmer overens med selgerens informasjon. Bruk deretter en VIN-sjekk hvis du trenger eierskap og historikk over hendelser."
+          "a": "Bruk en VIN-dekoder først for å validere at VIN-formatet er riktig og at de annonserte kjøretøyspesifikasjonene samsvarer med selgerinformasjonen. Bruk deretter en VIN-sjekk hvis du trenger eierskap og hendelseshistorikk."
         },
         "3": {
-          "q": "Kan jeg kjøpe en bruktbil med bare VIN-dekoderresultater?",
-          "a": "For viktige kjøp er ikke VIN-dekoderresultater alene nok. Dekoderdata bekrefter teknisk identitet, mens VIN-sjekkrapporter hjelper med å avdekke historisk risiko som ulykker eller heftelser."
+          "q": "Kan jeg kjøpe en brukt bil med kun VIN-dekoderresultater?",
+          "a": "For viktige kjøp er ikke VIN-dekoderresultater alene nok. Dekoderdata bekrefter teknisk identitet, mens VIN-sjekkrapporter hjelper til med å avsløre historiske risikoer som ulykker eller tittelproblemer."
         },
         "4": {
-          "q": "Finnes det et gratis VIN-dekoderalternativ?",
-          "a": "Ja. En gratis VIN-dekoder kan raskt identifisere merke, modell, år og tekniske spesifikasjoner. Dette er ofte det raskeste første steget før du betaler for en full rapport."
+          "q": "Er det et gratis VIN-dekoderalternativ?",
+          "a": "Ja. En gratis VIN-dekoder kan raskt identifisere merke, modell, år og tekniske spesifikasjoner. Dette er ofte det raskeste første trinnet før du betaler for en fullstendig rapport."
         },
         "5": {
-          "q": "Hva er det en VIN-nummerdekoder ikke inkluderer?",
-          "a": "Resultater fra en VIN-nummerdekoder inkluderer vanligvis ikke ulykkeshistorikk, eierskapshistorikk, pant eller vrakpantoppføringer. Disse dekkes vanligvis av VIN-sjekkrapporter."
+          "q": "Hva inkluderer ikke en VIN-nummerdekoder?",
+          "a": "VIN-nummerdekoderresultater inkluderer vanligvis ikke ulykkeshistorikk, eierskapshendelser, heftelser eller bergingsposter. Disse dekkes vanligvis av VIN-sjekkrapporter."
         },
         "6": {
           "q": "Er NHTSA VIN-dekoderdata nok for kjøpsbeslutninger?",
-          "a": "NHTSA VIN-dekoderdata er sterke for validering av identitet og spesifikasjoner. For risikovurderinger bør du kombinere det med en historikksjekk for kjøretøyet."
+          "a": "NHTSA VIN-dekoderdata er sterke for identitets- og spesifikasjonsvalidering. For risikoavgjørelser, koble den sammen med en kjøretøyhistorikk."
         },
         "7": {
-          "q": "Hva er den beste arbeidsflyten for aktsomhetsvurdering av bruktbil?",
-          "a": "Dekod først VIN-nummerdetaljene for å bekrefte at annonsen er nøyaktig. Kjør deretter en VIN-sjekkrapport for å evaluere risiko knyttet til eierskap, skader og heftelser."
+          "q": "Hva er den beste arbeidsflyten for due diligence for bruktbil?",
+          "a": "Dekod først VIN-nummerdetaljer for å bekrefte oppføringens nøyaktighet. Kjør deretter en VIN-sjekkrapport for å evaluere eierskap, skade og tittelrisiko."
         },
         "8": {
           "q": "Kan jeg bruke begge verktøyene sammen?",
-          "a": "Ja. Å kombinere resultater fra en gratis VIN-dekoder med VIN-sjekkhistorikk gir det mest komplette bildet for kjøps- eller salgsbeslutninger."
+          "a": "Ja. Å kombinere gratis VIN-dekoderutgang med VIN-sjekkhistorikk gir det mest komplette bildet for kjøps- eller salgsbeslutninger."
         },
         "9": {
-          "q": "Er en god gratis VIN-dekoder nok hvis jeg dropper VIN-sjekkrapporten?",
-          "a": "Nei. En gratis VIN-dekoder er utmerket for validering av identitet og spesifikasjoner, men en VIN-sjekkrapport er fortsatt nødvendig for informasjon om heftelser, ulykker, tyveri og eierskapsrisiko."
+          "q": "Er en beste gratis VIN-dekoder nok hvis jeg hopper over VIN-sjekkrapporten?",
+          "a": "Nei. En gratis VIN-dekoder er utmerket for identitets- og spesifikasjonsvalidering, men en VIN-sjekkrapport er fortsatt nødvendig for tittel-, ulykkes-, tyveri- og eierskapsrisikosignaler."
         }
       },
-      "boundaries_title": "Omfang og begrensninger",
+      "boundaries_title": "Omfang og grenser",
       "boundaries": {
         "1": {
           "label": "VIN-dekoder kan:",
-          "text": "verifisere identitet og dekode kjøretøyspesifikasjoner fra VIN-strukturen."
+          "text": "verifiser identitet og dekode kjøretøyspesifikasjoner fra VIN-struktur."
         },
         "2": {
           "label": "VIN-dekoder kan ikke:",
-          "text": "bekrefte ulykker, heftelser, tyveri eller eierskapshistorikk alene."
+          "text": "confirm accident, title, theft, or ownership events on its own."
         },
         "3": {
-          "label": "VIN-sjekk kan:",
-          "text": "legge til historisk risikokontekst for kjøps- og forsikringsbeslutninger."
+          "label": "VIN check can:",
+          "text": "add historical risk context for purchase and insurance decisions."
         }
       },
       "faq_summary": {
-        "1": "Nej. De løser ulike problemer: identitets-/spesifikasjonsverifisering versus risiko-/historikkverifisering.",
-        "2_q": "Bør jeg bruke begge før jeg kjøper?",
-        "2_a": "Ja. Å bruke begge gir bedre trygghet for prissetting, forhandling og forebygging av svindel."
+        "1": "No. They solve different problems: identity/spec verification versus risk/history verification.",
+        "2_q": "Should I use both before buying?",
+        "2_a": "Yes. Using both gives better confidence for pricing, negotiation, and fraud prevention."
       },
-      "cta_try": "Prøv VIN-dekoder",
-      "cta_explore_types": "Utforsk kjøretøytyper"
+      "cta_try": "Try VIN Decoder",
+      "cta_explore_types": "Explore Vehicle Types"
     },
     "vehicleTypePage": {
-      "badge_suffix": "Side for VIN-søkeintensjon",
+      "badge_suffix": "VIN Search Intent Page",
       "last_updated_label": "Sist oppdatert:",
-      "core_facts_title": "Kjernefakta for rask AI-henting",
+      "core_facts_title": "Core facts for quick AI retrieval",
       "core_fact": {
-        "primary_keyword": "Primært nøkkelord",
-        "cost": "Kostnad",
-        "cost_value": "Gratis VIN-dekoder",
-        "source": "Datakilde",
-        "source_value": "Referansedata fra NHTSA vPIC",
-        "intent": "Intensjonstype",
-        "intent_value": "Informasjons- og kommersiell VIN-søkeintensjon"
+        "primary_keyword": "Primary keyword",
+        "cost": "Cost",
+        "cost_value": "Free VIN decoder",
+        "source": "Data source",
+        "source_value": "NHTSA vPIC reference data",
+        "intent": "Intent type",
+        "intent_value": "Informational + commercial VIN lookup intent"
       },
-      "source_boundary_note": "Grensemerknad: VIN-dekoding validerer tekniske identitetsfelt. Det erstatter ikke betalte datasett for kjøretøyhistorikk.",
-      "best_use_cases_title": "Beste bruksområder",
-      "quick_answer_title": "Hurtigsvar",
-      "direct_answer_label": "Direktesvar:",
-      "quick_answer_text": "Du kan bruke denne VIN-dekodersiden for å matche søk med høy intensitet og deretter dekode VIN-numre umiddelbart via det",
-      "main_tool_link": "viktigste VIN-verktøyet",
-      "quick_answer_suffix": "Det er gratis, ingen registrering, og støttes av offisielle data fra NHTSA.",
-      "faq_title": "Ofte stilte spørsmål",
+      "source_boundary_note": "Boundary note: VIN decoding validates technical identity fields. It does not replace paid vehicle history datasets.",
+      "best_use_cases_title": "Best use cases",
+      "quick_answer_title": "Quick answer",
+      "direct_answer_label": "Direct answer:",
+      "quick_answer_text": "You can use this VIN decoder page to match high-intent queries and then decode VINs instantly via the",
+      "main_tool_link": "main VIN tool",
+      "quick_answer_suffix": "It is free, no registration, and backed by official NHTSA data.",
+      "faq_title": "FAQ",
       "common_faq": {
         "1": {
-          "q": "Er dette en gratis VIN-dekoder for denne kjøretøytypen?",
-          "a": "Ja. Denne siden er designet for å støtte arbeidsflyter for gratis VIN-dekoding og lenker direkte til vårt gratis VIN-oppslagsverktøy."
+          "q": "Is this a free VIN decoder for this vehicle type?",
+          "a": "Yes. This page is designed to support free VIN decoder workflows and links directly to our free VIN lookup tool."
         },
         "2": {
-          "q": "Kan jeg bruke dette som en VIN-nummerdekoder?",
-          "a": "Ja. VIN-dekoder og VIN-nummerdekoder brukes ofte som likeverdige søkebegreper. Denne siden støtter begge termene."
+          "q": "Can I use this like a VIN number decoder?",
+          "a": "Yes. VIN decoder and VIN number decoder are commonly used as equivalent search intents. This page supports both terms."
         },
         "3": {
-          "q": "Bruker dette offisielle NHTSA VIN-dekoderdata?",
-          "a": "Vår arbeidsflyt for VIN-dekoding refererer til offisielle NHTSA vPIC-data for matching av kjerne-spesifikasjoner for kjøretøy."
+          "q": "Does this use official NHTSA VIN decoder data?",
+          "a": "Our VIN decoding workflow references official NHTSA vPIC data for core vehicle specification matching."
         },
         "4": {
-          "q": "Hva om min VIN ikke er på 17 tegn?",
-          "a": "De fleste moderne kjøretøy bruker 17-tegns VIN-numre. Eldre eller spesielle kjøretøy kan kreve veiledning for eldre dekodingsformater."
+          "q": "What if my VIN is not 17 characters?",
+          "a": "Most modern vehicles use 17-character VINs. Older or special vehicles may require legacy decoding guidance."
         },
         "5": {
-          "q": "Kan dette erstatte en full VIN-sjekkrapport?",
-          "a": "Nei. VIN-dekoding verifiserer kjøretøyets identitet/spesifikasjoner. En VIN-sjekkrapport er fortsatt nødvendig for ulykkes-, heftelses- og eierskapshistorikk."
+          "q": "Can this replace a full VIN check report?",
+          "a": "No. VIN decoding verifies vehicle identity/specs. A VIN check report is still needed for accident, title, and ownership history."
         },
         "6": {
-          "q": "Hvor bør jeg starte før jeg kjøper et brukt kjøretøy?",
-          "a": "Start med å dekode VIN-nummeret for å bekrefte spesifikasjoner, og kjør deretter en VIN-sjekkrapport for risiko og historiske hendelser."
+          "q": "Where should I start before buying a used vehicle?",
+          "a": "Start with decoding the VIN number to verify specs, then run a VIN check report for risk and historical events."
         }
       },
-      "related_brand_title": "Relaterte merke-dekodere",
-      "related_brand_description": "Hopp til populære merkespesifikke VIN-sider for raskere oppslag.",
+      "related_brand_title": "Related Brand Decoders",
+      "related_brand_description": "Jump into popular brand-specific VIN pages for faster lookup workflows.",
       "brand_decoder_suffix": "VIN-dekoder",
-      "cta_decode_now": "Dekod en VIN nå",
-      "cta_compare": "Sammenlign VIN-dekoder vs. VIN-sjekk",
+      "cta_decode_now": "Decode a VIN Now",
+      "cta_compare": "Compare VIN Decoder vs VIN Check",
       "breadcrumb": {
         "home": "Hjem",
         "tools": "Verktøy",
@@ -5337,122 +5337,122 @@
       },
       "types": {
         "motorcycle": {
-          "name": "Motorsykkel",
-          "title": "VIN-dekoder for motorsykkel - Gratis VIN-oppslag for sykler | GeeksKai",
-          "description": "Gratis VIN-dekoder for motorsykkel for øyeblikkelig oppslag. Dekod VIN-numre for å se modellår, produsent, motordetaljer og nøkkelspesifikasjoner.",
-          "h1": "VIN-dekoder for motorsykkel",
+          "name": "Motorcycle",
+          "title": "Motorcycle VIN Decoder - Free VIN Lookup for Bikes | GeeksKai",
+          "description": "Free motorcycle VIN decoder for instant VIN lookup. Decode bike VIN numbers to view model year, manufacturer, engine details, and key specifications.",
+          "h1": "Motorcycle VIN Decoder",
           "keywords": {
-            "1": "motorsykkel vin dekoder",
-            "2": "sykkel vin oppslag",
-            "3": "motorsykkel vin sjekk",
-            "4": "dekode sykkel vin",
-            "5": "harley vin dekoder",
-            "6": "yamaha vin dekoder",
-            "7": "atv vin dekoder",
-            "8": "harley davidson vin dekoder"
+            "1": "motorcycle vin decoder",
+            "2": "bike vin lookup",
+            "3": "motorcycle vin check",
+            "4": "decode bike vin",
+            "5": "harley vin decoder",
+            "6": "yamaha vin decoder",
+            "7": "atv vin decoder",
+            "8": "harley davidson vin decoder"
           },
           "use_cases": {
-            "1": "Sjekk spesifikasjoner for brukt motorsykkel før kjøp",
-            "2": "Verifiser VIN-år og merke for forsikring",
-            "3": "Bekreft produsentinformasjon fra WMI",
-            "4": "Eksporter dekodede detaljer for vedlikeholdshistorikk"
+            "1": "Check used motorcycle specs before buying",
+            "2": "Verify VIN year and make for insurance",
+            "3": "Confirm manufacturer information from WMI",
+            "4": "Export decoded details for maintenance records"
           },
           "faq": {
             "1": {
-              "q": "Kan jeg dekode hvilken som helst 17-tegns VIN for motorsykkel?",
-              "a": "Ja. De fleste moderne motorsykler bruker et 17-tegns VIN-format og kan dekodes med dette verktøyet."
+              "q": "Can I decode any 17-character motorcycle VIN?",
+              "a": "Yes. Most modern motorcycles use a 17-character VIN format and can be decoded with this tool."
             },
             "2": {
-              "q": "Hvilke detaljer kan jeg få fra en motorsykkel-VIN?",
-              "a": "Du kan hente ut nøkkeldata som modellår, merke, produsentinformasjon og tilgjengelige tekniske egenskaper."
+              "q": "What details can I get from a motorcycle VIN?",
+              "a": "You can retrieve key data such as model year, make, manufacturer information, and available technical attributes."
             }
           }
         },
         "rv": {
-          "name": "Bobil",
-          "title": "VIN-dekoder for bobil - Gratis oppslag for campingvogner | GeeksKai",
-          "description": "Gratis VIN-dekoder for bobiler og fritidskjøretøy. Dekod VIN-numre for å sjekke år, produsentdetaljer og kjerne-spesifikasjoner.",
-          "h1": "VIN-dekoder for bobil",
+          "name": "RV",
+          "title": "RV VIN Decoder - Free Motorhome VIN Lookup | GeeksKai",
+          "description": "Free RV VIN decoder for motorhomes and recreational vehicles. Decode RV VINs to check year, manufacturer details, and core vehicle specs.",
+          "h1": "RV VIN Decoder",
           "keywords": {
-            "1": "bobil vin dekoder",
-            "2": "rv vin nummer dekoder",
-            "3": "campingvogn vin oppslag",
-            "4": "camper vin sjekk",
-            "5": "gratis bobil vin dekoder"
+            "1": "rv vin decoder",
+            "2": "rv vin number decoder",
+            "3": "motorhome vin lookup",
+            "4": "camper vin check",
+            "5": "free rv vin decoder"
           },
           "use_cases": {
-            "1": "Valider bobilens identitet før kjøp",
-            "2": "Sjekk modellår for registrering og forsikring",
-            "3": "Verifiser produsent- og fabrikkdata",
-            "4": "Lagre dekodede data for flåtestyring"
+            "1": "Validate RV identity before purchase",
+            "2": "Check model year for registration and insurance",
+            "3": "Verify manufacturer and plant data",
+            "4": "Store decoded data for fleet operations"
           },
           "faq": {
             "1": {
-              "q": "Fungerer dette for bobiler og campere?",
-              "a": "Ja. VIN-dekoding for bobil støtter mange bobiler og fritidskøretøy med standard VIN-formater."
+              "q": "Does this work for motorhomes and campers?",
+              "a": "Yes. RV VIN decoding supports many motorhomes and recreational vehicles with standard VIN formats."
             },
             "2": {
-              "q": "Er VIN-dekoderen for bobil gratis?",
-              "a": "Ja. Dette verktøyet er gratis å bruke uten krav om registrering."
+              "q": "Is the RV VIN decoder free?",
+              "a": "Yes. This tool is free to use with no signup requirement."
             }
           }
         },
         "trailer": {
-          "name": "Tilhenger",
-          "title": "VIN-dekoder for tilhenger - Gratis VIN-sjekk for tilhenger | GeeksKai",
-          "description": "Gratis VIN-dekoder for tilhenger for raskt oppslag. Dekod VIN-numre for å verifisere produsentdetaljer, modellår og identifikasjonsegenskaper.",
-          "h1": "VIN-dekoder for tilhenger",
+          "name": "Trailer",
+          "title": "Trailer VIN Decoder - Free Trailer VIN Check | GeeksKai",
+          "description": "Free trailer VIN decoder for quick VIN lookup. Decode trailer VINs to verify manufacturer details, model year, and identification attributes.",
+          "h1": "Trailer VIN Decoder",
           "keywords": {
-            "1": "tilhenger vin dekoder",
-            "2": "tilhenger vin nummer dekoder",
-            "3": "travel trailer vin dekoder",
-            "4": "tilhenger vin oppslag",
-            "5": "tilhenger vin sjekk",
-            "6": "dekode tilhenger vin"
+            "1": "trailer vin decoder",
+            "2": "trailer vin number decoder",
+            "3": "travel trailer vin decoder",
+            "4": "trailer vin lookup",
+            "5": "trailer vin check",
+            "6": "decode trailer vin"
           },
           "use_cases": {
-            "1": "Verifiser tilhengerens VIN før omregistrering",
-            "2": "Bekreft år og fabrikkdetaljer",
-            "3": "Kryssjekk oppføringer for samsvar",
-            "4": "Eksporter VIN-rapporter for tilhenger på sekunder"
+            "1": "Verify trailer VIN before transfer",
+            "2": "Confirm year and plant details",
+            "3": "Cross-check records for compliance",
+            "4": "Export trailer VIN reports in seconds"
           },
           "faq": {
             "1": {
-              "q": "Kan denne dekode VIN-numre for nytte- og varehengere?",
-              "a": "Ja. Mange tilhengertyper som bruker et standard VIN-format kan dekodes for viktige identifikasjonsfelt."
+              "q": "Can this decode utility and cargo trailer VINs?",
+              "a": "Yes. Many trailer types using a standard VIN format can be decoded for key identification fields."
             },
             "2": {
-              "q": "Hva om noen felt for tilhengeren mangler?",
-              "a": "Datatilgjengelighet varierer etter produsent og modellår. Enkelte oppføringer kan ha delvise detaljer."
+              "q": "What if some trailer fields are missing?",
+              "a": "Data availability varies by manufacturer and model year. Some records may have partial details."
             }
           }
         },
         "classic-car": {
-          "name": "Veteranbil",
-          "title": "VIN-dekoder for veteranbil - Guide for eldre kjøretøy | GeeksKai",
-          "description": "Guide for VIN-dekoding av veteranbiler med støtte for mange eldre og moderne VIN-formater. Dekod identifikatoren for veteranbiler og verifiser nøkkeldetaljer.",
-          "h1": "VIN-dekoder for veteranbil",
+          "name": "Classic Car",
+          "title": "Classic Car VIN Decoder - Vintage Vehicle VIN Guide | GeeksKai",
+          "description": "Classic car VIN decoder guide with lookup support for many legacy and modern VIN formats. Decode vintage vehicle identifiers and verify key details.",
+          "h1": "Classic Car VIN Decoder",
           "keywords": {
-            "1": "veteranbil vin dekoder",
-            "2": "klassisk vin nummer dekoder",
-            "3": "vintage vin oppslag",
-            "4": "gammel bil vin sjekk",
-            "5": "veteranbil identifikasjon"
+            "1": "classic car vin decoder",
+            "2": "classic vin number decoder",
+            "3": "vintage vin lookup",
+            "4": "old car vin check",
+            "5": "classic vehicle identification"
           },
           "use_cases": {
-            "1": "Undersøk identiteten til veteranbiler",
-            "2": "Valider år og produsent-spor",
-            "3": "Forbered dokumentasjon for restaureringsprosjekter",
-            "4": "Registrer dekodede spesifikasjoner for arkivoppføringer"
+            "1": "Research vintage vehicle identity",
+            "2": "Validate year and manufacturer clues",
+            "3": "Prepare documentation for restoration projects",
+            "4": "Capture decoded specs for archival records"
           },
           "faq": {
             "1": {
-              "q": "Bruker alle veteranbiler 17-tegns VIN-numre?",
-              "a": "Nei. Mange eldre kjøretøy bruker kortere, eldre identifikatorer. Moderniserte oppføringer kan fortsatt kartlegge nyttig data der det er tilgjengelig."
+              "q": "Do all classic cars use 17-character VINs?",
+              "a": "No. Many older vehicles use shorter legacy identifiers. Modernized records may still map useful data where available."
             },
             "2": {
-              "q": "Kan jeg fortsatt bruke denne til research på veteranbiler?",
-              "a": "Ja. Det er nyttig for å sjekke tilgjengelig VIN-data og forstå hvilke felt som kan valideres for eldre biler."
+              "q": "Can I still use this for classic vehicle research?",
+              "a": "Yes. It is useful for checking available VIN data and understanding what fields can be validated for older cars."
             }
           }
         }

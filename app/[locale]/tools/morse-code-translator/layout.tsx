@@ -4,7 +4,7 @@ import { supportedLocales } from "app/i18n/routing"
 import { getTranslations } from "next-intl/server"
 
 const BASE_URL = "https://geekskai.com"
-const TOOL_PATH = "/morse-code-translator/"
+const TOOL_PATH = "/tools/morse-code-translator/"
 const LAST_MODIFIED = new Date("2026-03-04")
 const FAQ_ITEM_KEYS = [
   "faq_1",

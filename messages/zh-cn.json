@@ -1682,12 +1682,22 @@
         "standards_section": {
           "title": "北欧测量标准",
           "description": "我们的厘米转Tommer转换器遵循丹麦、挪威和国际贸易中使用的官方北欧测量标准。该工具提供精确转换，对建筑、制造和国际贸易中的专业应用至关重要。",
-          "features": ["官方北欧测量标准", "建筑行业合规性", "国际贸易规格", "质量控制测量"]
+          "features": [
+            "官方北欧测量标准",
+            "建筑行业合规性",
+            "国际贸易规格",
+            "质量控制测量"
+          ]
         },
         "features_section": {
           "title": "专业转换功能",
           "description": "专为需要准确可靠tommer转换的专业人士设计，用于商业应用。我们的工具支持各种精度级别，并提供即时结果以实现高效的工作流程集成。",
-          "features": ["精度控制（0-3位小数）", "即时转换结果", "复制粘贴功能", "移动友好界面"]
+          "features": [
+            "精度控制（0-3位小数）",
+            "即时转换结果",
+            "复制粘贴功能",
+            "移动友好界面"
+          ]
         }
       }
     },
@@ -2103,7 +2113,12 @@
         }
       ]
     },
-    "feature_list": ["经典删除线效果", "波浪下划线效果", "一键复制粘贴流程", "快速浏览器转换"],
+    "feature_list": [
+      "经典删除线效果",
+      "波浪下划线效果",
+      "一键复制粘贴流程",
+      "快速浏览器转换"
+    ],
     "feature_list_schemas": [
       "删除线文本转换",
       "波浪下划线文本转换",
@@ -2123,7 +2138,12 @@
     "best_for": "迷因创作者、恐怖主题帖子和游戏社区",
     "key_benefit": "快速生成故障文本，并提供更安全的可读备选项",
     "default_input": "SYSTEM ERROR // REALITY COLLAPSE",
-    "use_cases": ["恐怖和怪异的社交标题", "迷因和反应文本", "游戏和直播公告样式", "实验性视觉排版"],
+    "use_cases": [
+      "恐怖和怪异的社交标题",
+      "迷因和反应文本",
+      "游戏和直播公告样式",
+      "实验性视觉排版"
+    ],
     "boundaries": [
       "密集的组合字符可能会损害可读性和辅助功能。",
       "某些应用可能会规范化或抑制极端的组合序列。",
@@ -2191,7 +2211,12 @@
       "一键复制输出",
       "仅限浏览器的转换工作流"
     ],
-    "feature_list_schemas": ["故障组合字符", "多种变形预设", "复制并粘贴输出", "迷因和社交用例"]
+    "feature_list_schemas": [
+      "故障组合字符",
+      "多种变形预设",
+      "复制并粘贴输出",
+      "迷因和社交用例"
+    ]
   },
   "VaporwaveTextGenerator": {
     "seo_title": "蒸汽波文本生成器 (2026) - 全角美学文字",
@@ -2205,7 +2230,12 @@
     "best_for": "美学创作者、复古风格个人资料和短篇标题",
     "key_benefit": "无需外部应用程序即可即时实现全角样式",
     "default_input": "美学互联网档案",
-    "use_cases": ["美学个人简介", "复古标题样式", "表情包文本装饰", "创意标题格式化"],
+    "use_cases": [
+      "美学个人简介",
+      "复古标题样式",
+      "表情包文本装饰",
+      "创意标题格式化"
+    ],
     "boundaries": [
       "并非所有标点符号和符号都有全角版本。",
       "某些平台在某些情况下会标准化间距。",
@@ -2267,8 +2297,18 @@
         }
       ]
     },
-    "feature_list": ["全角转换", "美学文本样式", "复制并粘贴输出", "基于浏览器的流程"],
-    "feature_list_schemas": ["全角蒸汽波输出", "简单的一键复制", "易读的美学样式", "社交媒体用例"]
+    "feature_list": [
+      "全角转换",
+      "美学文本样式",
+      "复制并粘贴输出",
+      "基于浏览器的流程"
+    ],
+    "feature_list_schemas": [
+      "全角蒸汽波输出",
+      "简单的一键复制",
+      "易读的美学样式",
+      "社交媒体用例"
+    ]
   },
   "FancyTextGenerator": {
     "seo_title": "花式字体生成器 (2026) - 复制粘贴 Unicode 字体",
@@ -2349,8 +2389,18 @@
         }
       ]
     },
-    "feature_list": ["多种 Unicode 字体样式", "一键复制", "样式组合", "社交媒体就绪输出"],
-    "feature_list_schemas": ["手写体和粗体样式", "德文尖角体和空心体", "复制粘贴输出", "可组合效果"]
+    "feature_list": [
+      "多种 Unicode 字体样式",
+      "一键复制",
+      "样式组合",
+      "社交媒体就绪输出"
+    ],
+    "feature_list_schemas": [
+      "手写体和粗体样式",
+      "德文尖角体和空心体",
+      "复制粘贴输出",
+      "可组合效果"
+    ]
   },
   "DiscordFontGenerator": {
     "seo_title": "Discord 字体生成器 (2026) - 复制并粘贴时尚的 Discord 文本",
@@ -2364,7 +2414,12 @@
     "best_for": "Discord 社区、游戏玩家标签和服务器个人资料自定义",
     "key_benefit": "具有即时复制工作流程的 Discord 专用样式预设",
     "default_input": "今晚突袭 20:00 UTC",
-    "use_cases": ["Discord 昵称样式", "个人资料简介装饰", "服务器公告格式化", "游戏身份自定义"],
+    "use_cases": [
+      "Discord 昵称样式",
+      "个人资料简介装饰",
+      "服务器公告格式化",
+      "游戏身份自定义"
+    ],
     "boundaries": [
       "无法绕过服务器审核或阻止的字符策略。",
       "某些频道或机器人可能会对特殊字符进行规范化处理。",
@@ -2426,7 +2481,12 @@
         }
       ]
     },
-    "feature_list": ["Discord 友好型 Unicode 样式", "昵称和消息场景", "一键复制", "可组合效果"],
+    "feature_list": [
+      "Discord 友好型 Unicode 样式",
+      "昵称和消息场景",
+      "一键复制",
+      "可组合效果"
+    ],
     "feature_list_schemas": [
       "昵称就绪型文本样式",
       "消息格式变体",
@@ -5185,351 +5245,351 @@
       }
     },
     "growth": {
-      "read_compare_prefix": "需要对二手车进行尽职调查吗？",
-      "read_compare_link": "阅读 VIN 解码器 vs VIN 查询对比",
-      "vehicle_types_title": "按车辆类型解码",
-      "vehicle_types_description": "探索针对高需求车辆类别和长尾搜索查询的专用 VIN 解码页面。",
+      "read_compare_prefix": "Need used-car due diligence?",
+      "read_compare_link": "Read VIN Decoder vs VIN Check",
+      "vehicle_types_title": "Decode by Vehicle Type",
+      "vehicle_types_description": "Explore dedicated VIN decoder pages for high-demand vehicle categories and long-tail search queries.",
       "vehicle_types": {
         "motorcycle": {
-          "title": "摩托车 VIN 解码器",
-          "description": "解码摩托车 VIN 以获取发动机规格、车型年份和制造商详情。"
+          "title": "Motorcycle VIN Decoder",
+          "description": "Decode motorcycle VINs for engine specs, model year, and manufacturer details."
         },
         "rv": {
-          "title": "房车 (RV) VIN 解码器",
-          "description": "通过官方数据支持的解码检查房车和 RV 的 VIN 号码。"
+          "title": "RV VIN Decoder",
+          "description": "Check motorhome and RV VIN numbers with official data-backed decoding."
         },
         "trailer": {
-          "title": "挂车 VIN 解码器",
-          "description": "解码挂车 VIN 以验证工厂、车型年份和制造详情。"
+          "title": "Trailer VIN Decoder",
+          "description": "Decode trailer VINs to verify plant, model year, and build details."
         },
         "classic-car": {
-          "title": "老爷车 VIN 解码器",
-          "description": "了解旧式 VIN 格式并识别经典车辆的关键属性。"
+          "title": "Classic Car VIN Decoder",
+          "description": "Understand legacy VIN formats and identify key vintage vehicle attributes."
         }
       }
     },
     "comparePage": {
-      "seo_title": "VIN 解码器 vs VIN 查询 - 有什么区别？ | GeeksKai",
-      "seo_description": "了解 VIN 解码器和 VIN 报告/查询之间的区别。了解包含哪些数据、每种工具最适合什么以及何时两者都需要使用。",
+      "seo_title": "VIN Decoder vs VIN Check - What's the Difference? | GeeksKai",
+      "seo_description": "Learn the difference between a VIN decoder and a VIN check report. Understand what data is included, what each tool is best for, and when to use both.",
       "keywords": {
-        "0": "vin 解码器",
-        "1": "vin 解码器 vs vin 查询",
-        "2": "什么是 vin 查询",
-        "3": "vin 解码器含义",
-        "4": "vin 查询 vs vin 报告",
-        "5": "车辆历史报告 vs vin 解码",
-        "6": "免费 vin 解码器",
-        "7": "vin 号码解码器",
-        "8": "nhtsa vin 解码器",
-        "9": "vin 解码器免费",
-        "10": "最好的免费 vin 解码器",
-        "11": "vin 解码工具"
+        "0": "vin decoder",
+        "1": "vin decoder vs vin check",
+        "2": "what is vin check",
+        "3": "vin decoder meaning",
+        "4": "vin lookup vs vin report",
+        "5": "vehicle history report vs vin decode",
+        "6": "free vin decoder",
+        "7": "vin number decoder",
+        "8": "nhtsa vin decoder",
+        "9": "vin decoder free",
+        "10": "best free vin decoder",
+        "11": "vin decoder tool"
       },
-      "og_title": "VIN 解码器 vs VIN 查询 - 您需要哪一个？",
-      "og_description": "在购买二手车之前，通过对比 VIN 解码数据和完整的 VIN 报告来选择正确的流程。",
-      "og_image_alt": "VIN 解码器对比 VIN 查询",
-      "twitter_title": "VIN 解码器 vs VIN 查询",
-      "twitter_description": "了解解码 VIN 和查询车辆历史之间的区别。",
-      "title": "VIN 解码器 vs VIN 查询",
-      "badge": "购车流程指南",
-      "quick_answer_label": "快速回答：",
-      "quick_answer_text": "VIN 解码器告诉您这车辆“是什么”。VIN 查询（报告）则帮助您了解这辆车随时间推移“发生了什么”。",
-      "last_updated_label": "最后更新：",
-      "core_facts_title": "核心事实",
+      "og_title": "VIN Decoder vs VIN Check - Which One Do You Need?",
+      "og_description": "Compare VIN decode data and full VIN check reports to choose the right workflow before buying a used vehicle.",
+      "og_image_alt": "VIN Decoder vs VIN Check",
+      "twitter_title": "VIN Decoder vs VIN Check",
+      "twitter_description": "Understand the difference between decoding a VIN and checking vehicle history.",
+      "title": "VIN Decoder vs VIN Check",
+      "badge": "Buying Workflow Guide",
+      "quick_answer_label": "Quick answer:",
+      "quick_answer_text": "VIN decoder tells you what the vehicle is. VIN check helps you understand what happened to that vehicle over time.",
+      "last_updated_label": "Last updated:",
+      "core_facts_title": "Core facts",
       "core_facts": {
-        "cost": "成本基准",
-        "cost_value": "免费 VIN 解码器 + 可选付费报告",
-        "keyword": "主要查询",
-        "keyword_value": "vin 解码器 vs vin 查询",
-        "decoder": "VIN 解码器输出内容",
-        "decoder_value": "通过 VIN 逻辑获取品牌/型号/年份/发动机规格",
-        "check": "VIN 查询输出内容",
-        "check_value": "所有权、权属、事故和风险历史"
+        "cost": "Cost baseline",
+        "cost_value": "Free VIN decoder + optional paid report",
+        "keyword": "Primary query",
+        "keyword_value": "vin decoder vs vin check",
+        "decoder": "VIN decoder output",
+        "decoder_value": "Make/model/year/engine specs from VIN number decoder logic",
+        "check": "VIN check output",
+        "check_value": "Ownership, title, accident, and risk history"
       },
-      "source_boundary_note": "边界说明：VIN 解码器数据支持规格验证。所有权、权属和事故风险仍需要专门的 VIN 查询报告。",
+      "source_boundary_note": "Boundary note: VIN decoder data supports specification verification. Ownership, title, and accident risk still require a dedicated VIN check report.",
       "breadcrumb": {
-        "home": "首页",
-        "tools": "工具",
-        "vin_decoder": "VIN 解码器"
+        "home": "Home",
+        "tools": "Tools",
+        "vin_decoder": "VIN Decoder"
       },
       "decoder_card": {
-        "title": "VIN 解码器",
-        "purpose_label": "目的：",
-        "purpose_value": "识别车辆规格",
-        "includes_label": "包含内容：",
-        "includes_value": "品牌、型号、年份、发动机、车身类别",
-        "source_label": "数据来源：",
-        "source_value": "官方 NHTSA/vPIC 式记录",
-        "best_for_label": "最适合：",
-        "best_for_value": "验证车辆详情的准确性",
-        "cost_label": "成本：",
-        "cost_value": "通常免费"
+        "title": "VIN Decoder",
+        "purpose_label": "Purpose:",
+        "purpose_value": "Identify vehicle specs",
+        "includes_label": "Includes:",
+        "includes_value": "Make, model, year, engine, body class",
+        "source_label": "Data Source:",
+        "source_value": "Official NHTSA/vPIC style records",
+        "best_for_label": "Best For:",
+        "best_for_value": "Validating listing accuracy",
+        "cost_label": "Cost:",
+        "cost_value": "Usually free"
       },
       "check_card": {
-        "title": "VIN 查询报告",
-        "purpose_label": "目的：",
-        "purpose_value": "评估历史风险",
-        "includes_label": "包含内容：",
-        "includes_value": "权属变更、事故索赔、报废标记",
-        "source_label": "数据来源：",
-        "source_value": "商业/保险记录",
-        "best_for_label": "最适合：",
-        "best_for_value": "二手车购买尽职调查",
-        "cost_label": "成本：",
-        "cost_value": "通常为付费"
+        "title": "VIN Check Report",
+        "purpose_label": "Purpose:",
+        "purpose_value": "Assess historical risk",
+        "includes_label": "Includes:",
+        "includes_value": "Title events, accident claims, salvage flags",
+        "source_label": "Data Source:",
+        "source_value": "Commercial/insurance records",
+        "best_for_label": "Best For:",
+        "best_for_value": "Used-car purchase due diligence",
+        "cost_label": "Cost:",
+        "cost_value": "Often paid"
       },
-      "workflow_title": "推荐流程",
+      "workflow_title": "Recommended workflow",
       "workflow": {
         "step1": {
-          "label": "首先解码 VIN",
-          "text": "以验证车辆身份和技术规格。"
+          "label": "Decode VIN first",
+          "text": "to verify the vehicle identity and technical specs."
         },
         "step2": {
-          "label": "对比详情内容",
-          "text": "将解码输出与卖方详情对比，及早发现异常。"
+          "label": "Compare listing details",
+          "text": "with decoded output to catch mismatches early."
         },
         "step3": {
-          "label": "运行 VIN 查询报告",
-          "text": "在支付前了解所有权和事故历史。"
+          "label": "Run a VIN check report",
+          "text": "before payment for ownership and accident history."
         }
       },
-      "faq_title": "常问问题",
+      "faq_title": "FAQ",
       "faq": {
         "1": {
-          "q": "VIN 解码器和 VIN 查询是一回事吗？",
-          "a": "不。VIN 解码器识别车辆规格，如品牌、型号、年份、发动机和制造数据。而 VIN 查询通常包括来自第三方数据库的所有权、事故、权属、报废和盗窃历史。"
+          "q": "Is a VIN decoder the same as a VIN check?",
+          "a": "No. A VIN decoder identifies vehicle specifications like make, model, year, engine, and manufacturing data. A VIN check usually includes ownership, accident, title, salvage, and theft history from third-party databases."
         },
         "2": {
-          "q": "我什么时候应该先使用 VIN 解码器？",
-          "a": "首先使用 VIN 解码器验证 VIN 格式是否正确，以及广告中的车辆参数是否与卖方信息匹配。如果您随后需要所有权和事故记录，再使用 VIN 查询。"
+          "q": "When should I use a VIN decoder first?",
+          "a": "Use a VIN decoder first to validate that the VIN format is correct and that the advertised vehicle specs match the seller information. Then use a VIN check if you need ownership and incident history."
         },
         "3": {
-          "q": "我可以只凭 VIN 解码结果就买二手车吗？",
-          "a": "对于重要的购买，仅凭 VIN 解码结果是不够的。解码数据确认的是技术身份，而 VIN 查询报告有助于揭示历史风险，如事故或权属问题。"
+          "q": "Can I buy a used car with only VIN decoder results?",
+          "a": "For important purchases, VIN decoder results alone are not enough. Decoder data confirms technical identity, while VIN check reports help reveal historical risks such as accidents or title issues."
         },
         "4": {
-          "q": "有没有免费的 VIN 解码器选项？",
-          "a": "有。免费的 VIN 解码器可以快速识别品牌、型号、年份和技术参数。这通常是在支付完整报告前最快的第一步。"
+          "q": "Is there a free VIN decoder option?",
+          "a": "Yes. A free VIN decoder can quickly identify make, model, year, and technical specs. This is often the fastest first step before paying for a full report."
         },
         "5": {
-          "q": "VIN 号码解码器不包括什么？",
-          "a": "VIN 号码解码结果通常不包括事故历史、所有权变更、抵押或报废记录。这些通常由 VIN 查询报告覆盖。"
+          "q": "What does a VIN number decoder not include?",
+          "a": "VIN number decoder results usually do not include accident history, ownership events, liens, or salvage records. Those are typically covered by VIN check reports."
         },
         "6": {
-          "q": "NHTSA VIN 解码数据对于购车决策足够吗？",
-          "a": "NHTSA VIN 解码数据在身份和规格验证方面非常强大。对于风险决策，请将其与车辆历史查询结合使用。"
+          "q": "Is NHTSA VIN decoder data enough for purchase decisions?",
+          "a": "NHTSA VIN decoder data is strong for identity and specification validation. For risk decisions, pair it with a vehicle history check."
         },
         "7": {
-          "q": "二手车尽职调查的最佳流程是什么？",
-          "a": "首先解码 VIN 号码详情以验证信息准确性。然后运行 VIN 查询报告以评估所有权、损坏和权属风险。"
+          "q": "What is the best workflow for used car due diligence?",
+          "a": "First decode VIN number details to verify listing accuracy. Then run a VIN check report to evaluate ownership, damage, and title risks."
         },
         "8": {
-          "q": "我可以同时使用这两个工具吗？",
-          "a": "可以。将免费 VIN 解码器的输出与 VIN 查询的历史记录相结合，可以为买卖决策提供最全的信息。"
+          "q": "Can I use both tools together?",
+          "a": "Yes. Combining free VIN decoder output with VIN check history gives the most complete picture for buying or selling decisions."
         },
         "9": {
-          "q": "如果我跳过 VIN 查询报告，最好的免费 VIN 解码器够用吗？",
-          "a": "不够。免费 VIN 解码器在身份和规格验证方面非常出色，但仍需要 VIN 查询报告来提供权属、事故、盗窃和所有权风险信号。"
+          "q": "Is a best free VIN decoder enough if I skip the VIN check report?",
+          "a": "No. A free VIN decoder is excellent for identity and spec validation, but a VIN check report is still needed for title, accident, theft, and ownership risk signals."
         }
       },
-      "boundaries_title": "范围和界限",
+      "boundaries_title": "Scope and boundaries",
       "boundaries": {
         "1": {
-          "label": "VIN 解码器可以：",
-          "text": "从 VIN 结构中验证身份并解码车辆规格。"
+          "label": "VIN decoder can:",
+          "text": "verify identity and decode vehicle specs from VIN structure."
         },
         "2": {
-          "label": "VIN 解码器不可以：",
-          "text": "单独确认事故、权属、盗窃或所有权事件。"
+          "label": "VIN decoder cannot:",
+          "text": "confirm accident, title, theft, or ownership events on its own."
         },
         "3": {
-          "label": "VIN 查询可以：",
-          "text": "为购买和保险决策添加历史风险背景。"
+          "label": "VIN check can:",
+          "text": "add historical risk context for purchase and insurance decisions."
         }
       },
       "faq_summary": {
-        "1": "不。它们解决不同的问题：身份/规格验证 vs 风险/历史验证。",
-        "2_q": "买车前我应该两样都用吗？",
-        "2_a": "是的。两者结合使用能为定价、谈判和预防欺诈提供更好的信心。"
+        "1": "No. They solve different problems: identity/spec verification versus risk/history verification.",
+        "2_q": "Should I use both before buying?",
+        "2_a": "Yes. Using both gives better confidence for pricing, negotiation, and fraud prevention."
       },
-      "cta_try": "尝试 VIN 解码器",
-      "cta_explore_types": "探索车辆类型"
+      "cta_try": "Try VIN Decoder",
+      "cta_explore_types": "Explore Vehicle Types"
     },
     "vehicleTypePage": {
-      "badge_suffix": "VIN 搜索意图页面",
-      "last_updated_label": "最后更新时间：",
-      "core_facts_title": "快速 AI 检索核心事实",
+      "badge_suffix": "VIN Search Intent Page",
+      "last_updated_label": "Last updated:",
+      "core_facts_title": "Core facts for quick AI retrieval",
       "core_fact": {
-        "primary_keyword": "主要关键词",
-        "cost": "费用",
-        "cost_value": "免费 VIN 解码器",
-        "source": "数据来源",
-        "source_value": "NHTSA vPIC 参考数据",
-        "intent": "意图类型",
-        "intent_value": "信息性 + 商业性 VIN 查询意图"
+        "primary_keyword": "Primary keyword",
+        "cost": "Cost",
+        "cost_value": "Free VIN decoder",
+        "source": "Data source",
+        "source_value": "NHTSA vPIC reference data",
+        "intent": "Intent type",
+        "intent_value": "Informational + commercial VIN lookup intent"
       },
-      "source_boundary_note": "边界说明：VIN 解码验证技术身份字段。它不能取代付费的车辆历史数据集。",
-      "best_use_cases_title": "最佳使用场景",
-      "quick_answer_title": "快速回答",
-      "direct_answer_label": "直接回答：",
-      "quick_answer_text": "您可以使用此 VIN 解码器页面匹配高意图查询，然后通过",
-      "main_tool_link": "主 VIN 工具",
-      "quick_answer_suffix": "立即解码 VIN。它是免费的，无需注册，并由官方 NHTSA 数据支持。",
-      "faq_title": "常见问题",
+      "source_boundary_note": "Boundary note: VIN decoding validates technical identity fields. It does not replace paid vehicle history datasets.",
+      "best_use_cases_title": "Best use cases",
+      "quick_answer_title": "Quick answer",
+      "direct_answer_label": "Direct answer:",
+      "quick_answer_text": "You can use this VIN decoder page to match high-intent queries and then decode VINs instantly via the",
+      "main_tool_link": "main VIN tool",
+      "quick_answer_suffix": "It is free, no registration, and backed by official NHTSA data.",
+      "faq_title": "FAQ",
       "common_faq": {
         "1": {
-          "q": "这种车型有免费的 VIN 解码器吗？",
-          "a": "有。此页面旨在支持免费 VIN 解码流程，并直接链接到我们的免费 VIN 查询工具。"
+          "q": "Is this a free VIN decoder for this vehicle type?",
+          "a": "Yes. This page is designed to support free VIN decoder workflows and links directly to our free VIN lookup tool."
         },
         "2": {
-          "q": "我可以像使用 VIN 号码解码器一样使用它吗？",
-          "a": "可以。VIN 解码器和 VIN 号码解码器通常被视为等同的搜索意图。此页面支持这两个术语。"
+          "q": "Can I use this like a VIN number decoder?",
+          "a": "Yes. VIN decoder and VIN number decoder are commonly used as equivalent search intents. This page supports both terms."
         },
         "3": {
-          "q": "这是否使用官方 NHTSA VIN 解码数据？",
-          "a": "我们的 VIN 解码流程引用官方 NHTSA vPIC 数据进行核心车辆规格匹配。"
+          "q": "Does this use official NHTSA VIN decoder data?",
+          "a": "Our VIN decoding workflow references official NHTSA vPIC data for core vehicle specification matching."
         },
         "4": {
-          "q": "如果我的 VIN 不是 17 位怎么办？",
-          "a": "大多数现代车辆使用 17 位 VIN。较旧或特殊车辆可能需要参考旧式解码指南。"
+          "q": "What if my VIN is not 17 characters?",
+          "a": "Most modern vehicles use 17-character VINs. Older or special vehicles may require legacy decoding guidance."
         },
         "5": {
-          "q": "这能代替完整的 VIN 查询报告吗？",
-          "a": "不能。VIN 解码验证车辆身份/规格。VIN 查询报告仍需用于事故、权属和所有权历史。"
+          "q": "Can this replace a full VIN check report?",
+          "a": "No. VIN decoding verifies vehicle identity/specs. A VIN check report is still needed for accident, title, and ownership history."
         },
         "6": {
-          "q": "在购买二手车之前我该从哪里开始？",
-          "a": "从解码 VIN 号码开始验证规格，然后运行 VIN 查询报告以了解风险和历史事件。"
+          "q": "Where should I start before buying a used vehicle?",
+          "a": "Start with decoding the VIN number to verify specs, then run a VIN check report for risk and historical events."
         }
       },
-      "related_brand_title": "相关品牌解码器",
-      "related_brand_description": "跳转到热门品牌专用 VIN 页面，以加快查询流程。",
-      "brand_decoder_suffix": "VIN 解码器",
-      "cta_decode_now": "立即解码 VIN",
-      "cta_compare": "对比 VIN 解码器 vs VIN 查询",
+      "related_brand_title": "Related Brand Decoders",
+      "related_brand_description": "Jump into popular brand-specific VIN pages for faster lookup workflows.",
+      "brand_decoder_suffix": "VIN Decoder",
+      "cta_decode_now": "Decode a VIN Now",
+      "cta_compare": "Compare VIN Decoder vs VIN Check",
       "breadcrumb": {
-        "home": "首页",
-        "tools": "工具",
-        "vin_decoder": "VIN 解码器"
+        "home": "Home",
+        "tools": "Tools",
+        "vin_decoder": "VIN Decoder"
       },
       "types": {
         "motorcycle": {
-          "name": "摩托车",
-          "title": "摩托车 VIN 解码器 - 免费在线自行车查询 | GeeksKai",
-          "description": "免费摩托车 VIN 解码器，提供即时查询。解码自行车 VIN 号码以查看型号年份、制造商、发动机细节和关键规格。",
-          "h1": "摩托车 VIN 解码器",
+          "name": "Motorcycle",
+          "title": "Motorcycle VIN Decoder - Free VIN Lookup for Bikes | GeeksKai",
+          "description": "Free motorcycle VIN decoder for instant VIN lookup. Decode bike VIN numbers to view model year, manufacturer, engine details, and key specifications.",
+          "h1": "Motorcycle VIN Decoder",
           "keywords": {
-            "1": "摩托车 vin 解码器",
-            "2": "自行车 vin 查询",
-            "3": "摩托车 vin 检查",
-            "4": "解码自行车 vin",
-            "5": "哈雷 vin 解码器",
-            "6": "雅马哈 vin 解码器",
-            "7": "atv vin 解码器",
-            "8": "哈雷戴维森 vin 解码器"
+            "1": "motorcycle vin decoder",
+            "2": "bike vin lookup",
+            "3": "motorcycle vin check",
+            "4": "decode bike vin",
+            "5": "harley vin decoder",
+            "6": "yamaha vin decoder",
+            "7": "atv vin decoder",
+            "8": "harley davidson vin decoder"
           },
           "use_cases": {
-            "1": "买车前检查二手摩托车规格",
-            "2": "为保险验证 VIN 年份和品牌",
-            "3": "从 WMI 确认制造商信息",
-            "4": "导出解码后的详情用于维护记录"
+            "1": "Check used motorcycle specs before buying",
+            "2": "Verify VIN year and make for insurance",
+            "3": "Confirm manufacturer information from WMI",
+            "4": "Export decoded details for maintenance records"
           },
           "faq": {
             "1": {
-              "q": "我可以解码任何 17 位的摩托车 VIN 吗？",
-              "a": "可以。大多数现代摩托车使用 17 位 VIN 格式，并可以使用此工具解码。"
+              "q": "Can I decode any 17-character motorcycle VIN?",
+              "a": "Yes. Most modern motorcycles use a 17-character VIN format and can be decoded with this tool."
             },
             "2": {
-              "q": "我可以从摩托车 VIN 中获得哪些详情？",
-              "a": "您可以检索关键数据，如车型年份、品牌、制造商信息以及可用的技术属性。"
+              "q": "What details can I get from a motorcycle VIN?",
+              "a": "You can retrieve key data such as model year, make, manufacturer information, and available technical attributes."
             }
           }
         },
         "rv": {
-          "name": "房车 (RV)",
-          "title": "房车 (RV) VIN 解码器 - 免费房车/营地车查询 | GeeksKai",
-          "description": "房车和娱乐用车免费 VIN 解码器。解码 RV VIN 以检查年份、制造商详情和核心车辆规格。",
-          "h1": "房车 (RV) VIN 解码器",
+          "name": "RV",
+          "title": "RV VIN Decoder - Free Motorhome VIN Lookup | GeeksKai",
+          "description": "Free RV VIN decoder for motorhomes and recreational vehicles. Decode RV VINs to check year, manufacturer details, and core vehicle specs.",
+          "h1": "RV VIN Decoder",
           "keywords": {
-            "1": "rv vin 解码器",
-            "2": "rv vin 号码解码器",
-            "3": "房车 vin 查询",
-            "4": "营地车 vin 检查",
-            "5": "免费 rv vin 解码器"
+            "1": "rv vin decoder",
+            "2": "rv vin number decoder",
+            "3": "motorhome vin lookup",
+            "4": "camper vin check",
+            "5": "free rv vin decoder"
           },
           "use_cases": {
-            "1": "在购买前验证房车身份",
-            "2": "核对型号年份用于登记和保险",
-            "3": "验证制造商和工厂数据",
-            "4": "为车队运营存储解码后的数据"
+            "1": "Validate RV identity before purchase",
+            "2": "Check model year for registration and insurance",
+            "3": "Verify manufacturer and plant data",
+            "4": "Store decoded data for fleet operations"
           },
           "faq": {
             "1": {
-              "q": "这适用于房车和营地车吗？",
-              "a": "是的。RV VIN 解码支持许多使用标准 VIN 格式的房车和娱乐用车。"
+              "q": "Does this work for motorhomes and campers?",
+              "a": "Yes. RV VIN decoding supports many motorhomes and recreational vehicles with standard VIN formats."
             },
             "2": {
-              "q": "房车 VIN 解码器是免费的吗？",
-              "a": "是的。此工具免费使用，无需注册。"
+              "q": "Is the RV VIN decoder free?",
+              "a": "Yes. This tool is free to use with no signup requirement."
             }
           }
         },
         "trailer": {
-          "name": "挂车 (Trailer)",
-          "title": "挂车 VIN 解码器 - 免费挂车身份查询 | GeeksKai",
-          "description": "用于快速查询的免费挂车 VIN 解码器。解码挂车 VIN 以验证制造商详情、车型年份和标识属性。",
-          "h1": "挂车 VIN 解码器",
+          "name": "Trailer",
+          "title": "Trailer VIN Decoder - Free Trailer VIN Check | GeeksKai",
+          "description": "Free trailer VIN decoder for quick VIN lookup. Decode trailer VINs to verify manufacturer details, model year, and identification attributes.",
+          "h1": "Trailer VIN Decoder",
           "keywords": {
-            "1": "挂车 vin 解码器",
-            "2": "挂车 vin 号码解码器",
-            "3": "旅行挂车 vin 解码器",
-            "4": "挂车 vin 查询",
-            "5": "挂车 vin 检查",
-            "6": "解码挂车 vin"
+            "1": "trailer vin decoder",
+            "2": "trailer vin number decoder",
+            "3": "travel trailer vin decoder",
+            "4": "trailer vin lookup",
+            "5": "trailer vin check",
+            "6": "decode trailer vin"
           },
           "use_cases": {
-            "1": "在过户前验证挂车 VIN",
-            "2": "确认年份和工厂详情",
-            "3": "交叉核对记录以确保合规",
-            "4": "在几秒钟内导出挂车 VIN 报告"
+            "1": "Verify trailer VIN before transfer",
+            "2": "Confirm year and plant details",
+            "3": "Cross-check records for compliance",
+            "4": "Export trailer VIN reports in seconds"
           },
           "faq": {
             "1": {
-              "q": "这可以解码公用挂车和货运挂车 VIN 吗？",
-              "a": "可以。许多使用标准 VIN 格式的挂车类型都可以解码关键标识字段。"
+              "q": "Can this decode utility and cargo trailer VINs?",
+              "a": "Yes. Many trailer types using a standard VIN format can be decoded for key identification fields."
             },
             "2": {
-              "q": "如果某些挂车字段缺失怎么办？",
-              "a": "数据可用性因制造商和车型年份而异。某些记录可能只有部分详细信息。"
+              "q": "What if some trailer fields are missing?",
+              "a": "Data availability varies by manufacturer and model year. Some records may have partial details."
             }
           }
         },
         "classic-car": {
-          "name": "老爷车 (Classic Car)",
-          "title": "老爷车 VIN 解码器 - 复古车型 VIN 指南 | GeeksKai",
-          "description": "老爷车 VIN 解码器指南，支持许多旧式和现代 VIN 格式的查询。解码复古车辆标识符并验证关键详情。",
-          "h1": "老爷车 VIN 解码器",
+          "name": "Classic Car",
+          "title": "Classic Car VIN Decoder - Vintage Vehicle VIN Guide | GeeksKai",
+          "description": "Classic car VIN decoder guide with lookup support for many legacy and modern VIN formats. Decode vintage vehicle identifiers and verify key details.",
+          "h1": "Classic Car VIN Decoder",
           "keywords": {
-            "1": "老爷车 vin 解码器",
-            "2": "旧式 vin 号码解码器",
-            "3": "复古 vin 查询",
-            "4": "老车 vin 检查",
-            "5": "经典车型识别"
+            "1": "classic car vin decoder",
+            "2": "classic vin number decoder",
+            "3": "vintage vin lookup",
+            "4": "old car vin check",
+            "5": "classic vehicle identification"
           },
           "use_cases": {
-            "1": "研究复古车辆身份",
-            "2": "验证年份和制造商线索",
-            "3": "为修复项目准备文档",
-            "4": "捕获解码后的规格用于档案记录"
+            "1": "Research vintage vehicle identity",
+            "2": "Validate year and manufacturer clues",
+            "3": "Prepare documentation for restoration projects",
+            "4": "Capture decoded specs for archival records"
           },
           "faq": {
             "1": {
-              "q": "所有的老爷车都使用 17 位 VIN 吗？",
-              "a": "不是。许多较旧的车辆使用较短的旧式标识符。只要有现成数据，现代化的记录可能仍会映射一些有用信息。"
+              "q": "Do all classic cars use 17-character VINs?",
+              "a": "No. Many older vehicles use shorter legacy identifiers. Modernized records may still map useful data where available."
             },
             "2": {
-              "q": "我仍然可以用它进行经典车辆研究吗？",
-              "a": "可以。它对于查看可用的 VIN 数据以及了解旧车可以验证哪些字段非常有用。"
+              "q": "Can I still use this for classic vehicle research?",
+              "a": "Yes. It is useful for checking available VIN data and understanding what fields can be validated for older cars."
             }
           }
         }
