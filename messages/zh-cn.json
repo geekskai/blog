@@ -2521,6 +2521,18 @@
       "主要用于装饰目的，而非关键内容。"
     ],
     "limits_title": "限制与边界",
+    "feature_list": [
+      "180度文字旋转",
+      "镜像和反向文字",
+      "基于 Unicode 的 emoji 包裹",
+      "社交媒体就绪输出"
+    ],
+    "feature_list_schemas": [
+      "倒置文字变换",
+      "镜像文字效果",
+      "Unicode emoji 装饰",
+      "社交媒体复制粘贴工具"
+    ],
     "faq": {
       "title": "常见问题",
       "items": [

@@ -70,12 +70,7 @@ const MegaMenu = ({ closeMenu }: { closeMenu?: () => void }) => {
                       to
                     </span>
                     <span className="truncate transition-transform group-hover:translate-x-1">
-                      {tool.title
-                        .split(" - ")[0]
-                        .replace(
-                          / Converter| Generator| Tracker| Calculator| Decoder & Lookup| Test/g,
-                          ""
-                        )}
+                      {tool.title}
                     </span>
                     {tool.badge && (
                       <span

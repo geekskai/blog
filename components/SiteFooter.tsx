@@ -1,44 +1,45 @@
-import React from "react"
 import Link from "./Link"
 import SocialIcon from "./social-icons"
 import siteMetadata from "@/data/siteMetadata"
-import Logo from "@/data/logo.png"
+// import Logo from "/public/static/logo.png"
 import Image from "next/image"
-import { FileText, Calculator, Zap, Heart, ExternalLink, ArrowLeftRight } from "lucide-react"
+import { Zap, Heart, ExternalLink } from "lucide-react"
 import { useTranslations } from "next-intl"
 import LinkNext from "next/link"
+import { toolsData } from "@/data/toolsData"
 
 // Popular tools data for footer
-const popularTools = [
-  {
-    id: "html-to-markdown",
-    title: "HTML to Markdown",
-    href: "/tools/html-to-markdown",
-    icon: FileText,
-    badge: "New",
-  },
-  {
-    id: "discord-time-converter",
-    title: "Discord Time Converter",
-    href: "/tools/discord-time-converter",
-    icon: ArrowLeftRight,
-    badge: "Popular",
-  },
-  {
-    id: "job-worth-calculator",
-    title: "Job Worth Calculator",
-    href: "/tools/job-worth-calculator",
-    icon: Calculator,
-    badge: "Popular",
-  },
-  {
-    id: "pdf-to-markdown",
-    title: "PDF to Markdown",
-    href: "/tools/pdf-to-markdown",
-    icon: FileText,
-    badge: "Pro",
-  },
-]
+// const popularTools = toolsData.slice(0, 4)
+
+//   {
+//     id: "html-to-markdown",
+//     title: "HTML to Markdown",
+//     href: "/tools/html-to-markdown",
+//     icon: FileText,
+//     badge: "New",
+//   },
+//   {
+//     id: "discord-time-converter",
+//     title: "Discord Time Converter",
+//     href: "/tools/discord-time-converter",
+//     icon: ArrowLeftRight,
+//     badge: "Popular",
+//   },
+//   {
+//     id: "job-worth-calculator",
+//     title: "Job Worth Calculator",
+//     href: "/tools/job-worth-calculator",
+//     icon: Calculator,
+//     badge: "Popular",
+//   },
+//   {
+//     id: "pdf-to-markdown",
+//     title: "PDF to Markdown",
+//     href: "/tools/pdf-to-markdown",
+//     icon: FileText,
+//     badge: "Pro",
+//   },
+// ]
 
 const SiteFooter = () => {
   const t = useTranslations("HomePage")
@@ -67,7 +68,7 @@ const SiteFooter = () => {
             <div className="mb-6">
               <Link href="/" className="group inline-flex items-center gap-3">
                 <Image
-                  src={Logo}
+                  src={`${process.env.BASE_PATH || ""}/static/logo.png`}
                   alt="geekskai Logo"
                   width={100}
                   height={36}
@@ -89,7 +90,7 @@ const SiteFooter = () => {
           <div className="lg:col-span-1">
             <h3 className="mb-6 text-lg font-semibold text-white">{t("footer_popular_tools")}</h3>
             <div className="space-y-3">
-              {popularTools.map((tool) => {
+              {toolsData.slice(0, 4).map((tool) => {
                 const IconComponent = tool.icon
                 return (
                   <Link

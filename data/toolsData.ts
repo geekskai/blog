@@ -68,6 +68,50 @@ export const toolsData: ToolData[] = [
     category: "Utility",
   },
   {
+    id: "soundcloud-downloader",
+    title: "SoundCloud Downloader (Track + Playlist)",
+    description:
+      "Unified SoundCloud downloader that auto-detects track or playlist URLs. Fetch track info, load playlist items, and download in MP3 or WAV from one tool.",
+    icon: Music,
+    href: "/tools/soundcloud-downloader/",
+    features: [
+      "Auto-detect SoundCloud track or playlist URL",
+      "Single-track download (MP3/WAV)",
+      "Playlist fetch with single or bulk download",
+      "One unified SoundCloud workflow",
+    ],
+    badge: "New",
+    badgeColor: "bg-purple-500",
+    gradient: gradients.creative,
+    category: "Creative",
+  },
+  {
+    id: "soundcloud-to-mp3",
+    title: "SoundCloud to MP3 Converter",
+    description:
+      "SoundCloud to MP3 converter for your SoundCloud. SoundCloud to MP3 converter for your SoundCloud. SoundCloud to MP3 converter for your SoundCloud.",
+    icon: Music,
+    href: "/tools/soundcloud-to-mp3/",
+    features: ["SoundCloud to MP3 Converter"],
+    badge: "New",
+    badgeColor: "bg-blue-500",
+    gradient: gradients.creative,
+    category: "Creative",
+  },
+  {
+    id: "soundcloud-to-wav",
+    title: "SoundCloud to WAV Converter",
+    description:
+      "SoundCloud to WAV converter for your SoundCloud. SoundCloud to WAV converter for your SoundCloud. SoundCloud to WAV converter for your SoundCloud.",
+    icon: Music,
+    href: "/tools/soundcloud-to-wav/",
+    features: ["SoundCloud to WAV Converter", "SoundCloud to MP3 Converter"],
+    badge: "New",
+    badgeColor: "bg-blue-500",
+    gradient: gradients.creative,
+    category: "Creative",
+  },
+  {
     id: "morse-code-translator",
     title: "Morse Code Translator",
     description:
@@ -223,50 +267,6 @@ export const toolsData: ToolData[] = [
     badgeColor: "bg-indigo-500",
     gradient: gradients.communication,
     category: "Communication",
-  },
-  {
-    id: "soundcloud-downloader",
-    title: "SoundCloud Downloader (Track + Playlist)",
-    description:
-      "Unified SoundCloud downloader that auto-detects track or playlist URLs. Fetch track info, load playlist items, and download in MP3 or WAV from one tool.",
-    icon: Music,
-    href: "/tools/soundcloud-downloader/",
-    features: [
-      "Auto-detect SoundCloud track or playlist URL",
-      "Single-track download (MP3/WAV)",
-      "Playlist fetch with single or bulk download",
-      "One unified SoundCloud workflow",
-    ],
-    badge: "New",
-    badgeColor: "bg-purple-500",
-    gradient: gradients.creative,
-    category: "Creative",
-  },
-  {
-    id: "soundcloud-to-mp3",
-    title: "SoundCloud to MP3 Converter",
-    description:
-      "SoundCloud to MP3 converter for your SoundCloud. SoundCloud to MP3 converter for your SoundCloud. SoundCloud to MP3 converter for your SoundCloud.",
-    icon: Music,
-    href: "/tools/soundcloud-to-mp3/",
-    features: ["SoundCloud to MP3 Converter"],
-    badge: "New",
-    badgeColor: "bg-blue-500",
-    gradient: gradients.creative,
-    category: "Creative",
-  },
-  {
-    id: "soundcloud-to-wav",
-    title: "SoundCloud to WAV Converter",
-    description:
-      "SoundCloud to WAV converter for your SoundCloud. SoundCloud to WAV converter for your SoundCloud. SoundCloud to WAV converter for your SoundCloud.",
-    icon: Music,
-    href: "/tools/soundcloud-to-wav/",
-    features: ["SoundCloud to WAV Converter", "SoundCloud to MP3 Converter"],
-    badge: "New",
-    badgeColor: "bg-blue-500",
-    gradient: gradients.creative,
-    category: "Creative",
   },
   {
     id: "streaming-music-player",
@@ -751,22 +751,6 @@ export const toolsData: ToolData[] = [
     gradient: gradients.creative,
     category: "Creative",
   },
-].sort((a, b) => {
-  const categoryOrder: Record<string, number> = {
-    Utility: 1,
-    Communication: 2,
-    Development: 3,
-    Creative: 4,
-    Productivity: 5,
-    Education: 6,
-    Entertainment: 7,
-    Finance: 8,
-  }
-
-  const categoryDiff = (categoryOrder[a.category] || 999) - (categoryOrder[b.category] || 999)
-  if (categoryDiff !== 0) return categoryDiff
-
-  return a.title.localeCompare(b.title)
-})
+]
 
 export default toolsData
