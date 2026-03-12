@@ -108,9 +108,9 @@ const SiteFooter = () => {
                         <span className="text-sm font-medium text-slate-200 transition-colors duration-300 group-hover:text-white">
                           {tool.title}
                         </span>
-                        <span className="ml-2 rounded-full bg-blue-500/20 px-2 py-0.5 text-xs font-medium text-blue-300">
+                        {/* <span className="ml-2 rounded-full bg-blue-500/20 px-2 py-0.5 text-xs font-medium text-blue-300">
                           {tool.badge}
-                        </span>
+                        </span> */}
                       </div>
                     </div>
                     <ExternalLink className="h-3 w-3 text-slate-500 opacity-0 transition-all duration-300 group-hover:text-slate-300 group-hover:opacity-100" />
