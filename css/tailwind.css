@@ -98,3 +98,13 @@ input:-webkit-autofill:focus {
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out forwards;
 }
+
+/* CLS-safe fade animation for tools page cards (opacity only, no translateY) */
+@keyframes toolsFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

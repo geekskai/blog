@@ -1,7 +1,7 @@
 "use client"
 
 import { Link } from "@/app/i18n/navigation"
-import { useState, useMemo, useEffect } from "react"
+import { useState, useMemo } from "react"
 import {
   Zap,
   Users,
@@ -45,27 +45,6 @@ export default function ToolsPage() {
       return matchesSearch && matchesCategory
     })
   }, [tools, searchTerm, selectedCategory])
-
-  // Add CSS animation styles
-  useEffect(() => {
-    const style = document.createElement("style")
-    style.textContent = `
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    `
-    document.head.appendChild(style)
-    return () => {
-      document.head.removeChild(style)
-    }
-  }, [])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
@@ -348,7 +327,7 @@ export default function ToolsPage() {
                   className={`group relative overflow-hidden rounded-3xl bg-slate-800/70 shadow-lg ring-1 ring-slate-700/50 backdrop-blur-sm transition-all duration-500 hover:scale-[1.05] hover:shadow-2xl hover:ring-slate-600/50 ${delay}`}
                   style={{
                     animationDelay: `${(index % 8) * 100}ms`,
-                    animation: "fadeInUp 0.6s ease-out forwards",
+                    animation: "toolsFadeIn 0.4s ease-out both",
                   }}
                 >
                   {/* Enhanced Gradient Header */}

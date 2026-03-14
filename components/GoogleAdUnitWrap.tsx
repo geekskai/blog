@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 export default function GoogleAdUnitWrap() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -151,15 +151,16 @@ export default function GoogleAdUnitWrap() {
   return (
     <div
       ref={containerRef}
-      className="flex min-h-[90px] w-full min-w-0 max-w-full justify-center md:min-h-[100px]"
+      className="flex min-h-[90px] w-full min-w-0 max-w-full justify-center overflow-hidden md:min-h-[100px]"
       style={{ minWidth: "280px" }}
     >
       <ins
         className="adsbygoogle"
         style={{
           display: "block",
-          minHeight: "90px",
+          height: "90px",
           width: "100%",
+          overflow: "hidden",
         }}
         data-ad-client="ca-pub-2108246014001009"
         data-ad-slot="5811688701"
