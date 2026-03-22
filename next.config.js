@@ -163,7 +163,7 @@ module.exports = () => {
   })
 
   return withSentryConfig(nextConfig, {
-    org: "gk-2z",
+    org: "gk-56",
     project: "javascript-nextjs",
   })
 }
