@@ -179,17 +179,40 @@ export default function UpsideDownTextGeneratorPage() {
               </p>
             </div>
 
-            <label className="block">
-              <span className="mb-2 block text-sm font-semibold text-blue-200">
-                {t("ui.input_label")}
-              </span>
-              <textarea
-                value={input}
-                onChange={(event) => setInput(event.target.value)}
-                placeholder={t("ui.input_placeholder")}
-                className="h-32 w-full rounded-2xl border border-blue-500/30 bg-blue-500/10 p-4 text-base text-white backdrop-blur-sm transition-all duration-300 placeholder:text-slate-400 focus:border-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/20"
-              />
-            </label>
+            <div className="grid gap-4 md:grid-cols-2">
+              <label className="rounded-2xl border border-cyan-500/30 bg-cyan-500/10 p-4">
+                <span className="mb-2 block text-sm font-semibold text-blue-200">
+                  {t("ui.input_label")}
+                </span>
+                <textarea
+                  value={input}
+                  onChange={(event) => setInput(event.target.value)}
+                  placeholder={t("ui.input_placeholder")}
+                  className="h-32 w-full rounded-2xl border border-blue-500/30 bg-blue-500/10 p-4 text-base text-white backdrop-blur-sm transition-all duration-300 placeholder:text-slate-400 focus:border-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/20"
+                />
+              </label>
+
+              <div className="rounded-2xl border border-cyan-500/30 bg-cyan-500/10 p-4">
+                <div className="mb-2 flex items-center justify-between">
+                  <h3 className="text-sm font-semibold text-cyan-100">
+                    {t("ui.custom_output_title")}
+                  </h3>
+                  <button
+                    type="button"
+                    onClick={() => void handleCopy(customOutput)}
+                    className="rounded-xl border border-cyan-500/40 bg-cyan-500/20 px-3 py-1 text-xs text-cyan-100 transition-all duration-300 hover:bg-cyan-500/30"
+                  >
+                    {t("ui.copy")}
+                  </button>
+                </div>
+                <textarea
+                  readOnly
+                  value={customOutput}
+                  className="h-32 w-full rounded-xl border border-cyan-500/30 bg-slate-900/40 p-3 text-sm text-white"
+                />
+                <p className="mt-2 text-xs text-cyan-100">{copyStatus}</p>
+              </div>
+            </div>
 
             <div className="grid gap-4 lg:grid-cols-3">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
@@ -318,27 +341,6 @@ export default function UpsideDownTextGeneratorPage() {
                   )}
                 </div>
               </div>
-            </div>
-
-            <div className="rounded-2xl border border-cyan-500/30 bg-cyan-500/10 p-4">
-              <div className="mb-2 flex items-center justify-between">
-                <h3 className="text-sm font-semibold text-cyan-100">
-                  {t("ui.custom_output_title")}
-                </h3>
-                <button
-                  type="button"
-                  onClick={() => void handleCopy(customOutput)}
-                  className="rounded-xl border border-cyan-500/40 bg-cyan-500/20 px-3 py-1 text-xs text-cyan-100 transition-all duration-300 hover:bg-cyan-500/30"
-                >
-                  {t("ui.copy")}
-                </button>
-              </div>
-              <textarea
-                readOnly
-                value={customOutput}
-                className="h-24 w-full rounded-xl border border-cyan-500/30 bg-slate-900/40 p-3 text-sm text-white"
-              />
-              <p className="mt-2 text-xs text-cyan-100">{copyStatus}</p>
             </div>
           </div>
         </section>

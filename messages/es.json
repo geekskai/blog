@@ -2219,6 +2219,196 @@
       "Casos de uso en redes sociales"
     ]
   },
+  "CursedTextGenerator": {
+    "seo_title": "Generador de Texto Maldito (2026) - Texto Unicode Corrupto y Glitch",
+    "seo_description": "Crea texto maldito con efectos Unicode glitch como zalgo, marcas de rayos y estilos distorsionados. Copia y pega al instante.",
+    "seo_keywords": "generador de texto maldito, generador de texto corrupto, texto glitch, texto unicode maldito, texto estilo zalgo",
+    "page_title": "Generador de Texto Maldito",
+    "page_subtitle": "Texto Unicode Corrupto y Glitch",
+    "badge_text": "Herramienta de Texto Maldito",
+    "tldr": "Un generador de texto maldito transforma texto normal en una salida Unicode caótica con marcas combinadas y efectos de distorsión. Es útil para memes, subtítulos de terror y texto estilístico dramático.",
+    "keyword_label": "generador de texto maldito",
+    "best_for": "Creadores de memes, contenido de terror, comunidades de juegos y estética caótica",
+    "key_benefit": "Genera variantes de texto maldito de alto impacto con copia en un clic",
+    "default_input": "THE SIGNAL IS CURSED",
+    "use_cases": [
+      "Subtítulos sociales de terror y espeluznantes",
+      "Texto de reacción de memes y comentarios malditos",
+      "Títulos de streams de juegos y mensajes de eventos",
+      "Tipografía experimental y narración visual"
+    ],
+    "boundaries": [
+      "La distorsión intensa puede afectar la legibilidad y la accesibilidad.",
+      "Algunas plataformas pueden normalizar o eliminar marcas combinadas complejas.",
+      "El texto maldito es decorativo y no es adecuado para comunicación formal.",
+      "Siempre previsualiza antes de publicar para evitar problemas de renderizado."
+    ],
+    "related_tools": {
+      "zalgo": {
+        "label": "Generador de Texto Zalgo",
+        "description": "Crea salida glitch densa con presets dedicados enfocados en zalgo."
+      },
+      "strikethrough": {
+        "label": "Generador de Texto Tachado",
+        "description": "Usa decoración más ligera cuando aún necesitas legibilidad."
+      },
+      "fancy_text": {
+        "label": "Generador de Texto Elegante",
+        "description": "Cambia del estilo maldito a fuentes Unicode decorativas más limpias."
+      },
+      "discord_font": {
+        "label": "Generador de Fuentes para Discord",
+        "description": "Genera texto estilizado más amigable para el chat en Discord."
+      }
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "items": [
+        {
+          "q": "¿Qué es el texto maldito?",
+          "a": "El texto maldito es una salida Unicode intencionalmente distorsionada diseñada para verse caótica, con glitch o inquietante."
+        },
+        {
+          "q": "¿En qué se diferencia el texto maldito del texto elegante normal?",
+          "a": "El texto elegante se centra en estilos decorativos legibles, mientras que el texto maldito enfatiza la corrupción y el caos visual."
+        },
+        {
+          "q": "¿Puedo copiar y pegar texto maldito en cualquier lugar?",
+          "a": "Generalmente sí, pero el soporte de renderizado varía según la aplicación, el navegador y el sistema operativo."
+        },
+        {
+          "q": "¿El texto maldito romperá los diseños?",
+          "a": "Es posible. Las marcas combinadas densas pueden cambiar la altura de línea y causar recortes en algunas interfaces."
+        },
+        {
+          "q": "¿Es gratuito este generador de texto maldito?",
+          "a": "Sí. Es gratuito, basado en el navegador y permite copiar y pegar de forma ilimitada."
+        },
+        {
+          "q": "¿Esta herramienta almacena mi entrada?",
+          "a": "No se requiere almacenamiento en el servidor para el flujo de trabajo de conversión principal."
+        },
+        {
+          "q": "¿Puedo hacer el texto maldito menos agresivo?",
+          "a": "Sí. Elige efectos más ligeros como marcas de cola o tachado para una salida más legible."
+        },
+        {
+          "q": "¿El texto maldito es adecuado para documentos oficiales?",
+          "a": "No. Está destinado solo para entretenimiento, memes y expresión creativa."
+        }
+      ]
+    },
+    "feature_list": [
+      "Efectos de texto glitch maldito",
+      "Zalgo, rayos y distorsión basada en marcas",
+      "Copia con un clic",
+      "Flujo de trabajo de conversión solo en navegador"
+    ],
+    "feature_list_schemas": [
+      "Estilo Unicode corrupto",
+      "Múltiples opciones de intensidad caótica",
+      "Copiar y pegar instantáneo",
+      "Casos de uso creativos y de memes"
+    ]
+  },
+  "BackwardsTextGenerator": {
+    "seo_title": "Generador de Texto Invertido (2026) - Escribir al Revés Online",
+    "seo_description": "Generador de texto invertido gratuito para invertir letras, palabras o líneas al instante. Copia y pega el texto al revés rápidamente.",
+    "seo_keywords": "texto invertido, escribir al reves, generador de texto al reves, texto espejo",
+    "page_title": "Generador de Texto Invertido",
+    "page_subtitle": "Invierte el Texto al Instante",
+    "free_tool_badge": "Herramienta de Texto Invertido",
+    "tldr_title": "Respuesta Rápida",
+    "tldr": "Un generador de texto al revés invierte tu texto al instante. Elige invertir caracteres, palabras o líneas y cópialo con un solo clic.",
+    "core_facts_title": "Información Básica",
+    "primary_intent_label": "Propósito Principal:",
+    "pricing_label": "Precio:",
+    "free_label": "Gratis",
+    "best_for_label": "Ideal para:",
+    "key_benefit_label": "Beneficio Clave:",
+    "last_updated_label": "Última Actualización",
+    "keyword_label": "generador de texto invertido",
+    "best_for": "Escritores, creadores, fanáticos de acertijos y redes sociales",
+    "key_benefit": "Generar estilos de texto invertido con copia instantánea",
+    "default_input": "El texto invertido es divertido de leer",
+    "how_to_use_steps": [
+      "Escribe o pega tu texto en el cuadro de entrada.",
+      "Elige un modo de inversión: caracteres, palabras o líneas.",
+      "Copia el resultado y pégalo donde quieras."
+    ],
+    "use_cases_title": "Casos de Uso Comunes",
+    "use_cases": [
+      "Estados y biografías juguetonas en redes sociales",
+      "Juegos de palabras, rompecabezas y actividades en clase",
+      "Experimentación rápida para borradores creativos",
+      "Prueba de comportamientos de inversión de texto en software"
+    ],
+    "limits_title": "Limitaciones y Notas",
+    "boundaries": [
+      "Algunos emojis pueden verse diferentes al ser invertidos.",
+      "El modo de inversión de palabras normaliza espacios extra.",
+      "El modo de inversión por líneas no modifica el interior de la línea.",
+      "Previsualiza siempre el texto en la plataforma destino."
+    ],
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "items": [
+        {
+          "q": "¿Qué hace un generador de texto invertido?",
+          "a": "Invierte tu texto para que puedas copiar la versión al revés instantáneamente."
+        },
+        {
+          "q": "¿Cuál es la diferencia entre invertir caracteres y palabras?",
+          "a": "Invertir caracteres gira todo el texto letra por letra. Invertir palabras deja cada palabra intacta pero altera el orden en la oración."
+        },
+        {
+          "q": "¿Es gratis este generador?",
+          "a": "Sí. Es completamente gratis y usable directo en el navegador."
+        },
+        {
+          "q": "¿Puedo invertir muchas líneas a la vez?",
+          "a": "Sí. Usa el modo de invertir líneas para cambiar el orden conservando el texto de cada una."
+        },
+        {
+          "q": "¿Esta herramienta guarda mi texto?",
+          "a": "No, no almacenamos ningún tipo de texto en nuestros servidores."
+        },
+        {
+          "q": "¿También invierte puntuaciones y números?",
+          "a": "Sí, el modo de caracteres invierte cada símbolo secuencialmente."
+        }
+      ]
+    },
+    "feature_list": [
+      "Inversión de caracteres, palabras y líneas",
+      "Copia en un solo clic",
+      "Sin descargas, uso en el navegador",
+      "Previsualización instantánea"
+    ],
+    "feature_list_schemas": [
+      "Inversión a nivel de caracteres",
+      "Opciones de palabras y líneas",
+      "Flujo de copiar y pegar fácil",
+      "Herramienta de navegador gratis"
+    ],
+    "ui": {
+      "playground_title": "Área de Pruebas de Texto Invertido",
+      "input_label": "Introduce el Texto",
+      "input_placeholder": "Escribe para invertir...",
+      "mode_title": "Modo de Inversión",
+      "mode_characters": "Invertir Caracteres",
+      "mode_words": "Invertir Palabras",
+      "mode_lines": "Invertir Líneas",
+      "output_title": "Resultado",
+      "preview_title": "Previsualización",
+      "preview_description": "Haz clic en cualquier tarjeta para copiar el resultado de ese modo.",
+      "empty_input": "Por favor ingresa texto primero.",
+      "ready_to_copy": "Copiar",
+      "copied": "¡Copiado!",
+      "copy_failed": "Error al copiar",
+      "how_to_use_title": "Cómo Usarlo"
+    }
+  },
   "FancyTextGenerator": {
     "seo_title": "Generador de letras personalizadas (2026) - Copiar y pegar fuentes Unicode",
     "seo_description": "Generador de letras personalizadas gratuito para estilos de texto Unicode como cursiva, gótico, negrita y más. Copia y pega al instante.",
@@ -2558,6 +2748,10 @@
       "fullwidth": {
         "name": "Ancho Completo",
         "desc": "Convierte ASCII a formas de ancho completo"
+      },
+      "cursed-chaos": {
+        "name": "Caos Maldito",
+        "desc": "Efecto de texto corrupto de alta intensidad con marcas en capas"
       }
     },
     "ui": {

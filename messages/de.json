@@ -2219,6 +2219,196 @@
       "Social-Media-Anwendungsfälle"
     ]
   },
+  "CursedTextGenerator": {
+    "seo_title": "Verfluchter Text Generator (2026) - Beschädigter und Glitch-Unicode-Text",
+    "seo_description": "Erstelle verfluchten Text mit Glitch-Unicode-Effekten wie Zalgo, Blitzzeichen und verzerrten Stilen. Sofort kopieren und einfügen.",
+    "seo_keywords": "verfluchter text generator, beschädigter text generator, glitch text, verfluchter unicode text, zalgo stil text",
+    "page_title": "Verfluchter Text Generator",
+    "page_subtitle": "Beschädigter und Glitch-Unicode-Text",
+    "badge_text": "Verfluchtes Text-Tool",
+    "tldr": "Ein verfluchter Text-Generator verwandelt normalen Text in chaotische Unicode-Ausgabe mit Kombinationszeichen und Verzerrungseffekten. Er ist nützlich für Memes, Horror-Bildunterschriften und dramatischen Stiltext.",
+    "keyword_label": "verfluchter text generator",
+    "best_for": "Meme-Ersteller, Horror-Inhalte, Gaming-Communities und chaotische Ästhetik",
+    "key_benefit": "Generiere wirkungsvolle verfluchte Textvarianten mit Ein-Klick-Kopie",
+    "default_input": "THE SIGNAL IS CURSED",
+    "use_cases": [
+      "Horror- und gruselige soziale Bildunterschriften",
+      "Meme-Reaktionstext und verfluchte Kommentare",
+      "Gaming-Stream-Titel und Event-Nachrichten",
+      "Experimentelle Typografie und visuelles Storytelling"
+    ],
+    "boundaries": [
+      "Starke Verzerrung kann die Lesbarkeit und Barrierefreiheit beeinträchtigen.",
+      "Einige Plattformen normalisieren oder entfernen komplexe Kombinationszeichen.",
+      "Verfluchter Text ist dekorativ und nicht für formelle Kommunikation geeignet.",
+      "Vorschau vor dem Posten, um fehlerhafte Darstellung zu vermeiden."
+    ],
+    "related_tools": {
+      "zalgo": {
+        "label": "Zalgo-Textgenerator",
+        "description": "Erstelle dichte Glitch-Ausgabe mit dedizierten Zalgo-Voreinstellungen."
+      },
+      "strikethrough": {
+        "label": "Durchgestrichener Textgenerator",
+        "description": "Verwende leichtere Dekoration, wenn Lesbarkeit wichtig ist."
+      },
+      "fancy_text": {
+        "label": "Schriftarten-Generator",
+        "description": "Wechsle von verfluchtem Stil zu saubereren dekorativen Unicode-Schriften."
+      },
+      "discord_font": {
+        "label": "Discord-Schriftgenerator",
+        "description": "Generiere chatfreundlicheren stilisierten Text für Discord."
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "items": [
+        {
+          "q": "Was ist verfluchter Text?",
+          "a": "Verfluchter Text ist absichtlich verzerrte Unicode-Ausgabe, die chaotisch, glitchig oder beunruhigend aussehen soll."
+        },
+        {
+          "q": "Wie unterscheidet sich verfluchter Text von normalem Fancy-Text?",
+          "a": "Fancy-Text konzentriert sich auf lesbare dekorative Stile, während verfluchter Text Korruption und visuelles Chaos betont."
+        },
+        {
+          "q": "Kann ich verfluchten Text überall kopieren und einfügen?",
+          "a": "Normalerweise ja, aber die Rendering-Unterstützung variiert je nach App, Browser und Betriebssystem."
+        },
+        {
+          "q": "Kann verfluchter Text Layouts zerstören?",
+          "a": "Ja. Dichte Kombinationszeichen können die Zeilenhöhe ändern und in einigen Oberflächen zu Clipping führen."
+        },
+        {
+          "q": "Ist dieser verfluchte Textgenerator kostenlos?",
+          "a": "Ja. Er ist kostenlos, browserbasiert und unterstützt unbegrenztes Kopieren und Einfügen."
+        },
+        {
+          "q": "Speichert dieses Tool meine Eingabe?",
+          "a": "Für den Kern-Konvertierungsworkflow ist keine serverseitige Speicherung erforderlich."
+        },
+        {
+          "q": "Kann ich verfluchten Text weniger aggressiv machen?",
+          "a": "Ja. Wähle leichtere Effekte wie Schwanzzeichen oder Durchstreichung für besser lesbare Ausgabe."
+        },
+        {
+          "q": "Ist verfluchter Text für offizielle Dokumente geeignet?",
+          "a": "Nein. Er ist nur für Unterhaltung, Memes und kreativen Ausdruck gedacht."
+        }
+      ]
+    },
+    "feature_list": [
+      "Verfluchte Glitch-Texteffekte",
+      "Zalgo-, Blitz- und zeichenbasierte Verzerrung",
+      "Ein-Klick-Kopierausgabe",
+      "Nur-Browser-Konvertierungsworkflow"
+    ],
+    "feature_list_schemas": [
+      "Beschädigte Unicode-Gestaltung",
+      "Mehrere Chaosintensitätsoptionen",
+      "Sofortiges Kopieren und Einfügen",
+      "Kreative und Meme-Anwendungsfälle"
+    ]
+  },
+  "BackwardsTextGenerator": {
+    "seo_title": "Rückwärts Text Generator (2026) - Text Sofort Umkehren",
+    "seo_description": "Kostenloser Rückwärts Text Generator. Kehren Sie Buchstaben, Wörter oder Zeilen sofort um. Rückwärtstext kopieren und einfügen für Spaß und Formatierungen.",
+    "seo_keywords": "rückwärts text, text umkehren, rückwärts schreiben, spiegelschrift generator",
+    "page_title": "Rückwärts Text Generator",
+    "page_subtitle": "Text Sofort Umkehren",
+    "free_tool_badge": "Rückwärts-Text Tool",
+    "tldr_title": "Zusammenfassung",
+    "tldr": "Ein Rückwärts Text Generator kehrt Ihre Eingabe sofort um. Wählen Sie zwischen Zeichen-, Wort- oder Zeilenumkehrung je nach Bedarf und kopieren Sie mit einem Klick.",
+    "core_facts_title": "Kerninformationen",
+    "primary_intent_label": "Hauptziel:",
+    "pricing_label": "Kosten:",
+    "free_label": "Kostenlos",
+    "best_for_label": "Am besten für:",
+    "key_benefit_label": "Hauptvorteil:",
+    "last_updated_label": "Zuletzt aktualisiert",
+    "keyword_label": "rückwärts text generator",
+    "best_for": "Autoren, Creator, Rätselbauer und Social-Media-Nutzer",
+    "key_benefit": "Makelloser Rückwärtstext mit sofortiger Kopierfunktion",
+    "default_input": "Rückwärts lesen macht Spaß",
+    "how_to_use_steps": [
+      "Tippen oder fügen Sie Ihren Text ins Eingabefeld ein.",
+      "Wählen Sie den Modus: Zeichen, Wörter oder Zeilen umkehren.",
+      "Kopieren Sie das Ergebnis und fügen Sie es überall ein."
+    ],
+    "use_cases_title": "Beliebte Anwendungsfälle",
+    "use_cases": [
+      "Social-Media-Bildunterschriften und lustige Bios",
+      "Wortspiele, Rätsel und Klassenaktivitäten",
+      "Schnelle Formatierungsexperimente für Entwürfe",
+      "Testen von Umkehr-String-Verhalten in Apps"
+    ],
+    "limits_title": "Einschränkungen und Hinweise",
+    "boundaries": [
+      "Einige Skripte und Emojis können sich bei der Umkehrung anders verhalten.",
+      "Bei Wortumkehrung werden übermäßige Leerzeichen normalisiert.",
+      "Beim Umkehren von Zeilen bleibt der Text innerhalb der Zeile unverändert.",
+      "Bitte vor der Veröffentlichung immer erst die Ausgabe überprüfen."
+    ],
+    "faq": {
+      "title": "Häufig Gestellte Fragen",
+      "items": [
+        {
+          "q": "Was macht ein Rückwärts Text Generator?",
+          "a": "Er kehrt die Textreihenfolge um, damit Sie die rückwärtige Ausgabe sofort kopieren können."
+        },
+        {
+          "q": "Was ist der Unterschied zwischen Zeichen- und Wortumkehrung?",
+          "a": "Die Zeichenumkehrung dreht jedes einzelne Zeichen um. Die Wortumkehrung belässt die Wörter selbst intakt, dreht aber ihre Reihenfolge."
+        },
+        {
+          "q": "Ist dieser Umkehrer kostenlos?",
+          "a": "Ja. Er ist kostenlos, funktioniert im Browser und hat kein Nutzlimit."
+        },
+        {
+          "q": "Kann ich mehrere Zeilen gleichzeitig umkehren?",
+          "a": "Ja. Benutzen Sie den Modus 'Zeilen umkehren', um die Zeilenreihenfolge umzudrehen."
+        },
+        {
+          "q": "Speichert dieses Werkzeug meinen Text?",
+          "a": "Nein, es ist keine serverseitige Speicherung für diese Umwandlung erforderlich."
+        },
+        {
+          "q": "Werden Satzzeichen und Zahlen ebenfalls umgekehrt?",
+          "a": "Ja, im Zeichenmodus werden alle Charakter sequenziell umgekehrt."
+        }
+      ]
+    },
+    "feature_list": [
+      "Zeichen-, Wort- und Zeilenumkehr-Modi",
+      "1-Klick-Kopieren",
+      "Browserbasierter Ablauf",
+      "Schnelle Vorschau für Social Media"
+    ],
+    "feature_list_schemas": [
+      "Umkehrung auf Zeichenebene",
+      "Optionen für Wörter und Zeilen",
+      "Sofortiges Kopieren und Einfügen",
+      "Kostenloses Browser-Textwerkzeug"
+    ],
+    "ui": {
+      "playground_title": "Rückwärts Text Spielwiese",
+      "input_label": "Texteingabe",
+      "input_placeholder": "Text zum Umkehren eingeben...",
+      "mode_title": "Umkehrmodus",
+      "mode_characters": "Zeichen umkehren",
+      "mode_words": "Wörter umkehren",
+      "mode_lines": "Zeilen umkehren",
+      "output_title": "Ausgabe",
+      "preview_title": "Vorschau",
+      "preview_description": "Klicken Sie auf eine Karte, um dieses Ergebnis zu kopieren.",
+      "empty_input": "Bitte geben Sie zuerst einen Text ein.",
+      "ready_to_copy": "Kopieren",
+      "copied": "Kopiert!",
+      "copy_failed": "Kopieren fehlgeschlagen",
+      "how_to_use_title": "Bedienungsanleitung"
+    }
+  },
   "FancyTextGenerator": {
     "seo_title": "Schriftarten-Generator (2026) - Unicode-Schriften kopieren und einfügen",
     "seo_description": "Kostenloser Schriftarten-Generator für Unicode-Textstile wie Schreibschrift, Fraktur, Fett und mehr. Sofort kopieren und einfügen.",
@@ -2558,6 +2748,10 @@
       "fullwidth": {
         "name": "Volle Breite",
         "desc": "Konvertiert ASCII in Vollbreitenformen"
+      },
+      "cursed-chaos": {
+        "name": "Verfluchtes Chaos",
+        "desc": "Hochintensiver korrumpierter Texteffekt mit geschichteten Markierungen"
       }
     },
     "ui": {

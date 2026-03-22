@@ -2219,6 +2219,196 @@
       "Cas d'utilisation sur les réseaux sociaux"
     ]
   },
+  "CursedTextGenerator": {
+    "seo_title": "Générateur de Texte Maudit (2026) - Texte Unicode Corrompu et Glitch",
+    "seo_description": "Créez du texte maudit avec des effets Unicode glitch comme zalgo, des marques d'éclair et des styles déformés. Copiez et collez instantanément.",
+    "seo_keywords": "générateur de texte maudit, générateur de texte corrompu, texte glitch, texte unicode maudit, texte style zalgo",
+    "page_title": "Générateur de Texte Maudit",
+    "page_subtitle": "Texte Unicode Corrompu et Glitch",
+    "badge_text": "Outil de Texte Maudit",
+    "tldr": "Un générateur de texte maudit transforme le texte normal en une sortie Unicode chaotique avec des marques combinées et des effets de distorsion. Il est utile pour les mèmes, les légendes d'horreur et le texte de style dramatique.",
+    "keyword_label": "générateur de texte maudit",
+    "best_for": "Créateurs de mèmes, contenu d'horreur, communautés de jeux et esthétique chaotique",
+    "key_benefit": "Générez des variantes de texte maudit à fort impact avec copie en un clic",
+    "default_input": "THE SIGNAL IS CURSED",
+    "use_cases": [
+      "Légendes sociales d'horreur et effrayantes",
+      "Texte de réaction aux mèmes et commentaires maudits",
+      "Titres de streams de jeux et messages d'événements",
+      "Typographie expérimentale et narration visuelle"
+    ],
+    "boundaries": [
+      "Une distorsion intensive peut nuire à la lisibilité et à l'accessibilité.",
+      "Certaines plateformes peuvent normaliser ou supprimer les marques combinées complexes.",
+      "Le texte maudit est décoratif et ne convient pas à la communication formelle.",
+      "Prévisualisez toujours avant de publier pour éviter un rendu défectueux."
+    ],
+    "related_tools": {
+      "zalgo": {
+        "label": "Générateur de Texte Zalgo",
+        "description": "Créez une sortie glitch dense avec des préréglages dédiés axés sur Zalgo."
+      },
+      "strikethrough": {
+        "label": "Générateur de Texte Barré",
+        "description": "Utilisez une décoration plus légère lorsque la lisibilité est encore nécessaire."
+      },
+      "fancy_text": {
+        "label": "Générateur de Texte Fantaisie",
+        "description": "Passez du style maudit à des polices Unicode décoratives plus propres."
+      },
+      "discord_font": {
+        "label": "Générateur de Polices Discord",
+        "description": "Générez du texte stylisé plus adapté au chat pour Discord."
+      }
+    },
+    "faq": {
+      "title": "Questions Fréquemment Posées",
+      "items": [
+        {
+          "q": "Qu'est-ce que le texte maudit ?",
+          "a": "Le texte maudit est une sortie Unicode intentionnellement déformée conçue pour paraître chaotique, glitchée ou perturbante."
+        },
+        {
+          "q": "En quoi le texte maudit diffère-t-il du texte fantaisie normal ?",
+          "a": "Le texte fantaisie se concentre sur des styles décoratifs lisibles, tandis que le texte maudit met l'accent sur la corruption et le chaos visuel."
+        },
+        {
+          "q": "Puis-je copier et coller du texte maudit n'importe où ?",
+          "a": "Généralement oui, mais le support de rendu varie selon l'application, le navigateur et le système d'exploitation."
+        },
+        {
+          "q": "Le texte maudit cassera-t-il les mises en page ?",
+          "a": "C'est possible. Les marques combinées denses peuvent modifier la hauteur de ligne et provoquer des coupures dans certaines interfaces."
+        },
+        {
+          "q": "Ce générateur de texte maudit est-il gratuit ?",
+          "a": "Oui. Il est gratuit, basé sur le navigateur, et permet une utilisation illimitée de copier-coller."
+        },
+        {
+          "q": "Cet outil stocke-t-il mes entrées ?",
+          "a": "Aucun stockage côté serveur n'est nécessaire pour le flux de travail de conversion principal."
+        },
+        {
+          "q": "Puis-je rendre le texte maudit moins agressif ?",
+          "a": "Oui. Choisissez des effets plus légers comme les marques de queue ou le barré pour une sortie plus lisible."
+        },
+        {
+          "q": "Le texte maudit est-il adapté aux documents officiels ?",
+          "a": "Non. Il est destiné uniquement au divertissement, aux mèmes et à l'expression créative."
+        }
+      ]
+    },
+    "feature_list": [
+      "Effets de texte glitch maudit",
+      "Zalgo, éclairs et distorsion basée sur les marques",
+      "Copie en un clic",
+      "Flux de travail de conversion uniquement dans le navigateur"
+    ],
+    "feature_list_schemas": [
+      "Style Unicode corrompu",
+      "Options d'intensité de chaos multiples",
+      "Copier-coller instantané",
+      "Cas d'utilisation créatifs et mèmes"
+    ]
+  },
+  "BackwardsTextGenerator": {
+    "seo_title": "Générateur de Texte à l'Envers (2026) - Inverser du Texte",
+    "seo_description": "Générateur de texte à l'envers gratuit pour inverser les lettres, mots ou lignes instantanément. Copiez et collez pour s'amuser, formater et écrire.",
+    "seo_keywords": "texte à l'envers, inverser texte, texte miroir, texte inversé, ecrire à l'envers",
+    "page_title": "Générateur de Texte à l'Envers",
+    "page_subtitle": "Inversez du Texte Instantanément",
+    "free_tool_badge": "Outil Texte Inversé",
+    "tldr_title": "Résumé Rapide",
+    "tldr": "Un générateur de texte à l'envers inverse instantanément votre entrée. Choisissez d'inverser les caractères, les mots ou les lignes, et copiez en un clic.",
+    "core_facts_title": "Informations Essentielles",
+    "primary_intent_label": "Intention Principale :",
+    "pricing_label": "Prix :",
+    "free_label": "Gratuit",
+    "best_for_label": "Idéal pour :",
+    "key_benefit_label": "Avantage Clé :",
+    "last_updated_label": "Dernière Mise à Jour",
+    "keyword_label": "texte à l'envers",
+    "best_for": "Auteurs, créateurs, amateurs de casses-têtes, utilisateurs réseaux sociaux",
+    "key_benefit": "Génère des styles de texte inversé avec copie instantanée",
+    "default_input": "Le texte à l'envers est drôle à lire",
+    "how_to_use_steps": [
+      "Tapez ou collez votre texte dans la zone de texte.",
+      "Choisissez le mode : inverser caractères, mots ou lignes.",
+      "Copiez le résultat et collez-le où vous en avez besoin."
+    ],
+    "use_cases_title": "Cas d'Utilisation Fréquents",
+    "use_cases": [
+      "Biographies et descriptions de réseaux sociaux",
+      "Jeux de mots, casses-têtes et activités de classe",
+      "Expérimentations de formatação pour brouillons",
+      "Test de comportement d'inversion des chaînes en programmation"
+    ],
+    "limits_title": "Limites et Remarques",
+    "boundaries": [
+      "Certains emojis peuvent apparaître différemment après l'inversion.",
+      "L'inversion de mots normalise les espaces superflus.",
+      "L'inversion de lignes maintient le contenu de chaque ligne intact.",
+      "Prévisualisez toujours sur votre appareil cible."
+    ],
+    "faq": {
+      "title": "Foire Aux Questions",
+      "items": [
+        {
+          "q": "Que fait un générateur de texte à l'envers ?",
+          "a": "Il inverse l'ordre de votre texte afin que vous puissiez copier directement le résultat."
+        },
+        {
+          "q": "Quelle est la différence entre caractères et mots ?",
+          "a": "Les caractères renversent la phrase entière lettre par lettre. L'inversion par mots garde chaque mot intact tout en inversant l'ordre de la phrase."
+        },
+        {
+          "q": "Est-ce que l'outil est gratuit ?",
+          "a": "Oui, c'est gratuit, accessible par navigateur et sans limite."
+        },
+        {
+          "q": "Puis-je inverser plusieurs lignes ?",
+          "a": "Oui, le mode d'inversion des lignes modifie l'ordre global sans toucher au contenu individuel."
+        },
+        {
+          "q": "Mon texte est-il stocké ?",
+          "a": "Non, aucun stockage de serveur n'est utilisé."
+        },
+        {
+          "q": "Est-ce que la ponctuation et les chiffres sont aussi modifiés ?",
+          "a": "Oui, en mode caractère, tout est retourné séquentiellement."
+        }
+      ]
+    },
+    "feature_list": [
+      "Modes d'inversion pour les caractères, mots et lignes",
+      "Copie instantanée",
+      "Application sur navigateur",
+      "Prévisualisation rapide"
+    ],
+    "feature_list_schemas": [
+      "Améliorations de conversion au niveau de la lettre",
+      "Modifications par mots ou lignes",
+      "Usage direct en un clic",
+      "Gratuit sans inscription"
+    ],
+    "ui": {
+      "playground_title": "Espace de Texte à l'Envers",
+      "input_label": "Saisir le texte",
+      "input_placeholder": "Texte à inverser...",
+      "mode_title": "Mode d'Inversion",
+      "mode_characters": "Inverser les Caractères",
+      "mode_words": "Inverser les Mots",
+      "mode_lines": "Inverser les Lignes",
+      "output_title": "Résultat",
+      "preview_title": "Aperçu des Modes",
+      "preview_description": "Cliquez sur une carte pour copier ce résultat.",
+      "empty_input": "Veuillez d'abord saisir du texte.",
+      "ready_to_copy": "Copier",
+      "copied": "Copié !",
+      "copy_failed": "Échec",
+      "how_to_use_title": "Comment utiliser"
+    }
+  },
   "FancyTextGenerator": {
     "seo_title": "Générateur de polices stylées (2026) - Copier et coller des polices Unicode",
     "seo_description": "Générateur de polices stylées gratuit pour les styles de texte Unicode comme l'écriture manuscrite, le gothique, le gras et plus. Copiez et collez instantanément.",
@@ -2558,6 +2748,10 @@
       "fullwidth": {
         "name": "Pleine Largeur",
         "desc": "Convertit ASCII en formes pleine largeur"
+      },
+      "cursed-chaos": {
+        "name": "Chaos Maudit",
+        "desc": "Effet de texte corrompu de haute intensité avec des marques superposées"
       }
     },
     "ui": {

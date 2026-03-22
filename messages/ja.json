@@ -1703,12 +1703,7 @@
         "standards_section": {
           "title": "北欧測定基準",
           "description": "当CMからTommer変換器はデンマーク、ノルウェー、国際商取引で使用される公式北欧測定基準に従います。このツールは建設、製造、国際貿易での専門用途に不可欠な正確な変換を提供します。",
-          "features": [
-            "公式北欧測定基準",
-            "建設業界適合性",
-            "国際貿易仕様",
-            "品質管理測定"
-          ]
+          "features": ["公式北欧測定基準", "建設業界適合性", "国際貿易仕様", "品質管理測定"]
         },
         "features_section": {
           "title": "専門変換機能",
@@ -2240,6 +2235,196 @@
       "SNSでの活用例"
     ]
   },
+  "CursedTextGenerator": {
+    "seo_title": "Cursed Text Generator (2026) - Corrupted and Glitch Unicode Text",
+    "seo_description": "Create cursed text with glitchy Unicode effects like zalgo, lightning marks, and distorted styles. Copy and paste instantly.",
+    "seo_keywords": "cursed text generator, corrupted text generator, glitch text, cursed unicode text, zalgo style text",
+    "page_title": "Cursed Text Generator",
+    "page_subtitle": "Corrupted and Glitch Unicode Text",
+    "badge_text": "Cursed Text Tool",
+    "tldr": "A cursed text generator transforms normal text into chaotic Unicode output with combining marks and distortion effects. It is useful for memes, horror captions, and dramatic stylistic text.",
+    "keyword_label": "cursed text generator",
+    "best_for": "Meme creators, horror content, gaming communities, and chaotic aesthetics",
+    "key_benefit": "Generate high-impact cursed text variants with one-click copy",
+    "default_input": "THE SIGNAL IS CURSED",
+    "use_cases": [
+      "Horror and spooky social captions",
+      "Meme reaction text and cursed comments",
+      "Gaming stream titles and event messages",
+      "Experimental typography and visual storytelling"
+    ],
+    "boundaries": [
+      "Heavy distortion can hurt readability and accessibility.",
+      "Some platforms may normalize or strip complex combining marks.",
+      "Cursed text is decorative and not suitable for formal communication.",
+      "Always preview before posting to avoid broken rendering."
+    ],
+    "related_tools": {
+      "zalgo": {
+        "label": "Zalgo Text Generator",
+        "description": "Create dense glitch output with dedicated zalgo-focused presets."
+      },
+      "strikethrough": {
+        "label": "Strikethrough Text Generator",
+        "description": "Use lighter decoration when you still need readability."
+      },
+      "fancy_text": {
+        "label": "Fancy Text Generator",
+        "description": "Switch from cursed style to cleaner decorative Unicode fonts."
+      },
+      "discord_font": {
+        "label": "Discord Font Generator",
+        "description": "Generate more chat-friendly stylized text for Discord."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "q": "What is cursed text?",
+          "a": "Cursed text is intentionally distorted Unicode output designed to look chaotic, glitched, or unsettling."
+        },
+        {
+          "q": "How is cursed text different from normal fancy text?",
+          "a": "Fancy text focuses on readable decorative styles, while cursed text emphasizes corruption and visual chaos."
+        },
+        {
+          "q": "Can I copy and paste cursed text anywhere?",
+          "a": "Usually yes, but rendering support varies by app, browser, and operating system."
+        },
+        {
+          "q": "Will cursed text break layouts?",
+          "a": "It can. Dense combining marks may change line height and cause clipping in some interfaces."
+        },
+        {
+          "q": "Is this cursed text generator free?",
+          "a": "Yes. It is free, browser-based, and supports unlimited copy and paste usage."
+        },
+        {
+          "q": "Does this tool store my input?",
+          "a": "No server-side storage is required for the core conversion workflow."
+        },
+        {
+          "q": "Can I make cursed text less aggressive?",
+          "a": "Yes. Choose lighter effects like tail marks or strikethrough for more readable output."
+        },
+        {
+          "q": "Is cursed text good for official documents?",
+          "a": "No. It is intended for entertainment, memes, and creative expression only."
+        }
+      ]
+    },
+    "feature_list": [
+      "Cursed glitch text effects",
+      "Zalgo, lightning, and mark-based distortion",
+      "One-click copy output",
+      "Browser-only conversion workflow"
+    ],
+    "feature_list_schemas": [
+      "Corrupted Unicode styling",
+      "Multiple chaos intensity options",
+      "Instant copy and paste",
+      "Creative and meme use cases"
+    ]
+  },
+  "BackwardsTextGenerator": {
+    "seo_title": "逆文字生成ツール (2026) - テキストを即座に反転",
+    "seo_description": "無料の逆文字・反転テキストジェネレーター。文字、単語、行を瞬時に逆にします。逆さまのテキストを簡単にコピー＆ペーストできます。",
+    "seo_keywords": "逆文字ジェネレーター, テキスト反転, 文字を逆にする, コピペ 逆文字",
+    "page_title": "逆文字生成ツール",
+    "page_subtitle": "テキストを即座に反転",
+    "free_tool_badge": "逆文字ツール",
+    "tldr_title": "要点",
+    "tldr": "逆文字生成ツールは、入力されたテキストを即座に反転させます。「文字単位」「単語単位」「行単位」から反転モードを選び、ワンクリックでコピーできます。",
+    "core_facts_title": "基本情報",
+    "primary_intent_label": "主な目的:",
+    "pricing_label": "価格:",
+    "free_label": "無料",
+    "best_for_label": "対象:",
+    "key_benefit_label": "主なメリット:",
+    "last_updated_label": "最終更新日",
+    "keyword_label": "逆文字ジェネレーター",
+    "best_for": "ライター、クリエイター、パズル作成者、SNSユーザー",
+    "key_benefit": "瞬時にきれいな逆文字を作成・コピー可能",
+    "default_input": "逆文字を読むのは楽しい",
+    "how_to_use_steps": [
+      "入力ボックスにテキストを入力またはペーストします。",
+      "反転モード（文字、単語、行）を選択します。",
+      "結果をコピーして必要な場所に貼り付けます。"
+    ],
+    "use_cases_title": "よくある用途",
+    "use_cases": [
+      "SNSのキャプションや面白いプロフィール",
+      "言葉遊び、パズル、教室でのアクティビティ",
+      "文章の下書きの素早い動作テスト",
+      "アプリ内での文字列の逆方向動作のテスト"
+    ],
+    "limits_title": "制限と注意点",
+    "boundaries": [
+      "一部のスクリプトや絵文字は、反転後見え方が変わることがあります。",
+      "単語の反転モードは各行内の余分なスペースを正規化します。",
+      "行の反転モードは各行内のテキスト自体は変更しません。",
+      "投稿前にターゲットとなるプラットフォームで結果を確認してください。"
+    ],
+    "faq": {
+      "title": "よくある質問",
+      "items": [
+        {
+          "q": "逆文字生成ツールとは何ですか？",
+          "a": "テキストの順序を反転させ、逆向きの出力を即座にコピーできるツールです。"
+        },
+        {
+          "q": "文字単位の反転と単語単位の反転の違いは何ですか？",
+          "a": "文字単位の反転は、1文字ずつ順序を逆にします。単語単位の反転は、単語自体はそのままに、単語の並び順だけを逆にします。"
+        },
+        {
+          "q": "この逆文字ジェネレーターは無料ですか？",
+          "a": "はい、無料であり、ブラウザで利用でき、制限なく使用可能です。"
+        },
+        {
+          "q": "複数行を一度に反転することはできますか？",
+          "a": "はい、「行の反転」モードを使って行の順序を逆転させることができます。"
+        },
+        {
+          "q": "私のテキストは保存されますか？",
+          "a": "いいえ、テキストの変換のためにサーバーに保存することはありません。"
+        },
+        {
+          "q": "句読点や数字も反転されますか？",
+          "a": "文字単位の反転モードの場合、すべての文字が順次反転されます。"
+        }
+      ]
+    },
+    "feature_list": [
+      "文字、単語、行の反転モード",
+      "ワンクリックでコピー",
+      "ブラウザ完結のツール",
+      "SNS利用時の素早いプレビュー"
+    ],
+    "feature_list_schemas": [
+      "文字単位での逆文字化",
+      "単語・行単位の反転オプション",
+      "即座にコピペ可能",
+      "無料のブラウザツール"
+    ],
+    "ui": {
+      "playground_title": "逆文字プレイグラウンド",
+      "input_label": "テキストの入力",
+      "input_placeholder": "反転するテキストを入力...",
+      "mode_title": "反転モード",
+      "mode_characters": "文字を反転",
+      "mode_words": "単語を反転",
+      "mode_lines": "行を反転",
+      "output_title": "結果",
+      "preview_title": "モードのプレビュー",
+      "preview_description": "カードをクリックすると、その結果をコピーできます。",
+      "empty_input": "先にテキストを入力してください。",
+      "ready_to_copy": "コピー",
+      "copied": "コピーしました！",
+      "copy_failed": "コピー失敗",
+      "how_to_use_title": "使い方"
+    }
+  },
   "FancyTextGenerator": {
     "seo_title": "おしゃれ文字作成器 (2026) - Unicodeフォントをコピー＆ペースト",
     "seo_description": "筆記体、フラクトゥール、太字など、おしゃれなUnicodeテキストスタイルを作成できる無料のおしゃれ文字作成器。即座にコピー＆ペーストが可能。",
@@ -2579,6 +2764,10 @@
       "fullwidth": {
         "name": "全角",
         "desc": "ASCII文字を全角形式に変換します"
+      },
+      "cursed-chaos": {
+        "name": "呪われた混沌",
+        "desc": "重なったマークを持つ高強度の破損テキスト効果"
       }
     },
     "ui": {

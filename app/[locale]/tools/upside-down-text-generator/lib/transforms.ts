@@ -74,6 +74,24 @@ const combineZalgo = (text: string): string => {
     .join("")
 }
 
+const combineCursed = (text: string): string => {
+  const up = ["\u030d", "\u030e", "\u0304", "\u0305", "\u033f", "\u0311", "\u0302"]
+  const mid = ["\u0334", "\u0335", "\u0336", "\u034f"]
+  const down = ["\u0316", "\u0317", "\u0318", "\u0319", "\u0324", "\u0329", "\u033a"]
+
+  return Array.from(text)
+    .map((char, index) => {
+      if (!char.trim()) return char
+      // Deterministic intensity pattern for stable copy/paste output.
+      const upMark = up[index % up.length]
+      const midMark = mid[(index + 1) % mid.length]
+      const downMark = down[(index + 2) % down.length]
+      const accent = index % 3 === 0 ? "͠" : index % 3 === 1 ? "̷" : "̸"
+      return `${char}${upMark}${midMark}${downMark}${accent}`
+    })
+    .join("")
+}
+
 const UPSIDE_DOWN_MAP: Record<string, string> = {
   a: "ɐ",
   b: "q",
@@ -420,6 +438,13 @@ export const PRESET_EFFECTS: TextEffect[] = [
     category: "Combining Marks",
     description: "Stacked marks for glitchy zalgo style",
     apply: (text) => combineZalgo(text),
+  },
+  {
+    id: "cursed-chaos",
+    name: "Cursed Chaos",
+    category: "Combining Marks",
+    description: "High-intensity corrupted text effect with layered marks",
+    apply: (text) => combineCursed(text),
   },
   {
     id: "upside-down",

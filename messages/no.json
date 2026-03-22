@@ -2163,6 +2163,196 @@
       "Brukstilfeller for sosiale medier"
     ]
   },
+  "CursedTextGenerator": {
+    "seo_title": "Forbannet Tekstgenerator (2026) - Korrupt og Glitch Unicode-tekst",
+    "seo_description": "Lag forbannet tekst med glitchede Unicode-effekter som zalgo, lynmerker og forvrengte stiler. Kopier og lim inn umiddelbart.",
+    "seo_keywords": "forbannet tekstgenerator, korrupt tekstgenerator, glitch tekst, forbannet unicode tekst, zalgo stil tekst",
+    "page_title": "Forbannet Tekstgenerator",
+    "page_subtitle": "Korrupt og Glitch Unicode-tekst",
+    "badge_text": "Forbannet Tekstverktøy",
+    "tldr": "En forbannet tekstgenerator omdanner vanlig tekst til kaotisk Unicode-utdata med kombinasjonsmerker og forvrengningseffekter. Den er nyttig for memer, skrekkbildetekster og dramatisk stilistisk tekst.",
+    "keyword_label": "forbannet tekstgenerator",
+    "best_for": "Mem-skapere, skrekkinnhold, spillmiljøer og kaotisk estetikk",
+    "key_benefit": "Generer forbannede tekstvarianter med høy effekt med ett-klikks kopiering",
+    "default_input": "THE SIGNAL IS CURSED",
+    "use_cases": [
+      "Skrekk og uhyggelige sosiale bildetekster",
+      "Mem-reaksjonstekst og forbannede kommentarer",
+      "Spillstrøm-titler og hendelsesmeldinger",
+      "Eksperimentell typografi og visuell historiefortelling"
+    ],
+    "boundaries": [
+      "Kraftig forvrengning kan skade lesbarheten og tilgjengeligheten.",
+      "Noen plattformer kan normalisere eller fjerne komplekse kombinasjonsmerker.",
+      "Forbannet tekst er dekorativ og ikke egnet for formell kommunikasjon.",
+      "Forhåndsvis alltid før publisering for å unngå ødelagt gjengivelse."
+    ],
+    "related_tools": {
+      "zalgo": {
+        "label": "Zalgo Tekstgenerator",
+        "description": "Lag tett glitch-utdata med dedikerte zalgo-fokuserte forhåndsinnstillinger."
+      },
+      "strikethrough": {
+        "label": "Gjennomstreket Tekstgenerator",
+        "description": "Bruk lettere dekorasjon når du fortsatt trenger lesbarhet."
+      },
+      "fancy_text": {
+        "label": "Fancy Tekstgenerator",
+        "description": "Bytt fra forbannet stil til renere dekorative Unicode-skrifttyper."
+      },
+      "discord_font": {
+        "label": "Discord Skrifttypegenerator",
+        "description": "Generer mer chattvennlig stilisert tekst for Discord."
+      }
+    },
+    "faq": {
+      "title": "Ofte Stilte Spørsmål",
+      "items": [
+        {
+          "q": "Hva er forbannet tekst?",
+          "a": "Forbannet tekst er bevisst forvrengt Unicode-utdata designet for å se kaotisk, glitchet eller foruroligende ut."
+        },
+        {
+          "q": "Hvordan skiller forbannet tekst seg fra vanlig fancy tekst?",
+          "a": "Fancy tekst fokuserer på lesbare dekorative stiler, mens forbannet tekst legger vekt på korrupsjon og visuelt kaos."
+        },
+        {
+          "q": "Kan jeg kopiere og lime inn forbannet tekst hvor som helst?",
+          "a": "Vanligvis ja, men gjengivelsesstøtte varierer etter app, nettleser og operativsystem."
+        },
+        {
+          "q": "Vil forbannet tekst ødelegge oppsett?",
+          "a": "Det kan den. Tette kombinasjonsmerker kan endre linjehøyden og forårsake klipping i noen grensesnitt."
+        },
+        {
+          "q": "Er denne forbannede tekstgeneratoren gratis?",
+          "a": "Ja. Den er gratis, nettleserbasert og støtter ubegrenset kopiering og innliming."
+        },
+        {
+          "q": "Lagrer dette verktøyet mine inndata?",
+          "a": "Ingen serverside lagring er nødvendig for kjernekonverteringsarbeidsflyten."
+        },
+        {
+          "q": "Kan jeg gjøre forbannet tekst mindre aggressiv?",
+          "a": "Ja. Velg lettere effekter som halemerker eller gjennomstreking for mer lesbar utdata."
+        },
+        {
+          "q": "Er forbannet tekst bra for offisielle dokumenter?",
+          "a": "Nei. Den er kun beregnet for underholdning, memer og kreativt uttrykk."
+        }
+      ]
+    },
+    "feature_list": [
+      "Forbannede glitch-teksteffekter",
+      "Zalgo, lyn og merkebasert forvrengning",
+      "Kopiering med ett klikk",
+      "Nettleserbasert konverteringsarbeidsflyt"
+    ],
+    "feature_list_schemas": [
+      "Korrupt Unicode-styling",
+      "Flere kaosintensitetsalternativer",
+      "Umiddelbar kopiering og innliming",
+      "Kreative og mem-bruksscenarier"
+    ]
+  },
+  "BackwardsTextGenerator": {
+    "seo_title": "Baklengs Tekst Generator (2026) - Snu Teksten Umiddelbart",
+    "seo_description": "Gratis baklengs tekst generator for å snu bokstaver, ord eller linjer umiddelbart. Kopier og lim inn baklengs tekst for moro, skriving og formatering.",
+    "seo_keywords": "baklengs tekst generator, snu tekst, skriv baklengs, omvendt tekst",
+    "page_title": "Baklengs Tekst Generator",
+    "page_subtitle": "Snu Teksten Umiddelbart",
+    "free_tool_badge": "Baklengs Tekst Verktøy",
+    "tldr_title": "Kort Fortalt",
+    "tldr": "En baklengs tekst generator snur din inndata umiddelbart. Velg å snu bokstaver, ord eller linjer basert på ditt behov, og kopier med ett klikk.",
+    "core_facts_title": "Kjerneinformasjon",
+    "primary_intent_label": "Hovedhensikt:",
+    "pricing_label": "Pris:",
+    "free_label": "Gratis",
+    "best_for_label": "Best for:",
+    "key_benefit_label": "Nøkkelfordel:",
+    "last_updated_label": "Sist Oppdatert",
+    "keyword_label": "baklengs tekst generator",
+    "best_for": "Forfattere, skapere, puslespillmakere og brukere av sosiale medier",
+    "key_benefit": "Generer rene baklengstekst-stiler med umiddelbar kopiering",
+    "default_input": "Det er morsomt å lese baklengs",
+    "how_to_use_steps": [
+      "Skriv eller lim inn teksten din i inndataboksen.",
+      "Velg modusen: bokstaver, ord eller linjer.",
+      "Kopier utdataen og lim inn hvor du vil."
+    ],
+    "use_cases_title": "Vanlige Bruksområder",
+    "use_cases": [
+      "Morsomme bildetekster og biografier",
+      "Ordspill, gåter og klasseromsaktiviteter",
+      "Raske formateringseksperimenter for skriveutkast",
+      "Testing av omvendte tekststrenger i apper"
+    ],
+    "limits_title": "Begrensninger og Notater",
+    "boundaries": [
+      "Noen emojis eller skript kan se annerledes ut etter omgjøring.",
+      "Ordomvending normaliserer ekstra mellomrom i hver linje.",
+      "Linjeomvending beholder teksten urørt på innsiden.",
+      "Forhåndsvis alltid på ønsket plattform før publisering."
+    ],
+    "faq": {
+      "title": "Ofte Stilte Spørsmål",
+      "items": [
+        {
+          "q": "Hva gjør en baklengs tekst generator?",
+          "a": "Den snur teksten din slik at du kan kopiere baklengs format umiddelbart."
+        },
+        {
+          "q": "Hva er forskjellen mellom å snu bokstaver og ord?",
+          "a": "Bokstavomvending snur alt, uansett. Ordomvending beholder selve ordet, men snur rekkefølgen på dem i setningen."
+        },
+        {
+          "q": "Er denne generatoren gratis?",
+          "a": "Ja, den er gratis, er i nettleseren, og har uendelig bruk."
+        },
+        {
+          "q": "Kan jeg snu flere linjer på en gang?",
+          "a": "Ja. Bruk linjemodusen for å bytte rundt på hele linjene deres."
+        },
+        {
+          "q": "Lagrer dette verktøyet teksten min?",
+          "a": "Nei, ingenting lagres på våre servere."
+        },
+        {
+          "q": "Snurrs også tall og tegnsetting?",
+          "a": "Ja, i tegn-modus blir absolutt alt snudd."
+        }
+      ]
+    },
+    "feature_list": [
+      "Snu bokstaver, ord og linjer",
+      "Ett-trykks kopiering",
+      "Nettleserbasert, ingen nedlasting",
+      "Rask forhåndsvisning"
+    ],
+    "feature_list_schemas": [
+      "Konvertering på tvers av bokstaver",
+      "Ordmessig og linjemessig snuing",
+      "Umiddelbar kopiering-støtte",
+      "Gratis og enkel bruk"
+    ],
+    "ui": {
+      "playground_title": "Baklengs Tekst Lekeplass",
+      "input_label": "Skriv inn Tekst",
+      "input_placeholder": "Skriv for å snu...",
+      "mode_title": "Omvendt Modus",
+      "mode_characters": "Snu Bokstaver",
+      "mode_words": "Snu Ord",
+      "mode_lines": "Snu Linjer",
+      "output_title": "Resultat",
+      "preview_title": "Modus Forhåndsvisning",
+      "preview_description": "Klikk for å kopiere dette resultatet.",
+      "empty_input": "Vennligst skriv inn tekst først.",
+      "ready_to_copy": "Kopier",
+      "copied": "Kopiert!",
+      "copy_failed": "Kopiering feilet",
+      "how_to_use_title": "Hvordan Bruke"
+    }
+  },
   "FancyTextGenerator": {
     "seo_title": "Fancy Text Generator (2026) - Kopier og lim inn Unicode-fonter",
     "seo_description": "Gratis fancy tekstgenerator for Unicode-tekststiler som løkkeskrift, fraktur, fet og mer. Kopier og lim inn umiddelbart.",
@@ -2502,6 +2692,10 @@
       "fullwidth": {
         "name": "Full bredde",
         "desc": "Konverterer ASCII til fullbredde-former"
+      },
+      "cursed-chaos": {
+        "name": "Forbannet Kaos",
+        "desc": "Høyintensiv korrumpert teksteffekt med lagdelte markeringer"
       }
     },
     "ui": {

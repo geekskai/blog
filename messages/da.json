@@ -2146,6 +2146,196 @@
       "Sociale medier use cases"
     ]
   },
+  "CursedTextGenerator": {
+    "seo_title": "Forbandet Tekstgenerator (2026) - Korrupt og Glitch Unicode-tekst",
+    "seo_description": "Opret forbandet tekst med glitchede Unicode-effekter som zalgo, lynmærker og forvrængede stilarter. Kopier og indsæt med det samme.",
+    "seo_keywords": "forbandet tekstgenerator, korrupt tekstgenerator, glitch tekst, forbandet unicode tekst, zalgo stil tekst",
+    "page_title": "Forbandet Tekstgenerator",
+    "page_subtitle": "Korrupt og Glitch Unicode-tekst",
+    "badge_text": "Forbandet Tekstværktøj",
+    "tldr": "En forbandet tekstgenerator omdanner normal tekst til kaotisk Unicode-output med kombinationsmærker og forvrængningseffekter. Den er nyttig til memes, horror-billedtekster og dramatisk stilistisk tekst.",
+    "keyword_label": "forbandet tekstgenerator",
+    "best_for": "Meme-skabere, horror-indhold, gaming-fællesskaber og kaotisk æstetik",
+    "key_benefit": "Generer forbandede tekstvarianter med høj virkning med ét-klik kopiering",
+    "default_input": "THE SIGNAL IS CURSED",
+    "use_cases": [
+      "Horror og uhyggelige sociale billedtekster",
+      "Meme-reaktionstekst og forbandede kommentarer",
+      "Gaming-stream titler og begivenhedsbeskeder",
+      "Eksperimentel typografi og visuel historiefortælling"
+    ],
+    "boundaries": [
+      "Kraftig forvrængning kan skade læsbarheden og tilgængeligheden.",
+      "Nogle platforme kan normalisere eller fjerne komplekse kombinationsmærker.",
+      "Forbandet tekst er dekorativ og ikke egnet til formel kommunikation.",
+      "Forhåndsvis altid før offentliggørelse for at undgå ødelagt gengivelse."
+    ],
+    "related_tools": {
+      "zalgo": {
+        "label": "Zalgo Tekstgenerator",
+        "description": "Opret tæt glitch-output med dedikerede zalgo-fokuserede forudindstillinger."
+      },
+      "strikethrough": {
+        "label": "Gennemstreget Tekstgenerator",
+        "description": "Brug lettere dekoration, når du stadig har brug for læsbarhed."
+      },
+      "fancy_text": {
+        "label": "Flot Tekstgenerator",
+        "description": "Skift fra forbandet stil til renere dekorative Unicode-skrifttyper."
+      },
+      "discord_font": {
+        "label": "Discord Skrifttypegenerator",
+        "description": "Generer mere chatvenlig stiliseret tekst til Discord."
+      }
+    },
+    "faq": {
+      "title": "Ofte Stillede Spørgsmål",
+      "items": [
+        {
+          "q": "Hvad er forbandet tekst?",
+          "a": "Forbandet tekst er bevidst forvrænget Unicode-output designet til at se kaotisk, glitchet eller foruroligende ud."
+        },
+        {
+          "q": "Hvordan adskiller forbandet tekst sig fra normal fancy tekst?",
+          "a": "Fancy tekst fokuserer på læsbare dekorative stilarter, mens forbandet tekst lægger vægt på korruption og visuelt kaos."
+        },
+        {
+          "q": "Kan jeg kopiere og indsætte forbandet tekst hvor som helst?",
+          "a": "Normalt ja, men gengivelsessupport varierer efter app, browser og operativsystem."
+        },
+        {
+          "q": "Vil forbandet tekst ødelægge layouts?",
+          "a": "Det kan den. Tætte kombinationsmærker kan ændre linjehøjden og forårsage clipping i nogle grænseflader."
+        },
+        {
+          "q": "Er denne forbandede tekstgenerator gratis?",
+          "a": "Ja. Den er gratis, browserbaseret og understøtter ubegrænset kopiering og indsættelse."
+        },
+        {
+          "q": "Gemmer dette værktøj mine indtastninger?",
+          "a": "Ingen serversidelagring er påkrævet for kernens konverteringsworkflow."
+        },
+        {
+          "q": "Kan jeg gøre forbandet tekst mindre aggressiv?",
+          "a": "Ja. Vælg lettere effekter som halemærker eller gennemstregning for mere læsbar output."
+        },
+        {
+          "q": "Er forbandet tekst god til officielle dokumenter?",
+          "a": "Nej. Den er kun beregnet til underholdning, memes og kreativt udtryk."
+        }
+      ]
+    },
+    "feature_list": [
+      "Forbandede glitch-teksteffekter",
+      "Zalgo, lyn og mærkebaseret forvrængning",
+      "Kopiering med ét klik",
+      "Browserbaseret konverteringsworkflow"
+    ],
+    "feature_list_schemas": [
+      "Korrupt Unicode-styling",
+      "Flere kaosintensitetsmuligheder",
+      "Øjeblikkelig kopiering og indsættelse",
+      "Kreative og meme-brugsscenarier"
+    ]
+  },
+  "BackwardsTextGenerator": {
+    "seo_title": "Baglæns Tekst Generator (2026) - Omvend Tekst Øjeblikkeligt",
+    "seo_description": "Gratis baglæns tekst generator til at omvende bogstaver, ord eller linjer øjeblikkeligt. Kopier og indsæt baglæns tekst til sjov, skrivning eller formatering.",
+    "seo_keywords": "baglæns tekst generator, omvend tekst generator, baglæns skrivning, spejltekst",
+    "page_title": "Baglæns Tekst Generator",
+    "page_subtitle": "Omvend Tekst Øjeblikkeligt",
+    "free_tool_badge": "Baglæns Tekst Værktøj",
+    "tldr_title": "Kort Sagt",
+    "tldr": "En baglæns tekst generator omvender dit input øjeblikkeligt. Vælg omvendte bogstaver, ord eller linjer baseret på dit behov, og kopier med ét klik.",
+    "core_facts_title": "Kerneinformation",
+    "primary_intent_label": "Primær Hensigt:",
+    "pricing_label": "Pris:",
+    "free_label": "Gratis",
+    "best_for_label": "Bedst til:",
+    "key_benefit_label": "Nøglefordel:",
+    "last_updated_label": "Sidst Opdateret",
+    "keyword_label": "baglæns tekst generator",
+    "best_for": "Forfattere, skabere, puslespillere og sociale mediebrugere",
+    "key_benefit": "Generer rene baglæns tekst formater med øjeblikkelig kopiering",
+    "default_input": "Baglæns tekst er sjovt at læse",
+    "how_to_use_steps": [
+      "Skriv eller indsæt din tekst i inputfeltet.",
+      "Vælg en omvendt tilstand: bogstaver, ord eller linjer.",
+      "Kopier resultatet og indsæt det, hvor du vil."
+    ],
+    "use_cases_title": "Populære Anvendelser",
+    "use_cases": [
+      "Sociale medier tekster og sjove bioer",
+      "Ordspil, gåder og klasseværelsesaktiviteter",
+      "Hurtige formateringseksperimenter til kladder",
+      "Test af tekstens omvendte adfærd i apps"
+    ],
+    "limits_title": "Begrænsninger og Bemærkninger",
+    "boundaries": [
+      "Nogle scripts og emojis kan vises anderledes efter omvending.",
+      "Ordomvending normaliserer ekstra mellemrum i hver linje.",
+      "Linjeomvending beholder teksten inden i selve linjerne uberørt.",
+      "Se altid resultatet på den ønskede platform før publicering."
+    ],
+    "faq": {
+      "title": "Ofte Stillede Spørgsmål",
+      "items": [
+        {
+          "q": "Hvad gør en baglæns tekst generator?",
+          "a": "Den omvender rækkefølgen af din tekst, så du hurtigt kan kopiere baglæns output."
+        },
+        {
+          "q": "Hvad er forskellen mellem at omvende bogstaver og ord?",
+          "a": "Omvending af bogstaver vender hvert tegn. Omvendte ord beholder ordene intakte, men vender deres rækkefølge på linjen."
+        },
+        {
+          "q": "Er dette værktøj gratis?",
+          "a": "Ja, den er gratis, browser-baseret, og parat til ubegrænset kopier-indsæt-brug."
+        },
+        {
+          "q": "Kan jeg omvende flere linjer på én gang?",
+          "a": "Ja. Brug 'Omvend Linjer' for at vende rækkefølgen af linjerne, samtidig med at hver linje bevares."
+        },
+        {
+          "q": "Gemmer dette værktøj min tekst?",
+          "a": "Nej, der kræves ingen datalagring på vores servere."
+        },
+        {
+          "q": "Bliver tegnsætning og tal også omvendt?",
+          "a": "Ja, i tegn-tilstanden, fordi den omvender alle karaktererne."
+        }
+      ]
+    },
+    "feature_list": [
+      "Omvendt tilstand for bogstaver, ord og linjer",
+      "Kopiering med ét klik",
+      "Intet behov for registrering",
+      "Hurtig forhåndsvisning"
+    ],
+    "feature_list_schemas": [
+      "Tegnniveau omvendt output",
+      "Ords og linjers omvendte muligheder",
+      "Øjeblikkelig kopier og indsæt",
+      "Gratis browserbaseret værktøj"
+    ],
+    "ui": {
+      "playground_title": "Baglæns Tekst Legeplads",
+      "input_label": "Indtast Tekst",
+      "input_placeholder": "Indtast tekst for at omvende...",
+      "mode_title": "Omvendt Tilstand",
+      "mode_characters": "Omvend Bogstaver",
+      "mode_words": "Omvend Ord",
+      "mode_lines": "Omvend Linjer",
+      "output_title": "Resultat",
+      "preview_title": "Forhåndsvisning af Tilstande",
+      "preview_description": "Klik på et kort for at kopiere resultatet af denne tilstand.",
+      "empty_input": "Indtast venligst tekst først.",
+      "ready_to_copy": "Kopier",
+      "copied": "Kopieret!",
+      "copy_failed": "Kopiering mislykkedes",
+      "how_to_use_title": "Sådan Bruger Du Den"
+    }
+  },
   "FancyTextGenerator": {
     "seo_title": "Fancy Text Generator (2026) - Kopier og indsæt Unicode-skrifttyper",
     "seo_description": "Gratis fancy tekstgenerator til Unicode-tekststilarter som skråskrift, fraktur, fed og mere. Kopier og indsæt med det samme.",
@@ -2485,6 +2675,10 @@
       "fullwidth": {
         "name": "Fuld bredde",
         "desc": "Konverterer ASCII-tegn til fuldbredde-format"
+      },
+      "cursed-chaos": {
+        "name": "Forbandet Kaos",
+        "desc": "Højintensivt korrumperet teksteffekt med lagdelte markeringer"
       }
     },
     "ui": {

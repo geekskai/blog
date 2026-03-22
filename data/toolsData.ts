@@ -143,6 +143,42 @@ export const toolsData: ToolData[] = [
     category: "Communication",
   },
   {
+    id: "backwards-text-generator",
+    title: "Backwards Text Generator",
+    description:
+      "Reverse text instantly by characters, words, or lines. Free browser-based backwards text generator with one-click copy and no signup.",
+    icon: ArrowLeftRight,
+    href: "/tools/backwards-text-generator/",
+    features: [
+      "Character Reverse Mode",
+      "Word Reverse Mode",
+      "Line Reverse Mode",
+      "One-Click Copy Output",
+    ],
+    badge: "New",
+    badgeColor: "bg-indigo-500",
+    gradient: gradients.communication,
+    category: "Communication",
+  },
+  {
+    id: "cursed-text-generator",
+    title: "Cursed Text Generator",
+    description:
+      "Generate corrupted, glitchy Unicode text with cursed effects like zalgo, lightning marks, and chaotic overlays. Copy and paste instantly.",
+    icon: Sparkles,
+    href: "/tools/cursed-text-generator/",
+    features: [
+      "Cursed and Corrupted Text Styles",
+      "Zalgo + Lightning Mark Effects",
+      "One-Click Copy Output",
+      "Browser-Based No Signup Workflow",
+    ],
+    badge: "New",
+    badgeColor: "bg-red-500",
+    gradient: gradients.communication,
+    category: "Communication",
+  },
+  {
     id: "fancy-text-generator",
     title: "Fancy Text Generator",
     description:
