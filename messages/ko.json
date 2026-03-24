@@ -5422,7 +5422,7 @@
           "description": "공식 데이터 기반 디코딩을 통해 캠핑카 및 RV VIN 번호를 확인하세요."
         },
         "trailer": {
-          "title": "예고편 VIN 디코더",
+          "title": "트레일러 VIN 디코더",
           "description": "트레일러 VIN을 디코딩하여 공장, 모델 연도 및 빌드 세부 정보를 확인합니다."
         },
         "classic-car": {
