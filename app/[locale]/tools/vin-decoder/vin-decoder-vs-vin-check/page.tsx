@@ -1,7 +1,7 @@
 import { Link } from "app/i18n/navigation"
 import { getTranslations } from "next-intl/server"
 import React from "react"
-import { generateComparePageData, safeTranslate } from "./layout"
+import { generateComparePageData, safeTranslate } from "./compare-seo"
 
 interface ComparePageProps {
   params: {

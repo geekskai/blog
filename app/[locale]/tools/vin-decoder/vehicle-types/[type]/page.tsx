@@ -8,7 +8,7 @@ import {
   getTypeConfig,
   safeTranslate,
   VEHICLE_TYPE_CONFIG,
-} from "./layout"
+} from "./vehicle-type-seo"
 
 interface VehicleTypePageProps {
   params: {
@@ -32,7 +32,7 @@ export default async function VehicleTypeVinDecoderPage({ params }: VehicleTypeP
     notFound()
   }
 
-  const pageData = await generateVehicleTypePageData(params.locale, config.slug, config)
+  const pageData = await generateVehicleTypePageData(params.locale, config)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">

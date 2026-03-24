@@ -27,7 +27,7 @@ import { SearchState, DecodeStatus, HistoryItem, ExportFormat, SUPPORTED_BRANDS 
 import { validateVIN, isValidVin } from "./lib/validation"
 import { decodeVehicle } from "./lib/api"
 import { vinCache, history, dedupeRequest } from "./lib/cache"
-import { Link } from "@/app/i18n/navigation"
+import { Link } from "app/i18n/navigation"
 import { formatVehicleSummary, exportAsJSON, exportAsCSV, exportAsText } from "./lib/mapping"
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 
