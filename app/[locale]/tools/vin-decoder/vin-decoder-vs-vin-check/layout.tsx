@@ -10,7 +10,7 @@ interface VinCompareLayoutProps {
   }
 }
 
-export const VIN_SEO_SHARED = {
+const VIN_SEO_SHARED = {
   siteUrl: "https://geekskai.com",
   siteName: "GeeksKai",
   category: "Automotive Tools",

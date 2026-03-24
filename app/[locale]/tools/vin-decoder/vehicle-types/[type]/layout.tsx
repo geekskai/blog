@@ -6,9 +6,16 @@ import {
   getVinOrganizationSchema,
   getVinWebApplicationSchema,
   safeTranslate as sharedSafeTranslate,
-  VIN_SEO_SHARED,
 } from "../../vin-decoder-vs-vin-check/layout"
 
+const VIN_SEO_SHARED = {
+  siteUrl: "https://geekskai.com",
+  siteName: "GeeksKai",
+  category: "Automotive Tools",
+  ogImage: "/static/images/og/vin-decoder.png",
+  publishedAt: "2026-03-07T00:00:00.000Z",
+  lastModifiedAt: "2026-03-07T00:00:00.000Z",
+}
 type VehicleTypeSlug = "motorcycle" | "rv" | "trailer" | "classic-car"
 
 export interface VehicleTypeConfig {
@@ -226,7 +233,7 @@ export async function generateMetadata({ params }: VehicleTypePageProps): Promis
     new Set([...localized.keywords, config.primaryKeyword, ...config.secondaryKeywords])
   )
 
-  return generateVehicleTypePageMetadata({
+  const metadata = generateVehicleTypePageMetadata({
     locale: params.locale,
     typeSlug: config.slug,
     title: localized.title,
@@ -234,6 +241,21 @@ export async function generateMetadata({ params }: VehicleTypePageProps): Promis
     keywords: metadataKeywords,
     ogImageAlt: localized.h1,
   })
+
+  // Vehicle type landing pages are intended as indexable SEO entry points across locales.
+  metadata.robots = {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  }
+
+  return metadata
 }
 
 export async function generateVehicleTypePageData(
