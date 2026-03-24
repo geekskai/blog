@@ -11,6 +11,7 @@ import {
   applyEmojiWrap,
   getEffectById,
   type EffectCategory,
+  type TextEffect,
 } from "../lib/transforms"
 import { Copy, CopyCheck } from "lucide-react"
 
@@ -103,6 +104,7 @@ export default function UnicodeToolTemplate({
   allowEmojiWrapper = true,
 }: UnicodeToolTemplateProps) {
   const t = useTranslations("UnicodeTool")
+  const te = useTranslations("UpsideDownTextGenerator")
   const displayBestFor = bestFor || t("default_best_for")
   const displayKeyBenefit = keyBenefit || t("default_key_benefit")
 
@@ -114,6 +116,7 @@ export default function UnicodeToolTemplate({
   const [selectedEmoji, setSelectedEmoji] = useState("✨")
   const [simpleStyleId, setSimpleStyleId] = useState<string>("plain")
   const [copyStatus, setCopyStatus] = useState(t("ready_to_copy_status"))
+  const [copiedPreviewCardId, setCopiedPreviewCardId] = useState<string | null>(null)
 
   const CATEGORY_MAP: Record<string, string> = useMemo(
     () => ({
@@ -126,10 +129,36 @@ export default function UnicodeToolTemplate({
     [t]
   )
 
+  const getLocalizedEffectName = useCallback(
+    (effect: TextEffect) => {
+      try {
+        return te(`effects.${effect.id}.name`)
+      } catch {
+        return effect.name
+      }
+    },
+    [te]
+  )
+
+  const getLocalizedEffectDescription = useCallback(
+    (effect: TextEffect) => {
+      try {
+        return te(`effects.${effect.id}.desc`)
+      } catch {
+        return effect.description
+      }
+    },
+    [te]
+  )
+
   const enabledEffects = useMemo(() => {
     const idSet = new Set(enabledEffectIds)
-    return PRESET_EFFECTS.filter((effect) => idSet.has(effect.id))
-  }, [enabledEffectIds])
+    return PRESET_EFFECTS.filter((effect) => idSet.has(effect.id)).map((effect) => ({
+      ...effect,
+      name: getLocalizedEffectName(effect),
+      description: getLocalizedEffectDescription(effect),
+    }))
+  }, [enabledEffectIds, getLocalizedEffectDescription, getLocalizedEffectName])
 
   const previewCards = useMemo(
     () =>
@@ -197,8 +226,19 @@ export default function UnicodeToolTemplate({
 
     return Array.from(selectedIds)
       .filter((id) => LATIN_ONLY_EFFECT_IDS.has(id))
-      .map((id) => getEffectById(id)?.name ?? id)
-  }, [allowComposer, baseStyleId, simpleStyleId, transformationId])
+      .map((id) => {
+        const effect = getEffectById(id)
+        return effect ? getLocalizedEffectName(effect) : id
+      })
+  }, [allowComposer, baseStyleId, getLocalizedEffectName, simpleStyleId, transformationId])
+
+  const getLocalizedEffectNameById = useCallback(
+    (id: string) => {
+      const effect = getEffectById(id)
+      return effect ? getLocalizedEffectName(effect) : id
+    },
+    [getLocalizedEffectName]
+  )
 
   const customOutput = useMemo(() => {
     let output = input
@@ -257,19 +297,30 @@ export default function UnicodeToolTemplate({
         await navigator.clipboard.writeText(text)
         setCopyStatus(t("copied_button_label"))
         window.setTimeout(() => setCopyStatus(t("ready_to_copy_status")), 1600)
+        return true
       } catch {
         setCopyStatus(t("copy_failed_label"))
         window.setTimeout(() => setCopyStatus(t("ready_to_copy_status")), 1600)
+        return false
       }
     },
     [t]
   )
 
-  const toggleDecoration = useCallback((id: string) => {
-    setDecorationIds((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    )
-  }, [])
+  const handlePreviewCardCopy = useCallback(
+    async (cardId: string, text: string) => {
+      const didCopy = await handleCopy(text)
+      if (!didCopy) return
+      setCopiedPreviewCardId(cardId)
+    },
+    [handleCopy]
+  )
+
+  useEffect(() => {
+    if (!copiedPreviewCardId) return
+    const timer = window.setTimeout(() => setCopiedPreviewCardId(null), 800)
+    return () => window.clearTimeout(timer)
+  }, [copiedPreviewCardId])
 
   return (
     <div className="relative min-h-screen bg-slate-950">
@@ -430,124 +481,85 @@ export default function UnicodeToolTemplate({
               <div className="grid gap-4 lg:grid-cols-3">
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                   <h3 className="mb-3 text-sm font-semibold text-white">{t("base_style_label")}</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setBaseStyleId("plain")}
-                      className={`rounded-xl border px-3 py-1.5 text-xs transition-all duration-300 ${
-                        baseStyleId === "plain"
-                          ? "border-emerald-500/50 bg-emerald-500/20 text-emerald-100"
-                          : "border-white/15 bg-white/5 text-slate-300 hover:bg-white/10"
-                      }`}
-                    >
-                      {t("plain_style")}
-                    </button>
-                    {baseIds.map((id) => {
-                      const effect = getEffectById(id)
-                      if (!effect) return null
-                      const selected = baseStyleId === id
-                      return (
-                        <button
-                          key={id}
-                          type="button"
-                          onClick={() => setBaseStyleId(id)}
-                          className={`rounded-xl border px-3 py-1.5 text-xs transition-all duration-300 ${
-                            selected
-                              ? "border-emerald-500/50 bg-emerald-500/20 text-emerald-100"
-                              : "border-white/15 bg-white/5 text-slate-300 hover:bg-white/10"
-                          }`}
-                        >
-                          <span className="inline-flex items-center gap-1">
-                            <span>{effect.name}</span>
-                            {LATIN_ONLY_EFFECT_IDS.has(id) && (
-                              <span className="rounded-md border border-amber-400/40 bg-amber-500/15 px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-amber-200">
-                                {t("latin_only_badge")}
-                              </span>
-                            )}
-                          </span>
-                        </button>
-                      )
-                    })}
-                  </div>
+                  <select
+                    value={baseStyleId}
+                    onChange={(event) => setBaseStyleId(event.target.value)}
+                    className="h-11 w-full rounded-xl border border-white/15 bg-slate-900/50 px-3 text-sm text-slate-100 outline-none transition-all focus:border-emerald-400/60 focus:ring-2 focus:ring-emerald-500/20"
+                  >
+                    <option value="plain">{t("plain_style")}</option>
+                    {baseIds.map((id) => (
+                      <option key={id} value={id}>
+                        {getLocalizedEffectNameById(id)}
+                        {LATIN_ONLY_EFFECT_IDS.has(id) ? ` (${t("latin_only_badge")})` : ""}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                   <h3 className="mb-3 text-sm font-semibold text-white">
                     {t("decorations_label")}
                   </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {decorationPool.map((id) => {
-                      const effect = getEffectById(id)
-                      if (!effect) return null
-                      const selected = decorationIds.includes(id)
-                      return (
-                        <button
-                          key={id}
-                          type="button"
-                          onClick={() => toggleDecoration(id)}
-                          className={`rounded-xl border px-3 py-1.5 text-xs transition-all duration-300 ${
-                            selected
-                              ? "border-pink-500/50 bg-pink-500/20 text-pink-100"
-                              : "border-white/15 bg-white/5 text-slate-300 hover:bg-white/10"
-                          }`}
-                        >
-                          <span className="inline-flex items-center gap-1">
-                            <span>{effect.name}</span>
-                            {LATIN_ONLY_EFFECT_IDS.has(id) && (
-                              <span className="rounded-md border border-amber-400/40 bg-amber-500/15 px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-amber-200">
-                                {t("latin_only_badge")}
-                              </span>
-                            )}
-                          </span>
-                        </button>
-                      )
-                    })}
-                  </div>
+                  <details className="group rounded-xl border border-white/15 bg-slate-900/50">
+                    <summary className="flex h-11 cursor-pointer list-none items-center justify-between px-3 text-sm text-slate-100">
+                      <span className="truncate pr-3">
+                        {decorationIds.length > 0
+                          ? `${decorationIds.length} selected`
+                          : `${t("none_style")} selected`}
+                      </span>
+                      <span className="text-xs text-slate-400 transition-transform duration-300 group-open:rotate-180">
+                        v
+                      </span>
+                    </summary>
+                    <div className="max-h-40 space-y-1 overflow-y-auto border-t border-white/10 px-2 py-2">
+                      {decorationPool.map((id) => {
+                        const selected = decorationIds.includes(id)
+                        return (
+                          <label
+                            key={id}
+                            className={`flex cursor-pointer items-center justify-between gap-2 rounded-lg px-2 py-1.5 text-xs transition-colors ${
+                              selected
+                                ? "bg-pink-500/20 text-pink-100"
+                                : "text-slate-200 hover:bg-white/5"
+                            }`}
+                          >
+                            <span className="truncate">{getLocalizedEffectNameById(id)}</span>
+                            <input
+                              type="checkbox"
+                              checked={selected}
+                              onChange={() => {
+                                setDecorationIds((prev) =>
+                                  prev.includes(id)
+                                    ? prev.filter((item) => item !== id)
+                                    : [...prev, id]
+                                )
+                              }}
+                              className="h-4 w-4 shrink-0 accent-pink-500"
+                            />
+                          </label>
+                        )
+                      })}
+                    </div>
+                  </details>
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                   <h3 className="mb-3 text-sm font-semibold text-white">
                     {t("transform_emoji_label")}
                   </h3>
-                  <div className="mb-3 flex flex-wrap gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setTransformationId("")}
-                      className={`rounded-xl border px-3 py-1.5 text-xs transition-all duration-300 ${
-                        transformationId === ""
-                          ? "border-cyan-500/50 bg-cyan-500/20 text-cyan-100"
-                          : "border-white/15 bg-white/5 text-slate-300 hover:bg-white/10"
-                      }`}
-                    >
-                      {t("none_style")}
-                    </button>
-                    {transformPool.map((id) => {
-                      const effect = getEffectById(id)
-                      if (!effect) return null
-                      const selected = transformationId === id
-                      return (
-                        <button
-                          key={id}
-                          type="button"
-                          onClick={() => setTransformationId(id)}
-                          className={`rounded-xl border px-3 py-1.5 text-xs transition-all duration-300 ${
-                            selected
-                              ? "border-cyan-500/50 bg-cyan-500/20 text-cyan-100"
-                              : "border-white/15 bg-white/5 text-slate-300 hover:bg-white/10"
-                          }`}
-                        >
-                          <span className="inline-flex items-center gap-1">
-                            <span>{effect.name}</span>
-                            {LATIN_ONLY_EFFECT_IDS.has(id) && (
-                              <span className="rounded-md border border-amber-400/40 bg-amber-500/15 px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-amber-200">
-                                {t("latin_only_badge")}
-                              </span>
-                            )}
-                          </span>
-                        </button>
-                      )
-                    })}
-                  </div>
+                  <select
+                    value={transformationId}
+                    onChange={(event) => setTransformationId(event.target.value)}
+                    className="mb-3 h-11 w-full rounded-xl border border-white/15 bg-slate-900/50 px-3 text-sm text-slate-100 outline-none transition-all focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-500/20"
+                  >
+                    <option value="">{t("none_style")}</option>
+                    {transformPool.map((id) => (
+                      <option key={id} value={id}>
+                        {getLocalizedEffectNameById(id)}
+                        {LATIN_ONLY_EFFECT_IDS.has(id) ? ` (${t("latin_only_badge")})` : ""}
+                      </option>
+                    ))}
+                  </select>
 
                   {allowEmojiWrapper && (
                     <div className="space-y-2">
@@ -561,22 +573,17 @@ export default function UnicodeToolTemplate({
                         {t("add_emoji_wrapper_label")}
                       </label>
                       {emojiEnabled && (
-                        <div className="flex flex-wrap gap-2">
+                        <select
+                          value={selectedEmoji}
+                          onChange={(event) => setSelectedEmoji(event.target.value)}
+                          className="h-10 w-full rounded-xl border border-white/15 bg-slate-900/50 px-3 text-sm text-slate-100 outline-none transition-all focus:border-purple-400/60 focus:ring-2 focus:ring-purple-500/20"
+                        >
                           {EMOJIS.map((emoji) => (
-                            <button
-                              key={emoji}
-                              type="button"
-                              onClick={() => setSelectedEmoji(emoji)}
-                              className={`rounded-lg border px-2 py-1 text-sm ${
-                                selectedEmoji === emoji
-                                  ? "border-purple-500/50 bg-purple-500/20"
-                                  : "border-white/15 bg-white/5"
-                              }`}
-                            >
+                            <option key={emoji} value={emoji}>
                               {emoji}
-                            </button>
+                            </option>
                           ))}
-                        </div>
+                        </select>
                       )}
                     </div>
                   )}
@@ -595,15 +602,39 @@ export default function UnicodeToolTemplate({
           <p className="mb-5 text-sm text-slate-300">{t("one_click_preview_description")}</p>
           <div className="grid gap-3 md:grid-cols-2">
             {previewCards.map((card) => (
-              <button
+              <article
                 key={card.id}
-                type="button"
-                onClick={() => void handleCopy(card.output)}
-                className={`rounded-2xl border p-4 text-left transition-all duration-300 hover:scale-[1.01] hover:shadow-xl ${
+                role="button"
+                tabIndex={0}
+                onClick={() => void handlePreviewCardCopy(card.id, card.output)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault()
+                    void handlePreviewCardCopy(card.id, card.output)
+                  }
+                }}
+                className={`relative cursor-pointer rounded-2xl border p-4 text-left transition-all duration-300 hover:scale-[1.01] hover:shadow-xl ${
                   CATEGORY_STYLES[card.category as keyof typeof CATEGORY_STYLES] || ""
                 }`}
+                aria-label={`${card.name}`}
               >
-                <p className="mb-2 text-sm font-semibold">
+                <button
+                  type="button"
+                  onClick={(event) => {
+                    event.stopPropagation()
+                    void handlePreviewCardCopy(card.id, card.output)
+                  }}
+                  className="absolute right-3 top-3 rounded-lg border border-white/20 bg-black/20 p-1.5 text-slate-200 transition-all duration-300 hover:border-cyan-400/50 hover:bg-cyan-500/20 hover:text-cyan-100"
+                  aria-label={`Copy ${card.output}`}
+                >
+                  {copiedPreviewCardId === card.id ? (
+                    <CopyCheck className="h-3.5 w-3.5 text-emerald-300" />
+                  ) : (
+                    <Copy className="h-3.5 w-3.5" />
+                  )}
+                </button>
+
+                <p className="mb-2 pr-10 text-sm font-semibold">
                   {card.name}{" "}
                   {LATIN_ONLY_EFFECT_IDS.has(card.id) && (
                     <span className="mr-1 rounded-md border border-amber-400/40 bg-amber-500/15 px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-amber-200">
@@ -618,7 +649,7 @@ export default function UnicodeToolTemplate({
                 <div className="mt-3 rounded-lg border border-white/20 bg-slate-900/40 p-2 text-sm text-white">
                   {card.output || t("empty_input_placeholder")}
                 </div>
-              </button>
+              </article>
             ))}
           </div>
         </section>

@@ -80,7 +80,7 @@ export default function VinDecoder() {
   const [historyItems, setHistoryItems] = useState<HistoryItem[]>([])
   const [copyStatus, setCopyStatus] = useState<"idle" | "copying" | "copied">("idle")
   const [mounted, setMounted] = useState(false)
-  const lastModified = new Date("2026-03-07")
+  const lastModified = new Date("2026-03-24")
 
   // Load history on mount
   useEffect(() => {
@@ -368,13 +368,13 @@ export default function VinDecoder() {
           <ShareButtons />
 
           {/* Official Data Badge */}
-          <div className="mb-4 inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-1.5 text-xs font-medium text-white shadow-lg sm:mb-5 sm:px-4 sm:py-2 sm:text-sm">
+          <div className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-1.5 text-xs font-medium text-white shadow-lg sm:px-4 sm:py-2 sm:text-sm">
             <Database className="mr-1.5 h-3 w-3 sm:mr-2 sm:h-4 sm:w-4" />
             {t("header.official_badge")}
           </div>
 
           {/* Tool Title */}
-          <h1 className="mb-3 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-2xl font-bold leading-tight text-transparent sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl lg:leading-snug">
+          <h1 className="my-2 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-2xl font-bold leading-tight text-transparent sm:my-3 sm:text-3xl md:text-4xl">
             {t("header.main_title")}
           </h1>
 
@@ -388,71 +388,8 @@ export default function VinDecoder() {
             namespace="PrintTestPage"
             className="mt-4 sm:mt-5"
           />
-
-          <GoogleAdUnitWrap />
         </div>
-
-        {/* Quick answer + core facts chunk for AI retrieval */}
-        <section className="mb-6 mt-6 overflow-hidden rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-cyan-500/10 p-5 shadow-2xl backdrop-blur-xl sm:mb-8 sm:mt-8 sm:rounded-3xl sm:p-6 md:p-8">
-          <div className="relative">
-            <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/15 blur-2xl" />
-            <div className="relative space-y-4 sm:space-y-5">
-              <p className="text-sm leading-relaxed text-slate-100 sm:text-base md:text-lg">
-                <strong>{t("comparePage.quick_answer_label")}</strong>{" "}
-                {t("structured_data.description")}
-              </p>
-
-              <dl className="grid gap-3 text-sm text-slate-200 sm:grid-cols-2 sm:gap-4 sm:text-base">
-                <div className="rounded-xl border border-white/10 bg-slate-900/20 p-3 sm:rounded-2xl sm:p-4">
-                  <dt className="font-semibold text-white">
-                    <strong>{t("comparePage.core_facts.cost")}</strong>
-                  </dt>
-                  <dd>{t("structured_data.feature_free")}</dd>
-                </div>
-                <div className="rounded-xl border border-white/10 bg-slate-900/20 p-3 sm:rounded-2xl sm:p-4">
-                  <dt className="font-semibold text-white">
-                    <strong>{t("comparePage.decoder_card.source_label")}</strong>
-                  </dt>
-                  <dd>{t("header.official_badge")}</dd>
-                </div>
-                <div className="rounded-xl border border-white/10 bg-slate-900/20 p-3 sm:rounded-2xl sm:p-4">
-                  <dt className="font-semibold text-white">
-                    <strong>{t("comparePage.decoder_card.best_for_label")}</strong>
-                  </dt>
-                  <dd>{t("cta.description")}</dd>
-                </div>
-                <div className="rounded-xl border border-white/10 bg-slate-900/20 p-3 sm:rounded-2xl sm:p-4">
-                  <dt className="font-semibold text-white">
-                    <strong>{t("cta.instant_results")}</strong>
-                  </dt>
-                  <dd>{t("structured_data.feature_instant")}</dd>
-                </div>
-              </dl>
-
-              <p className="text-xs leading-relaxed text-slate-300 sm:text-sm">
-                {t("comparePage.decoder_card.source_label")}{" "}
-                <a
-                  href="https://vpic.nhtsa.dot.gov/api/"
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  className="font-medium text-blue-300 underline decoration-blue-400/60 underline-offset-4 hover:text-blue-200"
-                >
-                  NHTSA vPIC API
-                </a>
-              </p>
-
-              <p className="text-xs leading-relaxed text-slate-300 sm:text-sm">
-                {tg("growth.read_compare_prefix", "Need used-car due diligence?")}{" "}
-                <Link
-                  href="/tools/vin-decoder/vin-decoder-vs-vin-check"
-                  className="font-medium text-cyan-300 underline decoration-cyan-400/60 underline-offset-4 hover:text-cyan-200"
-                >
-                  {tg("growth.read_compare_link", "Read VIN Decoder vs VIN Check")}
-                </Link>
-              </p>
-            </div>
-          </div>
-        </section>
+        <GoogleAdUnitWrap />
 
         {/* Main Content Grid */}
         <div className="grid gap-4 sm:gap-5 md:gap-6 lg:grid-cols-12 lg:gap-8">
@@ -756,9 +693,9 @@ export default function VinDecoder() {
               </div>
             </div>
 
-            {/* Recent Activity - Only show when history panel is not open */}
-            {mounted && historyItems.length > 0 && !showHistory && (
-              <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700 sm:rounded-2xl">
+            {/* Recent Activity - Keep stable layout to avoid mobile CLS */}
+            {!showHistory && (
+              <div className="min-h-[180px] overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700 sm:min-h-0 sm:rounded-2xl">
                 <div className="border-b border-slate-700 px-4 py-3 sm:px-5 sm:py-4 md:px-6">
                   <div className="flex items-center justify-between">
                     <h2 className="text-base font-semibold text-white sm:text-lg">
@@ -770,37 +707,113 @@ export default function VinDecoder() {
                   </div>
                 </div>
                 <div className="p-4 sm:p-5 md:p-6">
-                  <div className="space-y-2 sm:space-y-3">
-                    {historyItems.slice(0, 3).map((item) => (
-                      <button
-                        key={item.id}
-                        onClick={() => handleHistorySelect(item)}
-                        className="group w-full rounded-lg border border-slate-600/30 bg-slate-700/30 p-2.5 text-left transition-all hover:border-slate-500/50 hover:bg-slate-600/30 sm:p-3"
-                      >
-                        <div className="font-mono text-xs font-medium text-white sm:text-sm">
-                          {item.vin}
-                        </div>
-                        {item.make && (
-                          <div className="mt-0.5 text-xs text-slate-400 sm:mt-1">
-                            {item.year} {item.make} {item.model}
+                  {historyItems.length > 0 ? (
+                    <div className="space-y-2 sm:space-y-3">
+                      {historyItems.slice(0, 3).map((item) => (
+                        <button
+                          key={item.id}
+                          onClick={() => handleHistorySelect(item)}
+                          className="group w-full rounded-lg border border-slate-600/30 bg-slate-700/30 p-2.5 text-left transition-all hover:border-slate-500/50 hover:bg-slate-600/30 sm:p-3"
+                        >
+                          <div className="font-mono text-xs font-medium text-white sm:text-sm">
+                            {item.vin}
                           </div>
+                          {item.make && (
+                            <div className="mt-0.5 text-xs text-slate-400 sm:mt-1">
+                              {item.year} {item.make} {item.model}
+                            </div>
+                          )}
+                        </button>
+                      ))}
+                      {historyItems.length > 3 && (
+                        <button
+                          onClick={() => setShowHistory(true)}
+                          className="min-h-[40px] w-full rounded-lg border border-blue-500/30 bg-blue-500/10 p-2.5 text-center text-xs font-medium text-blue-300 transition-all hover:border-blue-400/50 hover:bg-blue-500/20 sm:p-3 sm:text-sm md:min-h-[44px]"
+                        >
+                          {t("history.view_all")} ({historyItems.length})
+                        </button>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="space-y-2 sm:space-y-3">
+                      <div className="h-10 rounded-lg border border-slate-600/30 bg-slate-700/20 sm:h-11" />
+                      <div className="h-10 rounded-lg border border-slate-600/30 bg-slate-700/20 sm:h-11" />
+                      <div className="h-10 rounded-lg border border-slate-600/30 bg-slate-700/20 sm:h-11" />
+                      <p className="pt-1 text-xs leading-relaxed text-slate-400 sm:pt-2 sm:text-sm">
+                        {tg(
+                          "growth.recent_activity_empty",
+                          "Your recent VIN lookups will appear here after your first decode."
                         )}
-                      </button>
-                    ))}
-                    {historyItems.length > 3 && (
-                      <button
-                        onClick={() => setShowHistory(true)}
-                        className="min-h-[40px] w-full rounded-lg border border-blue-500/30 bg-blue-500/10 p-2.5 text-center text-xs font-medium text-blue-300 transition-all hover:border-blue-400/50 hover:bg-blue-500/20 sm:p-3 sm:text-sm md:min-h-[44px]"
-                      >
-                        {t("history.view_all")} ({historyItems.length})
-                      </button>
-                    )}
-                  </div>
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             )}
           </div>
         </div>
+
+        {/* Quick answer + core facts chunk for AI retrieval */}
+        <section className="mb-6 mt-6 overflow-hidden rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-cyan-500/10 p-5 shadow-2xl backdrop-blur-xl sm:mb-8 sm:mt-8 sm:rounded-3xl sm:p-6 md:p-8">
+          <div className="relative">
+            <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/15 blur-2xl" />
+            <div className="relative space-y-4 sm:space-y-5">
+              <p className="text-sm leading-relaxed text-slate-100 sm:text-base md:text-lg">
+                <strong>{t("comparePage.quick_answer_label")}</strong>{" "}
+                {t("structured_data.description")}
+              </p>
+
+              <dl className="grid gap-3 text-sm text-slate-200 sm:grid-cols-2 sm:gap-4 sm:text-base">
+                <div className="rounded-xl border border-white/10 bg-slate-900/20 p-3 sm:rounded-2xl sm:p-4">
+                  <dt className="font-semibold text-white">
+                    <strong>{t("comparePage.core_facts.cost")}</strong>
+                  </dt>
+                  <dd>{t("structured_data.feature_free")}</dd>
+                </div>
+                <div className="rounded-xl border border-white/10 bg-slate-900/20 p-3 sm:rounded-2xl sm:p-4">
+                  <dt className="font-semibold text-white">
+                    <strong>{t("comparePage.decoder_card.source_label")}</strong>
+                  </dt>
+                  <dd>{t("header.official_badge")}</dd>
+                </div>
+                <div className="rounded-xl border border-white/10 bg-slate-900/20 p-3 sm:rounded-2xl sm:p-4">
+                  <dt className="font-semibold text-white">
+                    <strong>{t("comparePage.decoder_card.best_for_label")}</strong>
+                  </dt>
+                  <dd>{t("cta.description")}</dd>
+                </div>
+                <div className="rounded-xl border border-white/10 bg-slate-900/20 p-3 sm:rounded-2xl sm:p-4">
+                  <dt className="font-semibold text-white">
+                    <strong>{t("cta.instant_results")}</strong>
+                  </dt>
+                  <dd>{t("structured_data.feature_instant")}</dd>
+                </div>
+              </dl>
+
+              <p className="text-xs leading-relaxed text-slate-300 sm:text-sm">
+                {t("comparePage.decoder_card.source_label")}{" "}
+                <a
+                  href="https://vpic.nhtsa.dot.gov/api/"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="font-medium text-blue-300 underline decoration-blue-400/60 underline-offset-4 hover:text-blue-200"
+                >
+                  NHTSA vPIC API
+                </a>
+              </p>
+
+              <p className="text-xs leading-relaxed text-slate-300 sm:text-sm">
+                {tg("growth.read_compare_prefix", "Need used-car due diligence?")}{" "}
+                <Link
+                  href="/tools/vin-decoder/vin-decoder-vs-vin-check"
+                  className="font-medium text-cyan-300 underline decoration-cyan-400/60 underline-offset-4 hover:text-cyan-200"
+                >
+                  {tg("growth.read_compare_link", "Read VIN Decoder vs VIN Check")}
+                </Link>
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Enhanced Brand Links */}
         <div className="relative mt-12 sm:mt-16 md:mt-20">

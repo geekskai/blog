@@ -1,103 +1,46 @@
 "use client"
 
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef } from "react"
+
+const ADS_CLIENT = "ca-pub-2108246014001009"
+const ADS_SLOT = "5811688701"
+const ADS_SCRIPT_SRC = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADS_CLIENT}`
 
 export default function GoogleAdUnitWrap() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [isMounted, setIsMounted] = useState(false)
-  const [isVisible, setIsVisible] = useState(false)
-  const retryCountRef = useRef(0)
-  const maxRetries = 10 // 最多重试10次，避免无限循环
+  const adRef = useRef<HTMLModElement>(null)
 
   useEffect(() => {
-    setIsMounted(true)
-  }, [])
+    let isCancelled = false
 
-  // 检测是否为移动设备
-  const isMobile = () => {
-    if (typeof window === "undefined") return false
-    return window.innerWidth < 768 // Tailwind md breakpoint
-  }
+    const ensureAdSenseScript = async () => {
+      const existingScript = document.querySelector<HTMLScriptElement>(
+        `script[src="${ADS_SCRIPT_SRC}"]`
+      )
+      if (existingScript) return
 
-  // 使用 Intersection Observer 确保容器可见后再初始化广告
-  useEffect(() => {
-    if (!isMounted || !containerRef.current) return
+      const script = document.createElement("script")
+      script.async = true
+      script.src = ADS_SCRIPT_SRC
+      script.crossOrigin = "anonymous"
+      document.head.appendChild(script)
 
-    // 移动端使用更小的rootMargin，避免过早触发
-    const rootMargin = isMobile() ? "20px" : "50px"
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          // 使用 isIntersecting 即可，不要求 ratio>0，避免容器初始无高度时永远不触发
-          if (entry.isIntersecting) {
-            setIsVisible(true)
-            observer.disconnect()
-          }
-        })
-      },
-      {
-        threshold: 0,
-        rootMargin,
-      }
-    )
-
-    observer.observe(containerRef.current)
-
-    // 首屏广告回退：若 800ms 内未进入视口，仍尝试加载（避免容器无高度导致永不触发）
-    const fallbackTimer = setTimeout(() => setIsVisible(true), 800)
-
-    return () => {
-      observer.disconnect()
-      clearTimeout(fallbackTimer)
+      await new Promise<void>((resolve) => {
+        script.addEventListener("load", () => resolve(), { once: true })
+        script.addEventListener("error", () => resolve(), { once: true })
+      })
     }
-  }, [isMounted])
 
-  // 初始化广告 - 确保容器可见且有有效宽度（响应式支持）
-  useEffect(() => {
-    if (!isMounted || !isVisible) return
-
-    const initAd = () => {
-      const container = containerRef.current
-      if (!container) return
-
-      // 检查容器是否有有效宽度（支持响应式布局）
-      const rect = container.getBoundingClientRect()
-      // 移动端最小宽度：320px（标准移动设备宽度）
-      // 桌面端最小宽度：300px（AdSense推荐的最小宽度）
-      const minWidth = isMobile() ? 280 : 300
-
-      if (rect.width < minWidth) {
-        // 如果宽度不足，延迟重试（但限制重试次数）
-        if (retryCountRef.current < maxRetries) {
-          retryCountRef.current++
-          setTimeout(initAd, 100)
-          return
-        } else {
-          // 超过重试次数，停止尝试
-          if (process.env.NODE_ENV !== "production") {
-            console.warn(
-              `AdSense initialization failed: container width ${rect.width}px is too small (minimum: ${minWidth}px)`
-            )
-          }
-          return
-        }
-      }
-
-      const adElement = container.querySelector("ins.adsbygoogle")
-      if (!adElement) return
-
-      const status = adElement.getAttribute("data-adsbygoogle-status")
-      if (status === "done") return
+    const initAd = async () => {
+      await ensureAdSenseScript()
+      if (isCancelled || !adRef.current) return
+      if (adRef.current.getAttribute("data-adsbygoogle-status") === "done") return
 
       try {
-        type AdsByGoogle = Array<Record<string, unknown>>
-        const adsWindow = window as Window & { adsbygoogle?: AdsByGoogle }
-        if (!adsWindow.adsbygoogle) {
-          adsWindow.adsbygoogle = []
+        const adsWindow = window as Window & {
+          adsbygoogle?: Array<Record<string, unknown>>
         }
+        adsWindow.adsbygoogle = adsWindow.adsbygoogle || []
         adsWindow.adsbygoogle.push({})
-        retryCountRef.current = 0 // 成功后重置重试计数
       } catch (error) {
         if (process.env.NODE_ENV !== "production") {
           console.warn("AdSense render skipped:", error)
@@ -105,67 +48,28 @@ export default function GoogleAdUnitWrap() {
       }
     }
 
-    // 移动端需要稍长的延迟，确保布局稳定
-    const delay = isMobile() ? 150 : 100
-    const timer = setTimeout(initAd, delay)
-    return () => clearTimeout(timer)
-  }, [isMounted, isVisible])
+    const timer = setTimeout(() => {
+      void initAd()
+    }, 80)
 
-  // 监听窗口大小变化，确保响应式布局时广告能正确显示
-  useEffect(() => {
-    if (!isMounted || !containerRef.current) return
-
-    const handleResize = () => {
-      const container = containerRef.current
-      if (!container) return
-
-      const adElement = container.querySelector("ins.adsbygoogle")
-      if (!adElement) return
-
-      const status = adElement.getAttribute("data-adsbygoogle-status")
-      const rect = container.getBoundingClientRect()
-      const minWidth = isMobile() ? 280 : 300
-
-      // 如果广告已加载但容器宽度变化，AdSense会自动调整
-      // 这里主要是确保容器始终有有效宽度
-      if (status === "done" && rect.width < minWidth) {
-        // 如果容器变得太小，AdSense会自动处理
-        // 我们只需要确保容器本身是响应式的
-      }
-    }
-
-    // 使用防抖优化resize事件
-    let resizeTimer: NodeJS.Timeout
-    const debouncedResize = () => {
-      clearTimeout(resizeTimer)
-      resizeTimer = setTimeout(handleResize, 150)
-    }
-
-    window.addEventListener("resize", debouncedResize, { passive: true })
     return () => {
-      window.removeEventListener("resize", debouncedResize)
-      clearTimeout(resizeTimer)
+      isCancelled = true
+      clearTimeout(timer)
     }
-  }, [isMounted])
+  }, [])
 
   return (
-    <div
-      ref={containerRef}
-      className="flex min-h-[90px] w-full min-w-0 max-w-full justify-center overflow-hidden md:min-h-[100px]"
-      style={{ minWidth: "280px" }}
-    >
+    <div className="flex w-full justify-center overflow-x-auto py-2 md:py-4">
       <ins
+        ref={adRef}
         className="adsbygoogle"
         style={{
-          display: "block",
+          display: "inline-block",
+          width: "728px",
           height: "90px",
-          width: "100%",
-          overflow: "hidden",
         }}
-        data-ad-client="ca-pub-2108246014001009"
-        data-ad-slot="5811688701"
-        data-ad-format="horizontal"
-        data-full-width-responsive="true"
+        data-ad-client={ADS_CLIENT}
+        data-ad-slot={ADS_SLOT}
       />
     </div>
   )
