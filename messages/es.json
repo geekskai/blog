@@ -5445,6 +5445,7 @@
       }
     },
     "growth": {
+      "recent_activity_empty": "Tus búsquedas de VIN recientes aparecerán aquí después de tu primera decodificación.",
       "read_compare_prefix": "¿Necesita una debida diligencia sobre autos usados?",
       "read_compare_link": "Leer el decodificador VIN frente a la verificación VIN",
       "vehicle_types_title": "Decodificar por tipo de vehículo",

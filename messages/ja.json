@@ -5577,6 +5577,7 @@
       }
     },
     "growth": {
+      "recent_activity_empty": "最近のVIN検索は、最初のデコード後にここに表示されます。",
       "read_compare_prefix": "中古車のデューデリジェンスが必要ですか?",
       "read_compare_link": "VINデコーダの読み取りとVINチェック",
       "vehicle_types_title": "車両タイプごとにデコードする",

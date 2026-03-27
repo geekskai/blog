@@ -5408,6 +5408,7 @@
       }
     },
     "growth": {
+      "recent_activity_empty": "최근 검색한 VIN은 첫 번째 디코딩 후 여기에 표시됩니다.",
       "read_compare_prefix": "중고차 실사가 필요하십니까?",
       "read_compare_link": "VIN 디코더와 VIN 확인 읽기",
       "vehicle_types_title": "차량 유형별 디코딩",

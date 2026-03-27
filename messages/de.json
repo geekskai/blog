@@ -5446,6 +5446,7 @@
       }
     },
     "growth": {
+      "recent_activity_empty": "Ihre neuesten VIN-Suche wird hier erscheinen, nachdem Sie Ihre erste Dekodierung durchgeführt haben.",
       "read_compare_prefix": "Brauchen Sie eine Due-Diligence-Prüfung für Gebrauchtwagen?",
       "read_compare_link": "Lesen Sie VIN-Decoder und VIN-Prüfung",
       "vehicle_types_title": "Nach Fahrzeugtyp dekodieren",

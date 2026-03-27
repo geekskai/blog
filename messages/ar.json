@@ -5428,6 +5428,7 @@
       }
     },
     "growth": {
+      "recent_activity_empty": "سيظهر تاريخ البحث الأخير هنا بعد البحث الأول.",
       "read_compare_prefix": "هل تحتاج إلى العناية الواجبة بالسيارة المستعملة؟",
       "read_compare_link": "اقرأ: فك ترميز VIN مقابل فحص VIN",
       "vehicle_types_title": "فك التشفير حسب نوع السيارة",

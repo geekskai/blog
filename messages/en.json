@@ -5324,6 +5324,7 @@
       "read_compare_prefix": "Need used-car due diligence?",
       "read_compare_link": "Read VIN Decoder vs VIN Check",
       "vehicle_types_title": "Decode by Vehicle Type",
+      "recent_activity_empty": "Your recent VIN lookups will appear here after your first decode.",
       "vehicle_types_description": "Explore dedicated VIN decoder pages for high-demand vehicle categories and long-tail search queries.",
       "vehicle_types": {
         "motorcycle": {

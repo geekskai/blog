@@ -5285,6 +5285,7 @@
       }
     },
     "growth": {
+      "recent_activity_empty": "Dine seneste VIN-søgninger vil vises her efter din første afkodning.",
       "read_compare_prefix": "Har du brug for due diligence for brugte biler?",
       "read_compare_link": "Læs VIN Decoder vs VIN Check",
       "vehicle_types_title": "Afkode efter køretøjstype",

@@ -5451,6 +5451,7 @@
       }
     },
     "growth": {
+      "recent_activity_empty": "您的最近VIN查询将在第一次解码后显示在此处。",
       "read_compare_prefix": "买二手车需要做尽职调查？",
       "read_compare_link": "了解：VIN 解码器与 VIN 车况核查",
       "vehicle_types_title": "按车辆类型解码",

@@ -5512,7 +5512,8 @@
       }
     },
     "growth": {
-      "read_compare_prefix": "Besoin d’une diligence raisonnable concernant les voitures d’occasion ?",
+      "recent_activity_empty": "Vos dernières recherches de VIN apparaîtront ici après votre première décodage.",
+      "read_compare_prefix": "Besoin d’une diligence raisonnable concernant les voitures d’occasion?",
       "read_compare_link": "Lire le décodeur VIN vs la vérification du VIN",
       "vehicle_types_title": "Décoder par type de véhicule",
       "vehicle_types_description": "Explorez les pages dédiées au décodeur VIN pour les catégories de véhicules très demandées et les requêtes de recherche à longue traîne.",

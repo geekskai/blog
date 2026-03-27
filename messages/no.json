@@ -5302,6 +5302,7 @@
       }
     },
     "growth": {
+      "recent_activity_empty": "Dine siste VIN-søk vil vises her etter din første dekoding.",
       "read_compare_prefix": "Trenger du grundig sjekk av bruktbil?",
       "read_compare_link": "Les: VIN-dekoder vs. VIN-sjekk",
       "vehicle_types_title": "Dekod etter kjøretøytype",
