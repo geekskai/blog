@@ -489,7 +489,7 @@ const organizationSchema = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer service",
-    email: "support@geekskai.com"
+    email: "postmaster@geekskai.com"
   },
   sameAs: [
     "https://twitter.com/geekskai",

@@ -20,6 +20,6 @@ export const config = {
      * - favicon.ico, robots.txt, sitemap.xml (static files)
      * - files with extensions (images, fonts, etc.)
      */
-    "/((?!api|love|blog|privacy|tags|_next/static|_next/image|_vercel|favicon.ico|robots.txt|sitemap.xml|.*\\..*).*)",
+    "/((?!api|love|blog|terms|privacy|tags|_next/static|_next/image|_vercel|favicon.ico|robots.txt|sitemap.xml|.*\\..*).*)",
   ],
 }
