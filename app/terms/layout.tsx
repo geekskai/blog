@@ -12,16 +12,20 @@ import { NextIntlClientProvider } from "next-intl"
 import React from "react"
 
 export const generateMetadata = async (): Promise<Metadata> => {
+  const title = "Geekskai Terms of Service | 100% Free Online Tools"
+  const description =
+    "Read the Geekskai Terms of Service. Discover our commitment to providing 100% free online tools, downloaders, and converters with no hidden fees or subscriptions."
+
   const metadata: Metadata = {
     metadataBase: new URL(siteMetadata.siteUrl),
     title: {
-      default: siteMetadata.title,
+      default: title,
       template: `%s`,
     },
-    description: siteMetadata.description,
+    description: description,
     openGraph: {
-      title: siteMetadata.title,
-      description: siteMetadata.description,
+      title: title,
+      description: description,
       url: "https://geekskai.com/terms/",
       siteName: siteMetadata.title,
       images: [siteMetadata.socialBanner],
@@ -49,7 +53,8 @@ export const generateMetadata = async (): Promise<Metadata> => {
       },
     },
     twitter: {
-      title: siteMetadata.title,
+      title: title,
+      description: description,
       card: "summary_large_image",
       images: [siteMetadata.socialBanner],
     },
