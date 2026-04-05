@@ -3,7 +3,7 @@ import siteMetadata from "@/data/siteMetadata"
 import { supportedLocales } from "./i18n/routing"
 
 export default function robots(): MetadataRoute.Robots {
-  const englishOnlySections = ["blog/", "tags/", "privacy/"]
+  const englishOnlySections = ["blog/", "tags/"]
   const localeDisallowPaths = supportedLocales.flatMap((locale) =>
     englishOnlySections.map((section) => `/${locale}/${section}`)
   )
@@ -12,7 +12,6 @@ export default function robots(): MetadataRoute.Robots {
     "/api/",
     "/_next/static/css/",
     "/admin/",
-    "/private/",
     ...localeDisallowPaths,
   ]
 
@@ -81,6 +80,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${siteMetadata.siteUrl}/sitemap.xml`,
-    host: siteMetadata.siteUrl,
   }
 }
