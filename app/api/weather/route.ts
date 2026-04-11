@@ -3,13 +3,8 @@ import { NextRequest, NextResponse } from "next/server"
 // 强制动态渲染
 export const dynamic = "force-dynamic"
 
-// Server-side API key (secure)
-const API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY
+// Key is read per-request so the route module can load during build without env (e.g. CI).
 const BASE_URL = "https://api.openweathermap.org/data/2.5"
-
-if (!API_KEY) {
-  throw new Error("NEXT_PUBLIC_OPENWEATHER_API_KEY environment variable is required")
-}
 
 // Helper function to format city names for OpenWeatherMap API
 function formatCityForAPI(cityInput: string): string {
@@ -233,7 +228,7 @@ export async function GET(request: NextRequest) {
         const formattedCity = formatCityForAPI(city)
 
         // Encode the entire formatted string (OpenWeatherMap handles comma-separated values)
-        apiUrl = `${BASE_URL}/weather?q=${encodeURIComponent(formattedCity)}&appid=${API_KEY}&units=metric`
+        apiUrl = `${BASE_URL}/weather?q=${encodeURIComponent(formattedCity)}&appid=${apiKey}&units=metric`
         break
       }
 
@@ -259,7 +254,7 @@ export async function GET(request: NextRequest) {
           return NextResponse.json({ error: "Coordinates out of valid range" }, { status: 400 })
         }
 
-        apiUrl = `${BASE_URL}/weather?lat=${latNum}&lon=${lonNum}&appid=${API_KEY}&units=metric`
+        apiUrl = `${BASE_URL}/weather?lat=${latNum}&lon=${lonNum}&appid=${apiKey}&units=metric`
         break
       }
 
@@ -281,7 +276,7 @@ export async function GET(request: NextRequest) {
           return NextResponse.json({ error: "Invalid country code format" }, { status: 400 })
         }
 
-        apiUrl = `${BASE_URL}/weather?zip=${encodeURIComponent(zip.trim())},${country.toUpperCase()}&appid=${API_KEY}&units=metric`
+        apiUrl = `${BASE_URL}/weather?zip=${encodeURIComponent(zip.trim())},${country.toUpperCase()}&appid=${apiKey}&units=metric`
         break
       }
 
