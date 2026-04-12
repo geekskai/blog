@@ -73,24 +73,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   })
 
-  // These VIN expansion pages are currently indexed in English only.
-  const vinDecoderExpansionRoutes = [
-    ...VIN_VEHICLE_TYPES.map((type) => ({
-      url: `${siteUrl}/tools/vin-decoder/vehicle-types/${type}`,
-      lastModified: "2026-03-07",
-    })),
-    {
-      url: `${siteUrl}/tools/vin-decoder/vin-decoder-vs-vin-check`,
-      lastModified: "2026-03-07",
-    },
-  ]
   // Generate robots.txt friendly sitemap
   const allRoutes = [
     ...routes,
     ...blogRoutes,
     ...toolRoutes,
     ...staticRoutes,
-    ...vinDecoderExpansionRoutes,
   ]
 
   // Remove duplicates and sort by priority
