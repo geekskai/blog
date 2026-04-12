@@ -74,12 +74,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   })
 
   // Generate robots.txt friendly sitemap
-  const allRoutes = [
-    ...routes,
-    ...blogRoutes,
-    ...toolRoutes,
-    ...staticRoutes,
-  ]
+  const allRoutes = [...routes, ...blogRoutes, ...toolRoutes, ...staticRoutes]
 
   // Remove duplicates and sort by priority
   const uniqueRoutes = allRoutes.filter(
