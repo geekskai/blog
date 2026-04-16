@@ -1,7 +1,7 @@
 {
   "HomePage": {
-    "home_seo_title": "GeeksKai – Outils gratuits dopés à l’IA et utilitaires en ligne",
-    "home_seo_description": "Découvrez des outils IA puissants et des utilitaires en ligne gratuits pour gagner en productivité. GeeksKai est votre boîte à outils intelligente pour le contenu, le code et la conversion de fichiers.",
+    "home_seo_title": "GeeksKai – Outils gratuits en ligne et utilitaires utiles",
+    "home_seo_description": "Découvrez des outils en ligne gratuits pour les développeurs et le quotidien : calculatrices, convertisseurs, générateurs et guides techniques. GeeksKai est simple, sans inscription.",
     "home_seo_keywords": "Des outils pour votre flux de travail",
     "header_nav_home": "Accueil",
     "header_nav_blog": "Blog",
@@ -5687,7 +5687,7 @@
     "vehicleTypePage": {
       "badge_suffix": "Page d'intention de recherche de NIV",
       "last_updated_label": "Dernière mise à jour :",
-      "core_facts_title": "Informations essentielles pour une récupération rapide par l'IA",
+      "core_facts_title": "Faits essentiels en un coup d'œil",
       "core_fact": {
         "primary_keyword": "Mot clé principal",
         "cost": "Coût",
@@ -7499,7 +7499,7 @@
         "title": "Algorithme scientifique",
         "description": "Des <strong>algorithmes météorologiques</strong> avancés analysent des modèles climatiques éprouvés qui influencent les <strong>décisions des districts scolaires</strong>. Les facteurs sont pondérés selon leur corrélation historique avec les fermetures réelles.",
         "tags": {
-          "ai_models": "🧠 Modèles IA",
+          "ai_models": "🧠 Score multi-facteurs",
           "pattern_analysis": "📊 Analyse de modèles"
         }
       },

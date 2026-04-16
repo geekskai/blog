@@ -1,7 +1,7 @@
 {
   "HomePage": {
-    "home_seo_title": "GeeksKai: herramientas gratuitas impulsadas por IA y útiles utilidades en línea",
-    "home_seo_description": "Explore potentes herramientas de inteligencia artificial y utilidades en línea gratuitas para aumentar la productividad. GeeksKai es su caja de herramientas inteligente para la conversión de contenido, código y archivos.",
+    "home_seo_title": "GeeksKai: herramientas gratuitas en línea y utilidades útiles",
+    "home_seo_description": "Explore herramientas en línea gratuitas para desarrolladores y el día a día: calculadoras, conversores, generadores y guías técnicas. GeeksKai es práctico y no requiere registro.",
     "home_seo_keywords": "Herramientas que tu flujo de trabajo",
     "header_nav_home": "Hogar",
     "header_nav_blog": "Blog",
@@ -5620,7 +5620,7 @@
     "vehicleTypePage": {
       "badge_suffix": "Página de intención de búsqueda de VIN",
       "last_updated_label": "Última actualización:",
-      "core_facts_title": "Datos básicos para una recuperación rápida de la IA",
+      "core_facts_title": "Datos clave de un vistazo",
       "core_fact": {
         "primary_keyword": "Palabra clave principal",
         "cost": "Costo",
@@ -7437,7 +7437,7 @@
         "title": "Algoritmo científico",
         "description": "Los <strong>algoritmos meteorológicos</strong> avanzados analizan patrones climáticos comprobados que influyen en las <strong>decisiones del distrito escolar</strong>. Factores ponderados por correlación histórica con cierres reales.",
         "tags": {
-          "ai_models": "🧠 Modelos de IA",
+          "ai_models": "🧠 Puntuación multifactorial",
           "pattern_analysis": "📊 Análisis de patrones"
         }
       },

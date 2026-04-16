@@ -1,10 +1,10 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: "GeeksKai – Free AI-Powered Tools and Useful Online Utilities",
+  title: "GeeksKai – Free Online Tools and Useful Utilities",
   author: "Geeks Kai",
   headerTitle: "geekskai",
   description:
-    "Explore powerful AI tools and free online utilities to boost productivity. GeeksKai is your smart toolbox for content, code, and file conversion.",
+    "Explore free online tools and utilities for developers and everyday tasks. GeeksKai offers calculators, converters, generators, and technical guides—no fluff, no signup required.",
   language: "en-us",
   theme: "dark", // system, dark or light
   siteUrl: "https://geekskai.com",

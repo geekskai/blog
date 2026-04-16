@@ -1,7 +1,7 @@
 {
   "HomePage": {
-    "home_seo_title": "GeeksKai – Gratis AI-drevne værktøjer og nyttige online-værktøjer",
-    "home_seo_description": "Udforsk kraftfulde AI-værktøjer og gratis online-værktøjer for at øge produktiviteten. GeeksKai er din smarte værktøjskasse til indhold, kode og filkonvertering.",
+    "home_seo_title": "GeeksKai – Gratis online-værktøjer og nyttige hjælpeprogrammer",
+    "home_seo_description": "Udforsk gratis online-værktøjer til udviklere og hverdagsopgaver: Lommeregnere, konvertere, generatorer og tekniske guides. GeeksKai er enkel og uden login.",
     "home_seo_keywords": "Værktøjer der forbedrer dit workflow",
     "header_nav_home": "Hjem",
     "header_nav_blog": "Blog",
@@ -5460,7 +5460,7 @@
     "vehicleTypePage": {
       "badge_suffix": "VIN søgehensigtsside",
       "last_updated_label": "Sidst opdateret:",
-      "core_facts_title": "Kernefakta til hurtig AI-hentning",
+      "core_facts_title": "Kerneoplysninger på et øjeblik",
       "core_fact": {
         "primary_keyword": "Primært søgeord",
         "cost": "Koste",
@@ -7152,7 +7152,7 @@
         "title": "Videnskabelig algoritme",
         "description": "Avancerede <strong>meteorologiske algoritmer</strong> analyserer dokumenterede vejr­mønstre, der påvirker <strong>skoledistrikters beslutninger</strong>. Faktorer vægtes ud fra historisk sammenhæng med faktiske lukninger.",
         "tags": {
-          "ai_models": "🧠 AI-modeller",
+          "ai_models": "🧠 Multi-faktor scoring",
           "pattern_analysis": "📊 Mønsteranalyse"
         }
       },

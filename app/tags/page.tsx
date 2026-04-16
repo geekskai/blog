@@ -11,7 +11,7 @@ const totalPosts = Object.values(tagCounts).reduce((sum, count) => sum + count, 
 
 export const metadata = genPageMetadata({
   title: "Tags - Browse All Blog Topics",
-  description: `Browse all ${totalTags} tags and explore ${totalPosts} articles organized by topics on ${siteMetadata.title}. Find content about technology, programming, AI tools, and more.`,
+  description: `Browse all ${totalTags} tags and explore ${totalPosts} articles organized by topics on ${siteMetadata.title}. Find content about technology, programming, web development, and more.`,
   keywords: [
     "blog tags",
     "content categories",
@@ -101,7 +101,7 @@ export default async function Page() {
                 Explore <strong>{totalTags}</strong> tags covering <strong>{totalPosts}</strong>{" "}
                 {totalPosts === 1 ? "article" : "articles"} on {siteMetadata.title}. Find content
                 organized by topics including <strong>technology</strong>,{" "}
-                <strong>programming</strong>, <strong>AI tools</strong>, and more.
+                <strong>programming</strong>, <strong>web development</strong>, and more.
               </p>
             </div>
             <div className="flex flex-col gap-2 text-sm text-slate-400">

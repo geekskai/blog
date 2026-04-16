@@ -80,7 +80,7 @@ export default async function VehicleTypeVinDecoderPage({ params }: VehicleTypeP
 
         <section className="mb-8 rounded-2xl border border-cyan-500/25 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 p-5 backdrop-blur-xl sm:mb-10 sm:p-6">
           <h2 className="mb-3 text-xl font-bold text-white sm:text-2xl">
-            {safeTranslate(t, "core_facts_title", "Core facts for quick AI retrieval")}
+            {safeTranslate(t, "core_facts_title", "Core facts at a glance")}
           </h2>
           <dl className="grid gap-3 text-sm text-slate-200 sm:grid-cols-2 sm:text-base">
             <div className="rounded-xl border border-white/10 bg-slate-900/25 p-3">

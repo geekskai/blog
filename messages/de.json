@@ -1,7 +1,7 @@
 {
   "HomePage": {
-    "home_seo_title": "GeeksKai – Kostenlose KI-gestützte Tools und nützliche Online-Utilities",
-    "home_seo_description": "Entdecke leistungsstarke KI-Tools und kostenlose Online-Utilities, um produktiver zu arbeiten. GeeksKai ist deine smarte Toolbox für Inhalte, Code und Dateikonvertierung.",
+    "home_seo_title": "GeeksKai – Kostenlose Online-Tools und nützliche Utilities",
+    "home_seo_description": "Entdecke kostenlose Online-Tools für Entwickler und den Alltag: Rechner, Konverter, Generatoren und technische Ratgeber. GeeksKai ist sachlich und ohne Registrierung nutzbar.",
     "home_seo_keywords": "Tools für deinen Workflow",
     "header_nav_home": "Startseite",
     "header_nav_blog": "Blog",
@@ -5621,7 +5621,7 @@
     "vehicleTypePage": {
       "badge_suffix": "VIN-Suchabsichtsseite",
       "last_updated_label": "Letzte Aktualisierung:",
-      "core_facts_title": "Kernfakten für einen schnellen KI-Abruf",
+      "core_facts_title": "Kernfakten auf einen Blick",
       "core_fact": {
         "primary_keyword": "Primäres Schlüsselwort",
         "cost": "Kosten",
@@ -7433,7 +7433,7 @@
         "title": "Wissenschaftlicher Algorithmus",
         "description": "Fortschrittliche <strong>meteorologische Algorithmen</strong> analysieren bewährte Wettermuster, die <strong>Entscheidungen von Schulbezirken</strong> beeinflussen. Faktoren werden anhand ihrer historischen Korrelation mit tatsächlichen Schließungen gewichtet.",
         "tags": {
-          "ai_models": "🧠 KI-Modelle",
+          "ai_models": "🧠 Multi-Faktor-Bewertung",
           "pattern_analysis": "📊 Musteranalyse"
         }
       },

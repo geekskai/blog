@@ -611,7 +611,7 @@ gtag("event", "mobile_interaction", {
 - **Native Mobile App**: iOS and Android apps with enhanced offline capabilities
 - **Augmented Reality**: AR measurement overlay using device camera
 - **Industry Integrations**: Direct integration with CAD software and project management tools
-- **AI-Powered Features**: Smart suggestions based on usage patterns and project context
+- **Contextual suggestions**: Smart defaults based on usage patterns and project context (rules-based / heuristic)
 
 ### Resource Requirements
 

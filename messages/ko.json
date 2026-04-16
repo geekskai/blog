@@ -1,7 +1,7 @@
 {
   "HomePage": {
-    "home_seo_title": "GeeksKai – 무료 AI 기반 도구와 유용한 온라인 유틸리티",
-    "home_seo_description": "생산성을 높이는 강력한 AI 도구와 무료 온라인 유틸리티를 탐색하세요. GeeksKai는 콘텐츠, 코드, 파일 변환을 위한 스마트 도구상자입니다.",
+    "home_seo_title": "GeeksKai – 무료 온라인 도구와 유용한 유틸리티",
+    "home_seo_description": "개발자와 일상 업무를 위한 무료 온라인 도구: 계산기, 변환기, 생성기, 기술 가이드. GeeksKai는 실용적이며 가입 없이 이용할 수 있습니다.",
     "home_seo_keywords": "워크플로우를 향상시키는 도구",
     "header_nav_home": "홈",
     "header_nav_blog": "블로그",
@@ -5583,7 +5583,7 @@
     "vehicleTypePage": {
       "badge_suffix": "VIN 검색 의도 페이지",
       "last_updated_label": "마지막 업데이트:",
-      "core_facts_title": "빠른 AI 검색을 위한 핵심 사실",
+      "core_facts_title": "핵심 사항 한눈에 보기",
       "core_fact": {
         "primary_keyword": "기본 키워드",
         "cost": "비용",
@@ -7345,7 +7345,7 @@
         "title": "과학적 알고리즘",
         "description": "고급 <strong>기상 알고리즘</strong>이 <strong>학교 휴교 결정</strong>에 영향을 미치는 검증된 날씨 패턴을 분석합니다. 실제 휴교와의 역사적 상관관계를 기반으로 요소에 가중치를 부여합니다.",
         "tags": {
-          "ai_models": "🧠 AI 모델",
+          "ai_models": "🧠 다중 요인 점수",
           "pattern_analysis": "📊 패턴 분석"
         }
       },

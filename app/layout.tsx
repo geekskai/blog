@@ -62,7 +62,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
           url: "/static/images/og/geekskai-home.png",
           width: 1200,
           height: 630,
-          alt: "GeeksKai Tools - Free AI-Powered Tools and Useful Online Utilities",
+          alt: "GeeksKai Tools - Free online tools and useful utilities",
         },
       ],
       locale: ogLocale,

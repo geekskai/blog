@@ -1,7 +1,7 @@
 {
   "HomePage": {
-    "home_seo_title": "GeeksKai – Free AI-Powered Tools and Useful Online Utilities",
-    "home_seo_description": "Explore powerful AI tools and free online utilities to boost productivity. GeeksKai is your smart toolbox for content, code, and file conversion.",
+    "home_seo_title": "GeeksKai – Free Online Tools and Useful Utilities",
+    "home_seo_description": "Explore free online tools and utilities for developers and everyday tasks. GeeksKai offers calculators, converters, generators, and technical guides—no fluff, no signup required.",
     "home_seo_keywords": "Tools that your workflow",
     "header_nav_home": "Home",
     "header_nav_blog": "Blog",
@@ -5496,7 +5496,7 @@
     "vehicleTypePage": {
       "badge_suffix": "VIN Search Intent Page",
       "last_updated_label": "Last updated:",
-      "core_facts_title": "Core facts for quick AI retrieval",
+      "core_facts_title": "Core facts at a glance",
       "core_fact": {
         "primary_keyword": "Primary keyword",
         "cost": "Cost",
@@ -7308,7 +7308,7 @@
         "title": "Scientific Algorithm",
         "description": "Advanced <strong>meteorological algorithms</strong> analyze proven weather patterns that influence <strong>school district decisions</strong>. Factors weighted by historical correlation with actual closures.",
         "tags": {
-          "ai_models": "🧠 AI Models",
+          "ai_models": "🧠 Multi-factor scoring",
           "pattern_analysis": "📊 Pattern Analysis"
         }
       },

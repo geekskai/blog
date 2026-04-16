@@ -1,7 +1,7 @@
 {
   "HomePage": {
-    "home_seo_title": "GeeksKai – 無料のAI搭載ツールと便利なオンラインユーティリティ",
-    "home_seo_description": "生産性を向上させる強力なAIツールと無料のオンラインユーティリティをご利用ください。GeeksKaiは、コンテンツ、コード、ファイル変換のためのスマートツールボックスです。",
+    "home_seo_title": "GeeksKai – 無料のオンラインツールと便利なユーティリティ",
+    "home_seo_description": "開発者向けと日常業務向けの無料オンラインツールを提供：計算機、変換、ジェネレーター、技術ガイド。GeeksKaiは実用的で、登録不要で使えます。",
     "home_seo_keywords": "ワークフローを効率化するツール",
     "header_nav_home": "ホーム",
     "header_nav_blog": "ブログ",
@@ -5752,7 +5752,7 @@
     "vehicleTypePage": {
       "badge_suffix": "VIN 検索意図ページ",
       "last_updated_label": "最終更新日:",
-      "core_facts_title": "AI を迅速に取得するための重要な事実",
+      "core_facts_title": "重要な事実を一目で",
       "core_fact": {
         "primary_keyword": "主なキーワード",
         "cost": "料金",
@@ -7519,7 +7519,7 @@
         "title": "科学的アルゴリズム",
         "description": "高度な<strong>気象アルゴリズム</strong>が、<strong>学区の判断</strong>に影響を与える実証済みの天候パターンを分析します。実際の休校との過去の相関に基づいて要因が重み付けされています。",
         "tags": {
-          "ai_models": "🧠 AIモデル",
+          "ai_models": "🧠 多要素スコアリング",
           "pattern_analysis": "📊 パターン分析"
         }
       },

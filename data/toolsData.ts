@@ -573,7 +573,7 @@ export const toolsData: ToolData[] = [
     href: "/tools/snow-day-calculator/",
     features: [
       "Real-time Weather API Integration",
-      "AI-Powered Prediction Algorithm",
+      "Advanced weather-based prediction",
       "Location-Based Analysis",
       "Detailed Weather Factor Breakdown",
     ],

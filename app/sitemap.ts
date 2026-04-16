@@ -7,7 +7,7 @@ import { supportedLocales } from "./i18n/routing"
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = siteMetadata.siteUrl
   const defaultLocale = "en"
-  const VIN_VEHICLE_TYPES = ["motorcycle", "rv", "trailer", "classic-car"] as const
+  // const VIN_VEHICLE_TYPES = ["motorcycle", "rv", "trailer", "classic-car"] as const
 
   // Generate blog routes for all locales
   const blogRoutes = allBlogs
@@ -15,15 +15,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .map((post) => ({
       url: `${siteUrl}/${post.path}/`,
       lastModified: post.lastmod || post.date,
-      // priority: 0.7,
-      // changeFrequency: "monthly" as const,
     }))
 
   const routes = ["", "blog/", "projects/", "tools/", "tags/", "about/"].map((route) => ({
     url: `${siteUrl}/${route}`,
     lastModified: new Date().toISOString().split("T")[0],
-    // priority: route === "" ? 1.0 : route === "tools/" ? 0.9 : 0.8,
-    // changeFrequency: "weekly" as const,
   }))
 
   // Generate static routes for all locales
@@ -56,10 +52,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       return {
         url: `${siteUrl}${locale === defaultLocale ? "" : `/${locale}`}/${toolPath}`,
         lastModified: new Date().toISOString().split("T")[0],
-        // Set higher priority for tools since they're important pages
-        // priority: 0.8,
-        // changeFrequency: "weekly" as const,
-        // Add alternates for SEO
         alternates: {
           languages: supportedLocales.reduce(
             (acc, lang) => {
