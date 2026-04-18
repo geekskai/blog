@@ -626,7 +626,7 @@ gtag("event", "mobile_interaction", {
 
 - **Frontend**: Next.js 14, TypeScript, Tailwind CSS, PWA capabilities
 - **Testing**: Jest, Cypress, Mobile device testing lab
-- **Analytics**: Google Analytics 4, Hotjar, Sentry error tracking
+- **Analytics**: Google Analytics 4, Hotjar
 - **Deployment**: Vercel, Cloudflare CDN, offline-first architecture
 - **Monitoring**: Uptime Robot, New Relic, mobile performance monitoring
 

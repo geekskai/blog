@@ -1,7 +1,6 @@
 const { withContentlayer } = require("next-contentlayer2")
 const createNextIntlPlugin = require("next-intl/plugin")
 const withNextIntl = createNextIntlPlugin("./app/i18n/request.ts")
-const { withSentryConfig } = require("@sentry/nextjs")
 
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
@@ -162,8 +161,5 @@ module.exports = () => {
     },
   })
 
-  return withSentryConfig(nextConfig, {
-    org: "gk-56",
-    project: "javascript-nextjs",
-  })
+  return nextConfig
 }

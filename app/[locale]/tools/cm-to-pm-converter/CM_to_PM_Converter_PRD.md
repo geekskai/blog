@@ -549,7 +549,7 @@ gtag("event", "educational_content_viewed", {
 
 - **Frontend**: Next.js 14, TypeScript, Tailwind CSS, Framer Motion
 - **Testing**: Jest, Cypress, React Testing Library
-- **Analytics**: Google Analytics 4, Hotjar, Sentry
+- **Analytics**: Google Analytics 4, Hotjar
 - **Deployment**: Vercel, Cloudflare CDN
 - **Monitoring**: Uptime Robot, New Relic
 
