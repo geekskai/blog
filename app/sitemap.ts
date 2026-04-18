@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const routes = ["", "blog/", "projects/", "tools/", "tags/", "about/"].map((route) => ({
     url: `${siteUrl}/${route}`,
-    lastModified: new Date().toISOString().split("T")[0],
+    // lastModified: new Date().toISOString().split("T")[0],
   }))
 
   // Generate static routes for all locales
@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = ["tools/"].flatMap((route) => {
     return supportedLocales.map((locale) => ({
       url: `${siteUrl}${locale === defaultLocale ? "" : `/${locale}`}/${route}`,
-      lastModified: new Date().toISOString().split("T")[0],
+      // lastModified: new Date().toISOString().split("T")[0],
       // priority: route === "" ? 1.0 : route === "tools/" ? 0.9 : 0.8,
       // changeFrequency: "weekly" as const,
       // Add alternates for SEO
@@ -51,7 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
       return {
         url: `${siteUrl}${locale === defaultLocale ? "" : `/${locale}`}/${toolPath}`,
-        lastModified: new Date().toISOString().split("T")[0],
+        // lastModified: new Date().toISOString().split("T")[0],
         alternates: {
           languages: supportedLocales.reduce(
             (acc, lang) => {
