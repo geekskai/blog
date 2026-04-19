@@ -3557,7 +3557,7 @@
       "badge_text": "Kostenloser Discord-Zeitzonen-Konverter & Timestamp-Generator",
       "main_title_line1": "Discord Timezone",
       "main_title_line2": "Konverter & Generator",
-      "description": "Kostenloser Discord-Zeitzonen-Konverter und Timestamp-Generator. Wandle Unix-Timestamps in das Discord-Format über alle Zeitzonen hinweg, konvertiere Discord-Timestamps in normale Zeit und generiere alle Discord-Zeitformate mit umfassender Zeitzonenunterstützung. Perfekt für Discord-Bot-Entwickler, Server-Admins und Community-Manager, die internationale Events über mehrere Zeitzonen planen.",
+      "description": "Kostenloser Discord-Zeitzonen-Konverter und Timestamp-Generator. Wandle Unix-Timestamps in das Discord-Format über alle Zeitzonen hinweg, konvertiere Discord-Timestamps in normale Zeit und generiere alle Discord-Zeitformate mit umfassender Zeitzonenunterstützung.",
       "stats": {
         "timezone_converter": "Discord-Zeitzonen-Konverter",
         "global_timezone": "Globale Zeitzonenunterstützung",

@@ -3557,7 +3557,7 @@
       "badge_text": "Convertisseur de fuseaux horaires Discord & générateur d’horodatages gratuit",
       "main_title_line1": "Fuseaux horaires Discord",
       "main_title_line2": "Convertisseur & générateur",
-      "description": "Convertisseur de fuseaux horaires Discord et générateur d’horodatages gratuit. Convertissez des timestamps Unix au format Discord pour tous les fuseaux, convertissez les horodatages Discord en heure lisible, et générez tous les formats Discord avec prise en charge complète des fuseaux. Parfait pour développeurs de bots, administrateurs de serveurs et community managers planifiant des événements internationaux.",
+      "description": "Convertisseur de fuseaux horaires Discord et générateur d’horodatages gratuit. Convertissez des timestamps Unix au format Discord pour tous les fuseaux, convertissez les horodatages Discord en heure lisible, et générez tous les formats Discord avec prise en charge complète des fuseaux.",
       "stats": {
         "timezone_converter": "Convertisseur de fuseaux Discord",
         "global_timezone": "Support des fuseaux mondiaux",

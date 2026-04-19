@@ -3562,7 +3562,7 @@
       "badge_text": "免费 Discord 时区转换器和时间戳生成工具",
       "main_title_line1": "Discord 时区",
       "main_title_line2": "转换器和生成器",
-      "description": "免费的 Discord 时区转换器和时间戳生成工具。将 Unix 时间戳转换为跨所有全球时区的 Discord 格式，将 Discord 时间戳转换为常规时间，并生成具有全面时区支持的所有 Discord 时间戳格式。适合 Discord 机器人开发者、服务器管理员和社区管理员在多个时区安排国际活动。",
+      "description": "免费的 Discord 时区转换器和时间戳生成工具。将 Unix 时间戳转换为跨所有全球时区的 Discord 格式，将 Discord 时间戳转换为常规时间，并生成具有全面时区支持的所有 Discord 时间戳格式。",
       "stats": {
         "timezone_converter": "Discord 时区转换器",
         "global_timezone": "全球时区支持",

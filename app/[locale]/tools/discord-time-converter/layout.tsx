@@ -19,9 +19,9 @@ export async function generateMetadata({
     languages[locale] = `https://geekskai.com/${locale}/tools/discord-time-converter/`
   })
   // Content freshness metadata (updated within 30-90 days for best AI ranking)
-  const lastModified = new Date("2026-02-17")
+  const lastModified = new Date("2026-04-19")
   const updateFrequency = "monthly"
-  const nextReview = new Date("2026-05-17")
+  const nextReview = new Date("2026-05-19")
 
   return {
     title: t("seo_title"),

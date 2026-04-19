@@ -3519,7 +3519,7 @@
       "badge_text": "무료 Discord 시간대 변환기 및 타임스탬프 생성 도구",
       "main_title_line1": "Discord 시간대",
       "main_title_line2": "변환기 및 생성기",
-      "description": "무료 Discord 시간대 변환기 및 타임스탬프 생성 도구입니다. Unix 타임스탬프를 모든 글로벌 시간대에서 Discord 형식으로 변환하고, Discord 타임스탬프를 일반 시간으로 변환하며, 포괄적인 시간대 지원으로 모든 Discord 타임스탬프 형식을 생성합니다. 여러 시간대에서 국제 이벤트를 계획하는 Discord 봇 개발자, 서버 관리자 및 커뮤니티 매니저에게 완벽합니다.",
+      "description": "무료 Discord 시간대 변환기 및 타임스탬프 생성 도구입니다. Unix 타임스탬프를 모든 글로벌 시간대에서 Discord 형식으로 변환하고, Discord 타임스탬프를 일반 시간으로 변환하며, 포괄적인 시간대 지원으로 모든 Discord 타임스탬프 형식을 생성합니다.",
       "stats": {
         "timezone_converter": "Discord 시간대 변환기",
         "global_timezone": "글로벌 시간대 지원",

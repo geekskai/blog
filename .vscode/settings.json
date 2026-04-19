@@ -50,5 +50,6 @@
   // TypeScript 配置
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "i18n-ally.localesPaths": ["messages", "app/i18n", "docs/messages"]
+  "i18n-ally.localesPaths": ["messages", "app/i18n", "docs/messages"],
+  "i18n-ally.keystyle": "nested"
 }

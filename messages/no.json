@@ -3413,7 +3413,7 @@
       "badge_text": "Gratis Discord Tidssone Konverter og Tidsstempel Generator Verktøy",
       "main_title_line1": "Discord Tidssone",
       "main_title_line2": "Konverter og Generator",
-      "description": "Gratis Discord tidssone konverter og tidsstempel generator verktøy. Konverter Unix tidsstempler til Discord format på tvers av alle globale tidssoner, konverter Discord tidsstempler til vanlig tid, og generer alle Discord tidsstempel formater med omfattende tidssone støtte. Perfekt for Discord bot utviklere, server administratorer og samfunn ledere som planlegger internasjonale arrangementer på tvers av flere tidssoner.",
+      "description": "Gratis Discord tidssone konverter og tidsstempel generator verktøy. Konverter Unix tidsstempler til Discord format på tvers av alle globale tidssoner, konverter Discord tidsstempler til vanlig tid, og generer alle Discord tidsstempel formater med omfattende tidssone støtte.",
       "stats": {
         "timezone_converter": "Discord Tidssone Konverter",
         "global_timezone": "Global Tidssone Støtte",

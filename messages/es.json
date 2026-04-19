@@ -3557,7 +3557,7 @@
       "badge_text": "Herramienta gratuita de generación de marcas de tiempo y convertidor de zona horaria de Discord",
       "main_title_line1": "Zona horaria de discordia",
       "main_title_line2": "Convertidor y generador",
-      "description": "Herramienta gratuita de conversión de zona horaria y generación de marcas de tiempo de Discord. Convierta marcas de tiempo de Unix al formato Discord en todas las zonas horarias globales, convierta marcas de tiempo de Discord a la hora normal y genere todos los formatos de marcas de tiempo de Discord con compatibilidad integral con zonas horarias. Perfecto para desarrolladores de bots de Discord, administradores de servidores y administradores de comunidades que programan eventos internacionales en múltiples zonas horarias.",
+      "description": "Herramienta gratuita de conversión de zona horaria y generación de marcas de tiempo de Discord. Convierta marcas de tiempo de Unix al formato Discord en todas las zonas horarias globales, convierta marcas de tiempo de Discord a la hora normal y genere todos los formatos de marcas de tiempo de Discord con compatibilidad integral con zonas horarias.",
       "stats": {
         "timezone_converter": "Convertidor de zona horaria de Discord",
         "global_timezone": "Soporte de zona horaria global",

@@ -395,7 +395,7 @@ export default function SoundCloudDownloaderPage() {
           </div>
         )}
 
-        {((isPlaylistMode && !playlistInfo && playlistLoadingState === "idle") ||
+        {/* {((isPlaylistMode && !playlistInfo && playlistLoadingState === "idle") ||
           (!isPlaylistMode && loadingState === "idle" && !trackInfo)) && (
           <div className="mx-auto max-w-6xl text-center">
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-sm md:p-10">
@@ -408,7 +408,7 @@ export default function SoundCloudDownloaderPage() {
               </p>
             </div>
           </div>
-        )}
+        )} */}
 
         <div className="mx-auto max-w-6xl space-y-8 md:space-y-12">
           <CoreFactsSection />

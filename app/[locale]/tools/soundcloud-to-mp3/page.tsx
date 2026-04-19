@@ -190,7 +190,7 @@ export default function SoundCloudToMP3Page() {
         )}
 
         {/* Empty state message */}
-        {loadingState === "idle" && !trackInfo && (
+        {/* {loadingState === "idle" && !trackInfo && (
           <div className="mx-auto max-w-6xl text-center">
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-sm md:p-10">
               <div className="mb-4 text-5xl md:mb-6 md:text-7xl">🎼</div>
@@ -200,7 +200,7 @@ export default function SoundCloudToMP3Page() {
               <p className="text-sm text-slate-300 md:text-base">{t("empty_state_description")}</p>
             </div>
           </div>
-        )}
+        )} */}
 
         {/* SEO Content Sections */}
         <div className="mx-auto max-w-6xl space-y-8 md:space-y-12">

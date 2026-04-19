@@ -3691,7 +3691,7 @@
       "badge_text": "無料 Discord タイムゾーン変換器とタイムスタンプ生成ツール",
       "main_title_line1": "Discord タイムゾーン",
       "main_title_line2": "変換器と生成器",
-      "description": "無料のDiscordタイムゾーン変換器とタイムスタンプ生成ツール。UnixタイムスタンプをすべてのグローバルタイムゾーンでDiscord形式に変換し、Discordタイムスタンプを通常の時間に変換し、包括的なタイムゾーンサポートですべてのDiscordタイムスタンプ形式を生成します。複数のタイムゾーンで国際イベントを調整するDiscordボット開発者、サーバー管理者、コミュニティマネージャーに最適。",
+      "description": "無料のDiscordタイムゾーン変換器とタイムスタンプ生成ツール。UnixタイムスタンプをすべてのグローバルタイムゾーンでDiscord形式に変換し、Discordタイムスタンプを通常の時間に変換し、包括的なタイムゾーンサポートですべてのDiscordタイムスタンプ形式を生成します。",
       "stats": {
         "timezone_converter": "Discord タイムゾーン変換器",
         "global_timezone": "グローバルタイムゾーンサポート",
