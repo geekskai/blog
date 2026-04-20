@@ -75,7 +75,7 @@ export default function PixelsToInchesConverter() {
               </span>
             </h1>
 
-            <p className="mx-auto mb-8 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
+            <p className="mx-auto mb-8 max-w-4xl text-xl font-light text-slate-400">
               {t("page_description")}
             </p>
 
@@ -127,10 +127,10 @@ export default function PixelsToInchesConverter() {
             <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
               {/* Left Column - Paragraphs */}
               <div className="space-y-6 text-left">
-                <p className="text-lg leading-relaxed text-slate-300 md:text-xl">
+                <p className="text-lg text-slate-300 md:text-xl">
                   {t("intro_section.paragraph_1")}
                 </p>
-                <p className="text-lg leading-relaxed text-slate-300 md:text-xl">
+                <p className="text-lg text-slate-300 md:text-xl">
                   {t("intro_section.paragraph_2")}
                 </p>
               </div>
@@ -144,7 +144,7 @@ export default function PixelsToInchesConverter() {
                     </div>
                     <h3 className="text-lg font-semibold text-white md:text-xl">Key Features</h3>
                   </div>
-                  <p className="text-base leading-relaxed text-slate-200 md:text-lg">
+                  <p className="text-base text-slate-200 md:text-lg">
                     {t("intro_section.key_features_intro")}
                   </p>
                 </div>
@@ -264,7 +264,7 @@ export default function PixelsToInchesConverter() {
               <h3 className="mb-6 text-xl font-semibold text-white">
                 {t("features_section.two_way_conversion")}
               </h3>
-              <p className="text-lg leading-relaxed text-slate-400">
+              <p className="text-lg text-slate-400">
                 {t("features_section.two_way_conversion_description")}
               </p>
             </div>
@@ -276,7 +276,7 @@ export default function PixelsToInchesConverter() {
               <h3 className="mb-6 text-xl font-semibold text-white">
                 {t("features_section.customizable_ppi")}
               </h3>
-              <p className="text-lg leading-relaxed text-slate-400">
+              <p className="text-lg text-slate-400">
                 {t("features_section.customizable_ppi_description")}
               </p>
             </div>
@@ -288,7 +288,7 @@ export default function PixelsToInchesConverter() {
               <h3 className="mb-6 text-xl font-semibold text-white">
                 {t("features_section.precision_control")}
               </h3>
-              <p className="text-lg leading-relaxed text-slate-400">
+              <p className="text-lg text-slate-400">
                 {t("features_section.precision_control_description")}
               </p>
             </div>

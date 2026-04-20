@@ -75,7 +75,7 @@ export const StartScreen: React.FC<StartScreenProps> = ({ onStart }) => {
           </h1>
 
           {/* 核心价值主张 */}
-          <p className="mx-auto mb-12 max-w-3xl text-xl leading-relaxed text-slate-300 md:text-2xl">
+          <p className="mx-auto mb-12 max-w-3xl text-xl text-slate-300 md:text-2xl">
             {t.rich("start_description", {
               strong: (chunks) => <strong className="text-white">{chunks}</strong>,
             })}

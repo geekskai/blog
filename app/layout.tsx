@@ -2,7 +2,7 @@ import { ReactNode } from "react"
 import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 import { supportedLocales } from "./i18n/routing"
-import { toolsData } from "@/data/toolsData"
+// import { toolsData } from "@/data/toolsData"
 // import { supportedLocales } from "@/components/LanguageSelect"
 
 type Props = {
@@ -19,6 +19,7 @@ export function generateStaticParams() {
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
   const { locale } = await params
   const t = await getTranslations("HomePage")
+  const lastModified = new Date("2026-04-21")
 
   const isDefaultLocale = locale === "en"
   const title = t("home_seo_title")
@@ -106,6 +107,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
       "apple-mobile-web-app-status-bar-style": "black-translucent",
       "theme-color": "#0f172a",
       "DC.language": ogLocale.replace("_", "-"),
+      "last-modified": lastModified.toISOString(),
     },
   }
 }

@@ -363,9 +363,8 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
           <button
             onClick={handleCopy}
             disabled={copyStatus === "copying" || !validation.isValid}
-            className={`group relative w-full overflow-hidden rounded-2xl px-6 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70 ${copyButtonContent.className}`}
+            className={`group w-full overflow-hidden rounded-2xl px-6 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70 ${copyButtonContent.className}`}
           >
-            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
             <div className="relative flex items-center justify-center gap-2">
               {copyButtonContent.icon}
               <span>{copyButtonContent.text}</span>

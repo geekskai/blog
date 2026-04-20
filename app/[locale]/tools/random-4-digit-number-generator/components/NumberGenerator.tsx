@@ -214,11 +214,7 @@ const NumberGeneratorComponent = () => {
   return (
     <div className="space-y-5 sm:space-y-6 md:space-y-8">
       {/* === Single Number Generator === */}
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-900/25 via-purple-900/20 to-indigo-900/25 p-3.5 shadow-2xl backdrop-blur-xl sm:p-5 md:p-7 lg:p-8">
-        {/* Decorative background elements */}
-        <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-blue-500/15 to-purple-500/15 blur-3xl"></div>
-        <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/15 blur-3xl"></div>
-
+      <div className="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-900/25 via-purple-900/20 to-indigo-900/25 p-3.5 shadow-2xl backdrop-blur-xl sm:p-5 md:p-7 lg:p-8">
         <div className="relative">
           {/* Header */}
           <div className="mb-5 flex flex-col gap-3 sm:mb-6 sm:flex-row sm:items-center sm:justify-between">
@@ -233,7 +229,6 @@ const NumberGeneratorComponent = () => {
               onClick={() => setShowSettings(!showSettings)}
               className="to-white/2 group relative w-full overflow-hidden rounded-xl border border-white/20 bg-gradient-to-br from-white/5 px-4 py-2.5 transition-all duration-300 hover:border-white/40 sm:w-auto"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
               <div className="relative flex items-center gap-2">
                 <Settings className="h-4 w-4 text-slate-300" />
                 <span className="text-xs text-slate-300 sm:text-sm">
@@ -392,7 +387,6 @@ const NumberGeneratorComponent = () => {
               disabled={state.isGenerating}
               className="group relative flex-1 overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-5 py-3 text-sm font-bold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30 disabled:opacity-50 sm:px-6 sm:text-base md:px-8 md:py-4 md:text-lg"
             >
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
               <span className="relative flex items-center justify-center gap-2">
                 <Shuffle
                   className={`h-4 w-4 sm:h-5 sm:w-5 ${state.isGenerating ? "animate-spin" : ""}`}
@@ -406,7 +400,6 @@ const NumberGeneratorComponent = () => {
                 onClick={() => copyNumber(state.generatedNumber)}
                 className="group relative w-full overflow-hidden rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-blue-500/10 px-5 py-3 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 sm:w-auto sm:px-6 md:py-4"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                 <span className="relative flex items-center justify-center gap-2 text-sm text-white sm:text-base">
                   {copiedNumber === state.generatedNumber ? (
                     <>
@@ -457,9 +450,6 @@ const NumberGeneratorComponent = () => {
 
       {/* === Batch Generator === */}
       <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-900/25 via-teal-900/20 to-cyan-900/25 p-3.5 shadow-2xl backdrop-blur-xl sm:p-5 md:p-7 lg:p-8">
-        {/* Decorative background */}
-        <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-emerald-500/15 to-teal-500/15 blur-3xl"></div>
-
         <div className="relative">
           {/* Header */}
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 px-3 py-1.5 backdrop-blur-sm sm:px-4 sm:py-2 md:mb-6 md:gap-3 md:px-6 md:py-3">
@@ -532,7 +522,6 @@ const NumberGeneratorComponent = () => {
               disabled={state.isGenerating}
               className="group relative flex-1 overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 px-5 py-3 text-sm font-bold text-white shadow-xl shadow-emerald-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/30 disabled:opacity-50 sm:px-6 sm:text-base md:px-8 md:py-4 md:text-lg"
             >
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
               <span className="relative flex items-center justify-center gap-2">
                 <Shuffle
                   className={`h-4 w-4 sm:h-5 sm:w-5 ${state.isGenerating ? "animate-spin" : ""}`}
@@ -609,7 +598,6 @@ const NumberGeneratorComponent = () => {
                       onClick={() => copyNumber(number)}
                       className="group relative overflow-hidden rounded-lg border border-white/10 bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-3 text-left font-mono text-base transition-all duration-300 hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/20 sm:text-lg"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                       <div className="relative flex items-center justify-between">
                         <span className="text-slate-200">{number}</span>
                         {copiedNumber === number && <Check className="h-4 w-4 text-green-400" />}
@@ -630,7 +618,6 @@ const NumberGeneratorComponent = () => {
             onClick={resetAll}
             className="to-white/2 group relative inline-flex items-center gap-2 overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-white/5 px-5 py-3 text-sm transition-all duration-300 hover:border-white/40 sm:px-6 sm:text-base md:px-8 md:py-4"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
             <RotateCcw className="relative h-5 w-5 text-slate-300" />
             <span className="relative text-slate-300">{t("buttons.reset_all")}</span>
           </button>

@@ -13,7 +13,7 @@ export function TLDRSection() {
       <h2 className="mb-4 text-center text-xl font-bold text-white md:text-2xl">
         {t("section_tldr_title")}
       </h2>
-      <p className="text-base leading-relaxed text-slate-300 md:text-lg">
+      <p className="text-base text-slate-300 md:text-lg">
         {t.rich("section_tldr_content", {
           strong: (chunks) => <strong className="text-blue-300">{chunks}</strong>,
         })}
@@ -30,7 +30,7 @@ export function IntroSection() {
         {t("section_intro_title")}
       </h2>
       <div className="prose prose-invert max-w-none">
-        <p className="text-lg leading-relaxed text-slate-300">
+        <p className="text-lg text-slate-300">
           {t.rich("section_intro_content", {
             strong: (chunks) => <strong className="text-blue-300">{chunks}</strong>,
           })}
@@ -111,13 +111,13 @@ export function AdvancedTechSection() {
       <div className="space-y-6">
         <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
           <h3 className="mb-3 text-xl font-bold text-white">{t("section_advanced_abr_title")}</h3>
-          <p className="leading-relaxed text-slate-300">{t("section_advanced_abr_desc")}</p>
+          <p className="text-slate-300">{t("section_advanced_abr_desc")}</p>
         </div>
         <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
           <h3 className="mb-3 text-xl font-bold text-white">
             {t("section_advanced_latency_title")}
           </h3>
-          <p className="leading-relaxed text-slate-300">{t("section_advanced_latency_desc")}</p>
+          <p className="text-slate-300">{t("section_advanced_latency_desc")}</p>
         </div>
       </div>
     </section>
@@ -137,7 +137,7 @@ export function PrivacySection() {
           {t("section_privacy_full_title")}
         </h2>
       </div>
-      <p className="text-lg leading-relaxed text-slate-300">
+      <p className="text-lg text-slate-300">
         {t.rich("section_privacy_full_content", {
           strong: (chunks) => <strong className="text-green-300">{chunks}</strong>,
         })}
@@ -159,7 +159,7 @@ export function CoreFactsSection() {
             <dt className="mb-2 text-xs font-semibold leading-snug text-emerald-300 sm:mb-3 sm:text-sm md:mb-4 lg:text-base">
               {t("section_core_facts_pricing")}
             </dt>
-            <dd className="text-base leading-relaxed text-white sm:text-lg lg:text-xl lg:leading-relaxed">
+            <dd className="text-base text-white sm:text-lg lg:text-xl lg:leading-relaxed">
               {t("section_core_facts_pricing_value")}
             </dd>
           </div>
@@ -167,7 +167,7 @@ export function CoreFactsSection() {
             <dt className="mb-2 text-xs font-semibold leading-snug text-purple-300 sm:mb-3 sm:text-sm md:mb-4 lg:text-base">
               {t("section_core_facts_support")}
             </dt>
-            <dd className="text-base leading-relaxed text-white sm:text-lg lg:text-xl lg:leading-relaxed">
+            <dd className="text-base text-white sm:text-lg lg:text-xl lg:leading-relaxed">
               {t("section_core_facts_support_value")}
             </dd>
           </div>
@@ -175,7 +175,7 @@ export function CoreFactsSection() {
             <dt className="mb-2 text-xs font-semibold leading-snug text-blue-300 sm:mb-3 sm:text-sm md:mb-4 lg:text-base">
               {t("section_core_facts_speed")}
             </dt>
-            <dd className="text-base leading-relaxed text-white sm:text-lg lg:text-xl lg:leading-relaxed">
+            <dd className="text-base text-white sm:text-lg lg:text-xl lg:leading-relaxed">
               {t("section_core_facts_speed_value")}
             </dd>
           </div>
@@ -183,7 +183,7 @@ export function CoreFactsSection() {
             <dt className="mb-2 text-xs font-semibold leading-snug text-cyan-300 sm:mb-3 sm:text-sm md:mb-4 lg:text-base">
               {t("section_core_facts_privacy")}
             </dt>
-            <dd className="text-base leading-relaxed text-white sm:text-lg lg:text-xl lg:leading-relaxed">
+            <dd className="text-base text-white sm:text-lg lg:text-xl lg:leading-relaxed">
               {t("section_core_facts_privacy_value")}
             </dd>
           </div>
@@ -305,7 +305,7 @@ export function FAQSection() {
             className="rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 sm:p-6 lg:p-8"
           >
             <h3 className="mb-2 text-lg font-semibold text-white sm:text-xl">{faq.question}</h3>
-            <p className="text-sm leading-relaxed text-slate-300 sm:text-base">{faq.answer}</p>
+            <p className="text-sm text-slate-300 sm:text-base">{faq.answer}</p>
           </div>
         ))}
       </div>

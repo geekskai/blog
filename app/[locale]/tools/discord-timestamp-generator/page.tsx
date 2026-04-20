@@ -388,7 +388,7 @@ export default function DiscordTimestampGenerator() {
             </span>
           </h1>
 
-          <p className="max-w-7xl text-sm font-light leading-relaxed text-slate-400 sm:text-base md:text-lg lg:text-xl">
+          <p className="max-w-7xl text-sm font-light text-slate-400 sm:text-base md:text-lg lg:text-xl">
             {t("header.description")}
           </p>
 
@@ -866,7 +866,7 @@ export default function DiscordTimestampGenerator() {
         <h2 className="mb-3 text-xl font-bold text-white sm:mb-4 sm:text-2xl">
           {t("geo_tldr.title")}
         </h2>
-        <p className="text-sm leading-relaxed text-slate-200 sm:text-base md:text-lg">
+        <p className="text-sm text-slate-200 sm:text-base md:text-lg">
           {t.rich("geo_tldr.content", {
             strong: (chunks) => <strong className="text-white">{chunks}</strong>,
           })}
@@ -943,7 +943,7 @@ export default function DiscordTimestampGenerator() {
             <h3 className="mb-3 text-lg font-semibold text-white sm:mb-5 sm:text-xl">
               {t("features.real_time_updates.title")}
             </h3>
-            <p className="text-sm leading-relaxed text-slate-400 sm:text-base md:text-lg">
+            <p className="text-sm text-slate-400 sm:text-base md:text-lg">
               {t.rich("features.real_time_updates.description", {
                 strong: (chunks) => <strong className="text-white">{chunks}</strong>,
               })}
@@ -957,7 +957,7 @@ export default function DiscordTimestampGenerator() {
             <h3 className="mb-3 text-lg font-semibold text-white sm:mb-5 sm:text-xl">
               {t("features.multiple_formats.title")}
             </h3>
-            <p className="text-sm leading-relaxed text-slate-400 sm:text-base md:text-lg">
+            <p className="text-sm text-slate-400 sm:text-base md:text-lg">
               {t.rich("features.multiple_formats.description", {
                 strong: (chunks) => <strong className="text-white">{chunks}</strong>,
               })}
@@ -971,7 +971,7 @@ export default function DiscordTimestampGenerator() {
             <h3 className="mb-3 text-lg font-semibold text-white sm:mb-5 sm:text-xl">
               {t("features.save_manage.title")}
             </h3>
-            <p className="text-sm leading-relaxed text-slate-400 sm:text-base md:text-lg">
+            <p className="text-sm text-slate-400 sm:text-base md:text-lg">
               {t.rich("features.save_manage.description", {
                 strong: (chunks) => <strong className="text-white">{chunks}</strong>,
               })}

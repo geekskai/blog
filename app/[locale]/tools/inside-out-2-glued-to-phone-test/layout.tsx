@@ -3,9 +3,9 @@ import { getTranslations } from "next-intl/server"
 import { supportedLocales } from "app/i18n/routing"
 
 // Content freshness metadata - AI搜索时代关键信号
-const lastModified = new Date("2026-02-18")
+const lastModified = new Date("2026-04-21")
 const updateFrequency = "monthly" as const
-const nextReviewDate = new Date("2026-03-18")
+const nextReviewDate = new Date("2026-07-21")
 
 export async function generateMetadata({
   params: { locale },

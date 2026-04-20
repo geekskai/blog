@@ -23,7 +23,7 @@ export async function generateMetadata({
     languages[loc] = `https://geekskai.com/${loc}/tools/${TOOL_SLUG}/`
   })
 
-  const lastModified = new Date("2026-04-19")
+  const lastModified = new Date("2026-04-21")
 
   return {
     title: t("metadata_title"),

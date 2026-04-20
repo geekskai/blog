@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef, useCallback, useMemo } from "react"
+import React, { useState, useEffect, useRef, useCallback, useMemo } from "react"
 import { useTranslations } from "next-intl"
 import {
   Clock,
@@ -23,7 +23,7 @@ import {
 import { format, formatDistance } from "date-fns"
 import CustomDateTimePicker from "@/components/ui/CustomDateTimePicker"
 import CustomSelector from "@/components/ui/CustomSelector"
-import { Link } from "@/app/i18n/navigation"
+import { Link } from "app/i18n/navigation"
 import ShareButtons from "@/components/ShareButtons"
 import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
 // Type definitions
@@ -448,21 +448,7 @@ export default function DiscordTimeConverter() {
   }, [])
 
   return (
-    <div className="relative min-h-screen bg-slate-950">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-      </div>
-
+    <div className="min-h-screen bg-slate-950">
       {/* Breadcrumb Navigation */}
       <nav className="relative mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8" aria-label="Breadcrumb">
         <ol className="flex items-center space-x-2 text-sm text-slate-400">
@@ -499,7 +485,7 @@ export default function DiscordTimeConverter() {
             </span>
           </h1>
 
-          <p className="mx-auto max-w-7xl text-xl font-light leading-relaxed text-slate-400">
+          <p className="mx-auto max-w-7xl text-xl font-light text-slate-400">
             {t("header.description")}
           </p>
           {/* Quick Stats - Core Facts Highlighted */}
@@ -1379,7 +1365,7 @@ export default function DiscordTimeConverter() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("content_sections.features.bidirectional_title")}
                 </h3>
-                <div className="text-lg leading-relaxed text-slate-400">
+                <div className="text-lg text-slate-400">
                   {t("quick_answer.convertFrom")}
                   <strong className="mx-1 text-white">
                     {t("quick_answer.regularTimeToDiscordTimestamps")}
@@ -1401,7 +1387,7 @@ export default function DiscordTimeConverter() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("content_sections.features.global_timezone_title")}
                 </h3>
-                <div className="text-lg leading-relaxed text-slate-400">
+                <div className="text-lg text-slate-400">
                   {t("quick_answer.handle")}{" "}
                   <strong className="text-white">{t("quick_answer.allGlobalTimezones")}</strong>{" "}
                   {t("quick_answer.withAutomatic")}{" "}
@@ -1428,7 +1414,7 @@ export default function DiscordTimeConverter() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("content_sections.features.batch_processing_title")}
                 </h3>
-                <div className="text-lg leading-relaxed text-slate-400">
+                <div className="text-lg text-slate-400">
                   {t("quick_answer.convert")}{" "}
                   <strong className="text-white">
                     {t("quick_answer.multipleTimestampsSimultaneously")}

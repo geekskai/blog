@@ -33,7 +33,7 @@ export function CoreFactsSection() {
             <dt className="mb-2 text-xs font-semibold leading-snug text-emerald-300 sm:mb-3 sm:text-sm md:mb-4 lg:text-base">
               {t("section_core_facts_pricing")}
             </dt>
-            <dd className="text-base leading-relaxed text-white sm:text-lg lg:text-xl lg:leading-relaxed">
+            <dd className="text-base text-white sm:text-lg lg:text-xl lg:leading-relaxed">
               {t("section_core_facts_pricing_value")}
             </dd>
           </div>
@@ -45,7 +45,7 @@ export function CoreFactsSection() {
             <dt className="mb-2 text-xs font-semibold leading-snug text-purple-300 sm:mb-3 sm:text-sm md:mb-4 lg:text-base">
               {t("section_core_facts_formats")}
             </dt>
-            <dd className="text-base leading-relaxed text-white sm:text-lg lg:text-xl lg:leading-relaxed">
+            <dd className="text-base text-white sm:text-lg lg:text-xl lg:leading-relaxed">
               {t("section_core_facts_formats_value")}
             </dd>
           </div>
@@ -54,7 +54,7 @@ export function CoreFactsSection() {
             <dt className="mb-2 text-xs font-semibold leading-snug text-blue-300 sm:mb-3 sm:text-sm md:mb-4 lg:text-base">
               {t("section_core_facts_speed")}
             </dt>
-            <dd className="text-base leading-relaxed text-white sm:text-lg lg:text-xl lg:leading-relaxed">
+            <dd className="text-base text-white sm:text-lg lg:text-xl lg:leading-relaxed">
               {t("section_core_facts_speed_value")}
             </dd>
           </div>
@@ -63,7 +63,7 @@ export function CoreFactsSection() {
             <dt className="mb-2 text-xs font-semibold leading-snug text-cyan-300 sm:mb-3 sm:text-sm md:mb-4 lg:text-base">
               {t("section_core_facts_users")}
             </dt>
-            <dd className="text-base leading-relaxed text-white sm:text-lg lg:text-xl lg:leading-relaxed">
+            <dd className="text-base text-white sm:text-lg lg:text-xl lg:leading-relaxed">
               {t.rich("section_core_facts_users_value", {
                 musicians: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
                 djs: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
@@ -122,7 +122,7 @@ export function FAQSection() {
             <h3 className="mb-2 text-lg font-semibold leading-snug text-white sm:mb-3 sm:text-xl md:mb-4 lg:text-xl lg:leading-snug">
               {faq.question}
             </h3>
-            <p className="prose prose-sm max-w-none text-sm leading-relaxed text-slate-300 lg:prose-base prose-strong:text-purple-300 sm:text-base md:text-base lg:leading-relaxed">
+            <p className="prose prose-sm max-w-none text-sm text-slate-300 lg:prose-base prose-strong:text-purple-300 sm:text-base md:text-base lg:leading-relaxed">
               {faq.answer}
             </p>
           </div>
@@ -147,7 +147,7 @@ export function HowToSection() {
               <h3 className="mb-2 text-lg font-bold leading-snug text-white sm:mb-4 sm:text-xl md:mb-4 lg:text-xl">
                 {t("section_how_to_step_1_title")}
               </h3>
-              <p className="text-base leading-relaxed text-slate-300 sm:text-lg lg:text-lg lg:leading-relaxed">
+              <p className="text-base text-slate-300 sm:text-lg lg:text-lg lg:leading-relaxed">
                 {t.rich("section_how_to_step_1", {
                   strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
                 })}
@@ -157,7 +157,7 @@ export function HowToSection() {
               <h3 className="mb-2 text-lg font-bold leading-snug text-white sm:mb-4 sm:text-xl md:mb-4 lg:text-xl">
                 {t("section_how_to_step_2_title")}
               </h3>
-              <p className="text-base leading-relaxed text-slate-300 sm:text-lg lg:text-lg lg:leading-relaxed">
+              <p className="text-base text-slate-300 sm:text-lg lg:text-lg lg:leading-relaxed">
                 {t.rich("section_how_to_step_2", {
                   strong: (chunks) => <strong className="text-pink-300">{chunks}</strong>,
                 })}
@@ -167,7 +167,7 @@ export function HowToSection() {
               <h3 className="mb-2 text-lg font-bold leading-snug text-white sm:mb-4 sm:text-xl md:mb-4 lg:text-xl">
                 {t("section_how_to_step_3_title")}
               </h3>
-              <p className="text-base leading-relaxed text-slate-300 sm:text-lg lg:text-lg lg:leading-relaxed">
+              <p className="text-base text-slate-300 sm:text-lg lg:text-lg lg:leading-relaxed">
                 {t.rich("section_how_to_step_3", {
                   strong: (chunks) => <strong className="text-blue-300">{chunks}</strong>,
                 })}
@@ -177,7 +177,7 @@ export function HowToSection() {
               <h3 className="mb-2 text-lg font-bold leading-snug text-white sm:mb-4 sm:text-xl md:mb-4 lg:text-xl">
                 {t("section_how_to_step_4_title")}
               </h3>
-              <p className="text-base leading-relaxed text-slate-300 sm:text-lg lg:text-lg lg:leading-relaxed">
+              <p className="text-base text-slate-300 sm:text-lg lg:text-lg lg:leading-relaxed">
                 {t.rich("section_how_to_step_4", {
                   strong: (chunks) => <strong className="text-cyan-300">{chunks}</strong>,
                 })}
@@ -187,7 +187,7 @@ export function HowToSection() {
               <h3 className="mb-2 text-lg font-bold leading-snug text-white sm:mb-4 sm:text-xl md:mb-4 lg:text-xl">
                 {t("section_how_to_step_5_title")}
               </h3>
-              <p className="text-base leading-relaxed text-slate-300 sm:text-lg lg:text-lg lg:leading-relaxed">
+              <p className="text-base text-slate-300 sm:text-lg lg:text-lg lg:leading-relaxed">
                 {t.rich("section_how_to_step_5", {
                   strong: (chunks) => <strong className="text-emerald-300">{chunks}</strong>,
                 })}
@@ -214,7 +214,7 @@ export function FormatComparisonSection() {
             <h3 className="mb-3 text-xl font-bold leading-snug text-white sm:mb-6 sm:text-2xl lg:mb-6 lg:text-2xl">
               {t("section_format_comparison_wav_title")}
             </h3>
-            <ul className="list-inside list-disc space-y-2 text-sm leading-relaxed text-slate-300 sm:space-y-3 sm:text-base lg:space-y-4 lg:text-base lg:leading-relaxed">
+            <ul className="list-inside list-disc space-y-2 text-sm text-slate-300 sm:space-y-3 sm:text-base lg:space-y-4 lg:text-base lg:leading-relaxed">
               <li>
                 {t.rich("section_format_comparison_wav_1", {
                   strong: (chunks) => <strong className="text-blue-300">{chunks}</strong>,
@@ -241,7 +241,7 @@ export function FormatComparisonSection() {
             <h3 className="mb-3 text-xl font-bold leading-snug text-white sm:mb-6 sm:text-2xl lg:mb-6 lg:text-2xl">
               {t("section_format_comparison_mp3_title")}
             </h3>
-            <ul className="list-inside list-disc space-y-2 text-sm leading-relaxed text-slate-300 sm:space-y-3 sm:text-base lg:space-y-4 lg:text-base lg:leading-relaxed">
+            <ul className="list-inside list-disc space-y-2 text-sm text-slate-300 sm:space-y-3 sm:text-base lg:space-y-4 lg:text-base lg:leading-relaxed">
               <li>
                 {t.rich("section_format_comparison_mp3_1", {
                   strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
@@ -303,7 +303,7 @@ export function UseCasesSection() {
               <h3 className="mb-2 text-lg font-bold leading-snug text-white sm:mb-3 sm:text-xl lg:mb-4 lg:text-xl">
                 {t(useCase.title)}
               </h3>
-              <p className="prose prose-sm max-w-none text-sm leading-relaxed text-slate-300 lg:prose-base prose-strong:text-purple-300 sm:text-base lg:leading-relaxed">
+              <p className="prose prose-sm max-w-none text-sm text-slate-300 lg:prose-base prose-strong:text-purple-300 sm:text-base lg:leading-relaxed">
                 {t.rich(useCase.description, {
                   strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
                 })}
@@ -349,7 +349,7 @@ export function KeyFeaturesSection() {
               <h3 className="mb-2 text-lg font-bold leading-snug text-white sm:mb-3 sm:text-xl lg:mb-4 lg:text-xl">
                 <strong>{t(feature.title)}</strong>
               </h3>
-              <p className="prose prose-sm max-w-none text-sm leading-relaxed text-slate-300 lg:prose-base prose-strong:text-purple-300 sm:text-base lg:leading-relaxed">
+              <p className="prose prose-sm max-w-none text-sm text-slate-300 lg:prose-base prose-strong:text-purple-300 sm:text-base lg:leading-relaxed">
                 {t.rich(feature.description, {
                   strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
                 })}

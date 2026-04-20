@@ -230,7 +230,7 @@ export default function EducationalContent() {
                   <span className="text-2xl">{fact.flag}</span>
                   {fact.title}
                 </h4>
-                <p className="text-sm leading-relaxed text-slate-300">
+                <p className="text-sm text-slate-300">
                   {fact.title === "British Pound Sterling (GBP)" && (
                     <>
                       The <strong className="text-white">British Pound</strong> is one of the

@@ -63,24 +63,10 @@ export default function Page() {
   })
 
   return (
-    <div className="relative min-h-screen bg-slate-950">
-      {/* Subtle geometric background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-          `,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-      </div>
-
+    <div className="min-h-screen bg-slate-950">
       <div className="relative mx-auto max-w-6xl space-y-4 p-4">
         {/* Content Freshness Badge */}
-        <ContentFreshnessBadge lastModified={new Date("2026-02-20")} namespace="SoundCloudToWAV" />
+        <ContentFreshnessBadge lastModified={new Date("2026-04-21")} namespace="SoundCloudToWAV" />
 
         {/* Header Section - SEO Optimized */}
         <header className="text-center">
@@ -98,7 +84,7 @@ export default function Page() {
           </h1>
 
           {/* Subtitle */}
-          <p className="mx-auto mb-3 max-w-6xl text-base leading-relaxed text-slate-300 md:text-lg">
+          <p className="mx-auto mb-3 max-w-6xl text-base text-slate-300 md:text-lg">
             {t.rich("page_subtitle", {
               wav: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
               mp3: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
@@ -194,19 +180,18 @@ export default function Page() {
         <div className="mx-auto max-w-6xl space-y-8 md:space-y-12">
           {/* What is this tool section */}
           <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-md md:p-8">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10"></div>
             <div className="relative z-10">
               <h2 className="mb-6 text-2xl font-bold text-white md:mb-8 md:text-3xl">
                 {t("section_what_is_title")}
               </h2>
               <div className="grid gap-6 md:grid-cols-2 md:gap-8">
                 <div>
-                  <p className="mb-4 text-base leading-relaxed text-slate-300 md:mb-6 md:text-lg">
+                  <p className="mb-4 text-base text-slate-300 md:mb-6 md:text-lg">
                     {t.rich("section_what_is_description_1", {
                       strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
                     })}
                   </p>
-                  <p className="text-base leading-relaxed text-slate-300 md:text-lg">
+                  <p className="text-base text-slate-300 md:text-lg">
                     {t.rich("section_what_is_description_2", {
                       strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
                     })}
@@ -245,7 +230,7 @@ export default function Page() {
             <h2 className="mb-6 text-2xl font-bold text-white md:text-3xl">
               {t("section_convert_online_title")}
             </h2>
-            <p className="text-base leading-relaxed text-slate-300 md:text-lg">
+            <p className="text-base text-slate-300 md:text-lg">
               {t("section_convert_online_description")}
             </p>
           </section>

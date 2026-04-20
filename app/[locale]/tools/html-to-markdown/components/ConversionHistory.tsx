@@ -382,7 +382,7 @@ export default function ConversionHistory({
                       {isExpanded && (
                         <div className="mt-4 rounded-lg bg-slate-900 p-4">
                           <div className="max-h-40 overflow-y-auto">
-                            <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed text-slate-300">
+                            <pre className="whitespace-pre-wrap font-mono text-xs text-slate-300">
                               {item.markdown.length > 500
                                 ? item.markdown.substring(0, 500) + "..."
                                 : item.markdown}

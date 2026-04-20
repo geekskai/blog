@@ -2,7 +2,6 @@
 
 import React from "react"
 import {
-  Ruler,
   ArrowLeftRight,
   Globe,
   BookOpen,
@@ -18,7 +17,7 @@ import { useTranslations } from "next-intl"
 import ConverterCard from "./components/ConverterCard"
 import QuickReference from "./components/QuickReference"
 import EducationalContent from "./components/EducationalContent"
-import { Link } from "@/app/i18n/navigation"
+import { Link } from "app/i18n/navigation"
 
 export default function CmToTommerConverter() {
   const t = useTranslations("CmToTommerConverter")
@@ -76,7 +75,7 @@ export default function CmToTommerConverter() {
               </span>
             </h1>
 
-            <p className="mx-auto mb-8 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
+            <p className="mx-auto mb-8 max-w-4xl text-xl font-light text-slate-400">
               {t("header.description")}
             </p>
 
@@ -453,7 +452,7 @@ export default function CmToTommerConverter() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   Bidirectional CM to Tommer Conversion
                 </h3>
-                <p className="text-lg leading-relaxed text-slate-400">
+                <p className="text-lg text-slate-400">
                   Convert from centimeters to tommer and tommer to centimeters with instant results
                   and precision control for all your Nordic measurement needs.
                 </p>
@@ -464,7 +463,7 @@ export default function CmToTommerConverter() {
                   <Calculator className="h-12 w-12 text-green-400" />
                 </div>
                 <h3 className="mb-6 text-xl font-semibold text-white">Precision Control</h3>
-                <p className="text-lg leading-relaxed text-slate-400">
+                <p className="text-lg text-slate-400">
                   Choose from 0 to 3 decimal places for your conversion needs. Perfect for
                   construction accuracy, furniture measurements, and professional applications.
                 </p>
@@ -475,7 +474,7 @@ export default function CmToTommerConverter() {
                   <Settings className="h-12 w-12 text-purple-400" />
                 </div>
                 <h3 className="mb-6 text-xl font-semibold text-white">Professional Tools</h3>
-                <p className="text-lg leading-relaxed text-slate-400">
+                <p className="text-lg text-slate-400">
                   Copy results, view conversion formulas, and access quick reference tables for
                   efficient workflow integration and professional use.
                 </p>

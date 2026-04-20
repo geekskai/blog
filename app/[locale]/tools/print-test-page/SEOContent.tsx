@@ -25,7 +25,7 @@ export function CoreFactsSection() {
             <dt className="mb-1.5 text-xs font-semibold leading-tight text-emerald-300 md:mb-2 md:text-sm">
               {t("section_core_facts_pricing")}
             </dt>
-            <dd className="text-sm leading-relaxed text-white md:text-base lg:text-lg">
+            <dd className="text-sm text-white md:text-base lg:text-lg">
               {t("section_core_facts_pricing_value")}
             </dd>
             <meta itemProp="price" content="0" />
@@ -40,7 +40,7 @@ export function CoreFactsSection() {
             <dt className="mb-1.5 text-xs font-semibold leading-tight text-purple-300 md:mb-2 md:text-sm">
               {t("section_core_facts_test_types")}
             </dt>
-            <dd className="text-sm leading-relaxed text-white md:text-base lg:text-lg">
+            <dd className="text-sm text-white md:text-base lg:text-lg">
               {t("section_core_facts_test_types_value")}
             </dd>
           </div>
@@ -49,7 +49,7 @@ export function CoreFactsSection() {
             <dt className="mb-1.5 text-xs font-semibold leading-tight text-blue-300 md:mb-2 md:text-sm">
               {t("section_core_facts_speed")}
             </dt>
-            <dd className="text-sm leading-relaxed text-white md:text-base lg:text-lg">
+            <dd className="text-sm text-white md:text-base lg:text-lg">
               {t("section_core_facts_speed_value")}
             </dd>
           </div>
@@ -58,7 +58,7 @@ export function CoreFactsSection() {
             <dt className="mb-1.5 text-xs font-semibold leading-tight text-cyan-300 md:mb-2 md:text-sm">
               {t("section_core_facts_users")}
             </dt>
-            <dd className="text-sm leading-relaxed text-white md:text-base lg:text-lg">
+            <dd className="text-sm text-white md:text-base lg:text-lg">
               {t.rich("section_core_facts_users_value", {
                 home_users: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
                 office_workers: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
@@ -121,7 +121,7 @@ export function FeaturesSection() {
         <h2 className="text-lg font-bold leading-tight text-white md:text-2xl lg:text-3xl">
           {t("features_title")}
         </h2>
-        <p className="mt-2 text-sm leading-relaxed text-slate-300 md:mt-3 md:text-base lg:mt-4">
+        <p className="mt-2 text-sm text-slate-300 md:mt-3 md:text-base lg:mt-4">
           {t("features_description")}
         </p>
       </div>
@@ -137,9 +137,7 @@ export function FeaturesSection() {
             <h3 className="mb-1.5 text-sm font-bold leading-snug text-white md:text-base lg:mb-2 lg:text-xl">
               {feature.title}
             </h3>
-            <p className="text-xs leading-relaxed text-slate-300 md:text-sm">
-              {feature.description}
-            </p>
+            <p className="text-xs text-slate-300 md:text-sm">{feature.description}</p>
           </div>
         ))}
       </div>
@@ -185,7 +183,7 @@ export function HowToSection() {
         <h2 className="text-lg font-bold leading-tight text-white md:text-2xl lg:text-3xl">
           {t("how_to_title")}
         </h2>
-        <p className="mt-2 text-sm leading-relaxed text-slate-300 md:mt-3 md:text-base lg:mt-4">
+        <p className="mt-2 text-sm text-slate-300 md:mt-3 md:text-base lg:mt-4">
           {t("how_to_description")}
         </p>
       </div>
@@ -203,7 +201,7 @@ export function HowToSection() {
                 {step.title}
               </h3>
             </div>
-            <p className="text-xs leading-relaxed text-slate-300 md:text-sm">{step.description}</p>
+            <p className="text-xs text-slate-300 md:text-sm">{step.description}</p>
           </div>
         ))}
       </div>
@@ -249,7 +247,7 @@ export function UseCasesSection() {
         <h2 className="text-lg font-bold leading-tight text-white md:text-2xl lg:text-3xl">
           {t("use_cases_title")}
         </h2>
-        <p className="mt-2 text-sm leading-relaxed text-slate-300 md:mt-3 md:text-base lg:mt-4">
+        <p className="mt-2 text-sm text-slate-300 md:mt-3 md:text-base lg:mt-4">
           {t("use_cases_description")}
         </p>
       </div>
@@ -265,9 +263,7 @@ export function UseCasesSection() {
                 {useCase.title}
               </h3>
             </div>
-            <p className="text-xs leading-relaxed text-slate-300 md:text-sm">
-              {useCase.description}
-            </p>
+            <p className="text-xs text-slate-300 md:text-sm">{useCase.description}</p>
           </div>
         ))}
       </div>
@@ -333,7 +329,7 @@ export function FAQSection() {
               {faq.question}
             </h3>
             <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-              <p className="text-xs leading-relaxed text-slate-300 md:text-sm" itemProp="text">
+              <p className="text-xs text-slate-300 md:text-sm" itemProp="text">
                 {faq.answer}
               </p>
             </div>

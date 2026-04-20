@@ -20,7 +20,7 @@ export async function generateMetadata({
   })
 
   // Content freshness metadata - Update this monthly
-  const lastModified = new Date("2026-03-24")
+  const lastModified = new Date("2026-04-21")
 
   return {
     title: t("seo_title"),
@@ -91,7 +91,7 @@ export default async function VinDecoderLayout({
     : `https://geekskai.com/${locale}/tools/vin-decoder`
 
   // Content freshness metadata - Update this monthly
-  const lastModified = new Date("2026-03-24")
+  const lastModified = new Date("2026-04-21")
 
   // WebApplication Schema - Enhanced for AI SEO
   const webApplicationSchema = {

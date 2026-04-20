@@ -141,7 +141,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onRetake }) => {
                 </span>
                 <span className="text-white">{t("result_controls")}</span>
               </h1>
-              <p className="mx-auto max-w-3xl text-xl leading-relaxed text-slate-300">
+              <p className="mx-auto max-w-3xl text-xl text-slate-300">
                 {dominantEmotion.description}
               </p>
             </div>
@@ -226,7 +226,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onRetake }) => {
                   >
                     {index + 1}
                   </div>
-                  <p className="leading-relaxed text-slate-300">{insight}</p>
+                  <p className="text-slate-300">{insight}</p>
                 </div>
               ))}
             </div>
@@ -266,7 +266,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onRetake }) => {
                       </div>
                     </div>
                   </div>
-                  <p className="text-sm leading-relaxed text-slate-400">{rec.description}</p>
+                  <p className="text-sm text-slate-400">{rec.description}</p>
                 </div>
               ))}
             </div>

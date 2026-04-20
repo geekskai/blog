@@ -233,9 +233,7 @@ export default function EducationalContent() {
             <h4 className="mb-2 text-lg font-semibold text-white">
               {t("educational_content.disclaimer_title")}
             </h4>
-            <p className="text-sm leading-relaxed text-slate-300">
-              {t("educational_content.disclaimer_text")}
-            </p>
+            <p className="text-sm text-slate-300">{t("educational_content.disclaimer_text")}</p>
             <ul className="mt-2 space-y-1 text-sm text-slate-400">
               {t("educational_content.disclaimer_factors")
                 .split("|")

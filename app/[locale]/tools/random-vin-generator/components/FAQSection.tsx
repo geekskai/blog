@@ -58,9 +58,7 @@ const FAQSection = () => {
             <h3 className="mb-1.5 text-sm font-semibold leading-snug text-white sm:mb-2 sm:text-base md:text-lg">
               {faq.question}
             </h3>
-            <p className="text-xs leading-relaxed text-slate-400 sm:text-sm md:text-base">
-              {faq.answer}
-            </p>
+            <p className="text-xs text-slate-400 sm:text-sm md:text-base">{faq.answer}</p>
           </div>
         ))}
       </div>

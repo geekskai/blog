@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 import { supportedLocales } from "app/i18n/routing"
+import React from "react"
 
 export async function generateMetadata({
   params: { locale },
@@ -13,7 +14,7 @@ export async function generateMetadata({
   const languages = {
     "x-default": "https://geekskai.com/tools/random-ssn-generator/",
   }
-  const lastModified = new Date("2026-02-23")
+  const lastModified = new Date("2026-04-21")
 
   supportedLocales.forEach((loc) => {
     languages[loc] = `https://geekskai.com/${loc}/tools/random-ssn-generator/`

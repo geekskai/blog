@@ -60,7 +60,7 @@ export const SEOContent: React.FC = () => {
             <span className="text-4xl">🧠</span>
           </div>
           <h3 className="mb-6 text-xl font-semibold text-white">{t("page_feature_1_title")}</h3>
-          <p className="text-lg leading-relaxed text-slate-400">
+          <p className="text-lg text-slate-400">
             {t.rich("page_feature_1_desc", {
               strong: (chunks) => <strong className="text-white">{chunks}</strong>,
             })}
@@ -72,7 +72,7 @@ export const SEOContent: React.FC = () => {
             <span className="text-4xl">📱</span>
           </div>
           <h3 className="mb-6 text-xl font-semibold text-white">{t("page_feature_2_title")}</h3>
-          <p className="text-lg leading-relaxed text-slate-400">
+          <p className="text-lg text-slate-400">
             {t.rich("page_feature_2_desc", {
               strong: (chunks) => <strong className="text-white">{chunks}</strong>,
             })}
@@ -84,7 +84,7 @@ export const SEOContent: React.FC = () => {
             <span className="text-4xl">💡</span>
           </div>
           <h3 className="mb-6 text-xl font-semibold text-white">{t("page_feature_3_title")}</h3>
-          <p className="text-lg leading-relaxed text-slate-400">
+          <p className="text-lg text-slate-400">
             {t.rich("page_feature_3_desc", {
               strong: (chunks) => <strong className="text-white">{chunks}</strong>,
             })}

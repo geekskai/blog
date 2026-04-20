@@ -16,7 +16,7 @@ export const revalidate = 86400 // 24 hours
 export const generateMetadata = async (): Promise<Metadata> => {
   // const { locale } = await params
   // const t = await getTranslations("TagsPage")
-
+  const lastModified = new Date("2026-04-21")
   const metadata: Metadata = {
     metadataBase: new URL(siteMetadata.siteUrl),
     title: {
@@ -57,6 +57,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
       title: siteMetadata.title,
       card: "summary_large_image",
       images: [siteMetadata.socialBanner],
+    },
+    other: {
+      "last-modified": lastModified.toISOString(),
     },
   }
   return metadata

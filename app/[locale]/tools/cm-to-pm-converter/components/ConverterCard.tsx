@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useCallback, useMemo } from "react"
 import { useTranslations } from "next-intl"
 import { ArrowUpDown, Copy, Check, AlertCircle, Microscope, Calculator, Zap } from "lucide-react"
@@ -11,11 +10,11 @@ import {
   parseInputValue,
   validateInput,
   getRecommendedPrecision,
-  formatResultForCopy,
 } from "../utils/converter"
+import React from "react"
+
 import { copyToClipboard, formatCopyText } from "../utils/clipboard"
 import { generateScaleComparison } from "../utils/scientific"
-
 interface ConverterCardProps {
   className?: string
 }
@@ -113,13 +112,8 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
 
   return (
     <div
-      className={`relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-900/25 via-purple-900/20 to-indigo-900/25 p-8 shadow-2xl backdrop-blur-xl ${className}`}
+      className={`overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-900/25 via-purple-900/20 to-indigo-900/25 p-8 shadow-2xl backdrop-blur-xl ${className}`}
     >
-      {/* 装饰性背景元素 */}
-      <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-blue-500/15 to-purple-500/15 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/15 blur-3xl" />
-      <div className="pointer-events-none absolute right-1/4 top-1/3 h-20 w-20 rounded-full bg-gradient-to-br from-cyan-500/10 to-blue-500/10 blur-2xl" />
-
       <div className="relative">
         {/* 标题区域 */}
         <div className="mb-8 text-center">
@@ -195,9 +189,8 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           <div className="flex justify-center">
             <button
               onClick={handleUnitSwap}
-              className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 p-4 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-emerald-500/25"
+              className="group overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 p-4 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-emerald-500/25"
             >
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
               <ArrowUpDown className="relative h-6 w-6 text-white transition-transform duration-300 group-hover:rotate-180" />
             </button>
           </div>
@@ -339,7 +332,6 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
             disabled={copyStatus === "copying" || !validation.isValid}
             className={`group relative w-full overflow-hidden rounded-2xl px-6 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70 ${copyButtonContent.className}`}
           >
-            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
             <div className="relative flex items-center justify-center gap-2">
               {copyButtonContent.icon}
               <span>{copyButtonContent.text}</span>

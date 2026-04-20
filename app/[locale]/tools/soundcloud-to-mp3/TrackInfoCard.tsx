@@ -277,7 +277,7 @@ export default function TrackInfoCard({
             <h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-purple-400">
               {t("track_info_description")}
             </h3>
-            <p className="text-sm leading-relaxed text-slate-300 sm:text-base md:text-lg md:leading-relaxed">
+            <p className="text-sm text-slate-300 sm:text-base md:text-lg md:leading-relaxed">
               {description}
             </p>
           </div>

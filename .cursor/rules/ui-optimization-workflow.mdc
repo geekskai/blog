@@ -47,8 +47,7 @@ description: UI/UX optimization workflow and interactive design guidelines
 <div className="p-4 border rounded-lg">
 
 // AFTER: 动态交互卡片
-<div className="group relative overflow-hidden rounded-2xl border-2 p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-[color]/25">
-  <div className="absolute inset-0 bg-gradient-to-br from-[color]/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+<div className="group overflow-hidden rounded-2xl border-2 p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-[color]/25">
   <div className="relative">
     {/* 内容 */}
   </div>
@@ -67,9 +66,9 @@ const containerOptimization = {
 
   // 优化设计
   enhanced: `
-    relative overflow-hidden rounded-3xl 
-    border border-white/10 
-    bg-gradient-to-br from-blue-900/25 via-purple-900/20 to-indigo-900/25 
+    relative overflow-hidden rounded-3xl
+    border border-white/10
+    bg-gradient-to-br from-blue-900/25 via-purple-900/20 to-indigo-900/25
     p-8 shadow-2xl backdrop-blur-xl
   `,
 }
@@ -108,7 +107,7 @@ const OptimizedSelector = ({ options, selected, onChange }) => (
       <label
         key={type}
         className={`
-        group relative cursor-pointer overflow-hidden rounded-2xl border-2 p-6 
+        group relative cursor-pointer overflow-hidden rounded-2xl border-2 p-6
         transition-all duration-500
         ${
           selected === type
@@ -178,9 +177,9 @@ const animationTimings = {
 const InteractiveElement = () => (
   <div
     className={`
-    ${animationTimings.normal} 
-    transform transition-all 
-    hover:scale-105 
+    ${animationTimings.normal}
+    transform transition-all
+    hover:scale-105
     focus:ring-4
     focus:ring-blue-500/20 active:scale-95
   `}
@@ -227,7 +226,7 @@ const DynamicComponent = ({ type }) => {
   return (
     <div
       className={`
-      border-${colors.primary}/30 
+      border-${colors.primary}/30
       bg-gradient-to-br ${colors.gradient}
       hover:${colors.shadow}
       focus:${colors.glow}
@@ -315,19 +314,19 @@ const ResponsiveLayout = () => (
     // Mobile First
     // Tablet
     // Desktop //
-    
+
     Large Desktop
     // Extra
     Large
-    
+
     flex flex-col
     gap-4 px-4
     py-6
-    
+
     sm:gap-6 sm:px-6 sm:py-8
     md:grid
     md:grid-cols-2 md:gap-8
-    
+
     lg:grid-cols-3 lg:px-8 lg:py-12
     xl:mx-auto xl:max-w-7xl
   "

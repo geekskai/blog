@@ -31,7 +31,7 @@ export default function ResultSummary({ vehicle, onCopy, onShare }: ResultSummar
               {title}
             </h2>
             {subtitle && (
-              <p className="mb-2 text-sm font-semibold leading-relaxed text-slate-200 sm:mb-3 sm:text-base md:text-lg">
+              <p className="mb-2 text-sm font-semibold text-slate-200 sm:mb-3 sm:text-base md:text-lg">
                 {subtitle}
               </p>
             )}

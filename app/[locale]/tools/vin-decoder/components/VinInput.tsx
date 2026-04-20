@@ -261,11 +261,9 @@ export default function VinInput({
               <AlertCircle className="h-3 w-3 text-red-400 sm:h-4 sm:w-4 md:h-5 md:w-5 lg:h-6 lg:w-6" />
             </div>
             <div className="min-w-0 flex-1">
-              <p className="text-xs font-semibold leading-relaxed text-red-300 sm:text-sm md:text-base">
-                {error}
-              </p>
+              <p className="text-xs font-semibold text-red-300 sm:text-sm md:text-base">{error}</p>
               {getValidationHint(error) && (
-                <p className="mt-1 text-xs leading-relaxed text-red-200/80 sm:mt-1.5 md:mt-2 md:text-sm">
+                <p className="mt-1 text-xs text-red-200/80 sm:mt-1.5 md:mt-2 md:text-sm">
                   {getValidationHint(error)}
                 </p>
               )}
@@ -336,7 +334,7 @@ export default function VinInput({
                     <div className="break-all font-mono text-xs font-bold text-white sm:text-sm md:text-base">
                       {example.vin}
                     </div>
-                    <div className="mt-0.5 text-xs leading-relaxed text-slate-300 sm:mt-1 sm:text-sm md:mt-2">
+                    <div className="mt-0.5 text-xs text-slate-300 sm:mt-1 sm:text-sm md:mt-2">
                       {example.description}
                     </div>
                   </div>
@@ -354,7 +352,7 @@ export default function VinInput({
           <h4 className="mb-1.5 bg-gradient-to-r from-white to-slate-200 bg-clip-text text-xs font-bold text-transparent sm:mb-2 sm:text-sm md:mb-4 md:text-lg">
             {t("where_to_find_title")}
           </h4>
-          <ul className="space-y-1.5 text-xs leading-relaxed text-slate-300 sm:space-y-2 sm:text-sm md:space-y-3 md:text-base">
+          <ul className="space-y-1.5 text-xs text-slate-300 sm:space-y-2 sm:text-sm md:space-y-3 md:text-base">
             <li className="flex items-start gap-2 md:items-center md:gap-3">
               <div className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 md:mt-0 md:h-2 md:w-2" />
               <span className="leading-relaxed">{t("where_to_find_1")}</span>

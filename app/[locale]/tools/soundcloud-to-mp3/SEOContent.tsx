@@ -35,7 +35,7 @@ export function CoreFactsSection() {
             <dt className="mb-2 text-xs font-semibold leading-snug text-emerald-300 sm:mb-3 sm:text-sm md:mb-4 lg:text-base">
               {t("section_core_facts_pricing")}
             </dt>
-            <dd className="text-base leading-relaxed text-white sm:text-lg lg:text-xl lg:leading-relaxed">
+            <dd className="text-base text-white sm:text-lg lg:text-xl lg:leading-relaxed">
               {t("section_core_facts_pricing_value")}
             </dd>
           </div>
@@ -47,7 +47,7 @@ export function CoreFactsSection() {
             <dt className="mb-2 text-xs font-semibold leading-snug text-purple-300 sm:mb-3 sm:text-sm md:mb-4 lg:text-base">
               {t("section_core_facts_formats")}
             </dt>
-            <dd className="text-base leading-relaxed text-white sm:text-lg lg:text-xl lg:leading-relaxed">
+            <dd className="text-base text-white sm:text-lg lg:text-xl lg:leading-relaxed">
               {t("section_core_facts_formats_value")}
             </dd>
           </div>
@@ -56,7 +56,7 @@ export function CoreFactsSection() {
             <dt className="mb-2 text-xs font-semibold leading-snug text-blue-300 sm:mb-3 sm:text-sm md:mb-4 lg:text-base">
               {t("section_core_facts_speed")}
             </dt>
-            <dd className="text-base leading-relaxed text-white sm:text-lg lg:text-xl lg:leading-relaxed">
+            <dd className="text-base text-white sm:text-lg lg:text-xl lg:leading-relaxed">
               {t("section_core_facts_speed_value")}
             </dd>
           </div>
@@ -65,7 +65,7 @@ export function CoreFactsSection() {
             <dt className="mb-2 text-xs font-semibold leading-snug text-cyan-300 sm:mb-3 sm:text-sm md:mb-4 lg:text-base">
               {t("section_core_facts_users")}
             </dt>
-            <dd className="text-base leading-relaxed text-white sm:text-lg lg:text-xl lg:leading-relaxed">
+            <dd className="text-base text-white sm:text-lg lg:text-xl lg:leading-relaxed">
               {t.rich("section_core_facts_users_value", {
                 musicians: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
                 djs: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
@@ -132,7 +132,7 @@ export function FAQSection() {
             <h3 className="mb-4 text-lg font-bold leading-snug text-white transition-colors group-hover:text-purple-300 sm:text-xl lg:text-2xl">
               {faq.question}
             </h3>
-            <p className="prose prose-invert max-w-none text-sm leading-relaxed text-slate-400 sm:text-base md:text-lg">
+            <p className="prose prose-invert max-w-none text-sm text-slate-400 sm:text-base md:text-lg">
               {faq.answer}
             </p>
           </div>
@@ -160,7 +160,7 @@ export function HowToSection() {
               <h3 className="mb-4 text-xl font-extrabold leading-snug text-white sm:text-2xl">
                 {t("section_how_to_step_1_title")}
               </h3>
-              <p className="text-base leading-relaxed text-slate-300 sm:text-lg md:text-xl">
+              <p className="text-base text-slate-300 sm:text-lg md:text-xl">
                 {t.rich("section_how_to_step_1", {
                   strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
                 })}
@@ -173,7 +173,7 @@ export function HowToSection() {
               <h3 className="mb-4 text-xl font-extrabold leading-snug text-white sm:text-2xl">
                 {t("section_how_to_step_2_title")}
               </h3>
-              <p className="text-base leading-relaxed text-slate-300 sm:text-lg md:text-xl">
+              <p className="text-base text-slate-300 sm:text-lg md:text-xl">
                 {t.rich("section_how_to_step_2", {
                   strong: (chunks) => <strong className="text-pink-300">{chunks}</strong>,
                 })}
@@ -186,7 +186,7 @@ export function HowToSection() {
               <h3 className="mb-4 text-xl font-extrabold leading-snug text-white sm:text-2xl">
                 {t("section_how_to_step_3_title")}
               </h3>
-              <p className="text-base leading-relaxed text-slate-300 sm:text-lg md:text-xl">
+              <p className="text-base text-slate-300 sm:text-lg md:text-xl">
                 {t.rich("section_how_to_step_3", {
                   strong: (chunks) => <strong className="text-blue-300">{chunks}</strong>,
                 })}
@@ -199,7 +199,7 @@ export function HowToSection() {
               <h3 className="mb-4 text-xl font-extrabold leading-snug text-white sm:text-2xl">
                 {t("section_how_to_step_4_title")}
               </h3>
-              <p className="text-base leading-relaxed text-slate-300 sm:text-lg md:text-xl">
+              <p className="text-base text-slate-300 sm:text-lg md:text-xl">
                 {t.rich("section_how_to_step_4", {
                   strong: (chunks) => <strong className="text-cyan-300">{chunks}</strong>,
                 })}
@@ -212,7 +212,7 @@ export function HowToSection() {
               <h3 className="mb-4 text-xl font-extrabold leading-snug text-white sm:text-2xl">
                 {t("section_how_to_step_5_title")}
               </h3>
-              <p className="text-base leading-relaxed text-slate-300 sm:text-lg md:text-xl">
+              <p className="text-base text-slate-300 sm:text-lg md:text-xl">
                 {t.rich("section_how_to_step_5", {
                   strong: (chunks) => <strong className="text-emerald-300">{chunks}</strong>,
                 })}
@@ -239,7 +239,7 @@ export function FormatComparisonSection() {
             <h3 className="mb-6 text-2xl font-black leading-tight text-blue-400">
               {t("section_format_comparison_wav_title")}
             </h3>
-            <ul className="space-y-6 text-sm leading-relaxed text-slate-300 sm:text-base md:text-lg">
+            <ul className="space-y-6 text-sm text-slate-300 sm:text-base md:text-lg">
               <li className="flex gap-4">
                 <span className="shrink-0 text-blue-500">💎</span>
                 <p>
@@ -278,7 +278,7 @@ export function FormatComparisonSection() {
             <h3 className="mb-6 text-2xl font-black leading-tight text-purple-400">
               {t("section_format_comparison_mp3_title")}
             </h3>
-            <ul className="space-y-6 text-sm leading-relaxed text-slate-300 sm:text-base md:text-lg">
+            <ul className="space-y-6 text-sm text-slate-300 sm:text-base md:text-lg">
               <li className="flex gap-4">
                 <span className="shrink-0 text-purple-500">📦</span>
                 <p>
@@ -352,7 +352,7 @@ export function UseCasesSection() {
               <h3 className="mb-4 text-xl font-black leading-tight text-white transition-colors group-hover:text-purple-400">
                 {t(useCase.title)}
               </h3>
-              <p className="text-sm leading-relaxed text-slate-400 sm:text-base md:text-lg">
+              <p className="text-sm text-slate-400 sm:text-base md:text-lg">
                 {t.rich(useCase.description, {
                   strong: (chunks) => <strong className="text-purple-300/80">{chunks}</strong>,
                 })}
@@ -379,7 +379,7 @@ export function BoundaryDefinitionSection() {
             <h3 className="mb-6 text-2xl font-black leading-tight text-emerald-400">
               {t("section_boundary_can_title")}
             </h3>
-            <ul className="space-y-4 text-sm leading-relaxed text-slate-300 sm:text-base md:text-lg">
+            <ul className="space-y-4 text-sm text-slate-300 sm:text-base md:text-lg">
               {["1", "2", "3", "4", "5"].map((i) => (
                 <li key={i} className="flex gap-4">
                   <span className="shrink-0 text-emerald-500">✅</span>
@@ -392,7 +392,7 @@ export function BoundaryDefinitionSection() {
             <h3 className="mb-6 text-2xl font-black leading-tight text-red-400">
               {t("section_boundary_cannot_title")}
             </h3>
-            <ul className="space-y-4 text-sm leading-relaxed text-slate-300 sm:text-base md:text-lg">
+            <ul className="space-y-4 text-sm text-slate-300 sm:text-base md:text-lg">
               {["1", "2", "3", "4", "5"].map((i) => (
                 <li key={i} className="flex gap-4">
                   <span className="shrink-0 text-red-500">❌</span>
@@ -416,7 +416,7 @@ export function FreeVsPaidSection() {
         {t("section_free_vs_paid_title")}
       </h2>
       <div className="mx-auto max-w-6xl">
-        <p className="mb-10 text-base leading-relaxed text-slate-400 sm:text-lg md:text-xl lg:leading-relaxed">
+        <p className="mb-10 text-base text-slate-400 sm:text-lg md:text-xl lg:leading-relaxed">
           {t("section_free_vs_paid_intro")}
         </p>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
@@ -424,7 +424,7 @@ export function FreeVsPaidSection() {
             <h3 className="mb-6 text-2xl font-black leading-tight text-emerald-400">
               {t("section_free_vs_paid_free_title")}
             </h3>
-            <ul className="space-y-6 text-sm leading-relaxed text-slate-300 sm:text-base md:text-lg">
+            <ul className="space-y-6 text-sm text-slate-300 sm:text-base md:text-lg">
               {["1", "2", "3", "4", "5"].map((i) => (
                 <li key={i} className="flex gap-4">
                   <span className="shrink-0 text-emerald-500">✨</span>
@@ -441,7 +441,7 @@ export function FreeVsPaidSection() {
             <h3 className="mb-6 text-2xl font-black leading-tight text-purple-400">
               {t("section_free_vs_paid_paid_title")}
             </h3>
-            <ul className="space-y-6 text-sm leading-relaxed text-slate-300 sm:text-base md:text-lg">
+            <ul className="space-y-6 text-sm text-slate-300 sm:text-base md:text-lg">
               {["1", "2", "3", "4", "5"].map((i) => (
                 <li key={i} className="flex gap-4">
                   <span className="shrink-0 text-purple-500">🚀</span>
@@ -455,7 +455,7 @@ export function FreeVsPaidSection() {
             </ul>
           </div>
         </div>
-        <p className="mt-10 text-base italic leading-relaxed text-slate-400 sm:text-lg md:text-xl">
+        <p className="mt-10 text-base italic text-slate-400 sm:text-lg md:text-xl">
           {t("section_free_vs_paid_conclusion")}
         </p>
       </div>
@@ -496,7 +496,7 @@ export function KeyFeaturesSection() {
               <h3 className="mb-4 text-xl font-black leading-tight text-white transition-colors group-hover:text-purple-400">
                 {t(feature.title)}
               </h3>
-              <p className="text-sm leading-relaxed text-slate-400 sm:text-base md:text-lg">
+              <p className="text-sm text-slate-400 sm:text-base md:text-lg">
                 {t.rich(feature.description, {
                   strong: (chunks) => <strong className="text-purple-300/80">{chunks}</strong>,
                 })}

@@ -139,20 +139,20 @@ export default function TagPage({ params }: { params: { tag: string } }) {
 
       <ListLayoutWithTags posts={filteredPosts} title={title}>
         {/* Core Facts Section for AI Extraction */}
-        <section className="mx-auto max-w-7xl">
-          <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 p-6 backdrop-blur-sm">
+        <section className="mx-auto max-w-7xl px-4 md:px-0">
+          <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 p-4 backdrop-blur-sm md:p-6">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-8">
               <div style={{ flex: 5 }}>
-                <h2 className="mb-2 text-2xl font-bold text-white">
+                <h2 className="mb-2 text-xl font-bold leading-tight text-white md:text-2xl">
                   <strong>{capitalizedTag}</strong> Tag Archive
                 </h2>
-                <p className="text-base text-slate-300 md:text-lg">
+                <p className="text-sm leading-6 text-slate-300 md:text-base md:leading-7 lg:text-lg">
                   Discover <strong>{postCount}</strong> {postCount === 1 ? "article" : "articles"}{" "}
                   tagged with <strong>"{capitalizedTag}"</strong> on {siteMetadata.title}. Explore
                   in-depth content, tutorials, and insights about <strong>{tag}</strong>.
                 </p>
               </div>
-              <div className="flex flex-1 flex-col gap-2 text-base text-slate-400 md:gap-6 md:text-lg">
+              <div className="flex flex-1 flex-col gap-2 text-sm leading-6 text-slate-400 md:gap-4 md:text-base lg:text-lg">
                 <div>
                   <strong className="text-white">Total Articles:</strong> {postCount}
                 </div>

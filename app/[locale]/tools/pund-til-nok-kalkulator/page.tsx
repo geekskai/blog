@@ -120,7 +120,7 @@ export default function GbpNokConverter() {
               </span>
             </h1>
 
-            <p className="mx-auto mb-8 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
+            <p className="mx-auto mb-8 max-w-4xl text-xl font-light text-slate-400">
               {t.rich("header_description", {
                 free: (chunks) => <strong className="text-slate-300">{chunks}</strong>,
                 gbp_nok: (chunks) => <strong className="text-slate-300">{chunks}</strong>,
@@ -682,7 +682,7 @@ export default function GbpNokConverter() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("feature_realtime_title")}
                 </h3>
-                <p className="text-lg leading-relaxed text-slate-400">
+                <p className="text-lg text-slate-400">
                   {t.rich("feature_realtime_description", {
                     live: (chunks) => <strong className="text-slate-300">{chunks}</strong>,
                     hourly: (chunks) => <strong className="text-slate-300">{chunks}</strong>,
@@ -698,7 +698,7 @@ export default function GbpNokConverter() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("feature_bidirectional_title")}
                 </h3>
-                <p className="text-lg leading-relaxed text-slate-400">
+                <p className="text-lg text-slate-400">
                   {t.rich("feature_bidirectional_description", {
                     gbp_nok: (chunks) => <strong className="text-slate-300">{chunks}</strong>,
                     nok_gbp: (chunks) => <strong className="text-slate-300">{chunks}</strong>,
@@ -715,7 +715,7 @@ export default function GbpNokConverter() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("feature_tools_title")}
                 </h3>
-                <p className="text-lg leading-relaxed text-slate-400">
+                <p className="text-lg text-slate-400">
                   {t.rich("feature_tools_description", {
                     copy: (chunks) => <strong className="text-slate-300">{chunks}</strong>,
                     detailed: (chunks) => <strong className="text-slate-300">{chunks}</strong>,

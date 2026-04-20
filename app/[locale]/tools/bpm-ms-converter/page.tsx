@@ -74,12 +74,6 @@ export default function BPMMSConverter() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-      {/* Background */}
-      <div className="fixed inset-0 overflow-hidden">
-        <div className="absolute -left-1/4 -top-1/4 h-1/2 w-1/2 rounded-full bg-gradient-to-br from-blue-500/5 to-purple-500/5 blur-3xl"></div>
-        <div className="absolute -bottom-1/4 -right-1/4 h-1/2 w-1/2 rounded-full bg-gradient-to-br from-purple-500/5 to-pink-500/5 blur-3xl"></div>
-      </div>
-
       <div className="relative">
         {/* Hero Section - SEO Optimized */}
         <div className="bg-gradient-to-b from-slate-900/50 to-transparent">

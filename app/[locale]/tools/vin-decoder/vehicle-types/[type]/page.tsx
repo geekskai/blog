@@ -69,7 +69,7 @@ export default async function VehicleTypeVinDecoderPage({ params }: VehicleTypeP
           <h1 className="mb-3 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-5xl">
             {pageData.localized.h1}
           </h1>
-          <p className="mx-auto max-w-3xl text-sm leading-relaxed text-slate-300 sm:text-base md:text-lg">
+          <p className="mx-auto max-w-3xl text-sm text-slate-300 sm:text-base md:text-lg">
             {pageData.localized.description}
           </p>
           <p className="mt-3 text-xs text-slate-400 sm:text-sm">
@@ -151,7 +151,7 @@ export default async function VehicleTypeVinDecoderPage({ params }: VehicleTypeP
           <h2 className="mb-3 text-xl font-bold text-white sm:text-2xl">
             {safeTranslate(t, "quick_answer_title", "Quick answer")}
           </h2>
-          <p className="text-sm leading-relaxed text-slate-200 sm:text-base">
+          <p className="text-sm text-slate-200 sm:text-base">
             <strong>{safeTranslate(t, "direct_answer_label", "Direct answer:")}</strong>{" "}
             {safeTranslate(
               t,
@@ -184,7 +184,7 @@ export default async function VehicleTypeVinDecoderPage({ params }: VehicleTypeP
                 className="rounded-xl border border-white/10 bg-slate-900/25 p-4"
               >
                 <h3 className="mb-2 text-base font-semibold text-white sm:text-lg">{item.q}</h3>
-                <p className="text-sm leading-relaxed text-slate-200 sm:text-base">{item.a}</p>
+                <p className="text-sm text-slate-200 sm:text-base">{item.a}</p>
               </article>
             ))}
           </div>

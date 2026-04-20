@@ -22,7 +22,7 @@ export const ContentSections: React.FC = () => {
               <Shield className="h-12 w-12 text-blue-400" />
             </div>
             <h3 className="mb-6 text-xl font-semibold text-white">{t("modern_mode")}</h3>
-            <p className="text-lg leading-relaxed text-slate-400">{t("modern_mode_description")}</p>
+            <p className="text-lg text-slate-400">{t("modern_mode_description")}</p>
           </div>
 
           <div className="group text-center">
@@ -30,7 +30,7 @@ export const ContentSections: React.FC = () => {
               <Sparkles className="h-12 w-12 text-purple-400" />
             </div>
             <h3 className="mb-6 text-xl font-semibold text-white">{t("knight_mode")}</h3>
-            <p className="text-lg leading-relaxed text-slate-400">{t("knight_mode_description")}</p>
+            <p className="text-lg text-slate-400">{t("knight_mode_description")}</p>
           </div>
 
           <div className="group text-center">
@@ -38,9 +38,7 @@ export const ContentSections: React.FC = () => {
               <Users className="h-12 w-12 text-emerald-400" />
             </div>
             <h3 className="mb-6 text-xl font-semibold text-white">{t("your_traits")}</h3>
-            <p className="text-lg leading-relaxed text-slate-400">
-              {t("what_test_measures_description")}
-            </p>
+            <p className="text-lg text-slate-400">{t("what_test_measures_description")}</p>
           </div>
         </div>
       </div>
@@ -54,10 +52,8 @@ export const ContentSections: React.FC = () => {
             <h2 className="mb-8 text-3xl font-bold text-white">{t("title")}</h2>
             <div className="grid gap-8 md:grid-cols-2">
               <div>
-                <p className="mb-6 text-lg leading-relaxed text-slate-300">{t("subtitle")}</p>
-                <p className="text-lg leading-relaxed text-slate-300">
-                  {t("what_test_measures_description")}
-                </p>
+                <p className="mb-6 text-lg text-slate-300">{t("subtitle")}</p>
+                <p className="text-lg text-slate-300">{t("what_test_measures_description")}</p>
               </div>
               <div className="rounded-2xl border border-white/20 bg-white/5 p-8 backdrop-blur-sm">
                 <h3 className="mb-6 flex items-center text-xl font-semibold text-white">
@@ -97,9 +93,7 @@ export const ContentSections: React.FC = () => {
             <h2 className="text-3xl font-bold text-white">{t("what_test_measures")}</h2>
           </div>
           <div className="mb-6">
-            <p className="text-lg leading-relaxed text-slate-300">
-              {t("what_test_measures_description")}
-            </p>
+            <p className="text-lg text-slate-300">{t("what_test_measures_description")}</p>
           </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
             {(["courtesy", "respect", "integrity", "courage", "loyalty"] as const).map((trait) => (
@@ -123,7 +117,7 @@ export const ContentSections: React.FC = () => {
                 <HelpCircle className="mr-2 h-5 w-5 text-blue-400" />
                 {t("faq_what_is_chivalry")}
               </h3>
-              <p className="leading-relaxed text-slate-300">{t("faq_what_is_chivalry_answer")}</p>
+              <p className="text-slate-300">{t("faq_what_is_chivalry_answer")}</p>
             </div>
 
             <div className="rounded-lg border border-slate-700 bg-slate-700/30 p-6">
@@ -131,7 +125,7 @@ export const ContentSections: React.FC = () => {
                 <HelpCircle className="mr-2 h-5 w-5 text-purple-400" />
                 {t("faq_still_relevant")}
               </h3>
-              <p className="leading-relaxed text-slate-300">{t("faq_still_relevant_answer")}</p>
+              <p className="text-slate-300">{t("faq_still_relevant_answer")}</p>
             </div>
 
             <div className="rounded-lg border border-slate-700 bg-slate-700/30 p-6">
@@ -139,7 +133,7 @@ export const ContentSections: React.FC = () => {
                 <HelpCircle className="mr-2 h-5 w-5 text-emerald-400" />
                 {t("faq_test_accurate")}
               </h3>
-              <p className="leading-relaxed text-slate-300">{t("faq_test_accurate_answer")}</p>
+              <p className="text-slate-300">{t("faq_test_accurate_answer")}</p>
             </div>
 
             <div className="rounded-lg border border-slate-700 bg-slate-700/30 p-6">
@@ -147,7 +141,7 @@ export const ContentSections: React.FC = () => {
                 <HelpCircle className="mr-2 h-5 w-5 text-orange-400" />
                 {t("faq_women_take")}
               </h3>
-              <p className="leading-relaxed text-slate-300">{t("faq_women_take_answer")}</p>
+              <p className="text-slate-300">{t("faq_women_take_answer")}</p>
             </div>
 
             <div className="rounded-lg border border-slate-700 bg-slate-700/30 p-6">
@@ -155,7 +149,7 @@ export const ContentSections: React.FC = () => {
                 <HelpCircle className="mr-2 h-5 w-5 text-pink-400" />
                 {t("faq_help_improve")}
               </h3>
-              <p className="leading-relaxed text-slate-300">{t("faq_help_improve_answer")}</p>
+              <p className="text-slate-300">{t("faq_help_improve_answer")}</p>
             </div>
           </div>
         </section>

@@ -100,7 +100,7 @@ export default function SoundCloudToMP3Page() {
           </h1>
 
           {/* Subtitle */}
-          <p className="mx-auto mb-3 max-w-6xl text-base leading-relaxed text-slate-300 md:text-lg">
+          <p className="mx-auto mb-3 max-w-6xl text-base text-slate-300 md:text-lg">
             {t.rich("page_subtitle", {
               mp3: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
               wav: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
@@ -115,7 +115,7 @@ export default function SoundCloudToMP3Page() {
             <h2 className="mb-4 text-base font-bold text-purple-300 sm:text-lg md:text-2xl">
               {t("page_tldr_title")}
             </h2>
-            <p className="text-sm leading-relaxed text-slate-200 sm:text-base md:text-lg md:leading-loose">
+            <p className="text-sm text-slate-200 sm:text-base md:text-lg md:leading-loose">
               {t("page_tldr_content")}
             </p>
           </div>
@@ -189,19 +189,6 @@ export default function SoundCloudToMP3Page() {
           </div>
         )}
 
-        {/* Empty state message */}
-        {/* {loadingState === "idle" && !trackInfo && (
-          <div className="mx-auto max-w-6xl text-center">
-            <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-sm md:p-10">
-              <div className="mb-4 text-5xl md:mb-6 md:text-7xl">🎼</div>
-              <h2 className="mb-2 text-xl font-bold text-white md:mb-3 md:text-2xl">
-                {t("empty_state_title")}
-              </h2>
-              <p className="text-sm text-slate-300 md:text-base">{t("empty_state_description")}</p>
-            </div>
-          </div>
-        )} */}
-
         {/* SEO Content Sections */}
         <div className="mx-auto max-w-6xl space-y-8 md:space-y-12">
           {/* What is this tool section */}
@@ -213,12 +200,12 @@ export default function SoundCloudToMP3Page() {
               </h2>
               <div className="grid gap-6 md:grid-cols-2 md:gap-8">
                 <div>
-                  <p className="mb-4 text-base leading-relaxed text-slate-300 md:mb-6 md:text-lg">
+                  <p className="mb-4 text-base text-slate-300 md:mb-6 md:text-lg">
                     {t.rich("section_what_is_description_1", {
                       strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
                     })}
                   </p>
-                  <p className="text-base leading-relaxed text-slate-300 md:text-lg">
+                  <p className="text-base text-slate-300 md:text-lg">
                     {t.rich("section_what_is_description_2", {
                       strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
                     })}
@@ -257,7 +244,7 @@ export default function SoundCloudToMP3Page() {
             <h2 className="mb-6 text-2xl font-bold text-white md:text-3xl">
               {t("section_convert_online_title")}
             </h2>
-            <p className="text-base leading-relaxed text-slate-300 md:text-lg">
+            <p className="text-base text-slate-300 md:text-lg">
               {t("section_convert_online_description")}
             </p>
           </section>

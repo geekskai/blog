@@ -69,14 +69,14 @@ export default function RandomSSNGenerator() {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid gap-8 lg:grid-cols-12">
+        <div className="flex flex-col gap-2 md:flex-row md:gap-8">
           {/* Generator Panel */}
-          <div className="space-y-6 lg:col-span-8">
+          <div className="w-full space-y-6 md:w-3/4">
             <SSNGeneratorComponent />
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6 lg:col-span-4">
+          <div className="w-full space-y-6 md:w-1/4">
             {/* Usage Restrictions */}
             <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
               <div className="border-b border-slate-700 px-6 py-4">

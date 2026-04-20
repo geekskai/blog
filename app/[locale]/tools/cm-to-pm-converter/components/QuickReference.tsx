@@ -229,7 +229,7 @@ export default function QuickReference() {
                   <Zap className="mt-0.5 h-4 w-4 flex-shrink-0 text-purple-400" />
                   <div>
                     <h4 className="text-sm font-semibold text-white">{tip.title}</h4>
-                    <p className="mt-1 text-xs leading-relaxed text-slate-300">{tip.tip}</p>
+                    <p className="mt-1 text-xs text-slate-300">{tip.tip}</p>
                   </div>
                 </div>
 

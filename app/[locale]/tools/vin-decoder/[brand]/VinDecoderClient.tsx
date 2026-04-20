@@ -497,7 +497,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
           </h1>
 
           {/* Description */}
-          <p className="mx-auto max-w-5xl px-2 text-sm leading-relaxed text-slate-300 md:px-0 md:text-lg">
+          <p className="mx-auto max-w-5xl px-2 text-sm text-slate-300 md:px-0 md:text-lg">
             {brand.description} {t("nhtsa_integration")}
           </p>
         </div>
@@ -677,7 +677,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
               <h3 className="mb-2 text-sm font-semibold text-white md:mb-3 md:text-lg">
                 {t("faq_where_find_q", { brand: brand.name })}
               </h3>
-              <p className="text-xs leading-relaxed text-slate-200 md:text-lg">
+              <p className="text-xs text-slate-200 md:text-lg">
                 {t("faq_where_find_a", { brand: brand.name })}
               </p>
             </div>
@@ -686,7 +686,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
               <h3 className="mb-2 text-sm font-semibold text-white md:mb-3 md:text-lg">
                 {t("faq_wmi_q")}
               </h3>
-              <p className="text-xs leading-relaxed text-slate-200 md:text-lg">
+              <p className="text-xs text-slate-200 md:text-lg">
                 {t("faq_wmi_a", { brand: brand.name, wmiCodes: brand.commonWMIs.join(", ") })}
               </p>
             </div>
@@ -695,7 +695,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
               <h3 className="mb-2 text-sm font-semibold text-white md:mb-3 md:text-lg">
                 {t("faq_info_q")}
               </h3>
-              <p className="text-xs leading-relaxed text-slate-200 md:text-lg">
+              <p className="text-xs text-slate-200 md:text-lg">
                 {t("faq_info_a", { brand: brand.name })}
               </p>
             </div>
@@ -704,7 +704,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
               <h3 className="mb-2 text-sm font-semibold text-white md:mb-3 md:text-lg">
                 {t("faq_free_q")}
               </h3>
-              <p className="text-xs leading-relaxed text-slate-200 md:text-lg">
+              <p className="text-xs text-slate-200 md:text-lg">
                 {t("faq_free_a", { brand: brand.name })}
               </p>
             </div>

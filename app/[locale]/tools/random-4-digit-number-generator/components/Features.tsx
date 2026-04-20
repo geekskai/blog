@@ -75,13 +75,8 @@ const Features = () => {
           return (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-4 backdrop-blur-xl transition-all duration-500 hover:border-white/20 hover:shadow-2xl sm:p-5 md:p-6 lg:p-8"
+              className="group overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-4 backdrop-blur-xl transition-all duration-500 hover:border-white/20 hover:shadow-2xl sm:p-5 md:p-6 lg:p-8"
             >
-              {/* Animated background gradient */}
-              <div
-                className={`absolute -right-12 -top-12 h-32 w-32 rounded-full bg-gradient-to-br ${feature.bgGradient} opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100`}
-              ></div>
-
               <div className="relative">
                 {/* Icon Container */}
                 <div className="mb-4 sm:mb-5 md:mb-6">

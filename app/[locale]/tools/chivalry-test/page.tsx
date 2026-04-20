@@ -150,7 +150,7 @@ const ChivalryTest = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-md mx-auto mb-6 max-w-3xl leading-relaxed text-slate-300 md:text-lg">
+          <p className="text-md mx-auto mb-6 max-w-3xl text-slate-300 md:text-lg">
             {t("subtitle")}
           </p>
 

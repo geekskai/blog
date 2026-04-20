@@ -6,6 +6,8 @@ import { Metadata } from "next"
 import siteMetadata from "@/data/siteMetadata"
 import { supportedLocales } from "@/app/i18n/routing"
 
+const LAST_MODIFIED = new Date("2026-04-21")
+
 export async function generateMetadata({
   params,
 }: {
@@ -70,7 +72,7 @@ export async function generateMetadata({
       type: "website",
     },
     other: {
-      "last-modified": new Date().toISOString(),
+      "last-modified": LAST_MODIFIED,
       "update-frequency": "monthly",
       "project-count": projectCount.toString(),
     },
@@ -144,10 +146,12 @@ export default async function Projects({ params }: { params: Promise<{ locale: s
       />
       <div>
         <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-stone-100 md:text-4xl md:leading-10">
+          <h1 className="text-center text-3xl font-extrabold leading-9 tracking-tight text-stone-100 md:text-4xl md:leading-10">
             {t("projects_title")}
           </h1>
-          <p className="text-lg leading-7 text-stone-400">{t("projects_description")}</p>
+          <p className="text-center text-lg leading-7 text-stone-400">
+            {t("projects_description")}
+          </p>
         </div>
 
         {/* Core Facts Section for AI Extraction */}

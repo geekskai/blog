@@ -13,7 +13,7 @@ import {
   Info,
   ChevronRight,
 } from "lucide-react"
-import { Link } from "@/app/i18n/navigation"
+import { Link } from "app/i18n/navigation"
 import { useTranslations } from "next-intl"
 
 interface WeatherData {
@@ -425,7 +425,7 @@ export default function SnowDayCalculator() {
             </span>
           </h1>
 
-          <p className="mx-auto mb-8 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
+          <p className="mx-auto mb-8 max-w-4xl text-xl font-light text-slate-400">
             {t.rich("header.description", {
               strong: (chunks) => <strong className="text-white">{chunks}</strong>,
             })}
@@ -1436,7 +1436,7 @@ export default function SnowDayCalculator() {
             {faqData.map((faq, index) => (
               <div key={index} className="border-b border-slate-700 pb-6 last:border-b-0 last:pb-0">
                 <h3 className="mb-3 text-lg font-semibold text-white">{faq.question}</h3>
-                <p className="leading-relaxed text-slate-400">{faq.answer}</p>
+                <p className="text-slate-400">{faq.answer}</p>
               </div>
             ))}
           </div>

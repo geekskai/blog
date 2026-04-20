@@ -122,9 +122,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
               </h2>
             </div>
 
-            <h3 className="text-2xl font-bold leading-relaxed text-white md:text-3xl">
-              {question.text}
-            </h3>
+            <h3 className="text-2xl font-bold text-white md:text-3xl">{question.text}</h3>
           </div>
 
           {/* 选项列表 */}
@@ -165,7 +163,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
 
                     <div className="flex-1">
                       <p
-                        className={`text-lg leading-relaxed transition-colors duration-300 ${
+                        className={`text-lg transition-colors duration-300 ${
                           isSelected ? "text-white" : "text-slate-300 group-hover:text-white"
                         }`}
                       >

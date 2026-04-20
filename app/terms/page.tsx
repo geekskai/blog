@@ -29,7 +29,7 @@ export default function TermsOfServicePage() {
             <h2 className="mb-3 text-xl font-bold text-gray-900">
               Our Core Promise: 100% Free Service
             </h2>
-            <p className="mb-4 leading-relaxed text-gray-700">
+            <p className="mb-4 text-gray-700">
               Welcome to Geekskai! We are proud to offer a <strong>completely free platform</strong>
               . There are <strong>no subscriptions, no hidden fees, and no paywalls</strong> to use
               any of our online tools, downloaders, or converters. These Terms and Conditions
@@ -47,7 +47,7 @@ export default function TermsOfServicePage() {
             </p>
           </div>
 
-          <div className="space-y-6 leading-relaxed text-gray-700">
+          <div className="space-y-6 text-gray-700">
             <p>
               By accessing our website located at{" "}
               <Link
@@ -70,12 +70,12 @@ export default function TermsOfServicePage() {
             >
               1. Description of Free Services
             </h2>
-            <p className="mb-4 leading-relaxed text-gray-700">
+            <p className="mb-4 text-gray-700">
               Geekskai is a comprehensive platform providing <strong>free online web tools</strong>,
               including audio and video converting utilities. All accessible features and
               functionalities are provided to you entirely at <strong>no cost</strong>.
             </p>
-            <p className="leading-relaxed text-gray-700">
+            <p className="text-gray-700">
               We reserve the right to upgrade, modify, or discontinue any part of our free service
               at any time without prior notice. Our primary goal is to provide a robust, reliable,
               and continuously free user experience.
@@ -89,7 +89,7 @@ export default function TermsOfServicePage() {
             >
               2. User Eligibility & Acceptance
             </h2>
-            <p className="leading-relaxed text-gray-700">
+            <p className="text-gray-700">
               By utilizing Geekskai's suite of free online tools, you confirm that you are at least
               13 years of age. Use of this Service is void where prohibited. You represent and
               warrant that your access to our platform complies with all applicable local, state,
@@ -104,7 +104,7 @@ export default function TermsOfServicePage() {
             >
               3. Acceptable Use Policy
             </h2>
-            <p className="mb-4 leading-relaxed text-gray-700">
+            <p className="mb-4 text-gray-700">
               As a user of our 100% free platform, you agree to access the Service solely for legal
               and ethical purposes.
             </p>
@@ -148,7 +148,7 @@ export default function TermsOfServicePage() {
             >
               4. Intellectual Property Rights
             </h2>
-            <p className="leading-relaxed text-gray-700">
+            <p className="text-gray-700">
               Unless otherwise stated, Geekskai and/or its licensors own the intellectual property
               rights for all original material on this website (including branding, UI/UX design,
               text, logos, and custom code). You may access this for your own personal use subject
@@ -163,14 +163,14 @@ export default function TermsOfServicePage() {
             >
               5. Third-Party Websites & External Content
             </h2>
-            <p className="mb-4 leading-relaxed text-gray-700">
+            <p className="mb-4 text-gray-700">
               Some Geekskai tools interact with external platforms (such as social media networks,
               video, or audio hosting platforms). Geekskai acts merely as an automated conduit and
               processing provider; we{" "}
               <strong>do not host, store, or cache any copyrighted user media</strong> on our
               servers.
             </p>
-            <p className="leading-relaxed text-gray-700">
+            <p className="text-gray-700">
               We do not endorse, nor are we liable for, the content provided by third-party links,
               user inputs, or via third-party integrations.
             </p>
@@ -183,7 +183,7 @@ export default function TermsOfServicePage() {
             >
               6. 100% Free Service Guarantee
             </h2>
-            <p className="mb-4 leading-relaxed text-gray-700">
+            <p className="mb-4 text-gray-700">
               We stand by our commitment that all core features on Geekskai are{" "}
               <strong>free forever</strong>. We guarantee the following:
             </p>
@@ -214,7 +214,7 @@ export default function TermsOfServicePage() {
             >
               7. Operational Limits & Fair Use
             </h2>
-            <p className="leading-relaxed text-gray-700">
+            <p className="text-gray-700">
               To maintain a fast, reliable, and completely free environment for thousands of global
               users, we may implement necessary technical limitations. These may include
               rate-limiting exceptionally high volume requests, bandwidth restrictions, or file size
@@ -230,13 +230,13 @@ export default function TermsOfServicePage() {
             >
               8. Disclaimer of Warranties
             </h2>
-            <p className="mb-4 leading-relaxed text-gray-700">
+            <p className="mb-4 text-gray-700">
               To the maximum extent permitted by applicable law, we exclude all representations,
               warranties, and conditions relating to our website. Geekskai is provided on an{" "}
               <strong>&quot;AS IS&quot;</strong> and <strong>&quot;AS AVAILABLE&quot;</strong>{" "}
               basis.
             </p>
-            <p className="leading-relaxed text-gray-700">
+            <p className="text-gray-700">
               We do not guarantee or warrant that the Service will remain uninterrupted,
               continuously perfectly secure, or completely error-free at all times.
             </p>
@@ -249,7 +249,7 @@ export default function TermsOfServicePage() {
             >
               9. Limitation of Liability
             </h2>
-            <p className="leading-relaxed text-gray-700">
+            <p className="text-gray-700">
               Because our website, tools, and services are provided completely free of charge, we
               will not be held liable for any loss or damage of any nature. In no event shall
               Geekskai be responsible for indirect, consequential, or incidental damages resulting
@@ -264,13 +264,13 @@ export default function TermsOfServicePage() {
             >
               10. DMCA & Copyright Infringement
             </h2>
-            <p className="mb-4 leading-relaxed text-gray-700">
+            <p className="mb-4 text-gray-700">
               Geekskai deeply respects the intellectual property rights of others. If you are a
               copyright owner or an agent thereof, and believe that any functionality or user action
               on Geekskai infringes upon your legally protected copyrights, we urge you to submit a
               formal infringement notice.
             </p>
-            <p className="leading-relaxed text-gray-700">
+            <p className="text-gray-700">
               Please include proof of copyright ownership and specific URLs, and email us directly
               at
               <Link
@@ -290,7 +290,7 @@ export default function TermsOfServicePage() {
             >
               11. Modifications to Terms
             </h2>
-            <p className="leading-relaxed text-gray-700">
+            <p className="text-gray-700">
               We maintain the right to revise or modify these Terms of Service at any given time to
               reflect new features or legal requirements. By continuing to use Geekskai following
               the publication of any modifications, you implicitly agree to be legally bound by the
@@ -305,7 +305,7 @@ export default function TermsOfServicePage() {
             >
               12. Governing Law
             </h2>
-            <p className="leading-relaxed text-gray-700">
+            <p className="text-gray-700">
               Any dispute, controversy, or claim relating to your use of this Service will be
               governed by and interpreted in accordance with standard international law principles,
               without regard to its conflict of law provisions.

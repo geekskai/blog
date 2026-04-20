@@ -6,21 +6,14 @@ import { useTranslations } from "next-intl"
 import ConverterCard from "./components/ConverterCard"
 import QuickReference from "./components/QuickReference"
 import EducationalContent from "./components/EducationalContent"
-import { Link } from "@/app/i18n/navigation"
+import { Link } from "app/i18n/navigation"
 
 export default function CcmToHpConverter() {
   const t = useTranslations("CcmToHpConverter")
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       {/* Hero Section with Converter */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-orange-950/30 to-red-950/30">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-gradient-to-br from-orange-400/20 to-red-400/20 blur-3xl"></div>
-          <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-gradient-to-br from-red-400/20 to-pink-400/20 blur-3xl"></div>
-          <div className="absolute right-1/3 top-1/4 h-40 w-40 rounded-full bg-gradient-to-br from-yellow-400/10 to-orange-400/10 blur-2xl"></div>
-        </div>
-
+      <div className="overflow-hidden bg-gradient-to-br from-slate-900 via-orange-950/30 to-red-950/30">
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <nav className="mb-8 flex items-center space-x-2 text-sm text-slate-400">
@@ -48,7 +41,7 @@ export default function CcmToHpConverter() {
               <span className="text-3xl lg:text-4xl">{t("page_subtitle")}</span>
             </h1>
 
-            <p className="mx-auto mb-8 max-w-6xl text-xl font-light leading-relaxed text-slate-400">
+            <p className="mx-auto mb-8 max-w-6xl text-xl font-light text-slate-400">
               {t("page_description")}
             </p>
 
@@ -181,22 +174,15 @@ export default function CcmToHpConverter() {
       </div>
 
       {/* FAQ Section - SEO optimized */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
-        {/* Dynamic background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.1),transparent_50%)]"></div>
-          <div className="absolute inset-0 bg-[conic-gradient(from_45deg,transparent,rgba(139,92,246,0.1),transparent)]"></div>
-        </div>
-
+      <div className="overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="text-center">
             {/* Icon cloud */}
             <div className="mb-8 flex justify-center">
-              <div className="relative">
+              <div>
                 <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 shadow-2xl">
                   <Zap className="h-10 w-10 text-white" />
                 </div>
-                <div className="absolute -inset-4 rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl"></div>
               </div>
             </div>
 
@@ -239,7 +225,7 @@ export default function CcmToHpConverter() {
                 <h3 className="mb-3 text-lg font-semibold text-white transition-colors group-hover:text-blue-300">
                   {faq.question}
                 </h3>
-                <p className="leading-relaxed text-slate-400">{faq.answer}</p>
+                <p className="text-slate-400">{faq.answer}</p>
               </div>
             ))}
           </div>
@@ -251,9 +237,8 @@ export default function CcmToHpConverter() {
               <p className="mb-6 text-slate-300">{t("final_cta.description")}</p>
               <a
                 href="#converter-section"
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30"
+                className="group inline-flex items-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30"
               >
-                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
                 <Zap className="relative h-5 w-5" />
                 <span className="relative">{t("final_cta.button_text")}</span>
               </a>

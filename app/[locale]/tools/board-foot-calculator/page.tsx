@@ -8,21 +8,7 @@ import { Link } from "@/app/i18n/navigation"
 export default function BoardFootCalculator() {
   const t = useTranslations("BoardFootCalculator")
   return (
-    <div className="relative min-h-screen bg-slate-950">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-      </div>
-
+    <div className="min-h-screen bg-slate-950">
       {/* Breadcrumb Navigation */}
       <nav className="relative mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8" aria-label="Breadcrumb">
         <ol className="flex items-center space-x-2 text-sm text-slate-400">
@@ -61,7 +47,7 @@ export default function BoardFootCalculator() {
               </span>
             </h1>
 
-            <p className="mx-auto mb-8 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
+            <p className="mx-auto mb-8 max-w-4xl text-xl font-light text-slate-400">
               {t("page_description")}
             </p>
 
@@ -421,7 +407,7 @@ export default function BoardFootCalculator() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("content_sections.main_features.accurate_calculations_title")}
                 </h3>
-                <p className="text-lg leading-relaxed text-slate-400">
+                <p className="text-lg text-slate-400">
                   {t("content_sections.main_features.accurate_calculations_description")}
                 </p>
               </div>
@@ -433,7 +419,7 @@ export default function BoardFootCalculator() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("content_sections.main_features.cost_estimation_title")}
                 </h3>
-                <p className="text-lg leading-relaxed text-slate-400">
+                <p className="text-lg text-slate-400">
                   {t("content_sections.main_features.cost_estimation_description")}
                 </p>
               </div>
@@ -445,7 +431,7 @@ export default function BoardFootCalculator() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("content_sections.main_features.project_management_title")}
                 </h3>
-                <p className="text-lg leading-relaxed text-slate-400">
+                <p className="text-lg text-slate-400">
                   {t("content_sections.main_features.project_management_description")}
                 </p>
               </div>

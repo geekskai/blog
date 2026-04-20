@@ -1,7 +1,6 @@
 "use client"
 
-import { useState } from "react"
-import { usePathname } from "next/navigation"
+import React, { useState } from "react"
 import { formatDate } from "pliny/utils/formatDate"
 import { CoreContent } from "pliny/utils/contentlayer"
 import type { Blog } from "contentlayer/generated"
@@ -34,7 +33,7 @@ export default function ListLayout({ posts, initialDisplayPosts = [] }: ListLayo
   return (
     <>
       <div className="divide-y divide-stone-700">
-        <div className="space-y-2 pb-8 pt-6 md:space-y-5">
+        <div className="space-y-2 pb-6 pt-5 md:space-y-5 md:pb-8 md:pt-6">
           <div className="relative ml-auto max-w-lg">
             <label>
               <span className="sr-only">Search articles</span>
@@ -43,11 +42,11 @@ export default function ListLayout({ posts, initialDisplayPosts = [] }: ListLayo
                 type="text"
                 onChange={(e) => setSearchValue(e.target.value)}
                 placeholder="Search articles"
-                className="block w-full rounded-md border border-stone-300 bg-stone-900 px-4 py-2 text-stone-50 focus:border-primary-500 focus:ring-primary-500"
+                className="block min-h-[44px] w-full rounded-xl border border-stone-300 bg-stone-900 px-4 py-2.5 text-stone-50 focus:border-primary-500 focus:ring-primary-500"
               />
             </label>
             <svg
-              className="absolute right-3 top-3 h-5 w-5 text-stone-300"
+              className="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-stone-300"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -67,32 +66,34 @@ export default function ListLayout({ posts, initialDisplayPosts = [] }: ListLayo
           {displayPosts.map((post, key) => {
             const { path, date, title, summary, tags, readingTime } = post
             return (
-              <li key={key} className="py-4">
-                <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
+              <li key={key} className="py-5 md:py-6">
+                <article className="space-y-4 rounded-2xl border border-stone-800/80 bg-stone-900/30 p-4 xl:grid xl:grid-cols-4 xl:items-start xl:gap-6 xl:space-y-0 xl:p-6">
                   <p className="flex flex-wrap">
                     {tags?.map((tag) => {
                       return <Tag key={tag} text={tag} />
                     })}
                   </p>
 
-                  <div className="space-y-3 xl:col-span-3">
-                    <h3 className="text-2xl font-bold leading-8 tracking-tight">
+                  <div className="space-y-4 xl:col-span-3">
+                    <h3 className="text-xl font-bold leading-8 tracking-tight md:text-2xl">
                       <Link href={`/${path}`} className="text-stone-100 hover:text-primary-500">
                         {title}
                       </Link>
                     </h3>
-                    <p className="prose max-w-none overflow-scroll text-stone-300">{summary}</p>
+                    <p className="prose max-w-none overflow-hidden text-sm leading-7 text-stone-300 md:text-base">
+                      {summary}
+                    </p>
 
-                    <div className="flex justify-between text-center">
-                      <div className="flex flex-col gap-2 text-xs  font-medium leading-6 text-[#16f2b3] md:flex-row md:text-base">
+                    <div className="flex flex-col gap-3 text-center sm:flex-row sm:items-center sm:justify-between">
+                      <div className="flex flex-col gap-1 text-left text-xs font-medium leading-6 text-[#16f2b3] md:flex-row md:gap-3 md:text-base">
                         <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                         <span>{readingTime.minutes} Mins Read</span>
                       </div>
                       <Link
                         href={`/${path}`}
-                        className="flex h-8 items-center rounded-full bg-gradient-to-r from-violet-600 to-pink-500 transition-all duration-300 hover:from-pink-500 hover:to-violet-600"
+                        className="inline-flex h-10 items-center self-start rounded-full bg-gradient-to-r from-violet-600 to-pink-500 transition-all duration-300 hover:from-pink-500 hover:to-violet-600 sm:self-auto"
                       >
-                        <button className="flex h-[80%] items-center gap-1 rounded-full border-none px-3 py-0 text-center text-xs font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out hover:gap-3 md:text-sm md:font-semibold">
+                        <button className="flex h-[80%] items-center gap-1 rounded-full border-none px-3 py-0 text-center text-xs font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out hover:gap-3 md:px-4 md:text-sm md:font-semibold">
                           Read more &rarr;
                         </button>
                       </Link>

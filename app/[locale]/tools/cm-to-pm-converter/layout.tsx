@@ -11,7 +11,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "CmToPmConverter" })
   const isDefaultLocale = locale === "en"
-  const lastModified = new Date("2026-02-18")
+  const lastModified = new Date("2026-04-21")
   const languages = {
     "x-default": "https://geekskai.com/tools/cm-to-pm-converter",
   }

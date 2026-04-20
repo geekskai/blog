@@ -38,7 +38,7 @@ const LegalDisclaimer = () => {
         </div>
       </div>
       <div className="mt-4 rounded-lg bg-red-900/30 p-3 sm:mt-6 sm:p-4">
-        <p className="text-xs leading-relaxed text-slate-200 sm:text-sm md:text-base">
+        <p className="text-xs text-slate-200 sm:text-sm md:text-base">
           <strong className="text-red-300">{t("legal_disclaimer")}</strong>{" "}
           {t("legal_disclaimer_text")}
         </p>

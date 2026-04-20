@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback, useEffect } from "react"
 import { useTranslations } from "next-intl"
-import { Link } from "@/app/i18n/navigation"
+import { Link } from "app/i18n/navigation"
 import type { ConversionResult } from "./types"
 import ConverterInterface from "./components/ConverterInterface"
 import VisualRuler, { CompactRuler } from "./components/VisualRuler"
@@ -116,7 +116,7 @@ export default function InchesToDecimalConverter() {
                 <h2 className="mb-3 text-lg font-bold text-blue-200 sm:text-2xl">
                   {t("geo_sections.quick_answer_title")}
                 </h2>
-                <p className="text-base leading-relaxed text-slate-200 sm:text-lg">
+                <p className="text-base text-slate-200 sm:text-lg">
                   {t("geo_sections.quick_answer_content")}
                 </p>
               </div>

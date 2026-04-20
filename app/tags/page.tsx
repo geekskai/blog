@@ -4,6 +4,7 @@ import { slug } from "github-slugger"
 import tagData from "app/tag-data.json"
 import { genPageMetadata } from "app/seo"
 import siteMetadata from "@/data/siteMetadata"
+import React from "react"
 
 const tagCounts = tagData as Record<string, number>
 const totalTags = Object.keys(tagCounts).length
@@ -89,48 +90,52 @@ export default async function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageSchema) }}
       />
 
-      {/* Core Facts Section for AI Extraction */}
-      <section className="mx-auto mb-8 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 p-6 backdrop-blur-sm">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div>
-              <h2 className="mb-2 text-2xl font-bold text-white">
-                Browse All <strong>Tags</strong> and Topics
-              </h2>
-              <p className="text-slate-300">
-                Explore <strong>{totalTags}</strong> tags covering <strong>{totalPosts}</strong>{" "}
-                {totalPosts === 1 ? "article" : "articles"} on {siteMetadata.title}. Find content
-                organized by topics including <strong>technology</strong>,{" "}
-                <strong>programming</strong>, <strong>web development</strong>, and more.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2 text-sm text-slate-400">
-              <div>
-                <strong className="text-white">Total Tags:</strong> {totalTags}
-              </div>
-              <div>
-                <strong className="text-white">Total Articles:</strong> {totalPosts}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="flex flex-col items-start justify-start divide-y divide-stone-700 md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
-        <div className="space-x-2 pb-8 pt-6 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-stone-100 sm:text-4xl sm:leading-10 md:border-r-2 md:px-6 md:text-6xl md:leading-14">
+      <div className="flex flex-col items-start justify-start md:mt-16 md:flex-row md:items-start md:justify-center md:gap-6 lg:mt-24">
+        <div className="w-full pb-6 pt-5 md:w-auto md:space-y-5 md:pb-8 md:pt-6">
+          <h1 className="text-center text-3xl font-extrabold leading-tight tracking-tight text-stone-100 sm:text-4xl md:border-r-2 md:px-6 md:text-5xl md:leading-tight lg:text-6xl">
             Tags
           </h1>
         </div>
-        <div className="flex max-w-lg flex-wrap">
+
+        {/* Core Facts Section for AI Extraction */}
+        <section className="mx-auto mb-6 max-w-7xl px-4 sm:px-6 md:mb-8 lg:px-8">
+          <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 p-4 backdrop-blur-sm md:p-6">
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div>
+                <h2 className="mb-2 text-xl font-bold leading-tight text-white md:text-2xl">
+                  Browse All <strong>Tags</strong> and Topics
+                </h2>
+                <p className="text-sm leading-6 text-slate-300 md:text-base md:leading-7">
+                  Explore <strong>{totalTags}</strong> tags covering <strong>{totalPosts}</strong>{" "}
+                  {totalPosts === 1 ? "article" : "articles"} on {siteMetadata.title}. Find content
+                  organized by topics including <strong>technology</strong>,{" "}
+                  <strong>programming</strong>, <strong>web development</strong>, and more.
+                </p>
+              </div>
+              <div className="flex flex-col gap-2 text-sm leading-6 text-slate-400 md:text-base">
+                <div>
+                  <strong className="text-white">Total Tags:</strong> {totalTags}
+                </div>
+                <div>
+                  <strong className="text-white">Total Articles:</strong> {totalPosts}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className="flex w-full max-w-4xl flex-wrap gap-x-4 gap-y-3 pt-5 md:pt-2">
           {tagKeys.length === 0 && "No tags found."}
           {sortedTags.map((t) => {
             return (
-              <div key={t} className="mb-2 mr-5 mt-2">
+              <div
+                key={t}
+                className="inline-flex min-h-[40px] items-center rounded-xl border border-stone-700/70 bg-stone-900/40 px-3 py-2"
+              >
                 <Tag text={t} />
                 <Link
                   href={`/tags/${slug(t)}/`}
-                  className="-ml-2 text-sm font-semibold uppercase text-stone-300"
+                  className="-ml-1 text-sm font-semibold uppercase text-stone-300"
                   aria-label={`View ${tagCounts[t]} ${tagCounts[t] === 1 ? "post" : "posts"} tagged ${t}`}
                 >
                   {` (${tagCounts[t]})`}

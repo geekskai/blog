@@ -125,16 +125,14 @@ const FAQSection = () => {
           <a
             href="https://geekskai.com/blog/"
             target="_blank"
-            className="group relative overflow-hidden rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-blue-500/10 px-5 py-3 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 sm:px-6 sm:text-base"
+            className="group overflow-hidden rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-blue-500/10 px-5 py-3 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 sm:px-6 sm:text-base"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
             <span className="relative">{t("still_have_questions.view_docs")}</span>
           </a>
           <a
             href="mailto:geeks.kai@gmail.com"
             className="group relative overflow-hidden rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/15 to-purple-500/10 px-5 py-3 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 sm:px-6 sm:text-base"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
             <span className="relative">{t("still_have_questions.contact_support")}</span>
           </a>
         </div>

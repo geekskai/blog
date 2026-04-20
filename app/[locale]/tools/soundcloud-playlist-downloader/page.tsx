@@ -229,25 +229,11 @@ export default function SoundCloudPlaylistDownloaderPage() {
   }, [playlistInfo, format])
 
   return (
-    <div className="relative min-h-screen bg-slate-950">
-      {/* Subtle geometric background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-          `,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-      </div>
-
+    <div className="min-h-screen bg-slate-950">
       <div className="relative mx-auto max-w-6xl space-y-2 px-4 py-2 sm:space-y-3 sm:px-6 sm:py-6 md:space-y-5 md:py-5">
         {/* Content Freshness Badge */}
         <ContentFreshnessBadge
-          lastModified={new Date("2026-02-20")}
+          lastModified={new Date("2026-04-21")}
           namespace="SoundCloudPlaylistDownloader"
         />
         {/* Header Section */}
@@ -268,7 +254,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
           </h1>
 
           {/* Subtitle */}
-          <p className="mx-auto mb-2 max-w-6xl px-1 text-sm leading-relaxed text-slate-300 sm:mb-3 sm:text-base md:text-lg">
+          <p className="mx-auto mb-2 max-w-6xl px-1 text-sm text-slate-300 sm:mb-3 sm:text-base md:text-lg">
             {t.rich("page_subtitle", {
               mp3: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
               wav: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
@@ -334,7 +320,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
               <h2 className="mb-2 text-xl font-bold leading-tight text-white sm:mb-3 sm:text-2xl md:text-2xl">
                 {t("empty_state_title")}
               </h2>
-              <p className="text-sm leading-relaxed text-slate-300 sm:text-base md:text-base">
+              <p className="text-sm text-slate-300 sm:text-base md:text-base">
                 {t("empty_state_description")}
               </p>
             </div>
@@ -344,20 +330,19 @@ export default function SoundCloudPlaylistDownloaderPage() {
         {/* SEO Content Sections */}
         <div className="mx-auto max-w-6xl space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12">
           {/* What is this tool section */}
-          <section className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur-md sm:rounded-3xl sm:p-6 md:p-8 lg:p-12">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10"></div>
+          <section className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur-md sm:rounded-3xl sm:p-6 md:p-8 lg:p-12">
             <div className="relative z-10">
               <h2 className="mb-5 text-2xl font-bold leading-tight text-white sm:mb-6 sm:text-3xl md:mb-8 lg:text-3xl">
                 {t("section_what_is_title")}
               </h2>
               <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10">
                 <div>
-                  <p className="mb-4 text-base leading-relaxed text-slate-300 sm:mb-6 sm:text-lg">
+                  <p className="mb-4 text-base text-slate-300 sm:mb-6 sm:text-lg">
                     {t.rich("section_what_is_description_1", {
                       strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
                     })}
                   </p>
-                  <p className="text-base leading-relaxed text-slate-300 sm:text-lg">
+                  <p className="text-base text-slate-300 sm:text-lg">
                     {t.rich("section_what_is_description_2", {
                       strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
                     })}
@@ -396,7 +381,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
             <h2 className="mb-4 text-2xl font-bold leading-tight text-white sm:mb-5 sm:text-3xl md:mb-6 lg:text-3xl">
               {t("section_download_online_title")}
             </h2>
-            <p className="text-base leading-relaxed text-slate-300 sm:text-lg lg:leading-relaxed">
+            <p className="text-base text-slate-300 sm:text-lg lg:leading-relaxed">
               {t("section_download_online_description")}
             </p>
           </section>
@@ -432,7 +417,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
                 <li>{t("section_legal_point_3")}</li>
                 <li>{t("section_legal_point_4")}</li>
               </ul>
-              <p className="mt-4 leading-relaxed sm:mt-6">{t("section_legal_footer")}</p>
+              <p className="mt-4 sm:mt-6">{t("section_legal_footer")}</p>
             </div>
           </section>
         </div>

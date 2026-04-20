@@ -785,7 +785,7 @@ const ShareCard: React.FC<ShareCardProps> = (props) => {
                     <h3 className="mb-1 text-base font-bold text-gray-800 md:mb-2 md:text-lg">
                       {comment.title}
                     </h3>
-                    <p className="mb-2 text-xs leading-relaxed text-gray-700 md:mb-3 md:text-sm">
+                    <p className="mb-2 text-xs text-gray-700 md:mb-3 md:text-sm">
                       {comment.content}
                     </p>
 

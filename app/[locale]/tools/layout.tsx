@@ -16,7 +16,7 @@ type Props = {
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: "ToolsPage" })
-  const lastModified = new Date("2026-02-18")
+  const lastModified = new Date("2026-04-21")
   // 语言映射
   const localeMap: Record<string, string> = {
     en: "en_US",

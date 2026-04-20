@@ -1,6 +1,7 @@
 import { supportedLocales } from "app/i18n/routing"
 import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
+import React from "react"
 
 export async function generateMetadata({
   params: { locale },
@@ -19,9 +20,9 @@ export async function generateMetadata({
     languages[locale] = `https://geekskai.com/${locale}/tools/discord-time-converter/`
   })
   // Content freshness metadata (updated within 30-90 days for best AI ranking)
-  const lastModified = new Date("2026-04-19")
+  const lastModified = new Date("2026-04-21")
   const updateFrequency = "monthly"
-  const nextReview = new Date("2026-05-19")
+  const nextReview = new Date("2026-07-21")
 
   return {
     title: t("seo_title"),

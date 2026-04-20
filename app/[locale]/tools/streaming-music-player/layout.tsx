@@ -19,7 +19,7 @@ export async function generateMetadata({
     languages[loc] = `https://geekskai.com/${loc}/tools/streaming-music-player/`
   })
 
-  const lastModified = new Date("2026-02-17")
+  const lastModified = new Date("2026-04-21")
 
   return {
     title: t("metadata_title"),

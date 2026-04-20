@@ -135,11 +135,8 @@ const UseCases = () => {
           return (
             <div
               key={index}
-              className={`group relative overflow-hidden rounded-2xl border ${colors.border} bg-gradient-to-br ${colors.gradient} p-4 backdrop-blur-sm transition-all duration-500 ${colors.hover} hover:shadow-xl sm:p-5 md:p-6`}
+              className={`group overflow-hidden rounded-2xl border ${colors.border} bg-gradient-to-br ${colors.gradient} p-4 backdrop-blur-sm transition-all duration-500 ${colors.hover} hover:shadow-xl sm:p-5 md:p-6`}
             >
-              {/* Decorative background */}
-              <div className="to-white/2 absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br from-white/5 blur-2xl transition-opacity duration-500 group-hover:opacity-100"></div>
-
               <div className="relative">
                 {/* Icon */}
                 <div

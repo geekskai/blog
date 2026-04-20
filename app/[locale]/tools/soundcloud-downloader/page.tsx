@@ -246,20 +246,7 @@ export default function SoundCloudDownloaderPage() {
   )
 
   return (
-    <div className="relative min-h-screen bg-slate-950">
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-          `,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-      </div>
-
+    <div className="min-h-screen bg-slate-950">
       <div className="relative mx-auto max-w-6xl space-y-4 p-4">
         <ContentFreshnessBadge
           lastModified={new Date("2026-02-20")}
@@ -278,7 +265,7 @@ export default function SoundCloudDownloaderPage() {
             {tDownloader("page_title")}
           </h1>
 
-          <p className="mx-auto mb-3 max-w-6xl text-base leading-relaxed text-slate-300 md:text-lg">
+          <p className="mx-auto mb-3 max-w-6xl text-base text-slate-300 md:text-lg">
             {tDownloader("page_subtitle")}
           </p>
 
@@ -286,7 +273,7 @@ export default function SoundCloudDownloaderPage() {
             <h2 className="mb-4 text-base font-bold text-purple-300 sm:text-lg md:text-2xl">
               {tDownloader("page_quick_answer_title")}
             </h2>
-            <p className="text-sm leading-relaxed text-slate-200 sm:text-base md:text-lg md:leading-loose">
+            <p className="text-sm text-slate-200 sm:text-base md:text-lg md:leading-loose">
               {tDownloader("page_quick_answer_content")}
             </p>
           </div>

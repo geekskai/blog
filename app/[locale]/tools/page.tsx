@@ -1,7 +1,7 @@
 "use client"
 
-import { Link } from "@/app/i18n/navigation"
-import { useState, useMemo } from "react"
+import { Link } from "app/i18n/navigation"
+import React, { useState, useMemo } from "react"
 import {
   Zap,
   Users,
@@ -49,28 +49,12 @@ export default function ToolsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950/30 to-purple-950/30">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-gradient-to-br from-blue-400/20 to-purple-400/20 blur-3xl"></div>
-          <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-gradient-to-tr from-purple-400/20 to-pink-400/20 blur-3xl"></div>
-          <div className="absolute left-1/2 top-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-emerald-400/10 to-cyan-400/10 blur-3xl"></div>
-        </div>
-
-        {/* Floating Elements */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-1/4 top-20 h-2 w-2 animate-pulse rounded-full bg-blue-400 opacity-60"></div>
-          <div className="absolute right-1/3 top-32 h-1 w-1 animate-pulse rounded-full bg-purple-400 opacity-40 delay-700"></div>
-          <div className="absolute bottom-40 left-1/3 h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400 opacity-50 delay-1000"></div>
-          <div className="absolute bottom-20 right-1/4 h-1 w-1 animate-pulse rounded-full bg-pink-400 opacity-30 delay-500"></div>
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6">
+      <div className="overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950/30 to-purple-950/30">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
           <div className="text-center">
             {/* Animated Badge */}
             <div className="mb-8 flex justify-center">
-              <div className="group relative inline-flex items-center gap-2 rounded-full bg-slate-800/80 px-6 py-3 text-sm font-medium text-slate-200 shadow-lg ring-1 ring-slate-700/50 backdrop-blur-sm transition-all duration-300 hover:bg-slate-800 hover:shadow-xl">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-blue-500/0 opacity-0 transition-opacity duration-300 group-hover:opacity-10"></div>
+              <div className="group inline-flex items-center gap-2 rounded-full bg-slate-800/80 px-6 py-3 text-sm font-medium text-slate-200 shadow-lg ring-1 ring-slate-700/50 backdrop-blur-sm transition-all duration-300 hover:bg-slate-800 hover:shadow-xl">
                 <div className="flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-600">
                   <Grid className="h-3 w-3 text-white" />
                 </div>
@@ -93,7 +77,7 @@ export default function ToolsPage() {
             </div>
 
             {/* Enhanced Description */}
-            <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed text-slate-300">
+            <p className="mx-auto mb-10 max-w-3xl text-xl text-slate-300">
               {t("tools_discover_powerful_free_online_tools_crafted_for")}
               <span className="font-semibold text-blue-400">{t("tools_developers")}</span>,{" "}
               <span className="font-semibold text-purple-400">{t("tools_creators")}</span>, and{" "}
@@ -187,14 +171,7 @@ export default function ToolsPage() {
       </div>
 
       {/* Tools Section */}
-      <div id="tools-section" className="relative bg-gradient-to-b from-slate-900/50 to-slate-950">
-        {/* Subtle Background Pattern */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute left-1/4 top-20 h-px w-20 bg-gradient-to-r from-transparent via-blue-300/50 to-transparent"></div>
-          <div className="absolute right-1/3 top-40 h-px w-16 bg-gradient-to-r from-transparent via-purple-300/50 to-transparent"></div>
-          <div className="absolute bottom-32 left-1/3 h-px w-24 bg-gradient-to-r from-transparent via-emerald-300/50 to-transparent"></div>
-        </div>
-
+      <div id="tools-section" className="bg-gradient-to-b from-slate-900/50 to-slate-950">
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="mb-16 text-center">
@@ -374,7 +351,7 @@ export default function ToolsPage() {
                     </h3>
 
                     {/* Enhanced Description */}
-                    <p className="mb-6 line-clamp-2 text-sm leading-relaxed text-slate-300 transition-colors duration-300 group-hover:text-slate-200">
+                    <p className="mb-6 line-clamp-2 text-sm text-slate-300 transition-colors duration-300 group-hover:text-slate-200">
                       {tool.description}
                     </p>
 
@@ -503,7 +480,7 @@ export default function ToolsPage() {
             </h2>
 
             {/* Enhanced Description */}
-            <p className="mx-auto mb-10 max-w-7xl text-lg leading-relaxed text-slate-300">
+            <p className="mx-auto mb-10 max-w-7xl text-lg text-slate-300">
               {t(
                 "tools_join_our_mission_to_build_tools_that_empower_creators_and_solve_real_problems"
               )}
@@ -522,9 +499,8 @@ export default function ToolsPage() {
             <div className="mb-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <Link
                 href="mailto:geeks.kai@gmail.com"
-                className="group relative overflow-hidden rounded-2xl bg-white/10 p-6 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-white/15"
+                className="group overflow-hidden rounded-2xl bg-white/10 p-6 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-white/15"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                 <div className="relative">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-blue-600">
                     <svg
@@ -554,9 +530,8 @@ export default function ToolsPage() {
                 href="https://github.com/geekskai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative overflow-hidden rounded-2xl bg-white/10 p-6 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-white/15"
+                className="group overflow-hidden rounded-2xl bg-white/10 p-6 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-white/15"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                 <div className="relative">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-purple-500 to-purple-600">
                     <svg className="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -572,8 +547,7 @@ export default function ToolsPage() {
                 </div>
               </Link>
 
-              <div className="group relative overflow-hidden rounded-2xl bg-white/10 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/15 sm:col-span-2 lg:col-span-1">
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+              <div className="group overflow-hidden rounded-2xl bg-white/10 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/15 sm:col-span-2 lg:col-span-1">
                 <div className="relative">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600">
                     <svg

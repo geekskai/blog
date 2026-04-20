@@ -47,7 +47,7 @@ export default async function VinDecoderVsVinCheckPage({ params }: ComparePagePr
           <h1 className="mb-3 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-5xl">
             {pageData.title}
           </h1>
-          <p className="mx-auto max-w-3xl text-sm leading-relaxed text-slate-300 sm:text-base md:text-lg">
+          <p className="mx-auto max-w-3xl text-sm text-slate-300 sm:text-base md:text-lg">
             <strong>{safeTranslate(t, "quick_answer_label", "Quick answer:")}</strong>{" "}
             {safeTranslate(
               t,

@@ -77,7 +77,7 @@ const SiteFooter = () => {
                 <div className="text-xl font-bold text-white">geekskai</div>
               </Link>
             </div>
-            <p className="mb-6 text-sm leading-relaxed text-slate-400">{t("footer_description")}</p>
+            <p className="mb-6 text-sm text-slate-400">{t("footer_description")}</p>
             <div className="flex items-center gap-2 rounded-full bg-slate-800/50 px-4 py-2 backdrop-blur-sm">
               <Zap className="h-4 w-4 text-emerald-400" />
               <span className="text-sm font-medium text-emerald-300">
@@ -196,9 +196,7 @@ const SiteFooter = () => {
                   {t("footer_built_with_love")}
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-slate-400">
-                {t("footer_built_with_love_description")}
-              </p>
+              <p className="text-xs text-slate-400">{t("footer_built_with_love_description")}</p>
             </div>
           </div>
         </div>

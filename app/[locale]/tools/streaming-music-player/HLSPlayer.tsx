@@ -171,7 +171,6 @@ export default function HLSPlayer({ url, onLoading, onError }: HLSPlayerProps) {
           <div
             className={`relative flex h-48 w-48 items-center justify-center rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-xl md:h-64 md:w-64 ${isPlaying ? "animate-pulse" : ""}`}
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-cyan-500/10 opacity-50"></div>
             <MonitorPlay
               className={`h-24 w-24 text-purple-400 transition-transform duration-500 ${isPlaying ? "rotate-3 scale-110" : "scale-100"}`}
             />

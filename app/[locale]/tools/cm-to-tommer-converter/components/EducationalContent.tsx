@@ -151,7 +151,7 @@ export default function EducationalContent() {
                   <div className="h-2 w-2 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400" />
                   {fact.title}
                 </h4>
-                <p className="text-sm leading-relaxed text-slate-300">{fact.content}</p>
+                <p className="text-sm text-slate-300">{fact.content}</p>
               </div>
             ))}
           </div>

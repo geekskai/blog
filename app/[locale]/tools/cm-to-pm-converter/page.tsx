@@ -16,7 +16,8 @@ import {
 } from "lucide-react"
 import ConverterCard from "./components/ConverterCard"
 import QuickReference from "./components/QuickReference"
-import { Link } from "@/app/i18n/navigation"
+import { Link } from "app/i18n/navigation"
+import React from "react"
 // import EducationalContent from "./components/EducationalContent"
 
 export default function CmToPmConverter() {
@@ -24,21 +25,7 @@ export default function CmToPmConverter() {
   const tCommon = useTranslations("HomePage")
 
   return (
-    <div className="relative min-h-screen bg-slate-950">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-      </div>
-
+    <div className="min-h-screen bg-slate-950">
       {/* Breadcrumb Navigation */}
       <nav
         className="relative mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8"
@@ -80,7 +67,7 @@ export default function CmToPmConverter() {
               </span>
             </h1>
 
-            <p className="mx-auto mb-8 max-w-6xl text-xl font-light leading-relaxed text-slate-400">
+            <p className="mx-auto mb-8 max-w-6xl text-xl font-light text-slate-400">
               {t("header.description")}
             </p>
 
@@ -373,9 +360,7 @@ export default function CmToPmConverter() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("features.bidirectional.title")}
                 </h3>
-                <p className="text-lg leading-relaxed text-slate-400">
-                  {t("features.bidirectional.description")}
-                </p>
+                <p className="text-lg text-slate-400">{t("features.bidirectional.description")}</p>
               </div>
 
               <div className="group text-center">
@@ -385,9 +370,7 @@ export default function CmToPmConverter() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("features.precision.title")}
                 </h3>
-                <p className="text-lg leading-relaxed text-slate-400">
-                  {t("features.precision.description")}
-                </p>
+                <p className="text-lg text-slate-400">{t("features.precision.description")}</p>
               </div>
 
               <div className="group text-center">
@@ -397,9 +380,7 @@ export default function CmToPmConverter() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("features.research_grade.title")}
                 </h3>
-                <p className="text-lg leading-relaxed text-slate-400">
-                  {t("features.research_grade.description")}
-                </p>
+                <p className="text-lg text-slate-400">{t("features.research_grade.description")}</p>
               </div>
             </div>
           </div>

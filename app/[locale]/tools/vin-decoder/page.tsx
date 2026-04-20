@@ -379,7 +379,7 @@ export default function VinDecoder() {
           </h1>
 
           {/* Description */}
-          <p className="mx-auto max-w-6xl px-1 text-sm leading-relaxed text-slate-300 sm:text-base md:text-lg">
+          <p className="mx-auto max-w-6xl px-1 text-sm text-slate-300 sm:text-base md:text-lg">
             {t("header.description")}
           </p>
 
@@ -475,7 +475,7 @@ export default function VinDecoder() {
                       <h3 className="mb-2 bg-gradient-to-r from-yellow-200 to-orange-200 bg-clip-text text-xl font-bold text-transparent sm:mb-3 sm:text-2xl">
                         {t("errors.no_data_title")}
                       </h3>
-                      <p className="text-sm leading-relaxed text-slate-200 sm:text-base md:text-lg">
+                      <p className="text-sm text-slate-200 sm:text-base md:text-lg">
                         {searchState.decodeResult.message}
                       </p>
                     </div>
@@ -492,7 +492,7 @@ export default function VinDecoder() {
                       <h3 className="mb-2 bg-gradient-to-r from-red-200 to-pink-200 bg-clip-text text-xl font-bold text-transparent sm:mb-3 sm:text-2xl">
                         {t("errors.network_error_title")}
                       </h3>
-                      <p className="mb-4 text-sm leading-relaxed text-slate-200 sm:mb-5 sm:text-base md:mb-6 md:text-lg">
+                      <p className="mb-4 text-sm text-slate-200 sm:mb-5 sm:text-base md:mb-6 md:text-lg">
                         {searchState.decodeResult.message}
                       </p>
                       <button
@@ -739,7 +739,7 @@ export default function VinDecoder() {
                       <div className="h-10 rounded-lg border border-slate-600/30 bg-slate-700/20 sm:h-11" />
                       <div className="h-10 rounded-lg border border-slate-600/30 bg-slate-700/20 sm:h-11" />
                       <div className="h-10 rounded-lg border border-slate-600/30 bg-slate-700/20 sm:h-11" />
-                      <p className="pt-1 text-xs leading-relaxed text-slate-400 sm:pt-2 sm:text-sm">
+                      <p className="pt-1 text-xs text-slate-400 sm:pt-2 sm:text-sm">
                         {tg(
                           "growth.recent_activity_empty",
                           "Your recent VIN lookups will appear here after your first decode."
@@ -758,7 +758,7 @@ export default function VinDecoder() {
           <div className="relative">
             <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/15 blur-2xl" />
             <div className="relative space-y-4 sm:space-y-5">
-              <p className="text-sm leading-relaxed text-slate-100 sm:text-base md:text-lg">
+              <p className="text-sm text-slate-100 sm:text-base md:text-lg">
                 <strong>{t("comparePage.quick_answer_label")}</strong>{" "}
                 {t("structured_data.description")}
               </p>
@@ -790,7 +790,7 @@ export default function VinDecoder() {
                 </div>
               </dl>
 
-              <p className="text-xs leading-relaxed text-slate-300 sm:text-sm">
+              <p className="text-xs text-slate-300 sm:text-sm">
                 {t("comparePage.decoder_card.source_label")}{" "}
                 <a
                   href="https://vpic.nhtsa.dot.gov/api/"
@@ -802,7 +802,7 @@ export default function VinDecoder() {
                 </a>
               </p>
 
-              <p className="text-xs leading-relaxed text-slate-300 sm:text-sm">
+              <p className="text-xs text-slate-300 sm:text-sm">
                 {tg("growth.read_compare_prefix", "Need used-car due diligence?")}{" "}
                 <Link
                   href="/tools/vin-decoder/vin-decoder-vs-vin-check"
@@ -827,7 +827,7 @@ export default function VinDecoder() {
             <h2 className="mb-3 bg-gradient-to-r from-white via-slate-200 to-slate-300 bg-clip-text text-2xl font-bold leading-tight text-transparent sm:mb-4 sm:text-3xl md:text-4xl">
               {t("brand_links.title")}
             </h2>
-            <p className="mb-8 px-1 text-sm leading-relaxed text-slate-400 sm:mb-10 sm:text-base md:mb-12 md:text-lg">
+            <p className="mb-8 px-1 text-sm text-slate-400 sm:mb-10 sm:text-base md:mb-12 md:text-lg">
               {t("brand_links.description")}
             </p>
           </div>
@@ -885,7 +885,7 @@ export default function VinDecoder() {
             <h2 className="mb-3 bg-gradient-to-r from-white via-slate-200 to-slate-300 bg-clip-text text-2xl font-bold leading-tight text-transparent sm:mb-4 sm:text-3xl md:text-4xl">
               {tg("growth.vehicle_types_title", "Decode by Vehicle Type")}
             </h2>
-            <p className="mb-8 px-1 text-sm leading-relaxed text-slate-400 sm:mb-10 sm:text-base md:mb-12 md:text-lg">
+            <p className="mb-8 px-1 text-sm text-slate-400 sm:mb-10 sm:text-base md:mb-12 md:text-lg">
               {tg(
                 "growth.vehicle_types_description",
                 "Explore dedicated VIN decoder pages for high-demand vehicle categories and long-tail search queries."
@@ -914,7 +914,7 @@ export default function VinDecoder() {
                             : "Classic Car VIN Decoder"
                     )}
                   </h3>
-                  <p className="mt-2 text-xs leading-relaxed text-slate-300 sm:text-sm">
+                  <p className="mt-2 text-xs text-slate-300 sm:text-sm">
                     {tg(
                       `growth.vehicle_types.${item.slug}.description`,
                       item.slug === "motorcycle"
@@ -941,10 +941,10 @@ export default function VinDecoder() {
             </h2>
             <div className="grid gap-4 sm:gap-5 md:grid-cols-2 md:gap-6">
               <div>
-                <p className="mb-3 text-sm leading-relaxed text-slate-200 sm:mb-4 sm:text-base">
+                <p className="mb-3 text-sm text-slate-200 sm:mb-4 sm:text-base">
                   {t("educational.vin_structure_desc_1")}
                 </p>
-                <p className="text-sm leading-relaxed text-slate-200 sm:text-base">
+                <p className="text-sm text-slate-200 sm:text-base">
                   {t("educational.vin_structure_desc_2")}
                 </p>
               </div>
@@ -989,7 +989,7 @@ export default function VinDecoder() {
                     {t("educational.how_to_use_step_1_title")}
                   </h3>
                 </div>
-                <p className="text-sm leading-relaxed text-slate-200 sm:text-base">
+                <p className="text-sm text-slate-200 sm:text-base">
                   {t("educational.how_to_use_step_1_desc")}
                 </p>
               </div>
@@ -1000,7 +1000,7 @@ export default function VinDecoder() {
                     {t("educational.how_to_use_step_2_title")}
                   </h3>
                 </div>
-                <p className="text-sm leading-relaxed text-slate-200 sm:text-base">
+                <p className="text-sm text-slate-200 sm:text-base">
                   {t("educational.how_to_use_step_2_desc")}
                 </p>
               </div>
@@ -1011,7 +1011,7 @@ export default function VinDecoder() {
                     {t("educational.how_to_use_step_3_title")}
                   </h3>
                 </div>
-                <p className="text-sm leading-relaxed text-slate-200 sm:text-base">
+                <p className="text-sm text-slate-200 sm:text-base">
                   {t("educational.how_to_use_step_3_desc")}
                 </p>
               </div>
@@ -1031,7 +1031,7 @@ export default function VinDecoder() {
                     {t("educational.features_official_title")}
                   </h3>
                 </div>
-                <p className="text-sm leading-relaxed text-slate-200 sm:text-base">
+                <p className="text-sm text-slate-200 sm:text-base">
                   {t("educational.features_official_desc")}
                 </p>
               </div>
@@ -1042,7 +1042,7 @@ export default function VinDecoder() {
                     {t("educational.features_free_title")}
                   </h3>
                 </div>
-                <p className="text-sm leading-relaxed text-slate-200 sm:text-base">
+                <p className="text-sm text-slate-200 sm:text-base">
                   {t("educational.features_free_desc")}
                 </p>
               </div>
@@ -1053,7 +1053,7 @@ export default function VinDecoder() {
                     {t("educational.features_global_title")}
                   </h3>
                 </div>
-                <p className="text-sm leading-relaxed text-slate-200 sm:text-base">
+                <p className="text-sm text-slate-200 sm:text-base">
                   {t("educational.features_global_desc")}
                 </p>
               </div>
@@ -1107,7 +1107,7 @@ export default function VinDecoder() {
             <h2 className="mb-3 text-xl font-bold leading-tight text-white sm:mb-4 sm:text-2xl">
               {t("cta.title")}
             </h2>
-            <p className="mb-4 text-sm leading-relaxed text-slate-300 sm:mb-5 sm:text-base md:mb-6">
+            <p className="mb-4 text-sm text-slate-300 sm:mb-5 sm:text-base md:mb-6">
               {t("cta.description")}
             </p>
             <div className="flex flex-wrap justify-center gap-2 text-xs text-slate-400 sm:gap-3 sm:text-sm md:gap-4">

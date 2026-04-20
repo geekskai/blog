@@ -25,9 +25,7 @@ export const ContentSections: React.FC = () => {
             <h3 className="mb-6 text-xl font-semibold text-white">
               {t("content.advanced_typography")}
             </h3>
-            <p className="text-lg leading-relaxed text-slate-400">
-              {t("content.typography_description")}
-            </p>
+            <p className="text-lg text-slate-400">{t("content.typography_description")}</p>
           </div>
 
           <div className="group text-center">
@@ -37,9 +35,7 @@ export const ContentSections: React.FC = () => {
             <h3 className="mb-6 text-xl font-semibold text-white">
               {t("content.character_presets_feature")}
             </h3>
-            <p className="text-lg leading-relaxed text-slate-400">
-              {t("content.presets_description")}
-            </p>
+            <p className="text-lg text-slate-400">{t("content.presets_description")}</p>
           </div>
 
           <div className="group text-center">
@@ -49,9 +45,7 @@ export const ContentSections: React.FC = () => {
             <h3 className="mb-6 text-xl font-semibold text-white">
               {t("content.studio_export_quality")}
             </h3>
-            <p className="text-lg leading-relaxed text-slate-400">
-              {t("content.export_description")}
-            </p>
+            <p className="text-lg text-slate-400">{t("content.export_description")}</p>
           </div>
         </div>
       </div>
@@ -67,12 +61,8 @@ export const ContentSections: React.FC = () => {
             </h2>
             <div className="grid gap-8 md:grid-cols-2">
               <div>
-                <p className="mb-6 text-lg leading-relaxed text-slate-300">
-                  {t("content.about_description_1")}
-                </p>
-                <p className="text-lg leading-relaxed text-slate-300">
-                  {t("content.about_description_2")}
-                </p>
+                <p className="mb-6 text-lg text-slate-300">{t("content.about_description_1")}</p>
+                <p className="text-lg text-slate-300">{t("content.about_description_2")}</p>
               </div>
               <div className="rounded-2xl border border-white/20 bg-white/5 p-8 backdrop-blur-sm">
                 <h3 className="mb-6 flex items-center text-xl font-semibold text-white">
@@ -157,49 +147,49 @@ export const ContentSections: React.FC = () => {
               <h3 className="mb-3 text-xl font-semibold text-white">
                 {t("content.faq_1_question")}
               </h3>
-              <p className="leading-relaxed text-slate-300">{t("content.faq_1_answer")}</p>
+              <p className="text-slate-300">{t("content.faq_1_answer")}</p>
             </div>
 
             <div className="rounded-lg border border-slate-700 bg-slate-700/30 p-6">
               <h3 className="mb-3 text-xl font-semibold text-white">
                 {t("content.faq_2_question")}
               </h3>
-              <p className="leading-relaxed text-slate-300">{t("content.faq_2_answer")}</p>
+              <p className="text-slate-300">{t("content.faq_2_answer")}</p>
             </div>
 
             <div className="rounded-lg border border-slate-700 bg-slate-700/30 p-6">
               <h3 className="mb-3 text-xl font-semibold text-white">
                 {t("content.faq_3_question")}
               </h3>
-              <p className="leading-relaxed text-slate-300">{t("content.faq_3_answer")}</p>
+              <p className="text-slate-300">{t("content.faq_3_answer")}</p>
             </div>
 
             <div className="rounded-lg border border-slate-700 bg-slate-700/30 p-6">
               <h3 className="mb-3 text-xl font-semibold text-white">
                 {t("content.faq_4_question")}
               </h3>
-              <p className="leading-relaxed text-slate-300">{t("content.faq_4_answer")}</p>
+              <p className="text-slate-300">{t("content.faq_4_answer")}</p>
             </div>
 
             <div className="rounded-lg border border-slate-700 bg-slate-700/30 p-6">
               <h3 className="mb-3 text-xl font-semibold text-white">
                 {t("content.faq_5_question")}
               </h3>
-              <p className="leading-relaxed text-slate-300">{t("content.faq_5_answer")}</p>
+              <p className="text-slate-300">{t("content.faq_5_answer")}</p>
             </div>
 
             <div className="rounded-lg border border-slate-700 bg-slate-700/30 p-6">
               <h3 className="mb-3 text-xl font-semibold text-white">
                 {t("content.faq_6_question")}
               </h3>
-              <p className="leading-relaxed text-slate-300">{t("content.faq_6_answer")}</p>
+              <p className="text-slate-300">{t("content.faq_6_answer")}</p>
             </div>
 
             <div className="rounded-lg border border-slate-700 bg-slate-700/30 p-6">
               <h3 className="mb-3 text-xl font-semibold text-white">
                 {t("content.faq_7_question")}
               </h3>
-              <p className="leading-relaxed text-slate-300">{t("content.faq_7_answer")}</p>
+              <p className="text-slate-300">{t("content.faq_7_answer")}</p>
             </div>
           </div>
         </section>

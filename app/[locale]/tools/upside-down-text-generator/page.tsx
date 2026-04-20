@@ -127,19 +127,8 @@ export default function UpsideDownTextGeneratorPage() {
   }, [])
 
   return (
-    <div className="relative min-h-screen bg-slate-950">
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
-            backgroundSize: "56px 56px",
-          }}
-        />
-      </div>
-
-      <div className="relative mx-auto max-w-6xl space-y-8 p-4 md:space-y-10 md:p-6">
+    <div className="min-h-screen bg-slate-950">
+      <div className="mx-auto max-w-6xl space-y-8 p-4 md:space-y-10 md:p-6">
         <header className="text-center">
           <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-purple-500/30 bg-gradient-to-r from-purple-500/15 via-pink-500/10 to-indigo-500/15 px-6 py-3 backdrop-blur-sm">
             <span className="text-2xl">🫧</span>
@@ -151,7 +140,7 @@ export default function UpsideDownTextGeneratorPage() {
           <h1 className="mb-3 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-3xl font-bold text-transparent md:text-5xl">
             {t("page_title")}
           </h1>
-          <p className="mx-auto max-w-5xl text-base leading-relaxed text-slate-300 md:text-lg">
+          <p className="mx-auto max-w-5xl text-base text-slate-300 md:text-lg">
             {t("seo_description")}
           </p>
 
@@ -159,17 +148,12 @@ export default function UpsideDownTextGeneratorPage() {
             <h2 className="mb-3 text-xl font-bold text-purple-200 md:text-2xl">
               {t("tldr_title")}
             </h2>
-            <p className="text-sm leading-relaxed text-slate-200 md:text-base md:leading-7">
-              {t("tldr")}
-            </p>
+            <p className="text-sm text-slate-200 md:text-base md:leading-7">{t("tldr")}</p>
           </div>
         </header>
 
-        <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/15 via-cyan-500/10 to-blue-500/15 p-6 shadow-2xl backdrop-blur-xl md:p-8">
-          <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-cyan-500/15 to-blue-500/15 blur-3xl" />
-          <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-blue-500/15 to-purple-500/15 blur-3xl" />
-
-          <div className="relative space-y-5">
+        <section className="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/15 via-cyan-500/10 to-blue-500/15 p-6 shadow-2xl backdrop-blur-xl md:p-8">
+          <div className="space-y-5">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <h2 className="text-2xl font-bold text-white md:text-3xl">
                 {t("ui.playground_title")}

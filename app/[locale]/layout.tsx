@@ -28,7 +28,7 @@ type Props = {
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
   const { locale } = await params
   const t = await getTranslations("HomePage")
-
+  const lastModified = new Date("2026-04-21")
   const title = t("home_seo_title")
   const description = t("home_seo_description") + " " + t("home_seo_keywords")
 
@@ -85,6 +85,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
     other: {
       "application-name": "GeeksKai Tools",
       "apple-mobile-web-app-title": "GeeksKai Tools",
+      "last-modified": lastModified.toISOString(),
     },
   }
 }

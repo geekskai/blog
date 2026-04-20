@@ -10,7 +10,7 @@ export async function generateMetadata({
   params: { locale: string }
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "CmToTommerConverter" })
-  const lastModified = new Date("2026-02-18")
+  const lastModified = new Date("2026-04-21")
   const isDefaultLocale = locale === "en"
   const languages = {
     "x-default": "https://geekskai.com/tools/cm-to-tommer-converter/",

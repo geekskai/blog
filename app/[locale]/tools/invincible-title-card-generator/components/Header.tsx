@@ -68,7 +68,7 @@ export const Header: React.FC<HeaderProps> = ({
           </span>
         </h1>
 
-        <p className="mx-auto mb-12 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
+        <p className="mx-auto mb-12 max-w-4xl text-xl font-light text-slate-400">
           {t("header.description")}
         </p>
 

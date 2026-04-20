@@ -75,7 +75,7 @@ export default function CmTilTommerConverter() {
               </span>
             </h1>
 
-            <p className="mx-auto mb-8 max-w-4xl text-xl font-light leading-relaxed text-slate-400">
+            <p className="mx-auto mb-8 max-w-4xl text-xl font-light text-slate-400">
               {t("page_description")}
             </p>
 
@@ -314,7 +314,7 @@ export default function CmTilTommerConverter() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("content_sections.two_way_conversion")}
                 </h3>
-                <p className="text-lg leading-relaxed text-slate-400">
+                <p className="text-lg text-slate-400">
                   {t("content_sections.two_way_conversion_description")}
                 </p>
               </div>
@@ -326,7 +326,7 @@ export default function CmTilTommerConverter() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("content_sections.precision_control_feature")}
                 </h3>
-                <p className="text-lg leading-relaxed text-slate-400">
+                <p className="text-lg text-slate-400">
                   {t("content_sections.precision_control_description")}
                 </p>
               </div>
@@ -338,7 +338,7 @@ export default function CmTilTommerConverter() {
                 <h3 className="mb-6 text-xl font-semibold text-white">
                   {t("content_sections.professional_tools")}
                 </h3>
-                <p className="text-lg leading-relaxed text-slate-400">
+                <p className="text-lg text-slate-400">
                   {t("content_sections.professional_tools_description")}
                 </p>
               </div>

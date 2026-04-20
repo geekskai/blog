@@ -335,9 +335,7 @@ export default function PreviewPanel({ result, options, onOptionsChange }: Previ
                   h6: ({ children }) => (
                     <h6 className="mb-2 text-sm font-bold text-white">{children}</h6>
                   ),
-                  p: ({ children }) => (
-                    <p className="mb-4 leading-relaxed text-slate-300">{children}</p>
-                  ),
+                  p: ({ children }) => <p className="mb-4 text-slate-300">{children}</p>,
                   a: ({ href, children }) => (
                     <a
                       href={href}
@@ -409,7 +407,7 @@ export default function PreviewPanel({ result, options, onOptionsChange }: Previ
             </div>
           ) : (
             <div className="p-6">
-              <pre className="whitespace-pre-wrap font-mono text-sm leading-relaxed text-slate-300">
+              <pre className="whitespace-pre-wrap font-mono text-sm text-slate-300">
                 {result.markdown}
               </pre>
             </div>

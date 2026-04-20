@@ -162,7 +162,7 @@ export default function PrintTestPage() {
           </h1>
 
           {/* Subtitle */}
-          <p className="mx-auto max-w-full px-0 text-sm leading-relaxed text-slate-300 md:max-w-6xl md:px-2 md:text-base md:leading-loose lg:text-lg">
+          <p className="mx-auto max-w-full px-0 text-sm text-slate-300 md:max-w-6xl md:px-2 md:text-base md:leading-loose lg:text-lg">
             {t.rich("page_subtitle", {
               free: (chunks) => <strong className="text-emerald-400">{chunks}</strong>,
               instant: (chunks) => <strong className="text-blue-400">{chunks}</strong>,
@@ -182,7 +182,7 @@ export default function PrintTestPage() {
               <h2 className="text-base font-semibold leading-snug text-white md:text-lg md:leading-snug lg:text-2xl">
                 {t("print_section_title")}
               </h2>
-              <span className="mt-1 block text-xs leading-relaxed text-slate-300 md:mt-2 md:text-sm">
+              <span className="mt-1 block text-xs text-slate-300 md:mt-2 md:text-sm">
                 {t("print_section_description")}
               </span>
             </div>
@@ -206,7 +206,7 @@ export default function PrintTestPage() {
                   <h3 className="mb-1 text-sm font-bold leading-snug text-white md:mb-2 md:text-base lg:text-lg">
                     {t("print_type_color")}
                   </h3>
-                  <p className="mb-3 text-xs leading-relaxed text-slate-300 md:mb-4 md:text-sm">
+                  <p className="mb-3 text-xs text-slate-300 md:mb-4 md:text-sm">
                     {t("print_type_color_description")}
                   </p>
 
@@ -309,7 +309,7 @@ export default function PrintTestPage() {
                   <h3 className="mb-1 text-sm font-bold leading-snug text-white md:mb-2 md:text-base lg:text-lg">
                     {t("print_type_blackWhite")}
                   </h3>
-                  <p className="mb-3 text-xs leading-relaxed text-slate-300 md:mb-4 md:text-sm">
+                  <p className="mb-3 text-xs text-slate-300 md:mb-4 md:text-sm">
                     {t("print_type_blackWhite_description")}
                   </p>
 
@@ -412,7 +412,7 @@ export default function PrintTestPage() {
                   <h3 className="mb-1 text-sm font-bold leading-snug text-white md:mb-2 md:text-base lg:text-lg">
                     {t("print_type_cmyk")}
                   </h3>
-                  <p className="mb-3 text-xs leading-relaxed text-slate-300 md:mb-4 md:text-sm">
+                  <p className="mb-3 text-xs text-slate-300 md:mb-4 md:text-sm">
                     {t("print_type_cmyk_description")}
                   </p>
 
@@ -506,7 +506,7 @@ export default function PrintTestPage() {
                   <span className="text-base md:text-lg lg:text-xl">ℹ️</span>
                   {t("info_title")}
                 </h3>
-                <p className="text-xs leading-relaxed text-slate-300 md:text-sm md:leading-relaxed">
+                <p className="text-xs text-slate-300 md:text-sm md:leading-relaxed">
                   {t("info_description")}
                 </p>
               </div>
@@ -525,12 +525,12 @@ export default function PrintTestPage() {
               </h2>
               <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:gap-8">
                 <div>
-                  <p className="mb-3 text-sm leading-relaxed text-slate-300 md:mb-5 md:text-base md:leading-relaxed lg:mb-6 lg:text-lg">
+                  <p className="mb-3 text-sm text-slate-300 md:mb-5 md:text-base md:lg:mb-6 lg:text-lg">
                     {t.rich("section_what_is_description_1", {
                       strong: (chunks) => <strong className="text-blue-300">{chunks}</strong>,
                     })}
                   </p>
-                  <p className="text-sm leading-relaxed text-slate-300 md:text-base lg:text-lg">
+                  <p className="text-sm text-slate-300 md:text-base lg:text-lg">
                     {t.rich("section_what_is_description_2", {
                       strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
                     })}
@@ -541,7 +541,7 @@ export default function PrintTestPage() {
                     <span className="mr-2 text-lg md:mr-3 md:text-xl lg:text-2xl">✨</span>
                     {t("section_what_is_key_benefits")}
                   </h3>
-                  <ul className="space-y-2.5 text-sm leading-relaxed text-slate-300 md:space-y-3 md:text-base">
+                  <ul className="space-y-2.5 text-sm text-slate-300 md:space-y-3 md:text-base">
                     <li className="flex items-start gap-2 md:gap-3">
                       <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400 md:h-2 md:w-2"></div>
                       <span>{t("section_what_is_benefit_1")}</span>
