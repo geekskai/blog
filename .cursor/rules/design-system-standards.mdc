@@ -86,14 +86,12 @@ description: Top-tier product design standards and UI/UX optimization guidelines
 
 ```tsx
 // 主要按钮
-<button className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30">
-  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
+<button className="group overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30">
   <span className="relative">{content}</span>
 </button>
 
 // 次要按钮
-<button className="group relative overflow-hidden rounded-2xl border border-[color]/30 bg-gradient-to-br from-[color]/15 to-[color]/10 px-6 py-4 transition-all duration-300 hover:shadow-lg hover:shadow-[color]/25">
-  <div className="absolute inset-0 bg-gradient-to-br from-[color]/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+<button className="group overflow-hidden rounded-2xl border border-[color]/30 bg-gradient-to-br from-[color]/15 to-[color]/10 px-6 py-4 transition-all duration-300 hover:shadow-lg hover:shadow-[color]/25">
   <span className="relative">{content}</span>
 </button>
 ```
