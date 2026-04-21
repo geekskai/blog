@@ -546,7 +546,6 @@ export default function VinDecoder() {
             {/* Enhanced History Panel - Moved below history button */}
             {mounted && showHistory && historyItems.length > 0 && (
               <div className="mt-4 overflow-hidden rounded-2xl border border-slate-600/30 bg-gradient-to-br from-slate-800/30 via-slate-800/20 to-slate-900/30 p-4 backdrop-blur-xl sm:mt-5 sm:rounded-3xl sm:p-6 md:mt-6 md:p-8">
-
                 <div className="relative">
                   <div className="mb-4 flex flex-col gap-3 sm:mb-5 sm:flex-row sm:items-center sm:justify-between md:mb-6">
                     <h3 className="bg-gradient-to-r from-white to-slate-200 bg-clip-text text-xl font-bold text-transparent sm:text-2xl">

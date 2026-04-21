@@ -84,7 +84,7 @@ export default function ConverterInterface({ onConversion }: ConverterInterfaceP
     } finally {
       setIsLoading(false)
     }
-  }, [input, precision, conversionMode, onConversion])
+  }, [input, precision, conversionMode, onConversion, t])
 
   // Trigger conversion when input changes
   useEffect(() => {
