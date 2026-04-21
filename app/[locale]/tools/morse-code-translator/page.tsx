@@ -239,18 +239,7 @@ export default function MorseCodeGenerator() {
   )
 
   return (
-    <div className="relative min-h-screen bg-slate-950">
-      <div className="pointer-events-none absolute inset-0 opacity-[0.03]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.14) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.14) 1px, transparent 1px)",
-            backgroundSize: "52px 52px",
-          }}
-        ></div>
-      </div>
-
+    <div className="min-h-screen bg-slate-950">
       <nav className="relative mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8" aria-label="Breadcrumb">
         <ol className="flex items-center space-x-2 text-sm text-slate-400">
           <li>
@@ -353,11 +342,8 @@ export default function MorseCodeGenerator() {
           </div>
         </section>
 
-        <section className="relative mb-8 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-900/25 via-slate-900/20 to-indigo-900/25 p-8 shadow-2xl backdrop-blur-xl">
-          <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-blue-500/15 to-purple-500/15 blur-3xl"></div>
-          <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/15 blur-3xl"></div>
-
-          <div className="relative">
+        <section className="mb-8 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-900/25 via-slate-900/20 to-indigo-900/25 p-8 shadow-2xl backdrop-blur-xl">
+          <div>
             <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
               <button
                 type="button"
@@ -476,13 +462,12 @@ export default function MorseCodeGenerator() {
               <button
                 type="button"
                 onClick={handlePlay}
-                className={`group relative flex flex-1 items-center justify-center gap-2 overflow-hidden rounded-2xl px-6 py-4 font-semibold text-white transition-all duration-300 ${
+                className={`flex flex-1 items-center justify-center gap-2 overflow-hidden rounded-2xl px-6 py-4 font-semibold text-white transition-all duration-300 ${
                   isPlaying
                     ? "bg-gradient-to-r from-red-600 via-red-500 to-orange-500 shadow-xl shadow-red-500/25"
                     : "bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-purple-500/30"
                 }`}
               >
-                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
                 <span className="relative flex items-center gap-2">
                   {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
                   {isPlaying

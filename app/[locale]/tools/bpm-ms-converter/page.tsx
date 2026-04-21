@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { Music, Clock, Zap, Headphones } from "lucide-react"
 import { useTranslations } from "next-intl"
 import ConversionResults from "./components/ConversionResults"

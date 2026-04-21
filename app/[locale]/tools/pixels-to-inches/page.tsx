@@ -20,21 +20,7 @@ export default function PixelsToInchesConverter() {
   const t = useTranslations()
 
   return (
-    <div className="relative min-h-screen bg-slate-950">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-      </div>
-
+    <div className="min-h-screen bg-slate-950">
       {/* Breadcrumb Navigation */}
       <nav className="relative mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8" aria-label="Breadcrumb">
         <ol className="flex items-center space-x-2 text-sm text-slate-400">
@@ -109,12 +95,8 @@ export default function PixelsToInchesConverter() {
         </div>
 
         {/* SEO-optimized Introduction Section */}
-        <div className="relative mb-16 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/15 via-purple-500/10 to-pink-500/15 p-8 shadow-2xl backdrop-blur-xl md:p-12 lg:p-16">
+        <div className="relative mb-16 rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/15 via-purple-500/10 to-pink-500/15 p-8 shadow-2xl backdrop-blur-xl md:p-12 lg:p-16">
           {/* Decorative background elements */}
-          <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/15 blur-3xl"></div>
-          <div className="absolute -bottom-16 -left-16 h-36 w-36 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/15 blur-3xl"></div>
-          <div className="absolute right-1/4 top-1/3 h-24 w-24 rounded-full bg-gradient-to-br from-cyan-500/15 to-blue-500/10 blur-2xl"></div>
-
           <div className="relative mx-auto max-w-6xl">
             {/* Main Title */}
             <div className="mb-8 text-center">

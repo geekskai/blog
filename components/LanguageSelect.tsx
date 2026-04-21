@@ -411,9 +411,6 @@ export default function LanguageSelect() {
             isOpen ? "rotate-180 text-blue-400" : "group-hover:text-blue-400"
           }`}
         />
-
-        {/* Subtle glow effect on hover */}
-        <div className="absolute inset-0 -z-10 rounded-lg bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-100" />
       </button>
 
       {/* Dropdown Menu */}
@@ -424,9 +421,6 @@ export default function LanguageSelect() {
             : "pointer-events-none invisible -translate-y-2 opacity-0"
         }`}
       >
-        {/* Background glow effect */}
-        <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-50"></div>
-
         <div className="relative overflow-hidden rounded-xl border border-slate-700/50 bg-slate-900/95 shadow-2xl backdrop-blur-xl">
           {/* Options List */}
           <div className="grid grid-cols-2 gap-2 px-4 py-3" role="listbox">

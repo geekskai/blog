@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback } from "react"
+import React, { useState, useCallback } from "react"
 import { Calculator, Copy, Check, AlertCircle, ArrowUpDown, Ruler, DollarSign } from "lucide-react"
 import { useTranslations } from "next-intl"
 import type {
@@ -136,13 +136,8 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
 
   return (
     <div
-      className={`relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-amber-900/25 via-orange-900/20 to-yellow-900/25 p-8 shadow-2xl backdrop-blur-xl ${className}`}
+      className={`overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-amber-900/25 via-orange-900/20 to-yellow-900/25 p-8 shadow-2xl backdrop-blur-xl ${className}`}
     >
-      {/* 装饰性背景元素 */}
-      <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-amber-500/15 to-orange-500/15 blur-3xl" />
-      <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-orange-500/15 to-red-500/15 blur-3xl" />
-      <div className="absolute right-1/4 top-1/3 h-20 w-20 rounded-full bg-gradient-to-br from-yellow-500/10 to-amber-500/10 blur-2xl" />
-
       <div className="relative">
         {/* 标题区域 */}
         <div className="mb-8 text-center">
@@ -161,9 +156,8 @@ export default function CalculatorCard({ className = "", onCalculate }: Calculat
           <div className="flex justify-center">
             <button
               onClick={handleUnitSystemToggle}
-              className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-3 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-emerald-500/25"
+              className="group overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-3 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-emerald-500/25"
             >
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
               <div className="relative flex items-center gap-2">
                 <ArrowUpDown className="h-4 w-4 text-white" />
                 <span className="text-sm font-medium text-white">

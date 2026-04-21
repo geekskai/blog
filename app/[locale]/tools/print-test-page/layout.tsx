@@ -1,6 +1,6 @@
 import { supportedLocales } from "app/i18n/routing"
 import { Metadata } from "next"
-import React from "react"
+
 import { getTranslations } from "next-intl/server"
 
 export async function generateMetadata({
@@ -20,7 +20,7 @@ export async function generateMetadata({
   })
 
   // Update this monthly
-  const lastModified = new Date("2026-02-04") // Update current date
+  const lastModified = new Date("2026-04-21") // Update current date
 
   return {
     title: t("metadata_title"),

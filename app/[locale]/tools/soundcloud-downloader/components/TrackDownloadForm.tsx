@@ -145,10 +145,9 @@ export default function TrackDownloadForm(props: TrackDownloadFormProps) {
               <button
                 type="submit"
                 disabled={isLoading || !url.trim()}
-                className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-2 py-1 text-base font-medium text-white shadow-lg transition-all hover:from-blue-700 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-50 md:px-6 md:py-3 md:text-lg"
+                className="group overflow-hidden rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-2 py-1 text-base font-medium text-white shadow-lg transition-all hover:from-blue-700 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-50 md:px-6 md:py-3 md:text-lg"
               >
-                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
-                <span className="relative flex items-center justify-center gap-2">
+                <span className="flex items-center justify-center gap-2">
                   {isLoading ? (
                     <>
                       <LoadingSpinner />
@@ -177,10 +176,9 @@ export default function TrackDownloadForm(props: TrackDownloadFormProps) {
                   type="button"
                   onClick={props.onDownload}
                   disabled={props.downloading || !url.trim() || isLoading}
-                  className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 px-2 py-1 text-base font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:cursor-not-allowed disabled:opacity-50 md:px-6 md:py-3 md:text-lg"
+                  className="group overflow-hidden rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 px-2 py-1 text-base font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:cursor-not-allowed disabled:opacity-50 md:px-6 md:py-3 md:text-lg"
                 >
-                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
-                  <span className="relative flex items-center justify-center gap-2">
+                  <span className="flex items-center justify-center gap-2">
                     {props.downloading ? (
                       <>
                         <LoadingSpinner />

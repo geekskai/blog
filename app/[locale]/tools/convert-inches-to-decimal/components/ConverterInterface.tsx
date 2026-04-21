@@ -131,11 +131,7 @@ export default function ConverterInterface({ onConversion }: ConverterInterfaceP
   }
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-orange-500/30 bg-gradient-to-br from-orange-500/25 via-orange-500/20 to-red-500/25 p-8 shadow-2xl backdrop-blur-xl">
-      {/* Decorative background elements */}
-      <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-orange-500/15 to-red-500/15 blur-3xl"></div>
-      <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-red-500/15 to-orange-500/15 blur-3xl"></div>
-
+    <div className="overflow-hidden rounded-3xl border border-orange-500/30 bg-gradient-to-br from-orange-500/25 via-orange-500/20 to-red-500/25 p-8 shadow-2xl backdrop-blur-xl">
       <div className="relative">
         {/* Header */}
         <div className="mb-8 text-center">
@@ -300,7 +296,6 @@ export default function ConverterInterface({ onConversion }: ConverterInterfaceP
                   onClick={() => handleCopy("both")}
                   className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 px-4 py-2 text-sm font-bold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/30"
                 >
-                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
                   <span className="relative">📋 {t("converter_interface.buttons.copy")}</span>
                 </button>
 

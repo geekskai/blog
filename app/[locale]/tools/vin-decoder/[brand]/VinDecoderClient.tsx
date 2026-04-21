@@ -607,7 +607,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
                       <div className="grid grid-cols-2 gap-2 md:flex md:flex-wrap md:justify-center md:gap-3">
                         <button
                           onClick={handleCopy}
-                          className="group relative overflow-hidden rounded-xl border border-slate-600/30 bg-gradient-to-br from-slate-700/40 to-slate-800/40 px-3 py-2 text-base font-medium text-slate-300 backdrop-blur-xl transition-all duration-300 hover:border-slate-500/50 hover:shadow-lg hover:shadow-slate-500/20 md:rounded-2xl md:px-5 md:py-3 md:text-lg"
+                          className="group overflow-hidden rounded-xl border border-slate-600/30 bg-gradient-to-br from-slate-700/40 to-slate-800/40 px-3 py-2 text-base font-medium text-slate-300 backdrop-blur-xl transition-all duration-300 hover:border-slate-500/50 hover:shadow-lg hover:shadow-slate-500/20 md:rounded-2xl md:px-5 md:py-3 md:text-lg"
                         >
                           <div className="relative flex items-center justify-center gap-1.5 md:gap-2">
                             {copyStatus === "copied" ? (
@@ -627,7 +627,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
 
                         <button
                           onClick={() => handleExport({ type: "json", includeRaw: false })}
-                          className="group relative overflow-hidden rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-emerald-600/10 px-3 py-2.5 text-sm font-medium text-emerald-300 backdrop-blur-xl transition-all duration-300 hover:border-emerald-400/50 hover:shadow-lg hover:shadow-emerald-500/20 md:rounded-2xl md:px-5 md:py-3 md:text-base"
+                          className="group overflow-hidden rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-emerald-600/10 px-3 py-2.5 text-sm font-medium text-emerald-300 backdrop-blur-xl transition-all duration-300 hover:border-emerald-400/50 hover:shadow-lg hover:shadow-emerald-500/20 md:rounded-2xl md:px-5 md:py-3 md:text-base"
                         >
                           <div className="relative flex items-center justify-center gap-1.5 md:gap-2">
                             <Database className="h-4 w-4 md:h-5 md:w-5" />
@@ -753,7 +753,6 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
                   href={`/tools/vin-decoder/${otherBrand.slug}`}
                   className={`group relative overflow-hidden rounded-xl border ${colorScheme.border} bg-gradient-to-br ${colorScheme.bg} p-3 text-center backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:shadow-xl md:rounded-2xl md:p-4 ${colorScheme.glow}`}
                 >
-                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/5 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
                   <div className="relative">
                     <h3 className="truncate text-sm font-bold text-white md:text-lg">
                       {otherBrand.name}

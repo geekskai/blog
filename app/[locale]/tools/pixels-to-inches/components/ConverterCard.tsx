@@ -170,12 +170,7 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
     <div
       className={`relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900/25 via-slate-800/20 to-slate-900/25 p-8 shadow-2xl backdrop-blur-xl ${className}`}
     >
-      {/* 装饰性背景元素 */}
-      <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-blue-500/15 to-cyan-500/10 blur-3xl" />
-      <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/15 blur-3xl" />
-      <div className="absolute right-1/4 top-1/3 h-20 w-20 rounded-full bg-gradient-to-br from-cyan-500/10 to-blue-500/10 blur-2xl" />
-
-      <div className="relative">
+      <div>
         {/* 标题区域 */}
         <div className="mb-8 text-center">
           <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/15 to-cyan-500/10 px-6 py-3 backdrop-blur-sm">
@@ -289,9 +284,8 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
             <button
               onClick={handleCopy}
               disabled={copyStatus === "copying"}
-              className={`group relative col-span-1 overflow-hidden rounded-2xl px-6 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70 sm:col-span-1 ${copyButtonContent.className}`}
+              className={`group relative col-span-1 rounded-2xl px-6 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70 sm:col-span-1 ${copyButtonContent.className}`}
             >
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
               <div className="relative flex items-center justify-center gap-2">
                 {copyButtonContent.icon}
                 <span className="hidden sm:inline">{copyButtonContent.text}</span>
@@ -303,7 +297,6 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
               onClick={handleReload}
               className="group relative overflow-hidden rounded-2xl border border-slate-500/30 bg-gradient-to-br from-slate-700/15 to-slate-600/10 px-6 py-4 text-sm font-medium text-slate-300 transition-all duration-300 hover:border-slate-400/50 hover:bg-slate-700/25 hover:text-white"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <span className="relative">{t("converter_card.reload_calculator")}</span>
             </button>
 
@@ -312,7 +305,6 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
               onClick={handleClear}
               className="group relative overflow-hidden rounded-2xl border border-slate-500/30 bg-gradient-to-br from-slate-700/15 to-slate-600/10 px-6 py-4 text-sm font-medium text-slate-300 transition-all duration-300 hover:border-slate-400/50 hover:bg-slate-700/25 hover:text-white"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <span className="relative">{t("converter_card.clear_all")}</span>
             </button>
           </div>

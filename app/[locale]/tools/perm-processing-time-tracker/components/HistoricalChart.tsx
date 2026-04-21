@@ -159,7 +159,6 @@ export default function HistoricalChart({ data }: HistoricalChartProps) {
                             {point.remainingCases.toLocaleString()} {t("current_data.cases")}
                           </p>
                         </div>
-                        <div className="absolute left-1/2 top-full h-2 w-2 -translate-x-1/2 rotate-45 transform bg-slate-900"></div>
                       </div>
 
                       {/* Bar */}

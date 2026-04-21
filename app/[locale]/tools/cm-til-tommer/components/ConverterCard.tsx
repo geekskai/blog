@@ -123,13 +123,6 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
     <div
       className={`relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900/25 via-slate-800/20 to-slate-900/25 p-8 shadow-2xl backdrop-blur-xl ${className}`}
     >
-      {/* 装饰性背景元素 */}
-      <div
-        className={`absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br ${colors.gradient} blur-3xl`}
-      />
-      <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/15 blur-3xl" />
-      <div className="absolute right-1/4 top-1/3 h-20 w-20 rounded-full bg-gradient-to-br from-cyan-500/10 to-blue-500/10 blur-2xl" />
-
       <div className="relative">
         {/* 标题区域 */}
         <div className="mb-8 text-center">

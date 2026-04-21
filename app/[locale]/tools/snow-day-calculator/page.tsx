@@ -372,23 +372,8 @@ export default function SnowDayCalculator() {
   ]
 
   return (
-    <div className="relative min-h-screen bg-slate-950">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-      </div>
-
-      {/* Breadcrumb Navigation */}
-      <nav className="relative mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8" aria-label="Breadcrumb">
+    <div className="min-h-screen bg-slate-950">
+      <nav className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8" aria-label="Breadcrumb">
         <ol className="flex items-center space-x-2 text-sm text-slate-400">
           <li>
             <Link href="/" className="flex items-center transition-colors hover:text-slate-200">
@@ -524,13 +509,8 @@ export default function SnowDayCalculator() {
 
         {/* Search Section */}
         <div className="mx-auto mb-16 max-w-6xl">
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-900/25 via-purple-900/20 to-indigo-900/25 p-8 shadow-2xl backdrop-blur-xl">
-            {/* Animated background elements */}
-            <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-blue-500/15 to-purple-500/15 blur-3xl"></div>
-            <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/15 blur-3xl"></div>
-            <div className="absolute right-1/4 top-1/3 h-20 w-20 rounded-full bg-gradient-to-br from-cyan-500/10 to-blue-500/10 blur-2xl"></div>
-
-            <div className="relative">
+          <div className="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-900/25 via-purple-900/20 to-indigo-900/25 p-8 shadow-2xl backdrop-blur-xl">
+            <div>
               {/* Search Type Selector */}
               <div className="mb-10">
                 <div className="mb-6 text-center">
@@ -748,9 +728,8 @@ export default function SnowDayCalculator() {
                       <button
                         type="submit"
                         disabled={loading || !location.trim()}
-                        className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 hover:shadow-2xl hover:shadow-purple-500/30 focus:outline-none focus:ring-4 focus:ring-purple-500/50 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:from-blue-600 disabled:hover:via-purple-600 disabled:hover:to-pink-600"
+                        className="group overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 hover:shadow-2xl hover:shadow-purple-500/30 focus:outline-none focus:ring-4 focus:ring-purple-500/50 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:from-blue-600 disabled:hover:via-purple-600 disabled:hover:to-pink-600"
                       >
-                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
                         <span className="relative flex items-center gap-3">
                           {loading ? (
                             <>
@@ -771,10 +750,9 @@ export default function SnowDayCalculator() {
                         type="button"
                         onClick={handleGeoLocation}
                         disabled={loading}
-                        className="group relative overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-teal-500/10 px-6 py-4 text-white backdrop-blur-sm transition-all duration-300 hover:border-emerald-400/50 hover:from-emerald-500/20 hover:to-teal-500/15 hover:shadow-lg hover:shadow-emerald-500/25 focus:outline-none focus:ring-4 focus:ring-emerald-500/20 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="group overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-teal-500/10 px-6 py-4 text-white backdrop-blur-sm transition-all duration-300 hover:border-emerald-400/50 hover:from-emerald-500/20 hover:to-teal-500/15 hover:shadow-lg hover:shadow-emerald-500/25 focus:outline-none focus:ring-4 focus:ring-emerald-500/20 disabled:cursor-not-allowed disabled:opacity-50"
                         title={t("search.buttons.gps_title")}
                       >
-                        <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                         <MapPin className="relative h-6 w-6 text-emerald-300" />
                       </button>
                     </div>
@@ -811,9 +789,8 @@ export default function SnowDayCalculator() {
                             searchWeather(item, "city")
                           }
                         }}
-                        className="to-white/2 group relative overflow-hidden rounded-xl border border-white/20 bg-gradient-to-br from-white/5 p-3 text-left transition-all duration-300 hover:border-white/40 hover:from-white/10 hover:to-white/5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                        className="to-white/2 group overflow-hidden rounded-xl border border-white/20 bg-gradient-to-br from-white/5 p-3 text-left transition-all duration-300 hover:border-white/40 hover:from-white/10 hover:to-white/5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500/50"
                       >
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                         <div className="relative flex items-center gap-3">
                           <div className="flex h-6 w-6 items-center justify-center rounded-md bg-white/10">
                             <MapPin className="h-3 w-3 text-slate-400" />
@@ -830,8 +807,7 @@ export default function SnowDayCalculator() {
 
               {/* Enhanced Error Display */}
               {error && (
-                <div className="relative overflow-hidden rounded-2xl border border-red-500/30 bg-gradient-to-br from-red-500/15 to-orange-500/10 p-6 shadow-lg shadow-red-500/25 backdrop-blur-sm">
-                  <div className="absolute inset-0 bg-gradient-to-br from-red-400/5 to-transparent"></div>
+                <div className="overflow-hidden rounded-2xl border border-red-500/30 bg-gradient-to-br from-red-500/15 to-orange-500/10 p-6 shadow-lg shadow-red-500/25 backdrop-blur-sm">
                   <div className="relative flex items-start gap-4">
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-red-400 to-orange-500 shadow-lg">
                       <AlertCircle className="h-6 w-6 text-white" />
@@ -939,8 +915,7 @@ export default function SnowDayCalculator() {
                   {t("results.weather_data.description")}
                 </p>
                 <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
-                  <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/10">
-                    <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-orange-500/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                  <div className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/10">
                     <div className="relative">
                       <Thermometer className="mx-auto mb-3 h-10 w-10 text-red-400" />
                       <div className="mb-2 text-3xl font-bold text-white">
@@ -958,7 +933,6 @@ export default function SnowDayCalculator() {
                   </div>
 
                   <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/10">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                     <div className="relative">
                       <Wind className="mx-auto mb-3 h-10 w-10 text-blue-400" />
                       <div className="mb-2 text-3xl font-bold text-white">
@@ -976,7 +950,6 @@ export default function SnowDayCalculator() {
                   </div>
 
                   <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/10">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                     <div className="relative">
                       <Eye className="mx-auto mb-3 h-10 w-10 text-purple-400" />
                       <div className="mb-2 text-3xl font-bold text-white">
@@ -994,7 +967,6 @@ export default function SnowDayCalculator() {
                   </div>
 
                   <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/10">
-                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-blue-500/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                     <div className="relative">
                       <CloudSnow className="mx-auto mb-3 h-10 w-10 text-indigo-400" />
                       <div className="mb-2 text-3xl font-bold text-white">
@@ -1069,12 +1041,8 @@ export default function SnowDayCalculator() {
         {/* Features Section (when no results) */}
         {!weatherData && !loading && (
           <div className="mx-auto max-w-6xl">
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-indigo-900/20 via-blue-900/15 to-purple-900/20 p-8 shadow-2xl backdrop-blur-xl">
-              {/* Animated background elements */}
-              <div className="absolute -left-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br from-indigo-500/10 to-blue-500/10 blur-3xl"></div>
-              <div className="absolute -bottom-10 -right-10 h-28 w-28 rounded-full bg-gradient-to-br from-purple-500/10 to-pink-500/10 blur-3xl"></div>
-
-              <div className="relative">
+            <div className="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-indigo-900/20 via-blue-900/15 to-purple-900/20 p-8 shadow-2xl backdrop-blur-xl">
+              <div>
                 <div className="mb-12 text-center">
                   <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-3 backdrop-blur-sm">
                     <span className="text-2xl">⚡</span>
@@ -1091,9 +1059,7 @@ export default function SnowDayCalculator() {
 
                 <div className="grid gap-8 md:grid-cols-3">
                   {/* Real-time Data Card */}
-                  <div className="group relative overflow-hidden rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-500/10 via-cyan-500/5 to-blue-900/10 p-8 text-center transition-all duration-500 hover:border-blue-400/40 hover:from-blue-500/15 hover:to-cyan-500/10 hover:shadow-2xl hover:shadow-blue-500/25">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-
+                  <div className="group overflow-hidden rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-500/10 via-cyan-500/5 to-blue-900/10 p-8 text-center transition-all duration-500 hover:border-blue-400/40 hover:from-blue-500/15 hover:to-cyan-500/10 hover:shadow-2xl hover:shadow-blue-500/25">
                     <div className="relative">
                       <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-400 to-cyan-500 shadow-lg">
                         <Snowflake className="h-8 w-8 text-white" />
@@ -1120,8 +1086,6 @@ export default function SnowDayCalculator() {
 
                   {/* Smart Algorithm Card */}
                   <div className="group relative overflow-hidden rounded-2xl border border-orange-500/20 bg-gradient-to-br from-orange-500/10 via-amber-500/5 to-red-900/10 p-8 text-center transition-all duration-500 hover:border-orange-400/40 hover:from-orange-500/15 hover:to-amber-500/10 hover:shadow-2xl hover:shadow-orange-500/25">
-                    <div className="absolute inset-0 bg-gradient-to-br from-orange-400/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-
                     <div className="relative">
                       <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-400 to-amber-500 shadow-lg">
                         <AlertCircle className="h-8 w-8 text-white" />
@@ -1148,8 +1112,6 @@ export default function SnowDayCalculator() {
 
                   {/* Location Accurate Card */}
                   <div className="group relative overflow-hidden rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-green-900/10 p-8 text-center transition-all duration-500 hover:border-emerald-400/40 hover:from-emerald-500/15 hover:to-teal-500/10 hover:shadow-2xl hover:shadow-emerald-500/25">
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-
                     <div className="relative">
                       <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 shadow-lg">
                         <MapPin className="h-8 w-8 text-white" />
@@ -1214,12 +1176,8 @@ export default function SnowDayCalculator() {
 
         {/* SEO Content Section */}
         <div className="mx-auto mt-20 max-w-6xl">
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-900/20 via-purple-900/15 to-slate-900/20 p-8 shadow-2xl backdrop-blur-xl">
-            {/* Animated background elements */}
-            <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-gradient-to-br from-blue-500/10 to-purple-500/10 blur-3xl"></div>
-            <div className="absolute -bottom-20 -left-20 h-32 w-32 rounded-full bg-gradient-to-br from-purple-500/10 to-pink-500/10 blur-3xl"></div>
-
-            <div className="relative grid gap-12 lg:grid-cols-2">
+          <div className="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-900/20 via-purple-900/15 to-slate-900/20 p-8 shadow-2xl backdrop-blur-xl">
+            <div className="grid gap-12 lg:grid-cols-2">
               <div>
                 <h2 className="mb-6 text-3xl font-bold text-white">
                   {t("seo_content.how_it_works.title")}
@@ -1237,7 +1195,6 @@ export default function SnowDayCalculator() {
                   </p>
                   <div className="mt-6 grid gap-4 sm:grid-cols-2">
                     <div className="group relative overflow-hidden rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 p-4 transition-all duration-300 hover:border-blue-400/40 hover:from-blue-500/15 hover:to-cyan-500/10">
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                       <div className="relative flex items-center gap-3">
                         <div className="rounded-lg bg-blue-500/20 p-2">
                           <Snowflake className="h-5 w-5 text-blue-300" />
@@ -1249,7 +1206,6 @@ export default function SnowDayCalculator() {
                     </div>
 
                     <div className="group relative overflow-hidden rounded-xl border border-red-500/20 bg-gradient-to-br from-red-500/10 to-orange-500/5 p-4 transition-all duration-300 hover:border-red-400/40 hover:from-red-500/15 hover:to-orange-500/10">
-                      <div className="absolute inset-0 bg-gradient-to-br from-red-400/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                       <div className="relative flex items-center gap-3">
                         <div className="rounded-lg bg-red-500/20 p-2">
                           <Thermometer className="h-5 w-5 text-red-300" />
@@ -1261,7 +1217,6 @@ export default function SnowDayCalculator() {
                     </div>
 
                     <div className="group relative overflow-hidden rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/10 to-teal-500/5 p-4 transition-all duration-300 hover:border-emerald-400/40 hover:from-emerald-500/15 hover:to-teal-500/10">
-                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                       <div className="relative flex items-center gap-3">
                         <div className="rounded-lg bg-emerald-500/20 p-2">
                           <Wind className="h-5 w-5 text-emerald-300" />
@@ -1273,7 +1228,6 @@ export default function SnowDayCalculator() {
                     </div>
 
                     <div className="group relative overflow-hidden rounded-xl border border-purple-500/20 bg-gradient-to-br from-purple-500/10 to-pink-500/5 p-4 transition-all duration-300 hover:border-purple-400/40 hover:from-purple-500/15 hover:to-pink-500/10">
-                      <div className="absolute inset-0 bg-gradient-to-br from-purple-400/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                       <div className="relative flex items-center gap-3">
                         <div className="rounded-lg bg-purple-500/20 p-2">
                           <Eye className="h-5 w-5 text-purple-300" />
@@ -1374,12 +1328,8 @@ export default function SnowDayCalculator() {
               </div>
             </div>
 
-            <div className="relative mt-12 overflow-hidden rounded-2xl border-t border-white/20 bg-gradient-to-br from-slate-800/50 to-slate-900/50 pt-8 backdrop-blur-sm">
-              {/* Decorative elements */}
-              <div className="absolute right-0 top-0 h-20 w-20 rounded-full bg-gradient-to-br from-blue-400/10 to-purple-400/10 blur-2xl"></div>
-              <div className="absolute bottom-0 left-1/3 h-16 w-16 rounded-full bg-gradient-to-br from-pink-400/10 to-orange-400/10 blur-2xl"></div>
-
-              <div className="relative text-center">
+            <div className="mt-12 overflow-hidden rounded-2xl border-t border-white/20 bg-gradient-to-br from-slate-800/50 to-slate-900/50 pt-8 backdrop-blur-sm">
+              <div className="text-center">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-2 backdrop-blur-sm">
                   <span className="text-2xl">🎓</span>
                   <h3 className="bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-xl font-semibold text-transparent">

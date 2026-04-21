@@ -214,7 +214,6 @@ export default function TrackInfoCard({
                 className="object-cover transition-transform duration-500 hover:scale-110"
                 unoptimized
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
           )}
 
@@ -399,9 +398,8 @@ export default function TrackInfoCard({
             <button
               onClick={onDownload}
               disabled={isDownloading || !downloadable}
-              className="group relative flex-1 overflow-hidden rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-8 py-4 text-base font-bold text-white shadow-xl shadow-emerald-500/20 transition-all hover:scale-[1.02] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 sm:flex-initial"
+              className="group flex-1 overflow-hidden rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-8 py-4 text-base font-bold text-white shadow-xl shadow-emerald-500/20 transition-all hover:scale-[1.02] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 sm:flex-initial"
             >
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-1000 group-hover:translate-x-full"></div>
               <span className="relative flex items-center justify-center gap-3">
                 {isDownloading ? (
                   <>

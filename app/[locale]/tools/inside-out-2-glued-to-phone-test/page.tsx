@@ -108,13 +108,6 @@ const EmotionPhoneTest: React.FC = () => {
 
       {/* 主要内容区域 */}
       <main className="relative">
-        {/* 背景装饰 */}
-        <div className="pointer-events-none fixed inset-0 overflow-hidden">
-          <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-gradient-to-br from-blue-500/10 to-purple-500/10 blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-gradient-to-br from-purple-500/10 to-pink-500/10 blur-3xl" />
-          <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-gradient-to-br from-cyan-500/5 to-blue-500/5 blur-3xl" />
-        </div>
-
         {/* 内容渲染 */}
         <div className="relative z-10">
           {appState === "start" && (

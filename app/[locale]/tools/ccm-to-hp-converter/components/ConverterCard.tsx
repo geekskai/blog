@@ -204,12 +204,8 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
 
   return (
     <div
-      className={`relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-orange-900/25 via-red-900/20 to-pink-900/25 p-8 shadow-2xl backdrop-blur-xl ${className}`}
+      className={`overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-orange-900/25 via-red-900/20 to-pink-900/25 p-8 shadow-2xl backdrop-blur-xl ${className}`}
     >
-      {/* Decorative background elements */}
-      <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-orange-500/15 to-red-500/15 blur-3xl" />
-      <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-red-500/15 to-pink-500/15 blur-3xl" />
-
       <div className="relative">
         {/* Header */}
         <div className="mb-8">
@@ -434,9 +430,8 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
           <div className="flex justify-center">
             <button
               onClick={toggleDirection}
-              className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 p-4 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-emerald-500/25"
+              className="group overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 p-4 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-emerald-500/25"
             >
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
               <ArrowUpDown className="relative h-6 w-6 text-white transition-transform duration-300 group-hover:rotate-180" />
             </button>
           </div>
@@ -487,7 +482,6 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
               disabled={!result || copyStatus === "copying"}
               className="group relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 px-6 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:from-orange-600 hover:to-red-600 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70"
             >
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
               <div className="relative flex items-center justify-center gap-2">
                 {copyStatus === "copying" ? (
                   <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
@@ -511,7 +505,6 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
               disabled={!result || shareStatus === "copying"}
               className="group relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:from-blue-600 hover:to-purple-600 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70"
             >
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
               <div className="relative flex items-center justify-center gap-2">
                 {shareStatus === "copying" ? (
                   <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
@@ -535,7 +528,6 @@ export default function ConverterCard({ className = "" }: ConverterCardProps) {
               disabled={!result}
               className="group relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:from-emerald-600 hover:to-teal-600 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70"
             >
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
               <div className="relative flex items-center justify-center gap-2">
                 <Share2 className="h-4 w-4" />
                 <span className="text-sm">{t("converter_card.copy_url")}</span>

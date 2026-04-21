@@ -233,9 +233,8 @@ export default async function VehicleTypeVinDecoderPage({ params }: VehicleTypeP
                 <Link
                   key={brand.slug}
                   href={`/tools/vin-decoder/${brand.slug}`}
-                  className={`group relative overflow-hidden rounded-xl border ${scheme.border} bg-gradient-to-br ${scheme.bg} p-3 text-center backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:shadow-xl ${scheme.glow}`}
+                  className={`group overflow-hidden rounded-xl border ${scheme.border} bg-gradient-to-br ${scheme.bg} p-3 text-center backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:shadow-xl ${scheme.glow}`}
                 >
-                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/5 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
                   <div className="relative">
                     <h3 className="truncate text-sm font-semibold text-white">{brand.name}</h3>
                     <p className="mt-1 text-xs text-slate-300">

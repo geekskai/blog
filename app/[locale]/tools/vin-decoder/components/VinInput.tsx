@@ -255,7 +255,6 @@ export default function VinInput({
       {/* Enhanced Error Message */}
       {error && (
         <div className="relative mt-2 overflow-hidden rounded-lg border border-red-500/30 bg-gradient-to-br from-red-500/15 to-pink-500/10 p-2.5 backdrop-blur-xl sm:mt-3 sm:p-3 md:mt-4 md:rounded-2xl md:p-6">
-          <div className="absolute -right-4 -top-4 h-10 w-10 rounded-full bg-gradient-to-br from-red-500/10 to-pink-500/10 blur-2xl md:-right-8 md:-top-8 md:h-16 md:w-16" />
           <div className="relative flex items-start gap-2 sm:gap-3 md:gap-4">
             <div className="rounded-lg bg-red-500/20 p-1.5 sm:p-2 md:rounded-xl md:p-3">
               <AlertCircle className="h-3 w-3 text-red-400 sm:h-4 sm:w-4 md:h-5 md:w-5 lg:h-6 lg:w-6" />
@@ -329,7 +328,6 @@ export default function VinInput({
                   onClick={() => handleExampleClick(example.vin)}
                   className={`group relative overflow-hidden rounded-lg border ${colorScheme.border} bg-gradient-to-br ${colorScheme.bg} p-2.5 text-left backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:shadow-lg sm:min-h-[44px] sm:p-3 md:rounded-2xl md:p-4 ${colorScheme.glow}`}
                 >
-                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/5 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
                   <div className="relative">
                     <div className="break-all font-mono text-xs font-bold text-white sm:text-sm md:text-base">
                       {example.vin}
@@ -347,7 +345,6 @@ export default function VinInput({
 
       {/* Enhanced VIN Location Hints */}
       <div className="relative mt-3 overflow-hidden rounded-lg border border-slate-600/30 bg-gradient-to-br from-slate-800/40 via-slate-800/30 to-slate-900/40 p-2.5 backdrop-blur-xl sm:mt-4 sm:p-3 md:mt-8 md:rounded-2xl md:p-6">
-        <div className="absolute -bottom-4 -right-4 h-10 w-10 rounded-full bg-gradient-to-br from-slate-500/10 to-slate-600/10 blur-2xl md:-bottom-8 md:-right-8 md:h-16 md:w-16" />
         <div className="relative">
           <h4 className="mb-1.5 bg-gradient-to-r from-white to-slate-200 bg-clip-text text-xs font-bold text-transparent sm:mb-2 sm:text-sm md:mb-4 md:text-lg">
             {t("where_to_find_title")}

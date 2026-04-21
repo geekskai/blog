@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl"
 import { ConversionMode } from "../types"
 import { CONVERSION_MODES } from "../utils"
-
+import React from "react"
 interface ConversionModeToggleProps {
   currentMode: ConversionMode["id"]
   onModeChange: (mode: ConversionMode["id"]) => void

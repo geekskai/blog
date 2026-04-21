@@ -17,10 +17,9 @@ const HeaderControls: React.FC<HeaderControlsProps> = ({
     <div className="mb-6 space-y-4">
       <div className="flex flex-wrap items-center gap-3">
         <button
-          className="group relative overflow-hidden rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-4 py-2 text-sm font-medium text-blue-300 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
+          className="group overflow-hidden rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-4 py-2 text-sm font-medium text-blue-300 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
           onClick={() => fileInputRef.current?.click()}
         >
-          <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/10 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
           <span className="relative flex items-center gap-2">
             <svg
               className="h-4 w-4"
@@ -55,10 +54,9 @@ const HeaderControls: React.FC<HeaderControlsProps> = ({
         </button>
         <button
           onClick={removeAllFiles}
-          className="group relative overflow-hidden rounded-xl border border-red-500/30 bg-gradient-to-r from-red-500/10 to-red-500/10 px-4 py-2 text-sm font-medium text-red-300 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/25"
+          className="group overflow-hidden rounded-xl border border-red-500/30 bg-gradient-to-r from-red-500/10 to-red-500/10 px-4 py-2 text-sm font-medium text-red-300 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/25"
           aria-label={t("clear_file_list_aria")}
         >
-          <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/10 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
           <span className="relative flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"

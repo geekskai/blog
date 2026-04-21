@@ -181,12 +181,9 @@ export default function ConversionInput({
               <button
                 key={bpm}
                 onClick={() => onChange(bpm.toString())}
-                className="group relative overflow-hidden rounded-lg border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-blue-500/5 px-4 py-2 text-sm font-medium text-blue-300 transition-all duration-300 hover:border-blue-400/50 hover:from-blue-500/20 hover:to-blue-500/10"
+                className="group overflow-hidden rounded-lg border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-blue-500/5 px-4 py-2 text-sm font-medium text-blue-300 transition-all duration-300 hover:border-blue-400/50 hover:from-blue-500/20 hover:to-blue-500/10"
               >
-                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/10 to-white/0 transition-transform duration-500 group-hover:translate-x-full"></div>
-                <span className="relative">
-                  {bpm} {t("quick_converter.bpm_label")}
-                </span>
+                {bpm} {t("quick_converter.bpm_label")}
               </button>
             ))}
           </div>

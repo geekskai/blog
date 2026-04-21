@@ -1,14 +1,16 @@
 "use client"
 
-import { useState, useRef } from "react"
+import React, { useState, useRef } from "react"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
-import React from "react"
 import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
+
+// @ts-ignore
 import Color from "public/static/images/tools/print-test-page/color-print-colors-and-fonts.png"
+// @ts-ignore
 import BlackWhite from "public/static/images/tools/print-test-page/gray-print-colors-and-fonts.png"
+// @ts-ignore
 import CMYK from "public/static/images/tools/print-test-page/CMYK.png"
-// import GeeksKaiWechat from "public/static/images/geekskai-wechat.jpg"
 
 // Public paths for print window (must use absolute paths)
 const PRINT_IMAGE_PATHS = {
@@ -139,20 +141,7 @@ export default function PrintTestPage() {
   }
 
   return (
-    <div className="relative min-h-screen bg-slate-950">
-      {/* Subtle geometric background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-          `,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-      </div>
+    <div className="min-h-screen bg-slate-950">
       <div className="relative mx-auto max-w-4xl space-y-4 px-4 py-5 md:max-w-5xl md:space-y-6 md:px-6 md:py-6 lg:max-w-7xl lg:space-y-8 lg:px-8 lg:py-8">
         {/* Header Section - SEO Optimized */}
         <header className="text-center">
@@ -170,7 +159,7 @@ export default function PrintTestPage() {
             })}
           </p>
           {/* Content Freshness Badge */}
-          <ContentFreshnessBadge lastModified={new Date("2026-02-04")} namespace="PrintTestPage" />
+          <ContentFreshnessBadge lastModified={new Date("2026-04-21")} namespace="PrintTestPage" />
         </header>
 
         <GoogleAdUnitWrap />
@@ -257,7 +246,6 @@ export default function PrintTestPage() {
                     disabled={downloadingType !== null}
                     className="group/btn relative mt-2 min-h-[48px] w-full overflow-hidden rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-purple-500/10 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:border-blue-400/50 hover:shadow-xl hover:shadow-purple-500/30 disabled:cursor-not-allowed disabled:opacity-50 md:min-h-[44px] md:px-5 md:py-3 lg:px-6 lg:text-base"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100"></div>
                     <span className="relative flex items-center justify-center gap-2">
                       {downloadingType === "color" ? (
                         <>
@@ -360,7 +348,6 @@ export default function PrintTestPage() {
                     disabled={downloadingType !== null}
                     className="group/btn relative mt-2 min-h-[48px] w-full overflow-hidden rounded-xl border border-slate-500/30 bg-gradient-to-br from-slate-500/15 to-gray-500/10 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-slate-500/25 transition-all duration-300 hover:border-slate-400/50 hover:shadow-xl hover:shadow-gray-500/30 disabled:cursor-not-allowed disabled:opacity-50 md:min-h-[44px] md:px-5 md:py-3 lg:px-6 lg:text-base"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-slate-500/5 opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100"></div>
                     <span className="relative flex items-center justify-center gap-2">
                       {downloadingType === "blackWhite" ? (
                         <>
@@ -463,7 +450,6 @@ export default function PrintTestPage() {
                     disabled={downloadingType !== null}
                     className="group/btn relative mt-2 min-h-[48px] w-full overflow-hidden rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/15 to-yellow-500/10 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:border-cyan-400/50 hover:shadow-xl hover:shadow-yellow-500/30 disabled:cursor-not-allowed disabled:opacity-50 md:min-h-[44px] md:px-5 md:py-3 lg:px-6 lg:text-base"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100"></div>
                     <span className="relative flex items-center justify-center gap-2">
                       {downloadingType === "cmyk" ? (
                         <>

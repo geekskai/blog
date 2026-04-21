@@ -41,10 +41,6 @@ export default function ShareCard({ score, resultLevel, traitScores, mode }: Sha
         ref={cardRef}
         className="relative mx-auto w-full max-w-md overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8 shadow-2xl"
       >
-        {/* Background decoration */}
-        <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 blur-3xl"></div>
-        <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 blur-3xl"></div>
-
         {/* Content */}
         <div className="relative z-10">
           {/* Header */}

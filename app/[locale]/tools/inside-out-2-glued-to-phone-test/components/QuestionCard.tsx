@@ -108,10 +108,6 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
 
       {/* 问题卡片 */}
       <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900/80 via-slate-800/60 to-slate-900/80 shadow-2xl backdrop-blur-xl">
-        {/* 装饰性背景元素 */}
-        <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-blue-500/15 to-purple-500/15 blur-3xl" />
-        <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/15 blur-3xl" />
-
         <div className="relative p-8 md:p-12">
           {/* 问题标题 */}
           <div className="mb-8">
@@ -217,11 +213,6 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
                 }
               `}
             >
-              {/* 光线扫过效果 */}
-              {selectedOption && !isSubmitting && (
-                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
-              )}
-
               <span className="relative flex items-center gap-2">
                 {isSubmitting ? (
                   <>

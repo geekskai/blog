@@ -54,7 +54,6 @@ export const ContentSections: React.FC = () => {
       <div className="mt-40 space-y-24">
         {/* About Section */}
         <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
-          <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-orange-500/5 to-yellow-500/10"></div>
           <div className="relative z-10">
             <h2 className="mb-8 text-3xl font-bold text-white">
               {t("content.create_professional_title")}

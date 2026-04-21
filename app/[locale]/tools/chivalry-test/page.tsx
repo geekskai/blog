@@ -119,20 +119,6 @@ const ChivalryTest = () => {
 
   return (
     <div className="relative min-h-screen bg-slate-950">
-      {/* Subtle geometric background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-          `,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-      </div>
-
       <div className="relative mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Header Section - SEO Optimized */}
         <header className="mb-12 text-center">

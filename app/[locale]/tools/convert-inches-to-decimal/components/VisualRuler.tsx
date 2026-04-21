@@ -230,8 +230,6 @@ export function CompactRuler({
       </div>
 
       <div className="relative mt-2 h-8">
-        <div className="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 bg-blue-500/50"></div>
-
         {/* Major marks */}
         {[0, 0.5, 1, 1.5, 2, 2.5, 3].map((pos) => (
           <div

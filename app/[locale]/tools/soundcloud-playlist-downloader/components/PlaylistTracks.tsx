@@ -86,9 +86,8 @@ export default function PlaylistTracks({
         <button
           onClick={onDownloadAll}
           disabled={isDownloading}
-          className="group relative shrink-0 overflow-hidden rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:cursor-not-allowed disabled:opacity-50 sm:rounded-lg sm:px-6 sm:py-3 sm:text-base md:min-h-[44px] md:px-8 md:py-4"
+          className="group shrink-0 overflow-hidden rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:cursor-not-allowed disabled:opacity-50 sm:rounded-lg sm:px-6 sm:py-3 sm:text-base md:min-h-[44px] md:px-8 md:py-4"
         >
-          <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
           <span className="relative flex items-center justify-center gap-2">
             {isDownloading ? (
               <>
@@ -171,9 +170,8 @@ export default function PlaylistTracks({
                       <button
                         onClick={() => handleDownloadTrack(track)}
                         disabled={isDownloadingTrack || isDownloading}
-                        className="group relative min-h-[40px] overflow-hidden rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 px-3 py-2 text-xs font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:cursor-not-allowed disabled:opacity-50 sm:px-4 sm:py-2 sm:text-sm md:min-h-[44px]"
+                        className="group min-h-[40px] overflow-hidden rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 px-3 py-2 text-xs font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:cursor-not-allowed disabled:opacity-50 sm:px-4 sm:py-2 sm:text-sm md:min-h-[44px]"
                       >
-                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
                         <span className="relative flex items-center gap-2">
                           {isDownloadingTrack ? (
                             <>

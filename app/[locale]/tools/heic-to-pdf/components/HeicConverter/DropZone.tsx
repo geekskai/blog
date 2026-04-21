@@ -18,11 +18,7 @@ const DropZone: React.FC<DropZoneProps> = ({ onDrop, fileInputRef, error }) => {
   })
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/25 via-purple-500/20 to-pink-500/25 p-8 shadow-2xl backdrop-blur-xl">
-      {/* Decorative background elements */}
-      <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-blue-500/15 to-purple-500/15 blur-3xl"></div>
-      <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/15 blur-3xl"></div>
-
+    <div className="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/25 via-purple-500/20 to-pink-500/25 p-8 shadow-2xl backdrop-blur-xl">
       <div className="relative">
         {/* Title */}
         <div className="mb-8 text-center">
@@ -55,13 +51,12 @@ const DropZone: React.FC<DropZoneProps> = ({ onDrop, fileInputRef, error }) => {
               <p className="text-slate-300">{t("dropzone_click_text")}</p>
             </div>
             <button
-              className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-indigo-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/30"
+              className="group overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-indigo-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/30"
               onClick={(e) => {
                 e.stopPropagation()
                 fileInputRef.current?.click()
               }}
             >
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
               <span className="relative flex items-center gap-2">
                 <svg
                   className="h-6 w-6"

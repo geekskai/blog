@@ -65,35 +65,11 @@ export default function SoundCloudToMP3Page() {
   })
 
   return (
-    <div className="relative min-h-screen bg-slate-950">
-      {/* Subtle geometric background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-          `,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-      </div>
-
-      <div className="relative mx-auto max-w-6xl space-y-4 p-4">
+    <div className="min-h-screen bg-slate-950">
+      <div className="mx-auto max-w-6xl space-y-4 p-4">
         {/* Content Freshness Badge */}
         <ContentFreshnessBadge lastModified={new Date("2026-02-20")} namespace="SoundCloudToMP3" />
-
-        {/* Header Section - SEO Optimized */}
         <header className="text-center">
-          {/* Tool Badge */}
-          {/* <div className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 px-4 py-2 text-sm text-white shadow-lg shadow-purple-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-500/30 md:px-6 md:py-3 md:text-base">
-            <div className="rounded-full bg-white/20 p-1">
-              <span className="text-base md:text-lg">🎵</span>
-            </div>
-            <span className="font-semibold">{t("tool_badge")}</span>
-          </div> */}
-
           {/* Main Title - H1 for SEO */}
           <h1 className="my-3 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-2xl font-bold leading-tight text-transparent md:text-5xl">
             {t("page_title")}
@@ -192,9 +168,8 @@ export default function SoundCloudToMP3Page() {
         {/* SEO Content Sections */}
         <div className="mx-auto max-w-6xl space-y-8 md:space-y-12">
           {/* What is this tool section */}
-          <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-md md:p-8">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10"></div>
-            <div className="relative z-10">
+          <section className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-md md:p-8">
+            <div>
               <h2 className="mb-6 text-2xl font-bold text-white md:mb-8 md:text-3xl">
                 {t("section_what_is_title")}
               </h2>

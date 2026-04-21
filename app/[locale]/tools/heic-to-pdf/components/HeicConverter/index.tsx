@@ -140,13 +140,10 @@ export default function HeicConverter() {
           <button
             onClick={convertFiles}
             disabled={files.length === 0}
-            className="group relative overflow-hidden rounded-full bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 p-4 text-white shadow-2xl shadow-green-500/25 transition-all duration-300 hover:scale-110 hover:shadow-emerald-500/30 active:scale-95"
+            className="group overflow-hidden rounded-full bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 p-4 text-white shadow-2xl shadow-green-500/25 transition-all duration-300 hover:scale-110 hover:shadow-emerald-500/30 active:scale-95"
             title={t("quick_start_conversion")}
           >
-            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
             <span className="relative text-2xl">🚀</span>
-            {/* Pulse animation */}
-            <div className="absolute inset-0 animate-ping rounded-full bg-green-500/30"></div>
           </button>
         )}
 
@@ -157,7 +154,6 @@ export default function HeicConverter() {
             className="group relative overflow-hidden rounded-full bg-gradient-to-r from-slate-600 to-slate-700 p-4 text-white shadow-xl shadow-slate-500/25 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-slate-500/30 active:scale-95"
             title={t("clear_all_files")}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-500/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
             <span className="relative text-2xl">🔄</span>
           </button>
         )}
@@ -179,11 +175,7 @@ export default function HeicConverter() {
         <div className="grid gap-8 lg:grid-cols-2 lg:grid-rows-[auto_auto]">
           {/* File Upload & List Module */}
           <div className="animate-in fade-in-50 slide-in-from-left-5 duration-500">
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/25 via-purple-500/20 to-pink-500/25 p-8 shadow-2xl backdrop-blur-xl">
-              {/* Decorative background elements */}
-              <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-blue-500/15 to-purple-500/15 blur-3xl"></div>
-              <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/15 blur-3xl"></div>
-
+            <div className="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/25 via-purple-500/20 to-pink-500/25 p-8 shadow-2xl backdrop-blur-xl">
               <div className="relative">
                 {/* Title */}
                 <div className="mb-6 text-center">
@@ -217,11 +209,7 @@ export default function HeicConverter() {
 
           {/* Configuration Module */}
           <div className="animate-in fade-in-50 slide-in-from-right-5 duration-500">
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/25 via-teal-500/20 to-cyan-500/25 p-8 shadow-2xl backdrop-blur-xl">
-              {/* Decorative background elements */}
-              <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-emerald-500/15 to-teal-500/15 blur-3xl"></div>
-              <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-teal-500/15 to-cyan-500/15 blur-3xl"></div>
-
+            <div className="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/25 via-teal-500/20 to-cyan-500/25 p-8 shadow-2xl backdrop-blur-xl">
               <div className="relative">
                 {/* Title */}
                 <div className="mb-6 text-center">
@@ -272,7 +260,6 @@ export default function HeicConverter() {
                               : "border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-teal-500/5 hover:shadow-lg hover:shadow-emerald-500/15"
                           }`}
                         >
-                          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                           <div className="relative space-y-2">
                             <div className="flex items-center gap-3">
                               <span className="text-2xl">{icon}</span>
@@ -308,7 +295,6 @@ export default function HeicConverter() {
                     onClick={() => setShowConfigPanel(true)}
                     className="group relative w-full overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 px-6 py-4 text-left transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/25"
                   >
-                    <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/10 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
                     <div className="relative flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">⚙️</span>
@@ -347,14 +333,13 @@ export default function HeicConverter() {
               <button
                 onClick={convertFiles}
                 disabled={files.length === 0 || converting}
-                className={`group relative overflow-hidden rounded-2xl px-12 py-5 text-lg font-bold text-white shadow-xl transition-all duration-300 ${
+                className={`group overflow-hidden rounded-2xl px-12 py-5 text-lg font-bold text-white shadow-xl transition-all duration-300 ${
                   files.length === 0 || converting
                     ? "cursor-not-allowed bg-slate-600 shadow-slate-500/25"
                     : "bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 shadow-green-500/25 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/30 active:scale-95"
                 }`}
                 aria-label={t("start_conversion")}
               >
-                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
                 <span className="relative flex items-center justify-center gap-3">
                   {converting ? (
                     <>

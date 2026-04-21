@@ -22,21 +22,7 @@ export default function CmTilTommerConverter() {
   const t = useTranslations()
 
   return (
-    <div className="relative min-h-screen bg-slate-950">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
-      </div>
-
+    <div className="min-h-screen bg-slate-950">
       {/* Breadcrumb Navigation */}
       <nav className="relative mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8" aria-label="Breadcrumb">
         <ol className="flex items-center space-x-2 text-sm text-slate-400">

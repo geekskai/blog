@@ -165,11 +165,7 @@ export default function ModernJsonToTableWizard() {
               onClick={() => setShowResultModal(true)}
               className="hover:shadow-3xl group relative overflow-hidden rounded-full bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 p-4 text-white shadow-2xl shadow-green-500/25 transition-all duration-300 hover:scale-110 hover:shadow-emerald-500/30 active:scale-95"
             >
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
               <span className="relative text-2xl">📋</span>
-
-              {/* Pulse animation */}
-              <div className="absolute inset-0 animate-ping rounded-full bg-green-500/30"></div>
             </button>
           </Tooltip>
         )}
@@ -179,9 +175,8 @@ export default function ModernJsonToTableWizard() {
           <Tooltip content={t("floating_reset_all")} position="left">
             <button
               onClick={handleReset}
-              className="group relative overflow-hidden rounded-full bg-gradient-to-r from-slate-600 to-slate-700 p-4 text-white shadow-xl shadow-slate-500/25 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-slate-500/30 active:scale-95"
+              className="group overflow-hidden rounded-full bg-gradient-to-r from-slate-600 to-slate-700 p-4 text-white shadow-xl shadow-slate-500/25 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-slate-500/30 active:scale-95"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-500/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
               <span className="relative text-2xl">🔄</span>
             </button>
           </Tooltip>
@@ -403,13 +398,6 @@ export default function ModernJsonToTableWizard() {
 
   return (
     <div className="min-h-screen bg-slate-950">
-      {/* Background Decorations */}
-      <div className="fixed inset-0 overflow-hidden">
-        <div className="absolute -left-1/4 -top-1/4 h-96 w-96 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 blur-3xl"></div>
-        <div className="absolute -bottom-1/4 -right-1/4 h-96 w-96 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 blur-3xl"></div>
-        <div className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-emerald-500/10 to-cyan-500/10 blur-3xl"></div>
-      </div>
-
       <div className="relative">
         {/* Header */}
         <div className="border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
@@ -449,9 +437,8 @@ export default function ModernJsonToTableWizard() {
             <div className="mt-12 text-center">
               <button
                 onClick={() => setShowResultModal(true)}
-                className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-green-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/30"
+                className="group overflow-hidden rounded-2xl bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-green-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/30"
               >
-                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
                 <span className="relative flex items-center gap-2">
                   <span>👁️</span>
                   {t("button_view_table")}

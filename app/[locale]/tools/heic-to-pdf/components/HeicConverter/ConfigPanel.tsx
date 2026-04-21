@@ -53,7 +53,7 @@ const ConfigPanel: React.FC<ConfigPanelProps> = ({
         tabIndex={-1}
       />
       <div
-        className="animate-fade-in relative z-10 flex max-h-[90vh] w-full max-w-7xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/25 via-teal-500/20 to-cyan-500/25 p-8 shadow-2xl backdrop-blur-xl"
+        className="animate-fade-in z-10 flex max-h-[90vh] w-full max-w-7xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/25 via-teal-500/20 to-cyan-500/25 p-8 shadow-2xl backdrop-blur-xl"
         onClick={(e) => e.stopPropagation()}
         onKeyDown={(e) => {
           // Stop propagation for keyboard events
@@ -63,10 +63,6 @@ const ConfigPanel: React.FC<ConfigPanelProps> = ({
         aria-label={t("config_panel_content_aria")}
         tabIndex={-1}
       >
-        {/* Decorative background elements */}
-        <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-emerald-500/15 to-teal-500/15 blur-3xl"></div>
-        <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-teal-500/15 to-cyan-500/15 blur-3xl"></div>
-
         <div className="relative">
           {/* Header */}
           <div className="mb-6 flex items-center justify-between">
@@ -132,13 +128,12 @@ const ConfigPanel: React.FC<ConfigPanelProps> = ({
                     <button
                       key={value}
                       onClick={() => handleImageConfigChange("pdfPageSize", value)}
-                      className={`group relative overflow-hidden rounded-2xl border p-4 text-left transition-all duration-300 ${
+                      className={`group overflow-hidden rounded-2xl border p-4 text-left transition-all duration-300 ${
                         imageConfig.pdfPageSize === value
                           ? "border-emerald-400 bg-gradient-to-br from-emerald-500/20 to-teal-500/15 shadow-lg shadow-emerald-500/25"
                           : "border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-teal-500/5 hover:shadow-lg hover:shadow-emerald-500/15"
                       }`}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                       <div className="relative space-y-1">
                         <div className="flex items-center gap-2">
                           <span className="text-xl">{icon}</span>
@@ -175,13 +170,12 @@ const ConfigPanel: React.FC<ConfigPanelProps> = ({
                   <button
                     key={String(value)}
                     onClick={() => handleImageConfigChange("stripMetadata", value)}
-                    className={`group relative overflow-hidden rounded-2xl border p-4 text-left transition-all duration-300 ${
+                    className={`group overflow-hidden rounded-2xl border p-4 text-left transition-all duration-300 ${
                       imageConfig.stripMetadata === value
                         ? "border-emerald-400 bg-gradient-to-br from-emerald-500/20 to-teal-500/15 shadow-lg shadow-emerald-500/25"
                         : "border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-teal-500/5 hover:shadow-lg hover:shadow-emerald-500/15"
                     }`}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                     <div className="relative space-y-1">
                       <div className="flex items-center gap-2">
                         <span className="text-xl">{icon}</span>
@@ -253,13 +247,12 @@ const ConfigPanel: React.FC<ConfigPanelProps> = ({
                     <button
                       key={value}
                       onClick={() => handleImageConfigChange("fit", value)}
-                      className={`group relative overflow-hidden rounded-2xl border p-4 text-left transition-all duration-300 ${
+                      className={`group overflow-hidden rounded-2xl border p-4 text-left transition-all duration-300 ${
                         imageConfig.fit === value
                           ? "border-emerald-400 bg-gradient-to-br from-emerald-500/20 to-teal-500/15 shadow-lg shadow-emerald-500/25"
                           : "border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-teal-500/5 hover:shadow-lg hover:shadow-emerald-500/15"
                       }`}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                       <div className="relative space-y-1">
                         <div className="flex items-center gap-2">
                           <span className="text-xl">{icon}</span>

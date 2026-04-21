@@ -101,9 +101,8 @@ export const StartScreen: React.FC<StartScreenProps> = ({ onStart }) => {
           <div className="mb-8">
             <button
               onClick={onStart}
-              className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-12 py-6 text-xl font-bold text-white shadow-xl shadow-purple-500/25 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/40"
+              className="group overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-12 py-6 text-xl font-bold text-white shadow-xl shadow-purple-500/25 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/40"
             >
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
               <span className="relative flex items-center gap-3">
                 <Play className="h-6 w-6" />
                 {t("start_button")}

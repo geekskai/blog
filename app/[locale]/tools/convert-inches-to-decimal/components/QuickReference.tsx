@@ -51,12 +51,8 @@ export default function QuickReference({ className = "" }: QuickReferenceProps) 
 
   return (
     <div
-      className={`relative overflow-hidden rounded-3xl border border-purple-500/30 bg-gradient-to-br from-purple-500/25 via-purple-500/20 to-pink-500/25 p-8 shadow-2xl backdrop-blur-xl ${className}`}
+      className={`overflow-hidden rounded-3xl border border-purple-500/30 bg-gradient-to-br from-purple-500/25 via-purple-500/20 to-pink-500/25 p-8 shadow-2xl backdrop-blur-xl ${className}`}
     >
-      {/* Decorative background elements */}
-      <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/15 blur-3xl"></div>
-      <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-pink-500/15 to-purple-500/15 blur-3xl"></div>
-
       <div className="relative">
         {/* Header */}
         <div className="mb-8 text-center">
@@ -114,7 +110,6 @@ export default function QuickReference({ className = "" }: QuickReferenceProps) 
                             <div className="mb-1 text-xs text-slate-400">=</div>
                             <div className="font-mono text-sm text-purple-300">{decimal}</div>
                           </div>
-                          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                         </div>
                       ))}
                   </div>
@@ -138,7 +133,6 @@ export default function QuickReference({ className = "" }: QuickReferenceProps) 
                             <div className="mb-1 text-xs text-slate-400">=</div>
                             <div className="font-mono text-sm text-purple-300">{decimal}</div>
                           </div>
-                          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                         </div>
                       ))}
                   </div>
@@ -163,7 +157,6 @@ export default function QuickReference({ className = "" }: QuickReferenceProps) 
                               {decimal}
                             </div>
                           </div>
-                          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                         </div>
                       ))}
                   </div>
@@ -200,7 +193,6 @@ export default function QuickReference({ className = "" }: QuickReferenceProps) 
                                     {decimal}
                                   </div>
                                 </div>
-                                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                               </div>
                             ))}
                         </div>
@@ -228,7 +220,6 @@ export default function QuickReference({ className = "" }: QuickReferenceProps) 
                                     {decimal}
                                   </div>
                                 </div>
-                                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                               </div>
                             ))}
                         </div>

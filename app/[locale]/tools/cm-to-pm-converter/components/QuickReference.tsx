@@ -62,11 +62,7 @@ export default function QuickReference() {
   return (
     <div className="space-y-6">
       {/* 快速转换表 */}
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-900/25 via-teal-900/20 to-cyan-900/25 p-8 shadow-2xl backdrop-blur-xl">
-        {/* 装饰性背景元素 */}
-        <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-emerald-500/15 to-teal-500/15 blur-3xl" />
-        <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-teal-500/15 to-cyan-500/15 blur-3xl" />
-
+      <div className="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-900/25 via-teal-900/20 to-cyan-900/25 p-8 shadow-2xl backdrop-blur-xl">
         <div className="relative">
           {/* 标题 */}
           <div className="mb-8 text-center">
@@ -137,11 +133,7 @@ export default function QuickReference() {
       </div>
 
       {/* 科学常数参考 */}
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-900/25 via-indigo-900/20 to-purple-900/25 p-8 shadow-2xl backdrop-blur-xl">
-        {/* 装饰性背景元素 */}
-        <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-blue-500/15 to-indigo-500/15 blur-3xl" />
-        <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-indigo-500/15 to-purple-500/15 blur-3xl" />
-
+      <div className="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-900/25 via-indigo-900/20 to-purple-900/25 p-8 shadow-2xl backdrop-blur-xl">
         <div className="relative">
           <div className="mb-8 text-center">
             <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 px-6 py-3 backdrop-blur-sm">
@@ -200,11 +192,7 @@ export default function QuickReference() {
       </div>
 
       {/* 使用技巧 */}
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-purple-900/25 via-pink-900/20 to-rose-900/25 p-8 shadow-2xl backdrop-blur-xl">
-        {/* 装饰性背景元素 */}
-        <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/15 blur-3xl" />
-        <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-pink-500/15 to-rose-500/15 blur-3xl" />
-
+      <div className="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-purple-900/25 via-pink-900/20 to-rose-900/25 p-8 shadow-2xl backdrop-blur-xl">
         <div className="relative">
           <div className="mb-8 text-center">
             <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-purple-500/30 bg-gradient-to-r from-purple-500/10 to-pink-500/10 px-6 py-3 backdrop-blur-sm">

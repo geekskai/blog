@@ -225,10 +225,6 @@ Visit geekskai.com for more awesome tools!
           aria-modal="true"
           aria-labelledby="modal-title"
         >
-          {/* Decorative background elements */}
-          <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-orange-500/15 to-red-500/15 blur-3xl"></div>
-          <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-red-500/15 to-pink-500/15 blur-3xl"></div>
-
           <div className="relative p-8">
             {/* Title bar */}
             <div className="mb-8 flex items-center justify-between">
@@ -255,7 +251,6 @@ Visit geekskai.com for more awesome tools!
                     }`}
                     title={t("modal_copy_tooltip")}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                     <span className="relative flex items-center gap-2 text-sm font-medium">
                       <span className="text-base">{copied ? "✅" : "📋"}</span>
                       {copied ? t("modal_copied") : t("modal_copy")}
@@ -272,7 +267,6 @@ Visit geekskai.com for more awesome tools!
                     className="group relative overflow-hidden rounded-xl border border-blue-500/40 bg-blue-500/15 px-4 py-2 text-blue-300 transition-all duration-300 hover:border-blue-400/60 hover:shadow-lg hover:shadow-blue-500/25"
                     title={t("modal_download_tooltip")}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                     <span className="relative flex items-center gap-2 text-sm font-medium">
                       <span className="text-base">💾</span>
                       {t("modal_download")}
@@ -283,10 +277,9 @@ Visit geekskai.com for more awesome tools!
                 {/* Close button */}
                 <button
                   onClick={onClose}
-                  className="group relative overflow-hidden rounded-xl border border-slate-500/30 bg-slate-500/10 p-3 text-slate-300 transition-all duration-300 hover:bg-slate-500/20 hover:shadow-lg hover:shadow-slate-500/25"
+                  className="group overflow-hidden rounded-xl border border-slate-500/30 bg-slate-500/10 p-3 text-slate-300 transition-all duration-300 hover:bg-slate-500/20 hover:shadow-lg hover:shadow-slate-500/25"
                   title={t("modal_close_tooltip")}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-slate-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                   <span className="relative text-xl">✕</span>
                 </button>
               </div>

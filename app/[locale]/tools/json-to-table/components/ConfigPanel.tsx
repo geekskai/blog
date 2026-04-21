@@ -39,10 +39,6 @@ export default function ConfigPanel({ config, onConfigChange }: ConfigPanelProps
 
   return (
     <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/25 via-teal-500/20 to-cyan-500/25 p-8 shadow-2xl backdrop-blur-xl">
-      {/* Decorative background elements */}
-      <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-emerald-500/15 to-teal-500/15 blur-3xl"></div>
-      <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-teal-500/15 to-cyan-500/15 blur-3xl"></div>
-
       <div className="relative space-y-8">
         {/* Title */}
         <div className="text-center">
@@ -68,7 +64,6 @@ export default function ConfigPanel({ config, onConfigChange }: ConfigPanelProps
                     : "border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-teal-500/5 hover:shadow-lg hover:shadow-emerald-500/15"
                 }`}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                 <div className="relative space-y-2">
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">{icon}</span>
@@ -167,9 +162,8 @@ export default function ConfigPanel({ config, onConfigChange }: ConfigPanelProps
         <div className="flex justify-center">
           <button
             onClick={() => onConfigChange(DEFAULT_TABLE_CONFIG)}
-            className="group relative overflow-hidden rounded-2xl border border-slate-500/30 bg-gradient-to-r from-slate-500/10 to-slate-400/10 px-6 py-3 text-slate-300 transition-all duration-300 hover:shadow-lg hover:shadow-slate-500/25"
+            className="group overflow-hidden rounded-2xl border border-slate-500/30 bg-gradient-to-r from-slate-500/10 to-slate-400/10 px-6 py-3 text-slate-300 transition-all duration-300 hover:shadow-lg hover:shadow-slate-500/25"
           >
-            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/10 to-white/0 transition-transform duration-700 group-hover:translate-x-full"></div>
             <span className="relative flex items-center gap-2">
               <span>🔄</span>
               {t("config_reset")}
