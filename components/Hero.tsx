@@ -295,13 +295,13 @@ function Experience() {
   const t = useTranslations("HomePage")
   return (
     <div id="experience" className="relative z-50 my-12 border-t border-[#25213b] lg:my-24">
-      <Image
+      {/* <Image
         src="/section.svg"
         alt="Hero"
         width={1572}
         height={795}
         className="absolute top-0 -z-10"
-      />
+      /> */}
 
       <div className="my-5 flex justify-center lg:py-8">
         <div className="flex  items-center">
@@ -326,13 +326,13 @@ function Experience() {
               {experiences.map((experience) => (
                 <GlowCard key={experience.id} identifier={`experience-${experience.id}`}>
                   <div className="relative p-3">
-                    <Image
+                    {/* <Image
                       src="/blur-23.svg"
                       alt="Hero"
                       width={1080}
                       height={200}
                       className="absolute bottom-0 opacity-80"
-                    />
+                    /> */}
                     <div className="flex justify-center">
                       <p className="text-xs text-[#16f2b3] sm:text-sm">{experience.duration}</p>
                     </div>
@@ -362,7 +362,7 @@ function Skills() {
   const t = useTranslations("HomePage")
   return (
     <div id="skills" className="relative z-10 my-12 border-t border-[#25213b] lg:my-24">
-      <div className="absolute left-[42%] top-6 h-[100px] w-[100px] translate-x-1/2 rounded-full bg-violet-100 opacity-20 blur-3xl  filter"></div>
+      {/* <div className="absolute left-[42%] top-6 h-[100px] w-[100px] translate-x-1/2 rounded-full bg-violet-100 opacity-20 blur-3xl  filter"></div> */}
 
       <div className="flex -translate-y-[1px] justify-center">
         <div className="w-3/4">
