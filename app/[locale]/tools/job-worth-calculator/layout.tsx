@@ -22,7 +22,7 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
   const languages = {
     "x-default": "https://geekskai.com/tools/job-worth-calculator/",
   }
-  const lastModified = new Date("2026-02-18")
+  const lastModified = new Date("2026-04-21")
 
   supportedLocales.forEach((locale) => {
     languages[locale] = `https://geekskai.com/${locale}/tools/job-worth-calculator/`

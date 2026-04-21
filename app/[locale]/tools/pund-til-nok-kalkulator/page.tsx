@@ -10,7 +10,7 @@ import {
   Zap,
   Calculator,
 } from "lucide-react"
-import { Link } from "@/app/i18n/navigation"
+import { Link } from "app/i18n/navigation"
 import { useTranslations } from "next-intl"
 import ConverterCard from "./components/ConverterCard"
 import QuickReference from "./components/QuickReference"
@@ -19,7 +19,7 @@ import React from "react"
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 
 // Content freshness metadata - 内容新鲜度
-const lastModified = new Date("2026-01-25")
+const lastModified = new Date("2026-04-21")
 
 // Core Facts Section - 核心事实提取优化
 function CoreFactsSection() {

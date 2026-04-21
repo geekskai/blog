@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server"
 import { supportedLocales } from "../../../i18n/routing"
 
 // Content freshness metadata - 内容新鲜度标记
-const lastModified = new Date("2026-02-18")
+const lastModified = new Date("2026-04-21")
 const updateFrequency: "daily" | "weekly" | "monthly" | "quarterly" = "monthly"
 const nextReviewDate = new Date(lastModified)
 nextReviewDate.setMonth(nextReviewDate.getMonth() + 1)

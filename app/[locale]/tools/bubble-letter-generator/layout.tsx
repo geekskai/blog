@@ -6,7 +6,7 @@ import {
   buildUnicodeToolSchemas,
 } from "../upside-down-text-generator/lib/seo"
 
-const LAST_MODIFIED = new Date("2026-03-04")
+const LAST_MODIFIED = new Date("2026-04-21")
 const SLUG = "bubble-letter-generator"
 
 export async function generateMetadata({

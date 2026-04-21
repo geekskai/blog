@@ -9,7 +9,7 @@ export async function generateMetadata({
   params: { locale: string }
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "CmTilTommerConverter" })
-  const lastModified = new Date("2026-02-18")
+  const lastModified = new Date("2026-04-21")
   // 语言映射
   const localeMap: Record<string, string> = {
     en: "en_US",

@@ -3,9 +3,9 @@ import { getTranslations } from "next-intl/server"
 import React from "react"
 
 // Content freshness tracking - updated monthly
-const lastModified = new Date("2026-02-18")
+const lastModified = new Date("2026-04-21")
 const updateFrequency = "monthly"
-const nextReviewDate = new Date("2026-03-18")
+const nextReviewDate = new Date("2026-04-21")
 
 export async function generateMetadata({
   params: { locale },
