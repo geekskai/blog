@@ -168,8 +168,7 @@ const ChivalryTest = () => {
 
             <div className="grid gap-6 md:grid-cols-2">
               {/* Modern Mode Card */}
-              <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/25 via-blue-500/20 to-blue-500/25 p-8 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:shadow-blue-500/25">
-                <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-blue-500/15 to-cyan-500/15 blur-3xl"></div>
+              <div className="group overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/25 via-blue-500/20 to-blue-500/25 p-8 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:shadow-blue-500/25">
                 <div className="relative z-10">
                   <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 px-6 py-3 backdrop-blur-sm">
                     <Sparkles className="h-6 w-6 text-blue-500" />
@@ -194,9 +193,8 @@ const ChivalryTest = () => {
                   </div>
                   <button
                     onClick={() => handleStartQuiz("modern")}
-                    className="group/btn relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-600 px-6 py-4 text-lg font-bold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30"
+                    className="group/btn w-full overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-600 px-6 py-4 text-lg font-bold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30"
                   >
-                    <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover/btn:translate-x-full"></div>
                     <span className="relative flex items-center justify-center gap-2">
                       {t("start_modern_quiz")}
                       <ArrowRight className="h-5 w-5" />
@@ -206,8 +204,7 @@ const ChivalryTest = () => {
               </div>
 
               {/* Knight Mode Card */}
-              <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-purple-500/25 via-purple-500/20 to-pink-500/25 p-8 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:shadow-purple-500/25">
-                <div className="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-gradient-to-br from-purple-500/15 to-pink-500/15 blur-3xl"></div>
+              <div className="group overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-purple-500/25 via-purple-500/20 to-pink-500/25 p-8 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:shadow-purple-500/25">
                 <div className="relative z-10">
                   <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-purple-500/30 bg-gradient-to-r from-purple-500/10 to-pink-500/10 px-6 py-3 backdrop-blur-sm">
                     <Sword className="h-6 w-6 text-purple-500" />
@@ -232,9 +229,8 @@ const ChivalryTest = () => {
                   </div>
                   <button
                     onClick={() => handleStartQuiz("knight")}
-                    className="group/btn relative w-full overflow-hidden rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 px-6 py-4 text-lg font-bold text-white shadow-xl shadow-purple-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30"
+                    className="group/btn w-full overflow-hidden rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 px-6 py-4 text-lg font-bold text-white shadow-xl shadow-purple-500/25 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30"
                   >
-                    <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover/btn:translate-x-full"></div>
                     <span className="relative flex items-center justify-center gap-2">
                       {t("start_knight_quiz")}
                       <ArrowRight className="h-5 w-5" />
