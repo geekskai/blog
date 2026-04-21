@@ -411,9 +411,8 @@ export default function VinDecoder() {
                       <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
                         <button
                           onClick={handleCopy}
-                          className="group relative min-h-[44px] overflow-hidden rounded-xl border border-slate-600/30 bg-gradient-to-br from-slate-700/40 to-slate-800/40 px-4 py-2.5 text-sm font-medium text-slate-300 backdrop-blur-xl transition-all duration-300 hover:border-slate-500/50 hover:shadow-lg hover:shadow-slate-500/20 sm:rounded-2xl sm:px-5 sm:py-3 sm:text-base md:px-6"
+                          className="group min-h-[44px] overflow-hidden rounded-xl border border-slate-600/30 bg-gradient-to-br from-slate-700/40 to-slate-800/40 px-4 py-2.5 text-sm font-medium text-slate-300 backdrop-blur-xl transition-all duration-300 hover:border-slate-500/50 hover:shadow-lg hover:shadow-slate-500/20 sm:rounded-2xl sm:px-5 sm:py-3 sm:text-base md:px-6"
                         >
-                          <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-slate-500/0 via-slate-500/10 to-slate-500/0 transition-transform duration-700 group-hover:translate-x-full" />
                           <div className="relative flex items-center gap-2">
                             {copyStatus === "copied" ? (
                               <>
@@ -431,9 +430,8 @@ export default function VinDecoder() {
 
                         <button
                           onClick={() => handleExport({ type: "json", includeRaw: false })}
-                          className="group relative min-h-[44px] overflow-hidden rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-emerald-600/10 px-4 py-2.5 text-sm font-medium text-emerald-300 backdrop-blur-xl transition-all duration-300 hover:border-emerald-400/50 hover:shadow-lg hover:shadow-emerald-500/20 sm:rounded-2xl sm:px-5 sm:py-3 sm:text-base md:px-6"
+                          className="group min-h-[44px] overflow-hidden rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-emerald-600/10 px-4 py-2.5 text-sm font-medium text-emerald-300 backdrop-blur-xl transition-all duration-300 hover:border-emerald-400/50 hover:shadow-lg hover:shadow-emerald-500/20 sm:rounded-2xl sm:px-5 sm:py-3 sm:text-base md:px-6"
                         >
-                          <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-emerald-500/0 via-emerald-500/10 to-emerald-500/0 transition-transform duration-700 group-hover:translate-x-full" />
                           <div className="relative flex items-center gap-2">
                             <Download className="h-4 w-4 sm:h-5 sm:w-5" />
                             <span>{t("actions.export_json")}</span>
@@ -442,9 +440,8 @@ export default function VinDecoder() {
 
                         <button
                           onClick={() => handleExport({ type: "csv", includeRaw: false })}
-                          className="group relative min-h-[44px] overflow-hidden rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/15 to-purple-600/10 px-4 py-2.5 text-sm font-medium text-purple-300 backdrop-blur-xl transition-all duration-300 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/20 sm:rounded-2xl sm:px-5 sm:py-3 sm:text-base md:px-6"
+                          className="group min-h-[44px] overflow-hidden rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/15 to-purple-600/10 px-4 py-2.5 text-sm font-medium text-purple-300 backdrop-blur-xl transition-all duration-300 hover:border-purple-400/50 hover:shadow-lg hover:shadow-purple-500/20 sm:rounded-2xl sm:px-5 sm:py-3 sm:text-base md:px-6"
                         >
-                          <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-purple-500/0 via-purple-500/10 to-purple-500/0 transition-transform duration-700 group-hover:translate-x-full" />
                           <div className="relative flex items-center gap-2">
                             <Download className="h-4 w-4 sm:h-5 sm:w-5" />
                             <span>{t("actions.export_csv")}</span>
@@ -453,9 +450,8 @@ export default function VinDecoder() {
 
                         <button
                           onClick={handleShare}
-                          className="group relative min-h-[44px] overflow-hidden rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-cyan-500/10 px-4 py-2.5 text-sm font-medium text-blue-300 backdrop-blur-xl transition-all duration-300 hover:border-blue-400/50 hover:shadow-lg hover:shadow-blue-500/20 sm:rounded-2xl sm:px-5 sm:py-3 sm:text-base md:px-6"
+                          className="group min-h-[44px] overflow-hidden rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 to-cyan-500/10 px-4 py-2.5 text-sm font-medium text-blue-300 backdrop-blur-xl transition-all duration-300 hover:border-blue-400/50 hover:shadow-lg hover:shadow-blue-500/20 sm:rounded-2xl sm:px-5 sm:py-3 sm:text-base md:px-6"
                         >
-                          <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-blue-500/0 transition-transform duration-700 group-hover:translate-x-full" />
                           <div className="relative flex items-center gap-2">
                             <Share2 className="h-4 w-4 sm:h-5 sm:w-5" />
                             <span>{t("actions.share")}</span>
@@ -466,8 +462,7 @@ export default function VinDecoder() {
                   )}
 
                 {searchState.decodeResult.status === "no_data" && (
-                  <div className="relative overflow-hidden rounded-2xl border border-yellow-500/30 bg-gradient-to-br from-yellow-500/15 to-orange-500/10 p-5 text-center backdrop-blur-xl sm:rounded-3xl sm:p-6 md:p-8 lg:p-10">
-                    <div className="absolute -right-12 -top-12 h-24 w-24 rounded-full bg-gradient-to-br from-yellow-500/10 to-orange-500/10 blur-2xl" />
+                  <div className="overflow-hidden rounded-2xl border border-yellow-500/30 bg-gradient-to-br from-yellow-500/15 to-orange-500/10 p-5 text-center backdrop-blur-xl sm:rounded-3xl sm:p-6 md:p-8 lg:p-10">
                     <div className="relative">
                       <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-yellow-500/20 sm:mb-5 sm:h-14 sm:w-14 md:mb-6 md:h-16 md:w-16">
                         <Info className="h-6 w-6 text-yellow-400 sm:h-7 sm:w-7 md:h-8 md:w-8" />
@@ -483,8 +478,7 @@ export default function VinDecoder() {
                 )}
 
                 {searchState.decodeResult.status === "network_error" && (
-                  <div className="relative overflow-hidden rounded-2xl border border-red-500/30 bg-gradient-to-br from-red-500/15 to-pink-500/10 p-5 text-center backdrop-blur-xl sm:rounded-3xl sm:p-6 md:p-8 lg:p-10">
-                    <div className="absolute -right-12 -top-12 h-24 w-24 rounded-full bg-gradient-to-br from-red-500/10 to-pink-500/10 blur-2xl" />
+                  <div className="overflow-hidden rounded-2xl border border-red-500/30 bg-gradient-to-br from-red-500/15 to-pink-500/10 p-5 text-center backdrop-blur-xl sm:rounded-3xl sm:p-6 md:p-8 lg:p-10">
                     <div className="relative">
                       <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-500/20 sm:mb-5 sm:h-14 sm:w-14 md:mb-6 md:h-16 md:w-16">
                         <Info className="h-6 w-6 text-red-400 sm:h-7 sm:w-7 md:h-8 md:w-8" />
@@ -497,9 +491,8 @@ export default function VinDecoder() {
                       </p>
                       <button
                         onClick={() => handleDecode()}
-                        className="group relative min-h-[44px] overflow-hidden rounded-xl bg-gradient-to-r from-red-600 to-pink-600 px-5 py-2.5 text-sm font-semibold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/30 sm:rounded-2xl sm:px-6 sm:py-3 sm:text-base md:px-8 md:py-4"
+                        className="group min-h-[44px] overflow-hidden rounded-xl bg-gradient-to-r from-red-600 to-pink-600 px-5 py-2.5 text-sm font-semibold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/30 sm:rounded-2xl sm:px-6 sm:py-3 sm:text-base md:px-8 md:py-4"
                       >
-                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
                         <span className="relative">{t("actions.try_again")}</span>
                       </button>
                     </div>
@@ -535,9 +528,8 @@ export default function VinDecoder() {
               <div className="mt-5 flex justify-center sm:mt-6 md:mt-8">
                 <button
                   onClick={() => setShowHistory(!showHistory)}
-                  className="group relative min-h-[44px] overflow-hidden rounded-xl border border-slate-600/30 bg-gradient-to-br from-slate-800/40 to-slate-900/40 px-4 py-2.5 text-sm font-medium text-slate-300 backdrop-blur-xl transition-all duration-300 hover:border-slate-500/50 hover:shadow-xl hover:shadow-slate-500/20 sm:rounded-2xl sm:px-5 sm:py-3 sm:text-base md:px-6"
+                  className="group min-h-[44px] overflow-hidden rounded-xl border border-slate-600/30 bg-gradient-to-br from-slate-800/40 to-slate-900/40 px-4 py-2.5 text-sm font-medium text-slate-300 backdrop-blur-xl transition-all duration-300 hover:border-slate-500/50 hover:shadow-xl hover:shadow-slate-500/20 sm:rounded-2xl sm:px-5 sm:py-3 sm:text-base md:px-6"
                 >
-                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-slate-500/0 via-slate-500/10 to-slate-500/0 transition-transform duration-700 group-hover:translate-x-full" />
                   <div className="relative flex items-center gap-2 sm:gap-3">
                     <div className="rounded-lg bg-slate-600/30 p-1.5 sm:p-2">
                       <History className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -553,9 +545,7 @@ export default function VinDecoder() {
 
             {/* Enhanced History Panel - Moved below history button */}
             {mounted && showHistory && historyItems.length > 0 && (
-              <div className="relative mt-4 overflow-hidden rounded-2xl border border-slate-600/30 bg-gradient-to-br from-slate-800/30 via-slate-800/20 to-slate-900/30 p-4 backdrop-blur-xl sm:mt-5 sm:rounded-3xl sm:p-6 md:mt-6 md:p-8">
-                {/* Panel background decoration */}
-                <div className="absolute -right-12 -top-12 h-24 w-24 rounded-full bg-gradient-to-br from-slate-500/10 to-slate-600/10 blur-2xl" />
+              <div className="mt-4 overflow-hidden rounded-2xl border border-slate-600/30 bg-gradient-to-br from-slate-800/30 via-slate-800/20 to-slate-900/30 p-4 backdrop-blur-xl sm:mt-5 sm:rounded-3xl sm:p-6 md:mt-6 md:p-8">
 
                 <div className="relative">
                   <div className="mb-4 flex flex-col gap-3 sm:mb-5 sm:flex-row sm:items-center sm:justify-between md:mb-6">
@@ -576,7 +566,6 @@ export default function VinDecoder() {
                         onClick={() => handleHistorySelect(item)}
                         className="group relative overflow-hidden rounded-xl border border-slate-600/30 bg-gradient-to-br from-slate-700/40 to-slate-800/40 p-3 text-left transition-all duration-300 hover:border-slate-500/50 hover:shadow-lg hover:shadow-slate-500/20 sm:rounded-2xl sm:p-4"
                       >
-                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-slate-500/0 via-slate-500/5 to-slate-500/0 transition-transform duration-500 group-hover:translate-x-full" />
                         <div className="relative">
                           <span className="block font-mono text-xs font-medium text-white sm:text-sm">
                             {item.vin}
@@ -756,7 +745,6 @@ export default function VinDecoder() {
         {/* Quick answer + core facts chunk for AI retrieval */}
         <section className="mb-6 mt-6 overflow-hidden rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-cyan-500/10 p-5 shadow-2xl backdrop-blur-xl sm:mb-8 sm:mt-8 sm:rounded-3xl sm:p-6 md:p-8">
           <div className="relative">
-            <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/15 blur-2xl" />
             <div className="relative space-y-4 sm:space-y-5">
               <p className="text-sm text-slate-100 sm:text-base md:text-lg">
                 <strong>{t("comparePage.quick_answer_label")}</strong>{" "}
@@ -816,13 +804,7 @@ export default function VinDecoder() {
         </section>
 
         {/* Enhanced Brand Links */}
-        <div className="relative mt-12 sm:mt-16 md:mt-20">
-          {/* Section background decoration */}
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute left-1/4 top-0 h-32 w-32 rounded-full bg-gradient-to-br from-indigo-500/5 to-purple-500/5 blur-2xl" />
-            <div className="absolute bottom-0 right-1/4 h-28 w-28 rounded-full bg-gradient-to-br from-blue-500/5 to-cyan-500/5 blur-2xl" />
-          </div>
-
+        <div className="mt-12 sm:mt-16 md:mt-20">
           <div className="text-center">
             <h2 className="mb-3 bg-gradient-to-r from-white via-slate-200 to-slate-300 bg-clip-text text-2xl font-bold leading-tight text-transparent sm:mb-4 sm:text-3xl md:text-4xl">
               {t("brand_links.title")}
@@ -864,7 +846,6 @@ export default function VinDecoder() {
                   href={`/tools/vin-decoder/${brand.slug}`}
                   className={`group relative overflow-hidden rounded-xl border ${colorScheme.border} bg-gradient-to-br ${colorScheme.bg} p-3 text-center backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:shadow-xl sm:rounded-2xl sm:p-4 md:p-5 lg:p-6 ${colorScheme.glow}`}
                 >
-                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/5 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
                   <div className="relative">
                     <h3 className="text-sm font-bold text-white sm:text-base md:text-lg">
                       {brand.name}
@@ -898,9 +879,8 @@ export default function VinDecoder() {
               <Link
                 key={item.slug}
                 href={`/tools/vin-decoder/vehicle-types/${item.slug}`}
-                className={`group relative overflow-hidden rounded-xl border ${item.border} bg-gradient-to-br ${item.color} p-4 backdrop-blur-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-xl sm:rounded-2xl sm:p-5 ${item.glow}`}
+                className={`group overflow-hidden rounded-xl border ${item.border} bg-gradient-to-br ${item.color} p-4 backdrop-blur-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-xl sm:rounded-2xl sm:p-5 ${item.glow}`}
               >
-                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-white/0 via-white/5 to-white/0 transition-transform duration-700 group-hover:translate-x-full" />
                 <div className="relative">
                   <h3 className="text-base font-bold text-white sm:text-lg">
                     {tg(
