@@ -19,10 +19,39 @@ import { detectSoundCloudUrlKind } from "./lib/url"
 import { useSoundCloudTrackDownloadForm } from "./hooks/useSoundCloudTrackDownloadForm"
 import { CoreFactsSection, FAQSection, HowItWorksSection } from "./SEOContent"
 
-const TrackDownloadForm = dynamic(() => import("./components/TrackDownloadForm"), { ssr: false })
+function TrackDownloadFormSkeleton() {
+  return (
+    <div className="space-y-2 p-4">
+      <div className="animate-pulse space-y-4">
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+            <div className="h-5 w-40 rounded bg-white/10" />
+            <div className="h-4 w-36 rounded bg-white/10" />
+          </div>
+          <div className="h-14 rounded-lg bg-white/10" />
+        </div>
+        <div className="flex flex-col gap-4 md:flex-row">
+          <div className="h-11 flex-1 rounded-lg bg-white/10 md:h-12" />
+          <div className="h-11 flex-1 rounded-lg bg-white/10 md:h-12" />
+          <div className="h-11 w-full rounded-lg bg-white/10 md:h-12 md:w-32" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const TrackDownloadForm = dynamic(() => import("./components/TrackDownloadForm"), {
+  ssr: false,
+  loading: () => <TrackDownloadFormSkeleton />,
+})
 
 const getFileName = (trackInfo: TrackInfo | null, extension: string): string => {
   return trackInfo?.title ? `${trackInfo.title}.${extension}` : `audio-${Date.now()}.${extension}`
+}
+
+const seoContentVisibilityStyle: React.CSSProperties = {
+  contentVisibility: "auto",
+  containIntrinsicSize: "auto 2200px",
 }
 
 type PlaylistLoadingState = "idle" | "loading" | "success" | "error"
@@ -249,7 +278,7 @@ export default function SoundCloudDownloaderPage() {
     <div className="min-h-screen bg-slate-950">
       <div className="relative mx-auto max-w-6xl space-y-4 p-4">
         <ContentFreshnessBadge
-          lastModified={new Date("2026-02-20")}
+          lastModified={new Date("2026-04-23")}
           namespace="SoundCloudDownloader"
         />
 
@@ -397,7 +426,10 @@ export default function SoundCloudDownloaderPage() {
           </div>
         )} */}
 
-        <div className="mx-auto max-w-6xl space-y-8 md:space-y-12">
+        <div
+          className="mx-auto max-w-6xl space-y-8 md:space-y-12"
+          style={seoContentVisibilityStyle}
+        >
           <CoreFactsSection />
           <HowItWorksSection />
 
