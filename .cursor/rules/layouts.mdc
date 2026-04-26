@@ -1,15 +1,20 @@
 ---
-description:
-globs:
+description: Layout rules for responsive, stable, high-performance page shells
+globs: layouts/**/*.{ts,tsx},app/**/*layout.{ts,tsx}
 alwaysApply: false
 ---
-# layouts Directory Guide
 
-The [layouts/](mdc:layouts) directory contains layout components for different types of pages:
+# Layout Rules
 
-- [AuthorLayout.tsx](mdc:layouts/AuthorLayout.tsx): Layout for author profile pages.
-- [ListLayout.tsx](mdc:layouts/ListLayout.tsx): Layout for listing blog posts or other items.
-- [ListLayoutWithTags.tsx](mdc:layouts/ListLayoutWithTags.tsx): List layout with tag filtering support.
-- [PostLayout.tsx](mdc:layouts/PostLayout.tsx): Layout for individual blog post pages.
-
-Use these layouts to wrap content and provide consistent structure across the site.
+- Layouts must provide stable page structure first: header/title area, content container, and footer/adjacent sections should not jump when data or browser-only UI mounts.
+- Reserve space for async or client-only regions inside layouts. If a sidebar, TOC, share block, ad slot, or media area loads later, keep a same-footprint placeholder or min-height container.
+- Build mobile-first. Default to one-column flow, modest spacing, and readable widths on phones; expand to multi-column only when the desktop layout clearly improves scanability.
+- Desktop enhancements must not degrade mobile usability. Avoid fixed widths that overflow on phones, and avoid dense side-by-side sections unless they collapse cleanly below `md`.
+- Blog and list layouts should minimize CLS:
+  - image slots need fixed aspect ratios or explicit dimensions
+  - metadata/tags rows should wrap cleanly
+  - pagination and filter controls should keep consistent height
+- Post layouts should prioritize reading performance: constrained prose width, predictable heading spacing, and side content that degrades gracefully on smaller screens.
+- Author and list layouts should prefer CSS grid/flex breakpoints over JS viewport logic.
+- Keep layout components mostly presentational. Push data fetching, browser-only logic, and heavy interactivity down into leaf components or dedicated client islands.
+- When touching layouts, verify both mobile and desktop rendering, because the same shell serves content-heavy and tool-heavy routes in this repo.

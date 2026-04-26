@@ -1,28 +1,24 @@
 ---
-description:
-globs:
+description: App router rules for localized routes, metadata, and route-level performance
+globs: app/**/*.{ts,tsx},proxy.ts
 alwaysApply: false
 ---
-# app Directory Guide
 
-The [app/](mdc:app) directory is the main entry point for routing and page structure in this Next.js project. It contains:
+# App Directory Rules
 
-- Route segments as subdirectories:
-  - [blog/](mdc:app/blog): Blog post routes, including dynamic routes ([...slug], pagination, etc.).
-  - [about/](mdc:app/about): About page.
-  - [projects/](mdc:app/projects): Projects listing page.
-  - [privacy/](mdc:app/privacy): Privacy policy page.
-  - [tags/](mdc:app/tags): Tag listing and tag-specific pages.
-  - [tools/](mdc:app/tools): Tools section (e.g., PDF to Markdown converter).
-  - [api/](mdc:app/api): API route handlers (e.g., contributions).
-  - [assets/](mdc:app/assets): Static assets (SVGs, Lottie animations, etc.).
-- Shared files:
-  - [layout.tsx](mdc:app/layout.tsx): Root layout for the app.
-  - [theme-providers.tsx](mdc:app/theme-providers.tsx): Theme context providers.
-  - [seo.tsx](mdc:app/seo.tsx): SEO configuration.
-  - [sitemap.ts](mdc:app/sitemap.ts): Sitemap generation.
-  - [robots.ts](mdc:app/robots.ts): Robots.txt handler.
-  - [not-found.tsx](mdc:app/not-found.tsx): 404 page.
-  - [Main.tsx](mdc:app/Main.tsx): Main content wrapper.
-
-Each route segment may contain its own [page.tsx](mdc:app/blog/page.tsx) or dynamic route handlers. See subdirectory rules for more details.
+- `app/` is the source of truth for route structure, metadata, and route-level rendering decisions. Prefer fixing issues here before adding workarounds lower in the tree.
+- This repo is locale-aware. Route changes must preserve the `[locale]` structure, alternate links, and `proxy.ts` behavior.
+- Keep route files thin:
+  - `page.tsx`: route composition and minimal data orchestration
+  - `layout.tsx`: shared shell and metadata wrappers
+  - route-local `components/`: interactive or visual pieces
+  - route-local hooks/utils: reusable route logic
+- Prefer server rendering for route shells and SEO/content sections. Push client-only logic into leaf components.
+- Tool pages must optimize the first viewport on both mobile and desktop:
+  - headline + primary action should be reachable quickly on mobile
+  - desktop can add richer supporting content, but the main workflow should still remain prominent
+- Route-level loading states must not cause the page to jump. If a route mounts browser-only UI, reserve height before hydration.
+- Route metadata must remain explicit and production-safe: title, description, alternates/canonical where relevant, and `metadataBase` compatibility.
+- API handlers under `app/api` should validate input, return stable JSON shapes, and avoid leaking browser-only assumptions.
+- Keep static asset imports inside `app/assets` or `public` intentional. Large browser-only libraries or animations should not be pulled into route shells unless needed.
+- When changing route structure or metadata behavior, verify build stability, because this repo relies on `contentlayer` pre-generation plus a `webpack` production build path for compatibility.

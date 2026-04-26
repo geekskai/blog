@@ -1,17 +1,22 @@
 ---
-description:
-globs:
+description: Component rules for Next 16, hydration safety, image strategy, and responsive UX
+globs: components/**/*.{ts,tsx},app/**/components/**/*.{ts,tsx}
 alwaysApply: false
 ---
-# components Directory Guide
 
-The [components/](mdc:components) directory contains reusable React components for the UI, including:
+# Component Rules
 
-- General UI components (e.g., [Tag.tsx](mdc:components/Tag.tsx), [Card.tsx](mdc:components/Card.tsx), [PageTitle.tsx](mdc:components/PageTitle.tsx), [LayoutWrapper.tsx](mdc:components/LayoutWrapper.tsx)).
-- Navigation and layout (e.g., [Header.tsx](mdc:components/Header.tsx), [SiteFooter.tsx](mdc:components/SiteFooter.tsx), [MobileNav.tsx](mdc:components/MobileNav.tsx)).
-- Utility and helper components (e.g., [ScrollTopAndComment.tsx](mdc:components/ScrollTopAndComment.tsx), [ProgressBar.tsx](mdc:components/ProgressBar.tsx), [SearchButton.tsx](mdc:components/SearchButton.tsx)).
-- Social and sharing (e.g., [ShareButtons.tsx](mdc:components/ShareButtons.tsx), [social-icons/](mdc:components/social-icons)).
-- MDX and content rendering (e.g., [MDXComponents.tsx](mdc:components/MDXComponents.tsx), [renderCanvas.js](mdc:components/renderCanvas.js)).
-- Helper subdirectory ([helper/](mdc:components/helper)): Additional utility components.
-
-Use these components to build pages and layouts throughout the app.
+- Prefer small, composable components with one job. Extract hooks for reusable behavior; avoid monolithic client components when a server wrapper plus a small client island is enough.
+- Default to Server Components for shared UI that does not need browser APIs. Add `"use client"` only when interaction actually requires it.
+- Never read browser globals at module scope. `ShareButtons`-style runtime values must be resolved inside the component lifecycle.
+- For browser-only components loaded with `ssr: false`, provide a loading state that preserves layout size. Avoid invisible mount-then-expand behavior.
+- Treat `next/image` as a performance tool, not a blanket default:
+  - use the repo’s shared `components/Image.tsx` for local asset path normalization
+  - do not pass remote/data/blob URLs through wrappers that prepend `BASE_PATH`
+  - add `sizes` whenever using `fill`
+  - remove contradictory hints like `priority` plus `loading="lazy"`
+- Inputs, buttons, tabs, and selects must remain finger-friendly on mobile and still look dense enough on desktop. Keep tap targets roughly `44px` minimum for primary actions.
+- Navigation components must support both mobile and desktop without duplicating business logic. Prefer shared data with separate presentation where needed.
+- Keep loading, empty, and error states explicit. They should be visually stable and semantically clear, especially in tools and converters.
+- Decorative animation is optional. Do not add motion that blocks input, shifts layout, or harms scroll performance on low-end mobile devices.
+- When editing components used across many routes, think about regression radius: blog pages, tools, and marketing-style surfaces all share these primitives.
