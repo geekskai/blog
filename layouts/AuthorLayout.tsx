@@ -23,6 +23,7 @@ export default function AuthorLayout({ children, content }: Props) {
           <div className="flex flex-col items-center rounded-2xl bg-stone-900/40 px-4 py-6 text-center ring-1 ring-stone-800 md:px-6 md:py-8 xl:sticky xl:top-24">
             {avatar && (
               <Image
+                loading="lazy"
                 src={avatar}
                 alt="avatar"
                 width={192}

@@ -212,7 +212,8 @@ export default function TrackInfoCard({
                 alt={title || "Track artwork"}
                 fill
                 className="object-cover transition-transform duration-500 hover:scale-110"
-                unoptimized
+                loading="lazy"
+                fetchPriority="high"
               />
             </div>
           )}
@@ -232,7 +233,7 @@ export default function TrackInfoCard({
                         alt={user?.username || t("track_info_unknown_artist")}
                         fill
                         className="object-cover"
-                        unoptimized
+                        loading="lazy"
                       />
                     </div>
                   )}

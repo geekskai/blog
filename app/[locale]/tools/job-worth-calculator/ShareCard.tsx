@@ -1070,6 +1070,7 @@ const ShareCard: React.FC<ShareCardProps> = (props) => {
                   <div className="flex items-center">
                     <Image
                       src="/title.png"
+                      loading="lazy"
                       alt="Job Worth Calculator"
                       width={80}
                       height={80}
@@ -1085,6 +1086,7 @@ const ShareCard: React.FC<ShareCardProps> = (props) => {
                   <Image
                     src="/website.png"
                     alt="www.geekskai.com"
+                    loading="lazy"
                     width={64}
                     height={64}
                     className="h-16 w-16 opacity-85"

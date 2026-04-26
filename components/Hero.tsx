@@ -279,6 +279,8 @@ function AboutSection() {
         </div>
         <div className="order-1 flex justify-center lg:order-2">
           <Image
+            loading="lazy"
+            fetchPriority="high"
             src="/me.jpg"
             width={280}
             height={280}
@@ -408,6 +410,7 @@ function Skills() {
                       alt={skill}
                       width={40}
                       height={40}
+                      loading="lazy"
                       className="h-full w-auto rounded-lg"
                     />
                   </div>

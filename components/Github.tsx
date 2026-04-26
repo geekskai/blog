@@ -50,7 +50,13 @@ const Github = () => {
           {t("hero_github_contributions")}
         </Link>
       </p>
-      <Image width={900} height={504} src={svgContent} alt="My Github Contributions" />
+      <Image
+        width={900}
+        height={504}
+        src={svgContent}
+        alt="My Github Contributions"
+        loading="lazy"
+      />
     </div>
   )
 }

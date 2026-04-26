@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import siteMetadata from "@/data/siteMetadata"
 import headerNavLinks from "@/data/headerNavLinks"
 import Link from "./Link"
@@ -44,6 +44,8 @@ const Header = () => {
         <Link href="/" aria-label={siteMetadata.headerTitle}>
           <div className="group flex items-center gap-3">
             <Image
+              loading="lazy"
+              fetchPriority="high"
               src="/static/logo.png"
               alt="geekskai Logo"
               width={100}

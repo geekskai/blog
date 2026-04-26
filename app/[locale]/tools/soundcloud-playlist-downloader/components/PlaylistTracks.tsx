@@ -144,7 +144,7 @@ export default function PlaylistTracks({
                         alt={track.title}
                         fill
                         className="object-cover"
-                        unoptimized
+                        loading="lazy"
                       />
                     </div>
                   )}

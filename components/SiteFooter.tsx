@@ -1,4 +1,5 @@
 import Link from "./Link"
+import React from "react"
 import SocialIcon from "./social-icons"
 import siteMetadata from "@/data/siteMetadata"
 // import Logo from "/public/static/logo.png"
@@ -53,8 +54,10 @@ const SiteFooter = () => {
             <div className="mb-6">
               <Link href="/" className="group inline-flex items-center gap-3">
                 <Image
+                  fetchPriority="high"
                   src={`${process.env.BASE_PATH || ""}/static/logo.png`}
                   alt="geekskai Logo"
+                  loading="lazy"
                   width={100}
                   height={36}
                   className="h-[36px] w-[100px] transition-transform duration-300 group-hover:scale-105"

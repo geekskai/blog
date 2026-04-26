@@ -396,6 +396,7 @@ export default function PreviewPanel({ result, options, onOptionsChange }: Previ
                   img: ({ src, alt }) => (
                     <Image
                       src={src || ""}
+                      loading="lazy"
                       alt={alt || ""}
                       className="h-auto max-w-full rounded-lg"
                     />

@@ -102,6 +102,7 @@ export default function ListLayoutWithTags({
                   <Link href={`/${path}`} className="flex flex-col gap-4">
                     {images && (
                       <Image
+                        loading="lazy"
                         alt={title}
                         src={images}
                         priority
@@ -115,6 +116,7 @@ export default function ListLayoutWithTags({
                         <Image
                           src={avatar}
                           alt="avatar"
+                          loading="lazy"
                           width={20}
                           height={20}
                           className="size-5 rounded-full"
