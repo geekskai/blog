@@ -16,7 +16,7 @@ export const revalidate = 86400 // 24 hours
 export const generateMetadata = async (): Promise<Metadata> => {
   // const { locale } = await params
   // const t = await getTranslations("TagsPage")
-  const lastModified = new Date("2026-04-21")
+  const lastModified = new Date("2026-04-26")
   const metadata: Metadata = {
     metadataBase: new URL(siteMetadata.siteUrl),
     title: {
@@ -100,7 +100,6 @@ export default async function RootLayout({
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2108246014001009"
         crossOrigin="anonymous"
       ></script>
-      <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
       <meta name="msvalidate.01" content="58567D271AD7C1B504E10F5DC587BD0B" />
       <meta name="google-adsense-account" content="ca-pub-2108246014001009"></meta>
       <meta name="google-site-verification" content="QBYZptmNADcvd2h8ZZVSZIJUlv5RnI8yYmHtEld1mKk" />

@@ -12,6 +12,7 @@ import { NextIntlClientProvider } from "next-intl"
 import React from "react"
 
 export const generateMetadata = async (): Promise<Metadata> => {
+  const lastModified = new Date("2026-04-26")
   const title = "Geekskai Terms of Service | 100% Free Online Tools"
   const description =
     "Read the Geekskai Terms of Service. Discover our commitment to providing 100% free online tools, downloaders, and converters with no hidden fees or subscriptions."
@@ -23,6 +24,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
       template: `%s`,
     },
     description: description,
+    other: {
+      "last-modified": lastModified.toISOString(),
+    },
     openGraph: {
       title: title,
       description: description,
@@ -97,7 +101,6 @@ export default async function RootLayout({
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2108246014001009"
         crossOrigin="anonymous"
       ></script>
-      <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
       <meta name="msvalidate.01" content="58567D271AD7C1B504E10F5DC587BD0B" />
       <meta name="google-adsense-account" content="ca-pub-2108246014001009"></meta>
       <meta name="google-site-verification" content="QBYZptmNADcvd2h8ZZVSZIJUlv5RnI8yYmHtEld1mKk" />

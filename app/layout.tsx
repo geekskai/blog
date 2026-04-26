@@ -19,7 +19,7 @@ export function generateStaticParams() {
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
   const { locale } = await params
   const t = await getTranslations("HomePage")
-  const lastModified = new Date("2026-04-21")
+  const lastModified = new Date("2026-04-26")
 
   const isDefaultLocale = locale === "en"
   const title = t("home_seo_title")
