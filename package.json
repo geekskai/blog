@@ -5,13 +5,14 @@
   "scripts": {
     "dev": "cross-env INIT_CWD=$PWD next dev",
     "start": "next dev",
-    "build": "cross-env INIT_CWD=$PWD next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
+    "contentlayer:build": "contentlayer2 build",
+    "build": "yarn contentlayer:build && cross-env INIT_CWD=$PWD next build --webpack && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
     "indexnow": "node ./scripts/submit-indexnow.mjs",
     "indexnow:dry": "node ./scripts/submit-indexnow.mjs --dry-run",
     "indexnow:verbose": "node ./scripts/submit-indexnow.mjs --verbose",
     "serve": "next start",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,mdx}\"",
-    "analyze": "cross-env ANALYZE=true next build",
+    "analyze": "yarn contentlayer:build && cross-env ANALYZE=true next build --webpack",
     "lint": "eslint --cache --fix --no-error-on-unmatched-pattern \"app/**/*.{js,jsx,ts,tsx}\" \"components/**/*.{js,jsx,ts,tsx}\" \"layouts/**/*.{js,jsx,ts,tsx}\" \"scripts/**/*.{js,jsx,ts,tsx,mjs}\" \"utils/**/*.{js,jsx,ts,tsx}\" \"data/**/*.{js,jsx,ts,tsx}\"",
     "prepare": "husky"
   },
