@@ -1,118 +1,140 @@
 ---
-title: "How to change css of primevue: A Comprehensive Guide"
+title: "How to Change CSS of PrimeVue: Pass Through, Tokens, and Unstyled Mode"
 date: "2024-09-28"
-lastmod: "2024-10-09"
+lastmod: "2026-04-26"
 tags: ["primevue", "css", "vue", "frontend", "web development", "ui components"]
 draft: false
-summary: "A guide to customizing PrimeVue components using Pass Through props, covering basic usage, declarative syntax, lifecycle hooks, and global configurations."
+summary: "Learn how to change CSS in PrimeVue using pass-through (`pt`), global PrimeVue configuration, design tokens, and unstyled mode. This guide explains when each approach works best and how to style PrimeVue components without overusing `!important`."
 layout: "PostLayout"
 images: "/static/images/blog/js/blog.png"
 canonicalUrl: "https://geekskai.com/blog/primevue/how-to-change-css-of-primevue/"
+faqs:
+  [
+    {
+      question: "What is the best way to change CSS in PrimeVue?",
+      answer: "For most component-level styling, PrimeVue's `pt` API is the cleanest choice because it targets internal DOM parts directly. For app-wide theme changes, use design tokens or CSS variables. If you want full design control, use unstyled mode.",
+    },
+    {
+      question: "What is PrimeVue pass through (`pt`)?",
+      answer: "PrimeVue pass through lets you attach classes, inline styles, attributes, and handlers to specific internal sections of a component such as `root`, `header`, `label`, or `icon`. It is often the best way to customize a component without relying on brittle CSS selectors.",
+    },
+    {
+      question: "Should I override PrimeVue with global CSS or !important?",
+      answer: "Global CSS can still work, but it should not be your default strategy for every change. `!important` should be reserved for edge cases because PrimeVue now provides cleaner customization tools like tokens, `pt`, and unstyled mode.",
+    },
+  ]
 ---
 
-## How to change css of primevue ?
+## How to Change CSS of PrimeVue
 
-PrimeVue offers a powerful feature called Pass Through props, which allows developers to access and modify the internal DOM structure of components. This guide will walk you through various methods to customize CSS in PrimeVue, from basic usage to advanced techniques.
-
-### Basic Usage(Pass Through)
-
-Each component has a special pt property to define an object with keys corresponding to the available DOM elements. Each value can either be a string, an object or a function that returns a string or an object to define the arbitrary properties to apply to the element such as styling, aria, data-\* or custom attributes. If the value is a string or a function that returns a string, it is considered as a class definition and added to the class attribute of the element. Every component documentation has a dedicated section to document the available section names exposed via PT.
-
-Most common usage of pt is styling and customization. The class and style properties support the exact syntax of the corresponding Vue bindings like arrays, objects and conditionals. Example below styles a Panel component with PrimeFlex CSS library.
-
-Here's a basic example of styling a Panel component:
-
-```jsx
-
-<template>
-    <div class="card">
-        <Panel header="Header" toggleable
-            :pt="{
-                header: (options) => ({
-                    id: 'myPanelHeader',
-                    style: {
-                        'user-select': 'none'
-                    },
-                    class: [
-                        'border-primary',
-                        {
-                            'bg-primary text-primary-contrast': options.state.d_collapsed,
-                            'text-primary bg-primary-contrast': !options.state.d_collapsed
-                        }
-                    ]
-                }),
-                content: { class: 'border-primary text-lg text-primary-700' },
-                title: 'text-xl',                                     // OR { class: 'text-xl' }
-                toggler: () => 'bg-primary text-primary-contrast hover:text-primary hover:bg-primary-contrast'  // OR { class: 'bg-primary text-primary-contrast hover:text-primary hover:bg-primary-contrast' }
-            }">
-            <p class="m-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-        </Panel>
-    </div>
-</template>
-
-<script setup>
-</script>
-
-```
-
-## Declarative Syntax
-
-The declarative syntax is useful for simple cases where you want to apply static styles to components. It's easy to read and understand, making it ideal for quick customizations.
-
-Here's an example of using the declarative syntax to style a Button component:
-
-```jsx
-<Panel
-    pt:root:class="border border-solid"
-    pt:header:id="headerId"
-    pt:header:data-test-id="testId"
-    pt:header:class="bg-blue-500"
-    :pt:header:onClick="onHeaderClick"
+> <strong>Quick Answer:</strong> The best way to change CSS in <strong>PrimeVue</strong> is usually to use <strong>pass through (`pt`)</strong> for component-specific styling, <strong>design tokens</strong> for theme-level styling, and <strong>unstyled mode</strong> when you want complete control. Plain CSS overrides still work, but they should not be the first tool you reach for.
 >
-    <Button
-        label="Click Me"
-        :pt="{
-            root: 'bg-blue-500 text-white',
-            icon: 'text-white',
-            label: 'text-white'
-        }"
-    />
-</Panel>
+> <strong>Best for:</strong> Vue developers who want cleaner PrimeVue customization without brittle selector overrides
+>
+> <strong>Cost:</strong> Free, built into PrimeVue
+>
+> <strong>Key benefit:</strong> You can style PrimeVue components at the right layer instead of fighting generated classes
 
+PrimeVue gives you several ways to change component styles, but they are not all equally maintainable. If you only know the old pattern of overriding `.p-button` with stronger selectors, you will eventually run into conflicts, upgrade friction, or hard-to-read CSS.
+
+For modern PrimeVue projects, the usual order is:
+
+1. <strong>Use `pt`</strong> for component-part styling
+2. <strong>Use design tokens or CSS variables</strong> for theme changes
+3. <strong>Use unstyled mode</strong> when you want full control
+4. <strong>Use CSS overrides</strong> for targeted exceptions
+
+## When to Use Each Approach
+
+| Goal | Best approach |
+| --- | --- |
+| Change one component's internal parts | <strong>`pt`</strong> |
+| Apply consistent theme changes across components | <strong>Design tokens / CSS variables</strong> |
+| Control every class yourself | <strong>Unstyled mode</strong> |
+| Patch one edge case quickly | <strong>Scoped or global CSS</strong> |
+
+## Method 1: Basic Usage with `pt`
+
+PrimeVue's <strong>pass through</strong> API lets you target internal DOM sections of a component directly. Each component documents the available section names, such as `root`, `header`, `content`, `label`, or `icon`.
+
+This is the most useful PrimeVue-specific styling API because it lets you style component internals without guessing which selectors to override later.
+
+Example with `Panel`:
+
+```vue
+<template>
+  <div class="card">
+    <Panel
+      header="Header"
+      toggleable
+      :pt="{
+        header: (options) => ({
+          id: 'myPanelHeader',
+          style: {
+            userSelect: 'none'
+          },
+          class: [
+            'border-primary',
+            {
+              'bg-primary text-primary-contrast': options.state.d_collapsed,
+              'text-primary bg-primary-contrast': !options.state.d_collapsed
+            }
+          ]
+        }),
+        content: { class: 'border-primary text-lg text-primary-700' },
+        title: 'text-xl',
+        toggler: () => 'bg-primary text-primary-contrast hover:text-primary hover:bg-primary-contrast'
+      }"
+    >
+      <p class="m-0">Custom Panel content</p>
+    </Panel>
+  </div>
+</template>
 ```
 
-The declarative syntax provides an alternative to the programmatic syntax. The attributes that start with pt are interpreted differently by the component based on the format below.
+### Why `pt` works well
 
-```jsx
+- you can target exact internal sections
+- you can pass `class`, `style`, ARIA attributes, and custom attributes
+- values can be strings, objects, or functions
+- it is usually more stable than overriding internal `.p-*` selectors blindly
 
+## Method 2: Declarative `pt:` Syntax
+
+If you prefer a more template-driven style, PrimeVue also supports declarative pass-through syntax. This is useful when the override is small and you want it close to the markup.
+
+```vue
+<Panel
+  pt:root:class="border border-solid"
+  pt:header:id="headerId"
+  pt:header:data-test-id="testId"
+  pt:header:class="bg-blue-500"
+  :pt:header:onClick="onHeaderClick"
+>
+  <Button
+    label="Click Me"
+    :pt="{
+      root: 'bg-blue-500 text-white',
+      icon: 'text-white',
+      label: 'text-white'
+    }"
+  />
+</Panel>
+```
+
+Format:
+
+```vue
 <ComponentTag pt:[passthrough_key]:[attribute]="value" />
 ```
 
-This syntax provides an alternative to the programmatic approach, making it easier to read and maintain in some cases.
+This syntax is easier to scan in simpler components, while the object form is usually better for more complex logic.
 
-## Lifecycle Hooks
+## Method 3: Global PrimeVue Configuration
 
-PrimeVue components provide lifecycle hooks that allow you to customize the behavior of components at different stages of their lifecycle. You can use these hooks to apply custom styles to components based on their state or user interactions.
+If you want consistent defaults across your app, configure `pt` globally when installing PrimeVue.
 
-You can access component lifecycle hooks through the hooks property:
-
-```jsx
-<Panel header="Header" :pt="panelPT">
-    Content
-</Panel>
-
-```
-
-Available hooks include onBeforeCreate, onCreated, onBeforeUpdate, onUpdated, onBeforeMount, onMounted, onBeforeUnmount, and onUnmounted.
-
-## Global Configuration
-
-PrimeVue allows for global Pass Through configurations:
-
-```jsx
+```ts
 import PrimeVue from "primevue/config"
 import { createApp } from "vue"
 
@@ -136,57 +158,40 @@ app.use(PrimeVue, {
 app.mount("#app")
 ```
 
-This sets default styles for all Panel and Autocomplete components, which can be overridden by individual component pt props.
+This is useful when:
 
-## Custom CSS
+- you want the same default style in many places
+- you use the same utility classes repeatedly
+- you want a central source of truth for component styling
 
-The global configuration also supports custom CSS:
+## Method 4: Unstyled Mode
 
-```jsx
+If you want PrimeVue for functionality but not for its default visual layer, use <strong>unstyled mode</strong>.
+
+```ts
 import PrimeVue from "primevue/config"
 import { createApp } from "vue"
 
 const app = createApp(App)
 
 app.use(PrimeVue, {
-  pt: {
-    global: {
-      css: `
-                button {
-                    padding: 2rem;
-                }
-                .p-ink {
-                    display: block;
-                    position: absolute;
-                    background: rgba(255, 255, 255, 0.5);
-                    border-radius: 100%;
-                    transform: scale(0);
-                    pointer-events: none;
-                }
-                .p-ink-active {
-                    animation: ripple 0.4s linear;
-                }
-                @keyframes ripple {
-                    100% {
-                        opacity: 0;
-                        transform: scale(2.5);
-                    }
-                }
-            `,
-    },
-  },
+  unstyled: true,
 })
-
-app.mount("#app")
 ```
 
-## UsePassThrough Utility
+Unstyled mode is the best option when:
 
-PrimeVue provides a usePassThrough utility function to simplify the process of defining Pass Through props. This function takes a component name and an object with keys corresponding to the available DOM elements and returns a function that can be used to define the pt prop for the component.
+- you already have a design system
+- you use Tailwind or another utility-first approach
+- you do not want to keep overriding styled mode defaults
 
-Here's an example of using the usePassThrough utility function to define Pass Through props for a Panel component:
+You can also combine unstyled mode with a global `pt` preset.
 
-```jsx
+## Method 5: `usePassThrough` for Reusable Presets
+
+If you want reusable and mergeable configuration, PrimeVue provides `usePassThrough`.
+
+```ts
 import { usePassThrough } from "primevue/passthrough"
 import BasePreset from "./basepreset"
 
@@ -204,21 +209,78 @@ const CustomPreset = usePassThrough(
     mergeProps: false,
   }
 )
+```
 
+Then register it:
+
+```ts
 app.use(PrimeVue, { unstyled: true, pt: CustomPreset })
 ```
 
-This utility provides fine-grained control over how custom configurations are merged with base presets.
+This is useful in larger apps where you want one shared style preset rather than repeating `pt` objects everywhere.
+
+## Method 6: Design Tokens and Theme-Level Styling
+
+If your goal is not just one component tweak but broader visual consistency, use <strong>PrimeVue design tokens</strong> or theme variables instead of repeating local overrides.
+
+This is usually better than CSS overrides because:
+
+- it keeps the whole theme consistent
+- it avoids selector conflicts
+- it scales better than one-off patches
+
+Use tokens when the change should affect multiple components, such as brand colors, spacing, or component states.
+
+## Can You Still Use Plain CSS?
+
+Yes. Plain CSS still works, especially for quick fixes or rare cases that are not covered by `pt` or tokens.
+
+Example:
+
+```css
+.p-button {
+  border-radius: 10px;
+}
+```
+
+But plain CSS should usually be a <strong>secondary tool</strong>, not your first one.
+
+Why:
+
+- it can become brittle across library updates
+- it often leads to higher-specificity selectors
+- it tempts people to overuse `!important`
+
+## When `!important` Makes Sense
+
+Most PrimeVue guides used to recommend `!important` too quickly. That is usually not the best long-term choice.
+
+Use `!important` only when:
+
+- you are fixing a stubborn third-party clash
+- you cannot target the right section with `pt`
+- you need a temporary patch during migration
+
+If you find yourself adding `!important` to most PrimeVue rules, it is a sign you are using the wrong customization layer.
+
+## Recommended PrimeVue CSS Strategy
+
+If you are unsure which method to choose, use this order:
+
+1. <strong>Need to style component internals?</strong> Use `pt`.
+2. <strong>Need a reusable style system?</strong> Use global `pt` config or `usePassThrough`.
+3. <strong>Need full ownership of styling?</strong> Use unstyled mode.
+4. <strong>Need app-wide visual consistency?</strong> Use tokens or theme variables.
+5. <strong>Need a quick patch?</strong> Use plain CSS carefully.
 
 ## Conclusion
 
-Customizing CSS in PrimeVue components is a powerful feature that allows you to create unique and visually appealing user interfaces. By using Pass Through props, lifecycle hooks, global configurations, and custom CSS, you can easily style components to match your design requirements. Experiment with different techniques to find the best approach for your project and create stunning UIs with PrimeVue.
+The cleanest way to change CSS in PrimeVue is not to fight its generated classes with stronger selectors. In most projects, <strong>`pt` is the best first choice</strong> because it targets component internals directly, works well with utility classes, and is easier to maintain.
 
-PrimeVue's Pass Through props offer a flexible and powerful way to customize component styles. Whether you prefer programmatic or declarative syntax, global or component-specific styling, PrimeVue provides the tools to create unique and consistent user interfaces.
-
-I hope this guide has been helpful in understanding how to change CSS in PrimeVue components. If you have any questions or feedback, feel free to leave a comment below. Happy coding!
+For bigger styling systems, combine <strong>global `pt` config</strong>, <strong>design tokens</strong>, or <strong>unstyled mode</strong>. That gives you much more control than relying on scattered CSS overrides.
 
 ## References
 
-- [PrimeVue Official Documentation - Pass Through Props](https://primevue.org/passthrough/)
-- [Vue.js Lifecycle Hooks Documentation](https://vuejs.org/api/composition-api-lifecycle.html)
+- [PrimeVue Official Documentation - Pass Through](https://primevue.org/passthrough/)
+- [PrimeVue Configuration](https://primevue.org/configuration/)
+- [Vue Lifecycle API](https://vuejs.org/api/composition-api-lifecycle.html)
