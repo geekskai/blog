@@ -90,9 +90,9 @@ export default async function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageSchema) }}
       />
 
-      <div className="flex flex-col items-start justify-start md:mt-16 md:flex-row md:items-start md:justify-center md:gap-6 lg:mt-24">
-        <div className="w-full pb-6 pt-5 md:w-auto md:space-y-5 md:pb-8 md:pt-6">
-          <h1 className="text-center text-3xl font-extrabold leading-tight tracking-tight text-stone-100 sm:text-4xl md:border-r-2 md:px-6 md:text-5xl md:leading-tight lg:text-6xl">
+      <div className="flex flex-col items-start justify-start md:gap-6">
+        <div className="w-full pb-6 pt-5 md:w-full md:space-y-5 md:pb-8 md:pt-6">
+          <h1 className="text-center text-3xl font-extrabold leading-tight tracking-tight text-stone-100 sm:text-4xl md:px-6 md:text-5xl md:leading-tight lg:text-6xl">
             Tags
           </h1>
         </div>
@@ -124,7 +124,7 @@ export default async function Page() {
           </div>
         </section>
 
-        <div className="flex w-full max-w-4xl flex-wrap gap-x-4 gap-y-3 pt-5 md:pt-2">
+        <div className="flex w-full max-w-7xl flex-wrap gap-x-4 gap-y-3 pt-5">
           {tagKeys.length === 0 && "No tags found."}
           {sortedTags.map((t) => {
             return (

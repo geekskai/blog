@@ -4,17 +4,19 @@ import { getTranslations } from "next-intl/server"
 import React from "react"
 
 export const revalidate = 86400 // 24 hours
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string }
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const params = await props.params
+
+  const { locale } = params
+
   const t = await getTranslations({ locale, namespace: "TipScreenGenerator" })
   const isDefaultLocale = locale === "en"
   const languages = {
     "x-default": "https://geekskai.com/tools/tip-screen-generator/",
   }
-  const lastModified = new Date("2026-04-21")
+  const lastModified = new Date("2026-04-26")
 
   supportedLocales.forEach((locale) => {
     languages[locale] = `https://geekskai.com/${locale}/tools/tip-screen-generator/`
@@ -66,13 +68,13 @@ export async function generateMetadata({
   }
 }
 
-export default async function Layout({
-  children,
-  params: { locale },
-}: {
-  children: React.ReactNode
-  params: { locale: string }
-}) {
+export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+  const params = await props.params
+
+  const { locale } = params
+
+  const { children } = props
+
   const t = await getTranslations({ locale, namespace: "TipScreenGenerator" })
 
   // JSON-LD Structured Data

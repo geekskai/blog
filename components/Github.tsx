@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import Image from "./Image"
 import Link from "@/components/Link"
 import { useTranslations } from "next-intl"
@@ -56,6 +56,7 @@ const Github = () => {
         src={svgContent}
         alt="My Github Contributions"
         loading="lazy"
+        unoptimized
       />
     </div>
   )

@@ -3,11 +3,13 @@ import { Metadata } from "next"
 
 import { getTranslations } from "next-intl/server"
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string }
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const params = await props.params
+
+  const { locale } = params
+
   const t = await getTranslations({ locale, namespace: "PrintTestPage" })
   const isDefaultLocale = locale === "en"
 
@@ -20,7 +22,7 @@ export async function generateMetadata({
   })
 
   // Update this monthly
-  const lastModified = new Date("2026-04-21") // Update current date
+  const lastModified = new Date("2026-04-26") // Update current date
 
   return {
     title: t("metadata_title"),
@@ -76,13 +78,13 @@ export async function generateMetadata({
   }
 }
 
-export default async function Layout({
-  children,
-  params: { locale },
-}: {
-  children: React.ReactNode
-  params: { locale: string }
-}) {
+export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+  const params = await props.params
+
+  const { locale } = params
+
+  const { children } = props
+
   const t = await getTranslations({ locale, namespace: "PrintTestPage" })
   const isDefaultLocale = locale === "en"
   const baseUrl = isDefaultLocale

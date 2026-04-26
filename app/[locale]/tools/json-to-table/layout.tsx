@@ -3,11 +3,13 @@ import { Metadata } from "next"
 import { supportedLocales } from "app/i18n/routing"
 import { getTranslations } from "next-intl/server"
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string }
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const params = await props.params
+
+  const { locale } = params
+
   const t = await getTranslations({ locale, namespace: "JsonToTable" })
 
   const isDefaultLocale = locale === "en"
@@ -20,10 +22,15 @@ export async function generateMetadata({
     languages[loc] = `https://geekskai.com/${loc}/tools/json-to-table/`
   })
 
+  const lastModified = new Date("2026-04-26")
+
   return {
     title: t("seo_title"),
     description: t("seo_description"),
     keywords: t("seo_keywords").split(", "),
+    other: {
+      "last-modified": lastModified.toISOString(),
+    },
     openGraph: {
       title: t("seo_title"),
       description: t("seo_description"),
@@ -162,13 +169,13 @@ async function generateJsonLd(locale: string) {
   }
 }
 
-export default async function Layout({
-  children,
-  params: { locale },
-}: {
-  children: React.ReactNode
-  params: { locale: string }
-}) {
+export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+  const params = await props.params
+
+  const { locale } = params
+
+  const { children } = props
+
   const jsonLd = await generateJsonLd(locale)
 
   return (

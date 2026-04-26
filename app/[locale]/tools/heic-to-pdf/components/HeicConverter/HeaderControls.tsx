@@ -2,7 +2,7 @@ import React from "react"
 import { useTranslations } from "next-intl"
 
 interface HeaderControlsProps {
-  fileInputRef: React.RefObject<HTMLInputElement>
+  fileInputRef: React.RefObject<HTMLInputElement | null>
   onDrop: (files: File[]) => void
   removeAllFiles: () => void
 }

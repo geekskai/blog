@@ -67,7 +67,7 @@ const preloadEffectImages = async (effectIds: string[]): Promise<void> => {
 // https://github.com/shivankacker/invincible-title-card-generator/blob/main/src/components/toolbar.tsx
 // Uses device detection to choose between html2canvas (iOS/Safari) and dom-to-image (others)
 export const downloadTitleCard = async (
-  canvasRef: React.RefObject<HTMLDivElement>,
+  canvasRef: React.RefObject<HTMLDivElement | null>,
   state: TitleCardState,
   setState: React.Dispatch<React.SetStateAction<TitleCardState>>,
   deviceInfo?: { os: string; browser: string }

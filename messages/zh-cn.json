@@ -7854,7 +7854,7 @@
     "faq_rate_question": "当前 GBP 转 NOK 汇率是多少？",
     "faq_rate_answer": "<rate>GBP 转 NOK 汇率</rate>根据市场情况全天波动。我们的转换器显示来自可靠金融源的<realtime>每小时更新的实时汇率</realtime>。根据最新数据，<typical>1 GBP 通常约等于 13-14 NOK</typical>，但这一数值会不断变化。",
     "faq_convert_question": "如何将英镑转换为挪威克朗？",
-    "faq_convert_answer": "只需在我们的转换器中<enter>输入 GBP 金额</enter>，它将使用<current>当前汇率</current>自动计算<NOK 的<equivalent>等值金额</equivalent>。您也可以点击交换按钮切换到<nok_gbp>NOK 转 GBP</nok_gbp>。",
+    "faq_convert_answer": "只需在我们的转换器中<enter>输入 GBP 金额</enter>，它将使用<current>当前汇率</current>自动计算<equivalent>NOK 的等值金额</equivalent>。您也可以点击交换按钮切换到<nok_gbp>NOK 转 GBP</nok_gbp>。",
     "faq_why_change_question": "为什么 GBP NOK 汇率会变化？",
     "faq_why_change_answer": "汇率因多种因素而变化，包括<oil>油价（影响挪威经济）</oil>、<interest>利率差异</interest>、<brexit>英国脱欧进展</brexit>、两国的<economic>经济数据</economic>以及<sentiment>全球市场情绪</sentiment>。",
     "faq_business_question": "这个 GBP NOK 转换器适合商业用途吗？",

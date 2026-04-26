@@ -2,7 +2,11 @@
   "compilerOptions": {
     "incremental": true,
     "target": "ES6",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -10,20 +14,45 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@/components/*": ["components/*"],
-      "@/data/*": ["data/*"],
-      "@/layouts/*": ["layouts/*"],
-      "@/utils/*": ["utils/*"],
-      "@/css/*": ["css/*"],
-      "@/app/*": ["app/*"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "@/*": [
+        "./*"
+      ],
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/data/*": [
+        "data/*"
+      ],
+      "@/layouts/*": [
+        "layouts/*"
+      ],
+      "@/utils/*": [
+        "utils/*"
+      ],
+      "@/css/*": [
+        "css/*"
+      ],
+      "@/app/*": [
+        "app/*"
+      ],
+      "contentlayer/generated": [
+        "./.contentlayer/generated"
+      ],
+      "soundcloud-downloader": [
+        "./types/soundcloud-downloader"
+      ],
+      "soundcloud-downloader/dist/info": [
+        "./types/soundcloud-downloader"
+      ],
+      "soundcloud-downloader/dist/download": [
+        "./types/soundcloud-downloader"
+      ]
     },
     "plugins": [
       {
@@ -41,15 +70,21 @@
     "app/i18n/**/*.ts",
     "components/**/*.ts",
     "components/**/*.tsx",
-    "**/*.js",
-    "**/*.jsx",
-    "**/*.mjs",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.json",
+    "layouts/**/*.ts",
+    "layouts/**/*.tsx",
+    "utils/**/*.ts",
+    "utils/**/*.tsx",
+    "utils/**/*.js",
+    "data/**/*.ts",
+    "scripts/**/*.js",
+    "scripts/**/*.mjs",
+    "contentlayer.config.ts",
     ".contentlayer/generated",
     ".contentlayer/generated/**/*.json",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -5,11 +5,13 @@ import { getTranslations } from "next-intl/server"
 
 const TOOL_SLUG = "soundcloud-downloader"
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string }
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const params = await props.params
+
+  const { locale } = params
+
   const t = await getTranslations({ locale, namespace: "SoundCloudDownloader" })
   const isDefaultLocale = locale === "en"
   const canonical = isDefaultLocale
@@ -23,7 +25,7 @@ export async function generateMetadata({
     languages[loc] = `https://geekskai.com/${loc}/tools/${TOOL_SLUG}/`
   })
 
-  const lastModified = new Date("2026-04-23")
+  const lastModified = new Date("2026-04-26")
 
   return {
     title: t("metadata_title"),
@@ -72,13 +74,13 @@ export async function generateMetadata({
   }
 }
 
-export default async function Layout({
-  children,
-  params: { locale },
-}: {
-  children: React.ReactNode
-  params: { locale: string }
-}) {
+export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+  const params = await props.params
+
+  const { locale } = params
+
+  const { children } = props
+
   const t = await getTranslations({ locale, namespace: "SoundCloudDownloader" })
   const isDefaultLocale = locale === "en"
   const baseUrl = isDefaultLocale

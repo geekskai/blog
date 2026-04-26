@@ -280,7 +280,6 @@ function AboutSection() {
         <div className="order-1 flex justify-center lg:order-2">
           <Image
             loading="lazy"
-            fetchPriority="high"
             src="/me.jpg"
             width={280}
             height={280}

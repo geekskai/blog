@@ -3,11 +3,13 @@ import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 import React from "react"
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string }
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const params = await props.params
+
+  const { locale } = params
+
   const t = await getTranslations({ locale, namespace: "DiscordTimeConverter" })
 
   const isDefaultLocale = locale === "en"
@@ -20,7 +22,7 @@ export async function generateMetadata({
     languages[locale] = `https://geekskai.com/${locale}/tools/discord-time-converter/`
   })
   // Content freshness metadata (updated within 30-90 days for best AI ranking)
-  const lastModified = new Date("2026-04-21")
+  const lastModified = new Date("2026-04-26")
   const updateFrequency = "monthly"
   const nextReview = new Date("2026-07-21")
 
@@ -221,13 +223,16 @@ async function generateJsonLd(locale: string) {
   }
 }
 
-export default async function Layout({
-  children,
-  params: { locale },
-}: {
+export default async function Layout(props: {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }) {
+  const params = await props.params
+
+  const { locale } = params
+
+  const { children } = props
+
   const schemas = await generateJsonLd(locale)
 
   return (

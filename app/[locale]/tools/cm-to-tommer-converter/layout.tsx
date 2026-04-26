@@ -4,13 +4,15 @@ import { getTranslations } from "next-intl/server"
 import React from "react"
 
 // SEO 优化的 metadata
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string }
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const params = await props.params
+
+  const { locale } = params
+
   const t = await getTranslations({ locale, namespace: "CmToTommerConverter" })
-  const lastModified = new Date("2026-04-21")
+  const lastModified = new Date("2026-04-26")
   const isDefaultLocale = locale === "en"
   const languages = {
     "x-default": "https://geekskai.com/tools/cm-to-tommer-converter/",
@@ -218,13 +220,16 @@ function getFaqStructuredData(t: any) {
   }
 }
 
-export default async function CmToTommerLayout({
-  children,
-  params: { locale },
-}: {
+export default async function CmToTommerLayout(props: {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }) {
+  const params = await props.params
+
+  const { locale } = params
+
+  const { children } = props
+
   const t = await getTranslations({ locale, namespace: "CmToTommerConverter" })
 
   const structuredData = getStructuredData(locale, t)

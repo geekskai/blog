@@ -3,11 +3,13 @@ import { getTranslations } from "next-intl/server"
 import { supportedLocales } from "../../../i18n/routing"
 import React from "react"
 // 动态生成多语言 metadata
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string }
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const params = await props.params
+
+  const { locale } = params
+
   const t = await getTranslations({ locale, namespace: "BoardFootCalculator" })
 
   // 语言映射
@@ -29,7 +31,7 @@ export async function generateMetadata({
   const languages = {
     "x-default": "https://geekskai.com/tools/board-foot-calculator/",
   }
-  const lastModified = new Date("2026-04-21")
+  const lastModified = new Date("2026-04-26")
 
   supportedLocales.forEach((locale) => {
     languages[locale] = `https://geekskai.com/${locale}/tools/board-foot-calculator/`
@@ -256,13 +258,16 @@ const educationalStructuredData = {
   },
 }
 
-export default async function BoardFootCalculatorLayout({
-  children,
-  params: { locale },
-}: {
+export default async function BoardFootCalculatorLayout(props: {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }) {
+  const params = await props.params
+
+  const { locale } = params
+
+  const { children } = props
+
   const t = await getTranslations({ locale, namespace: "BoardFootCalculator" })
 
   const baseUrl = "https://geekskai.com"

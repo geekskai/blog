@@ -7,7 +7,7 @@ import { supportedLocales } from "./i18n/routing"
 
 type Props = {
   children: ReactNode
-  params: Promise<{ locale: string }>
+  params: Promise<{ locale?: string }>
 }
 
 export function generateStaticParams() {
@@ -17,8 +17,9 @@ export function generateStaticParams() {
 }
 
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
-  const { locale } = await params
-  const t = await getTranslations("HomePage")
+  const { locale: requestedLocale } = await params
+  const locale = supportedLocales.includes(requestedLocale || "") ? requestedLocale! : "en"
+  const t = await getTranslations({ locale, namespace: "HomePage" })
   const lastModified = new Date("2026-04-26")
 
   const isDefaultLocale = locale === "en"
@@ -49,6 +50,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
   })
 
   return {
+    metadataBase: new URL(baseUrl),
     title: title,
     description: description,
     keywords: keywords.split(", ").length > 1 ? keywords.split(", ") : [keywords],

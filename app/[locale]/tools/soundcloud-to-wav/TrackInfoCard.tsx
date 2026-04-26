@@ -211,7 +211,7 @@ export default function TrackInfoCard({
                 fill
                 className="object-cover"
                 loading="lazy"
-                fetchPriority="high"
+                sizes="(max-width: 640px) 160px, (max-width: 768px) 176px, (max-width: 1024px) 224px, 256px"
               />
             </div>
           )}
@@ -232,7 +232,7 @@ export default function TrackInfoCard({
                         fill
                         className="object-cover"
                         loading="lazy"
-                        fetchPriority="high"
+                        sizes="(max-width: 640px) 32px, 40px"
                       />
                     </div>
                   )}

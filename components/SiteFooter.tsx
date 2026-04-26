@@ -3,7 +3,7 @@ import React from "react"
 import SocialIcon from "./social-icons"
 import siteMetadata from "@/data/siteMetadata"
 // import Logo from "/public/static/logo.png"
-import Image from "next/image"
+import Image from "./Image"
 import { Zap, Heart, ExternalLink } from "lucide-react"
 import { useTranslations } from "next-intl"
 import LinkNext from "next/link"
@@ -54,8 +54,7 @@ const SiteFooter = () => {
             <div className="mb-6">
               <Link href="/" className="group inline-flex items-center gap-3">
                 <Image
-                  fetchPriority="high"
-                  src={`${process.env.BASE_PATH || ""}/static/logo.png`}
+                  src="/static/logo.png"
                   alt="geekskai Logo"
                   loading="lazy"
                   width={100}

@@ -9,13 +9,14 @@ import {
 } from "./vehicle-type-seo"
 
 interface VehicleTypePageProps {
-  params: {
+  params: Promise<{
     locale: string
     type: string
-  }
+  }>
 }
 
-export async function generateMetadata({ params }: VehicleTypePageProps): Promise<Metadata> {
+export async function generateMetadata(props: VehicleTypePageProps): Promise<Metadata> {
+  const params = await props.params
   const config = getTypeConfig(params.type)
   const t = await getTranslations({
     locale: params.locale,
@@ -58,16 +59,17 @@ export async function generateMetadata({ params }: VehicleTypePageProps): Promis
   return metadata
 }
 
-export default async function VehicleTypeLayout({
-  children,
-  params,
-}: {
+export default async function VehicleTypeLayout(props: {
   children: React.ReactNode
-  params: {
+  params: Promise<{
     locale: string
     type: string
-  }
+  }>
 }) {
+  const params = await props.params
+
+  const { children } = props
+
   const config = getTypeConfig(params.type)
 
   if (!config) {

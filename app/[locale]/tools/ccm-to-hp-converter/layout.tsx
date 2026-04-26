@@ -3,11 +3,13 @@ import type { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 
 // Generate metadata with i18n support
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string }
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const params = await props.params
+
+  const { locale } = params
+
   const t = await getTranslations({ locale, namespace: "CcmToHpConverter" })
 
   const isDefaultLocale = locale === "en"
@@ -15,7 +17,7 @@ export async function generateMetadata({
   const languages = {
     "x-default": "https://geekskai.com/tools/ccm-to-hp-converter/",
   }
-  const lastModified = new Date("2026-04-21")
+  const lastModified = new Date("2026-04-26")
 
   supportedLocales.forEach((locale) => {
     languages[locale] = `https://geekskai.com/${locale}/tools/ccm-to-hp-converter/`
@@ -279,13 +281,16 @@ const getJsonLd = (t: any, locale: string) => ({
   ],
 })
 
-export default async function CcmToHpConverterLayout({
-  children,
-  params: { locale },
-}: {
+export default async function CcmToHpConverterLayout(props: {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }) {
+  const params = await props.params
+
+  const { locale } = params
+
+  const { children } = props
+
   const t = await getTranslations({ locale, namespace: "CcmToHpConverter" })
   const jsonLd = getJsonLd(t, locale)
 

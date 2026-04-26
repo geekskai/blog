@@ -7935,7 +7935,7 @@
     "faq_rate_question": "現在のGBPからNOK為替レートはいくらですか？",
     "faq_rate_answer": "<rate>GBPからNOK為替レート</rate>は市場状況に基づいて1日中変動します。当社のコンバーターは信頼できる金融ソースから<realtime>1時間ごとに更新されるリアルタイムレート</realtime>を表示します。最新データによると、<typical>1 GBPは通常約13-14 NOK</typical>に相当しますが、これは常に変動します。",
     "faq_convert_question": "イギリスポンドをノルウェークローネに変換するにはどうすればよいですか？",
-    "faq_convert_answer": "当社のコンバーターに<enter>GBPで金額を入力</enter>するだけで、<current>現在の為替レート</current>を使用して<NOKでの<equivalent>同等額</equivalent>を自動的に計算します。スワップボタンをクリックして<nok_gbp>NOKからGBP</nok_gbp>への変換に切り替えることもできます。",
+    "faq_convert_answer": "当社のコンバーターに<enter>GBPで金額を入力</enter>するだけで、<current>現在の為替レート</current>を使用して<equivalent>NOKでの同等額</equivalent>を自動的に計算します。スワップボタンをクリックして<nok_gbp>NOKからGBP</nok_gbp>への変換に切り替えることもできます。",
     "faq_why_change_question": "GBP NOK為替レートが変動するのはなぜですか？",
     "faq_why_change_answer": "為替レートは、<oil>石油価格（ノルウェーの経済に影響）</oil>、<interest>金利差</interest>、<brexit>Brexitの進展</brexit>、両国の<economic>経済データ</economic>、<sentiment>世界市場のセンチメント</sentiment>など、さまざまな要因により変動します。",
     "faq_business_question": "このGBP NOKコンバーターはビジネス用途に適していますか？",

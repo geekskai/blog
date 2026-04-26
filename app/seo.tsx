@@ -5,12 +5,13 @@ interface PageSEOProps {
   title: string
   description?: string
   image?: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
   [key: string]: any
 }
 
 export function genPageMetadata({ title, description, image, ...rest }: PageSEOProps): Metadata {
   return {
+    metadataBase: new URL(siteMetadata.siteUrl),
     title,
     description: description || siteMetadata.description,
     openGraph: {

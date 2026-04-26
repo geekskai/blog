@@ -7,10 +7,10 @@ import { getBrandWithTranslations, SUPPORTED_BRAND_SLUGS } from "../types"
 import VinDecoderClient from "./VinDecoderClient"
 
 interface BrandPageProps {
-  params: {
+  params: Promise<{
     brand: string
     locale: string
-  }
+  }>
 }
 
 export async function generateStaticParams() {
@@ -19,7 +19,8 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: BrandPageProps): Promise<Metadata> {
+export async function generateMetadata(props: BrandPageProps): Promise<Metadata> {
+  const params = await props.params
   const { brand: brandSlug, locale } = params
   const t = await getTranslations({ locale, namespace: "VinDecoder.brandPage" })
   const tSeo = await getTranslations({ locale, namespace: "VinDecoder.brandPage.seo" })
@@ -54,7 +55,7 @@ export async function generateMetadata({ params }: BrandPageProps): Promise<Meta
   })
 
   // Content freshness metadata - Update this monthly
-  const lastModified = new Date("2026-02-24")
+  const lastModified = new Date("2026-02-26")
 
   return {
     title,
@@ -116,7 +117,8 @@ export async function generateMetadata({ params }: BrandPageProps): Promise<Meta
   }
 }
 
-export default async function BrandVinDecoderPage({ params }: BrandPageProps) {
+export default async function BrandVinDecoderPage(props: BrandPageProps) {
+  const params = await props.params
   const { brand: brandSlug, locale } = params
   const t = await getTranslations({ locale, namespace: "VinDecoder.brandPage" })
   const tStructured = await getTranslations({ locale, namespace: "VinDecoder.structured_data" })
@@ -133,7 +135,7 @@ export default async function BrandVinDecoderPage({ params }: BrandPageProps) {
   const pageUrl = `${baseUrl}/tools/vin-decoder/${brand.slug}`
 
   // Content freshness metadata - Update this monthly
-  const lastModified = new Date("2026-02-14")
+  const lastModified = new Date("2026-04-26")
 
   // WebApplication Schema - Enhanced for AI SEO
   const webApplicationSchema = {

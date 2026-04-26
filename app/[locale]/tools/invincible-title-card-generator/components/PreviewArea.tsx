@@ -5,7 +5,7 @@ import { TitleCardState } from "../types"
 import { effectPresets } from "../constants"
 
 interface PreviewAreaProps {
-  canvasRef: React.RefObject<HTMLDivElement>
+  canvasRef: React.RefObject<HTMLDivElement | null>
   state: TitleCardState
   isFullscreen: boolean
   favorites: TitleCardState[]

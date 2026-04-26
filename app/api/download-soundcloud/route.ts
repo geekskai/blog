@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 import scdl from "soundcloud-downloader"
 import { Readable } from "stream"
 // Import internal functions from the library
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+
 const { fromMediaObj, fromDownloadLink } = require("soundcloud-downloader/dist/download")
 
 export const runtime = "nodejs"

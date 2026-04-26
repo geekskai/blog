@@ -61,17 +61,10 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return metadata
 }
 
-export default async function RootLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode
-  params: { locale: string }
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const basePath = process.env.BASE_PATH || ""
-  const { locale } = await params
   return (
-    <html lang={locale} className={`scroll-smooth`} suppressHydrationWarning>
+    <html lang="en" className={`scroll-smooth`} suppressHydrationWarning>
       <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/static/logo.png`} />
       <link
         rel="icon"

@@ -24,7 +24,6 @@ import {
   formatFileSize,
   estimateReadingTime,
 } from "../utils/downloadHelper"
-import Image from "next/image"
 
 interface PreviewPanelProps {
   result: ConversionResult | null
@@ -393,14 +392,18 @@ export default function PreviewPanel({ result, options, onOptionsChange }: Previ
                     <td className="border border-slate-600 px-4 py-2 text-slate-300">{children}</td>
                   ),
                   hr: () => <hr className="my-6 border-slate-600" />,
-                  img: ({ src, alt }) => (
-                    <Image
-                      src={src || ""}
-                      loading="lazy"
-                      alt={alt || ""}
-                      className="h-auto max-w-full rounded-lg"
-                    />
-                  ),
+                  img: ({ src, alt }) =>
+                    typeof src === "string" && src ? (
+                      // Arbitrary markdown image URLs do not have reliable intrinsic dimensions for next/image.
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={src}
+                        loading="lazy"
+                        decoding="async"
+                        alt={alt || ""}
+                        className="h-auto max-w-full rounded-lg"
+                      />
+                    ) : null,
                 }}
               >
                 {result.markdown}

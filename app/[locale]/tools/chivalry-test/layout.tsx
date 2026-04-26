@@ -5,10 +5,14 @@ import { getTranslations } from "next-intl/server"
 export const revalidate = 86400 // 24 hours
 
 type Props = {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
-export async function generateMetadata({ params: { locale } }: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const params = await props.params
+
+  const { locale } = params
+
   const t = await getTranslations({ locale, namespace: "ChivalryTest" })
   const isDefaultLocale = locale === "en"
   const languages = {
@@ -18,7 +22,7 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
   supportedLocales.forEach((loc) => {
     languages[loc] = `https://geekskai.com/${loc}/tools/chivalry-test/`
   })
-  const lastModified = new Date("2026-04-21")
+  const lastModified = new Date("2026-04-26")
 
   return {
     title: t("seo_title"),
@@ -109,13 +113,13 @@ const getJsonLd = (t: any) => ({
   },
 })
 
-export default async function Layout({
-  children,
-  params: { locale },
-}: {
-  children: React.ReactNode
-  params: { locale: string }
-}) {
+export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+  const params = await props.params
+
+  const { locale } = params
+
+  const { children } = props
+
   const t = await getTranslations({ locale, namespace: "ChivalryTest" })
   const jsonLd = getJsonLd(t)
 

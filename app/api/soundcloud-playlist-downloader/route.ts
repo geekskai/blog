@@ -1,7 +1,7 @@
 import scdl from "soundcloud-downloader"
 
 import { NextRequest, NextResponse } from "next/server"
-// eslint-disable-next-line @typescript-eslint/no-require-imports
+
 const { getSetInfo, getInfoBase } = require("soundcloud-downloader/dist/info")
 
 export async function POST(request: NextRequest) {

@@ -221,7 +221,7 @@ export default function DiscordTimeConverter() {
   const [isClient, setIsClient] = useState(false)
 
   // Refs for smooth interactions
-  const copyTimeoutRef = useRef<NodeJS.Timeout>()
+  const copyTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   // Auto-detect user's timezone on mount and set client flag
   useEffect(() => {
@@ -1314,12 +1314,12 @@ export default function DiscordTimeConverter() {
                 <p className="mb-4 text-slate-200">
                   {t("content_sections.tools_ecosystem.timestamp_generator_description")}
                 </p>
-                <a
+                <Link
                   href="/tools/discord-timestamp-generator"
                   className="inline-flex items-center text-orange-300 transition-colors hover:text-orange-200"
                 >
                   {t("content_sections.tools_ecosystem.timestamp_generator_link")}
-                </a>
+                </Link>
               </div>
               <div className="rounded-lg bg-orange-900/30 p-6">
                 <h3 className="mb-3 text-lg font-semibold text-white">

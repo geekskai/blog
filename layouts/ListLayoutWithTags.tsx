@@ -105,7 +105,6 @@ export default function ListLayoutWithTags({
                         loading="lazy"
                         alt={title}
                         src={images}
-                        priority
                         className="h-48 w-full rounded-xl object-cover object-center"
                         width={384}
                         height={192}

@@ -4,14 +4,16 @@ import { getTranslations } from "next-intl/server"
 import React from "react"
 
 // SEO 优化的 metadata (基于PRD文档的关键词策略)
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string }
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const params = await props.params
+
+  const { locale } = params
+
   const t = await getTranslations({ locale, namespace: "CmToPmConverter" })
   const isDefaultLocale = locale === "en"
-  const lastModified = new Date("2026-04-21")
+  const lastModified = new Date("2026-04-26")
   const languages = {
     "x-default": "https://geekskai.com/tools/cm-to-pm-converter",
   }
@@ -252,13 +254,16 @@ async function getScientificApplicationData(locale: string) {
   }
 }
 
-export default async function CmToPmLayout({
-  children,
-  params: { locale },
-}: {
+export default async function CmToPmLayout(props: {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }) {
+  const params = await props.params
+
+  const { locale } = params
+
+  const { children } = props
+
   const structuredData = await getStructuredData(locale)
   const faqData = await getFAQStructuredData(locale)
   const applicationData = await getScientificApplicationData(locale)

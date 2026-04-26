@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl"
 
 interface DropZoneProps {
   onDrop: (files: File[]) => void
-  fileInputRef: React.RefObject<HTMLInputElement>
+  fileInputRef: React.RefObject<HTMLInputElement | null>
   error: string | null
 }
 

@@ -5,16 +5,15 @@ import { generateComparePageData, generateComparePageMetadata, safeTranslate } f
 
 interface VinCompareLayoutProps {
   children: React.ReactNode
-  params: {
+  params: Promise<{
     locale: string
-  }
+  }>
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { locale: string }
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const params = await props.params
   const t = await getTranslations({ locale: params.locale, namespace: "VinDecoder.comparePage" })
 
   return generateComparePageMetadata({
@@ -59,7 +58,11 @@ export async function generateMetadata({
   })
 }
 
-export default async function VinCompareLayout({ children, params }: VinCompareLayoutProps) {
+export default async function VinCompareLayout(props: VinCompareLayoutProps) {
+  const params = await props.params
+
+  const { children } = props
+
   const pageData = await generateComparePageData(params.locale)
 
   return (

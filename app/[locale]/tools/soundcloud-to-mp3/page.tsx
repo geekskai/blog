@@ -3,7 +3,7 @@ import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
 import React from "react"
 import TrackInfoCard, { TrackInfo } from "./TrackInfoCard"
 import { useTranslations } from "next-intl"
-import dynamic from "next/dynamic"
+import TrackDownloadForm from "../soundcloud-downloader/components/TrackDownloadForm"
 import {
   CoreFactsSection,
   FAQSection,
@@ -17,35 +17,6 @@ import {
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 import ShareButtons from "@/components/ShareButtons"
 import { useSoundCloudTrackDownloadForm } from "../soundcloud-downloader/hooks/useSoundCloudTrackDownloadForm"
-
-function TrackDownloadFormSkeleton() {
-  return (
-    <div className="space-y-2 p-4">
-      <div className="animate-pulse space-y-4">
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-            <div className="h-5 w-40 rounded bg-white/10" />
-            <div className="h-4 w-36 rounded bg-white/10" />
-          </div>
-          <div className="h-14 rounded-lg bg-white/10" />
-        </div>
-        <div className="flex flex-col gap-4 md:flex-row">
-          <div className="h-11 flex-1 rounded-lg bg-white/10 md:h-12" />
-          <div className="h-11 flex-1 rounded-lg bg-white/10 md:h-12" />
-          <div className="h-11 w-full rounded-lg bg-white/10 md:h-12 md:w-32" />
-        </div>
-      </div>
-    </div>
-  )
-}
-
-const TrackDownloadForm = dynamic(
-  () => import("../soundcloud-downloader/components/TrackDownloadForm"),
-  {
-    ssr: false,
-    loading: () => <TrackDownloadFormSkeleton />,
-  }
-)
 
 const createDownloadLink = (blob: Blob, fileName: string): void => {
   const url = window.URL.createObjectURL(blob)
@@ -97,7 +68,7 @@ export default function SoundCloudToMP3Page() {
     <div className="min-h-screen bg-slate-950">
       <div className="mx-auto max-w-6xl space-y-4 p-4">
         {/* Content Freshness Badge */}
-        <ContentFreshnessBadge lastModified={new Date("2026-04-23")} namespace="SoundCloudToMP3" />
+        <ContentFreshnessBadge lastModified={new Date("2026-04-26")} namespace="SoundCloudToMP3" />
         <header className="text-center">
           {/* Main Title - H1 for SEO */}
           <h1 className="my-3 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-2xl font-bold leading-tight text-transparent md:text-5xl">

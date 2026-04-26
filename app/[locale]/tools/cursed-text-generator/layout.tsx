@@ -6,14 +6,16 @@ import {
   buildUnicodeToolSchemas,
 } from "../upside-down-text-generator/lib/seo"
 
-const LAST_MODIFIED = new Date("2026-04-21")
+const LAST_MODIFIED = new Date("2026-04-26")
 const SLUG = "cursed-text-generator"
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string }
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const params = await props.params
+
+  const { locale } = params
+
   const t = await getTranslations({ locale, namespace: "CursedTextGenerator" })
 
   const faqItems = [
@@ -48,13 +50,16 @@ export async function generateMetadata({
   })
 }
 
-export default async function CursedTextGeneratorLayout({
-  children,
-  params: { locale },
-}: {
+export default async function CursedTextGeneratorLayout(props: {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }) {
+  const params = await props.params
+
+  const { locale } = params
+
+  const { children } = props
+
   const t = await getTranslations({ locale, namespace: "CursedTextGenerator" })
 
   const faqItems = [

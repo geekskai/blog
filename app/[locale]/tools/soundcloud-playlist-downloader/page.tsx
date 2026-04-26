@@ -2,9 +2,9 @@
 import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
 import React, { useState, useCallback } from "react"
 import { useTranslations } from "next-intl"
-import dynamic from "next/dynamic"
 import PlaylistTracks from "./components/PlaylistTracks"
 import DownloadProgress from "./components/DownloadProgress"
+import TrackDownloadForm from "../soundcloud-downloader/components/TrackDownloadForm"
 import {
   CoreFactsSection,
   FAQSection,
@@ -24,13 +24,6 @@ import type {
 } from "./types"
 import { createDownloadLink, getSafeFileName } from "./lib/utils"
 import { detectSoundCloudUrlKind } from "../soundcloud-downloader/lib/url"
-
-const TrackDownloadForm = dynamic(
-  () => import("../soundcloud-downloader/components/TrackDownloadForm"),
-  {
-    ssr: false,
-  }
-)
 
 export default function SoundCloudPlaylistDownloaderPage() {
   const t = useTranslations("SoundCloudPlaylistDownloader")
@@ -233,7 +226,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
       <div className="relative mx-auto max-w-6xl space-y-2 px-4 py-2 sm:space-y-3 sm:px-6 sm:py-6 md:space-y-5 md:py-5">
         {/* Content Freshness Badge */}
         <ContentFreshnessBadge
-          lastModified={new Date("2026-04-21")}
+          lastModified={new Date("2026-04-26")}
           namespace="SoundCloudPlaylistDownloader"
         />
         {/* Header Section */}

@@ -4,12 +4,13 @@ import React from "react"
 import { generateComparePageData, safeTranslate } from "./compare-seo"
 
 interface ComparePageProps {
-  params: {
+  params: Promise<{
     locale: string
-  }
+  }>
 }
 
-export default async function VinDecoderVsVinCheckPage({ params }: ComparePageProps) {
+export default async function VinDecoderVsVinCheckPage(props: ComparePageProps) {
+  const params = await props.params
   const t = await getTranslations({ locale: params.locale, namespace: "VinDecoder.comparePage" })
   const pageData = await generateComparePageData(params.locale)
 

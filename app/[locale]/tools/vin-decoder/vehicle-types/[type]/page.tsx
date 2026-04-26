@@ -11,17 +11,18 @@ import {
 } from "./vehicle-type-seo"
 
 interface VehicleTypePageProps {
-  params: {
+  params: Promise<{
     locale: string
     type: string
-  }
+  }>
 }
 
 export async function generateStaticParams() {
   return Object.keys(VEHICLE_TYPE_CONFIG).map((type) => ({ type }))
 }
 
-export default async function VehicleTypeVinDecoderPage({ params }: VehicleTypePageProps) {
+export default async function VehicleTypeVinDecoderPage(props: VehicleTypePageProps) {
+  const params = await props.params
   const t = await getTranslations({
     locale: params.locale,
     namespace: "VinDecoder.vehicleTypePage",

@@ -40,9 +40,6 @@ module.exports = () => {
     trailingSlash: true,
     reactStrictMode: true,
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
-    eslint: {
-      dirs: ["app", "components", "layouts", "scripts"],
-    },
     images: {
       remotePatterns: [
         {
@@ -56,6 +53,22 @@ module.exports = () => {
         {
           protocol: "https",
           hostname: "api.producthunt.com",
+        },
+        {
+          protocol: "https",
+          hostname: "i1.sndcdn.com",
+        },
+        {
+          protocol: "https",
+          hostname: "i2.sndcdn.com",
+        },
+        {
+          protocol: "https",
+          hostname: "i3.sndcdn.com",
+        },
+        {
+          protocol: "https",
+          hostname: "i4.sndcdn.com",
         },
       ],
       // 启用图片优化以减少 Fast Origin Transfer 费用
@@ -100,20 +113,12 @@ module.exports = () => {
 
       return config
     },
-    // Optimize font loading
-    optimizeFonts: true,
     // Allow font optimization to fail gracefully
     experimental: {
       optimizePackageImports: ["lucide-react", "react-icons", "@headlessui/react", "date-fns"],
     },
     // Compress output
     compress: true,
-    // Optimize production builds
-    swcMinify: true,
-    // 忽略 TypeScript 构建错误（用于第三方库的类型问题）
-    typescript: {
-      ignoreBuildErrors: true,
-    },
     // 添加缓存头以减少 Fast Origin Transfer 费用
     async headers() {
       return [
@@ -130,26 +135,6 @@ module.exports = () => {
         {
           // 字体文件长期缓存
           source: "/fonts/:path*",
-          headers: [
-            {
-              key: "Cache-Control",
-              value: "public, max-age=31536000, immutable",
-            },
-          ],
-        },
-        {
-          // 图片资源缓存
-          source: "/_next/image",
-          headers: [
-            {
-              key: "Cache-Control",
-              value: "public, max-age=31536000, immutable",
-            },
-          ],
-        },
-        {
-          // Next.js 静态资源
-          source: "/_next/static/:path*",
           headers: [
             {
               key: "Cache-Control",

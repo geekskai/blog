@@ -213,7 +213,7 @@ export default function TrackInfoCard({
                 fill
                 className="object-cover transition-transform duration-500 hover:scale-110"
                 loading="lazy"
-                fetchPriority="high"
+                sizes="(max-width: 640px) 192px, (max-width: 768px) 224px, (max-width: 1024px) 256px, 288px"
               />
             </div>
           )}
@@ -234,6 +234,7 @@ export default function TrackInfoCard({
                         fill
                         className="object-cover"
                         loading="lazy"
+                        sizes="(max-width: 640px) 40px, 48px"
                       />
                     </div>
                   )}

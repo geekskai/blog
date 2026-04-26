@@ -3,17 +3,19 @@ import { getTranslations } from "next-intl/server"
 import { supportedLocales } from "../../../i18n/routing"
 
 // Content freshness metadata - 内容新鲜度标记
-const lastModified = new Date("2026-04-21")
+const lastModified = new Date("2026-04-26")
 const updateFrequency: "daily" | "weekly" | "monthly" | "quarterly" = "monthly"
 const nextReviewDate = new Date(lastModified)
 nextReviewDate.setMonth(nextReviewDate.getMonth() + 1)
 
 // SEO optimized metadata - 针对"pund til nok"关键词优化，符合AI搜索时代标准
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string }
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const params = await props.params
+
+  const { locale } = params
+
   const t = await getTranslations({ locale, namespace: "GbpNokConverter" })
 
   // 语言映射
@@ -150,13 +152,16 @@ const currencyPairData = {
 
 // Breadcrumb structured data - Will be generated in Layout component with translations
 
-export default async function GbpNokConverterLayout({
-  children,
-  params: { locale },
-}: {
+export default async function GbpNokConverterLayout(props: {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }) {
+  const params = await props.params
+
+  const { locale } = params
+
+  const { children } = props
+
   const t = await getTranslations({ locale, namespace: "GbpNokConverter" })
 
   const isDefaultLocale = locale === "en"

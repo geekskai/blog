@@ -4,7 +4,7 @@ import { routing } from "./app/i18n/routing"
 export default createMiddleware(routing)
 
 export const config = {
-  // 优化匹配器以减少 Edge Middleware 调用
+  // 优化匹配器以减少 Proxy 调用
   // 排除静态资源、API 路由、已缓存的路径等
   matcher: [
     /*

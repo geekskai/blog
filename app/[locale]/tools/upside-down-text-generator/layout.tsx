@@ -4,13 +4,15 @@ import { getTranslations } from "next-intl/server"
 import React from "react"
 
 const TOOL_SLUG = "upside-down-text-generator"
-const LAST_MODIFIED = new Date("2026-04-21")
+const LAST_MODIFIED = new Date("2026-04-26")
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string }
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const params = await props.params
+
+  const { locale } = params
+
   const t = await getTranslations({ locale, namespace: "UpsideDownTextGenerator" })
   const isDefaultLocale = locale === "en"
   const canonical = isDefaultLocale
@@ -76,13 +78,16 @@ export async function generateMetadata({
   }
 }
 
-export default async function UpsideDownTextGeneratorLayout({
-  children,
-  params: { locale },
-}: {
+export default async function UpsideDownTextGeneratorLayout(props: {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }) {
+  const params = await props.params
+
+  const { locale } = params
+
+  const { children } = props
+
   const t = await getTranslations({ locale, namespace: "UpsideDownTextGenerator" })
   const isDefaultLocale = locale === "en"
   const url = isDefaultLocale

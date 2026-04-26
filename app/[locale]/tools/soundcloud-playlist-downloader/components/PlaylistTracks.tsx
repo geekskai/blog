@@ -145,6 +145,7 @@ export default function PlaylistTracks({
                         fill
                         className="object-cover"
                         loading="lazy"
+                        sizes="(max-width: 640px) 80px, (max-width: 768px) 96px, 112px"
                       />
                     </div>
                   )}

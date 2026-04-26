@@ -5,7 +5,7 @@ import { getTranslations } from "next-intl/server"
 
 const BASE_URL = "https://geekskai.com"
 const TOOL_PATH = "/tools/morse-code-translator/"
-const LAST_MODIFIED = new Date("2026-04-21")
+const LAST_MODIFIED = new Date("2026-04-26")
 const FAQ_ITEM_KEYS = [
   "faq_1",
   "faq_2",
@@ -25,11 +25,13 @@ function getCanonical(locale: string) {
   return locale === "en" ? `${BASE_URL}${TOOL_PATH}` : `${BASE_URL}/${locale}${TOOL_PATH}`
 }
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string }
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const params = await props.params
+
+  const { locale } = params
+
   const t = await getTranslations({ locale, namespace: "MorseCodeTranslator" })
   const canonical = getCanonical(locale)
   const title = t("seo.title")
@@ -91,13 +93,16 @@ export async function generateMetadata({
   }
 }
 
-export default async function MorseCodeGeneratorLayout({
-  children,
-  params: { locale },
-}: {
+export default async function MorseCodeGeneratorLayout(props: {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }) {
+  const params = await props.params
+
+  const { locale } = params
+
+  const { children } = props
+
   const t = await getTranslations({ locale, namespace: "MorseCodeTranslator" })
   const canonical = getCanonical(locale)
   const faqItems = FAQ_ITEM_KEYS.map((key) => ({

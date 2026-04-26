@@ -4,13 +4,15 @@ import { supportedLocales } from "../../../i18n/routing"
 import React from "react"
 
 // 动态生成多语言 metadata
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string }
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const params = await props.params
+
+  const { locale } = params
+
   const t = await getTranslations({ locale, namespace: "PixelsToInchesConverter" })
-  const lastModified = new Date("2026-02-18")
+  const lastModified = new Date("2026-04-26")
   // 语言映射
   const localeMap: Record<string, string> = {
     en: "en_US",
@@ -113,13 +115,16 @@ export async function generateMetadata({
   }
 }
 
-export default async function PixelsToInchesLayout({
-  children,
-  params: { locale },
-}: {
+export default async function PixelsToInchesLayout(props: {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }) {
+  const params = await props.params
+
+  const { locale } = params
+
+  const { children } = props
+
   const t = await getTranslations({ locale, namespace: "PixelsToInchesConverter" })
 
   const baseUrl = "https://geekskai.com"

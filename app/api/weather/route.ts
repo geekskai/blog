@@ -215,6 +215,11 @@ export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams
     const type = searchParams.get("type") // 'city', 'coords', 'zip'
+    const apiKey = process.env.OPENWEATHER_API_KEY
+
+    if (!apiKey) {
+      return NextResponse.json({ error: "Weather service is not configured" }, { status: 500 })
+    }
 
     let apiUrl: string
 

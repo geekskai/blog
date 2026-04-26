@@ -4,11 +4,13 @@ import { getTranslations } from "next-intl/server"
 import React from "react"
 import { LAST_MODIFIED_ISO, TOOL_SLUG } from "./seoData"
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string }
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const params = await props.params
+
+  const { locale } = params
+
   const t = await getTranslations({ locale, namespace: "ConvertInchesToDecimal" })
   const isDefaultLocale = locale === "en"
   const lastModified = new Date(LAST_MODIFIED_ISO)
@@ -72,13 +74,14 @@ export async function generateMetadata({
   }
 }
 
-export default async function Layout({
-  children,
-  params,
-}: {
+export default async function Layout(props: {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }) {
+  const params = await props.params
+
+  const { children } = props
+
   const t = await getTranslations({ locale: params.locale, namespace: "ConvertInchesToDecimal" })
   const isDefaultLocale = params.locale === "en"
   const pageUrl = isDefaultLocale

@@ -23,7 +23,7 @@ import {
   RotateCw,
   ArrowUpDown,
 } from "lucide-react"
-import { Link } from "@/app/i18n/navigation"
+import { Link } from "app/i18n/navigation"
 import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
 
 // Type definitions
@@ -140,7 +140,7 @@ export default function DiscordTimestampGenerator() {
   ])
 
   // Refs for smooth interactions
-  const copyTimeoutRef = useRef<NodeJS.Timeout>()
+  const copyTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   // Get current timezone offset for display
   const timezoneOffset = new Date().getTimezoneOffset()
@@ -1197,12 +1197,12 @@ export default function DiscordTimestampGenerator() {
                   </li>
                 </ul>
                 <div className="mt-3 sm:mt-4">
-                  <a
+                  <Link
                     href="/tools/discord-time-converter"
                     className="inline-flex items-center text-sm text-green-300 transition-colors hover:text-green-200 sm:text-base"
                   >
                     {t("content_sections.generator_vs_converter.converter_section.link_text")}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

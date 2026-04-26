@@ -89,7 +89,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json(
         {
           error: "Invalid request parameters",
-          details: error.errors,
+          details: error.issues,
           message: "Please provide valid 'base' and 'target' currency codes (GBP or NOK)",
         },
         { status: 400 }

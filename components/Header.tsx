@@ -5,7 +5,7 @@ import headerNavLinks from "@/data/headerNavLinks"
 import Link from "./Link"
 import MobileNav from "./MobileNav"
 import SearchButton from "./SearchButton"
-import Image from "next/image"
+import Image from "./Image"
 import { ChevronDown, Zap, Star, Sparkles } from "lucide-react"
 import { toolsData } from "@/data/toolsData"
 import LanguageSelect from "./LanguageSelect"
@@ -44,12 +44,11 @@ const Header = () => {
         <Link href="/" aria-label={siteMetadata.headerTitle}>
           <div className="group flex items-center gap-3">
             <Image
-              loading="lazy"
-              fetchPriority="high"
               src="/static/logo.png"
               alt="geekskai Logo"
               width={100}
               height={36}
+              preload
               className="h-[36px] w-[100px] transition-transform duration-300 group-hover:scale-105"
             />
             {typeof siteMetadata.headerTitle === "string" ? (
