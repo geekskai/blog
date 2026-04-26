@@ -26,8 +26,9 @@ type Props = {
 // const supportedLocales = ["en", "ja", "ko", "no", "zh-cn"] // Add more as you implement them
 
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
-  const { locale } = await params
-  const t = await getTranslations("HomePage")
+  const { locale: requestedLocale } = await params
+  const locale = hasLocale(routing.locales, requestedLocale) ? requestedLocale : "en"
+  const t = await getTranslations({ locale, namespace: "HomePage" })
   const lastModified = new Date("2026-04-26")
   const title = t("home_seo_title")
   const description = t("home_seo_description") + " " + t("home_seo_keywords")
@@ -108,7 +109,7 @@ export default async function RootLayout({
   setRequestLocale(locale)
 
   // Generate JSON-LD Structured Data
-  const t = await getTranslations("HomePage")
+  const t = await getTranslations({ locale, namespace: "HomePage" })
   const baseUrl = "https://geekskai.com"
   const url = `${baseUrl}${locale === "en" ? "" : `/${locale}`}/`
 
@@ -231,24 +232,9 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={`scroll-smooth`} suppressHydrationWarning>
       <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/static/logo.png`} />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="48x48"
-        href={`${basePath}/static/favicons/favicon-180X80.png`}
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href={`${basePath}/static/favicons/favicon-100X45.png`}
-      />
+      <link rel="icon" type="image/png" sizes="48x48" href={`${basePath}/static/logo.png`} />
+      <link rel="icon" type="image/png" sizes="16x16" href={`${basePath}/static/logo.png`} />
       <link rel="manifest" href={`${basePath}/static/favicons/site.webmanifest`} />
-      <link
-        rel="mask-icon"
-        href={`${basePath}/static/favicons/safari-pinned-tab.png`}
-        color="#FF6B6B"
-      />
       <meta name="saashub-verification" content="e4h08bjpev5u" />
       <meta name="msvalidate.01" content="58567D271AD7C1B504E10F5DC587BD0B" />
       <meta name="google-adsense-account" content="ca-pub-2108246014001009"></meta>

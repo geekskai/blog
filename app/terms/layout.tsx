@@ -71,24 +71,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en" className={`scroll-smooth`} suppressHydrationWarning>
       <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/static/logo.png`} />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="48x48"
-        href={`${basePath}/static/favicons/favicon-180X80.png`}
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href={`${basePath}/static/favicons/favicon-100X45.png`}
-      />
+      <link rel="icon" type="image/png" sizes="48x48" href={`${basePath}/static/logo.png`} />
+      <link rel="icon" type="image/png" sizes="16x16" href={`${basePath}/static/logo.png`} />
       <link rel="manifest" href={`${basePath}/static/favicons/site.webmanifest`} />
-      <link
-        rel="mask-icon"
-        href={`${basePath}/static/favicons/safari-pinned-tab.png`}
-        color="#FF6B6B"
-      />
       <script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2108246014001009"

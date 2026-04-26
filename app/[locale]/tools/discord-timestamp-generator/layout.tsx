@@ -50,7 +50,7 @@ export async function generateMetadata(props: {
       description: t("seo_description"),
     },
     icons: {
-      icon: "/static/favicons/favicon.ico",
+      icon: "/static/logo.png",
     },
     alternates: {
       canonical: isDefaultLocale

@@ -20,39 +20,19 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@/components/*": [
-        "components/*"
-      ],
-      "@/data/*": [
-        "data/*"
-      ],
-      "@/layouts/*": [
-        "layouts/*"
-      ],
-      "@/utils/*": [
-        "utils/*"
-      ],
-      "@/css/*": [
-        "css/*"
-      ],
-      "@/app/*": [
-        "app/*"
-      ],
-      "contentlayer/generated": [
-        "./.contentlayer/generated"
-      ],
-      "soundcloud-downloader": [
-        "./types/soundcloud-downloader"
-      ],
-      "soundcloud-downloader/dist/info": [
-        "./types/soundcloud-downloader"
-      ],
-      "soundcloud-downloader/dist/download": [
-        "./types/soundcloud-downloader"
-      ]
+      "@/*": ["./*"],
+      "@/components/*": ["components/*"],
+      "@/data/*": ["data/*"],
+      "@/layouts/*": ["layouts/*"],
+      "@/utils/*": ["utils/*"],
+      "@/css/*": ["css/*"],
+      "@/app/*": ["app/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"],
+      "pliny/analytics": ["./node_modules/pliny/analytics/index.js"],
+      "pliny/search": ["./node_modules/pliny/search/index.js"],
+      "soundcloud-downloader": ["./types/soundcloud-downloader"],
+      "soundcloud-downloader/dist/info": ["./types/soundcloud-downloader"],
+      "soundcloud-downloader/dist/download": ["./types/soundcloud-downloader"]
     },
     "plugins": [
       {
