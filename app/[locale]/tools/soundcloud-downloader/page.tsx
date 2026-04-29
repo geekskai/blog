@@ -1,10 +1,8 @@
 "use client"
-
-import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
-import ShareButtons from "@/components/ShareButtons"
 import React, { useCallback, useMemo, useState } from "react"
 import { useTranslations } from "next-intl"
+import dynamic from "next/dynamic"
 import TrackInfoCard, { TrackInfo } from "../soundcloud-to-mp3/TrackInfoCard"
 import PlaylistTracks from "../soundcloud-playlist-downloader/components/PlaylistTracks"
 import DownloadProgress from "../soundcloud-playlist-downloader/components/DownloadProgress"
@@ -18,6 +16,11 @@ import { createDownloadLink, getSafeFileName } from "../soundcloud-playlist-down
 import { detectSoundCloudUrlKind } from "./lib/url"
 import { useSoundCloudTrackDownloadForm } from "./hooks/useSoundCloudTrackDownloadForm"
 import { CoreFactsSection, FAQSection, HowItWorksSection } from "./SEOContent"
+
+const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
+  ssr: false,
+  loading: () => <div className="min-h-[106px] w-full py-2 md:py-4" />,
+})
 
 const getFileName = (trackInfo: TrackInfo | null, extension: string): string => {
   return trackInfo?.title ? `${trackInfo.title}.${extension}` : `audio-${Date.now()}.${extension}`
@@ -252,7 +255,7 @@ export default function SoundCloudDownloaderPage() {
     <div className="min-h-screen bg-slate-950">
       <div className="relative mx-auto max-w-6xl space-y-4 p-4">
         <ContentFreshnessBadge
-          lastModified={new Date("2026-04-26")}
+          lastModified={new Date("2026-04-29")}
           namespace="SoundCloudDownloader"
         />
 
@@ -272,7 +275,7 @@ export default function SoundCloudDownloaderPage() {
             {tDownloader("page_subtitle")}
           </p>
 
-          <div className="mx-auto mt-8 max-w-6xl rounded-2xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10 p-5 shadow-2xl backdrop-blur-md sm:p-6 md:mt-12 md:p-10">
+          <div className="mx-auto mt-8 max-w-6xl rounded-2xl border border-purple-500/20 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10 p-5 shadow-lg sm:p-6 md:mt-12 md:rounded-3xl md:border-purple-500/30 md:p-10 md:shadow-2xl md:backdrop-blur-md">
             <h2 className="mb-4 text-base font-bold text-purple-300 sm:text-lg md:text-2xl">
               {tDownloader("page_quick_answer_title")}
             </h2>
@@ -281,8 +284,6 @@ export default function SoundCloudDownloaderPage() {
             </p>
           </div>
         </header>
-
-        <GoogleAdUnitWrap />
 
         <div className="mx-auto max-w-6xl md:mb-12">
           <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
@@ -338,7 +339,7 @@ export default function SoundCloudDownloaderPage() {
           </div>
         </div>
 
-        <ShareButtons />
+        <DeferredGoogleAdUnitWrap />
 
         {isPlaylistMode && playlistDownloadProgress.status !== "idle" && (
           <DownloadProgress progress={playlistDownloadProgress} />

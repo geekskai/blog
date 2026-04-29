@@ -1,8 +1,8 @@
 "use client"
-import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
 import React from "react"
 import TrackInfoCard, { TrackInfo } from "./TrackInfoCard"
 import { useTranslations } from "next-intl"
+import dynamic from "next/dynamic"
 import TrackDownloadForm from "../soundcloud-downloader/components/TrackDownloadForm"
 import {
   CoreFactsSection,
@@ -15,8 +15,12 @@ import {
   FreeVsPaidSection,
 } from "./SEOContent"
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
-import ShareButtons from "@/components/ShareButtons"
 import { useSoundCloudTrackDownloadForm } from "../soundcloud-downloader/hooks/useSoundCloudTrackDownloadForm"
+
+const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
+  ssr: false,
+  loading: () => <div className="min-h-[106px] w-full py-2 md:py-4" />,
+})
 
 const createDownloadLink = (blob: Blob, fileName: string): void => {
   const url = window.URL.createObjectURL(blob)
@@ -87,7 +91,7 @@ export default function SoundCloudToMP3Page() {
           </p>
 
           {/* TL;DR Block - GEO Requirement: Answer Seed (80-150 words) */}
-          <div className="mx-auto mt-8 max-w-6xl rounded-2xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10 p-5 shadow-2xl backdrop-blur-md sm:p-6 md:mt-12 md:p-10">
+          <div className="mx-auto mt-8 max-w-6xl rounded-2xl border border-purple-500/20 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10 p-5 shadow-lg sm:p-6 md:mt-12 md:rounded-3xl md:border-purple-500/30 md:p-10 md:shadow-2xl md:backdrop-blur-md">
             <h2 className="mb-4 text-base font-bold text-purple-300 sm:text-lg md:text-2xl">
               {t("page_tldr_title")}
             </h2>
@@ -96,8 +100,6 @@ export default function SoundCloudToMP3Page() {
             </p>
           </div>
         </header>
-
-        <GoogleAdUnitWrap />
 
         {/* Input area card */}
         <div className="mx-auto max-w-6xl md:mb-12">
@@ -129,7 +131,7 @@ export default function SoundCloudToMP3Page() {
           </div>
         </div>
 
-        <ShareButtons />
+        <DeferredGoogleAdUnitWrap />
 
         {/* Loading skeleton */}
         {loadingState === "loading" && !trackInfo && (
