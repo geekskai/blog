@@ -200,7 +200,7 @@ const VINGeneratorComponent = () => {
         {/* Generated VIN Display */}
         <div className="mb-4 md:mb-6">
           <div className="relative">
-            <div className="flex items-center justify-center rounded-xl border-2 border-dashed border-slate-600 bg-slate-900/50 p-4 sm:p-6 md:p-8">
+            <div className="flex min-h-[13rem] items-center justify-center rounded-xl border-2 border-dashed border-slate-600 bg-slate-900/50 p-4 sm:min-h-[15rem] sm:p-6 md:min-h-[17rem] md:p-8">
               {state.generatedVIN ? (
                 <div className="w-full text-center">
                   <div className="mb-2 break-all font-mono text-xl font-bold text-emerald-300 sm:text-2xl md:text-3xl lg:text-4xl">
@@ -257,7 +257,7 @@ const VINGeneratorComponent = () => {
         </div>
 
         {/* Single VIN Controls */}
-        <div className="flex flex-col gap-2 sm:flex-row sm:gap-3">
+        <div className="flex min-h-[3.5rem] flex-col gap-2 sm:min-h-[3.75rem] sm:flex-row sm:gap-3">
           <button
             onClick={generateSingle}
             disabled={state.isGenerating}
@@ -271,21 +271,23 @@ const VINGeneratorComponent = () => {
             </span>
           </button>
 
-          {state.generatedVIN && (
-            <button
-              onClick={() => copyVIN(state.generatedVIN)}
-              className="flex items-center justify-center gap-2 rounded-xl border border-slate-600 bg-slate-700 px-4 py-3 text-sm text-slate-300 hover:bg-slate-600 sm:text-base md:px-6 md:py-3.5"
-            >
-              {copiedVIN === state.generatedVIN ? (
-                <Check className="h-4 w-4 text-green-400 md:h-5 md:w-5" />
-              ) : (
-                <Copy className="h-4 w-4 md:h-5 md:w-5" />
-              )}
-              <span className="truncate">
-                {copiedVIN === state.generatedVIN ? t("copied") : t("copy")}
-              </span>
-            </button>
-          )}
+          <div className="sm:min-w-[8.5rem]">
+            {state.generatedVIN && (
+              <button
+                onClick={() => copyVIN(state.generatedVIN)}
+                className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-600 bg-slate-700 px-4 py-3 text-sm text-slate-300 hover:bg-slate-600 sm:text-base md:px-6 md:py-3.5"
+              >
+                {copiedVIN === state.generatedVIN ? (
+                  <Check className="h-4 w-4 text-green-400 md:h-5 md:w-5" />
+                ) : (
+                  <Copy className="h-4 w-4 md:h-5 md:w-5" />
+                )}
+                <span className="truncate">
+                  {copiedVIN === state.generatedVIN ? t("copied") : t("copy")}
+                </span>
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
@@ -346,7 +348,7 @@ const VINGeneratorComponent = () => {
         </div>
 
         {/* Batch Controls */}
-        <div className="flex gap-3">
+        <div className="flex min-h-[3.5rem] flex-wrap gap-3">
           <button
             onClick={generateBatch}
             disabled={state.isGenerating}
@@ -380,42 +382,45 @@ const VINGeneratorComponent = () => {
         </div>
 
         {/* Batch Results */}
-        {showBatch && state.generatedBatch.length > 0 && (
-          <div className="mt-4 md:mt-6">
-            <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-              <h4 className="text-sm font-medium text-slate-300 md:text-base">
-                {t("generated_vins", { count: state.generatedBatch.length })}
-              </h4>
-              <div className="flex items-center gap-2 text-xs text-slate-500 md:text-sm">
-                <Info className="h-3 w-3 md:h-4 md:w-4" />
-                <span>{t("click_to_copy")}</span>
+        <div className="mt-4 min-h-0 md:mt-6">
+          {showBatch && state.generatedBatch.length > 0 && (
+            <div>
+              <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                <h4 className="text-sm font-medium text-slate-300 md:text-base">
+                  {t("generated_vins", { count: state.generatedBatch.length })}
+                </h4>
+                <div className="flex items-center gap-2 text-xs text-slate-500 md:text-sm">
+                  <Info className="h-3 w-3 md:h-4 md:w-4" />
+                  <span>{t("click_to_copy")}</span>
+                </div>
+              </div>
+
+              <div className="max-h-60 overflow-y-auto rounded-lg bg-slate-900 p-3 sm:p-4 md:max-h-80">
+                <div className="grid gap-2 md:gap-3 lg:grid-cols-2">
+                  {state.generatedBatch.map((vin, index) => (
+                    <button
+                      key={index}
+                      onClick={() => copyVIN(vin)}
+                      className="min-w-0 rounded-lg bg-slate-800 p-2.5 text-left font-mono text-xs transition-colors hover:bg-slate-700 sm:p-3 sm:text-sm md:text-base"
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="truncate text-slate-300">{vin}</span>
+                        {copiedVIN === vin && (
+                          <Check className="h-3 w-3 flex-shrink-0 text-green-400 sm:h-4 sm:w-4" />
+                        )}
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="max-h-60 overflow-y-auto rounded-lg bg-slate-900 p-3 sm:p-4 md:max-h-80">
-              <div className="grid gap-2 md:gap-3 lg:grid-cols-2">
-                {state.generatedBatch.map((vin, index) => (
-                  <button
-                    key={index}
-                    onClick={() => copyVIN(vin)}
-                    className="min-w-0 rounded-lg bg-slate-800 p-2.5 text-left font-mono text-xs transition-colors hover:bg-slate-700 sm:p-3 sm:text-sm md:text-base"
-                  >
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="truncate text-slate-300">{vin}</span>
-                      {copiedVIN === vin && (
-                        <Check className="h-3 w-3 flex-shrink-0 text-green-400 sm:h-4 sm:w-4" />
-                      )}
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       {/* Reset Button */}
-      {(state.generatedVIN || state.generatedBatch.length > 0) && (
-        <div className="flex justify-center">
+      <div className="flex min-h-[3rem] justify-center">
+        {(state.generatedVIN || state.generatedBatch.length > 0) && (
           <button
             onClick={resetAll}
             className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-600 bg-slate-700 px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-600 sm:px-6 sm:py-3 sm:text-base"
@@ -423,8 +428,8 @@ const VINGeneratorComponent = () => {
             <RotateCcw className="h-4 w-4 md:h-5 md:w-5" />
             <span>{t("reset_all")}</span>
           </button>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   )
 }

@@ -22,14 +22,16 @@ export default function AuthorLayout({ children, content }: Props) {
         <div className="space-y-8 pt-6 md:space-y-10 md:pt-8 xl:grid xl:grid-cols-3 xl:items-start xl:gap-x-8 xl:space-y-0">
           <div className="flex flex-col items-center rounded-2xl bg-stone-900/40 px-4 py-6 text-center ring-1 ring-stone-800 md:px-6 md:py-8 xl:sticky xl:top-24">
             {avatar && (
-              <Image
-                loading="lazy"
-                src={avatar}
-                alt="avatar"
-                width={192}
-                height={192}
-                className="h-28 w-28 rounded-full sm:h-32 sm:w-32 md:h-40 md:w-40 xl:h-48 xl:w-48"
-              />
+              <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full sm:h-32 sm:w-32 md:h-40 md:w-40 xl:h-48 xl:w-48">
+                <Image
+                  src={avatar}
+                  alt="avatar"
+                  fill
+                  preload
+                  sizes="(max-width: 639px) 112px, (max-width: 767px) 128px, (max-width: 1279px) 160px, 192px"
+                  className="object-cover"
+                />
+              </div>
             )}
             <h3 className="pb-1 pt-4 text-xl font-bold leading-tight tracking-tight text-stone-100 md:pb-2 md:text-2xl">
               {name}

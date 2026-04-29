@@ -68,6 +68,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                         <Image
                           src={author.avatar}
                           loading="lazy"
+                          sizes="40px"
                           width={38}
                           height={38}
                           alt="avatar"

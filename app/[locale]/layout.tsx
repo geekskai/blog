@@ -29,7 +29,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
   const { locale: requestedLocale } = await params
   const locale = hasLocale(routing.locales, requestedLocale) ? requestedLocale : "en"
   const t = await getTranslations({ locale, namespace: "HomePage" })
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-04-29")
   const title = t("home_seo_title")
   const description = t("home_seo_description") + " " + t("home_seo_keywords")
 
@@ -252,10 +252,6 @@ export default async function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2108246014001009"
           strategy="afterInteractive"
           crossOrigin="anonymous"
-        />
-        <Script
-          src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
-          strategy="afterInteractive"
         />
         <NextIntlClientProvider>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />

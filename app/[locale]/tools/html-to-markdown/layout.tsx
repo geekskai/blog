@@ -1,5 +1,6 @@
 import { supportedLocales } from "app/i18n/routing"
 import { Metadata } from "next"
+import React from "react"
 import { getTranslations } from "next-intl/server"
 
 // Content freshness - Update this monthly

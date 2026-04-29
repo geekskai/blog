@@ -48,7 +48,8 @@ const Header = () => {
               alt="geekskai Logo"
               width={100}
               height={36}
-              preload
+              loading="eager"
+              sizes="100px"
               className="h-[36px] w-[100px] transition-transform duration-300 group-hover:scale-105"
             />
             {typeof siteMetadata.headerTitle === "string" ? (

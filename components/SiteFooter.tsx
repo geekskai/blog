@@ -59,6 +59,7 @@ const SiteFooter = () => {
                   loading="lazy"
                   width={100}
                   height={36}
+                  sizes="100px"
                   className="h-[36px] w-[100px] transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="text-xl font-bold text-white">geekskai</div>

@@ -91,7 +91,7 @@ export default function ListLayoutWithTags({
       <div className="flex gap-4 md:gap-6 xl:gap-8">
         <div className="w-full">
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:gap-y-10 xl:grid-cols-3">
-            {displayPosts.map((post) => {
+            {displayPosts.map((post, index) => {
               const { path, date, title, summary, tags, images } = post
               const author = allAuthors.find((p) => p.slug === "default") as Authors
               const { avatar, name } = coreContent(author)
@@ -103,9 +103,12 @@ export default function ListLayoutWithTags({
                   <Link href={`/${path}`} className="flex flex-col gap-4">
                     {images && (
                       <Image
-                        loading="lazy"
+                        loading={index === 0 ? "eager" : "lazy"}
+                        fetchPriority={index === 0 ? "high" : "auto"}
+                        preload={index === 0}
                         alt={title}
                         src={images}
+                        sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
                         className="h-48 w-full rounded-xl object-cover object-center"
                         width={384}
                         height={192}
@@ -117,6 +120,7 @@ export default function ListLayoutWithTags({
                           src={avatar}
                           alt="avatar"
                           loading="lazy"
+                          sizes="20px"
                           width={20}
                           height={20}
                           className="size-5 rounded-full"

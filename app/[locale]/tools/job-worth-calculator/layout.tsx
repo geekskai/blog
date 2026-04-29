@@ -26,7 +26,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const languages = {
     "x-default": "https://geekskai.com/tools/job-worth-calculator/",
   }
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-04-29")
 
   supportedLocales.forEach((locale) => {
     languages[locale] = `https://geekskai.com/${locale}/tools/job-worth-calculator/`

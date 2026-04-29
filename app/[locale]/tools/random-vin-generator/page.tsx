@@ -63,7 +63,7 @@ export default function RandomVINGenerator() {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid gap-4 sm:gap-6 md:gap-8 lg:grid-cols-12">
+        <div className="grid gap-4 sm:gap-6 md:gap-8 lg:grid-cols-12 lg:items-start">
           {/* Generator Panel */}
           <div className="space-y-4 sm:space-y-6 lg:col-span-8">
             <VINGeneratorComponent />

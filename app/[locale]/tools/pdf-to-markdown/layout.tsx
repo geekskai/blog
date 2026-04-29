@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 
 // Content freshness - Update this monthly
-const lastModified = new Date("2026-04-21") // Update current date
+const lastModified = new Date("2026-04-29") // Update current date
 
 export const metadata: Metadata = {
   title: "PDF to Markdown Converter - Free Online PDF to MD Converter Tool",

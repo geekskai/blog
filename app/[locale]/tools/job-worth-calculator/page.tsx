@@ -102,46 +102,6 @@ const SalaryCalculator = () => {
     }
   }, [handleCountryChange])
 
-  // 监听访客统计加载
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const pv = document.getElementById("busuanzi_value_site_pv")
-      const uv = document.getElementById("busuanzi_value_site_uv")
-
-      if (pv && pv.innerText !== "") {
-        const currentCount = parseInt(pv.innerText, 10) || 0
-        pv.innerText = currentCount.toLocaleString()
-
-        if (uv && uv.innerText !== "") {
-          const currentUV = parseInt(uv.innerText, 10) || 0
-          uv.innerText = currentUV.toLocaleString()
-        }
-
-        setVisitorVisible(true)
-      } else {
-        const retryTimer = setTimeout(() => {
-          const pv = document.getElementById("busuanzi_value_site_pv")
-          const uv = document.getElementById("busuanzi_value_site_uv")
-
-          if (pv && pv.innerText !== "") {
-            const currentCount = parseInt(pv.innerText, 10) || 0
-            pv.innerText = currentCount.toLocaleString()
-
-            if (uv && uv.innerText !== "") {
-              const currentUV = parseInt(uv.innerText, 10) || 0
-              uv.innerText = currentUV.toLocaleString()
-            }
-
-            setVisitorVisible(true)
-          }
-        }, 2000)
-        return () => clearTimeout(retryTimer)
-      }
-    }, 1000)
-
-    return () => clearTimeout(timer)
-  }, [])
-
   // 在组件初始化和学历选择变化时计算教育系数
   useEffect(() => {
     updateEducationFactor()

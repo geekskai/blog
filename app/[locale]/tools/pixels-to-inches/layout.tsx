@@ -12,7 +12,7 @@ export async function generateMetadata(props: {
   const { locale } = params
 
   const t = await getTranslations({ locale, namespace: "PixelsToInchesConverter" })
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-04-29")
   // 语言映射
   const localeMap: Record<string, string> = {
     en: "en_US",

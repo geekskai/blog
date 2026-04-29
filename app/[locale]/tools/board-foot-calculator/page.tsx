@@ -40,7 +40,7 @@ export default function BoardFootCalculator() {
               <Sparkles className="ml-2 h-4 w-4 text-orange-400" />
             </div>
 
-            <h1 className="mb-8 text-5xl font-bold text-white sm:text-6xl lg:text-7xl">
+            <h1 className="mx-auto mb-8 inline-flex min-h-[2.2em] max-w-full flex-col items-center justify-center gap-1 text-5xl font-bold leading-[1.05] text-white sm:text-6xl lg:text-7xl">
               <span className="block">{t("page_title")}</span>
               <span className="block bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 bg-clip-text text-transparent">
                 {t("page_subtitle")}

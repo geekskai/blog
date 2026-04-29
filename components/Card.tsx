@@ -1,7 +1,7 @@
 import Image from "./Image"
 import Link from "./Link"
 
-const Card = ({ title, description, imgSrc, href, hrefRel }) => (
+const Card = ({ title, description, imgSrc, href, hrefRel, preloadImage = false }) => (
   <div className="md max-w-[544px] p-4 md:w-1/2">
     <div className={`${imgSrc && "h-full"}  overflow-hidden rounded-md border-2 border-stone-700`}>
       {imgSrc &&
@@ -10,8 +10,11 @@ const Card = ({ title, description, imgSrc, href, hrefRel }) => (
             <Image
               alt={title}
               src={imgSrc}
-              loading="lazy"
-              className="object-cover object-center md:h-36 lg:h-48"
+              preload={preloadImage}
+              fetchPriority={preloadImage ? "high" : "auto"}
+              loading={preloadImage ? "eager" : "lazy"}
+              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 544px"
+              className="h-auto w-full object-cover object-center md:h-36 lg:h-48"
               width={544}
               height={306}
             />
@@ -19,9 +22,12 @@ const Card = ({ title, description, imgSrc, href, hrefRel }) => (
         ) : (
           <Image
             alt={title}
+            preload={preloadImage}
             src={imgSrc}
-            loading="lazy"
-            className="object-cover object-center md:h-36 lg:h-48"
+            fetchPriority={preloadImage ? "high" : "auto"}
+            loading={preloadImage ? "eager" : "lazy"}
+            sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 544px"
+            className="h-auto w-full object-cover object-center md:h-36 lg:h-48"
             width={544}
             height={306}
           />

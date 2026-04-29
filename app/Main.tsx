@@ -1,10 +1,10 @@
-import siteMetadata from "@/data/siteMetadata"
-import NewsletterForm from "pliny/ui/NewsletterForm"
+// import siteMetadata from "@/data/siteMetadata"
+// import NewsletterForm from "pliny/ui/NewsletterForm"
 import Hero from "@/components/Hero"
 import ListLayout from "@/layouts/ListLayout"
 import { useTranslations } from "next-intl"
 import Link from "next/link"
-import React from "react"
+// import React from "react"
 
 const MAX_DISPLAY = 5
 const POSTS_PER_PAGE = 6
@@ -59,11 +59,11 @@ export default function Home({ posts }) {
           </Link>
         </div>
       )}
-      {siteMetadata.newsletter?.provider && (
+      {/* {siteMetadata.newsletter?.provider && (
         <div className="flex items-center justify-center px-4 pb-2 pt-6 md:px-6 md:pt-8">
           <NewsletterForm />
         </div>
-      )}
+      )} */}
     </>
   )
 }

@@ -76,7 +76,11 @@ const TipScreenGenerator = () => {
 
   const [billAmount, setBillAmount] = useState(DEFAULT_BILL_AMOUNT)
   const [billAmountInput, setBillAmountInput] = useState(DEFAULT_BILL_AMOUNT.toString())
-  const [selectedTip, setSelectedTip] = useState<number | null>(DEFAULT_SELECTED_TIP)
+  const [selectedTip, setSelectedTip] = useState<number | null>(
+    DEFAULT_DARK_PATTERNS.defaultHighest
+      ? TIP_PERCENTAGES[TIP_PERCENTAGES.length - 1]
+      : DEFAULT_SELECTED_TIP
+  )
   const [customTip, setCustomTip] = useState("")
   const [theme, setTheme] = useState<TipTheme>(DEFAULT_THEME)
   const [showSettings, setShowSettings] = useState(true)
@@ -376,17 +380,17 @@ const TipScreenGenerator = () => {
         </div>
 
         {/* Main Content */}
-        <div className="grid gap-5 md:gap-8 lg:grid-cols-12">
+        <div className="grid gap-5 md:gap-8 lg:grid-cols-12 lg:items-start">
           {/* Settings Panel */}
-          <div
-            className={`space-y-4 md:space-y-6 lg:col-span-4 ${!showSettings && "lg:col-span-2"}`}
-          >
+          <div className="space-y-4 md:space-y-6 lg:col-span-4">
             <div className="overflow-hidden rounded-2xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
               <div className="border-b border-slate-700 px-4 py-3 md:px-6 md:py-4">
                 <div className="flex items-center justify-between">
                   <h2 className="text-lg font-semibold text-white">{t("settings.title")}</h2>
                   <button
                     onClick={() => setShowSettings(!showSettings)}
+                    aria-expanded={showSettings}
+                    aria-controls="tip-screen-settings-panel"
                     className="rounded-lg p-2.5 text-slate-500 transition-colors hover:bg-slate-700"
                   >
                     <Settings className="h-5 w-5" />
@@ -394,7 +398,13 @@ const TipScreenGenerator = () => {
                 </div>
               </div>
 
-              {showSettings && (
+              <div
+                id="tip-screen-settings-panel"
+                aria-hidden={!showSettings}
+                className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
+                  showSettings ? "max-h-[120rem] opacity-100" : "max-h-0 opacity-0"
+                }`}
+              >
                 <div className="space-y-5 p-4 md:space-y-6 md:p-6">
                   {/* Bill Amount */}
                   <div>
@@ -542,12 +552,12 @@ const TipScreenGenerator = () => {
                     </button>
                   </div>
                 </div>
-              )}
+              </div>
             </div>
           </div>
 
           {/* Tip Screen Preview */}
-          <div className={`${showSettings ? "lg:col-span-8" : "lg:col-span-10"}`}>
+          <div className="lg:col-span-8">
             <div className="overflow-hidden rounded-2xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
               <div className="border-b border-slate-700 px-4 py-3 md:px-6 md:py-4">
                 <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
@@ -562,7 +572,7 @@ const TipScreenGenerator = () => {
               </div>
 
               <div className="p-3 md:p-6">
-                <div className="flex justify-center">
+                <div className="flex min-h-[39rem] justify-center md:min-h-[50rem]">
                   <div ref={tipScreenRef} className="mx-auto w-full max-w-[22rem] md:max-w-md">
                     <div className="transform-gpu transition-all duration-300 md:hover:scale-[1.02]">
                       {renderTipScreen}

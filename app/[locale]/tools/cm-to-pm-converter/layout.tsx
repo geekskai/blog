@@ -13,7 +13,7 @@ export async function generateMetadata(props: {
 
   const t = await getTranslations({ locale, namespace: "CmToPmConverter" })
   const isDefaultLocale = locale === "en"
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-04-29")
   const languages = {
     "x-default": "https://geekskai.com/tools/cm-to-pm-converter",
   }

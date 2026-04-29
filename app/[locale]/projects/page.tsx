@@ -184,7 +184,7 @@ export default async function Projects({ params }: { params: Promise<{ locale: s
         </section>
         <div className="container py-12">
           <div className="-m-4 flex flex-wrap">
-            {projectsData.map(({ title, description, hrefRel, href, imgSrc }) => (
+            {projectsData.map(({ title, description, hrefRel, href, imgSrc }, index) => (
               <Card
                 key={title}
                 hrefRel={hrefRel}
@@ -192,6 +192,7 @@ export default async function Projects({ params }: { params: Promise<{ locale: s
                 description={description}
                 imgSrc={imgSrc}
                 href={href}
+                preloadImage={index === 0}
               />
             ))}
           </div>

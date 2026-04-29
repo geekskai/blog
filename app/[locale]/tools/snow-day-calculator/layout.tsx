@@ -10,7 +10,7 @@ export async function generateMetadata(props: {
 
   const t = await getTranslations({ locale, namespace: "SnowDayCalculator" })
   const isDefaultLocale = locale === "en"
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-04-29")
 
   const baseUrl = "https://geekskai.com"
   const toolPath = "/tools/snow-day-calculator/"

@@ -18,7 +18,7 @@ import {
   Home,
   ChevronRight,
 } from "lucide-react"
-import { Link } from "@/app/i18n/navigation"
+import { Link } from "app/i18n/navigation"
 
 // Dynamic import for pdfjs-dist to avoid SSR issues
 let pdfjsLib: typeof import("pdfjs-dist") | null = null
@@ -399,13 +399,19 @@ const PdfToMarkdown = () => {
         <div className="space-y-6">
           {/* Upload or Show Success */}
           {!parseResult ? (
-            <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
+            <div
+              className={`overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700 ${
+                isLoading ? "min-h-[48rem] md:min-h-[52rem]" : ""
+              }`}
+            >
               {/* Upload Section */}
-              <div className="p-8">
+              <div className={`p-6 md:p-8 ${isLoading ? "flex min-h-full flex-col" : ""}`}>
                 <div
                   role="button"
                   tabIndex={0}
-                  className="group relative flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-slate-600 bg-slate-700 transition-all duration-200 hover:border-blue-500 hover:bg-slate-600"
+                  className={`group relative flex w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-slate-600 bg-slate-700 transition-all duration-200 hover:border-blue-500 hover:bg-slate-600 ${
+                    isLoading ? "min-h-[32rem] flex-1" : "h-64"
+                  }`}
                   onDrop={handleDrop}
                   onDragOver={handleDragOver}
                   onClick={() => document.getElementById("file-input")?.click()}
@@ -432,7 +438,7 @@ const PdfToMarkdown = () => {
                           <div className="h-8 w-8 rounded-full bg-blue-100"></div>
                         </div>
                       </div>
-                      <div className="text-center">
+                      <div className="min-h-[3.75rem] text-center">
                         <p className="text-lg font-medium text-slate-300">{loadingStage}</p>
                         <p className="text-sm text-slate-500">{Math.round(progress)}% complete</p>
                       </div>
@@ -458,17 +464,19 @@ const PdfToMarkdown = () => {
                   )}
                 </div>
 
-                {error && (
-                  <div className="mt-4 flex items-center space-x-2 rounded-lg bg-red-900/20 p-3 text-red-400">
-                    <AlertCircle className="h-5 w-5" />
-                    <span className="text-sm">{error}</span>
-                  </div>
-                )}
+                <div className="mt-4 min-h-[3.5rem]">
+                  {error && (
+                    <div className="flex items-center space-x-2 rounded-lg bg-red-900/20 p-3 text-red-400">
+                      <AlertCircle className="h-5 w-5 shrink-0" />
+                      <span className="text-sm">{error}</span>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           ) : (
             /* Success State */
-            <div className="overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700">
+            <div className="min-h-[48rem] overflow-hidden rounded-xl bg-slate-800 shadow-xl ring-1 ring-slate-700 md:min-h-[52rem]">
               {/* Success Header */}
               <div className="gap-5 border-b border-slate-700 bg-gradient-to-r from-green-900/20 to-emerald-900/20 p-6">
                 {/* File Information */}
@@ -481,7 +489,7 @@ const PdfToMarkdown = () => {
                   </h3>
                 )}
 
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                   {/* Left: Success Message */}
                   <div className="flex flex-1 items-center space-x-3">
                     <div className="rounded-full bg-green-900 p-2">
@@ -496,11 +504,11 @@ const PdfToMarkdown = () => {
                   </div>
 
                   {/* Right: Action Buttons */}
-                  <div className="flex flex-1 flex-col items-center justify-end">
-                    <div className="flex flex-col space-y-2 sm:flex-row sm:space-x-3 sm:space-y-0">
+                  <div className="flex w-full flex-col items-stretch justify-end md:w-auto md:flex-1 md:items-end">
+                    <div className="flex w-full flex-col space-y-2 sm:flex-row sm:space-x-3 sm:space-y-0 md:w-auto">
                       <button
                         onClick={resetState}
-                        className="inline-flex items-center justify-center rounded-lg border border-slate-600 bg-slate-700 px-4 py-2 text-sm font-medium text-slate-300 shadow-sm hover:bg-slate-600"
+                        className="inline-flex w-full items-center justify-center rounded-lg border border-slate-600 bg-slate-700 px-4 py-2 text-sm font-medium text-slate-300 shadow-sm hover:bg-slate-600 sm:w-auto"
                       >
                         <RefreshCw className="mr-2 h-4 w-4" />
                         Convert Another PDF
@@ -508,7 +516,7 @@ const PdfToMarkdown = () => {
 
                       <button
                         onClick={downloadMarkdown}
-                        className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-lg hover:from-blue-700 hover:to-indigo-700"
+                        className="inline-flex w-full items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-lg hover:from-blue-700 hover:to-indigo-700 sm:w-auto"
                       >
                         <Download className="mr-2 h-4 w-4" />
                         Download Markdown
@@ -521,10 +529,10 @@ const PdfToMarkdown = () => {
 
               {/* Tab Navigation */}
               <div className="border-b border-slate-700">
-                <nav className="flex space-x-8 px-6" aria-label="Tabs">
+                <nav className="flex overflow-x-auto px-4 sm:space-x-8 sm:px-6" aria-label="Tabs">
                   <button
                     onClick={() => setActiveTab("edit")}
-                    className={`border-b-2 px-1 py-4 text-sm font-medium ${
+                    className={`shrink-0 border-b-2 px-3 py-4 text-sm font-medium sm:px-1 ${
                       activeTab === "edit"
                         ? "border-blue-400 text-blue-400"
                         : "border-transparent text-slate-400 hover:text-slate-300"
@@ -535,7 +543,7 @@ const PdfToMarkdown = () => {
                   </button>
                   <button
                     onClick={() => setActiveTab("preview")}
-                    className={`border-b-2 px-1 py-4 text-sm font-medium ${
+                    className={`shrink-0 border-b-2 px-3 py-4 text-sm font-medium sm:px-1 ${
                       activeTab === "preview"
                         ? "border-blue-400 text-blue-400"
                         : "border-transparent text-slate-400 hover:text-slate-300"
@@ -548,7 +556,7 @@ const PdfToMarkdown = () => {
               </div>
 
               {/* Content Area */}
-              <div className="h-[500px] overflow-hidden">
+              <div className="h-[420px] overflow-hidden sm:h-[500px]">
                 {activeTab === "edit" ? (
                   <textarea
                     value={markdown}
