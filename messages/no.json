@@ -8693,5 +8693,671 @@
       "itemlist_7": "5 .....",
       "itemlist_8": "0 -----"
     }
+  },
+  "BandcampToMp3": {
+    "badge": "Bandcamp to MP3",
+    "updated": "Oppdatert {date}",
+    "hero": {
+      "title": "Last ned MP3 fra en Bandcamp-spor-URL",
+      "quickAnswerLabel": "Kort svar:",
+      "quickAnswerBody": "Lim inn en Bandcamp-spor-URL, la verktøyet hente ut den eksponerte MP3-kilden med `bandcamp-scraper`, se forhåndsvisning av spordataene og last ned MP3-en når Bandcamp faktisk returnerer en."
+    },
+    "facts": [
+      {
+        "label": "Fokus",
+        "value": "Kun spor",
+        "description": "Denne siden er optimalisert for MP3-uttrekk av ett enkelt spor, ikke for å bla gjennom artist- eller albumsider."
+      },
+      {
+        "label": "Bygget på",
+        "value": "getTrackInfo",
+        "description": "Den underliggende npm-pakken fungerer best når inputen er en Bandcamp-sporside."
+      },
+      {
+        "label": "Input",
+        "value": "Kun spor-URL",
+        "description": "Siden er mer stabil fordi den ber om én direkte Bandcamp-spor-URL i stedet for å skrape søkeresultater."
+      },
+      {
+        "label": "Hurtighandling",
+        "value": "Nedlasting med ett klikk",
+        "description": "Du kan nå hente ut og laste ned hoved-MP3-en i ett trinn når Bandcamp eksponerer den."
+      }
+    ],
+    "errors": {
+      "requestFailed": "Bandcamp-forespørselen mislyktes",
+      "resolveTrackUrlFailed": "Kunne ikke tolke denne Bandcamp-spor-URL-en",
+      "noMp3Link": "Dette sporet returnerte metadata, men ingen MP3-lenke er eksponert akkurat nå.",
+      "invalidMp3Url": "Skriv inn en gyldig MP3-URL som starter med http eller https.",
+      "expiredMediaLink": "Denne Bandcamp-medialenken er utløpt. Oppdater sporinformasjonen og prøv igjen."
+    },
+    "workflow": {
+      "eyebrow": "Hovedflyt",
+      "title": "Lim inn en Bandcamp-spor-URL",
+      "description": "Denne siden er bevisst fokusert på den korteste vellykkede veien: Bandcamp-spor-URL inn, MP3-lenke ut.",
+      "quickInput": "Rask input",
+      "loadedState": "Spor-URL lastet inn",
+      "waitingState": "Venter på en spor-URL",
+      "inputLabel": "Bandcamp-spor-URL",
+      "inputPlaceholder": "https://artist.bandcamp.com/track/song-name",
+      "actionHint": {
+        "valid": "Velg Hent MP3-lenke for å forhåndsvise først, eller last ned direkte hvis du bare vil ha filen.",
+        "invalid": "Dette ser ennå ikke ut som en Bandcamp-spor-URL. Lim inn en full `/track/...`-lenke for å fortsette.",
+        "empty": "Lim inn én Bandcamp-spor-URL for å låse opp både forhåndsvisning og nedlasting med ett klikk."
+      },
+      "manualHint": "Når du limer inn en gyldig Bandcamp-spor-URL, lastes resultatet automatisk. Hvis du skriver inn manuelt, trykk Enter eller bruk knappene i samme blokk.",
+      "scopeNotePrefix": "Bruk én enkelt spor-URL. Album- og artistsider er bevisst utenfor omfanget her. Bruk",
+      "scopeNoteLink": "Bandcamp Album Downloader",
+      "scopeNoteSuffix": "for albumsider.",
+      "emptyState": "Når sporet er lastet inn, ser du cover, tittel, MP3-kilde og nedlastingshandlinger i samme kort uten å bytte fane eller modus. Hvis du vil ha færre trinn, bruk knappen for nedlasting med ett klikk over."
+    },
+    "actions": {
+      "paste": "Lim inn",
+      "pasting": "Limer inn...",
+      "getMp3Link": "Hent MP3-lenke",
+      "extractingMp3": "Henter ut MP3...",
+      "extractAndDownloadMp3": "Hent ut og last ned MP3",
+      "preparingDownload": "Forbereder nedlasting...",
+      "tryExampleTrack": "Prøv et eksempelspor"
+    },
+    "result": {
+      "noCoverArt": "Ingen coverkunst",
+      "trackSummaryFallback": "Sporoppsummering",
+      "artist": "Artist",
+      "album": "Album",
+      "duration": "Varighet",
+      "releaseDate": "Utgivelsesdato",
+      "audioUnsupported": "Nettleseren din støtter ikke lydavspilling.",
+      "downloadMp3": "Last ned MP3",
+      "openBandcampTrack": "Åpne Bandcamp-spor",
+      "noMp3Exposed": "Dette sporet returnerte metadata, men ingen MP3-lenke er eksponert i svaret akkurat nå.",
+      "moreMp3SourceLinks": "Flere MP3-kildelenker",
+      "downloadThisMp3": "Last ned denne MP3-en",
+      "openRawMp3": "Åpne rå MP3"
+    },
+    "aside": {
+      "useCasesTitle": "Praktiske brukstilfeller",
+      "useCases": [
+        "Bruk denne siden når noen allerede har delt en Bandcamp-sporlenke med deg.",
+        "Bruk den når du vil ha den enkleste veien fra én sporside til én nedlastbar MP3-lenke.",
+        "Bruk den når du trenger spormetadata og forhåndsavspilling før du laster ned."
+      ],
+      "whyTitle": "Hvorfor denne layouten er enklere å bruke",
+      "whyItems": [
+        "Én tydelig hovedhandling over bretten på både mobil og desktop.",
+        "Ingen søketilstander, resultatfiltrering eller ekstra oppdagelsesveier konkurrerer med hovedoppgaven.",
+        "Umiddelbar nedlastingsvei etter suksess, uten at brukeren må lese rå JSON.",
+        "Støtteinnholdet forklarer flyten uten å skyve hovedskjemaet under bretten."
+      ],
+      "expectTitle": "Hva du kan forvente",
+      "expectItems": [
+        {
+          "title": "Stabil input",
+          "body": "Lim inn en direkte Bandcamp-spor-URL. Dette verktøyet er ikke lenger avhengig av Bandcamp-søkesider."
+        },
+        {
+          "title": "Tydelig output",
+          "body": "Hvis Bandcamp eksponerer en MP3-URL, vil du se den. Hvis ikke, får du fortsatt sporoppsummeringen og rådataene."
+        },
+        {
+          "title": "Stabil nedlastingsflyt",
+          "body": "Nedlastinger går fortsatt gjennom den validerte proxy-ruten, så siden unngår usikker oppførsel med direkte lenker."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Hva dette Bandcamp to MP3-verktøyet er laget for",
+      "body1": "Denne siden er optimalisert for én praktisk jobb: ta en gyldig Bandcamp-spor-URL, inspiser den med `bandcamp-scraper`, vis MP3-lenken hvis Bandcamp eksponerer en, og la deg laste den ned med riktig filnavn. Du kan enten se resultatet først eller bruke hurtighandlingen med ett klikk.",
+      "body2": "Designet er bevisst smalere enn en full Bandcamp-downloader. Det gjør siden lettere å forstå, raskere å skanne på mobil og mye mer direkte for brukere som allerede vet at de bare vil ha MP3-en fra en enkel sporside.",
+      "coreFactsTitle": "Kjernepunkter",
+      "coreFacts": [
+        {
+          "label": "Primær input",
+          "value": "En Bandcamp-spor-URL."
+        },
+        {
+          "label": "Primær output",
+          "value": "En eksponert MP3-lenke og et filnavn klart for nedlasting."
+        },
+        {
+          "label": "Best egnet for",
+          "value": "Nedlasting av én enkelt sang, ikke gjennomgang av en hel diskografi."
+        },
+        {
+          "label": "Ytelsesstrategi",
+          "value": "Ett hovedkort først, lengre innhold senere og ingen tunge medier før det trengs."
+        }
+      ],
+      "howToUseTitle": "Slik bruker du det",
+      "howToUseSteps": [
+        "Lim inn en Bandcamp-spor-URL i hovedfeltet og hent sporinformasjonen.",
+        "Se enten forhåndsvisning av metadataene først, eller bruk ettklikkshandlingen for å gå rett til nedlasting.",
+        "Last ned hoved-MP3-lenken, eller velg en annen eksponert lenke hvis Bandcamp returnerte flere valg."
+      ],
+      "stepLabel": "Trinn {index}",
+      "practicalUseCasesTitle": "Praktiske brukstilfeller",
+      "practicalUseCases": [
+        "En venn sender deg en Bandcamp-sporlenke, og du vil ha den enkleste mulige MP3-flyten.",
+        "Du må bekrefte artist, tittel eller album før du laster ned noe.",
+        "Du vil se rå sporpayload uten å gjøre hele siden til et feilsøkingspanel."
+      ],
+      "faqTitle": "Bandcamp to MP3 FAQ",
+      "faqItems": [
+        {
+          "question": "Does this Bandcamp to MP3 tool convert files?",
+          "answer": "Not really. It does not transcode audio. It reads a Bandcamp track page through bandcamp-scraper and downloads the MP3 link only when Bandcamp exposes one."
+        },
+        {
+          "question": "Why is this tool focused on track URLs only?",
+          "answer": "Because that is the most reliable MP3 workflow in the underlying library. Albums and artist pages are different jobs, so this page stays focused on direct track URLs only."
+        },
+        {
+          "question": "Why is there no search helper on this page anymore?",
+          "answer": "Because Bandcamp search scraping is less stable than direct URL inspection. This page now prioritizes the shorter and more reliable track URL workflow."
+        },
+        {
+          "question": "Why can the MP3 link expire?",
+          "answer": "Bandcamp media URLs can contain time-based parameters. If a link expires, fetch the track again and the tool will request a fresh MP3 URL."
+        }
+      ],
+      "usageTitle": "Bruk og rettigheter",
+      "usageBody": "Last ned ansvarlig. Lagre bare MP3-er når du har rettighetene, tillatelse fra artisten eller når kildesiden tydelig tillater slik bruk."
+    },
+    "metadata": {
+      "title": "Bandcamp to MP3: hent ut MP3 fra en Bandcamp-spor-URL på nett",
+      "description": "Bruk dette gratis Bandcamp to MP3-verktøyet for å inspisere en Bandcamp-spor-URL, hente ut den eksponerte MP3-lenken, forhåndsvise sangen og laste den ned når den er tilgjengelig.",
+      "keywords": [
+        "bandcamp to mp3",
+        "bandcamp mp3 downloader",
+        "download bandcamp mp3",
+        "bandcamp track to mp3",
+        "bandcamp song downloader"
+      ],
+      "openGraphImageAlt": "Bandcamp to MP3 fra GeeksKai"
+    },
+    "schema": {
+      "name": "Bandcamp to MP3",
+      "description": "Bruk dette gratis Bandcamp to MP3-verktøyet for å inspisere en Bandcamp-spor-URL, hente ut den eksponerte MP3-lenken, forhåndsvise sangen og laste den ned når den er tilgjengelig.",
+      "featureList": [
+        "Bandcamp track URL inspection",
+        "MP3 link extraction",
+        "Track metadata preview",
+        "Bandcamp MP3 download proxy"
+      ],
+      "browserRequirements": "Krever en moderne nettleser med JavaScript aktivert.",
+      "faqItems": [
+        {
+          "question": "Does this Bandcamp to MP3 tool convert audio?",
+          "answer": "No. It extracts the MP3 link from a Bandcamp track page when Bandcamp exposes one. It does not transcode files."
+        },
+        {
+          "question": "Does it work for albums too?",
+          "answer": "This page is optimized for single Bandcamp track URLs. Album workflows are better handled by the dedicated Bandcamp Album Downloader."
+        },
+        {
+          "question": "Why can the MP3 link expire?",
+          "answer": "Bandcamp media links can contain time-based parameters. If the URL expires, fetch the track again to get a fresh link."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "Hjem",
+      "tools": "Verktøy",
+      "current": "Bandcamp to MP3"
+    }
+  },
+  "BandcampAlbumDownloader": {
+    "badge": "Bandcamp Album Downloader",
+    "updated": "Oppdatert {date}",
+    "hero": {
+      "title": "Inspiser en Bandcamp-album-URL i én utgivelsesfokusert flyt",
+      "quickAnswerLabel": "Kort svar:",
+      "quickAnswerBody": "Lim inn en Bandcamp-album-URL for å se utgivelsesoppsummering, sporrader, produktformater og eksponerte lydlenker."
+    },
+    "facts": [
+      {
+        "label": "Fokus",
+        "value": "Kun album",
+        "description": "Bygget rundt utgivelsessider i stedet for MP3-uttrekk fra enkeltspor."
+      },
+      {
+        "label": "Bygget på",
+        "value": "getAlbumInfo",
+        "description": "Bruker album-endepunktene som passer naturlig til Bandcamps utgivelsessider."
+      },
+      {
+        "label": "Input",
+        "value": "Kun album-URL",
+        "description": "Flyten holder seg stabil ved å be om en direkte Bandcamp-album-URL i stedet for å være avhengig av søkeskraping."
+      },
+      {
+        "label": "Forventning",
+        "value": "Ingen falsk ripping",
+        "description": "Dette verktøyet viser bare medielenkene Bandcamp faktisk eksponerer i albumpayloaden."
+      }
+    ],
+    "errors": {
+      "requestFailed": "Bandcamp-forespørselen mislyktes",
+      "resolveAlbumUrlFailed": "Kunne ikke tolke denne Bandcamp-album-URL-en",
+      "invalidMediaUrl": "Skriv inn en gyldig Bandcamp-medialenke som starter med http eller https.",
+      "expiredMediaLink": "Denne Bandcamp-medialenken er utløpt. Oppdater albuminformasjonen og prøv igjen."
+    },
+    "workflow": {
+      "eyebrow": "Hovedflyt",
+      "title": "Lim inn en Bandcamp-album-URL",
+      "description": "Denne siden holder én albumflyt over bretten: album-URL inn, utgivelseskontekst ut.",
+      "inputLabel": "Bandcamp-album-URL",
+      "inputPlaceholder": "https://artist.bandcamp.com/album/release-name",
+      "actionHint": {
+        "valid": "Inspiser utgivelsen først, og gå deretter gjennom spor, formater og eksponerte medielenker uten å forlate siden.",
+        "invalid": "Dette ser ennå ikke ut som en Bandcamp-album-URL. Lim inn en full `/album/...`-lenke for å fortsette.",
+        "empty": "Lim inn én Bandcamp-album-URL for å låse opp utgivelsesoppsummering, sporliste og album-medieseksjoner."
+      },
+      "emptyState": "Etter et vellykket oppslag vil dette kortet vise albumcover, utgivelsesoppsummering, produktformater, sporrader, eksponerte medielenker og råpayloaden i en sammenfoldet seksjon.",
+      "primaryAction": "Hovedhandling",
+      "loadedState": "Album-URL lastet inn",
+      "waitingState": "Venter på en album-URL",
+      "manualHint": "Når du limer inn en gyldig Bandcamp-album-URL, lastes utgivelsen automatisk. Hvis du skriver inn manuelt, trykk Enter eller bruk knappen i samme blokk over.",
+      "scopeNotePrefix": "Kun albumsider. Bruk",
+      "scopeNoteLink": "Bandcamp to MP3",
+      "scopeNoteSuffix": "for enkeltspor-URL-er."
+    },
+    "actions": {
+      "paste": "Lim inn",
+      "pasting": "Limer inn...",
+      "inspectAlbum": "Inspiser album",
+      "inspectingAlbum": "Inspiserer album...",
+      "tryExampleAlbum": "Prøv et eksempelalbum"
+    },
+    "result": {
+      "albumCover": "Albumcover",
+      "noCoverArt": "Ingen coverkunst",
+      "albumSummaryFallback": "Albumoppsummering",
+      "artist": "Artist",
+      "releaseDate": "Utgivelsesdato",
+      "tracks": "Spor",
+      "productFormats": "Produktformater",
+      "unknown": "Ukjent",
+      "openBandcampAlbum": "Åpne Bandcamp-album",
+      "backToHub": "Tilbake til Bandcamp-hub",
+      "trackRows": "Sporrader",
+      "trackCount": "{count} spor",
+      "durationNotExposed": "Varighet ikke eksponert",
+      "downloadTrack": "Last ned spor",
+      "openRawAudio": "Åpne rå lyd",
+      "audioUnsupported": "Nettleseren din støtter ikke lydavspilling.",
+      "noPlayableTrackUrl": "Ingen spillbar spor-URL ble eksponert for denne sporraden.",
+      "trackNotes": "Spornotater / tekst",
+      "noTrackRows": "Ingen sporrader ble eksponert i dette albumsvaret.",
+      "showFewerTracks": "Vis færre spor",
+      "showMoreTracks": "Vis {count} flere spor",
+      "longTrackListHint": "Lange sporlister holdes sammenfoldet som standard for å gjøre siden lettere på mobil.",
+      "rawAlbumPayload": "Rå albumpayload"
+    },
+    "aside": {
+      "useCasesTitle": "Praktiske brukstilfeller",
+      "useCases": [
+        "Bruk denne siden når du allerede har en Bandcamp-album- eller utgivelses-URL.",
+        "Bruk den når du vil ha produktformater, sporrader og medielenker i én visning på utgivelsesnivå.",
+        "Bruk den når du først vil forstå albumkonteksten før du vurderer om en eksponert medielenke er nyttig."
+      ],
+      "whyTitle": "Hvorfor denne siden er enklere å bruke",
+      "whyItems": [
+        "Én tydelig albumflyt over bretten på både mobil og desktop.",
+        "Ingen søketilstander eller ustabil oppdagelsesskraping konkurrerer med albuminspeksjonen.",
+        "Albumoppsummering, produkter og sporrader ligger samlet i stedet for å være delt på faner.",
+        "Rå JSON er fortsatt tilgjengelig for avanserte brukere, men skjult bak et detaljer-element."
+      ],
+      "expectTitle": "Hva du kan forvente",
+      "expectItems": [
+        {
+          "title": "Utgivelsen først",
+          "body": "Lim inn en album-URL og inspiser utgivelsen før du tenker på enkeltspor eller nedlastinger."
+        },
+        {
+          "title": "Kun direkte medier",
+          "body": "Verktøyet viser bare spillbare eller nedlastbare lenker som Bandcamp faktisk eksponerer i albumpayloaden."
+        },
+        {
+          "title": "Klare grenser",
+          "body": "MP3-uttrekk for spor ligger i det dedikerte sporverktøyet, noe som gjør denne albumsiden mer fokusert og lettere å skanne."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Hva denne Bandcamp Album Downloaderen er laget for",
+      "body1": "Denne siden er optimalisert for én flyt på utgivelsesnivå: lim inn en Bandcamp-album-URL, inspiser albumoppsummeringen, gå gjennom sporrader og produktformater og last ned eksponerte medielenker uten å blande inn artist- eller taggflyter.",
+      "body2": "Målet er klarhet, ikke å late som om alle albumsider oppfører seg likt. Når Bandcamp eksponerer spillbare eller nedlastbare URL-er, viser verktøyet dem. Når det ikke skjer, gir siden fortsatt en ryddig albumoppsummering og utgivelseskontekst.",
+      "coreFactsTitle": "Kjernepunkter",
+      "coreFacts": [
+        {
+          "label": "Primær input",
+          "value": "En Bandcamp-album-URL."
+        },
+        {
+          "label": "Primære outputs",
+          "value": "Albumoppsummering, sporrader, produktformater og eksponerte medielenker."
+        },
+        {
+          "label": "Best egnet for",
+          "value": "Inspeksjon på utgivelsesnivå, ikke MP3-konvertering av enkeltspor."
+        },
+        {
+          "label": "Ytelsesstrategi",
+          "value": "Ett hovedkort for album først, støtteinnhold etterpå og lengre SEO-innhold utsatt."
+        }
+      ],
+      "howToUseTitle": "Slik bruker du det",
+      "howToUseSteps": [
+        "Lim inn en Bandcamp-album-URL i hovedflyten og hent utgivelsen.",
+        "Gå gjennom oppsummeringen, sporradene og tilgjengelige produktformater før du bestemmer deg for hva du trenger.",
+        "Last ned en eksponert lydlenke når Bandcamp returnerer en, eller åpne den originale albumsiden for full utgivelseskontekst."
+      ],
+      "stepLabel": "Trinn {index}",
+      "practicalUseCasesTitle": "Praktiske brukstilfeller",
+      "practicalUseCases": [
+        "Du har allerede en Bandcamp-albumlenke og vil se utgivelsesoppsummeringen før du laster ned noe.",
+        "Du trenger å sammenligne produktformater, sporrader og tilgjengelige spillbare lenker på ett sted.",
+        "Du vil ha en visning på utgivelsesnivå uten å blande inn MP3-uttrekk for enkeltspor eller ekstra flytbytter."
+      ],
+      "faqTitle": "Bandcamp Album Downloader FAQ",
+      "faqItems": [
+        {
+          "question": "What is this Bandcamp Album Downloader for?",
+          "answer": "It is built for Bandcamp album URLs. The page inspects release metadata, lists album products, shows track rows, and surfaces exposed media links when Bandcamp returns them."
+        },
+        {
+          "question": "Ripper det automatisk et helt album?",
+          "answer": "No. It reads the public album payload exposed through bandcamp-scraper. Some albums only return metadata or preview links, while others expose usable media URLs."
+        },
+        {
+          "question": "Why is this separate from Bandcamp to MP3?",
+          "answer": "Because album pages and track pages are different jobs. The album tool is optimized for release inspection, while Bandcamp to MP3 stays focused on single-track extraction."
+        },
+        {
+          "question": "Can album media links expire?",
+          "answer": "Yes. Some Bandcamp media URLs contain time-based parameters, so you may need to refresh the album lookup to get a new link."
+        }
+      ],
+      "usageTitle": "Bruk og rettigheter",
+      "usageBody": "Bruk albumnedlastinger ansvarlig. Lagre bare utgivelser når du har rettighetene, artistens tillatelse eller når kildesiden tydelig tillater slik bruk."
+    },
+    "metadata": {
+      "title": "Bandcamp Album Downloader: inspiser albumsider og eksponerte lydlenker på nett",
+      "description": "Bruk denne gratis Bandcamp Album Downloaderen for å inspisere en Bandcamp-album-URL, se utgivelsesmetadata, sporrader, produktformater og laste ned eksponerte lydlenker når de er tilgjengelige.",
+      "keywords": [
+        "bandcamp album downloader",
+        "download bandcamp album",
+        "bandcamp album url",
+        "bandcamp album tracks",
+        "bandcamp album inspector"
+      ],
+      "openGraphImageAlt": "Bandcamp Album Downloader fra GeeksKai"
+    },
+    "schema": {
+      "name": "Bandcamp Album Downloader",
+      "description": "Bruk denne gratis Bandcamp Album Downloaderen for å inspisere en Bandcamp-album-URL, se utgivelsesmetadata, sporrader, produktformater og laste ned eksponerte lydlenker når de er tilgjengelige.",
+      "featureList": [
+        "Bandcamp album URL inspection",
+        "Album track row extraction",
+        "Album product format listing",
+        "Exposed audio link download"
+      ],
+      "browserRequirements": "Krever en moderne nettleser med JavaScript aktivert.",
+      "faqItems": [
+        {
+          "question": "What does this Bandcamp Album Downloader do?",
+          "answer": "It inspects Bandcamp album URLs, returns album metadata, track rows, product formats, and surfaces exposed media links when the source payload includes them."
+        },
+        {
+          "question": "Does it work for single tracks too?",
+          "answer": "This page is optimized for album URLs. For single-track MP3 extraction, use the dedicated Bandcamp to MP3 tool."
+        },
+        {
+          "question": "Why can album media links expire?",
+          "answer": "Bandcamp media links can contain time-based parameters. If the URL expires, fetch the album again to get a fresh link."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "Hjem",
+      "tools": "Verktøy",
+      "current": "Bandcamp Album Downloader"
+    }
+  },
+  "BandcampToolsHub": {
+    "badge": "Bandcamp-verktøyhub",
+    "updated": "Oppdatert {date}",
+    "hero": {
+      "title": "Velg mellom to fokuserte Bandcamp-verktøy i stedet for én overlesset downloader",
+      "quickAnswerLabel": "Kort svar:",
+      "quickAnswerBody": "Denne siden er nå en navigasjonsorientert hub. `bandcamp-scraper` fungerer bedre når hver brukeroppgave får sitt eget fokuserte verktøy, så denne Bandcamp-opplevelsen er nå sentrert rundt to stabile jobber: MP3-uttrekk for enkeltspor og albuminspeksjon."
+    },
+    "facts": [
+      {
+        "label": "Nåværende oppsett",
+        "value": "To stabile verktøy",
+        "description": "Én side håndterer MP3-uttrekk for spor, den andre håndterer albuminspeksjon på utgivelsesnivå."
+      },
+      {
+        "label": "Hvorfor",
+        "value": "Mindre kognitiv belastning",
+        "description": "Brukere trenger ikke lenger å sortere gjennom ekstra fremtidige flyter før de starter."
+      },
+      {
+        "label": "Enkel funksjon",
+        "value": "Smart URL-ruter",
+        "description": "Lim inn én Bandcamp-URL her og gå automatisk til riktig verktøy."
+      },
+      {
+        "label": "Best for",
+        "value": "Tydelighet på mobil",
+        "description": "Mindre verktøy holder første skjerm mer fokusert, lettere og raskere å skanne på telefon."
+      }
+    ],
+    "actions": {
+      "paste": "Lim inn",
+      "pasting": "Limer inn...",
+      "tryTrackExample": "Prøv et eksempelspor",
+      "tryAlbumExample": "Prøv et eksempelalbum"
+    },
+    "router": {
+      "eyebrow": "Rask start",
+      "title": "Lim inn en Bandcamp-URL og gå til riktig verktøy",
+      "description": "Denne huben gjør nå én praktisk jobb: avgjør om Bandcamp-lenken din er et spor eller et album, og send deg videre til riktig flyt med URL-en ferdig utfylt.",
+      "inputLabel": "Bandcamp spor- eller album-URL",
+      "inputPlaceholder": "https://artist.bandcamp.com/track/... or /album/...",
+      "cta": {
+        "track": "Åpne Bandcamp to MP3",
+        "album": "Åpne Bandcamp Album Downloader",
+        "default": "Åpne riktig verktøy"
+      },
+      "hint": {
+        "track": "Spor oppdaget. Du blir sendt til MP3-flyten.",
+        "album": "Album oppdaget. Du blir sendt til albumflyten.",
+        "invalid": "Denne lenken er ennå ikke en støttet Bandcamp spor- eller album-URL. Lim inn en full Bandcamp `/track/...`- eller `/album/...`-lenke.",
+        "empty": "Lim inn en Bandcamp spor- eller album-URL for å aktivere den smarte ruteren."
+      },
+      "errors": {
+        "empty": "Lim inn en Bandcamp spor- eller album-URL først.",
+        "invalid": "Skriv inn en gyldig Bandcamp-URL som starter med https:// og peker til Bandcamp.",
+        "unsupported": "Denne lette huben sender for øyeblikket spor-URL-er til Bandcamp to MP3 og album-URL-er til Bandcamp Album Downloader.",
+        "clipboardUnavailable": "Innliming fra utklippstavlen er ikke tilgjengelig i denne nettleseren. Lim inn URL-en manuelt i stedet.",
+        "clipboardFailed": "Kunne ikke lese fra utklippstavlen. Lim inn Bandcamp-URL-en manuelt i stedet."
+      },
+      "detectionLabel": "Oppdagelse",
+      "detection": {
+        "track": "Spor-URL",
+        "album": "Album-URL",
+        "waiting": "Venter på en gyldig URL"
+      },
+      "boundaryNote": "Spor-URL-er åpner `Bandcamp to MP3`. Album-URL-er åpner `Bandcamp Album Downloader`. Artist- eller label-sider rutes ikke fra denne lette huben.",
+      "pasteHint": "Innliming fyller inputen med en gang. Hvis lenken støttes, låses ruteknappen opp rett under."
+    },
+    "toolMap": {
+      "eyebrow": "Verktøykart",
+      "title": "Velg det mindre verktøyet som passer jobben",
+      "description": "Den gamle Bandcamp-downloaderen blandet for mange oppgaver på ett sted. Denne huben gjør nå én enklere ting: sende brukere til riktig fokusert side for enten MP3-uttrekk av spor eller albuminspeksjon.",
+      "openTool": "Åpne verktøy"
+    },
+    "toolCards": [
+      {
+        "title": "Bandcamp to MP3",
+        "href": "/tools/bandcamp-to-mp3",
+        "status": "Tilgjengelig nå",
+        "description": "Best når målet er enkelt: inspiser sporet, hent ut MP3-lenken og last den ned fra én spor-URL."
+      },
+      {
+        "title": "Bandcamp Album Downloader",
+        "href": "/tools/bandcamp-album-downloader",
+        "status": "Tilgjengelig nå",
+        "description": "Fokusert på album-URL-er, utgivelsesoppsummeringer, produktformater, sporlister og eksponerte lydlenker i albumpayloaden."
+      }
+    ],
+    "content": {
+      "whyTitle": "Hvorfor det er et bedre produktvalg å dele opp Bandcamp-verktøyet",
+      "reasons": [
+        "MP3-uttrekk av spor og albuminspeksjon skaper ulike forventninger, så de fungerer bedre med forskjellige sidestrukturer.",
+        "Mindre verktøy reduserer layoutkompleksiteten og forbedrer forståelsen av første skjerm på mobile enheter.",
+        "Hver rute retter seg nå mot tydeligere SEO-intensjon i stedet for å konkurrere med flere ulike Bandcamp-brukstilfeller samtidig."
+      ],
+      "reasonLabel": "Grunn {index}",
+      "faqTitle": "FAQ for Bandcamp-verktøy",
+      "faqItems": [
+        {
+          "question": "Er dette fortsatt hovedsiden for Bandcamp-downloaderen?",
+          "answer": "Den er nå Bandcamp-verktøyhuben. Hovedinteraksjonen ligger i to mindre dedikerte verktøy."
+        },
+        {
+          "question": "Hvilket verktøy skal jeg bruke for én sang?",
+          "answer": "Bruk Bandcamp to MP3 når målet ditt er én spor-URL og en MP3-nedlastingsflyt."
+        },
+        {
+          "question": "Hvilket verktøy skal jeg bruke for en utgivelsesside?",
+          "answer": "Bruk Bandcamp Album Downloader når inputen din er en album-URL og du vil ha utgivelsesdetaljer, formater, spor og eksponerte medielenker."
+        },
+        {
+          "question": "Hvorfor beholde denne huben i det hele tatt?",
+          "answer": "Den gir brukere en enkel oversikt over hva hvert Bandcamp-verktøy gjør uten å tvinge dem inn i feil flyt først."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Hva denne Bandcamp-downloaderen faktisk gjør",
+      "body1": "Dette verktøyet er bygget på `bandcamp-scraper`, så de sterkeste evnene ligger i URL-basert inspeksjon: albumsider, sporsider og direkte lydlenker som dukker opp i svaret.",
+      "body2": "Redesignet setter bevisst bedre forventninger. I stedet for å late som om alle Bandcamp-sider kan lastes ned, skiller grensesnittet nå mellom metadata-inspeksjon, utforsking av utgivelser og direkte medienedlasting når Bandcamp eksponerer en spillbar URL.",
+      "coreFactsTitle": "Kjernepunkter",
+      "coreFacts": [
+        {
+          "label": "Pris",
+          "value": "Gratis å bruke."
+        },
+        {
+          "label": "Primære inputs",
+          "value": "Bandcamp spor-URL-er og album-URL-er."
+        },
+        {
+          "label": "Primære outputs",
+          "value": "Normaliserte oppsummeringer, produktlister, utgivelses-URL-er og nedlastbare medielenker når de finnes."
+        },
+        {
+          "label": "Best for",
+          "value": "Brukere som allerede har en Bandcamp-lenke og vil ha en mindre og tydeligere vei til riktig verktøy."
+        }
+      ],
+      "useCasesTitle": "Praktiske brukstilfeller",
+      "useCases": [
+        {
+          "title": "Inspiser ett enkelt Bandcamp-spor",
+          "description": "Best når du allerede har en spor-URL og vil forhåndsvise metadata, kontrollere strømme-URL-en og laste ned den eksponerte medielenken hvis den finnes."
+        },
+        {
+          "title": "Sammenlign de to fokuserte flytene",
+          "description": "Nyttig når du må avgjøre om oppgaven egentlig er nedlasting av én MP3 eller albuminspeksjon på utgivelsesnivå."
+        },
+        {
+          "title": "Inspiser ett enkelt Bandcamp-album",
+          "description": "Best når du allerede har en album-URL og vil se sporrader, utgivelseskontekst, produktformater og eksponerte medielenker i én visning."
+        },
+        {
+          "title": "Send brukere til det stabile verktøysettet",
+          "description": "Nyttig når hovedjobben er å avgjøre om brukeren trenger sporverktøyet eller albumverktøyet før noe annet."
+        }
+      ],
+      "workflowTitle": "Slik fungerer den redesignede flyten",
+      "workflowSteps": [
+        "Start på huben bare når du trenger hjelp til å velge mellom sporverktøyet og albumverktøyet.",
+        "Gå videre til den dedikerte sporsiden for MP3-uttrekk av én sang eller albumsiden for inspeksjon på utgivelsesnivå.",
+        "Last bare ned fra validerte Bandcamp-medialenker, med renere validering og sterkere backend-begrensninger."
+      ],
+      "stepLabel": "Trinn {index}",
+      "faqTitle": "FAQ for Bandcamp-downloader",
+      "faqItems": [
+        {
+          "question": "Er dette en alt-i-ett Bandcamp-downloader?",
+          "answer": "Ikke helt. Det underliggende npm-biblioteket er først og fremst en scraper. Det inspiserer offentlige Bandcamp-sider, returnerer metadata og eksponerer noen ganger spillbare eller nedlastbare medielenker, men det er ikke et fullverdig verktøy for å rippe hele album."
+        },
+        {
+          "question": "Hvorfor redesigne produktet rundt URL-inspeksjon først?",
+          "answer": "Fordi de fleste Bandcamp-brukere starter med en delt lenke. Ett smart URL-felt reduserer beslutningstretthet, unngår å vise flere tekniske paneler med én gang og passer bedre til reell brukeradferd."
+        },
+        {
+          "question": "Hva endret seg i API-designet?",
+          "answer": "API-et eksponerer nå mer produktnære handlinger som URL-inspeksjon, MP3-uttrekk for spor og inspeksjon av albumnedlasting. Det gjør sterkere URL-validering og returnerer normaliserte data til grensesnittet."
+        },
+        {
+          "question": "Hvorfor beholde råpayloads tilgjengelige?",
+          "answer": "Avanserte brukere vil fortsatt ha innsyn. Det redesignede grensesnittet skjuler rå JSON bak utvidbare paneler slik at produktet holder seg ryddig for vanlige brukere uten å fjerne feilsøkingsverdien."
+        }
+      ],
+      "usageTitle": "Bruk og rettigheter",
+      "usageBody": "Bruk dette verktøyet ansvarlig. Å inspisere offentlige metadata er én ting; å laste ned musikk er noe annet. Lagre eller arkiver bare utgivelser når du eier rettighetene, har tillatelse fra skaperen eller når kildesiden eksplisitt tillater slik bruk."
+    },
+    "metadata": {
+      "title": "Bandcamp Tools Hub: velg riktig Bandcamp-verktøy for spor og album",
+      "description": "Bruk denne gratis Bandcamp-verktøyhuben for å velge en fokusert Bandcamp-flyt for MP3-uttrekk av spor eller albuminspeksjon.",
+      "keywords": [
+        "bandcamp downloader",
+        "download bandcamp tracks",
+        "bandcamp track downloader",
+        "bandcamp album downloader",
+        "bandcamp tools hub"
+      ],
+      "openGraphImageAlt": "Bandcamp Downloader fra GeeksKai"
+    },
+    "schema": {
+      "name": "Bandcamp Tools Hub",
+      "description": "Bruk denne gratis Bandcamp-verktøyhuben for å velge en fokusert Bandcamp-flyt for MP3-uttrekk av spor eller albuminspeksjon.",
+      "featureList": [
+        "Valg av Bandcamp-flyt",
+        "Tilgang til Bandcamp to MP3-verktøyet",
+        "Tilgang til Bandcamp Album Downloader",
+        "Fokusert mobil-først navigasjon for Bandcamp-verktøy"
+      ],
+      "browserRequirements": "Krever en moderne nettleser med JavaScript aktivert.",
+      "faqItems": [
+        {
+          "question": "Hva er denne Bandcamp-verktøyhuben for?",
+          "answer": "Den hjelper brukere med å velge riktig fokusert Bandcamp-verktøy i stedet for å bruke én overlesset side til alle Bandcamp-oppgaver."
+        },
+        {
+          "question": "Hvorfor dele opp den gamle Bandcamp-downloaderen i mindre verktøy?",
+          "answer": "Fordi spor- og albumflyter har forskjellige inputs og forventninger. Mindre verktøy er enklere å bruke og enklere å rangere for tydelig søkeintensjon."
+        },
+        {
+          "question": "Hvilket verktøy skal jeg bruke for én sang?",
+          "answer": "Bruk Bandcamp to MP3 når du har en Bandcamp-spor-URL og vil ha en fokusert MP3-uttrekksflyt."
+        },
+        {
+          "question": "Hvilket verktøy skal jeg bruke for en albumside?",
+          "answer": "Bruk Bandcamp Album Downloader når inputen din er en Bandcamp-album-URL og du vil ha utgivelsesdetaljer, formater, sporrader og eksponerte medielenker."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "Hjem",
+      "tools": "Verktøy",
+      "current": "Bandcamp-verktøyhub"
+    }
   }
 }

@@ -15,7 +15,6 @@ import { routing, supportedLocales } from "../i18n/routing"
 import { notFound } from "next/navigation"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 import { toolsData } from "@/data/toolsData"
-import Script from "next/script"
 
 export const revalidate = 86400 // 24 hours
 
@@ -247,10 +246,10 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {/* External Scripts using Next.js Script component */}
-        <Script
+        {/* Use a plain script tag so AdSense does not receive Next.js-specific attributes. */}
+        <script
+          async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2108246014001009"
-          strategy="afterInteractive"
           crossOrigin="anonymous"
         />
         <NextIntlClientProvider>

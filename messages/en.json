@@ -8712,5 +8712,669 @@
       "itemlist_7": "5 .....",
       "itemlist_8": "0 -----"
     }
+  },
+  "BandcampToMp3": {
+    "badge": "Bandcamp to MP3",
+    "updated": "Updated {date}",
+    "hero": {
+      "title": "Download MP3 from a Bandcamp track URL",
+      "quickAnswerLabel": "Quick answer:",
+      "quickAnswerBody": "paste a Bandcamp track URL, let the tool extract the exposed MP3 source with `bandcamp-scraper`, preview the track metadata, and download the MP3 when Bandcamp actually returns one."
+    },
+    "facts": [
+      {
+        "label": "Focus",
+        "value": "Track only",
+        "description": "This page is optimized for single-track MP3 extraction, not artist or album browsing."
+      },
+      {
+        "label": "Powered by",
+        "value": "getTrackInfo",
+        "description": "The underlying npm package is strongest when the input is a Bandcamp track page."
+      },
+      {
+        "label": "Input",
+        "value": "Track URL only",
+        "description": "The page stays reliable by asking for one Bandcamp track URL instead of scraping search results."
+      },
+      {
+        "label": "Quick action",
+        "value": "One-click download",
+        "description": "You can now extract and download the primary MP3 in one step when Bandcamp exposes it."
+      }
+    ],
+    "errors": {
+      "requestFailed": "Bandcamp request failed",
+      "resolveTrackUrlFailed": "Could not resolve this Bandcamp track URL",
+      "noMp3Link": "This track returned metadata, but no MP3 link is currently exposed.",
+      "invalidMp3Url": "Enter a valid MP3 URL that starts with http or https.",
+      "expiredMediaLink": "This Bandcamp media link has expired. Refresh the track info and try again."
+    },
+    "workflow": {
+      "eyebrow": "Main workflow",
+      "title": "Paste a Bandcamp track URL",
+      "description": "This page is intentionally focused on the shortest successful path: Bandcamp track URL in, MP3 link out.",
+      "quickInput": "Quick input",
+      "loadedState": "Track URL loaded",
+      "waitingState": "Waiting for a track URL",
+      "inputLabel": "Bandcamp track URL",
+      "inputPlaceholder": "https://artist.bandcamp.com/track/song-name",
+      "actionHint": {
+        "valid": "Choose Get MP3 link to preview first, or download directly if you just want the file.",
+        "invalid": "This does not look like a Bandcamp track URL yet. Paste a full `/track/...` link to continue.",
+        "empty": "Paste one Bandcamp track URL to unlock both the preview flow and the one-click download flow."
+      },
+      "manualHint": "Pasting a valid Bandcamp track URL will auto-load the result. If you type manually, press Enter or use the buttons in the same block.",
+      "scopeNotePrefix": "Use a single track URL. Album and artist pages are intentionally out of scope here. Use",
+      "scopeNoteLink": "Bandcamp Album Downloader",
+      "scopeNoteSuffix": "for album pages.",
+      "emptyState": "Once the track loads, you will see the artwork, title, MP3 source, and download actions in the same card without switching tabs or modes. If you prefer fewer steps, use the one-click download button above."
+    },
+    "actions": {
+      "paste": "Paste",
+      "pasting": "Pasting...",
+      "getMp3Link": "Get MP3 link",
+      "extractingMp3": "Extracting MP3...",
+      "extractAndDownloadMp3": "Extract and download MP3",
+      "preparingDownload": "Preparing download...",
+      "tryExampleTrack": "Try example track"
+    },
+    "result": {
+      "noCoverArt": "No cover art",
+      "trackSummaryFallback": "Track summary",
+      "artist": "Artist",
+      "album": "Album",
+      "duration": "Duration",
+      "releaseDate": "Release date",
+      "audioUnsupported": "Your browser does not support audio playback.",
+      "downloadMp3": "Download MP3",
+      "openBandcampTrack": "Open Bandcamp track",
+      "noMp3Exposed": "This track returned metadata, but no MP3 link is currently exposed in the response.",
+      "moreMp3SourceLinks": "More MP3 source links",
+      "downloadThisMp3": "Download this MP3",
+      "openRawMp3": "Open raw MP3"
+    },
+    "aside": {
+      "useCasesTitle": "Practical use cases",
+      "useCases": [
+        "Use this page when someone already shared a Bandcamp track link with you.",
+        "Use it when you want the cleanest path from one track page to one downloadable MP3 link.",
+        "Use it when you need track metadata and preview playback before downloading."
+      ],
+      "whyTitle": "Why this layout is easier to use",
+      "whyItems": [
+        "One obvious primary action above the fold on mobile and desktop.",
+        "No search states, result filtering, or extra discovery branches competing with the main task.",
+        "Immediate download path after success, without making the user parse raw JSON.",
+        "The support content explains the workflow without pushing the main URL form below the fold."
+      ],
+      "expectTitle": "What to expect",
+      "expectItems": [
+        {
+          "title": "Reliable input",
+          "body": "Paste a direct Bandcamp track URL. This tool no longer depends on Bandcamp search pages."
+        },
+        {
+          "title": "Transparent output",
+          "body": "If Bandcamp exposes an MP3 URL, you will see it. If not, you still get the track summary and raw payload."
+        },
+        {
+          "title": "Stable download flow",
+          "body": "Downloads still go through the validated proxy route, so the page avoids unsafe direct-link behavior."
+        }
+      ]
+    },
+    "seo": {
+      "title": "What this Bandcamp to MP3 tool is designed to do",
+      "body1": "This page is optimized for one practical job: take a valid Bandcamp track URL, inspect it with `bandcamp-scraper`, surface the MP3 link if Bandcamp exposes one, and let you download it with the correct filename. You can either inspect the result first or use the quick one-click download action.",
+      "body2": "The design is intentionally narrower than the full Bandcamp downloader. That makes the page easier to understand, faster to scan on mobile, and much more direct for users who already know they just want the MP3 from a single track page.",
+      "coreFactsTitle": "Core facts",
+      "coreFacts": [
+        {
+          "label": "Primary input",
+          "value": "A Bandcamp track URL."
+        },
+        {
+          "label": "Primary output",
+          "value": "An exposed MP3 link and a ready-to-download filename."
+        },
+        {
+          "label": "Best use case",
+          "value": "Single-song download workflows, not full discography browsing."
+        },
+        {
+          "label": "Performance strategy",
+          "value": "One main card first, deferred long-form content later, and no heavy media until needed."
+        }
+      ],
+      "howToUseTitle": "How to use it",
+      "howToUseSteps": [
+        "Paste a Bandcamp track URL into the main input and fetch track info.",
+        "Either preview the extracted metadata first or use the one-click action to jump straight into download.",
+        "Download the primary MP3 link, or choose another exposed link if Bandcamp returned multiple options."
+      ],
+      "stepLabel": "Step {index}",
+      "practicalUseCasesTitle": "Practical use cases",
+      "practicalUseCases": [
+        "A friend sends you a Bandcamp track link and you want the cleanest possible MP3 workflow.",
+        "You need to confirm the artist, title, or album before downloading anything.",
+        "You want raw track payload visibility without turning the whole page into a debugging dashboard."
+      ],
+      "faqTitle": "Bandcamp to MP3 FAQ",
+      "faqItems": [
+        {
+          "question": "Does this Bandcamp to MP3 tool convert files?",
+          "answer": "Not really. It does not transcode audio. It reads a Bandcamp track page through bandcamp-scraper and downloads the MP3 link only when Bandcamp exposes one."
+        },
+        {
+          "question": "Why is this tool focused on track URLs only?",
+          "answer": "Because that is the most reliable MP3 workflow in the underlying library. Albums and artist pages are different jobs, so this page stays focused on direct track URLs only."
+        },
+        {
+          "question": "Why is there no search helper on this page anymore?",
+          "answer": "Because Bandcamp search scraping is less stable than direct URL inspection. This page now prioritizes the shorter and more reliable track URL workflow."
+        },
+        {
+          "question": "Why can the MP3 link expire?",
+          "answer": "Bandcamp media URLs can contain time-based parameters. If a link expires, fetch the track again and the tool will request a fresh MP3 URL."
+        }
+      ],
+      "usageTitle": "Usage and rights",
+      "usageBody": "Download responsibly. Only save MP3s when you have the rights, the artist's permission, or the source page clearly allows that use."
+    },
+    "metadata": {
+      "title": "Bandcamp to MP3: extract MP3 from a Bandcamp track URL online",
+      "description": "Use this free Bandcamp to MP3 tool to inspect a Bandcamp track URL, extract the exposed MP3 link, preview the song, and download it when available.",
+      "keywords": [
+        "bandcamp to mp3",
+        "bandcamp mp3 downloader",
+        "download bandcamp mp3",
+        "bandcamp track to mp3",
+        "bandcamp song downloader"
+      ],
+      "openGraphImageAlt": "Bandcamp to MP3 by GeeksKai"
+    },
+    "schema": {
+      "name": "Bandcamp to MP3",
+      "description": "Use this free Bandcamp to MP3 tool to inspect a Bandcamp track URL, extract the exposed MP3 link, preview the song, and download it when available.",
+      "featureList": [
+        "Bandcamp track URL inspection",
+        "MP3 link extraction",
+        "Track metadata preview",
+        "Bandcamp MP3 download proxy"
+      ],
+      "browserRequirements": "Requires a modern browser with JavaScript enabled.",
+      "faqItems": [
+        {
+          "question": "Does this Bandcamp to MP3 tool convert audio?",
+          "answer": "No. It extracts the MP3 link from a Bandcamp track page when Bandcamp exposes one. It does not transcode files."
+        },
+        {
+          "question": "Does it work for albums too?",
+          "answer": "This page is optimized for single Bandcamp track URLs. Album workflows are better handled by the dedicated Bandcamp Album Downloader."
+        },
+        {
+          "question": "Why can the MP3 link expire?",
+          "answer": "Bandcamp media links can contain time-based parameters. If the URL expires, fetch the track again to get a fresh link."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "tools": "Tools",
+      "current": "Bandcamp to MP3"
+    }
+  },
+  "BandcampAlbumDownloader": {
+    "badge": "Bandcamp Album Downloader",
+    "updated": "Updated {date}",
+    "hero": {
+      "title": "Inspect a Bandcamp album URL in one release-focused workflow",
+      "quickAnswerLabel": "Quick answer:",
+      "quickAnswerBody": "paste a Bandcamp album URL to review the release summary, track rows, product formats, and any exposed audio links."
+    },
+    "facts": [
+      {
+        "label": "Focus",
+        "value": "Album only",
+        "description": "Built around release pages instead of single-track MP3 extraction."
+      },
+      {
+        "label": "Powered by",
+        "value": "getAlbumInfo",
+        "description": "Uses the album endpoints that map naturally to Bandcamp release pages."
+      },
+      {
+        "label": "Input",
+        "value": "Album URL only",
+        "description": "The flow stays stable by asking for a direct Bandcamp album URL instead of relying on search scraping."
+      },
+      {
+        "label": "Expectation",
+        "value": "No fake ripping",
+        "description": "This tool shows only the media links Bandcamp actually exposes in the album payload."
+      }
+    ],
+    "errors": {
+      "requestFailed": "Bandcamp request failed",
+      "resolveAlbumUrlFailed": "Could not resolve this Bandcamp album URL",
+      "invalidMediaUrl": "Enter a valid Bandcamp media URL that starts with http or https.",
+      "expiredMediaLink": "This Bandcamp media link has expired. Refresh the album info and try again."
+    },
+    "workflow": {
+      "eyebrow": "Main workflow",
+      "title": "Paste a Bandcamp album URL",
+      "description": "This page keeps one album workflow above the fold: album URL in, release context out.",
+      "inputLabel": "Bandcamp album URL",
+      "inputPlaceholder": "https://artist.bandcamp.com/album/release-name",
+      "actionHint": {
+        "valid": "Inspect the release first, then scan tracks, formats, and exposed media links without leaving the same page.",
+        "invalid": "This does not look like a Bandcamp album URL yet. Paste a full `/album/...` link to continue.",
+        "empty": "Paste one Bandcamp album URL to unlock the release summary, track list, and album media sections."
+      },
+      "emptyState": "After a successful lookup, this card will show the album cover, release summary, product formats, track rows, exposed media links, and the raw payload in a collapsed section.",
+      "primaryAction": "Primary action",
+      "loadedState": "Album URL loaded",
+      "waitingState": "Waiting for an album URL",
+      "manualHint": "Pasting a valid Bandcamp album URL will auto-load the release. If you type manually, press Enter or use the button in the same block above.",
+      "scopeNotePrefix": "Album pages only. Use",
+      "scopeNoteLink": "Bandcamp to MP3",
+      "scopeNoteSuffix": "for single-track URLs."
+    },
+    "actions": {
+      "paste": "Paste",
+      "pasting": "Pasting...",
+      "inspectAlbum": "Inspect album",
+      "inspectingAlbum": "Inspecting album...",
+      "tryExampleAlbum": "Try example album"
+    },
+    "result": {
+      "albumCover": "Album cover",
+      "noCoverArt": "No cover art",
+      "albumSummaryFallback": "Album summary",
+      "artist": "Artist",
+      "releaseDate": "Release date",
+      "tracks": "Tracks",
+      "productFormats": "Product formats",
+      "unknown": "Unknown",
+      "openBandcampAlbum": "Open Bandcamp album",
+      "backToHub": "Back to Bandcamp hub",
+      "trackRows": "Track rows",
+      "trackCount": "{count} tracks",
+      "durationNotExposed": "Duration not exposed",
+      "downloadTrack": "Download track",
+      "openRawAudio": "Open raw audio",
+      "audioUnsupported": "Your browser does not support audio playback.",
+      "noPlayableTrackUrl": "No playable track URL was exposed for this track row.",
+      "trackNotes": "Track notes / lyrics",
+      "noTrackRows": "No track rows were exposed for this album response.",
+      "showFewerTracks": "Show fewer tracks",
+      "showMoreTracks": "Show {count} more tracks",
+      "longTrackListHint": "Long track lists stay collapsed by default to keep the page lighter on mobile.",
+      "rawAlbumPayload": "Raw album payload"
+    },
+    "aside": {
+      "useCasesTitle": "Practical use cases",
+      "useCases": [
+        "Use this page when you already have a Bandcamp album or release URL.",
+        "Use it when you want product formats, track rows, and media links in one release-level view.",
+        "Use it when you need album context first and only then decide whether any exposed media link is useful."
+      ],
+      "whyTitle": "Why this page is easier to use",
+      "whyItems": [
+        "One obvious album workflow above the fold on both mobile and desktop.",
+        "No search states or unreliable discovery scraping competing with the album inspection flow.",
+        "Album summary, products, and track rows stay in one place instead of being split across tabs.",
+        "Raw JSON is still available for power users, but hidden behind a details element."
+      ],
+      "expectTitle": "What to expect",
+      "expectItems": [
+        {
+          "title": "Release-first workflow",
+          "body": "Paste an album URL and inspect the release before thinking about individual tracks or downloads."
+        },
+        {
+          "title": "Direct media only",
+          "body": "The tool shows only the playable or downloadable links Bandcamp actually exposes in the album payload."
+        },
+        {
+          "title": "Clear boundaries",
+          "body": "Track MP3 extraction stays in the dedicated track tool, which keeps this album page focused and easier to scan."
+        }
+      ]
+    },
+    "seo": {
+      "title": "What this Bandcamp Album Downloader is designed to do",
+      "body1": "This page is optimized for one release-level workflow: paste a Bandcamp album URL, inspect the album summary, review track rows and product formats, and download any exposed media links without mixing in artist or tag workflows.",
+      "body2": "The goal is clarity rather than pretending every album page behaves the same. When Bandcamp exposes playable or downloadable URLs, the tool surfaces them. When it does not, the page still provides a clean album summary and release context.",
+      "coreFactsTitle": "Core facts",
+      "coreFacts": [
+        {
+          "label": "Primary input",
+          "value": "A Bandcamp album URL."
+        },
+        {
+          "label": "Primary outputs",
+          "value": "Album summary, track rows, product formats, and exposed media links."
+        },
+        {
+          "label": "Best use case",
+          "value": "Release-level inspection, not single-track MP3 conversion."
+        },
+        {
+          "label": "Performance strategy",
+          "value": "One main album card first, support content second, and long-form SEO deferred."
+        }
+      ],
+      "howToUseTitle": "How to use it",
+      "howToUseSteps": [
+        "Paste a Bandcamp album URL into the main album workflow and fetch the release.",
+        "Review the summary, track rows, and available product formats before deciding what you need.",
+        "Download an exposed audio link when Bandcamp returns one, or open the original album page for the full release context."
+      ],
+      "stepLabel": "Step {index}",
+      "practicalUseCasesTitle": "Practical use cases",
+      "practicalUseCases": [
+        "You already have a Bandcamp album link and want the release summary before downloading anything.",
+        "You need to compare product formats, track rows, and available playable links in one place.",
+        "You want a release-level view without mixing in single-track MP3 extraction or extra workflow switching."
+      ],
+      "faqTitle": "Bandcamp Album Downloader FAQ",
+      "faqItems": [
+        {
+          "question": "What is this Bandcamp Album Downloader for?",
+          "answer": "It is built for Bandcamp album URLs. The page inspects release metadata, lists album products, shows track rows, and surfaces exposed media links when Bandcamp returns them."
+        },
+        {
+          "question": "Does it rip an entire album automatically?",
+          "answer": "No. It reads the public album payload exposed through bandcamp-scraper. Some albums only return metadata or preview links, while others expose usable media URLs."
+        },
+        {
+          "question": "Why is this separate from Bandcamp to MP3?",
+          "answer": "Because album pages and track pages are different jobs. The album tool is optimized for release inspection, while Bandcamp to MP3 stays focused on single-track extraction."
+        },
+        {
+          "question": "Can album media links expire?",
+          "answer": "Yes. Some Bandcamp media URLs contain time-based parameters, so you may need to refresh the album lookup to get a new link."
+        }
+      ],
+      "usageTitle": "Usage and rights",
+      "usageBody": "Use album downloads responsibly. Only save releases when you have the rights, the artist's permission, or the source page clearly allows that usage."
+    },
+    "metadata": {
+      "title": "Bandcamp Album Downloader: inspect album pages and exposed audio links online",
+      "description": "Use this free Bandcamp Album Downloader to inspect a Bandcamp album URL, review release metadata, track rows, product formats, and download exposed audio links when available.",
+      "keywords": [
+        "bandcamp album downloader",
+        "download bandcamp album",
+        "bandcamp album url",
+        "bandcamp album tracks",
+        "bandcamp album inspector"
+      ],
+      "openGraphImageAlt": "Bandcamp Album Downloader by GeeksKai"
+    },
+    "schema": {
+      "name": "Bandcamp Album Downloader",
+      "description": "Use this free Bandcamp Album Downloader to inspect a Bandcamp album URL, review release metadata, track rows, product formats, and download exposed audio links when available.",
+      "featureList": [
+        "Bandcamp album URL inspection",
+        "Album track row extraction",
+        "Album product format listing",
+        "Exposed audio link download"
+      ],
+      "browserRequirements": "Requires a modern browser with JavaScript enabled.",
+      "faqItems": [
+        {
+          "question": "What does this Bandcamp Album Downloader do?",
+          "answer": "It inspects Bandcamp album URLs, returns album metadata, track rows, product formats, and surfaces exposed media links when the source payload includes them."
+        },
+        {
+          "question": "Does it work for single tracks too?",
+          "answer": "This page is optimized for album URLs. For single-track MP3 extraction, use the dedicated Bandcamp to MP3 tool."
+        },
+        {
+          "question": "Why can album media links expire?",
+          "answer": "Bandcamp media links can contain time-based parameters. If the URL expires, fetch the album again to get a fresh link."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "tools": "Tools",
+      "current": "Bandcamp Album Downloader"
+    }
+  },
+  "BandcampToolsHub": {
+    "badge": "Bandcamp tools hub",
+    "updated": "Updated {date}",
+    "hero": {
+      "title": "Choose between two focused Bandcamp tools instead of one overloaded downloader"
+    },
+    "facts": [
+      {
+        "label": "Current setup",
+        "value": "Two stable tools",
+        "description": "One page handles track MP3 extraction, the other handles release-level album inspection."
+      },
+      {
+        "label": "Why",
+        "value": "Less cognitive load",
+        "description": "Users no longer need to sort through extra future workflows before they start."
+      },
+      {
+        "label": "Simple function",
+        "value": "Smart URL router",
+        "description": "Paste one Bandcamp URL here and jump into the right tool automatically."
+      },
+      {
+        "label": "Best for",
+        "value": "Mobile clarity",
+        "description": "Smaller tools keep the first screen focused, lighter, and faster to scan on phones."
+      }
+    ],
+    "actions": {
+      "paste": "Paste",
+      "pasting": "Pasting...",
+      "tryTrackExample": "Try track example",
+      "tryAlbumExample": "Try album example"
+    },
+    "router": {
+      "eyebrow": "Quick start",
+      "title": "Paste a Bandcamp URL and jump to the right tool",
+      "description": "This hub now does one practical job: detect whether your Bandcamp link is a track or an album page, then send you to the right workflow with the URL prefilled.",
+      "inputLabel": "Bandcamp track or album URL",
+      "inputPlaceholder": "https://artist.bandcamp.com/track/... or /album/...",
+      "cta": {
+        "track": "Open Bandcamp to MP3",
+        "album": "Open Bandcamp Album Downloader",
+        "default": "Open the right tool"
+      },
+      "hint": {
+        "track": "Track detected. You will be routed to the MP3 workflow.",
+        "album": "Album detected. You will be routed to the album workflow.",
+        "invalid": "This link is not a supported Bandcamp track or album URL yet. Paste a full Bandcamp `/track/...` or `/album/...` link.",
+        "empty": "Paste a Bandcamp track or album URL to unlock the smart router."
+      },
+      "errors": {
+        "empty": "Paste a Bandcamp track or album URL first.",
+        "invalid": "Enter a valid Bandcamp URL that starts with https:// and points to Bandcamp.",
+        "unsupported": "This lightweight hub currently routes track URLs to Bandcamp to MP3 and album URLs to Bandcamp Album Downloader.",
+        "clipboardUnavailable": "Clipboard paste is not available in this browser. Paste the URL manually instead.",
+        "clipboardFailed": "Could not read from clipboard. Paste the Bandcamp URL manually instead."
+      },
+      "detectionLabel": "Detection",
+      "detection": {
+        "track": "Track URL",
+        "album": "Album URL",
+        "waiting": "Waiting for a valid URL"
+      },
+      "boundaryNote": "Track URLs open `Bandcamp to MP3`. Album URLs open `Bandcamp Album Downloader`. Artist or label pages are not routed from this lightweight hub.",
+      "pasteHint": "Pasting fills the input immediately. If the link is supported, the router button unlocks right below it."
+    },
+    "toolMap": {
+      "eyebrow": "Tool map",
+      "title": "Pick the smaller tool that matches the job",
+      "description": "The old Bandcamp downloader mixed too many jobs into one place. This hub now does one simpler thing: route users into the right focused page for either track MP3 extraction or album inspection.",
+      "openTool": "Open tool"
+    },
+    "toolCards": [
+      {
+        "title": "Bandcamp to MP3",
+        "href": "/tools/bandcamp-to-mp3",
+        "status": "Available now",
+        "description": "Best for a single track URL when the goal is simple: inspect the track, extract the MP3 link, and download it."
+      },
+      {
+        "title": "Bandcamp Album Downloader",
+        "href": "/tools/bandcamp-album-downloader",
+        "status": "Available now",
+        "description": "Focused on album URLs, release summaries, product formats, track lists, and any exposed audio links inside album payloads."
+      }
+    ],
+    "content": {
+      "whyTitle": "Why splitting the Bandcamp tool is the better product decision",
+      "reasons": [
+        "Track MP3 extraction and album inspection produce different expectations, so they benefit from different page structures.",
+        "Smaller tools reduce layout complexity and improve first-screen comprehension on mobile devices.",
+        "Each route now targets clearer SEO intent instead of competing with unrelated Bandcamp use cases at once."
+      ],
+      "reasonLabel": "Reason {index}",
+      "faqTitle": "Bandcamp tools FAQ",
+      "faqItems": [
+        {
+          "question": "Is this still the main Bandcamp downloader page?",
+          "answer": "It is now the Bandcamp tools hub. The main interaction lives inside two smaller dedicated tools."
+        },
+        {
+          "question": "Which tool should I use for a single song?",
+          "answer": "Use Bandcamp to MP3 when your goal is a single track URL and an MP3 download workflow."
+        },
+        {
+          "question": "Which tool should I use for a release page?",
+          "answer": "Use Bandcamp Album Downloader when your input is an album URL and you want release details, formats, tracks, and exposed media links."
+        },
+        {
+          "question": "Why keep this hub at all?",
+          "answer": "It gives users a simple overview of what each Bandcamp tool does without forcing them into the wrong workflow first."
+        }
+      ]
+    },
+    "seo": {
+      "title": "What this Bandcamp downloader actually does",
+      "body1": "This tool is built on top of `bandcamp-scraper`, so its strongest capabilities are URL-based inspection: album pages, track pages, and any direct audio links surfaced inside the response.",
+      "body2": "The redesign intentionally sets better expectations. Instead of pretending every Bandcamp page is downloadable, the interface now distinguishes between metadata inspection, release exploration, and direct media download when Bandcamp exposes a playable URL.",
+      "coreFactsTitle": "Core facts",
+      "coreFacts": [
+        {
+          "label": "Pricing",
+          "value": "Free to use."
+        },
+        {
+          "label": "Primary inputs",
+          "value": "Bandcamp track URLs and album URLs."
+        },
+        {
+          "label": "Primary outputs",
+          "value": "Normalized summaries, product lists, release URLs, and downloadable media links when available."
+        },
+        {
+          "label": "Best for",
+          "value": "Users who already have a Bandcamp link and want a smaller, clearer path to the right tool."
+        }
+      ],
+      "useCasesTitle": "Practical use cases",
+      "useCases": [
+        {
+          "title": "Inspect a single Bandcamp track",
+          "description": "Best when you already have a track URL and want to preview metadata, check the stream URL, and download the exposed media link if one exists."
+        },
+        {
+          "title": "Compare the two focused workflows",
+          "description": "Helpful when deciding whether the job is really a single-track MP3 download or a release-level album inspection."
+        },
+        {
+          "title": "Inspect a single Bandcamp album",
+          "description": "Best when you already have an album URL and want track rows, release context, product formats, and exposed media links in one view."
+        },
+        {
+          "title": "Route users into the stable tool set",
+          "description": "Helpful when the main job is deciding whether the user needs the track tool or the album tool before doing anything else."
+        }
+      ],
+      "workflowTitle": "How the redesigned workflow works",
+      "workflowSteps": [
+        "Start on the hub only when you need help choosing between the track tool and the album tool.",
+        "Route into the dedicated track page for single-song MP3 extraction or the album page for release-level inspection.",
+        "Download only from validated Bandcamp media URLs, with cleaner validation and stronger backend constraints."
+      ],
+      "stepLabel": "Step {index}",
+      "faqTitle": "Bandcamp downloader FAQ",
+      "faqItems": [
+        {
+          "question": "Is this an all-in-one Bandcamp downloader?",
+          "answer": "Not exactly. The underlying npm library is primarily a scraper. It inspects public Bandcamp pages, returns metadata, and sometimes exposes playable or downloadable media links, but it is not a full album ripping tool."
+        },
+        {
+          "question": "Why redesign the product around URL inspection first?",
+          "answer": "Because most Bandcamp users start with a shared link. A single smart URL input reduces decision fatigue, avoids showing five technical panels up front, and maps more naturally to real user behavior."
+        },
+        {
+          "question": "What changed in the API design?",
+          "answer": "The API now exposes higher-level product actions like URL inspection, track MP3 extraction, and album download inspection. It performs stronger URL validation and returns normalized data for the UI."
+        },
+        {
+          "question": "Why keep raw payloads available?",
+          "answer": "Advanced users still want transparency. The redesigned UI hides raw JSON behind expandable panels so the product stays clean for casual users without removing debugging value."
+        }
+      ],
+      "usageTitle": "Usage and rights",
+      "usageBody": "Use this tool responsibly. Inspecting public metadata is one thing; downloading music is another. Only save or archive releases when you own the rights, have the creator's permission, or the source page explicitly allows that usage."
+    },
+    "metadata": {
+      "title": "Bandcamp Tools Hub: choose the right Bandcamp tool for tracks and albums",
+      "description": "Use this free Bandcamp tools hub to choose a focused Bandcamp workflow for track MP3 extraction or album inspection.",
+      "keywords": [
+        "bandcamp downloader",
+        "download bandcamp tracks",
+        "bandcamp track downloader",
+        "bandcamp album downloader",
+        "bandcamp tools hub"
+      ],
+      "openGraphImageAlt": "Bandcamp Downloader by GeeksKai"
+    },
+    "schema": {
+      "name": "Bandcamp Tools Hub",
+      "description": "Use this free Bandcamp tools hub to choose a focused Bandcamp workflow for track MP3 extraction or album inspection.",
+      "featureList": [
+        "Bandcamp workflow chooser",
+        "Bandcamp to MP3 tool access",
+        "Bandcamp album downloader access",
+        "Focused mobile-first Bandcamp tool navigation"
+      ],
+      "browserRequirements": "Requires a modern browser with JavaScript enabled.",
+      "faqItems": [
+        {
+          "question": "What is this Bandcamp tools hub for?",
+          "answer": "It helps users choose the right focused Bandcamp tool instead of using one overloaded page for every Bandcamp task."
+        },
+        {
+          "question": "Why split the old Bandcamp downloader into smaller tools?",
+          "answer": "Because track and album workflows have different inputs and expectations. Smaller tools are easier to use and easier to rank for clear search intent."
+        },
+        {
+          "question": "What tool should I use for a single song?",
+          "answer": "Use Bandcamp to MP3 when you have a Bandcamp track URL and want a focused MP3 extraction workflow."
+        },
+        {
+          "question": "What tool should I use for an album page?",
+          "answer": "Use Bandcamp Album Downloader when your input is a Bandcamp album URL and you want release details, formats, track rows, and exposed media links."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "tools": "Tools",
+      "current": "Bandcamp Tools Hub"
+    }
   }
 }

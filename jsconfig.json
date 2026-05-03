@@ -3,10 +3,13 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./*"],
       "@/components/*": ["components/*"],
       "@/data/*": ["data/*"],
       "@/layouts/*": ["layouts/*"],
+      "@/utils/*": ["utils/*"],
       "@/css/*": ["css/*"],
+      "@/app/*": ["app/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
   }

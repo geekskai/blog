@@ -8923,5 +8923,669 @@
       "itemlist_7": "5 .....",
       "itemlist_8": "0 -----"
     }
+  },
+  "BandcampToMp3": {
+    "badge": "Bandcamp to MP3",
+    "updated": "{date}更新",
+    "hero": {
+      "title": "BandcampのトラックURLからMP3を1つの集中フローで取得",
+      "quickAnswerLabel": "要点:",
+      "quickAnswerBody": "BandcampのトラックURLを貼り付けると、`bandcamp-scraper` で公開されているMP3ソースを抽出し、トラック情報を確認したうえで、Bandcampが実際にMP3を返した場合にダウンロードできます。"
+    },
+    "facts": [
+      {
+        "label": "対象",
+        "value": "トラック専用",
+        "description": "このページは単曲のMP3抽出向けに最適化されており、アーティストやアルバムの閲覧用ではありません。"
+      },
+      {
+        "label": "使用機能",
+        "value": "getTrackInfo",
+        "description": "基盤のnpmパッケージは、入力がBandcampのトラックページであるときに最も安定して動作します。"
+      },
+      {
+        "label": "入力",
+        "value": "トラックURLのみ",
+        "description": "検索結果をスクレイピングする代わりに、BandcampのトラックURLを1つだけ求めることで安定性を保っています。"
+      },
+      {
+        "label": "クイック操作",
+        "value": "ワンクリックダウンロード",
+        "description": "BandcampがメインMP3を公開している場合、1回の操作で抽出とダウンロードができます。"
+      }
+    ],
+    "errors": {
+      "requestFailed": "Bandcampへのリクエストに失敗しました",
+      "resolveTrackUrlFailed": "このBandcampトラックURLを解決できませんでした",
+      "noMp3Link": "このトラックはメタデータを返しましたが、現在はMP3リンクが公開されていません。",
+      "invalidMp3Url": "httpまたはhttpsで始まる有効なMP3 URLを入力してください。",
+      "expiredMediaLink": "このBandcampメディアリンクは期限切れです。トラック情報を更新して再試行してください。"
+    },
+    "workflow": {
+      "eyebrow": "メインフロー",
+      "title": "BandcampのトラックURLを貼り付け",
+      "description": "このページは、BandcampのトラックURLを入力してMP3リンクを得るという最短ルートに意図的に絞っています。",
+      "quickInput": "クイック入力",
+      "loadedState": "トラックURLを読み込み済み",
+      "waitingState": "トラックURLを待機中",
+      "inputLabel": "BandcampトラックURL",
+      "inputPlaceholder": "https://artist.bandcamp.com/track/song-name",
+      "actionHint": {
+        "valid": "まず「MP3リンクを取得」で確認することも、ファイルだけ欲しい場合は直接ダウンロードすることもできます。",
+        "invalid": "これはまだBandcampのトラックURLに見えません。続行するには完全な `/track/...` リンクを貼り付けてください。",
+        "empty": "BandcampのトラックURLを1つ貼り付けると、プレビューとワンクリックダウンロードの両方が使えるようになります。"
+      },
+      "manualHint": "有効なBandcampトラックURLを貼り付けると結果が自動で読み込まれます。手入力する場合は Enter を押すか、同じブロック内のボタンを使ってください。",
+      "scopeNotePrefix": "ここでは単一のトラックURLのみを扱います。アルバムページやアーティストページは対象外です。アルバムページには",
+      "scopeNoteLink": "Bandcamp Album Downloader",
+      "scopeNoteSuffix": "を使ってください。",
+      "emptyState": "トラックの読み込み後は、アートワーク、タイトル、MP3ソース、ダウンロード操作が同じカード内に表示されます。タブやモードを切り替える必要はありません。手順を減らしたい場合は上のワンクリックダウンロードを使ってください。"
+    },
+    "actions": {
+      "paste": "貼り付け",
+      "pasting": "貼り付け中...",
+      "getMp3Link": "MP3リンクを取得",
+      "extractingMp3": "MP3を抽出中...",
+      "extractAndDownloadMp3": "MP3を抽出してダウンロード",
+      "preparingDownload": "ダウンロードを準備中...",
+      "tryExampleTrack": "サンプルトラックを試す"
+    },
+    "result": {
+      "noCoverArt": "カバー画像なし",
+      "trackSummaryFallback": "トラック概要",
+      "artist": "アーティスト",
+      "album": "アルバム",
+      "duration": "長さ",
+      "releaseDate": "リリース日",
+      "audioUnsupported": "お使いのブラウザは音声再生に対応していません。",
+      "downloadMp3": "MP3をダウンロード",
+      "openBandcampTrack": "Bandcampのトラックを開く",
+      "noMp3Exposed": "このトラックはメタデータを返しましたが、レスポンス内にMP3リンクは現在公開されていません。",
+      "moreMp3SourceLinks": "その他のMP3ソースリンク",
+      "downloadThisMp3": "このMP3をダウンロード",
+      "openRawMp3": "生のMP3を開く"
+    },
+    "aside": {
+      "useCasesTitle": "実用的な使い方",
+      "useCases": [
+        "誰かからBandcampのトラックリンクをすでに受け取っているときに使ってください。",
+        "1つのトラックページから1つのダウンロード可能なMP3リンクまで、最も分かりやすい経路が欲しいときに使えます。",
+        "ダウンロード前にトラック情報やプレビュー再生を確認したい場合にも向いています。"
+      ],
+      "whyTitle": "このレイアウトが使いやすい理由",
+      "whyItems": [
+        "モバイルでもデスクトップでも、最初の画面に明確な主要操作が1つだけあります。",
+        "検索状態、結果フィルタ、余計な分岐が主目的を邪魔しません。",
+        "成功後すぐにダウンロードへ進めるため、生のJSONを読む必要がありません。",
+        "補足コンテンツはフローを説明しますが、メインのURL入力フォームを下へ押し下げません。"
+      ],
+      "expectTitle": "期待できること",
+      "expectItems": [
+        {
+          "title": "信頼できる入力",
+          "body": "BandcampのトラックURLを直接貼り付けてください。このツールはBandcampの検索ページに依存しません。"
+        },
+        {
+          "title": "分かりやすい出力",
+          "body": "BandcampがMP3 URLを公開していれば表示されます。公開されていなくても、トラック概要と生のペイロードは確認できます。"
+        },
+        {
+          "title": "安定したダウンロードフロー",
+          "body": "ダウンロードは引き続き検証済みのプロキシルートを通るため、安全でない直リンク挙動を避けられます。"
+        }
+      ]
+    },
+    "seo": {
+      "title": "このBandcamp to MP3ツールでできること",
+      "body1": "このページは1つの実用的な作業に最適化されています。つまり、有効なBandcampトラックURLを `bandcamp-scraper` で確認し、BandcampがMP3リンクを公開していれば表示し、正しいファイル名でダウンロードできるようにすることです。結果を先に確認することも、ワンクリックダウンロードを使うこともできます。",
+      "body2": "設計は、フル機能のBandcamp downloaderより意図的に絞り込まれています。そのため、ページは理解しやすく、モバイルでも素早く確認でき、単一トラックページからMP3だけが欲しいユーザーにとってより直接的です。",
+      "coreFactsTitle": "基本情報",
+      "coreFacts": [
+        {
+          "label": "主な入力",
+          "value": "BandcampのトラックURL。"
+        },
+        {
+          "label": "主な出力",
+          "value": "公開されたMP3リンクと、すぐにダウンロードできるファイル名。"
+        },
+        {
+          "label": "最適な用途",
+          "value": "単曲ダウンロード向けであり、ディスコグラフィ全体の閲覧向けではありません。"
+        },
+        {
+          "label": "パフォーマンス方針",
+          "value": "まず主要カードを表示し、長文コンテンツは後から、重いメディアは必要になるまで読み込みません。"
+        }
+      ],
+      "howToUseTitle": "使い方",
+      "howToUseSteps": [
+        "BandcampのトラックURLをメイン入力欄に貼り付けて、トラック情報を取得します。",
+        "抽出されたメタデータを先に確認するか、ワンクリック操作で直接ダウンロードに進みます。",
+        "メインのMP3リンクをダウンロードするか、Bandcampが複数の選択肢を返した場合は別の公開リンクを選んでください。"
+      ],
+      "stepLabel": "ステップ {index}",
+      "practicalUseCasesTitle": "実用的な使い方",
+      "practicalUseCases": [
+        "友人からBandcampのトラックリンクが送られてきて、できるだけシンプルなMP3フローが欲しい場合。",
+        "ダウンロード前にアーティスト名、タイトル、アルバム名を確認したい場合。",
+        "ページ全体をデバッグ画面にせず、トラックの生ペイロードだけ確認したい場合。"
+      ],
+      "faqTitle": "Bandcamp to MP3 FAQ",
+      "faqItems": [
+        {
+          "question": "このBandcamp to MP3ツールはファイルを変換しますか？",
+          "answer": "厳密には違います。音声を再エンコードするわけではありません。`bandcamp-scraper` 経由でBandcampのトラックページを読み取り、Bandcampが公開している場合にのみMP3リンクをダウンロードします。"
+        },
+        {
+          "question": "なぜこのツールはトラックURL専用なのですか？",
+          "answer": "基盤ライブラリの中で最も安定しているMP3フローがそれだからです。アルバムページやアーティストページは別の仕事なので、このページは直接のトラックURLにだけ集中しています。"
+        },
+        {
+          "question": "なぜこのページには検索補助がなくなったのですか？",
+          "answer": "Bandcamp検索のスクレイピングは、URLを直接確認する方法より安定性が低いためです。このページはより短く信頼できるトラックURLフローを優先しています。"
+        },
+        {
+          "question": "なぜMP3リンクは期限切れになるのですか？",
+          "answer": "BandcampのメディアURLには時間ベースのパラメータが含まれることがあります。リンクの期限が切れた場合は、トラックを再取得すると新しいMP3 URLを要求します。"
+        }
+      ],
+      "usageTitle": "利用と権利",
+      "usageBody": "責任を持ってダウンロードしてください。MP3を保存するのは、権利を持っている場合、アーティストの許可がある場合、または元ページでその利用が明確に許可されている場合だけにしてください。"
+    },
+    "metadata": {
+      "title": "Bandcamp to MP3: BandcampトラックURLからオンラインでMP3を抽出",
+      "description": "この無料のBandcamp to MP3ツールを使えば、BandcampのトラックURLを確認し、公開されているMP3リンクを抽出し、曲をプレビューし、利用可能であればダウンロードできます。",
+      "keywords": [
+        "bandcamp to mp3",
+        "bandcamp mp3 downloader",
+        "download bandcamp mp3",
+        "bandcamp track to mp3",
+        "bandcamp song downloader"
+      ],
+      "openGraphImageAlt": "GeeksKaiのBandcamp to MP3"
+    },
+    "schema": {
+      "name": "Bandcamp to MP3",
+      "description": "この無料のBandcamp to MP3ツールを使えば、BandcampのトラックURLを確認し、公開されているMP3リンクを抽出し、曲をプレビューし、利用可能であればダウンロードできます。",
+      "featureList": [
+        "BandcampトラックURLの確認",
+        "MP3リンク抽出",
+        "トラック情報のプレビュー",
+        "Bandcamp MP3ダウンロードプロキシ"
+      ],
+      "browserRequirements": "JavaScriptが有効な最新ブラウザが必要です。",
+      "faqItems": [
+        {
+          "question": "このBandcamp to MP3ツールは音声を変換しますか？",
+          "answer": "いいえ。Bandcampが公開している場合に、トラックページからMP3リンクを抽出するだけで、ファイルの再エンコードは行いません。"
+        },
+        {
+          "question": "アルバムにも対応していますか？",
+          "answer": "このページは単一のBandcampトラックURL向けに最適化されています。アルバムの作業は専用の Bandcamp Album Downloader のほうが適しています。"
+        },
+        {
+          "question": "なぜMP3リンクは期限切れになるのですか？",
+          "answer": "Bandcampのメディアリンクには時間ベースのパラメータが含まれることがあります。URLが期限切れになった場合は、トラックを再取得して新しいリンクを得てください。"
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "ホーム",
+      "tools": "ツール",
+      "current": "Bandcamp to MP3"
+    }
+  },
+  "BandcampAlbumDownloader": {
+    "badge": "Bandcamp Album Downloader",
+    "updated": "{date}更新",
+    "hero": {
+      "title": "BandcampアルバムURLを1つのリリース中心フローで確認",
+      "quickAnswerLabel": "要点:",
+      "quickAnswerBody": "BandcampのアルバムURLを貼り付けると、リリース概要、トラック行、商品形式、公開されている音声リンクを確認できます。"
+    },
+    "facts": [
+      {
+        "label": "対象",
+        "value": "アルバム専用",
+        "description": "単曲MP3抽出ではなく、リリースページを中心に設計されています。"
+      },
+      {
+        "label": "使用機能",
+        "value": "getAlbumInfo",
+        "description": "Bandcampのリリースページに自然に対応するアルバム向けエンドポイントを使用します。"
+      },
+      {
+        "label": "入力",
+        "value": "アルバムURLのみ",
+        "description": "検索スクレイピングに頼らず、直接のBandcampアルバムURLを求めることでフローを安定させています。"
+      },
+      {
+        "label": "前提",
+        "value": "見せかけの一括吸い出しなし",
+        "description": "このツールは、Bandcampがアルバムペイロード内で実際に公開しているメディアリンクだけを表示します。"
+      }
+    ],
+    "errors": {
+      "requestFailed": "Bandcampへのリクエストに失敗しました",
+      "resolveAlbumUrlFailed": "このBandcampアルバムURLを解決できませんでした",
+      "invalidMediaUrl": "httpまたはhttpsで始まる有効なBandcampメディアURLを入力してください。",
+      "expiredMediaLink": "このBandcampメディアリンクは期限切れです。アルバム情報を更新して再試行してください。"
+    },
+    "workflow": {
+      "eyebrow": "メインフロー",
+      "title": "BandcampのアルバムURLを貼り付け",
+      "description": "このページでは、アルバムURLを入力してリリース情報を得るという1つのアルバムフローだけを最初の画面に置いています。",
+      "inputLabel": "BandcampアルバムURL",
+      "inputPlaceholder": "https://artist.bandcamp.com/album/release-name",
+      "actionHint": {
+        "valid": "まずリリースを確認し、そのまま同じページでトラック、形式、公開されたメディアリンクを見ていけます。",
+        "invalid": "これはまだBandcampのアルバムURLに見えません。続行するには完全な `/album/...` リンクを貼り付けてください。",
+        "empty": "BandcampのアルバムURLを1つ貼り付けると、リリース概要、トラック一覧、アルバムのメディアセクションが使えるようになります。"
+      },
+      "emptyState": "取得に成功すると、このカードにアルバムカバー、リリース概要、商品形式、トラック行、公開されたメディアリンク、さらに折りたたみ状態の生ペイロードが表示されます。",
+      "primaryAction": "主要操作",
+      "loadedState": "アルバムURLを読み込み済み",
+      "waitingState": "アルバムURLを待機中",
+      "manualHint": "有効なBandcampアルバムURLを貼り付けるとリリース情報が自動で読み込まれます。手入力する場合は Enter を押すか、同じブロック内のボタンを使ってください。",
+      "scopeNotePrefix": "アルバムページ専用です。単曲URLには",
+      "scopeNoteLink": "Bandcamp to MP3",
+      "scopeNoteSuffix": "を使ってください。"
+    },
+    "actions": {
+      "paste": "貼り付け",
+      "pasting": "貼り付け中...",
+      "inspectAlbum": "アルバムを確認",
+      "inspectingAlbum": "アルバムを確認中...",
+      "tryExampleAlbum": "サンプルアルバムを試す"
+    },
+    "result": {
+      "albumCover": "アルバムカバー",
+      "noCoverArt": "カバー画像なし",
+      "albumSummaryFallback": "アルバム概要",
+      "artist": "アーティスト",
+      "releaseDate": "リリース日",
+      "tracks": "トラック",
+      "productFormats": "商品形式",
+      "unknown": "不明",
+      "openBandcampAlbum": "Bandcampアルバムを開く",
+      "backToHub": "Bandcampハブへ戻る",
+      "trackRows": "トラック行",
+      "trackCount": "{count}曲",
+      "durationNotExposed": "長さは公開されていません",
+      "downloadTrack": "トラックをダウンロード",
+      "openRawAudio": "生の音声を開く",
+      "audioUnsupported": "お使いのブラウザは音声再生に対応していません。",
+      "noPlayableTrackUrl": "このトラック行には再生可能なトラックURLが公開されていません。",
+      "trackNotes": "トラックメモ / 歌詞",
+      "noTrackRows": "このアルバムレスポンスにはトラック行が公開されていません。",
+      "showFewerTracks": "表示を減らす",
+      "showMoreTracks": "さらに {count} 曲表示",
+      "longTrackListHint": "長いトラック一覧は、モバイルでページを軽く保つために初期状態では折りたたまれます。",
+      "rawAlbumPayload": "アルバムの生ペイロード"
+    },
+    "aside": {
+      "useCasesTitle": "実用的な使い方",
+      "useCases": [
+        "すでにBandcampのアルバムURLやリリースURLを持っているときに使ってください。",
+        "商品形式、トラック行、メディアリンクを1つのリリース単位の画面で見たいときに向いています。",
+        "まずアルバム全体の文脈を見てから、公開メディアリンクが使えるか判断したい場合にも適しています。"
+      ],
+      "whyTitle": "このページが使いやすい理由",
+      "whyItems": [
+        "モバイルでもデスクトップでも、最初の画面に明確なアルバムフローが1つだけあります。",
+        "検索状態や不安定な探索スクレイピングがアルバム確認フローを邪魔しません。",
+        "アルバム概要、商品情報、トラック行がタブ分割されず1か所にまとまっています。",
+        "生のJSONは上級ユーザー向けに残しつつ、details要素の中に隠してあります。"
+      ],
+      "expectTitle": "期待できること",
+      "expectItems": [
+        {
+          "title": "リリース優先フロー",
+          "body": "個別トラックやダウンロードを考える前に、まずアルバムURLを貼ってリリース全体を確認します。"
+        },
+        {
+          "title": "直接メディアのみ",
+          "body": "このツールは、Bandcampがアルバムペイロード内で実際に公開している再生可能またはダウンロード可能なリンクだけを表示します。"
+        },
+        {
+          "title": "境界が明確",
+          "body": "トラックMP3抽出は専用のトラックツールに任せるため、このアルバムページは集中しやすく、見通しも良くなります。"
+        }
+      ]
+    },
+    "seo": {
+      "title": "このBandcamp Album Downloaderでできること",
+      "body1": "このページは1つのリリース単位のフローに最適化されています。BandcampのアルバムURLを貼り付け、アルバム概要を確認し、トラック行や商品形式を見て、アーティストやタグの別フローを混ぜずに公開メディアリンクをダウンロードできます。",
+      "body2": "目的は、すべてのアルバムページが同じように扱えると見せかけることではなく、分かりやすさです。Bandcampが再生可能またはダウンロード可能なURLを公開していればそれを表示し、公開していなくてもアルバム概要とリリース文脈を分かりやすく提供します。",
+      "coreFactsTitle": "基本情報",
+      "coreFacts": [
+        {
+          "label": "主な入力",
+          "value": "BandcampのアルバムURL。"
+        },
+        {
+          "label": "主な出力",
+          "value": "アルバム概要、トラック行、商品形式、公開されたメディアリンク。"
+        },
+        {
+          "label": "最適な用途",
+          "value": "単曲MP3変換ではなく、リリース単位の確認。"
+        },
+        {
+          "label": "パフォーマンス方針",
+          "value": "まずメインのアルバムカードを表示し、補足コンテンツは後、長文SEOコンテンツは遅延させます。"
+        }
+      ],
+      "howToUseTitle": "使い方",
+      "howToUseSteps": [
+        "BandcampのアルバムURLをメインフローに貼り付けて、リリース情報を取得します。",
+        "必要な操作を決める前に、概要、トラック行、利用可能な商品形式を確認します。",
+        "Bandcampが公開音声リンクを返した場合はそれをダウンロードし、必要なら元のアルバムページを開いて全体文脈を確認してください。"
+      ],
+      "stepLabel": "ステップ {index}",
+      "practicalUseCasesTitle": "実用的な使い方",
+      "practicalUseCases": [
+        "すでにBandcampのアルバムリンクを持っていて、ダウンロード前にリリース概要を見たい場合。",
+        "商品形式、トラック行、再生可能リンクを1か所で比較したい場合。",
+        "単曲MP3抽出や余計な画面切り替えを混ぜず、リリース単位で確認したい場合。"
+      ],
+      "faqTitle": "Bandcamp Album Downloader FAQ",
+      "faqItems": [
+        {
+          "question": "このBandcamp Album Downloaderは何のためのものですか？",
+          "answer": "BandcampのアルバムURL向けに作られています。ページはリリースのメタデータを確認し、アルバムの商品情報を一覧化し、トラック行を表示し、Bandcampが返した公開メディアリンクを表示します。"
+        },
+        {
+          "question": "アルバム全体を自動で吸い出しますか？",
+          "answer": "いいえ。`bandcamp-scraper` を通じて公開されているアルバムペイロードを読むだけです。アルバムによってはメタデータや試聴リンクだけを返し、別のアルバムでは利用可能なメディアURLが公開されることがあります。"
+        },
+        {
+          "question": "なぜBandcamp to MP3とは別なのですか？",
+          "answer": "アルバムページとトラックページは別の仕事だからです。アルバムツールはリリース確認向けに最適化されており、Bandcamp to MP3 は単曲抽出に集中しています。"
+        },
+        {
+          "question": "アルバムのメディアリンクは期限切れになりますか？",
+          "answer": "はい。BandcampのメディアURLには時間ベースのパラメータが含まれることがあり、新しいリンクを取得するにはアルバム情報を再読み込みする必要があります。"
+        }
+      ],
+      "usageTitle": "利用と権利",
+      "usageBody": "アルバムのダウンロードは責任を持って行ってください。保存してよいのは、権利を持っている場合、アーティストの許可がある場合、または元ページで明確に許可されている場合だけです。"
+    },
+    "metadata": {
+      "title": "Bandcamp Album Downloader: アルバムページと公開音声リンクをオンラインで確認",
+      "description": "この無料のBandcamp Album Downloaderを使えば、BandcampのアルバムURLを確認し、リリースのメタデータ、トラック行、商品形式を見て、利用可能な公開音声リンクをダウンロードできます。",
+      "keywords": [
+        "bandcamp album downloader",
+        "download bandcamp album",
+        "bandcamp album url",
+        "bandcamp album tracks",
+        "bandcamp album inspector"
+      ],
+      "openGraphImageAlt": "GeeksKaiのBandcamp Album Downloader"
+    },
+    "schema": {
+      "name": "Bandcamp Album Downloader",
+      "description": "この無料のBandcamp Album Downloaderを使えば、BandcampのアルバムURLを確認し、リリースのメタデータ、トラック行、商品形式を見て、利用可能な公開音声リンクをダウンロードできます。",
+      "featureList": [
+        "BandcampアルバムURLの確認",
+        "アルバムのトラック行抽出",
+        "アルバムの商品形式一覧",
+        "公開音声リンクのダウンロード"
+      ],
+      "browserRequirements": "JavaScriptが有効な最新ブラウザが必要です。",
+      "faqItems": [
+        {
+          "question": "このBandcamp Album Downloaderは何をしますか？",
+          "answer": "BandcampのアルバムURLを確認し、アルバムのメタデータ、トラック行、商品形式を返し、元のペイロードに公開メディアリンクが含まれていれば表示します。"
+        },
+        {
+          "question": "単曲にも使えますか？",
+          "answer": "このページはアルバムURL向けに最適化されています。単曲のMP3抽出には専用の Bandcamp to MP3 ツールを使ってください。"
+        },
+        {
+          "question": "なぜアルバムのメディアリンクは期限切れになるのですか？",
+          "answer": "Bandcampのメディアリンクには時間ベースのパラメータが含まれることがあります。URLの期限が切れたら、アルバムを再取得して新しいリンクを取得してください。"
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "ホーム",
+      "tools": "ツール",
+      "current": "Bandcamp Album Downloader"
+    }
+  },
+  "BandcampToolsHub": {
+    "badge": "Bandcampツールハブ",
+    "updated": "{date}更新",
+    "hero": {
+      "title": "重たい1つのdownloaderではなく、2つの集中型Bandcampツールから選ぶ"
+    },
+    "facts": [
+      {
+        "label": "現在の構成",
+        "value": "2つの安定したツール",
+        "description": "1つはトラックMP3抽出用、もう1つはリリース単位のアルバム確認用です。"
+      },
+      {
+        "label": "理由",
+        "value": "認知負荷が低い",
+        "description": "ユーザーは開始前に余計な将来フローを仕分ける必要がありません。"
+      },
+      {
+        "label": "シンプルな機能",
+        "value": "スマートURLルーター",
+        "description": "BandcampのURLを1つ貼るだけで、自動的に適切なツールへ移動できます。"
+      },
+      {
+        "label": "最適な場面",
+        "value": "モバイルでの分かりやすさ",
+        "description": "小さなツールに分けることで、最初の画面がより軽く、集中しやすく、スマホでも素早く確認できます。"
+      }
+    ],
+    "actions": {
+      "paste": "貼り付け",
+      "pasting": "貼り付け中...",
+      "tryTrackExample": "サンプルトラックを試す",
+      "tryAlbumExample": "サンプルアルバムを試す"
+    },
+    "router": {
+      "eyebrow": "クイックスタート",
+      "title": "Bandcamp URLを貼り付けて適切なツールへ移動",
+      "description": "このハブは今、1つの実用的な仕事だけを担います。Bandcampリンクがトラックかアルバムかを判定し、URLを引き継いだまま正しいフローへ送ります。",
+      "inputLabel": "BandcampのトラックまたはアルバムURL",
+      "inputPlaceholder": "https://artist.bandcamp.com/track/... or /album/...",
+      "cta": {
+        "track": "Bandcamp to MP3を開く",
+        "album": "Bandcamp Album Downloaderを開く",
+        "default": "正しいツールを開く"
+      },
+      "hint": {
+        "track": "トラックURLを検出しました。MP3フローへ移動します。",
+        "album": "アルバムURLを検出しました。アルバムフローへ移動します。",
+        "invalid": "このリンクはまだ対応しているBandcampのトラックURLまたはアルバムURLではありません。完全な `/track/...` または `/album/...` リンクを貼り付けてください。",
+        "empty": "BandcampのトラックURLまたはアルバムURLを貼り付けるとスマートルーターが使えるようになります。"
+      },
+      "errors": {
+        "empty": "最初にBandcampのトラックURLまたはアルバムURLを貼り付けてください。",
+        "invalid": "https:// で始まり、Bandcampを指す有効なURLを入力してください。",
+        "unsupported": "この軽量ハブは現在、トラックURLを Bandcamp to MP3 に、アルバムURLを Bandcamp Album Downloader に振り分けます。",
+        "clipboardUnavailable": "このブラウザではクリップボード貼り付けが使えません。手動でURLを貼り付けてください。",
+        "clipboardFailed": "クリップボードから読み取れませんでした。Bandcamp URLを手動で貼り付けてください。"
+      },
+      "detectionLabel": "判定",
+      "detection": {
+        "track": "トラックURL",
+        "album": "アルバムURL",
+        "waiting": "有効なURLを待機中"
+      },
+      "boundaryNote": "トラックURLは `Bandcamp to MP3` を開き、アルバムURLは `Bandcamp Album Downloader` を開きます。アーティストページやレーベルページはこの軽量ハブからは振り分けません。",
+      "pasteHint": "貼り付けると入力欄がすぐに埋まります。対応リンクなら、そのすぐ下のルーターボタンが有効になります。"
+    },
+    "toolMap": {
+      "eyebrow": "ツール一覧",
+      "title": "作業に合う小さなツールを選ぶ",
+      "description": "以前のBandcamp downloaderは多くの仕事を1か所に混ぜていました。今のハブはよりシンプルで、トラックMP3抽出かアルバム確認かに応じて、ユーザーを正しい専用ページへ送ります。",
+      "openTool": "ツールを開く"
+    },
+    "toolCards": [
+      {
+        "title": "Bandcamp to MP3",
+        "href": "/tools/bandcamp-to-mp3",
+        "status": "現在利用可能",
+        "description": "1つのトラックURLに最適です。トラックを確認し、MP3リンクを抽出してダウンロードするというシンプルな目的に向いています。"
+      },
+      {
+        "title": "Bandcamp Album Downloader",
+        "href": "/tools/bandcamp-album-downloader",
+        "status": "現在利用可能",
+        "description": "アルバムURL、リリース概要、商品形式、トラック一覧、アルバムペイロード内の公開音声リンクの確認に特化しています。"
+      }
+    ],
+    "content": {
+      "whyTitle": "Bandcampツールを分けるほうが良い理由",
+      "reasons": [
+        "トラックMP3抽出とアルバム確認では期待される体験が異なるため、別々のページ構造のほうが適しています。",
+        "小さなツールに分けることでレイアウトの複雑さが減り、モバイルでの初見理解も向上します。",
+        "各ルートは、無関係なBandcamp用途と競合するのではなく、より明確なSEO意図を狙えるようになりました。"
+      ],
+      "reasonLabel": "理由 {index}",
+      "faqTitle": "Bandcampツール FAQ",
+      "faqItems": [
+        {
+          "question": "これはまだメインのBandcamp downloaderページですか？",
+          "answer": "現在はBandcampツールハブです。主要な操作は、2つの小さな専用ツール内にあります。"
+        },
+        {
+          "question": "1曲だけ処理したい場合はどのツールを使えばよいですか？",
+          "answer": "単一トラックURLからMP3をダウンロードしたい場合は Bandcamp to MP3 を使ってください。"
+        },
+        {
+          "question": "リリースページにはどのツールを使えばよいですか？",
+          "answer": "入力がアルバムURLで、リリース詳細、形式、トラック、公開メディアリンクを見たい場合は Bandcamp Album Downloader を使ってください。"
+        },
+        {
+          "question": "なぜこのハブを残しているのですか？",
+          "answer": "ユーザーを最初から誤ったフローに入れずに、各Bandcampツールの役割を簡単に理解してもらうためです。"
+        }
+      ]
+    },
+    "seo": {
+      "title": "このBandcamp downloaderハブで実際にできること",
+      "body1": "このツールは `bandcamp-scraper` の上に構築されているため、最も強いのはURLベースの確認です。つまり、アルバムページ、トラックページ、そしてレスポンス内に現れる直接音声リンクの確認です。",
+      "body2": "今回の再設計では、期待値をより正確にしています。すべてのBandcampページがダウンロード可能であるかのように見せるのではなく、メタデータ確認、リリース探索、そしてBandcampが再生可能URLを公開した場合の直接ダウンロードを区別しています。",
+      "coreFactsTitle": "基本情報",
+      "coreFacts": [
+        {
+          "label": "料金",
+          "value": "無料で利用可能。"
+        },
+        {
+          "label": "主な入力",
+          "value": "BandcampのトラックURLとアルバムURL。"
+        },
+        {
+          "label": "主な出力",
+          "value": "正規化された概要、商品一覧、リリースURL、利用可能な場合はダウンロード可能なメディアリンク。"
+        },
+        {
+          "label": "最適な場面",
+          "value": "すでにBandcampリンクを持っていて、より小さく明確な正解ルートを求めるユーザー。"
+        }
+      ],
+      "useCasesTitle": "実用的な使い方",
+      "useCases": [
+        {
+          "title": "単一のBandcampトラックを確認する",
+          "description": "すでにトラックURLがあり、メタデータを確認し、ストリームURLを見て、公開メディアリンクがあればダウンロードしたい場合に最適です。"
+        },
+        {
+          "title": "2つの集中フローを比較する",
+          "description": "作業が単曲MP3ダウンロードなのか、リリース単位のアルバム確認なのかを判断したいときに役立ちます。"
+        },
+        {
+          "title": "単一のBandcampアルバムを確認する",
+          "description": "すでにアルバムURLがあり、トラック行、リリース文脈、商品形式、公開メディアリンクを1画面で見たい場合に最適です。"
+        },
+        {
+          "title": "安定したツールセットへ案内する",
+          "description": "最初にユーザーがトラックツールとアルバムツールのどちらを必要としているかを判断すること自体が主目的のときに役立ちます。"
+        }
+      ],
+      "workflowTitle": "再設計されたフローの仕組み",
+      "workflowSteps": [
+        "トラックツールとアルバムツールのどちらを使うべきか迷うときだけ、このハブから始めます。",
+        "単曲MP3抽出なら専用トラックページへ、リリース確認ならアルバムページへ進みます。",
+        "ダウンロードは検証済みのBandcampメディアURLからのみ行い、より明確な検証と強いバックエンド制約を適用します。"
+      ],
+      "stepLabel": "ステップ {index}",
+      "faqTitle": "Bandcamp downloader FAQ",
+      "faqItems": [
+        {
+          "question": "これはオールインワンのBandcamp downloaderですか？",
+          "answer": "完全にはそうではありません。基盤のnpmライブラリは主にスクレイパーです。公開Bandcampページを確認し、メタデータを返し、ときには再生可能またはダウンロード可能なメディアリンクを公開しますが、完全なアルバム吸い出しツールではありません。"
+        },
+        {
+          "question": "なぜ最初にURL確認を中心に設計し直したのですか？",
+          "answer": "多くのBandcampユーザーは共有リンクから始めるためです。1つのスマートURL入力にすることで判断疲れを減らし、最初から複数の技術パネルを見せず、実際のユーザー行動にも自然に合います。"
+        },
+        {
+          "question": "API設計では何が変わりましたか？",
+          "answer": "APIは現在、URL確認、トラックMP3抽出、アルバムダウンロード確認といった、より高レベルな操作を公開しています。URL検証も強化され、UI向けに正規化データを返します。"
+        },
+        {
+          "question": "なぜ生ペイロードを残しているのですか？",
+          "answer": "上級ユーザーには依然として透明性が必要だからです。再設計されたUIでは、生のJSONを展開パネルの中に隠し、一般ユーザー向けの見た目を保ちながらデバッグ価値を失わないようにしています。"
+        }
+      ],
+      "usageTitle": "利用と権利",
+      "usageBody": "このツールは責任を持って使ってください。公開メタデータの確認と音楽のダウンロードは別の行為です。保存やアーカイブは、権利を持っている場合、制作者の許可がある場合、または元ページで明示的に許可されている場合に限って行ってください。"
+    },
+    "metadata": {
+      "title": "Bandcamp Tools Hub: トラックとアルバムに合うBandcampツールを選ぶ",
+      "description": "この無料のBandcampツールハブを使えば、トラックMP3抽出またはアルバム確認に合った集中型フローを選べます。",
+      "keywords": [
+        "bandcamp downloader",
+        "download bandcamp tracks",
+        "bandcamp track downloader",
+        "bandcamp album downloader",
+        "bandcamp tools hub"
+      ],
+      "openGraphImageAlt": "GeeksKaiのBandcamp Downloader"
+    },
+    "schema": {
+      "name": "Bandcamp Tools Hub",
+      "description": "この無料のBandcampツールハブを使えば、トラックMP3抽出またはアルバム確認に合った集中型フローを選べます。",
+      "featureList": [
+        "Bandcampフロー選択",
+        "Bandcamp to MP3 への導線",
+        "Bandcamp Album Downloader への導線",
+        "モバイル優先の集中型Bandcampツールナビゲーション"
+      ],
+      "browserRequirements": "JavaScriptが有効な最新ブラウザが必要です。",
+      "faqItems": [
+        {
+          "question": "このBandcampツールハブは何のためのものですか？",
+          "answer": "すべてのBandcamp作業を1つの重いページに押し込むのではなく、正しい専用ツールを選べるようにするためのものです。"
+        },
+        {
+          "question": "なぜ以前のBandcamp downloaderを小さなツールに分けたのですか？",
+          "answer": "トラック用フローとアルバム用フローでは入力も期待も異なるためです。小さなツールのほうが使いやすく、明確な検索意図にも合わせやすくなります。"
+        },
+        {
+          "question": "1曲だけならどのツールを使えばよいですか？",
+          "answer": "BandcampのトラックURLがあり、集中したMP3抽出フローが欲しい場合は Bandcamp to MP3 を使ってください。"
+        },
+        {
+          "question": "アルバムページにはどのツールを使えばよいですか？",
+          "answer": "入力がBandcampアルバムURLで、リリース詳細、形式、トラック行、公開メディアリンクを見たい場合は Bandcamp Album Downloader を使ってください。"
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "ホーム",
+      "tools": "ツール",
+      "current": "Bandcampツールハブ"
+    }
   }
 }

@@ -8903,5 +8903,671 @@
       "itemlist_7": "5 .....",
       "itemlist_8": "0 -----"
     }
+  },
+  "BandcampToMp3": {
+    "badge": "Bandcamp vers MP3",
+    "updated": "Mis a jour {date}",
+    "hero": {
+      "title": "Telechargez un MP3 depuis une URL de piste Bandcamp",
+      "quickAnswerLabel": "Reponse rapide :",
+      "quickAnswerBody": "collez une URL de piste Bandcamp, laissez l'outil extraire la source MP3 exposee avec `bandcamp-scraper`, verifiez les metadonnees de la piste, puis telechargez le MP3 lorsque Bandcamp en renvoie reellement un."
+    },
+    "facts": [
+      {
+        "label": "Focus",
+        "value": "Piste uniquement",
+        "description": "Cette page est optimisee pour l'extraction MP3 d'une seule piste, pas pour la navigation par artiste ou par album."
+      },
+      {
+        "label": "Base sur",
+        "value": "getTrackInfo",
+        "description": "Le package npm sous-jacent est le plus fiable lorsque l'entree est une page de piste Bandcamp."
+      },
+      {
+        "label": "Entree",
+        "value": "URL de piste uniquement",
+        "description": "La page reste fiable en demandant une URL de piste Bandcamp directe plutot qu'en recuperant des resultats de recherche."
+      },
+      {
+        "label": "Action rapide",
+        "value": "Telechargement en un clic",
+        "description": "Vous pouvez maintenant extraire et telecharger le MP3 principal en une seule etape lorsque Bandcamp l'expose."
+      }
+    ],
+    "errors": {
+      "requestFailed": "La requete Bandcamp a echoue",
+      "resolveTrackUrlFailed": "Impossible de resoudre cette URL de piste Bandcamp",
+      "noMp3Link": "Cette piste a renvoye des metadonnees, mais aucun lien MP3 n'est actuellement expose.",
+      "invalidMp3Url": "Entrez une URL MP3 valide commencant par http ou https.",
+      "expiredMediaLink": "Ce lien media Bandcamp a expire. Actualisez les informations de la piste puis reessayez."
+    },
+    "workflow": {
+      "eyebrow": "Flux principal",
+      "title": "Collez une URL de piste Bandcamp",
+      "description": "Cette page est volontairement concentree sur le chemin le plus court vers le resultat : URL de piste Bandcamp en entree, lien MP3 en sortie.",
+      "quickInput": "Saisie rapide",
+      "loadedState": "URL de piste chargee",
+      "waitingState": "En attente d'une URL de piste",
+      "inputLabel": "URL de piste Bandcamp",
+      "inputPlaceholder": "https://artist.bandcamp.com/track/song-name",
+      "actionHint": {
+        "valid": "Choisissez Obtenir le lien MP3 pour previsualiser d'abord, ou telechargez directement si vous voulez simplement le fichier.",
+        "invalid": "Cela ne ressemble pas encore a une URL de piste Bandcamp. Collez un lien complet en `/track/...` pour continuer.",
+        "empty": "Collez une URL de piste Bandcamp pour debloquer a la fois la previsualisation et le telechargement en un clic."
+      },
+      "manualHint": "Coller une URL de piste Bandcamp valide chargera automatiquement le resultat. Si vous la saisissez manuellement, appuyez sur Entree ou utilisez les boutons du meme bloc.",
+      "scopeNotePrefix": "Utilisez une seule URL de piste. Les pages d'album et d'artiste sont volontairement hors champ ici. Utilisez",
+      "scopeNoteLink": "Bandcamp Album Downloader",
+      "scopeNoteSuffix": "pour les pages d'album.",
+      "emptyState": "Une fois la piste chargee, vous verrez la pochette, le titre, la source MP3 et les actions de telechargement dans la meme carte, sans changer d'onglet ni de mode. Si vous preferez moins d'etapes, utilisez le bouton de telechargement en un clic ci-dessus."
+    },
+    "actions": {
+      "paste": "Coller",
+      "pasting": "Collage...",
+      "getMp3Link": "Obtenir le lien MP3",
+      "extractingMp3": "Extraction du MP3...",
+      "extractAndDownloadMp3": "Extraire et telecharger le MP3",
+      "preparingDownload": "Preparation du telechargement...",
+      "tryExampleTrack": "Essayer une piste d'exemple"
+    },
+    "result": {
+      "noCoverArt": "Aucune pochette",
+      "trackSummaryFallback": "Resume de la piste",
+      "artist": "Artiste",
+      "album": "Album",
+      "duration": "Duree",
+      "releaseDate": "Date de sortie",
+      "audioUnsupported": "Votre navigateur ne prend pas en charge la lecture audio.",
+      "downloadMp3": "Telecharger le MP3",
+      "openBandcampTrack": "Ouvrir la piste Bandcamp",
+      "noMp3Exposed": "Cette piste a renvoye des metadonnees, mais aucun lien MP3 n'est actuellement expose dans la reponse.",
+      "moreMp3SourceLinks": "Autres liens source MP3",
+      "downloadThisMp3": "Telecharger ce MP3",
+      "openRawMp3": "Ouvrir le MP3 brut"
+    },
+    "aside": {
+      "useCasesTitle": "Cas d'usage pratiques",
+      "useCases": [
+        "Utilisez cette page lorsque quelqu'un vous a deja partage un lien de piste Bandcamp.",
+        "Utilisez-la si vous voulez le chemin le plus direct entre une page de piste et un lien MP3 telechargeable.",
+        "Utilisez-la si vous avez besoin des metadonnees de la piste et d'une preecoute avant de telecharger."
+      ],
+      "whyTitle": "Pourquoi cette mise en page est plus facile a utiliser",
+      "whyItems": [
+        "Une action principale evidente au-dessus de la ligne de flottaison sur mobile comme sur desktop.",
+        "Aucun etat de recherche, filtre de resultats ou branche secondaire ne vient concurrencer la tache principale.",
+        "Un chemin de telechargement immediat apres succes, sans obliger l'utilisateur a lire du JSON brut.",
+        "Le contenu d'accompagnement explique le flux sans repousser le formulaire principal sous la ligne de flottaison."
+      ],
+      "expectTitle": "A quoi vous attendre",
+      "expectItems": [
+        {
+          "title": "Entree fiable",
+          "body": "Collez une URL directe de piste Bandcamp. Cet outil ne depend plus des pages de recherche Bandcamp."
+        },
+        {
+          "title": "Sortie transparente",
+          "body": "Si Bandcamp expose une URL MP3, vous la verrez. Sinon, vous obtenez quand meme le resume de la piste et la reponse brute."
+        },
+        {
+          "title": "Flux de telechargement stable",
+          "body": "Les telechargements passent toujours par la route proxy validee, ce qui evite les comportements risqués des liens directs."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Ce que cet outil Bandcamp vers MP3 est concu pour faire",
+      "body1": "Cette page est optimisee pour une tache pratique unique : prendre une URL de piste Bandcamp valide, l'inspecter avec `bandcamp-scraper`, afficher le lien MP3 si Bandcamp en expose un, puis vous permettre de le telecharger avec le bon nom de fichier. Vous pouvez soit verifier le resultat d'abord, soit utiliser l'action rapide de telechargement en un clic.",
+      "body2": "Le design est volontairement plus restreint que le Bandcamp downloader complet. Cela rend la page plus facile a comprendre, plus rapide a parcourir sur mobile, et beaucoup plus directe pour les utilisateurs qui savent deja qu'ils veulent seulement le MP3 d'une page de piste unique.",
+      "coreFactsTitle": "Points cles",
+      "coreFacts": [
+        {
+          "label": "Entree principale",
+          "value": "Une URL de piste Bandcamp."
+        },
+        {
+          "label": "Sortie principale",
+          "value": "Un lien MP3 expose et un nom de fichier pret au telechargement."
+        },
+        {
+          "label": "Meilleur cas d'usage",
+          "value": "Le telechargement d'une seule chanson, pas la navigation dans une discographie complete."
+        },
+        {
+          "label": "Strategie de performance",
+          "value": "Une carte principale d'abord, les contenus longs ensuite, et aucun media lourd avant d'en avoir besoin."
+        }
+      ],
+      "howToUseTitle": "Comment l'utiliser",
+      "howToUseSteps": [
+        "Collez une URL de piste Bandcamp dans l'entree principale puis recuperer les informations de la piste.",
+        "Vous pouvez d'abord previsualiser les metadonnees extraites ou utiliser l'action en un clic pour aller directement au telechargement.",
+        "Telechargez le lien MP3 principal, ou choisissez un autre lien expose si Bandcamp a renvoye plusieurs options."
+      ],
+      "stepLabel": "Etape {index}",
+      "practicalUseCasesTitle": "Cas d'usage pratiques",
+      "practicalUseCases": [
+        "Un ami vous envoie un lien de piste Bandcamp et vous voulez le flux MP3 le plus direct possible.",
+        "Vous avez besoin de confirmer l'artiste, le titre ou l'album avant de telecharger quoi que ce soit.",
+        "Vous voulez voir la reponse brute de la piste sans transformer toute la page en tableau de debogage."
+      ],
+      "faqTitle": "FAQ Bandcamp vers MP3",
+      "faqItems": [
+        {
+          "question": "Cet outil Bandcamp vers MP3 convertit-il des fichiers ?",
+          "answer": "Pas vraiment. Il ne transcode pas l'audio. Il lit une page de piste Bandcamp via `bandcamp-scraper` et ne telecharge le lien MP3 que lorsque Bandcamp en expose un."
+        },
+        {
+          "question": "Pourquoi cet outil se concentre-t-il uniquement sur les URLs de piste ?",
+          "answer": "Parce que c'est le flux MP3 le plus fiable dans la bibliotheque sous-jacente. Les pages d'album et d'artiste correspondent a d'autres usages, donc cette page reste concentree sur les URLs directes de piste."
+        },
+        {
+          "question": "Pourquoi n'y a-t-il plus d'assistant de recherche sur cette page ?",
+          "answer": "Parce que le scraping de la recherche Bandcamp est moins stable que l'inspection directe d'URL. Cette page privilegie desormais le flux d'URL de piste, plus court et plus fiable."
+        },
+        {
+          "question": "Pourquoi le lien MP3 peut-il expirer ?",
+          "answer": "Les URLs media Bandcamp peuvent contenir des parametres temporels. Si un lien expire, rechargez la piste et l'outil demandera une nouvelle URL MP3."
+        }
+      ],
+      "usageTitle": "Usage et droits",
+      "usageBody": "Telechargez de maniere responsable. N'enregistrez des MP3 que si vous avez les droits, l'autorisation de l'artiste, ou si la page source autorise clairement cet usage."
+    },
+    "metadata": {
+      "title": "Bandcamp vers MP3 : extraire un MP3 depuis une URL de piste Bandcamp en ligne",
+      "description": "Utilisez cet outil gratuit Bandcamp vers MP3 pour inspecter une URL de piste Bandcamp, extraire le lien MP3 expose, previsualiser la chanson et la telecharger lorsqu'elle est disponible.",
+      "keywords": [
+        "bandcamp vers mp3",
+        "telechargeur mp3 bandcamp",
+        "telecharger mp3 bandcamp",
+        "piste bandcamp vers mp3",
+        "telechargeur de chansons bandcamp"
+      ],
+      "openGraphImageAlt": "Bandcamp vers MP3 par GeeksKai"
+    },
+    "schema": {
+      "name": "Bandcamp vers MP3",
+      "description": "Utilisez cet outil gratuit Bandcamp vers MP3 pour inspecter une URL de piste Bandcamp, extraire le lien MP3 expose, previsualiser la chanson et la telecharger lorsqu'elle est disponible.",
+      "featureList": [
+        "Inspection d'URL de piste Bandcamp",
+        "Extraction de lien MP3",
+        "Apercu des metadonnees de la piste",
+        "Proxy de telechargement MP3 Bandcamp"
+      ],
+      "browserRequirements": "Necessite un navigateur moderne avec JavaScript active.",
+      "faqItems": [
+        {
+          "question": "Cet outil Bandcamp vers MP3 convertit-il l'audio ?",
+          "answer": "Non. Il extrait le lien MP3 d'une page de piste Bandcamp lorsque Bandcamp en expose un. Il ne transcode pas les fichiers."
+        },
+        {
+          "question": "Fonctionne-t-il aussi pour les albums ?",
+          "answer": "Cette page est optimisee pour les URLs de piste Bandcamp individuelles. Les flux lies aux albums sont mieux geres par le Bandcamp Album Downloader dedie."
+        },
+        {
+          "question": "Pourquoi le lien MP3 peut-il expirer ?",
+          "answer": "Les liens media Bandcamp peuvent contenir des parametres temporels. Si l'URL expire, rechargez la piste pour obtenir un nouveau lien."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "Accueil",
+      "tools": "Outils",
+      "current": "Bandcamp vers MP3"
+    }
+  },
+  "BandcampAlbumDownloader": {
+    "badge": "Bandcamp Album Downloader",
+    "updated": "Mis a jour {date}",
+    "hero": {
+      "title": "Inspectez une URL d'album Bandcamp dans un flux centre sur la sortie",
+      "quickAnswerLabel": "Reponse rapide :",
+      "quickAnswerBody": "collez une URL d'album Bandcamp pour consulter le resume de la sortie, les lignes de piste, les formats de produit et tous les liens audio exposes. Cette page est pensee pour les albums, elle reste donc plus claire que l'ancien Bandcamp downloader tout-en-un."
+    },
+    "facts": [
+      {
+        "label": "Focus",
+        "value": "Album uniquement",
+        "description": "Concu autour des pages de sortie plutot que de l'extraction MP3 d'une seule piste."
+      },
+      {
+        "label": "Base sur",
+        "value": "getAlbumInfo",
+        "description": "Utilise les endpoints d'album qui correspondent naturellement aux pages de sortie Bandcamp."
+      },
+      {
+        "label": "Entree",
+        "value": "URL d'album uniquement",
+        "description": "Le flux reste stable en demandant une URL d'album Bandcamp directe plutot qu'en s'appuyant sur le scraping de recherche."
+      },
+      {
+        "label": "Attente",
+        "value": "Pas de faux ripping",
+        "description": "Cet outil n'affiche que les liens media que Bandcamp expose reellement dans la reponse de l'album."
+      }
+    ],
+    "errors": {
+      "requestFailed": "La requete Bandcamp a echoue",
+      "resolveAlbumUrlFailed": "Impossible de resoudre cette URL d'album Bandcamp",
+      "invalidMediaUrl": "Entrez une URL media Bandcamp valide commencant par http ou https.",
+      "expiredMediaLink": "Ce lien media Bandcamp a expire. Actualisez les informations de l'album puis reessayez."
+    },
+    "workflow": {
+      "eyebrow": "Flux principal",
+      "title": "Collez une URL d'album Bandcamp",
+      "description": "Cette page conserve un seul flux d'album au-dessus de la ligne de flottaison : URL d'album en entree, contexte de sortie en resultat.",
+      "inputLabel": "URL d'album Bandcamp",
+      "inputPlaceholder": "https://artist.bandcamp.com/album/release-name",
+      "actionHint": {
+        "valid": "Inspectez d'abord la sortie, puis parcourez les pistes, les formats et les liens media exposes sans quitter la page.",
+        "invalid": "Cela ne ressemble pas encore a une URL d'album Bandcamp. Collez un lien complet en `/album/...` pour continuer.",
+        "empty": "Collez une URL d'album Bandcamp pour debloquer le resume de la sortie, la liste des pistes et les sections media de l'album."
+      },
+      "emptyState": "Apres une recherche reussie, cette carte affichera la pochette de l'album, le resume de la sortie, les formats de produit, les lignes de piste, les liens media exposes et la reponse brute dans une section repliee.",
+      "primaryAction": "Action principale",
+      "loadedState": "URL d'album chargee",
+      "waitingState": "En attente d'une URL d'album",
+      "manualHint": "Coller une URL d'album Bandcamp valide chargera automatiquement la sortie. Si vous tapez manuellement, appuyez sur Entree ou utilisez le bouton dans le meme bloc ci-dessus.",
+      "scopeNotePrefix": "Pages d'album uniquement. Utilisez",
+      "scopeNoteLink": "Bandcamp to MP3",
+      "scopeNoteSuffix": "pour les URLs de piste unique."
+    },
+    "actions": {
+      "paste": "Coller",
+      "pasting": "Collage...",
+      "inspectAlbum": "Inspecter l'album",
+      "inspectingAlbum": "Inspection de l'album...",
+      "tryExampleAlbum": "Essayer un album d'exemple"
+    },
+    "result": {
+      "albumCover": "Pochette de l'album",
+      "noCoverArt": "Aucune pochette",
+      "albumSummaryFallback": "Resume de l'album",
+      "artist": "Artiste",
+      "releaseDate": "Date de sortie",
+      "tracks": "Pistes",
+      "productFormats": "Formats de produit",
+      "unknown": "Inconnu",
+      "openBandcampAlbum": "Ouvrir l'album Bandcamp",
+      "backToHub": "Retour au hub Bandcamp",
+      "trackRows": "Lignes de piste",
+      "trackCount": "{count} pistes",
+      "durationNotExposed": "Duree non exposee",
+      "downloadTrack": "Telecharger la piste",
+      "openRawAudio": "Ouvrir l'audio brut",
+      "audioUnsupported": "Votre navigateur ne prend pas en charge la lecture audio.",
+      "noPlayableTrackUrl": "Aucune URL de piste lisible n'a ete exposee pour cette ligne de piste.",
+      "trackNotes": "Notes de piste / paroles",
+      "noTrackRows": "Aucune ligne de piste n'a ete exposee dans cette reponse d'album.",
+      "showFewerTracks": "Afficher moins de pistes",
+      "showMoreTracks": "Afficher {count} pistes de plus",
+      "longTrackListHint": "Les longues listes de pistes restent repliees par defaut pour garder la page plus legere sur mobile.",
+      "rawAlbumPayload": "Reponse brute de l'album"
+    },
+    "aside": {
+      "useCasesTitle": "Cas d'usage pratiques",
+      "useCases": [
+        "Utilisez cette page lorsque vous avez deja une URL d'album ou de sortie Bandcamp.",
+        "Utilisez-la si vous voulez les formats de produit, les lignes de piste et les liens media dans une seule vue au niveau de la sortie.",
+        "Utilisez-la si vous avez besoin du contexte de l'album d'abord avant de decider si un lien media expose est utile."
+      ],
+      "whyTitle": "Pourquoi cette page est plus facile a utiliser",
+      "whyItems": [
+        "Un flux d'album evident au-dessus de la ligne de flottaison sur mobile comme sur desktop.",
+        "Aucun etat de recherche ni scraping de decouverte instable ne vient concurrencer le flux d'inspection d'album.",
+        "Le resume de l'album, les produits et les lignes de piste restent au meme endroit au lieu d'etre repartis entre plusieurs onglets.",
+        "Le JSON brut reste disponible pour les utilisateurs avances, mais il est cache derriere un element de details."
+      ],
+      "expectTitle": "A quoi vous attendre",
+      "expectItems": [
+        {
+          "title": "Flux centre sur la sortie",
+          "body": "Collez une URL d'album et inspectez la sortie avant de penser aux pistes individuelles ou aux telechargements."
+        },
+        {
+          "title": "Media directs uniquement",
+          "body": "L'outil n'affiche que les liens lisibles ou telechargeables que Bandcamp expose reellement dans la reponse de l'album."
+        },
+        {
+          "title": "Limites claires",
+          "body": "L'extraction MP3 des pistes reste dans l'outil dedie aux pistes, ce qui permet a cette page d'album de rester plus claire et plus facile a parcourir."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Ce que ce Bandcamp Album Downloader est concu pour faire",
+      "body1": "Cette page est optimisee pour un seul flux au niveau de la sortie : collez une URL d'album Bandcamp, inspectez le resume de l'album, consultez les lignes de piste et les formats de produit, puis telechargez les liens media exposes sans melanger les flux lies aux artistes ou aux tags.",
+      "body2": "L'objectif est la clarte, pas de faire semblant que toutes les pages d'album se comportent de la meme facon. Lorsque Bandcamp expose des URLs lisibles ou telechargeables, l'outil les affiche. Lorsqu'il ne le fait pas, la page fournit quand meme un resume propre de l'album et le contexte de la sortie.",
+      "coreFactsTitle": "Points cles",
+      "coreFacts": [
+        {
+          "label": "Entree principale",
+          "value": "Une URL d'album Bandcamp."
+        },
+        {
+          "label": "Sorties principales",
+          "value": "Resume de l'album, lignes de piste, formats de produit et liens media exposes."
+        },
+        {
+          "label": "Meilleur cas d'usage",
+          "value": "Inspection au niveau de la sortie, pas conversion MP3 d'une seule piste."
+        },
+        {
+          "label": "Strategie de performance",
+          "value": "Une carte d'album principale d'abord, le contenu de support ensuite, et le SEO long reporte."
+        }
+      ],
+      "howToUseTitle": "Comment l'utiliser",
+      "howToUseSteps": [
+        "Collez une URL d'album Bandcamp dans le flux principal de l'album puis recuperez la sortie.",
+        "Consultez le resume, les lignes de piste et les formats de produit disponibles avant de decider de ce dont vous avez besoin.",
+        "Telechargez un lien audio expose lorsque Bandcamp en renvoie un, ou ouvrez la page d'album d'origine pour le contexte complet de la sortie."
+      ],
+      "stepLabel": "Etape {index}",
+      "practicalUseCasesTitle": "Cas d'usage pratiques",
+      "practicalUseCases": [
+        "Vous avez deja un lien d'album Bandcamp et vous voulez le resume de la sortie avant de telecharger quoi que ce soit.",
+        "Vous devez comparer les formats de produit, les lignes de piste et les liens lisibles disponibles au meme endroit.",
+        "Vous voulez une vue au niveau de la sortie sans melanger extraction MP3 de piste unique et changements de flux inutiles."
+      ],
+      "faqTitle": "FAQ Bandcamp Album Downloader",
+      "faqItems": [
+        {
+          "question": "A quoi sert ce Bandcamp Album Downloader ?",
+          "answer": "Il est concu pour les URLs d'album Bandcamp. La page inspecte les metadonnees de la sortie, liste les produits de l'album, affiche les lignes de piste et remonte les liens media exposes lorsque Bandcamp les renvoie."
+        },
+        {
+          "question": "Est-ce qu'il rippe automatiquement tout un album ?",
+          "answer": "Non. Il lit la charge utile publique de l'album exposee via `bandcamp-scraper`. Certains albums ne renvoient que des metadonnees ou des liens d'aperçu, tandis que d'autres exposent des URLs media utilisables."
+        },
+        {
+          "question": "Pourquoi est-ce separe de Bandcamp vers MP3 ?",
+          "answer": "Parce que les pages d'album et les pages de piste correspondent a des besoins differents. L'outil album est optimise pour l'inspection de sortie, tandis que Bandcamp vers MP3 reste focalise sur l'extraction d'une seule piste."
+        },
+        {
+          "question": "Les liens media de l'album peuvent-ils expirer ?",
+          "answer": "Oui. Certaines URLs media Bandcamp contiennent des parametres temporels, vous devrez donc peut-etre relancer la recherche d'album pour obtenir un nouveau lien."
+        }
+      ],
+      "usageTitle": "Usage et droits",
+      "usageBody": "Utilisez les telechargements d'album de maniere responsable. N'enregistrez des sorties que si vous avez les droits, l'autorisation de l'artiste, ou si la page source autorise clairement cet usage."
+    },
+    "metadata": {
+      "title": "Bandcamp Album Downloader : inspecter les pages d'album et les liens audio exposes en ligne",
+      "description": "Utilisez ce Bandcamp Album Downloader gratuit pour inspecter une URL d'album Bandcamp, consulter les metadonnees de la sortie, les lignes de piste, les formats de produit et telecharger les liens audio exposes lorsqu'ils sont disponibles.",
+      "keywords": [
+        "bandcamp album downloader",
+        "download bandcamp album",
+        "bandcamp album url",
+        "bandcamp album tracks",
+        "bandcamp album inspector"
+      ],
+      "openGraphImageAlt": "Bandcamp Album Downloader par GeeksKai"
+    },
+    "schema": {
+      "name": "Bandcamp Album Downloader",
+      "description": "Utilisez ce Bandcamp Album Downloader gratuit pour inspecter une URL d'album Bandcamp, consulter les metadonnees de la sortie, les lignes de piste, les formats de produit et telecharger les liens audio exposes lorsqu'ils sont disponibles.",
+      "featureList": [
+        "Inspection d'URL d'album Bandcamp",
+        "Extraction des lignes de piste de l'album",
+        "Liste des formats de produit de l'album",
+        "Telechargement des liens audio exposes"
+      ],
+      "browserRequirements": "Necessite un navigateur moderne avec JavaScript active.",
+      "faqItems": [
+        {
+          "question": "Que fait ce Bandcamp Album Downloader ?",
+          "answer": "Il inspecte les URLs d'album Bandcamp, renvoie les metadonnees de l'album, les lignes de piste, les formats de produit et remonte les liens media exposes lorsque la reponse source les contient."
+        },
+        {
+          "question": "Fonctionne-t-il aussi pour les pistes individuelles ?",
+          "answer": "Cette page est optimisee pour les URLs d'album. Pour l'extraction MP3 d'une seule piste, utilisez l'outil dedie Bandcamp vers MP3."
+        },
+        {
+          "question": "Pourquoi les liens media d'album peuvent-ils expirer ?",
+          "answer": "Les liens media Bandcamp peuvent contenir des parametres temporels. Si l'URL expire, relancez l'album pour obtenir un lien frais."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "Accueil",
+      "tools": "Outils",
+      "current": "Bandcamp Album Downloader"
+    }
+  },
+  "BandcampToolsHub": {
+    "badge": "Hub d'outils Bandcamp",
+    "updated": "Mis a jour {date}",
+    "hero": {
+      "title": "Choisissez entre deux outils Bandcamp cibles plutot qu'un seul downloader surcharge",
+      "quickAnswerLabel": "Reponse rapide :",
+      "quickAnswerBody": "cette page est maintenant un hub centre sur la navigation. `bandcamp-scraper` fonctionne mieux lorsque chaque tache utilisateur devient son propre outil cible, donc cette experience Bandcamp se concentre desormais sur deux usages stables : l'extraction MP3 d'une piste unique et l'inspection d'album."
+    },
+    "facts": [
+      {
+        "label": "Configuration actuelle",
+        "value": "Deux outils stables",
+        "description": "Une page gere l'extraction MP3 d'une piste, l'autre gere l'inspection d'album au niveau de la sortie."
+      },
+      {
+        "label": "Pourquoi",
+        "value": "Moins de charge mentale",
+        "description": "Les utilisateurs n'ont plus besoin de trier des parcours supplementaires avant de commencer."
+      },
+      {
+        "label": "Fonction simple",
+        "value": "Routeur d'URL intelligent",
+        "description": "Collez une URL Bandcamp ici et passez automatiquement au bon outil."
+      },
+      {
+        "label": "Ideal pour",
+        "value": "La clarte sur mobile",
+        "description": "Des outils plus petits gardent le premier ecran plus clair, plus leger et plus rapide a parcourir sur telephone."
+      }
+    ],
+    "actions": {
+      "paste": "Coller",
+      "pasting": "Collage...",
+      "tryTrackExample": "Essayer une piste d'exemple",
+      "tryAlbumExample": "Essayer un album d'exemple"
+    },
+    "router": {
+      "eyebrow": "Demarrage rapide",
+      "title": "Collez une URL Bandcamp et allez au bon outil",
+      "description": "Ce hub remplit maintenant une seule fonction pratique : detecter si votre lien Bandcamp pointe vers une piste ou un album, puis vous envoyer vers le bon parcours avec l'URL deja remplie.",
+      "inputLabel": "URL de piste ou d'album Bandcamp",
+      "inputPlaceholder": "https://artist.bandcamp.com/track/... or /album/...",
+      "cta": {
+        "track": "Ouvrir Bandcamp vers MP3",
+        "album": "Ouvrir Bandcamp Album Downloader",
+        "default": "Ouvrir le bon outil"
+      },
+      "hint": {
+        "track": "Piste detectee. Vous serez dirige vers le parcours MP3.",
+        "album": "Album detecte. Vous serez dirige vers le parcours album.",
+        "invalid": "Ce lien n'est pas encore une URL de piste ou d'album Bandcamp prise en charge. Collez un lien Bandcamp complet en `/track/...` ou `/album/...`.",
+        "empty": "Collez une URL de piste ou d'album Bandcamp pour activer le routeur intelligent."
+      },
+      "errors": {
+        "empty": "Collez d'abord une URL de piste ou d'album Bandcamp.",
+        "invalid": "Entrez une URL Bandcamp valide commencant par https:// et pointant vers Bandcamp.",
+        "unsupported": "Ce hub leger redirige actuellement les URLs de piste vers Bandcamp vers MP3 et les URLs d'album vers Bandcamp Album Downloader.",
+        "clipboardUnavailable": "Le collage depuis le presse-papiers n'est pas disponible dans ce navigateur. Collez l'URL manuellement.",
+        "clipboardFailed": "Impossible de lire le presse-papiers. Collez l'URL Bandcamp manuellement."
+      },
+      "detectionLabel": "Detection",
+      "detection": {
+        "track": "URL de piste",
+        "album": "URL d'album",
+        "waiting": "En attente d'une URL valide"
+      },
+      "boundaryNote": "Les URLs de piste ouvrent `Bandcamp vers MP3`. Les URLs d'album ouvrent `Bandcamp Album Downloader`. Les pages d'artiste ou de label ne sont pas routees depuis ce hub leger.",
+      "pasteHint": "Le collage remplit l'entree immediatement. Si le lien est pris en charge, le bouton du routeur se debloque juste en dessous."
+    },
+    "toolMap": {
+      "eyebrow": "Carte des outils",
+      "title": "Choisissez le petit outil qui correspond au besoin",
+      "description": "L'ancien Bandcamp downloader melangeait trop de taches au meme endroit. Ce hub fait maintenant une chose plus simple : envoyer les utilisateurs vers la bonne page ciblee, soit pour l'extraction MP3 d'une piste, soit pour l'inspection d'un album.",
+      "openTool": "Ouvrir l'outil"
+    },
+    "toolCards": [
+      {
+        "title": "Bandcamp vers MP3",
+        "href": "/tools/bandcamp-to-mp3",
+        "status": "Disponible maintenant",
+        "description": "Ideal pour une URL de piste unique lorsque l'objectif est simple : inspecter la piste, extraire le lien MP3 et le telecharger."
+      },
+      {
+        "title": "Bandcamp Album Downloader",
+        "href": "/tools/bandcamp-album-downloader",
+        "status": "Disponible maintenant",
+        "description": "Concentre sur les URLs d'album, les resumes de sortie, les formats de produit, les listes de pistes et tous les liens audio exposes dans les reponses d'album."
+      }
+    ],
+    "content": {
+      "whyTitle": "Pourquoi scinder l'outil Bandcamp est une meilleure decision produit",
+      "reasons": [
+        "L'extraction MP3 d'une piste et l'inspection d'un album creent des attentes differentes, donc elles gagnent a avoir des structures de page differentes.",
+        "Des outils plus petits reduisent la complexite de mise en page et ameliorent la comprehension du premier ecran sur mobile.",
+        "Chaque route vise maintenant une intention SEO plus claire au lieu d'entrer en concurrence avec plusieurs usages Bandcamp sans rapport."
+      ],
+      "reasonLabel": "Raison {index}",
+      "faqTitle": "FAQ des outils Bandcamp",
+      "faqItems": [
+        {
+          "question": "Est-ce encore la page principale du Bandcamp downloader ?",
+          "answer": "Non. C'est maintenant le hub d'outils Bandcamp. L'interaction principale vit dans deux outils dedies plus petits."
+        },
+        {
+          "question": "Quel outil dois-je utiliser pour une seule chanson ?",
+          "answer": "Utilisez Bandcamp vers MP3 si votre objectif est une URL de piste unique et un flux de telechargement MP3."
+        },
+        {
+          "question": "Quel outil dois-je utiliser pour une page de sortie ?",
+          "answer": "Utilisez Bandcamp Album Downloader si votre entree est une URL d'album et que vous voulez les details de la sortie, les formats, les pistes et les liens media exposes."
+        },
+        {
+          "question": "Pourquoi garder ce hub ?",
+          "answer": "Il donne aux utilisateurs une vue simple de ce que fait chaque outil Bandcamp, sans les forcer d'abord dans le mauvais parcours."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Ce que ce Bandcamp downloader fait vraiment",
+      "body1": "Cet outil est construit sur `bandcamp-scraper`, donc ses capacites les plus solides reposent sur l'inspection par URL : pages d'album, pages de piste et tous les liens audio directs qui apparaissent dans la reponse.",
+      "body2": "Le redesign cherche volontairement a fixer de meilleures attentes. Au lieu de pretendre que chaque page Bandcamp est telechargeable, l'interface distingue maintenant l'inspection des metadonnees, l'exploration d'une sortie et le telechargement direct des medias lorsque Bandcamp expose une URL lisible.",
+      "coreFactsTitle": "Points cles",
+      "coreFacts": [
+        {
+          "label": "Tarif",
+          "value": "Utilisation gratuite."
+        },
+        {
+          "label": "Entrees principales",
+          "value": "URLs de piste Bandcamp et URLs d'album."
+        },
+        {
+          "label": "Sorties principales",
+          "value": "Resumes normalises, listes de produits, URLs de sortie et liens media telechargeables lorsqu'ils sont disponibles."
+        },
+        {
+          "label": "Ideal pour",
+          "value": "Les utilisateurs qui ont deja un lien Bandcamp et veulent un chemin plus simple et plus clair vers le bon outil."
+        }
+      ],
+      "useCasesTitle": "Cas d'usage pratiques",
+      "useCases": [
+        {
+          "title": "Inspecter une seule piste Bandcamp",
+          "description": "Ideal lorsque vous avez deja une URL de piste et que vous voulez previsualiser les metadonnees, verifier l'URL de lecture et telecharger le lien media expose s'il existe."
+        },
+        {
+          "title": "Comparer les deux parcours cibles",
+          "description": "Utile lorsque vous devez decider si le besoin correspond vraiment a un telechargement MP3 d'une seule piste ou a une inspection d'album au niveau de la sortie."
+        },
+        {
+          "title": "Inspecter un seul album Bandcamp",
+          "description": "Ideal lorsque vous avez deja une URL d'album et que vous voulez voir les lignes de piste, le contexte de la sortie, les formats de produit et les liens media exposes dans une seule vue."
+        },
+        {
+          "title": "Orienter les utilisateurs vers le jeu d'outils stable",
+          "description": "Utile lorsque le travail principal consiste d'abord a decider si l'utilisateur a besoin de l'outil piste ou de l'outil album."
+        }
+      ],
+      "workflowTitle": "Comment fonctionne le flux redesigné",
+      "workflowSteps": [
+        "Commencez sur le hub uniquement si vous avez besoin d'aide pour choisir entre l'outil piste et l'outil album.",
+        "Dirigez-vous ensuite vers la page piste dediee pour l'extraction MP3 d'une seule chanson, ou vers la page album pour l'inspection au niveau de la sortie.",
+        "Telechargez uniquement depuis des URLs media Bandcamp validees, avec une validation plus propre et des contraintes backend plus strictes."
+      ],
+      "stepLabel": "Etape {index}",
+      "faqTitle": "FAQ Bandcamp downloader",
+      "faqItems": [
+        {
+          "question": "Est-ce un Bandcamp downloader tout-en-un ?",
+          "answer": "Pas exactement. La bibliotheque npm sous-jacente est avant tout un scraper. Elle inspecte les pages publiques de Bandcamp, renvoie des metadonnees et expose parfois des liens media lisibles ou telechargeables, mais ce n'est pas un outil complet de ripping d'album."
+        },
+        {
+          "question": "Pourquoi redesign le produit autour de l'inspection d'URL en premier ?",
+          "answer": "Parce que la plupart des utilisateurs Bandcamp commencent avec un lien partage. Une seule entree d'URL intelligente reduit la fatigue de decision, evite d'afficher cinq panneaux techniques des le debut et correspond plus naturellement au vrai comportement des utilisateurs."
+        },
+        {
+          "question": "Qu'est-ce qui a change dans la conception de l'API ?",
+          "answer": "L'API expose maintenant des actions produit de plus haut niveau comme l'inspection d'URL, l'extraction MP3 d'une piste et l'inspection de telechargement d'album. Elle applique une validation d'URL plus forte et renvoie des donnees normalisees pour l'interface."
+        },
+        {
+          "question": "Pourquoi conserver les reponses brutes ?",
+          "answer": "Les utilisateurs avances veulent toujours de la transparence. L'interface redesignée cache le JSON brut derriere des panneaux extensibles afin que le produit reste propre pour les utilisateurs occasionnels sans perdre sa valeur de debogage."
+        }
+      ],
+      "usageTitle": "Usage et droits",
+      "usageBody": "Utilisez cet outil de maniere responsable. Inspecter des metadonnees publiques est une chose ; telecharger de la musique en est une autre. N'enregistrez ou n'archivez des sorties que si vous possedez les droits, avez l'autorisation du createur, ou si la page source autorise explicitement cet usage."
+    },
+    "metadata": {
+      "title": "Hub d'outils Bandcamp : choisissez le bon outil Bandcamp pour les pistes et les albums",
+      "description": "Utilisez ce hub d'outils Bandcamp gratuit pour choisir un flux cible pour l'extraction MP3 d'une piste ou l'inspection d'un album.",
+      "keywords": [
+        "bandcamp downloader",
+        "download bandcamp tracks",
+        "bandcamp track downloader",
+        "bandcamp album downloader",
+        "bandcamp tools hub"
+      ],
+      "openGraphImageAlt": "Bandcamp Downloader par GeeksKai"
+    },
+    "schema": {
+      "name": "Hub d'outils Bandcamp",
+      "description": "Utilisez ce hub d'outils Bandcamp gratuit pour choisir un flux cible pour l'extraction MP3 d'une piste ou l'inspection d'un album.",
+      "featureList": [
+        "Selecteur de flux Bandcamp",
+        "Acces a l'outil Bandcamp vers MP3",
+        "Acces a l'outil Bandcamp Album Downloader",
+        "Navigation d'outils Bandcamp ciblee et mobile-first"
+      ],
+      "browserRequirements": "Necessite un navigateur moderne avec JavaScript active.",
+      "faqItems": [
+        {
+          "question": "A quoi sert ce hub d'outils Bandcamp ?",
+          "answer": "Il aide les utilisateurs a choisir le bon outil Bandcamp cible plutot que d'utiliser une seule page surchargee pour chaque tache Bandcamp."
+        },
+        {
+          "question": "Pourquoi avoir decoupe l'ancien Bandcamp downloader en outils plus petits ?",
+          "answer": "Parce que les flux piste et album ont des entrees et des attentes differentes. Des outils plus petits sont plus faciles a utiliser et plus faciles a positionner sur une intention de recherche claire."
+        },
+        {
+          "question": "Quel outil dois-je utiliser pour une seule chanson ?",
+          "answer": "Utilisez Bandcamp vers MP3 lorsque vous avez une URL de piste Bandcamp et que vous voulez un flux d'extraction MP3 cible."
+        },
+        {
+          "question": "Quel outil dois-je utiliser pour une page d'album ?",
+          "answer": "Utilisez Bandcamp Album Downloader lorsque votre entree est une URL d'album Bandcamp et que vous voulez les details de la sortie, les formats, les lignes de piste et les liens media exposes."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "Accueil",
+      "tools": "Outils",
+      "current": "Hub d'outils Bandcamp"
+    }
   }
 }

@@ -1683,22 +1683,12 @@
         "standards_section": {
           "title": "北欧测量标准",
           "description": "我们的厘米转Tommer转换器遵循丹麦、挪威和国际贸易中使用的官方北欧测量标准。该工具提供精确转换，对建筑、制造和国际贸易中的专业应用至关重要。",
-          "features": [
-            "官方北欧测量标准",
-            "建筑行业合规性",
-            "国际贸易规格",
-            "质量控制测量"
-          ]
+          "features": ["官方北欧测量标准", "建筑行业合规性", "国际贸易规格", "质量控制测量"]
         },
         "features_section": {
           "title": "专业转换功能",
           "description": "专为需要准确可靠tommer转换的专业人士设计，用于商业应用。我们的工具支持各种精度级别，并提供即时结果以实现高效的工作流程集成。",
-          "features": [
-            "精度控制（0-3位小数）",
-            "即时转换结果",
-            "复制粘贴功能",
-            "移动友好界面"
-          ]
+          "features": ["精度控制（0-3位小数）", "即时转换结果", "复制粘贴功能", "移动友好界面"]
         }
       }
     },
@@ -2114,12 +2104,7 @@
         }
       ]
     },
-    "feature_list": [
-      "经典删除线效果",
-      "波浪下划线效果",
-      "一键复制粘贴流程",
-      "快速浏览器转换"
-    ],
+    "feature_list": ["经典删除线效果", "波浪下划线效果", "一键复制粘贴流程", "快速浏览器转换"],
     "feature_list_schemas": [
       "删除线文本转换",
       "波浪下划线文本转换",
@@ -2139,12 +2124,7 @@
     "best_for": "迷因创作者、恐怖主题帖子和游戏社区",
     "key_benefit": "快速生成故障文本，并提供更安全的可读备选项",
     "default_input": "SYSTEM ERROR // REALITY COLLAPSE",
-    "use_cases": [
-      "恐怖和怪异的社交标题",
-      "迷因和反应文本",
-      "游戏和直播公告样式",
-      "实验性视觉排版"
-    ],
+    "use_cases": ["恐怖和怪异的社交标题", "迷因和反应文本", "游戏和直播公告样式", "实验性视觉排版"],
     "boundaries": [
       "密集的组合字符可能会损害可读性和辅助功能。",
       "某些应用可能会规范化或抑制极端的组合序列。",
@@ -2212,12 +2192,7 @@
       "一键复制输出",
       "仅限浏览器的转换工作流"
     ],
-    "feature_list_schemas": [
-      "故障组合字符",
-      "多种变形预设",
-      "复制并粘贴输出",
-      "迷因和社交用例"
-    ]
+    "feature_list_schemas": ["故障组合字符", "多种变形预设", "复制并粘贴输出", "迷因和社交用例"]
   },
   "VaporwaveTextGenerator": {
     "seo_title": "蒸汽波文本生成器 (2026) - 全角美学文字",
@@ -2231,12 +2206,7 @@
     "best_for": "美学创作者、复古风格个人资料和短篇标题",
     "key_benefit": "无需外部应用程序即可即时实现全角样式",
     "default_input": "美学互联网档案",
-    "use_cases": [
-      "美学个人简介",
-      "复古标题样式",
-      "表情包文本装饰",
-      "创意标题格式化"
-    ],
+    "use_cases": ["美学个人简介", "复古标题样式", "表情包文本装饰", "创意标题格式化"],
     "boundaries": [
       "并非所有标点符号和符号都有全角版本。",
       "某些平台在某些情况下会标准化间距。",
@@ -2298,18 +2268,8 @@
         }
       ]
     },
-    "feature_list": [
-      "全角转换",
-      "美学文本样式",
-      "复制并粘贴输出",
-      "基于浏览器的流程"
-    ],
-    "feature_list_schemas": [
-      "全角蒸汽波输出",
-      "简单的一键复制",
-      "易读的美学样式",
-      "社交媒体用例"
-    ]
+    "feature_list": ["全角转换", "美学文本样式", "复制并粘贴输出", "基于浏览器的流程"],
+    "feature_list_schemas": ["全角蒸汽波输出", "简单的一键复制", "易读的美学样式", "社交媒体用例"]
   },
   "CursedTextGenerator": {
     "seo_title": "诅咒文本生成器 (2026) - 损坏和故障 Unicode 文本",
@@ -2580,18 +2540,8 @@
         }
       ]
     },
-    "feature_list": [
-      "多种 Unicode 字体样式",
-      "一键复制",
-      "样式组合",
-      "社交媒体就绪输出"
-    ],
-    "feature_list_schemas": [
-      "手写体和粗体样式",
-      "德文尖角体和空心体",
-      "复制粘贴输出",
-      "可组合效果"
-    ]
+    "feature_list": ["多种 Unicode 字体样式", "一键复制", "样式组合", "社交媒体就绪输出"],
+    "feature_list_schemas": ["手写体和粗体样式", "德文尖角体和空心体", "复制粘贴输出", "可组合效果"]
   },
   "DiscordFontGenerator": {
     "seo_title": "Discord 字体生成器 (2026) - 复制并粘贴时尚的 Discord 文本",
@@ -2605,12 +2555,7 @@
     "best_for": "Discord 社区、游戏玩家标签和服务器个人资料自定义",
     "key_benefit": "具有即时复制工作流程的 Discord 专用样式预设",
     "default_input": "今晚突袭 20:00 UTC",
-    "use_cases": [
-      "Discord 昵称样式",
-      "个人资料简介装饰",
-      "服务器公告格式化",
-      "游戏身份自定义"
-    ],
+    "use_cases": ["Discord 昵称样式", "个人资料简介装饰", "服务器公告格式化", "游戏身份自定义"],
     "boundaries": [
       "无法绕过服务器审核或阻止的字符策略。",
       "某些频道或机器人可能会对特殊字符进行规范化处理。",
@@ -2672,12 +2617,7 @@
         }
       ]
     },
-    "feature_list": [
-      "Discord 友好型 Unicode 样式",
-      "昵称和消息场景",
-      "一键复制",
-      "可组合效果"
-    ],
+    "feature_list": ["Discord 友好型 Unicode 样式", "昵称和消息场景", "一键复制", "可组合效果"],
     "feature_list_schemas": [
       "昵称就绪型文本样式",
       "消息格式变体",
@@ -8841,6 +8781,670 @@
       "itemlist_6": "1 .----",
       "itemlist_7": "5 .....",
       "itemlist_8": "0 -----"
+    }
+  },
+  "BandcampToMp3": {
+    "badge": "Bandcamp 转 MP3",
+    "updated": "更新于 {date}",
+    "hero": {
+      "title": "从 Bandcamp 单曲链接提取 MP3",
+      "quickAnswerLabel": "快速说明：",
+      "quickAnswerBody": "粘贴一个 Bandcamp 单曲链接，工具会用 `bandcamp-scraper` 提取页面中暴露出的 MP3 来源，展示曲目信息，并在 Bandcamp 确实返回 MP3 时提供下载。"
+    },
+    "facts": [
+      {
+        "label": "定位",
+        "value": "仅单曲",
+        "description": "这个页面专门针对单曲 MP3 提取做了优化，不用于浏览艺术家页或专辑页。"
+      },
+      {
+        "label": "基于",
+        "value": "getTrackInfo",
+        "description": "底层 npm 包在输入为 Bandcamp 单曲页面时最稳定、最可靠。"
+      },
+      {
+        "label": "输入",
+        "value": "仅单曲链接",
+        "description": "页面通过要求输入一个 Bandcamp 单曲直链来保持稳定，而不是依赖搜索结果抓取。"
+      },
+      {
+        "label": "快捷操作",
+        "value": "一键下载",
+        "description": "如果 Bandcamp 暴露了主 MP3 链接，你现在可以一步完成提取并下载。"
+      }
+    ],
+    "errors": {
+      "requestFailed": "Bandcamp 请求失败",
+      "resolveTrackUrlFailed": "无法解析这个 Bandcamp 单曲链接",
+      "noMp3Link": "这个曲目返回了元数据，但当前没有暴露 MP3 链接。",
+      "invalidMp3Url": "请输入一个以 http 或 https 开头的有效 MP3 链接。",
+      "expiredMediaLink": "这个 Bandcamp 媒体链接已过期。请刷新曲目信息后重试。"
+    },
+    "workflow": {
+      "eyebrow": "核心流程",
+      "title": "粘贴一个 Bandcamp 单曲链接",
+      "description": "这个页面有意只保留最短成功路径：输入 Bandcamp 单曲链接，输出 MP3 链接。",
+      "quickInput": "快速输入",
+      "loadedState": "已加载单曲链接",
+      "waitingState": "等待单曲链接",
+      "inputLabel": "Bandcamp 单曲链接",
+      "inputPlaceholder": "https://artist.bandcamp.com/track/song-name",
+      "actionHint": {
+        "valid": "你可以先点击“获取 MP3 链接”查看结果，或者如果只想拿文件，也可以直接下载。",
+        "invalid": "这看起来还不是一个有效的 Bandcamp 单曲链接。请粘贴完整的 `/track/...` 链接继续。",
+        "empty": "请粘贴一个 Bandcamp 单曲链接，以启用预览和一键下载流程。"
+      },
+      "manualHint": "粘贴有效的 Bandcamp 单曲链接后会自动加载结果。如果你是手动输入，可以按 Enter，或直接使用同一区块内的按钮。",
+      "scopeNotePrefix": "这里只处理单曲链接。专辑页和艺术家页被有意排除在外。专辑页面请使用",
+      "scopeNoteLink": "Bandcamp 专辑下载器",
+      "scopeNoteSuffix": "。",
+      "emptyState": "曲目加载成功后，你会在同一张卡片里看到封面、标题、MP3 来源和下载操作，不需要切换标签或模式。如果你想减少步骤，也可以直接使用上方的一键下载按钮。"
+    },
+    "actions": {
+      "paste": "粘贴",
+      "pasting": "正在粘贴...",
+      "getMp3Link": "获取 MP3 链接",
+      "extractingMp3": "正在提取 MP3...",
+      "extractAndDownloadMp3": "提取并下载 MP3",
+      "preparingDownload": "正在准备下载...",
+      "tryExampleTrack": "试试示例单曲"
+    },
+    "result": {
+      "noCoverArt": "无封面图",
+      "trackSummaryFallback": "曲目摘要",
+      "artist": "艺术家",
+      "album": "专辑",
+      "duration": "时长",
+      "releaseDate": "发行日期",
+      "audioUnsupported": "你的浏览器不支持音频播放。",
+      "downloadMp3": "下载 MP3",
+      "openBandcampTrack": "打开 Bandcamp 曲目页",
+      "noMp3Exposed": "这个曲目返回了元数据，但当前响应中没有暴露 MP3 链接。",
+      "moreMp3SourceLinks": "更多 MP3 来源链接",
+      "downloadThisMp3": "下载这个 MP3",
+      "openRawMp3": "打开原始 MP3"
+    },
+    "aside": {
+      "useCasesTitle": "实际使用场景",
+      "useCases": [
+        "当别人已经把 Bandcamp 单曲链接发给你时，就用这个页面。",
+        "当你想从单曲页最快拿到一个可下载的 MP3 链接时，就用它。",
+        "当你需要在下载前先确认曲目信息并试听时，也适合用它。"
+      ],
+      "whyTitle": "为什么这个布局更容易上手",
+      "whyItems": [
+        "无论移动端还是桌面端，首屏都有一个清晰明确的主操作。",
+        "没有搜索状态、结果筛选或额外探索分支来干扰主任务。",
+        "成功后可以直接下载，不需要让用户自己阅读原始 JSON。",
+        "辅助内容会解释流程，但不会把核心输入区挤到首屏之外。"
+      ],
+      "expectTitle": "你可以期待什么",
+      "expectItems": [
+        {
+          "title": "稳定输入",
+          "body": "请粘贴直接的 Bandcamp 单曲链接。这个工具不再依赖 Bandcamp 搜索页面。"
+        },
+        {
+          "title": "结果透明",
+          "body": "如果 Bandcamp 暴露了 MP3 链接，你会直接看到；如果没有，你依然能拿到曲目摘要和原始响应。"
+        },
+        {
+          "title": "稳定下载流程",
+          "body": "下载仍会经过已验证的代理路由，因此页面能避免不安全的直链行为。"
+        }
+      ]
+    },
+    "seo": {
+      "title": "这个 Bandcamp 转 MP3 工具是做什么的",
+      "body1": "这个页面只针对一个实际任务做了优化：输入一个有效的 Bandcamp 单曲链接，用 `bandcamp-scraper` 检查页面，如果 Bandcamp 暴露了 MP3 链接就展示出来，并让你用正确的文件名下载。你可以先查看结果，也可以直接使用一键下载。",
+      "body2": "这个设计比完整的 Bandcamp 下载器更收敛、更聚焦。这让页面更容易理解，在移动端也更快扫读，尤其适合那些已经明确只想从单首曲目页面拿到 MP3 的用户。",
+      "coreFactsTitle": "核心信息",
+      "coreFacts": [
+        {
+          "label": "主要输入",
+          "value": "一个 Bandcamp 单曲链接。"
+        },
+        {
+          "label": "主要输出",
+          "value": "一个暴露出来的 MP3 链接，以及可直接下载的文件名。"
+        },
+        {
+          "label": "最适合的场景",
+          "value": "下载单曲，而不是浏览整张专辑或完整作品目录。"
+        },
+        {
+          "label": "性能策略",
+          "value": "先展示主卡片，长内容延后加载，在真正需要前不加载重量级媒体。"
+        }
+      ],
+      "howToUseTitle": "如何使用",
+      "howToUseSteps": [
+        "在主输入框中粘贴一个 Bandcamp 单曲链接并获取曲目信息。",
+        "你可以先查看提取出的元数据，也可以直接使用一键操作进入下载。",
+        "下载主 MP3 链接；如果 Bandcamp 返回了多个可用来源，也可以选择其他暴露出来的链接。"
+      ],
+      "stepLabel": "第 {index} 步",
+      "practicalUseCasesTitle": "实际使用场景",
+      "practicalUseCases": [
+        "朋友给你发来一个 Bandcamp 单曲链接，而你只想快速拿到 MP3。",
+        "你在下载前需要先确认艺术家、标题或专辑信息。",
+        "你想查看曲目的原始响应，但又不希望整个页面变成一个调试面板。"
+      ],
+      "faqTitle": "Bandcamp 转 MP3 常见问题",
+      "faqItems": [
+        {
+          "question": "这个 Bandcamp 转 MP3 工具会真正转换文件吗？",
+          "answer": "严格来说不会。它不会重新编码音频。它只是通过 `bandcamp-scraper` 读取 Bandcamp 单曲页面，并在 Bandcamp 暴露 MP3 链接时提供下载。"
+        },
+        {
+          "question": "为什么这个工具只聚焦单曲链接？",
+          "answer": "因为这是底层库里最稳定的 MP3 处理路径。专辑页和艺术家页属于另一类任务，所以这个页面只聚焦在直接的单曲链接上。"
+        },
+        {
+          "question": "为什么这个页面不再提供搜索辅助？",
+          "answer": "因为抓取 Bandcamp 搜索结果不如直接检查链接稳定。这个页面现在优先采用更短、更可靠的单曲链接流程。"
+        },
+        {
+          "question": "为什么 MP3 链接会过期？",
+          "answer": "Bandcamp 的媒体链接可能包含时间参数。如果链接过期，重新获取一次曲目信息，工具就会请求一个新的 MP3 链接。"
+        }
+      ],
+      "usageTitle": "使用与权利说明",
+      "usageBody": "请负责任地下载。只有在你拥有相关权利、获得艺术家许可，或源页面明确允许该用途时，才应保存 MP3。"
+    },
+    "metadata": {
+      "title": "Bandcamp 转 MP3：在线从 Bandcamp 单曲链接提取 MP3",
+      "description": "使用这个免费的 Bandcamp 转 MP3 工具来检查 Bandcamp 单曲链接、提取暴露出的 MP3 链接、试听歌曲，并在可用时下载。",
+      "keywords": [
+        "bandcamp 转 mp3",
+        "bandcamp mp3 下载器",
+        "下载 bandcamp mp3",
+        "bandcamp 单曲转 mp3",
+        "bandcamp 歌曲下载"
+      ],
+      "openGraphImageAlt": "GeeksKai 的 Bandcamp 转 MP3"
+    },
+    "schema": {
+      "name": "Bandcamp 转 MP3",
+      "description": "使用这个免费的 Bandcamp 转 MP3 工具来检查 Bandcamp 单曲链接、提取暴露出的 MP3 链接、试听歌曲，并在可用时下载。",
+      "featureList": [
+        "Bandcamp 单曲链接检查",
+        "MP3 链接提取",
+        "曲目信息预览",
+        "Bandcamp MP3 下载代理"
+      ],
+      "browserRequirements": "需要启用 JavaScript 的现代浏览器。",
+      "faqItems": [
+        {
+          "question": "这个 Bandcamp 转 MP3 工具会转换音频吗？",
+          "answer": "不会。它只是从 Bandcamp 单曲页中提取 MP3 链接，前提是 Bandcamp 暴露了这个链接。它不会重新编码文件。"
+        },
+        {
+          "question": "它也支持专辑吗？",
+          "answer": "这个页面只针对单个 Bandcamp 单曲链接做了优化。专辑相关流程更适合使用专门的 Bandcamp 专辑下载器。"
+        },
+        {
+          "question": "为什么 MP3 链接会过期？",
+          "answer": "Bandcamp 媒体链接可能包含时间参数。如果链接过期，重新获取曲目即可拿到新的链接。"
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "首页",
+      "tools": "工具",
+      "current": "Bandcamp 转 MP3"
+    }
+  },
+  "BandcampAlbumDownloader": {
+    "badge": "Bandcamp 专辑下载器",
+    "updated": "更新于 {date}",
+    "hero": {
+      "title": "通过一个以发行页为核心的流程检查 Bandcamp 专辑链接",
+      "quickAnswerLabel": "快速说明：",
+      "quickAnswerBody": "粘贴一个 Bandcamp 专辑链接，即可查看发行摘要、曲目行、商品格式以及所有暴露出来的音频链接。"
+    },
+    "facts": [
+      {
+        "label": "定位",
+        "value": "仅专辑",
+        "description": "它围绕发行页设计，而不是单曲 MP3 提取。"
+      },
+      {
+        "label": "基于",
+        "value": "getAlbumInfo",
+        "description": "它使用与 Bandcamp 专辑发行页天然对应的专辑接口。"
+      },
+      {
+        "label": "输入",
+        "value": "仅专辑链接",
+        "description": "通过要求输入一个直接的 Bandcamp 专辑链接，而不是依赖搜索抓取，这个流程会更稳定。"
+      },
+      {
+        "label": "使用预期",
+        "value": "不伪装整张抓取",
+        "description": "这个工具只展示 Bandcamp 在专辑响应中真实暴露出来的媒体链接。"
+      }
+    ],
+    "errors": {
+      "requestFailed": "Bandcamp 请求失败",
+      "resolveAlbumUrlFailed": "无法解析这个 Bandcamp 专辑链接",
+      "invalidMediaUrl": "请输入一个以 http 或 https 开头的有效 Bandcamp 媒体链接。",
+      "expiredMediaLink": "这个 Bandcamp 媒体链接已过期。请刷新专辑信息后再试。"
+    },
+    "workflow": {
+      "eyebrow": "核心流程",
+      "title": "粘贴一个 Bandcamp 专辑链接",
+      "description": "这个页面只保留一个专辑流程在首屏：输入专辑链接，输出发行内容上下文。",
+      "inputLabel": "Bandcamp 专辑链接",
+      "inputPlaceholder": "https://artist.bandcamp.com/album/release-name",
+      "actionHint": {
+        "valid": "先检查发行页，再在同一页面里浏览曲目、格式和暴露出来的媒体链接。",
+        "invalid": "这看起来还不是一个有效的 Bandcamp 专辑链接。请粘贴完整的 `/album/...` 链接继续。",
+        "empty": "请粘贴一个 Bandcamp 专辑链接，以启用发行摘要、曲目列表和专辑媒体区域。"
+      },
+      "emptyState": "成功获取后，这张卡片会展示专辑封面、发行摘要、商品格式、曲目行、暴露出来的媒体链接，以及折叠后的原始响应数据。",
+      "primaryAction": "主操作",
+      "loadedState": "已加载专辑链接",
+      "waitingState": "等待专辑链接",
+      "manualHint": "粘贴有效的 Bandcamp 专辑链接后会自动加载发行信息。如果你是手动输入，可以按 Enter 或使用上方同一区块里的按钮。",
+      "scopeNotePrefix": "这里只处理专辑页面。单曲页面请使用",
+      "scopeNoteLink": "Bandcamp to MP3",
+      "scopeNoteSuffix": "。"
+    },
+    "actions": {
+      "paste": "粘贴",
+      "pasting": "正在粘贴...",
+      "inspectAlbum": "检查专辑",
+      "inspectingAlbum": "正在检查专辑...",
+      "tryExampleAlbum": "试试示例专辑"
+    },
+    "result": {
+      "albumCover": "专辑封面",
+      "noCoverArt": "无封面图",
+      "albumSummaryFallback": "专辑摘要",
+      "artist": "艺术家",
+      "releaseDate": "发行日期",
+      "tracks": "曲目",
+      "productFormats": "商品格式",
+      "unknown": "未知",
+      "openBandcampAlbum": "打开 Bandcamp 专辑页",
+      "backToHub": "返回 Bandcamp 工具中心",
+      "trackRows": "曲目行",
+      "trackCount": "{count} 首曲目",
+      "durationNotExposed": "未暴露时长",
+      "downloadTrack": "下载曲目",
+      "openRawAudio": "打开原始音频",
+      "audioUnsupported": "你的浏览器不支持音频播放。",
+      "noPlayableTrackUrl": "这个曲目行没有暴露可播放的曲目链接。",
+      "trackNotes": "曲目备注 / 歌词",
+      "noTrackRows": "这个专辑响应中没有暴露任何曲目行。",
+      "showFewerTracks": "收起部分曲目",
+      "showMoreTracks": "再显示 {count} 首曲目",
+      "longTrackListHint": "较长的曲目列表默认保持折叠，以便在移动端保持更轻量。",
+      "rawAlbumPayload": "专辑原始响应"
+    },
+    "aside": {
+      "useCasesTitle": "实际使用场景",
+      "useCases": [
+        "当你已经拿到一个 Bandcamp 专辑或发行页链接时，就适合用这个页面。",
+        "当你想在同一个发行级视图里看到商品格式、曲目行和媒体链接时，也适合用它。",
+        "如果你需要先看专辑上下文，再决定暴露出来的媒体链接有没有用，这个页面也很合适。"
+      ],
+      "whyTitle": "为什么这个页面更易用",
+      "whyItems": [
+        "无论移动端还是桌面端，首屏都只有一个清晰的专辑流程。",
+        "没有搜索状态或不稳定的发现式抓取来干扰专辑检查流程。",
+        "专辑摘要、商品信息和曲目行都放在同一个地方，不会被拆到多个标签里。",
+        "原始 JSON 仍然为高级用户保留，但被收纳在详情区域中。"
+      ],
+      "expectTitle": "你可以期待什么",
+      "expectItems": [
+        {
+          "title": "以发行页为起点的流程",
+          "body": "先粘贴专辑链接并检查发行信息，再决定是否继续处理具体曲目或下载。"
+        },
+        {
+          "title": "只显示直接媒体",
+          "body": "工具只展示 Bandcamp 在专辑响应中真实暴露出来的可播放或可下载链接。"
+        },
+        {
+          "title": "边界清晰",
+          "body": "单曲 MP3 提取仍然交给专门的单曲工具处理，因此这个专辑页能保持聚焦，也更容易扫读。"
+        }
+      ]
+    },
+    "seo": {
+      "title": "这个 Bandcamp 专辑下载器是做什么的",
+      "body1": "这个页面专门服务于一个发行级任务：粘贴 Bandcamp 专辑链接、查看专辑摘要、检查曲目行和商品格式，并在不混入艺术家页或标签页流程的前提下，下载所有暴露出来的媒体链接。",
+      "body2": "它的目标是清晰，而不是假装每个专辑页都会以同样的方式工作。如果 Bandcamp 暴露了可播放或可下载的链接，工具就会把它们展示出来；如果没有，页面依然会提供干净的专辑摘要和发行信息上下文。",
+      "coreFactsTitle": "核心信息",
+      "coreFacts": [
+        {
+          "label": "主要输入",
+          "value": "一个 Bandcamp 专辑链接。"
+        },
+        {
+          "label": "主要输出",
+          "value": "专辑摘要、曲目行、商品格式，以及暴露出来的媒体链接。"
+        },
+        {
+          "label": "最适合的场景",
+          "value": "查看发行页级别的信息，而不是转换单曲 MP3。"
+        },
+        {
+          "label": "性能策略",
+          "value": "先展示主专辑卡片，再展示辅助内容，长篇 SEO 内容延后加载。"
+        }
+      ],
+      "howToUseTitle": "如何使用",
+      "howToUseSteps": [
+        "将 Bandcamp 专辑链接粘贴到主流程中并获取发行信息。",
+        "在决定下一步之前，先查看摘要、曲目行和可用商品格式。",
+        "如果 Bandcamp 返回了暴露出来的音频链接，你可以直接下载；或者打开原始专辑页查看完整上下文。"
+      ],
+      "stepLabel": "第 {index} 步",
+      "practicalUseCasesTitle": "实际使用场景",
+      "practicalUseCases": [
+        "你已经拿到了 Bandcamp 专辑链接，并希望在下载前先看发行摘要。",
+        "你想在一个地方对比商品格式、曲目行以及可播放链接。",
+        "你希望获得一个专注于发行页的视图，而不是混入单曲 MP3 提取或额外流程切换。"
+      ],
+      "faqTitle": "Bandcamp 专辑下载器常见问题",
+      "faqItems": [
+        {
+          "question": "这个 Bandcamp 专辑下载器是做什么的？",
+          "answer": "它专门用于处理 Bandcamp 专辑链接。页面会检查发行元数据、列出专辑商品、展示曲目行，并在 Bandcamp 返回媒体链接时把它们展示出来。"
+        },
+        {
+          "question": "它会自动抓取整张专辑吗？",
+          "answer": "不会。它读取的是 `bandcamp-scraper` 暴露出来的公开专辑响应。有些专辑只返回元数据或试听链接，有些则会暴露可用的媒体链接。"
+        },
+        {
+          "question": "为什么它和 Bandcamp 转 MP3 是分开的？",
+          "answer": "因为专辑页和单曲页本来就是两类不同任务。专辑工具针对发行页检查做了优化，而 Bandcamp 转 MP3 则只聚焦单曲提取。"
+        },
+        {
+          "question": "专辑媒体链接会过期吗？",
+          "answer": "会。有些 Bandcamp 媒体链接带有时间参数，因此你可能需要重新获取一次专辑信息，才能拿到新的链接。"
+        }
+      ],
+      "usageTitle": "使用与权利说明",
+      "usageBody": "请负责任地使用专辑下载功能。只有在你拥有相关权利、获得艺术家许可，或源页面明确允许时，才应保存这些发行内容。"
+    },
+    "metadata": {
+      "title": "Bandcamp 专辑下载器：在线检查专辑页和暴露出来的音频链接",
+      "description": "使用这个免费的 Bandcamp 专辑下载器来检查 Bandcamp 专辑链接、查看发行元数据、曲目行与商品格式，并在可用时下载暴露出来的音频链接。",
+      "keywords": [
+        "bandcamp 专辑下载器",
+        "下载 bandcamp 专辑",
+        "bandcamp 专辑链接",
+        "bandcamp 专辑曲目",
+        "bandcamp 专辑检查器"
+      ],
+      "openGraphImageAlt": "GeeksKai 的 Bandcamp 专辑下载器"
+    },
+    "schema": {
+      "name": "Bandcamp 专辑下载器",
+      "description": "使用这个免费的 Bandcamp 专辑下载器来检查 Bandcamp 专辑链接、查看发行元数据、曲目行与商品格式，并在可用时下载暴露出来的音频链接。",
+      "featureList": [
+        "Bandcamp 专辑链接检查",
+        "专辑曲目行提取",
+        "专辑商品格式列表",
+        "暴露音频链接下载"
+      ],
+      "browserRequirements": "需要启用 JavaScript 的现代浏览器。",
+      "faqItems": [
+        {
+          "question": "这个 Bandcamp 专辑下载器会做什么？",
+          "answer": "它会检查 Bandcamp 专辑链接，返回专辑元数据、曲目行、商品格式，并在原始响应中包含媒体链接时把它们展示出来。"
+        },
+        {
+          "question": "它也适用于单曲吗？",
+          "answer": "这个页面是为专辑链接优化的。如果你想提取单曲 MP3，请使用专门的 Bandcamp 转 MP3 工具。"
+        },
+        {
+          "question": "为什么专辑媒体链接会过期？",
+          "answer": "Bandcamp 媒体链接可能包含时间参数。如果链接过期，重新获取一次专辑即可得到新的链接。"
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "首页",
+      "tools": "工具",
+      "current": "Bandcamp 专辑下载器"
+    }
+  },
+  "BandcampToolsHub": {
+    "badge": "Bandcamp 工具中心",
+    "updated": "更新于 {date}",
+    "hero": {
+      "title": "与其使用一个臃肿的下载器，不如在两个聚焦型 Bandcamp 工具之间做选择"
+    },
+    "facts": [
+      {
+        "label": "当前结构",
+        "value": "两个稳定工具",
+        "description": "一个页面处理单曲 MP3 提取，另一个页面处理专辑发行级检查。"
+      },
+      {
+        "label": "原因",
+        "value": "更低认知负担",
+        "description": "用户不再需要在开始前先分辨一堆无关流程。"
+      },
+      {
+        "label": "简单功能",
+        "value": "智能 URL 路由",
+        "description": "在这里粘贴一个 Bandcamp 链接，就能自动跳到正确的工具。"
+      },
+      {
+        "label": "最适合",
+        "value": "移动端清晰度",
+        "description": "更小的工具让首屏更聚焦、更轻、更适合在手机上快速扫读。"
+      }
+    ],
+    "actions": {
+      "paste": "粘贴",
+      "pasting": "正在粘贴...",
+      "tryTrackExample": "试试示例单曲",
+      "tryAlbumExample": "试试示例专辑"
+    },
+    "router": {
+      "eyebrow": "快速开始",
+      "title": "粘贴一个 Bandcamp 链接并跳到正确工具",
+      "description": "这个工具中心现在只负责一件很实用的事：识别你的 Bandcamp 链接是单曲页还是专辑页，然后把你带到对应流程，并自动填好链接。",
+      "inputLabel": "Bandcamp 单曲或专辑链接",
+      "inputPlaceholder": "https://artist.bandcamp.com/track/... or /album/...",
+      "cta": {
+        "track": "打开 Bandcamp 转 MP3",
+        "album": "打开 Bandcamp 专辑下载器",
+        "default": "打开正确工具"
+      },
+      "hint": {
+        "track": "已识别为单曲链接。你将被带到 MP3 流程。",
+        "album": "已识别为专辑链接。你将被带到专辑流程。",
+        "invalid": "这个链接当前还不是受支持的 Bandcamp 单曲或专辑链接。请粘贴完整的 `/track/...` 或 `/album/...` 链接。",
+        "empty": "请粘贴一个 Bandcamp 单曲或专辑链接，以启用智能路由。"
+      },
+      "errors": {
+        "empty": "请先粘贴一个 Bandcamp 单曲或专辑链接。",
+        "invalid": "请输入一个以 https:// 开头并且指向 Bandcamp 的有效链接。",
+        "unsupported": "这个轻量入口当前会把单曲链接路由到 Bandcamp 转 MP3，把专辑链接路由到 Bandcamp 专辑下载器。",
+        "clipboardUnavailable": "当前浏览器不支持读取剪贴板，请手动粘贴链接。",
+        "clipboardFailed": "无法读取剪贴板，请手动粘贴 Bandcamp 链接。"
+      },
+      "detectionLabel": "识别结果",
+      "detection": {
+        "track": "单曲链接",
+        "album": "专辑链接",
+        "waiting": "等待有效链接"
+      },
+      "boundaryNote": "单曲链接会打开 `Bandcamp 转 MP3`。专辑链接会打开 `Bandcamp 专辑下载器`。艺术家页或厂牌页不会从这个轻量入口自动跳转。",
+      "pasteHint": "粘贴后输入框会立即填充。如果链接受支持，下方的路由按钮会直接可用。"
+    },
+    "toolMap": {
+      "eyebrow": "工具地图",
+      "title": "选择最适合当前任务的小工具",
+      "description": "旧版 Bandcamp 下载器把太多任务混在了一起。现在这个入口只做一件更简单的事：把用户送到正确的聚焦页面，无论是单曲 MP3 提取还是专辑检查。",
+      "openTool": "打开工具"
+    },
+    "toolCards": [
+      {
+        "title": "Bandcamp 转 MP3",
+        "href": "/tools/bandcamp-to-mp3",
+        "status": "现已可用",
+        "description": "最适合处理单个单曲链接，目标很明确：检查曲目、提取 MP3 链接并下载。"
+      },
+      {
+        "title": "Bandcamp 专辑下载器",
+        "href": "/tools/bandcamp-album-downloader",
+        "status": "现已可用",
+        "description": "专门处理专辑链接、发行摘要、商品格式、曲目列表以及专辑响应中暴露出来的音频链接。"
+      }
+    ],
+    "content": {
+      "whyTitle": "为什么拆分 Bandcamp 工具是更好的产品决策",
+      "reasons": [
+        "单曲 MP3 提取和专辑检查会带来完全不同的用户预期，因此它们适合使用不同的页面结构。",
+        "更小的工具可以降低布局复杂度，并提升移动端首屏可理解性。",
+        "每条路由现在都服务于更明确的 SEO 意图，而不是同时与无关的 Bandcamp 场景互相竞争。"
+      ],
+      "reasonLabel": "原因 {index}",
+      "faqTitle": "Bandcamp 工具常见问题",
+      "faqItems": [
+        {
+          "question": "这还是原来的 Bandcamp 主下载页吗？",
+          "answer": "现在它已经变成 Bandcamp 工具中心。真正的核心交互被拆到了两个更小、更专门的工具里。"
+        },
+        {
+          "question": "如果我只想处理一首歌，应该用哪个工具？",
+          "answer": "如果你的目标是一个单曲链接和一个 MP3 下载流程，请使用 Bandcamp 转 MP3。"
+        },
+        {
+          "question": "如果我要处理发行页或专辑页，应该用哪个工具？",
+          "answer": "如果你的输入是专辑链接，并且你需要发行详情、格式、曲目和暴露出来的媒体链接，请使用 Bandcamp 专辑下载器。"
+        },
+        {
+          "question": "为什么还要保留这个入口页？",
+          "answer": "因为它能让用户先快速理解每个 Bandcamp 工具是做什么的，而不是一开始就被带进错误流程。"
+        }
+      ]
+    },
+    "seo": {
+      "title": "这个 Bandcamp 下载工具入口到底是做什么的",
+      "body1": "这个工具建立在 `bandcamp-scraper` 之上，因此它最强的能力其实是基于链接的检查：包括专辑页、单曲页，以及响应中出现的直接音频链接。",
+      "body2": "这次重设计的目标之一，就是让用户预期更准确。页面不再假装所有 Bandcamp 页面都能直接下载，而是明确区分元数据检查、发行页浏览，以及 Bandcamp 暴露可播放链接时的直接媒体下载。",
+      "coreFactsTitle": "核心信息",
+      "coreFacts": [
+        {
+          "label": "价格",
+          "value": "免费使用。"
+        },
+        {
+          "label": "主要输入",
+          "value": "Bandcamp 单曲链接和专辑链接。"
+        },
+        {
+          "label": "主要输出",
+          "value": "标准化摘要、商品列表、发行页链接，以及可下载的媒体链接（如有）。"
+        },
+        {
+          "label": "最适合",
+          "value": "已经拿到 Bandcamp 链接，并想快速找到正确工具的用户。"
+        }
+      ],
+      "useCasesTitle": "实际使用场景",
+      "useCases": [
+        {
+          "title": "检查单个 Bandcamp 曲目",
+          "description": "当你已经有一个单曲链接，并想先看元数据、确认播放链接，再决定是否下载暴露出的媒体链接时，这个场景最适合。"
+        },
+        {
+          "title": "比较两个聚焦流程",
+          "description": "当你需要判断当前任务究竟是下载单曲 MP3，还是检查整张专辑时，这个入口会很有帮助。"
+        },
+        {
+          "title": "检查单张 Bandcamp 专辑",
+          "description": "当你已经有专辑链接，并希望在一个页面里看到曲目行、发行上下文、商品格式和暴露音频链接时，这个场景最合适。"
+        },
+        {
+          "title": "把用户带到稳定工具集合中",
+          "description": "如果第一步就是先判断用户该用单曲工具还是专辑工具，这个入口就会非常有价值。"
+        }
+      ],
+      "workflowTitle": "重设计后的流程是怎样运作的",
+      "workflowSteps": [
+        "只有当你需要在单曲工具和专辑工具之间做判断时，才从这个入口页开始。",
+        "然后跳转到专门的单曲页来提取 MP3，或跳转到专门的专辑页做发行级检查。",
+        "下载只通过已验证的 Bandcamp 媒体链接进行，同时配合更干净的验证逻辑和更强的后端约束。"
+      ],
+      "stepLabel": "第 {index} 步",
+      "faqTitle": "Bandcamp 下载器常见问题",
+      "faqItems": [
+        {
+          "question": "这是一个全能型 Bandcamp 下载器吗？",
+          "answer": "不完全是。底层 npm 库本质上更偏向抓取器。它会检查公开的 Bandcamp 页面、返回元数据，并在某些情况下暴露可播放或可下载的媒体链接，但它并不是一个完整的专辑抓取工具。"
+        },
+        {
+          "question": "为什么要把产品重构成先检查链接的方式？",
+          "answer": "因为大多数 Bandcamp 用户都是从别人分享的链接开始操作的。一个智能链接输入框可以减少决策疲劳，也避免一上来就展示一堆技术面板，更符合真实用户行为。"
+        },
+        {
+          "question": "API 设计上发生了什么变化？",
+          "answer": "现在的 API 暴露的是更高层级的产品动作，例如链接检查、单曲 MP3 提取和专辑下载检查。它会执行更严格的链接校验，并为前端返回标准化数据。"
+        },
+        {
+          "question": "为什么还保留原始响应数据？",
+          "answer": "因为高级用户仍然需要透明度。重设计后的界面把原始 JSON 收在可展开面板里，这样既能保持页面对普通用户足够干净，也不会失去调试价值。"
+        }
+      ],
+      "usageTitle": "使用与权利说明",
+      "usageBody": "请负责任地使用这个工具。检查公开元数据是一回事，下载音乐是另一回事。只有在你拥有权利、获得创作者许可，或源页面明确允许时，才应保存或归档这些发行内容。"
+    },
+    "metadata": {
+      "title": "Bandcamp 工具中心：为单曲和专辑选择正确的 Bandcamp 工具",
+      "description": "使用这个免费的 Bandcamp 工具中心，为单曲 MP3 提取或专辑检查选择更聚焦的处理流程。",
+      "keywords": [
+        "bandcamp 下载器",
+        "下载 bandcamp 单曲",
+        "bandcamp 单曲下载器",
+        "bandcamp 专辑下载器",
+        "bandcamp 工具中心"
+      ],
+      "openGraphImageAlt": "GeeksKai 的 Bandcamp 下载器"
+    },
+    "schema": {
+      "name": "Bandcamp 工具中心",
+      "description": "使用这个免费的 Bandcamp 工具中心，为单曲 MP3 提取或专辑检查选择更聚焦的处理流程。",
+      "featureList": [
+        "Bandcamp 流程选择器",
+        "Bandcamp 转 MP3 工具入口",
+        "Bandcamp 专辑下载器入口",
+        "更聚焦、移动优先的 Bandcamp 工具导航"
+      ],
+      "browserRequirements": "需要启用 JavaScript 的现代浏览器。",
+      "faqItems": [
+        {
+          "question": "这个 Bandcamp 工具中心是做什么的？",
+          "answer": "它帮助用户选择正确的聚焦型 Bandcamp 工具，而不是把所有 Bandcamp 任务都塞进一个臃肿页面里。"
+        },
+        {
+          "question": "为什么要把旧的 Bandcamp 下载器拆成更小的工具？",
+          "answer": "因为单曲流程和专辑流程有不同的输入和预期。更小的工具更容易使用，也更容易匹配清晰的搜索意图。"
+        },
+        {
+          "question": "如果我只想处理一首歌，应该用哪个工具？",
+          "answer": "当你有一个 Bandcamp 单曲链接，并且想走一个专门的 MP3 提取流程时，请使用 Bandcamp 转 MP3。"
+        },
+        {
+          "question": "如果我要处理专辑页，应该用哪个工具？",
+          "answer": "当你的输入是 Bandcamp 专辑链接，并且你需要发行详情、格式、曲目行和暴露音频链接时，请使用 Bandcamp 专辑下载器。"
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "首页",
+      "tools": "工具",
+      "current": "Bandcamp 工具中心"
     }
   }
 }

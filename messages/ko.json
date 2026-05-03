@@ -8749,5 +8749,669 @@
       "itemlist_7": "5 .....",
       "itemlist_8": "0 -----"
     }
+  },
+  "BandcampToMp3": {
+    "badge": "Bandcamp to MP3",
+    "updated": "{date} 업데이트",
+    "hero": {
+      "title": "Bandcamp 트랙 URL에서 MP3를 하나의 집중된 흐름으로 추출",
+      "quickAnswerLabel": "빠른 답변:",
+      "quickAnswerBody": "Bandcamp 트랙 URL을 붙여넣으면 `bandcamp-scraper` 로 노출된 MP3 소스를 추출하고, 트랙 메타데이터를 미리 본 뒤, Bandcamp가 실제로 MP3를 반환할 때 다운로드할 수 있습니다."
+    },
+    "facts": [
+      {
+        "label": "집중 대상",
+        "value": "트랙 전용",
+        "description": "이 페이지는 아티스트나 앨범 탐색이 아니라 단일 트랙 MP3 추출에 최적화되어 있습니다."
+      },
+      {
+        "label": "기반 기능",
+        "value": "getTrackInfo",
+        "description": "기반 npm 패키지는 입력이 Bandcamp 트랙 페이지일 때 가장 안정적으로 동작합니다."
+      },
+      {
+        "label": "입력",
+        "value": "트랙 URL만",
+        "description": "검색 결과를 스크래핑하는 대신 Bandcamp 트랙 URL 하나만 받기 때문에 더 안정적입니다."
+      },
+      {
+        "label": "빠른 동작",
+        "value": "원클릭 다운로드",
+        "description": "Bandcamp가 기본 MP3를 노출하면 한 번에 추출하고 다운로드할 수 있습니다."
+      }
+    ],
+    "errors": {
+      "requestFailed": "Bandcamp 요청에 실패했습니다",
+      "resolveTrackUrlFailed": "이 Bandcamp 트랙 URL을 확인할 수 없습니다",
+      "noMp3Link": "이 트랙은 메타데이터를 반환했지만 현재 MP3 링크는 노출되지 않았습니다.",
+      "invalidMp3Url": "http 또는 https로 시작하는 유효한 MP3 URL을 입력하세요.",
+      "expiredMediaLink": "이 Bandcamp 미디어 링크는 만료되었습니다. 트랙 정보를 새로고침한 뒤 다시 시도하세요."
+    },
+    "workflow": {
+      "eyebrow": "메인 흐름",
+      "title": "Bandcamp 트랙 URL 붙여넣기",
+      "description": "이 페이지는 Bandcamp 트랙 URL을 넣고 MP3 링크를 얻는 가장 짧은 성공 경로에 의도적으로 집중합니다.",
+      "quickInput": "빠른 입력",
+      "loadedState": "트랙 URL 불러옴",
+      "waitingState": "트랙 URL 대기 중",
+      "inputLabel": "Bandcamp 트랙 URL",
+      "inputPlaceholder": "https://artist.bandcamp.com/track/song-name",
+      "actionHint": {
+        "valid": "먼저 MP3 링크 보기를 눌러 확인하거나, 파일만 필요하면 바로 다운로드할 수 있습니다.",
+        "invalid": "아직 Bandcamp 트랙 URL로 보이지 않습니다. 계속하려면 전체 `/track/...` 링크를 붙여넣으세요.",
+        "empty": "Bandcamp 트랙 URL 하나를 붙여넣으면 미리보기와 원클릭 다운로드를 모두 사용할 수 있습니다."
+      },
+      "manualHint": "유효한 Bandcamp 트랙 URL을 붙여넣으면 결과가 자동으로 로드됩니다. 직접 입력할 경우 Enter를 누르거나 같은 블록의 버튼을 사용하세요.",
+      "scopeNotePrefix": "여기서는 단일 트랙 URL만 사용하세요. 앨범과 아티스트 페이지는 의도적으로 범위 밖입니다. 앨범 페이지는",
+      "scopeNoteLink": "Bandcamp Album Downloader",
+      "scopeNoteSuffix": "를 사용하세요.",
+      "emptyState": "트랙이 로드되면 아트워크, 제목, MP3 소스, 다운로드 동작이 같은 카드 안에 표시됩니다. 탭이나 모드를 바꿀 필요가 없습니다. 단계 수를 줄이고 싶다면 위의 원클릭 다운로드 버튼을 사용하세요."
+    },
+    "actions": {
+      "paste": "붙여넣기",
+      "pasting": "붙여넣는 중...",
+      "getMp3Link": "MP3 링크 가져오기",
+      "extractingMp3": "MP3 추출 중...",
+      "extractAndDownloadMp3": "MP3 추출 후 다운로드",
+      "preparingDownload": "다운로드 준비 중...",
+      "tryExampleTrack": "예시 트랙 사용"
+    },
+    "result": {
+      "noCoverArt": "커버 이미지 없음",
+      "trackSummaryFallback": "트랙 요약",
+      "artist": "아티스트",
+      "album": "앨범",
+      "duration": "길이",
+      "releaseDate": "발매일",
+      "audioUnsupported": "이 브라우저는 오디오 재생을 지원하지 않습니다.",
+      "downloadMp3": "MP3 다운로드",
+      "openBandcampTrack": "Bandcamp 트랙 열기",
+      "noMp3Exposed": "이 트랙은 메타데이터를 반환했지만 현재 응답에 MP3 링크가 노출되지 않았습니다.",
+      "moreMp3SourceLinks": "추가 MP3 소스 링크",
+      "downloadThisMp3": "이 MP3 다운로드",
+      "openRawMp3": "원본 MP3 열기"
+    },
+    "aside": {
+      "useCasesTitle": "실용적인 사용 사례",
+      "useCases": [
+        "이미 누군가가 Bandcamp 트랙 링크를 보내준 경우 이 페이지를 사용하세요.",
+        "트랙 페이지 하나에서 다운로드 가능한 MP3 링크 하나까지 가장 간단한 경로가 필요할 때 적합합니다.",
+        "다운로드 전에 트랙 메타데이터와 미리듣기를 확인하고 싶을 때도 유용합니다."
+      ],
+      "whyTitle": "이 레이아웃이 더 쉬운 이유",
+      "whyItems": [
+        "모바일과 데스크톱 모두 첫 화면에 분명한 핵심 동작이 하나만 있습니다.",
+        "검색 상태, 결과 필터링, 불필요한 탐색 분기가 핵심 작업을 방해하지 않습니다.",
+        "성공 후 바로 다운로드로 이어져 사용자가 원시 JSON을 읽을 필요가 없습니다.",
+        "보조 설명은 흐름을 설명하지만 메인 URL 입력 폼을 아래로 밀어내지 않습니다."
+      ],
+      "expectTitle": "기대할 수 있는 점",
+      "expectItems": [
+        {
+          "title": "안정적인 입력",
+          "body": "Bandcamp 트랙 URL을 직접 붙여넣으세요. 이 도구는 더 이상 Bandcamp 검색 페이지에 의존하지 않습니다."
+        },
+        {
+          "title": "투명한 결과",
+          "body": "Bandcamp가 MP3 URL을 노출하면 바로 볼 수 있습니다. 노출하지 않더라도 트랙 요약과 원본 페이로드는 확인할 수 있습니다."
+        },
+        {
+          "title": "안정적인 다운로드 흐름",
+          "body": "다운로드는 계속 검증된 프록시 경로를 거치므로, 안전하지 않은 직접 링크 동작을 피할 수 있습니다."
+        }
+      ]
+    },
+    "seo": {
+      "title": "이 Bandcamp to MP3 도구가 하도록 설계된 일",
+      "body1": "이 페이지는 하나의 실용적인 작업에 최적화되어 있습니다. 유효한 Bandcamp 트랙 URL을 받아 `bandcamp-scraper` 로 확인하고, Bandcamp가 MP3 링크를 노출하면 이를 보여주며, 올바른 파일명으로 다운로드할 수 있게 합니다. 먼저 결과를 확인해도 되고, 원클릭 다운로드를 바로 사용해도 됩니다.",
+      "body2": "이 설계는 전체 Bandcamp downloader보다 의도적으로 더 좁은 범위에 집중합니다. 그래서 페이지를 이해하기 쉽고, 모바일에서도 빠르게 훑어볼 수 있으며, 단일 트랙 페이지의 MP3만 원하는 사용자에게 더 직접적입니다.",
+      "coreFactsTitle": "핵심 정보",
+      "coreFacts": [
+        {
+          "label": "주요 입력",
+          "value": "Bandcamp 트랙 URL."
+        },
+        {
+          "label": "주요 출력",
+          "value": "노출된 MP3 링크와 바로 다운로드 가능한 파일명."
+        },
+        {
+          "label": "가장 적합한 용도",
+          "value": "전체 디스코그래피 탐색이 아니라 단일 곡 다운로드 흐름."
+        },
+        {
+          "label": "성능 전략",
+          "value": "먼저 메인 카드 하나를 보여주고, 긴 본문은 뒤로 미루며, 무거운 미디어는 필요할 때만 로드합니다."
+        }
+      ],
+      "howToUseTitle": "사용 방법",
+      "howToUseSteps": [
+        "메인 입력창에 Bandcamp 트랙 URL을 붙여넣고 트랙 정보를 가져옵니다.",
+        "추출된 메타데이터를 먼저 확인하거나, 원클릭 동작으로 바로 다운로드로 이동할 수 있습니다.",
+        "기본 MP3 링크를 다운로드하거나, Bandcamp가 여러 옵션을 반환했을 경우 다른 노출 링크를 선택하세요."
+      ],
+      "stepLabel": "{index}단계",
+      "practicalUseCasesTitle": "실용적인 사용 사례",
+      "practicalUseCases": [
+        "친구가 Bandcamp 트랙 링크를 보내왔고, 가능한 한 단순한 MP3 흐름이 필요할 때.",
+        "무언가를 다운로드하기 전에 아티스트, 제목, 앨범을 확인해야 할 때.",
+        "페이지 전체를 디버그 화면으로 만들지 않고 트랙 원본 페이로드만 보고 싶을 때."
+      ],
+      "faqTitle": "Bandcamp to MP3 FAQ",
+      "faqItems": [
+        {
+          "question": "이 Bandcamp to MP3 도구는 파일을 변환하나요?",
+          "answer": "정확히는 아닙니다. 오디오를 다시 인코딩하지 않습니다. `bandcamp-scraper` 를 통해 Bandcamp 트랙 페이지를 읽고, Bandcamp가 MP3 링크를 노출한 경우에만 다운로드합니다."
+        },
+        {
+          "question": "왜 이 도구는 트랙 URL에만 집중하나요?",
+          "answer": "기반 라이브러리에서 가장 신뢰할 수 있는 MP3 흐름이 그것이기 때문입니다. 앨범 페이지와 아티스트 페이지는 다른 작업이므로, 이 페이지는 직접적인 트랙 URL에만 집중합니다."
+        },
+        {
+          "question": "왜 이 페이지에는 더 이상 검색 도우미가 없나요?",
+          "answer": "Bandcamp 검색 스크래핑이 직접 URL을 확인하는 것보다 안정성이 낮기 때문입니다. 이 페이지는 이제 더 짧고 신뢰할 수 있는 트랙 URL 흐름을 우선합니다."
+        },
+        {
+          "question": "왜 MP3 링크가 만료될 수 있나요?",
+          "answer": "Bandcamp 미디어 URL에는 시간 기반 파라미터가 포함될 수 있습니다. 링크가 만료되면 트랙을 다시 불러와 새 MP3 URL을 요청하세요."
+        }
+      ],
+      "usageTitle": "이용과 권리",
+      "usageBody": "책임 있게 다운로드하세요. 권리를 보유하고 있거나, 아티스트의 허가가 있거나, 원본 페이지에서 해당 사용을 명확히 허용하는 경우에만 MP3를 저장하세요."
+    },
+    "metadata": {
+      "title": "Bandcamp to MP3: Bandcamp 트랙 URL에서 온라인으로 MP3 추출",
+      "description": "이 무료 Bandcamp to MP3 도구로 Bandcamp 트랙 URL을 확인하고, 노출된 MP3 링크를 추출하고, 곡을 미리 듣고, 가능할 때 다운로드하세요.",
+      "keywords": [
+        "bandcamp to mp3",
+        "bandcamp mp3 downloader",
+        "download bandcamp mp3",
+        "bandcamp track to mp3",
+        "bandcamp song downloader"
+      ],
+      "openGraphImageAlt": "GeeksKai의 Bandcamp to MP3"
+    },
+    "schema": {
+      "name": "Bandcamp to MP3",
+      "description": "이 무료 Bandcamp to MP3 도구로 Bandcamp 트랙 URL을 확인하고, 노출된 MP3 링크를 추출하고, 곡을 미리 듣고, 가능할 때 다운로드하세요.",
+      "featureList": [
+        "Bandcamp 트랙 URL 확인",
+        "MP3 링크 추출",
+        "트랙 메타데이터 미리보기",
+        "Bandcamp MP3 다운로드 프록시"
+      ],
+      "browserRequirements": "JavaScript가 활성화된 최신 브라우저가 필요합니다.",
+      "faqItems": [
+        {
+          "question": "이 Bandcamp to MP3 도구는 오디오를 변환하나요?",
+          "answer": "아니요. Bandcamp가 노출한 경우에만 트랙 페이지에서 MP3 링크를 추출합니다. 파일을 다시 인코딩하지 않습니다."
+        },
+        {
+          "question": "앨범에도 작동하나요?",
+          "answer": "이 페이지는 단일 Bandcamp 트랙 URL에 최적화되어 있습니다. 앨범 관련 흐름은 전용 Bandcamp Album Downloader가 더 적합합니다."
+        },
+        {
+          "question": "왜 MP3 링크가 만료될 수 있나요?",
+          "answer": "Bandcamp 미디어 링크에는 시간 기반 파라미터가 포함될 수 있습니다. URL이 만료되면 트랙을 다시 불러와 새 링크를 받으세요."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "홈",
+      "tools": "도구",
+      "current": "Bandcamp to MP3"
+    }
+  },
+  "BandcampAlbumDownloader": {
+    "badge": "Bandcamp Album Downloader",
+    "updated": "{date} 업데이트",
+    "hero": {
+      "title": "Bandcamp 앨범 URL을 하나의 릴리스 중심 흐름으로 확인",
+      "quickAnswerLabel": "빠른 답변:",
+      "quickAnswerBody": "Bandcamp 앨범 URL을 붙여넣으면 릴리스 요약, 트랙 행, 상품 형식, 노출된 오디오 링크를 확인할 수 있습니다. 이 페이지는 앨범 작업에 맞춰 설계되어 예전의 올인원 Bandcamp downloader보다 더 명확합니다."
+    },
+    "facts": [
+      {
+        "label": "집중 대상",
+        "value": "앨범 전용",
+        "description": "단일 트랙 MP3 추출이 아니라 릴리스 페이지를 중심으로 설계되었습니다."
+      },
+      {
+        "label": "기반 기능",
+        "value": "getAlbumInfo",
+        "description": "Bandcamp 릴리스 페이지와 자연스럽게 맞는 앨범 엔드포인트를 사용합니다."
+      },
+      {
+        "label": "입력",
+        "value": "앨범 URL만",
+        "description": "검색 스크래핑에 의존하지 않고 Bandcamp 앨범 URL을 직접 받기 때문에 흐름이 안정적입니다."
+      },
+      {
+        "label": "전제",
+        "value": "가짜 일괄 추출 없음",
+        "description": "이 도구는 Bandcamp가 앨범 페이로드에서 실제로 노출한 미디어 링크만 보여줍니다."
+      }
+    ],
+    "errors": {
+      "requestFailed": "Bandcamp 요청에 실패했습니다",
+      "resolveAlbumUrlFailed": "이 Bandcamp 앨범 URL을 확인할 수 없습니다",
+      "invalidMediaUrl": "http 또는 https로 시작하는 유효한 Bandcamp 미디어 URL을 입력하세요.",
+      "expiredMediaLink": "이 Bandcamp 미디어 링크는 만료되었습니다. 앨범 정보를 새로고침한 뒤 다시 시도하세요."
+    },
+    "workflow": {
+      "eyebrow": "메인 흐름",
+      "title": "Bandcamp 앨범 URL 붙여넣기",
+      "description": "이 페이지는 앨범 URL을 넣고 릴리스 정보를 보는 하나의 앨범 흐름만 첫 화면에 둡니다.",
+      "inputLabel": "Bandcamp 앨범 URL",
+      "inputPlaceholder": "https://artist.bandcamp.com/album/release-name",
+      "actionHint": {
+        "valid": "먼저 릴리스를 확인한 뒤, 같은 페이지에서 트랙, 형식, 노출된 미디어 링크를 살펴보세요.",
+        "invalid": "아직 Bandcamp 앨범 URL로 보이지 않습니다. 계속하려면 전체 `/album/...` 링크를 붙여넣으세요.",
+        "empty": "Bandcamp 앨범 URL 하나를 붙여넣으면 릴리스 요약, 트랙 목록, 앨범 미디어 섹션을 사용할 수 있습니다."
+      },
+      "emptyState": "조회에 성공하면 이 카드에 앨범 커버, 릴리스 요약, 상품 형식, 트랙 행, 노출된 미디어 링크, 그리고 접힌 상태의 원본 페이로드가 표시됩니다.",
+      "primaryAction": "주요 동작",
+      "loadedState": "앨범 URL 불러옴",
+      "waitingState": "앨범 URL 대기 중",
+      "manualHint": "유효한 Bandcamp 앨범 URL을 붙여넣으면 릴리스가 자동으로 로드됩니다. 직접 입력할 경우 Enter를 누르거나 같은 블록의 버튼을 사용하세요.",
+      "scopeNotePrefix": "앨범 페이지 전용입니다. 단일 트랙 URL은",
+      "scopeNoteLink": "Bandcamp to MP3",
+      "scopeNoteSuffix": "를 사용하세요."
+    },
+    "actions": {
+      "paste": "붙여넣기",
+      "pasting": "붙여넣는 중...",
+      "inspectAlbum": "앨범 확인",
+      "inspectingAlbum": "앨범 확인 중...",
+      "tryExampleAlbum": "예시 앨범 사용"
+    },
+    "result": {
+      "albumCover": "앨범 커버",
+      "noCoverArt": "커버 이미지 없음",
+      "albumSummaryFallback": "앨범 요약",
+      "artist": "아티스트",
+      "releaseDate": "발매일",
+      "tracks": "트랙",
+      "productFormats": "상품 형식",
+      "unknown": "알 수 없음",
+      "openBandcampAlbum": "Bandcamp 앨범 열기",
+      "backToHub": "Bandcamp 허브로 돌아가기",
+      "trackRows": "트랙 행",
+      "trackCount": "{count}곡",
+      "durationNotExposed": "길이 정보 없음",
+      "downloadTrack": "트랙 다운로드",
+      "openRawAudio": "원본 오디오 열기",
+      "audioUnsupported": "이 브라우저는 오디오 재생을 지원하지 않습니다.",
+      "noPlayableTrackUrl": "이 트랙 행에는 재생 가능한 트랙 URL이 노출되지 않았습니다.",
+      "trackNotes": "트랙 메모 / 가사",
+      "noTrackRows": "이 앨범 응답에는 트랙 행이 노출되지 않았습니다.",
+      "showFewerTracks": "적게 보기",
+      "showMoreTracks": "{count}곡 더 보기",
+      "longTrackListHint": "긴 트랙 목록은 모바일에서 페이지를 가볍게 유지하기 위해 기본적으로 접혀 있습니다.",
+      "rawAlbumPayload": "앨범 원본 페이로드"
+    },
+    "aside": {
+      "useCasesTitle": "실용적인 사용 사례",
+      "useCases": [
+        "이미 Bandcamp 앨범 또는 릴리스 URL이 있을 때 이 페이지를 사용하세요.",
+        "상품 형식, 트랙 행, 미디어 링크를 하나의 릴리스 단위 화면에서 보고 싶을 때 적합합니다.",
+        "먼저 앨범 맥락을 확인한 뒤 어떤 미디어 링크가 유용한지 판단하고 싶을 때 유용합니다."
+      ],
+      "whyTitle": "이 페이지가 더 쉬운 이유",
+      "whyItems": [
+        "모바일과 데스크톱 모두 첫 화면 위에 분명한 앨범 흐름이 하나만 있습니다.",
+        "검색 상태나 불안정한 탐색 스크래핑이 앨범 확인 흐름과 경쟁하지 않습니다.",
+        "앨범 요약, 상품, 트랙 행이 탭으로 나뉘지 않고 한곳에 유지됩니다.",
+        "원시 JSON은 고급 사용자용으로 남겨두되 details 요소 뒤에 숨겨 두었습니다."
+      ],
+      "expectTitle": "기대할 수 있는 점",
+      "expectItems": [
+        {
+          "title": "릴리스 우선 흐름",
+          "body": "개별 트랙이나 다운로드를 생각하기 전에 먼저 앨범 URL을 붙여넣고 릴리스를 확인하세요."
+        },
+        {
+          "title": "직접 미디어만 표시",
+          "body": "이 도구는 Bandcamp가 앨범 페이로드에서 실제로 노출한 재생 또는 다운로드 가능한 링크만 보여줍니다."
+        },
+        {
+          "title": "명확한 경계",
+          "body": "트랙 MP3 추출은 전용 트랙 도구에 맡기므로, 이 앨범 페이지는 더 집중되고 훑어보기 쉬워집니다."
+        }
+      ]
+    },
+    "seo": {
+      "title": "이 Bandcamp Album Downloader가 하도록 설계된 일",
+      "body1": "이 페이지는 하나의 릴리스 단위 흐름에 최적화되어 있습니다. Bandcamp 앨범 URL을 붙여넣고, 앨범 요약을 확인하고, 트랙 행과 상품 형식을 검토하며, 아티스트나 태그 흐름을 섞지 않은 채 노출된 미디어 링크를 다운로드할 수 있습니다.",
+      "body2": "목표는 모든 앨범 페이지가 똑같이 동작하는 것처럼 보이게 하는 것이 아니라 명확함입니다. Bandcamp가 재생 가능 또는 다운로드 가능한 URL을 노출하면 이를 보여주고, 그렇지 않더라도 깔끔한 앨범 요약과 릴리스 맥락을 제공합니다.",
+      "coreFactsTitle": "핵심 정보",
+      "coreFacts": [
+        {
+          "label": "주요 입력",
+          "value": "Bandcamp 앨범 URL."
+        },
+        {
+          "label": "주요 출력",
+          "value": "앨범 요약, 트랙 행, 상품 형식, 노출된 미디어 링크."
+        },
+        {
+          "label": "가장 적합한 용도",
+          "value": "단일 트랙 MP3 변환이 아니라 릴리스 단위 확인."
+        },
+        {
+          "label": "성능 전략",
+          "value": "먼저 메인 앨범 카드 하나를 보여주고, 보조 콘텐츠는 나중에, 긴 SEO 본문은 지연 로드합니다."
+        }
+      ],
+      "howToUseTitle": "사용 방법",
+      "howToUseSteps": [
+        "Bandcamp 앨범 URL을 메인 흐름에 붙여넣고 릴리스를 가져옵니다.",
+        "무엇이 필요한지 결정하기 전에 요약, 트랙 행, 사용 가능한 상품 형식을 확인하세요.",
+        "Bandcamp가 노출된 오디오 링크를 반환하면 다운로드하고, 전체 릴리스 맥락이 필요하면 원본 앨범 페이지를 여세요."
+      ],
+      "stepLabel": "{index}단계",
+      "practicalUseCasesTitle": "실용적인 사용 사례",
+      "practicalUseCases": [
+        "이미 Bandcamp 앨범 링크가 있고, 무엇이든 다운로드하기 전에 릴리스 요약을 보고 싶을 때.",
+        "상품 형식, 트랙 행, 재생 가능한 링크를 한곳에서 비교하고 싶을 때.",
+        "단일 트랙 MP3 추출이나 추가 화면 전환 없이 릴리스 수준의 화면이 필요할 때."
+      ],
+      "faqTitle": "Bandcamp Album Downloader FAQ",
+      "faqItems": [
+        {
+          "question": "이 Bandcamp Album Downloader는 무엇을 위한 도구인가요?",
+          "answer": "Bandcamp 앨범 URL을 위해 만들어졌습니다. 페이지는 릴리스 메타데이터를 확인하고, 앨범 상품을 나열하고, 트랙 행을 보여주며, Bandcamp가 반환한 공개 미디어 링크를 표시합니다."
+        },
+        {
+          "question": "앨범 전체를 자동으로 추출하나요?",
+          "answer": "아니요. `bandcamp-scraper` 를 통해 노출된 공개 앨범 페이로드를 읽는 방식입니다. 어떤 앨범은 메타데이터나 미리듣기 링크만 반환하고, 어떤 앨범은 사용할 수 있는 미디어 URL을 노출합니다."
+        },
+        {
+          "question": "왜 Bandcamp to MP3와 분리되어 있나요?",
+          "answer": "앨범 페이지와 트랙 페이지는 다른 작업이기 때문입니다. 앨범 도구는 릴리스 확인에 최적화되어 있고, Bandcamp to MP3는 단일 트랙 추출에 집중합니다."
+        },
+        {
+          "question": "앨범 미디어 링크도 만료되나요?",
+          "answer": "예. 일부 Bandcamp 미디어 URL에는 시간 기반 파라미터가 포함되므로 새 링크를 얻으려면 앨범 조회를 다시 해야 할 수 있습니다."
+        }
+      ],
+      "usageTitle": "이용과 권리",
+      "usageBody": "앨범 다운로드는 책임 있게 사용하세요. 권리를 보유하고 있거나 아티스트의 허가가 있거나 원본 페이지가 명확히 허용하는 경우에만 저장하세요."
+    },
+    "metadata": {
+      "title": "Bandcamp Album Downloader: 앨범 페이지와 공개 오디오 링크를 온라인으로 확인",
+      "description": "이 무료 Bandcamp Album Downloader로 Bandcamp 앨범 URL을 확인하고, 릴리스 메타데이터, 트랙 행, 상품 형식을 검토하고, 가능할 경우 공개 오디오 링크를 다운로드하세요.",
+      "keywords": [
+        "bandcamp album downloader",
+        "download bandcamp album",
+        "bandcamp album url",
+        "bandcamp album tracks",
+        "bandcamp album inspector"
+      ],
+      "openGraphImageAlt": "GeeksKai의 Bandcamp Album Downloader"
+    },
+    "schema": {
+      "name": "Bandcamp Album Downloader",
+      "description": "이 무료 Bandcamp Album Downloader로 Bandcamp 앨범 URL을 확인하고, 릴리스 메타데이터, 트랙 행, 상품 형식을 검토하고, 가능할 경우 공개 오디오 링크를 다운로드하세요.",
+      "featureList": [
+        "Bandcamp 앨범 URL 확인",
+        "앨범 트랙 행 추출",
+        "앨범 상품 형식 목록",
+        "노출된 오디오 링크 다운로드"
+      ],
+      "browserRequirements": "JavaScript가 활성화된 최신 브라우저가 필요합니다.",
+      "faqItems": [
+        {
+          "question": "이 Bandcamp Album Downloader는 무엇을 하나요?",
+          "answer": "Bandcamp 앨범 URL을 확인하고, 앨범 메타데이터, 트랙 행, 상품 형식을 반환하며, 원본 페이로드에 공개 미디어 링크가 포함되어 있으면 이를 표시합니다."
+        },
+        {
+          "question": "단일 트랙에도 사용할 수 있나요?",
+          "answer": "이 페이지는 앨범 URL에 최적화되어 있습니다. 단일 트랙 MP3 추출은 전용 Bandcamp to MP3 도구를 사용하세요."
+        },
+        {
+          "question": "왜 앨범 미디어 링크가 만료될 수 있나요?",
+          "answer": "Bandcamp 미디어 링크에는 시간 기반 파라미터가 포함될 수 있습니다. URL이 만료되면 앨범을 다시 불러와 새 링크를 받으세요."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "홈",
+      "tools": "도구",
+      "current": "Bandcamp Album Downloader"
+    }
+  },
+  "BandcampToolsHub": {
+    "badge": "Bandcamp 도구 허브",
+    "updated": "{date} 업데이트",
+    "hero": {
+      "title": "무거운 하나의 downloader 대신 두 개의 집중형 Bandcamp 도구 중에서 선택"
+    },
+    "facts": [
+      {
+        "label": "현재 구성",
+        "value": "두 개의 안정적인 도구",
+        "description": "한 페이지는 트랙 MP3 추출을, 다른 페이지는 릴리스 단위 앨범 확인을 담당합니다."
+      },
+      {
+        "label": "이유",
+        "value": "낮은 인지 부담",
+        "description": "사용자는 시작하기 전에 불필요한 추가 흐름을 먼저 구분할 필요가 없습니다."
+      },
+      {
+        "label": "단순 기능",
+        "value": "스마트 URL 라우터",
+        "description": "Bandcamp URL 하나를 붙여넣으면 자동으로 맞는 도구로 이동합니다."
+      },
+      {
+        "label": "가장 적합한 대상",
+        "value": "모바일 가독성",
+        "description": "더 작은 도구는 첫 화면을 더 가볍고 집중되게 만들어 모바일에서 더 빨리 훑어볼 수 있게 합니다."
+      }
+    ],
+    "actions": {
+      "paste": "붙여넣기",
+      "pasting": "붙여넣는 중...",
+      "tryTrackExample": "예시 트랙 사용",
+      "tryAlbumExample": "예시 앨범 사용"
+    },
+    "router": {
+      "eyebrow": "빠른 시작",
+      "title": "Bandcamp URL을 붙여넣고 맞는 도구로 이동",
+      "description": "이 허브는 이제 하나의 실용적인 역할만 합니다. Bandcamp 링크가 트랙인지 앨범인지 감지한 뒤, URL이 채워진 상태로 올바른 흐름으로 보냅니다.",
+      "inputLabel": "Bandcamp 트랙 또는 앨범 URL",
+      "inputPlaceholder": "https://artist.bandcamp.com/track/... or /album/...",
+      "cta": {
+        "track": "Bandcamp to MP3 열기",
+        "album": "Bandcamp Album Downloader 열기",
+        "default": "맞는 도구 열기"
+      },
+      "hint": {
+        "track": "트랙을 감지했습니다. MP3 흐름으로 이동합니다.",
+        "album": "앨범을 감지했습니다. 앨범 흐름으로 이동합니다.",
+        "invalid": "이 링크는 아직 지원되는 Bandcamp 트랙 또는 앨범 URL이 아닙니다. 전체 `/track/...` 또는 `/album/...` 링크를 붙여넣으세요.",
+        "empty": "Bandcamp 트랙 또는 앨범 URL을 붙여넣으면 스마트 라우터가 활성화됩니다."
+      },
+      "errors": {
+        "empty": "먼저 Bandcamp 트랙 또는 앨범 URL을 붙여넣으세요.",
+        "invalid": "https:// 로 시작하고 Bandcamp를 가리키는 유효한 URL을 입력하세요.",
+        "unsupported": "이 경량 허브는 현재 트랙 URL을 Bandcamp to MP3로, 앨범 URL을 Bandcamp Album Downloader로 라우팅합니다.",
+        "clipboardUnavailable": "이 브라우저에서는 클립보드 붙여넣기를 사용할 수 없습니다. URL을 직접 붙여넣으세요.",
+        "clipboardFailed": "클립보드를 읽을 수 없습니다. Bandcamp URL을 직접 붙여넣으세요."
+      },
+      "detectionLabel": "감지 결과",
+      "detection": {
+        "track": "트랙 URL",
+        "album": "앨범 URL",
+        "waiting": "유효한 URL 대기 중"
+      },
+      "boundaryNote": "트랙 URL은 `Bandcamp to MP3` 를 열고, 앨범 URL은 `Bandcamp Album Downloader` 를 엽니다. 아티스트나 레이블 페이지는 이 경량 허브에서 라우팅하지 않습니다.",
+      "pasteHint": "붙여넣으면 입력칸이 즉시 채워집니다. 지원되는 링크라면 바로 아래 라우터 버튼이 활성화됩니다."
+    },
+    "toolMap": {
+      "eyebrow": "도구 지도",
+      "title": "작업에 맞는 더 작은 도구 선택",
+      "description": "예전 Bandcamp downloader는 너무 많은 작업을 한곳에 섞어 두었습니다. 이제 이 허브는 더 단순하게, 트랙 MP3 추출 또는 앨범 확인에 맞는 올바른 집중형 페이지로 사용자를 보냅니다.",
+      "openTool": "도구 열기"
+    },
+    "toolCards": [
+      {
+        "title": "Bandcamp to MP3",
+        "href": "/tools/bandcamp-to-mp3",
+        "status": "지금 사용 가능",
+        "description": "목표가 단순할 때, 즉 트랙을 확인하고 MP3 링크를 추출해 다운로드하려는 단일 트랙 URL에 가장 적합합니다."
+      },
+      {
+        "title": "Bandcamp Album Downloader",
+        "href": "/tools/bandcamp-album-downloader",
+        "status": "지금 사용 가능",
+        "description": "앨범 URL, 릴리스 요약, 상품 형식, 트랙 목록, 그리고 앨범 페이로드 내부의 노출된 오디오 링크 확인에 집중합니다."
+      }
+    ],
+    "content": {
+      "whyTitle": "Bandcamp 도구를 나누는 것이 더 나은 이유",
+      "reasons": [
+        "트랙 MP3 추출과 앨범 확인은 기대가 다르기 때문에 서로 다른 페이지 구조가 더 적합합니다.",
+        "더 작은 도구는 레이아웃 복잡성을 줄이고 모바일 첫 화면 이해도를 높입니다.",
+        "각 경로는 이제 관련 없는 여러 Bandcamp 용도와 경쟁하는 대신 더 명확한 SEO 의도를 겨냥합니다."
+      ],
+      "reasonLabel": "이유 {index}",
+      "faqTitle": "Bandcamp 도구 FAQ",
+      "faqItems": [
+        {
+          "question": "여기가 아직 메인 Bandcamp downloader 페이지인가요?",
+          "answer": "이제는 Bandcamp 도구 허브입니다. 핵심 상호작용은 두 개의 더 작은 전용 도구 안에 있습니다."
+        },
+        {
+          "question": "한 곡만 처리하려면 어떤 도구를 써야 하나요?",
+          "answer": "단일 트랙 URL과 MP3 다운로드 흐름이 목적이라면 Bandcamp to MP3를 사용하세요."
+        },
+        {
+          "question": "릴리스 페이지에는 어떤 도구를 써야 하나요?",
+          "answer": "입력이 앨범 URL이고 릴리스 정보, 형식, 트랙, 노출된 미디어 링크가 필요하다면 Bandcamp Album Downloader를 사용하세요."
+        },
+        {
+          "question": "왜 이 허브를 계속 두나요?",
+          "answer": "사용자를 처음부터 잘못된 흐름으로 밀어 넣지 않고, 각 Bandcamp 도구가 무엇을 하는지 간단히 이해시켜 주기 때문입니다."
+        }
+      ]
+    },
+    "seo": {
+      "title": "이 Bandcamp downloader 허브가 실제로 하는 일",
+      "body1": "이 도구는 `bandcamp-scraper` 위에 만들어졌기 때문에 가장 강한 기능은 URL 기반 확인입니다. 즉, 앨범 페이지, 트랙 페이지, 그리고 응답 안에 노출된 직접 오디오 링크 확인입니다.",
+      "body2": "이번 재설계는 기대치를 더 정확하게 맞추기 위한 것입니다. 모든 Bandcamp 페이지가 다운로드 가능한 것처럼 보이게 하는 대신, 메타데이터 확인, 릴리스 탐색, 그리고 Bandcamp가 재생 가능한 URL을 노출할 때의 직접 미디어 다운로드를 구분합니다.",
+      "coreFactsTitle": "핵심 정보",
+      "coreFacts": [
+        {
+          "label": "가격",
+          "value": "무료 사용."
+        },
+        {
+          "label": "주요 입력",
+          "value": "Bandcamp 트랙 URL과 앨범 URL."
+        },
+        {
+          "label": "주요 출력",
+          "value": "정규화된 요약, 상품 목록, 릴리스 URL, 그리고 가능할 때 다운로드 가능한 미디어 링크."
+        },
+        {
+          "label": "가장 적합한 대상",
+          "value": "이미 Bandcamp 링크를 가지고 있고 더 작고 명확한 올바른 경로를 원하는 사용자."
+        }
+      ],
+      "useCasesTitle": "실용적인 사용 사례",
+      "useCases": [
+        {
+          "title": "단일 Bandcamp 트랙 확인",
+          "description": "이미 트랙 URL이 있고 메타데이터를 보고, 스트림 URL을 확인하고, 있다면 노출된 미디어 링크를 다운로드하고 싶을 때 가장 적합합니다."
+        },
+        {
+          "title": "두 개의 집중 흐름 비교",
+          "description": "작업이 단일 트랙 MP3 다운로드인지, 릴리스 단위 앨범 확인인지 판단해야 할 때 유용합니다."
+        },
+        {
+          "title": "단일 Bandcamp 앨범 확인",
+          "description": "이미 앨범 URL이 있고 트랙 행, 릴리스 맥락, 상품 형식, 노출된 미디어 링크를 한 화면에서 보고 싶을 때 가장 적합합니다."
+        },
+        {
+          "title": "안정적인 도구 세트로 안내",
+          "description": "무엇보다 먼저 사용자가 트랙 도구가 필요한지 앨범 도구가 필요한지 결정하는 것이 핵심일 때 유용합니다."
+        }
+      ],
+      "workflowTitle": "재설계된 흐름이 작동하는 방식",
+      "workflowSteps": [
+        "트랙 도구와 앨범 도구 중 무엇을 선택해야 할지 도움이 필요할 때만 허브에서 시작하세요.",
+        "단일 곡 MP3 추출은 전용 트랙 페이지로, 릴리스 단위 확인은 앨범 페이지로 이동하세요.",
+        "더 깔끔한 검증과 더 강한 백엔드 제약을 적용한 검증된 Bandcamp 미디어 URL에서만 다운로드하세요."
+      ],
+      "stepLabel": "{index}단계",
+      "faqTitle": "Bandcamp downloader FAQ",
+      "faqItems": [
+        {
+          "question": "이것은 올인원 Bandcamp downloader인가요?",
+          "answer": "완전히 그렇지는 않습니다. 기반 npm 라이브러리는 본질적으로 스크래퍼에 가깝습니다. 공개 Bandcamp 페이지를 확인하고 메타데이터를 반환하며 때로는 재생 또는 다운로드 가능한 미디어 링크를 노출하지만, 완전한 앨범 추출 도구는 아닙니다."
+        },
+        {
+          "question": "왜 제품을 URL 확인 중심으로 다시 설계했나요?",
+          "answer": "대부분의 Bandcamp 사용자는 공유 링크에서 시작하기 때문입니다. 하나의 스마트 URL 입력창은 결정 피로를 줄이고, 처음부터 여러 기술 패널을 보여주지 않으며, 실제 사용자 행동과도 더 자연스럽게 맞습니다."
+        },
+        {
+          "question": "API 설계에서 무엇이 바뀌었나요?",
+          "answer": "이제 API는 URL 확인, 트랙 MP3 추출, 앨범 다운로드 확인 같은 더 높은 수준의 동작을 제공합니다. 더 강한 URL 검증을 수행하고 UI용 정규화 데이터를 반환합니다."
+        },
+        {
+          "question": "왜 원본 페이로드를 유지하나요?",
+          "answer": "고급 사용자는 여전히 투명성을 원하기 때문입니다. 재설계된 UI는 원시 JSON을 펼침 패널 뒤에 숨겨 일반 사용자에게는 깔끔하게 보이면서도 디버깅 가치는 유지합니다."
+        }
+      ],
+      "usageTitle": "이용과 권리",
+      "usageBody": "이 도구는 책임 있게 사용하세요. 공개 메타데이터를 확인하는 것과 음악을 다운로드하는 것은 별개의 일입니다. 권리를 보유하고 있거나 창작자의 허가가 있거나 원본 페이지가 명시적으로 허용하는 경우에만 저장 또는 보관하세요."
+    },
+    "metadata": {
+      "title": "Bandcamp Tools Hub: 트랙과 앨범에 맞는 올바른 Bandcamp 도구 선택",
+      "description": "이 무료 Bandcamp 도구 허브를 사용해 트랙 MP3 추출 또는 앨범 확인에 맞는 집중형 흐름을 선택하세요.",
+      "keywords": [
+        "bandcamp downloader",
+        "download bandcamp tracks",
+        "bandcamp track downloader",
+        "bandcamp album downloader",
+        "bandcamp tools hub"
+      ],
+      "openGraphImageAlt": "GeeksKai의 Bandcamp Downloader"
+    },
+    "schema": {
+      "name": "Bandcamp Tools Hub",
+      "description": "이 무료 Bandcamp 도구 허브를 사용해 트랙 MP3 추출 또는 앨범 확인에 맞는 집중형 흐름을 선택하세요.",
+      "featureList": [
+        "Bandcamp 흐름 선택기",
+        "Bandcamp to MP3 도구 진입",
+        "Bandcamp Album Downloader 도구 진입",
+        "모바일 우선의 집중형 Bandcamp 도구 탐색"
+      ],
+      "browserRequirements": "JavaScript가 활성화된 최신 브라우저가 필요합니다.",
+      "faqItems": [
+        {
+          "question": "이 Bandcamp 도구 허브는 무엇을 위한 것인가요?",
+          "answer": "모든 Bandcamp 작업을 하나의 무거운 페이지에 몰아넣는 대신, 올바른 집중형 Bandcamp 도구를 선택할 수 있도록 돕습니다."
+        },
+        {
+          "question": "왜 예전 Bandcamp downloader를 더 작은 도구로 나눴나요?",
+          "answer": "트랙 흐름과 앨범 흐름은 입력과 기대가 다르기 때문입니다. 더 작은 도구가 더 쓰기 쉽고, 명확한 검색 의도에도 더 잘 맞습니다."
+        },
+        {
+          "question": "한 곡에는 어떤 도구를 써야 하나요?",
+          "answer": "Bandcamp 트랙 URL이 있고 집중된 MP3 추출 흐름이 필요하면 Bandcamp to MP3를 사용하세요."
+        },
+        {
+          "question": "앨범 페이지에는 어떤 도구를 써야 하나요?",
+          "answer": "입력이 Bandcamp 앨범 URL이고 릴리스 정보, 형식, 트랙 행, 노출된 미디어 링크가 필요하면 Bandcamp Album Downloader를 사용하세요."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "홈",
+      "tools": "도구",
+      "current": "Bandcamp 도구 허브"
+    }
   }
 }

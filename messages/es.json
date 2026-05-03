@@ -8841,5 +8841,669 @@
       "itemlist_7": "5 .....",
       "itemlist_8": "0 -----"
     }
+  },
+  "BandcampToMp3": {
+    "badge": "Bandcamp a MP3",
+    "updated": "Actualizado {date}",
+    "hero": {
+      "title": "Descarga MP3 desde una URL de pista de Bandcamp",
+      "quickAnswerLabel": "Respuesta rápida:",
+      "quickAnswerBody": "pega una URL de pista de Bandcamp, deja que la herramienta extraiga la fuente MP3 expuesta con `bandcamp-scraper`, revisa los metadatos de la pista y descarga el MP3 cuando Bandcamp realmente lo devuelva."
+    },
+    "facts": [
+      {
+        "label": "Enfoque",
+        "value": "Solo pistas",
+        "description": "Esta página está optimizada para extraer MP3 de una sola pista, no para navegar artistas o álbumes."
+      },
+      {
+        "label": "Basado en",
+        "value": "getTrackInfo",
+        "description": "El paquete npm subyacente funciona mejor cuando la entrada es una página de pista de Bandcamp."
+      },
+      {
+        "label": "Entrada",
+        "value": "Solo URL de pista",
+        "description": "La página se mantiene fiable al pedir una única URL de pista de Bandcamp en lugar de raspar resultados de búsqueda."
+      },
+      {
+        "label": "Acción rápida",
+        "value": "Descarga en un clic",
+        "description": "Ahora puedes extraer y descargar el MP3 principal en un solo paso cuando Bandcamp lo expone."
+      }
+    ],
+    "errors": {
+      "requestFailed": "La solicitud a Bandcamp falló",
+      "resolveTrackUrlFailed": "No se pudo resolver esta URL de pista de Bandcamp",
+      "noMp3Link": "Esta pista devolvió metadatos, pero actualmente no expone ningún enlace MP3.",
+      "invalidMp3Url": "Introduce una URL MP3 válida que empiece por http o https.",
+      "expiredMediaLink": "Este enlace de medios de Bandcamp ha caducado. Actualiza la información de la pista y vuelve a intentarlo."
+    },
+    "workflow": {
+      "eyebrow": "Flujo principal",
+      "title": "Pega una URL de pista de Bandcamp",
+      "description": "Esta página está enfocada intencionalmente en el camino más corto al resultado: entra una URL de pista de Bandcamp, sale un enlace MP3.",
+      "quickInput": "Entrada rápida",
+      "loadedState": "URL de pista cargada",
+      "waitingState": "Esperando una URL de pista",
+      "inputLabel": "URL de pista de Bandcamp",
+      "inputPlaceholder": "https://artist.bandcamp.com/track/song-name",
+      "actionHint": {
+        "valid": "Elige Obtener enlace MP3 para previsualizar primero, o descarga directamente si solo quieres el archivo.",
+        "invalid": "Esto todavía no parece una URL de pista de Bandcamp. Pega un enlace completo con `/track/...` para continuar.",
+        "empty": "Pega una URL de pista de Bandcamp para desbloquear tanto la vista previa como la descarga en un clic."
+      },
+      "manualHint": "Al pegar una URL válida de pista de Bandcamp, el resultado se cargará automáticamente. Si escribes manualmente, pulsa Enter o usa los botones del mismo bloque.",
+      "scopeNotePrefix": "Usa una sola URL de pista. Las páginas de álbum o artista quedan fuera del alcance aquí a propósito. Usa",
+      "scopeNoteLink": "Bandcamp Album Downloader",
+      "scopeNoteSuffix": "para páginas de álbum.",
+      "emptyState": "Cuando la pista se cargue, verás la portada, el título, la fuente MP3 y las acciones de descarga en la misma tarjeta, sin cambiar de pestañas ni modos. Si prefieres menos pasos, usa el botón de descarga en un clic de arriba."
+    },
+    "actions": {
+      "paste": "Pegar",
+      "pasting": "Pegando...",
+      "getMp3Link": "Obtener enlace MP3",
+      "extractingMp3": "Extrayendo MP3...",
+      "extractAndDownloadMp3": "Extraer y descargar MP3",
+      "preparingDownload": "Preparando descarga...",
+      "tryExampleTrack": "Probar pista de ejemplo"
+    },
+    "result": {
+      "noCoverArt": "Sin portada",
+      "trackSummaryFallback": "Resumen de la pista",
+      "artist": "Artista",
+      "album": "Álbum",
+      "duration": "Duración",
+      "releaseDate": "Fecha de lanzamiento",
+      "audioUnsupported": "Tu navegador no admite reproducción de audio.",
+      "downloadMp3": "Descargar MP3",
+      "openBandcampTrack": "Abrir pista de Bandcamp",
+      "noMp3Exposed": "Esta pista devolvió metadatos, pero actualmente no expone ningún enlace MP3 en la respuesta.",
+      "moreMp3SourceLinks": "Más enlaces de origen MP3",
+      "downloadThisMp3": "Descargar este MP3",
+      "openRawMp3": "Abrir MP3 sin procesar"
+    },
+    "aside": {
+      "useCasesTitle": "Casos de uso prácticos",
+      "useCases": [
+        "Usa esta página cuando alguien ya te haya compartido un enlace de pista de Bandcamp.",
+        "Úsala cuando quieras el camino más limpio desde una página de pista hasta un enlace MP3 descargable.",
+        "Úsala cuando necesites metadatos de la pista y vista previa antes de descargar."
+      ],
+      "whyTitle": "Por qué este diseño es más fácil de usar",
+      "whyItems": [
+        "Una acción principal clara por encima del pliegue en móvil y escritorio.",
+        "Sin estados de búsqueda, filtros de resultados ni ramas extra que compitan con la tarea principal.",
+        "Ruta de descarga inmediata tras el éxito, sin obligar al usuario a interpretar JSON sin procesar.",
+        "El contenido de apoyo explica el flujo sin empujar el formulario principal por debajo del pliegue."
+      ],
+      "expectTitle": "Qué esperar",
+      "expectItems": [
+        {
+          "title": "Entrada fiable",
+          "body": "Pega una URL directa de pista de Bandcamp. Esta herramienta ya no depende de páginas de búsqueda de Bandcamp."
+        },
+        {
+          "title": "Salida transparente",
+          "body": "Si Bandcamp expone una URL MP3, la verás. Si no, igualmente obtendrás el resumen de la pista y la carga útil sin procesar."
+        },
+        {
+          "title": "Flujo de descarga estable",
+          "body": "Las descargas siguen pasando por la ruta proxy validada, así que la página evita comportamientos inseguros con enlaces directos."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Para qué está diseñada esta herramienta Bandcamp a MP3",
+      "body1": "Esta página está optimizada para una sola tarea práctica: tomar una URL válida de pista de Bandcamp, inspeccionarla con `bandcamp-scraper`, mostrar el enlace MP3 si Bandcamp lo expone y permitirte descargarlo con el nombre de archivo correcto. Puedes inspeccionar primero el resultado o usar la acción rápida de descarga en un clic.",
+      "body2": "El diseño es intencionalmente más estrecho que el Bandcamp downloader completo. Eso hace que la página sea más fácil de entender, más rápida de recorrer en móvil y mucho más directa para usuarios que ya saben que solo quieren el MP3 de una sola pista.",
+      "coreFactsTitle": "Datos clave",
+      "coreFacts": [
+        {
+          "label": "Entrada principal",
+          "value": "Una URL de pista de Bandcamp."
+        },
+        {
+          "label": "Salida principal",
+          "value": "Un enlace MP3 expuesto y un nombre de archivo listo para descargar."
+        },
+        {
+          "label": "Mejor caso de uso",
+          "value": "Flujos de descarga de una sola canción, no navegación de discografías completas."
+        },
+        {
+          "label": "Estrategia de rendimiento",
+          "value": "Una tarjeta principal primero, contenido largo después y sin medios pesados hasta que hagan falta."
+        }
+      ],
+      "howToUseTitle": "Cómo usarla",
+      "howToUseSteps": [
+        "Pega una URL de pista de Bandcamp en la entrada principal y obtén la información de la pista.",
+        "Primero puedes revisar los metadatos extraídos o usar la acción de un clic para ir directamente a la descarga.",
+        "Descarga el enlace MP3 principal, o elige otro enlace expuesto si Bandcamp devolvió varias opciones."
+      ],
+      "stepLabel": "Paso {index}",
+      "practicalUseCasesTitle": "Casos de uso prácticos",
+      "practicalUseCases": [
+        "Un amigo te envía un enlace de pista de Bandcamp y quieres el flujo MP3 más limpio posible.",
+        "Necesitas confirmar artista, título o álbum antes de descargar nada.",
+        "Quieres visibilidad de la carga útil de la pista sin convertir toda la página en un panel de depuración."
+      ],
+      "faqTitle": "Preguntas frecuentes de Bandcamp a MP3",
+      "faqItems": [
+        {
+          "question": "¿Esta herramienta Bandcamp a MP3 convierte archivos?",
+          "answer": "No exactamente. No transcodifica audio. Lee una página de pista de Bandcamp mediante `bandcamp-scraper` y descarga el enlace MP3 solo cuando Bandcamp lo expone."
+        },
+        {
+          "question": "¿Por qué esta herramienta se centra solo en URLs de pistas?",
+          "answer": "Porque ese es el flujo MP3 más fiable de la librería subyacente. Los álbumes y las páginas de artista son tareas distintas, por eso esta página se centra solo en URLs directas de pistas."
+        },
+        {
+          "question": "¿Por qué ya no hay ayuda de búsqueda en esta página?",
+          "answer": "Porque raspar la búsqueda de Bandcamp es menos estable que inspeccionar una URL directa. Esta página prioriza ahora el flujo de URL de pista más corto y fiable."
+        },
+        {
+          "question": "¿Por qué puede caducar el enlace MP3?",
+          "answer": "Las URLs de medios de Bandcamp pueden incluir parámetros temporales. Si un enlace caduca, vuelve a cargar la pista y la herramienta solicitará una URL MP3 nueva."
+        }
+      ],
+      "usageTitle": "Uso y derechos",
+      "usageBody": "Descarga con responsabilidad. Guarda MP3 solo cuando tengas los derechos, el permiso del artista o cuando la página de origen permita claramente ese uso."
+    },
+    "metadata": {
+      "title": "Bandcamp a MP3: extrae MP3 de una URL de pista de Bandcamp online",
+      "description": "Usa esta herramienta gratuita Bandcamp a MP3 para inspeccionar una URL de pista de Bandcamp, extraer el enlace MP3 expuesto, previsualizar la canción y descargarla cuando esté disponible.",
+      "keywords": [
+        "bandcamp a mp3",
+        "descargador mp3 de bandcamp",
+        "descargar mp3 de bandcamp",
+        "pista de bandcamp a mp3",
+        "descargador de canciones de bandcamp"
+      ],
+      "openGraphImageAlt": "Bandcamp a MP3 de GeeksKai"
+    },
+    "schema": {
+      "name": "Bandcamp a MP3",
+      "description": "Usa esta herramienta gratuita Bandcamp a MP3 para inspeccionar una URL de pista de Bandcamp, extraer el enlace MP3 expuesto, previsualizar la canción y descargarla cuando esté disponible.",
+      "featureList": [
+        "Inspección de URLs de pistas de Bandcamp",
+        "Extracción de enlaces MP3",
+        "Vista previa de metadatos de la pista",
+        "Proxy de descarga MP3 de Bandcamp"
+      ],
+      "browserRequirements": "Requiere un navegador moderno con JavaScript activado.",
+      "faqItems": [
+        {
+          "question": "¿Esta herramienta Bandcamp a MP3 convierte audio?",
+          "answer": "No. Extrae el enlace MP3 desde una página de pista de Bandcamp cuando Bandcamp lo expone. No transcodifica archivos."
+        },
+        {
+          "question": "¿También funciona con álbumes?",
+          "answer": "Esta página está optimizada para URLs individuales de pistas de Bandcamp. Los flujos de álbumes se gestionan mejor con Bandcamp Album Downloader."
+        },
+        {
+          "question": "¿Por qué puede caducar el enlace MP3?",
+          "answer": "Los enlaces de medios de Bandcamp pueden incluir parámetros temporales. Si la URL caduca, vuelve a cargar la pista para obtener un enlace nuevo."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "Inicio",
+      "tools": "Herramientas",
+      "current": "Bandcamp a MP3"
+    }
+  },
+  "BandcampAlbumDownloader": {
+    "badge": "Bandcamp Album Downloader",
+    "updated": "Actualizado {date}",
+    "hero": {
+      "title": "Inspecciona una URL de álbum de Bandcamp en un flujo centrado en el lanzamiento",
+      "quickAnswerLabel": "Respuesta rápida:",
+      "quickAnswerBody": "pega una URL de álbum de Bandcamp para revisar el resumen del lanzamiento, las filas de pistas, los formatos de producto y cualquier enlace de audio expuesto."
+    },
+    "facts": [
+      {
+        "label": "Enfoque",
+        "value": "Solo álbumes",
+        "description": "Diseñada para páginas de lanzamientos en lugar de extracción MP3 de una sola pista."
+      },
+      {
+        "label": "Basado en",
+        "value": "getAlbumInfo",
+        "description": "Usa endpoints de álbum que encajan de forma natural con las páginas de lanzamientos de Bandcamp."
+      },
+      {
+        "label": "Entrada",
+        "value": "Solo URL de álbum",
+        "description": "El flujo se mantiene estable al pedir una URL directa de álbum de Bandcamp en lugar de depender del raspado de búsquedas."
+      },
+      {
+        "label": "Expectativa",
+        "value": "Sin extracción falsa",
+        "description": "Esta herramienta muestra solo los enlaces de medios que Bandcamp realmente expone en la respuesta del álbum."
+      }
+    ],
+    "errors": {
+      "requestFailed": "La solicitud a Bandcamp falló",
+      "resolveAlbumUrlFailed": "No se pudo resolver esta URL de álbum de Bandcamp",
+      "invalidMediaUrl": "Introduce una URL de medios de Bandcamp válida que empiece por http o https.",
+      "expiredMediaLink": "Este enlace de medios de Bandcamp ha caducado. Actualiza la información del álbum y vuelve a intentarlo."
+    },
+    "workflow": {
+      "eyebrow": "Flujo principal",
+      "title": "Pega una URL de álbum de Bandcamp",
+      "description": "Esta página mantiene un único flujo de álbum por encima del pliegue: entra una URL de álbum, sale el contexto del lanzamiento.",
+      "inputLabel": "URL de álbum de Bandcamp",
+      "inputPlaceholder": "https://artist.bandcamp.com/album/release-name",
+      "actionHint": {
+        "valid": "Inspecciona primero el lanzamiento y luego revisa pistas, formatos y enlaces de medios expuestos sin salir de la misma página.",
+        "invalid": "Esto todavía no parece una URL de álbum de Bandcamp. Pega un enlace completo con `/album/...` para continuar.",
+        "empty": "Pega una URL de álbum de Bandcamp para desbloquear el resumen del lanzamiento, la lista de pistas y las secciones de medios."
+      },
+      "emptyState": "Después de una búsqueda correcta, esta tarjeta mostrará la portada del álbum, el resumen del lanzamiento, los formatos de producto, las filas de pistas, los enlaces de medios expuestos y la carga útil sin procesar en una sección plegada.",
+      "primaryAction": "Acción principal",
+      "loadedState": "URL de álbum cargada",
+      "waitingState": "Esperando una URL de álbum",
+      "manualHint": "Al pegar una URL válida de álbum de Bandcamp, el lanzamiento se cargará automáticamente. Si escribes manualmente, pulsa Enter o usa el botón del mismo bloque superior.",
+      "scopeNotePrefix": "Solo páginas de álbum. Usa",
+      "scopeNoteLink": "Bandcamp to MP3",
+      "scopeNoteSuffix": "para URLs de pistas individuales."
+    },
+    "actions": {
+      "paste": "Pegar",
+      "pasting": "Pegando...",
+      "inspectAlbum": "Inspeccionar álbum",
+      "inspectingAlbum": "Inspeccionando álbum...",
+      "tryExampleAlbum": "Probar álbum de ejemplo"
+    },
+    "result": {
+      "albumCover": "Portada del álbum",
+      "noCoverArt": "Sin portada",
+      "albumSummaryFallback": "Resumen del álbum",
+      "artist": "Artista",
+      "releaseDate": "Fecha de lanzamiento",
+      "tracks": "Pistas",
+      "productFormats": "Formatos de producto",
+      "unknown": "Desconocido",
+      "openBandcampAlbum": "Abrir álbum de Bandcamp",
+      "backToHub": "Volver al centro de herramientas de Bandcamp",
+      "trackRows": "Filas de pistas",
+      "trackCount": "{count} pistas",
+      "durationNotExposed": "Duración no expuesta",
+      "downloadTrack": "Descargar pista",
+      "openRawAudio": "Abrir audio sin procesar",
+      "audioUnsupported": "Tu navegador no admite reproducción de audio.",
+      "noPlayableTrackUrl": "No se expuso ninguna URL reproducible para esta fila de pista.",
+      "trackNotes": "Notas de pista / letra",
+      "noTrackRows": "No se expusieron filas de pistas en esta respuesta del álbum.",
+      "showFewerTracks": "Mostrar menos pistas",
+      "showMoreTracks": "Mostrar {count} pistas más",
+      "longTrackListHint": "Las listas largas de pistas permanecen plegadas por defecto para mantener la página más ligera en móvil.",
+      "rawAlbumPayload": "Carga útil del álbum sin procesar"
+    },
+    "aside": {
+      "useCasesTitle": "Casos de uso prácticos",
+      "useCases": [
+        "Usa esta página cuando ya tengas una URL de álbum o lanzamiento de Bandcamp.",
+        "Úsala cuando quieras formatos de producto, filas de pistas y enlaces de medios en una sola vista a nivel de lanzamiento.",
+        "Úsala cuando necesites primero el contexto del álbum y solo después decidir si algún enlace expuesto te resulta útil."
+      ],
+      "whyTitle": "Por qué esta página es más fácil de usar",
+      "whyItems": [
+        "Un flujo de álbum evidente por encima del pliegue tanto en móvil como en escritorio.",
+        "Sin estados de búsqueda ni descubrimiento inestable compitiendo con el flujo de inspección del álbum.",
+        "El resumen del álbum, los productos y las filas de pistas permanecen en un solo lugar en vez de dividirse entre pestañas.",
+        "El JSON sin procesar sigue disponible para usuarios avanzados, pero oculto tras un elemento de detalles."
+      ],
+      "expectTitle": "Qué esperar",
+      "expectItems": [
+        {
+          "title": "Flujo centrado en el lanzamiento",
+          "body": "Pega una URL de álbum e inspecciona el lanzamiento antes de pensar en pistas individuales o descargas."
+        },
+        {
+          "title": "Solo medios directos",
+          "body": "La herramienta muestra únicamente los enlaces reproducibles o descargables que Bandcamp realmente expone en la respuesta del álbum."
+        },
+        {
+          "title": "Límites claros",
+          "body": "La extracción MP3 de pistas se mantiene en la herramienta dedicada a pistas, lo que hace que esta página de álbum siga siendo clara y fácil de recorrer."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Para qué está diseñado este Bandcamp Album Downloader",
+      "body1": "Esta página está optimizada para un único flujo a nivel de lanzamiento: pegar una URL de álbum de Bandcamp, inspeccionar el resumen del álbum, revisar filas de pistas y formatos de producto y descargar cualquier enlace de medios expuesto sin mezclar flujos de artistas o etiquetas.",
+      "body2": "El objetivo es la claridad, no fingir que todas las páginas de álbum se comportan igual. Cuando Bandcamp expone URLs reproducibles o descargables, la herramienta las muestra. Cuando no lo hace, la página sigue ofreciendo un resumen limpio del álbum y el contexto del lanzamiento.",
+      "coreFactsTitle": "Datos clave",
+      "coreFacts": [
+        {
+          "label": "Entrada principal",
+          "value": "Una URL de álbum de Bandcamp."
+        },
+        {
+          "label": "Salidas principales",
+          "value": "Resumen del álbum, filas de pistas, formatos de producto y enlaces de medios expuestos."
+        },
+        {
+          "label": "Mejor caso de uso",
+          "value": "Inspección a nivel de lanzamiento, no conversión MP3 de una sola pista."
+        },
+        {
+          "label": "Estrategia de rendimiento",
+          "value": "Una tarjeta principal del álbum primero, contenido de apoyo después y SEO largo diferido."
+        }
+      ],
+      "howToUseTitle": "Cómo usarla",
+      "howToUseSteps": [
+        "Pega una URL de álbum de Bandcamp en el flujo principal y obtén el lanzamiento.",
+        "Revisa el resumen, las filas de pistas y los formatos de producto disponibles antes de decidir qué necesitas.",
+        "Descarga un enlace de audio expuesto cuando Bandcamp lo devuelva, o abre la página original del álbum para ver el contexto completo."
+      ],
+      "stepLabel": "Paso {index}",
+      "practicalUseCasesTitle": "Casos de uso prácticos",
+      "practicalUseCases": [
+        "Ya tienes un enlace de álbum de Bandcamp y quieres el resumen del lanzamiento antes de descargar nada.",
+        "Necesitas comparar formatos de producto, filas de pistas y enlaces reproducibles disponibles en un solo lugar.",
+        "Quieres una vista a nivel de lanzamiento sin mezclar extracción MP3 de pistas individuales ni cambios extra de flujo."
+      ],
+      "faqTitle": "Preguntas frecuentes de Bandcamp Album Downloader",
+      "faqItems": [
+        {
+          "question": "¿Para qué sirve este Bandcamp Album Downloader?",
+          "answer": "Está diseñado para URLs de álbumes de Bandcamp. La página inspecciona los metadatos del lanzamiento, lista los productos del álbum, muestra las filas de pistas y enseña los enlaces de medios expuestos cuando Bandcamp los devuelve."
+        },
+        {
+          "question": "¿Extrae automáticamente un álbum completo?",
+          "answer": "No. Lee la respuesta pública del álbum expuesta a través de `bandcamp-scraper`. Algunos álbumes solo devuelven metadatos o enlaces de vista previa, mientras que otros exponen URLs de medios utilizables."
+        },
+        {
+          "question": "¿Por qué está separado de Bandcamp a MP3?",
+          "answer": "Porque las páginas de álbum y las páginas de pista son trabajos distintos. La herramienta de álbum está optimizada para inspeccionar lanzamientos, mientras que Bandcamp a MP3 se centra en extraer una sola pista."
+        },
+        {
+          "question": "¿Pueden caducar los enlaces de medios del álbum?",
+          "answer": "Sí. Algunas URLs de medios de Bandcamp contienen parámetros temporales, por lo que quizá debas volver a cargar el álbum para obtener un enlace nuevo."
+        }
+      ],
+      "usageTitle": "Uso y derechos",
+      "usageBody": "Usa las descargas de álbumes con responsabilidad. Guarda lanzamientos solo cuando tengas los derechos, el permiso del artista o cuando la página de origen permita claramente ese uso."
+    },
+    "metadata": {
+      "title": "Bandcamp Album Downloader: inspecciona páginas de álbum y enlaces de audio expuestos online",
+      "description": "Usa este Bandcamp Album Downloader gratuito para inspeccionar una URL de álbum de Bandcamp, revisar metadatos del lanzamiento, filas de pistas, formatos de producto y descargar enlaces de audio expuestos cuando estén disponibles.",
+      "keywords": [
+        "bandcamp album downloader",
+        "descargar álbum de bandcamp",
+        "url de álbum de bandcamp",
+        "pistas de álbum de bandcamp",
+        "inspector de álbum de bandcamp"
+      ],
+      "openGraphImageAlt": "Bandcamp Album Downloader de GeeksKai"
+    },
+    "schema": {
+      "name": "Bandcamp Album Downloader",
+      "description": "Usa este Bandcamp Album Downloader gratuito para inspeccionar una URL de álbum de Bandcamp, revisar metadatos del lanzamiento, filas de pistas, formatos de producto y descargar enlaces de audio expuestos cuando estén disponibles.",
+      "featureList": [
+        "Inspección de URL de álbum de Bandcamp",
+        "Extracción de filas de pistas del álbum",
+        "Listado de formatos de producto del álbum",
+        "Descarga de enlaces de audio expuestos"
+      ],
+      "browserRequirements": "Requiere un navegador moderno con JavaScript activado.",
+      "faqItems": [
+        {
+          "question": "¿Qué hace este Bandcamp Album Downloader?",
+          "answer": "Inspecciona URLs de álbumes de Bandcamp, devuelve metadatos del álbum, filas de pistas, formatos de producto y muestra enlaces de medios expuestos cuando la respuesta de origen los incluye."
+        },
+        {
+          "question": "¿También funciona con pistas individuales?",
+          "answer": "Esta página está optimizada para URLs de álbumes. Para extracción MP3 de una sola pista, usa la herramienta dedicada Bandcamp a MP3."
+        },
+        {
+          "question": "¿Por qué pueden caducar los enlaces de medios del álbum?",
+          "answer": "Los enlaces de medios de Bandcamp pueden contener parámetros temporales. Si la URL caduca, vuelve a cargar el álbum para obtener un enlace nuevo."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "Inicio",
+      "tools": "Herramientas",
+      "current": "Bandcamp Album Downloader"
+    }
+  },
+  "BandcampToolsHub": {
+    "badge": "Centro de herramientas de Bandcamp",
+    "updated": "Actualizado {date}",
+    "hero": {
+      "title": "Elige entre dos herramientas de Bandcamp enfocadas en lugar de un downloader sobrecargado"
+    },
+    "facts": [
+      {
+        "label": "Configuración actual",
+        "value": "Dos herramientas estables",
+        "description": "Una página se encarga de la extracción MP3 de pistas y la otra de la inspección de álbumes a nivel de lanzamiento."
+      },
+      {
+        "label": "Por qué",
+        "value": "Menor carga cognitiva",
+        "description": "Los usuarios ya no necesitan filtrar flujos adicionales antes de empezar."
+      },
+      {
+        "label": "Función simple",
+        "value": "Enrutador inteligente de URL",
+        "description": "Pega aquí una URL de Bandcamp y entra automáticamente en la herramienta correcta."
+      },
+      {
+        "label": "Ideal para",
+        "value": "Claridad en móvil",
+        "description": "Las herramientas pequeñas mantienen la primera pantalla más enfocada, ligera y rápida de recorrer en teléfonos."
+      }
+    ],
+    "actions": {
+      "paste": "Pegar",
+      "pasting": "Pegando...",
+      "tryTrackExample": "Probar pista de ejemplo",
+      "tryAlbumExample": "Probar álbum de ejemplo"
+    },
+    "router": {
+      "eyebrow": "Inicio rápido",
+      "title": "Pega una URL de Bandcamp y ve a la herramienta correcta",
+      "description": "Este centro ahora hace una sola tarea práctica: detectar si tu enlace de Bandcamp es de una pista o de un álbum y enviarte al flujo correcto con la URL ya rellenada.",
+      "inputLabel": "URL de pista o álbum de Bandcamp",
+      "inputPlaceholder": "https://artist.bandcamp.com/track/... or /album/...",
+      "cta": {
+        "track": "Abrir Bandcamp a MP3",
+        "album": "Abrir Bandcamp Album Downloader",
+        "default": "Abrir la herramienta correcta"
+      },
+      "hint": {
+        "track": "Pista detectada. Se te enviará al flujo MP3.",
+        "album": "Álbum detectado. Se te enviará al flujo de álbum.",
+        "invalid": "Este enlace todavía no es una URL compatible de pista o álbum de Bandcamp. Pega un enlace completo `/track/...` o `/album/...`.",
+        "empty": "Pega una URL de pista o álbum de Bandcamp para desbloquear el enrutador inteligente."
+      },
+      "errors": {
+        "empty": "Pega primero una URL de pista o álbum de Bandcamp.",
+        "invalid": "Introduce una URL válida de Bandcamp que empiece por https:// y apunte a Bandcamp.",
+        "unsupported": "Este centro ligero dirige actualmente URLs de pistas a Bandcamp a MP3 y URLs de álbumes a Bandcamp Album Downloader.",
+        "clipboardUnavailable": "El pegado desde el portapapeles no está disponible en este navegador. Pega la URL manualmente.",
+        "clipboardFailed": "No se pudo leer el portapapeles. Pega la URL de Bandcamp manualmente."
+      },
+      "detectionLabel": "Detección",
+      "detection": {
+        "track": "URL de pista",
+        "album": "URL de álbum",
+        "waiting": "Esperando una URL válida"
+      },
+      "boundaryNote": "Las URLs de pistas abren `Bandcamp a MP3`. Las URLs de álbumes abren `Bandcamp Album Downloader`. Las páginas de artista o sello no se enrutan desde este centro ligero.",
+      "pasteHint": "Al pegar, la entrada se rellena de inmediato. Si el enlace es compatible, el botón del enrutador se activará justo debajo."
+    },
+    "toolMap": {
+      "eyebrow": "Mapa de herramientas",
+      "title": "Elige la herramienta pequeña que encaja con la tarea",
+      "description": "El antiguo Bandcamp downloader mezclaba demasiadas tareas en un solo lugar. Este centro ahora hace algo más simple: llevar a los usuarios a la página enfocada correcta, ya sea para extracción MP3 de pistas o inspección de álbumes.",
+      "openTool": "Abrir herramienta"
+    },
+    "toolCards": [
+      {
+        "title": "Bandcamp a MP3",
+        "href": "/tools/bandcamp-to-mp3",
+        "status": "Disponible ahora",
+        "description": "Ideal para una sola URL de pista cuando el objetivo es simple: inspeccionar la pista, extraer el enlace MP3 y descargarlo."
+      },
+      {
+        "title": "Bandcamp Album Downloader",
+        "href": "/tools/bandcamp-album-downloader",
+        "status": "Disponible ahora",
+        "description": "Enfocada en URLs de álbum, resúmenes de lanzamiento, formatos de producto, listas de pistas y cualquier enlace de audio expuesto dentro de la respuesta del álbum."
+      }
+    ],
+    "content": {
+      "whyTitle": "Por qué dividir la herramienta de Bandcamp es una mejor decisión de producto",
+      "reasons": [
+        "La extracción MP3 de pistas y la inspección de álbumes generan expectativas distintas, por eso se benefician de estructuras de página diferentes.",
+        "Las herramientas más pequeñas reducen la complejidad del diseño y mejoran la comprensión de la primera pantalla en dispositivos móviles.",
+        "Cada ruta apunta ahora a una intención SEO más clara en vez de competir con casos de uso no relacionados al mismo tiempo."
+      ],
+      "reasonLabel": "Razón {index}",
+      "faqTitle": "Preguntas frecuentes sobre herramientas de Bandcamp",
+      "faqItems": [
+        {
+          "question": "¿Sigue siendo esta la página principal de Bandcamp downloader?",
+          "answer": "Ahora es el centro de herramientas de Bandcamp. La interacción principal vive dentro de dos herramientas más pequeñas y dedicadas."
+        },
+        {
+          "question": "¿Qué herramienta debo usar para una sola canción?",
+          "answer": "Usa Bandcamp a MP3 cuando tu objetivo sea una URL de pista individual y un flujo de descarga MP3."
+        },
+        {
+          "question": "¿Qué herramienta debo usar para una página de lanzamiento?",
+          "answer": "Usa Bandcamp Album Downloader cuando tu entrada sea una URL de álbum y quieras detalles del lanzamiento, formatos, pistas y enlaces de medios expuestos."
+        },
+        {
+          "question": "¿Por qué mantener este centro?",
+          "answer": "Da a los usuarios una visión general sencilla de lo que hace cada herramienta de Bandcamp sin obligarlos primero a entrar en el flujo equivocado."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Lo que realmente hace este Bandcamp downloader",
+      "body1": "Esta herramienta está construida sobre `bandcamp-scraper`, así que sus capacidades más fuertes son la inspección basada en URL: páginas de álbum, páginas de pista y cualquier enlace directo de audio que aparezca en la respuesta.",
+      "body2": "El rediseño establece expectativas más realistas de forma intencional. En vez de fingir que cada página de Bandcamp es descargable, la interfaz distingue ahora entre inspección de metadatos, exploración de lanzamientos y descarga directa de medios cuando Bandcamp expone una URL reproducible.",
+      "coreFactsTitle": "Datos clave",
+      "coreFacts": [
+        {
+          "label": "Precio",
+          "value": "Gratis."
+        },
+        {
+          "label": "Entradas principales",
+          "value": "URLs de pistas y de álbumes de Bandcamp."
+        },
+        {
+          "label": "Salidas principales",
+          "value": "Resúmenes normalizados, listas de productos, URLs de lanzamiento y enlaces de medios descargables cuando están disponibles."
+        },
+        {
+          "label": "Ideal para",
+          "value": "Usuarios que ya tienen un enlace de Bandcamp y quieren un camino más claro y ligero hacia la herramienta correcta."
+        }
+      ],
+      "useCasesTitle": "Casos de uso prácticos",
+      "useCases": [
+        {
+          "title": "Inspeccionar una sola pista de Bandcamp",
+          "description": "Ideal cuando ya tienes una URL de pista y quieres previsualizar metadatos, comprobar la URL de streaming y descargar el enlace de medios expuesto si existe."
+        },
+        {
+          "title": "Comparar los dos flujos enfocados",
+          "description": "Útil para decidir si la tarea es realmente una descarga MP3 de una sola pista o una inspección de álbum a nivel de lanzamiento."
+        },
+        {
+          "title": "Inspeccionar un solo álbum de Bandcamp",
+          "description": "Ideal cuando ya tienes una URL de álbum y quieres filas de pistas, contexto del lanzamiento, formatos de producto y enlaces de medios expuestos en una sola vista."
+        },
+        {
+          "title": "Guiar a los usuarios hacia el conjunto estable de herramientas",
+          "description": "Útil cuando la tarea principal consiste en decidir si el usuario necesita la herramienta de pistas o la de álbumes antes de hacer cualquier otra cosa."
+        }
+      ],
+      "workflowTitle": "Cómo funciona el flujo rediseñado",
+      "workflowSteps": [
+        "Empieza en el centro solo cuando necesites ayuda para elegir entre la herramienta de pista y la de álbum.",
+        "Entra en la página dedicada de pista para extraer MP3 de una sola canción o en la página de álbum para inspección a nivel de lanzamiento.",
+        "Descarga solo desde URLs de medios de Bandcamp validadas, con una validación más limpia y restricciones backend más fuertes."
+      ],
+      "stepLabel": "Paso {index}",
+      "faqTitle": "Preguntas frecuentes de Bandcamp downloader",
+      "faqItems": [
+        {
+          "question": "¿Es este un Bandcamp downloader todo en uno?",
+          "answer": "No exactamente. La librería npm subyacente es principalmente un scraper. Inspecciona páginas públicas de Bandcamp, devuelve metadatos y a veces expone enlaces de medios reproducibles o descargables, pero no es una herramienta completa para extraer álbumes."
+        },
+        {
+          "question": "¿Por qué rediseñar el producto alrededor de la inspección por URL primero?",
+          "answer": "Porque la mayoría de usuarios de Bandcamp empiezan con un enlace compartido. Una sola entrada de URL inteligente reduce la fatiga de decisión, evita mostrar cinco paneles técnicos desde el principio y se ajusta mejor al comportamiento real del usuario."
+        },
+        {
+          "question": "¿Qué cambió en el diseño de la API?",
+          "answer": "La API ahora expone acciones de más alto nivel como inspección de URL, extracción MP3 de pistas e inspección de descargas de álbumes. Realiza una validación de URL más fuerte y devuelve datos normalizados para la interfaz."
+        },
+        {
+          "question": "¿Por qué mantener disponibles las cargas útiles sin procesar?",
+          "answer": "Los usuarios avanzados siguen queriendo transparencia. La interfaz rediseñada oculta el JSON sin procesar tras paneles expandibles para que el producto siga limpio para usuarios casuales sin perder valor de depuración."
+        }
+      ],
+      "usageTitle": "Uso y derechos",
+      "usageBody": "Usa esta herramienta con responsabilidad. Inspeccionar metadatos públicos es una cosa; descargar música es otra. Guarda o archiva lanzamientos solo cuando poseas los derechos, tengas permiso del creador o la página de origen lo permita explícitamente."
+    },
+    "metadata": {
+      "title": "Centro de herramientas de Bandcamp: elige la herramienta correcta para pistas y álbumes",
+      "description": "Usa este centro gratuito de herramientas de Bandcamp para elegir un flujo enfocado de extracción MP3 de pistas o inspección de álbumes.",
+      "keywords": [
+        "bandcamp downloader",
+        "descargar pistas de bandcamp",
+        "descargador de pistas de bandcamp",
+        "bandcamp album downloader",
+        "centro de herramientas de bandcamp"
+      ],
+      "openGraphImageAlt": "Bandcamp Downloader de GeeksKai"
+    },
+    "schema": {
+      "name": "Centro de herramientas de Bandcamp",
+      "description": "Usa este centro gratuito de herramientas de Bandcamp para elegir un flujo enfocado de extracción MP3 de pistas o inspección de álbumes.",
+      "featureList": [
+        "Selector de flujo de Bandcamp",
+        "Acceso a la herramienta Bandcamp a MP3",
+        "Acceso a Bandcamp Album Downloader",
+        "Navegación enfocada y mobile-first entre herramientas de Bandcamp"
+      ],
+      "browserRequirements": "Requiere un navegador moderno con JavaScript activado.",
+      "faqItems": [
+        {
+          "question": "¿Para qué sirve este centro de herramientas de Bandcamp?",
+          "answer": "Ayuda a los usuarios a elegir la herramienta enfocada correcta de Bandcamp en lugar de usar una sola página sobrecargada para cada tarea."
+        },
+        {
+          "question": "¿Por qué dividir el antiguo Bandcamp downloader en herramientas más pequeñas?",
+          "answer": "Porque los flujos de pistas y álbumes tienen entradas y expectativas diferentes. Las herramientas más pequeñas son más fáciles de usar y también más fáciles de posicionar para una intención de búsqueda clara."
+        },
+        {
+          "question": "¿Qué herramienta debo usar para una sola canción?",
+          "answer": "Usa Bandcamp a MP3 cuando tengas una URL de pista de Bandcamp y quieras un flujo enfocado de extracción MP3."
+        },
+        {
+          "question": "¿Qué herramienta debo usar para una página de álbum?",
+          "answer": "Usa Bandcamp Album Downloader cuando tu entrada sea una URL de álbum de Bandcamp y quieras detalles del lanzamiento, formatos, filas de pistas y enlaces de medios expuestos."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "Inicio",
+      "tools": "Herramientas",
+      "current": "Centro de herramientas de Bandcamp"
+    }
   }
 }

@@ -8556,5 +8556,663 @@
       "itemlist_7": "5 .....",
       "itemlist_8": "0 -----"
     }
+  },
+  "BandcampToMp3": {
+    "badge": "Bandcamp til MP3",
+    "updated": "Opdateret {date}",
+    "hero": {
+      "title": "Download MP3 fra en Bandcamp-sang-URL",
+      "quickAnswerLabel": "Hurtigt svar:",
+      "quickAnswerBody": "indsæt en Bandcamp-sang-URL, lad værktøjet udtrække den eksponerede MP3-kilde med `bandcamp-scraper`, se sangens metadata og download MP3'en, når Bandcamp rent faktisk returnerer en."
+    },
+    "facts": [
+      {
+        "label": "Fokus",
+        "value": "Kun sange",
+        "description": "Denne side er optimeret til MP3-udtrækning af enkelte sange, ikke gennemsyn af kunstnere eller album."
+      },
+      {
+        "label": "Drevet af",
+        "value": "getTrackInfo",
+        "description": "Den underliggende npm-pakke er stærkest, når inputtet er en Bandcamp-sangside."
+      },
+      {
+        "label": "Input",
+        "value": "Kun sang-URL",
+        "description": "Siden forbliver pålidelig ved at bede om én Bandcamp-sang-URL i stedet for at scrape søgeresultater."
+      },
+      {
+        "label": "Hurtig handling",
+        "value": "Ét-klik download",
+        "description": "Du kan nu udtrække og downloade den primære MP3 i ét trin, når Bandcamp eksponerer den."
+      }
+    ],
+    "errors": {
+      "requestFailed": "Bandcamp-anmodning fejlede",
+      "resolveTrackUrlFailed": "Kunne ikke løse denne Bandcamp-sang-URL",
+      "noMp3Link": "Denne sang returnerede metadata, men intet MP3-link er i øjeblikket eksponeret.",
+      "invalidMp3Url": "Indtast en gyldig MP3-URL, der starter med http eller https.",
+      "expiredMediaLink": "Dette Bandcamp-medielink er udløbet. Opdater sanginfo og prøv igen."
+    },
+    "workflow": {
+      "eyebrow": "Hovedworkflow",
+      "title": "Indsæt en Bandcamp-sang-URL",
+      "description": "Denne side er bevidst fokuseret på den korteste vej til succes: Bandcamp-sang-URL ind, MP3-link ud.",
+      "quickInput": "Hurtig indtastning",
+      "loadedState": "Sang-URL indlæst",
+      "waitingState": "Venter på en sang-URL",
+      "inputLabel": "Bandcamp-sang-URL",
+      "inputPlaceholder": "https://artist.bandcamp.com/track/song-name",
+      "actionHint": {
+        "valid": "Vælg 'Hent MP3-link' for at se en forhåndsvisning først, eller download direkte, hvis du bare vil have filen.",
+        "invalid": "Dette ligner endnu ikke en Bandcamp-sang-URL. Indsæt et fuldt `/track/...` link for at fortsætte.",
+        "empty": "Indsæt en Bandcamp-sang-URL for at låse op for både forhåndsvisning og ét-klik download."
+      },
+      "manualHint": "Indsættelse af en gyldig Bandcamp-sang-URL vil automatisk indlæse resultatet. Hvis du skriver manuelt, skal du trykke på Enter eller bruge knapperne i samme blok.",
+      "scopeNotePrefix": "Brug en enkelt sang-URL. Album- og kunstnersider er bevidst uden for rammerne her. Brug",
+      "scopeNoteLink": "Bandcamp Album Downloader",
+      "scopeNoteSuffix": "til albumsider.",
+      "emptyState": "Når sangen er indlæst, vil du se coverbillede, titel, MP3-kilde og download-muligheder i det samme kort uden at skifte fane eller tilstand. Hvis du foretrækker færre trin, kan du bruge ét-klik download-knappen ovenfor."
+    },
+    "actions": {
+      "paste": "Indsæt",
+      "pasting": "Indsætter...",
+      "getMp3Link": "Hent MP3-link",
+      "extractingMp3": "Udtrækker MP3...",
+      "extractAndDownloadMp3": "Udtræk og download MP3",
+      "preparingDownload": "Forbereder download...",
+      "tryExampleTrack": "Prøv eksempel-sang"
+    },
+    "result": {
+      "noCoverArt": "Intet coverbillede",
+      "trackSummaryFallback": "Sangresumé",
+      "artist": "Kunstner",
+      "album": "Album",
+      "duration": "Varighed",
+      "releaseDate": "Udgivelsesdato",
+      "audioUnsupported": "Din browser understøtter ikke lydafspilning.",
+      "downloadMp3": "Download MP3",
+      "openBandcampTrack": "Åbn Bandcamp-sang",
+      "noMp3Exposed": "Denne sang returnerede metadata, men intet MP3-link er i øjeblikket eksponeret i svaret.",
+      "moreMp3SourceLinks": "Flere MP3-kildelinks",
+      "downloadThisMp3": "Download denne MP3",
+      "openRawMp3": "Åbn rå MP3"
+    },
+    "aside": {
+      "useCasesTitle": "Praktiske brugsscenarier",
+      "useCases": [
+        "Brug denne side, når nogen allerede har delt et Bandcamp-sanglink med dig.",
+        "Brug den, når du ønsker den reneste vej fra en sangside til et downloadbart MP3-link.",
+        "Brug den, når du har brug for sang-metadata og afspilning før download."
+      ],
+      "whyTitle": "Hvorfor dette layout er lettere at bruge",
+      "whyItems": [
+        "Én tydelig primær handling over folden på både mobil og desktop.",
+        "Ingen søgetilstande, resultatfiltrering eller ekstra opdagelsesgrene, der konkurrerer med hovedopgaven.",
+        "Umiddelbar download-sti efter succes, uden at brugeren skal læse rå JSON.",
+        "Supportindholdet forklarer workflowet uden at skubbe URL-formularen ned under folden."
+      ],
+      "expectTitle": "Hvad kan du forvente",
+      "expectItems": [
+        {
+          "title": "Pålidelig indtastning",
+          "body": "Indsæt en direkte Bandcamp-sang-URL. Dette værktøj afhænger ikke længere af Bandcamp-søgesider."
+        },
+        {
+          "title": "Gennemsigtigt output",
+          "body": "Hvis Bandcamp eksponerer en MP3-URL, vil du se den. Hvis ikke, får du stadig sangresumé og de rå data."
+        },
+        {
+          "title": "Stabilt download-flow",
+          "body": "Downloads går stadig gennem den validerede proxy-rute, så siden undgår usikker adfærd med direkte links."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Hvad dette Bandcamp til MP3-værktøj er designet til",
+      "body1": "Denne side er optimeret til ét praktisk job: tag en gyldig Bandcamp-sang-URL, inspicer den med `bandcamp-scraper`, find MP3-linket, hvis Bandcamp eksponerer et, og lad dig downloade det med det korrekte filnavn. Du kan enten inspicere resultatet først eller bruge den hurtige ét-klik download-handling.",
+      "body2": "Designet er bevidst mere snævert end den fulde Bandcamp-downloader. Det gør siden lettere at forstå, hurtigere at scanne på mobilen og meget mere direkte for brugere, der ved, at de bare vil have MP3'en fra en enkelt sangside.",
+      "coreFactsTitle": "Kernefakta",
+      "coreFacts": [
+        {
+          "label": "Primær input",
+          "value": "En Bandcamp-sang-URL."
+        },
+        {
+          "label": "Primær output",
+          "value": "Et eksponeret MP3-link og et download-klart filnavn."
+        },
+        {
+          "label": "Bedste brugsscenarie",
+          "value": "Download af enkelte sange, ikke gennemgang af hele diskografier."
+        },
+        {
+          "label": "Præstationsstrategi",
+          "value": "Ét hovedkort først, efterfulgt af uddybende indhold, og ingen tunge medier før nødvendigt."
+        }
+      ],
+      "howToUseTitle": "Sådan bruger du det",
+      "howToUseSteps": [
+        "Indsæt en Bandcamp-sang-URL i hovedfeltet og hent sanginfo.",
+        "Se enten de udtrukne metadata først eller brug ét-klik handlingen til at gå direkte til download.",
+        "Download det primære MP3-link, eller vælg et andet eksponeret link, hvis Bandcamp returnerede flere muligheder."
+      ],
+      "stepLabel": "Trin {index}",
+      "practicalUseCasesTitle": "Praktiske brugsscenarier",
+      "practicalUseCases": [
+        "En ven sender dig et Bandcamp-sanglink, og du vil have det renest mulige MP3-workflow.",
+        "Du skal bekræfte kunstner, titel eller album, før du downloader noget.",
+        "Du vil have synlighed i de rå sangdata uden at gøre hele siden til et teknisk dashboard."
+      ],
+      "faqTitle": "FAQ om Bandcamp til MP3",
+      "faqItems": [
+        {
+          "question": "Konverterer dette Bandcamp til MP3-værktøj filer?",
+          "answer": "Ikke rigtigt. Det transkoderer ikke lyd. Det læser en Bandcamp-sangside gennem `bandcamp-scraper` og downloader kun MP3-linket, når Bandcamp eksponerer et."
+        },
+        {
+          "question": "Hvorfor fokuserer dette værktøj kun på sang-URL'er?",
+          "answer": "Fordi det er det mest pålidelige MP3-workflow i det underliggende bibliotek. Album- og kunstnersider er andre opgaver, så denne side forbliver fokuseret på direkte sang-URL'er."
+        },
+        {
+          "question": "Hvorfor er der ikke længere en søgehjælper på denne side?",
+          "answer": "Fordi scraping af Bandcamp-søgninger er mindre stabil end direkte URL-inspektion. Denne side prioriterer nu det kortere og mere pålidelige sang-URL-workflow."
+        },
+        {
+          "question": "Hvorfor kan MP3-linket udløbe?",
+          "answer": "Bandcamp-medie-URL'er kan indeholde tidsbaserede parametre. Hvis et link udløber, skal du hente sangen igen, og værktøjet vil anmode om en ny MP3-URL."
+        }
+      ],
+      "usageTitle": "Brug og rettigheder",
+      "usageBody": "Download ansvarligt. Gem kun MP3'er, når du har rettighederne, kunstnerens tilladelse, eller kildesiden tydeligt tillader den brug."
+    },
+    "metadata": {
+      "title": "Bandcamp til MP3: udtræk MP3 fra en Bandcamp-sang-URL online",
+      "description": "Brug dette gratis Bandcamp til MP3-værktøj til at inspicere en Bandcamp-sang-URL, udtrække det eksponerede MP3-link, lytte til sangen og downloade den, når den er tilgængelig.",
+      "keywords": [
+        "bandcamp til mp3",
+        "bandcamp mp3 downloader",
+        "download bandcamp mp3",
+        "bandcamp sang til mp3",
+        "bandcamp musik downloader"
+      ],
+      "openGraphImageAlt": "Bandcamp til MP3 af GeeksKai"
+    },
+    "schema": {
+      "name": "Bandcamp til MP3",
+      "description": "Brug dette gratis Bandcamp til MP3-værktøj til at inspicere en Bandcamp-sang-URL, udtrække det eksponerede MP3-link, lytte til sangen og downloade den, når den er tilgængelig.",
+      "featureList": [
+        "Inspektion af Bandcamp-sang-URL",
+        "MP3-link udtrækning",
+        "Forhåndsvisning af sang-metadata",
+        "Bandcamp-MP3-downloadproxy"
+      ],
+      "browserRequirements": "Kræver en moderne browser med JavaScript aktiveret.",
+      "faqItems": [
+        {
+          "question": "Konverterer dette Bandcamp til MP3-værktøj lyd?",
+          "answer": "Nej. Det udtrækker MP3-linket fra en Bandcamp-sangside, når Bandcamp eksponerer et. Det transkoderer ikke filer."
+        },
+        {
+          "question": "Virker det også til album?",
+          "answer": "Denne side er optimeret til enkelte Bandcamp-sang-URL'er. Album-workflows håndteres bedre af den dedikerede Bandcamp Album Downloader."
+        },
+        {
+          "question": "Hvorfor kan MP3-linket udløbe?",
+          "answer": "Bandcamp-medielinks kan indeholde tidsbaserede parametre. Hvis URL'en udløber, skal du hente sangen igen for at få et nyt link."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "Hjem",
+      "tools": "Værktøjer",
+      "current": "Bandcamp til MP3"
+    }
+  },
+  "BandcampAlbumDownloader": {
+    "badge": "Bandcamp Album Downloader",
+    "updated": "Opdateret {date}",
+    "hero": {
+      "title": "Inspicer en Bandcamp-album-URL i ét udgivelsesfokuseret workflow",
+      "quickAnswerLabel": "Hurtigt svar:",
+      "quickAnswerBody": "indsæt en Bandcamp-album-URL for at gennemse udgivelsesresuméet, sangrækker, produktformater og eventuelle eksponerede lydlinks."
+    },
+    "facts": [
+      {
+        "label": "Fokus",
+        "value": "Kun album",
+        "description": "Bygget omkring udgivelsessider i stedet for MP3-udtrækning af enkelte sange."
+      },
+      {
+        "label": "Drevet af",
+        "value": "getAlbumInfo",
+        "description": "Bruger album-endpoints, der naturligt matcher Bandcamp-udgivelsessider."
+      },
+      {
+        "label": "Input",
+        "value": "Kun album-URL",
+        "description": "Flowet forbliver stabilt ved at bede om en direkte Bandcamp-album-URL i stedet for at stole på søge-scraping."
+      },
+      {
+        "label": "Forventning",
+        "value": "Ingen falsk ripping",
+        "description": "Dette værktøj viser kun de medielinks, som Bandcamp rent faktisk eksponerer i album-dataene."
+      }
+    ],
+    "errors": {
+      "requestFailed": "Bandcamp-anmodning fejlede",
+      "resolveAlbumUrlFailed": "Kunne ikke løse denne Bandcamp-album-URL",
+      "invalidMediaUrl": "Indtast en gyldig Bandcamp-medie-URL, der starter med http eller https.",
+      "expiredMediaLink": "Dette Bandcamp-medielink er udløbet. Opdater albuminfo og prøv igen."
+    },
+    "workflow": {
+      "eyebrow": "Hovedworkflow",
+      "title": "Indsæt en Bandcamp-album-URL",
+      "description": "Denne side holder ét album-workflow over folden: album-URL ind, udgivelsessammenhæng ud.",
+      "inputLabel": "Bandcamp-album-URL",
+      "inputPlaceholder": "https://artist.bandcamp.com/album/release-name",
+      "actionHint": {
+        "valid": "Inspicer udgivelsen først, gennemse derefter sange, formater og eksponerede medielinks uden at forlade siden.",
+        "invalid": "Dette ligner endnu ikke en Bandcamp-album-URL. Indsæt et fuldt `/album/...` link for at fortsætte.",
+        "empty": "Indsæt en Bandcamp-album-URL for at låse op for udgivelsesresuméet, sanglisten og albummedier."
+      },
+      "emptyState": "Efter et vellykket opslag vil dette kort vise albumcover, udgivelsesresumé, produktformater, sangrækker, eksponerede medielinks og de rå data i en sammenklappet sektion.",
+      "primaryAction": "Primær handling",
+      "loadedState": "Album-URL indlæst",
+      "waitingState": "Venter på en album-URL",
+      "manualHint": "Indsættelse af en gyldig Bandcamp-album-URL vil automatisk indlæse udgivelsen. Hvis du skriver manuelt, skal du trykke på Enter eller bruge knappen i samme blok ovenfor.",
+      "scopeNotePrefix": "Kun albumsider. Brug",
+      "scopeNoteLink": "Bandcamp til MP3",
+      "scopeNoteSuffix": "til URL'er på enkelte sange."
+    },
+    "actions": {
+      "paste": "Indsæt",
+      "pasting": "Indsætter...",
+      "inspectAlbum": "Inspicer album",
+      "inspectingAlbum": "Inspicerer album...",
+      "tryExampleAlbum": "Prøv eksempel-album"
+    },
+    "result": {
+      "albumCover": "Albumcover",
+      "noCoverArt": "Intet coverbillede",
+      "albumSummaryFallback": "Albumresumé",
+      "artist": "Kunstner",
+      "releaseDate": "Udgivelsesdato",
+      "tracks": "Sange",
+      "productFormats": "Produktformater",
+      "unknown": "Ukendt",
+      "openBandcampAlbum": "Åbn Bandcamp-album",
+      "backToHub": "Tilbage til Bandcamp-hub",
+      "trackRows": "Sangrækker",
+      "trackCount": "{count} sange",
+      "durationNotExposed": "Varighed ikke oplyst",
+      "downloadTrack": "Download sang",
+      "openRawAudio": "Åbn rå lyd",
+      "audioUnsupported": "Din browser understøtter ikke lydafspilning.",
+      "noPlayableTrackUrl": "Ingen afspilbar sang-URL blev eksponeret for denne sangrække.",
+      "trackNotes": "Sangnoter / sangtekster",
+      "noTrackRows": "Ingen sangrækker blev eksponeret for dette album-svar.",
+      "showFewerTracks": "Vis færre sange",
+      "showMoreTracks": "Vis {count} flere sange",
+      "longTrackListHint": "Lange sanglister forbliver sammenklappet som standard for at holde siden lettere på mobilen.",
+      "rawAlbumPayload": "Rå album-data"
+    },
+    "aside": {
+      "useCasesTitle": "Praktiske brugsscenarier",
+      "useCases": [
+        "Brug denne side, når du allerede har en Bandcamp-album eller udgivelses-URL.",
+        "Brug den, når du ønsker produktformater, sangrækker og medielinks i én visning på udgivelsesniveau.",
+        "Brug den, når du har brug for albumkontekst først og derefter beslutter, om et eksponeret medielink er nyttigt."
+      ],
+      "whyTitle": "Hvorfor denne side er lettere at bruge",
+      "whyItems": [
+        "Ét tydeligt album-workflow over folden på både mobil og desktop.",
+        "Ingen søgetilstande eller upålidelig opdagelses-scraping, der konkurrerer med album-inspektionen.",
+        "Albumresumé, produkter og sangrækker bliver på ét sted i stedet for at være opdelt på faner.",
+        "Rå JSON er stadig tilgængelig for avancerede brugere, men skjult bag et detalje-element."
+      ],
+      "expectTitle": "Hvad kan du forvente",
+      "expectItems": [
+        {
+          "title": "Udgivelses-først workflow",
+          "body": "Indsæt en album-URL og inspicer udgivelsen, før du tænker på individuelle sange eller downloads."
+        },
+        {
+          "title": "Kun direkte medier",
+          "body": "Værktøjet viser kun de afspilbare eller downloadbare links, som Bandcamp rent faktisk eksponerer i album-dataene."
+        },
+        {
+          "title": "Klare grænser",
+          "body": "MP3-udtrækning af sange foregår i det dedikerede sangværktøj, hvilket holder denne albumside fokuseret og lettere at scanne."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Hvad denne Bandcamp Album Downloader er designet til",
+      "body1": "Denne side er optimeret til ét workflow på udgivelsesniveau: indsæt en Bandcamp-album-URL, inspicer albumresuméet, gennemse sangrækker og produktformater, og download eventuelle eksponerede medielinks uden at blande kunstner- eller tag-workflows ind i det.",
+      "body2": "Målet er klarhed snarere end at lade som om, alle albumsider opfører sig ens. Når Bandcamp eksponerer afspilbare eller downloadbare URL'er, finder værktøjet dem. Når det ikke gør, giver siden stadig et rent albumresumé og udgivelseskontekst.",
+      "coreFactsTitle": "Kernefakta",
+      "coreFacts": [
+        {
+          "label": "Primær input",
+          "value": "En Bandcamp-album-URL."
+        },
+        {
+          "label": "Primære outputs",
+          "value": "Albumresumé, sangrækker, produktformater og eksponerede medielinks."
+        },
+        {
+          "label": "Bedste brugsscenarie",
+          "value": "Inspektion på udgivelsesniveau, ikke konvertering af enkelte sange til MP3."
+        },
+        {
+          "label": "Præstationsstrategi",
+          "value": "Ét albumkort først, supportindhold bagefter, og SEO i bunden."
+        }
+      ],
+      "howToUseTitle": "Sådan bruger du det",
+      "howToUseSteps": [
+        "Indsæt en Bandcamp-album-URL i hovedfeltet og hent udgivelsen.",
+        "Gennemse resuméet, sangrækkerne og de tilgængelige produktformater, før du beslutter dig.",
+        "Download et eksponeret lydlink, når Bandcamp returnerer et, eller åbn den originale albumside for den fulde kontekst."
+      ],
+      "stepLabel": "Trin {index}",
+      "practicalUseCasesTitle": "Praktiske brugsscenarier",
+      "practicalUseCases": [
+        "Du har allerede et Bandcamp-albumlink og vil have udgivelsesresuméet, før du downloader noget.",
+        "Du har brug for at sammenligne produktformater, sangrækker og tilgængelige links ét sted.",
+        "Du vil have en visning på udgivelsesniveau uden at blande MP3-udtrækning af enkelte sange ind i det."
+      ],
+      "faqTitle": "FAQ om Bandcamp Album Downloader",
+      "faqItems": [
+        {
+          "question": "Hvad er denne Bandcamp Album Downloader til?",
+          "answer": "Den er bygget til Bandcamp-album-URL'er. Siden inspicerer udgivelses-metadata, lister albumprodukter, viser sangrækker og finder eksponerede medielinks."
+        },
+        {
+          "question": "Ripper den et helt album automatisk?",
+          "answer": "Nej. Den læser de offentlige album-data eksponeret via bandcamp-scraper. Nogle album returnerer kun metadata, mens andre eksponerer brugbare medie-URL'er."
+        },
+        {
+          "question": "Hvorfor er denne adskilt fra Bandcamp til MP3?",
+          "answer": "Fordi albumsider og sangsider er forskellige opgaver. Albumværktøjet er optimeret til udgivelsesinspektion, mens Bandcamp til MP3 fokuserer på enkelte sange."
+        },
+        {
+          "question": "Kan album-medielinks udløbe?",
+          "answer": "Ja. Nogle Bandcamp-medie-URL'er indeholder tidsbaserede parametre, så du skal muligvis opdatere opslaget for at få et nyt link."
+        }
+      ],
+      "usageTitle": "Brug og rettigheder",
+      "usageBody": "Brug album-downloads ansvarligt. Gem kun udgivelser, når du har rettighederne, kunstnerens tilladelse, eller kildesiden tillader det."
+    },
+    "metadata": {
+      "title": "Bandcamp Album Downloader: inspicér albumsider og lydlinks online",
+      "description": "Brug denne gratis Bandcamp Album Downloader til at inspicere en Bandcamp-album-URL, se metadata, sange og formater samt downloade lydlinks.",
+      "keywords": [
+        "bandcamp album downloader",
+        "download bandcamp album",
+        "bandcamp album url",
+        "bandcamp album sange",
+        "bandcamp album inspektør"
+      ],
+      "openGraphImageAlt": "Bandcamp Album Downloader af GeeksKai"
+    },
+    "schema": {
+      "name": "Bandcamp Album Downloader",
+      "description": "Brug denne gratis Bandcamp Album Downloader til at inspicere en Bandcamp-album-URL, se metadata, sange og formater samt downloade lydlinks.",
+      "featureList": [
+        "Inspektion af Bandcamp-album-URL",
+        "Udtrækning af sangrækker",
+        "Liste over produktformater",
+        "Download af eksponerede lydlinks"
+      ],
+      "browserRequirements": "Kræver en moderne browser med JavaScript aktiveret.",
+      "faqItems": [
+        {
+          "question": "Hvad gør denne Bandcamp Album Downloader?",
+          "answer": "Den inspicerer Bandcamp-album-URL'er, returnerer metadata, sangrækker, produktformater og finder eksponerede medielinks."
+        },
+        {
+          "question": "Virker det også til enkelte sange?",
+          "answer": "Denne side er optimeret til album-URL'er. Til udtrækning af enkelte sange til MP3 skal du bruge værktøjet Bandcamp til MP3."
+        },
+        {
+          "question": "Hvorfor kan album-medielinks udløbe?",
+          "answer": "Bandcamp-medielinks kan indeholde tidsbaserede parametre. Hvis URL'en udløber, skal du hente albummet igen for at få et nyt link."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "Hjem",
+      "tools": "Værktøjer",
+      "current": "Bandcamp Album Downloader"
+    }
+  },
+  "BandcampToolsHub": {
+    "badge": "Bandcamp-værktøjshub",
+    "updated": "Opdateret {date}",
+    "hero": {
+      "title": "Vælg mellem to fokuserede Bandcamp-værktøjer i stedet for én overfyldt downloader"
+    },
+    "facts": [
+      {
+        "label": "Nuværende opsætning",
+        "value": "To stabile værktøjer",
+        "description": "Én side håndterer MP3-udtrækning af sange, den anden håndterer albuminspektion."
+      },
+      {
+        "label": "Hvorfor",
+        "value": "Mindre kognitiv belastning",
+        "description": "Brugere behøver ikke længere at sortere i workflows, de ikke skal bruge."
+      },
+      {
+        "label": "Simpel funktion",
+        "value": "Smart URL-router",
+        "description": "Indsæt en Bandcamp-URL her og hop automatisk til det rigtige værktøj."
+      },
+      {
+        "label": "Bedst til",
+        "value": "Mobil klarhed",
+        "description": "Mindre værktøjer holder den første skærm fokuseret, lettere og hurtigere at scanne på telefonen."
+      }
+    ],
+    "actions": {
+      "paste": "Indsæt",
+      "pasting": "Indsætter...",
+      "tryTrackExample": "Prøv sang-eksempel",
+      "tryAlbumExample": "Prøv album-eksempel"
+    },
+    "router": {
+      "eyebrow": "Hurtig start",
+      "title": "Indsæt en Bandcamp-URL og gå til det rigtige værktøj",
+      "description": "Denne hub har nu én praktisk opgave: at afgøre, om dit Bandcamp-link er en sang- eller albumside, og derefter sende dig til det rigtige workflow med URL'en udfyldt på forhånd.",
+      "inputLabel": "Bandcamp-sang- eller album-URL",
+      "inputPlaceholder": "https://artist.bandcamp.com/track/... eller /album/...",
+      "cta": {
+        "track": "Åbn Bandcamp til MP3",
+        "album": "Åbn Bandcamp Album Downloader",
+        "default": "Åbn det rigtige værktøj"
+      },
+      "hint": {
+        "track": "Sang registreret. Du bliver sendt til MP3-workflowet.",
+        "album": "Album registreret. Du bliver sendt til album-workflowet.",
+        "invalid": "Dette link er endnu ikke en understøttet Bandcamp-sang- eller album-URL. Indsæt et fuldt `/track/...` eller `/album/...`-link.",
+        "empty": "Indsæt en Bandcamp-sang- eller album-URL for at låse op for den smarte router."
+      },
+      "errors": {
+        "empty": "Indsæt først en Bandcamp-sang- eller album-URL.",
+        "invalid": "Indtast en gyldig Bandcamp-URL, der starter med https://.",
+        "unsupported": "Denne hub router i øjeblikket sang-URL'er til Bandcamp til MP3 og album-URL'er til Bandcamp Album Downloader.",
+        "clipboardUnavailable": "Indsættelse fra udklipsholder er ikke tilgængelig i denne browser. Indsæt URL'en manuelt.",
+        "clipboardFailed": "Kunne ikke læse fra udklipsholder. Indsæt URL'en manuelt."
+      },
+      "detectionLabel": "Registrering",
+      "detection": {
+        "track": "Sang-URL",
+        "album": "Album-URL",
+        "waiting": "Venter på en gyldig URL"
+      },
+      "boundaryNote": "Sang-URL'er åbner `Bandcamp til MP3`. Album-URL'er åbner `Bandcamp Album Downloader`. Kunstner- eller labelsider videresendes ikke fra denne lette hub.",
+      "pasteHint": "Indsættelse udfylder feltet med det samme. Hvis linket er understøttet, låses router-knappen op lige nedenunder."
+    },
+    "toolMap": {
+      "eyebrow": "Værktøjsoversigt",
+      "title": "Vælg det værktøj, der matcher opgaven",
+      "description": "Den gamle downloader blandede for mange opgaver sammen. Denne hub gør nu én enklere ting: sender dig videre til den rigtige fokuserede side til enten MP3-udtrækning af sange eller albuminspektion.",
+      "openTool": "Åbn værktøj"
+    },
+    "toolCards": [
+      {
+        "title": "Bandcamp til MP3",
+        "href": "/tools/bandcamp-to-mp3",
+        "status": "Tilgængelig nu",
+        "description": "Bedst til en enkelt sang-URL, når målet er simpelt: inspicer sangen, udtræk MP3-linket og download det."
+      },
+      {
+        "title": "Bandcamp Album Downloader",
+        "href": "/tools/bandcamp-album-downloader",
+        "status": "Tilgængelig nu",
+        "description": "Fokuseret på album-URL'er, udgivelsesresuméer, produktformater, sanglister og eksponerede lydlinks."
+      }
+    ],
+    "content": {
+      "whyTitle": "Hvorfor opdelingen af Bandcamp-værktøjet er en bedre beslutning",
+      "reasons": [
+        "MP3-udtrækning og albuminspektion giver forskellige forventninger, så de drager fordel af forskellige sidestrukturer.",
+        "Mindre værktøjer reducerer kompleksiteten og gør det lettere at overskue på mobiltelefoner.",
+        "Hver rute målretter nu SEO-hensigten mere præcist i stedet for at konkurrere med urelaterede Bandcamp-scenarier."
+      ],
+      "reasonLabel": "Årsag {index}",
+      "faqTitle": "FAQ om Bandcamp-værktøjer",
+      "faqItems": [
+        {
+          "question": "Er dette stadig den primære Bandcamp-downloader?",
+          "answer": "Det er nu Bandcamp-værktøjshubben. De vigtigste funktioner findes i de to mindre, dedikerede værktøjer."
+        },
+        {
+          "question": "Hvilket værktøj skal jeg bruge til en enkelt sang?",
+          "answer": "Brug Bandcamp til MP3, når dit mål er en sang-URL og et MP3-download-workflow."
+        },
+        {
+          "question": "Hvilket værktøj skal jeg bruge til en albumside?",
+          "answer": "Brug Bandcamp Album Downloader, når dit input er en album-URL og du vil have udgivelsesdetaljer, formater og sange."
+        },
+        {
+          "question": "Hvorfor beholde denne hub overhovedet?",
+          "answer": "Det giver brugerne et enkelt overblik over, hvad hvert værktøj gør, uden at tvinge dem ind i det forkerte workflow først."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Hvad denne Bandcamp-downloader faktisk gør",
+      "body1": "Dette værktøj er bygget oven på `bandcamp-scraper`, så dets stærkeste egenskaber er URL-baseret inspektion: albumsider, sangsider og eventuelle direkte lydlinks i svaret.",
+      "body2": "Redesignet skaber bevidst mere realistiske forventninger. I stedet for at lade som om, at hver Bandcamp-side kan downloades, skelner brugerfladen nu mellem metadata-inspektion, udforskning af udgivelser og direkte mediedownload.",
+      "coreFactsTitle": "Kernefakta",
+      "coreFacts": [
+        {
+          "label": "Pris",
+          "value": "Gratis at bruge."
+        },
+        {
+          "label": "Primære inputs",
+          "value": "Bandcamp sang-URL'er og album-URL'er."
+        },
+        {
+          "label": "Primære outputs",
+          "value": "Normaliserede resuméer, produktlister, udgivelses-URL'er og downloadbare medielinks."
+        },
+        {
+          "label": "Bedst til",
+          "value": "Brugere, der allerede har et Bandcamp-link og ønsker en hurtig vej til det rigtige værktøj."
+        }
+      ],
+      "useCasesTitle": "Praktiske brugsscenarier",
+      "useCases": [
+        {
+          "title": "Inspicer en enkelt Bandcamp-sang",
+          "description": "Bedst når du allerede har en sang-URL og vil se metadata, tjekke stream-URL'en og downloade medielinket, hvis det findes."
+        },
+        {
+          "title": "Sammenlign de to workflows",
+          "description": "Hjælpsomt når du skal beslutte, om jobbet er en sang-download eller en album-inspektion."
+        },
+        {
+          "title": "Inspicer et enkelt Bandcamp-album",
+          "description": "Bedst når du allerede har en album-URL og vil se sangrækker, udgivelseskontekst, formater og eksponerede medielinks i én visning."
+        },
+        {
+          "title": "Guide brugere til det rigtige værktøj",
+          "description": "Hjælpsomt når hovedopgaven er at beslutte, om brugeren har brug for sang- eller albumværktøjet."
+        }
+      ],
+      "workflowTitle": "Sådan fungerer det redesignede workflow",
+      "workflowSteps": [
+        "Start på hubben, hvis du har brug for hjælp til at vælge mellem sang- og albumværktøjet.",
+        "Gå til den dedikerede sangside for MP3-udtrækning eller albumsiden for inspektion.",
+        "Download kun fra validerede Bandcamp-medie-URL'er med renere validering."
+      ],
+      "stepLabel": "Trin {index}",
+      "faqTitle": "FAQ om Bandcamp-downloaderen",
+      "faqItems": [
+        {
+          "question": "Er dette en alt-i-en Bandcamp-downloader?",
+          "answer": "Ikke helt. Det underliggende npm-bibliotek er primært en scraper. Det inspicerer sider, returnerer metadata og eksponerer nogle gange links, men det er ikke et fuldt album-ripping-værktøj."
+        },
+        {
+          "question": "Hvorfor redesigne produktet omkring URL-inspektion først?",
+          "answer": "Fordi de fleste Bandcamp-brugere starter med et delt link. Et enkelt smart URL-input fjerner tvivl og passer bedre til brugeradfærd."
+        },
+        {
+          "question": "Hvad ændrede sig i API-designet?",
+          "answer": "API'et eksponerer nu handlinger på højere niveau som URL-inspektion og MP3-udtrækning med stærkere validering."
+        },
+        {
+          "question": "Hvorfor beholde de rå data?",
+          "answer": "Avancerede brugere vil have gennemsigtighed. Den nye brugerflade skjuler JSON bag paneler, så siden forbliver ren for almindelige brugere."
+        }
+      ],
+      "usageTitle": "Brug og rettigheder",
+      "usageBody": "Brug dette værktøj ansvarligt. At inspicere metadata er én ting; at downloade musik er noget andet. Gem eller arkivér kun udgivelser, når du ejer rettighederne, har tilladelse, eller kildesiden udtrykkeligt tillader det."
+    },
+    "metadata": {
+      "title": "Bandcamp-værktøjshub: vælg det rigtige Bandcamp-værktøj til sange og albums",
+      "description": "Brug denne gratis Bandcamp-værktøjshub til at vælge et fokuseret Bandcamp-workflow til MP3-udtrækning af sange eller albuminspektion.",
+      "keywords": ["bandcamp værktøjs-hub", "vælg det rigtige Bandcamp-værktøj", "sange", "albums"],
+      "openGraphImageAlt": "Bandcamp-værktøjshub af GeeksKai"
+    },
+    "schema": {
+      "name": "Bandcamp-værktøjshub",
+      "description": "Brug denne gratis Bandcamp-værktøjshub til at vælge et fokuseret Bandcamp-workflow til MP3-udtrækning af sange eller albuminspektion.",
+      "featureList": [
+        "Valg af Bandcamp-workflow",
+        "Adgang til værktøjet Bandcamp til MP3",
+        "Adgang til Bandcamp Album Downloader",
+        "Fokuseret mobilvenlig navigation mellem Bandcamp-værktøjer"
+      ],
+      "browserRequirements": "Kræver en moderne browser med JavaScript aktiveret.",
+      "faqItems": [
+        {
+          "question": "Hvad er denne Bandcamp værktøjs-hub til?",
+          "answer": "Den hjælper brugerne med at vælge det rigtige fokuserede Bandcamp-værktøj i stedet for at bruge én overfyldt side til alle Bandcamp-opgaver."
+        },
+        {
+          "question": "Hvorfor opdele den gamle Bandcamp-downloader i mindre værktøjer?",
+          "answer": "Fordi sang- og album-workflows har forskellige input og forventninger. Mindre værktøjer er nemmere at bruge og nemmere at rangere for en tydelig søgeintention."
+        },
+        {
+          "question": "Hvilket værktøj skal jeg bruge for en enkelt sang?",
+          "answer": "Brug Bandcamp til MP3, når du har en Bandcamp sang-URL og vil have et fokuseret MP3-udtræk-workflow."
+        },
+        {
+          "question": "Hvilket værktøj skal jeg bruge for en albumside?",
+          "answer": "Brug Bandcamp Album Downloader, når dit input er en Bandcamp album-URL og du vil have udgivelsesdetaljer, formater, sangrækker og eksponerede medielinks."
+        }
+      ]
+    },
+    "breadcrumbs": {
+      "home": "Hjem",
+      "tools": "Værktøjer",
+      "current": "Bandcamp-værktøjshub"
+    }
   }
 }
