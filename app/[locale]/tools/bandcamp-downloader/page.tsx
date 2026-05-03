@@ -294,7 +294,7 @@ export default function BandcampDownloaderPage() {
               )
 
               return (
-                <Link key={item.title} href={item.href} className="block">
+                <Link key={item.title} target="_blank" href={item.href} className="block">
                   {card}
                 </Link>
               )
