@@ -38,7 +38,7 @@ function buildTrackFilename(albumArtist?: string, trackTitle?: string) {
   return "bandcamp-album-track.mp3"
 }
 
-export default function BandcampAlbumDownloaderPage() {
+function BandcampAlbumDownloaderPageContent() {
   const t = useTranslations("BandcampAlbumDownloader")
   const locale = useLocale()
   const searchParams = useSearchParams()
@@ -529,5 +529,25 @@ export default function BandcampAlbumDownloaderPage() {
         <BandcampAlbumDownloaderSeoSections />
       </div>
     </main>
+  )
+}
+
+export default function BandcampAlbumDownloaderPage() {
+  return (
+    <React.Suspense
+      fallback={
+        <main className="min-h-screen bg-slate-950 text-white">
+          <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 sm:py-6">
+            <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-sm">
+              <div className="h-6 w-40 animate-pulse rounded bg-white/10" />
+              <div className="mt-4 h-10 w-full max-w-3xl animate-pulse rounded bg-white/10" />
+              <div className="mt-6 h-44 animate-pulse rounded-[24px] bg-white/5" />
+            </div>
+          </div>
+        </main>
+      }
+    >
+      <BandcampAlbumDownloaderPageContent />
+    </React.Suspense>
   )
 }

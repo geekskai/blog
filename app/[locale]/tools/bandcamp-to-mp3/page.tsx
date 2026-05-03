@@ -31,7 +31,7 @@ function formatLastUpdated(date: Date, locale: string): string {
   }).format(date)
 }
 
-export default function BandcampToMp3Page() {
+function BandcampToMp3PageContent() {
   const t = useTranslations("BandcampToMp3")
   const locale = useLocale()
   const searchParams = useSearchParams()
@@ -453,5 +453,25 @@ export default function BandcampToMp3Page() {
         <BandcampToMp3SeoSections />
       </div>
     </main>
+  )
+}
+
+export default function BandcampToMp3Page() {
+  return (
+    <React.Suspense
+      fallback={
+        <main className="min-h-screen bg-slate-950 text-white">
+          <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 sm:py-6">
+            <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-sm">
+              <div className="h-6 w-40 animate-pulse rounded bg-white/10" />
+              <div className="mt-4 h-10 w-full max-w-3xl animate-pulse rounded bg-white/10" />
+              <div className="mt-6 h-40 animate-pulse rounded-[24px] bg-white/5" />
+            </div>
+          </div>
+        </main>
+      }
+    >
+      <BandcampToMp3PageContent />
+    </React.Suspense>
   )
 }
