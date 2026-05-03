@@ -112,6 +112,60 @@ export const toolsData: ToolData[] = [
     category: "Creative",
   },
   {
+    id: "bandcamp-downloader",
+    title: "Bandcamp Tools Hub",
+    description:
+      "Navigation-first Bandcamp hub that helps users choose the right focused workflow for track MP3 extraction or album inspection.",
+    icon: Music,
+    href: "/tools/bandcamp-downloader/",
+    features: [
+      "Smart Bandcamp URL routing",
+      "Focused track and album workflows",
+      "Mobile-friendly tool selection",
+      "Bandcamp to MP3 and album downloader access",
+    ],
+    badge: "New",
+    badgeColor: "bg-purple-500",
+    gradient: gradients.creative,
+    category: "Creative",
+  },
+  {
+    id: "bandcamp-to-mp3",
+    title: "Bandcamp to MP3",
+    description:
+      "Extract exposed MP3 links from a Bandcamp track URL, preview track metadata, and download the MP3 when available.",
+    icon: Music,
+    href: "/tools/bandcamp-to-mp3/",
+    features: [
+      "Single-track Bandcamp MP3 extraction",
+      "Track metadata preview",
+      "One-click MP3 download flow",
+      "Direct Bandcamp track URL support",
+    ],
+    badge: "New",
+    badgeColor: "bg-cyan-500",
+    gradient: gradients.creative,
+    category: "Creative",
+  },
+  {
+    id: "bandcamp-album-downloader",
+    title: "Bandcamp Album Downloader",
+    description:
+      "Inspect Bandcamp album URLs, review release metadata and track rows, and download exposed audio links when available.",
+    icon: Music,
+    href: "/tools/bandcamp-album-downloader/",
+    features: [
+      "Bandcamp album URL inspection",
+      "Release summary and track rows",
+      "Product format overview",
+      "Exposed audio link download",
+    ],
+    badge: "New",
+    badgeColor: "bg-fuchsia-500",
+    gradient: gradients.creative,
+    category: "Creative",
+  },
+  {
     id: "morse-code-translator",
     title: "Morse Code Translator",
     description:
