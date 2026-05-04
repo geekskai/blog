@@ -64,8 +64,8 @@ export async function GET(req: Request) {
     const filename = sanitizeFilename(filenameParam)
     const asciiFilename = toAsciiFilename(filename)
 
-    console.log("filename", filename)
-    console.log("asciiFilename", asciiFilename)
+    console.warn("download filename", filename)
+    console.warn("download asciiFilename", asciiFilename)
     const headers = new Headers()
     const contentType = upstream.headers.get("content-type") || "audio/mpeg"
     const contentLength = upstream.headers.get("content-length")

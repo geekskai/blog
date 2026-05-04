@@ -1,6 +1,7 @@
 "use client"
 import ShareButtons from "@/components/ShareButtons"
-import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
+import dynamic from "next/dynamic"
+import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import React, { useState, useCallback, useEffect } from "react"
 import { Link } from "@/app/i18n/navigation"
 import {
@@ -28,6 +29,11 @@ import { isValidVin, validateVIN } from "../lib/validation"
 import { decodeVehicle } from "../lib/api"
 import { vinCache, history, dedupeRequest } from "../lib/cache"
 import { formatVehicleSummary, exportAsJSON, exportAsCSV, exportAsText } from "../lib/mapping"
+
+const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
+  ssr: false,
+  loading: () => <GoogleAdUnitPlaceholder />,
+})
 
 interface VinDecoderClientProps {
   brand: BrandInfo
@@ -501,7 +507,6 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
             {brand.description} {t("nhtsa_integration")}
           </p>
         </div>
-        <GoogleAdUnitWrap />
         {/* VIN Input and Results - Mobile Optimized Grid */}
         <div className="grid gap-4 md:gap-6 lg:grid-cols-12 lg:gap-8">
           {/* Brand-specific Sidebar - Mobile Optimized */}
@@ -661,6 +666,7 @@ export default function VinDecoderClient({ brand }: VinDecoderClientProps) {
             />
           </div>
         </div>
+        <DeferredGoogleAdUnitWrap />
         {/* Brand-specific FAQ Section - Mobile Optimized */}
         <div className="mt-8 space-y-4 md:mt-12 md:space-y-6">
           <div className="text-center">

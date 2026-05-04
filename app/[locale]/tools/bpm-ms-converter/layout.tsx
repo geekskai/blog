@@ -16,7 +16,7 @@ export async function generateMetadata(props: {
     "x-default": "https://geekskai.com/tools/bpm-ms-converter",
   }
 
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-05-04")
 
   supportedLocales.forEach((locale) => {
     languages[locale] = `https://geekskai.com/${locale}/tools/bpm-ms-converter`

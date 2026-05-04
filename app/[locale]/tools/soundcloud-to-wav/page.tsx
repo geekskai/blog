@@ -1,8 +1,9 @@
 "use client"
-import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import TrackInfoCard, { TrackInfo } from "./TrackInfoCard"
 import { useTranslations } from "next-intl"
+import dynamic from "next/dynamic"
+import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import TrackDownloadForm from "../soundcloud-downloader/components/TrackDownloadForm"
 import {
   CoreFactsSection,
@@ -15,6 +16,11 @@ import {
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 import ShareButtons from "@/components/ShareButtons"
 import { useSoundCloudTrackDownloadForm } from "../soundcloud-downloader/hooks/useSoundCloudTrackDownloadForm"
+
+const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
+  ssr: false,
+  loading: () => <GoogleAdUnitPlaceholder />,
+})
 
 const createDownloadLink = (blob: Blob, fileName: string): void => {
   const url = window.URL.createObjectURL(blob)
@@ -61,10 +67,26 @@ export default function Page() {
     getFileName,
     createDownloadLink,
   })
+  const resultSectionRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    if (!trackInfo || !resultSectionRef.current) {
+      return
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      resultSectionRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+    }, 150)
+
+    return () => window.clearTimeout(timeoutId)
+  }, [trackInfo])
 
   return (
     <div className="min-h-screen bg-slate-950">
-      <div className="relative mx-auto max-w-6xl space-y-4 p-4">
+      <div className="relative mx-auto max-w-7xl space-y-4 p-4">
         {/* Content Freshness Badge */}
         <ContentFreshnessBadge lastModified={new Date("2026-04-26")} namespace="SoundCloudToWAV" />
 
@@ -84,7 +106,7 @@ export default function Page() {
           </h1>
 
           {/* Subtitle */}
-          <p className="mx-auto mb-3 max-w-6xl text-base text-slate-300 md:text-lg">
+          <p className="mx-auto mb-3 max-w-7xl text-base text-slate-300 md:text-lg">
             {t.rich("page_subtitle", {
               wav: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
               mp3: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
@@ -93,12 +115,21 @@ export default function Page() {
               no_registration: (chunks) => <strong className="text-pink-400">{chunks}</strong>,
             })}
           </p>
+
+          {/* <div className="mx-auto mt-5 max-w-4xl rounded-2xl border border-purple-500/20 bg-gradient-to-r from-purple-500/10 via-pink-500/5 to-indigo-500/10 p-4 text-left shadow-lg md:mt-7 md:border-purple-500/30 md:p-5 md:backdrop-blur-md">
+            <div className="flex flex-col gap-3 md:flex-row md:items-start md:gap-4">
+              <div className="inline-flex w-fit items-center rounded-full border border-purple-400/20 bg-purple-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-purple-200">
+                {t("section_convert_online_title")}
+              </div>
+              <p className="flex-1 text-sm leading-6 text-slate-200 md:text-[15px] md:leading-7">
+                {t("section_convert_online_description")}
+              </p>
+            </div>
+          </div> */}
         </header>
 
-        <GoogleAdUnitWrap />
-
         {/* Input area card */}
-        <div className="mx-auto max-w-6xl md:mb-12">
+        <div className="mx-auto max-w-7xl md:mb-8">
           <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
             <div className="border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 px-4 py-3">
               <h2 className="text-lg font-semibold text-white md:text-2xl">{t("form_title")}</h2>
@@ -109,7 +140,7 @@ export default function Page() {
               formId="soundcloud-to-wav-form"
               url={url}
               placeholder="https://soundcloud.com/username/song-name"
-              relatedToolHref="/tools/soundcloud-downloader"
+              relatedToolHref="/tools/soundcloud-downloader/"
               extension={extension}
               loadingState={loadingState}
               downloading={downloading}
@@ -127,11 +158,9 @@ export default function Page() {
           </div>
         </div>
 
-        <ShareButtons />
-
         {/* Loading skeleton */}
         {loadingState === "loading" && !trackInfo && (
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-7xl">
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
               <div className="animate-pulse space-y-4 p-8">
                 <div className="h-64 rounded-lg bg-white/10"></div>
@@ -146,7 +175,7 @@ export default function Page() {
 
         {/* Music info card */}
         {trackInfo && (
-          <div className="mx-auto max-w-6xl">
+          <div ref={resultSectionRef} className="mx-auto max-w-7xl scroll-mt-24">
             <div className="mb-8 text-center">
               <h2 className="mb-2 text-2xl font-bold text-white md:text-3xl">
                 {t("track_info_title")}
@@ -163,6 +192,10 @@ export default function Page() {
           </div>
         )}
 
+        <ShareButtons />
+
+        <DeferredGoogleAdUnitWrap />
+
         {/* Empty state message */}
         {/* {loadingState === "idle" && !trackInfo && (
           <div className="mx-auto max-w-6xl text-center">
@@ -178,7 +211,7 @@ export default function Page() {
 
         {/* SEO Content Sections */}
         <div
-          className="mx-auto max-w-6xl space-y-8 md:space-y-12"
+          className="mx-auto max-w-7xl space-y-8 md:space-y-12"
           style={seoContentVisibilityStyle}
         >
           {/* What is this tool section */}

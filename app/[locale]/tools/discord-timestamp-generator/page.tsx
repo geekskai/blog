@@ -1,6 +1,8 @@
 "use client"
 import ShareButtons from "@/components/ShareButtons"
 import React, { useState, useEffect, useRef, useCallback } from "react"
+import dynamic from "next/dynamic"
+import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import { useTranslations } from "next-intl"
 import {
   Clock,
@@ -24,7 +26,11 @@ import {
   ArrowUpDown,
 } from "lucide-react"
 import { Link } from "app/i18n/navigation"
-import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
+
+const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
+  ssr: false,
+  loading: () => <GoogleAdUnitPlaceholder />,
+})
 
 // Type definitions
 interface TimestampFormat {
@@ -412,7 +418,6 @@ export default function DiscordTimestampGenerator() {
             </div>
           </div>
         </div>
-        <GoogleAdUnitWrap />
         <ShareButtons />
 
         {/* Main content area with responsive dual-column layout */}
@@ -1036,6 +1041,8 @@ export default function DiscordTimestampGenerator() {
             </div>
           </div>
         </div>
+
+        <DeferredGoogleAdUnitWrap />
 
         {/* Content Sections for SEO */}
         <div className="mt-12 space-y-10 sm:mt-16 sm:space-y-12 md:mt-20 md:space-y-16">

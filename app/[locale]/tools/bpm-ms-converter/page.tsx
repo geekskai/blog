@@ -1,12 +1,18 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
+import dynamic from "next/dynamic"
+import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import { Music, Clock, Zap, Headphones } from "lucide-react"
 import { useTranslations } from "next-intl"
 import ConversionResults from "./components/ConversionResults"
 import { ConversionState, ConversionMode } from "./types"
 import { performConversion, copyToClipboard } from "./utils"
-import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
+
+const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
+  ssr: false,
+  loading: () => <GoogleAdUnitPlaceholder />,
+})
 
 export default function BPMMSConverter() {
   const t = useTranslations("BpmMsConverter")
@@ -110,8 +116,6 @@ export default function BPMMSConverter() {
             </div>
           </div>
         </div>
-
-        <GoogleAdUnitWrap />
 
         {/* Main Content */}
         <div className="mx-auto max-w-6xl space-y-4 px-4 py-4 sm:px-6 md:space-y-6 md:py-8 lg:px-8">
@@ -227,6 +231,8 @@ export default function BPMMSConverter() {
               <ConversionResults result={state.result} mode={state.mode} />
             </div>
           )}
+
+          <DeferredGoogleAdUnitWrap />
 
           {/* Professional Tips - SEO Content */}
           <div className="mb-16">

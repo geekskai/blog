@@ -70,6 +70,10 @@ module.exports = () => {
           protocol: "https",
           hostname: "i4.sndcdn.com",
         },
+        {
+          protocol: "https",
+          hostname: "a1.sndcdn.com",
+        },
       ],
       // 启用图片优化以减少 Fast Origin Transfer 费用
       // 仅在明确需要时才禁用优化（如静态导出）

@@ -86,6 +86,24 @@ export const toolsData: ToolData[] = [
     category: "Creative",
   },
   {
+    id: "soundcloud-artwork-downloader",
+    title: "SoundCloud Artwork Downloader",
+    description:
+      "Fetch SoundCloud track artwork, preview the cover image, and download the artwork file directly to your device from a single track URL.",
+    icon: Music,
+    href: "/tools/soundcloud-artwork-downloader/",
+    features: [
+      "Single-track SoundCloud artwork fetch",
+      "Large artwork preview before download",
+      "Direct image download to local device",
+      "Short-link and public track support",
+    ],
+    badge: "New",
+    badgeColor: "bg-pink-500",
+    gradient: gradients.creative,
+    category: "Creative",
+  },
+  {
     id: "soundcloud-to-mp3",
     title: "SoundCloud to MP3 Converter",
     description:

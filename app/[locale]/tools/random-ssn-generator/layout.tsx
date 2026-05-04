@@ -16,7 +16,7 @@ export async function generateMetadata(props: {
   const languages = {
     "x-default": "https://geekskai.com/tools/random-ssn-generator/",
   }
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-05-04")
 
   supportedLocales.forEach((loc) => {
     languages[loc] = `https://geekskai.com/${loc}/tools/random-ssn-generator/`

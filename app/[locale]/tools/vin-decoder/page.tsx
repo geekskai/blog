@@ -1,7 +1,8 @@
 "use client"
 // import React from "react"
 import ShareButtons from "@/components/ShareButtons"
-import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
+import dynamic from "next/dynamic"
+import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import React, { useState, useCallback, useEffect } from "react"
 import {
   Home,
@@ -30,6 +31,11 @@ import { vinCache, history, dedupeRequest } from "./lib/cache"
 import { Link } from "app/i18n/navigation"
 import { formatVehicleSummary, exportAsJSON, exportAsCSV, exportAsText } from "./lib/mapping"
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
+
+const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
+  ssr: false,
+  loading: () => <GoogleAdUnitPlaceholder />,
+})
 
 const VEHICLE_TYPE_LINKS = [
   {
@@ -389,8 +395,6 @@ export default function VinDecoder() {
             className="mt-4 sm:mt-5"
           />
         </div>
-        <GoogleAdUnitWrap />
-
         {/* Main Content Grid */}
         <div className="grid gap-4 sm:gap-5 md:gap-6 lg:grid-cols-12 lg:gap-8">
           {/* Main Content Panel */}
@@ -740,6 +744,8 @@ export default function VinDecoder() {
             )}
           </div>
         </div>
+
+        <DeferredGoogleAdUnitWrap />
 
         {/* Quick answer + core facts chunk for AI retrieval */}
         <section className="mb-6 mt-6 overflow-hidden rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-cyan-500/10 p-5 shadow-2xl backdrop-blur-xl sm:mb-8 sm:mt-8 sm:rounded-3xl sm:p-6 md:p-8">

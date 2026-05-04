@@ -216,13 +216,13 @@ async function resolveBandcampAlbumDownload(albumUrl: string) {
   ])
 
   const downloadLinks = extractDownloadLinks(rawInfo)
-  console.log("downloadLinks", downloadLinks)
+  console.warn("resolveBandcampAlbumDownload downloadLinks", downloadLinks)
   const mp3Links = extractMp3DownloadLinks(downloadLinks)
-  console.log("mp3Links", mp3Links)
+  console.warn("resolveBandcampAlbumDownload mp3Links", mp3Links)
   const tracks = extractAlbumTracks(rawInfo)
-  console.log("tracks", tracks)
-  console.log("rawInfo", rawInfo)
-  console.log("rawProducts", rawProducts)
+  console.warn("resolveBandcampAlbumDownload tracks", tracks)
+  console.warn("resolveBandcampAlbumDownload rawInfo", rawInfo)
+  console.warn("resolveBandcampAlbumDownload rawProducts", rawProducts)
   return {
     sourceUrl: albumUrl,
     summary: extractAlbumSummary(rawInfo),

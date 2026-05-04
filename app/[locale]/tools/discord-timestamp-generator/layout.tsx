@@ -23,8 +23,8 @@ export async function generateMetadata(props: {
   })
 
   // Content freshness metadata (GEO requirement)
-  const lastModified = new Date("2026-04-26")
-  const nextReview = new Date("2026-05-14") // 90 days later
+  const lastModified = new Date("2026-05-04")
+  const nextReview = new Date("2026-12-14") // 90 days later
 
   return {
     title: t("seo_title"),

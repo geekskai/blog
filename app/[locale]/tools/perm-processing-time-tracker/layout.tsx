@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server"
 import React from "react"
 
 // Content freshness tracking - updated monthly
-const lastModified = new Date("2026-04-26")
+const lastModified = new Date("2026-05-04")
 const updateFrequency = "monthly"
 const nextReviewDate = new Date("2026-12-26")
 

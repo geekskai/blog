@@ -1,9 +1,10 @@
 "use client"
 
 import React, { useState, useRef } from "react"
+import dynamic from "next/dynamic"
+import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
-import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
 
 // @ts-ignore
 import Color from "public/static/images/tools/print-test-page/color-print-colors-and-fonts.png"
@@ -27,6 +28,11 @@ import {
   UseCasesSection,
 } from "./SEOContent"
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
+
+const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
+  ssr: false,
+  loading: () => <GoogleAdUnitPlaceholder />,
+})
 
 type TestPageType = "color" | "blackWhite" | "cmyk"
 
@@ -161,8 +167,6 @@ export default function PrintTestPage() {
           {/* Content Freshness Badge */}
           <ContentFreshnessBadge lastModified={new Date("2026-04-21")} namespace="PrintTestPage" />
         </header>
-
-        <GoogleAdUnitWrap />
 
         {/* Print Test Pages Section */}
         <div className="mx-auto w-full md:max-w-4xl lg:max-w-6xl">
@@ -499,6 +503,8 @@ export default function PrintTestPage() {
             </div>
           </div>
         </div>
+
+        <DeferredGoogleAdUnitWrap />
 
         {/* SEO Content Sections - Mobile first spacing, then md/lg */}
         <div className="mx-auto w-full space-y-4 md:max-w-4xl md:space-y-6 lg:max-w-6xl lg:space-y-8">

@@ -1,8 +1,9 @@
 "use client"
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import TrackInfoCard, { TrackInfo } from "./TrackInfoCard"
 import { useTranslations } from "next-intl"
 import dynamic from "next/dynamic"
+import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import TrackDownloadForm from "../soundcloud-downloader/components/TrackDownloadForm"
 import {
   CoreFactsSection,
@@ -19,7 +20,7 @@ import { useSoundCloudTrackDownloadForm } from "../soundcloud-downloader/hooks/u
 
 const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
   ssr: false,
-  loading: () => <div className="min-h-[106px] w-full py-2 md:py-4" />,
+  loading: () => <GoogleAdUnitPlaceholder />,
 })
 
 const createDownloadLink = (blob: Blob, fileName: string): void => {
@@ -67,12 +68,28 @@ export default function SoundCloudToMP3Page() {
     getFileName,
     createDownloadLink,
   })
+  const resultSectionRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    if (!trackInfo || !resultSectionRef.current) {
+      return
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      resultSectionRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+    }, 150)
+
+    return () => window.clearTimeout(timeoutId)
+  }, [trackInfo])
 
   return (
     <div className="min-h-screen bg-slate-950">
-      <div className="mx-auto max-w-6xl space-y-4 p-4">
+      <div className="mx-auto max-w-7xl space-y-4 p-4">
         {/* Content Freshness Badge */}
-        <ContentFreshnessBadge lastModified={new Date("2026-04-26")} namespace="SoundCloudToMP3" />
+        <ContentFreshnessBadge lastModified={new Date("2026-05-04")} namespace="SoundCloudToMP3" />
         <header className="text-center">
           {/* Main Title - H1 for SEO */}
           <h1 className="my-3 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-2xl font-bold leading-tight text-transparent md:text-5xl">
@@ -80,7 +97,7 @@ export default function SoundCloudToMP3Page() {
           </h1>
 
           {/* Subtitle */}
-          <p className="mx-auto mb-3 max-w-6xl text-base text-slate-300 md:text-lg">
+          <p className="mx-auto mb-3 max-w-7xl text-base text-slate-300 md:text-lg">
             {t.rich("page_subtitle", {
               mp3: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
               wav: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
@@ -91,18 +108,20 @@ export default function SoundCloudToMP3Page() {
           </p>
 
           {/* TL;DR Block - GEO Requirement: Answer Seed (80-150 words) */}
-          <div className="mx-auto mt-8 max-w-6xl rounded-2xl border border-purple-500/20 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10 p-5 shadow-lg sm:p-6 md:mt-12 md:rounded-3xl md:border-purple-500/30 md:p-10 md:shadow-2xl md:backdrop-blur-md">
-            <h2 className="mb-4 text-base font-bold text-purple-300 sm:text-lg md:text-2xl">
-              {t("page_tldr_title")}
-            </h2>
-            <p className="text-sm text-slate-200 sm:text-base md:text-lg md:leading-loose">
-              {t("page_tldr_content")}
-            </p>
+          <div className="mx-auto mt-5 max-w-7xl rounded-2xl border border-pink-500/20 bg-gradient-to-r from-fuchsia-500/10 via-pink-500/5 to-orange-500/10 p-4 text-left shadow-lg md:mt-7 md:border-pink-500/30 md:p-5 md:backdrop-blur-md">
+            <div className="flex flex-col gap-3 md:flex-row md:items-start md:gap-4">
+              <div className="inline-flex w-fit items-center rounded-full border border-pink-400/20 bg-pink-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-pink-200">
+                {t("page_tldr_title")}
+              </div>
+              <p className="flex-1 text-sm leading-6 text-slate-200 md:text-[15px] md:leading-7">
+                {t("page_tldr_content")}
+              </p>
+            </div>
           </div>
         </header>
 
         {/* Input area card */}
-        <div className="mx-auto max-w-6xl md:mb-12">
+        <div className="mx-auto max-w-7xl md:mb-8">
           <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
             <div className="border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 px-4 py-3">
               <h2 className="text-lg font-semibold text-white md:text-2xl">{t("form_title")}</h2>
@@ -113,7 +132,7 @@ export default function SoundCloudToMP3Page() {
               formId="soundcloud-to-mp3-form"
               url={url}
               placeholder="https://soundcloud.com/username/your-song-name"
-              relatedToolHref="/tools/soundcloud-downloader"
+              relatedToolHref="/tools/soundcloud-downloader/"
               extension={extension}
               loadingState={loadingState}
               downloading={downloading}
@@ -131,11 +150,9 @@ export default function SoundCloudToMP3Page() {
           </div>
         </div>
 
-        <DeferredGoogleAdUnitWrap />
-
         {/* Loading skeleton */}
         {loadingState === "loading" && !trackInfo && (
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-7xl">
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
               <div className="animate-pulse space-y-4 p-8">
                 <div className="h-64 rounded-lg bg-white/10"></div>
@@ -150,7 +167,7 @@ export default function SoundCloudToMP3Page() {
 
         {/* Music info card */}
         {trackInfo && (
-          <div className="mx-auto max-w-6xl">
+          <div ref={resultSectionRef} className="mx-auto max-w-7xl scroll-mt-24">
             <div className="mb-8 text-center">
               <h2 className="mb-2 text-2xl font-bold text-white md:text-3xl">
                 {t("track_info_title")}
@@ -167,9 +184,11 @@ export default function SoundCloudToMP3Page() {
           </div>
         )}
 
+        <DeferredGoogleAdUnitWrap />
+
         {/* SEO Content Sections */}
         <div
-          className="mx-auto max-w-6xl space-y-8 md:space-y-12"
+          className="mx-auto max-w-7xl space-y-8 md:space-y-12"
           style={seoContentVisibilityStyle}
         >
           {/* What is this tool section */}
@@ -220,14 +239,25 @@ export default function SoundCloudToMP3Page() {
           </section>
 
           {/* Convert SoundCloud to MP3/WAV Online Section */}
-          <section className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-md md:p-8">
+          {/* <section className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-md md:p-8">
             <h2 className="mb-6 text-2xl font-bold text-white md:text-3xl">
               {t("section_convert_online_title")}
             </h2>
             <p className="text-base text-slate-300 md:text-lg">
               {t("section_convert_online_description")}
             </p>
-          </section>
+          </section> */}
+
+          <div className="mx-auto mt-5 max-w-7xl rounded-2xl border border-pink-500/20 bg-gradient-to-r from-fuchsia-500/10 via-pink-500/5 to-orange-500/10 p-4 text-left shadow-lg md:mt-7 md:border-pink-500/30 md:p-5 md:backdrop-blur-md">
+            <div className="flex flex-col gap-3 md:flex-row md:items-start md:gap-4">
+              <div className="inline-flex w-fit items-center rounded-full border border-pink-400/20 bg-pink-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-pink-200">
+                {t("section_convert_online_title")}
+              </div>
+              <p className="flex-1 text-sm leading-6 text-slate-200 md:text-[15px] md:leading-7">
+                {t("section_convert_online_description")}
+              </p>
+            </div>
+          </div>
 
           {/* Core Facts Section */}
           <CoreFactsSection />

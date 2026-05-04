@@ -1,6 +1,8 @@
 "use client"
 
 import React from "react"
+import dynamic from "next/dynamic"
+import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import { Home, ChevronRight, Shield, Zap, Download, Users, AlertTriangle } from "lucide-react"
 import { useTranslations } from "next-intl"
 // import ShareButtons from "@/components/ShareButtons"
@@ -9,7 +11,11 @@ import SSNGeneratorComponent from "./components/SSNGenerator"
 import EducationalContent from "./components/EducationalContent"
 import FAQSection from "./components/FAQSection"
 import { Link } from "@/app/i18n/navigation"
-import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
+
+const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
+  ssr: false,
+  loading: () => <GoogleAdUnitPlaceholder />,
+})
 
 export default function RandomSSNGenerator() {
   const t = useTranslations("RandomSSNGenerator")
@@ -65,7 +71,6 @@ export default function RandomSSNGenerator() {
             </div>
           </div> */}
 
-          <GoogleAdUnitWrap />
         </div>
 
         {/* Main Content Grid */}
@@ -133,6 +138,8 @@ export default function RandomSSNGenerator() {
             </div>
           </div>
         </div>
+
+        <DeferredGoogleAdUnitWrap />
 
         {/* Legal Notice Section - Placed after core functionality */}
         <div className="mt-16">

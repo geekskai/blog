@@ -1,6 +1,7 @@
 "use client"
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
-import React, { useCallback, useMemo, useState } from "react"
+import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { useTranslations } from "next-intl"
 import dynamic from "next/dynamic"
 import TrackInfoCard, { TrackInfo } from "../soundcloud-to-mp3/TrackInfoCard"
@@ -19,7 +20,7 @@ import { CoreFactsSection, FAQSection, HowItWorksSection } from "./SEOContent"
 
 const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
   ssr: false,
-  loading: () => <div className="min-h-[106px] w-full py-2 md:py-4" />,
+  loading: () => <GoogleAdUnitPlaceholder />,
 })
 
 const getFileName = (trackInfo: TrackInfo | null, extension: string): string => {
@@ -72,6 +73,7 @@ export default function SoundCloudDownloaderPage() {
     currentTrack: "",
     status: "idle",
   })
+  const resultSectionRef = useRef<HTMLDivElement | null>(null)
 
   const urlKind = useMemo(() => detectSoundCloudUrlKind(url), [url])
   const isPlaylistMode = urlKind === "playlist"
@@ -251,11 +253,27 @@ export default function SoundCloudDownloaderPage() {
     [handleFetchPlaylist, handleGetInfo, isPlaylistMode]
   )
 
+  useEffect(() => {
+    const hasResult = isPlaylistMode ? Boolean(playlistInfo?.tracks.length) : Boolean(trackInfo)
+    if (!hasResult || !resultSectionRef.current) {
+      return
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      resultSectionRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+    }, 150)
+
+    return () => window.clearTimeout(timeoutId)
+  }, [isPlaylistMode, playlistInfo, trackInfo])
+
   return (
     <div className="min-h-screen bg-slate-950">
-      <div className="relative mx-auto max-w-6xl space-y-4 p-4">
+      <div className="relative mx-auto max-w-7xl space-y-4 p-4">
         <ContentFreshnessBadge
-          lastModified={new Date("2026-04-29")}
+          lastModified={new Date("2026-05-04")}
           namespace="SoundCloudDownloader"
         />
 
@@ -271,21 +289,23 @@ export default function SoundCloudDownloaderPage() {
             {tDownloader("page_title")}
           </h1>
 
-          <p className="mx-auto mb-3 max-w-6xl text-base text-slate-300 md:text-lg">
+          <p className="mx-auto mb-3 max-w-7xl text-base text-slate-300 md:text-lg">
             {tDownloader("page_subtitle")}
           </p>
 
-          <div className="mx-auto mt-8 max-w-6xl rounded-2xl border border-purple-500/20 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-indigo-500/10 p-5 shadow-lg sm:p-6 md:mt-12 md:rounded-3xl md:border-purple-500/30 md:p-10 md:shadow-2xl md:backdrop-blur-md">
-            <h2 className="mb-4 text-base font-bold text-purple-300 sm:text-lg md:text-2xl">
-              {tDownloader("page_quick_answer_title")}
-            </h2>
-            <p className="text-sm text-slate-200 sm:text-base md:text-lg md:leading-loose">
-              {tDownloader("page_quick_answer_content")}
-            </p>
+          <div className="mx-auto mt-5 max-w-7xl rounded-2xl border border-pink-500/20 bg-gradient-to-r from-fuchsia-500/10 via-pink-500/5 to-orange-500/10 p-4 text-left shadow-lg md:mt-7 md:border-pink-500/30 md:p-5 md:backdrop-blur-md">
+            <div className="flex flex-col gap-3 md:flex-row md:items-start md:gap-4">
+              <div className="inline-flex w-fit items-center rounded-full border border-pink-400/20 bg-pink-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-pink-200">
+                {tDownloader("page_quick_answer_title")}
+              </div>
+              <p className="flex-1 text-sm leading-6 text-slate-200 md:text-[15px] md:leading-7">
+                {tDownloader("page_quick_answer_content")}
+              </p>
+            </div>
           </div>
         </header>
 
-        <div className="mx-auto max-w-6xl md:mb-12">
+        <div className="mx-auto max-w-7xl md:mb-8">
           <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
             <div className="border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 px-4 py-3">
               <h2 className="text-lg font-semibold text-white md:text-2xl">
@@ -304,7 +324,7 @@ export default function SoundCloudDownloaderPage() {
                 formId="soundcloud-downloader-form"
                 url={url}
                 placeholder="https://soundcloud.com/username/sets/playlist-name"
-                relatedToolHref="/tools/soundcloud-to-mp3"
+                relatedToolHref="/tools/soundcloud-to-mp3/"
                 extension={format}
                 loadingState={playlistLoadingState}
                 errorMessage={playlistErrorMessage}
@@ -320,7 +340,7 @@ export default function SoundCloudDownloaderPage() {
                 formId="soundcloud-downloader-form"
                 url={url}
                 placeholder="https://soundcloud.com/username/song-name"
-                relatedToolHref="/tools/soundcloud-playlist-downloader"
+                relatedToolHref="/tools/soundcloud-playlist-downloader/"
                 extension={format}
                 loadingState={loadingState}
                 downloading={downloading}
@@ -339,23 +359,23 @@ export default function SoundCloudDownloaderPage() {
           </div>
         </div>
 
-        <DeferredGoogleAdUnitWrap />
-
         {isPlaylistMode && playlistDownloadProgress.status !== "idle" && (
           <DownloadProgress progress={playlistDownloadProgress} />
         )}
 
         {isPlaylistMode && playlistInfo && playlistInfo.tracks.length > 0 && (
-          <PlaylistTracks
-            tracks={playlistInfo.tracks}
-            onDownloadAll={handleDownloadAll}
-            isDownloading={playlistDownloadProgress.status === "downloading"}
-            format={format}
-          />
+          <div ref={resultSectionRef} className="scroll-mt-24">
+            <PlaylistTracks
+              tracks={playlistInfo.tracks}
+              onDownloadAll={handleDownloadAll}
+              isDownloading={playlistDownloadProgress.status === "downloading"}
+              format={format}
+            />
+          </div>
         )}
 
         {!isPlaylistMode && loadingState === "loading" && !trackInfo && (
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-7xl">
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
               <div className="animate-pulse space-y-4 p-8">
                 <div className="h-64 rounded-lg bg-white/10"></div>
@@ -369,7 +389,7 @@ export default function SoundCloudDownloaderPage() {
         )}
 
         {!isPlaylistMode && trackInfo && (
-          <div className="mx-auto max-w-6xl">
+          <div ref={resultSectionRef} className="mx-auto max-w-7xl scroll-mt-24">
             <div className="mb-8 text-center">
               <h2 className="mb-2 text-2xl font-bold text-white md:text-3xl">
                 {tDownloader("track_info_title")}
@@ -401,8 +421,10 @@ export default function SoundCloudDownloaderPage() {
           </div>
         )} */}
 
+        <DeferredGoogleAdUnitWrap />
+
         <div
-          className="mx-auto max-w-6xl space-y-8 md:space-y-12"
+          className="mx-auto max-w-7xl space-y-8 md:space-y-12"
           style={seoContentVisibilityStyle}
         >
           <CoreFactsSection />

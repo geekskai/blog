@@ -1,6 +1,8 @@
 "use client"
 
 import React, { useState } from "react"
+import dynamic from "next/dynamic"
+import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import {
   FileText,
   Clock,
@@ -21,7 +23,11 @@ import HistoricalChart from "./components/HistoricalChart"
 import ShareButtons from "@/components/ShareButtons"
 import { Link } from "@/app/i18n/navigation"
 import { useTranslations } from "next-intl"
-import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
+
+const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
+  ssr: false,
+  loading: () => <GoogleAdUnitPlaceholder />,
+})
 
 export default function PERMProcessingTimeTracker() {
   const t = useTranslations("PERMProcessingTimeTracker")
@@ -121,8 +127,6 @@ export default function PERMProcessingTimeTracker() {
           </div>
         </div>
 
-        <GoogleAdUnitWrap />
-
         {/* Navigation Tabs */}
         <div className="mb-8">
           <div className="flex space-x-1 rounded-lg bg-slate-800/80 p-1 backdrop-blur-sm">
@@ -211,6 +215,8 @@ export default function PERMProcessingTimeTracker() {
 
           {activeTab === "trends" && <HistoricalChart data={historicalData} />}
         </div>
+
+        <DeferredGoogleAdUnitWrap />
 
         {/* Data Source Attribution - SEO Optimized */}
         <section

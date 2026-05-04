@@ -1,6 +1,8 @@
 "use client"
 
 import React, { useState, useEffect, useRef, useCallback, useMemo } from "react"
+import dynamic from "next/dynamic"
+import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import { useTranslations } from "next-intl"
 import {
   Clock,
@@ -25,7 +27,11 @@ import CustomDateTimePicker from "@/components/ui/CustomDateTimePicker"
 import CustomSelector from "@/components/ui/CustomSelector"
 import { Link } from "app/i18n/navigation"
 import ShareButtons from "@/components/ShareButtons"
-import GoogleAdUnitWrap from "@/components/GoogleAdUnitWrap"
+
+const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
+  ssr: false,
+  loading: () => <GoogleAdUnitPlaceholder />,
+})
 // Type definitions
 interface TimestampFormat {
   id: string
@@ -517,7 +523,6 @@ export default function DiscordTimeConverter() {
           </div>
         </div>
 
-        <GoogleAdUnitWrap />
         <ShareButtons />
 
         {/* Main conversion area */}
@@ -994,6 +999,8 @@ export default function DiscordTimeConverter() {
             </div>
           </div>
         </div>
+
+        <DeferredGoogleAdUnitWrap />
 
         {/* Usage guide */}
         <div className="rounded-3xl border border-white/10 bg-white/5 p-12 shadow-2xl backdrop-blur-md">
