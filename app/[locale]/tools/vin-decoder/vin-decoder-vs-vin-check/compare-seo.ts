@@ -241,7 +241,7 @@ export function getVinOrganizationSchema() {
     "@type": "Organization",
     name: VIN_SEO_SHARED.siteName,
     url: VIN_SEO_SHARED.siteUrl,
-    logo: `${VIN_SEO_SHARED.siteUrl}/static/logo.png`,
+    logo: `${VIN_SEO_SHARED.siteUrl}/static/logos.png`,
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",

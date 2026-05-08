@@ -9,7 +9,7 @@ const siteMetadata = {
   theme: "dark", // system, dark or light
   siteUrl: "https://geekskai.com",
   siteRepo: "https://github.com/geekskai/blog",
-  siteLogo: `${process.env.BASE_PATH || ""}/static/logo.png`,
+  siteLogo: `${process.env.BASE_PATH || ""}/static/logos.png`,
   socialBanner: `${process.env.BASE_PATH || ""}/static/images/geekskai-blog.png`,
   mastodon: "https://mastodon.social/@mastodonuser",
   email: "geeks.kai@gmail.com",

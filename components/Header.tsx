@@ -42,15 +42,15 @@ const Header = () => {
       <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6 xl:px-0">
         {/* Logo Section */}
         <Link href="/" aria-label={siteMetadata.headerTitle}>
-          <div className="group flex items-center gap-3">
+          <div className="group flex items-center gap-1">
             <Image
-              src="/static/logo.png"
+              src="/static/logos.png"
               alt="geekskai Logo"
-              width={100}
+              width={44}
               height={36}
               loading="eager"
-              sizes="100px"
-              className="h-[36px] w-[100px] transition-transform duration-300 group-hover:scale-105"
+              sizes="100%"
+              className="h-10 w-12 transition-transform duration-300 group-hover:scale-105"
             />
             {typeof siteMetadata.headerTitle === "string" ? (
               <div className="hidden bg-gradient-to-r from-white to-slate-300 bg-clip-text text-2xl font-bold text-transparent sm:block">

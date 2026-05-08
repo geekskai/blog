@@ -50,7 +50,7 @@ export async function generateMetadata(props: {
       description: t("seo_description"),
     },
     icons: {
-      icon: "/static/logo.png",
+      icon: "/static/logos.png",
     },
     alternates: {
       canonical: isDefaultLocale
@@ -253,7 +253,7 @@ export default async function Layout(props: { children: React.ReactNode; params:
     "@type": "Organization",
     name: "GeeksKai",
     url: baseUrl,
-    logo: `${baseUrl}/static/images/logo.png`,
+    logo: `${baseUrl}/static/logos.png`,
     sameAs: ["https://github.com/geekskai", "https://twitter.com/geekskai"],
     contactPoint: {
       "@type": "ContactPoint",

@@ -159,7 +159,7 @@ export default async function BrandVinDecoderPage(props: BrandPageProps) {
       url: "https://geekskai.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://geekskai.com/static/logo.png",
+        url: "https://geekskai.com/static/logos.png",
       },
     },
     featureList: [
@@ -263,7 +263,7 @@ export default async function BrandVinDecoderPage(props: BrandPageProps) {
     "@type": "Organization",
     name: "GeeksKai",
     url: "https://geekskai.com",
-    logo: "https://geekskai.com/static/logo.png",
+    logo: "https://geekskai.com/static/logos.png",
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",

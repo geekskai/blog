@@ -143,7 +143,7 @@ export const Blog = defineDocumentType(() => ({
             name: siteMetadata.title,
             logo: {
               "@type": "ImageObject",
-              url: `${siteMetadata.siteUrl}/static/logo.png`,
+              url: `${siteMetadata.siteUrl}/static/logos.png`,
               width: 112,
               height: 112,
             },

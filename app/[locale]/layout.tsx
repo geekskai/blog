@@ -154,7 +154,7 @@ export default async function RootLayout({
         url: baseUrl,
         logo: {
           "@type": "ImageObject",
-          url: `${baseUrl}/static/logo.png`,
+          url: `${baseUrl}/static/logos.png`,
           width: 512,
           height: 512,
         },
@@ -230,9 +230,9 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={`scroll-smooth`} suppressHydrationWarning>
-      <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/static/logo.png`} />
-      <link rel="icon" type="image/png" sizes="48x48" href={`${basePath}/static/logo.png`} />
-      <link rel="icon" type="image/png" sizes="16x16" href={`${basePath}/static/logo.png`} />
+      <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/static/logos.png`} />
+      <link rel="icon" type="image/png" sizes="48x48" href={`${basePath}/static/logos.png`} />
+      <link rel="icon" type="image/png" sizes="16x16" href={`${basePath}/static/logos.png`} />
       <link rel="manifest" href={`${basePath}/static/favicons/site.webmanifest`} />
       <meta name="saashub-verification" content="e4h08bjpev5u" />
       <meta name="msvalidate.01" content="58567D271AD7C1B504E10F5DC587BD0B" />

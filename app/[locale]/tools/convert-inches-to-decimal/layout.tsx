@@ -191,7 +191,7 @@ export default async function Layout(props: {
     "@type": "Organization",
     name: "GeeksKai",
     url: "https://geekskai.com",
-    logo: "https://geekskai.com/static/logo.png",
+    logo: "https://geekskai.com/static/logos.png",
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",

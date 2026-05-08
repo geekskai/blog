@@ -122,7 +122,7 @@ function getStructuredData(locale: string, t: any) {
       url: "https://geekskai.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://geekskai.com/static/logo.png",
+        url: "https://geekskai.com/static/logos.png",
       },
     },
     featureList: [

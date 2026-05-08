@@ -116,7 +116,7 @@ export default async function SnowDayCalculatorLayout(props: {
       "@type": "Organization",
       name: "GeeksKai",
       url: "https://www.geekskai.com",
-      logo: "https://www.geekskai.com/static/logo.png",
+      logo: "https://www.geekskai.com/static/logos.png",
     },
     featureList: [
       t("json_ld.feature_list.realtime_api"),
@@ -319,7 +319,7 @@ export default async function SnowDayCalculatorLayout(props: {
     "@type": "Organization",
     name: "GeeksKai",
     url: "https://www.geekskai.com",
-    logo: "https://www.geekskai.com/static/logo.png",
+    logo: "https://www.geekskai.com/static/logos.png",
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",

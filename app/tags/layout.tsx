@@ -69,9 +69,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const basePath = process.env.BASE_PATH || ""
   return (
     <html lang="en" className={`scroll-smooth`} suppressHydrationWarning>
-      <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/static/logo.png`} />
-      <link rel="icon" type="image/png" sizes="48x48" href={`${basePath}/static/logo.png`} />
-      <link rel="icon" type="image/png" sizes="16x16" href={`${basePath}/static/logo.png`} />
+      <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/static/logos.png`} />
+      <link rel="icon" type="image/png" sizes="48x48" href={`${basePath}/static/logos.png`} />
+      <link rel="icon" type="image/png" sizes="16x16" href={`${basePath}/static/logos.png`} />
       <link rel="manifest" href={`${basePath}/static/favicons/site.webmanifest`} />
       <meta name="msvalidate.01" content="58567D271AD7C1B504E10F5DC587BD0B" />
       <meta name="google-adsense-account" content="ca-pub-2108246014001009"></meta>

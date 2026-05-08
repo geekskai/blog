@@ -2,7 +2,7 @@ import Link from "./Link"
 import React from "react"
 import SocialIcon from "./social-icons"
 import siteMetadata from "@/data/siteMetadata"
-// import Logo from "/public/static/logo.png"
+// import Logo from "/public/static/logos.png"
 import Image from "./Image"
 import { Zap, Heart, ExternalLink } from "lucide-react"
 import { useTranslations } from "next-intl"
@@ -52,15 +52,14 @@ const SiteFooter = () => {
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="mb-6">
-              <Link href="/" className="group inline-flex items-center gap-3">
+              <Link href="/" className="group inline-flex items-center gap-1">
                 <Image
-                  src="/static/logo.png"
+                  src="/static/logos.png"
                   alt="geekskai Logo"
-                  loading="lazy"
-                  width={100}
-                  height={36}
-                  sizes="100px"
-                  className="h-[36px] w-[100px] transition-transform duration-300 group-hover:scale-105"
+                  width={28}
+                  height={26}
+                  sizes="100%"
+                  className="h-7 w-8 transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="text-xl font-bold text-white">geekskai</div>
               </Link>
