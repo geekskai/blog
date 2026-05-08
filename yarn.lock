@@ -3192,6 +3192,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@microsoft/clarity@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@microsoft/clarity@npm:1.0.2"
+  checksum: 3b5db4cc017662a9f5f380b07c944d92f52a631b32656c7a8e278ca9748032b6f0564c5ecf2b902a47acd1a2dab7f8a470a6589ed56b79122f8dc90272ec0253
+  languageName: node
+  linkType: hard
+
 "@mixmark-io/domino@npm:^2.2.0":
   version: 2.2.0
   resolution: "@mixmark-io/domino@npm:2.2.0"
@@ -5540,6 +5547,7 @@ __metadata:
     "@eslint/js": latest
     "@headlessui/react": latest
     "@json-table/core": ^0.1.0
+    "@microsoft/clarity": ^1.0.2
     "@next/bundle-analyzer": latest
     "@shaggytools/nhtsa-api-wrapper": ^3.0.4
     "@svgr/webpack": ^8.0.1
