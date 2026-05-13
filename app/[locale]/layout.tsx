@@ -239,6 +239,7 @@ export default async function RootLayout({
       <meta name="google-adsense-account" content="ca-pub-2108246014001009"></meta>
       <meta name="google-site-verification" content="QBYZptmNADcvd2h8ZZVSZIJUlv5RnI8yYmHtEld1mKk" />
       <meta name="msapplication-TileColor" content="#000000" />
+      <meta name="baidu-site-verification" content="codeva-vFn9EHfEM1" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
       <body className="min-h-screen bg-gradient-to-b from-[#020617] via-[#0a0f1f] to-[#000D1A]/90 pl-[calc(100vw-100%)] text-white antialiased">
         {/* JSON-LD Structured Data - Must be in body to avoid hydration error */}
