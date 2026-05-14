@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from "next-intl"
 import { Link, useRouter } from "@/app/i18n/navigation"
 import { detectBandcampUrlType, isBandcampUrl } from "../../../../utils/bandcamp"
 
-const lastUpdated = new Date("2026-05-03")
+const lastUpdated = new Date("2026-05-14")
 const deferredSectionStyle = {
   contentVisibility: "auto" as const,
   containIntrinsicSize: "auto 1000px",
@@ -125,16 +125,17 @@ export default function BandcampDownloaderPage() {
               <h1 className="bg-gradient-to-r from-white via-cyan-100 to-fuchsia-200 bg-clip-text text-3xl font-bold leading-tight text-transparent sm:text-4xl lg:text-5xl">
                 {t("hero.title")}
               </h1>
-              {/* <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">
-                <strong className="font-semibold text-white">{t("hero.quickAnswerLabel")}</strong>{" "}
-                {t("hero.quickAnswerBody")}
-              </p> */}
             </div>
 
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
               {facts.map((fact) => (
-                <div key={fact.label} className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">{fact.label}</p>
+                <div
+                  key={fact.label}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                    {fact.label}
+                  </p>
                   <p className="mt-2 text-lg font-semibold text-white">{fact.value}</p>
                   <p className="mt-2 text-sm leading-6 text-slate-300">{fact.description}</p>
                 </div>
@@ -145,7 +146,9 @@ export default function BandcampDownloaderPage() {
 
         <section className="rounded-[28px] border border-white/10 bg-white/5 p-5 shadow-xl backdrop-blur-sm sm:p-7">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">{t("router.eyebrow")}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">
+              {t("router.eyebrow")}
+            </p>
             <h2 className="mt-2 text-2xl font-semibold text-white sm:text-3xl">
               {t("router.title")}
             </h2>
@@ -164,7 +167,7 @@ export default function BandcampDownloaderPage() {
                   <div className="flex flex-col gap-3 sm:flex-row">
                     <input
                       id="bandcamp-hub-url"
-                      className="w-full rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/20"
+                      className="w-full rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/20"
                       value={urlInput}
                       onChange={(event) => setUrlInput(event.target.value)}
                       onPaste={(event) => {
@@ -250,13 +253,9 @@ export default function BandcampDownloaderPage() {
                 <p className="mt-3 text-sm leading-6 text-slate-300">{ctaHint}</p>
               </div>
 
-              <p className="text-xs leading-6 text-slate-400">
-                {t("router.boundaryNote")}
-              </p>
+              <p className="text-xs leading-6 text-slate-400">{t("router.boundaryNote")}</p>
 
-              <p className="text-xs leading-6 text-slate-400">
-                {t("router.pasteHint")}
-              </p>
+              <p className="text-xs leading-6 text-slate-400">{t("router.pasteHint")}</p>
             </div>
           </div>
 
@@ -269,7 +268,9 @@ export default function BandcampDownloaderPage() {
 
         <section className="rounded-[28px] border border-white/10 bg-white/5 p-5 shadow-xl backdrop-blur-sm sm:p-7">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">{t("toolMap.eyebrow")}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">
+              {t("toolMap.eyebrow")}
+            </p>
             <h2 className="mt-2 text-2xl font-semibold text-white sm:text-3xl">
               {t("toolMap.title")}
             </h2>
@@ -302,17 +303,17 @@ export default function BandcampDownloaderPage() {
           </div>
         </section>
 
-        <article
-          className="space-y-6"
-          style={deferredSectionStyle}
-        >
+        <article className="space-y-6" style={deferredSectionStyle}>
           <section className="rounded-[28px] border border-white/10 bg-white/5 p-5 shadow-xl backdrop-blur-sm sm:p-7">
             <h2 className="text-2xl font-semibold text-white sm:text-3xl">
               {t("content.whyTitle")}
             </h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {reasons.map((item, index) => (
-                <div key={item} className="rounded-[24px] border border-white/10 bg-slate-950/40 p-4">
+                <div
+                  key={item}
+                  className="rounded-[24px] border border-white/10 bg-slate-950/40 p-4"
+                >
                   <p className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-200">
                     {t("content.reasonLabel", { index: index + 1 })}
                   </p>
@@ -323,10 +324,15 @@ export default function BandcampDownloaderPage() {
           </section>
 
           <section className="rounded-[28px] border border-white/10 bg-white/5 p-5 shadow-xl backdrop-blur-sm sm:p-7">
-            <h2 className="text-2xl font-semibold text-white sm:text-3xl">{t("content.faqTitle")}</h2>
+            <h2 className="text-2xl font-semibold text-white sm:text-3xl">
+              {t("content.faqTitle")}
+            </h2>
             <div className="mt-6 grid gap-4 lg:grid-cols-2">
               {faqItems.map((item) => (
-                <div key={item.question} className="rounded-[24px] border border-white/10 bg-slate-950/40 p-4">
+                <div
+                  key={item.question}
+                  className="rounded-[24px] border border-white/10 bg-slate-950/40 p-4"
+                >
                   <h3 className="text-lg font-semibold text-white">{item.question}</h3>
                   <p className="mt-3 text-sm leading-6 text-slate-300">{item.answer}</p>
                 </div>

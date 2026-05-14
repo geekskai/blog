@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import type { DownloadLink, TrackSummary } from "../../../../utils/bandcamp"
+import type { DownloadLink, TrackSummary } from "../../../../../utils/bandcamp"
 
 type BandcampAction = "trackMp3"
 
