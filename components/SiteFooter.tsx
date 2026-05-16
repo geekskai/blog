@@ -121,21 +121,28 @@ const SiteFooter = () => {
             <h3 className="mb-6 text-lg font-semibold text-white">{t("footer_resources")}</h3>
             <div className="space-y-3">
               <LinkNext
-                href="/blog"
+                href="/blog/"
                 className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
               >
                 <div className="h-1 w-1 rounded-full bg-blue-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-blue-300"></div>
                 <span>{t("footer_blog")}</span>
               </LinkNext>
               <LinkNext
-                href="/tags"
+                href="/about/"
+                className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
+              >
+                <div className="h-1 w-1 rounded-full bg-blue-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-blue-300"></div>
+                <span>{t("footer_about")}</span>
+              </LinkNext>
+              <LinkNext
+                href="/tags/"
                 className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
               >
                 <div className="h-1 w-1 rounded-full bg-blue-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-blue-300"></div>
                 <span>{t("footer_tags")}</span>
               </LinkNext>
               <LinkNext
-                href="/projects"
+                href="/projects/"
                 className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
               >
                 <div className="h-1 w-1 rounded-full bg-purple-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-purple-300"></div>
@@ -150,7 +157,7 @@ const SiteFooter = () => {
               </LinkNext>
 
               <LinkNext
-                href="/terms"
+                href="/terms/"
                 className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
               >
                 <div className="h-1 w-1 rounded-full bg-emerald-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-emerald-300"></div>
