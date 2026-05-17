@@ -5,9 +5,9 @@ import Link from "./Link"
 import siteMetadata from "@/data/siteMetadata"
 
 // import { skillsData } from '@/utils/data/skills'
-import { skillsImage } from "@/utils/skill-image"
+// import { skillsImage } from "@/utils/skill-image"
 // import Image from 'next/image'
-import Marquee from "react-fast-marquee"
+// import Marquee from "react-fast-marquee"
 
 import { ReactElement } from "react"
 // import { renderCanvas } from "./renderCanvas"
@@ -22,55 +22,55 @@ import { SiLeetcode } from "react-icons/si"
 
 // import { experiences } from '@/utils/data/experience'
 import Image from "next/image"
-import { BsPersonWorkspace } from "react-icons/bs"
-import experience from "../app/assets/lottie/code.json"
-import AnimationLottie from "./helper/animation-lottie"
-import GlowCard from "./helper/glow-card"
+// import { BsPersonWorkspace } from "react-icons/bs"
+// import experience from "../app/assets/lottie/code.json"
+// import AnimationLottie from "./helper/animation-lottie"
+// import GlowCard from "./helper/glow-card"
 import { useTranslations } from "next-intl"
 
-const skillsData = [
-  "HTML",
-  "CSS",
-  "Javascript",
-  "Typescript",
-  "React",
-  "Next JS",
-  "Tailwind",
-  "MongoDB",
-  "MySQL",
-  "PostgreSQL",
-  "Git",
-  "AWS",
-  "Bootstrap",
-  "Docker",
-  "Go",
-  "Figma",
-  "Firebase",
-  "MaterialUI",
-  "Nginx",
-  "Strapi",
-]
+// const skillsData = [
+//   "HTML",
+//   "CSS",
+//   "Javascript",
+//   "Typescript",
+//   "React",
+//   "Next JS",
+//   "Tailwind",
+//   "MongoDB",
+//   "MySQL",
+//   "PostgreSQL",
+//   "Git",
+//   "AWS",
+//   "Bootstrap",
+//   "Docker",
+//   "Go",
+//   "Figma",
+//   "Firebase",
+//   "MaterialUI",
+//   "Nginx",
+//   "Strapi",
+// ]
 
-export const experiences = [
-  {
-    id: 1,
-    title: "Software Engineer I",
-    company: "Teton Private Ltd.",
-    duration: "(Jan 2022 - Present)",
-  },
-  {
-    id: 2,
-    title: "FullStack Developer",
-    company: "Fiverr (freelance)",
-    duration: "(Jun 2021 - Jan 2022)",
-  },
-  {
-    id: 3,
-    title: "Self Employed",
-    company: "Code and build something in everyday.",
-    duration: "(Jan 2018 - Present)",
-  },
-]
+// export const experiences = [
+//   {
+//     id: 1,
+//     title: "Software Engineer I",
+//     company: "Teton Private Ltd.",
+//     duration: "(Jan 2022 - Present)",
+//   },
+//   {
+//     id: 2,
+//     title: "FullStack Developer",
+//     company: "Fiverr (freelance)",
+//     duration: "(Jun 2021 - Jan 2022)",
+//   },
+//   {
+//     id: 3,
+//     title: "Self Employed",
+//     company: "Code and build something in everyday.",
+//     duration: "(Jan 2018 - Present)",
+//   },
+// ]
 
 function HeroSection() {
   const t = useTranslations("HomePage")
