@@ -218,15 +218,6 @@ const SiteFooter = () => {
             </div>
           </div>
         </div>
-
-        <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer nofollow">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://sellwithboost.com/badge/listing.svg"
-            alt="Listed on Sell With boost"
-            style={{ height: "40px", width: "auto" }}
-          />
-        </a>
       </div>
     </footer>
   )
