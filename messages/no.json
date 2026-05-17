@@ -9446,5 +9446,21 @@
       "tools": "Verktøy",
       "current": "Bandcamp-verktøyhub"
     }
+  },
+  "NotFound": {
+    "meta_title": "Siden ble ikke funnet | GeeksKai",
+    "meta_description": "Siden du leter etter finnes ikke eller er flyttet.",
+    "badge": "Fortapt i cyberspace",
+    "title": "Denne siden tok feil vei",
+    "description": "Lenken kan være ødelagt, utdatert eller siden er fjernet. La oss få deg tilbake på sporet.",
+    "hint": "Prøv forsiden, gratis verktøy eller bloggen.",
+    "cta_home": "Tilbake til forsiden",
+    "cta_tools": "Utforsk verktøy",
+    "cta_blog": "Les bloggen",
+    "terminal_prompt": "geekskai@shell",
+    "terminal_command": "find /page --status=missing",
+    "terminal_output": "Feil: rute ikke funnet (404). Omdirigerer til sikkerhet...",
+    "error_code": "ERR_PAGE_NOT_FOUND",
+    "nav_label": "Hurtignavigasjon"
   }
 }

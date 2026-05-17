@@ -9463,5 +9463,21 @@
       "tools": "Tools",
       "current": "Bandcamp Tools Hub"
     }
+  },
+  "NotFound": {
+    "meta_title": "Page Not Found | GeeksKai",
+    "meta_description": "The page you're looking for doesn't exist or has been moved.",
+    "badge": "Lost in cyberspace",
+    "title": "This page took a wrong turn",
+    "description": "The link may be broken, outdated, or the page was removed. Let us get you back on track.",
+    "hint": "Try the homepage, browse free tools, or read the blog.",
+    "cta_home": "Back to Home",
+    "cta_tools": "Explore Tools",
+    "cta_blog": "Read Blog",
+    "terminal_prompt": "geekskai@shell",
+    "terminal_command": "find /page --status=missing",
+    "terminal_output": "Error: route not found (404). Redirecting to safety...",
+    "error_code": "ERR_PAGE_NOT_FOUND",
+    "nav_label": "Quick navigation"
   }
 }

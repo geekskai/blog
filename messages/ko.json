@@ -9500,5 +9500,21 @@
       "tools": "도구",
       "current": "Bandcamp 도구 허브"
     }
+  },
+  "NotFound": {
+    "meta_title": "페이지를 찾을 수 없습니다 | GeeksKai",
+    "meta_description": "찾으시는 페이지가 존재하지 않거나 이동되었습니다.",
+    "badge": "사이버 공간에서 길을 잃음",
+    "title": "이 페이지는 잘못된 길로 갔습니다",
+    "description": "링크가 깨졌거나 오래되었거나 페이지가 삭제되었을 수 있습니다. 안전한 곳으로 안내해 드립니다.",
+    "hint": "홈페이지, 무료 도구 또는 블로그를 이용해 보세요.",
+    "cta_home": "홈으로 돌아가기",
+    "cta_tools": "도구 둘러보기",
+    "cta_blog": "블로그 읽기",
+    "terminal_prompt": "geekskai@shell",
+    "terminal_command": "find /page --status=missing",
+    "terminal_output": "오류: 경로를 찾을 수 없음 (404). 안전한 곳으로 리디렉션 중...",
+    "error_code": "ERR_PAGE_NOT_FOUND",
+    "nav_label": "빠른 탐색"
   }
 }

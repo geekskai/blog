@@ -9264,7 +9264,12 @@
     "metadata": {
       "title": "Bandcamp-værktøjshub: vælg det rigtige Bandcamp-værktøj til sange og albums",
       "description": "Brug denne gratis Bandcamp-værktøjshub til at vælge et fokuseret Bandcamp-workflow til MP3-udtrækning af sange eller albuminspektion.",
-      "keywords": ["bandcamp værktøjs-hub", "vælg det rigtige Bandcamp-værktøj", "sange", "albums"],
+      "keywords": [
+        "bandcamp værktøjs-hub",
+        "vælg det rigtige Bandcamp-værktøj",
+        "sange",
+        "albums"
+      ],
       "openGraphImageAlt": "Bandcamp-værktøjshub af GeeksKai"
     },
     "schema": {
@@ -9301,5 +9306,21 @@
       "tools": "Værktøjer",
       "current": "Bandcamp-værktøjshub"
     }
+  },
+  "NotFound": {
+    "meta_title": "Siden blev ikke fundet | GeeksKai",
+    "meta_description": "Siden du leder efter findes ikke eller er blevet flyttet.",
+    "badge": "Fortabt i cyberspace",
+    "title": "Denne side tog en forkert drejning",
+    "description": "Linket kan være ødelagt, forældet eller siden er fjernet. Lad os få dig tilbage på sporet.",
+    "hint": "Prøv forsiden, gratis værktøjer eller bloggen.",
+    "cta_home": "Tilbage til forsiden",
+    "cta_tools": "Udforsk værktøjer",
+    "cta_blog": "Læs bloggen",
+    "terminal_prompt": "geekskai@shell",
+    "terminal_command": "find /page --status=missing",
+    "terminal_output": "Fejl: rute ikke fundet (404). Omdirigerer til sikkerhed...",
+    "error_code": "ERR_PAGE_NOT_FOUND",
+    "nav_label": "Hurtig navigation"
   }
 }

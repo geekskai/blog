@@ -9570,5 +9570,21 @@
       "tools": "الأدوات",
       "current": "مركز أدوات Bandcamp"
     }
+  },
+  "NotFound": {
+    "meta_title": "الصفحة غير موجودة | GeeksKai",
+    "meta_description": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+    "badge": "ضائع في الفضاء الإلكتروني",
+    "title": "هذه الصفحة سلكت طريقًا خاطئًا",
+    "description": "قد يكون الرابط معطلاً أو قديمًا أو تمت إزالة الصفحة. دعنا نعيدك إلى المسار الصحيح.",
+    "hint": "جرّب الصفحة الرئيسية أو الأدوات المجانية أو المدونة.",
+    "cta_home": "العودة للرئيسية",
+    "cta_tools": "استكشاف الأدوات",
+    "cta_blog": "قراءة المدونة",
+    "terminal_prompt": "geekskai@shell",
+    "terminal_command": "find /page --status=missing",
+    "terminal_output": "خطأ: المسار غير موجود (404). إعادة التوجيه إلى الأمان...",
+    "error_code": "ERR_PAGE_NOT_FOUND",
+    "nav_label": "تنقل سريع"
   }
 }

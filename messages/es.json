@@ -9592,5 +9592,21 @@
       "tools": "Herramientas",
       "current": "Centro de herramientas de Bandcamp"
     }
+  },
+  "NotFound": {
+    "meta_title": "Página no encontrada | GeeksKai",
+    "meta_description": "La página que buscas no existe o se ha movido.",
+    "badge": "Perdido en el ciberespacio",
+    "title": "Esta página tomó un camino equivocado",
+    "description": "El enlace puede estar roto, desactualizado o la página fue eliminada. Te ayudamos a volver.",
+    "hint": "Prueba la página de inicio, herramientas gratuitas o el blog.",
+    "cta_home": "Volver al inicio",
+    "cta_tools": "Explorar herramientas",
+    "cta_blog": "Leer el blog",
+    "terminal_prompt": "geekskai@shell",
+    "terminal_command": "find /page --status=missing",
+    "terminal_output": "Error: ruta no encontrada (404). Redirigiendo a un lugar seguro...",
+    "error_code": "ERR_PAGE_NOT_FOUND",
+    "nav_label": "Navegación rápida"
   }
 }

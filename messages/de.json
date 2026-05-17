@@ -9588,5 +9588,21 @@
       "tools": "Tools",
       "current": "Bandcamp-Tools-Hub"
     }
+  },
+  "NotFound": {
+    "meta_title": "Seite nicht gefunden | GeeksKai",
+    "meta_description": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "badge": "Verloren im Cyberspace",
+    "title": "Diese Seite hat sich verirrt",
+    "description": "Der Link ist möglicherweise defekt, veraltet oder die Seite wurde entfernt. Wir bringen Sie zurück auf Kurs.",
+    "hint": "Probieren Sie die Startseite, kostenlose Tools oder den Blog.",
+    "cta_home": "Zur Startseite",
+    "cta_tools": "Tools entdecken",
+    "cta_blog": "Blog lesen",
+    "terminal_prompt": "geekskai@shell",
+    "terminal_command": "find /page --status=missing",
+    "terminal_output": "Fehler: Route nicht gefunden (404). Weiterleitung zur Sicherheit...",
+    "error_code": "ERR_PAGE_NOT_FOUND",
+    "nav_label": "Schnellnavigation"
   }
 }

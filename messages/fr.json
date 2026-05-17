@@ -9656,5 +9656,21 @@
       "tools": "Outils",
       "current": "Hub d'outils Bandcamp"
     }
+  },
+  "NotFound": {
+    "meta_title": "Page introuvable | GeeksKai",
+    "meta_description": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "badge": "Perdu dans le cyberespace",
+    "title": "Cette page a pris un mauvais chemin",
+    "description": "Le lien est peut-être cassé, obsolète ou la page a été supprimée. Remettons-vous sur la bonne voie.",
+    "hint": "Essayez l'accueil, les outils gratuits ou le blog.",
+    "cta_home": "Retour à l'accueil",
+    "cta_tools": "Explorer les outils",
+    "cta_blog": "Lire le blog",
+    "terminal_prompt": "geekskai@shell",
+    "terminal_command": "find /page --status=missing",
+    "terminal_output": "Erreur : route introuvable (404). Redirection vers la sécurité...",
+    "error_code": "ERR_PAGE_NOT_FOUND",
+    "nav_label": "Navigation rapide"
   }
 }

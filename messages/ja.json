@@ -1705,7 +1705,12 @@
         "standards_section": {
           "title": "北欧測定基準",
           "description": "当CMからTommer変換器はデンマーク、ノルウェー、国際商取引で使用される公式北欧測定基準に従います。このツールは建設、製造、国際貿易での専門用途に不可欠な正確な変換を提供します。",
-          "features": ["公式北欧測定基準", "建設業界適合性", "国際貿易仕様", "品質管理測定"]
+          "features": [
+            "公式北欧測定基準",
+            "建設業界適合性",
+            "国際貿易仕様",
+            "品質管理測定"
+          ]
         },
         "features_section": {
           "title": "専門変換機能",
@@ -9674,5 +9679,21 @@
       "tools": "ツール",
       "current": "Bandcampツールハブ"
     }
+  },
+  "NotFound": {
+    "meta_title": "ページが見つかりません | GeeksKai",
+    "meta_description": "お探しのページは存在しないか、移動した可能性があります。",
+    "badge": "サイバー空間で迷子",
+    "title": "このページは行方不明です",
+    "description": "リンクが壊れている、古い、またはページが削除された可能性があります。安全な場所へご案内します。",
+    "hint": "ホームページ、無料ツール、またはブログをお試しください。",
+    "cta_home": "ホームに戻る",
+    "cta_tools": "ツールを探す",
+    "cta_blog": "ブログを読む",
+    "terminal_prompt": "geekskai@shell",
+    "terminal_command": "find /page --status=missing",
+    "terminal_output": "エラー: ルートが見つかりません (404)。安全な場所へリダイレクト中...",
+    "error_code": "ERR_PAGE_NOT_FOUND",
+    "nav_label": "クイックナビ"
   }
 }
