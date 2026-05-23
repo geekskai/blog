@@ -1,7 +1,7 @@
 import AudioDownloader from "./AudioDownloader"
 import { AUDIO_FAQ_ITEMS, AUDIO_LAST_MODIFIED } from "@/app/[locale]/tools/youtube-audio-downloader/audio-faq"
 import { useTranslations } from "next-intl"
-import React from "react"
+import React, { Suspense } from "react"
 import Link from "next/link"
 import { Shield, Zap, Smartphone, Music } from "lucide-react"
 
@@ -132,7 +132,13 @@ export default function AudioMain() {
             </header>
 
             <div className="mt-6 w-full min-w-0 md:mt-0">
-              <AudioDownloader variant="hero" autoFocus />
+              <Suspense
+                fallback={
+                  <div className="h-48 w-full rounded-2xl border border-white/10 bg-slate-900/45" />
+                }
+              >
+                <AudioDownloader variant="hero" autoFocus />
+              </Suspense>
             </div>
           </div>
 

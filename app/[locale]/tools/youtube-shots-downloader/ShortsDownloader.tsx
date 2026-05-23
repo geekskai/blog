@@ -9,7 +9,6 @@ import {
   Loader2,
   AlertCircle,
   CheckCircle2,
-  ClipboardPaste,
   ArrowRight,
   Copy,
   Share2,

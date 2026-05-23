@@ -1,6 +1,9 @@
 import VideoDownloader from "./VideoDownloader"
-import React from "react"
-import { VIDEO_FAQ_ITEMS, VIDEO_LAST_MODIFIED } from "@/app/[locale]/tools/youtube-video-downloader/video-faq"
+import React, { Suspense } from "react"
+import {
+  VIDEO_FAQ_ITEMS,
+  VIDEO_LAST_MODIFIED,
+} from "@/app/[locale]/tools/youtube-video-downloader/video-faq"
 import { useTranslations } from "next-intl"
 import Link from "next/link"
 import { Check, Gauge, MonitorPlay, Shield, Sparkles } from "lucide-react"
@@ -128,7 +131,13 @@ export default function VideoMain() {
             </header>
 
             <div className="mt-6 w-full min-w-0 md:mt-0">
-              <VideoDownloader variant="hero" autoFocus />
+              <Suspense
+                fallback={
+                  <div className="h-48 w-full rounded-2xl border border-white/10 bg-slate-900/45" />
+                }
+              >
+                <VideoDownloader variant="hero" autoFocus />
+              </Suspense>
             </div>
           </div>
 

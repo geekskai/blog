@@ -1,5 +1,6 @@
 import { setRequestLocale } from "next-intl/server"
 import AudioMain from "./AudioMain"
+import React from "react"
 
 type Props = {
   params: Promise<{ locale: string }>

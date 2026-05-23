@@ -1,5 +1,5 @@
 import Link from "next/link"
-import React from "react"
+import React, { Suspense } from "react"
 import { useTranslations } from "next-intl"
 
 import { Check, Gauge, Shield, Sparkles, Smartphone } from "lucide-react"
@@ -123,16 +123,22 @@ export default function YouTubeShortsDownloaderPage() {
               aria-label={t("quick_answer_aria_label")}
             >
               <p className="text-sm leading-7 text-slate-300 md:text-base">
-                <strong className="font-semibold text-primary-200">{t("quick_answer_label")}</strong>{" "}
+                <strong className="font-semibold text-primary-200">
+                  {t("quick_answer_label")}
+                </strong>{" "}
                 {t("quick_answer_text")}
               </p>
               <ul className="mt-3 space-y-2.5 text-sm leading-7 text-slate-400 md:space-y-2 md:text-base">
                 <li>
-                  <strong className="font-semibold text-slate-200">{t("quick_answer_best_for_label")}</strong>{" "}
+                  <strong className="font-semibold text-slate-200">
+                    {t("quick_answer_best_for_label")}
+                  </strong>{" "}
                   {t("quick_answer_best_for")}
                 </li>
                 <li>
-                  <strong className="font-semibold text-slate-200">{t("quick_answer_cost_label")}</strong>{" "}
+                  <strong className="font-semibold text-slate-200">
+                    {t("quick_answer_cost_label")}
+                  </strong>{" "}
                   {t("quick_answer_cost")}
                 </li>
                 <li>
@@ -151,12 +157,22 @@ export default function YouTubeShortsDownloaderPage() {
           </header>
 
           <div className="mt-4 w-full min-w-0 md:mt-5">
-            <ShortsDownloader variant="hero" autoFocus />
+            <Suspense
+              fallback={
+                <div className="h-48 w-full rounded-2xl border border-white/10 bg-slate-900/45" />
+              }
+            >
+              <ShortsDownloader variant="hero" autoFocus />
+            </Suspense>
           </div>
         </div>
       </section>
 
-      <section id="features" aria-labelledby="features-title" className="border-b border-white/10 bg-slate-950">
+      <section
+        id="features"
+        aria-labelledby="features-title"
+        className="border-b border-white/10 bg-slate-950"
+      >
         <div className={`${SECTION} ${SECTION_PY}`}>
           <SectionHeader
             id="features-title"
@@ -169,7 +185,11 @@ export default function YouTubeShortsDownloaderPage() {
                 key={key}
                 className="flex items-start gap-3 rounded-2xl border border-white/10 bg-slate-900/45 px-4 py-3.5 md:px-5 md:py-4"
               >
-                <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary-300" strokeWidth={2.5} aria-hidden />
+                <Check
+                  className="mt-0.5 h-5 w-5 shrink-0 text-primary-300"
+                  strokeWidth={2.5}
+                  aria-hidden
+                />
                 <span className="text-sm leading-7 text-slate-300 md:text-base">{t(key)}</span>
               </li>
             ))}
@@ -177,13 +197,13 @@ export default function YouTubeShortsDownloaderPage() {
         </div>
       </section>
 
-      <section id="why-use" aria-labelledby="why-use-title" className="border-b border-white/10 bg-slate-950">
+      <section
+        id="why-use"
+        aria-labelledby="why-use-title"
+        className="border-b border-white/10 bg-slate-950"
+      >
         <div className={`${SECTION} ${SECTION_PY}`}>
-          <SectionHeader
-            id="why-use-title"
-            title={t("why_title")}
-            intro={t("why_intro")}
-          />
+          <SectionHeader id="why-use-title" title={t("why_title")} intro={t("why_intro")} />
           <div className="mt-5 grid grid-cols-1 gap-3 md:mt-7 md:grid-cols-2 md:gap-4 lg:mt-8 lg:gap-5">
             {WHY_ITEMS.map(({ icon: Icon, titleKey, bodyKey }) => (
               <article
@@ -203,7 +223,11 @@ export default function YouTubeShortsDownloaderPage() {
         </div>
       </section>
 
-      <section id="how-to" aria-labelledby="how-to-title" className="border-b border-white/10 bg-slate-950">
+      <section
+        id="how-to"
+        aria-labelledby="how-to-title"
+        className="border-b border-white/10 bg-slate-950"
+      >
         <div className={`${SECTION} ${SECTION_PY}`}>
           <SectionHeader id="how-to-title" title={t("how_to_title")} />
           <ol className="mx-auto mt-5 max-w-xl space-y-3 md:mt-7 md:max-w-2xl md:space-y-4 lg:mt-8 lg:grid lg:max-w-none lg:grid-cols-3 lg:gap-5 lg:space-y-0">
@@ -259,13 +283,13 @@ export default function YouTubeShortsDownloaderPage() {
         </div>
       </section>
 
-      <section id="faq" aria-labelledby="faq-title" className="border-b border-white/10 bg-slate-950">
+      <section
+        id="faq"
+        aria-labelledby="faq-title"
+        className="border-b border-white/10 bg-slate-950"
+      >
         <div className={`${SECTION} ${SECTION_PY}`}>
-          <SectionHeader
-            id="faq-title"
-            title={t("faq_title")}
-            intro={t("faq_intro")}
-          />
+          <SectionHeader id="faq-title" title={t("faq_title")} intro={t("faq_intro")} />
           <dl className="mx-auto mt-5 max-w-xl divide-y divide-white/10 rounded-2xl border border-white/10 bg-slate-900/45 md:mt-7 md:max-w-3xl lg:mt-8 lg:max-w-7xl">
             {SHOTS_FAQ_ITEMS.map((item) => (
               <div key={item.question} className="px-4 py-4 md:px-6 md:py-5 lg:px-8 lg:py-6">
@@ -288,7 +312,10 @@ export default function YouTubeShortsDownloaderPage() {
       >
         <div className={`${SECTION} py-7 md:py-10`}>
           <div className="mx-auto max-w-7xl rounded-2xl border border-primary-500/20 bg-primary-500/5 p-4 text-center md:p-6">
-            <h2 id="official-resource-title" className="text-lg font-semibold text-slate-100 md:text-xl">
+            <h2
+              id="official-resource-title"
+              className="text-lg font-semibold text-slate-100 md:text-xl"
+            >
               {t("official_resource_title")}
             </h2>
             <p className="mt-2 text-sm leading-7 text-slate-300 md:text-base">
