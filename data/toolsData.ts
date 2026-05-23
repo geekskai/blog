@@ -50,6 +50,60 @@ export const gradients = {
 
 export const toolsData: ToolData[] = [
   {
+    id: "youtube-shorts-downloader",
+    title: "YouTube Shorts Downloader",
+    description:
+      "Download YouTube Shorts as HD MP4 online with a fast browser workflow. No signup, no app install, and no watermark added by this tool.",
+    icon: Monitor,
+    href: "/tools/youtube-shots-downloader/",
+    features: [
+      "YouTube Shorts to MP4 up to 1080p",
+      "Mobile-first paste and download flow",
+      "No signup or software installation",
+      "Works on iPhone, Android, and desktop",
+    ],
+    badge: "Popular",
+    badgeColor: "bg-pink-500",
+    gradient: gradients.entertainment,
+    category: "Entertainment",
+  },
+  {
+    id: "youtube-video-downloader",
+    title: "YouTube Video Downloader",
+    description:
+      "Save full YouTube videos in MP4 HD quality with a free online downloader. Paste a video URL, choose quality, and download in your browser.",
+    icon: Monitor,
+    href: "/tools/youtube-video-downloader/",
+    features: [
+      "YouTube video to MP4 download",
+      "HD quality options up to 1080p",
+      "Browser-based workflow with no install",
+      "Supports watch, short, and share links",
+    ],
+    badge: "Popular",
+    badgeColor: "bg-indigo-500",
+    gradient: gradients.entertainment,
+    category: "Entertainment",
+  },
+  {
+    id: "youtube-audio-downloader",
+    title: "YouTube Audio Downloader",
+    description:
+      "Extract audio from public YouTube videos with a fast browser-based downloader. Free to use with no account and no app required.",
+    icon: Music,
+    href: "/tools/youtube-audio-downloader/",
+    features: [
+      "Extract audio from YouTube video links",
+      "Fast online audio preparation and download",
+      "No signup and no app installation",
+      "Works across phone and desktop browsers",
+    ],
+    badge: "Popular",
+    badgeColor: "bg-emerald-500",
+    gradient: gradients.entertainment,
+    category: "Entertainment",
+  },
+  {
     id: "vin-decoder",
     title: "VIN Decoder & Lookup",
     description:
