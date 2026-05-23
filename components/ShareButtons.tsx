@@ -46,7 +46,12 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
       <FacebookShareButton key="facebook" url={runtimeShareUrl} title={runtimeTitle}>
         <FacebookIcon size={32} round />
       </FacebookShareButton>,
-      <WhatsappShareButton key="WhatsApp" url={runtimeShareUrl} title={runtimeTitle} separator=":: ">
+      <WhatsappShareButton
+        key="WhatsApp"
+        url={runtimeShareUrl}
+        title={runtimeTitle}
+        separator=":: "
+      >
         <WhatsappIcon size={32} round />
       </WhatsappShareButton>,
       <LinkedinShareButton
@@ -67,9 +72,9 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
       <TwitterShareButton key="twitter" url={runtimeShareUrl} title={runtimeTitle}>
         <XIcon size={32} round />
       </TwitterShareButton>,
-      <WeiboShareButton key="weibo" url={runtimeShareUrl} title={runtimeTitle}>
-        <WeiboIcon size={32} round />
-      </WeiboShareButton>,
+      // <WeiboShareButton key="weibo" url={runtimeShareUrl} title={runtimeTitle}>
+      //   <WeiboIcon size={32} round />
+      // </WeiboShareButton>,
     ],
     [runtimeShareUrl, runtimeTitle]
   )
