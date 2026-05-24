@@ -3,7 +3,6 @@ import { z } from "zod"
 import { fetchYouTubeMetadata, YouTubeMetadataError } from "@/app/lib/youtube/metadata"
 
 export const runtime = "nodejs"
-export const dynamic = "force-dynamic"
 
 const schema = z.object({
   videoId: z.string().trim().regex(/^[\w-]{11}$/),
@@ -25,7 +24,14 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url)
     const { videoId } = schema.parse({ videoId: searchParams.get("videoId") ?? "" })
     const data = await fetchYouTubeMetadata(videoId)
-    return NextResponse.json({ data })
+    return NextResponse.json(
+      { data },
+      {
+        headers: {
+          "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=1800",
+        },
+      }
+    )
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json({ error: "invalid_url" }, { status: 400 })

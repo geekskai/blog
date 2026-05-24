@@ -16,7 +16,7 @@ import { notFound } from "next/navigation"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 import { toolsData } from "@/data/toolsData"
 import ClarityTracker from "../../components/ClarityTracker"
-export const revalidate = 86400 // 24 hours
+export const revalidate = 604800 // 7 days — tools/content rarely change daily
 
 type Props = {
   children: React.ReactNode

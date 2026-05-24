@@ -3,7 +3,7 @@ import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 import React from "react"
 
-export const revalidate = 86400 // 24 hours
+export const revalidate = 604800 // 7 days
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {

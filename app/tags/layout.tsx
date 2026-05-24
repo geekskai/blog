@@ -11,7 +11,7 @@ import { Metadata } from "next"
 import SiteFooter from "@/components/SiteFooter"
 import { NextIntlClientProvider } from "next-intl"
 
-export const revalidate = 86400 // 24 hours
+export const revalidate = 604800 // 7 days
 
 export const generateMetadata = async (): Promise<Metadata> => {
   // const { locale } = await params

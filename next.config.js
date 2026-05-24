@@ -88,10 +88,11 @@ module.exports = () => {
       // 启用图片优化以减少 Fast Origin Transfer 费用
       // 仅在明确需要时才禁用优化（如静态导出）
       unoptimized: output === "export" ? true : false,
-      // 优化图片格式和缓存
+      // 优化图片格式和缓存 — 较长 TTL 减少 origin 回源与重复转换
       formats: ["image/avif", "image/webp"],
-      minimumCacheTTL: 60,
-      deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+      minimumCacheTTL: 604800, // 7 days
+      // 工具站/博客无需 2K/4K 变体，缩小尺寸档位可降低 Image Optimization 传输量
+      deviceSizes: [640, 750, 828, 1080, 1200, 1920],
       imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     },
     webpack: (config, { isServer }) => {
@@ -135,24 +136,34 @@ module.exports = () => {
     compress: true,
     // 添加缓存头以减少 Fast Origin Transfer 费用
     async headers() {
+      const immutableCache = [
+        {
+          key: "Cache-Control",
+          value: "public, max-age=31536000, immutable",
+        },
+      ]
+
       return [
         {
-          // 静态资源长期缓存
           source: "/static/:path*",
-          headers: [
-            {
-              key: "Cache-Control",
-              value: "public, max-age=31536000, immutable",
-            },
-          ],
+          headers: immutableCache,
         },
         {
-          // 字体文件长期缓存
           source: "/fonts/:path*",
+          headers: immutableCache,
+        },
+        {
+          // Next.js 构建产物 — 命中 edge 后不再回源
+          source: "/_next/static/:path*",
+          headers: immutableCache,
+        },
+        {
+          // 图片优化结果 — 与 minimumCacheTTL 配合，减少重复 origin 拉取
+          source: "/_next/image",
           headers: [
             {
               key: "Cache-Control",
-              value: "public, max-age=31536000, immutable",
+              value: "public, max-age=604800, stale-while-revalidate=86400",
             },
           ],
         },

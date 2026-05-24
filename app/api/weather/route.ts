@@ -1,8 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
 
-// 强制动态渲染
-export const dynamic = "force-dynamic"
-
 // Key is read per-request so the route module can load during build without env (e.g. CI).
 const BASE_URL = "https://api.openweathermap.org/data/2.5"
 
