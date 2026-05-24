@@ -57,7 +57,7 @@ type AudioDownloaderProps = {
 const BTN =
   "inline-flex min-h-11 touch-manipulation items-center justify-center gap-2 rounded-xl px-4 text-[13px] font-semibold leading-none transition-[background-color,border-color,opacity] duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/30 disabled:cursor-not-allowed disabled:opacity-45 md:min-h-12 md:text-sm"
 const DEFAULT_AUDIO_QUALITY_ID = "251"
-const SHORTS_DOWNLOADER_PATH = "/tools/youtube-shots-downloader"
+const SHORTS_DOWNLOADER_PATH = "/tools/youtube-shorts-downloader"
 
 type AudioDownloaderT = ReturnType<typeof useTranslations<"AudioDownloader">>
 

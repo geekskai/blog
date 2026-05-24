@@ -55,7 +55,7 @@ export const toolsData: ToolData[] = [
     description:
       "Download YouTube Shorts as HD MP4 online with a fast browser workflow. No signup, no app install, and no watermark added by this tool.",
     icon: Monitor,
-    href: "/tools/youtube-shots-downloader/",
+    href: "/tools/youtube-shorts-downloader/",
     features: [
       "YouTube Shorts to MP4 up to 1080p",
       "Mobile-first paste and download flow",

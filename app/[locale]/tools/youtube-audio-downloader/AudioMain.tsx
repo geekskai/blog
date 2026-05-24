@@ -153,7 +153,7 @@ export default function AudioMain() {
               {t("video_crosslink_link")}
             </Link>
             {" · "}
-            <Link href="/tools/youtube-shots-downloader" className={TYPE.link}>
+            <Link href="/tools/youtube-shorts-downloader" className={TYPE.link}>
               {t("shorts_crosslink_link")}
             </Link>
           </p>

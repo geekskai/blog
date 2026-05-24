@@ -44,7 +44,7 @@ const VIDEO_QUALITY_OPTIONS = [
 
 const DEFAULT_VIDEO_QUALITY = "247"
 const VIDEO_QUALITY_LABEL = VIDEO_QUALITY_OPTIONS.map((q) => q.label).join(" / ")
-const SHORTS_DOWNLOADER_PATH = "/tools/youtube-shots-downloader"
+const SHORTS_DOWNLOADER_PATH = "/tools/youtube-shorts-downloader"
 const SIMULATED_PROGRESS_DURATION_MS = 60_000
 const SIMULATED_PROGRESS_TICK_MS = 200
 

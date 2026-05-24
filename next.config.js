@@ -24,6 +24,16 @@ module.exports = () => {
           permanent: true,
         },
         {
+          source: "/tools/youtube-shots-downloader/",
+          destination: "/tools/youtube-shorts-downloader/",
+          permanent: true,
+        },
+        {
+          source: "/:locale/tools/youtube-shots-downloader/",
+          destination: "/:locale/tools/youtube-shorts-downloader/",
+          permanent: true,
+        },
+        {
           source: "/blog/primevue/how-to-change-css-of-primevue/",
           destination: "/blog/css/how-to-change-css-of-primevue/",
           permanent: true,

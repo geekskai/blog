@@ -28,7 +28,7 @@ const WHY_ITEMS = [
 
 const RELATED_TOOLS = [
   {
-    href: "/tools/youtube-shots-downloader",
+    href: "/tools/youtube-shorts-downloader",
     titleKey: "related_shorts_title" as const,
     descKey: "related_shorts_desc" as const,
   },
@@ -145,7 +145,7 @@ export default function VideoMain() {
 
           <p className={`mx-auto mt-6 max-w-xl text-center ${TYPE.meta}`}>
             {t("shorts_crosslink_prefix")}{" "}
-            <Link href="/tools/youtube-shots-downloader" className={TYPE.link}>
+            <Link href="/tools/youtube-shorts-downloader" className={TYPE.link}>
               {t("shorts_crosslink_link")}
             </Link>
           </p>

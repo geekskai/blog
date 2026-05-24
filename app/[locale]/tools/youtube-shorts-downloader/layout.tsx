@@ -14,7 +14,7 @@ import {
 } from "./shots-faq"
 
 const BASE_URL = "https://geekskai.com"
-const TOOL_SLUG = "youtube-shots-downloader"
+const TOOL_SLUG = "youtube-shorts-downloader"
 
 function buildToolUrl(locale: string): string {
   return locale === "en"
