@@ -97,17 +97,14 @@ export const locales = ["en", "cn", "no", "da"] // 添加 "da"
 ### 步骤 3: 创建翻译文件
 
 ```bash
-# 生成翻译模板
-node scripts/translation-checker.js template da
-
-# 编辑 messages/da.json 添加丹麦语翻译
+# 在 messages/da.json 中补充对应 namespace 的丹麦语翻译
+# YouTube 下载器：ShortsPage、ShortsDownloader、VideoPage、VideoDownloader、AudioPage、AudioDownloader
 ```
 
 ### 步骤 4: 验证实施
 
 ```bash
-# 检查翻译完整性
-node scripts/translation-checker.js check
+# 对比 messages/en.json 与各 locale 的 key 是否一致（可用 jq 等工具）
 ```
 
 ## 🎯 小语种 SEO 策略
@@ -154,16 +151,6 @@ https://geekskai.com/tools/calculator     (默认英语)
 - 提供本地相关的示例
 
 ## 🛠️ 开发工具
-
-### 翻译质量检查器
-
-```bash
-# 检查所有语言的翻译完整性
-node scripts/translation-checker.js check
-
-# 为新语言生成翻译模板
-node scripts/translation-checker.js template <locale>
-```
 
 ### 演示页面
 

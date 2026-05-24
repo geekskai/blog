@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl"
 
 import { Check, Gauge, Shield, Sparkles, Smartphone } from "lucide-react"
 import ShortsDownloader from "./ShortsDownloader"
-import { SHOTS_FAQ_ITEMS, SHOTS_LAST_MODIFIED } from "@/app/[locale]/tools/youtube-shots-downloader/shots-faq"
+import { SHOTS_FAQ_COUNT, SHOTS_LAST_MODIFIED, buildDownloaderFaqItemsWithIds } from "./shots-faq"
 
 const FEATURE_KEYS = [
   "feature_hd",
@@ -95,6 +95,7 @@ function SectionHeader({
 
 export default function YouTubeShortsDownloaderPage() {
   const t = useTranslations("ShortsPage")
+  const faqItems = buildDownloaderFaqItemsWithIds(SHOTS_FAQ_COUNT, (key) => t(key))
 
   return (
     <main className="overflow-x-hidden bg-slate-950 text-slate-100">
@@ -291,8 +292,8 @@ export default function YouTubeShortsDownloaderPage() {
         <div className={`${SECTION} ${SECTION_PY}`}>
           <SectionHeader id="faq-title" title={t("faq_title")} intro={t("faq_intro")} />
           <dl className="mx-auto mt-5 max-w-xl divide-y divide-white/10 rounded-2xl border border-white/10 bg-slate-900/45 md:mt-7 md:max-w-3xl lg:mt-8 lg:max-w-7xl">
-            {SHOTS_FAQ_ITEMS.map((item) => (
-              <div key={item.question} className="px-4 py-4 md:px-6 md:py-5 lg:px-8 lg:py-6">
+            {faqItems.map((item) => (
+              <div key={item.id} className="px-4 py-4 md:px-6 md:py-5 lg:px-8 lg:py-6">
                 <dt className="text-sm font-semibold leading-snug text-slate-100 md:text-base">
                   {item.question}
                 </dt>

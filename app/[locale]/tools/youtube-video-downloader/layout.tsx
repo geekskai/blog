@@ -5,7 +5,10 @@ import type { ReactNode } from "react"
 import { supportedLocales } from "app/i18n/routing"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 import {
+  VIDEO_FAQ_COUNT,
   VIDEO_LAST_MODIFIED_ISO,
+  buildDownloaderFaqItems,
+  buildDownloaderHowToInput,
   generateVideoFAQSchema,
   generateVideoHowToSchema,
 } from "@/app/[locale]/tools/youtube-video-downloader/video-faq"
@@ -101,6 +104,8 @@ export default async function YouTubeVideoDownloaderLayout({ children, params }:
   const url = buildUrl(locale).replace(/\/$/, "")
   const title = t("seo_title")
   const description = t("seo_description")
+  const faqItems = buildDownloaderFaqItems(VIDEO_FAQ_COUNT, (key) => t(key))
+  const howToInput = buildDownloaderHowToInput((key) => t(key))
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -153,8 +158,8 @@ export default async function YouTubeVideoDownloaderLayout({ children, params }:
         url: `${BASE_URL}/`,
         logo: `${BASE_URL}/static/logos.png`,
       },
-      generateVideoFAQSchema(url),
-      generateVideoHowToSchema(url),
+      generateVideoFAQSchema(url, faqItems),
+      generateVideoHowToSchema(url, howToInput),
     ],
   }
 

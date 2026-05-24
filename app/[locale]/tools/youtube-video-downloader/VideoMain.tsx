@@ -1,8 +1,9 @@
 import VideoDownloader from "./VideoDownloader"
 import React, { Suspense } from "react"
 import {
-  VIDEO_FAQ_ITEMS,
+  VIDEO_FAQ_COUNT,
   VIDEO_LAST_MODIFIED,
+  buildDownloaderFaqItemsWithIds,
 } from "@/app/[locale]/tools/youtube-video-downloader/video-faq"
 import { useTranslations } from "next-intl"
 import Link from "next/link"
@@ -67,6 +68,7 @@ const sectionHeaderStack = "text-center"
 
 export default function VideoMain() {
   const t = useTranslations("VideoPage")
+  const faqItems = buildDownloaderFaqItemsWithIds(VIDEO_FAQ_COUNT, (key) => t(key))
 
   return (
     <main className="overflow-x-hidden bg-slate-950 text-slate-100">
@@ -284,8 +286,8 @@ export default function VideoMain() {
             {t("faq_intro")}
           </p>
           <dl className="mx-auto mt-5 max-w-xl divide-y divide-white/10 rounded-2xl border border-white/10 bg-slate-900/45 md:mt-7 md:max-w-3xl lg:mt-8 lg:max-w-7xl">
-            {VIDEO_FAQ_ITEMS.map((item) => (
-              <div key={item.question} className="px-4 py-4 md:px-6 md:py-5 lg:px-8 lg:py-6">
+            {faqItems.map((item) => (
+              <div key={item.id} className="px-4 py-4 md:px-6 md:py-5 lg:px-8 lg:py-6">
                 <dt className={TYPE.faqQuestion}>{item.question}</dt>
                 <dd className={`mt-2 md:mt-2.5 ${TYPE.faqAnswer}`}>{item.answer}</dd>
               </div>

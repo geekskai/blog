@@ -4,7 +4,10 @@ import type { ReactNode } from "react"
 import { supportedLocales } from "app/i18n/routing"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 import {
-  AUDIO_LAST_MODIFIED,
+  AUDIO_FAQ_COUNT,
+  AUDIO_LAST_MODIFIED_ISO,
+  buildDownloaderFaqItems,
+  buildDownloaderHowToInput,
   generateAudioFAQSchema,
   generateAudioHowToSchema,
 } from "@/app/[locale]/tools/youtube-audio-downloader/audio-faq"
@@ -84,10 +87,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     alternates: { canonical, languages },
     other: {
-      "last-modified": `${AUDIO_LAST_MODIFIED}T12:00:00.000Z`,
+      "last-modified": AUDIO_LAST_MODIFIED_ISO,
       "update-frequency": "monthly",
       "next-review": new Date(
-        new Date(`${AUDIO_LAST_MODIFIED}T12:00:00.000Z`).getTime() + 30 * 24 * 60 * 60 * 1000
+        new Date(AUDIO_LAST_MODIFIED_ISO).getTime() + 30 * 24 * 60 * 60 * 1000
       ).toISOString(),
     },
   }
@@ -100,6 +103,8 @@ export default async function YouTubeAudioDownloaderLayout({ children, params }:
   const url = buildUrl(locale).replace(/\/$/, "")
   const title = t("seo_title")
   const description = t("seo_description")
+  const faqItems = buildDownloaderFaqItems(AUDIO_FAQ_COUNT, (key) => t(key))
+  const howToInput = buildDownloaderHowToInput((key) => t(key))
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -112,7 +117,7 @@ export default async function YouTubeAudioDownloaderLayout({ children, params }:
         description,
         isPartOf: { "@id": `${BASE_URL}/#website` },
         about: { "@id": `${BASE_URL}/#organization` },
-        dateModified: AUDIO_LAST_MODIFIED,
+        dateModified: AUDIO_LAST_MODIFIED_ISO,
         inLanguage: "en-US",
         breadcrumb: { "@id": `${url}#breadcrumb` },
       },
@@ -152,8 +157,8 @@ export default async function YouTubeAudioDownloaderLayout({ children, params }:
         url: `${BASE_URL}/`,
         logo: `${BASE_URL}/static/logos.png`,
       },
-      generateAudioFAQSchema(url),
-      generateAudioHowToSchema(url),
+      generateAudioFAQSchema(url, faqItems),
+      generateAudioHowToSchema(url, howToInput),
     ],
   }
 
