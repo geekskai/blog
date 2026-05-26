@@ -6,7 +6,7 @@ import {
   buildUnicodeToolSchemas,
 } from "../upside-down-text-generator/lib/seo"
 
-const LAST_MODIFIED = new Date("2026-04-26")
+const LAST_MODIFIED = new Date("2026-05-26")
 const SLUG = "strikethrough-text-generator"
 
 export async function generateMetadata(props: {
@@ -17,21 +17,6 @@ export async function generateMetadata(props: {
   const { locale } = params
 
   const t = await getTranslations({ locale, namespace: "StrikethroughTextGenerator" })
-
-  const faqItems = [
-    {
-      question: t("faq.items.0.q"),
-      answer: t("faq.items.0.a"),
-    },
-    {
-      question: t("faq.items.1.q"),
-      answer: t("faq.items.1.a"),
-    },
-    {
-      question: t("faq.items.2.q"),
-      answer: t("faq.items.2.a"),
-    },
-  ]
 
   return buildUnicodeToolMetadata({
     slug: SLUG,
@@ -46,7 +31,6 @@ export async function generateMetadata(props: {
       t("feature_list.2"),
       t("feature_list.3"),
     ],
-    faqItems,
   })
 }
 
@@ -62,21 +46,6 @@ export default async function StrikethroughTextToolLayout(props: {
 
   const t = await getTranslations({ locale, namespace: "StrikethroughTextGenerator" })
 
-  const faqItems = [
-    {
-      question: t("faq.items.0.q"),
-      answer: t("faq.items.0.a"),
-    },
-    {
-      question: t("faq.items.1.q"),
-      answer: t("faq.items.1.a"),
-    },
-    {
-      question: t("faq.items.2.q"),
-      answer: t("faq.items.2.a"),
-    },
-  ]
-
   const schemas = buildUnicodeToolSchemas({
     slug: SLUG,
     locale,
@@ -90,7 +59,6 @@ export default async function StrikethroughTextToolLayout(props: {
       t("feature_list_schemas.2"),
       t("feature_list_schemas.3"),
     ],
-    faqItems,
   })
 
   return (
@@ -98,10 +66,6 @@ export default async function StrikethroughTextToolLayout(props: {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas.webApplicationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas.faqSchema) }}
       />
       <script
         type="application/ld+json"

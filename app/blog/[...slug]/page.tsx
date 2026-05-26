@@ -57,6 +57,7 @@ export async function generateMetadata(props: {
       authors: authors.length > 0 ? authors : [siteMetadata.author],
     },
     other: {
+      "last-modified": modifiedAt,
       "application/ld+json": [JSON.stringify(post.structuredData)],
     },
     twitter: {

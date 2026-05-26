@@ -22,7 +22,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   supportedLocales.forEach((loc) => {
     languages[loc] = `https://geekskai.com/${loc}/tools/chivalry-test/`
   })
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-05-26")
 
   return {
     title: t("seo_title"),
@@ -123,64 +123,11 @@ export default async function Layout(props: { children: React.ReactNode; params:
   const t = await getTranslations({ locale, namespace: "ChivalryTest" })
   const jsonLd = getJsonLd(t)
 
-  const faqStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("faq_what_is_chivalry"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_what_is_chivalry_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_still_relevant"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_still_relevant_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_test_accurate"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_test_accurate_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_women_take"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_women_take_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_help_improve"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_help_improve_answer"),
-        },
-      },
-    ],
-  }
-
   return (
     <div className="min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqStructuredData),
-        }}
       />
       {children}
     </div>

@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 
 // Content freshness - Update this monthly
-const lastModified = new Date("2026-04-29") // Update current date
+const lastModified = new Date("2026-05-26") // Update current date
 
 export const metadata: Metadata = {
   title: "PDF to Markdown Converter - Free Online PDF to MD Converter Tool",
@@ -122,54 +122,6 @@ const jsonLd = {
   ],
 }
 
-// FAQ Schema for better AI retrieval
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What is the best free PDF to Markdown converter?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Our PDF to Markdown converter is the best free online tool for converting PDF to MD format. This PDF markdown converter offers unlimited conversions with no registration requirements, subscription fees, or usage limits. Convert PDF documents to markdown format as many times as you need.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How accurate is PDF to MD conversion with this converter?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Our PDF to markdown converter uses advanced parsing algorithms to maintain document structure when converting PDF to MD format. The PDF markdown conversion preserves headers, lists, and formatting. Most PDF to markdown conversions achieve 95%+ accuracy in preserving the original content structure.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is this PDF to markdown converter secure?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, our PDF to MD converter is completely secure. All PDF to markdown conversion happens locally in your browser using client-side JavaScript. When you convert PDF to markdown with our tool, your files never leave your device, ensuring complete privacy and security during the PDF markdown conversion process.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What are the file size limits for PDF to markdown conversion?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Our PDF to markdown converter supports files up to 50MB for converting PDF to MD format. For larger PDF files, consider splitting them into smaller sections before using the PDF markdown converter for optimal conversion results.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can I convert scanned PDFs to markdown format?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "This PDF to markdown converter works best with text-based PDF documents. For scanned PDFs or image-based documents, the PDF to MD conversion may not extract text accurately as our PDF markdown converter doesn't include OCR (Optical Character Recognition) functionality. Use text-based PDFs for best results when converting PDF to markdown.",
-      },
-    },
-  ],
-}
-
 // Breadcrumb Schema
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -203,11 +155,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      {/* FAQ Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {/* Breadcrumb Schema */}
       <script

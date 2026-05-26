@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server"
 import { supportedLocales } from "../../../i18n/routing"
 
 // Content freshness metadata - 内容新鲜度标记
-const lastModified = new Date("2026-04-26")
+const lastModified = new Date("2026-05-26")
 const updateFrequency: "daily" | "weekly" | "monthly" | "quarterly" = "monthly"
 const nextReviewDate = new Date(lastModified)
 nextReviewDate.setMonth(nextReviewDate.getMonth() + 1)
@@ -255,76 +255,6 @@ export default async function GbpNokConverterLayout(props: {
   }
 
   // FAQ structured data - 使用翻译
-  const faqStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("faq_rate_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_rate_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_convert_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_convert_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_free_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_free_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_accuracy_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_accuracy_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_why_change_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_why_change_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_business_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_business_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_travel_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_travel_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_other_tools_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_other_tools_answer"),
-        },
-      },
-    ],
-  }
 
   // Breadcrumb structured data - 使用翻译
   const breadcrumbData = {
@@ -359,12 +289,6 @@ export default async function GbpNokConverterLayout(props: {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(structuredData),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqStructuredData),
         }}
       />
       <script

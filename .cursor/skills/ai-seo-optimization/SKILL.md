@@ -125,23 +125,20 @@ export function generateToolSchema(tool: Tool) {
 }
 ```
 
-### FAQ Schema
+### FAQ Content (HTML only — no FAQPage JSON-LD)
 
-```typescript
-export function generateFAQSchema(faqs: FAQ[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  }
-}
+Google limits FAQ rich results to government and authoritative health sites. Keep FAQ in visible page HTML for users and AI retrieval; do **not** add `FAQPage` JSON-LD or Question/Answer microdata.
+
+```tsx
+<section aria-labelledby="faq-heading" className="fact-chunk">
+  <h2 id="faq-heading">{title}</h2>
+  {faqs.map((faq) => (
+    <article key={faq.question}>
+      <h3>{faq.question}</h3>
+      <p>{faq.answer}</p>
+    </article>
+  ))}
+</section>
 ```
 
 ## Content Writing Patterns

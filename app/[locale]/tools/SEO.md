@@ -601,24 +601,28 @@ export function generateToolSchema(tool: Tool) {
 }
 ```
 
-### 2. FAQ Schema
+### 2. FAQ 内容（HTML 呈现，不使用 FAQPage JSON-LD）
 
-```typescript
-export function generateFAQSchema(faqs: FAQ[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  }
-}
+Google 自 2023 年 8 月起仅对政府与权威健康类站点展示 FAQ 富结果；一般站点**不应**添加 `FAQPage` JSON-LD 或 FAQ 微数据。FAQ 仍对 AI 检索与用户转化有价值，应保留在可见页面 HTML 中。
+
+```tsx
+<section aria-labelledby="faq-heading" className="fact-chunk">
+  <h2 id="faq-heading">Frequently Asked Questions</h2>
+  {faqs.map((faq) => (
+    <article key={faq.question}>
+      <h3>{faq.question}</h3>
+      <p>{faq.answer}</p>
+    </article>
+  ))}
+</section>
 ```
+
+**要求：**
+- 使用语义化 HTML（`<section>` + `<h2>`/`<h3>` + `<p>`）
+- 问题标题与用户真实搜索词一致
+- 首句直接回答，避免铺垫
+- 工具页建议 ≥8 条 FAQ
+- **禁止** `FAQPage` JSON-LD、`Question`/`Answer` 微数据
 
 ### 3. Breadcrumb Schema
 
@@ -912,7 +916,7 @@ export function trackRankings(keywords: string[]): Promise<RankingData[]> {
 ### 结构化数据
 
 - [ ] WebApplication Schema
-- [ ] FAQ Schema（如适用）
+- [ ] FAQ 内容以可见 HTML 呈现（≥8 条，无 FAQPage JSON-LD）
 - [ ] Breadcrumb Schema
 - [ ] Organization Schema
 - [ ] 只添加准确的数据

@@ -22,9 +22,9 @@ export async function generateMetadata(props: {
     languages[locale] = `https://geekskai.com/${locale}/tools/discord-time-converter/`
   })
   // Content freshness metadata (updated within 30-90 days for best AI ranking)
-  const lastModified = new Date("2026-05-04")
+  const lastModified = new Date("2026-05-26")
   const updateFrequency = "monthly"
-  const nextReview = new Date("2026-12-21")
+  const nextReview = new Date(lastModified.getTime() + 90 * 24 * 60 * 60 * 1000)
 
   return {
     title: t("seo_title"),
@@ -79,54 +79,6 @@ export async function generateMetadata(props: {
 // JSON-LD Structured Data for SEO
 async function generateJsonLd(locale: string) {
   const t = await getTranslations({ locale, namespace: "DiscordTimeConverter" })
-
-  // FAQ Schema for better AI extraction
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("content_sections.faq.q1"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("content_sections.faq.a1"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("content_sections.faq.q2"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("content_sections.faq.a2"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("content_sections.faq.q3"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("content_sections.faq.a3"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("content_sections.faq.q4"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("content_sections.faq.a4"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("content_sections.faq.q5"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("content_sections.faq.a5"),
-        },
-      },
-    ],
-  }
 
   // Breadcrumb Schema
   const breadcrumbSchema = {
@@ -218,7 +170,6 @@ async function generateJsonLd(locale: string) {
 
   return {
     webApp: webAppSchema,
-    faq: faqSchema,
     breadcrumb: breadcrumbSchema,
   }
 }
@@ -241,11 +192,6 @@ export default async function Layout(props: {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas.webApp) }}
-      />
-      {/* FAQ Schema for better AI extraction */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas.faq) }}
       />
       {/* Breadcrumb Schema */}
       <script

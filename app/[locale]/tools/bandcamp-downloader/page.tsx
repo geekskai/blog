@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from "next-intl"
 import { Link, useRouter } from "@/app/i18n/navigation"
 import { detectBandcampUrlType, isBandcampUrl } from "../../../../utils/bandcamp"
 
-const lastUpdated = new Date("2026-05-14")
+const lastUpdated = new Date("2026-05-26")
 const deferredSectionStyle = {
   contentVisibility: "auto" as const,
   containIntrinsicSize: "auto 1000px",

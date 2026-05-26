@@ -22,7 +22,7 @@ export async function generateMetadata(props: {
   })
 
   // Content freshness metadata - Update this monthly
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-05-26")
 
   return {
     title: t("seo_title"),
@@ -96,7 +96,7 @@ export default async function VinDecoderLayout(props: {
     : `https://geekskai.com/${locale}/tools/vin-decoder`
 
   // Content freshness metadata - Update this monthly
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-05-26")
 
   // WebApplication Schema - Enhanced for AI SEO
   const webApplicationSchema = {
@@ -148,76 +148,6 @@ export default async function VinDecoderLayout(props: {
   }
 
   // FAQ structured data
-  const faqStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("structured_data.faq_what_is_vin_q"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("structured_data.faq_what_is_vin_a"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("structured_data.faq_where_find_q"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("structured_data.faq_where_find_a"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("structured_data.faq_free_q"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("structured_data.faq_free_a"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("structured_data.faq_info_q"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("structured_data.faq_info_a"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("structured_data.faq_accurate_q"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("structured_data.faq_accurate_a"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("structured_data.faq_country_q"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("structured_data.faq_country_a"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("structured_data.faq_not_available_q"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("structured_data.faq_not_available_a"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("structured_data.faq_privacy_q"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("structured_data.faq_privacy_a"),
-        },
-      },
-    ],
-  }
 
   // Breadcrumb structured data - Fixed URL error
   const breadcrumbStructuredData = {
@@ -270,10 +200,6 @@ export default async function VinDecoderLayout(props: {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
       />
       <script
         type="application/ld+json"

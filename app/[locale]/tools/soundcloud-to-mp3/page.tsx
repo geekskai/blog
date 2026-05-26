@@ -89,7 +89,7 @@ export default function SoundCloudToMP3Page() {
     <div className="min-h-screen bg-slate-950">
       <div className="mx-auto max-w-7xl space-y-4 p-4">
         {/* Content Freshness Badge */}
-        <ContentFreshnessBadge lastModified={new Date("2026-05-04")} namespace="SoundCloudToMP3" />
+        <ContentFreshnessBadge lastModified={new Date("2026-05-26")} namespace="SoundCloudToMP3" />
         <header className="text-center">
           {/* Main Title - H1 for SEO */}
           <h1 className="my-3 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-2xl font-bold leading-tight text-transparent md:text-5xl">

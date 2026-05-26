@@ -3,9 +3,9 @@ import { getTranslations } from "next-intl/server"
 import { supportedLocales } from "app/i18n/routing"
 
 // Content freshness metadata - AI搜索时代关键信号
-const lastModified = new Date("2026-04-26")
+const lastModified = new Date("2026-05-26")
 const updateFrequency = "monthly" as const
-const nextReviewDate = new Date("2026-07-21")
+const nextReviewDate = new Date(lastModified.getTime() + 30 * 24 * 60 * 60 * 1000)
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>
@@ -111,68 +111,6 @@ export default async function Layout(props: { children: React.ReactNode; params:
   }
 
   // FAQ 结构化数据 - 基于 SEO 指南最佳实践
-  const faqStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("faq_question_1"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: stripHtml(t("faq_answer_1")),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_question_2"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: stripHtml(t("faq_answer_2")),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_question_3"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: stripHtml(t("faq_answer_3")),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_question_4"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: stripHtml(t("faq_answer_4")),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_question_5"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: stripHtml(t("faq_answer_5")),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_question_6"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: stripHtml(t("faq_answer_6")),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_question_7"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: stripHtml(t("faq_answer_7")),
-        },
-      },
-    ],
-  }
 
   // Breadcrumb 结构化数据
   const breadcrumbStructuredData = {
@@ -304,12 +242,6 @@ export default async function Layout(props: { children: React.ReactNode; params:
         }}
       />
       {/* FAQ 结构化数据 */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqStructuredData),
-        }}
-      />
       {/* Breadcrumb 结构化数据 */}
       <script
         type="application/ld+json"

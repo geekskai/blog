@@ -23,8 +23,8 @@ export async function generateMetadata(props: {
   })
 
   // Content freshness metadata (GEO requirement)
-  const lastModified = new Date("2026-05-04")
-  const nextReview = new Date("2026-12-14") // 90 days later
+  const lastModified = new Date("2026-05-26")
+  const nextReview = new Date(lastModified.getTime() + 90 * 24 * 60 * 60 * 1000)
 
   return {
     title: t("seo_title"),
@@ -149,78 +149,6 @@ export default async function Layout(props: { children: React.ReactNode; params:
     dateModified: "2026-01-31",
   }
 
-  // FAQ Schema (GEO requirement: ≥8 questions)
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("faq.q1.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.q1.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.q2.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.q2.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.q3.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.q3.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.q4.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.q4.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.q5.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.q5.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.q6.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.q6.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.q7.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.q7.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.q8.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.q8.answer"),
-        },
-      },
-    ],
-  }
-
   // Breadcrumb Schema
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -268,10 +196,6 @@ export default async function Layout(props: { children: React.ReactNode; params:
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <script
         type="application/ld+json"

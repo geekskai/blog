@@ -5,7 +5,7 @@ import { getTranslations } from "next-intl/server"
 
 const BASE_URL = "https://geekskai.com"
 const TOOL_PATH = "/tools/morse-code-translator/"
-const LAST_MODIFIED = new Date("2026-04-26")
+const LAST_MODIFIED = new Date("2026-05-26")
 const FAQ_ITEM_KEYS = [
   "faq_1",
   "faq_2",
@@ -142,19 +142,6 @@ export default async function MorseCodeGeneratorLayout(props: {
     dateModified: LAST_MODIFIED.toISOString().slice(0, 10),
   }
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  }
-
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -247,10 +234,6 @@ export default async function MorseCodeGeneratorLayout(props: {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <script
         type="application/ld+json"

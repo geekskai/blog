@@ -14,7 +14,7 @@ export async function generateMetadata(props: {
   const t = await getTranslations({ locale, namespace: "InvincibleTitleCardGenerator" })
 
   const isDefaultLocale = locale === "en"
-  const lastModified = new Date("2026-04-29")
+  const lastModified = new Date("2026-05-26")
 
   const languages = {
     "x-default": "https://geekskai.com/tools/invincible-title-card-generator/",
@@ -126,80 +126,11 @@ export default async function Layout(props: { children: React.ReactNode; params:
   const t = await getTranslations({ locale, namespace: "InvincibleTitleCardGenerator" })
   const jsonLd = getJsonLd(t)
 
-  const faqStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("content.faq_1_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("content.faq_1_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("content.faq_2_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("content.faq_2_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("content.faq_3_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("content.faq_3_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("content.faq_4_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("content.faq_4_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("content.faq_5_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("content.faq_5_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("content.faq_6_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("content.faq_6_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("content.faq_7_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("content.faq_7_answer"),
-        },
-      },
-    ],
-  }
-
   return (
     <div className="min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqStructuredData),
-        }}
       />
       {children}
     </div>

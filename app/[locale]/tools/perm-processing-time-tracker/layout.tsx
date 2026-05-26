@@ -3,9 +3,9 @@ import { getTranslations } from "next-intl/server"
 import React from "react"
 
 // Content freshness tracking - updated monthly
-const lastModified = new Date("2026-05-04")
+const lastModified = new Date("2026-05-26")
 const updateFrequency = "monthly"
-const nextReviewDate = new Date("2026-12-26")
+const nextReviewDate = new Date(lastModified.getTime() + 90 * 24 * 60 * 60 * 1000)
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>
@@ -195,44 +195,6 @@ export default async function Layout(props: { children: React.ReactNode; params:
   }
 
   // FAQ结构化数据
-  const faqStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("faq.accuracy.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t.raw("faq.accuracy.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.update_frequency.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t.raw("faq.update_frequency.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.oews_difference.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t.raw("faq.oews_difference.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.security.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t.raw("faq.security.answer"),
-        },
-      },
-    ],
-  }
 
   // Breadcrumb结构化数据
   const breadcrumbStructuredData = {
@@ -265,10 +227,6 @@ export default async function Layout(props: { children: React.ReactNode; params:
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
       />
       <script
         type="application/ld+json"

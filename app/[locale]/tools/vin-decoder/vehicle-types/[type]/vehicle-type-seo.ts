@@ -10,7 +10,7 @@ const VIN_SEO_SHARED = {
   siteName: "GeeksKai",
   ogImage: "/static/images/og/vin-decoder.png",
   publishedAt: "2026-03-07T00:00:00.000Z",
-  lastModifiedAt: "2026-03-07T00:00:00.000Z",
+  lastModifiedAt: "2026-05-26T12:00:00.000Z",
 }
 
 type VehicleTypeSlug = "motorcycle" | "rv" | "trailer" | "classic-car"
@@ -310,19 +310,6 @@ export async function generateVehicleTypePageData(locale: string, config: Vehicl
     ],
   }
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: allFaqItems.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.a,
-      },
-    })),
-  }
-
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -362,7 +349,6 @@ export async function generateVehicleTypePageData(locale: string, config: Vehicl
     allFaqItems,
     structuredDataSchemas: [
       breadcrumbSchema,
-      faqSchema,
       webPageSchema,
       webApplicationSchema,
       organizationSchema,

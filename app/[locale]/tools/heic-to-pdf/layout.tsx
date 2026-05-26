@@ -12,7 +12,7 @@ export async function generateMetadata(props: {
   const t = await getTranslations({ locale, namespace: "HeicToPdf" })
 
   const isDefaultLocale = locale === "en"
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-05-26")
 
   const languages = {
     "x-default": "https://geekskai.com/tools/heic-to-pdf/",

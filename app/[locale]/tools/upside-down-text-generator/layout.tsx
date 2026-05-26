@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server"
 import React from "react"
 
 const TOOL_SLUG = "upside-down-text-generator"
-const LAST_MODIFIED = new Date("2026-04-26")
+const LAST_MODIFIED = new Date("2026-05-26")
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>
@@ -116,19 +116,6 @@ export default async function UpsideDownTextGeneratorLayout(props: {
     dateModified: LAST_MODIFIED.toISOString().split("T")[0],
   }
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: t.raw("faq.items").map((item: { q: string; a: string }) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.a,
-      },
-    })),
-  }
-
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -171,10 +158,6 @@ export default async function UpsideDownTextGeneratorLayout(props: {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <script
         type="application/ld+json"

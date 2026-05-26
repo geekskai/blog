@@ -11,7 +11,7 @@ export async function generateMetadata(props: {
 
   const t = await getTranslations({ locale, namespace: "Random4DigitNumberGenerator" })
   const isDefaultLocale = locale === "en"
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-05-26")
 
   const title = t("seo_title")
   const description = t("seo_description")
@@ -166,63 +166,11 @@ export default async function Layout(props: { children: React.ReactNode; params:
     usageInfo: t("json_ld.usage_info"),
   }
 
-  // FAQ Schema
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("faq.items.how_random.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.how_random.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.no_duplicates.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.no_duplicates.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.is_free.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.is_free.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.store_numbers.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.store_numbers.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.browsers_supported.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.browsers_supported.answer"),
-        },
-      },
-    ],
-  }
-
   return (
     <div className="min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {children}
     </div>

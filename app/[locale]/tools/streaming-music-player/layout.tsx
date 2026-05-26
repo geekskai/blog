@@ -21,7 +21,7 @@ export async function generateMetadata(props: {
     languages[loc] = `https://geekskai.com/${loc}/tools/streaming-music-player/`
   })
 
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-05-26")
 
   return {
     title: t("metadata_title"),
@@ -107,21 +107,7 @@ export default async function Layout(props: {
     },
   }
 
-  // 2. FAQ Schema
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [1, 2, 3, 4, 5, 6, 7, 8].map((i) => ({
-      "@type": "Question",
-      name: t(`faq_question_${i}`),
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: t(`faq_answer_${i}`),
-      },
-    })),
-  }
-
-  // 3. HowTo Schema
+  // 2. HowTo Schema
   const howToSchema = {
     "@context": "https://schema.org",
     "@type": "HowTo",
@@ -165,7 +151,7 @@ export default async function Layout(props: {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([webApplicationSchema, faqSchema, howToSchema, breadcrumbSchema]),
+          __html: JSON.stringify([webApplicationSchema, howToSchema, breadcrumbSchema]),
         }}
       />
       {children}

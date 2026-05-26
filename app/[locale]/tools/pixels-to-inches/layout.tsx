@@ -12,7 +12,7 @@ export async function generateMetadata(props: {
   const { locale } = params
 
   const t = await getTranslations({ locale, namespace: "PixelsToInchesConverter" })
-  const lastModified = new Date("2026-04-29")
+  const lastModified = new Date("2026-05-26")
   // 语言映射
   const localeMap: Record<string, string> = {
     en: "en_US",
@@ -182,76 +182,6 @@ export default async function PixelsToInchesLayout(props: {
   }
 
   // 动态生成 FAQ 结构化数据
-  const dynamicFaqStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("faq_section.q1_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_section.q1_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_section.q2_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_section.q2_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_section.q3_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_section.q3_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_section.q4_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_section.q4_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_section.q5_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_section.q5_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_section.q6_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_section.q6_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_section.q7_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_section.q7_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_section.q8_question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_section.q8_answer"),
-        },
-      },
-    ],
-  }
 
   // 动态生成 HowTo 结构化数据
   const howToStructuredData = {
@@ -343,12 +273,6 @@ export default async function PixelsToInchesLayout(props: {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(dynamicStructuredData),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(dynamicFaqStructuredData),
         }}
       />
       <script

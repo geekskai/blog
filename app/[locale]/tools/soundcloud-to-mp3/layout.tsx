@@ -22,7 +22,7 @@ export async function generateMetadata(props: {
   })
 
   // Update this monthly
-  const lastModified = new Date("2026-05-04") // Update current date
+  const lastModified = new Date("2026-05-26") // Update current date
 
   return {
     title: t("metadata_title"),
@@ -132,78 +132,6 @@ export default async function Layout(props: { children: React.ReactNode; params:
     },
   }
 
-  // FAQ Schema
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("faq_question_1"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_answer_1"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_question_2"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_answer_2"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_question_3"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_answer_3"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_question_4"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_answer_4"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_question_5"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_answer_5"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_question_6"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_answer_6"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_question_7"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_answer_7"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_question_8"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_answer_8"),
-        },
-      },
-    ],
-  }
-
   // Breadcrumb Schema
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -255,10 +183,6 @@ export default async function Layout(props: { children: React.ReactNode; params:
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <script
         type="application/ld+json"

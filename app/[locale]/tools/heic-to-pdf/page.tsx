@@ -141,11 +141,9 @@ export default function Home() {
               </div>
             </section>
 
-            {/* FAQ Section with Schema */}
+            {/* FAQ Section */}
             <section
               className="rounded-2xl bg-slate-800 p-5 md:p-8"
-              itemScope
-              itemType="https://schema.org/FAQPage"
             >
               <h2 className="mb-4 text-xl font-bold leading-8 text-white md:mb-6 md:text-2xl">
                 {t("faq_title")}
@@ -153,115 +151,94 @@ export default function Home() {
               <div className="space-y-5 md:space-y-6">
                 <div
                   className="border-b border-slate-700 pb-4"
-                  itemScope
-                  itemProp="mainEntity"
-                  itemType="https://schema.org/Question"
                 >
-                  <h3 className="mb-2 text-lg font-semibold text-white" itemProp="name">
+                  <h3 className="mb-2 text-lg font-semibold text-white">
                     {t("faq_data_safe_q")}
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-sm leading-6 text-slate-400 md:text-base" itemProp="text">
+                  <div>
+                    <p className="text-sm leading-6 text-slate-400 md:text-base">
                       {t("faq_data_safe_a")}
                     </p>
                   </div>
                 </div>
                 <div
                   className="border-b border-slate-700 pb-4"
-                  itemScope
-                  itemProp="mainEntity"
-                  itemType="https://schema.org/Question"
                 >
-                  <h3 className="mb-2 text-lg font-semibold text-white" itemProp="name">
+                  <h3 className="mb-2 text-lg font-semibold text-white">
                     {t("faq_limits_q")}
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-sm leading-6 text-slate-400 md:text-base" itemProp="text">
+                  <div>
+                    <p className="text-sm leading-6 text-slate-400 md:text-base">
                       {t("faq_limits_a")}
                     </p>
                   </div>
                 </div>
                 <div
                   className="border-b border-slate-700 pb-4"
-                  itemScope
-                  itemProp="mainEntity"
-                  itemType="https://schema.org/Question"
                 >
-                  <h3 className="mb-2 text-lg font-semibold text-white" itemProp="name">
+                  <h3 className="mb-2 text-lg font-semibold text-white">
                     {t("faq_quality_q")}
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-sm leading-6 text-slate-400 md:text-base" itemProp="text">
+                  <div>
+                    <p className="text-sm leading-6 text-slate-400 md:text-base">
                       {t("faq_quality_a")}
                     </p>
                   </div>
                 </div>
                 <div
                   className="border-b border-slate-700 pb-4"
-                  itemScope
-                  itemProp="mainEntity"
-                  itemType="https://schema.org/Question"
                 >
-                  <h3 className="mb-2 text-lg font-semibold text-white" itemProp="name">
+                  <h3 className="mb-2 text-lg font-semibold text-white">
                     {t("faq_mobile_q")}
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-sm leading-6 text-slate-400 md:text-base" itemProp="text">
+                  <div>
+                    <p className="text-sm leading-6 text-slate-400 md:text-base">
                       {t("faq_mobile_a")}
                     </p>
                   </div>
                 </div>
                 <div
                   className="border-b border-slate-700 pb-4"
-                  itemScope
-                  itemProp="mainEntity"
-                  itemType="https://schema.org/Question"
                 >
-                  <h3 className="mb-2 text-lg font-semibold text-white" itemProp="name">
+                  <h3 className="mb-2 text-lg font-semibold text-white">
                     {t("faq_batch_q")}
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-sm leading-6 text-slate-400 md:text-base" itemProp="text">
+                  <div>
+                    <p className="text-sm leading-6 text-slate-400 md:text-base">
                       {t("faq_batch_a")}
                     </p>
                   </div>
                 </div>
                 <div
                   className="border-b border-slate-700 pb-4"
-                  itemScope
-                  itemProp="mainEntity"
-                  itemType="https://schema.org/Question"
                 >
-                  <h3 className="mb-2 text-lg font-semibold text-white" itemProp="name">
+                  <h3 className="mb-2 text-lg font-semibold text-white">
                     {t("faq_pdf_vs_jpeg_q")}
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-sm leading-6 text-slate-400 md:text-base" itemProp="text">
+                  <div>
+                    <p className="text-sm leading-6 text-slate-400 md:text-base">
                       {t("faq_pdf_vs_jpeg_a")}
                     </p>
                   </div>
                 </div>
                 <div
                   className="border-b border-slate-700 pb-4"
-                  itemScope
-                  itemProp="mainEntity"
-                  itemType="https://schema.org/Question"
                 >
-                  <h3 className="mb-2 text-lg font-semibold text-white" itemProp="name">
+                  <h3 className="mb-2 text-lg font-semibold text-white">
                     {t("faq_software_q")}
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-sm leading-6 text-slate-400 md:text-base" itemProp="text">
+                  <div>
+                    <p className="text-sm leading-6 text-slate-400 md:text-base">
                       {t("faq_software_a")}
                     </p>
                   </div>
                 </div>
-                <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="mb-2 text-lg font-semibold text-white" itemProp="name">
+                <div>
+                  <h3 className="mb-2 text-lg font-semibold text-white">
                     {t("faq_customize_q")}
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-sm leading-6 text-slate-400 md:text-base" itemProp="text">
+                  <div>
+                    <p className="text-sm leading-6 text-slate-400 md:text-base">
                       {t("faq_customize_a")}
                     </p>
                   </div>

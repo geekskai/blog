@@ -86,7 +86,7 @@ export default function VinDecoder() {
   const [historyItems, setHistoryItems] = useState<HistoryItem[]>([])
   const [copyStatus, setCopyStatus] = useState<"idle" | "copying" | "copied">("idle")
   const [mounted, setMounted] = useState(false)
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-05-26")
 
   // Load history on mount
   useEffect(() => {

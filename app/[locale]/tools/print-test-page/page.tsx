@@ -165,7 +165,7 @@ export default function PrintTestPage() {
             })}
           </p>
           {/* Content Freshness Badge */}
-          <ContentFreshnessBadge lastModified={new Date("2026-04-21")} namespace="PrintTestPage" />
+          <ContentFreshnessBadge lastModified={new Date("2026-05-26")} namespace="PrintTestPage" />
         </header>
 
         {/* Print Test Pages Section */}

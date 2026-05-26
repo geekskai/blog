@@ -273,21 +273,18 @@ const WebApplicationSchema = {
   ],
 }
 
-// FAQ Schema
-const FAQSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How accurate are snow day predictions?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Our snow day calculator uses real-time weather data and proven meteorological factors to provide reliable predictions.",
-      },
-    },
-  ],
-}
+// FAQ content — visible HTML only (no FAQPage JSON-LD per Google policy)
+const FAQSection = () => (
+  <section aria-labelledby="faq-heading" className="fact-chunk">
+    <h2 id="faq-heading">Frequently Asked Questions</h2>
+    {faqs.map((faq) => (
+      <article key={faq.question}>
+        <h3>{faq.question}</h3>
+        <p>{faq.answer}</p>
+      </article>
+    ))}
+  </section>
+)
 ```
 
 ## 📊 内容营销优化

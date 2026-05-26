@@ -4,7 +4,7 @@ import React from "react"
 import { getTranslations } from "next-intl/server"
 
 // Content freshness - Update this monthly
-const lastModified = new Date("2026-04-26") // Update current date
+const lastModified = new Date("2026-05-26") // Update current date
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>
@@ -136,57 +136,6 @@ async function getJsonLd(locale: string) {
   }
 }
 
-async function getFaqSchema(locale: string) {
-  const t = await getTranslations({ locale, namespace: "HtmlToMarkdown.structured_data" })
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("faq_free_q"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_free_a"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_elements_q"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_elements_a"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_multiple_urls_q"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_multiple_urls_a"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_customize_q"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_customize_a"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_security_q"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_security_a"),
-        },
-      },
-    ],
-  }
-}
-
 async function getBreadcrumbSchema(locale: string) {
   const t = await getTranslations({ locale, namespace: "HtmlToMarkdown.structured_data" })
 
@@ -223,9 +172,8 @@ export default async function Layout(props: { children: React.ReactNode; params:
 
   const { children } = props
 
-  const [jsonLd, faqSchema, breadcrumbSchema] = await Promise.all([
+  const [jsonLd, breadcrumbSchema] = await Promise.all([
     getJsonLd(locale),
-    getFaqSchema(locale),
     getBreadcrumbSchema(locale),
   ])
 
@@ -235,11 +183,6 @@ export default async function Layout(props: { children: React.ReactNode; params:
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      {/* FAQ Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {/* Breadcrumb Schema */}
       <script

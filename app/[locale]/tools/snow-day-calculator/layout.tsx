@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
+import React from "react"
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>
@@ -10,7 +11,7 @@ export async function generateMetadata(props: {
 
   const t = await getTranslations({ locale, namespace: "SnowDayCalculator" })
   const isDefaultLocale = locale === "en"
-  const lastModified = new Date("2026-04-29")
+  const lastModified = new Date("2026-05-26")
 
   const baseUrl = "https://geekskai.com"
   const toolPath = "/tools/snow-day-calculator/"
@@ -73,7 +74,7 @@ export async function generateMetadata(props: {
       "format-detection": "telephone=no",
       "last-modified": lastModified.toISOString(),
       "update-frequency": "monthly",
-      "next-review": "2025-02-24T00:00:00Z",
+      "next-review": new Date(lastModified.getTime() + 30 * 24 * 60 * 60 * 1000).toISOString(),
     },
   }
 }
@@ -151,142 +152,6 @@ export default async function SnowDayCalculatorLayout(props: {
     usageInfo: t("json_ld.usage_info"),
   }
 
-  // FAQ Schema - matches page.tsx FAQ data for consistency
-  const faqStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("faq.items.accuracy.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.accuracy.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.factors.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.factors.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.worldwide.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.worldwide.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.best_time.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.best_time.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.free.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.free.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.update_frequency.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.update_frequency.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.different_results.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.different_results.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.save_locations.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.save_locations.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.search_difference.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.search_difference.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.algorithm_comparison.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.algorithm_comparison.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.planning.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.planning.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.private_schools.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.private_schools.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.daylight_saving.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.daylight_saving.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.error_handling.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.error_handling.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.other_weather.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.other_weather.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.items.comparison.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.items.comparison.answer"),
-        },
-      },
-    ],
-  }
-
   // Breadcrumb Schema
   const breadcrumbStructuredData = {
     "@context": "https://schema.org",
@@ -339,11 +204,6 @@ export default async function SnowDayCalculatorLayout(props: {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-      {/* FAQ Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
       />
       {/* Breadcrumb Schema */}
       <script

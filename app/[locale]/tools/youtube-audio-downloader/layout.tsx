@@ -4,11 +4,8 @@ import type { ReactNode } from "react"
 import { supportedLocales } from "app/i18n/routing"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 import {
-  AUDIO_FAQ_COUNT,
   AUDIO_LAST_MODIFIED_ISO,
-  buildDownloaderFaqItems,
   buildDownloaderHowToInput,
-  generateAudioFAQSchema,
   generateAudioHowToSchema,
 } from "@/app/[locale]/tools/youtube-audio-downloader/audio-faq"
 
@@ -103,7 +100,6 @@ export default async function YouTubeAudioDownloaderLayout({ children, params }:
   const url = buildUrl(locale).replace(/\/$/, "")
   const title = t("seo_title")
   const description = t("seo_description")
-  const faqItems = buildDownloaderFaqItems(AUDIO_FAQ_COUNT, (key) => t(key))
   const howToInput = buildDownloaderHowToInput((key) => t(key))
 
   const jsonLd = {
@@ -157,7 +153,6 @@ export default async function YouTubeAudioDownloaderLayout({ children, params }:
         url: `${BASE_URL}/`,
         logo: `${BASE_URL}/static/logos.png`,
       },
-      generateAudioFAQSchema(url, faqItems),
       generateAudioHowToSchema(url, howToInput),
     ],
   }

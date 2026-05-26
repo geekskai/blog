@@ -9,7 +9,6 @@ export interface UnicodeToolSeoConfig {
   keywords: string[]
   lastModified: Date
   featureList: string[]
-  faqItems: Array<{ question: string; answer: string }>
 }
 
 export function buildUnicodeToolMetadata(config: UnicodeToolSeoConfig): Metadata {
@@ -68,7 +67,7 @@ export function buildUnicodeToolMetadata(config: UnicodeToolSeoConfig): Metadata
 }
 
 export function buildUnicodeToolSchemas(config: UnicodeToolSeoConfig) {
-  const { slug, locale, title, description, featureList, faqItems, lastModified } = config
+  const { slug, locale, title, description, featureList, lastModified } = config
   const isDefaultLocale = locale === "en"
   const url = isDefaultLocale
     ? `https://geekskai.com/tools/${slug}`
@@ -96,19 +95,6 @@ export function buildUnicodeToolSchemas(config: UnicodeToolSeoConfig) {
     dateModified: lastModified.toISOString().split("T")[0],
   }
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  }
-
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -133,7 +119,6 @@ export function buildUnicodeToolSchemas(config: UnicodeToolSeoConfig) {
 
   return {
     webApplicationSchema,
-    faqSchema,
     breadcrumbSchema,
     organizationSchema,
   }

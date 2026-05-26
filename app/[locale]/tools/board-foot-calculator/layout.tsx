@@ -31,7 +31,7 @@ export async function generateMetadata(props: {
   const languages = {
     "x-default": "https://geekskai.com/tools/board-foot-calculator/",
   }
-  const lastModified = new Date("2026-04-29")
+  const lastModified = new Date("2026-05-26")
 
   supportedLocales.forEach((locale) => {
     languages[locale] = `https://geekskai.com/${locale}/tools/board-foot-calculator/`
@@ -112,92 +112,6 @@ export async function generateMetadata(props: {
 }
 
 // FAQ 结构化数据
-const faqStructuredData = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What is a board foot and how is it calculated?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: 'A board foot is a unit of measurement for lumber volume. One board foot equals 144 cubic inches (12" × 12" × 1"). The formula is: Board Feet = (Length × Width × Thickness) ÷ 144, where all dimensions are in inches.',
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How do I calculate the cost of lumber using board feet?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "To calculate lumber cost: Total Cost = Board Feet × Price per Board Foot. For example, if you need 10 board feet of lumber priced at $3.50 per board foot, the cost would be 10 × $3.50 = $35.00.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Should I use nominal or actual lumber dimensions?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: 'Always use actual dimensions for board foot calculations. Nominal dimensions (like 2×4) are traditional names, but actual dimensions (1.5" × 3.5" for a 2×4) are the true measurements after planing and drying.',
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What waste factor should I include in my lumber calculations?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Typically include 5-15% waste factor depending on project complexity. Simple projects may need 5-10% waste, while complex projects with many cuts might require 10-15% to account for mistakes, defects, and cutting waste.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can this calculator handle both imperial and metric measurements?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, our board foot calculator supports both imperial (inches, feet) and metric (centimeters, meters) units. The calculator automatically converts measurements to ensure accurate board foot calculations regardless of input units.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How accurate is this board foot calculator for professional use?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Our calculator provides professional-grade accuracy with precision control up to 3 decimal places. It uses the standard industry formula and is suitable for construction, woodworking, and commercial lumber applications.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What types of wood projects can I calculate with this tool?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "This calculator works for all lumber projects including construction framing, furniture making, cabinet building, decking, flooring, trim work, and any project requiring accurate board foot measurements and cost estimation.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Does the calculator include lumber pricing information?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, we include reference pricing for common wood species, but prices vary by region and market conditions. Always get current quotes from local suppliers for accurate project budgeting.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can I save and export my lumber calculations?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, the calculator includes project management features allowing you to save multiple lumber pieces, calculate project totals, and export results to CSV format for use in other applications.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is this board foot calculator free to use?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, our board foot calculator is completely free with no registration required. All features including calculations, project management, and exports are available at no cost.",
-      },
-    },
-  ],
-}
 
 // 工具特定的结构化数据
 const toolStructuredData = {
@@ -358,12 +272,6 @@ export default async function BoardFootCalculatorLayout(props: {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(dynamicStructuredData),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqStructuredData),
         }}
       />
       <script

@@ -13,7 +13,7 @@ export async function generateMetadata(props: {
 
   const t = await getTranslations({ locale, namespace: "CmToPmConverter" })
   const isDefaultLocale = locale === "en"
-  const lastModified = new Date("2026-04-29")
+  const lastModified = new Date("2026-05-26")
   const languages = {
     "x-default": "https://geekskai.com/tools/cm-to-pm-converter",
   }
@@ -169,42 +169,6 @@ async function getStructuredData(locale: string) {
   }
 }
 
-// FAQ 结构化数据 - 基于PRD文档的目标用户问题
-async function getFAQStructuredData(locale: string) {
-  const t = await getTranslations({ locale, namespace: "CmToPmConverter" })
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("faq.questions.how_to_convert.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.questions.how_to_convert.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.questions.conversion_formulas.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.questions.conversion_formulas.answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq.questions.accuracy.question"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq.questions.accuracy.answer"),
-        },
-      },
-    ],
-  }
-}
-
 // 科学应用结构化数据
 async function getScientificApplicationData(locale: string) {
   const t = await getTranslations({ locale, namespace: "CmToPmConverter" })
@@ -265,7 +229,6 @@ export default async function CmToPmLayout(props: {
   const { children } = props
 
   const structuredData = await getStructuredData(locale)
-  const faqData = await getFAQStructuredData(locale)
   const applicationData = await getScientificApplicationData(locale)
 
   return (
@@ -275,12 +238,6 @@ export default async function CmToPmLayout(props: {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(structuredData),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqData),
         }}
       />
       <script

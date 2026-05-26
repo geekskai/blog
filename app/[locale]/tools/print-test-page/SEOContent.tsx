@@ -8,7 +8,7 @@ export function CoreFactsSection() {
   const t = useTranslations("PrintTestPage")
   return (
     <section className="mb-6 md:mb-8 lg:mb-12" itemScope itemType="https://schema.org/Product">
-      <meta itemProp="name" content={t("metadata_title")} />
+      <meta content={t("metadata_title")} />
       <meta itemProp="description" content={t("metadata_description")} />
       <link itemProp="image" href="https://geekskai.com/static/images/print-test-page.png" />
       <div className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur-md md:rounded-3xl md:p-5 lg:p-6">
@@ -319,17 +319,14 @@ export function FAQSection() {
           <div
             key={index}
             className="rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition-all duration-300 hover:border-orange-400/30 hover:shadow-lg hover:shadow-orange-500/25 md:p-5 lg:p-6"
-            itemScope
-            itemType="https://schema.org/Question"
           >
             <h3
               className="mb-1.5 text-sm font-bold leading-snug text-white md:mb-2 md:text-base lg:mb-3 lg:text-lg"
-              itemProp="name"
             >
               {faq.question}
             </h3>
-            <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-              <p className="text-xs text-slate-300 md:text-sm" itemProp="text">
+            <div>
+              <p className="text-xs text-slate-300 md:text-sm">
                 {faq.answer}
               </p>
             </div>

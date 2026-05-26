@@ -17,7 +17,7 @@ export async function generateMetadata(props: {
   const languages = {
     "x-default": "https://geekskai.com/tools/ccm-to-hp-converter/",
   }
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-05-26")
 
   supportedLocales.forEach((locale) => {
     languages[locale] = `https://geekskai.com/${locale}/tools/ccm-to-hp-converter/`
@@ -165,60 +165,6 @@ const getJsonLd = (t: any, locale: string) => ({
           name: t("usage_guide.step_4_title"),
           text: t("usage_guide.step_4_description"),
           image: "https://geekskai.com/images/results-step.jpg",
-        },
-      ],
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `https://geekskai.com/${locale}/tools/ccm-to-hp-converter/#faq`,
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: t("faq.q1"),
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: t("faq.a1"),
-          },
-        },
-        {
-          "@type": "Question",
-          name: t("faq.q2"),
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: t("faq.a2"),
-          },
-        },
-        {
-          "@type": "Question",
-          name: t("faq.q3"),
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: t("faq.a3"),
-          },
-        },
-        {
-          "@type": "Question",
-          name: t("faq.q4"),
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: t("faq.a4"),
-          },
-        },
-        {
-          "@type": "Question",
-          name: t("faq.q5"),
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: t("faq.a5"),
-          },
-        },
-        {
-          "@type": "Question",
-          name: t("faq.q6"),
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: t("faq.a6"),
-          },
         },
       ],
     },

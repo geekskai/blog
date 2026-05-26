@@ -1,4 +1,4 @@
-/** Shared FAQ / HowTo JSON-LD helpers for YouTube downloader tools */
+/** Shared FAQ content builders and HowTo JSON-LD helpers for YouTube downloader tools */
 
 export type DownloaderFaqItem = {
   question: string
@@ -55,25 +55,7 @@ export function buildDownloaderHowToInput(
   }
 }
 
-export function generateDownloaderFAQSchema(baseUrl: string, items: DownloaderFaqItem[]) {
-  return {
-    "@type": "FAQPage",
-    "@id": `${baseUrl}#faq`,
-    mainEntity: items.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  }
-}
-
-export function generateDownloaderHowToSchema(
-  baseUrl: string,
-  input: DownloaderHowToSchemaInput
-) {
+export function generateDownloaderHowToSchema(baseUrl: string, input: DownloaderHowToSchemaInput) {
   return {
     "@type": "HowTo",
     "@id": `${baseUrl}#howto`,

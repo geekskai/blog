@@ -25,7 +25,7 @@ export async function generateMetadata(props: {
     languages[loc] = `https://geekskai.com/${loc}/tools/${TOOL_SLUG}/`
   })
 
-  const lastModified = new Date("2026-05-04")
+  const lastModified = new Date("2026-05-26")
 
   return {
     title: t("metadata_title"),
@@ -110,38 +110,11 @@ export default async function Layout(props: {
     ],
   }
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("faq_question_1"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_answer_1"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_question_2"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_answer_2"),
-        },
-      },
-    ],
-  }
-
   return (
     <div className="min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {children}
     </div>

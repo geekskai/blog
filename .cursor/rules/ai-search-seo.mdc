@@ -476,7 +476,7 @@ Details and context here if needed.
 - [ ] Enable CDN and caching
 - [ ] Preload critical resources
 - [ ] Structured data is accurate and complete
-- [ ] Add FAQ Schema where applicable
+- [ ] FAQ content rendered as visible HTML (≥8 items; no FAQPage JSON-LD)
 
 ### Content Freshness
 - [ ] Establish content update schedule (30-90 day cycle)

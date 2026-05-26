@@ -6,7 +6,7 @@ import {
   buildUnicodeToolSchemas,
 } from "../upside-down-text-generator/lib/seo"
 
-const LAST_MODIFIED = new Date("2026-04-26")
+const LAST_MODIFIED = new Date("2026-05-26")
 const SLUG = "bubble-letter-generator"
 
 export async function generateMetadata(props: {
@@ -17,7 +17,6 @@ export async function generateMetadata(props: {
   const { locale } = params
 
   const t = await getTranslations({ locale, namespace: "BubbleTextGenerator" })
-  const faqItems = t.raw("faq.items") as Array<{ q: string; a: string }>
 
   return buildUnicodeToolMetadata({
     slug: SLUG,
@@ -29,7 +28,6 @@ export async function generateMetadata(props: {
       .map((k: string) => k.trim()),
     lastModified: LAST_MODIFIED,
     featureList: t.raw("feature_list"),
-    faqItems: faqItems.map((item) => ({ question: item.q, answer: item.a })),
   })
 }
 
@@ -44,7 +42,6 @@ export default async function BubbleTextGeneratorLayout(props: {
   const { children } = props
 
   const t = await getTranslations({ locale, namespace: "BubbleTextGenerator" })
-  const faqItems = t.raw("faq.items") as Array<{ q: string; a: string }>
 
   const schemas = buildUnicodeToolSchemas({
     slug: SLUG,
@@ -56,7 +53,6 @@ export default async function BubbleTextGeneratorLayout(props: {
       .map((k: string) => k.trim()),
     lastModified: LAST_MODIFIED,
     featureList: t.raw("feature_list_schemas"),
-    faqItems: faqItems.map((item) => ({ question: item.q, answer: item.a })),
   })
 
   return (
@@ -64,10 +60,6 @@ export default async function BubbleTextGeneratorLayout(props: {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas.webApplicationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas.faqSchema) }}
       />
       <script
         type="application/ld+json"

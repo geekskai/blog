@@ -8,7 +8,7 @@ const VIN_SEO_SHARED = {
   category: "Automotive Tools",
   ogImage: "/static/images/og/vin-decoder.png",
   publishedAt: "2026-03-07T00:00:00.000Z",
-  lastModifiedAt: "2026-03-07T00:00:00.000Z",
+  lastModifiedAt: "2026-05-26T12:00:00.000Z",
 }
 
 function buildLocalizedUrl(path: string, locale: string) {
@@ -384,19 +384,6 @@ export async function generateComparePageData(locale: string) {
     ],
   }
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.a,
-      },
-    })),
-  }
-
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -444,7 +431,6 @@ export async function generateComparePageData(locale: string) {
     faqItems,
     structuredDataSchemas: [
       breadcrumbSchema,
-      faqSchema,
       webPageSchema,
       webApplicationSchema,
       organizationSchema,

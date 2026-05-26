@@ -5,11 +5,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server"
 
 import { supportedLocales } from "../../../i18n/routing"
 import {
-  SHOTS_FAQ_COUNT,
   SHOTS_LAST_MODIFIED_ISO,
-  buildDownloaderFaqItems,
   buildDownloaderHowToInput,
-  generateShotsFAQSchema,
   generateShotsHowToSchema,
 } from "./shots-faq"
 
@@ -108,7 +105,6 @@ export default async function YouTubeShortsDownloaderLayout(props: {
     t("schema_feature_3"),
     t("schema_feature_4"),
   ]
-  const faqItems = buildDownloaderFaqItems(SHOTS_FAQ_COUNT, (key) => t(key))
   const howToInput = buildDownloaderHowToInput((key) => t(key))
 
   const webApplicationSchema = {
@@ -131,11 +127,6 @@ export default async function YouTubeShortsDownloaderLayout(props: {
       url: "https://geekskai.com",
     },
     featureList: schemaFeatureList,
-  }
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    ...generateShotsFAQSchema(baseUrl, faqItems),
   }
 
   const howToSchema = {
@@ -187,10 +178,6 @@ export default async function YouTubeShortsDownloaderLayout(props: {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <script
         type="application/ld+json"

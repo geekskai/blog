@@ -55,7 +55,7 @@ export async function generateMetadata(props: BrandPageProps): Promise<Metadata>
   })
 
   // Content freshness metadata - Update this monthly
-  const lastModified = new Date("2026-02-26")
+  const lastModified = new Date("2026-05-26")
 
   return {
     title,
@@ -135,7 +135,7 @@ export default async function BrandVinDecoderPage(props: BrandPageProps) {
   const pageUrl = `${baseUrl}/tools/vin-decoder/${brand.slug}`
 
   // Content freshness metadata - Update this monthly
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-05-26")
 
   // WebApplication Schema - Enhanced for AI SEO
   const webApplicationSchema = {
@@ -183,46 +183,6 @@ export default async function BrandVinDecoderPage(props: BrandPageProps) {
       bestRating: "5",
       worstRating: "1",
     },
-  }
-
-  // FAQ structured data for brand-specific questions
-  const faqStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("faq_where_find_q", { brand: brand.name }),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_where_find_a", { brand: brand.name }),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_wmi_q"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_wmi_a", { brand: brand.name, wmiCodes: brand.commonWMIs.join(", ") }),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_info_q"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_info_a", { brand: brand.name }),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("faq_free_q"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("faq_free_a", { brand: brand.name }),
-        },
-      },
-    ],
   }
 
   // Breadcrumb structured data - Enhanced for AI SEO
@@ -307,10 +267,6 @@ export default async function BrandVinDecoderPage(props: BrandPageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
       />
       <script
         type="application/ld+json"

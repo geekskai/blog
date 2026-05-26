@@ -129,19 +129,6 @@ export default async function Layout(props: {
     },
   }
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: Array.from({ length: 8 }, (_, index) => ({
-      "@type": "Question",
-      name: t(`geo_sections.faq.question_${index + 1}`),
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: t(`geo_sections.faq.answer_${index + 1}`),
-      },
-    })),
-  }
-
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -206,10 +193,6 @@ export default async function Layout(props: {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(webApplicationSchema),
         }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <script
         type="application/ld+json"

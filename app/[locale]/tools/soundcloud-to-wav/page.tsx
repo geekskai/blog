@@ -88,7 +88,7 @@ export default function Page() {
     <div className="min-h-screen bg-slate-950">
       <div className="relative mx-auto max-w-7xl space-y-4 p-4">
         {/* Content Freshness Badge */}
-        <ContentFreshnessBadge lastModified={new Date("2026-04-26")} namespace="SoundCloudToWAV" />
+        <ContentFreshnessBadge lastModified={new Date("2026-05-26")} namespace="SoundCloudToWAV" />
 
         {/* Header Section - SEO Optimized */}
         <header className="text-center">

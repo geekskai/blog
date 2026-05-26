@@ -11,7 +11,7 @@ export async function generateMetadata(props: {
   const { locale } = params
 
   const t = await getTranslations({ locale, namespace: "CmTilTommerConverter" })
-  const lastModified = new Date("2026-04-29")
+  const lastModified = new Date("2026-05-26")
   // 语言映射
   const localeMap: Record<string, string> = {
     en: "en_US",
@@ -185,52 +185,6 @@ export default async function CmTilTommerLayout(props: {
   }
 
   // 动态生成 FAQ 结构化数据
-  const dynamicFaqStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("content_sections.faq_how_convert"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("content_sections.faq_how_convert_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("content_sections.faq_conversion_formula"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("content_sections.faq_conversion_formula_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("content_sections.faq_inches_same_as_international"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("content_sections.faq_inches_same_as_international_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("content_sections.faq_why_need_converter"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("content_sections.faq_why_need_converter_answer"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("content_sections.faq_is_free"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("content_sections.faq_is_free_answer"),
-        },
-      },
-    ],
-  }
 
   // 动态生成面包屑结构化数据
   const dynamicBreadcrumbStructuredData = {
@@ -265,12 +219,6 @@ export default async function CmTilTommerLayout(props: {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(dynamicStructuredData),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(dynamicFaqStructuredData),
         }}
       />
       <script

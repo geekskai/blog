@@ -12,7 +12,7 @@ export async function generateMetadata(props: {
   const { locale } = params
 
   const t = await getTranslations({ locale, namespace: "CmToTommerConverter" })
-  const lastModified = new Date("2026-04-29")
+  const lastModified = new Date("2026-05-26")
   const isDefaultLocale = locale === "en"
   const languages = {
     "x-default": "https://geekskai.com/tools/cm-to-tommer-converter/",
@@ -170,56 +170,6 @@ function getStructuredData(locale: string, t: any) {
   }
 }
 
-// FAQ 结构化数据
-function getFaqStructuredData(t: any) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: t("structured_data.faq_page.question_1"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("structured_data.faq_page.answer_1"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("structured_data.faq_page.question_2"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("structured_data.faq_page.answer_2"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("structured_data.faq_page.question_3"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("structured_data.faq_page.answer_3"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("structured_data.faq_page.question_4"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("structured_data.faq_page.answer_4"),
-        },
-      },
-      {
-        "@type": "Question",
-        name: t("structured_data.faq_page.question_5"),
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t("structured_data.faq_page.answer_5"),
-        },
-      },
-    ],
-  }
-}
-
 export default async function CmToTommerLayout(props: {
   children: React.ReactNode
   params: Promise<{ locale: string }>
@@ -233,7 +183,6 @@ export default async function CmToTommerLayout(props: {
   const t = await getTranslations({ locale, namespace: "CmToTommerConverter" })
 
   const structuredData = getStructuredData(locale, t)
-  const faqStructuredData = getFaqStructuredData(t)
 
   return (
     <>
@@ -242,12 +191,6 @@ export default async function CmToTommerLayout(props: {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(structuredData),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqStructuredData),
         }}
       />
 

@@ -5,7 +5,7 @@ import type { ReactNode } from "react"
 import { getTranslations } from "next-intl/server"
 
 const slug = "bandcamp-album-downloader"
-const lastModified = new Date("2026-05-04")
+const lastModified = new Date("2026-05-26")
 
 function buildUrl(locale: string): string {
   return locale === "en"
@@ -86,7 +86,6 @@ export default async function Layout(props: {
   const { locale } = await props.params
   const baseUrl = buildUrl(locale)
   const t = await getTranslations({ locale, namespace: "BandcampAlbumDownloader" })
-  const faqItems = t.raw("schema.faqItems") as Array<{ question: string; answer: string }>
   const featureList = t.raw("schema.featureList") as string[]
 
   const webApplicationSchema = {
@@ -110,19 +109,6 @@ export default async function Layout(props: {
     },
     featureList,
     browserRequirements: t("schema.browserRequirements"),
-  }
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
   }
 
   const breadcrumbSchema = {
@@ -156,10 +142,6 @@ export default async function Layout(props: {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <script
         type="application/ld+json"
