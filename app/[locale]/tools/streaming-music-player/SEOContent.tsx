@@ -2,23 +2,21 @@
 
 import React from "react"
 import { useTranslations } from "next-intl"
+import { TldrBlock } from "@/components/TldrBlock"
 
 export function TLDRSection() {
   const t = useTranslations("HLSMusicPlayer")
   return (
-    <section
+    <TldrBlock
       id="overview"
-      className="mb-12 rounded-2xl border border-purple-500/20 bg-purple-500/5 p-6 backdrop-blur-sm md:p-10"
+      variant="heading"
+      className="mb-8 md:mb-12"
+      title={t("section_tldr_title")}
     >
-      <h2 className="mb-4 text-center text-xl font-bold text-white md:text-2xl">
-        {t("section_tldr_title")}
-      </h2>
-      <p className="text-base text-slate-300 md:text-lg">
-        {t.rich("section_tldr_content", {
-          strong: (chunks) => <strong className="text-blue-300">{chunks}</strong>,
-        })}
-      </p>
-    </section>
+      {t.rich("section_tldr_content", {
+        strong: (chunks) => <strong className="text-blue-300">{chunks}</strong>,
+      })}
+    </TldrBlock>
   )
 }
 

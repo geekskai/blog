@@ -1,5 +1,6 @@
 "use client"
 import ShareButtons from "@/components/ShareButtons"
+import { TldrBlock } from "@/components/TldrBlock"
 import React, { useState, useEffect, useRef, useCallback } from "react"
 import dynamic from "next/dynamic"
 import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
@@ -866,17 +867,15 @@ export default function DiscordTimestampGenerator() {
         </div>
       </div>
 
-      {/* GEO TL;DR Block (Answer Seed) */}
-      <div className="mx-auto mb-6 max-w-7xl rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-blue-500/10 p-4 shadow-2xl backdrop-blur-sm sm:p-6 md:p-8">
-        <h2 className="mb-3 text-xl font-bold text-white sm:mb-4 sm:text-2xl">
-          {t("geo_tldr.title")}
-        </h2>
-        <p className="text-sm text-slate-200 sm:text-base md:text-lg">
-          {t.rich("geo_tldr.content", {
-            strong: (chunks) => <strong className="text-white">{chunks}</strong>,
-          })}
-        </p>
-      </div>
+      <TldrBlock
+        variant="heading"
+        className="mx-auto mb-6 max-w-7xl"
+        title={t("geo_tldr.title")}
+      >
+        {t.rich("geo_tldr.content", {
+          strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+        })}
+      </TldrBlock>
 
       {/* Core Facts Section (GEO requirement: Extractable facts) */}
       <div className="mx-auto mb-6 max-w-7xl rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-sm sm:p-6 md:p-8">

@@ -1,6 +1,7 @@
 "use client"
 
 import ShareButtons from "@/components/ShareButtons"
+import { TldrBlock } from "@/components/TldrBlock"
 import { Copy, CopyCheck } from "lucide-react"
 import { useTranslations } from "next-intl"
 import React, { useCallback, useMemo, useState } from "react"
@@ -107,12 +108,9 @@ export default function BackwardsTextGeneratorPage() {
             {t("seo_description")}
           </p>
 
-          <div className="mx-auto mt-8 max-w-6xl rounded-3xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/15 via-blue-500/10 to-purple-500/15 p-6 shadow-2xl backdrop-blur-xl md:p-8">
-            <h2 className="mb-3 text-xl font-bold text-indigo-200 md:text-2xl">
-              {t("tldr_title")}
-            </h2>
-            <p className="text-sm text-slate-200 md:text-base md:leading-7">{t("tldr")}</p>
-          </div>
+          <TldrBlock variant="purple" title={t("tldr_title")}>
+            {t("tldr")}
+          </TldrBlock>
         </header>
 
         <section className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl md:p-8">

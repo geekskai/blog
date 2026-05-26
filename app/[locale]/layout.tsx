@@ -15,7 +15,7 @@ import { routing, supportedLocales } from "../i18n/routing"
 import { notFound } from "next/navigation"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 import { toolsData } from "@/data/toolsData"
-import ClarityTracker from "../../components/ClarityTracker"
+// import ClarityTracker from "../../components/ClarityTracker"
 export const revalidate = 604800 // 7 days — tools/content rarely change daily
 
 type Props = {
@@ -248,7 +248,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <NextIntlClientProvider>
-          <ClarityTracker />
+          {/* <ClarityTracker /> */}
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SectionContainer>
             <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>

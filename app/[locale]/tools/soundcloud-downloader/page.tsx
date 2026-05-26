@@ -1,5 +1,6 @@
 "use client"
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
+import { TldrBlock } from "@/components/TldrBlock"
 import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { useTranslations } from "next-intl"
@@ -293,16 +294,9 @@ export default function SoundCloudDownloaderPage() {
             {tDownloader("page_subtitle")}
           </p>
 
-          <div className="mx-auto mt-5 max-w-7xl rounded-2xl border border-pink-500/20 bg-gradient-to-r from-fuchsia-500/10 via-pink-500/5 to-orange-500/10 p-4 text-left shadow-lg md:mt-7 md:border-pink-500/30 md:p-5 md:backdrop-blur-md">
-            <div className="flex flex-col gap-3 md:flex-row md:items-start md:gap-4">
-              <div className="inline-flex w-fit items-center rounded-full border border-pink-400/20 bg-pink-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-pink-200">
-                {tDownloader("page_quick_answer_title")}
-              </div>
-              <p className="flex-1 text-sm leading-6 text-slate-200 md:text-[15px] md:leading-7">
-                {tDownloader("page_quick_answer_content")}
-              </p>
-            </div>
-          </div>
+          <TldrBlock title={tDownloader("page_quick_answer_title")}>
+            {tDownloader("page_quick_answer_content")}
+          </TldrBlock>
         </header>
 
         <div className="mx-auto max-w-7xl md:mb-8">

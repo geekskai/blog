@@ -16,6 +16,7 @@ import {
   FreeVsPaidSection,
 } from "./SEOContent"
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
+import { TldrBlock } from "@/components/TldrBlock"
 import { useSoundCloudTrackDownloadForm } from "../soundcloud-downloader/hooks/useSoundCloudTrackDownloadForm"
 
 const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
@@ -107,17 +108,7 @@ export default function SoundCloudToMP3Page() {
             })}
           </p>
 
-          {/* TL;DR Block - GEO Requirement: Answer Seed (80-150 words) */}
-          <div className="mx-auto mt-5 max-w-7xl rounded-2xl border border-pink-500/20 bg-gradient-to-r from-fuchsia-500/10 via-pink-500/5 to-orange-500/10 p-4 text-left shadow-lg md:mt-7 md:border-pink-500/30 md:p-5 md:backdrop-blur-md">
-            <div className="flex flex-col gap-3 md:flex-row md:items-start md:gap-4">
-              <div className="inline-flex w-fit items-center rounded-full border border-pink-400/20 bg-pink-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-pink-200">
-                {t("page_tldr_title")}
-              </div>
-              <p className="flex-1 text-sm leading-6 text-slate-200 md:text-[15px] md:leading-7">
-                {t("page_tldr_content")}
-              </p>
-            </div>
-          </div>
+          <TldrBlock title={t("page_tldr_title")}>{t("page_tldr_content")}</TldrBlock>
         </header>
 
         {/* Input area card */}
@@ -248,16 +239,9 @@ export default function SoundCloudToMP3Page() {
             </p>
           </section> */}
 
-          <div className="mx-auto mt-5 max-w-7xl rounded-2xl border border-pink-500/20 bg-gradient-to-r from-fuchsia-500/10 via-pink-500/5 to-orange-500/10 p-4 text-left shadow-lg md:mt-7 md:border-pink-500/30 md:p-5 md:backdrop-blur-md">
-            <div className="flex flex-col gap-3 md:flex-row md:items-start md:gap-4">
-              <div className="inline-flex w-fit items-center rounded-full border border-pink-400/20 bg-pink-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-pink-200">
-                {t("section_convert_online_title")}
-              </div>
-              <p className="flex-1 text-sm leading-6 text-slate-200 md:text-[15px] md:leading-7">
-                {t("section_convert_online_description")}
-              </p>
-            </div>
-          </div>
+          <TldrBlock title={t("section_convert_online_title")}>
+            {t("section_convert_online_description")}
+          </TldrBlock>
 
           {/* Core Facts Section */}
           <CoreFactsSection />

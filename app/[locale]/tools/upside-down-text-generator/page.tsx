@@ -1,6 +1,7 @@
 "use client"
 
 import ShareButtons from "@/components/ShareButtons"
+import { TldrBlock } from "@/components/TldrBlock"
 import { useTranslations } from "next-intl"
 import React, { useCallback, useMemo, useState } from "react"
 import {
@@ -144,12 +145,9 @@ export default function UpsideDownTextGeneratorPage() {
             {t("seo_description")}
           </p>
 
-          <div className="mx-auto mt-8 max-w-6xl rounded-3xl border border-purple-500/30 bg-gradient-to-br from-purple-500/15 via-pink-500/10 to-indigo-500/15 p-6 shadow-2xl backdrop-blur-xl md:p-8">
-            <h2 className="mb-3 text-xl font-bold text-purple-200 md:text-2xl">
-              {t("tldr_title")}
-            </h2>
-            <p className="text-sm text-slate-200 md:text-base md:leading-7">{t("tldr")}</p>
-          </div>
+          <TldrBlock variant="purple" title={t("tldr_title")}>
+            {t("tldr")}
+          </TldrBlock>
         </header>
 
         <section className="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-500/15 via-cyan-500/10 to-blue-500/15 p-6 shadow-2xl backdrop-blur-xl md:p-8">
