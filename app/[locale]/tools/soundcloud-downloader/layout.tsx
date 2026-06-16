@@ -25,7 +25,7 @@ export async function generateMetadata(props: {
     languages[loc] = `https://geekskai.com/${loc}/tools/${TOOL_SLUG}/`
   })
 
-  const lastModified = new Date("2026-05-26")
+  const lastModified = new Date("2026-06-16")
 
   return {
     title: t("metadata_title"),

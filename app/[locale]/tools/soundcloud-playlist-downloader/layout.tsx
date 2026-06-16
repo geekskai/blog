@@ -22,7 +22,7 @@ export async function generateMetadata(props: {
   })
 
   // Update this monthly
-  const lastModified = new Date("2026-05-26")
+  const lastModified = new Date("2026-06-16")
 
   return {
     title: t("metadata_title"),

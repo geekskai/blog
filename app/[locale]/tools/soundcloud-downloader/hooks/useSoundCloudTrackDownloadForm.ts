@@ -19,7 +19,6 @@ interface UseSoundCloudTrackDownloadFormOptions<TTrackInfo extends SoundCloudTra
   t: (key: string) => string
   invalidUrlLogPrefix: string
   getFileName: (trackInfo: TTrackInfo | null, extension: DownloadFormat) => string
-  createDownloadLink: (blob: Blob, fileName: string) => void
 }
 
 const formatFileSize = (bytes: number): string => {

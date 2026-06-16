@@ -38,7 +38,6 @@ Key technical features:
 - [Exchange Rate API](https://geekskai.com/api/exchange-rate): GET endpoint for currency exchange rates (GBP/NOK)
 - [Weather API](https://geekskai.com/api/weather): GET endpoint for weather data by city, coordinates, or ZIP code
 - [SoundCloud Info API](https://geekskai.com/api/soundcloud-info): POST endpoint for retrieving SoundCloud track information
-- [SoundCloud Download API](https://geekskai.com/api/download-soundcloud): POST endpoint for downloading SoundCloud tracks
 - [SoundCloud Playlist Downloader API](https://geekskai.com/api/soundcloud-playlist-downloader): POST endpoint for downloading entire playlists
 - [PERM Data API](https://geekskai.com/api/perm-data): GET endpoint for PERM processing time tracking data
 - [Cache Status API](https://geekskai.com/api/cache-status): GET endpoint for checking API cache status

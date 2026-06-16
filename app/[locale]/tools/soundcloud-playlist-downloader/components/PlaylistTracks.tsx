@@ -4,7 +4,8 @@ import React, { useState } from "react"
 import { useTranslations } from "next-intl"
 import type { PlaylistTrack, DownloadFormat } from "../types"
 import Image from "next/image"
-import { createDownloadLink, getSafeFileName } from "../lib/utils"
+import { downloadSoundCloudTrack } from "../../soundcloud-downloader/lib/download"
+import { getSafeFileName } from "../lib/utils"
 
 interface PlaylistTracksProps {
   tracks: PlaylistTrack[]
@@ -37,27 +38,10 @@ export default function PlaylistTracks({
     try {
       setDownloadingTracks((prev) => ({ ...prev, [trackKey]: true }))
 
-      // Call download API
-      const downloadResult = await fetch("/api/download-soundcloud", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ url: track.url }),
-      })
-
-      if (!downloadResult.ok) {
-        throw new Error(`Failed to download track`)
-      }
-
-      // Get audio blob
-      const blob = await downloadResult.blob()
-
-      // Create download link
       const fileName = getSafeFileName(track.title, format)
-      createDownloadLink(blob, fileName)
-
-      console.log(`Downloaded: ${track.title} (${blob.size} bytes)`)
+      await downloadSoundCloudTrack(track.url, fileName, {
+        mimeType: format === "wav" ? "audio/wav" : "audio/mpeg",
+      })
     } catch (error) {
       console.error(`Failed to download track (${track.title}):`, error)
       alert(`${t("playlist_tracks_download")} ${track.title} ${t("error_network")}`)

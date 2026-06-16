@@ -14,7 +14,8 @@ import type {
   DownloadProgress as DownloadProgressType,
   PlaylistInfo,
 } from "../soundcloud-playlist-downloader/types"
-import { createDownloadLink, getSafeFileName } from "../soundcloud-playlist-downloader/lib/utils"
+import { downloadSoundCloudTrack } from "./lib/download"
+import { getSafeFileName } from "../soundcloud-playlist-downloader/lib/utils"
 import { detectSoundCloudUrlKind } from "./lib/url"
 import { useSoundCloudTrackDownloadForm } from "./hooks/useSoundCloudTrackDownloadForm"
 import { CoreFactsSection, FAQSection, HowItWorksSection } from "./SEOContent"
@@ -61,7 +62,6 @@ export default function SoundCloudDownloaderPage() {
     t: tTrack,
     invalidUrlLogPrefix: "soundcloud downloader",
     getFileName,
-    createDownloadLink: (blob, fileName) => createDownloadLink(blob, fileName.toLowerCase()),
   })
 
   const [playlistLoadingState, setPlaylistLoadingState] = useState<PlaylistLoadingState>("idle")
@@ -182,50 +182,10 @@ export default function SoundCloudDownloaderPage() {
       }))
 
       try {
-        let downloadResult: Response
-        try {
-          const directUrlResponse = await fetch("/api/download-soundcloud", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ url: track.url, directUrl: true }),
-          })
-          const directData = await directUrlResponse.json()
-
-          if (directData.success && directData.directUrl) {
-            try {
-              downloadResult = await fetch(directData.directUrl)
-              if (!downloadResult.ok) {
-                throw new Error("Direct fetch failed")
-              }
-            } catch {
-              downloadResult = await fetch("/api/download-soundcloud", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ url: track.url }),
-              })
-            }
-          } else {
-            downloadResult = await fetch("/api/download-soundcloud", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ url: track.url }),
-            })
-          }
-        } catch {
-          downloadResult = await fetch("/api/download-soundcloud", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ url: track.url }),
-          })
-        }
-
-        if (!downloadResult.ok) {
-          throw new Error(`Failed track ${index + 1}`)
-        }
-
-        const blob = await downloadResult.blob()
         const fileName = getSafeFileName(track.title, format)
-        createDownloadLink(blob, fileName)
+        await downloadSoundCloudTrack(track.url, fileName, {
+          mimeType: format === "wav" ? "audio/wav" : "audio/mpeg",
+        })
       } catch {
         errorCount++
       }

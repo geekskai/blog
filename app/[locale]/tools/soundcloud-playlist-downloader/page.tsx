@@ -23,7 +23,8 @@ import type {
   DownloadFormat,
   LoadingState,
 } from "./types"
-import { createDownloadLink, getSafeFileName } from "./lib/utils"
+import { downloadSoundCloudTrack } from "../soundcloud-downloader/lib/download"
+import { getSafeFileName } from "./lib/utils"
 import { detectSoundCloudUrlKind } from "../soundcloud-downloader/lib/url"
 
 const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
@@ -149,65 +150,11 @@ export default function SoundCloudPlaylistDownloaderPage() {
       }))
 
       try {
-        // --- Optimize: Try to get direct download link to save Vercel traffic ---
-        let downloadResult: Response
-        let isDirectDownload = false
-
-        try {
-          const directUrlResponse = await fetch("/api/download-soundcloud", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ url: track.url, directUrl: true }),
-          })
-
-          const directData = await directUrlResponse.json()
-          if (directData.success && directData.directUrl) {
-            console.log(`Using direct download for track: ${track.title}`)
-            try {
-              downloadResult = await fetch(directData.directUrl)
-              if (downloadResult.ok) {
-                isDirectDownload = true
-              } else {
-                throw new Error("Direct fetch failed")
-              }
-            } catch (e) {
-              console.warn(`Direct download failed for ${track.title}, falling back to proxy`, e)
-              downloadResult = await fetch("/api/download-soundcloud", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ url: track.url }),
-              })
-            }
-          } else {
-            downloadResult = await fetch("/api/download-soundcloud", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ url: track.url }),
-            })
-          }
-        } catch (e) {
-          console.warn(`Direct URL check failed for ${track.title}, falling back to proxy`, e)
-          downloadResult = await fetch("/api/download-soundcloud", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ url: track.url }),
-          })
-        }
-        // --- Optimize end ---
-
-        if (!downloadResult.ok) {
-          throw new Error(`Failed to download track ${index + 1}`)
-        }
-
-        // Get audio blob
-        const blob = await downloadResult.blob()
-
-        // Create download link
         const fileName = getSafeFileName(track.title, format)
-        createDownloadLink(blob, fileName)
-
+        await downloadSoundCloudTrack(track.url, fileName, {
+          mimeType: format === "wav" ? "audio/wav" : "audio/mpeg",
+        })
         successCount++
-        console.log(`Downloaded: ${track.title} (${blob.size} bytes)`)
       } catch (error) {
         errorCount++
         console.error(`Failed to download track ${index + 1} (${track.title}):`, error)

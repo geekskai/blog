@@ -24,17 +24,6 @@ const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnit
   loading: () => <GoogleAdUnitPlaceholder />,
 })
 
-const createDownloadLink = (blob: Blob, fileName: string): void => {
-  const url = window.URL.createObjectURL(blob)
-  const a = document.createElement("a")
-  a.href = url
-  a.download = fileName.toLowerCase()
-  document.body.appendChild(a)
-  a.click()
-  document.body.removeChild(a)
-  window.URL.revokeObjectURL(url)
-}
-
 const getFileName = (trackInfo: TrackInfo | null, extension: string): string => {
   return trackInfo?.title ? `${trackInfo.title}.${extension}` : `audio-${Date.now()}.${extension}`
 }
@@ -67,7 +56,6 @@ export default function SoundCloudToMP3Page() {
     t,
     invalidUrlLogPrefix: "soundcloud to mp3",
     getFileName,
-    createDownloadLink,
   })
   const resultSectionRef = useRef<HTMLDivElement | null>(null)
 
