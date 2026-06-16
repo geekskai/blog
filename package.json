@@ -103,6 +103,9 @@
     "sharp": "^0.34.5",
     "typescript": "^5.1.3"
   },
+  "browserslist": [
+    "defaults and supports es6-module"
+  ],
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
       "eslint --fix"

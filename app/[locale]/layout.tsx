@@ -15,7 +15,7 @@ import { routing, supportedLocales } from "../i18n/routing"
 import { notFound } from "next/navigation"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 import { toolsData } from "@/data/toolsData"
-// import ClarityTracker from "../../components/ClarityTracker"
+import ClarityTracker from "@/components/ClarityTracker"
 export const revalidate = 604800 // 7 days — tools/content rarely change daily
 
 type Props = {
@@ -28,7 +28,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
   const { locale: requestedLocale } = await params
   const locale = hasLocale(routing.locales, requestedLocale) ? requestedLocale : "en"
   const t = await getTranslations({ locale, namespace: "HomePage" })
-  const lastModified = new Date("2026-04-29")
+  const lastModified = new Date("2026-06-16")
   const title = t("home_seo_title")
   const description = t("home_seo_description") + " " + t("home_seo_keywords")
 
@@ -248,7 +248,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <NextIntlClientProvider>
-          {/* <ClarityTracker /> */}
+          <ClarityTracker />
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SectionContainer>
             <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
