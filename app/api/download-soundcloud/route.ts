@@ -48,6 +48,8 @@ export async function POST(request: NextRequest) {
     const clientID = await scdl.getClientID()
     const axiosInstance = scdl.axios
 
+    console.log(resolvedUrl, "resolvedUrl info===> ", info)
+
     if (info.media?.transcodings && Array.isArray(info.media.transcodings)) {
       const progressive = info.media.transcodings.find(
         (t: any) =>
@@ -84,7 +86,7 @@ export async function POST(request: NextRequest) {
       { status: 422 }
     )
   } catch (error) {
-    console.error(`[download-soundcloud-direct-url] url==>${url} error==>${error}`, error)
+    console.error(`original url: ${url} error==> ${error}`)
     const errorMessage = error instanceof Error ? error.message : "Failed to download audio"
 
     let userFriendlyError = errorMessage
@@ -101,7 +103,7 @@ export async function POST(request: NextRequest) {
       statusCode = 403
     } else if (errorMessage.includes("404") || errorMessage.includes("Not Found")) {
       userFriendlyError =
-        "Track not found. The track may have been deleted, made private, or the URL is incorrect. Please verify the track URL is public and accessible."
+        "The download link could not be generated. This track may have download restrictions enabled by the artist, or requires premium access."
       statusCode = 404
     } else if (errorMessage.includes("403") || errorMessage.includes("Forbidden")) {
       userFriendlyError =
