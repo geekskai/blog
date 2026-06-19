@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl"
 import dynamic from "next/dynamic"
 import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import SoundCloudToolSwitcher from "@/components/SoundCloudToolSwitcher"
+import DownloadShareModal from "@/components/download-quota/DownloadShareModal"
 import TrackDownloadForm from "../soundcloud-downloader/components/TrackDownloadForm"
 import {
   CoreFactsSection,
@@ -46,6 +47,7 @@ export default function Page() {
     downloadProgress,
     infoStatus,
     downloadStatus,
+    downloadQuota,
     setExtension,
     handleUrlChange,
     handleGetInfo,
@@ -77,7 +79,7 @@ export default function Page() {
     <div className="min-h-screen bg-slate-950">
       <div className="relative mx-auto max-w-7xl space-y-4 p-4">
         {/* Content Freshness Badge */}
-        <ContentFreshnessBadge lastModified={new Date("2026-05-26")} namespace="SoundCloudToWAV" />
+        <ContentFreshnessBadge lastModified={new Date("2026-06-19")} namespace="SoundCloudToWAV" />
 
         {/* Header Section - SEO Optimized */}
         <header className="text-center">
@@ -298,6 +300,13 @@ export default function Page() {
           </section>
         </div>
       </div>
+      <DownloadShareModal
+        isOpen={downloadQuota.showShareModal}
+        shareLink={downloadQuota.shareLink}
+        unlockAmount={downloadQuota.quotaConfig.shareBonusClicks}
+        onClose={downloadQuota.closeShareModal}
+        onUnlock={downloadQuota.handleShareUnlock}
+      />
     </div>
   )
 }

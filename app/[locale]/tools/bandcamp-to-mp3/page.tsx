@@ -2,7 +2,7 @@ import { useLocale, useTranslations } from "next-intl"
 import { BandcampToMp3SeoSections } from "./components/BandcampToMp3SeoSections"
 import { MainSection } from "./components/MainSection"
 
-const lastUpdated = new Date("2026-05-26")
+const lastUpdated = new Date("2026-06-19")
 
 function formatLastUpdated(date: Date, locale: string): string {
   return new Intl.DateTimeFormat(locale, {

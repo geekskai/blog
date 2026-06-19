@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl"
 import dynamic from "next/dynamic"
 import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import SoundCloudToolSwitcher from "@/components/SoundCloudToolSwitcher"
+import DownloadShareModal from "@/components/download-quota/DownloadShareModal"
 import TrackDownloadForm from "../soundcloud-downloader/components/TrackDownloadForm"
 import {
   CoreFactsSection,
@@ -48,6 +49,7 @@ export default function SoundCloudToMP3Page() {
     downloadProgress,
     infoStatus,
     downloadStatus,
+    downloadQuota,
     setExtension,
     handleUrlChange,
     handleGetInfo,
@@ -79,7 +81,7 @@ export default function SoundCloudToMP3Page() {
     <div className="min-h-screen bg-slate-950">
       <div className="mx-auto max-w-7xl space-y-4 p-4">
         {/* Content Freshness Badge */}
-        <ContentFreshnessBadge lastModified={new Date("2026-05-26")} namespace="SoundCloudToMP3" />
+        <ContentFreshnessBadge lastModified={new Date("2026-06-19")} namespace="SoundCloudToMP3" />
         <header className="text-center">
           {/* Main Title - H1 for SEO */}
           <h1 className="my-3 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-2xl font-bold leading-tight text-transparent md:text-5xl">
@@ -276,6 +278,13 @@ export default function SoundCloudToMP3Page() {
           </section>
         </div>
       </div>
+      <DownloadShareModal
+        isOpen={downloadQuota.showShareModal}
+        shareLink={downloadQuota.shareLink}
+        unlockAmount={downloadQuota.quotaConfig.shareBonusClicks}
+        onClose={downloadQuota.closeShareModal}
+        onUnlock={downloadQuota.handleShareUnlock}
+      />
     </div>
   )
 }

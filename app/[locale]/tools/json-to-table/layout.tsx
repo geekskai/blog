@@ -25,7 +25,7 @@ export async function generateMetadata(props: {
         : `https://geekskai.com/${loc}/tools/json-to-table/`
   })
 
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-06-19")
 
   return {
     title: t("seo_title"),

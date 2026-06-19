@@ -41,6 +41,7 @@ export async function generateMetadata(props: {
   const shouldIndex = soundCloudGrowthLocales.includes(
     locale as (typeof soundCloudGrowthLocales)[number]
   )
+  const lastModified = new Date("2026-06-19")
 
   return {
     title: copy.title,
@@ -59,6 +60,10 @@ export async function generateMetadata(props: {
     robots: {
       index: shouldIndex,
       follow: true,
+    },
+    other: {
+      "last-modified": lastModified.toISOString(),
+      "next-review": new Date(lastModified.getTime() + 30 * 24 * 60 * 60 * 1000).toISOString(),
     },
   }
 }

@@ -16,7 +16,7 @@ export async function generateMetadata(props: {
   const languages = {
     "x-default": "https://geekskai.com/tools/chromakopia-name-generator/",
   }
-  const lastModified = new Date("2026-04-26")
+  const lastModified = new Date("2026-06-19")
 
   supportedLocales.forEach((locale) => {
     languages[locale] =

@@ -3,6 +3,7 @@ import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 import { TldrBlock } from "@/components/TldrBlock"
 import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import SoundCloudToolSwitcher from "@/components/SoundCloudToolSwitcher"
+import DownloadShareModal from "@/components/download-quota/DownloadShareModal"
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { useTranslations } from "next-intl"
 import dynamic from "next/dynamic"
@@ -54,6 +55,7 @@ export default function SoundCloudDownloaderPage() {
     downloadProgress,
     infoStatus,
     downloadStatus,
+    downloadQuota,
     setExtension,
     handleUrlChange,
     handleGetInfo,
@@ -163,6 +165,15 @@ export default function SoundCloudDownloaderPage() {
       return
     }
 
+    const quotaCheck = downloadQuota.checkQuotaBeforeDownload()
+    if (!quotaCheck.allowed) {
+      if (quotaCheck.message) {
+        setPlaylistErrorMessage(quotaCheck.message)
+        setPlaylistLoadingState("error")
+      }
+      return
+    }
+
     const tracks = playlistInfo.tracks
     const total = tracks.length
     setPlaylistDownloadProgress({
@@ -201,7 +212,11 @@ export default function SoundCloudDownloaderPage() {
       current: total,
       status: errorCount > 0 ? "error" : "completed",
     }))
-  }, [format, playlistInfo])
+
+    if (errorCount === 0) {
+      downloadQuota.consumeDownloadQuota()
+    }
+  }, [downloadQuota, format, playlistInfo])
 
   const handleUnifiedSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
@@ -235,7 +250,7 @@ export default function SoundCloudDownloaderPage() {
     <div className="min-h-screen bg-slate-950">
       <div className="relative mx-auto max-w-7xl space-y-4 p-4">
         <ContentFreshnessBadge
-          lastModified={new Date("2026-05-26")}
+          lastModified={new Date("2026-06-19")}
           namespace="SoundCloudDownloader"
         />
 
@@ -327,6 +342,7 @@ export default function SoundCloudDownloaderPage() {
               onDownloadAll={handleDownloadAll}
               isDownloading={playlistDownloadProgress.status === "downloading"}
               format={format}
+              downloadQuota={downloadQuota}
             />
           </div>
         )}
@@ -397,6 +413,13 @@ export default function SoundCloudDownloaderPage() {
           <FAQSection />
         </div>
       </div>
+      <DownloadShareModal
+        isOpen={downloadQuota.showShareModal}
+        shareLink={downloadQuota.shareLink}
+        unlockAmount={downloadQuota.quotaConfig.shareBonusClicks}
+        onClose={downloadQuota.closeShareModal}
+        onUnlock={downloadQuota.handleShareUnlock}
+      />
     </div>
   )
 }

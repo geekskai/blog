@@ -19,7 +19,7 @@ export async function generateMetadata(props: {
   const canonical = getLocalizedUrl(SITE_URL, locale, TOOL_PATH)
   const shouldIndex = isSoundCloudGrowthLocale(locale)
 
-  const lastModified = new Date("2026-06-16")
+  const lastModified = new Date("2026-06-19")
 
   return {
     title: t("metadata_title"),

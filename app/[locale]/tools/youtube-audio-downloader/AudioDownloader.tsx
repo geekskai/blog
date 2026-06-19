@@ -21,6 +21,8 @@ import {
   mapDownloaderApiError,
   type DownloaderApiErrorCode,
 } from "@/components/downloader/shared"
+import DownloadShareModal from "@/components/download-quota/DownloadShareModal"
+import { useDownloadQuota } from "@/components/download-quota/useDownloadQuota"
 import { parseYouTubeUrl } from "@/app/lib/youtube/parse-url"
 
 type VideoPreview = {
@@ -179,7 +181,9 @@ export default function AudioDownloader({
   const [downloading, setDownloading] = useState(false)
   const [downloadProgress, setDownloadProgress] = useState(0)
   const [errorKey, setErrorKey] = useState<ApiErrorCode | null>(null)
+  const [downloadError, setDownloadError] = useState<string | null>(null)
   const [video, setVideo] = useState<VideoPreview | null>(null)
+  const downloadQuota = useDownloadQuota()
 
   useEffect(() => {
     if (!autoFocus) return
@@ -191,6 +195,7 @@ export default function AudioDownloader({
     async (inputUrl?: string) => {
       const trimmed = (inputUrl ?? url).trim()
       setErrorKey(null)
+      setDownloadError(null)
       setVideo(null)
       setDownloadProgress(0)
 
@@ -244,12 +249,23 @@ export default function AudioDownloader({
 
   const handleDownload = () => {
     if (!video || downloading) return
+
+    const quotaCheck = downloadQuota.checkQuotaBeforeDownload()
+    if (!quotaCheck.allowed) {
+      if (quotaCheck.message) {
+        setDownloadError(quotaCheck.message)
+      }
+      return
+    }
+
     setDownloading(true)
+    setDownloadError(null)
     setDownloadProgress(10)
     const intervalId = window.setInterval(() => {
       setDownloadProgress((current) => Math.min(current + 8, 90))
     }, 350)
     window.location.assign(downloadHref(video.videoId, DEFAULT_AUDIO_QUALITY_ID))
+    downloadQuota.consumeDownloadQuota()
     window.setTimeout(() => {
       window.clearInterval(intervalId)
       setDownloading(false)
@@ -263,100 +279,117 @@ export default function AudioDownloader({
     : "mx-auto w-full max-w-2xl rounded-xl border border-white/10 bg-slate-900/50 p-3.5 backdrop-blur-sm md:max-w-3xl md:rounded-2xl md:p-6 lg:max-w-4xl lg:p-8"
 
   const errorMessage = getDownloaderErrorMessage(t, errorKey)
+  const downloadFeedbackMessage = errorMessage || downloadError || downloadQuota.quotaMessage
 
   return (
-    <div className={shellClass}>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="audio-url" className="sr-only">
-          {t("input_label")}
-        </label>
-        <div className="grid grid-cols-1 gap-2.5 md:grid-cols-[minmax(0,1fr)_auto] md:items-stretch md:gap-3 lg:gap-4">
-          <div className="relative min-w-0 flex-1">
-            <Link2
-              className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-slate-500"
-              aria-hidden
-            />
-            <input
-              ref={inputRef}
-              id="audio-url"
-              type="url"
-              inputMode="url"
-              autoComplete="off"
-              enterKeyHint="go"
-              placeholder={t("input_placeholder")}
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
-              className="w-full rounded-xl border border-white/15 bg-slate-950/60 py-3 pl-10 pr-3 text-[15px] leading-6 text-slate-100 transition-[border-color,box-shadow] duration-200 placeholder:text-slate-500 focus:border-emerald-400/60 focus:outline-none focus:ring-4 focus:ring-emerald-500/20 md:min-h-12 md:py-3.5 md:pl-11 md:pr-4 md:text-base"
-            />
+    <>
+      <div className={shellClass}>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="audio-url" className="sr-only">
+            {t("input_label")}
+          </label>
+          <div className="grid grid-cols-1 gap-2.5 md:grid-cols-[minmax(0,1fr)_auto] md:items-stretch md:gap-3 lg:gap-4">
+            <div className="relative min-w-0 flex-1">
+              <Link2
+                className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-slate-500"
+                aria-hidden
+              />
+              <input
+                ref={inputRef}
+                id="audio-url"
+                type="url"
+                inputMode="url"
+                autoComplete="off"
+                enterKeyHint="go"
+                placeholder={t("input_placeholder")}
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+                className="w-full rounded-xl border border-white/15 bg-slate-950/60 py-3 pl-10 pr-3 text-[15px] leading-6 text-slate-100 transition-[border-color,box-shadow] duration-200 placeholder:text-slate-500 focus:border-emerald-400/60 focus:outline-none focus:ring-4 focus:ring-emerald-500/20 md:min-h-12 md:py-3.5 md:pl-11 md:pr-4 md:text-base"
+              />
+            </div>
+
+            <div className="flex flex-col gap-2 md:shrink-0 md:flex-row md:items-stretch md:gap-2">
+              <button
+                type="submit"
+                disabled={loading || !url.trim()}
+                className={`${BTN} order-1 w-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow-lg shadow-emerald-900/30 hover:brightness-110 md:order-2 md:min-w-[136px] lg:min-w-[148px]`}
+              >
+                {loading ? (
+                  <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
+                ) : (
+                  <ArrowRight className="h-4 w-4" aria-hidden />
+                )}
+                <span>{loading ? t("loading") : t("button_fetch")}</span>
+              </button>
+            </div>
           </div>
 
-          <div className="flex flex-col gap-2 md:shrink-0 md:flex-row md:items-stretch md:gap-2">
-            <button
-              type="submit"
-              disabled={loading || !url.trim()}
-              className={`${BTN} order-1 w-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow-lg shadow-emerald-900/30 hover:brightness-110 md:order-2 md:min-w-[136px] lg:min-w-[148px]`}
+          <p className="mt-2 text-center text-[11px] leading-relaxed text-emerald-400 md:mt-2.5 md:text-left md:text-base">
+            {t("hint")}
+          </p>
+        </form>
+
+        <div className="mb-3.5 mt-3 md:mb-4">
+          {downloadFeedbackMessage ? (
+            <div
+              role="alert"
+              className="flex items-start gap-2.5 rounded-xl border border-orange-500/30 bg-orange-500/10 px-3 py-2.5 text-[13px] leading-5 text-orange-100 md:px-3.5 md:py-3 md:text-sm"
             >
-              {loading ? (
-                <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
-              ) : (
-                <ArrowRight className="h-4 w-4" aria-hidden />
-              )}
-              <span>{loading ? t("loading") : t("button_fetch")}</span>
-            </button>
-          </div>
+              <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-orange-300" aria-hidden />
+              <p>{downloadFeedbackMessage}</p>
+            </div>
+          ) : null}
+
+          {downloadQuota.unlockSuccessMessage ? (
+            <div className="mt-2 flex items-start gap-2.5 rounded-xl border border-emerald-500/35 bg-emerald-500/10 px-3 py-2.5 text-[13px] leading-5 text-emerald-100 md:px-3.5 md:py-3 md:text-sm">
+              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-300" aria-hidden />
+              <p>{downloadQuota.unlockSuccessMessage}</p>
+            </div>
+          ) : null}
+
+          {loading && !video ? (
+            <p className="flex items-center justify-center gap-2 py-2 text-[13px] text-slate-400 md:text-sm">
+              <Loader2 className="h-4 w-4 animate-spin text-emerald-400" aria-hidden />
+              {t("loading")}
+            </p>
+          ) : null}
         </div>
 
-        <p className="mt-2 text-center text-[11px] leading-relaxed text-emerald-400 md:mt-2.5 md:text-left md:text-base">
-          {t("hint")}
-        </p>
-      </form>
-
-      <div className="mb-3.5 mt-3 md:mb-4">
-        {errorMessage ? (
-          <div
-            role="alert"
-            className="flex items-start gap-2.5 rounded-xl border border-orange-500/30 bg-orange-500/10 px-3 py-2.5 text-[13px] leading-5 text-orange-100 md:px-3.5 md:py-3 md:text-sm"
-          >
-            <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-orange-300" aria-hidden />
-            <p>{errorMessage}</p>
-          </div>
+        {video ? (
+          <VideoResultCard
+            video={video}
+            downloading={downloading}
+            downloadProgress={downloadProgress}
+            onDownload={handleDownload}
+            t={t}
+          />
         ) : null}
 
-        {loading && !video ? (
-          <p className="flex items-center justify-center gap-2 py-2 text-[13px] text-slate-400 md:text-sm">
-            <Loader2 className="h-4 w-4 animate-spin text-emerald-400" aria-hidden />
-            {t("loading")}
-          </p>
+        {isHero ? (
+          <ol className="mt-5 grid gap-2 border-t border-white/10 pt-5 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-white/10 sm:pt-6 md:mt-6 lg:mt-7">
+            {(["step_1", "step_2", "step_3"] as const).map((key, i) => (
+              <li
+                key={key}
+                className="flex items-start gap-2.5 sm:flex-col sm:items-center sm:px-3 sm:text-center"
+              >
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-[11px] font-bold text-emerald-200">
+                  {i + 1}
+                </span>
+                <span className="text-xs leading-snug text-slate-400 sm:text-[13px] md:text-sm">
+                  {t(key)}
+                </span>
+              </li>
+            ))}
+          </ol>
         ) : null}
       </div>
-
-      {video ? (
-        <VideoResultCard
-          video={video}
-          downloading={downloading}
-          downloadProgress={downloadProgress}
-          onDownload={handleDownload}
-          t={t}
-        />
-      ) : null}
-
-      {isHero ? (
-        <ol className="mt-5 grid gap-2 border-t border-white/10 pt-5 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-white/10 sm:pt-6 md:mt-6 lg:mt-7">
-          {(["step_1", "step_2", "step_3"] as const).map((key, i) => (
-            <li
-              key={key}
-              className="flex items-start gap-2.5 sm:flex-col sm:items-center sm:px-3 sm:text-center"
-            >
-              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-[11px] font-bold text-emerald-200">
-                {i + 1}
-              </span>
-              <span className="text-xs leading-snug text-slate-400 sm:text-[13px] md:text-sm">
-                {t(key)}
-              </span>
-            </li>
-          ))}
-        </ol>
-      ) : null}
-    </div>
+      <DownloadShareModal
+        isOpen={downloadQuota.showShareModal}
+        shareLink={downloadQuota.shareLink}
+        unlockAmount={downloadQuota.quotaConfig.shareBonusClicks}
+        onClose={downloadQuota.closeShareModal}
+        onUnlock={downloadQuota.handleShareUnlock}
+      />
+    </>
   )
 }

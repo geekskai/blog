@@ -2,6 +2,7 @@
 
 import { useLocale, useTranslations } from "next-intl"
 import { Link } from "@/app/i18n/navigation"
+import DownloadShareModal from "@/components/download-quota/DownloadShareModal"
 import { isBandcampTrackUrl } from "../../../../../utils/bandcamp"
 import { useBandcampToMp3 } from "../hooks/useBandcampToMp3"
 import { useUrl } from "../hooks/useUrl"
@@ -35,6 +36,7 @@ export function MainSection({ initialUrl }: { initialUrl?: string }) {
     loadingAction,
     error,
     downloadError,
+    downloadQuota,
     setTrackUrl,
     inspectTrackUrl,
     quickDownloadTrack,
@@ -75,18 +77,26 @@ export function MainSection({ initialUrl }: { initialUrl?: string }) {
       setIsPasting(false)
     }
   }
+
+  const downloadFeedbackMessage = downloadError || downloadQuota.quotaMessage
+
   return (
     <>
-      {(error || downloadError) && (
+      {(error || downloadFeedbackMessage || downloadQuota.unlockSuccessMessage) && (
         <div className="space-y-3">
           {error ? (
             <div className="rounded-2xl border border-red-400/25 bg-red-500/10 px-4 py-3 text-sm text-red-100">
               {error}
             </div>
           ) : null}
-          {downloadError ? (
+          {downloadFeedbackMessage ? (
             <div className="rounded-2xl border border-amber-400/25 bg-amber-500/10 px-4 py-3 text-sm text-amber-100">
-              {downloadError}
+              {downloadFeedbackMessage}
+            </div>
+          ) : null}
+          {downloadQuota.unlockSuccessMessage ? (
+            <div className="rounded-2xl border border-emerald-400/25 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-100">
+              {downloadQuota.unlockSuccessMessage}
             </div>
           ) : null}
         </div>
@@ -418,6 +428,14 @@ export function MainSection({ initialUrl }: { initialUrl?: string }) {
           </section>
         </aside>
       </section>
+
+      <DownloadShareModal
+        isOpen={downloadQuota.showShareModal}
+        shareLink={downloadQuota.shareLink}
+        unlockAmount={downloadQuota.quotaConfig.shareBonusClicks}
+        onClose={downloadQuota.closeShareModal}
+        onUnlock={downloadQuota.handleShareUnlock}
+      />
     </>
   )
 }

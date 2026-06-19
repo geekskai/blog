@@ -1,6 +1,7 @@
 "use client"
 
 import { FormEvent, useCallback, useMemo, useState } from "react"
+import { useDownloadQuota } from "@/components/download-quota/useDownloadQuota"
 import {
   isShortSoundCloudUrl,
   isValidSoundCloudPlaylistUrl,
@@ -82,6 +83,7 @@ export function useSoundCloudArtworkDownloadForm(t: (key: string) => string) {
   const [downloadProgress, setDownloadProgress] = useState(0)
   const [infoStatus, setInfoStatus] = useState("")
   const [downloadStatus, setDownloadStatus] = useState("")
+  const downloadQuota = useDownloadQuota()
 
   const previewArtworkUrl = useMemo(() => getPreviewArtworkUrl(trackInfo?.artwork_url), [trackInfo])
 
@@ -220,6 +222,14 @@ export function useSoundCloudArtworkDownloadForm(t: (key: string) => string) {
       return
     }
 
+    const quotaCheck = downloadQuota.checkQuotaBeforeDownload()
+    if (!quotaCheck.allowed) {
+      if (quotaCheck.message) {
+        setErrorMessage(quotaCheck.message)
+      }
+      return
+    }
+
     try {
       setDownloading(true)
       resetError()
@@ -284,6 +294,7 @@ export function useSoundCloudArtworkDownloadForm(t: (key: string) => string) {
 
       const blob = new Blob(chunks, { type: contentType || "image/jpeg" })
       createDownloadLink(blob, fileName.toLowerCase())
+      downloadQuota.consumeDownloadQuota()
 
       setTimeout(resetDownloadState, 1000)
     } catch (error) {
@@ -291,7 +302,7 @@ export function useSoundCloudArtworkDownloadForm(t: (key: string) => string) {
       setErrorMessage(error instanceof Error ? error.message : t("error_download_failed"))
       resetDownloadState()
     }
-  }, [downloading, resetDownloadState, resetError, t, trackInfo, url, validateUrl])
+  }, [downloadQuota, downloading, resetDownloadState, resetError, t, trackInfo, url, validateUrl])
 
   return {
     url,
@@ -305,6 +316,7 @@ export function useSoundCloudArtworkDownloadForm(t: (key: string) => string) {
     infoStatus,
     downloadProgress,
     downloadStatus,
+    downloadQuota,
     handleUrlChange,
     handleGetInfo,
     handleDownload,

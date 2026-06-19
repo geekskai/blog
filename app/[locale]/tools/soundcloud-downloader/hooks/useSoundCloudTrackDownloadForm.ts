@@ -1,4 +1,5 @@
 import { FormEvent, useCallback, useState } from "react"
+import { useDownloadQuota } from "@/components/download-quota/useDownloadQuota"
 import { downloadSoundCloudTrack } from "../lib/download"
 import {
   isValidSoundCloudPlaylistUrl,
@@ -42,6 +43,7 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
   const [downloadProgress, setDownloadProgress] = useState<number>(0)
   const [infoStatus, setInfoStatus] = useState<string>("")
   const [downloadStatus, setDownloadStatus] = useState<string>("")
+  const downloadQuota = useDownloadQuota()
 
   const resetInfoState = useCallback(() => {
     setInfoProgress(0)
@@ -182,6 +184,14 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
       return
     }
 
+    const quotaCheck = downloadQuota.checkQuotaBeforeDownload()
+    if (!quotaCheck.allowed) {
+      if (quotaCheck.message) {
+        setErrorMessage(quotaCheck.message)
+      }
+      return
+    }
+
     try {
       setDownloading(true)
       resetError()
@@ -222,6 +232,7 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
 
       setDownloadProgress(100)
       setDownloadStatus(t("progress_saving_file"))
+      downloadQuota.consumeDownloadQuota()
       setTimeout(resetDownloadState, 1000)
     } catch (error) {
       console.error("Download error:", error)
@@ -229,6 +240,7 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
       resetDownloadState()
     }
   }, [
+    downloadQuota,
     downloading,
     extension,
     getFileName,
@@ -257,5 +269,6 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
     handleUrlChange,
     handleGetInfo,
     handleDownload,
+    downloadQuota,
   }
 }

@@ -5,7 +5,7 @@ import type { ReactNode } from "react"
 import { getTranslations } from "next-intl/server"
 
 const slug = "bandcamp-downloader"
-const lastModified = new Date("2026-05-26")
+const lastModified = new Date("2026-06-19")
 
 function buildUrl(locale: string): string {
   return locale === "en"

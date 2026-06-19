@@ -4,6 +4,7 @@ import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 import { TldrBlock } from "@/components/TldrBlock"
 import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import SoundCloudToolSwitcher from "@/components/SoundCloudToolSwitcher"
+import DownloadShareModal from "@/components/download-quota/DownloadShareModal"
 import { useTranslations } from "next-intl"
 import dynamic from "next/dynamic"
 import React, { useEffect, useMemo, useRef, useState } from "react"
@@ -57,6 +58,7 @@ export default function SoundCloudArtworkDownloaderPage() {
     infoStatus,
     downloadProgress,
     downloadStatus,
+    downloadQuota,
     handleUrlChange,
     handleGetInfo,
     handleDownload,
@@ -102,7 +104,7 @@ export default function SoundCloudArtworkDownloaderPage() {
     <div className="min-h-screen bg-slate-950">
       <div className="relative mx-auto max-w-7xl space-y-4 p-4">
         <ContentFreshnessBadge
-          lastModified={new Date("2026-05-26")}
+          lastModified={new Date("2026-06-19")}
           namespace="SoundCloudArtworkDownloader"
         />
 
@@ -301,6 +303,13 @@ export default function SoundCloudArtworkDownloaderPage() {
           <FAQSection />
         </div>
       </div>
+      <DownloadShareModal
+        isOpen={downloadQuota.showShareModal}
+        shareLink={downloadQuota.shareLink}
+        unlockAmount={downloadQuota.quotaConfig.shareBonusClicks}
+        onClose={downloadQuota.closeShareModal}
+        onUnlock={downloadQuota.handleShareUnlock}
+      />
     </div>
   )
 }

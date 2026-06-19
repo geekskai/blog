@@ -6,12 +6,14 @@ import type { PlaylistTrack, DownloadFormat } from "../types"
 import Image from "next/image"
 import { downloadSoundCloudTrack } from "../../soundcloud-downloader/lib/download"
 import { getSafeFileName } from "../lib/utils"
+import type { DownloadQuotaController } from "@/components/download-quota/useDownloadQuota"
 
 interface PlaylistTracksProps {
   tracks: PlaylistTrack[]
   onDownloadAll: () => void
   isDownloading: boolean
   format: DownloadFormat
+  downloadQuota: DownloadQuotaController
 }
 
 interface TrackDownloadState {
@@ -23,6 +25,7 @@ export default function PlaylistTracks({
   onDownloadAll,
   isDownloading,
   format,
+  downloadQuota,
 }: PlaylistTracksProps) {
   const t = useTranslations("SoundCloudPlaylistDownloader")
   const [downloadingTracks, setDownloadingTracks] = useState<TrackDownloadState>({})
@@ -35,6 +38,14 @@ export default function PlaylistTracks({
       return
     }
 
+    const quotaCheck = downloadQuota.checkQuotaBeforeDownload()
+    if (!quotaCheck.allowed) {
+      if (quotaCheck.message) {
+        alert(quotaCheck.message)
+      }
+      return
+    }
+
     try {
       setDownloadingTracks((prev) => ({ ...prev, [trackKey]: true }))
 
@@ -42,6 +53,7 @@ export default function PlaylistTracks({
       await downloadSoundCloudTrack(track.url, fileName, {
         mimeType: format === "wav" ? "audio/wav" : "audio/mpeg",
       })
+      downloadQuota.consumeDownloadQuota()
     } catch (error) {
       console.error(`Failed to download track (${track.title}):`, error)
       alert(`${t("playlist_tracks_download")} ${track.title} ${t("error_network")}`)

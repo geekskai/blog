@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useDownloadQuota } from "@/components/download-quota/useDownloadQuota"
 import type { DownloadLink, TrackSummary } from "../../../../../utils/bandcamp"
 
 type BandcampAction = "trackMp3"
@@ -34,8 +35,12 @@ export function useBandcampToMp3(messages: BandcampToMp3Messages) {
   const [loadingAction, setLoadingAction] = useState<BandcampAction | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [downloadError, setDownloadError] = useState<string | null>(null)
+  const downloadQuota = useDownloadQuota()
 
-  const postBandcamp = async <T,>(action: BandcampAction, payload: Record<string, unknown>): Promise<T> => {
+  const postBandcamp = async <T>(
+    action: BandcampAction,
+    payload: Record<string, unknown>
+  ): Promise<T> => {
     setLoadingAction(action)
     setError(null)
 
@@ -110,6 +115,14 @@ export function useBandcampToMp3(messages: BandcampToMp3Messages) {
       // Let the backend validate the final media URL.
     }
 
+    const quotaCheck = downloadQuota.checkQuotaBeforeDownload()
+    if (!quotaCheck.allowed) {
+      if (quotaCheck.message) {
+        setDownloadError(quotaCheck.message)
+      }
+      return
+    }
+
     setDownloadError(null)
     const anchor = document.createElement("a")
     anchor.href = `/api/bandcamp/download?url=${encodeURIComponent(trimmed)}&filename=${encodeURIComponent(filename)}&referer=${encodeURIComponent(referer || trackUrl.trim() || "https://bandcamp.com/")}`
@@ -117,6 +130,7 @@ export function useBandcampToMp3(messages: BandcampToMp3Messages) {
     document.body.appendChild(anchor)
     anchor.click()
     document.body.removeChild(anchor)
+    downloadQuota.consumeDownloadQuota()
   }
 
   return {
@@ -125,6 +139,7 @@ export function useBandcampToMp3(messages: BandcampToMp3Messages) {
     loadingAction,
     error,
     downloadError,
+    downloadQuota,
     setTrackUrl,
     inspectTrackUrl,
     quickDownloadTrack,

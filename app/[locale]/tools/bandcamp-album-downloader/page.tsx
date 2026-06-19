@@ -3,7 +3,7 @@ import { BandcampAlbumDownloaderSeoSections } from "./components/BandcampAlbumDo
 import { getTranslations } from "next-intl/server"
 import { MainSection } from "./components/MainSection"
 
-const lastUpdated = new Date("2026-05-26")
+const lastUpdated = new Date("2026-06-19")
 
 function formatLastUpdated(date: Date, locale: string): string {
   return new Intl.DateTimeFormat(locale, {
