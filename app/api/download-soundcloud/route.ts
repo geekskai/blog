@@ -30,9 +30,8 @@ const resolveSoundCloudUrl = async (inputUrl: string): Promise<string> => {
 }
 
 export async function POST(request: NextRequest) {
+  const { url } = await request.json()
   try {
-    const { url } = await request.json()
-
     if (!url) {
       return NextResponse.json({ error: "URL is required" }, { status: 400 })
     }
@@ -85,7 +84,7 @@ export async function POST(request: NextRequest) {
       { status: 422 }
     )
   } catch (error) {
-    console.error("Download error:", error)
+    console.error(`[download-soundcloud-direct-url] url==>${url} error==>${error}`, error)
     const errorMessage = error instanceof Error ? error.message : "Failed to download audio"
 
     let userFriendlyError = errorMessage
