@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
     const clientID = await scdl.getClientID()
     const axiosInstance = scdl.axios
 
-    console.log(resolvedUrl, "resolvedUrl info===> ", info)
+    console.log(resolvedUrl, "resolvedUrl info===> ", JSON.stringify(info, null, 2))
 
     if (info.media?.transcodings && Array.isArray(info.media.transcodings)) {
       const progressive = info.media.transcodings.find(
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
 
       if (progressive) {
         const mediaResponse = await axiosInstance.get(progressive.url, {
-          params: { client_id: clientID },
+          params: { client_id: clientID, track_authorization: info.track_authorization },
         })
         const directMediaUrl = mediaResponse.data?.url
 
