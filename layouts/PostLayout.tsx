@@ -31,6 +31,14 @@ interface LayoutProps {
   children: ReactNode
 }
 
+function ShareButtonsFallback() {
+  return <div className="mx-auto h-10 w-44 rounded-lg bg-stone-800/60 xl:mx-0" aria-hidden="true" />
+}
+
+function CommentsFallback() {
+  return <div className="mx-auto h-40 max-w-2xl rounded-xl bg-stone-800/50" aria-hidden="true" />
+}
+
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
   const { filePath, path, slug, date, title, tags, readingTime } = content
   const basePath = path.split("/")[0]
@@ -95,7 +103,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     </li>
                   ))}
                 </ul>
-                <Suspense fallback={<div>Loading share buttons...</div>}>
+                <Suspense fallback={<ShareButtonsFallback />}>
                   <ShareButtons />
                 </Suspense>
               </dd>
@@ -113,7 +121,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </div>
               {siteMetadata.comments && (
                 <div className="pb-6 pt-6 text-center text-stone-300" id="comment">
-                  <Suspense fallback={<div>Loading comments...</div>}>
+                  <Suspense fallback={<CommentsFallback />}>
                     <Comments slug={slug} />
                   </Suspense>
                 </div>

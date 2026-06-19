@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react"
+import dynamic from "next/dynamic"
 import siteMetadata from "@/data/siteMetadata"
 import headerNavLinks from "@/data/headerNavLinks"
 import Link from "./Link"
@@ -7,29 +8,26 @@ import MobileNav from "./MobileNav"
 import SearchButton from "./SearchButton"
 import Image from "./Image"
 import { ChevronDown, Zap, Star, Sparkles } from "lucide-react"
-import { toolsData } from "@/data/toolsData"
+import { TOOL_COUNT } from "@/data/toolNavigation"
 import LanguageSelect from "./LanguageSelect"
 import { useTranslations } from "next-intl"
 import LinkNext from "next/link"
-import MegaMenu from "./MegaMenu"
+
+const MegaMenu = dynamic(() => import("./MegaMenu"), {
+  ssr: false,
+  loading: () => <div className="h-[360px] rounded-xl bg-slate-800/40" aria-hidden="true" />,
+})
 
 const Header = () => {
   // Close dropdown on escape key
   const t = useTranslations("HomePage")
   const tt = useTranslations("ToolsPage")
-  const [toolCount, setToolCount] = useState<number | null>(null)
+  const [toolsMenuOpen, setToolsMenuOpen] = useState(false)
 
   useEffect(() => {
-    // Keep header count client-resolved to avoid hydration mismatches.
-    setToolCount(toolsData.length)
-
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        // Find the dropdown and remove hover state
-        const dropdown = document.querySelector("[data-dropdown]") as HTMLElement
-        if (dropdown) {
-          dropdown.blur()
-        }
+        setToolsMenuOpen(false)
       }
     }
 
@@ -76,17 +74,42 @@ const Header = () => {
             ))}
 
             {/* Tools Dropdown */}
-            <div className="group/dropdown" data-dropdown>
-              <div
-                className="flex cursor-pointer items-center gap-2 px-3 py-2 text-sm font-medium text-slate-300 transition-all duration-300 hover:text-white group-hover/dropdown:text-white md:text-lg"
+            <div
+              data-dropdown
+              onMouseEnter={() => setToolsMenuOpen(true)}
+              onMouseLeave={() => setToolsMenuOpen(false)}
+              onFocus={() => setToolsMenuOpen(true)}
+              onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                  setToolsMenuOpen(false)
+                }
+              }}
+            >
+              <button
+                type="button"
+                className={`flex cursor-pointer items-center gap-2 px-3 py-2 text-sm font-medium text-slate-300 transition-all duration-300 hover:text-white md:text-lg ${
+                  toolsMenuOpen ? "text-white" : ""
+                }`}
                 aria-haspopup="true"
+                aria-expanded={toolsMenuOpen}
+                aria-controls="desktop-tools-menu"
+                onClick={() => setToolsMenuOpen(true)}
               >
                 {t("header_nav_tools")}
-                <ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover/dropdown:rotate-180" />
-              </div>
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform duration-300 ${
+                    toolsMenuOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
 
               {/* MegaMenu Dropdown - Centered relative to header container */}
-              <div className="invisible absolute inset-x-0 top-full z-50 mt-0 flex w-full justify-center opacity-0 shadow-xl backdrop-blur-xl transition-all duration-300 group-hover/dropdown:visible group-hover/dropdown:opacity-100">
+              <div
+                id="desktop-tools-menu"
+                className={`absolute inset-x-0 top-full z-50 mt-0 flex w-full justify-center shadow-xl backdrop-blur-xl transition-all duration-300 ${
+                  toolsMenuOpen ? "visible opacity-100" : "pointer-events-none invisible opacity-0"
+                }`}
+              >
                 <div className="max-w-8xl w-[95vw]">
                   {/* Subtle glow effect */}
                   <div className="relative rounded-2xl border border-slate-700/50 bg-slate-900/95 p-10 shadow-2xl backdrop-blur-xl">
@@ -108,14 +131,14 @@ const Header = () => {
                       <div className="flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2">
                         <Star className="h-4 w-4 text-blue-400" />
                         <span className="text-sm font-semibold text-blue-300">
-                          {toolCount ?? ""} {t("header_nav_tools")}
+                          {TOOL_COUNT} {t("header_nav_tools")}
                         </span>
                       </div>
                     </div>
 
                     {/* MegaMenu Content */}
                     <div className="custom-scrollbar max-h-[60vh] overflow-y-auto pr-4">
-                      <MegaMenu />
+                      {toolsMenuOpen && <MegaMenu closeMenu={() => setToolsMenuOpen(false)} />}
                     </div>
 
                     {/* Footer */}

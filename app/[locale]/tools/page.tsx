@@ -299,8 +299,7 @@ export default function ToolsPage() {
                 <Link
                   key={tool.id}
                   href={tool.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  prefetch={false}
                   className={`group relative overflow-hidden rounded-3xl bg-slate-800/70 shadow-lg ring-1 ring-slate-700/50 backdrop-blur-sm transition-all duration-500 hover:scale-[1.05] hover:shadow-2xl hover:ring-slate-600/50 ${delay}`}
                   style={{
                     animationDelay: `${(index % 8) * 100}ms`,

@@ -3,10 +3,10 @@ import { allBlogs } from "contentlayer/generated"
 import siteMetadata from "@/data/siteMetadata"
 import { toolsData } from "@/data/toolsData"
 import { supportedLocales } from "./i18n/routing"
+import { buildLanguageAlternates, getLocalizedUrl } from "./i18n/urls"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = siteMetadata.siteUrl
-  const defaultLocale = "en"
   // const VIN_VEHICLE_TYPES = ["motorcycle", "rv", "trailer", "classic-car"] as const
 
   // Generate blog routes for all locales
@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: post.lastmod || post.date,
     }))
 
-  const routes = ["", "blog/", "projects/", "tools/", "tags/", "about/"].map((route) => ({
+  const routes = ["", "blog/", "projects/", "tags/", "about/"].map((route) => ({
     url: `${siteUrl}/${route}`,
     // lastModified: new Date().toISOString().split("T")[0],
   }))
@@ -26,19 +26,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // const staticRoutes = ["", "blog/", "projects/", "tools/", "tags/", "about/"]
   const staticRoutes = ["tools/"].flatMap((route) => {
     return supportedLocales.map((locale) => ({
-      url: `${siteUrl}${locale === defaultLocale ? "" : `/${locale}`}/${route}`,
+      url: getLocalizedUrl(siteUrl, locale, route),
       // lastModified: new Date().toISOString().split("T")[0],
       // priority: route === "" ? 1.0 : route === "tools/" ? 0.9 : 0.8,
       // changeFrequency: "weekly" as const,
       // Add alternates for SEO
       alternates: {
-        languages: supportedLocales.reduce(
-          (acc, lang) => {
-            acc[lang] = `${siteUrl}${lang === defaultLocale ? "" : `/${lang}`}/${route}`
-            return acc
-          },
-          {} as Record<string, string>
-        ),
+        languages: buildLanguageAlternates(siteUrl, route),
       },
     }))
   })
@@ -50,16 +44,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const toolPath = tool.href.startsWith("/") ? tool.href.slice(1) : tool.href
 
       return {
-        url: `${siteUrl}${locale === defaultLocale ? "" : `/${locale}`}/${toolPath}`,
+        url: getLocalizedUrl(siteUrl, locale, toolPath),
         // lastModified: new Date().toISOString().split("T")[0],
         alternates: {
-          languages: supportedLocales.reduce(
-            (acc, lang) => {
-              acc[lang] = `${siteUrl}${lang === defaultLocale ? "" : `/${lang}`}/${toolPath}`
-              return acc
-            },
-            {} as Record<string, string>
-          ),
+          languages: buildLanguageAlternates(siteUrl, toolPath),
         },
       }
     })

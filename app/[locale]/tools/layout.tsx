@@ -1,9 +1,11 @@
 import { Metadata } from "next"
 import React from "react"
 import { hasLocale } from "next-intl"
-import { routing, supportedLocales } from "../../i18n/routing"
+import { routing } from "../../i18n/routing"
+import { buildLanguageAlternates, getLocalizedUrl } from "../../i18n/urls"
 import { notFound } from "next/navigation"
 import { getTranslations } from "next-intl/server"
+import { toolsData } from "@/data/toolsData"
 // import { supportedLocales as supportedLocalesList } from "@/components/LanguageSelect"
 
 type Props = {
@@ -30,16 +32,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
   const ogLocale = localeMap[locale] || "en_US"
   const baseUrl = "https://geekskai.com"
   const path = "/tools/"
-  const url = `${baseUrl}${locale === "en" ? "" : `/${locale}`}${path}`
-
-  const isDefaultLocale = locale === "en"
-  const languages = {
-    "x-default": "https://geekskai.com/tools/",
-  }
-
-  supportedLocales.forEach((locale) => {
-    languages[locale] = `https://geekskai.com/${locale}/tools/`
-  })
+  const url = getLocalizedUrl(baseUrl, locale, path)
 
   const title = t("tools_seo_title")
   const description = t("tools_seo_description")
@@ -95,12 +88,8 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 
     // Canonical and Language Alternates
     alternates: {
-      canonical: isDefaultLocale
-        ? "https://geekskai.com/tools/"
-        : `https://geekskai.com/${locale}/tools/`,
-      languages: {
-        ...languages,
-      },
+      canonical: url,
+      languages: buildLanguageAlternates(baseUrl, path),
     },
 
     // Additional metadata
@@ -133,7 +122,7 @@ export default async function Layout({ children, params }: Props) {
   const t = await getTranslations({ locale, namespace: "ToolsPage" })
   const baseUrl = "https://geekskai.com"
   const path = "/tools/"
-  const url = `${baseUrl}${locale === "en" ? "" : `/${locale}`}${path}`
+  const url = getLocalizedUrl(baseUrl, locale, path)
 
   // 动态生成结构化数据
   const structuredData = {
@@ -148,51 +137,14 @@ export default async function Layout({ children, params }: Props) {
       description: t(
         "tools_hand_picked_tools_designed_to_streamline_your_workflow_and_boost_productivity"
       ),
-      numberOfItems: "50+",
-      itemListElement: [
-        {
-          "@type": "SoftwareApplication",
-          name: "Board Foot Calculator",
-          description: "Professional lumber calculator for construction and woodworking projects",
-          url: `${baseUrl}${locale === "en" ? "" : `/${locale}`}/tools/board-foot-calculator/`,
-          applicationCategory: "UtilityApplication",
-          operatingSystem: "Any",
-          offers: {
-            "@type": "Offer",
-            price: "0",
-            priceCurrency: "USD",
-            availability: "https://schema.org/InStock",
-          },
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.8",
-            ratingCount: "1250",
-            bestRating: "5",
-            worstRating: "1",
-          },
-        },
-        {
-          "@type": "SoftwareApplication",
-          name: "CM to Inches Converter",
-          description: "Convert between centimeters and inches with Nordic measurement support",
-          url: `${baseUrl}${locale === "en" ? "" : `/${locale}`}/tools/cm-til-tommer/`,
-          applicationCategory: "UtilityApplication",
-          operatingSystem: "Any",
-          offers: {
-            "@type": "Offer",
-            price: "0",
-            priceCurrency: "USD",
-            availability: "https://schema.org/InStock",
-          },
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.8",
-            ratingCount: "1250",
-            bestRating: "5",
-            worstRating: "1",
-          },
-        },
-      ],
+      numberOfItems: toolsData.length,
+      itemListElement: toolsData.map((tool, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: tool.title,
+        description: tool.description,
+        url: getLocalizedUrl(baseUrl, locale, tool.href),
+      })),
     },
     provider: {
       "@type": "Organization",
@@ -215,8 +167,8 @@ export default async function Layout({ children, params }: Props) {
       {
         "@type": "ListItem",
         position: 1,
-        name: t("tools_free_tools"),
-        item: baseUrl,
+        name: "Home",
+        item: getLocalizedUrl(baseUrl, locale, "/"),
       },
       {
         "@type": "ListItem",

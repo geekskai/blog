@@ -12,6 +12,18 @@ import siteMetadata from "@/data/siteMetadata"
 import { notFound } from "next/navigation"
 import { Suspense } from "react"
 
+function ArticleContentFallback() {
+  return (
+    <div className="min-h-[40rem] space-y-4" aria-hidden="true">
+      <div className="h-6 w-2/3 rounded bg-stone-800/60" />
+      <div className="h-4 w-full rounded bg-stone-800/50" />
+      <div className="h-4 w-11/12 rounded bg-stone-800/50" />
+      <div className="h-4 w-4/5 rounded bg-stone-800/50" />
+      <div className="h-64 rounded-xl bg-stone-800/40" />
+    </div>
+  )
+}
+
 export async function generateMetadata(props: {
   params: Promise<{ slug: string[] }>
 }): Promise<Metadata | undefined> {
@@ -108,7 +120,7 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <PostLayout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
-        <Suspense fallback={<div>Loading content...</div>}>
+        <Suspense fallback={<ArticleContentFallback />}>
           <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
         </Suspense>
       </PostLayout>

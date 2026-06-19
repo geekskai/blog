@@ -11,10 +11,10 @@ import { Metadata } from "next"
 import SiteFooter from "@/components/SiteFooter"
 import { NextIntlClientProvider } from "next-intl"
 import { hasLocale } from "next-intl"
-import { routing, supportedLocales } from "../i18n/routing"
+import { routing } from "../i18n/routing"
+import { buildLanguageAlternates, getLocalizedUrl } from "../i18n/urls"
 import { notFound } from "next/navigation"
 import { getTranslations, setRequestLocale } from "next-intl/server"
-import { toolsData } from "@/data/toolsData"
 import ClarityTracker from "@/components/ClarityTracker"
 export const revalidate = 604800 // 7 days — tools/content rarely change daily
 
@@ -32,14 +32,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
   const title = t("home_seo_title")
   const description = t("home_seo_description") + " " + t("home_seo_keywords")
 
-  const isDefaultLocale = locale === "en"
-  const languages = {
-    "x-default": "https://geekskai.com/",
-  }
-
-  supportedLocales.forEach((locale) => {
-    languages[locale] = `https://geekskai.com/${locale}/`
-  })
+  const canonicalUrl = getLocalizedUrl(siteMetadata.siteUrl, locale, "/")
 
   return {
     title: title,
@@ -49,7 +42,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
       title: title,
       description: description,
       type: "website",
-      url: "https://geekskai.com/",
+      url: canonicalUrl,
       siteName: "GeeksKai Tools",
       images: [
         {
@@ -75,10 +68,8 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
     creator: "GeeksKai",
     publisher: "GeeksKai",
     alternates: {
-      canonical: isDefaultLocale ? "https://geekskai.com/" : `https://geekskai.com/${locale}/`,
-      languages: {
-        ...languages,
-      },
+      canonical: canonicalUrl,
+      languages: buildLanguageAlternates(siteMetadata.siteUrl, "/"),
     },
     category: "Tools",
     classification: "Tools",
@@ -109,29 +100,8 @@ export default async function RootLayout({
 
   // Generate JSON-LD Structured Data
   const t = await getTranslations({ locale, namespace: "HomePage" })
-  const baseUrl = "https://geekskai.com"
-  const url = `${baseUrl}${locale === "en" ? "" : `/${locale}`}/`
-
-  const popularTools = toolsData.map((tool, index) => ({
-    "@type": "SoftwareApplication",
-    position: index + 1,
-    name: tool.title,
-    description: tool.description,
-    url: `${baseUrl}${locale === "en" ? "" : `/${locale}`}${tool.href}`,
-    applicationCategory: `${tool.category}Application`,
-    operatingSystem: "Any",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "1000",
-    },
-  }))
+  const baseUrl = siteMetadata.siteUrl
+  const url = getLocalizedUrl(baseUrl, locale, "/")
 
   const localeMap: Record<string, string> = {
     en: "en-US",
@@ -179,7 +149,7 @@ export default async function RootLayout({
           "@type": "SearchAction",
           target: {
             "@type": "EntryPoint",
-            urlTemplate: `${baseUrl}${locale === "en" ? "" : `/${locale}`}/tools/?q={search_term_string}`,
+            urlTemplate: `${getLocalizedUrl(baseUrl, locale, "/tools/")}?q={search_term_string}`,
           },
           "query-input": "required name=search_term_string",
         },
@@ -216,14 +186,6 @@ export default async function RootLayout({
             item: url,
           },
         ],
-      },
-      {
-        "@type": "ItemList",
-        "@id": `${url}#tools`,
-        name: t("footer_popular_tools"),
-        description: t("footer_description"),
-        numberOfItems: toolsData.length.toString(),
-        itemListElement: popularTools,
       },
     ],
   }

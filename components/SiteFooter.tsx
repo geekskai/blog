@@ -4,43 +4,10 @@ import SocialIcon from "./social-icons"
 import siteMetadata from "@/data/siteMetadata"
 // import Logo from "/public/static/logos.png"
 import Image from "./Image"
-import { Zap, Heart, ExternalLink } from "lucide-react"
+import { Zap, Heart, ArrowRight } from "lucide-react"
 import { useTranslations } from "next-intl"
 import LinkNext from "next/link"
-import { toolsData } from "@/data/toolsData"
-
-// Popular tools data for footer
-// const popularTools = toolsData.slice(0, 4)
-
-//   {
-//     id: "html-to-markdown",
-//     title: "HTML to Markdown",
-//     href: "/tools/html-to-markdown",
-//     icon: FileText,
-//     badge: "New",
-//   },
-//   {
-//     id: "discord-time-converter",
-//     title: "Discord Time Converter",
-//     href: "/tools/discord-time-converter",
-//     icon: ArrowLeftRight,
-//     badge: "Popular",
-//   },
-//   {
-//     id: "job-worth-calculator",
-//     title: "Job Worth Calculator",
-//     href: "/tools/job-worth-calculator",
-//     icon: Calculator,
-//     badge: "Popular",
-//   },
-//   {
-//     id: "pdf-to-markdown",
-//     title: "PDF to Markdown",
-//     href: "/tools/pdf-to-markdown",
-//     icon: FileText,
-//     badge: "Pro",
-//   },
-// ]
+import { footerPopularTools } from "@/data/toolNavigation"
 
 const SiteFooter = () => {
   const t = useTranslations("HomePage")
@@ -77,14 +44,13 @@ const SiteFooter = () => {
           <div className="lg:col-span-1">
             <h3 className="mb-6 text-lg font-semibold text-white">{t("footer_popular_tools")}</h3>
             <div className="space-y-3">
-              {toolsData.slice(0, 4).map((tool) => {
+              {footerPopularTools.map((tool) => {
                 const IconComponent = tool.icon
                 return (
                   <Link
                     key={tool.id}
                     href={tool.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    prefetch={false}
                     className="group flex items-center gap-3 rounded-lg bg-slate-800/30 p-3 transition-all duration-300 hover:scale-105 hover:bg-slate-700/50"
                   >
                     <div className="flex-shrink-0 rounded-md bg-slate-700/50 p-2 transition-transform duration-300 group-hover:scale-110">
@@ -100,19 +66,18 @@ const SiteFooter = () => {
                         </span> */}
                       </div>
                     </div>
-                    <ExternalLink className="h-3 w-3 text-slate-500 opacity-0 transition-all duration-300 group-hover:text-slate-300 group-hover:opacity-100" />
+                    <ArrowRight className="h-3 w-3 text-slate-500 opacity-0 transition-all duration-300 group-hover:text-slate-300 group-hover:opacity-100" />
                   </Link>
                 )
               })}
             </div>
             <Link
               href="/tools"
-              target="_blank"
-              rel="noopener noreferrer"
+              prefetch={false}
               className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-blue-400 transition-colors duration-300 hover:text-blue-300"
             >
               <span>{t("footer_view_all_tools")}</span>
-              <ExternalLink className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
