@@ -20,7 +20,10 @@ export async function generateMetadata(props: {
   const lastModified = new Date("2026-05-26")
 
   supportedLocales.forEach((locale) => {
-    languages[locale] = `https://geekskai.com/${locale}/tools/ccm-to-hp-converter/`
+    languages[locale] =
+      locale === "en"
+        ? `https://geekskai.com/tools/ccm-to-hp-converter/`
+        : `https://geekskai.com/${locale}/tools/ccm-to-hp-converter/`
   })
   return {
     title: t("seo_title"),
@@ -107,13 +110,6 @@ const getJsonLd = (t: any, locale: string) => ({
         t("feature_badges.turbo_support"),
         t("feature_badges.multi_application"),
       ].join(", "),
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.8",
-        ratingCount: "1250",
-        bestRating: "5",
-        worstRating: "1",
-      },
     },
     {
       "@type": "HowTo",

@@ -19,7 +19,10 @@ export async function generateMetadata(props: {
   }
 
   supportedLocales.forEach((locale) => {
-    languages[locale] = `https://geekskai.com/${locale}/tools/discord-timestamp-generator/`
+    languages[locale] =
+      locale === "en"
+        ? `https://geekskai.com/tools/discord-timestamp-generator/`
+        : `https://geekskai.com/${locale}/tools/discord-timestamp-generator/`
   })
 
   // Content freshness metadata (GEO requirement)
@@ -80,7 +83,10 @@ export async function generateMetadata(props: {
   }
 }
 
-export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+export default async function Layout(props: {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}) {
   const params = await props.params
 
   const { locale } = params
@@ -137,13 +143,6 @@ export default async function Layout(props: { children: React.ReactNode; params:
     audience: {
       "@type": "Audience",
       audienceType: t("structured_data.audience_type"),
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "1420",
-      bestRating: "5",
-      worstRating: "1",
     },
     datePublished: "2025-01-15",
     dateModified: "2026-01-31",

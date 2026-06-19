@@ -1,7 +1,10 @@
-import { supportedLocales } from "app/i18n/routing"
-import { Metadata } from "next"
+import { buildLanguageAlternates, getLocalizedUrl } from "@/app/i18n/urls"
+import type { Metadata } from "next"
 
 import { getTranslations } from "next-intl/server"
+
+const SITE_URL = "https://geekskai.com"
+const TOOL_PATH = "/tools/print-test-page/"
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>
@@ -11,15 +14,7 @@ export async function generateMetadata(props: {
   const { locale } = params
 
   const t = await getTranslations({ locale, namespace: "PrintTestPage" })
-  const isDefaultLocale = locale === "en"
-
-  const languages: Record<string, string> = {
-    "x-default": "https://geekskai.com/tools/print-test-page/",
-  }
-
-  supportedLocales.forEach((loc) => {
-    languages[loc] = `https://geekskai.com/${loc}/tools/print-test-page/`
-  })
+  const canonical = getLocalizedUrl(SITE_URL, locale, TOOL_PATH)
 
   // Update this monthly
   const lastModified = new Date("2026-05-26") // Update current date
@@ -32,9 +27,7 @@ export async function generateMetadata(props: {
       title: t("metadata_og_title"),
       description: t("metadata_og_description"),
       type: "website",
-      url: isDefaultLocale
-        ? "https://geekskai.com/tools/print-test-page/"
-        : `https://geekskai.com/${locale}/tools/print-test-page/`,
+      url: canonical,
       siteName: "GeeksKai",
       images: [
         {
@@ -52,12 +45,8 @@ export async function generateMetadata(props: {
       description: t("metadata_twitter_description"),
     },
     alternates: {
-      canonical: isDefaultLocale
-        ? "https://geekskai.com/tools/print-test-page/"
-        : `https://geekskai.com/${locale}/tools/print-test-page/`,
-      languages: {
-        ...languages,
-      },
+      canonical,
+      languages: buildLanguageAlternates(SITE_URL, TOOL_PATH),
     },
     robots: {
       index: true,
@@ -78,7 +67,10 @@ export async function generateMetadata(props: {
   }
 }
 
-export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+export default async function Layout(props: {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}) {
   const params = await props.params
 
   const { locale } = params
@@ -86,10 +78,7 @@ export default async function Layout(props: { children: React.ReactNode; params:
   const { children } = props
 
   const t = await getTranslations({ locale, namespace: "PrintTestPage" })
-  const isDefaultLocale = locale === "en"
-  const baseUrl = isDefaultLocale
-    ? "https://geekskai.com/tools/print-test-page"
-    : `https://geekskai.com/${locale}/tools/print-test-page`
+  const baseUrl = getLocalizedUrl(SITE_URL, locale, TOOL_PATH).replace(/\/$/, "")
 
   // WebApplication Schema
   const webApplicationSchema = {
@@ -121,13 +110,6 @@ export default async function Layout(props: { children: React.ReactNode; params:
     ].join(", "),
     browserRequirements: t("schema_browser_requirements"),
     softwareVersion: t("schema_software_version"),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "1250",
-      bestRating: "5",
-      worstRating: "1",
-    },
   }
 
   // Breadcrumb Schema

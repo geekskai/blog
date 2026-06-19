@@ -20,15 +20,9 @@ export function BandcampSeoSections() {
       <section className="rounded-[28px] border border-white/10 bg-white/5 p-5 shadow-xl backdrop-blur-sm sm:p-7">
         <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
-            <h2 className="text-2xl font-semibold text-white sm:text-3xl">
-              {t("seo.title")}
-            </h2>
-            <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">
-              {t("seo.body1")}
-            </p>
-            <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">
-              {t("seo.body2")}
-            </p>
+            <h2 className="text-2xl font-semibold text-white sm:text-3xl">{t("seo.title")}</h2>
+            <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">{t("seo.body1")}</p>
+            <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">{t("seo.body2")}</p>
           </div>
 
           <div className="rounded-[24px] border border-cyan-400/15 bg-cyan-400/5 p-5">
@@ -61,9 +55,7 @@ export function BandcampSeoSections() {
       </section>
 
       <section className="rounded-[28px] border border-white/10 bg-white/5 p-5 shadow-xl backdrop-blur-sm sm:p-7">
-        <h2 className="text-2xl font-semibold text-white sm:text-3xl">
-          {t("seo.workflowTitle")}
-        </h2>
+        <h2 className="text-2xl font-semibold text-white sm:text-3xl">{t("seo.workflowTitle")}</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {workflowSteps.map((item, index) => (
             <div key={item} className="rounded-[24px] border border-white/10 bg-slate-950/40 p-4">
@@ -93,9 +85,7 @@ export function BandcampSeoSections() {
 
       <section className="rounded-[28px] border border-amber-400/15 bg-amber-400/5 p-5 shadow-xl backdrop-blur-sm sm:p-7">
         <h2 className="text-2xl font-semibold text-white sm:text-3xl">{t("seo.usageTitle")}</h2>
-        <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">
-          {t("seo.usageBody")}
-        </p>
+        <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">{t("seo.usageBody")}</p>
       </section>
     </article>
   )

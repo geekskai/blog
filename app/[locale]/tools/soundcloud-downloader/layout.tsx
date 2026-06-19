@@ -1,9 +1,12 @@
-import { supportedLocales } from "app/i18n/routing"
+import { buildLanguageAlternates, getLocalizedUrl } from "@/app/i18n/urls"
+import { isSoundCloudGrowthLocale, soundCloudGrowthLocales } from "@/data/soundCloudGrowth"
 import type { Metadata } from "next"
 import React from "react"
 import { getTranslations } from "next-intl/server"
 
+const SITE_URL = "https://geekskai.com"
 const TOOL_SLUG = "soundcloud-downloader"
+const TOOL_PATH = `/tools/${TOOL_SLUG}/`
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>
@@ -13,17 +16,8 @@ export async function generateMetadata(props: {
   const { locale } = params
 
   const t = await getTranslations({ locale, namespace: "SoundCloudDownloader" })
-  const isDefaultLocale = locale === "en"
-  const canonical = isDefaultLocale
-    ? `https://geekskai.com/tools/${TOOL_SLUG}/`
-    : `https://geekskai.com/${locale}/tools/${TOOL_SLUG}/`
-
-  const languages: Record<string, string> = {
-    "x-default": `https://geekskai.com/tools/${TOOL_SLUG}/`,
-  }
-  supportedLocales.forEach((loc) => {
-    languages[loc] = `https://geekskai.com/${loc}/tools/${TOOL_SLUG}/`
-  })
+  const canonical = getLocalizedUrl(SITE_URL, locale, TOOL_PATH)
+  const shouldIndex = isSoundCloudGrowthLocale(locale)
 
   const lastModified = new Date("2026-06-16")
 
@@ -33,7 +27,7 @@ export async function generateMetadata(props: {
     keywords: t("metadata_keywords").split(", "),
     alternates: {
       canonical,
-      languages,
+      languages: buildLanguageAlternates(SITE_URL, TOOL_PATH, [...soundCloudGrowthLocales]),
     },
     openGraph: {
       title: t("metadata_og_title"),
@@ -56,10 +50,10 @@ export async function generateMetadata(props: {
       description: t("metadata_twitter_description"),
     },
     robots: {
-      index: true,
+      index: shouldIndex,
       follow: true,
       googleBot: {
-        index: true,
+        index: shouldIndex,
         follow: true,
         "max-image-preview": "large",
         "max-snippet": -1,
@@ -74,7 +68,10 @@ export async function generateMetadata(props: {
   }
 }
 
-export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+export default async function Layout(props: {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}) {
   const params = await props.params
 
   const { locale } = params
@@ -82,10 +79,7 @@ export default async function Layout(props: { children: React.ReactNode; params:
   const { children } = props
 
   const t = await getTranslations({ locale, namespace: "SoundCloudDownloader" })
-  const isDefaultLocale = locale === "en"
-  const baseUrl = isDefaultLocale
-    ? `https://geekskai.com/tools/${TOOL_SLUG}`
-    : `https://geekskai.com/${locale}/tools/${TOOL_SLUG}`
+  const baseUrl = getLocalizedUrl(SITE_URL, locale, TOOL_PATH).replace(/\/$/, "")
 
   const webApplicationSchema = {
     "@context": "https://schema.org",

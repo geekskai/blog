@@ -19,7 +19,10 @@ export async function generateMetadata(props: {
   }
 
   supportedLocales.forEach((locale) => {
-    languages[locale] = `https://geekskai.com/${locale}/tools/discord-time-converter/`
+    languages[locale] =
+      locale === "en"
+        ? `https://geekskai.com/tools/discord-time-converter/`
+        : `https://geekskai.com/${locale}/tools/discord-time-converter/`
   })
   // Content freshness metadata (updated within 30-90 days for best AI ranking)
   const lastModified = new Date("2026-05-26")
@@ -156,13 +159,6 @@ async function generateJsonLd(locale: string) {
       "@type": "Organization",
       name: "GeeksKai",
       url: "https://geekskai.com",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      ratingCount: "1650",
-      bestRating: "5",
-      worstRating: "1",
     },
     datePublished: "2024-01-01",
     dateModified: "2026-01-31",

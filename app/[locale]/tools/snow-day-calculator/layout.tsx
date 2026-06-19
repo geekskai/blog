@@ -138,13 +138,6 @@ export default async function SnowDayCalculatorLayout(props: {
       name: "GeeksKai",
       url: "https://www.geekskai.com",
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "150",
-      bestRating: "5",
-      worstRating: "1",
-    },
     audience: {
       "@type": "Audience",
       audienceType: t("json_ld.audience_type"),

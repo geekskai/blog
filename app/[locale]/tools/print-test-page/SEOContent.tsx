@@ -320,15 +320,11 @@ export function FAQSection() {
             key={index}
             className="rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition-all duration-300 hover:border-orange-400/30 hover:shadow-lg hover:shadow-orange-500/25 md:p-5 lg:p-6"
           >
-            <h3
-              className="mb-1.5 text-sm font-bold leading-snug text-white md:mb-2 md:text-base lg:mb-3 lg:text-lg"
-            >
+            <h3 className="mb-1.5 text-sm font-bold leading-snug text-white md:mb-2 md:text-base lg:mb-3 lg:text-lg">
               {faq.question}
             </h3>
             <div>
-              <p className="text-xs text-slate-300 md:text-sm">
-                {faq.answer}
-              </p>
+              <p className="text-xs text-slate-300 md:text-sm">{faq.answer}</p>
             </div>
           </div>
         ))}

@@ -29,7 +29,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const lastModified = new Date("2026-04-29")
 
   supportedLocales.forEach((locale) => {
-    languages[locale] = `https://geekskai.com/${locale}/tools/job-worth-calculator/`
+    languages[locale] =
+      locale === "en"
+        ? `https://geekskai.com/tools/job-worth-calculator/`
+        : `https://geekskai.com/${locale}/tools/job-worth-calculator/`
   })
 
   return {

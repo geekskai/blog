@@ -69,7 +69,13 @@ type VideoResultCardProps = {
   t: AudioDownloaderT
 }
 
-function VideoResultCard({ video, downloading, downloadProgress, onDownload, t }: VideoResultCardProps) {
+function VideoResultCard({
+  video,
+  downloading,
+  downloadProgress,
+  onDownload,
+  t,
+}: VideoResultCardProps) {
   const duration = formatDuration(video.durationSeconds)
 
   return (
@@ -113,7 +119,9 @@ function VideoResultCard({ video, downloading, downloadProgress, onDownload, t }
               {video.title}
             </h3>
             {video.author ? (
-              <p className="mt-1 line-clamp-2 text-base leading-5 text-slate-400 md:text-lg">{video.author}</p>
+              <p className="mt-1 line-clamp-2 text-base leading-5 text-slate-400 md:text-lg">
+                {video.author}
+              </p>
             ) : null}
           </div>
         </div>
@@ -157,7 +165,10 @@ function VideoResultCard({ video, downloading, downloadProgress, onDownload, t }
   )
 }
 
-export default function AudioDownloader({ variant = "default", autoFocus = false }: AudioDownloaderProps) {
+export default function AudioDownloader({
+  variant = "default",
+  autoFocus = false,
+}: AudioDownloaderProps) {
   const t = useTranslations("AudioDownloader")
   const searchParams = useSearchParams()
   const router = useRouter()

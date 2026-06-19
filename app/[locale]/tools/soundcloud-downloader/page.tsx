@@ -2,6 +2,7 @@
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 import { TldrBlock } from "@/components/TldrBlock"
 import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
+import SoundCloudToolSwitcher from "@/components/SoundCloudToolSwitcher"
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { useTranslations } from "next-intl"
 import dynamic from "next/dynamic"
@@ -312,6 +313,8 @@ export default function SoundCloudDownloaderPage() {
             )}
           </div>
         </div>
+
+        <SoundCloudToolSwitcher current="downloader" />
 
         {isPlaylistMode && playlistDownloadProgress.status !== "idle" && (
           <DownloadProgress progress={playlistDownloadProgress} />

@@ -19,7 +19,10 @@ export async function generateMetadata(props: {
   }
 
   supportedLocales.forEach((loc: string) => {
-    languages[loc] = `https://geekskai.com/${loc}/tools/json-to-table/`
+    languages[loc] =
+      loc === "en"
+        ? `https://geekskai.com/tools/json-to-table/`
+        : `https://geekskai.com/${loc}/tools/json-to-table/`
   })
 
   const lastModified = new Date("2026-04-26")
@@ -141,13 +144,6 @@ async function generateJsonLd(locale: string) {
         priceCurrency: "USD",
         availability: "https://schema.org/InStock",
       },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        ratingCount: "2150",
-        bestRating: "5",
-        worstRating: "1",
-      },
     },
     potentialAction: [
       {
@@ -169,7 +165,10 @@ async function generateJsonLd(locale: string) {
   }
 }
 
-export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+export default async function Layout(props: {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}) {
   const params = await props.params
 
   const { locale } = params

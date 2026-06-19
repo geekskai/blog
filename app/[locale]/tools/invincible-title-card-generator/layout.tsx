@@ -21,7 +21,10 @@ export async function generateMetadata(props: {
   }
 
   supportedLocales.forEach((locale) => {
-    languages[locale] = `https://geekskai.com/${locale}/tools/invincible-title-card-generator/`
+    languages[locale] =
+      locale === "en"
+        ? `https://geekskai.com/tools/invincible-title-card-generator/`
+        : `https://geekskai.com/${locale}/tools/invincible-title-card-generator/`
   })
 
   return {
@@ -107,16 +110,12 @@ const getJsonLd = (t: any) => ({
   },
   keywords: t("seo_keywords"),
   educationalUse: "Fan Content Creation, Graphic Design, Video Production, Creative Projects",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.8",
-    ratingCount: "1250",
-    bestRating: "5",
-    worstRating: "1",
-  },
 })
 
-export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+export default async function Layout(props: {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}) {
   const params = await props.params
 
   const { locale } = params

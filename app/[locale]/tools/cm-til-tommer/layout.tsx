@@ -33,7 +33,10 @@ export async function generateMetadata(props: {
   }
 
   supportedLocales.forEach((locale) => {
-    languages[locale] = `https://geekskai.com/${locale}/tools/cm-til-tommer/`
+    languages[locale] =
+      locale === "en"
+        ? `https://geekskai.com/tools/cm-til-tommer/`
+        : `https://geekskai.com/${locale}/tools/cm-til-tommer/`
   })
 
   return {
@@ -175,13 +178,6 @@ export default async function CmTilTommerLayout(props: {
     softwareVersion: "1.0",
     datePublished: "2024-01-24",
     dateModified: new Date().toISOString().split("T")[0],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "1250",
-      bestRating: "5",
-      worstRating: "1",
-    },
   }
 
   // 动态生成 FAQ 结构化数据

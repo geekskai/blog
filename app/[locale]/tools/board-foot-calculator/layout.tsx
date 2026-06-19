@@ -34,7 +34,10 @@ export async function generateMetadata(props: {
   const lastModified = new Date("2026-05-26")
 
   supportedLocales.forEach((locale) => {
-    languages[locale] = `https://geekskai.com/${locale}/tools/board-foot-calculator/`
+    languages[locale] =
+      locale === "en"
+        ? `https://geekskai.com/tools/board-foot-calculator/`
+        : `https://geekskai.com/${locale}/tools/board-foot-calculator/`
   })
 
   return {
@@ -136,13 +139,6 @@ const toolStructuredData = {
     "Export capabilities",
   ].join(", "),
   screenshot: "https://geekskai.com/static/tools/board-foot-calculator-screenshot.jpg",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.8",
-    ratingCount: "1250",
-    bestRating: "5",
-    worstRating: "1",
-  },
 }
 
 // 教育内容结构化数据
@@ -255,13 +251,6 @@ export default async function BoardFootCalculatorLayout(props: {
         "Carpenters",
         "Project managers",
       ],
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "1250",
-      bestRating: "5",
-      worstRating: "1",
     },
   }
 

@@ -20,7 +20,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   }
 
   supportedLocales.forEach((loc) => {
-    languages[loc] = `https://geekskai.com/${loc}/tools/chivalry-test/`
+    languages[loc] =
+      loc === "en"
+        ? `https://geekskai.com/tools/chivalry-test/`
+        : `https://geekskai.com/${loc}/tools/chivalry-test/`
   })
   const lastModified = new Date("2026-05-26")
 
@@ -104,16 +107,12 @@ const getJsonLd = (t: any) => ({
   },
   keywords: t("seo_keywords"),
   educationalUse: "Personality Assessment, Character Development, Self-Reflection, Personal Growth",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.8",
-    ratingCount: "1250",
-    bestRating: "5",
-    worstRating: "1",
-  },
 })
 
-export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+export default async function Layout(props: {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}) {
   const params = await props.params
 
   const { locale } = params

@@ -19,7 +19,10 @@ export async function generateMetadata(props: {
   const lastModified = new Date("2026-05-04")
 
   supportedLocales.forEach((locale) => {
-    languages[locale] = `https://geekskai.com/${locale}/tools/bpm-ms-converter`
+    languages[locale] =
+      locale === "en"
+        ? `https://geekskai.com/tools/bpm-ms-converter`
+        : `https://geekskai.com/${locale}/tools/bpm-ms-converter`
   })
 
   return {
@@ -98,16 +101,12 @@ const getJsonLd = (t: any) => ({
     name: "GeeksKai",
     url: "https://geekskai.com",
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.8",
-    ratingCount: "1250",
-    bestRating: "5",
-    worstRating: "1",
-  },
 })
 
-export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+export default async function Layout(props: {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}) {
   const params = await props.params
 
   const { locale } = params

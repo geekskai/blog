@@ -7,15 +7,15 @@ import { useBandcampAlbumDownloader } from "../useBandcampAlbumDownloader"
 import { useTranslations } from "next-intl"
 
 function buildTrackFilename(albumArtist?: string, trackTitle?: string) {
-    if (albumArtist && trackTitle) return `${albumArtist} - ${trackTitle}.mp3`
-    if (trackTitle) return `${trackTitle}.mp3`
-    return "bandcamp-album-track.mp3"
-  }
+  if (albumArtist && trackTitle) return `${albumArtist} - ${trackTitle}.mp3`
+  if (trackTitle) return `${trackTitle}.mp3`
+  return "bandcamp-album-track.mp3"
+}
 
 const deferredSectionStyle = {
-    contentVisibility: "auto" as const,
-    containIntrinsicSize: "auto 1200px",
-  }
+  contentVisibility: "auto" as const,
+  containIntrinsicSize: "auto 1200px",
+}
 
 const inputClass =
   "w-full rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/20"

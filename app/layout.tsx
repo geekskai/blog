@@ -2,6 +2,7 @@ import { ReactNode } from "react"
 import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 import { supportedLocales } from "./i18n/routing"
+import { buildLanguageAlternates, getLocalizedUrl } from "./i18n/urls"
 // import { toolsData } from "@/data/toolsData"
 // import { supportedLocales } from "@/components/LanguageSelect"
 
@@ -39,15 +40,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 
   const ogLocale = localeMap[locale] || "en_US"
   const baseUrl = "https://geekskai.com"
-  const url = `${baseUrl}${locale === "en" ? "" : `/${locale}`}/`
-
-  const languages = {
-    "x-default": "https://geekskai.com/",
-  }
-
-  supportedLocales.forEach((locale) => {
-    languages[locale] = `https://geekskai.com/${locale}/`
-  })
+  const url = getLocalizedUrl(baseUrl, locale, "/")
 
   return {
     metadataBase: new URL(baseUrl),
@@ -93,10 +86,8 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
     creator: "GeeksKai",
     publisher: "GeeksKai",
     alternates: {
-      canonical: isDefaultLocale ? "https://geekskai.com/" : `https://geekskai.com/${locale}/`,
-      languages: {
-        ...languages,
-      },
+      canonical: isDefaultLocale ? "https://geekskai.com/" : url,
+      languages: buildLanguageAlternates(baseUrl, "/"),
     },
     category: "Tools",
     classification: "Tools",

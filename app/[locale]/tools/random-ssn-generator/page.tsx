@@ -70,7 +70,6 @@ export default function RandomSSNGenerator() {
               <ShareButtons />
             </div>
           </div> */}
-
         </div>
 
         {/* Main Content Grid */}

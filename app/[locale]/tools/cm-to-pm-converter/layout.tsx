@@ -19,7 +19,10 @@ export async function generateMetadata(props: {
   }
 
   supportedLocales.forEach((locale) => {
-    languages[locale] = `https://geekskai.com/${locale}/tools/cm-to-pm-converter`
+    languages[locale] =
+      locale === "en"
+        ? `https://geekskai.com/tools/cm-to-pm-converter`
+        : `https://geekskai.com/${locale}/tools/cm-to-pm-converter`
   })
   return {
     title: t("seo_title"),
@@ -158,13 +161,6 @@ async function getStructuredData(locale: string) {
       "@type": "CreativeWork",
       name: t("usage_info.name"),
       description: t("usage_info.description"),
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "1250",
-      bestRating: "5",
-      worstRating: "1",
     },
   }
 }

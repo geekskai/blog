@@ -18,7 +18,10 @@ export async function generateMetadata(props: {
   }
 
   supportedLocales.forEach((loc) => {
-    languages[loc] = `https://geekskai.com/${loc}/tools/vin-decoder/`
+    languages[loc] =
+      loc === "en"
+        ? `https://geekskai.com/tools/vin-decoder/`
+        : `https://geekskai.com/${loc}/tools/vin-decoder/`
   })
 
   // Content freshness metadata - Update this monthly
@@ -138,13 +141,6 @@ export default async function VinDecoderLayout(props: {
     softwareVersion: "1.0",
     datePublished: "2024-01-01",
     dateModified: lastModified.toISOString().split("T")[0],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      ratingCount: "2847",
-      bestRating: "5",
-      worstRating: "1",
-    },
   }
 
   // FAQ structured data

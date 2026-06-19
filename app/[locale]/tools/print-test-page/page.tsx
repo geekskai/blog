@@ -3,7 +3,7 @@
 import React, { useState, useRef } from "react"
 import dynamic from "next/dynamic"
 import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import Image from "next/image"
 
 // @ts-ignore
@@ -42,12 +42,37 @@ const DOWNLOAD_FILENAMES: Record<TestPageType, string> = {
   cmyk: "CMYK.png",
 }
 
+const growthCopy = {
+  "zh-cn": {
+    title: "热门打印测试需求",
+    description: "按常见搜索意图直接开始，适合快速检查家用、办公和学校打印机。",
+    colorPrint: "彩色打印测试页",
+    blackWhitePrint: "黑白打印测试页",
+    cmykPrint: "CMYK 打印校准页",
+    colorDownload: "下载 A4 彩色测试图",
+    printing: "正在打开打印",
+    downloading: "正在下载",
+  },
+  en: {
+    title: "Popular printer test shortcuts",
+    description: "Start from common search intents for home, office, and school printer checks.",
+    colorPrint: "Color printer test page",
+    blackWhitePrint: "Black and white test page",
+    cmykPrint: "CMYK calibration page",
+    colorDownload: "Download A4 color test",
+    printing: "Opening print",
+    downloading: "Downloading",
+  },
+} as const
+
 export default function PrintTestPage() {
   const t = useTranslations("PrintTestPage")
+  const locale = useLocale()
   const [selectedType, setSelectedType] = useState<TestPageType | null>(null)
   const [isPrinting, setIsPrinting] = useState(false)
   const [downloadingType, setDownloadingType] = useState<TestPageType | null>(null)
   const printRef = useRef<HTMLDivElement>(null)
+  const quickCopy = locale === "zh-cn" ? growthCopy["zh-cn"] : growthCopy.en
 
   // Print function
   const handlePrint = (type: TestPageType) => {
@@ -489,6 +514,59 @@ export default function PrintTestPage() {
                   </button>
                 </div>
               </div>
+
+              <section className="mt-5 rounded-xl border border-emerald-400/20 bg-emerald-500/5 p-4 md:mt-6 md:p-5 lg:mt-8 lg:p-6">
+                <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+                  <div>
+                    <h3 className="text-base font-bold text-white md:text-lg lg:text-xl">
+                      {quickCopy.title}
+                    </h3>
+                    <p className="mt-1 text-xs leading-5 text-slate-300 md:text-sm">
+                      {quickCopy.description}
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                  <button
+                    type="button"
+                    onClick={() => handlePrint("color")}
+                    disabled={isPrinting}
+                    className="min-h-[52px] rounded-xl border border-blue-400/30 bg-blue-500/10 px-4 py-3 text-left text-sm font-semibold text-white transition-colors hover:border-blue-300/60 hover:bg-blue-500/20 disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    {isPrinting && selectedType === "color"
+                      ? quickCopy.printing
+                      : quickCopy.colorPrint}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handlePrint("blackWhite")}
+                    disabled={isPrinting}
+                    className="min-h-[52px] rounded-xl border border-slate-400/30 bg-slate-500/10 px-4 py-3 text-left text-sm font-semibold text-white transition-colors hover:border-slate-300/60 hover:bg-slate-500/20 disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    {isPrinting && selectedType === "blackWhite"
+                      ? quickCopy.printing
+                      : quickCopy.blackWhitePrint}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handlePrint("cmyk")}
+                    disabled={isPrinting}
+                    className="min-h-[52px] rounded-xl border border-cyan-400/30 bg-cyan-500/10 px-4 py-3 text-left text-sm font-semibold text-white transition-colors hover:border-cyan-300/60 hover:bg-cyan-500/20 disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    {isPrinting && selectedType === "cmyk"
+                      ? quickCopy.printing
+                      : quickCopy.cmykPrint}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleDownload("color")}
+                    disabled={downloadingType !== null}
+                    className="min-h-[52px] rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-4 py-3 text-left text-sm font-semibold text-white transition-colors hover:border-emerald-300/60 hover:bg-emerald-500/20 disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    {downloadingType === "color" ? quickCopy.downloading : quickCopy.colorDownload}
+                  </button>
+                </div>
+              </section>
 
               {/* Info Section */}
               <div className="mt-5 rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-purple-500/10 p-4 backdrop-blur-sm md:mt-6 md:p-5 lg:mt-8 lg:p-6">

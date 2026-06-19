@@ -34,7 +34,10 @@ export async function generateMetadata(props: {
   }
 
   supportedLocales.forEach((loc) => {
-    languages[loc] = `https://geekskai.com/${loc}/tools/pixels-to-inches/`
+    languages[loc] =
+      loc === "en"
+        ? `https://geekskai.com/tools/pixels-to-inches/`
+        : `https://geekskai.com/${loc}/tools/pixels-to-inches/`
   })
 
   return {
@@ -172,13 +175,6 @@ export default async function PixelsToInchesLayout(props: {
     softwareVersion: "1.0",
     datePublished: "2024-01-24",
     dateModified: new Date().toISOString().split("T")[0],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "1250",
-      bestRating: "5",
-      worstRating: "1",
-    },
   }
 
   // 动态生成 FAQ 结构化数据
@@ -231,13 +227,6 @@ export default async function PixelsToInchesLayout(props: {
       t("features_section.customizable_ppi"),
       t("features_section.precision_control"),
     ].join(", "),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "1250",
-      bestRating: "5",
-      worstRating: "1",
-    },
   }
 
   // 动态生成面包屑结构化数据

@@ -867,11 +867,7 @@ export default function DiscordTimestampGenerator() {
         </div>
       </div>
 
-      <TldrBlock
-        variant="heading"
-        className="mx-auto mb-6 max-w-7xl"
-        title={t("geo_tldr.title")}
-      >
+      <TldrBlock variant="heading" className="mx-auto mb-6 max-w-7xl" title={t("geo_tldr.title")}>
         {t.rich("geo_tldr.content", {
           strong: (chunks) => <strong className="text-white">{chunks}</strong>,
         })}

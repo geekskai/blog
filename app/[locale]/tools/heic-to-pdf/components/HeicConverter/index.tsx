@@ -439,11 +439,6 @@ export default function HeicConverter() {
               "Advanced customization options",
               "Mobile device support",
             ].join(", "),
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: "4.8",
-              ratingCount: "1250",
-            },
           }),
         }}
       />

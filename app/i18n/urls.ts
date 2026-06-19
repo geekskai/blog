@@ -20,12 +20,12 @@ export function getLocalizedUrl(siteUrl: string, locale: string, path = "/") {
   return `${siteUrl}${getLocalizedPath(locale, path)}`
 }
 
-export function buildLanguageAlternates(siteUrl: string, path = "/") {
+export function buildLanguageAlternates(siteUrl: string, path = "/", locales = supportedLocales) {
   const languages: Record<string, string> = {
     "x-default": getLocalizedUrl(siteUrl, defaultLocale, path),
   }
 
-  supportedLocales.forEach((locale) => {
+  locales.forEach((locale) => {
     languages[locale] = getLocalizedUrl(siteUrl, locale, path)
   })
 

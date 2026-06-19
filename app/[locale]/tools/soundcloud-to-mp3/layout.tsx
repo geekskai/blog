@@ -1,7 +1,11 @@
-import { supportedLocales } from "app/i18n/routing"
-import { Metadata } from "next"
+import { buildLanguageAlternates, getLocalizedUrl } from "@/app/i18n/urls"
+import { isSoundCloudGrowthLocale, soundCloudGrowthLocales } from "@/data/soundCloudGrowth"
+import type { Metadata } from "next"
 import React from "react"
 import { getTranslations } from "next-intl/server"
+
+const SITE_URL = "https://geekskai.com"
+const TOOL_PATH = "/tools/soundcloud-to-mp3/"
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>
@@ -11,15 +15,8 @@ export async function generateMetadata(props: {
   const { locale } = params
 
   const t = await getTranslations({ locale, namespace: "SoundCloudToMP3" })
-  const isDefaultLocale = locale === "en"
-
-  const languages: Record<string, string> = {
-    "x-default": "https://geekskai.com/tools/soundcloud-to-mp3/",
-  }
-
-  supportedLocales.forEach((loc) => {
-    languages[loc] = `https://geekskai.com/${loc}/tools/soundcloud-to-mp3/`
-  })
+  const canonical = getLocalizedUrl(SITE_URL, locale, TOOL_PATH)
+  const shouldIndex = isSoundCloudGrowthLocale(locale)
 
   // Update this monthly
   const lastModified = new Date("2026-06-16") // Update current date
@@ -32,9 +29,7 @@ export async function generateMetadata(props: {
       title: t("metadata_og_title"),
       description: t("metadata_og_description"),
       type: "website",
-      url: isDefaultLocale
-        ? "https://geekskai.com/tools/soundcloud-to-mp3/"
-        : `https://geekskai.com/${locale}/tools/soundcloud-to-mp3/`,
+      url: canonical,
       siteName: "GeeksKai",
       images: [
         {
@@ -52,18 +47,14 @@ export async function generateMetadata(props: {
       description: t("metadata_twitter_description"),
     },
     alternates: {
-      canonical: isDefaultLocale
-        ? "https://geekskai.com/tools/soundcloud-to-mp3/"
-        : `https://geekskai.com/${locale}/tools/soundcloud-to-mp3/`,
-      languages: {
-        ...languages,
-      },
+      canonical,
+      languages: buildLanguageAlternates(SITE_URL, TOOL_PATH, [...soundCloudGrowthLocales]),
     },
     robots: {
-      index: true,
+      index: shouldIndex,
       follow: true,
       googleBot: {
-        index: true,
+        index: shouldIndex,
         follow: true,
         "max-video-preview": -1,
         "max-image-preview": "large",
@@ -78,7 +69,10 @@ export async function generateMetadata(props: {
   }
 }
 
-export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+export default async function Layout(props: {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}) {
   const params = await props.params
 
   const { locale } = params
@@ -86,10 +80,7 @@ export default async function Layout(props: { children: React.ReactNode; params:
   const { children } = props
 
   const t = await getTranslations({ locale, namespace: "SoundCloudToMP3" })
-  const isDefaultLocale = locale === "en"
-  const baseUrl = isDefaultLocale
-    ? "https://geekskai.com/tools/soundcloud-to-mp3"
-    : `https://geekskai.com/${locale}/tools/soundcloud-to-mp3`
+  const baseUrl = getLocalizedUrl(SITE_URL, locale, TOOL_PATH).replace(/\/$/, "")
 
   // WebApplication Schema
   const webApplicationSchema = {
@@ -123,13 +114,6 @@ export default async function Layout(props: { children: React.ReactNode; params:
     ].join(", "),
     browserRequirements: t("schema_browser_requirements"),
     softwareVersion: t("schema_software_version"),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      ratingCount: "850",
-      bestRating: "5",
-      worstRating: "1",
-    },
   }
 
   // Breadcrumb Schema

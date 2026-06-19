@@ -70,15 +70,7 @@ const RELATED_TOOLS = [
 const SECTION = "mx-auto w-full max-w-7xl px-4 sm:px-6"
 const SECTION_PY = "py-8 md:py-11 lg:py-14"
 
-function SectionHeader({
-  id,
-  title,
-  intro,
-}: {
-  id: string
-  title: string
-  intro?: string
-}) {
+function SectionHeader({ id, title, intro }: { id: string; title: string; intro?: string }) {
   return (
     <>
       <h2 id={id} className="text-center text-xl font-semibold leading-snug text-white md:text-2xl">

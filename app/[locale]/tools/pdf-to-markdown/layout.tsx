@@ -100,11 +100,6 @@ const jsonLd = {
     audienceType:
       "Developers, Technical Writers, Content Creators, Documentation Teams, Students, Researchers, Bloggers, Markdown Users",
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.8",
-    ratingCount: "1250",
-  },
   potentialAction: [
     {
       "@type": "ConvertAction",

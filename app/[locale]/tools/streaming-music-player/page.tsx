@@ -26,7 +26,7 @@ function PlayerLoadingShell() {
     <div className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl">
       <div className="aspect-video animate-pulse bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900">
         <div className="flex h-full flex-col items-center justify-center gap-6 px-6 text-center">
-          <div className="h-16 w-16 rounded-full border-4 border-purple-500/40 border-t-purple-300 animate-spin" />
+          <div className="h-16 w-16 animate-spin rounded-full border-4 border-purple-500/40 border-t-purple-300" />
           <div>
             <h2 className="text-xl font-bold text-white">Loading player...</h2>
             <p className="mt-2 text-sm text-slate-400">Preparing the browser-only HLS runtime.</p>

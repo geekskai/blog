@@ -18,7 +18,10 @@ export async function generateMetadata(props: {
   }
 
   supportedLocales.forEach((loc) => {
-    languages[loc] = `https://geekskai.com/${loc}/tools/streaming-music-player/`
+    languages[loc] =
+      loc === "en"
+        ? `https://geekskai.com/tools/streaming-music-player/`
+        : `https://geekskai.com/${loc}/tools/streaming-music-player/`
   })
 
   const lastModified = new Date("2026-05-26")

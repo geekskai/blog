@@ -3,6 +3,7 @@ import React, { useState, useCallback, useEffect, useRef } from "react"
 import { useTranslations } from "next-intl"
 import dynamic from "next/dynamic"
 import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
+import SoundCloudToolSwitcher from "@/components/SoundCloudToolSwitcher"
 import PlaylistTracks from "./components/PlaylistTracks"
 import DownloadProgress from "./components/DownloadProgress"
 import TrackDownloadForm from "../soundcloud-downloader/components/TrackDownloadForm"
@@ -252,6 +253,8 @@ export default function SoundCloudPlaylistDownloaderPage() {
             }}
           />
         </div>
+
+        <SoundCloudToolSwitcher current="playlist" />
 
         {/* Download Progress */}
         {downloadProgress.status !== "idle" && (

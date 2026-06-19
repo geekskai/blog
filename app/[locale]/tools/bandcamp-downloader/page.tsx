@@ -84,9 +84,7 @@ export default function BandcampDownloaderPage() {
       return
     }
 
-    setRouteError(
-      t("router.errors.unsupported")
-    )
+    setRouteError(t("router.errors.unsupported"))
   }
 
   const pasteFromClipboard = async () => {

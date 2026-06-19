@@ -62,7 +62,10 @@ export async function generateMetadata(props: {
   }
 }
 
-export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+export default async function Layout(props: {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}) {
   const params = await props.params
 
   const { locale } = params
@@ -131,13 +134,6 @@ export default async function Layout(props: { children: React.ReactNode; params:
         price: "0",
         priceCurrency: "USD",
         availability: "https://schema.org/InStock",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        ratingCount: "1850",
-        bestRating: "5",
-        worstRating: "1",
       },
     },
     potentialAction: [

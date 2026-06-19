@@ -19,7 +19,10 @@ export async function generateMetadata(props: {
   const lastModified = new Date("2026-04-29")
 
   supportedLocales.forEach((locale) => {
-    languages[locale] = `https://geekskai.com/${locale}/tools/tip-screen-generator/`
+    languages[locale] =
+      locale === "en"
+        ? `https://geekskai.com/tools/tip-screen-generator/`
+        : `https://geekskai.com/${locale}/tools/tip-screen-generator/`
   })
   return {
     title: t("seo_title"),
@@ -68,7 +71,10 @@ export async function generateMetadata(props: {
   }
 }
 
-export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+export default async function Layout(props: {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}) {
   const params = await props.params
 
   const { locale } = params
@@ -115,13 +121,6 @@ export default async function Layout(props: { children: React.ReactNode; params:
     keywords: t("seo_keywords"),
     educationalUse:
       "UX Design Education, Tipping Culture Awareness, Social Commentary, Digital Psychology",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "1250",
-      bestRating: "5",
-      worstRating: "1",
-    },
   }
   return (
     <div className="min-h-screen">

@@ -24,7 +24,10 @@ export async function generateMetadata(props: {
   }
 
   supportedLocales.forEach((loc) => {
-    languages[loc] = `https://geekskai.com/${loc}/tools/${TOOL_SLUG}/`
+    languages[loc] =
+      loc === "en"
+        ? `https://geekskai.com/tools/${TOOL_SLUG}/`
+        : `https://geekskai.com/${loc}/tools/${TOOL_SLUG}/`
   })
 
   const title = t("seo_title")

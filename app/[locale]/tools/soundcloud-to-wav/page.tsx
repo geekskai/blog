@@ -4,6 +4,7 @@ import TrackInfoCard, { TrackInfo } from "./TrackInfoCard"
 import { useTranslations } from "next-intl"
 import dynamic from "next/dynamic"
 import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
+import SoundCloudToolSwitcher from "@/components/SoundCloudToolSwitcher"
 import TrackDownloadForm from "../soundcloud-downloader/components/TrackDownloadForm"
 import {
   CoreFactsSection,
@@ -145,6 +146,8 @@ export default function Page() {
             />
           </div>
         </div>
+
+        <SoundCloudToolSwitcher current="wav" />
 
         {/* Loading skeleton */}
         {loadingState === "loading" && !trackInfo && (

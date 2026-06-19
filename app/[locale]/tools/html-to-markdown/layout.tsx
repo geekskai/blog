@@ -26,7 +26,10 @@ export async function generateMetadata(props: {
   }
 
   supportedLocales.forEach((loc: string) => {
-    languages[loc] = `https://geekskai.com/${loc}/tools/html-to-markdown/`
+    languages[loc] =
+      loc === "en"
+        ? `https://geekskai.com/tools/html-to-markdown/`
+        : `https://geekskai.com/${loc}/tools/html-to-markdown/`
   })
 
   return {
@@ -126,13 +129,6 @@ async function getJsonLd(locale: string) {
       url: "https://geekskai.com",
       sameAs: ["https://github.com/geekskai", "https://twitter.com/geekskai"],
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "1250",
-      bestRating: "5",
-      worstRating: "1",
-    },
   }
 }
 
@@ -165,7 +161,10 @@ async function getBreadcrumbSchema(locale: string) {
   }
 }
 
-export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+export default async function Layout(props: {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}) {
   const params = await props.params
 
   const { locale } = params

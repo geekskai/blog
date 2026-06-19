@@ -176,13 +176,6 @@ export default async function BrandVinDecoderPage(props: BrandPageProps) {
     softwareVersion: "1.0",
     datePublished: "2025-01-01",
     dateModified: lastModified.toISOString().split("T")[0],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      ratingCount: "2847",
-      bestRating: "5",
-      worstRating: "1",
-    },
   }
 
   // Breadcrumb structured data - Enhanced for AI SEO
@@ -252,13 +245,6 @@ export default async function BrandVinDecoderPage(props: BrandPageProps) {
       price: "0",
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "1523",
-      bestRating: "5",
-      worstRating: "1",
     },
   }
 

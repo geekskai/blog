@@ -150,7 +150,9 @@ function VideoResultCard({ video, t }: VideoResultCardProps) {
               {video.title}
             </h3>
             {video.author ? (
-              <p className="mt-1 line-clamp-2 text-base leading-5 text-slate-400 md:text-lg">{video.author}</p>
+              <p className="mt-1 line-clamp-2 text-base leading-5 text-slate-400 md:text-lg">
+                {video.author}
+              </p>
             ) : null}
           </div>
         </div>
@@ -241,7 +243,10 @@ function DownloadFeedback({
   )
 }
 
-export default function VideoDownloader({ variant = "default", autoFocus = false }: VideoDownloaderProps) {
+export default function VideoDownloader({
+  variant = "default",
+  autoFocus = false,
+}: VideoDownloaderProps) {
   const t = useTranslations("VideoDownloader")
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -371,8 +376,13 @@ export default function VideoDownloader({ variant = "default", autoFocus = false
         cache: "no-store",
       })
       if (initRes.status !== 302) {
-        const body = (await initRes.json().catch(() => ({}))) as { error?: string; message?: string }
-        throw new Error(body.message || body.error || `${t("error_download_failed")} (${initRes.status})`)
+        const body = (await initRes.json().catch(() => ({}))) as {
+          error?: string
+          message?: string
+        }
+        throw new Error(
+          body.message || body.error || `${t("error_download_failed")} (${initRes.status})`
+        )
       }
       const fileUrl = initRes.headers.get("Location")
       if (!fileUrl) {
@@ -408,7 +418,9 @@ export default function VideoDownloader({ variant = "default", autoFocus = false
       setDownloadProgress(0)
       const message = error instanceof Error ? error.message : t("error_download_failed")
       const mappedError = mapDownloaderApiError(message)
-      setDownloadError(getDownloaderErrorMessage(t, mappedError) ?? `${t("error_download_failed")} (${message})`)
+      setDownloadError(
+        getDownloaderErrorMessage(t, mappedError) ?? `${t("error_download_failed")} (${message})`
+      )
       startCooldown()
     } finally {
       stopProgressSimulation()

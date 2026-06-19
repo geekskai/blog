@@ -4,7 +4,7 @@ import { genPageMetadata } from "app/seo"
 import { getTranslations } from "next-intl/server"
 import { Metadata } from "next"
 import siteMetadata from "@/data/siteMetadata"
-import { supportedLocales } from "@/app/i18n/routing"
+import { buildLanguageAlternates, getLocalizedUrl } from "@/app/i18n/urls"
 
 const LAST_MODIFIED = new Date("2026-04-21")
 
@@ -23,13 +23,6 @@ export async function generateMetadata({
     `Explore ${projectCount} ${projectCount === 1 ? "project" : "projects"} by ${siteMetadata.author}. Discover web applications, open-source projects, and innovative solutions built with modern technologies.`
 
   const isDefaultLocale = locale === "en"
-  const languages: Record<string, string> = {
-    "x-default": "https://geekskai.com/projects/",
-  }
-
-  supportedLocales.forEach((loc) => {
-    languages[loc] = `https://geekskai.com/${loc}/projects/`
-  })
 
   const localeMap: Record<string, string> = {
     en: "en_US",
@@ -42,7 +35,7 @@ export async function generateMetadata({
 
   const ogLocale = localeMap[locale] || "en_US"
   const baseUrl = siteMetadata.siteUrl
-  const url = `${baseUrl}${locale === "en" ? "" : `/${locale}`}/projects/`
+  const url = getLocalizedUrl(baseUrl, locale, "/projects/")
 
   return genPageMetadata({
     title: `${title} - ${siteMetadata.title}`,
@@ -58,10 +51,8 @@ export async function generateMetadata({
       "web applications",
     ],
     alternates: {
-      canonical: isDefaultLocale ? `${baseUrl}/projects/` : `${baseUrl}/${locale}/projects/`,
-      languages: {
-        ...languages,
-      },
+      canonical: isDefaultLocale ? `${baseUrl}/projects/` : url,
+      languages: buildLanguageAlternates(baseUrl, "/projects/"),
     },
     openGraph: {
       title: `${title} - ${siteMetadata.title}`,

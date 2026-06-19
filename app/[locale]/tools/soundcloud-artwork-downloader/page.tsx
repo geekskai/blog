@@ -3,6 +3,7 @@
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 import { TldrBlock } from "@/components/TldrBlock"
 import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
+import SoundCloudToolSwitcher from "@/components/SoundCloudToolSwitcher"
 import { useTranslations } from "next-intl"
 import dynamic from "next/dynamic"
 import React, { useEffect, useMemo, useRef, useState } from "react"
@@ -151,6 +152,8 @@ export default function SoundCloudArtworkDownloaderPage() {
             />
           </div>
         </div>
+
+        <SoundCloudToolSwitcher current="artwork" />
 
         {loadingState === "loading" && !trackInfo ? (
           <div className="mx-auto max-w-7xl">

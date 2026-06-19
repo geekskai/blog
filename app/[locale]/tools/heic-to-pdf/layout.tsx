@@ -19,7 +19,10 @@ export async function generateMetadata(props: {
   }
 
   supportedLocales.forEach((loc: string) => {
-    languages[loc] = `https://geekskai.com/${loc}/tools/heic-to-pdf/`
+    languages[loc] =
+      loc === "en"
+        ? `https://geekskai.com/tools/heic-to-pdf/`
+        : `https://geekskai.com/${loc}/tools/heic-to-pdf/`
   })
 
   return {
@@ -134,18 +137,14 @@ async function generateJsonLd(locale: string) {
         priceCurrency: "USD",
         availability: "https://schema.org/InStock",
       },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.8",
-        ratingCount: "1250",
-        bestRating: "5",
-        worstRating: "1",
-      },
     },
   }
 }
 
-export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+export default async function Layout(props: {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}) {
   const params = await props.params
 
   const { locale } = params

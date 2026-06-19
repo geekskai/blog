@@ -31,7 +31,7 @@ export async function generateMetadata(props: {
   }
 
   supportedLocales.forEach((loc: string) => {
-    languages[loc] = `${baseUrl}/${loc}${toolPath}`
+    languages[loc] = loc === "en" ? `${baseUrl}${toolPath}` : `${baseUrl}/${loc}${toolPath}`
   })
 
   return {
@@ -91,7 +91,10 @@ export async function generateMetadata(props: {
   }
 }
 
-export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+export default async function Layout(props: {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}) {
   const params = await props.params
 
   const { locale } = params
@@ -222,13 +225,6 @@ export default async function Layout(props: { children: React.ReactNode; params:
     targetAudience: {
       "@type": "Audience",
       audienceType: t("structured_data_audience_type"),
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "1250",
-      bestRating: "5",
-      worstRating: "1",
     },
   }
 

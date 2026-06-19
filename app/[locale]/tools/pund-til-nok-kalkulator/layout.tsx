@@ -39,7 +39,10 @@ export async function generateMetadata(props: {
   }
 
   supportedLocales.forEach((loc) => {
-    languages[loc] = `https://geekskai.com/${loc}/tools/pund-til-nok-kalkulator/`
+    languages[loc] =
+      loc === "en"
+        ? `https://geekskai.com/tools/pund-til-nok-kalkulator/`
+        : `https://geekskai.com/${loc}/tools/pund-til-nok-kalkulator/`
   })
 
   return {
@@ -215,13 +218,6 @@ export default async function GbpNokConverterLayout(props: {
       t("structured_data.feature_list_7"),
       t("structured_data.feature_list_8"),
     ].join(", "),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5",
-      ratingCount: "1000",
-      bestRating: "5",
-      worstRating: "1",
-    },
     audience: {
       "@type": "Audience",
       audienceType: [

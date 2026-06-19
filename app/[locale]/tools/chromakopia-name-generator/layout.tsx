@@ -19,7 +19,10 @@ export async function generateMetadata(props: {
   const lastModified = new Date("2026-04-26")
 
   supportedLocales.forEach((locale) => {
-    languages[locale] = `https://geekskai.com/${locale}/tools/chromakopia-name-generator/`
+    languages[locale] =
+      locale === "en"
+        ? `https://geekskai.com/tools/chromakopia-name-generator/`
+        : `https://geekskai.com/${locale}/tools/chromakopia-name-generator/`
   })
 
   return {
@@ -69,7 +72,10 @@ export async function generateMetadata(props: {
   }
 }
 
-export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+export default async function Layout(props: {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}) {
   const params = await props.params
 
   const { locale } = params
@@ -115,13 +121,6 @@ export default async function Layout(props: { children: React.ReactNode; params:
     keywords: t("seo_keywords"),
     educationalUse:
       "Creative Writing, Character Development, Artistic Expression, Music-Inspired Creativity",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "1250",
-      bestRating: "5",
-      worstRating: "1",
-    },
   }
 
   return (

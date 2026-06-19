@@ -19,7 +19,10 @@ export async function generateMetadata(props: {
   const lastModified = new Date("2026-05-04")
 
   supportedLocales.forEach((loc) => {
-    languages[loc] = `https://geekskai.com/${loc}/tools/random-ssn-generator/`
+    languages[loc] =
+      loc === "en"
+        ? `https://geekskai.com/tools/random-ssn-generator/`
+        : `https://geekskai.com/${loc}/tools/random-ssn-generator/`
   })
 
   return {
@@ -69,7 +72,10 @@ export async function generateMetadata(props: {
   }
 }
 
-export default async function Layout(props: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+export default async function Layout(props: {
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}) {
   const params = await props.params
 
   const { locale } = params
@@ -124,13 +130,6 @@ export default async function Layout(props: { children: React.ReactNode; params:
     accessMode: ["textual", "visual"],
     accessibilityFeature: ["alternativeText", "readingOrder", "structuralNavigation"],
     usageInfo: t("schema_usage_info"),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "1250",
-      bestRating: "5",
-      worstRating: "1",
-    },
   }
 
   return (
