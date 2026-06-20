@@ -19,10 +19,28 @@ const MegaMenu = dynamic(() => import("./MegaMenu"), {
 })
 
 const Header = () => {
-  // Close dropdown on escape key
   const t = useTranslations("HomePage")
   const tt = useTranslations("ToolsPage")
   const [toolsMenuOpen, setToolsMenuOpen] = useState(false)
+  const closeToolsMenuTimerRef = React.useRef<number | null>(null)
+
+  const openToolsMenu = () => {
+    if (closeToolsMenuTimerRef.current != null) {
+      window.clearTimeout(closeToolsMenuTimerRef.current)
+      closeToolsMenuTimerRef.current = null
+    }
+    setToolsMenuOpen(true)
+  }
+
+  const scheduleCloseToolsMenu = () => {
+    if (closeToolsMenuTimerRef.current != null) {
+      window.clearTimeout(closeToolsMenuTimerRef.current)
+    }
+    closeToolsMenuTimerRef.current = window.setTimeout(() => {
+      setToolsMenuOpen(false)
+      closeToolsMenuTimerRef.current = null
+    }, 120)
+  }
 
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
@@ -32,7 +50,12 @@ const Header = () => {
     }
 
     document.addEventListener("keydown", handleEscape)
-    return () => document.removeEventListener("keydown", handleEscape)
+    return () => {
+      document.removeEventListener("keydown", handleEscape)
+      if (closeToolsMenuTimerRef.current != null) {
+        window.clearTimeout(closeToolsMenuTimerRef.current)
+      }
+    }
   }, [])
 
   return (
@@ -76,9 +99,10 @@ const Header = () => {
             {/* Tools Dropdown */}
             <div
               data-dropdown
-              onMouseEnter={() => setToolsMenuOpen(true)}
-              onMouseLeave={() => setToolsMenuOpen(false)}
-              onFocus={() => setToolsMenuOpen(true)}
+              className="static"
+              onMouseEnter={openToolsMenu}
+              onMouseLeave={scheduleCloseToolsMenu}
+              onFocus={openToolsMenu}
               onBlur={(event) => {
                 if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
                   setToolsMenuOpen(false)
@@ -93,7 +117,7 @@ const Header = () => {
                 aria-haspopup="true"
                 aria-expanded={toolsMenuOpen}
                 aria-controls="desktop-tools-menu"
-                onClick={() => setToolsMenuOpen(true)}
+                onClick={openToolsMenu}
               >
                 {t("header_nav_tools")}
                 <ChevronDown
@@ -106,7 +130,9 @@ const Header = () => {
               {/* MegaMenu Dropdown - Centered relative to header container */}
               <div
                 id="desktop-tools-menu"
-                className={`absolute inset-x-0 top-full z-50 mt-0 flex w-full justify-center shadow-xl backdrop-blur-xl transition-all duration-300 ${
+                onMouseEnter={openToolsMenu}
+                onMouseLeave={scheduleCloseToolsMenu}
+                className={`absolute inset-x-0 top-full z-50 -mt-4 flex w-full justify-center pt-4 shadow-xl backdrop-blur-xl transition-all duration-300 ${
                   toolsMenuOpen ? "visible opacity-100" : "pointer-events-none invisible opacity-0"
                 }`}
               >

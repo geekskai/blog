@@ -1,37 +1,23 @@
 "use client"
 
+import CopyAndTwitterShareButton from "@/components/CopyAndTwitterShareButton"
 import ShareButtons from "@/components/ShareButtons"
-import { CheckCircle2, Copy, Share2, X } from "lucide-react"
+import { CheckCircle2, Share2, X } from "lucide-react"
 import { useCallback, useEffect, useRef, useState } from "react"
 
 type DownloadShareModalProps = {
   isOpen: boolean
   shareLink: string
+  shareTitle?: string
   unlockAmount?: number
   onClose: () => void
   onUnlock: () => void
 }
 
-async function copyText(text: string) {
-  if (navigator.clipboard?.writeText) {
-    await navigator.clipboard.writeText(text)
-    return
-  }
-
-  const textarea = document.createElement("textarea")
-  textarea.value = text
-  textarea.setAttribute("readonly", "true")
-  textarea.style.position = "fixed"
-  textarea.style.left = "-9999px"
-  document.body.appendChild(textarea)
-  textarea.select()
-  document.execCommand("copy")
-  document.body.removeChild(textarea)
-}
-
 export default function DownloadShareModal({
   isOpen,
   shareLink,
+  shareTitle,
   unlockAmount = 3,
   onClose,
   onUnlock,
@@ -85,16 +71,13 @@ export default function DownloadShareModal({
 
   const verifying = countdown != null
 
-  const handleCopyAndUnlock = async () => {
+  const handleCopied = () => {
     setCopyError(null)
-    try {
-      await copyText(shareLink)
-      setCopied(true)
-    } catch {
-      setCopyError("Copy failed, but verification will continue. You can copy the link manually.")
-    } finally {
-      startVerification()
-    }
+    setCopied(true)
+  }
+
+  const handleCopyFailed = () => {
+    setCopyError("Copy failed, but verification will continue. You can copy the link manually.")
   }
 
   return (
@@ -139,15 +122,19 @@ export default function DownloadShareModal({
           </p>
         ) : null}
 
-        <button
-          type="button"
-          onClick={() => void handleCopyAndUnlock()}
+        <CopyAndTwitterShareButton
+          url={shareLink}
+          title={shareTitle}
           disabled={verifying}
+          onCopied={handleCopied}
+          onCopyFailed={handleCopyFailed}
+          onShareClick={startVerification}
           className="mt-4 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary-600 to-primary-500 px-4 text-sm font-semibold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          <Copy className="h-4 w-4" aria-hidden />
-          {verifying ? `Verifying share status...${countdown ?? 0}s` : "Copy link and unlock"}
-        </button>
+          {verifying
+            ? `Verifying share status...${countdown ?? 0}s`
+            : "Copy link & share on X to unlock"}
+        </CopyAndTwitterShareButton>
 
         <div className="mt-4 rounded-xl border border-white/10 bg-slate-950/35 p-3">
           <div className="mb-2 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
