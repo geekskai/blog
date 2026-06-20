@@ -29,6 +29,39 @@ const resolveSoundCloudUrl = async (inputUrl: string): Promise<string> => {
   return normalizedUrl
 }
 
+async function tryGetDirectUrl(
+  transcodings: any[],
+  clientID: string,
+  trackAuth: string,
+  axiosInstance: any
+) {
+  // 优先级：非legacy progressive > 非legacy hls(明文) > legacy progressive > legacy hls(明文)
+  // 完全跳过 encrypted-hls，因为无法在这套架构下解密播放
+  const candidates = transcodings
+    .filter((t: any) => t.format?.protocol === "progressive" || t.format?.protocol === "hls")
+    .sort((a: any, b: any) => {
+      // 非 legacy 优先（更可能是真正可用的新端点）
+      if (a.is_legacy_transcoding === b.is_legacy_transcoding) return 0
+      return a.is_legacy_transcoding ? 1 : -1
+    })
+
+  for (const candidate of candidates) {
+    try {
+      const mediaResponse = await axiosInstance.get(candidate.url, {
+        params: { client_id: clientID, track_authorization: trackAuth },
+      })
+      const directMediaUrl = mediaResponse.data?.url
+      if (directMediaUrl) {
+        return { directUrl: directMediaUrl, protocol: candidate.format.protocol }
+      }
+    } catch {
+      continue // 这条失效，试下一条
+    }
+  }
+
+  return null // 全部失败，说明该曲目只剩加密流，确实不可下载
+}
+
 export async function POST(request: NextRequest) {
   const { url } = await request.json()
   try {
@@ -50,38 +83,58 @@ export async function POST(request: NextRequest) {
 
     console.log(resolvedUrl, "resolvedUrl info===> ", JSON.stringify(info, null, 2))
 
-    if (info.media?.transcodings && Array.isArray(info.media.transcodings)) {
-      const progressive = info.media.transcodings.find(
-        (t: any) =>
-          t.format?.protocol === "progressive" ||
-          t.url?.includes("/progressive") ||
-          t.format?.mime_type?.includes("mp3")
-      )
+    const result = await tryGetDirectUrl(
+      info.media.transcodings,
+      clientID,
+      info.track_authorization,
+      axiosInstance
+    )
 
-      if (progressive) {
-        const mediaResponse = await axiosInstance.get(progressive.url, {
-          params: { client_id: clientID, track_authorization: info.track_authorization },
-        })
-        const directMediaUrl = mediaResponse.data?.url
-
-        if (directMediaUrl) {
-          return NextResponse.json({
-            success: true,
-            directUrl: directMediaUrl,
-            info: {
-              title: info.title,
-              duration: info.duration,
-              id: info.id,
-            },
-          })
-        }
-      }
+    if (result) {
+      return NextResponse.json({
+        success: true,
+        directUrl: result.directUrl,
+        info: {
+          title: info.title,
+          duration: info.duration,
+          id: info.id,
+        },
+      })
     }
+
+    // if (info.media?.transcodings && Array.isArray(info.media.transcodings)) {
+    //   const progressive = info.media.transcodings.find(
+    //     (t: any) =>
+    //       t.format?.protocol === "progressive" ||
+    //       t.url?.includes("/progressive") ||
+    //       t.format?.mime_type?.includes("mp3")
+    //   )
+
+    //   if (progressive) {
+    //     const mediaResponse = await axiosInstance.get(progressive.url, {
+    //       params: { client_id: clientID, track_authorization: info.track_authorization },
+    //     })
+    //     const directMediaUrl = mediaResponse.data?.url
+
+    //     if (directMediaUrl) {
+    //       return NextResponse.json({
+    //         success: true,
+    //         directUrl: directMediaUrl,
+    //         info: {
+    //           title: info.title,
+    //           duration: info.duration,
+    //           id: info.id,
+    //         },
+    //       })
+    //     }
+    //   }
+    // }
 
     return NextResponse.json(
       {
         success: false,
-        error: "Could not resolve a direct download URL for this track.",
+        error:
+          "This track is subject to SoundCloud's copyright protection mechanism, and a download link is not available at this time.",
       },
       { status: 422 }
     )
