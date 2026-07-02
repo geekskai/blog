@@ -72,10 +72,12 @@ const getSoundCloudClientID = async (): Promise<string> => {
   if (configuredClientId) {
     return configuredClientId
   }
-  if (!cachedClientID) {
-    cachedClientID = await scdl.getClientID()
+  const clientID = cachedClientID ?? (await scdl.getClientID())
+  if (!clientID) {
+    throw new Error("SoundCloud client ID could not be resolved")
   }
-  return cachedClientID
+  cachedClientID = clientID
+  return clientID
 }
 
 const getCandidateOutput = (
