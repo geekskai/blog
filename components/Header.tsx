@@ -21,8 +21,10 @@ const MegaMenu = dynamic(() => import("./MegaMenu"), {
 const Header = () => {
   const t = useTranslations("HomePage")
   const tt = useTranslations("ToolsPage")
+  const [hasHydrated, setHasHydrated] = useState(false)
   const [toolsMenuOpen, setToolsMenuOpen] = useState(false)
   const closeToolsMenuTimerRef = React.useRef<number | null>(null)
+  const isToolsMenuVisible = hasHydrated && toolsMenuOpen
 
   const openToolsMenu = () => {
     if (closeToolsMenuTimerRef.current != null) {
@@ -43,6 +45,8 @@ const Header = () => {
   }
 
   useEffect(() => {
+    setHasHydrated(true)
+
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setToolsMenuOpen(false)
@@ -112,17 +116,17 @@ const Header = () => {
               <button
                 type="button"
                 className={`flex cursor-pointer items-center gap-2 px-3 py-2 text-sm font-medium text-slate-300 transition-all duration-300 hover:text-white md:text-lg ${
-                  toolsMenuOpen ? "text-white" : ""
+                  isToolsMenuVisible ? "text-white" : ""
                 }`}
                 aria-haspopup="true"
-                aria-expanded={toolsMenuOpen}
+                aria-expanded={isToolsMenuVisible}
                 aria-controls="desktop-tools-menu"
                 onClick={openToolsMenu}
               >
                 {t("header_nav_tools")}
                 <ChevronDown
                   className={`h-4 w-4 transition-transform duration-300 ${
-                    toolsMenuOpen ? "rotate-180" : ""
+                    isToolsMenuVisible ? "rotate-180" : ""
                   }`}
                 />
               </button>
@@ -133,7 +137,9 @@ const Header = () => {
                 onMouseEnter={openToolsMenu}
                 onMouseLeave={scheduleCloseToolsMenu}
                 className={`absolute inset-x-0 top-full z-50 -mt-4 flex w-full justify-center pt-4 shadow-xl backdrop-blur-xl transition-all duration-300 ${
-                  toolsMenuOpen ? "visible opacity-100" : "pointer-events-none invisible opacity-0"
+                  isToolsMenuVisible
+                    ? "visible opacity-100"
+                    : "pointer-events-none invisible opacity-0"
                 }`}
               >
                 <div className="max-w-8xl w-[95vw]">
@@ -164,7 +170,7 @@ const Header = () => {
 
                     {/* MegaMenu Content */}
                     <div className="custom-scrollbar max-h-[60vh] overflow-y-auto pr-4">
-                      {toolsMenuOpen && <MegaMenu closeMenu={() => setToolsMenuOpen(false)} />}
+                      {isToolsMenuVisible && <MegaMenu closeMenu={() => setToolsMenuOpen(false)} />}
                     </div>
 
                     {/* Footer */}
