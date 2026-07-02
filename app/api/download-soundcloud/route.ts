@@ -4,6 +4,27 @@ import scdl from "soundcloud-downloader"
 export const runtime = "nodejs"
 
 const SOUNDCLOUD_SHORT_URL_REGEX = /^https?:\/\/on\.soundcloud\.com\/[A-Za-z0-9]+(?:[?#].*)?$/
+let cachedClientID: string | null = null
+
+type SoundCloudTranscoding = {
+  url?: string
+  preset?: string
+  is_legacy_transcoding?: boolean
+  format?: {
+    protocol?: string
+    mime_type?: string
+  }
+}
+
+type SoundCloudDownloadFormat = {
+  kind: "progressive" | "hls"
+  extension: "mp3" | "m4a"
+  mimeType: "audio/mpeg" | "audio/mp4"
+  sourceMimeType: string
+  preset?: string
+  isLegacy: boolean
+  url: string
+}
 
 const normalizeSoundCloudUrl = (inputUrl: string): string => {
   try {
@@ -22,172 +43,270 @@ const resolveSoundCloudUrl = async (inputUrl: string): Promise<string> => {
   if (SOUNDCLOUD_SHORT_URL_REGEX.test(normalizedUrl)) {
     const response = await fetch(normalizedUrl, { redirect: "follow" })
     if (!response.ok) {
-      throw new Error(`Failed to resolve short URL. HTTP ${response.status}`)
+      throw Object.assign(new Error(`Failed to resolve short URL. HTTP ${response.status}`), {
+        status: response.status,
+      })
     }
     return normalizeSoundCloudUrl(response.url || normalizedUrl)
   }
   return normalizedUrl
 }
 
-async function tryGetDirectUrl(
-  transcodings: any[],
-  clientID: string,
-  trackAuth: string,
-  axiosInstance: any
-) {
-  // 优先级：非legacy progressive > 非legacy hls(明文) > legacy progressive > legacy hls(明文)
-  // 完全跳过 encrypted-hls，因为无法在这套架构下解密播放
-  const candidates = transcodings
-    .filter((t: any) => t.format?.protocol === "progressive" || t.format?.protocol === "hls")
-    .sort((a: any, b: any) => {
-      // 非 legacy 优先（更可能是真正可用的新端点）
-      if (a.is_legacy_transcoding === b.is_legacy_transcoding) return 0
-      return a.is_legacy_transcoding ? 1 : -1
-    })
+const jsonError = (message: string, code: string, status: number) =>
+  NextResponse.json(
+    {
+      success: false,
+      code,
+      error: message,
+    },
+    {
+      status,
+      headers: {
+        "Cache-Control": "no-store",
+      },
+    }
+  )
 
-  for (const candidate of candidates) {
-    try {
-      const mediaResponse = await axiosInstance.get(candidate.url, {
-        params: { client_id: clientID, track_authorization: trackAuth },
-      })
-      const directMediaUrl = mediaResponse.data?.url
-      if (directMediaUrl) {
-        return { directUrl: directMediaUrl, protocol: candidate.format.protocol }
-      }
-    } catch {
-      continue // 这条失效，试下一条
+const getSoundCloudClientID = async (): Promise<string> => {
+  const configuredClientId = process.env.SOUNDCLOUD_CLIENT_ID?.trim()
+  if (configuredClientId) {
+    return configuredClientId
+  }
+  if (!cachedClientID) {
+    cachedClientID = await scdl.getClientID()
+  }
+  return cachedClientID
+}
+
+const getCandidateOutput = (
+  transcoding: SoundCloudTranscoding
+): Pick<SoundCloudDownloadFormat, "kind" | "extension" | "mimeType"> | null => {
+  const protocol = transcoding.format?.protocol
+  const sourceMimeType = transcoding.format?.mime_type || ""
+
+  if (protocol === "progressive" && sourceMimeType.includes("audio/mpeg")) {
+    return {
+      kind: "progressive",
+      extension: "mp3",
+      mimeType: "audio/mpeg",
     }
   }
 
-  return null // 全部失败，说明该曲目只剩加密流，确实不可下载
+  // SoundCloud's browser-readable HLS is normally fragmented MP4/AAC. Save it as M4A,
+  // not WAV, because no server-side or browser-side PCM conversion happens here.
+  if (protocol === "hls" && sourceMimeType.includes("audio/mp4")) {
+    return {
+      kind: "hls",
+      extension: "m4a",
+      mimeType: "audio/mp4",
+    }
+  }
+
+  return null
+}
+
+const getCandidatePriority = (transcoding: SoundCloudTranscoding): number => {
+  const output = getCandidateOutput(transcoding)
+  if (!output) return 100
+
+  if (output.kind === "progressive") return transcoding.is_legacy_transcoding ? 10 : 0
+  if (transcoding.preset === "aac_160k") return 20
+  if (transcoding.preset === "aac_96k") return 30
+  return 40
+}
+
+const resolveFormatUrl = async (
+  transcoding: SoundCloudTranscoding,
+  clientID: string,
+  trackAuthorization: string | undefined,
+  axiosInstance: any
+): Promise<string | null> => {
+  if (!transcoding.url) return null
+
+  try {
+    const mediaResponse = await axiosInstance.get(transcoding.url, {
+      params: {
+        client_id: clientID,
+        ...(trackAuthorization ? { track_authorization: trackAuthorization } : {}),
+      },
+      timeout: 10_000,
+    })
+    return typeof mediaResponse.data?.url === "string" ? mediaResponse.data.url : null
+  } catch (error) {
+    console.warn("SoundCloud transcoding URL resolve failed", {
+      protocol: transcoding.format?.protocol,
+      mimeType: transcoding.format?.mime_type,
+      preset: transcoding.preset,
+      status: (error as any)?.response?.status,
+    })
+    return null
+  }
+}
+
+const resolveAvailableFormats = async (
+  transcodings: SoundCloudTranscoding[],
+  clientID: string,
+  trackAuthorization: string | undefined,
+  axiosInstance: any
+): Promise<SoundCloudDownloadFormat[]> => {
+  const candidates = transcodings
+    .filter((transcoding) => Boolean(getCandidateOutput(transcoding)))
+    .sort((a, b) => getCandidatePriority(a) - getCandidatePriority(b))
+
+  const formats: SoundCloudDownloadFormat[] = []
+  const seen = new Set<string>()
+
+  for (const candidate of candidates) {
+    const output = getCandidateOutput(candidate)
+    if (!output) continue
+
+    const directUrl = await resolveFormatUrl(candidate, clientID, trackAuthorization, axiosInstance)
+    if (!directUrl || seen.has(directUrl)) continue
+
+    seen.add(directUrl)
+    formats.push({
+      ...output,
+      sourceMimeType: candidate.format?.mime_type || output.mimeType,
+      preset: candidate.preset,
+      isLegacy: Boolean(candidate.is_legacy_transcoding),
+      url: directUrl,
+    })
+  }
+
+  return formats
+}
+
+const getUpstreamStatus = (error: unknown): number | undefined => {
+  const upstreamStatus = (error as any)?.response?.status ?? (error as any)?.status
+  return typeof upstreamStatus === "number" ? upstreamStatus : undefined
+}
+
+const mapSoundCloudError = (error: unknown) => {
+  const status = getUpstreamStatus(error)
+  const message = error instanceof Error ? error.message : String(error)
+  const normalizedMessage = message.toLowerCase()
+
+  if (
+    status === 404 ||
+    normalizedMessage.includes("404") ||
+    normalizedMessage.includes("not found")
+  ) {
+    return {
+      status: 404,
+      code: "soundcloud_resolve_not_found",
+      message:
+        "The SoundCloud URL could not be resolved. The track may have been removed, expired, or copied incorrectly.",
+    }
+  }
+
+  if (
+    status === 401 ||
+    status === 403 ||
+    normalizedMessage.includes("private") ||
+    normalizedMessage.includes("restricted") ||
+    normalizedMessage.includes("forbidden") ||
+    normalizedMessage.includes("unauthorized") ||
+    normalizedMessage.includes("not accessible") ||
+    normalizedMessage.includes("not available for streaming")
+  ) {
+    return {
+      status: 403,
+      code: "private_or_restricted",
+      message:
+        "This track is private, restricted, or not available for public streaming. Please try a public SoundCloud track.",
+    }
+  }
+
+  return {
+    status: 502,
+    code: "soundcloud_upstream_error",
+    message:
+      "SoundCloud could not provide a usable stream right now. Please try again with a public track.",
+  }
 }
 
 export async function POST(request: NextRequest) {
-  const { url } = await request.json()
+  let inputUrl = ""
+
   try {
-    if (!url) {
-      return NextResponse.json({ error: "URL is required" }, { status: 400 })
+    const body = await request.json().catch(() => ({}))
+    inputUrl = typeof body.url === "string" ? body.url.trim() : ""
+
+    if (!inputUrl) {
+      return jsonError("URL is required", "invalid_url", 400)
     }
 
     try {
-      new URL(url)
+      new URL(inputUrl)
     } catch {
-      return NextResponse.json({ error: "Invalid URL format" }, { status: 400 })
+      return jsonError("Invalid URL format", "invalid_url", 400)
     }
 
-    const resolvedUrl = await resolveSoundCloudUrl(url)
-
+    const resolvedUrl = await resolveSoundCloudUrl(inputUrl)
     const info = await scdl.getInfo(resolvedUrl)
-    const clientID = await scdl.getClientID()
-    const axiosInstance = scdl.axios
+    const transcodings = info?.media?.transcodings
 
-    console.log(resolvedUrl, "resolvedUrl info===> ", JSON.stringify(info, null, 2))
+    if (!Array.isArray(transcodings) || transcodings.length === 0) {
+      return jsonError(
+        "No usable SoundCloud audio stream was found for this track.",
+        "no_usable_streams",
+        422
+      )
+    }
 
-    const result = await tryGetDirectUrl(
-      info.media.transcodings,
+    const clientID = await getSoundCloudClientID()
+    const formats = await resolveAvailableFormats(
+      transcodings,
       clientID,
       info.track_authorization,
-      axiosInstance
+      scdl.axios
     )
 
-    if (result) {
-      return NextResponse.json({
+    if (formats.length === 0) {
+      return jsonError(
+        "This track does not expose a browser-downloadable MP3 or M4A stream.",
+        "no_usable_streams",
+        422
+      )
+    }
+
+    const recommendedFormat = formats.find((format) => format.kind === "progressive") ?? formats[0]
+
+    console.info("SoundCloud download formats resolved", {
+      inputUrl,
+      resolvedUrl,
+      trackId: info.id,
+      formatCount: formats.length,
+      recommended: recommendedFormat.kind,
+    })
+
+    return NextResponse.json(
+      {
         success: true,
-        directUrl: result.directUrl,
+        directUrl: recommendedFormat.url,
+        directUrlType: recommendedFormat.kind,
+        recommended: recommendedFormat.kind,
+        formats,
         info: {
           title: info.title,
           duration: info.duration,
           id: info.id,
         },
-      })
-    }
-
-    // if (info.media?.transcodings && Array.isArray(info.media.transcodings)) {
-    //   const progressive = info.media.transcodings.find(
-    //     (t: any) =>
-    //       t.format?.protocol === "progressive" ||
-    //       t.url?.includes("/progressive") ||
-    //       t.format?.mime_type?.includes("mp3")
-    //   )
-
-    //   if (progressive) {
-    //     const mediaResponse = await axiosInstance.get(progressive.url, {
-    //       params: { client_id: clientID, track_authorization: info.track_authorization },
-    //     })
-    //     const directMediaUrl = mediaResponse.data?.url
-
-    //     if (directMediaUrl) {
-    //       return NextResponse.json({
-    //         success: true,
-    //         directUrl: directMediaUrl,
-    //         info: {
-    //           title: info.title,
-    //           duration: info.duration,
-    //           id: info.id,
-    //         },
-    //       })
-    //     }
-    //   }
-    // }
-
-    return NextResponse.json(
-      {
-        success: false,
-        error:
-          "This track is subject to SoundCloud's copyright protection mechanism, and a download link is not available at this time.",
       },
-      { status: 422 }
+      {
+        headers: {
+          "Cache-Control": "no-store",
+        },
+      }
     )
   } catch (error) {
-    console.error(`original url: ${url} error==> ${error}`)
-    const errorMessage = error instanceof Error ? error.message : "Failed to download audio"
+    console.error("SoundCloud download resolve failed", {
+      inputUrl,
+      status: getUpstreamStatus(error),
+      message: error instanceof Error ? error.message : String(error),
+    })
 
-    let userFriendlyError = errorMessage
-    let statusCode = 500
-
-    if (
-      errorMessage.includes("private") ||
-      errorMessage.includes("not accessible") ||
-      errorMessage.includes("not available for streaming") ||
-      errorMessage.includes("restricted")
-    ) {
-      userFriendlyError =
-        "This track is private or not accessible. Please ensure the track URL is public and accessible. Private tracks cannot be downloaded."
-      statusCode = 403
-    } else if (errorMessage.includes("404") || errorMessage.includes("Not Found")) {
-      userFriendlyError =
-        "The download link could not be generated. This track may have download restrictions enabled by the artist, or requires premium access."
-      statusCode = 404
-    } else if (errorMessage.includes("403") || errorMessage.includes("Forbidden")) {
-      userFriendlyError =
-        "Access forbidden. This track may be private or restricted. Please check if the track URL is public and try again."
-      statusCode = 403
-    } else if (errorMessage.includes("401") || errorMessage.includes("Unauthorized")) {
-      userFriendlyError =
-        "Unauthorized access. The track may be private or require authentication. Please ensure the track URL is public."
-      statusCode = 401
-    } else if (errorMessage.includes("405") || errorMessage.includes("Method Not Allowed")) {
-      userFriendlyError =
-        "Method not allowed. The track may be private or restricted. Please verify the track URL is public and accessible."
-      statusCode = 405
-    } else if (
-      errorMessage.includes("expired") ||
-      errorMessage.includes("no longer available") ||
-      errorMessage.includes("stream URL")
-    ) {
-      userFriendlyError =
-        "The audio stream URL has expired or is no longer available. Please try fetching the track info again and download immediately."
-      statusCode = 410
-    } else {
-      userFriendlyError = `Failed to download audio. ${errorMessage}. Please verify the track URL is public and accessible. Private tracks cannot be downloaded.`
-    }
-
-    return NextResponse.json(
-      {
-        success: false,
-        error: userFriendlyError,
-      },
-      { status: statusCode }
-    )
+    const mappedError = mapSoundCloudError(error)
+    return jsonError(mappedError.message, mappedError.code, mappedError.status)
   }
 }

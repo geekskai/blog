@@ -201,13 +201,12 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
 
       const safeExtension: DownloadFormat = extension === "wav" ? "wav" : "mp3"
       const fileName = getFileName(trackInfo, safeExtension)
-      const mimeType = safeExtension === "wav" ? "audio/wav" : "audio/mpeg"
 
       setDownloadStatus(t("progress_server_processing"))
       setDownloadProgress(20)
 
       const result = await downloadSoundCloudTrack(url.trim(), fileName, {
-        mimeType,
+        preferredFormat: safeExtension,
         onProgress: (loadedBytes, totalBytes) => {
           if (totalBytes && totalBytes > 0) {
             const progress = Math.round((loadedBytes / totalBytes) * 70 + 20)

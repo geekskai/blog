@@ -196,7 +196,7 @@ export default function SoundCloudDownloaderPage() {
       try {
         const fileName = getSafeFileName(track.title, format)
         await downloadSoundCloudTrack(track.url, fileName, {
-          mimeType: format === "wav" ? "audio/wav" : "audio/mpeg",
+          preferredFormat: format,
         })
       } catch {
         errorCount++
