@@ -19,7 +19,7 @@ export async function generateMetadata(props: {
   const shouldIndex = isSoundCloudGrowthLocale(locale)
 
   // Update this monthly
-  const lastModified = new Date("2026-06-19")
+  const lastModified = new Date("2026-07-02")
 
   return {
     title: t("metadata_title"),

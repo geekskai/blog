@@ -250,7 +250,7 @@ export default function SoundCloudDownloaderPage() {
     <div className="min-h-screen bg-slate-950">
       <div className="relative mx-auto max-w-7xl space-y-4 p-4">
         <ContentFreshnessBadge
-          lastModified={new Date("2026-06-19")}
+          lastModified={new Date("2026-07-02")}
           namespace="SoundCloudDownloader"
         />
 
@@ -378,21 +378,6 @@ export default function SoundCloudDownloaderPage() {
             />
           </div>
         )}
-
-        {/* {((isPlaylistMode && !playlistInfo && playlistLoadingState === "idle") ||
-          (!isPlaylistMode && loadingState === "idle" && !trackInfo)) && (
-          <div className="mx-auto max-w-6xl text-center">
-            <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-sm md:p-10">
-              <div className="mb-4 text-5xl md:mb-6 md:text-7xl">🎼</div>
-              <h2 className="mb-2 text-xl font-bold text-white md:mb-3 md:text-2xl">
-                {tDownloader("empty_state_title")}
-              </h2>
-              <p className="text-sm text-slate-300 md:text-base">
-                {tDownloader("empty_state_description")}
-              </p>
-            </div>
-          </div>
-        )} */}
 
         <DeferredGoogleAdUnitWrap />
 
