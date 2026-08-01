@@ -1,8 +1,7 @@
 "use client"
 
-import { Dialog, Transition } from "@headlessui/react"
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock"
-import { Fragment, useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef } from "react"
+import { createPortal } from "react-dom"
 import dynamic from "next/dynamic"
 import headerNavLinks from "@/data/headerNavLinks"
 import { ChevronDown, Zap, Menu, X } from "lucide-react"
@@ -43,19 +42,22 @@ const MobileNav = () => {
   useEffect(() => {
     if (!navShow) return
 
-    const scrollTarget = navRef.current || document.body
-    disableBodyScroll(scrollTarget)
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeNav()
+      }
+    }
+
+    document.addEventListener("keydown", handleEscape)
 
     return () => {
-      enableBodyScroll(scrollTarget)
+      document.body.style.overflow = previousOverflow
+      document.removeEventListener("keydown", handleEscape)
     }
   }, [navShow])
-
-  useEffect(() => {
-    return () => {
-      clearAllBodyScrollLocks()
-    }
-  }, [])
 
   return (
     <>
@@ -67,32 +69,24 @@ const MobileNav = () => {
         <Menu className="h-6 w-6 text-slate-300 hover:text-white" />
       </button>
 
-      <Transition appear show={navShow} as={Fragment}>
-        <Dialog as="div" onClose={closeNav}>
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
+      {navShow &&
+        createPortal(
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation"
+            className="fixed inset-0 z-40 lg:hidden"
           >
-            <div className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm" />
-          </Transition.Child>
+            <button
+              type="button"
+              aria-label="Close Menu"
+              onClick={closeNav}
+              className="absolute inset-0 bg-black/50"
+            />
 
-          <Transition.Child
-            as={Fragment}
-            enter="transition ease-in-out duration-300 transform"
-            enterFrom="translate-x-full opacity-0"
-            enterTo="translate-x-0 opacity-100"
-            leave="transition ease-in duration-200 transform"
-            leaveFrom="translate-x-0 opacity-100"
-            leaveTo="translate-x-full opacity-0"
-          >
-            <Dialog.Panel
+            <div
               ref={navRef}
-              className="fixed right-0 top-0 z-50 h-full w-80 border-l border-slate-800/50 bg-slate-950/95 shadow-2xl backdrop-blur-xl"
+              className="absolute right-0 top-0 z-10 flex h-full w-80 flex-col border-l border-slate-800/50 bg-slate-950/95 shadow-2xl"
             >
               {/* Header */}
               <div className="flex items-center justify-between border-b border-slate-800/50 p-6">
@@ -110,7 +104,7 @@ const MobileNav = () => {
               </div>
 
               {/* Navigation */}
-              <nav className="flex-1 p-6">
+              <nav className="flex-1 overflow-y-auto p-6">
                 <div className="space-y-2">
                   {headerNavLinks.map((link) => (
                     <LinkNext
@@ -138,32 +132,24 @@ const MobileNav = () => {
                     </button>
 
                     {/* Tools Categorized for Mobile */}
-                    <Transition
-                      show={toolsExpanded}
-                      enter="transition-all duration-300 ease-out"
-                      enterFrom="opacity-0 max-h-0"
-                      enterTo="opacity-100 max-h-[80vh]"
-                      leave="transition-all duration-200 ease-in"
-                      leaveFrom="opacity-100 max-h-[80vh]"
-                      leaveTo="opacity-0 max-h-0"
-                    >
-                      <div className="custom-scrollbar ml-4 mt-2 space-y-4 overflow-hidden overflow-y-auto border-l-2 border-slate-800/50 pl-4">
+                    {toolsExpanded && (
+                      <div className="custom-scrollbar ml-4 mt-2 max-h-[80vh] space-y-4 overflow-y-auto border-l-2 border-slate-800/50 pl-4">
                         <MobileToolsList
                           onNavigate={closeNav}
                           viewAllLabel={t("footer_view_all_tools")}
                         />
                       </div>
-                    </Transition>
+                    )}
                   </div>
 
                   {/* Language Select */}
                   <LanguageSelect />
                 </div>
               </nav>
-            </Dialog.Panel>
-          </Transition.Child>
-        </Dialog>
-      </Transition>
+            </div>
+          </div>,
+          document.body
+        )}
     </>
   )
 }

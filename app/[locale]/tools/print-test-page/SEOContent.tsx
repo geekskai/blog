@@ -8,7 +8,7 @@ export function CoreFactsSection() {
   const t = useTranslations("PrintTestPage")
   return (
     <section className="mb-6 md:mb-8 lg:mb-12" itemScope itemType="https://schema.org/Product">
-      <meta content={t("metadata_title")} />
+      <meta itemProp="name" content={t("metadata_title")} />
       <meta itemProp="description" content={t("metadata_description")} />
       <link itemProp="image" href="https://geekskai.com/static/images/print-test-page.png" />
       <div className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur-md md:rounded-3xl md:p-5 lg:p-6">
