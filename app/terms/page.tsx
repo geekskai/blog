@@ -9,7 +9,7 @@ export const metadata = genPageMetadata({
 })
 
 const SITE_URL = "https://geekskai.com"
-const LAST_UPDATED = "April 5, 2026"
+const LAST_UPDATED = "August 1, 2026"
 
 export default function TermsOfServicePage() {
   return (
@@ -191,6 +191,11 @@ export default function TermsOfServicePage() {
               <li>
                 <strong>No Upfront Costs:</strong> Financial data, credit cards, or compulsory
                 registration are never required to access our main tools.
+              </li>
+              <li>
+                <strong>Optional Accounts:</strong> You may create a free account to use workspace
+                organization features, but downloads and core public tools remain available without
+                registration.
               </li>
               <li>
                 <strong>No Mandatory Paid Tiers:</strong> You receive our best processing

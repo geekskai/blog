@@ -20,6 +20,7 @@ import {
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 import { TldrBlock } from "@/components/TldrBlock"
 import { useSoundCloudTrackDownloadForm } from "../soundcloud-downloader/hooks/useSoundCloudTrackDownloadForm"
+import FreeWorkspacePrompt from "@/components/auth/FreeWorkspacePrompt"
 
 const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
   ssr: false,
@@ -49,6 +50,7 @@ export default function SoundCloudToMP3Page() {
     downloadProgress,
     infoStatus,
     downloadStatus,
+    hasCompletedDownload,
     downloadQuota,
     setExtension,
     handleUrlChange,
@@ -167,6 +169,8 @@ export default function SoundCloudToMP3Page() {
             </div>
           </div>
         )}
+
+        {hasCompletedDownload && <FreeWorkspacePrompt />}
 
         <DeferredGoogleAdUnitWrap />
 

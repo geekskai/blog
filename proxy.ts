@@ -1,7 +1,21 @@
+import { clerkMiddleware } from "@clerk/nextjs/server"
 import createMiddleware from "next-intl/middleware"
+import { NextResponse } from "next/server"
 import { routing } from "./app/i18n/routing"
 
-export default createMiddleware(routing)
+const intlMiddleware = createMiddleware(routing)
+
+// Authentication is intentionally public-first. Individual protected pages call
+// auth() themselves so the existing tools and API routes remain anonymous.
+export default clerkMiddleware((_auth, request) => {
+  const pathname = request.nextUrl.pathname
+
+  if (pathname.startsWith("/api/") || pathname.startsWith("/__clerk/")) {
+    return NextResponse.next()
+  }
+
+  return intlMiddleware(request)
+})
 
 export const config = {
   // 优化匹配器以减少 Proxy 调用
@@ -21,5 +35,7 @@ export const config = {
      * - files with extensions (images, fonts, etc.)
      */
     "/((?!api|love|blog|terms|privacy|tags|_next/static|_next/image|_vercel|favicon.ico|robots.txt|sitemap.xml|.*\\..*).*)",
+    "/__clerk/:path*",
+    "/(api|trpc)(.*)",
   ],
 }

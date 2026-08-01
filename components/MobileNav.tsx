@@ -8,13 +8,18 @@ import { ChevronDown, Zap, Menu, X } from "lucide-react"
 import LanguageSelect from "./LanguageSelect"
 import LinkNext from "next/link"
 import { useTranslations } from "next-intl"
+import AuthControls from "./auth/AuthControls"
+
+interface MobileNavProps {
+  authEnabled?: boolean
+}
 
 const MobileToolsList = dynamic(() => import("./MobileToolsList"), {
   ssr: false,
   loading: () => <div className="h-48 rounded-xl bg-slate-800/40" aria-hidden="true" />,
 })
 
-const MobileNav = () => {
+const MobileNav = ({ authEnabled = false }: MobileNavProps) => {
   const t = useTranslations("HomePage")
   const [navShow, setNavShow] = useState(false)
   const [toolsExpanded, setToolsExpanded] = useState(false)
@@ -144,6 +149,12 @@ const MobileNav = () => {
 
                   {/* Language Select */}
                   <LanguageSelect />
+
+                  {authEnabled && (
+                    <div className="mt-4 border-t border-slate-800/70 pt-4">
+                      <AuthControls mobile onNavigate={closeNav} />
+                    </div>
+                  )}
                 </div>
               </nav>
             </div>

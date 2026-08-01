@@ -143,6 +143,27 @@ module.exports = () => {
         },
       ]
 
+      const nextBuildCacheHeaders =
+        process.env.NODE_ENV === "production"
+          ? [
+              {
+                // Next.js 构建产物 — 命中 edge 后不再回源
+                source: "/_next/static/:path*",
+                headers: immutableCache,
+              },
+              {
+                // 图片优化结果 — 与 minimumCacheTTL 配合，减少重复 origin 拉取
+                source: "/_next/image",
+                headers: [
+                  {
+                    key: "Cache-Control",
+                    value: "public, max-age=604800, stale-while-revalidate=86400",
+                  },
+                ],
+              },
+            ]
+          : []
+
       return [
         {
           source: "/static/:path*",
@@ -152,21 +173,7 @@ module.exports = () => {
           source: "/fonts/:path*",
           headers: immutableCache,
         },
-        {
-          // Next.js 构建产物 — 命中 edge 后不再回源
-          source: "/_next/static/:path*",
-          headers: immutableCache,
-        },
-        {
-          // 图片优化结果 — 与 minimumCacheTTL 配合，减少重复 origin 拉取
-          source: "/_next/image",
-          headers: [
-            {
-              key: "Cache-Control",
-              value: "public, max-age=604800, stale-while-revalidate=86400",
-            },
-          ],
-        },
+        ...nextBuildCacheHeaders,
       ]
     },
   })

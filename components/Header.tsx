@@ -12,13 +12,18 @@ import { TOOL_COUNT } from "@/data/toolNavigation"
 import LanguageSelect from "./LanguageSelect"
 import { useTranslations } from "next-intl"
 import LinkNext from "next/link"
+import AuthControls from "./auth/AuthControls"
+
+interface HeaderProps {
+  authEnabled?: boolean
+}
 
 const MegaMenu = dynamic(() => import("./MegaMenu"), {
   ssr: false,
   loading: () => <div className="h-[360px] rounded-xl bg-slate-800/40" aria-hidden="true" />,
 })
 
-const Header = () => {
+const Header = ({ authEnabled = false }: HeaderProps) => {
   const t = useTranslations("HomePage")
   const tt = useTranslations("ToolsPage")
   const [hasHydrated, setHasHydrated] = useState(false)
@@ -199,13 +204,14 @@ const Header = () => {
 
           <div className="flex items-center space-x-4">
             <SearchButton />
+            {authEnabled && <AuthControls />}
           </div>
         </div>
 
         {/* Mobile Navigation */}
         <div className="flex items-center space-x-4 lg:hidden">
           <SearchButton />
-          <MobileNav />
+          <MobileNav authEnabled={authEnabled} />
         </div>
       </div>
     </header>

@@ -17,6 +17,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@clerk/nextjs": "latest",
     "@headlessui/react": "latest",
     "@json-table/core": "^0.1.0",
     "@microsoft/clarity": "^1.0.2",

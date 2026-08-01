@@ -21,6 +21,7 @@ import { getSafeFileName } from "../soundcloud-playlist-downloader/lib/utils"
 import { detectSoundCloudUrlKind } from "./lib/url"
 import { useSoundCloudTrackDownloadForm } from "./hooks/useSoundCloudTrackDownloadForm"
 import { CoreFactsSection, FAQSection, HowItWorksSection } from "./SEOContent"
+import FreeWorkspacePrompt from "@/components/auth/FreeWorkspacePrompt"
 
 const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
   ssr: false,
@@ -55,6 +56,7 @@ export default function SoundCloudDownloaderPage() {
     downloadProgress,
     infoStatus,
     downloadStatus,
+    hasCompletedDownload,
     downloadQuota,
     setExtension,
     handleUrlChange,
@@ -378,6 +380,8 @@ export default function SoundCloudDownloaderPage() {
             />
           </div>
         )}
+
+        {!isPlaylistMode && hasCompletedDownload && <FreeWorkspacePrompt />}
 
         <DeferredGoogleAdUnitWrap />
 

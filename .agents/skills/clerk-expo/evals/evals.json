@@ -1,0 +1,106 @@
+{
+  "skill_name": "clerk-expo",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "add auth to my expo app with clerk",
+      "expected_output": "Defaults to prebuilt native components: ClerkProvider with tokenCache at the root, AuthView in a Modal kept mounted beside signed-in content, UserButton when signed in, dev build called out",
+      "expectations": [
+        "Recommends AuthView/UserButton from @clerk/expo/native as the default path and mentions they are in beta",
+        "Wraps app in ClerkProvider with publishableKey from process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY and tokenCache from @clerk/expo/token-cache",
+        "Registers the @clerk/expo config plugin (and expo-secure-store) in app.json",
+        "Passes { treatPendingAsSignedOut: false } to the useAuth() call gating the auth UI",
+        "States that a development build (expo run:ios / run:android) is required and Expo Go will not work",
+        "Does not call setActive() after native component auth and does not pair AuthView with useSignInWithGoogle/useSignInWithApple"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "add phone sms auth to my expo app with clerk",
+      "expected_output": "Custom flow using the current method-based API: signUp.create({ phoneNumber }) + verifications.sendPhoneCode/verifyPhoneCode, signIn.phoneCode.sendCode/verifyCode, finalize() on complete, with a note to enable phone/SMS in the Clerk Dashboard",
+      "expectations": [
+        "Verifies or instructs that phone number + SMS verification is enabled in the Clerk Dashboard before implementing",
+        "Uses signUp.create({ phoneNumber }) then signUp.verifications.sendPhoneCode() and verifyPhoneCode({ code }) for sign-up",
+        "Uses signIn.phoneCode.sendCode() and signIn.phoneCode.verifyCode({ code }) for sign-in",
+        "Calls finalize({ navigate }) when status is complete instead of setActive({ session })",
+        "Does NOT use the legacy API (prepareFirstFactor, attemptFirstFactor, isLoaded from the hook)",
+        "Renders <View nativeID=\"clerk-captcha\" /> on the sign-up screen",
+        "Shows the code-entry step only after a code was successfully sent (gated via signUp.status/unverifiedFields or explicit step state)"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "i want users to sign in with Google in my expo app using clerk",
+      "expected_output": "Uses useSSO with startSSOFlow({ strategy: 'oauth_google' }) for the browser flow (or the native useSignInWithGoogle hook with a dev build), calling setActive with createdSessionId and treating cancellation as non-fatal",
+      "expectations": [
+        "Uses useSSO (never the deprecated useOAuth) for the browser-based flow",
+        "Calls setActive({ session: createdSessionId }) after a successful flow",
+        "Does not call WebBrowser.maybeCompleteAuthSession() manually",
+        "Treats user cancellation (no createdSessionId) as non-fatal with no error UI",
+        "If offering native Google sign-in, imports useSignInWithGoogle from @clerk/expo/google, requires a dev build, and handles SIGN_IN_CANCELLED/-5 error codes",
+        "Mentions enabling the Google social connection in the Clerk Dashboard"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "my expo router app has a (tabs) group that should only be accessible to signed-in users. redirect unauthenticated users to the sign-in screen.",
+      "expected_output": "Layout-level guard using useAuth: checks isLoaded before isSignedIn, returns null while loading, uses expo-router Redirect",
+      "expectations": [
+        "Imports useAuth from @clerk/expo",
+        "Checks isLoaded before isSignedIn",
+        "Returns null or a loading indicator when isLoaded is false",
+        "Uses Expo Router's <Redirect> component (not router.push in an effect)",
+        "Places the guard in the group's _layout.tsx"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "build a custom email/password sign in screen for my expo app with clerk, i don't want the prebuilt UI",
+      "expected_output": "Custom flow with the current API: signIn.password({ emailAddress, password }), errors.fields for display, fetchStatus to disable the button, finalize on complete, MFA/client-trust branches handled",
+      "expectations": [
+        "Destructures { signIn, errors, fetchStatus } from useSignIn()",
+        "Calls signIn.password({ emailAddress, password }) and checks the returned error",
+        "Calls signIn.finalize({ navigate }) when signIn.status === 'complete'",
+        "Handles needs_second_factor and/or needs_client_trust status branches",
+        "Surfaces field errors from errors.fields and disables submit while fetchStatus === 'fetching'",
+        "Does NOT use the legacy signIn.create + attemptFirstFactor + setActive pattern"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "i'm building an expo app and want the clerk session to persist after app restarts",
+      "expected_output": "Passes tokenCache from @clerk/expo/token-cache to ClerkProvider with the publishable key from EXPO_PUBLIC env",
+      "expectations": [
+        "Imports tokenCache from @clerk/expo/token-cache",
+        "Passes tokenCache prop to ClerkProvider",
+        "Reads the key from process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY (not NEXT_PUBLIC_)",
+        "Installs expo-secure-store via npx expo install",
+        "Does not use expo-secure-store directly or AsyncStorage for session tokens"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "my expo app supports organizations. i need a screen where users can see their organizations and switch the active one.",
+      "expected_output": "Uses useOrganizationList to list memberships and setActive, uses useOrganization to show the current org",
+      "expectations": [
+        "Imports useOrganization and useOrganizationList from @clerk/expo",
+        "Calls setActive from useOrganizationList to switch organizations",
+        "Lists available orgs from userMemberships.data",
+        "Shows the currently active organization name",
+        "Handles the case where userMemberships.data is undefined or loading"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "add 2fa with an authenticator app to my clerk expo sign in flow",
+      "expected_output": "Handles signIn.status === 'needs_second_factor' with signIn.mfa.verifyTOTP({ code }), then finalize",
+      "expectations": [
+        "Branches on signIn.status === 'needs_second_factor' after the first factor",
+        "Uses signIn.mfa.verifyTOTP({ code }) for the authenticator code",
+        "Calls finalize when status becomes complete",
+        "Optionally offers backup codes via signIn.mfa.verifyBackupCode",
+        "Does NOT use legacy attemptSecondFactor"
+      ]
+    }
+  ]
+}

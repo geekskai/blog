@@ -49,3 +49,6 @@ yarn-error.log*
 
 # Exchange rate cache
 .cache/
+
+# clerk configuration (can include secrets)
+/.clerk/

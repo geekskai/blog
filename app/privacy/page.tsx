@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
       <div className="mx-auto max-w-4xl overflow-hidden rounded-lg bg-white shadow-xl">
         <div className="px-6 py-8">
           <h1 className="mb-6 text-center text-3xl font-bold text-gray-900">Privacy Policy</h1>
-          <p className="mb-8 text-center text-sm text-gray-600">Last updated: January 08, 2025</p>
+          <p className="mb-8 text-center text-sm text-gray-600">Last updated: August 1, 2026</p>
           <div className="space-y-6 text-gray-700">
             <p>
               This Privacy Policy describes Our policies and procedures on the collection, use and
@@ -189,7 +189,40 @@ const PrivacyPolicy = () => {
                 </Link>
               </p>
             </li>
+            <li>
+              <p>
+                <strong>Clerk</strong>
+                <br />
+                1. Purpose: Optional account registration, sign-in, session management, and account
+                security
+                <br />
+                2. Data collected: Account identifiers, email address, authentication and session
+                data that You provide when creating or using an Account
+                <br />
+                3. More information:{" "}
+                <Link
+                  href="https://clerk.com/privacy"
+                  rel="external nofollow noopener"
+                  target="_blank"
+                  className="text-primary-500 hover:text-primary-400"
+                  aria-label="Clerk Privacy Policy link"
+                >
+                  Clerk Privacy Policy
+                </Link>
+              </p>
+            </li>
           </ul>
+
+          <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">
+            Optional Workspace Data
+          </h2>
+          <p className="mb-4 text-gray-700">
+            If You create an Account, project names, format presets, and recent workspace activity
+            are stored only in Your current browser during this first phase. We do not upload audio
+            files through the workspace, and this local workspace data is not synchronized between
+            devices. You can remove it at any time using the “Delete local data” control in the
+            workspace. Account authentication data is handled by Clerk.
+          </p>
 
           <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">Cookie Policy</h2>
           <p className="mb-4 text-gray-700">

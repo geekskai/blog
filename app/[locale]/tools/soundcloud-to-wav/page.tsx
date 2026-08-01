@@ -18,6 +18,7 @@ import {
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 import ShareButtons from "@/components/ShareButtons"
 import { useSoundCloudTrackDownloadForm } from "../soundcloud-downloader/hooks/useSoundCloudTrackDownloadForm"
+import FreeWorkspacePrompt from "@/components/auth/FreeWorkspacePrompt"
 
 const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
   ssr: false,
@@ -47,6 +48,7 @@ export default function Page() {
     downloadProgress,
     infoStatus,
     downloadStatus,
+    hasCompletedDownload,
     downloadQuota,
     setExtension,
     handleUrlChange,
@@ -184,6 +186,8 @@ export default function Page() {
             </div>
           </div>
         )}
+
+        {hasCompletedDownload && <FreeWorkspacePrompt />}
 
         <ShareButtons />
 

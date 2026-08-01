@@ -43,6 +43,7 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
   const [downloadProgress, setDownloadProgress] = useState<number>(0)
   const [infoStatus, setInfoStatus] = useState<string>("")
   const [downloadStatus, setDownloadStatus] = useState<string>("")
+  const [hasCompletedDownload, setHasCompletedDownload] = useState(false)
   const downloadQuota = useDownloadQuota()
 
   const resetInfoState = useCallback(() => {
@@ -99,6 +100,7 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
       setUrl(newUrl)
       resetError()
       setLoadingState("idle")
+      setHasCompletedDownload(false)
     },
     [resetError]
   )
@@ -232,6 +234,7 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
       setDownloadProgress(100)
       setDownloadStatus(t("progress_saving_file"))
       downloadQuota.consumeDownloadQuota()
+      setHasCompletedDownload(true)
       setTimeout(resetDownloadState, 1000)
     } catch (error) {
       console.error("Download error:", error)
@@ -264,6 +267,7 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
     downloadProgress,
     infoStatus,
     downloadStatus,
+    hasCompletedDownload,
     setExtension,
     handleUrlChange,
     handleGetInfo,
