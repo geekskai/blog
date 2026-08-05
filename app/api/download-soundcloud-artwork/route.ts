@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
+import { withRegisteredDownloadReservation } from "@/lib/download-quota/server"
 import scdl from "soundcloud-downloader"
 
 export const runtime = "nodejs"
@@ -107,7 +108,7 @@ const fetchArtworkResponse = async (artworkUrl: string): Promise<Response> => {
   throw new Error("Failed to fetch track artwork")
 }
 
-export async function POST(request: NextRequest) {
+async function handlePost(request: NextRequest) {
   try {
     const { url } = await request.json()
 
@@ -158,4 +159,10 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     )
   }
+}
+
+export async function POST(request: NextRequest) {
+  return withRegisteredDownloadReservation(request, ["soundcloud-artwork"], () =>
+    handlePost(request)
+  )
 }

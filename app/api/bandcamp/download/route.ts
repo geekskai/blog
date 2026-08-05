@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
 import { isBandcampMediaUrl, isBandcampUrl } from "../../../../utils/bandcamp"
+import { withRegisteredDownloadReservation } from "@/lib/download-quota/server"
 
 export const runtime = "nodejs"
 
@@ -21,7 +22,7 @@ function getSafeReferer(value: string): string {
   return isBandcampUrl(value) ? value : "https://bandcamp.com/"
 }
 
-export async function GET(req: Request) {
+async function handleGet(req: Request) {
   const { searchParams } = new URL(req.url)
   const url = searchParams.get("url")?.trim() || ""
   const filenameParam = searchParams.get("filename")?.trim() || "bandcamp-track.mp3"
@@ -89,4 +90,12 @@ export async function GET(req: Request) {
       { status: 500 }
     )
   }
+}
+
+export async function GET(req: Request) {
+  return withRegisteredDownloadReservation(
+    req,
+    ["bandcamp-track", "bandcamp-album", "bandcamp-to-mp3"],
+    () => handleGet(req)
+  )
 }

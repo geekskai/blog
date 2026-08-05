@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import scdl from "soundcloud-downloader"
+import { withRegisteredDownloadReservation } from "@/lib/download-quota/server"
 
 export const runtime = "nodejs"
 
@@ -227,7 +228,7 @@ const mapSoundCloudError = (error: unknown) => {
   }
 }
 
-export async function POST(request: NextRequest) {
+async function handlePost(request: NextRequest) {
   let inputUrl = ""
 
   try {
@@ -311,4 +312,12 @@ export async function POST(request: NextRequest) {
     const mappedError = mapSoundCloudError(error)
     return jsonError(mappedError.message, mappedError.code, mappedError.status)
   }
+}
+
+export async function POST(request: NextRequest) {
+  return withRegisteredDownloadReservation(
+    request,
+    ["soundcloud-track", "soundcloud-playlist"],
+    () => handlePost(request)
+  )
 }

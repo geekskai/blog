@@ -44,7 +44,15 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
   const [infoStatus, setInfoStatus] = useState<string>("")
   const [downloadStatus, setDownloadStatus] = useState<string>("")
   const [hasCompletedDownload, setHasCompletedDownload] = useState(false)
-  const downloadQuota = useDownloadQuota()
+  const restoreRegistrationState = useCallback((state: Record<string, unknown>) => {
+    if (typeof state.url === "string") setUrl(state.url)
+    if (state.extension === "mp3" || state.extension === "wav") setExtension(state.extension)
+  }, [])
+  const downloadQuota = useDownloadQuota({
+    toolId: "soundcloud-track",
+    interruptedState: { url, extension },
+    onRegistrationReturn: restoreRegistrationState,
+  })
 
   const resetInfoState = useCallback(() => {
     setInfoProgress(0)
@@ -186,7 +194,7 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
       return
     }
 
-    const quotaCheck = downloadQuota.checkQuotaBeforeDownload()
+    const quotaCheck = await downloadQuota.checkQuotaBeforeDownload()
     if (!quotaCheck.allowed) {
       if (quotaCheck.message) {
         setErrorMessage(quotaCheck.message)
@@ -209,6 +217,8 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
 
       const result = await downloadSoundCloudTrack(url.trim(), fileName, {
         preferredFormat: safeExtension,
+        operationId: quotaCheck.operationId,
+        quotaToolId: "soundcloud-track",
         onProgress: (loadedBytes, totalBytes) => {
           if (totalBytes && totalBytes > 0) {
             const progress = Math.round((loadedBytes / totalBytes) * 70 + 20)
@@ -233,10 +243,11 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
 
       setDownloadProgress(100)
       setDownloadStatus(t("progress_saving_file"))
-      downloadQuota.consumeDownloadQuota()
+      await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
       setHasCompletedDownload(true)
       setTimeout(resetDownloadState, 1000)
     } catch (error) {
+      await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
       console.error("Download error:", error)
       setErrorMessage(error instanceof Error ? error.message : t("error_download_failed"))
       resetDownloadState()

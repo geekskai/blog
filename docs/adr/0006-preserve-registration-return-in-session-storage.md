@@ -1,0 +1,3 @@
+# Preserve registration return in same-tab session storage
+
+Quota Gate registration continues through the existing dedicated Clerk sign-up route in the same browser tab. Before navigation, the tool stores the minimum Interrupted Tool State in session storage; after authentication, Clerk returns to the original localized tool route, which restores that state and the increased allowance without automatically downloading. Media URLs and tool inputs are excluded from redirect parameters, analytics, and Postgres to avoid unnecessary disclosure. A modal was not selected because OAuth and verification flows may still reload or redirect, while same-tab session storage survives the required journey without creating server-side draft storage.

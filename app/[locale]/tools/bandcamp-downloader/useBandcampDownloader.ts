@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import { useDownloadQuota } from "@/components/download-quota/useDownloadQuota"
 import type {
   AlbumSummary,
@@ -79,7 +79,14 @@ export function useBandcampDownloader() {
   const [loadingAction, setLoadingAction] = useState<BandcampAction | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [downloadError, setDownloadError] = useState<string | null>(null)
-  const downloadQuota = useDownloadQuota()
+  const restoreRegistrationState = useCallback((state: Record<string, unknown>) => {
+    if (typeof state.urlInput === "string") setUrlInput(state.urlInput)
+  }, [])
+  const downloadQuota = useDownloadQuota({
+    toolId: "bandcamp-track",
+    interruptedState: { urlInput },
+    onRegistrationReturn: restoreRegistrationState,
+  })
 
   const postBandcamp = async <T>(
     action: BandcampAction,
@@ -157,7 +164,7 @@ export function useBandcampDownloader() {
     }
   }
 
-  const triggerDownload = (url: string, filename = "bandcamp-track.mp3", referer?: string) => {
+  const triggerDownload = async (url: string, filename = "bandcamp-track.mp3", referer?: string) => {
     const trimmed = url.trim()
 
     if (!trimmed || !/^https?:\/\//i.test(trimmed)) {
@@ -175,7 +182,7 @@ export function useBandcampDownloader() {
       // Let the backend do the final validation.
     }
 
-    const quotaCheck = downloadQuota.checkQuotaBeforeDownload()
+    const quotaCheck = await downloadQuota.checkQuotaBeforeDownload()
     if (!quotaCheck.allowed) {
       if (quotaCheck.message) {
         setDownloadError(quotaCheck.message)
@@ -184,13 +191,23 @@ export function useBandcampDownloader() {
     }
 
     setDownloadError(null)
-    const anchor = document.createElement("a")
-    anchor.href = `/api/bandcamp/download?url=${encodeURIComponent(trimmed)}&filename=${encodeURIComponent(filename)}&referer=${encodeURIComponent(referer || urlInput.trim() || "https://bandcamp.com/")}`
-    anchor.download = filename
-    document.body.appendChild(anchor)
-    anchor.click()
-    document.body.removeChild(anchor)
-    downloadQuota.consumeDownloadQuota()
+    const downloadUrl = `/api/bandcamp/download?url=${encodeURIComponent(trimmed)}&filename=${encodeURIComponent(filename)}&referer=${encodeURIComponent(referer || urlInput.trim() || "https://bandcamp.com/")}&quota_tool=bandcamp-track${quotaCheck.operationId ? `&operation_id=${encodeURIComponent(quotaCheck.operationId)}` : ""}`
+    try {
+      const response = await fetch(downloadUrl)
+      if (!response.ok) throw new Error(`Download failed (${response.status})`)
+      const objectUrl = URL.createObjectURL(await response.blob())
+      const anchor = document.createElement("a")
+      anchor.href = objectUrl
+      anchor.download = filename
+      document.body.appendChild(anchor)
+      anchor.click()
+      document.body.removeChild(anchor)
+      URL.revokeObjectURL(objectUrl)
+      await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
+    } catch (error) {
+      await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
+      setDownloadError(error instanceof Error ? error.message : "Download failed")
+    }
   }
 
   return {

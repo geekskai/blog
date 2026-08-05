@@ -1,0 +1,3 @@
+# Reserve registered download capacity atomically
+
+Registered User downloads use a server-issued idempotent operation ID and an atomic Download Reservation before upstream processing. Availability counts both consumed downloads and active reservations, preventing concurrent tabs from exceeding the server-authoritative limit. A reservation becomes consumed only after Geekskai successfully returns a valid downloadable file or URL, is released on a known failure, and expires after a short abandoned-operation timeout. Retrying the same operation ID returns the existing outcome rather than consuming twice. Visitors remain on the accepted device-local allowance path.

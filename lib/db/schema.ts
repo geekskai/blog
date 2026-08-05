@@ -1,0 +1,191 @@
+import {
+  boolean,
+  date,
+  index,
+  integer,
+  jsonb,
+  pgTable,
+  primaryKey,
+  text,
+  timestamp,
+  uniqueIndex,
+  uuid,
+} from "drizzle-orm/pg-core"
+
+const timestamps = {
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+}
+
+export const dailyDownloadUsage = pgTable(
+  "daily_download_usage",
+  {
+    clerkUserId: text("clerk_user_id").notNull(),
+    quotaDay: date("quota_day").notNull(),
+    successfulDownloads: integer("successful_downloads").default(0).notNull(),
+    reservedDownloads: integer("reserved_downloads").default(0).notNull(),
+    visitorUsageCarryover: integer("visitor_usage_carryover").default(0).notNull(),
+    shareUnlocked: boolean("share_unlocked").default(false).notNull(),
+    ...timestamps,
+  },
+  (table) => [primaryKey({ columns: [table.clerkUserId, table.quotaDay] })]
+)
+
+export const downloadOperations = pgTable(
+  "download_operations",
+  {
+    id: uuid("id").primaryKey(),
+    clerkUserId: text("clerk_user_id").notNull(),
+    quotaDay: date("quota_day").notNull(),
+    toolId: text("tool_id").notNull(),
+    status: text("status", {
+      enum: ["reserved", "processing", "consumed", "released"],
+    }).notNull(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    consumedAt: timestamp("consumed_at", { withTimezone: true }),
+    releasedAt: timestamp("released_at", { withTimezone: true }),
+    ...timestamps,
+  },
+  (table) => [
+    index("download_operations_user_day_status_idx").on(
+      table.clerkUserId,
+      table.quotaDay,
+      table.status
+    ),
+  ]
+)
+
+export const shareAttributions = pgTable(
+  "share_attributions",
+  {
+    shareId: uuid("share_id").primaryKey(),
+    creatorClerkUserId: text("creator_clerk_user_id"),
+    sourceToolId: text("source_tool_id").notNull(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+  },
+  (table) => [index("share_attributions_creator_idx").on(table.creatorClerkUserId)]
+)
+
+export const growthJourneys = pgTable(
+  "growth_journeys",
+  {
+    id: uuid("id").primaryKey(),
+    clerkUserId: text("clerk_user_id"),
+    firstShareId: uuid("first_share_id").references(() => shareAttributions.shareId, {
+      onDelete: "set null",
+    }),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    ...timestamps,
+  },
+  (table) => [index("growth_journeys_clerk_user_idx").on(table.clerkUserId)]
+)
+
+export const growthEvents = pgTable(
+  "growth_events",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    journeyId: uuid("journey_id")
+      .notNull()
+      .references(() => growthJourneys.id, { onDelete: "cascade" }),
+    clerkUserId: text("clerk_user_id"),
+    eventName: text("event_name").notNull(),
+    toolId: text("tool_id"),
+    occurredAt: timestamp("occurred_at", { withTimezone: true }).defaultNow().notNull(),
+  },
+  (table) => [
+    index("growth_events_journey_time_idx").on(table.journeyId, table.occurredAt),
+    index("growth_events_name_time_idx").on(table.eventName, table.occurredAt),
+  ]
+)
+
+export const dailyGrowthMetrics = pgTable("daily_growth_metrics", {
+  metricDay: date("metric_day").primaryKey(),
+  quotaGateViewers: integer("quota_gate_viewers").default(0).notNull(),
+  registrationCompletions: integer("registration_completions").default(0).notNull(),
+  quotaGateActivations: integer("quota_gate_activations").default(0).notNull(),
+  successfulDownloads: integer("successful_downloads").default(0).notNull(),
+  shareIntents: integer("share_intents").default(0).notNull(),
+  shareLandings: integer("share_landings").default(0).notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+})
+
+export const accountEntitlements = pgTable(
+  "account_entitlements",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    clerkUserId: text("clerk_user_id").notNull(),
+    entitlementKey: text("entitlement_key").notNull(),
+    value: jsonb("value").$type<string | number | boolean>().notNull(),
+    source: text("source").notNull(),
+    effectiveAt: timestamp("effective_at", { withTimezone: true }).defaultNow().notNull(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }),
+    ...timestamps,
+  },
+  (table) => [
+    index("account_entitlements_lookup_idx").on(
+      table.clerkUserId,
+      table.entitlementKey,
+      table.effectiveAt
+    ),
+  ]
+)
+
+export const billingCustomers = pgTable(
+  "billing_customers",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    clerkUserId: text("clerk_user_id").notNull(),
+    provider: text("provider").notNull(),
+    providerCustomerId: text("provider_customer_id").notNull(),
+    ...timestamps,
+  },
+  (table) => [
+    uniqueIndex("billing_customers_provider_customer_uidx").on(
+      table.provider,
+      table.providerCustomerId
+    ),
+    uniqueIndex("billing_customers_user_provider_uidx").on(table.clerkUserId, table.provider),
+  ]
+)
+
+export const billingSubscriptions = pgTable(
+  "billing_subscriptions",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    clerkUserId: text("clerk_user_id").notNull(),
+    provider: text("provider").notNull(),
+    providerSubscriptionId: text("provider_subscription_id").notNull(),
+    status: text("status").notNull(),
+    productId: text("product_id"),
+    currentPeriodEnd: timestamp("current_period_end", { withTimezone: true }),
+    canceledAt: timestamp("canceled_at", { withTimezone: true }),
+    ...timestamps,
+  },
+  (table) => [
+    uniqueIndex("billing_subscriptions_provider_subscription_uidx").on(
+      table.provider,
+      table.providerSubscriptionId
+    ),
+    index("billing_subscriptions_user_status_idx").on(table.clerkUserId, table.status),
+  ]
+)
+
+export const billingWebhookEvents = pgTable(
+  "billing_webhook_events",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    provider: text("provider").notNull(),
+    providerEventId: text("provider_event_id").notNull(),
+    eventType: text("event_type").notNull(),
+    payloadHash: text("payload_hash").notNull(),
+    processedAt: timestamp("processed_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+  },
+  (table) => [
+    uniqueIndex("billing_webhook_events_provider_event_uidx").on(
+      table.provider,
+      table.providerEventId
+    ),
+  ]
+)

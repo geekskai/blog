@@ -1,4 +1,5 @@
 import { saveAs } from "file-saver"
+import type { QuotaToolId } from "@/lib/download-quota/config"
 
 export const SOUNDCLOUD_DOWNLOAD_API = "/api/download-soundcloud/"
 
@@ -34,15 +35,23 @@ export interface SoundCloudDirectDownloadResult {
 interface DownloadOptions {
   preferredFormat?: SoundCloudPreferredDownloadFormat
   mimeType?: string
+  operationId?: string
+  quotaToolId?: QuotaToolId
   onProgress?: (loadedBytes: number, totalBytes: number | null) => void
 }
 
 export async function resolveSoundCloudDirectUrl(
-  trackUrl: string
+  trackUrl: string,
+  operationId?: string,
+  quotaToolId: QuotaToolId = "soundcloud-track"
 ): Promise<SoundCloudDirectDownloadResult> {
   const response = await fetch(SOUNDCLOUD_DOWNLOAD_API, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      ...(operationId ? { "X-Download-Operation-Id": operationId } : {}),
+      "X-Quota-Tool-Id": quotaToolId,
+    },
     body: JSON.stringify({ url: trackUrl.trim(), directUrl: true }),
   })
 
@@ -253,7 +262,11 @@ export async function downloadSoundCloudTrack(
   fileName: string,
   options?: DownloadOptions
 ): Promise<SoundCloudDirectDownloadResult> {
-  const result = await resolveSoundCloudDirectUrl(trackUrl)
+  const result = await resolveSoundCloudDirectUrl(
+    trackUrl,
+    options?.operationId,
+    options?.quotaToolId
+  )
   const preferredFormat = inferPreferredFormat(fileName, options)
   const selectedFormat = pickDownloadFormat(result.formats, preferredFormat)
   const savedFileName = withFileExtension(fileName, selectedFormat.extension)

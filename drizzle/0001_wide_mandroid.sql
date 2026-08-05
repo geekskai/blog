@@ -1,0 +1,1 @@
+ALTER TABLE "daily_download_usage" ADD COLUMN "reserved_downloads" integer DEFAULT 0 NOT NULL;

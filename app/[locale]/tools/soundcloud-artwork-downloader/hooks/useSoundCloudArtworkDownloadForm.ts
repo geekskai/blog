@@ -83,7 +83,14 @@ export function useSoundCloudArtworkDownloadForm(t: (key: string) => string) {
   const [downloadProgress, setDownloadProgress] = useState(0)
   const [infoStatus, setInfoStatus] = useState("")
   const [downloadStatus, setDownloadStatus] = useState("")
-  const downloadQuota = useDownloadQuota()
+  const restoreRegistrationState = useCallback((state: Record<string, unknown>) => {
+    if (typeof state.url === "string") setUrl(state.url)
+  }, [])
+  const downloadQuota = useDownloadQuota({
+    toolId: "soundcloud-artwork",
+    interruptedState: { url },
+    onRegistrationReturn: restoreRegistrationState,
+  })
 
   const previewArtworkUrl = useMemo(() => getPreviewArtworkUrl(trackInfo?.artwork_url), [trackInfo])
 
@@ -222,7 +229,7 @@ export function useSoundCloudArtworkDownloadForm(t: (key: string) => string) {
       return
     }
 
-    const quotaCheck = downloadQuota.checkQuotaBeforeDownload()
+    const quotaCheck = await downloadQuota.checkQuotaBeforeDownload()
     if (!quotaCheck.allowed) {
       if (quotaCheck.message) {
         setErrorMessage(quotaCheck.message)
@@ -238,7 +245,13 @@ export function useSoundCloudArtworkDownloadForm(t: (key: string) => string) {
 
       const response = await fetch("/api/download-soundcloud-artwork", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(quotaCheck.operationId
+            ? { "X-Download-Operation-Id": quotaCheck.operationId }
+            : {}),
+          "X-Quota-Tool-Id": "soundcloud-artwork",
+        },
         body: JSON.stringify({ url: url.trim() }),
       })
 
@@ -294,10 +307,11 @@ export function useSoundCloudArtworkDownloadForm(t: (key: string) => string) {
 
       const blob = new Blob(chunks, { type: contentType || "image/jpeg" })
       createDownloadLink(blob, fileName.toLowerCase())
-      downloadQuota.consumeDownloadQuota()
+      await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
 
       setTimeout(resetDownloadState, 1000)
     } catch (error) {
+      await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
       console.error("Artwork download error:", error)
       setErrorMessage(error instanceof Error ? error.message : t("error_download_failed"))
       resetDownloadState()

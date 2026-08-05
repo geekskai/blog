@@ -38,7 +38,7 @@ export default function PlaylistTracks({
       return
     }
 
-    const quotaCheck = downloadQuota.checkQuotaBeforeDownload()
+    const quotaCheck = await downloadQuota.checkQuotaBeforeDownload()
     if (!quotaCheck.allowed) {
       if (quotaCheck.message) {
         alert(quotaCheck.message)
@@ -52,9 +52,12 @@ export default function PlaylistTracks({
       const fileName = getSafeFileName(track.title, format)
       await downloadSoundCloudTrack(track.url, fileName, {
         preferredFormat: format,
+        operationId: quotaCheck.operationId,
+        quotaToolId: "soundcloud-playlist",
       })
-      downloadQuota.consumeDownloadQuota()
+      await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
     } catch (error) {
+      await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
       console.error(`Failed to download track (${track.title}):`, error)
       alert(`${t("playlist_tracks_download")} ${track.title} ${t("error_network")}`)
     } finally {

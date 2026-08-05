@@ -20,7 +20,7 @@ type CopyAndTwitterShareButtonProps = {
   onCopied?: () => void
   /** Fires when clipboard copy fails — user can still share via the X dialog. */
   onCopyFailed?: () => void
-  /** Fires on the same user gesture as copy + X popup (e.g. start unlock verification). */
+  /** Fires on the same user gesture as copy + X popup (e.g. grant a share-intent reward). */
   onShareClick?: () => void
 }
 

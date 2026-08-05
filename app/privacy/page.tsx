@@ -224,6 +224,21 @@ const PrivacyPolicy = () => {
             workspace. Account authentication data is handled by Clerk.
           </p>
 
+          <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">
+            Download Allowance and Growth Measurement
+          </h2>
+          <p className="mb-4 text-gray-700">
+            Visitors keep their daily download allowance in browser storage. For signed-in users,
+            we store the Clerk account identifier, UTC allowance day, successful-download count,
+            temporary download reservations, and whether the daily share reward was used. To
+            measure whether the registration flow helps people finish their task, we also record a
+            pseudonymous journey identifier, controlled event names, tool identifiers, and event
+            timestamps. Shared links may contain a random attribution identifier valid for 30
+            days. We do not include pasted media URLs, tool input, email addresses, or IP addresses
+            in these growth events. Linkable raw growth events are deleted after 90 days; only
+            de-identified daily totals may be retained for longer-term trend analysis.
+          </p>
+
           <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">Cookie Policy</h2>
           <p className="mb-4 text-gray-700">
             Our website uses cookies to enhance your browsing experience:

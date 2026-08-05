@@ -1,0 +1,3 @@
+# Model paid access as capability entitlements
+
+Future paid access is represented by `account_entitlements` records containing a stable entitlement key, value, source, and effective validity period. Current free defaults, including the Registered User daily allowance of ten downloads, remain application rules; the database stores only additions or overrides. Creem webhook processing may grant, update, or expire entitlements, but payment or subscription status is never queried directly as runtime authorization. We avoid `is_paid`, user-table plan columns, and speculative price or plan tables so future DJ workspace capabilities and any download-related capabilities can evolve independently.

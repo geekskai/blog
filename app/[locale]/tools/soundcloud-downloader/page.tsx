@@ -167,15 +167,6 @@ export default function SoundCloudDownloaderPage() {
       return
     }
 
-    const quotaCheck = downloadQuota.checkQuotaBeforeDownload()
-    if (!quotaCheck.allowed) {
-      if (quotaCheck.message) {
-        setPlaylistErrorMessage(quotaCheck.message)
-        setPlaylistLoadingState("error")
-      }
-      return
-    }
-
     const tracks = playlistInfo.tracks
     const total = tracks.length
     setPlaylistDownloadProgress({
@@ -195,12 +186,24 @@ export default function SoundCloudDownloaderPage() {
         currentTrack: track.title,
       }))
 
+      const quotaCheck = await downloadQuota.checkQuotaBeforeDownload()
+      if (!quotaCheck.allowed) {
+        if (quotaCheck.message) setPlaylistErrorMessage(quotaCheck.message)
+        setPlaylistLoadingState("error")
+        errorCount += tracks.length - index
+        break
+      }
+
       try {
         const fileName = getSafeFileName(track.title, format)
         await downloadSoundCloudTrack(track.url, fileName, {
           preferredFormat: format,
+          operationId: quotaCheck.operationId,
+          quotaToolId: "soundcloud-track",
         })
+        await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
       } catch {
+        await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
         errorCount++
       }
 
@@ -215,9 +218,6 @@ export default function SoundCloudDownloaderPage() {
       status: errorCount > 0 ? "error" : "completed",
     }))
 
-    if (errorCount === 0) {
-      downloadQuota.consumeDownloadQuota()
-    }
   }, [downloadQuota, format, playlistInfo])
 
   const handleUnifiedSubmit = useCallback(
@@ -406,8 +406,12 @@ export default function SoundCloudDownloaderPage() {
         isOpen={downloadQuota.showShareModal}
         shareLink={downloadQuota.shareLink}
         unlockAmount={downloadQuota.quotaConfig.shareBonusClicks}
+        canRegister={!downloadQuota.quotaConfig.isRegistered}
+        canShare={downloadQuota.quotaConfig.shareUnlockAvailable}
+        errorMessage={downloadQuota.quotaMessage}
         onClose={downloadQuota.closeShareModal}
         onUnlock={downloadQuota.handleShareUnlock}
+        onCreateAccount={downloadQuota.startRegistration}
       />
     </div>
   )

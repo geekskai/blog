@@ -50,7 +50,15 @@ export default function SoundCloudPlaylistDownloaderPage() {
     currentTrack: "",
     status: "idle",
   })
-  const downloadQuota = useDownloadQuota()
+  const restoreRegistrationState = useCallback((state: Record<string, unknown>) => {
+    if (typeof state.url === "string") setUrl(state.url)
+    if (state.format === "mp3" || state.format === "wav") setFormat(state.format)
+  }, [])
+  const downloadQuota = useDownloadQuota({
+    toolId: "soundcloud-playlist",
+    interruptedState: { url, format },
+    onRegistrationReturn: restoreRegistrationState,
+  })
   const resultSectionRef = useRef<HTMLDivElement | null>(null)
 
   // Reset error message
@@ -130,14 +138,6 @@ export default function SoundCloudPlaylistDownloaderPage() {
       return
     }
 
-    const quotaCheck = downloadQuota.checkQuotaBeforeDownload()
-    if (!quotaCheck.allowed) {
-      if (quotaCheck.message) {
-        setErrorMessage(quotaCheck.message)
-      }
-      return
-    }
-
     const tracks = playlistInfo.tracks
     const total = tracks.length
 
@@ -161,13 +161,24 @@ export default function SoundCloudPlaylistDownloaderPage() {
         currentTrack: track.title,
       }))
 
+      const quotaCheck = await downloadQuota.checkQuotaBeforeDownload()
+      if (!quotaCheck.allowed) {
+        if (quotaCheck.message) setErrorMessage(quotaCheck.message)
+        errorCount += tracks.length - index
+        break
+      }
+
       try {
         const fileName = getSafeFileName(track.title, format)
         await downloadSoundCloudTrack(track.url, fileName, {
           preferredFormat: format,
+          operationId: quotaCheck.operationId,
+          quotaToolId: "soundcloud-playlist",
         })
+        await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
         successCount++
       } catch (error) {
+        await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
         errorCount++
         console.error(`Failed to download track ${index + 1} (${track.title}):`, error)
       }
@@ -183,10 +194,6 @@ export default function SoundCloudPlaylistDownloaderPage() {
       current: total,
       status: errorCount > 0 ? "error" : "completed",
     }))
-
-    if (errorCount === 0) {
-      downloadQuota.consumeDownloadQuota()
-    }
 
     console.log(`Download completed: ${successCount} successful, ${errorCount} failed`)
   }, [downloadQuota, playlistInfo, format])
@@ -408,8 +415,12 @@ export default function SoundCloudPlaylistDownloaderPage() {
         isOpen={downloadQuota.showShareModal}
         shareLink={downloadQuota.shareLink}
         unlockAmount={downloadQuota.quotaConfig.shareBonusClicks}
+        canRegister={!downloadQuota.quotaConfig.isRegistered}
+        canShare={downloadQuota.quotaConfig.shareUnlockAvailable}
+        errorMessage={downloadQuota.quotaMessage}
         onClose={downloadQuota.closeShareModal}
         onUnlock={downloadQuota.handleShareUnlock}
+        onCreateAccount={downloadQuota.startRegistration}
       />
     </div>
   )

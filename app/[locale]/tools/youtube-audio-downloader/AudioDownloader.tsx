@@ -46,8 +46,9 @@ function formatDuration(seconds: number | null): string | null {
   return `${m}:${s.toString().padStart(2, "0")}`
 }
 
-function downloadHref(videoId: string, qualityId: string): string {
-  const q = new URLSearchParams({ videoId, quality: qualityId })
+function downloadHref(videoId: string, qualityId: string, operationId?: string): string {
+  const q = new URLSearchParams({ videoId, quality: qualityId, quota_tool: "youtube-audio" })
+  if (operationId) q.set("operation_id", operationId)
   return `/api/audio/download?${q}`
 }
 
@@ -183,7 +184,14 @@ export default function AudioDownloader({
   const [errorKey, setErrorKey] = useState<ApiErrorCode | null>(null)
   const [downloadError, setDownloadError] = useState<string | null>(null)
   const [video, setVideo] = useState<VideoPreview | null>(null)
-  const downloadQuota = useDownloadQuota()
+  const restoreRegistrationState = useCallback((state: Record<string, unknown>) => {
+    if (typeof state.url === "string") setUrl(state.url)
+  }, [])
+  const downloadQuota = useDownloadQuota({
+    toolId: "youtube-audio",
+    interruptedState: { url },
+    onRegistrationReturn: restoreRegistrationState,
+  })
 
   useEffect(() => {
     if (!autoFocus) return
@@ -247,10 +255,10 @@ export default function AudioDownloader({
     void fetchVideo()
   }
 
-  const handleDownload = () => {
+  const handleDownload = async () => {
     if (!video || downloading) return
 
-    const quotaCheck = downloadQuota.checkQuotaBeforeDownload()
+    const quotaCheck = await downloadQuota.checkQuotaBeforeDownload()
     if (!quotaCheck.allowed) {
       if (quotaCheck.message) {
         setDownloadError(quotaCheck.message)
@@ -264,13 +272,33 @@ export default function AudioDownloader({
     const intervalId = window.setInterval(() => {
       setDownloadProgress((current) => Math.min(current + 8, 90))
     }, 350)
-    window.location.assign(downloadHref(video.videoId, DEFAULT_AUDIO_QUALITY_ID))
-    downloadQuota.consumeDownloadQuota()
-    window.setTimeout(() => {
+    try {
+      const response = await fetch(
+        downloadHref(video.videoId, DEFAULT_AUDIO_QUALITY_ID, quotaCheck.operationId)
+      )
+      if (!response.ok) {
+        const error = await response.json().catch(() => ({}))
+        throw new Error(error.message || error.error || `Download failed (${response.status})`)
+      }
+      const blob = await response.blob()
+      const objectUrl = URL.createObjectURL(blob)
+      const anchor = document.createElement("a")
+      anchor.href = objectUrl
+      anchor.download = `${video.title.replace(/[/\\?%*:|"<>]/g, "_") || "youtube-audio"}.mp3`
+      document.body.appendChild(anchor)
+      anchor.click()
+      document.body.removeChild(anchor)
+      URL.revokeObjectURL(objectUrl)
+      await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
+      setDownloadProgress(100)
+    } catch (error) {
+      await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
+      setDownloadError(error instanceof Error ? error.message : "Download failed")
+    } finally {
       window.clearInterval(intervalId)
       setDownloading(false)
       setDownloadProgress(0)
-    }, 15000)
+    }
   }
 
   const isHero = variant === "hero"
@@ -387,8 +415,12 @@ export default function AudioDownloader({
         isOpen={downloadQuota.showShareModal}
         shareLink={downloadQuota.shareLink}
         unlockAmount={downloadQuota.quotaConfig.shareBonusClicks}
+        canRegister={!downloadQuota.quotaConfig.isRegistered}
+        canShare={downloadQuota.quotaConfig.shareUnlockAvailable}
+        errorMessage={downloadQuota.quotaMessage}
         onClose={downloadQuota.closeShareModal}
         onUnlock={downloadQuota.handleShareUnlock}
+        onCreateAccount={downloadQuota.startRegistration}
       />
     </>
   )

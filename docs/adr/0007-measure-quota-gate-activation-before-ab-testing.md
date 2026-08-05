@@ -1,0 +1,3 @@
+# Measure Quota-Gate Activation before A/B testing
+
+The first release rolls out to all eligible users and uses Quota-Gate Activation as its primary growth outcome: a unique Visitor sees the gate, registers, and completes a Successful Download within 24 hours. Registration totals alone are insufficient because they do not prove that the interrupted job resumed. With the current small registered-user population, an A/B test would be underpowered; the first review occurs after both 14 days and 200 unique Quota Gate viewers have been reached. Registration completion, share intent, and download success remain diagnostic guardrails rather than the primary outcome.

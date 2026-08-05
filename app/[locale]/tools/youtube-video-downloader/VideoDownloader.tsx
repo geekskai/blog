@@ -88,8 +88,9 @@ function downloadBlob(blob: Blob, fileName: string) {
   URL.revokeObjectURL(objectUrl)
 }
 
-function downloadHref(videoId: string, qualityId: string): string {
-  const q = new URLSearchParams({ videoId, quality: qualityId })
+function downloadHref(videoId: string, qualityId: string, operationId?: string): string {
+  const q = new URLSearchParams({ videoId, quality: qualityId, quota_tool: "youtube-video" })
+  if (operationId) q.set("operation_id", operationId)
   return `/api/video/download?${q}`
 }
 
@@ -266,7 +267,15 @@ export default function VideoDownloader({
   const [video, setVideo] = useState<VideoPreview | null>(null)
   const { isDownloadCooldown, cooldownSecondsLeft, startCooldown, clearCooldown } =
     useDownloadRetryCooldown()
-  const downloadQuota = useDownloadQuota()
+  const restoreRegistrationState = useCallback((state: Record<string, unknown>) => {
+    if (typeof state.url === "string") setUrl(state.url)
+    if (typeof state.quality === "string") setQuality(state.quality)
+  }, [])
+  const downloadQuota = useDownloadQuota({
+    toolId: "youtube-video",
+    interruptedState: { url, quality },
+    onRegistrationReturn: restoreRegistrationState,
+  })
 
   useEffect(() => {
     if (!autoFocus) return
@@ -367,7 +376,7 @@ export default function VideoDownloader({
     const selectedVideo = video
     if (!selectedVideo || downloading || isDownloadCooldown) return
 
-    const quotaCheck = downloadQuota.checkQuotaBeforeDownload()
+    const quotaCheck = await downloadQuota.checkQuotaBeforeDownload()
     if (!quotaCheck.allowed) {
       if (quotaCheck.message) {
         setDownloadError(quotaCheck.message)
@@ -383,7 +392,7 @@ export default function VideoDownloader({
     startProgressSimulation()
 
     try {
-      const initRes = await fetch(downloadHref(selectedVideo.videoId, quality), {
+      const initRes = await fetch(downloadHref(selectedVideo.videoId, quality, quotaCheck.operationId), {
         redirect: "manual",
         cache: "no-store",
       })
@@ -425,9 +434,10 @@ export default function VideoDownloader({
           size: formatBytes(blob.size),
         })
       )
-      downloadQuota.consumeDownloadQuota()
+      await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
       setVideo(null)
     } catch (error) {
+      await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
       setDownloadProgress(0)
       const message = error instanceof Error ? error.message : t("error_download_failed")
       const mappedError = mapDownloaderApiError(message)
@@ -576,8 +586,12 @@ export default function VideoDownloader({
         isOpen={downloadQuota.showShareModal}
         shareLink={downloadQuota.shareLink}
         unlockAmount={downloadQuota.quotaConfig.shareBonusClicks}
+        canRegister={!downloadQuota.quotaConfig.isRegistered}
+        canShare={downloadQuota.quotaConfig.shareUnlockAvailable}
+        errorMessage={downloadQuota.quotaMessage}
         onClose={downloadQuota.closeShareModal}
         onUnlock={downloadQuota.handleShareUnlock}
+        onCreateAccount={downloadQuota.startRegistration}
       />
     </>
   )

@@ -1,0 +1,3 @@
+# Use first-party growth events for funnel measurement
+
+Neon Postgres is the authority for the quota-to-registration funnel. A server-issued opaque `journey_id` links pseudonymous events before registration and is associated with the authenticated Clerk user ID after registration, allowing Quota-Gate Activation to be measured across the auth boundary. Events contain only a controlled event name, tool identifier, timestamp, and the minimum identity linkage; media URLs, tool inputs, and IP addresses are excluded. Microsoft Clarity remains a diagnostic and session-replay aid rather than the metric authority because it cannot reliably provide the required first-party identity stitching and product-domain guarantees.

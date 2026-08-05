@@ -1,0 +1,3 @@
+# Retain linkable growth events for 90 days
+
+Raw Growth Journey events and linkable journey identities are retained for 90 days, which covers the initial 14-day observation window and subsequent cohort analysis without building a permanent behavioral history. Expired raw events and obsolete daily quota rows may be deleted, while de-identified daily aggregates can remain for long-term trend analysis. Billing, entitlement, subscription, and payment-webhook records are explicitly outside this policy and will receive retention periods appropriate to financial operations, security, and dispute handling before payment launches.

@@ -1,0 +1,3 @@
+# Attribute share activations with opaque first-touch IDs
+
+Each prepared X share receives an opaque random `share_id`. A recipient landing through that URL creates a first-touch Share Attribution that remains valid for 30 days and is not overwritten by later share links. The association allows `share_landing`, registration, and Quota-Gate Activation to be measured without exposing Clerk IDs, email addresses, or inviter information in the URL. The first release uses this attribution only for measurement; inviter rewards are deferred until observed activation data can justify their value and inform fraud controls.

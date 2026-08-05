@@ -1,0 +1,3 @@
+# Roll out to existing quota tools with per-tool switches
+
+The first release applies the new registered-user allowance, Quota Gate, Share Unlock, reservations, and funnel events to every downloader already using the shared download-quota controller. Each tool has an independent server-side enable switch so an incompatible upstream flow can be disabled without reverting the whole growth loop. Tools that do not currently use download quotas remain unchanged. Preview verification covers success, failure, retry, registration return, share unlock, UTC reset, and concurrent-tab behavior before production switches are enabled.
