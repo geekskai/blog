@@ -3,6 +3,8 @@
 import { FormEvent, useEffect, useMemo, useState } from "react"
 import { Clock3, FolderPlus, HardDrive, Save, SlidersHorizontal, Trash2 } from "lucide-react"
 import { trackClarityEvent } from "@/lib/analytics/clarity"
+import type { BillingStatusResponse } from "@/lib/billing/types"
+import AudioProcessorPanel from "./AudioProcessorPanel"
 
 type AudioFormat = "wav" | "mp3"
 
@@ -53,7 +55,17 @@ const formatDate = (value: string) =>
     new Date(value)
   )
 
-export default function DjWorkspace({ userId }: { userId: string }) {
+export default function DjWorkspace({
+  userId,
+  locale,
+  initialBillingStatus,
+  checkoutSuccess,
+}: {
+  userId: string
+  locale: string
+  initialBillingStatus: BillingStatusResponse
+  checkoutSuccess: boolean
+}) {
   const storageKey = useMemo(() => `geekskai:dj-workspace:v1:${userId}`, [userId])
   const [workspace, setWorkspace] = useState<WorkspaceState | null>(null)
   const [projectName, setProjectName] = useState("")
@@ -155,12 +167,12 @@ export default function DjWorkspace({ userId }: { userId: string }) {
     <div className="space-y-8 py-10">
       <header className="space-y-3">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
-          First-phase workspace
+          Geekskai DJ Workspace Pro
         </p>
         <h1 className="text-3xl font-bold text-white md:text-4xl">DJ preparation workspace</h1>
         <p className="max-w-3xl text-slate-300">
-          Organize preparation projects and reuse format settings without changing the free,
-          anonymous download flow.
+          Normalize and convert audio files you own, then organize preparation projects and reuse
+          format settings. Public download tools remain separate and free.
         </p>
       </header>
 
@@ -177,6 +189,12 @@ export default function DjWorkspace({ userId }: { userId: string }) {
           </div>
         </div>
       </section>
+
+      <AudioProcessorPanel
+        initialBillingStatus={initialBillingStatus}
+        locale={locale}
+        checkoutSuccess={checkoutSuccess}
+      />
 
       <div className="grid gap-6 lg:grid-cols-2">
         <section className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6">
@@ -253,7 +271,7 @@ export default function DjWorkspace({ userId }: { userId: string }) {
               />
             </div>
             <p className="text-xs text-slate-500">
-              The LUFS value is a planning note; this workspace does not process audio.
+              Saved presets can be reused in the local audio processor above.
             </p>
             <button
               type="submit"

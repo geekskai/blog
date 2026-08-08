@@ -12,6 +12,30 @@ _Avoid_: Guest account, anonymous user
 A person with an authenticated Geekskai account.
 _Avoid_: Member, subscriber, customer
 
+**Customer**:
+A Registered User who has created a Creem billing relationship. Customer describes billing identity only and does not itself grant application access.
+_Avoid_: Every Registered User, payment card holder, entitlement
+
+**Subscriber**:
+A Customer with a recurring Geekskai DJ Workspace Pro agreement in Creem, including active, past-due, scheduled-cancel, paused, or expired lifecycle states. Runtime access is still determined from Account Entitlements.
+_Avoid_: `is_paid`, VIP, using subscription status directly as authorization
+
+**Billing Plan**:
+The monthly or annual recurring price selected at Creem checkout. Both Billing Plans grant the same capabilities and differ only in billing period and price.
+_Avoid_: Feature tier, entitlement key, hard-coded product ID in the client
+
+**Billing Provider**:
+Creem, the merchant of record and authority for checkout, payment collection, recurring billing, tax, receipts, refunds, disputes, and subscription lifecycle.
+_Avoid_: Application authorization database, payment credentials stored by Geekskai
+
+**Pro Entitlement**:
+An Account Entitlement synchronized from a verified Creem webhook. The first release uses `workspace.batch_file_limit = 20` and `workspace.zip_export = true`.
+_Avoid_: Pro boolean on the user, checkout redirect as proof of access
+
+**Paid Activation**:
+A Subscriber who completes a batch of at least two local audio files within 24 hours of the first successful subscription payment. Audio, filenames, and processing settings are not recorded.
+_Avoid_: Checkout return, subscription created, pricing-page click
+
 **Account Entitlement**:
 A time-bounded capability value assigned to a Registered User, identified by a stable key such as `downloads.daily_limit` or `workspace.project_limit`, with its source and validity period. Free defaults remain application rules; only additions or overrides require stored entitlements.
 _Avoid_: `is_paid`, payment status as authorization, hard-coded plan column

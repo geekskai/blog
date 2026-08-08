@@ -3,6 +3,10 @@
     {
       "path": "/api/cron/growth-retention/",
       "schedule": "15 2 * * *"
+    },
+    {
+      "path": "/api/cron/billing-reconcile/",
+      "schedule": "45 2 * * *"
     }
   ]
 }

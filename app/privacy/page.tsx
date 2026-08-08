@@ -116,6 +116,28 @@ const PrivacyPolicy = () => {
             </li>
             <li>
               <p>
+                <strong>Creem</strong>
+                <br />
+                1. Purpose: Checkout, recurring subscription billing, tax handling, receipts,
+                refunds, and customer billing portal
+                <br />
+                2. Data shared: Your account email, Geekskai account reference, selected plan, and
+                payment and billing information You provide directly to Creem. Geekskai does not
+                receive or store full payment card details.
+                <br />
+                3. More information:{" "}
+                <Link
+                  href="https://www.creem.io/privacy"
+                  rel="external nofollow noopener"
+                  target="_blank"
+                  className="text-primary-500 hover:text-primary-400"
+                >
+                  Creem Privacy Policy
+                </Link>
+              </p>
+            </li>
+            <li>
+              <p>
                 <strong>You</strong> means the individual accessing or using the Service, or the
                 company, or other legal entity on behalf of which such individual is accessing or
                 using the Service, as applicable.
@@ -223,6 +245,13 @@ const PrivacyPolicy = () => {
             devices. You can remove it at any time using the “Delete local data” control in the
             workspace. Account authentication data is handled by Clerk.
           </p>
+          <p className="mb-4 text-gray-700">
+            Audio conversion and loudness normalization also run locally in Your browser. We record
+            only whether an authenticated user completed their first single-file or batch task so
+            we can measure activation. We do not send audio content, filenames, or processing
+            settings with that event. Subscription status and capability entitlements are stored in
+            our database and synchronized from signed Creem webhooks.
+          </p>
 
           <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">
             Download Allowance and Growth Measurement
@@ -258,7 +287,7 @@ const PrivacyPolicy = () => {
             If you have any questions about this Privacy Policy, You can contact us:
           </p>
           <ul className="list-disc space-y-2 pl-6 text-gray-700">
-            <li>By email: geeks.kai@gmail.com</li>
+            <li>By email: support@geekskai.com</li>
           </ul>
         </div>
       </div>

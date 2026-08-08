@@ -3,13 +3,13 @@ import React from "react"
 import Link from "@/components/Link"
 
 export const metadata = genPageMetadata({
-  title: "Geekskai Terms of Service | 100% Free Online Tools",
+  title: "Geekskai Terms of Service | Free Public Tools and DJ Workspace Pro",
   description:
-    "Read the Geekskai Terms of Service. Discover our commitment to providing 100% free online tools, downloaders, and converters with no hidden fees or paywalls.",
+    "Terms for Geekskai public tools and the optional Geekskai DJ Workspace Pro subscription.",
 })
 
 const SITE_URL = "https://geekskai.com"
-const LAST_UPDATED = "August 1, 2026"
+const LAST_UPDATED = "August 8, 2026"
 
 export default function TermsOfServicePage() {
   return (
@@ -27,22 +27,22 @@ export default function TermsOfServicePage() {
 
           <div className="mb-10 rounded-lg border-l-4 border-primary-500 bg-gray-50 p-6 text-gray-800 shadow-sm">
             <h2 className="mb-3 text-xl font-bold text-gray-900">
-              Our Core Promise: 100% Free Service
+              Public Tools Stay Free; DJ Workspace Pro Is Optional
             </h2>
             <p className="mb-4 text-gray-700">
-              Welcome to Geekskai! We are proud to offer a <strong>completely free platform</strong>
-              . There are <strong>no subscriptions, no hidden fees, and no paywalls</strong> to use
-              any of our online tools, downloaders, or converters. These Terms and Conditions
-              outline the rules, regulations, and acceptable use policy for accessing Geekskai.
+              Geekskai&apos;s public tools and downloaders remain free. Geekskai DJ Workspace Pro is
+              a separate, optional subscription for processing audio files that You import from
+              Your own device and have the right to use. A Pro subscription never grants extra
+              downloader access.
             </p>
             <p className="text-sm text-gray-600">
               <strong>Support Contact:</strong>{" "}
               <Link
-                href="mailto:postmaster@geekskai.com"
+                href="mailto:support@geekskai.com"
                 className="font-medium text-primary-600 transition-colors hover:text-primary-500 hover:underline"
                 aria-label="Email Geekskai Support"
               >
-                postmaster@geekskai.com
+                support@geekskai.com
               </Link>
             </p>
           </div>
@@ -68,17 +68,16 @@ export default function TermsOfServicePage() {
               id="section-1"
               className="mb-4 border-b border-gray-200 pb-2 text-2xl font-bold text-gray-900"
             >
-              1. Description of Free Services
+              1. Description of Services
             </h2>
             <p className="mb-4 text-gray-700">
-              Geekskai is a comprehensive platform providing <strong>free online web tools</strong>,
-              including audio and video converting utilities. All accessible features and
-              functionalities are provided to you entirely at <strong>no cost</strong>.
+              Geekskai provides free public web tools and an optional authenticated DJ workspace.
+              Free workspace users may process one local audio file at a time. DJ Workspace Pro
+              adds batch processing and ZIP export under the limits shown on the pricing page.
             </p>
             <p className="text-gray-700">
-              We reserve the right to upgrade, modify, or discontinue any part of our free service
-              at any time without prior notice. Our primary goal is to provide a robust, reliable,
-              and continuously free user experience.
+              We may change or discontinue features with reasonable notice where practical. Current
+              prices, limits, and subscription features are displayed before checkout.
             </p>
           </section>
 
@@ -105,8 +104,7 @@ export default function TermsOfServicePage() {
               3. Acceptable Use Policy
             </h2>
             <p className="mb-4 text-gray-700">
-              As a user of our 100% free platform, you agree to access the Service solely for legal
-              and ethical purposes.
+              You agree to access the Service solely for legal and ethical purposes.
             </p>
             <h3 className="mb-3 mt-6 text-lg font-semibold text-gray-900">
               Your Responsibilities:
@@ -181,34 +179,35 @@ export default function TermsOfServicePage() {
               id="section-6"
               className="mb-4 border-b border-gray-200 pb-2 text-2xl font-bold text-gray-900"
             >
-              6. 100% Free Service Guarantee
+              6. DJ Workspace Pro Billing, Cancellation, and Refunds
             </h2>
             <p className="mb-4 text-gray-700">
-              We stand by our commitment that all core features on Geekskai are{" "}
-              <strong>free forever</strong>. We guarantee the following:
+              DJ Workspace Pro is billed by Creem, our merchant of record. The available monthly
+              and annual prices include applicable indirect tax where supported and are shown
+              before You authorize payment.
             </p>
             <ul className="mb-6 list-disc space-y-3 pl-6 text-gray-700">
               <li>
-                <strong>No Upfront Costs:</strong> Financial data, credit cards, or compulsory
-                registration are never required to access our main tools.
+                <strong>Free Public Tools:</strong> Public download tools remain available without
+                purchasing DJ Workspace Pro.
               </li>
               <li>
-                <strong>Optional Accounts:</strong> You may create a free account to use workspace
-                organization features, but downloads and core public tools remain available without
-                registration.
+                <strong>Cancellation:</strong> You may cancel through the in-product Creem customer
+                portal. Scheduled cancellation keeps Pro access until the current paid period ends.
               </li>
               <li>
-                <strong>No Mandatory Paid Tiers:</strong> You receive our best processing
-                capabilities at zero cost.
+                <strong>First-Payment Refund:</strong> Contact support@geekskai.com within 14 days
+                of Your first subscription payment to request a full refund. We respond within
+                three business days.
               </li>
               <li>
-                <strong>No Hidden Conditions:</strong> The features advertised are exactly what you
-                get, without unexpected paywalls.
+                <strong>Payment Failures:</strong> Access may continue while Creem retries a failed
+                payment and ends when the subscription expires, is paused, or is refunded in full.
               </li>
             </ul>
             <p className="rounded-md border border-gray-100 bg-gray-50 p-4 text-sm text-gray-600">
-              * Note: While Geekskai is entirely free to use, standard data and internet browsing
-              charges from your personal network provider still apply.
+              Creem issues receipts and invoices and handles payment methods, taxes, and subscription
+              billing. Geekskai does not store payment card details.
             </p>
           </section>
 
@@ -220,8 +219,8 @@ export default function TermsOfServicePage() {
               7. Operational Limits & Fair Use
             </h2>
             <p className="text-gray-700">
-              To maintain a fast, reliable, and completely free environment for thousands of global
-              users, we may implement necessary technical limitations. These may include
+              To maintain a fast and reliable service for thousands of global users, we may
+              implement necessary technical limitations. These may include
               rate-limiting exceptionally high volume requests, bandwidth restrictions, or file size
               guidelines. These fair-use measures are enforced solely to prevent server abuse and
               assure equitable access for everyone.
@@ -255,8 +254,8 @@ export default function TermsOfServicePage() {
               9. Limitation of Liability
             </h2>
             <p className="text-gray-700">
-              Because our website, tools, and services are provided completely free of charge, we
-              will not be held liable for any loss or damage of any nature. In no event shall
+              To the maximum extent permitted by law, we will not be held liable for any indirect,
+              consequential, or incidental loss or damage. In no event shall
               Geekskai be responsible for indirect, consequential, or incidental damages resulting
               from your use of, or inability to use, our platform.
             </p>

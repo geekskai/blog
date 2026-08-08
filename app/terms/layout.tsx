@@ -13,9 +13,9 @@ import React from "react"
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const lastModified = new Date("2026-04-26")
-  const title = "Geekskai Terms of Service | 100% Free Online Tools"
+  const title = "Geekskai Terms of Service | Free Public Tools and DJ Workspace Pro"
   const description =
-    "Read the Geekskai Terms of Service. Discover our commitment to providing 100% free online tools, downloaders, and converters with no hidden fees or subscriptions."
+    "Terms for Geekskai public tools and the optional Geekskai DJ Workspace Pro subscription."
 
   const metadata: Metadata = {
     metadataBase: new URL(siteMetadata.siteUrl),

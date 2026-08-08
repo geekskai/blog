@@ -123,6 +123,11 @@ export const accountEntitlements = pgTable(
     ...timestamps,
   },
   (table) => [
+    uniqueIndex("account_entitlements_user_key_source_uidx").on(
+      table.clerkUserId,
+      table.entitlementKey,
+      table.source
+    ),
     index("account_entitlements_lookup_idx").on(
       table.clerkUserId,
       table.entitlementKey,
@@ -130,6 +135,13 @@ export const accountEntitlements = pgTable(
     ),
   ]
 )
+
+export const workspaceActivations = pgTable("workspace_activations", {
+  clerkUserId: text("clerk_user_id").primaryKey(),
+  firstSingleCompletedAt: timestamp("first_single_completed_at", { withTimezone: true }),
+  firstBatchCompletedAt: timestamp("first_batch_completed_at", { withTimezone: true }),
+  ...timestamps,
+})
 
 export const billingCustomers = pgTable(
   "billing_customers",
@@ -158,6 +170,7 @@ export const billingSubscriptions = pgTable(
     providerSubscriptionId: text("provider_subscription_id").notNull(),
     status: text("status").notNull(),
     productId: text("product_id"),
+    providerEventAt: timestamp("provider_event_at", { withTimezone: true }),
     currentPeriodEnd: timestamp("current_period_end", { withTimezone: true }),
     canceledAt: timestamp("canceled_at", { withTimezone: true }),
     ...timestamps,
