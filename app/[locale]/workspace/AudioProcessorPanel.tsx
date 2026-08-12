@@ -6,6 +6,7 @@ import { saveAs } from "file-saver"
 import JSZip from "jszip"
 import Link from "next/link"
 import type { AccountPlanStatus } from "@/lib/billing/types"
+import { trackClarityEvent } from "@/lib/analytics/clarity"
 import { getAudioSelectionIssue } from "@/lib/workspace/audio"
 import {
   cancelAudioProcessing,
@@ -91,12 +92,18 @@ export default function AudioProcessorPanel({
     setFiles(next)
     setQueue(next.map((file) => ({ name: file.name, status: "waiting", progress: 0 })))
     setError(getAudioSelectionIssue(next, effectiveBatchFileLimit))
+    if (next.length > 0) {
+      trackClarityEvent(next.length > 1 ? "audio_files_selected_batch" : "audio_file_selected")
+    }
   }
 
   const processFiles = async () => {
     const issue = getAudioSelectionIssue(files, effectiveBatchFileLimit)
     if (issue) return setError(issue)
     canceledRef.current = false
+    trackClarityEvent(
+      files.length > 1 ? "audio_processing_started_batch" : "audio_processing_started"
+    )
     setBusy(true)
     setError(null)
     const zip = new JSZip()
@@ -160,11 +167,20 @@ export default function AudioProcessorPanel({
         body: JSON.stringify({ kind: completed > 1 ? "batch" : "single" }),
       })
     }
+    if (completed > 0) {
+      trackClarityEvent(
+        completed > 1 ? "audio_processing_completed_batch" : "audio_processing_completed"
+      )
+    }
+    if (completed < files.length && !canceledRef.current) {
+      trackClarityEvent("audio_processing_failed")
+    }
     setBusy(false)
   }
 
   const cancel = () => {
     canceledRef.current = true
+    trackClarityEvent("audio_processing_canceled")
     cancelAudioProcessing()
     setError("Processing canceled. Completed downloads remain on your device.")
   }

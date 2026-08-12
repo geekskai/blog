@@ -14,6 +14,7 @@ import {
 } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { ANNUAL_SAVINGS, PACKAGE_CATALOG } from "@/lib/billing/catalog"
+import { trackClarityEvent } from "@/lib/analytics/clarity"
 import type { PackageTier } from "@/lib/billing/domain"
 import type { AccountPlanStatus } from "@/lib/billing/types"
 
@@ -75,6 +76,10 @@ export default function PricingActions({ locale }: { locale: string }) {
   const pricingPath = `${prefix}/pricing/`
 
   useEffect(() => {
+    trackClarityEvent("pricing_viewed")
+  }, [])
+
+  useEffect(() => {
     if (!isLoaded) {
       setAccountStatus("loading")
       return
@@ -109,7 +114,9 @@ export default function PricingActions({ locale }: { locale: string }) {
 
   const startCheckout = async (tier: CheckoutTier) => {
     setActionError(null)
+    trackClarityEvent(`pricing_cta_clicked_${tier}_${interval}`)
     if (isLoaded && !isSignedIn) {
+      trackClarityEvent(`pricing_signin_required_${tier}`)
       window.location.assign(`${prefix}/sign-in/?redirect_url=${encodeURIComponent(pricingPath)}`)
       return
     }
@@ -123,8 +130,10 @@ export default function PricingActions({ locale }: { locale: string }) {
       })
       const result = (await response.json()) as { url?: string; error?: string }
       if (!response.ok || !result.url) throw new Error(result.error ?? "Checkout failed.")
+      trackClarityEvent(`checkout_created_${tier}_${interval}`)
       window.location.assign(result.url)
     } catch (checkoutError) {
+      trackClarityEvent(`checkout_failed_${tier}_${interval}`)
       setActionError({
         tier,
         message: checkoutError instanceof Error ? checkoutError.message : "Checkout failed.",
@@ -140,8 +149,10 @@ export default function PricingActions({ locale }: { locale: string }) {
       const response = await fetch("/api/billing/portal/", { method: "POST" })
       const result = (await response.json()) as { url?: string; error?: string }
       if (!response.ok || !result.url) throw new Error(result.error ?? "Billing portal failed.")
+      trackClarityEvent("billing_portal_opened")
       window.location.assign(result.url)
     } catch (portalError) {
+      trackClarityEvent("billing_portal_failed")
       setActionError({
         tier,
         message: portalError instanceof Error ? portalError.message : "Billing portal failed.",
@@ -200,7 +211,10 @@ export default function PricingActions({ locale }: { locale: string }) {
                     role="radio"
                     aria-checked={selected}
                     tabIndex={selected ? 0 : -1}
-                    onClick={() => setInterval(value)}
+                    onClick={() => {
+                      setInterval(value)
+                      trackClarityEvent(`pricing_interval_selected_${value}`)
+                    }}
                     onKeyDown={(event) => {
                       const previousKeys = ["ArrowLeft", "ArrowUp", "Home"]
                       const nextKeys = ["ArrowRight", "ArrowDown", "End"]
@@ -208,6 +222,7 @@ export default function PricingActions({ locale }: { locale: string }) {
                       event.preventDefault()
                       const nextInterval = previousKeys.includes(event.key) ? "monthly" : "annual"
                       setInterval(nextInterval)
+                      trackClarityEvent(`pricing_interval_selected_${nextInterval}`)
                       billingButtonRefs.current[nextInterval]?.focus()
                     }}
                     className={`flex min-w-0 cursor-pointer items-center justify-center gap-2 rounded-xl px-3 text-sm font-bold transition-[color,background-color,box-shadow,transform] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:scale-[0.98] motion-reduce:transform-none motion-reduce:transition-none sm:px-5 sm:text-base ${
@@ -311,6 +326,7 @@ export default function PricingActions({ locale }: { locale: string }) {
           </ul>
           <Link
             href={`${prefix}/audio-toolkit/`}
+            onClick={() => trackClarityEvent("pricing_free_toolkit_clicked")}
             className="mt-8 inline-flex items-center justify-center rounded-xl border border-slate-600 px-4 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-200 hover:-translate-y-px hover:border-slate-400 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:translate-y-0 motion-reduce:transform-none motion-reduce:transition-none xl:mt-auto"
             style={{ minHeight: "3rem" }}
           >
