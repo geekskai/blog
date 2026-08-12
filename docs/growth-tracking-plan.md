@@ -29,3 +29,34 @@ Microsoft Clarity is the current client-side behavior tool. Events contain no fi
 - A checkout URL is not payment; paid conversion comes from verified Creem webhook data.
 - Audio completion records only the outcome class. Audio, filenames, output settings, and media URLs remain local.
 - Review weekly by device class and landing page. Do not optimize from individual Clarity sessions alone.
+
+## Production baseline
+
+Snapshot: 2026-08-12, Microsoft Clarity, previous 3 days.
+
+| Metric               |     Baseline | Interpretation                                             |
+| -------------------- | -----------: | ---------------------------------------------------------- |
+| Sessions             |        4,787 | Excludes 296 sessions Clarity classified as bots           |
+| Unique users         |        4,289 | 82.79% of sessions were from new users                     |
+| Pages per session    |         1.33 | Discovery depth is currently low                           |
+| Average scroll depth |       31.81% | Most visitors do not reach deep-page content               |
+| Dead-click sessions  | 18.80% (900) | Highest confirmed interaction-quality issue                |
+| Quick-back sessions  |  2.97% (142) | Use landing-page and query context before changing content |
+| LCP                  |        2.6 s | Needs improvement                                          |
+| INP                  |       280 ms | Needs improvement                                          |
+| CLS                  |         0.19 | Needs improvement                                          |
+
+Clarity funnel `Audio acquisition - pricing to toolkit` tracks the first observable acquisition transition:
+
+1. `https://geekskai.com/pricing/`
+2. `https://geekskai.com/audio-toolkit/`
+
+The Audio Toolkit custom events were deployed on 2026-08-12 and were not yet available in Clarity's funnel selector when this baseline was recorded. This is an ingestion/sample state, not evidence that the events are broken.
+
+## Measurement gates
+
+- Recheck after 72 hours or after the first 100 pricing-page sessions, whichever comes later.
+- Confirm `pricing_viewed`, `pricing_free_toolkit_clicked`, `audio_file_selected`, `audio_processing_started`, and `audio_processing_completed` appear in Clarity before building the activation funnel.
+- Keep checkout and paid-conversion reporting disabled until Creem live payments are approved. A checkout URL is never counted as payment.
+- Investigate dead clicks and Core Web Vitals before investing in traffic that lands on the same affected pages.
+- Preserve the no-PII rule during every analytics change.

@@ -1,0 +1,120 @@
+---
+title: "How to Normalize Audio Loudness with LUFS: A Two-Pass Guide"
+date: "2026-08-12"
+lastmod: "2026-08-12"
+tags: ["Audio", "LUFS", "Audio Tools"]
+draft: false
+summary: "Learn what LUFS measures, why two-pass loudness normalization is useful for finished audio files, and how to normalize MP3, WAV, FLAC, or M4A locally in your browser."
+layout: "PostLayout"
+canonicalUrl: "https://geekskai.com/blog/audio/how-to-normalize-audio-loudness-lufs/"
+faqs:
+  [
+    {
+      question: "What is LUFS normalization?",
+      answer: "LUFS normalization measures perceived loudness across a programme and adjusts the file toward a chosen integrated-loudness target. It differs from peak normalization, which only scales according to the highest sample or peak.",
+    },
+    {
+      question: "Why use two passes instead of one?",
+      answer: "The first pass measures the complete file. The second pass uses those measurements to apply a more predictable adjustment to a finished file. FFmpeg documents both single-pass and double-pass modes for its loudnorm filter.",
+    },
+    {
+      question: "What LUFS target should I choose?",
+      answer: "Use the delivery specification supplied by your broadcaster, podcast host, client, or distribution platform. There is no single target that is correct for every programme and destination.",
+    },
+    {
+      question: "Does the Geekskai Audio Toolkit upload my audio?",
+      answer: "No. Processing runs locally in the browser. The current tool accepts MP3, WAV, FLAC, and M4A input and exports WAV or 320 kbps MP3.",
+    },
+  ]
+---
+
+## What is the fastest way to normalize an audio file with LUFS?
+
+The fastest repeatable workflow is to measure the entire file, choose the loudness target required by its destination, and run a second normalization pass using the measured integrated loudness, true peak, loudness range, and threshold. This is more predictable for finished files than adjusting only their highest peak.
+
+If you already own or have permission to process the file, the [Geekskai Audio Toolkit](https://geekskai.com/audio-toolkit/) performs this two-pass workflow locally in your browser. The free plan processes one file at a time without requiring an account.
+
+## LUFS normalization versus peak normalization
+
+Peak normalization answers a narrow question: how close does the highest sample or true peak come to the ceiling? It can make two files share a similar maximum peak while they still sound noticeably different in average loudness.
+
+LUFS-based normalization instead estimates perceived programme loudness over time. The European Broadcasting Union describes EBU R 128 as a move from using peak meters alone to measuring and normalizing loudness with loudness meters. The EBU also publishes separate guidance for broadcast, streaming, radio, short-form, and cinematic material, which is why one target should not be treated as universal. See the [EBU loudness specification overview](https://tech.ebu.ch/loudness/).
+
+## Why two-pass normalization is useful
+
+FFmpeg's official `loudnorm` filter supports both single-pass and double-pass operation. It can target integrated loudness, loudness range, and maximum true peak. See the [`loudnorm` filter documentation](https://ffmpeg.org/ffmpeg-filters.html#loudnorm).
+
+A two-pass file workflow works like this:
+
+1. **Measure the complete input.** The first pass reads the file and records its integrated loudness, true peak, loudness range, threshold, and target offset.
+2. **Apply the measured values.** The second pass uses those measurements with the requested loudness target and peak ceiling.
+3. **Export and verify.** Listen to the output and confirm that it satisfies the destination's technical specification.
+
+This workflow is appropriate for completed files because the first pass can inspect the whole programme. A live stream cannot be measured from beginning to end before playback, so live workflows have different constraints.
+
+## How to normalize audio locally with Geekskai
+
+The current Audio Toolkit accepts MP3, WAV, FLAC, and M4A input files up to 200 MB each. Processing uses FFmpeg in the browser; audio and filenames are not uploaded to Geekskai for processing.
+
+1. Open the [Audio Toolkit](https://geekskai.com/audio-toolkit/).
+2. Choose an audio file that you own or are authorized to process.
+3. Select WAV or 320 kbps MP3 as the output.
+4. For WAV, choose 16-bit or 24-bit output.
+5. Enter the loudness target required by the destination.
+6. Start processing and keep the tab open until the result is ready.
+7. Download the normalized file and audition it before delivery.
+
+The toolkit's normalization pipeline performs an analysis pass, then applies the measured values during the second pass with a true-peak ceiling. The free plan is intentionally limited to one local file per batch; paid batch checkout remains unavailable while payment onboarding is being completed.
+
+## How to choose a loudness target
+
+Start with the delivery specification, not a number copied from an unrelated platform guide.
+
+- **Broadcast delivery:** Follow the broadcaster's current technical specification. EBU R 128 uses -23 LUFS as its basic programme-loudness recommendation, but it also has supplements for different content contexts.
+- **Podcast or spoken-word delivery:** Follow the host, network, or client's stated integrated-loudness and peak requirements.
+- **Music distribution:** Preserve the artistic balance and use the distributor's current guidance. Playback normalization does not replace mastering.
+- **Client work:** Ask for the exact integrated-loudness, true-peak, channel, sample-rate, and output-format requirements before exporting.
+
+Normalization is not a repair tool. It will not remove clipping already recorded into a file, eliminate background noise, correct a poor mix, or restore detail lost to aggressive compression.
+
+## Output format: WAV or MP3?
+
+Choose WAV when the file will be edited again, archived, mastered, or delivered in an uncompressed format. Choose MP3 when a smaller listening or review copy is appropriate and the recipient accepts lossy audio.
+
+The toolkit currently offers:
+
+| Output | Options              | Good fit                                               |
+| ------ | -------------------- | ------------------------------------------------------ |
+| WAV    | 16-bit or 24-bit PCM | Editing, mastering handoff, archive, lossless delivery |
+| MP3    | 320 kbps             | Review copies and destinations that accept MP3         |
+
+Converting a lossy MP3 to WAV does not restore information discarded during the original MP3 encoding. It only changes the output container and encoding.
+
+## Troubleshooting browser-based audio processing
+
+### Processing is slow
+
+Browser processing uses the local device. Long files and lossless formats can require more memory and time. Close memory-heavy tabs, keep the browser tab active, and test with a shorter file if the device is constrained.
+
+### The file is rejected
+
+Confirm that its extension is MP3, WAV, FLAC, or M4A and that the file is no larger than 200 MB. Renaming an unsupported file does not convert its actual media format.
+
+### The result still sounds distorted
+
+Loudness normalization cannot undo clipping or distortion already present in the source. Return to the mix or an earlier master, lower problematic levels, and export a clean source before normalizing again.
+
+### The output is louder or quieter than expected
+
+Check that you entered the intended target and compare it with the destination's current specification. Perceived loudness also depends on dynamics, frequency balance, and listening conditions; matching a LUFS number does not make different mixes sound identical.
+
+## Practical checklist
+
+- Use only audio you own or have permission to process.
+- Obtain the destination's current delivery specification.
+- Keep an untouched copy of the source.
+- Use a two-pass workflow for finished files when predictable measurement matters.
+- Verify the exported format, duration, channel layout, loudness, and true peak.
+- Listen from beginning to end before publishing or delivering the file.
+
+For a private, installation-free workflow, [try one file in the Geekskai Audio Toolkit](https://geekskai.com/audio-toolkit/). For plan limits and current checkout availability, see [Audio Toolkit pricing](https://geekskai.com/pricing/).
