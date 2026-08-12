@@ -8,4 +8,6 @@ export const canonicalStaticRoutes = [
   "audio-toolkit/",
   "privacy/",
   "terms/",
+  "llms.txt",
+  "pricing.txt",
 ] as const

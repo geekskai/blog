@@ -1,0 +1,41 @@
+# Geekskai Audio Toolkit Pricing
+
+Currency: USD
+Billing model: Flat subscription; no per-seat pricing
+Processing model: Audio processing runs locally in the user's browser
+Current purchase status: Basic and Pro checkout is unavailable while payment onboarding and testing are completed
+
+## Free
+
+- Price: $0
+- Batch limit: 1 file
+- Formats: MP3, WAV, FLAC, and M4A
+- Includes: Two-pass LUFS normalization
+
+## Basic
+
+- Monthly: $10 per month
+- Annual: $96 per year, equivalent to $8 per month
+- Annual discount: 20% compared with 12 monthly payments
+- Batch limit: Up to 20 files
+- Includes: Everything in Free, ZIP export
+- Support: Email response within 2 business days
+
+## Pro
+
+- Monthly: $25 per month
+- Annual: $240 per year, equivalent to $20 per month
+- Annual discount: 20% compared with 12 monthly payments
+- Batch limit: Up to 50 files
+- Includes: Everything in Basic, ZIP export
+- Support: Priority response within 1 business day
+
+## Links
+
+- Pricing page: https://geekskai.com/pricing/
+- Free Audio Toolkit: https://geekskai.com/audio-toolkit/
+- Privacy Policy: https://geekskai.com/privacy/
+- Terms of Service: https://geekskai.com/terms/
+- Support: support@geekskai.com
+
+Last updated: 2026-08-12
