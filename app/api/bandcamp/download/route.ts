@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import { isBandcampMediaUrl, isBandcampUrl } from "../../../../utils/bandcamp"
-import { withRegisteredDownloadReservation } from "@/lib/download-quota/server"
+import { withDownloadReservation } from "@/lib/download-quota/server"
 
 export const runtime = "nodejs"
 
@@ -93,9 +93,7 @@ async function handleGet(req: Request) {
 }
 
 export async function GET(req: Request) {
-  return withRegisteredDownloadReservation(
-    req,
-    ["bandcamp-track", "bandcamp-album", "bandcamp-to-mp3"],
-    () => handleGet(req)
+  return withDownloadReservation(req, ["bandcamp-track", "bandcamp-album", "bandcamp-to-mp3"], () =>
+    handleGet(req)
   )
 }

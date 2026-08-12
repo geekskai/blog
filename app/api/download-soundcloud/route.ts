@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import scdl from "soundcloud-downloader"
-import { withRegisteredDownloadReservation } from "@/lib/download-quota/server"
+import { withDownloadReservation } from "@/lib/download-quota/server"
 
 export const runtime = "nodejs"
 
@@ -315,9 +315,7 @@ async function handlePost(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  return withRegisteredDownloadReservation(
-    request,
-    ["soundcloud-track", "soundcloud-playlist"],
-    () => handlePost(request)
+  return withDownloadReservation(request, ["soundcloud-track", "soundcloud-playlist"], () =>
+    handlePost(request)
   )
 }

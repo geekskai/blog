@@ -9,6 +9,7 @@ import LanguageSelect from "./LanguageSelect"
 import LinkNext from "next/link"
 import { useTranslations } from "next-intl"
 import AuthControls from "./auth/AuthControls"
+import { usePathname } from "@/app/i18n/navigation"
 
 interface MobileNavProps {
   authEnabled?: boolean
@@ -24,6 +25,10 @@ const MobileNav = ({ authEnabled = false }: MobileNavProps) => {
   const [navShow, setNavShow] = useState(false)
   const [toolsExpanded, setToolsExpanded] = useState(false)
   const navRef = useRef<HTMLDivElement>(null)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const wasOpenRef = useRef(false)
+  const pathname = usePathname()
 
   const onToggleNav = () => {
     if (navShow) {
@@ -45,14 +50,38 @@ const MobileNav = ({ authEnabled = false }: MobileNavProps) => {
   }
 
   useEffect(() => {
-    if (!navShow) return
+    if (!navShow) {
+      if (wasOpenRef.current) menuButtonRef.current?.focus()
+      wasOpenRef.current = false
+      return
+    }
 
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = "hidden"
+    wasOpenRef.current = true
+    window.requestAnimationFrame(() => closeButtonRef.current?.focus())
 
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         closeNav()
+        return
+      }
+
+      if (event.key === "Tab" && navRef.current) {
+        const focusable = Array.from(
+          navRef.current.querySelectorAll<HTMLElement>(
+            'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          )
+        )
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault()
+          last?.focus()
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault()
+          first?.focus()
+        }
       }
     }
 
@@ -67,9 +96,13 @@ const MobileNav = ({ authEnabled = false }: MobileNavProps) => {
   return (
     <>
       <button
+        ref={menuButtonRef}
+        type="button"
         aria-label="Toggle Menu"
+        aria-expanded={navShow}
+        aria-controls="mobile-navigation-panel"
         onClick={onToggleNav}
-        className="rounded-lg p-2 transition-colors duration-300 hover:bg-slate-800/50 lg:hidden"
+        className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg transition-colors duration-200 hover:bg-slate-800/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none lg:hidden"
       >
         <Menu className="h-6 w-6 text-slate-300 hover:text-white" />
       </button>
@@ -85,11 +118,13 @@ const MobileNav = ({ authEnabled = false }: MobileNavProps) => {
             <button
               type="button"
               aria-label="Close Menu"
+              tabIndex={-1}
               onClick={closeNav}
               className="absolute inset-0 bg-black/50"
             />
 
             <div
+              id="mobile-navigation-panel"
               ref={navRef}
               className="absolute right-0 top-0 z-10 flex h-full w-80 flex-col border-l border-slate-800/50 bg-slate-950/95 shadow-2xl"
             >
@@ -100,8 +135,10 @@ const MobileNav = ({ authEnabled = false }: MobileNavProps) => {
                   <span className="text-lg font-bold text-white">Navigation</span>
                 </div>
                 <button
+                  ref={closeButtonRef}
+                  type="button"
                   onClick={onToggleNav}
-                  className="rounded-lg p-2 transition-colors duration-300 hover:bg-slate-800/50"
+                  className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg transition-colors duration-200 hover:bg-slate-800/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none"
                   aria-label="Close Menu"
                 >
                   <X className="h-5 w-5 text-slate-300 hover:text-white" />
@@ -116,7 +153,16 @@ const MobileNav = ({ authEnabled = false }: MobileNavProps) => {
                       key={link.title}
                       href={link.href}
                       onClick={closeNav}
-                      className="flex items-center gap-3 rounded-xl px-4 py-3 text-lg font-medium text-slate-300 transition-all duration-300 hover:bg-slate-800/50 hover:text-white"
+                      aria-current={
+                        pathname.replace(/\/+$/, "") === link.href.replace(/\/+$/, "")
+                          ? "page"
+                          : undefined
+                      }
+                      className={`flex min-h-12 items-center gap-3 rounded-xl px-4 py-3 text-lg font-medium transition-[color,background-color] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none ${
+                        pathname.replace(/\/+$/, "") === link.href.replace(/\/+$/, "")
+                          ? "bg-pink-500/10 text-white"
+                          : "text-slate-300 hover:bg-slate-800/50 hover:text-white"
+                      }`}
                     >
                       {t(link.title)}
                     </LinkNext>
@@ -125,8 +171,10 @@ const MobileNav = ({ authEnabled = false }: MobileNavProps) => {
                   {/* Tools Section */}
                   <div className="my-2">
                     <button
+                      type="button"
                       onClick={onToolsToggle}
-                      className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-lg font-medium text-slate-300 transition-all duration-300 hover:bg-slate-800/50 hover:text-white"
+                      className="flex min-h-12 w-full cursor-pointer items-center justify-between rounded-xl px-4 py-3 text-lg font-medium text-slate-300 transition-[color,background-color] duration-200 hover:bg-slate-800/50 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none"
+                      aria-expanded={toolsExpanded}
                     >
                       <span>{t("header_nav_tools")}</span>
                       <ChevronDown

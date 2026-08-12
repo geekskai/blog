@@ -3,7 +3,7 @@
 import { FormEvent, useEffect, useMemo, useState } from "react"
 import { Clock3, FolderPlus, HardDrive, Save, SlidersHorizontal, Trash2 } from "lucide-react"
 import { trackClarityEvent } from "@/lib/analytics/clarity"
-import type { BillingStatusResponse } from "@/lib/billing/types"
+import type { AccountPlanStatus } from "@/lib/billing/types"
 import AudioProcessorPanel from "./AudioProcessorPanel"
 
 type AudioFormat = "wav" | "mp3"
@@ -63,7 +63,7 @@ export default function DjWorkspace({
 }: {
   userId: string
   locale: string
-  initialBillingStatus: BillingStatusResponse
+  initialBillingStatus: AccountPlanStatus
   checkoutSuccess: boolean
 }) {
   const storageKey = useMemo(() => `geekskai:dj-workspace:v1:${userId}`, [userId])
@@ -167,12 +167,12 @@ export default function DjWorkspace({
     <div className="space-y-8 py-10">
       <header className="space-y-3">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
-          Geekskai DJ Workspace Pro
+          Geekskai Audio Toolkit
         </p>
-        <h1 className="text-3xl font-bold text-white md:text-4xl">DJ preparation workspace</h1>
+        <h1 className="text-3xl font-bold text-white md:text-4xl">Local audio preparation</h1>
         <p className="max-w-3xl text-slate-300">
           Normalize and convert audio files you own, then organize preparation projects and reuse
-          format settings. Public download tools remain separate and free.
+          format settings. Public downloader allowances remain separate from paid plans.
         </p>
       </header>
 

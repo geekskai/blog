@@ -1,3 +1,4 @@
+/// <reference types="node" />
 /// <reference types="next/image-types/global" />
 
 // Image module declarations

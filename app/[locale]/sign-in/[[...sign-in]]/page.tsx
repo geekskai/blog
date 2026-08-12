@@ -19,7 +19,7 @@ export default function SignInPage() {
             Your public tools remain free and do not require an account.
           </p>
         </div>
-        <SignIn fallbackRedirectUrl="/workspace/" />
+        <SignIn fallbackRedirectUrl="/audio-toolkit/" />
       </div>
     </section>
   )

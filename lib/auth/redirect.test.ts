@@ -9,8 +9,8 @@ describe("registration return redirect", () => {
   })
 
   it("rejects absolute, protocol-relative, and backslash redirects", () => {
-    expect(safeLocalRedirectUrl("https://evil.example/path")).toBe("/workspace/")
-    expect(safeLocalRedirectUrl("//evil.example/path")).toBe("/workspace/")
-    expect(safeLocalRedirectUrl("/\\evil.example/path")).toBe("/workspace/")
+    expect(safeLocalRedirectUrl("https://evil.example/path")).toBe("/audio-toolkit/")
+    expect(safeLocalRedirectUrl("//evil.example/path")).toBe("/audio-toolkit/")
+    expect(safeLocalRedirectUrl("/\\evil.example/path")).toBe("/audio-toolkit/")
   })
 })

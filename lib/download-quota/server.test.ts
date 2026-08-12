@@ -4,8 +4,11 @@ const mocks = vi.hoisted(() => ({
   auth: vi.fn(),
   getOperation: vi.fn(),
   claimOperation: vi.fn(),
+  getVisitorOperation: vi.fn(),
+  claimVisitorOperation: vi.fn(),
   complete: vi.fn(),
   release: vi.fn(),
+  releaseVisitor: vi.fn(),
   recordEvent: vi.fn(),
 }))
 
@@ -13,34 +16,58 @@ vi.mock("@clerk/nextjs/server", () => ({ auth: mocks.auth }))
 vi.mock("./repository", () => ({
   getRegisteredDownloadOperation: mocks.getOperation,
   claimRegisteredDownloadOperation: mocks.claimOperation,
+  getVisitorDownloadOperation: mocks.getVisitorOperation,
+  claimVisitorDownloadOperation: mocks.claimVisitorOperation,
   completeRegisteredDownload: mocks.complete,
   releaseRegisteredDownload: mocks.release,
+  releaseVisitorDownload: mocks.releaseVisitor,
 }))
 vi.mock("@/lib/growth/events", () => ({ recordGrowthEvent: mocks.recordEvent }))
 
-import { withRegisteredDownloadReservation } from "./server"
+import { withDownloadReservation } from "./server"
 
 const operationId = "019fd1e2-9b00-79f1-8b03-f09507529a0b"
 
-function request(query = `operation_id=${operationId}`) {
-  return new Request(`https://geekskai.com/api/download?${query}`)
+function request(query = `operation_id=${operationId}`, visitorId?: string) {
+  return new Request(`https://geekskai.com/api/download?${query}`, {
+    headers: visitorId ? { cookie: `geekskai_visitor_quota=${visitorId}` } : undefined,
+  })
 }
 
 describe("Registered User download endpoint", () => {
   beforeEach(() => {
     vi.clearAllMocks()
     process.env.DOWNLOAD_QUOTA_SERVER_ENABLED = "true"
+    process.env.DOWNLOAD_QUOTA_SCHEMA_READY = "true"
     process.env.DOWNLOAD_QUOTA_ENABLED_TOOLS = "soundcloud-track"
   })
 
-  it("keeps the Visitor path public", async () => {
+  it("requires and claims the Visitor's server-issued reservation", async () => {
     mocks.auth.mockResolvedValue({ userId: null })
-    const response = await withRegisteredDownloadReservation(request(), ["soundcloud-track"], () =>
-      Promise.resolve(new Response("ok"))
+    const visitorId = "019fd1e2-9b00-79f1-8b03-f09507529a0c"
+    mocks.claimVisitorOperation.mockResolvedValue({
+      status: "processing",
+      toolId: "soundcloud-track",
+      expiresAt: new Date(Date.now() + 60_000),
+    })
+    const response = await withDownloadReservation(
+      request(undefined, visitorId),
+      ["soundcloud-track"],
+      () => Promise.resolve(new Response("ok"))
     )
 
     expect(response.status).toBe(200)
-    expect(mocks.getOperation).not.toHaveBeenCalled()
+    expect(mocks.claimVisitorOperation).toHaveBeenCalledWith(visitorId, operationId, [
+      "soundcloud-track",
+    ])
+  })
+
+  it("rejects a Visitor request without its server-issued identity", async () => {
+    mocks.auth.mockResolvedValue({ userId: null })
+    const response = await withDownloadReservation(request(), ["soundcloud-track"], () =>
+      Promise.resolve(new Response("ok"))
+    )
+    expect(response.status).toBe(409)
   })
 
   it("keeps a successful response reserved until the client confirms the completed transfer", async () => {
@@ -51,7 +78,7 @@ describe("Registered User download endpoint", () => {
       expiresAt: new Date(Date.now() + 60_000),
     })
 
-    const response = await withRegisteredDownloadReservation(request(), ["soundcloud-track"], () =>
+    const response = await withDownloadReservation(request(), ["soundcloud-track"], () =>
       Promise.resolve(new Response("ok"))
     )
 
@@ -68,7 +95,7 @@ describe("Registered User download endpoint", () => {
       expiresAt: new Date(Date.now() + 60_000),
     })
 
-    const response = await withRegisteredDownloadReservation(request(), ["soundcloud-track"], () =>
+    const response = await withDownloadReservation(request(), ["soundcloud-track"], () =>
       Promise.resolve(new Response("failed", { status: 502 }))
     )
 
@@ -86,7 +113,7 @@ describe("Registered User download endpoint", () => {
       expiresAt: new Date(Date.now() + 60_000),
     })
 
-    const response = await withRegisteredDownloadReservation(request(), ["soundcloud-track"], () =>
+    const response = await withDownloadReservation(request(), ["soundcloud-track"], () =>
       Promise.resolve(new Response("ok"))
     )
 
@@ -98,7 +125,7 @@ describe("Registered User download endpoint", () => {
     mocks.auth.mockResolvedValue({ userId: "user_123" })
     process.env.DOWNLOAD_QUOTA_ENABLED_TOOLS = "soundcloud-playlist"
 
-    const response = await withRegisteredDownloadReservation(
+    const response = await withDownloadReservation(
       request(`operation_id=${operationId}&quota_tool=soundcloud-track`),
       ["soundcloud-track", "soundcloud-playlist"],
       () => Promise.resolve(new Response("ok"))

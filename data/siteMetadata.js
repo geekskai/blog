@@ -4,7 +4,7 @@ const siteMetadata = {
   author: "Geeks Kai",
   headerTitle: "geekskai",
   description:
-    "Explore free online tools and utilities for developers and everyday tasks. GeeksKai offers calculators, converters, generators, and technical guides—no fluff, no signup required.",
+    "Explore public tools for developers and creators, plus local-first Geekskai Audio Toolkit plans for private batch audio preparation.",
   language: "en-us",
   theme: "dark", // system, dark or light
   siteUrl: "https://geekskai.com",

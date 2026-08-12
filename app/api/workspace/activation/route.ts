@@ -1,9 +1,6 @@
 import { auth } from "@clerk/nextjs/server"
 import { NextRequest, NextResponse } from "next/server"
-import {
-  getWorkspaceBillingStatus,
-  recordWorkspaceActivation,
-} from "@/lib/billing/repository"
+import { getAccountPlanStatus, recordWorkspaceActivation } from "@/lib/billing/repository"
 
 export async function POST(request: NextRequest) {
   const { userId } = await auth()
@@ -12,8 +9,8 @@ export async function POST(request: NextRequest) {
   if (body?.kind !== "single" && body?.kind !== "batch") {
     return NextResponse.json({ error: "Unknown activation kind." }, { status: 400 })
   }
-  if (body.kind === "batch" && !(await getWorkspaceBillingStatus(userId)).isPro) {
-    return NextResponse.json({ error: "Pro access is required." }, { status: 403 })
+  if (body.kind === "batch" && (await getAccountPlanStatus(userId)).batchFileLimit <= 1) {
+    return NextResponse.json({ error: "A paid plan is required." }, { status: 403 })
   }
   await recordWorkspaceActivation(userId, body.kind)
   return NextResponse.json({ ok: true })

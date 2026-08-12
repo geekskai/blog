@@ -2,7 +2,7 @@ const SITE_ORIGIN = "https://geekskai.com"
 
 export function safeLocalRedirectUrl(
   value: string | string[] | undefined,
-  fallback = "/workspace/"
+  fallback = "/audio-toolkit/"
 ) {
   const candidate = Array.isArray(value) ? value[0] : value
   if (!candidate) return fallback

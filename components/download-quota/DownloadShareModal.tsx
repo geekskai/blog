@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link"
+import { useEffect, useMemo, useState } from "react"
 import CopyAndTwitterShareButton from "@/components/CopyAndTwitterShareButton"
 import { Share2, UserPlus, X } from "lucide-react"
 
@@ -10,6 +12,9 @@ type DownloadShareModalProps = {
   unlockAmount?: number
   canRegister?: boolean
   canShare?: boolean
+  used?: number
+  limit?: number
+  remaining?: number
   errorMessage?: string | null
   onClose: () => void
   onUnlock: () => void | Promise<void>
@@ -23,11 +28,35 @@ export default function DownloadShareModal({
   unlockAmount = 5,
   canRegister = true,
   canShare = true,
+  used = 0,
+  limit = 0,
+  remaining = 0,
   errorMessage,
   onClose,
   onUnlock,
   onCreateAccount,
 }: DownloadShareModalProps) {
+  const [now, setNow] = useState(() => Date.now())
+  useEffect(() => {
+    if (!isOpen) return
+    const timer = window.setInterval(() => setNow(Date.now()), 30_000)
+    return () => window.clearInterval(timer)
+  }, [isOpen])
+  const reset = useMemo(() => {
+    const next = new Date(now)
+    next.setUTCHours(24, 0, 0, 0)
+    const minutes = Math.max(1, Math.ceil((next.getTime() - now) / 60_000))
+    const hours = Math.floor(minutes / 60)
+    const remainingMinutes = minutes % 60
+    return {
+      localTime: new Intl.DateTimeFormat(undefined, {
+        hour: "numeric",
+        minute: "2-digit",
+        timeZoneName: "short",
+      }).format(next),
+      countdown: hours > 0 ? `${hours}h ${remainingMinutes}m` : `${remainingMinutes}m`,
+    }
+  }, [now])
   if (!isOpen) return null
 
   return (
@@ -38,10 +67,14 @@ export default function DownloadShareModal({
             <h2 className="text-xl font-bold md:text-2xl">Today's downloads are used up</h2>
             <p className="mt-2 text-sm leading-6 text-slate-300">
               {canRegister
-                ? "Create a free account to increase today's allowance from 3 to 10 downloads."
+                ? "Create a free account to keep today's usage and unlock seven more downloads."
                 : canShare
                   ? "Open a prepared X post to unlock five more downloads today."
                   : "You've used today's account and share allowance. Please come back tomorrow."}
+            </p>
+            <p className="mt-2 text-xs text-slate-400">
+              {used} of {limit} used · {remaining} remaining · resets at {reset.localTime} (in{" "}
+              {reset.countdown})
             </p>
           </div>
           <button
@@ -84,6 +117,13 @@ export default function DownloadShareModal({
             Share on X — unlock {unlockAmount}
           </CopyAndTwitterShareButton>
         ) : null}
+
+        <Link
+          href="/pricing/"
+          className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-violet-400/30 px-4 text-sm font-semibold text-violet-200 transition hover:bg-violet-500/10"
+        >
+          Compare Audio Toolkit plans
+        </Link>
 
         {errorMessage ? (
           <p role="alert" className="mt-3 text-center text-sm text-red-300">

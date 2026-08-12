@@ -1,5 +1,4 @@
 export const FREE_BATCH_FILE_LIMIT = 1
-export const PRO_BATCH_FILE_LIMIT = 20
 export const MAX_FILE_BYTES = 200 * 1024 * 1024
 export const MAX_BATCH_BYTES = 500 * 1024 * 1024
 

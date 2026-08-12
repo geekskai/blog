@@ -217,7 +217,6 @@ export default function SoundCloudDownloaderPage() {
       current: total,
       status: errorCount > 0 ? "error" : "completed",
     }))
-
   }, [downloadQuota, format, playlistInfo])
 
   const handleUnifiedSubmit = useCallback(
@@ -408,6 +407,9 @@ export default function SoundCloudDownloaderPage() {
         unlockAmount={downloadQuota.quotaConfig.shareBonusClicks}
         canRegister={!downloadQuota.quotaConfig.isRegistered}
         canShare={downloadQuota.quotaConfig.shareUnlockAvailable}
+        used={downloadQuota.quotaConfig.used}
+        limit={downloadQuota.quotaConfig.limit}
+        remaining={downloadQuota.quotaConfig.remaining}
         errorMessage={downloadQuota.quotaMessage}
         onClose={downloadQuota.closeShareModal}
         onUnlock={downloadQuota.handleShareUnlock}

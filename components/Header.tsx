@@ -13,6 +13,7 @@ import LanguageSelect from "./LanguageSelect"
 import { useTranslations } from "next-intl"
 import LinkNext from "next/link"
 import AuthControls from "./auth/AuthControls"
+import { usePathname } from "@/app/i18n/navigation"
 
 interface HeaderProps {
   authEnabled?: boolean
@@ -26,6 +27,7 @@ const MegaMenu = dynamic(() => import("./MegaMenu"), {
 const Header = ({ authEnabled = false }: HeaderProps) => {
   const t = useTranslations("HomePage")
   const tt = useTranslations("ToolsPage")
+  const pathname = usePathname()
   const [hasHydrated, setHasHydrated] = useState(false)
   const [toolsMenuOpen, setToolsMenuOpen] = useState(false)
   const closeToolsMenuTimerRef = React.useRef<number | null>(null)
@@ -69,9 +71,13 @@ const Header = ({ authEnabled = false }: HeaderProps) => {
 
   return (
     <header className="sticky top-0 z-80 border-b border-slate-800/50 bg-slate-950/80 shadow-xl backdrop-blur-xl">
-      <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6 xl:px-0">
+      <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6 2xl:px-0">
         {/* Logo Section */}
-        <Link href="/" aria-label={siteMetadata.headerTitle}>
+        <Link
+          href="/"
+          aria-label={siteMetadata.headerTitle}
+          className="inline-flex min-h-11 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+        >
           <div className="group flex items-center gap-1">
             <Image
               src="/static/logos.png"
@@ -99,7 +105,16 @@ const Header = ({ authEnabled = false }: HeaderProps) => {
               <LinkNext
                 key={link.title}
                 href={link.href}
-                className="group relative px-3 py-2 text-sm font-medium text-slate-300 transition-all duration-300 hover:text-white md:text-lg"
+                aria-current={
+                  pathname.replace(/\/+$/, "") === link.href.replace(/\/+$/, "")
+                    ? "page"
+                    : undefined
+                }
+                className={`group relative inline-flex min-h-11 items-center px-3 py-2 text-sm font-medium transition-[color,background-color] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none md:text-lg ${
+                  pathname.replace(/\/+$/, "") === link.href.replace(/\/+$/, "")
+                    ? "text-white after:absolute after:inset-x-3 after:bottom-0 after:h-0.5 after:rounded-full after:bg-pink-400"
+                    : "text-slate-300 hover:text-white"
+                }`}
               >
                 {t(link.title)}
               </LinkNext>
@@ -120,7 +135,7 @@ const Header = ({ authEnabled = false }: HeaderProps) => {
             >
               <button
                 type="button"
-                className={`flex cursor-pointer items-center gap-2 px-3 py-2 text-sm font-medium text-slate-300 transition-all duration-300 hover:text-white md:text-lg ${
+                className={`flex min-h-11 cursor-pointer items-center gap-2 px-3 py-2 text-sm font-medium text-slate-300 transition-[color,background-color] duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none md:text-lg ${
                   isToolsMenuVisible ? "text-white" : ""
                 }`}
                 aria-haspopup="true"

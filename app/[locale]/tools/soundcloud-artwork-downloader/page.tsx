@@ -309,6 +309,9 @@ export default function SoundCloudArtworkDownloaderPage() {
         unlockAmount={downloadQuota.quotaConfig.shareBonusClicks}
         canRegister={!downloadQuota.quotaConfig.isRegistered}
         canShare={downloadQuota.quotaConfig.shareUnlockAvailable}
+        used={downloadQuota.quotaConfig.used}
+        limit={downloadQuota.quotaConfig.limit}
+        remaining={downloadQuota.quotaConfig.remaining}
         errorMessage={downloadQuota.quotaMessage}
         onClose={downloadQuota.closeShareModal}
         onUnlock={downloadQuota.handleShareUnlock}

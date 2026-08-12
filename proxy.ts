@@ -1,7 +1,7 @@
 import { clerkMiddleware } from "@clerk/nextjs/server"
 import createMiddleware from "next-intl/middleware"
 import { NextResponse } from "next/server"
-import { routing } from "./app/i18n/routing"
+import { defaultLocale, locales, routing } from "./app/i18n/routing"
 
 const intlMiddleware = createMiddleware(routing)
 
@@ -12,6 +12,19 @@ export default clerkMiddleware((_auth, request) => {
 
   if (pathname.startsWith("/api/") || pathname.startsWith("/__clerk/")) {
     return NextResponse.next()
+  }
+
+  const localizedPricing = pathname.match(/^\/([^/]+)\/pricing\/?$/)
+  if (
+    localizedPricing &&
+    localizedPricing[1] !== defaultLocale &&
+    locales.includes(localizedPricing[1])
+  ) {
+    const canonicalPricing = request.nextUrl.clone()
+    canonicalPricing.pathname = "/pricing/"
+    const response = NextResponse.redirect(canonicalPricing, 308)
+    response.cookies.set("NEXT_LOCALE", defaultLocale, { path: "/", sameSite: "lax" })
+    return response
   }
 
   return intlMiddleware(request)

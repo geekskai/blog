@@ -31,6 +31,52 @@ export const dailyDownloadUsage = pgTable(
   (table) => [primaryKey({ columns: [table.clerkUserId, table.quotaDay] })]
 )
 
+export const visitorShareUnlocks = pgTable(
+  "visitor_share_unlocks",
+  {
+    anonymousId: uuid("anonymous_id").notNull(),
+    quotaDay: date("quota_day").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+  },
+  (table) => [primaryKey({ columns: [table.anonymousId, table.quotaDay] })]
+)
+
+export const visitorDownloadUsage = pgTable(
+  "visitor_download_usage",
+  {
+    anonymousId: uuid("anonymous_id").notNull(),
+    quotaDay: date("quota_day").notNull(),
+    successfulDownloads: integer("successful_downloads").default(0).notNull(),
+    reservedDownloads: integer("reserved_downloads").default(0).notNull(),
+    ...timestamps,
+  },
+  (table) => [primaryKey({ columns: [table.anonymousId, table.quotaDay] })]
+)
+
+export const visitorDownloadOperations = pgTable(
+  "visitor_download_operations",
+  {
+    id: uuid("id").primaryKey(),
+    anonymousId: uuid("anonymous_id").notNull(),
+    quotaDay: date("quota_day").notNull(),
+    toolId: text("tool_id").notNull(),
+    status: text("status", {
+      enum: ["reserved", "processing", "consumed", "released"],
+    }).notNull(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    consumedAt: timestamp("consumed_at", { withTimezone: true }),
+    releasedAt: timestamp("released_at", { withTimezone: true }),
+    ...timestamps,
+  },
+  (table) => [
+    index("visitor_download_operations_identity_day_status_idx").on(
+      table.anonymousId,
+      table.quotaDay,
+      table.status
+    ),
+  ]
+)
+
 export const downloadOperations = pgTable(
   "download_operations",
   {
@@ -170,6 +216,8 @@ export const billingSubscriptions = pgTable(
     providerSubscriptionId: text("provider_subscription_id").notNull(),
     status: text("status").notNull(),
     productId: text("product_id"),
+    packageTier: text("package_tier", { enum: ["basic", "pro"] }),
+    billingInterval: text("billing_interval", { enum: ["monthly", "annual"] }),
     providerEventAt: timestamp("provider_event_at", { withTimezone: true }),
     currentPeriodEnd: timestamp("current_period_end", { withTimezone: true }),
     canceledAt: timestamp("canceled_at", { withTimezone: true }),
@@ -192,6 +240,7 @@ export const billingWebhookEvents = pgTable(
     providerEventId: text("provider_event_id").notNull(),
     eventType: text("event_type").notNull(),
     payloadHash: text("payload_hash").notNull(),
+    processingError: text("processing_error"),
     processedAt: timestamp("processed_at", { withTimezone: true }),
     createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   },

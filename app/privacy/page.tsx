@@ -1,7 +1,11 @@
 import { genPageMetadata } from "app/seo"
 import Link from "@/components/Link"
 
-export const metadata = genPageMetadata({ title: "Privacy" })
+export const metadata = genPageMetadata({
+  title: "Geekskai Privacy Policy | Public Tools and Audio Toolkit Plans",
+  description:
+    "How Geekskai handles account, subscription, entitlement, analytics, and local audio processing data.",
+})
 
 const PrivacyPolicy = () => {
   return (
@@ -9,7 +13,7 @@ const PrivacyPolicy = () => {
       <div className="mx-auto max-w-4xl overflow-hidden rounded-lg bg-white shadow-xl">
         <div className="px-6 py-8">
           <h1 className="mb-6 text-center text-3xl font-bold text-gray-900">Privacy Policy</h1>
-          <p className="mb-8 text-center text-sm text-gray-600">Last updated: August 1, 2026</p>
+          <p className="mb-8 text-center text-sm text-gray-600">Last updated: August 9, 2026</p>
           <div className="space-y-6 text-gray-700">
             <p>
               This Privacy Policy describes Our policies and procedures on the collection, use and
@@ -247,25 +251,55 @@ const PrivacyPolicy = () => {
           </p>
           <p className="mb-4 text-gray-700">
             Audio conversion and loudness normalization also run locally in Your browser. We record
-            only whether an authenticated user completed their first single-file or batch task so
-            we can measure activation. We do not send audio content, filenames, or processing
-            settings with that event. Subscription status and capability entitlements are stored in
-            our database and synchronized from signed Creem webhooks.
+            only whether an authenticated user completed their first single-file or batch task so we
+            can measure activation. We do not send audio content, filenames, or processing settings
+            with that event. Subscription status and capability entitlements are stored in our
+            database and synchronized from signed Creem webhooks.
+          </p>
+
+          <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">
+            Subscription Records, Retention, and Deletion
+          </h2>
+          <p className="mb-4 text-gray-700">
+            To provide and audit Basic, Pro, or manually granted Enterprise access, We store Your
+            Clerk account identifier, Creem customer and subscription references, Package Tier,
+            Billing Interval, selected product, subscription status, current period end,
+            cancellation state, capability entitlements, and timestamps. For webhook reliability, We
+            also store the Creem event identifier, event type, a payload hash, and processing
+            timestamps. Events that cannot be linked to an account or trusted Product ID keep a
+            short processing error code for billing-integrity monitoring. We do not store the full
+            webhook payload or full card details in Our application database.
+          </p>
+          <p className="mb-4 text-gray-700">
+            Active subscription and entitlement records are kept while needed to provide the
+            Service. After an account or subscription ends, limited billing records may be retained
+            for fraud prevention, dispute handling, accounting, tax, and other legal obligations.
+            Deleting Your Geekskai account does not automatically erase records that Creem must
+            retain as merchant of record. To request deletion of eligible Geekskai account data,
+            contact support@geekskai.com. For payment records controlled by Creem, use Creem's
+            privacy request process.
           </p>
 
           <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">
             Download Allowance and Growth Measurement
           </h2>
           <p className="mb-4 text-gray-700">
-            Visitors keep their daily download allowance in browser storage. For signed-in users,
-            we store the Clerk account identifier, UTC allowance day, successful-download count,
-            temporary download reservations, and whether the daily share reward was used. To
-            measure whether the registration flow helps people finish their task, we also record a
-            pseudonymous journey identifier, controlled event names, tool identifiers, and event
-            timestamps. Shared links may contain a random attribution identifier valid for 30
-            days. We do not include pasted media URLs, tool input, email addresses, or IP addresses
-            in these growth events. Linkable raw growth events are deleted after 90 days; only
-            de-identified daily totals may be retained for longer-term trend analysis.
+            Visitors receive an essential random anonymous cookie. We store that random identifier,
+            the UTC allowance day, successful-download count, temporary download reservations, and
+            the daily share-reward timestamp so allowance and concurrency checks can be enforced
+            without requiring an Account. Clearing the cookie creates a new anonymous identity; We
+            do not fingerprint the Device to reconstruct it. Browser storage remains only as a
+            compatibility fallback and to carry existing same-day Visitor usage into the
+            server-issued identity. For signed-in users, we store the Clerk account identifier, UTC
+            allowance day, successful-download count, temporary download reservations, the
+            applicable account allowance, and whether the daily share reward was used. Basic and Pro
+            download allowances remain disabled until Geekskai receives written Billing Provider
+            approval. To measure whether the registration flow helps people finish their task, we
+            also record a pseudonymous journey identifier, controlled event names, tool identifiers,
+            and event timestamps. Shared links may contain a random attribution identifier valid for
+            30 days. We do not include pasted media URLs, tool input, email addresses, or IP
+            addresses in these growth events. Linkable raw growth events are deleted after 90 days;
+            only de-identified daily totals may be retained for longer-term trend analysis.
           </p>
 
           <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">Cookie Policy</h2>

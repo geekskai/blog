@@ -392,10 +392,13 @@ export default function VideoDownloader({
     startProgressSimulation()
 
     try {
-      const initRes = await fetch(downloadHref(selectedVideo.videoId, quality, quotaCheck.operationId), {
-        redirect: "manual",
-        cache: "no-store",
-      })
+      const initRes = await fetch(
+        downloadHref(selectedVideo.videoId, quality, quotaCheck.operationId),
+        {
+          redirect: "manual",
+          cache: "no-store",
+        }
+      )
       if (initRes.status !== 302) {
         const body = (await initRes.json().catch(() => ({}))) as {
           error?: string
@@ -588,6 +591,9 @@ export default function VideoDownloader({
         unlockAmount={downloadQuota.quotaConfig.shareBonusClicks}
         canRegister={!downloadQuota.quotaConfig.isRegistered}
         canShare={downloadQuota.quotaConfig.shareUnlockAvailable}
+        used={downloadQuota.quotaConfig.used}
+        limit={downloadQuota.quotaConfig.limit}
+        remaining={downloadQuota.quotaConfig.remaining}
         errorMessage={downloadQuota.quotaMessage}
         onClose={downloadQuota.closeShareModal}
         onUnlock={downloadQuota.handleShareUnlock}

@@ -32,13 +32,22 @@ type UseDownloadQuotaOptions = {
 type ServerQuota = {
   limit: number
   remaining: number
+  successfulDownloads: number
+  activeReservations: number
+  concurrencyLimit: number
   shareUnlockAvailable: boolean
 }
 
 type QuotaApiResponse = {
   mode: "local" | "server"
   quota?: ServerQuota
-  outcome?: "reserved" | "processing" | "consumed" | "released" | "limit_reached"
+  outcome?:
+    | "reserved"
+    | "processing"
+    | "consumed"
+    | "released"
+    | "limit_reached"
+    | "concurrency_reached"
   status?: "reserved" | "processing" | "consumed" | "released" | null
   granted?: boolean
   shareId?: string
@@ -189,11 +198,6 @@ export function useDownloadQuota({
     setShareLink(withShareId(window.location.href))
     const localQuota = syncDailyQuota()
     if (!isLoaded) return
-    if (!isSignedIn) {
-      setQuotaMode("local")
-      return
-    }
-
     setQuotaMode("pending")
 
     const carryover = getVisitorCarryover(localQuota)
@@ -284,6 +288,11 @@ export function useDownloadQuota({
         if (data.outcome === "reserved" || data.outcome === "consumed") {
           return { allowed: true, operationId }
         }
+        if (data.outcome === "concurrency_reached") {
+          const message = `You already have ${data.quota?.concurrencyLimit ?? 1} active download task${(data.quota?.concurrencyLimit ?? 1) === 1 ? "" : "s"}. Finish one before starting another.`
+          setQuotaMessage(message)
+          return { allowed: false, reason: "daily_limit_reached", message }
+        }
         openQuotaGate()
         return { allowed: false, reason: "share_required" }
       } catch {
@@ -358,17 +367,27 @@ export function useDownloadQuota({
       return
     }
 
-    const current = syncDailyQuota()
-    if (current && current.sharesCountToday < 1) {
-      persistQuota({
-        ...current,
-        remainingClicks: current.remainingClicks + SHARE_UNLOCK_AMOUNT,
-        sharesCountToday: 1,
-      })
+    try {
+      const data = await quotaRequest({ action: "share_unlock", toolId })
+      const current = syncDailyQuota()
+      const localFallback = data.mode === "local" && typeof data.granted !== "boolean"
+      if ((data.granted || localFallback) && current && current.sharesCountToday < 1) {
+        persistQuota({
+          ...current,
+          remainingClicks: current.remainingClicks + SHARE_UNLOCK_AMOUNT,
+          sharesCountToday: 1,
+        })
+      }
+      setShowShareModal(false)
+      setQuotaMessage(null)
+      setUnlockSuccessMessage(
+        data.granted || localFallback
+          ? `Share reward unlocked. ${SHARE_UNLOCK_AMOUNT} downloads were added.`
+          : "Today's share reward was already used."
+      )
+    } catch {
+      setQuotaMessage(unavailableMessage)
     }
-    setShowShareModal(false)
-    setQuotaMessage(null)
-    setUnlockSuccessMessage(`Share reward unlocked. ${SHARE_UNLOCK_AMOUNT} downloads were added.`)
   }, [persistQuota, quotaMode, syncDailyQuota, toolId, trackGrowthEvent])
 
   const startRegistration = useCallback(() => {
@@ -386,7 +405,15 @@ export function useDownloadQuota({
   }, [toolId, trackGrowthEvent])
 
   const closeShareModal = useCallback(() => setShowShareModal(false), [])
-  const visibleRemaining = quotaMode === "server" ? serverQuota?.remaining : quotaState?.remainingClicks
+  const visibleRemaining =
+    quotaMode === "server" ? serverQuota?.remaining : quotaState?.remainingClicks
+  const visibleLimit =
+    quotaMode === "server"
+      ? serverQuota?.limit
+      : VISITOR_DAILY_LIMIT + (quotaState?.sharesCountToday ?? 0) * SHARE_UNLOCK_AMOUNT
+  const fallbackLimit = isSignedIn ? REGISTERED_DAILY_LIMIT : VISITOR_DAILY_LIMIT
+  const resolvedLimit = visibleLimit ?? fallbackLimit
+  const resolvedRemaining = visibleRemaining ?? fallbackLimit
   const quotaConfig = useMemo(
     () => ({
       initialFreeClicks: isSignedIn ? REGISTERED_DAILY_LIMIT : VISITOR_DAILY_LIMIT,
@@ -400,9 +427,20 @@ export function useDownloadQuota({
         (quotaMode === "server"
           ? Boolean(serverQuota?.shareUnlockAvailable)
           : (quotaState?.sharesCountToday ?? 0) < 1),
-      remaining: visibleRemaining ?? (isSignedIn ? REGISTERED_DAILY_LIMIT : VISITOR_DAILY_LIMIT),
+      used: Math.max(0, resolvedLimit - resolvedRemaining),
+      limit: resolvedLimit,
+      remaining: resolvedRemaining,
     }),
-    [isSignedIn, quotaMode, quotaState?.sharesCountToday, serverQuota?.shareUnlockAvailable, shareLinkReady, storageAvailable, visibleRemaining]
+    [
+      isSignedIn,
+      quotaMode,
+      quotaState?.sharesCountToday,
+      serverQuota?.shareUnlockAvailable,
+      shareLinkReady,
+      storageAvailable,
+      resolvedLimit,
+      resolvedRemaining,
+    ]
   )
 
   return {

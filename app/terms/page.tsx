@@ -1,15 +1,15 @@
 import { genPageMetadata } from "app/seo"
 import React from "react"
 import Link from "@/components/Link"
+import { PACKAGE_CATALOG } from "@/lib/billing/catalog"
 
 export const metadata = genPageMetadata({
-  title: "Geekskai Terms of Service | Free Public Tools and DJ Workspace Pro",
-  description:
-    "Terms for Geekskai public tools and the optional Geekskai DJ Workspace Pro subscription.",
+  title: "Geekskai Terms of Service | Public Tools and Audio Toolkit Plans",
+  description: "Terms for Geekskai public tools and optional Geekskai Audio Toolkit subscriptions.",
 })
 
 const SITE_URL = "https://geekskai.com"
-const LAST_UPDATED = "August 8, 2026"
+const LAST_UPDATED = "August 9, 2026"
 
 export default function TermsOfServicePage() {
   return (
@@ -27,13 +27,14 @@ export default function TermsOfServicePage() {
 
           <div className="mb-10 rounded-lg border-l-4 border-primary-500 bg-gray-50 p-6 text-gray-800 shadow-sm">
             <h2 className="mb-3 text-xl font-bold text-gray-900">
-              Public Tools Stay Free; DJ Workspace Pro Is Optional
+              Public Tools and Audio Toolkit Plans
             </h2>
             <p className="mb-4 text-gray-700">
-              Geekskai&apos;s public tools and downloaders remain free. Geekskai DJ Workspace Pro is
-              a separate, optional subscription for processing audio files that You import from
-              Your own device and have the right to use. A Pro subscription never grants extra
-              downloader access.
+              Geekskai&apos;s public tools use daily fair-use allowances. Free, Basic, Pro, and
+              Enterprise describe account access, while paid subscriptions currently cover only
+              local Audio Toolkit capabilities for files that You import and have the right to use.
+              Paid downloader allowances are not included unless Geekskai publishes a future
+              Creem-approved change.
             </p>
             <p className="text-sm text-gray-600">
               <strong>Support Contact:</strong>{" "}
@@ -71,9 +72,10 @@ export default function TermsOfServicePage() {
               1. Description of Services
             </h2>
             <p className="mb-4 text-gray-700">
-              Geekskai provides free public web tools and an optional authenticated DJ workspace.
-              Free workspace users may process one local audio file at a time. DJ Workspace Pro
-              adds batch processing and ZIP export under the limits shown on the pricing page.
+              Geekskai provides public web tools and an authenticated Audio Toolkit. Free users may
+              process one local audio file at a time, Basic users may process up to twenty, and Pro
+              users may process up to fifty. ZIP export is available from Basic upward under the
+              limits shown on the pricing page.
             </p>
             <p className="text-gray-700">
               We may change or discontinue features with reasonable notice where practical. Current
@@ -179,35 +181,42 @@ export default function TermsOfServicePage() {
               id="section-6"
               className="mb-4 border-b border-gray-200 pb-2 text-2xl font-bold text-gray-900"
             >
-              6. DJ Workspace Pro Billing, Cancellation, and Refunds
+              6. Audio Toolkit Billing, Cancellation, and Refunds
             </h2>
             <p className="mb-4 text-gray-700">
-              DJ Workspace Pro is billed by Creem, our merchant of record. The available monthly
-              and annual prices include applicable indirect tax where supported and are shown
-              before You authorize payment.
+              Basic and Pro are billed by Creem, our merchant of record. Basic costs {"$"}
+              {PACKAGE_CATALOG.basic.monthlyPrice} monthly or {"$"}
+              {PACKAGE_CATALOG.basic.annualPrice} annually, and Pro costs {"$"}
+              {PACKAGE_CATALOG.pro.monthlyPrice} monthly or {"$"}
+              {PACKAGE_CATALOG.pro.annualPrice} annually. Prices are in USD, include applicable
+              indirect tax where supported, and are shown before You authorize payment.
             </p>
             <ul className="mb-6 list-disc space-y-3 pl-6 text-gray-700">
               <li>
-                <strong>Free Public Tools:</strong> Public download tools remain available without
-                purchasing DJ Workspace Pro.
+                <strong>No Trial or Overages:</strong> Paid plans do not include a free trial, usage
+                overages, credits, or automatic pay-as-you-go charges.
               </li>
               <li>
                 <strong>Cancellation:</strong> You may cancel through the in-product Creem customer
-                portal. Scheduled cancellation keeps Pro access until the current paid period ends.
+                portal. Scheduled cancellation keeps the current Package Tier until the paid period
+                ends.
               </li>
               <li>
-                <strong>First-Payment Refund:</strong> Contact support@geekskai.com within 14 days
-                of Your first subscription payment to request a full refund. We respond within
-                three business days.
+                <strong>First-Payment Refund:</strong> Each account receives one refund window.
+                Contact support@geekskai.com within 14 calendar days of Your first successful
+                subscription payment to request a full refund. Renewals and upgrade charges do not
+                create a new window. We respond within three business days.
               </li>
               <li>
                 <strong>Payment Failures:</strong> Access may continue while Creem retries a failed
-                payment and ends when the subscription expires, is paused, or is refunded in full.
+                payment. Access ends when Creem concludes the subscription as canceled or paused, or
+                when it is disputed or refunded in full. A full refund immediately returns the
+                account to Free access.
               </li>
             </ul>
             <p className="rounded-md border border-gray-100 bg-gray-50 p-4 text-sm text-gray-600">
-              Creem issues receipts and invoices and handles payment methods, taxes, and subscription
-              billing. Geekskai does not store payment card details.
+              Creem issues receipts and invoices and handles payment methods, taxes, and
+              subscription billing. Geekskai does not store payment card details.
             </p>
           </section>
 
@@ -220,10 +229,10 @@ export default function TermsOfServicePage() {
             </h2>
             <p className="text-gray-700">
               To maintain a fast and reliable service for thousands of global users, we may
-              implement necessary technical limitations. These may include
-              rate-limiting exceptionally high volume requests, bandwidth restrictions, or file size
-              guidelines. These fair-use measures are enforced solely to prevent server abuse and
-              assure equitable access for everyone.
+              implement necessary technical limitations. These may include rate-limiting
+              exceptionally high volume requests, bandwidth restrictions, or file size guidelines.
+              These fair-use measures are enforced solely to prevent server abuse and assure
+              equitable access for everyone.
             </p>
           </section>
 
@@ -255,9 +264,9 @@ export default function TermsOfServicePage() {
             </h2>
             <p className="text-gray-700">
               To the maximum extent permitted by law, we will not be held liable for any indirect,
-              consequential, or incidental loss or damage. In no event shall
-              Geekskai be responsible for indirect, consequential, or incidental damages resulting
-              from your use of, or inability to use, our platform.
+              consequential, or incidental loss or damage. In no event shall Geekskai be responsible
+              for indirect, consequential, or incidental damages resulting from your use of, or
+              inability to use, our platform.
             </p>
           </section>
 

@@ -13,8 +13,8 @@ interface AuthControlsProps {
 
 export default function AuthControls({ mobile = false, onNavigate }: AuthControlsProps) {
   const linkClassName = mobile
-    ? "flex min-h-11 items-center gap-3 rounded-xl px-4 py-3 text-base font-medium text-slate-300 transition-[color,background-color,transform] duration-200 hover:bg-slate-800/70 hover:text-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
-    : "inline-flex h-10 items-center justify-center gap-2 rounded-lg px-3.5 text-[13px] font-semibold tracking-[0.01em] text-slate-300 transition-[color,background-color,transform,box-shadow] duration-200 hover:-translate-y-px hover:bg-white/[0.06] hover:text-white active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+    ? "flex min-h-11 items-center gap-3 rounded-xl px-4 py-3 text-base font-medium text-slate-300 transition-[color,background-color,transform] duration-200 hover:bg-slate-800/70 hover:text-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transform-none motion-reduce:transition-none"
+    : "inline-flex h-11 items-center justify-center gap-2 rounded-lg px-3.5 text-[13px] font-semibold tracking-[0.01em] text-slate-300 transition-[color,background-color,transform,box-shadow] duration-200 hover:-translate-y-px hover:bg-white/[0.06] hover:text-white active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transform-none motion-reduce:transition-none"
 
   const handleNavigate = (eventName: string) => {
     trackClarityEvent(eventName)
@@ -63,13 +63,13 @@ export default function AuthControls({ mobile = false, onNavigate }: AuthControl
 
       <Show when="signed-in">
         <Link
-          href="/workspace/"
+          href="/audio-toolkit/"
           data-auth-action="workspace"
           className={linkClassName}
           onClick={() => handleNavigate("workspace_nav_clicked")}
         >
           <FolderOpen className="h-4 w-4" />
-          Workspace
+          Audio Toolkit
         </Link>
         <div className={mobile ? "px-4 py-2" : "flex items-center"}>
           <UserButton />

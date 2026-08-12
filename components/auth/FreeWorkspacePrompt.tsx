@@ -22,12 +22,12 @@ export default function FreeWorkspacePrompt() {
             </div>
           </div>
           <Link
-            href="/sign-up/?redirect_url=/workspace/"
+            href="/sign-up/?redirect_url=/audio-toolkit/"
             onClick={() => trackClarityEvent("workspace_prompt_clicked")}
             className={`${authPrimaryCtaClassName} group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold`}
             style={authPrimaryCtaStyle}
           >
-            <span className="relative">Create free workspace</span>
+            <span className="relative">Open free Audio Toolkit</span>
             <ArrowRight className="relative h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
           </Link>
         </div>

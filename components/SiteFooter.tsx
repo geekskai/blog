@@ -19,7 +19,7 @@ const SiteFooter = () => {
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="mb-6">
-              <Link href="/" className="group inline-flex items-center gap-1">
+              <Link href="/" className="group inline-flex min-h-11 items-center gap-1">
                 <Image
                   src="/static/logos.png"
                   alt="geekskai Logo"
@@ -74,7 +74,7 @@ const SiteFooter = () => {
             <Link
               href="/tools"
               prefetch={false}
-              className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-blue-400 transition-colors duration-300 hover:text-blue-300"
+              className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-blue-400 transition-colors duration-200 hover:text-blue-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none"
             >
               <span>{t("footer_view_all_tools")}</span>
               <ArrowRight className="h-4 w-4" />
@@ -87,35 +87,42 @@ const SiteFooter = () => {
             <div className="space-y-3">
               <LinkNext
                 href="/blog/"
-                className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
+                className="group flex min-h-11 items-center gap-2 text-slate-400 transition-[color,transform] duration-200 hover:translate-x-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transform-none motion-reduce:transition-none"
               >
                 <div className="h-1 w-1 rounded-full bg-blue-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-blue-300"></div>
                 <span>{t("footer_blog")}</span>
               </LinkNext>
               <LinkNext
                 href="/about/"
-                className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
+                className="group flex min-h-11 items-center gap-2 text-slate-400 transition-[color,transform] duration-200 hover:translate-x-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transform-none motion-reduce:transition-none"
               >
                 <div className="h-1 w-1 rounded-full bg-blue-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-blue-300"></div>
                 <span>{t("footer_about")}</span>
               </LinkNext>
               <LinkNext
+                href="/pricing/"
+                className="group flex min-h-11 items-center gap-2 text-slate-400 transition-[color,transform] duration-200 hover:translate-x-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transform-none motion-reduce:transition-none"
+              >
+                <div className="h-1 w-1 rounded-full bg-purple-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-purple-300"></div>
+                <span>{t("footer_pricing")}</span>
+              </LinkNext>
+              <LinkNext
                 href="/tags/"
-                className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
+                className="group flex min-h-11 items-center gap-2 text-slate-400 transition-[color,transform] duration-200 hover:translate-x-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transform-none motion-reduce:transition-none"
               >
                 <div className="h-1 w-1 rounded-full bg-blue-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-blue-300"></div>
                 <span>{t("footer_tags")}</span>
               </LinkNext>
               <LinkNext
                 href="/projects/"
-                className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
+                className="group flex min-h-11 items-center gap-2 text-slate-400 transition-[color,transform] duration-200 hover:translate-x-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transform-none motion-reduce:transition-none"
               >
                 <div className="h-1 w-1 rounded-full bg-purple-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-purple-300"></div>
                 <span>{t("footer_projects")}</span>
               </LinkNext>
               <LinkNext
                 href="/privacy/"
-                className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
+                className="group flex min-h-11 items-center gap-2 text-slate-400 transition-[color,transform] duration-200 hover:translate-x-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transform-none motion-reduce:transition-none"
               >
                 <div className="h-1 w-1 rounded-full bg-emerald-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-emerald-300"></div>
                 <span>{t("footer_privacy_policy")}</span>
@@ -123,10 +130,17 @@ const SiteFooter = () => {
 
               <LinkNext
                 href="/terms/"
-                className="group flex items-center gap-2 text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-white"
+                className="group flex min-h-11 items-center gap-2 text-slate-400 transition-[color,transform] duration-200 hover:translate-x-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transform-none motion-reduce:transition-none"
               >
                 <div className="h-1 w-1 rounded-full bg-emerald-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-emerald-300"></div>
                 <span>{t("footer_terms_of_service")}</span>
+              </LinkNext>
+              <LinkNext
+                href="/terms/#section-6"
+                className="group flex min-h-11 items-center gap-2 text-slate-400 transition-[color,transform] duration-200 hover:translate-x-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transform-none motion-reduce:transition-none"
+              >
+                <div className="h-1 w-1 rounded-full bg-emerald-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-emerald-300"></div>
+                <span>{t("footer_refund_policy")}</span>
               </LinkNext>
             </div>
           </div>
@@ -135,16 +149,16 @@ const SiteFooter = () => {
           <div className="lg:col-span-1">
             <h3 className="mb-6 text-lg font-semibold text-white">{t("footer_connect_with_us")}</h3>
             <div className="mb-6 grid grid-cols-4 gap-3">
-              <div className="rounded-xl bg-slate-800/50 p-3 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-slate-700">
+              <div className="rounded-xl bg-slate-800/50 backdrop-blur-sm transition-[background-color,transform] duration-200 hover:scale-105 hover:bg-slate-700 motion-reduce:transform-none motion-reduce:transition-none">
                 <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
               </div>
-              <div className="rounded-xl bg-slate-800/50 p-3 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-slate-700">
+              <div className="rounded-xl bg-slate-800/50 backdrop-blur-sm transition-[background-color,transform] duration-200 hover:scale-105 hover:bg-slate-700 motion-reduce:transform-none motion-reduce:transition-none">
                 <SocialIcon kind="github" href={siteMetadata.github} size={6} />
               </div>
-              <div className="rounded-xl bg-slate-800/50 p-3 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-slate-700">
+              <div className="rounded-xl bg-slate-800/50 backdrop-blur-sm transition-[background-color,transform] duration-200 hover:scale-105 hover:bg-slate-700 motion-reduce:transform-none motion-reduce:transition-none">
                 <SocialIcon kind="twitter" href={siteMetadata.twitter} size={6} />
               </div>
-              <div className="rounded-xl bg-slate-800/50 p-3 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-slate-700">
+              <div className="rounded-xl bg-slate-800/50 backdrop-blur-sm transition-[background-color,transform] duration-200 hover:scale-105 hover:bg-slate-700 motion-reduce:transform-none motion-reduce:transition-none">
                 <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
               </div>
             </div>

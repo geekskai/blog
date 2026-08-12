@@ -6,11 +6,17 @@ type RegisteredQuotaUsage = {
   successfulDownloads: number
   activeReservations: number
   shareUnlocked: boolean
+  dailyLimit?: number
+  concurrencyLimit?: number
+  shareEligible?: boolean
 }
 
 export type RegisteredQuotaSummary = {
   limit: number
   remaining: number
+  successfulDownloads: number
+  activeReservations: number
+  concurrencyLimit: number
   shareUnlockAvailable: boolean
 }
 
@@ -36,17 +42,51 @@ export function normalizeVisitorShareCarryover(shareUnlocked: unknown, used: unk
   }
 }
 
+export function mergeVisitorUsageCarryover(input: {
+  clientUsage: unknown
+  clientShareUnlocked: unknown
+  clientShareUsage: unknown
+  serverSuccessfulDownloads?: number
+  serverShareUnlocked?: boolean
+}) {
+  const clientUsage = normalizeVisitorUsageCarryover(input.clientUsage)
+  const clientShare = normalizeVisitorShareCarryover(
+    input.clientShareUnlocked,
+    input.clientShareUsage
+  )
+  const serverTotal = Math.min(
+    VISITOR_DAILY_LIMIT + SHARE_UNLOCK_AMOUNT,
+    Math.max(0, Math.floor(input.serverSuccessfulDownloads ?? 0))
+  )
+  const serverUsage = Math.min(VISITOR_DAILY_LIMIT, serverTotal)
+  const serverShareUsage = input.serverShareUnlocked
+    ? Math.min(SHARE_UNLOCK_AMOUNT, Math.max(0, serverTotal - VISITOR_DAILY_LIMIT))
+    : 0
+
+  return {
+    visitorUsage: Math.max(clientUsage, serverUsage),
+    visitorShareUnlocked: clientShare.shareUnlocked || Boolean(input.serverShareUnlocked),
+    visitorShareUsage: Math.max(clientShare.used, serverShareUsage),
+  }
+}
+
 export function getRegisteredQuotaSummary({
   successfulDownloads,
   activeReservations,
   shareUnlocked,
+  dailyLimit = REGISTERED_DAILY_LIMIT,
+  concurrencyLimit = 1,
+  shareEligible = true,
 }: RegisteredQuotaUsage): RegisteredQuotaSummary {
-  const limit = REGISTERED_DAILY_LIMIT + (shareUnlocked ? SHARE_UNLOCK_AMOUNT : 0)
+  const limit = dailyLimit + (shareEligible && shareUnlocked ? SHARE_UNLOCK_AMOUNT : 0)
   const used = Math.max(0, successfulDownloads) + Math.max(0, activeReservations)
 
   return {
     limit,
     remaining: Math.max(0, limit - used),
-    shareUnlockAvailable: !shareUnlocked,
+    successfulDownloads: Math.max(0, successfulDownloads),
+    activeReservations: Math.max(0, activeReservations),
+    concurrencyLimit,
+    shareUnlockAvailable: shareEligible && !shareUnlocked,
   }
 }

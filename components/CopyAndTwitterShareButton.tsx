@@ -2,7 +2,6 @@
 
 import { Copy } from "lucide-react"
 import type { ReactNode } from "react"
-import { TwitterShareButton } from "react-share"
 
 export const DEFAULT_FISSION_SHARE_URL =
   "https://geekskai.com/tools/soundcloud-downloader/?ref=fission_share"
@@ -51,9 +50,7 @@ export default function CopyAndTwitterShareButton({
   onCopyFailed,
   onShareClick,
 }: CopyAndTwitterShareButtonProps) {
-  const handleBeforeClick = () => {
-    // Intentionally not async / not awaited: keep the X popup in the same user-gesture
-    // stack so browsers do not treat it as script-triggered and block it.
+  const handleClick = () => {
     void copyShareLink(url)
       .then(() => {
         onCopied?.()
@@ -61,17 +58,22 @@ export default function CopyAndTwitterShareButton({
       })
       .catch(() => {
         onCopyFailed?.()
-        // toast("Copy failed — you can still share from the X dialog.")
       })
+
+    const shareUrl = new URL("https://twitter.com/intent/tweet")
+    shareUrl.searchParams.set("url", url)
+    shareUrl.searchParams.set("text", title)
+    const popup = window.open(shareUrl, "_blank", "width=720,height=640")
+    if (popup) {
+      popup.opener = null
+      onShareClick?.()
+    }
   }
 
   return (
-    <TwitterShareButton
-      url={url}
-      title={title}
-      beforeOnClick={handleBeforeClick}
-      onClick={() => onShareClick?.()}
-      resetButtonStyle={false}
+    <button
+      type="button"
+      onClick={handleClick}
       disabled={disabled}
       className={
         className ??
@@ -85,6 +87,6 @@ export default function CopyAndTwitterShareButton({
           Copy link & share on X
         </>
       )}
-    </TwitterShareButton>
+    </button>
   )
 }

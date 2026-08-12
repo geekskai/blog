@@ -1,7 +1,7 @@
 "use client"
 import { usePathname, useRouter } from "../app/i18n/navigation"
 import { useState, useRef, useEffect } from "react"
-import { ChevronDown, Check } from "lucide-react"
+import { ChevronDown, Check, Languages } from "lucide-react"
 import { useLocale } from "next-intl"
 import React from "react"
 import { locales } from "../app/i18n/routing"
@@ -343,6 +343,8 @@ export default function LanguageSelect() {
   const [isOpen, setIsOpen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+  const optionRefs = useRef<Array<HTMLButtonElement | null>>([])
   const currentLocale = useLocale()
   const pathname = usePathname()
   const router = useRouter()
@@ -367,6 +369,7 @@ export default function LanguageSelect() {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsOpen(false)
+        triggerRef.current?.focus()
       }
     }
 
@@ -389,6 +392,23 @@ export default function LanguageSelect() {
   const supportedLanguages = getSupportedLanguages()
   const currentLanguage = supportedLanguages.find((lang) => lang.value === currentLocale)
 
+  const moveOptionFocus = (event: React.KeyboardEvent, currentIndex: number) => {
+    let nextIndex = currentIndex
+    if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+      nextIndex = (currentIndex + 1) % supportedLanguages.length
+    } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+      nextIndex = (currentIndex - 1 + supportedLanguages.length) % supportedLanguages.length
+    } else if (event.key === "Home") {
+      nextIndex = 0
+    } else if (event.key === "End") {
+      nextIndex = supportedLanguages.length - 1
+    } else {
+      return
+    }
+    event.preventDefault()
+    optionRefs.current[nextIndex]?.focus()
+  }
+
   // Don't render until mounted to avoid hydration mismatch
   if (!isMounted) {
     return <div className="h-8 w-20 animate-pulse rounded-lg bg-slate-700/50"></div>
@@ -398,16 +418,31 @@ export default function LanguageSelect() {
     <div className="relative w-auto" ref={dropdownRef}>
       {/* Trigger Button */}
       <button
+        ref={triggerRef}
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="group relative z-80 flex items-center gap-2 rounded-lg border border-slate-700/50 bg-slate-800/50 p-2 text-sm font-medium text-slate-300 transition-all duration-300 hover:border-slate-600/50 hover:bg-slate-700/50 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+        onKeyDown={(event) => {
+          if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+            event.preventDefault()
+            if (!isOpen) setIsOpen(true)
+            window.requestAnimationFrame(() => {
+              const selectedIndex = supportedLanguages.findIndex(
+                (option) => option.value === currentLocale
+              )
+              optionRefs.current[Math.max(selectedIndex, 0)]?.focus()
+            })
+          }
+        }}
+        className="group relative z-80 flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border border-slate-700/70 bg-slate-800/50 px-3 py-2 text-sm font-medium text-slate-300 transition-[color,background-color,border-color] duration-200 hover:border-slate-500 hover:bg-slate-700/50 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
         aria-haspopup="listbox"
         aria-expanded={isOpen}
+        aria-controls="language-options"
         aria-label="Select language"
       >
-        <span className="text-base">{currentLanguage?.flag}</span>
+        <Languages className="h-4 w-4" aria-hidden />
         <span>{currentLanguage?.nativeName}</span>
         <ChevronDown
-          className={`h-3 w-3 transition-all duration-300 ${
+          className={`h-3 w-3 transition-transform duration-200 motion-reduce:transform-none motion-reduce:transition-none ${
             isOpen ? "rotate-180 text-blue-400" : "group-hover:text-blue-400"
           }`}
         />
@@ -423,23 +458,29 @@ export default function LanguageSelect() {
       >
         <div className="relative overflow-hidden rounded-xl border border-slate-700/50 bg-slate-900/95 shadow-2xl backdrop-blur-xl">
           {/* Options List */}
-          <div className="grid grid-cols-2 gap-2 px-4 py-3" role="listbox">
+          <div id="language-options" className="grid grid-cols-2 gap-2 px-4 py-3" role="listbox">
             {supportedLanguages.map((option, index) => {
               const isSelected = option.value === currentLocale
               return (
                 <button
                   key={index}
+                  ref={(button) => {
+                    optionRefs.current[index] = button
+                  }}
+                  type="button"
                   onClick={() => handleLanguageChange(option.value)}
-                  className={`group flex w-full items-center justify-between gap-1 rounded-md p-1 text-left transition-all duration-300 ${
+                  onKeyDown={(event) => moveOptionFocus(event, index)}
+                  tabIndex={isSelected ? 0 : -1}
+                  className={`group flex min-h-11 w-full cursor-pointer items-center justify-between gap-1 rounded-md px-2 py-2 text-left transition-[color,background-color] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none ${
                     isSelected
                       ? "bg-blue-500/20 text-blue-300"
                       : "text-slate-300 hover:bg-slate-800/50 hover:text-white"
                   }`}
                   role="option"
                   aria-selected={isSelected}
+                  aria-label={`${option.nativeName} (${option.label})`}
                 >
                   <div className="flex items-center gap-1">
-                    <span className="text-lg">{option.flag}</span>
                     <span className="text-base font-medium">{option.nativeName}</span>
                   </div>
 

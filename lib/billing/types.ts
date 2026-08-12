@@ -1,9 +1,16 @@
-export interface BillingStatusResponse {
+import type { BillingInterval, PackageTier } from "./domain"
+
+export interface AccountPlanStatus {
+  packageTier: PackageTier
+  billingInterval: BillingInterval | null
   subscriptionStatus: string | null
   currentPeriodEnd: string | null
+  cancellationScheduled: boolean
   batchFileLimit: number
   zipExport: boolean
-  isPro: boolean
+  downloadDailyLimit: number
+  downloadConcurrency: number
+  shareUnlockAvailable: boolean
 }
 
 export interface CreemWebhookPayload {
