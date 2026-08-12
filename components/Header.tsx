@@ -28,6 +28,15 @@ const Header = ({ authEnabled = false }: HeaderProps) => {
   const t = useTranslations("HomePage")
   const tt = useTranslations("ToolsPage")
   const pathname = usePathname()
+  const isCommercialPath = [
+    "/pricing",
+    "/audio-toolkit",
+    "/account/billing",
+    "/sign-in",
+    "/sign-up",
+    "/terms",
+    "/privacy",
+  ].some((path) => pathname === path || pathname.startsWith(`${path}/`))
   const [hasHydrated, setHasHydrated] = useState(false)
   const [toolsMenuOpen, setToolsMenuOpen] = useState(false)
   const closeToolsMenuTimerRef = React.useRef<number | null>(null)
@@ -68,6 +77,52 @@ const Header = ({ authEnabled = false }: HeaderProps) => {
       }
     }
   }, [])
+
+  if (isCommercialPath) {
+    return (
+      <header className="sticky top-0 z-80 border-b border-slate-800/50 bg-slate-950/90 shadow-xl backdrop-blur-xl">
+        <div className="mx-auto flex min-h-20 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 2xl:px-0">
+          <Link
+            href="/"
+            aria-label={siteMetadata.headerTitle}
+            className="inline-flex min-h-11 items-center gap-1 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300"
+          >
+            <Image
+              src="/static/logos.png"
+              alt="geekskai Logo"
+              width={44}
+              height={36}
+              loading="eager"
+              sizes="100%"
+              className="h-10 w-12"
+            />
+            <span className="hidden text-xl font-bold text-white sm:block">geekskai</span>
+          </Link>
+          <nav className="flex items-center gap-1 sm:gap-3" aria-label="Audio Toolkit">
+            <LinkNext
+              href="/audio-toolkit/"
+              className="inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300"
+            >
+              Audio Toolkit
+            </LinkNext>
+            <LinkNext
+              href="/pricing/"
+              className="inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300"
+            >
+              Pricing
+            </LinkNext>
+            <LinkNext
+              href="/terms/"
+              className="hidden min-h-11 items-center rounded-lg px-3 text-sm font-semibold text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 sm:inline-flex"
+            >
+              Terms
+            </LinkNext>
+            {authEnabled ? <AuthControls /> : null}
+          </nav>
+        </div>
+      </header>
+    )
+  }
 
   return (
     <header className="sticky top-0 z-80 border-b border-slate-800/50 bg-slate-950/80 shadow-xl backdrop-blur-xl">

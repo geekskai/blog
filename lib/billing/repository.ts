@@ -10,15 +10,13 @@ import {
   type BillingInterval,
   type PackageTier,
 } from "./domain"
-import { billingSchemaV2Enabled, paidDownloadQuotasEnabled } from "./policy"
+import { billingSchemaV2Enabled } from "./policy"
 import type { AccountPlanStatus, CreemWebhookPayload } from "./types"
 
 const PROVIDER = "creem"
 const ACCOUNT_TIER_KEY = "account.package_tier"
 const BATCH_LIMIT_KEY = "workspace.batch_file_limit"
 const ZIP_EXPORT_KEY = "workspace.zip_export"
-const DAILY_LIMIT_KEY = "downloads.daily_limit"
-const CONCURRENCY_KEY = "downloads.concurrent_limit"
 
 type Row = Record<string, unknown>
 
@@ -122,29 +120,7 @@ export async function getAccountPlanStatus(clerkUserId: string): Promise<Account
         ORDER BY CASE WHEN entitlement.source LIKE 'manual:%' THEN 0 ELSE 1 END,
           entitlement.updated_at DESC
         LIMIT 1
-      ), false) AS zip_export,
-      COALESCE((
-        SELECT (entitlement.value #>> '{}')::integer
-        FROM account_entitlements entitlement
-        WHERE entitlement.clerk_user_id = ${clerkUserId}
-          AND entitlement.entitlement_key = ${DAILY_LIMIT_KEY}
-          AND entitlement.effective_at <= now()
-          AND (entitlement.expires_at IS NULL OR entitlement.expires_at > now())
-        ORDER BY CASE WHEN entitlement.source LIKE 'manual:%' THEN 0 ELSE 1 END,
-          entitlement.updated_at DESC
-        LIMIT 1
-      ), 10) AS download_daily_limit,
-      COALESCE((
-        SELECT (entitlement.value #>> '{}')::integer
-        FROM account_entitlements entitlement
-        WHERE entitlement.clerk_user_id = ${clerkUserId}
-          AND entitlement.entitlement_key = ${CONCURRENCY_KEY}
-          AND entitlement.effective_at <= now()
-          AND (entitlement.expires_at IS NULL OR entitlement.expires_at > now())
-        ORDER BY CASE WHEN entitlement.source LIKE 'manual:%' THEN 0 ELSE 1 END,
-          entitlement.updated_at DESC
-        LIMIT 1
-      ), 1) AS download_concurrency
+      ), false) AS zip_export
     FROM (SELECT 1) seed
     LEFT JOIN LATERAL (
       SELECT status, current_period_end, product_id
@@ -157,48 +133,24 @@ export async function getAccountPlanStatus(clerkUserId: string): Promise<Account
   const row = rows[0] ?? {}
   const packageTier: PackageTier = isPackageTier(row.package_tier) ? row.package_tier : "free"
   const catalogEntitlements = getEntitlementSet(packageTier)
-  const storedBatchFileLimit = Number(row.batch_file_limit ?? 1)
-  const batchFileLimit =
-    packageTier === "enterprise"
-      ? Math.max(catalogEntitlements.audioBatchFileLimit, storedBatchFileLimit)
-      : catalogEntitlements.audioBatchFileLimit
-  const zipExport =
-    packageTier === "enterprise"
-      ? catalogEntitlements.zipExport || row.zip_export === true
-      : catalogEntitlements.zipExport
-  const downloadDailyLimit =
-    packageTier === "enterprise"
-      ? Math.max(catalogEntitlements.downloadDailyLimit, Number(row.download_daily_limit ?? 10))
-      : catalogEntitlements.downloadDailyLimit
-  const downloadConcurrency =
-    packageTier === "enterprise"
-      ? Math.max(catalogEntitlements.downloadConcurrency, Number(row.download_concurrency ?? 1))
-      : catalogEntitlements.downloadConcurrency
+  const batchFileLimit = catalogEntitlements.audioBatchFileLimit
+  const zipExport = catalogEntitlements.zipExport
   const currentPeriodEnd = row.current_period_end
   const billingInterval = getBillingProductSelection(
     readString(row.product_id),
     productEnvironment()
   )?.interval
-  const paidDownloadsEnabled = paidDownloadQuotasEnabled()
-  const manuallyGrantedEnterprise = packageTier === "enterprise"
   return {
     packageTier,
     billingInterval:
-      !manuallyGrantedEnterprise && (billingInterval === "monthly" || billingInterval === "annual")
+      billingInterval === "monthly" || billingInterval === "annual"
         ? (billingInterval as BillingInterval)
         : null,
-    subscriptionStatus: manuallyGrantedEnterprise ? "manual_grant" : readString(row.status),
-    currentPeriodEnd:
-      !manuallyGrantedEnterprise && currentPeriodEnd instanceof Date
-        ? currentPeriodEnd.toISOString()
-        : null,
-    cancellationScheduled:
-      !manuallyGrantedEnterprise && readString(row.status) === "scheduled_cancel",
+    subscriptionStatus: readString(row.status),
+    currentPeriodEnd: currentPeriodEnd instanceof Date ? currentPeriodEnd.toISOString() : null,
+    cancellationScheduled: readString(row.status) === "scheduled_cancel",
     batchFileLimit,
     zipExport,
-    downloadDailyLimit: paidDownloadsEnabled ? downloadDailyLimit : 10,
-    downloadConcurrency: paidDownloadsEnabled ? downloadConcurrency : 1,
-    shareUnlockAvailable: packageTier === "free",
   }
 }
 
@@ -356,9 +308,7 @@ export async function processCreemWebhook(payload: CreemWebhookPayload, rawPaylo
         ) VALUES
           (${clerkUserId}, ${ACCOUNT_TIER_KEY}, ${JSON.stringify(selection.tier)}::jsonb, ${source}, now(), null, now()),
           (${clerkUserId}, ${BATCH_LIMIT_KEY}, ${JSON.stringify(entitlements.audioBatchFileLimit)}::jsonb, ${source}, now(), null, now()),
-          (${clerkUserId}, ${ZIP_EXPORT_KEY}, ${JSON.stringify(entitlements.zipExport)}::jsonb, ${source}, now(), null, now()),
-          (${clerkUserId}, ${DAILY_LIMIT_KEY}, ${JSON.stringify(entitlements.downloadDailyLimit)}::jsonb, ${source}, now(), null, now()),
-          (${clerkUserId}, ${CONCURRENCY_KEY}, ${JSON.stringify(entitlements.downloadConcurrency)}::jsonb, ${source}, now(), null, now())
+          (${clerkUserId}, ${ZIP_EXPORT_KEY}, ${JSON.stringify(entitlements.zipExport)}::jsonb, ${source}, now(), null, now())
         ON CONFLICT (clerk_user_id, entitlement_key, source) DO UPDATE SET
           value = EXCLUDED.value,
           effective_at = EXCLUDED.effective_at,

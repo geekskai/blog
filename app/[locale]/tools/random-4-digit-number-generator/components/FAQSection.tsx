@@ -130,7 +130,7 @@ const FAQSection = () => {
             <span className="relative">{t("still_have_questions.view_docs")}</span>
           </a>
           <a
-            href="mailto:geeks.kai@gmail.com"
+            href="mailto:support@geekskai.com"
             className="group relative overflow-hidden rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/15 to-purple-500/10 px-5 py-3 text-sm font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 sm:px-6 sm:text-base"
           >
             <span className="relative">{t("still_have_questions.contact_support")}</span>

@@ -287,10 +287,10 @@ export default function TermsOfServicePage() {
               Please include proof of copyright ownership and specific URLs, and email us directly
               at
               <Link
-                href="mailto:postmaster@geekskai.com"
+                href="mailto:support@geekskai.com"
                 className="ml-1 font-medium text-primary-600 hover:text-primary-500"
               >
-                postmaster@geekskai.com
+                support@geekskai.com
               </Link>
               . We will promptly investigate and block any infringing capabilities upon validation.
             </p>

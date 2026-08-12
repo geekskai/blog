@@ -7,7 +7,7 @@ import { PACKAGE_CATALOG } from "@/lib/billing/catalog"
 import PricingActions from "./PricingActions"
 
 const pricingDescription =
-  "Compare Geekskai Free, Basic, Pro, and Enterprise plans for private, local-first audio preparation."
+  "Compare Geekskai Free, Basic, and Pro plans for private, local-first audio preparation."
 const checkoutEnabled = process.env.NEXT_PUBLIC_BILLING_CHECKOUT_ENABLED === "true"
 
 export function generateMetadata(): Metadata {
@@ -31,7 +31,6 @@ type ComparisonRow = {
   free: ComparisonValue
   basic: ComparisonValue
   pro: ComparisonValue
-  enterprise: ComparisonValue
 }
 
 const comparisonRows: ComparisonRow[] = [
@@ -40,56 +39,49 @@ const comparisonRows: ComparisonRow[] = [
     free: "1",
     basic: "Up to 20",
     pro: "Up to 50",
-    enterprise: "Up to 50",
   },
   {
     label: "Supported input",
     free: "MP3, WAV, FLAC, M4A",
     basic: "MP3, WAV, FLAC, M4A",
     pro: "MP3, WAV, FLAC, M4A",
-    enterprise: "MP3, WAV, FLAC, M4A",
   },
   {
     label: "Output quality",
     free: "MP3 320kbps or WAV 16/24-bit",
     basic: "MP3 320kbps or WAV 16/24-bit",
     pro: "MP3 320kbps or WAV 16/24-bit",
-    enterprise: "MP3 320kbps or WAV 16/24-bit",
   },
-  { label: "Two-pass LUFS normalization", free: true, basic: true, pro: true, enterprise: true },
+  { label: "Two-pass LUFS normalization", free: true, basic: true, pro: true },
   {
     label: "Sequential error-isolated queue",
     free: false,
     basic: true,
     pro: true,
-    enterprise: true,
   },
-  { label: "ZIP export", free: false, basic: true, pro: true, enterprise: true },
+  { label: "ZIP export", free: false, basic: true, pro: true },
   {
     label: "Per-file size limit",
     free: "200MB",
     basic: "200MB",
     pro: "200MB",
-    enterprise: "200MB",
   },
   {
     label: "Batch total size limit",
     free: "200MB",
     basic: "500MB",
     pro: "500MB",
-    enterprise: "500MB",
   },
   {
     label: "Support",
     free: "Documentation / community",
     basic: "Email · within 2 business days",
     pro: "Priority · within 1 business day",
-    enterprise: "Contract-defined",
   },
 ]
 
-const tiers = ["free", "basic", "pro", "enterprise"] as const
-const tierLabels = { free: "Free", basic: "Basic", pro: "Pro", enterprise: "Enterprise" }
+const tiers = ["free", "basic", "pro"] as const
+const tierLabels = { free: "Free", basic: "Basic", pro: "Pro" }
 const comparisonGroups = [
   { title: "Audio processing", rows: comparisonRows.slice(0, 4) },
   { title: "Batch workflow", rows: comparisonRows.slice(4, 8) },
@@ -110,7 +102,7 @@ const faqs = [
   {
     question: "Are paid downloader limits included?",
     answer:
-      "No. These subscriptions currently cover local Audio Toolkit features only. Public downloader allowances remain separate unless Geekskai and Creem approve and publish a future change.",
+      "No. These subscriptions cover local Audio Toolkit features only. Public third-party downloader allowances are separate free-product rules and do not change with your plan.",
   },
   {
     question: "Which browsers and file sizes are supported?",

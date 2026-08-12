@@ -8,9 +8,6 @@ export interface AccountPlanStatus {
   cancellationScheduled: boolean
   batchFileLimit: number
   zipExport: boolean
-  downloadDailyLimit: number
-  downloadConcurrency: number
-  shareUnlockAvailable: boolean
 }
 
 export interface CreemWebhookPayload {

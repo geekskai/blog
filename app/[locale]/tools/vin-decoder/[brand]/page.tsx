@@ -220,7 +220,7 @@ export default async function BrandVinDecoderPage(props: BrandPageProps) {
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
-      email: "geeks.kai@gmail.com",
+      email: "support@geekskai.com",
     },
     sameAs: [
       "https://twitter.com/GeeksKai",

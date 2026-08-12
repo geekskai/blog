@@ -1,6 +1,4 @@
 import { getSqlClient } from "@/lib/db/client"
-import { PACKAGE_CATALOG } from "@/lib/billing/catalog"
-import { paidDownloadQuotasEnabled } from "@/lib/billing/policy"
 import type { QuotaToolId } from "./config"
 import {
   getQuotaDay,
@@ -126,7 +124,6 @@ export async function getRegisteredUsage(
 ): Promise<RegisteredQuotaSummary> {
   const sql = getSqlClient()
   const quotaDay = getQuotaDay(now)
-  const paidLimitsEnabled = paidDownloadQuotasEnabled()
 
   await sql`
     INSERT INTO daily_download_usage (clerk_user_id, quota_day)
@@ -141,73 +138,9 @@ export async function getRegisteredUsage(
       usage.successful_downloads,
       usage.reserved_downloads,
       usage.share_unlocked,
-      CASE WHEN ${paidLimitsEnabled} THEN GREATEST(
-        COALESCE((
-          SELECT (entitlement.value #>> '{}')::integer
-          FROM account_entitlements entitlement
-          WHERE entitlement.clerk_user_id = ${clerkUserId}
-            AND entitlement.entitlement_key = 'downloads.daily_limit'
-            AND entitlement.effective_at <= ${now}
-            AND (entitlement.expires_at IS NULL OR entitlement.expires_at > ${now})
-          ORDER BY CASE WHEN entitlement.source LIKE 'manual:%' THEN 0 ELSE 1 END,
-            entitlement.effective_at DESC
-          LIMIT 1
-        ), ${REGISTERED_DAILY_LIMIT}),
-        COALESCE((
-          SELECT CASE entitlement.value #>> '{}'
-            WHEN 'basic' THEN ${PACKAGE_CATALOG.basic.downloadDailyLimit}
-            WHEN 'pro' THEN ${PACKAGE_CATALOG.pro.downloadDailyLimit}
-            WHEN 'enterprise' THEN ${PACKAGE_CATALOG.enterprise.downloadDailyLimit}
-            ELSE ${REGISTERED_DAILY_LIMIT}
-          END
-          FROM account_entitlements entitlement
-          WHERE entitlement.clerk_user_id = ${clerkUserId}
-            AND entitlement.entitlement_key = 'account.package_tier'
-            AND entitlement.effective_at <= ${now}
-            AND (entitlement.expires_at IS NULL OR entitlement.expires_at > ${now})
-          ORDER BY CASE WHEN entitlement.source LIKE 'manual:%' THEN 0 ELSE 1 END,
-            entitlement.effective_at DESC
-          LIMIT 1
-        ), ${REGISTERED_DAILY_LIMIT})
-      ) ELSE ${REGISTERED_DAILY_LIMIT} END AS daily_limit,
-      CASE WHEN ${paidLimitsEnabled} THEN GREATEST(
-        COALESCE((
-          SELECT (entitlement.value #>> '{}')::integer
-          FROM account_entitlements entitlement
-          WHERE entitlement.clerk_user_id = ${clerkUserId}
-            AND entitlement.entitlement_key = 'downloads.concurrent_limit'
-            AND entitlement.effective_at <= ${now}
-            AND (entitlement.expires_at IS NULL OR entitlement.expires_at > ${now})
-          ORDER BY CASE WHEN entitlement.source LIKE 'manual:%' THEN 0 ELSE 1 END,
-            entitlement.effective_at DESC
-          LIMIT 1
-        ), 1),
-        COALESCE((
-          SELECT CASE entitlement.value #>> '{}'
-            WHEN 'basic' THEN ${PACKAGE_CATALOG.basic.downloadConcurrency}
-            WHEN 'pro' THEN ${PACKAGE_CATALOG.pro.downloadConcurrency}
-            WHEN 'enterprise' THEN ${PACKAGE_CATALOG.enterprise.downloadConcurrency}
-            ELSE 1
-          END
-          FROM account_entitlements entitlement
-          WHERE entitlement.clerk_user_id = ${clerkUserId}
-            AND entitlement.entitlement_key = 'account.package_tier'
-            AND entitlement.effective_at <= ${now}
-            AND (entitlement.expires_at IS NULL OR entitlement.expires_at > ${now})
-          ORDER BY CASE WHEN entitlement.source LIKE 'manual:%' THEN 0 ELSE 1 END,
-            entitlement.effective_at DESC
-          LIMIT 1
-        ), 1)
-      ) ELSE 1 END AS concurrent_limit,
-      NOT EXISTS (
-        SELECT 1
-        FROM account_entitlements entitlement
-        WHERE entitlement.clerk_user_id = ${clerkUserId}
-          AND entitlement.entitlement_key = 'account.package_tier'
-          AND entitlement.value #>> '{}' IN ('basic', 'pro', 'enterprise')
-          AND entitlement.effective_at <= ${now}
-          AND (entitlement.expires_at IS NULL OR entitlement.expires_at > ${now})
-      ) AS share_eligible
+      ${REGISTERED_DAILY_LIMIT} AS daily_limit,
+      1 AS concurrent_limit,
+      true AS share_eligible
     FROM daily_download_usage usage
     WHERE usage.clerk_user_id = ${clerkUserId}
       AND usage.quota_day = ${quotaDay}
@@ -225,7 +158,6 @@ export async function reserveRegisteredDownload(
   const sql = getSqlClient()
   const quotaDay = getQuotaDay(now)
   const expiresAt = new Date(now.getTime() + RESERVATION_TTL_MINUTES * 60_000)
-  const paidLimitsEnabled = paidDownloadQuotasEnabled()
 
   await sql`
     INSERT INTO daily_download_usage (clerk_user_id, quota_day)
@@ -252,73 +184,9 @@ export async function reserveRegisteredDownload(
     ),
     entitlement AS (
       SELECT
-        CASE WHEN ${paidLimitsEnabled} THEN GREATEST(
-          COALESCE((
-            SELECT (value #>> '{}')::integer
-            FROM account_entitlements
-            WHERE clerk_user_id = ${clerkUserId}
-              AND entitlement_key = 'downloads.daily_limit'
-              AND effective_at <= ${now}
-              AND (expires_at IS NULL OR expires_at > ${now})
-            ORDER BY CASE WHEN source LIKE 'manual:%' THEN 0 ELSE 1 END,
-              effective_at DESC
-            LIMIT 1
-          ), ${REGISTERED_DAILY_LIMIT}),
-          COALESCE((
-            SELECT CASE value #>> '{}'
-              WHEN 'basic' THEN ${PACKAGE_CATALOG.basic.downloadDailyLimit}
-              WHEN 'pro' THEN ${PACKAGE_CATALOG.pro.downloadDailyLimit}
-              WHEN 'enterprise' THEN ${PACKAGE_CATALOG.enterprise.downloadDailyLimit}
-              ELSE ${REGISTERED_DAILY_LIMIT}
-            END
-            FROM account_entitlements
-            WHERE clerk_user_id = ${clerkUserId}
-              AND entitlement_key = 'account.package_tier'
-              AND effective_at <= ${now}
-              AND (expires_at IS NULL OR expires_at > ${now})
-            ORDER BY CASE WHEN source LIKE 'manual:%' THEN 0 ELSE 1 END,
-              effective_at DESC
-            LIMIT 1
-          ), ${REGISTERED_DAILY_LIMIT})
-        ) ELSE ${REGISTERED_DAILY_LIMIT} END AS daily_limit,
-        CASE WHEN ${paidLimitsEnabled} THEN GREATEST(
-          COALESCE((
-            SELECT (value #>> '{}')::integer
-            FROM account_entitlements
-            WHERE clerk_user_id = ${clerkUserId}
-              AND entitlement_key = 'downloads.concurrent_limit'
-              AND effective_at <= ${now}
-              AND (expires_at IS NULL OR expires_at > ${now})
-            ORDER BY CASE WHEN source LIKE 'manual:%' THEN 0 ELSE 1 END,
-              effective_at DESC
-            LIMIT 1
-          ), 1),
-          COALESCE((
-            SELECT CASE value #>> '{}'
-              WHEN 'basic' THEN ${PACKAGE_CATALOG.basic.downloadConcurrency}
-              WHEN 'pro' THEN ${PACKAGE_CATALOG.pro.downloadConcurrency}
-              WHEN 'enterprise' THEN ${PACKAGE_CATALOG.enterprise.downloadConcurrency}
-              ELSE 1
-            END
-            FROM account_entitlements
-            WHERE clerk_user_id = ${clerkUserId}
-              AND entitlement_key = 'account.package_tier'
-              AND effective_at <= ${now}
-              AND (expires_at IS NULL OR expires_at > ${now})
-            ORDER BY CASE WHEN source LIKE 'manual:%' THEN 0 ELSE 1 END,
-              effective_at DESC
-            LIMIT 1
-          ), 1)
-        ) ELSE 1 END AS concurrent_limit,
-        NOT EXISTS (
-          SELECT 1
-          FROM account_entitlements
-          WHERE clerk_user_id = ${clerkUserId}
-            AND entitlement_key = 'account.package_tier'
-            AND value #>> '{}' IN ('basic', 'pro', 'enterprise')
-            AND effective_at <= ${now}
-            AND (expires_at IS NULL OR expires_at > ${now})
-        ) AS share_eligible
+        ${REGISTERED_DAILY_LIMIT} AS daily_limit,
+        1 AS concurrent_limit,
+        true AS share_eligible
     ),
     held AS (
       UPDATE daily_download_usage usage
@@ -497,15 +365,6 @@ export async function grantRegisteredShareUnlock(
     WHERE clerk_user_id = ${clerkUserId}
       AND quota_day = ${quotaDay}
       AND share_unlocked = false
-      AND NOT EXISTS (
-        SELECT 1
-        FROM account_entitlements entitlement
-        WHERE entitlement.clerk_user_id = ${clerkUserId}
-          AND entitlement.entitlement_key = 'account.package_tier'
-          AND entitlement.value #>> '{}' IN ('basic', 'pro', 'enterprise')
-          AND entitlement.effective_at <= ${now}
-          AND (entitlement.expires_at IS NULL OR entitlement.expires_at > ${now})
-      )
     RETURNING clerk_user_id
   `) as { clerk_user_id: string }[]
 

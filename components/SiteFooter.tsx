@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "./Link"
 import React from "react"
 import SocialIcon from "./social-icons"
@@ -8,9 +10,56 @@ import { Zap, Heart, ArrowRight } from "lucide-react"
 import { useTranslations } from "next-intl"
 import LinkNext from "next/link"
 import { footerPopularTools } from "@/data/toolNavigation"
+import { usePathname } from "@/app/i18n/navigation"
 
 const SiteFooter = () => {
   const t = useTranslations("HomePage")
+  const pathname = usePathname()
+  const isCommercialPath = [
+    "/pricing",
+    "/audio-toolkit",
+    "/account/billing",
+    "/sign-in",
+    "/sign-up",
+    "/terms",
+    "/privacy",
+  ].some((path) => pathname === path || pathname.startsWith(`${path}/`))
+
+  if (isCommercialPath) {
+    return (
+      <footer className="mt-20 border-t border-slate-800 bg-slate-950">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-10 sm:px-6 lg:flex-row lg:items-center lg:justify-between 2xl:px-0">
+          <div>
+            <p className="font-semibold text-white">Geekskai Audio Toolkit</p>
+            <p className="mt-2 max-w-xl text-sm leading-6 text-slate-400">
+              Local browser audio processing. Files and filenames are never uploaded.
+            </p>
+          </div>
+          <nav
+            className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm"
+            aria-label="Product policies"
+          >
+            <LinkNext href="/pricing/" className="text-slate-300 hover:text-white">
+              Pricing
+            </LinkNext>
+            <LinkNext href="/terms/" className="text-slate-300 hover:text-white">
+              Terms
+            </LinkNext>
+            <LinkNext href="/privacy/" className="text-slate-300 hover:text-white">
+              Privacy
+            </LinkNext>
+            <a
+              href={`mailto:${siteMetadata.email}`}
+              className="text-violet-300 hover:text-violet-200"
+            >
+              {siteMetadata.email}
+            </a>
+          </nav>
+        </div>
+      </footer>
+    )
+  }
+
   return (
     <footer className="mt-20 overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-black">
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

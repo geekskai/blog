@@ -29,10 +29,12 @@ export default function AudioProcessorPanel({
   initialBillingStatus,
   locale,
   checkoutSuccess,
+  canRecordActivation,
 }: {
   initialBillingStatus: AccountPlanStatus
   locale: string
   checkoutSuccess: boolean
+  canRecordActivation: boolean
 }) {
   const [billing, setBilling] = useState(initialBillingStatus)
   const [files, setFiles] = useState<File[]>([])
@@ -151,7 +153,7 @@ export default function AudioProcessorPanel({
     if (completed > 1 && billing.zipExport) {
       saveAs(await zip.generateAsync({ type: "blob" }), "geekskai-audio-toolkit.zip")
     }
-    if (completed > 0) {
+    if (completed > 0 && canRecordActivation) {
       void fetch("/api/workspace/activation/", {
         method: "POST",
         headers: { "content-type": "application/json" },

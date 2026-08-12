@@ -1,7 +1,7 @@
 import { createHmac, timingSafeEqual } from "node:crypto"
 import { PACKAGE_CATALOG } from "./catalog"
 
-export type PackageTier = "free" | "basic" | "pro" | "enterprise"
+export type PackageTier = "free" | "basic" | "pro"
 export type CheckoutTier = Extract<PackageTier, "basic" | "pro">
 export type BillingInterval = "monthly" | "annual"
 export type CheckoutSelection = { tier: CheckoutTier; interval: BillingInterval }
@@ -10,9 +10,6 @@ export type AccessAction = "grant" | "retain" | "revoke" | "none"
 export type EntitlementSet = {
   audioBatchFileLimit: number
   zipExport: boolean
-  downloadDailyLimit: number
-  downloadConcurrency: number
-  shareUnlockAvailable: boolean
 }
 
 export type BillingProductEnvironment = {
@@ -47,7 +44,7 @@ export function classifyRefund(input: {
 }
 
 export function isPackageTier(value: unknown): value is PackageTier {
-  return value === "free" || value === "basic" || value === "pro" || value === "enterprise"
+  return value === "free" || value === "basic" || value === "pro"
 }
 
 export function isCheckoutSelection(value: unknown): value is CheckoutSelection {
@@ -64,9 +61,6 @@ export function getEntitlementSet(tier: PackageTier): EntitlementSet {
   return {
     audioBatchFileLimit: entry.audioBatchFileLimit,
     zipExport: entry.zipExport,
-    downloadDailyLimit: entry.downloadDailyLimit,
-    downloadConcurrency: entry.downloadConcurrency,
-    shareUnlockAvailable: entry.shareUnlockAvailable,
   }
 }
 

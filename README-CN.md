@@ -235,7 +235,7 @@ $ EXPORT=1 UNOPTIMIZED=1 yarn build
 ## 📱 联系我们
 
 - [博客](https://geekskai.com/)
-- [邮箱](geeks.kai@gmail.com)
+- [邮箱](support@geekskai.com)
 
 ## 📄 开源协议
 

@@ -298,7 +298,7 @@ If this template helps you build your blog faster, please consider:
 
 - [Twitter](https://twitter.com/GeeksKai)
 - [Linkedin](https://www.linkedin.com/in/geekskai)
-- [Email](geeks.kai@gmail.com)
+- [Email](support@geekskai.com)
 
 ## 🔧 Tools & Utilities
 

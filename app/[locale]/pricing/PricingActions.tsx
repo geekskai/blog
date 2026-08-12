@@ -184,7 +184,7 @@ export default function PricingActions({ locale }: { locale: string }) {
                 Billing cycle
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-400/20 bg-violet-500/10 px-2.5 py-1 text-xs font-semibold text-violet-200">
-                <BadgePercent className="h-3.5 w-3.5" aria-hidden /> Save up to $60
+                <BadgePercent className="h-3.5 w-3.5" aria-hidden /> Save 20% annually
               </span>
             </div>
             <div className="grid grid-cols-2 gap-1.5 rounded-xl bg-black/20 p-1">
@@ -244,7 +244,7 @@ export default function PricingActions({ locale }: { locale: string }) {
             </div>
           </div>
           <p className="mt-2 text-center text-sm text-slate-400">
-            Annual billing saves $24 on Basic or $60 on Pro. Cancel anytime.
+            Annual billing saves 20%: $24 on Basic or $60 on Pro. Cancel anytime.
           </p>
           <p className="text-center text-sm text-slate-400">
             Plans apply to the local Audio Toolkit; public downloader allowances remain separate.
@@ -291,7 +291,7 @@ export default function PricingActions({ locale }: { locale: string }) {
         </div>
       ) : null}
 
-      <section className="mt-2 grid gap-5 md:grid-cols-2 xl:grid-cols-4" aria-label="Pricing plans">
+      <section className="mt-2 grid gap-5 md:grid-cols-3" aria-label="Pricing plans">
         <article className="flex flex-col rounded-2xl border border-slate-800 bg-slate-950/45 p-6 xl:min-h-[30rem]">
           <div>
             <h2 className="text-xl font-bold text-white">Free</h2>
@@ -309,23 +309,13 @@ export default function PricingActions({ locale }: { locale: string }) {
               </li>
             ))}
           </ul>
-          {isLoaded && !isSignedIn ? (
-            <Link
-              href={`${prefix}/sign-up/?redirect_url=${encodeURIComponent(`${prefix}/audio-toolkit/`)}`}
-              className="mt-8 inline-flex items-center justify-center rounded-xl border border-slate-600 px-4 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-200 hover:-translate-y-px hover:border-slate-400 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:translate-y-0 motion-reduce:transform-none motion-reduce:transition-none xl:mt-auto"
-              style={{ minHeight: "3rem" }}
-            >
-              Create free account
-            </Link>
-          ) : (
-            <Link
-              href={`${prefix}/audio-toolkit/`}
-              className="mt-8 inline-flex items-center justify-center rounded-xl border border-slate-600 px-4 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-200 hover:-translate-y-px hover:border-slate-400 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:translate-y-0 motion-reduce:transform-none motion-reduce:transition-none xl:mt-auto"
-              style={{ minHeight: "3rem" }}
-            >
-              {currentTier === "free" ? "Current plan · Open Toolkit" : "Open Audio Toolkit"}
-            </Link>
-          )}
+          <Link
+            href={`${prefix}/audio-toolkit/`}
+            className="mt-8 inline-flex items-center justify-center rounded-xl border border-slate-600 px-4 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-200 hover:-translate-y-px hover:border-slate-400 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:translate-y-0 motion-reduce:transform-none motion-reduce:transition-none xl:mt-auto"
+            style={{ minHeight: "3rem" }}
+          >
+            {currentTier === "free" ? "Current plan · Try one file" : "Try one file free"}
+          </Link>
         </article>
 
         {(["basic", "pro"] as const).map((tier) => {
@@ -381,7 +371,6 @@ export default function PricingActions({ locale }: { locale: string }) {
                   !isLoaded ||
                   (Boolean(isSignedIn) && accountStatus !== "ready") ||
                   busyAction !== null ||
-                  currentTier === "enterprise" ||
                   (!checkoutEnabled && !canManageSubscription)
                 }
                 className={`group mt-8 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold transition-[background-color,border-color,box-shadow,transform,opacity] duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 motion-reduce:transform-none motion-reduce:transition-none xl:mt-auto ${
@@ -413,11 +402,9 @@ export default function PricingActions({ locale }: { locale: string }) {
                           ? "Manage current plan"
                           : currentTier === "basic" || currentTier === "pro"
                             ? "Manage subscription"
-                            : currentTier === "enterprise"
-                              ? "Included in Enterprise"
-                              : !checkoutEnabled
-                                ? "Payments pending approval"
-                                : `Choose ${plan.name}`}
+                            : !checkoutEnabled
+                              ? "Payments pending approval"
+                              : `Choose ${plan.name}`}
                 </span>
                 {busyAction?.tier === tier ? (
                   <LoaderCircle
@@ -449,36 +436,6 @@ export default function PricingActions({ locale }: { locale: string }) {
             </article>
           )
         })}
-
-        <article className="flex flex-col rounded-2xl border border-slate-700 bg-slate-950/45 p-6 xl:min-h-[30rem]">
-          <div>
-            <h2 className="text-xl font-bold text-white">Enterprise</h2>
-            <p className="mt-4 text-4xl font-black tracking-tight text-white">Custom</p>
-            <p className="mt-2 text-sm text-slate-400">For tailored support</p>
-          </div>
-          <ul className="mt-7 space-y-3 text-sm leading-6 text-slate-300">
-            {[
-              "Everything in Pro",
-              "Custom account configuration",
-              "Priority onboarding and support",
-            ].map((feature) => (
-              <li key={feature} className="flex gap-2.5">
-                <Check className="mt-1 h-4 w-4 shrink-0 text-violet-400" /> {feature}
-              </li>
-            ))}
-          </ul>
-          <a
-            href={
-              currentTier === "enterprise"
-                ? `${prefix}/account/billing/`
-                : "mailto:support@geekskai.com?subject=Geekskai%20Enterprise"
-            }
-            className="mt-8 inline-flex min-h-12 items-center justify-center rounded-xl border border-slate-600 px-4 text-sm font-semibold text-white transition duration-200 hover:border-slate-400 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none xl:mt-auto"
-            style={{ minHeight: "3rem" }}
-          >
-            {currentTier === "enterprise" ? "Current plan · View account" : "Contact sales"}
-          </a>
-        </article>
       </section>
     </>
   )

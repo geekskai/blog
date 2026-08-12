@@ -12,7 +12,7 @@ const siteMetadata = {
   siteLogo: `${process.env.BASE_PATH || ""}/static/logos.png`,
   socialBanner: `${process.env.BASE_PATH || ""}/static/images/geekskai-blog.png`,
   mastodon: "https://mastodon.social/@mastodonuser",
-  email: "geeks.kai@gmail.com",
+  email: "support@geekskai.com",
   github: "https://github.com/geekskai",
   x: "https://twitter.com/GeeksKai",
   twitter: "https://twitter.com/GeeksKai",

@@ -152,7 +152,7 @@ export default async function Layout(props: {
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
-      email: "geeks.kai@gmail.com",
+      email: "support@geekskai.com",
     },
     sameAs: [
       "https://twitter.com/GeeksKai",

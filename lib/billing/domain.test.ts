@@ -7,6 +7,7 @@ import {
   getBillingProductSelection,
   getEntitlementSet,
   isCheckoutSelection,
+  isPackageTier,
   verifyCreemSignature,
 } from "./domain"
 
@@ -17,35 +18,21 @@ describe("Geekskai package catalog", () => {
     expect(ANNUAL_SAVINGS).toEqual({ basic: 24, pro: 60 })
   })
 
-  it("maps the four public tiers to stable account entitlements", () => {
-    expect(getEntitlementSet("free")).toMatchObject({
+  it("maps only Audio Toolkit capabilities to the three public tiers", () => {
+    expect(getEntitlementSet("free")).toEqual({
       audioBatchFileLimit: 1,
       zipExport: false,
-      downloadDailyLimit: 10,
-      downloadConcurrency: 1,
-      shareUnlockAvailable: true,
     })
-    expect(getEntitlementSet("basic")).toMatchObject({
+    expect(getEntitlementSet("basic")).toEqual({
       audioBatchFileLimit: 20,
       zipExport: true,
-      downloadDailyLimit: 50,
-      downloadConcurrency: 2,
-      shareUnlockAvailable: false,
     })
-    expect(getEntitlementSet("pro")).toMatchObject({
+    expect(getEntitlementSet("pro")).toEqual({
       audioBatchFileLimit: 50,
       zipExport: true,
-      downloadDailyLimit: 200,
-      downloadConcurrency: 4,
-      shareUnlockAvailable: false,
     })
-    expect(getEntitlementSet("enterprise")).toMatchObject({
-      audioBatchFileLimit: 50,
-      zipExport: true,
-      downloadDailyLimit: 200,
-      downloadConcurrency: 4,
-      shareUnlockAvailable: false,
-    })
+    expect(Object.keys(PACKAGE_CATALOG)).toEqual(["free", "basic", "pro"])
+    expect(isPackageTier("enterprise")).toBe(false)
   })
 
   it("accepts only Basic and Pro checkout selections", () => {

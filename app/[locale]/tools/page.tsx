@@ -497,7 +497,7 @@ export default function ToolsPage() {
             {/* Interactive Action Cards */}
             <div className="mb-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <Link
-                href="mailto:geeks.kai@gmail.com"
+                href="mailto:support@geekskai.com"
                 className="group overflow-hidden rounded-2xl bg-white/10 p-6 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-white/15"
               >
                 <div className="relative">

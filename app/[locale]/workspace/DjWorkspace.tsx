@@ -61,12 +61,12 @@ export default function DjWorkspace({
   initialBillingStatus,
   checkoutSuccess,
 }: {
-  userId: string
+  userId: string | null
   locale: string
   initialBillingStatus: AccountPlanStatus
   checkoutSuccess: boolean
 }) {
-  const storageKey = useMemo(() => `geekskai:dj-workspace:v1:${userId}`, [userId])
+  const storageKey = useMemo(() => `geekskai:dj-workspace:v1:${userId ?? "visitor"}`, [userId])
   const [workspace, setWorkspace] = useState<WorkspaceState | null>(null)
   const [projectName, setProjectName] = useState("")
   const [selectedPresetId, setSelectedPresetId] = useState(DEFAULT_PRESETS[0].id)
@@ -194,6 +194,7 @@ export default function DjWorkspace({
         initialBillingStatus={initialBillingStatus}
         locale={locale}
         checkoutSuccess={checkoutSuccess}
+        canRecordActivation={Boolean(userId)}
       />
 
       <div className="grid gap-6 lg:grid-cols-2">

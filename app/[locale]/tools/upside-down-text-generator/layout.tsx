@@ -152,7 +152,7 @@ export default async function UpsideDownTextGeneratorLayout(props: {
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
-      email: "geeks.kai@gmail.com",
+      email: "support@geekskai.com",
     },
   }
 

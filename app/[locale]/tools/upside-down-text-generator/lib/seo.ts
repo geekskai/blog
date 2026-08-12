@@ -113,7 +113,7 @@ export function buildUnicodeToolSchemas(config: UnicodeToolSeoConfig) {
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
-      email: "geeks.kai@gmail.com",
+      email: "support@geekskai.com",
     },
   }
 

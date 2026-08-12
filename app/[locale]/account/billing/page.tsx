@@ -3,7 +3,6 @@ import Link from "next/link"
 import { redirect } from "next/navigation"
 import { Check, CreditCard, ShieldCheck } from "lucide-react"
 import { getAccountPlanStatus } from "@/lib/billing/repository"
-import { getRegisteredUsage } from "@/lib/download-quota/repository"
 import BillingPortalButton from "./BillingPortalButton"
 
 export default async function BillingPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -11,13 +10,8 @@ export default async function BillingPage({ params }: { params: Promise<{ locale
   const prefix = locale === "en" ? "" : `/${locale}`
   if (!userId) redirect(`${prefix}/sign-in/?redirect_url=${prefix}/account/billing/`)
 
-  const [billing, quota] = await Promise.all([
-    getAccountPlanStatus(userId),
-    getRegisteredUsage(userId),
-  ])
+  const billing = await getAccountPlanStatus(userId)
   const tierName = billing.packageTier[0].toUpperCase() + billing.packageTier.slice(1)
-  const nextUtcReset = new Date()
-  nextUtcReset.setUTCHours(24, 0, 0, 0)
   const statusNeedsAttention =
     billing.subscriptionStatus === "past_due" || billing.subscriptionStatus === "expired"
 
@@ -70,34 +64,13 @@ export default async function BillingPage({ params }: { params: Promise<{ locale
             </li>
             <li className="flex gap-2">
               <CreditCard className="h-5 w-5 text-violet-400" />
-              {quota.limit} public-tool downloads per UTC day
-            </li>
-            <li className="flex gap-2">
-              <Check className="h-5 w-5 text-violet-400" />
-              Up to {quota.concurrencyLimit} simultaneous download task
-              {quota.concurrencyLimit === 1 ? "" : "s"}
-            </li>
-            <li className="flex gap-2">
-              <Check className="h-5 w-5 text-violet-400" />
-              Share reward {billing.shareUnlockAvailable ? "available once daily" : "not included"}
+              Recurring billing managed securely by Creem
             </li>
           </ul>
 
           <div className="mt-6 rounded-xl border border-slate-800 bg-slate-950/50 p-4 text-sm text-slate-300">
-            <p>
-              Today: {quota.successfulDownloads} completed, {quota.activeReservations} active,{" "}
-              {quota.remaining} remaining.
-            </p>
-            <p className="mt-1 text-slate-500">
-              Resets at{" "}
-              {new Intl.DateTimeFormat(locale, { dateStyle: "medium", timeStyle: "short" }).format(
-                nextUtcReset
-              )}
-              .
-              {billing.packageTier !== "free"
-                ? " Paid downloader limits stay disabled until written billing-provider approval."
-                : ""}
-            </p>
+            Public third-party downloader tools remain a separate free product. Basic and Pro never
+            increase downloader limits or concurrency.
           </div>
 
           {billing.currentPeriodEnd ? (

@@ -21,7 +21,7 @@ A Customer with a recurring Geekskai Basic or Pro agreement in Creem, including 
 _Avoid_: `is_paid`, VIP, using subscription status directly as authorization
 
 **Package Tier**:
-The single effective product level for an account: Free, Basic, Pro, or Enterprise. A Package Tier selects an Entitlement Set but is not itself proof of payment.
+The single effective Audio Toolkit product level for an account: Free, Basic, or Pro. A Package Tier selects an Entitlement Set but is not itself proof of payment. Public third-party downloader tools are outside Package Tier.
 _Avoid_: Billing interval, VIP, stacked plans
 
 **Billing Interval**:
@@ -29,7 +29,7 @@ The monthly or annual recurrence selected for a paid Package Tier. Billing Inter
 _Avoid_: Billing Plan, feature tier, hard-coded product ID in the client
 
 **Entitlement Set**:
-The stable capability values associated with a Package Tier, including local batch size, ZIP export, Daily Download Allowance, download concurrency, and Share Unlock eligibility. Free defaults remain application rules; provider-derived overrides are stored as Account Entitlements.
+The stable Audio Toolkit capability values associated with a Package Tier: local batch size and ZIP export. Public downloader allowances, concurrency, and Share Unlock are separate growth rules and never change with Package Tier.
 _Avoid_: UI feature list as authorization, payment status as authorization
 
 **Account Plan Status**:
@@ -37,7 +37,7 @@ The account's computed billing view containing its Effective Package, Billing In
 _Avoid_: `is_paid`, client-selected Product ID
 
 **Effective Package**:
-The one Package Tier currently applied to a Registered User. A valid manual Enterprise grant takes precedence over an active Creem Basic or Pro subscription, which takes precedence over Free.
+The one Audio Toolkit Package Tier currently applied to a Registered User. A verified Creem Basic or Pro subscription takes precedence over Free.
 _Avoid_: Additive plan stacking, merging multiple subscriptions
 
 **Billing Provider**:
@@ -53,7 +53,7 @@ A Registered User reserved for validating checkout and subscription lifecycles i
 _Avoid_: Personal account, production customer, real subscriber
 
 **Paid Entitlement**:
-An Account Entitlement synchronized from a verified Creem webhook or an auditable manual Enterprise grant. Stable keys include `account.package_tier`, `workspace.batch_file_limit`, `workspace.zip_export`, `downloads.daily_limit`, and `downloads.concurrent_limit`.
+An Audio Toolkit Account Entitlement synchronized from a verified Creem webhook. Stable keys are `account.package_tier`, `workspace.batch_file_limit`, and `workspace.zip_export`. Download-tool entitlements are not sold or synchronized from billing.
 _Avoid_: Pro boolean on the user, checkout redirect as proof of access
 
 **Paid Activation**:
@@ -61,7 +61,7 @@ A Subscriber who completes a batch of at least two local audio files within 24 h
 _Avoid_: Checkout return, subscription created, pricing-page click
 
 **Account Entitlement**:
-A time-bounded capability value assigned to a Registered User, identified by a stable key such as `downloads.daily_limit` or `workspace.project_limit`, with its source and validity period. Free defaults remain application rules; only additions or overrides require stored entitlements.
+A time-bounded Audio Toolkit capability value assigned to a Registered User, identified by a stable key such as `workspace.batch_file_limit`, with its source and validity period. Free defaults remain application rules; only paid Audio Toolkit additions require stored entitlements.
 _Avoid_: `is_paid`, payment status as authorization, hard-coded plan column
 
 **Quota-Gate Activation**:
@@ -77,7 +77,7 @@ The 90-day period during which raw Growth Journey events and their identity link
 _Avoid_: Permanent behavioral history, payment-record retention
 
 **Daily Download Allowance**:
-The shared number of Successful Downloads available across supported download tools during one Quota Day. A Visitor receives 3, Free receives 10, Basic receives 50, and Pro receives 200; paid values remain disabled until the Billing Provider gives written approval.
+The shared number of Successful Downloads available across supported public download tools during one Quota Day. A Visitor receives 3 and every Registered User receives 10, regardless of Audio Toolkit Package Tier. Billing never increases this allowance.
 _Avoid_: Credits, subscription quota, one-time signup bonus
 
 **Quota Day**:
@@ -93,7 +93,7 @@ A short-lived, server-authoritative hold on one Registered User download slot, i
 _Avoid_: Client-side decrement, permanent failed attempt, duplicate retry charge
 
 **Share Unlock**:
-A once-per-Quota-Day reward of 5 additional downloads for a Visitor or Free user who opens a prepared Geekskai share in X. It raises a Visitor's daily maximum to 8 and a Free user's daily maximum to 15, but does not claim that the post was published or verified. Basic, Pro, and Enterprise do not receive Share Unlock.
+A once-per-Quota-Day reward of 5 additional downloads for a Visitor or Registered User who opens a prepared Geekskai share in X. It raises a Visitor's daily maximum to 8 and a Registered User's daily maximum to 15, but does not claim that the post was published or verified. Audio Toolkit Package Tier does not affect eligibility.
 _Avoid_: Verified share, published share, unlimited sharing, repeat share farming
 
 **Share Attribution**:
