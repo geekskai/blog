@@ -9,6 +9,7 @@ import {
   soundCloudGrowthLocales,
   soundCloudHubPath,
 } from "@/data/soundCloudGrowth"
+import { canonicalStaticRoutes } from "./sitemap-config"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = siteMetadata.siteUrl
@@ -22,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: post.lastmod || post.date,
     }))
 
-  const routes = ["", "blog/", "projects/", "tags/", "about/"].map((route) => ({
+  const routes = canonicalStaticRoutes.map((route) => ({
     url: `${siteUrl}/${route}`,
     // lastModified: new Date().toISOString().split("T")[0],
   }))
