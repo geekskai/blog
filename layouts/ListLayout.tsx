@@ -6,7 +6,7 @@ import { CoreContent } from "pliny/utils/contentlayer"
 import type { Blog } from "contentlayer/generated"
 import Tag from "@/components/Tag"
 import siteMetadata from "@/data/siteMetadata"
-import Link from "@/components/Link"
+import Link from "next/link"
 
 interface PaginationProps {
   totalPages: number
