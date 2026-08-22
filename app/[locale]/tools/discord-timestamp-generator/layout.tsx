@@ -26,7 +26,7 @@ export async function generateMetadata(props: {
   })
 
   // Content freshness metadata (GEO requirement)
-  const lastModified = new Date("2026-05-26")
+  const lastModified = new Date("2026-08-22")
   const nextReview = new Date(lastModified.getTime() + 90 * 24 * 60 * 60 * 1000)
 
   return {
@@ -145,7 +145,7 @@ export default async function Layout(props: {
       audienceType: t("structured_data.audience_type"),
     },
     datePublished: "2025-01-15",
-    dateModified: "2026-01-31",
+    dateModified: "2026-08-22",
   }
 
   // Breadcrumb Schema

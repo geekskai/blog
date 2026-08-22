@@ -2,6 +2,10 @@
 
 The three-tier Audio Toolkit model and Test Mode checkout may be verified before approval. Public third-party downloaders are permanently outside the paid product.
 
+## Status
+
+Commercialization is paused. Geekskai is operating in Acquisition-First Mode, live checkout must remain disabled, and this checklist must not be resumed until the user explicitly reopens payment planning. Pricing is removed from primary navigation and the sitemap and carries `noindex`; the underlying implementation remains dormant and recoverable.
+
 ## Current blockers
 
 - [ ] Creem approves Live Payments for the Geekskai Audio Toolkit product line.

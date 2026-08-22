@@ -3420,23 +3420,23 @@
     }
   },
   "DiscordTimeConverter": {
-    "seo_title": "Discord Timezone Converter - Free Discord Time & Timestamp Generator Tool",
-    "seo_description": "Free Discord timezone converter with bidirectional timestamp conversion, global timezone support, and batch processing.",
-    "seo_keywords": "discord timezone converter, discord time zone converter, discord timezone conversion, discord time converter",
+    "seo_title": "Discord Time Zone Converter & Timestamp Decoder",
+    "seo_description": "Convert a time for Discord across time zones or decode an existing Discord timestamp. Supports all seven timestamp formats, batch conversion, and one-click copy.",
+    "seo_keywords": "discord time zone converter, discord timezone converter, discord timestamp decoder, convert discord timestamp",
     "breadcrumb": {
       "home": "Home",
       "tools": "Tools",
-      "discord_time_converter": "Discord Timestamp Converter"
+      "discord_time_converter": "Discord Time Zone Converter"
     },
     "header": {
-      "badge_text": "Free Discord Timezone Converter & Timestamp Generator Tool",
-      "main_title_line1": "Discord Timezone",
-      "main_title_line2": "Converter & Generator",
-      "description": "Free Discord timezone converter and timestamp generator tool. Convert Unix timestamps to Discord format across all global timezones, convert Discord timestamps to regular time, and generate all Discord timestamp formats with comprehensive timezone support.",
+      "badge_text": "Free Time Zone Converter & Timestamp Decoder",
+      "main_title_line1": "Discord Time Zone",
+      "main_title_line2": "Converter & Decoder",
+      "description": "Choose a date, time, and time zone to create copy-ready Discord codes, or paste an existing Discord timestamp to decode it into readable time. Every code uses Discord's native timestamp syntax.",
       "stats": {
         "timezone_converter": "Discord Timezone Converter",
         "global_timezone": "Global Timezone Support",
-        "bot_integration": "Discord Bot Integration",
+        "bot_integration": "All 7 Timestamp Formats",
         "free_tool": "Free Discord Timezone Tool"
       }
     },
@@ -3493,7 +3493,7 @@
     "schema": {
       "feature_list_1": "Discord timezone converter for all global timezones",
       "feature_list_2": "Bidirectional Discord timestamp conversion",
-      "feature_list_3": "Discord timestamp generator for all formats",
+      "feature_list_3": "Discord timestamp decoder for all formats",
       "feature_list_4": "Full timezone support with auto-detection",
       "feature_list_5": "Global timezone synchronization",
       "feature_list_6": "International event scheduling",
@@ -3505,11 +3505,11 @@
       "feature_list_12": "One-click copy functionality",
       "feature_list_13": "Mobile-responsive design",
       "feature_list_14": "No registration required",
-      "feature_list_15": "Discord bot development support",
+      "feature_list_15": "Copy-ready Discord timestamp syntax",
       "feature_list_16": "Unix epoch time conversion",
       "feature_list_17": "Global community coordination tools",
       "feature_list_18": "Multi-timezone event planning",
-      "feature_list_19": "Discord webhook timezone integration",
+      "feature_list_19": "Local browser processing",
       "audienceType": "Discord Community Managers, Discord Bot Developers, International Event Organizers, Global Teams, Gaming Communities, Discord Server Administrators, Cross-Timezone Coordinators, International Discord Communities",
       "softwareRequirements": "Modern web browser with JavaScript enabled"
     },
@@ -3821,8 +3821,8 @@
     }
   },
   "DiscordTimestampGenerator": {
-    "seo_title": "Discord Timestamp Generator - Create Dynamic Discord Timestamps | Free Tool",
-    "seo_description": "Free Discord timestamp generator to create dynamic timestamps, event countdowns, and reminder systems. Generate all Discord timestamp formats with real-time preview, timezone support, and Discord bot integration. Perfect for event scheduling and community management.",
+    "seo_title": "Discord Timestamp Generator for Events & Countdowns",
+    "seo_description": "Create copy-ready Discord timestamps for events, deadlines, and countdowns. Choose any of Discord's seven display formats and preview the result in your local time.",
     "seo_keywords": "discord timestamp generator, create discord timestamp, generate discord timestamp, discord event generator, discord countdown generator, discord reminder timestamp",
     "breadcrumb": {
       "home": "Home",
@@ -3830,10 +3830,10 @@
       "discord_timestamp_generator": "Discord Timestamp Generator"
     },
     "header": {
-      "professional_badge": "Professional Discord Timestamps",
+      "professional_badge": "All 7 Discord Timestamp Formats",
       "main_title": "Discord",
       "subtitle": "Timestamp Generator",
-      "description": "Create dynamic Discord timestamps that automatically update in Discord messages. Perfect for events, deadlines, and countdowns that work seamlessly across all timezones with professional precision. Generate Discord timestamps from scratch with real-time preview.",
+      "description": "Create a Discord timestamp from a relative offset or a specific local date and time. Preview any of the seven display formats, then copy the code into your Discord message.",
       "stats": {
         "real_time_generation": "Real-time Generation",
         "dynamic_timestamps": "Dynamic Timestamps",
@@ -3869,7 +3869,7 @@
       "day": "Day",
       "hour": "Hour",
       "minute": "Minute",
-      "timezone": "Timezone: UTC"
+      "timezone": "Local timezone: UTC"
     },
     "display_format": {
       "title": "Display Format"
@@ -3940,8 +3940,8 @@
       "date_mode": "Date"
     },
     "features": {
-      "title": "Professional-Grade Features",
-      "description": "Everything you need to create <strong>perfect Discord timestamps</strong> with <strong>precision</strong> and <strong>style</strong>",
+      "title": "Timestamp Generator Features",
+      "description": "Create <strong>copy-ready Discord timestamps</strong> with a live preview and all seven supported display formats.",
       "real_time_updates": {
         "title": "Real-time Updates",
         "description": "<strong>Live preview</strong> with <strong>automatic timezone conversion</strong> and <strong>instant format switching</strong> for precise timestamp generation."
@@ -3978,11 +3978,11 @@
     "content_sections": {
       "what_is_generation": {
         "title": "What is Discord Timestamp Generation? Creating Dynamic Time Displays",
-        "description_2": "Our <strong>Discord timestamp generator</strong> helps you create these <strong>dynamic timestamps</strong> from scratch, perfect for <strong>scheduling events</strong>, creating <strong>countdowns</strong>, and building <strong>automated reminder systems</strong> that coordinate seamlessly across international Discord servers and communities.",
+        "description_2": "Our <strong>Discord timestamp generator</strong> creates timestamp codes for <strong>events</strong>, <strong>deadlines</strong>, and <strong>countdowns</strong>. Discord renders the same instant in each viewer's local time.",
         "benefits_title": "Discord Timestamp Generation Benefits",
         "benefit_1": "Create <strong>dynamic event countdowns</strong>",
         "benefit_2": "Generate <strong>timezone-aware reminders</strong>",
-        "benefit_3": "Build <strong>automated scheduling systems</strong>",
+        "benefit_3": "Create codes for <strong>scheduled messages</strong>",
         "benefit_4": "Perfect for <strong>global Discord communities</strong>",
         "benefit_5": "<strong>Real-time preview</strong> during creation",
         "benefit_6": "<strong>Multiple format options</strong> available"
@@ -4005,7 +4005,7 @@
           "title": "🤖 Bot Integration",
           "generate_for_bots": "Generate timestamps for Discord bot responses",
           "scheduled_commands": "Perfect for scheduled commands and automation",
-          "api_compatible": "Compatible with all Discord API integrations."
+          "api_compatible": "Produces standard Discord timestamp syntax for message content."
         }
       },
       "generator_vs_converter": {
@@ -4088,7 +4088,7 @@
       "feature_9": "Quick preset configurations",
       "feature_10": "One-click copy functionality",
       "feature_11": "Save favorite configurations",
-      "feature_12": "Discord bot integration support",
+      "feature_12": "Standard Discord timestamp syntax",
       "feature_13": "Mobile-responsive interface",
       "feature_14": "No registration required",
       "feature_15": "Instant timestamp creation",

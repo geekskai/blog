@@ -25,7 +25,7 @@ export async function generateMetadata(props: {
         : `https://geekskai.com/${locale}/tools/discord-time-converter/`
   })
   // Content freshness metadata (updated within 30-90 days for best AI ranking)
-  const lastModified = new Date("2026-05-26")
+  const lastModified = new Date("2026-08-22")
   const updateFrequency = "monthly"
   const nextReview = new Date(lastModified.getTime() + 90 * 24 * 60 * 60 * 1000)
 
@@ -98,13 +98,13 @@ async function generateJsonLd(locale: string) {
         "@type": "ListItem",
         position: 2,
         name: t("breadcrumb.tools"),
-        item: `https://geekskai.com/${locale === "en" ? "" : locale + "/"}tools`,
+        item: `https://geekskai.com/${locale === "en" ? "" : locale + "/"}tools/`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: t("breadcrumb.discord_time_converter"),
-        item: `https://geekskai.com/${locale === "en" ? "" : locale + "/"}tools/discord-time-converter`,
+        item: `https://geekskai.com/${locale === "en" ? "" : locale + "/"}tools/discord-time-converter/`,
       },
     ],
   }
@@ -115,7 +115,7 @@ async function generateJsonLd(locale: string) {
     "@type": "WebApplication",
     name: t("seo_title"),
     description: t("seo_description"),
-    url: `https://geekskai.com/${locale === "en" ? "" : locale + "/"}tools/discord-time-converter`,
+    url: `https://geekskai.com/${locale === "en" ? "" : locale + "/"}tools/discord-time-converter/`,
     applicationCategory: "ProductivityApplication",
     operatingSystem: "Any",
     permissions: "none",
@@ -161,7 +161,7 @@ async function generateJsonLd(locale: string) {
       url: "https://geekskai.com",
     },
     datePublished: "2024-01-01",
-    dateModified: "2026-01-31",
+    dateModified: "2026-08-22",
   }
 
   return {

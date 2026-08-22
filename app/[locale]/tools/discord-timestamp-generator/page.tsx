@@ -1,7 +1,7 @@
 "use client"
 import ShareButtons from "@/components/ShareButtons"
 import { TldrBlock } from "@/components/TldrBlock"
-import React, { useState, useEffect, useRef, useCallback } from "react"
+import React, { useState, useEffect, useRef, useCallback, useMemo } from "react"
 import dynamic from "next/dynamic"
 import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import { useTranslations } from "next-intl"
@@ -27,6 +27,8 @@ import {
   ArrowUpDown,
 } from "lucide-react"
 import { Link } from "app/i18n/navigation"
+import { trackToolEvent } from "@/lib/analytics/tool-events"
+import { copyText } from "@/lib/browser/copyText"
 
 const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
   ssr: false,
@@ -64,57 +66,60 @@ export default function DiscordTimestampGenerator() {
   const t = useTranslations("DiscordTimestampGenerator")
 
   // TIMESTAMP_FORMATS with translations
-  const TIMESTAMP_FORMATS: TimestampFormat[] = [
-    {
-      id: "relative",
-      label: t("timestamp_formats.relative.label"),
-      description: t("timestamp_formats.relative.description"),
-      suffix: "R",
-      example: t("timestamp_formats.relative.example"),
-    },
-    {
-      id: "short-time",
-      label: t("timestamp_formats.short_time.label"),
-      description: t("timestamp_formats.short_time.description"),
-      suffix: "t",
-      example: t("timestamp_formats.short_time.example"),
-    },
-    {
-      id: "long-time",
-      label: t("timestamp_formats.long_time.label"),
-      description: t("timestamp_formats.long_time.description"),
-      suffix: "T",
-      example: t("timestamp_formats.long_time.example"),
-    },
-    {
-      id: "short-date",
-      label: t("timestamp_formats.short_date.label"),
-      description: t("timestamp_formats.short_date.description"),
-      suffix: "d",
-      example: t("timestamp_formats.short_date.example"),
-    },
-    {
-      id: "long-date",
-      label: t("timestamp_formats.long_date.label"),
-      description: t("timestamp_formats.long_date.description"),
-      suffix: "D",
-      example: t("timestamp_formats.long_date.example"),
-    },
-    {
-      id: "short-full",
-      label: t("timestamp_formats.short_full.label"),
-      description: t("timestamp_formats.short_full.description"),
-      suffix: "f",
-      example: t("timestamp_formats.short_full.example"),
-    },
-    {
-      id: "long-full",
-      label: t("timestamp_formats.long_full.label"),
-      description: t("timestamp_formats.long_full.description"),
-      suffix: "F",
-      example: t("timestamp_formats.long_full.example"),
-    },
-  ]
+  const TIMESTAMP_FORMATS: TimestampFormat[] = useMemo(
+    () => [
+      {
+        id: "relative",
+        label: t("timestamp_formats.relative.label"),
+        description: t("timestamp_formats.relative.description"),
+        suffix: "R",
+        example: t("timestamp_formats.relative.example"),
+      },
+      {
+        id: "short-time",
+        label: t("timestamp_formats.short_time.label"),
+        description: t("timestamp_formats.short_time.description"),
+        suffix: "t",
+        example: t("timestamp_formats.short_time.example"),
+      },
+      {
+        id: "long-time",
+        label: t("timestamp_formats.long_time.label"),
+        description: t("timestamp_formats.long_time.description"),
+        suffix: "T",
+        example: t("timestamp_formats.long_time.example"),
+      },
+      {
+        id: "short-date",
+        label: t("timestamp_formats.short_date.label"),
+        description: t("timestamp_formats.short_date.description"),
+        suffix: "d",
+        example: t("timestamp_formats.short_date.example"),
+      },
+      {
+        id: "long-date",
+        label: t("timestamp_formats.long_date.label"),
+        description: t("timestamp_formats.long_date.description"),
+        suffix: "D",
+        example: t("timestamp_formats.long_date.example"),
+      },
+      {
+        id: "short-full",
+        label: t("timestamp_formats.short_full.label"),
+        description: t("timestamp_formats.short_full.description"),
+        suffix: "f",
+        example: t("timestamp_formats.short_full.example"),
+      },
+      {
+        id: "long-full",
+        label: t("timestamp_formats.long_full.label"),
+        description: t("timestamp_formats.long_full.description"),
+        suffix: "F",
+        example: t("timestamp_formats.long_full.example"),
+      },
+    ],
+    [t]
+  )
 
   // State management
   const [mode, setMode] = useState<"timeframe" | "date">("timeframe")
@@ -135,6 +140,7 @@ export default function DiscordTimestampGenerator() {
   const [generatedTimestamp, setGeneratedTimestamp] = useState<string>("")
   const [copySuccess, setCopySuccess] = useState<boolean>(false)
   const [previewText, setPreviewText] = useState<string>("")
+  const [currentTimeText, setCurrentTimeText] = useState<string>("")
   const [showAdvanced, setShowAdvanced] = useState(false)
   const [favorites, setFavorites] = useState<
     Array<{ name: string; timestamp: string; config: any }>
@@ -148,11 +154,99 @@ export default function DiscordTimestampGenerator() {
 
   // Refs for smooth interactions
   const copyTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const hasTrackedStartRef = useRef(false)
+
+  const trackStart = useCallback(() => {
+    if (hasTrackedStartRef.current) return
+    hasTrackedStartRef.current = true
+    trackToolEvent("tool_started", {
+      tool_id: "discord-timestamp-generator",
+      action: "generate_timestamp",
+    })
+  }, [])
 
   // Get current timezone offset for display
   const timezoneOffset = new Date().getTimezoneOffset()
-  const timezoneString =
-    timezoneOffset <= 0 ? `+${Math.abs(timezoneOffset / 60)}` : `-${timezoneOffset / 60}`
+  const timezoneSign = timezoneOffset <= 0 ? "+" : "-"
+  const absoluteTimezoneOffset = Math.abs(timezoneOffset)
+  const timezoneString = `${timezoneSign}${String(Math.floor(absoluteTimezoneOffset / 60)).padStart(2, "0")}:${String(absoluteTimezoneOffset % 60).padStart(2, "0")}`
+
+  // Generate preview text for the timestamp
+  const generatePreview = useCallback(
+    (date: Date, suffix: string) => {
+      const now = new Date()
+      const diffMs = date.getTime() - now.getTime()
+      const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24))
+      const diffHours = Math.ceil(diffMs / (1000 * 60 * 60))
+      const diffMinutes = Math.ceil(diffMs / (1000 * 60))
+
+      switch (suffix) {
+        case "R":
+          if (diffMs > 0) {
+            if (diffDays > 1) setPreviewText(t("preview_text.in_days", { days: diffDays }))
+            else if (diffHours > 1) setPreviewText(t("preview_text.in_hours", { hours: diffHours }))
+            else if (diffMinutes > 1)
+              setPreviewText(t("preview_text.in_minutes", { minutes: diffMinutes }))
+            else setPreviewText(t("preview_text.in_few_seconds"))
+          } else {
+            const absDays = Math.abs(diffDays)
+            const absHours = Math.abs(diffHours)
+            const absMinutes = Math.abs(diffMinutes)
+            if (absDays > 1) setPreviewText(t("preview_text.days_ago", { days: absDays }))
+            else if (absHours > 1) setPreviewText(t("preview_text.hours_ago", { hours: absHours }))
+            else if (absMinutes > 1)
+              setPreviewText(t("preview_text.minutes_ago", { minutes: absMinutes }))
+            else setPreviewText(t("preview_text.few_seconds_ago"))
+          }
+          break
+        case "t":
+          setPreviewText(date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }))
+          break
+        case "T":
+          setPreviewText(date.toLocaleTimeString())
+          break
+        case "d":
+          setPreviewText(date.toLocaleDateString())
+          break
+        case "D":
+          setPreviewText(
+            date.toLocaleDateString([], {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          )
+          break
+        case "f":
+          setPreviewText(
+            date.toLocaleString([], {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+            })
+          )
+          break
+        case "F":
+          setPreviewText(
+            date.toLocaleString([], {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+            })
+          )
+          break
+        default:
+          setPreviewText("")
+      }
+    },
+    [t]
+  )
 
   // Generate timestamp based on current mode
   const generateTimestamp = useCallback(() => {
@@ -169,16 +263,15 @@ export default function DiscordTimestampGenerator() {
           timeAdjustment.minutes * 60 * 1000
       )
     } else {
-      // Use absolute date input (converted to UTC)
+      // Treat the entered values as local time; Discord renders the resulting
+      // Unix timestamp in each viewer's own timezone.
       targetDate = new Date(
-        Date.UTC(
-          dateInput.year,
-          dateInput.month - 1, // Month is 0-indexed
-          dateInput.day,
-          dateInput.hour,
-          dateInput.minute,
-          0
-        )
+        dateInput.year,
+        dateInput.month - 1,
+        dateInput.day,
+        dateInput.hour,
+        dateInput.minute,
+        0
       )
     }
 
@@ -188,84 +281,8 @@ export default function DiscordTimestampGenerator() {
 
     const timestamp = `<t:${unixTimestamp}:${suffix}>`
     setGeneratedTimestamp(timestamp)
-
-    // Generate preview text
     generatePreview(targetDate, suffix)
-  }, [mode, format, timeAdjustment, dateInput])
-
-  // Generate preview text for the timestamp
-  const generatePreview = (date: Date, suffix: string) => {
-    const now = new Date()
-    const diffMs = date.getTime() - now.getTime()
-    const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24))
-    const diffHours = Math.ceil(diffMs / (1000 * 60 * 60))
-    const diffMinutes = Math.ceil(diffMs / (1000 * 60))
-
-    switch (suffix) {
-      case "R":
-        if (diffMs > 0) {
-          if (diffDays > 1) setPreviewText(t("preview_text.in_days", { days: diffDays }))
-          else if (diffHours > 1) setPreviewText(t("preview_text.in_hours", { hours: diffHours }))
-          else if (diffMinutes > 1)
-            setPreviewText(t("preview_text.in_minutes", { minutes: diffMinutes }))
-          else setPreviewText(t("preview_text.in_few_seconds"))
-        } else {
-          const absDays = Math.abs(diffDays)
-          const absHours = Math.abs(diffHours)
-          const absMinutes = Math.abs(diffMinutes)
-          if (absDays > 1) setPreviewText(t("preview_text.days_ago", { days: absDays }))
-          else if (absHours > 1) setPreviewText(t("preview_text.hours_ago", { hours: absHours }))
-          else if (absMinutes > 1)
-            setPreviewText(t("preview_text.minutes_ago", { minutes: absMinutes }))
-          else setPreviewText(t("preview_text.few_seconds_ago"))
-        }
-        break
-      case "t":
-        setPreviewText(date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }))
-        break
-      case "T":
-        setPreviewText(date.toLocaleTimeString())
-        break
-      case "d":
-        setPreviewText(date.toLocaleDateString())
-        break
-      case "D":
-        setPreviewText(
-          date.toLocaleDateString([], {
-            weekday: "long",
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })
-        )
-        break
-      case "f":
-        setPreviewText(
-          date.toLocaleString([], {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-          })
-        )
-        break
-      case "F":
-        setPreviewText(
-          date.toLocaleString([], {
-            weekday: "long",
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-          })
-        )
-        break
-      default:
-        setPreviewText("")
-    }
-  }
+  }, [mode, format, timeAdjustment, dateInput, TIMESTAMP_FORMATS, generatePreview])
 
   // Adjust time values for timeframe mode
   const adjustTime = (type: keyof TimeAdjustment, amount: number) => {
@@ -290,9 +307,22 @@ export default function DiscordTimestampGenerator() {
 
   // Copy timestamp to clipboard
   const copyToClipboard = async () => {
+    trackStart()
     try {
-      await navigator.clipboard.writeText(generatedTimestamp)
+      await copyText(generatedTimestamp)
       setCopySuccess(true)
+      trackToolEvent("tool_succeeded", {
+        tool_id: "discord-timestamp-generator",
+        action: "generate_timestamp",
+        format,
+        result_count: 1,
+      })
+      trackToolEvent("tool_result_copied", {
+        tool_id: "discord-timestamp-generator",
+        action: "generate_timestamp",
+        format,
+        result_count: 1,
+      })
 
       // Clear existing timeout
       if (copyTimeoutRef.current) {
@@ -304,6 +334,11 @@ export default function DiscordTimestampGenerator() {
         setCopySuccess(false)
       }, 2000)
     } catch (err) {
+      trackToolEvent("tool_failed", {
+        tool_id: "discord-timestamp-generator",
+        action: "generate_timestamp",
+        format,
+      })
       console.error(t("generated_result.failed_to_copy"), err)
     }
   }
@@ -334,6 +369,15 @@ export default function DiscordTimestampGenerator() {
   useEffect(() => {
     generateTimestamp()
   }, [generateTimestamp])
+
+  useEffect(() => {
+    setCurrentTimeText(
+      new Date().toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      })
+    )
+  }, [])
 
   // Update timestamp every second for timeframe mode
   useEffect(() => {
@@ -422,7 +466,10 @@ export default function DiscordTimestampGenerator() {
         <ShareButtons />
 
         {/* Main content area with responsive dual-column layout */}
-        <div className="grid gap-4 sm:gap-5 md:gap-6 lg:grid-cols-5 lg:gap-8">
+        <div
+          className="grid gap-4 sm:gap-5 md:gap-6 lg:grid-cols-5 lg:gap-8"
+          onPointerDown={trackStart}
+        >
           {/* Left control panel - 40% */}
           <div className="space-y-4 sm:space-y-5 md:space-y-6 lg:col-span-2">
             {/* Mode selection card */}
@@ -554,10 +601,14 @@ export default function DiscordTimestampGenerator() {
                   <div className="space-y-3 md:space-y-4">
                     <div className="grid grid-cols-2 gap-2 sm:gap-2.5 md:gap-3 lg:gap-4">
                       <div>
-                        <label className="mb-1.5 block text-[10px] font-medium text-slate-400 md:mb-2 md:text-xs">
+                        <label
+                          htmlFor="discord-timestamp-year"
+                          className="mb-1.5 block text-[10px] font-medium text-slate-400 md:mb-2 md:text-xs"
+                        >
                           {t("date_time_settings.year")}
                         </label>
                         <input
+                          id="discord-timestamp-year"
                           type="number"
                           value={dateInput.year}
                           onChange={(e) =>
@@ -570,10 +621,14 @@ export default function DiscordTimestampGenerator() {
                         />
                       </div>
                       <div>
-                        <label className="mb-1.5 block text-[10px] font-medium text-slate-400 md:mb-2 md:text-xs">
+                        <label
+                          htmlFor="discord-timestamp-month"
+                          className="mb-1.5 block text-[10px] font-medium text-slate-400 md:mb-2 md:text-xs"
+                        >
                           {t("date_time_settings.month")}
                         </label>
                         <input
+                          id="discord-timestamp-month"
                           type="number"
                           min="1"
                           max="12"
@@ -588,10 +643,14 @@ export default function DiscordTimestampGenerator() {
                         />
                       </div>
                       <div>
-                        <label className="mb-1.5 block text-[10px] font-medium text-slate-400 md:mb-2 md:text-xs">
+                        <label
+                          htmlFor="discord-timestamp-day"
+                          className="mb-1.5 block text-[10px] font-medium text-slate-400 md:mb-2 md:text-xs"
+                        >
                           {t("date_time_settings.day")}
                         </label>
                         <input
+                          id="discord-timestamp-day"
                           type="number"
                           min="1"
                           max="31"
@@ -606,10 +665,14 @@ export default function DiscordTimestampGenerator() {
                         />
                       </div>
                       <div>
-                        <label className="mb-1.5 block text-[10px] font-medium text-slate-400 md:mb-2 md:text-xs">
+                        <label
+                          htmlFor="discord-timestamp-hour"
+                          className="mb-1.5 block text-[10px] font-medium text-slate-400 md:mb-2 md:text-xs"
+                        >
                           {t("date_time_settings.hour")}
                         </label>
                         <input
+                          id="discord-timestamp-hour"
                           type="number"
                           min="0"
                           max="23"
@@ -618,6 +681,28 @@ export default function DiscordTimestampGenerator() {
                             setDateInput((prev) => ({
                               ...prev,
                               hour: parseInt(e.target.value) || 0,
+                            }))
+                          }
+                          className="w-full rounded-lg border border-white/20 bg-white/5 px-2.5 py-1.5 text-[13px] text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50 md:px-3 md:py-2 md:text-sm"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="discord-timestamp-minute"
+                          className="mb-1.5 block text-[10px] font-medium text-slate-400 md:mb-2 md:text-xs"
+                        >
+                          {t("date_time_settings.minute")}
+                        </label>
+                        <input
+                          id="discord-timestamp-minute"
+                          type="number"
+                          min="0"
+                          max="59"
+                          value={dateInput.minute}
+                          onChange={(e) =>
+                            setDateInput((prev) => ({
+                              ...prev,
+                              minute: parseInt(e.target.value) || 0,
                             }))
                           }
                           className="w-full rounded-lg border border-white/20 bg-white/5 px-2.5 py-1.5 text-[13px] text-white placeholder-slate-400 backdrop-blur-sm transition-all focus:border-blue-500 focus:bg-white/10 focus:ring-2 focus:ring-blue-500/50 md:px-3 md:py-2 md:text-sm"
@@ -726,11 +811,7 @@ export default function DiscordTimestampGenerator() {
                           {t("preview.bot_label")}
                         </span>
                         <span className="text-[10px] text-slate-400 md:text-xs">
-                          {t("preview.today")}{" "}
-                          {new Date().toLocaleTimeString([], {
-                            hour: "2-digit",
-                            minute: "2-digit",
-                          })}
+                          {t("preview.today")} {currentTimeText}
                         </span>
                       </div>
                       <div className="rounded-lg bg-slate-700/50 p-2 md:p-3">
@@ -786,6 +867,7 @@ export default function DiscordTimestampGenerator() {
                   <div className="flex flex-col gap-2 sm:flex-row sm:gap-2.5 md:gap-3">
                     <button
                       onClick={copyToClipboard}
+                      aria-live="polite"
                       className={`flex-1 rounded-lg px-4 py-2.5 text-sm font-semibold shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] sm:py-3 md:rounded-xl md:px-5 md:py-3.5 md:text-base lg:px-6 lg:py-4 lg:text-lg ${
                         copySuccess
                           ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white"
@@ -807,12 +889,14 @@ export default function DiscordTimestampGenerator() {
                     <div className="flex gap-2 md:gap-3">
                       <button
                         onClick={addToFavorites}
+                        aria-label={t("saved_configurations.title")}
                         className="rounded-lg border border-white/20 bg-white/5 p-2.5 text-slate-300 transition-all hover:bg-white/10 sm:p-3 md:rounded-xl md:px-4 md:py-3 lg:px-6 lg:py-4"
                       >
                         <BookmarkPlus className="h-4 w-4 md:h-5 md:w-5" />
                       </button>
                       <button
                         onClick={resetValues}
+                        aria-label="Reset values"
                         className="rounded-lg border border-white/20 bg-white/5 p-2.5 text-slate-300 transition-all hover:bg-white/10 sm:p-3 md:rounded-xl md:px-4 md:py-3 lg:px-6 lg:py-4"
                       >
                         <RotateCcw className="h-4 w-4 md:h-5 md:w-5" />
@@ -1201,9 +1285,30 @@ export default function DiscordTimestampGenerator() {
                 <div className="mt-3 sm:mt-4">
                   <Link
                     href="/tools/discord-time-converter"
+                    onClick={() =>
+                      trackToolEvent("related_tool_clicked", {
+                        tool_id: "discord-timestamp-generator",
+                        action: "open_time_converter",
+                      })
+                    }
                     className="inline-flex items-center text-sm text-green-300 transition-colors hover:text-green-200 sm:text-base"
                   >
                     {t("content_sections.generator_vs_converter.converter_section.link_text")}
+                  </Link>
+                  <span className="mx-2 text-green-200/60" aria-hidden="true">
+                    ·
+                  </span>
+                  <Link
+                    href="/blog/ai/discord-timestamp-generator-complete-guide"
+                    onClick={() =>
+                      trackToolEvent("related_tool_clicked", {
+                        tool_id: "discord-timestamp-generator",
+                        action: "open_timestamp_guide",
+                      })
+                    }
+                    className="inline-flex items-center text-sm text-green-300 transition-colors hover:text-green-200 sm:text-base"
+                  >
+                    {t("usage_guide.title")}
                   </Link>
                 </div>
               </div>

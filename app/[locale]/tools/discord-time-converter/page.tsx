@@ -27,6 +27,8 @@ import CustomDateTimePicker from "@/components/ui/CustomDateTimePicker"
 import CustomSelector from "@/components/ui/CustomSelector"
 import { Link } from "app/i18n/navigation"
 import ShareButtons from "@/components/ShareButtons"
+import { trackToolEvent } from "@/lib/analytics/tool-events"
+import { copyText } from "@/lib/browser/copyText"
 
 const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
   ssr: false,
@@ -214,7 +216,7 @@ export default function DiscordTimeConverter() {
   const [conversionMode, setConversionMode] = useState<"toTimestamp" | "fromTimestamp">(
     "toTimestamp"
   )
-  const [inputDateTime, setInputDateTime] = useState<Date>(new Date())
+  const [inputDateTime, setInputDateTime] = useState<Date>(() => new Date(0))
   const [inputTimestamp, setInputTimestamp] = useState<string>("")
   const [selectedTimezone, setSelectedTimezone] = useState<string>("")
   const [generatedResults, setGeneratedResults] = useState<Record<string, string>>({})
@@ -228,10 +230,18 @@ export default function DiscordTimeConverter() {
 
   // Refs for smooth interactions
   const copyTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const hasTrackedStartRef = useRef(false)
+
+  const trackStart = useCallback((action: string) => {
+    if (hasTrackedStartRef.current) return
+    hasTrackedStartRef.current = true
+    trackToolEvent("tool_started", { tool_id: "discord-time-converter", action })
+  }, [])
 
   // Auto-detect user's timezone on mount and set client flag
   useEffect(() => {
     setIsClient(true)
+    setInputDateTime(new Date())
     const dateTimeFormat = new Intl.DateTimeFormat(navigator.language)
     const { timeZone } = dateTimeFormat.resolvedOptions()
     setSelectedTimezone(timeZone)
@@ -361,8 +371,10 @@ export default function DiscordTimeConverter() {
 
   // Handle batch conversion
   const handleBatchConversion = () => {
+    trackStart(conversionMode === "toTimestamp" ? "batch_encode" : "batch_decode")
     const lines = batchInput.split("\n").filter((line) => line.trim())
     const results: string[] = []
+    let validResultCount = 0
 
     lines.forEach((line) => {
       const trimmedLine = line.trim()
@@ -372,6 +384,7 @@ export default function DiscordTimeConverter() {
         if (!isNaN(date.getTime())) {
           const timestamp = generateDiscordTimestamp(date, "f")
           results.push(`${trimmedLine} → ${timestamp}`)
+          validResultCount += 1
         } else {
           results.push(`${trimmedLine} → ${t("info_messages.invalid_format_type")}`)
         }
@@ -381,6 +394,7 @@ export default function DiscordTimeConverter() {
         if (parsed) {
           const date = new Date(parsed.unixTime * 1000)
           results.push(`${trimmedLine} → ${date.toLocaleString()}`)
+          validResultCount += 1
         } else {
           results.push(`${trimmedLine} → ${t("info_messages.invalid_format_type")}`)
         }
@@ -388,13 +402,32 @@ export default function DiscordTimeConverter() {
     })
 
     setBatchResults(results)
+    trackToolEvent(validResultCount > 0 ? "tool_succeeded" : "tool_failed", {
+      tool_id: "discord-time-converter",
+      action: conversionMode === "toTimestamp" ? "batch_encode" : "batch_decode",
+      result_count: validResultCount,
+    })
   }
 
   // Copy to clipboard
   const copyToClipboard = async (text: string, id: string = "default") => {
+    const action = conversionMode === "toTimestamp" ? "encode_timestamp" : "decode_timestamp"
+    trackStart(action)
     try {
-      await navigator.clipboard.writeText(text)
+      await copyText(text)
       setCopySuccess(id)
+      trackToolEvent("tool_succeeded", {
+        tool_id: "discord-time-converter",
+        action,
+        format: id,
+        result_count: 1,
+      })
+      trackToolEvent("tool_result_copied", {
+        tool_id: "discord-time-converter",
+        action,
+        format: id,
+        result_count: 1,
+      })
 
       if (copyTimeoutRef.current) {
         clearTimeout(copyTimeoutRef.current)
@@ -404,6 +437,11 @@ export default function DiscordTimeConverter() {
         setCopySuccess("")
       }, 2000)
     } catch (err) {
+      trackToolEvent("tool_failed", {
+        tool_id: "discord-time-converter",
+        action,
+        format: id,
+      })
       console.error("Failed to copy:", err)
     }
   }
@@ -1323,6 +1361,12 @@ export default function DiscordTimeConverter() {
                 </p>
                 <Link
                   href="/tools/discord-timestamp-generator"
+                  onClick={() =>
+                    trackToolEvent("related_tool_clicked", {
+                      tool_id: "discord-time-converter",
+                      action: "open_timestamp_generator",
+                    })
+                  }
                   className="inline-flex items-center text-orange-300 transition-colors hover:text-orange-200"
                 >
                   {t("content_sections.tools_ecosystem.timestamp_generator_link")}
@@ -1340,9 +1384,21 @@ export default function DiscordTimeConverter() {
                 <h3 className="mb-3 text-lg font-semibold text-white">
                   {t("content_sections.tools_ecosystem.api_tools_title")}
                 </h3>
-                <p className="text-slate-200">
+                <p className="mb-4 text-slate-200">
                   {t("content_sections.tools_ecosystem.api_tools_description")}
                 </p>
+                <Link
+                  href="/blog/ai/discord-timestamp-generator-complete-guide"
+                  onClick={() =>
+                    trackToolEvent("related_tool_clicked", {
+                      tool_id: "discord-time-converter",
+                      action: "open_timestamp_guide",
+                    })
+                  }
+                  className="inline-flex items-center text-orange-300 transition-colors hover:text-orange-200"
+                >
+                  {t("usage_guide.title")}
+                </Link>
               </div>
             </div>
           </section>
