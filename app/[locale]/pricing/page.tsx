@@ -185,14 +185,35 @@ const pricingStructuredData = {
   "@graph": [...pricingPageStructuredData["@graph"], offerStructuredData],
 }
 
+function SectionEyebrow({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-violet-400 sm:text-xs">
+      {children}
+    </p>
+  )
+}
+
+function SectionTitle({ id, children }: { id: string; children: React.ReactNode }) {
+  return (
+    <h2
+      id={id}
+      className="mt-2 text-[clamp(1.5rem,3.5vw,2.25rem)] font-bold tracking-tight text-white"
+    >
+      {children}
+    </h2>
+  )
+}
+
 function Value({ value }: { value: ComparisonValue }) {
-  if (typeof value === "string") return <span>{value}</span>
+  if (typeof value === "string") {
+    return <span className="text-sm text-slate-300">{value}</span>
+  }
   return value ? (
     <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-violet-500/15 text-violet-300">
-      <Check className="h-4 w-4" aria-label="Included" />
+      <Check className="h-3.5 w-3.5" aria-label="Included" />
     </span>
   ) : (
-    <span className="text-slate-400" aria-label="Not included">
+    <span className="text-sm text-slate-600" aria-label="Not included">
       —
     </span>
   )
@@ -205,64 +226,74 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
   return (
     <div
       lang="en"
-      className="relative -mx-4 overflow-hidden px-4 pb-20 sm:-mx-6 sm:px-6 sm:pb-24 xl:mx-0 xl:px-4 2xl:px-0"
-      style={{ paddingTop: "clamp(1.25rem, 2vw, 2.5rem)" }}
+      className="relative -mx-4 overflow-hidden px-4 pb-16 sm:-mx-6 sm:px-6 sm:pb-20 xl:mx-0 xl:px-4 2xl:px-0"
+      style={{ paddingTop: "clamp(1rem, 2vw, 2rem)" }}
     >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(pricingStructuredData) }}
       />
-      <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[38rem] w-[72rem] -translate-x-1/2 rounded-full bg-violet-900/15 blur-3xl" />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[28rem] bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(124,58,237,0.12),transparent)]"
+        aria-hidden
+      />
       <div className="mx-auto max-w-7xl">
         <PricingActions locale={locale} checkoutEnabled={checkoutEnabled} />
 
-        <section className="mt-20 sm:mt-24" aria-labelledby="comparison-title">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.23em] text-violet-300">
-              Plan details
-            </p>
-            <h2
-              id="comparison-title"
-              className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl"
-            >
-              Compare every capability
-            </h2>
-            <p className="mt-4 text-base leading-7 text-slate-400">
+        <section className="mt-16 sm:mt-20" aria-labelledby="comparison-title">
+          <div className="mx-auto max-w-3xl text-center">
+            <SectionEyebrow>Plan details</SectionEyebrow>
+            <SectionTitle id="comparison-title">Compare every capability</SectionTitle>
+            <p className="mt-3 text-sm leading-6 text-slate-400 sm:text-base sm:leading-7">
               Every plan keeps processing local. Upgrade only for larger batches, ZIP export, and
               faster support.
             </p>
           </div>
 
-          <div className="mx-auto mt-8 hidden max-w-6xl overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-950/45 shadow-[0_24px_70px_-52px_rgba(124,58,237,0.9)] lg:block">
+          <div className="mx-auto mt-6 hidden max-w-6xl overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-950/50 lg:block">
             <table className="w-full table-fixed border-collapse text-sm">
               <caption className="sr-only">Geekskai package feature comparison</caption>
-              <thead className="bg-slate-950/90 text-white">
-                <tr>
-                  <th scope="col" className="w-[28%] px-5 py-4 text-left">
+              <thead>
+                <tr className="border-b border-slate-800/80 bg-slate-900/60">
+                  <th
+                    scope="col"
+                    className="w-[28%] px-5 py-3.5 text-left text-xs font-semibold uppercase tracking-wide text-slate-400"
+                  >
                     Capability
                   </th>
                   {tiers.map((tier) => (
                     <th
                       key={tier}
                       scope="col"
-                      className={`border-l border-slate-800 px-4 py-4 text-center ${tier === "pro" ? "bg-violet-500/10 text-violet-100" : ""}`}
+                      className={`border-l border-slate-800/80 px-4 py-3.5 text-center text-sm font-semibold ${
+                        tier === "pro" ? "bg-violet-500/10 text-violet-100" : "text-white"
+                      }`}
                     >
                       {tierLabels[tier]}
-                      {tier === "pro" ? <span className="ml-2 text-violet-400">✓</span> : null}
                     </th>
                   ))}
                 </tr>
               </thead>
-              <tbody className="bg-slate-950/35 text-slate-300">
-                {comparisonRows.map((row) => (
-                  <tr key={row.label} className="border-t border-slate-800/80">
-                    <th scope="row" className="px-5 py-4 text-left font-medium text-slate-200">
+              <tbody>
+                {comparisonRows.map((row, index) => (
+                  <tr
+                    key={row.label}
+                    className={`border-t border-slate-800/60 transition-colors hover:bg-slate-900/30 ${
+                      index % 2 === 0 ? "bg-slate-950/20" : ""
+                    }`}
+                  >
+                    <th
+                      scope="row"
+                      className="px-5 py-3.5 text-left text-sm font-medium text-slate-200"
+                    >
                       {row.label}
                     </th>
                     {tiers.map((tier) => (
                       <td
                         key={tier}
-                        className={`border-l border-slate-800/80 px-4 py-4 text-center align-middle ${tier === "pro" ? "bg-violet-500/[0.04]" : ""}`}
+                        className={`border-l border-slate-800/60 px-4 py-3.5 text-center align-middle ${
+                          tier === "pro" ? "bg-violet-500/[0.03]" : ""
+                        }`}
                       >
                         <Value value={row[tier]} />
                       </td>
@@ -273,40 +304,43 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
             </table>
           </div>
 
-          <div className="mx-auto mt-8 max-w-3xl space-y-3 lg:hidden">
+          <div className="mx-auto mt-6 max-w-3xl space-y-2.5 lg:hidden">
             {comparisonGroups.map((group, groupIndex) => (
               <details
                 key={group.title}
                 open={groupIndex === 0}
-                className="group overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/60"
+                className="group overflow-hidden rounded-xl border border-slate-800/80 bg-slate-950/50"
               >
-                <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 px-5 py-3 font-semibold text-white marker:content-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-violet-300 [&::-webkit-details-marker]:hidden">
+                <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 text-sm font-semibold text-white marker:content-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-violet-400 [&::-webkit-details-marker]:hidden">
                   <span>{group.title}</span>
-                  <ChevronDown className="h-5 w-5 text-violet-300 transition-transform duration-200 group-open:rotate-180 motion-reduce:transform-none motion-reduce:transition-none" />
+                  <ChevronDown className="h-4 w-4 shrink-0 text-violet-400 transition-transform duration-200 group-open:rotate-180 motion-reduce:transform-none motion-reduce:transition-none" />
                 </summary>
-                <div className="border-t border-slate-800 px-5 pb-5">
+                <div className="border-t border-slate-800/80 px-4 pb-4 pt-3">
                   {group.rows.map((row, rowIndex) => (
                     <div
                       key={row.label}
-                      className="border-t border-slate-800/70 pt-4 first:border-0"
+                      className={`pt-3 ${rowIndex > 0 ? "mt-3 border-t border-slate-800/60" : ""}`}
                     >
-                      <p className="text-sm font-semibold text-slate-200">{row.label}</p>
-                      <dl className="mt-3 grid grid-cols-1 gap-2 text-sm sm:grid-cols-3">
+                      <p className="text-sm font-medium text-slate-200">{row.label}</p>
+                      <dl className="mt-2.5 grid grid-cols-3 gap-1.5 text-center">
                         {tiers.map((tier) => (
                           <div
                             key={tier}
-                            className={`rounded-xl border p-3 ${tier === "pro" ? "border-violet-400/50 bg-violet-500/10" : "border-slate-800 bg-slate-950/55"}`}
+                            className={`rounded-lg border px-2 py-2.5 ${
+                              tier === "pro"
+                                ? "border-violet-500/40 bg-violet-500/10"
+                                : "border-slate-800/80 bg-slate-900/40"
+                            }`}
                           >
-                            <dt className="text-xs font-bold uppercase tracking-wide text-slate-400">
+                            <dt className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
                               {tierLabels[tier]}
                             </dt>
-                            <dd className="mt-1 text-slate-200">
+                            <dd className="mt-1 flex justify-center text-slate-200">
                               <Value value={row[tier]} />
                             </dd>
                           </div>
                         ))}
                       </dl>
-                      {rowIndex < group.rows.length - 1 ? <div className="h-4" /> : null}
                     </div>
                   ))}
                 </div>
@@ -315,19 +349,12 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
           </div>
         </section>
 
-        <section className="mt-20 sm:mt-24" aria-labelledby="assurances-title">
+        <section className="mt-16 sm:mt-20" aria-labelledby="assurances-title">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.23em] text-violet-300">
-              Built for trust
-            </p>
-            <h2
-              id="assurances-title"
-              className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl"
-            >
-              Clear terms, private processing
-            </h2>
+            <SectionEyebrow>Built for trust</SectionEyebrow>
+            <SectionTitle id="assurances-title">Clear terms, private processing</SectionTitle>
           </div>
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          <div className="mt-6 grid gap-3 sm:grid-cols-3 sm:gap-4">
             {[
               {
                 icon: ShieldCheck,
@@ -345,78 +372,82 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                 copy: "Displayed USD prices are the final amount charged at checkout.",
               },
             ].map(({ icon: Icon, title, copy }) => (
-              <div key={title} className="rounded-2xl border border-slate-800 bg-slate-950/60 p-6">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-violet-400/20 bg-violet-500/10">
-                  <Icon className="h-5 w-5 text-violet-300" aria-hidden />
+              <div
+                key={title}
+                className="flex gap-4 rounded-xl border border-slate-800/80 bg-slate-950/50 p-4 sm:flex-col sm:p-5"
+              >
+                <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-violet-500/20 bg-violet-500/10 sm:h-11 sm:w-11">
+                  <Icon className="h-5 w-5 text-violet-400" aria-hidden />
                 </span>
                 <div>
-                  <h3 className="mt-5 font-semibold text-white">{title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-400">{copy}</p>
+                  <h3 className="font-semibold text-white">{title}</h3>
+                  <p className="mt-1.5 text-sm leading-6 text-slate-400">{copy}</p>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="mx-auto mt-20 max-w-4xl sm:mt-24" aria-labelledby="faq-title">
+        <section className="mx-auto mt-16 max-w-4xl sm:mt-20" aria-labelledby="faq-title">
           <div className="text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.23em] text-violet-300">
-              Common questions
-            </p>
-            <h2
-              id="faq-title"
-              className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl"
-            >
-              Everything before you upgrade
-            </h2>
+            <SectionEyebrow>Common questions</SectionEyebrow>
+            <SectionTitle id="faq-title">Everything before you upgrade</SectionTitle>
           </div>
-          <div className="mt-8 overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/50">
+          <div className="mt-6 space-y-2">
             {faqs.map(({ question, answer }) => (
-              <details key={question} className="group border-b border-slate-800 last:border-b-0">
-                <summary className="flex min-h-16 cursor-pointer list-none items-center gap-3 px-4 py-3 text-left marker:content-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-violet-300 sm:px-5 [&::-webkit-details-marker]:hidden">
-                  <CircleHelp className="h-5 w-5 shrink-0 text-violet-400" aria-hidden />
-                  <span className="flex-1 text-sm font-semibold text-white">{question}</span>
-                  <ChevronDown className="h-5 w-5 shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-180 motion-reduce:transform-none motion-reduce:transition-none" />
+              <details
+                key={question}
+                className="group overflow-hidden rounded-xl border border-slate-800/80 bg-slate-950/50"
+              >
+                <summary className="flex min-h-12 cursor-pointer list-none items-center gap-3 px-4 py-3 text-left marker:content-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-violet-400 sm:px-5 [&::-webkit-details-marker]:hidden">
+                  <CircleHelp className="h-4 w-4 shrink-0 text-violet-400" aria-hidden />
+                  <span className="flex-1 text-sm font-medium text-white">{question}</span>
+                  <ChevronDown className="h-4 w-4 shrink-0 text-slate-500 transition-transform duration-200 group-open:rotate-180 motion-reduce:transform-none motion-reduce:transition-none" />
                 </summary>
-                <p className="px-12 pb-5 text-sm leading-6 text-slate-400">{answer}</p>
+                <p className="border-t border-slate-800/80 px-4 pb-4 pl-11 pt-3 text-sm leading-6 text-slate-400 sm:px-5 sm:pl-[3.25rem]">
+                  {answer}
+                </p>
               </details>
             ))}
           </div>
         </section>
 
-        <section className="relative isolate mt-20 overflow-hidden rounded-3xl border border-violet-400/30 bg-[linear-gradient(135deg,rgba(76,29,149,0.3),rgba(88,28,135,0.16),rgba(15,23,42,0.8))] px-5 py-10 text-center shadow-[0_30px_90px_-55px_rgba(168,85,247,0.95)] sm:mt-24 sm:px-8 sm:py-14">
-          <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-48 w-96 -translate-x-1/2 rounded-full bg-violet-500/20 blur-3xl" />
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        <section className="relative isolate mt-16 overflow-hidden rounded-2xl border border-violet-500/25 bg-gradient-to-br from-violet-950/40 via-slate-950/80 to-slate-950 px-5 py-8 text-center sm:mt-20 sm:px-8 sm:py-12">
+          <div
+            className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/50 to-transparent"
+            aria-hidden
+          />
+          <h2 className="text-[clamp(1.5rem,3.5vw,2.25rem)] font-bold tracking-tight text-white">
             Prepare your next set locally.
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-base leading-7 text-slate-300">
+          <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-slate-400 sm:text-base sm:leading-7">
             Start with one file for free, then upgrade when you need larger batches and ZIP export.
           </p>
           <Link
             href="/audio-toolkit/"
-            className="mt-7 inline-flex min-h-12 cursor-pointer items-center justify-center rounded-xl bg-violet-600 px-7 text-base font-bold text-white shadow-[0_18px_40px_-20px_rgba(167,139,250,0.95)] transition-[background-color,transform] duration-200 hover:-translate-y-px hover:bg-violet-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-200 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:translate-y-0 motion-reduce:transform-none motion-reduce:transition-none"
+            className="mt-6 inline-flex min-h-11 cursor-pointer items-center justify-center rounded-xl bg-violet-600 px-6 text-sm font-semibold text-white transition-[background-color] duration-200 hover:bg-violet-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none sm:min-h-12 sm:px-7 sm:text-base"
           >
             Open Audio Toolkit
           </Link>
         </section>
 
-        <div className="mt-8 text-center text-sm leading-6 text-slate-500">
+        <div className="mt-6 text-center text-xs leading-6 text-slate-500 sm:text-sm">
           <p>
             Displayed USD prices are final; no tax is added at checkout. No free trial or usage
             overages.
           </p>
-          <p>
+          <p className="mt-1">
             By continuing, you agree to our{" "}
             <Link
               href="/terms/"
-              className="inline-flex min-h-11 items-center text-violet-200 underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300"
+              className="inline-flex min-h-11 items-center text-violet-300 underline underline-offset-2 transition-colors hover:text-violet-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
             >
               Terms of Service
             </Link>{" "}
             and{" "}
             <Link
               href="/privacy/"
-              className="inline-flex min-h-11 items-center text-violet-200 underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300"
+              className="inline-flex min-h-11 items-center text-violet-300 underline underline-offset-2 transition-colors hover:text-violet-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
             >
               Privacy Policy
             </Link>

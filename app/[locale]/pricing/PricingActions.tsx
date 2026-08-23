@@ -11,6 +11,7 @@ import {
   LockKeyhole,
   RefreshCw,
   ShieldCheck,
+  Sparkles,
 } from "lucide-react"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { ANNUAL_SAVINGS, PACKAGE_CATALOG } from "@/lib/billing/catalog"
@@ -64,6 +65,9 @@ const paidPlans = {
     features: ["Everything in Basic", "Up to 50 files per local batch", "Priority support"],
   },
 } as const
+
+const planCardBase =
+  "relative flex h-full flex-col overflow-hidden rounded-2xl border bg-slate-950/60 p-5 backdrop-blur-sm sm:p-6"
 
 export default function PricingActions({
   locale,
@@ -204,45 +208,52 @@ export default function PricingActions({
 
   return (
     <>
-      <section className="mx-auto max-w-4xl text-center" aria-labelledby="pricing-heading">
-        <p className="inline-flex items-center rounded-full border border-violet-400/25 bg-violet-500/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-violet-200">
+      <section className="mx-auto max-w-6xl text-center" aria-labelledby="pricing-heading">
+        <p className="inline-flex items-center gap-2 rounded-full border border-violet-400/20 bg-violet-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-violet-200 sm:px-3.5 sm:py-1.5 sm:text-xs">
+          <Sparkles className="h-3.5 w-3.5 text-violet-300" aria-hidden />
           Simple, transparent pricing
         </p>
         <h1
           id="pricing-heading"
-          className="mt-5 text-4xl font-black leading-[1.05] tracking-[-0.045em] text-white sm:text-5xl lg:text-6xl"
+          className="mt-4 text-[clamp(1.875rem,5vw,3.25rem)] font-bold leading-[1.08] tracking-tight text-white"
         >
-          Prepare more tracks. Keep every file private.
+          Prepare more tracks.
+          <span className="mt-1 block bg-gradient-to-r from-violet-200 via-fuchsia-200 to-violet-300 bg-clip-text text-transparent">
+            Keep every file private.
+          </span>
         </h1>
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
+        <p className="mx-auto mt-4 text-sm leading-6 text-slate-400 sm:text-base sm:leading-7">
           Start free, then upgrade when your audio workflow needs larger local batches and ZIP
           export. Processing stays in your browser.
         </p>
-        <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-slate-400">
-          <span className="inline-flex items-center gap-2">
-            <ShieldCheck className="h-5 w-5 text-violet-400" aria-hidden /> Files never uploaded
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+          <span className="inline-flex min-h-9 items-center gap-2 rounded-full border border-slate-800/80 bg-slate-900/50 px-3 py-1.5 text-xs text-slate-300 sm:text-sm">
+            <ShieldCheck className="h-4 w-4 shrink-0 text-violet-400" aria-hidden />
+            Files never uploaded
           </span>
-          <span className="inline-flex items-center gap-2">
-            <LockKeyhole className="h-5 w-5 text-violet-400" aria-hidden /> Secure PayPal checkout
+          <span className="inline-flex min-h-9 items-center gap-2 rounded-full border border-slate-800/80 bg-slate-900/50 px-3 py-1.5 text-xs text-slate-300 sm:text-sm">
+            <LockKeyhole className="h-4 w-4 shrink-0 text-violet-400" aria-hidden />
+            Secure PayPal checkout
           </span>
         </div>
       </section>
 
-      <div className="mx-auto mt-8 flex max-w-xl flex-col items-center sm:mt-10">
+      <div className="mx-auto mt-7 flex max-w-6xl flex-col items-stretch sm:mt-9">
         <div
-          className="w-full rounded-2xl border border-white/10 bg-slate-950/80 p-2 shadow-[0_18px_55px_-35px_rgba(124,58,237,0.8)]"
+          className="rounded-2xl border border-slate-800/80 bg-slate-950/70 p-1.5 shadow-sm"
           role="radiogroup"
           aria-label="Billing interval"
         >
-          <div className="flex items-center justify-between gap-3 px-2 pb-2 pt-1">
-            <span className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+          <div className="flex items-center justify-between gap-2 px-2 pb-2 pt-1">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-xs">
               Billing cycle
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-400/20 bg-violet-500/10 px-2.5 py-1 text-xs font-semibold text-violet-200">
-              <BadgePercent className="h-3.5 w-3.5" aria-hidden /> Save 20% annually
+            <span className="inline-flex items-center gap-1 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold text-emerald-200 sm:text-[11px]">
+              <BadgePercent className="h-3 w-3" aria-hidden />
+              Save 20% annually
             </span>
           </div>
-          <div className="grid grid-cols-2 gap-1.5 rounded-xl bg-black/20 p-1">
+          <div className="grid grid-cols-2 gap-1 rounded-xl bg-slate-900/80 p-1">
             {(["monthly", "annual"] as const).map((value) => {
               const selected = interval === value
               return (
@@ -271,32 +282,21 @@ export default function PricingActions({
                     trackClarityEvent(`pricing_interval_selected_${nextInterval}`)
                     billingButtonRefs.current[nextInterval]?.focus()
                   }}
-                  className={`flex min-w-0 cursor-pointer items-center justify-center gap-2 rounded-xl px-3 text-sm font-bold transition-[color,background-color,box-shadow,transform] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:scale-[0.98] motion-reduce:transform-none motion-reduce:transition-none sm:px-5 sm:text-base ${
+                  className={`flex min-h-11 cursor-pointer items-center justify-center gap-1.5 rounded-lg px-2 text-sm font-semibold transition-[color,background-color,box-shadow] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none sm:min-h-12 sm:gap-2 sm:px-4 sm:text-base ${
                     selected
-                      ? "text-white"
-                      : "text-slate-400 hover:bg-white/[0.05] hover:text-white"
+                      ? "bg-gradient-to-br from-violet-600 to-fuchsia-700 text-white shadow-md shadow-violet-900/40"
+                      : "text-slate-400 hover:bg-white/[0.04] hover:text-slate-200"
                   }`}
-                  style={
-                    selected
-                      ? {
-                          minHeight: "3rem",
-                          borderRadius: "0.75rem",
-                          background:
-                            "linear-gradient(135deg, rgba(124, 58, 237, 0.98), rgba(162, 28, 175, 0.98))",
-                          boxShadow: "0 14px 30px -16px rgba(168, 85, 247, 0.9)",
-                        }
-                      : { minHeight: "3rem", borderRadius: "0.75rem" }
-                  }
                 >
                   {selected ? (
-                    <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/15">
-                      <Check className="h-3.5 w-3.5" aria-hidden />
+                    <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-white/20 sm:h-5 sm:w-5">
+                      <Check className="h-3 w-3 sm:h-3.5 sm:w-3.5" aria-hidden />
                     </span>
                   ) : null}
                   <span>{value === "monthly" ? "Monthly" : "Annual"}</span>
                   {value === "annual" ? (
-                    <span className="hidden rounded-full bg-white/10 px-2 py-0.5 text-[11px] font-semibold text-violet-100 sm:inline-flex">
-                      Save 20%
+                    <span className="hidden rounded-full bg-white/15 px-1.5 py-0.5 text-[10px] font-medium text-violet-50 sm:inline-flex">
+                      −20%
                     </span>
                   ) : null}
                 </button>
@@ -304,10 +304,10 @@ export default function PricingActions({
             })}
           </div>
         </div>
-        <p className="mt-3 text-center text-sm text-slate-400">
+        <p className="mt-3 text-center text-xs leading-5 text-slate-400 sm:text-sm">
           Annual billing saves 20%: $24 on Basic or $60 on Pro. Cancel anytime.
         </p>
-        <p className="mt-1 text-center text-sm text-slate-500">
+        <p className="mt-1 text-center text-xs leading-5 text-slate-500 sm:text-sm">
           Plans apply to the local Audio Toolkit; public downloader allowances remain separate.
         </p>
         <p className="sr-only" aria-live="polite" aria-atomic="true">
@@ -320,13 +320,13 @@ export default function PricingActions({
       {statusError ? (
         <div
           role="alert"
-          className="mx-auto mt-6 flex max-w-3xl flex-col items-center gap-3 rounded-xl border border-rose-400/40 bg-rose-500/10 p-4 text-center text-sm text-rose-100 sm:flex-row sm:justify-between sm:text-left"
+          className="mx-auto mt-5 flex max-w-3xl flex-col items-center gap-3 rounded-xl border border-rose-400/30 bg-rose-950/40 p-4 text-center text-sm text-rose-100 sm:flex-row sm:justify-between sm:text-left"
         >
           <span>{statusError} Your current plan could not be verified.</span>
           <button
             type="button"
             onClick={() => setStatusRequestKey((key) => key + 1)}
-            className="inline-flex min-h-11 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-lg border border-rose-300/50 px-4 font-semibold text-white transition-colors duration-200 hover:bg-rose-400/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-200 motion-reduce:transition-none"
+            className="inline-flex min-h-11 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-lg border border-rose-300/40 px-4 font-semibold text-white transition-colors duration-200 hover:bg-rose-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-200 motion-reduce:transition-none"
           >
             <RefreshCw className="h-4 w-4" aria-hidden /> Retry account status
           </button>
@@ -336,13 +336,13 @@ export default function PricingActions({
       {!checkoutEnabled ? (
         <div
           role="status"
-          className="mx-auto mt-8 flex max-w-4xl flex-col gap-3 rounded-2xl border border-amber-300/30 bg-amber-300/[0.07] p-5 text-left text-amber-50 sm:flex-row sm:items-start"
+          className="mx-auto mt-6 flex max-w-3xl gap-3 rounded-xl border border-amber-400/25 bg-amber-950/30 p-4 text-left text-amber-50 sm:items-start sm:p-5"
         >
-          <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-300/10 text-amber-200">
+          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber-400/10 text-amber-200 sm:h-10 sm:w-10">
             <Clock3 className="h-5 w-5" aria-hidden />
           </span>
           <div>
-            <p className="font-bold text-white">Paid plans are being tested</p>
+            <p className="font-semibold text-white">Paid plans are being tested</p>
             <p className="mt-1 text-sm leading-6 text-slate-300">
               Basic and Pro checkout are currently unavailable. You can continue using the Free
               Audio Toolkit while we complete testing.
@@ -352,33 +352,40 @@ export default function PricingActions({
       ) : null}
 
       <section
-        className="mx-auto mt-10 grid max-w-6xl gap-5 md:mt-12 md:grid-cols-3"
+        className="mx-auto mt-8 grid max-w-6xl gap-4 sm:mt-10 md:grid-cols-3 md:gap-5"
         aria-label="Pricing plans"
       >
-        <article className="flex h-full flex-col rounded-2xl border border-slate-800 bg-slate-950/70 p-6 sm:p-7">
+        <article className={`${planCardBase} border-slate-800/80`}>
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-600/50 to-transparent" />
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Starter</p>
-            <h2 className="mt-2 text-2xl font-bold text-white">Free</h2>
-            <p className="mt-5 text-5xl font-black tabular-nums tracking-tight text-white">$0</p>
-            <p className="mt-3 min-h-6 text-sm text-slate-400">For individual tracks</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+              Starter
+            </p>
+            <h2 className="mt-1.5 text-xl font-bold text-white sm:text-2xl">Free</h2>
+            <div className="mt-4 flex items-baseline gap-1">
+              <p className="text-4xl font-bold tabular-nums tracking-tight text-white sm:text-[2.75rem]">
+                $0
+              </p>
+            </div>
+            <p className="mt-2 min-h-5 text-sm text-slate-400">For individual tracks</p>
           </div>
-          <ul className="mt-7 space-y-3 border-t border-slate-800 pt-6 text-sm leading-6 text-slate-300">
+          <ul className="mt-6 space-y-2.5 border-t border-slate-800/80 pt-5 text-sm leading-6 text-slate-300">
             {[
               "1 file per local batch",
               "MP3, WAV, FLAC, and M4A",
               "Two-pass LUFS normalization",
             ].map((feature) => (
               <li key={feature} className="flex gap-2.5">
-                <Check className="mt-1 h-4 w-4 shrink-0 text-violet-400" /> {feature}
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-slate-500" aria-hidden />
+                {feature}
               </li>
             ))}
           </ul>
-          <div className="mt-auto pt-8">
+          <div className="mt-auto pt-6">
             <Link
               href={`${prefix}/audio-toolkit/`}
               onClick={() => trackClarityEvent("pricing_free_toolkit_clicked")}
-              className="inline-flex w-full items-center justify-center rounded-xl border border-slate-600 px-4 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-200 hover:-translate-y-px hover:border-slate-400 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:translate-y-0 motion-reduce:transform-none motion-reduce:transition-none"
-              style={{ minHeight: "3rem" }}
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-slate-700 bg-slate-900/60 px-4 text-sm font-semibold text-white transition-[background-color,border-color] duration-200 hover:border-slate-500 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
             >
               {currentTier === "free" ? "Current plan · Try one file" : "Try one file free"}
             </Link>
@@ -394,44 +401,51 @@ export default function PricingActions({
           return (
             <article
               key={tier}
-              className={`relative flex h-full flex-col rounded-2xl border p-6 transition-[border-color,box-shadow] duration-200 motion-reduce:transition-none sm:p-7 ${
+              className={`${planCardBase} transition-[border-color,box-shadow] duration-200 motion-reduce:transition-none ${
                 selectedForCheckout
-                  ? "border-violet-300 shadow-[0_24px_65px_-36px_rgba(167,139,250,0.95)]"
-                  : ""
-              } ${
-                highlighted
-                  ? "border-violet-400/80 bg-[radial-gradient(circle_at_85%_8%,rgba(124,58,237,0.22),transparent_38%),rgba(15,23,42,0.9)] shadow-[0_26px_70px_-35px_rgba(124,58,237,0.9)] ring-1 ring-inset ring-violet-300/10"
-                  : "border-slate-800 bg-slate-950/70"
+                  ? "border-violet-400/70 shadow-lg shadow-violet-900/30"
+                  : highlighted
+                    ? "border-violet-500/50 shadow-md shadow-violet-950/50"
+                    : "border-slate-800/80"
               }`}
             >
+              <div
+                className={`pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent ${
+                  highlighted ? "via-violet-400/80" : "via-violet-500/40"
+                } to-transparent`}
+              />
               {highlighted ? (
-                <span
-                  className="absolute rounded-full bg-violet-600 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white"
-                  style={{ right: "1.25rem", top: "1.25rem" }}
-                >
-                  Recommended
-                </span>
+                <div className="mb-3 flex">
+                  <span className="inline-flex items-center rounded-full bg-violet-600 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white sm:text-[11px]">
+                    Recommended
+                  </span>
+                </div>
               ) : null}
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                   {tier === "basic" ? "For regular use" : "For power users"}
                 </p>
-                <h2 className="mt-2 text-2xl font-bold text-white">{plan.name}</h2>
-                <p className="mt-5 text-5xl font-black tabular-nums tracking-tight text-white">
-                  {price.price}
-                  <span className="ml-1 text-base font-medium text-slate-400">{price.suffix}</span>
-                </p>
-                <p className="mt-2 text-sm text-slate-400">{price.note}</p>
-                <p className="mt-3 min-h-6 text-sm font-medium text-slate-300">{plan.audience}</p>
+                <h2 className="mt-1.5 text-xl font-bold text-white sm:text-2xl">{plan.name}</h2>
+                <div className="mt-4 flex items-baseline gap-1">
+                  <p className="text-4xl font-bold tabular-nums tracking-tight text-white sm:text-[2.75rem]">
+                    {price.price}
+                  </p>
+                  <span className="text-sm font-medium text-slate-400 sm:text-base">
+                    {price.suffix}
+                  </span>
+                </div>
+                <p className="mt-1.5 text-xs leading-5 text-slate-400 sm:text-sm">{price.note}</p>
+                <p className="mt-2 min-h-5 text-sm font-medium text-slate-300">{plan.audience}</p>
               </div>
-              <ul className="mt-7 space-y-3 border-t border-slate-800/80 pt-6 text-sm leading-6 text-slate-300">
+              <ul className="mt-6 space-y-2.5 border-t border-slate-800/80 pt-5 text-sm leading-6 text-slate-300">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex gap-2.5">
-                    <Check className="mt-1 h-4 w-4 shrink-0 text-violet-400" /> {feature}
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-violet-400" aria-hidden />
+                    {feature}
                   </li>
                 ))}
               </ul>
-              <div className="mt-auto pt-8">
+              <div className="mt-auto pt-6">
                 <button
                   type="button"
                   onClick={() => {
@@ -451,21 +465,11 @@ export default function PricingActions({
                     paypalCheckout !== null ||
                     (!checkoutEnabled && !canManageSubscription)
                   }
-                  className={`group inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold transition-[background-color,border-color,box-shadow,transform,opacity] duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 motion-reduce:transform-none motion-reduce:transition-none ${
+                  className={`group inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-xl px-4 text-sm font-bold transition-[background-color,border-color,box-shadow,opacity] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none sm:min-h-12 sm:px-5 ${
                     highlighted
-                      ? "text-base text-white"
-                      : "border border-violet-400/60 bg-violet-500/[0.08] text-violet-100 hover:border-violet-300 hover:bg-violet-500/15"
+                      ? "bg-gradient-to-br from-violet-600 to-fuchsia-700 text-white shadow-md shadow-violet-900/40 hover:from-violet-500 hover:to-fuchsia-600"
+                      : "border border-violet-500/40 bg-violet-500/10 text-violet-100 hover:border-violet-400/60 hover:bg-violet-500/15"
                   }`}
-                  style={
-                    highlighted
-                      ? {
-                          minHeight: "3.5rem",
-                          background:
-                            "linear-gradient(135deg, rgba(124, 58, 237, 1), rgba(162, 28, 175, 0.98))",
-                          boxShadow: "0 18px 36px -18px rgba(192, 38, 211, 0.95)",
-                        }
-                      : { minHeight: "3.25rem" }
-                  }
                 >
                   <span>
                     {busyAction?.tier === tier
@@ -500,16 +504,17 @@ export default function PricingActions({
                   <p
                     id={`pricing-${tier}-error`}
                     role="alert"
-                    className="mt-3 rounded-lg border border-rose-400/40 bg-rose-500/10 p-3 text-sm leading-5 text-rose-100"
+                    className="mt-3 rounded-lg border border-rose-400/30 bg-rose-950/40 p-3 text-sm leading-5 text-rose-100"
                   >
                     {actionError.message} Please try again or contact support@geekskai.com.
                   </p>
                 ) : null}
                 <p
                   id={`pricing-${tier}-refund`}
-                  className="mt-3 flex items-center justify-center gap-2 text-sm text-slate-400"
+                  className="mt-3 flex items-center justify-center gap-1.5 text-xs text-slate-500 sm:text-sm"
                 >
-                  <LockKeyhole className="h-4 w-4" aria-hidden /> 14-day first-payment refund
+                  <LockKeyhole className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                  14-day first-payment refund
                 </p>
               </div>
             </article>
@@ -523,32 +528,38 @@ export default function PricingActions({
           ref={checkoutPanelRef}
           tabIndex={-1}
           aria-labelledby="paypal-checkout-heading"
-          className="mx-auto mt-6 max-w-6xl scroll-mt-6 rounded-2xl border border-violet-400/50 bg-[linear-gradient(135deg,rgba(30,41,59,0.92),rgba(46,16,101,0.45))] p-5 shadow-[0_28px_80px_-45px_rgba(139,92,246,0.95)] outline-none sm:p-6 lg:p-8"
+          className="mx-auto mt-6 max-w-6xl scroll-mt-6 overflow-hidden rounded-2xl border border-violet-500/30 bg-slate-950/80 outline-none backdrop-blur-sm sm:mt-8"
         >
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,28rem)] lg:items-start lg:gap-10">
+          <div className="pointer-events-none h-px bg-gradient-to-r from-transparent via-violet-400/60 to-transparent" />
+          <div className="grid gap-6 p-5 sm:p-6 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,26rem)] lg:items-start lg:gap-8 lg:p-8">
             <div className="max-w-xl">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-violet-300">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-violet-300 sm:text-xs">
                 Secure PayPal checkout
               </p>
-              <h2 id="paypal-checkout-heading" className="mt-3 text-2xl font-bold text-white">
+              <h2
+                id="paypal-checkout-heading"
+                className="mt-2 text-xl font-bold text-white sm:text-2xl"
+              >
                 Complete your {selectedCheckoutPlan.name} subscription
               </h2>
-              <p className="mt-3 text-base leading-7 text-slate-300">
+              <p className="mt-2 text-sm leading-6 text-slate-400 sm:text-base sm:leading-7">
                 {selectedCheckoutPrice.note}. Review the subscription details in PayPal before you
                 approve payment.
               </p>
-              <div className="mt-5 flex flex-wrap gap-3 text-sm text-slate-300">
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/20 px-3 py-2">
-                  <LockKeyhole className="h-4 w-4 text-violet-300" aria-hidden /> Secure payment
+              <div className="mt-4 flex flex-wrap gap-2 text-xs sm:text-sm">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-800 bg-slate-900/60 px-2.5 py-1.5 text-slate-300">
+                  <LockKeyhole className="h-3.5 w-3.5 text-violet-400" aria-hidden />
+                  Secure payment
                 </span>
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/20 px-3 py-2">
-                  <ShieldCheck className="h-4 w-4 text-violet-300" aria-hidden /> No audio uploaded
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-800 bg-slate-900/60 px-2.5 py-1.5 text-slate-300">
+                  <ShieldCheck className="h-3.5 w-3.5 text-violet-400" aria-hidden />
+                  No audio uploaded
                 </span>
               </div>
               <button
                 type="button"
                 onClick={paypalCancelled}
-                className="mt-6 inline-flex min-h-11 cursor-pointer items-center justify-center rounded-lg border border-slate-600 px-4 text-sm font-semibold text-white transition-colors duration-200 hover:border-slate-400 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 motion-reduce:transition-none"
+                className="mt-5 inline-flex min-h-11 cursor-pointer items-center justify-center rounded-lg border border-slate-700 px-4 text-sm font-semibold text-slate-200 transition-colors duration-200 hover:border-slate-500 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 motion-reduce:transition-none"
               >
                 Choose another plan
               </button>
