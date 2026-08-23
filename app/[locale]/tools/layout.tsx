@@ -5,7 +5,6 @@ import { routing } from "../../i18n/routing"
 import { buildLanguageAlternates, getLocalizedUrl } from "../../i18n/urls"
 import { notFound } from "next/navigation"
 import { getTranslations } from "next-intl/server"
-import { toolsData } from "@/data/toolsData"
 // import { supportedLocales as supportedLocalesList } from "@/components/LanguageSelect"
 
 type Props = {
@@ -119,83 +118,5 @@ export default async function Layout({ children, params }: Props) {
     notFound()
   }
 
-  const t = await getTranslations({ locale, namespace: "ToolsPage" })
-  const baseUrl = "https://geekskai.com"
-  const path = "/tools/"
-  const url = getLocalizedUrl(baseUrl, locale, path)
-
-  // 动态生成结构化数据
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: t("tools_seo_title"),
-    description: t("tools_seo_description"),
-    url,
-    mainEntity: {
-      "@type": "ItemList",
-      name: t("tools_professional_tools"),
-      description: t(
-        "tools_hand_picked_tools_designed_to_streamline_your_workflow_and_boost_productivity"
-      ),
-      numberOfItems: toolsData.length,
-      itemListElement: toolsData.map((tool, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        name: tool.title,
-        description: tool.description,
-        url: getLocalizedUrl(baseUrl, locale, tool.href),
-      })),
-    },
-    provider: {
-      "@type": "Organization",
-      name: "GeeksKai",
-      url: "https://geekskai.com",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://geekskai.com/static/logos.png",
-      },
-    },
-    isAccessibleForFree: true,
-    inLanguage: locale === "da" ? "da-DK" : locale === "no" ? "nb-NO" : "en-US",
-  }
-
-  // 面包屑结构化数据
-  const breadcrumbStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: getLocalizedUrl(baseUrl, locale, "/"),
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: t("tools_professional_tools"),
-        item: url,
-      },
-    ],
-  }
-
-  return (
-    <>
-      {/* 结构化数据 */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbStructuredData),
-        }}
-      />
-
-      <div className="min-h-screen">{children}</div>
-    </>
-  )
+  return <div className="min-h-screen">{children}</div>
 }

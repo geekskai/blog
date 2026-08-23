@@ -98,7 +98,7 @@ export default function PayPalSubscriptionButton({
   const sdkUrl = `https://www.paypal.com/sdk/js?client-id=${encodeURIComponent(clientId)}&components=buttons&currency=USD&intent=subscription&vault=true`
 
   return (
-    <div className="mt-4 rounded-xl border border-slate-700 bg-white p-3">
+    <div className="min-h-60 overflow-hidden rounded-xl border border-slate-700 bg-white p-3 shadow-[0_18px_55px_-35px_rgba(15,23,42,0.8)]">
       <Script
         id="paypal-subscriptions-sdk"
         src={sdkUrl}

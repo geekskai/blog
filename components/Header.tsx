@@ -81,7 +81,7 @@ const Header = ({ authEnabled = false }: HeaderProps) => {
   if (isCommercialPath) {
     return (
       <header className="sticky top-0 z-80 border-b border-slate-800/50 bg-slate-950/90 shadow-xl backdrop-blur-xl">
-        <div className="mx-auto flex min-h-20 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 2xl:px-0">
+        <div className="mx-auto grid min-h-20 w-full max-w-7xl grid-cols-[auto_minmax(0,1fr)] items-center gap-x-3 gap-y-1 px-4 py-2 sm:flex sm:gap-4 sm:px-6 sm:py-0 2xl:px-0">
           <Link
             href="/"
             aria-label={siteMetadata.headerTitle}
@@ -98,16 +98,19 @@ const Header = ({ authEnabled = false }: HeaderProps) => {
             />
             <span className="hidden text-xl font-bold text-white sm:block">geekskai</span>
           </Link>
-          <nav className="flex items-center gap-1 sm:gap-3" aria-label="Audio Toolkit">
+          <nav
+            className="flex items-center gap-1 justify-self-end sm:ml-auto sm:gap-3"
+            aria-label="Audio Toolkit"
+          >
             <LinkNext
               href="/audio-toolkit/"
-              className="inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300"
+              className="inline-flex min-h-11 items-center rounded-lg px-2 text-xs font-semibold text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 sm:px-3 sm:text-sm"
             >
               Audio Toolkit
             </LinkNext>
             <LinkNext
               href="/pricing/"
-              className="inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300"
+              className="inline-flex min-h-11 items-center rounded-lg px-2 text-xs font-semibold text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 sm:px-3 sm:text-sm"
             >
               Pricing
             </LinkNext>
@@ -117,8 +120,12 @@ const Header = ({ authEnabled = false }: HeaderProps) => {
             >
               Terms
             </LinkNext>
-            {authEnabled ? <AuthControls /> : null}
           </nav>
+          {authEnabled ? (
+            <div className="col-span-2 justify-self-center sm:col-span-1">
+              <AuthControls />
+            </div>
+          ) : null}
         </div>
       </header>
     )

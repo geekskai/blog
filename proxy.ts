@@ -4,6 +4,7 @@ import { NextResponse } from "next/server"
 import { defaultLocale, locales, routing } from "./app/i18n/routing"
 
 const intlMiddleware = createMiddleware(routing)
+const englishOnlyRoutes = new Set(["pricing", "audio-toolkit", "about"])
 
 // Authentication is intentionally public-first. Individual protected pages call
 // auth() themselves so the existing tools and API routes remain anonymous.
@@ -27,7 +28,17 @@ export default clerkMiddleware((_auth, request) => {
     return response
   }
 
-  return intlMiddleware(request)
+  const response = intlMiddleware(request)
+  const pathSegments = pathname.split("/").filter(Boolean)
+  const routeSegment = locales.includes(pathSegments[0]) ? pathSegments[1] : pathSegments[0]
+
+  // These pages redirect every non-English locale. Their metadata owns the valid
+  // `en` and `x-default` alternates, so remove next-intl's redirecting Link targets.
+  if (routeSegment && englishOnlyRoutes.has(routeSegment)) {
+    response.headers.delete("Link")
+  }
+
+  return response
 })
 
 export const config = {

@@ -5,20 +5,51 @@ import siteMetadata from "@/data/siteMetadata"
 import { getEntitlementSet } from "@/lib/billing/domain"
 import { getAccountPlanStatus } from "@/lib/billing/repository"
 import type { AccountPlanStatus } from "@/lib/billing/types"
+import { buildPageSchema, serializeJsonLd } from "@/lib/seo"
 import DjWorkspace from "../workspace/DjWorkspace"
+
+const canonical = `${siteMetadata.siteUrl}/audio-toolkit/`
+const audioToolkitDescription =
+  "Normalize and convert audio you own in your browser without uploading files."
+const socialImage = `${siteMetadata.siteUrl}/audio-toolkit/opengraph-image`
 
 export const metadata: Metadata = {
   title: "Geekskai Audio Toolkit | Local audio preparation",
-  description: "Normalize and convert audio you own in your browser without uploading files.",
+  description: audioToolkitDescription,
   alternates: {
-    canonical: `${siteMetadata.siteUrl}/audio-toolkit/`,
+    canonical,
     languages: {
-      "x-default": `${siteMetadata.siteUrl}/audio-toolkit/`,
-      en: `${siteMetadata.siteUrl}/audio-toolkit/`,
+      "x-default": canonical,
+      en: canonical,
     },
+  },
+  openGraph: {
+    title: "Geekskai Audio Toolkit | Local audio preparation",
+    description: audioToolkitDescription,
+    url: canonical,
+    type: "website",
+    images: [
+      { url: socialImage, width: 1200, height: 630, alt: "Geekskai local-first Audio Toolkit" },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Geekskai Audio Toolkit | Local audio preparation",
+    description: audioToolkitDescription,
+    images: [socialImage],
   },
   robots: { index: true, follow: true },
 }
+
+const audioToolkitSchema = buildPageSchema({
+  url: canonical,
+  name: "Geekskai Audio Toolkit",
+  description: audioToolkitDescription,
+  breadcrumbs: [
+    { name: "Home", url: `${siteMetadata.siteUrl}/` },
+    { name: "Audio Toolkit", url: canonical },
+  ],
+})
 
 const freeEntitlements = getEntitlementSet("free")
 const publicFreeStatus: AccountPlanStatus = {
@@ -42,11 +73,17 @@ export default async function AudioToolkitPage({
   if (locale !== "en") permanentRedirect("/audio-toolkit/")
 
   return (
-    <DjWorkspace
-      userId={userId}
-      locale={locale}
-      initialBillingStatus={userId ? await getAccountPlanStatus(userId) : publicFreeStatus}
-      checkoutSuccess={Boolean(userId) && query.checkout === "success"}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(audioToolkitSchema) }}
+      />
+      <DjWorkspace
+        userId={userId}
+        locale={locale}
+        initialBillingStatus={userId ? await getAccountPlanStatus(userId) : publicFreeStatus}
+        checkoutSuccess={Boolean(userId) && query.checkout === "success"}
+      />
+    </>
   )
 }

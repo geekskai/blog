@@ -3,7 +3,9 @@
 Currency: USD
 Billing model: Flat subscription; no per-seat pricing
 Processing model: Audio processing runs locally in the user's browser
-Current purchase status: Basic and Pro checkout is unavailable while payment onboarding and testing are completed
+Payment processor: PayPal Business
+Current purchase status: Basic and Pro recurring subscriptions are available through secure PayPal checkout
+Refund policy: One 14-day full-refund window applies to an account's first successful subscription payment; renewals and later subscriptions do not start a new window
 
 ## Free
 
@@ -38,4 +40,4 @@ Current purchase status: Basic and Pro checkout is unavailable while payment onb
 - Terms of Service: https://geekskai.com/terms/
 - Support: support@geekskai.com
 
-Last updated: 2026-08-12
+Last updated: 2026-08-23

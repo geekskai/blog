@@ -17,6 +17,7 @@ import { notFound } from "next/navigation"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 import ClarityTracker from "@/components/ClarityTracker"
 import { ClerkProvider } from "@clerk/nextjs"
+import { buildSiteSchema, serializeJsonLd } from "@/lib/seo"
 export const revalidate = 604800 // 7 days — tools/content rarely change daily
 
 type Props = {
@@ -31,7 +32,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
   const t = await getTranslations({ locale, namespace: "HomePage" })
   const lastModified = new Date("2026-06-16")
   const title = t("home_seo_title")
-  const description = t("home_seo_description") + " " + t("home_seo_keywords")
+  const description = t("home_seo_description")
 
   const canonicalUrl = getLocalizedUrl(siteMetadata.siteUrl, locale, "/")
 
@@ -99,10 +100,8 @@ export default async function RootLayout({
   // Enable static rendering
   setRequestLocale(locale)
 
-  // Generate JSON-LD Structured Data
   const t = await getTranslations({ locale, namespace: "HomePage" })
   const baseUrl = siteMetadata.siteUrl
-  const url = getLocalizedUrl(baseUrl, locale, "/")
 
   const localeMap: Record<string, string> = {
     en: "en-US",
@@ -115,81 +114,11 @@ export default async function RootLayout({
 
   const inLanguage = localeMap[locale] || "en-US"
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": `${baseUrl}/#organization`,
-        name: "GeeksKai",
-        url: baseUrl,
-        logo: {
-          "@type": "ImageObject",
-          url: `${baseUrl}/static/logos.png`,
-          width: 512,
-          height: 512,
-        },
-        sameAs: ["https://github.com/geekskai", "https://twitter.com/geekskai"],
-        contactPoint: {
-          "@type": "ContactPoint",
-          contactType: "Customer Service",
-          availableLanguage: ["en", "ja", "ko", "zh-cn", "no", "da"],
-        },
-      },
-      {
-        "@type": "WebSite",
-        "@id": `${baseUrl}/#website`,
-        url: baseUrl,
-        name: "GeeksKai Tools",
-        description: t("home_seo_description"),
-        publisher: {
-          "@id": `${baseUrl}/#organization`,
-        },
-        inLanguage: inLanguage,
-        potentialAction: {
-          "@type": "SearchAction",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate: `${getLocalizedUrl(baseUrl, locale, "/tools/")}?q={search_term_string}`,
-          },
-          "query-input": "required name=search_term_string",
-        },
-      },
-      {
-        "@type": "WebPage",
-        "@id": `${url}#webpage`,
-        url: url,
-        name: t("home_seo_title"),
-        description: t("home_seo_description"),
-        isPartOf: {
-          "@id": `${baseUrl}/#website`,
-        },
-        about: {
-          "@id": `${baseUrl}/#organization`,
-        },
-        primaryImageOfPage: {
-          "@type": "ImageObject",
-          url: `${baseUrl}/static/images/og/geekskai-home.png`,
-        },
-        breadcrumb: {
-          "@id": `${url}#breadcrumb`,
-        },
-        inLanguage: inLanguage,
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": `${url}#breadcrumb`,
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: url,
-          },
-        ],
-      },
-    ],
-  }
+  const jsonLd = buildSiteSchema({
+    description: t("home_seo_description"),
+    inLanguage,
+    searchUrl: getLocalizedUrl(baseUrl, locale, "/tools/"),
+  })
 
   return (
     <html lang={locale} className={`scroll-smooth`} suppressHydrationWarning>
@@ -343,7 +272,7 @@ export default async function RootLayout({
           {/* JSON-LD Structured Data - Must be in body to avoid hydration error */}
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
           />
           <NextIntlClientProvider>
             <ClarityTracker />

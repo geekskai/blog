@@ -17,7 +17,9 @@ Geekskai tools are designed to work from the browser with clear task-focused int
 - Basic: $10 monthly or $96 annually; up to 20 files per local batch and ZIP export
 - Pro: $25 monthly or $240 annually; up to 50 files per local batch, ZIP export, and priority support
 - Annual Basic and Pro pricing is 20% lower than paying monthly for 12 months
-- Basic and Pro checkout is currently unavailable while payment onboarding and testing are completed
+- Basic and Pro are recurring subscriptions available through secure PayPal Business checkout
+- Each account's first successful subscription payment has one 14-day full-refund window; renewals and later subscriptions do not start a new window
+- Public third-party downloader allowances remain separate free-product rules and do not change with an Audio Toolkit plan
 
 ## Popular Tools
 
@@ -40,4 +42,4 @@ Geekskai tools are designed to work from the browser with clear task-focused int
 - [Robots](https://geekskai.com/robots.txt): Crawler access rules
 - AI search crawlers including GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended, and Bingbot are allowed by the current robots policy
 
-Last updated: 2026-08-12
+Last updated: 2026-08-23

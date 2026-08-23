@@ -1,162 +1,92 @@
 [
   {
-    "area": "Technical SEO",
+    "area": "Commercial SEO",
     "severity": "Critical",
     "confidence": "Confirmed",
-    "finding": "The zh-CN homepage links to six localized article URLs that all render the noindex 404 page.",
-    "evidence": "Live browser check of https://geekskai.com/zh-cn/ found six /zh-cn/blog/... article links; every target returned title 'Page Not Found | GeeksKai', H1 'This page took a wrong turn', and meta robots noindex.",
-    "impact": "Users and crawlers hit dead ends, internal PageRank is wasted, and localized landing-page quality is degraded.",
-    "fix": "Generate English-only blog hrefs on every locale homepage, or publish real localized articles before linking them. Add an automated link test for localized homepages.",
-    "source": "Live DOM and navigation, 2026-08-02"
+    "finding": "Machine-readable pricing contradicted the available PayPal checkout.",
+    "evidence": "The production Pricing page exposed PayPal Offers while pricing.txt and llms.txt said checkout was unavailable and retained a 2026-08-12 status date.",
+    "impact": "Search engines and AI agents could receive a false purchase state and provide users with stale commercial answers.",
+    "fix": "Align pricing.txt and llms.txt with PayPal Business recurring subscriptions, package prices, refunds, checkout availability, and the public-tool allowance boundary; protect the wording with tests.",
+    "source": "Production and repository audit, 2026-08-23"
   },
   {
-    "area": "Technical SEO",
+    "area": "Commercial SEO",
     "severity": "Critical",
     "confidence": "Confirmed",
-    "finding": "The indexable About page canonicals to the homepage instead of itself.",
-    "evidence": "Live https://geekskai.com/about/ returned robots 'index, follow' but canonical https://geekskai.com/.",
-    "impact": "Google may consolidate About-page signals into the homepage or exclude the About URL, weakening trust and entity evidence.",
-    "fix": "Set the About canonical to https://geekskai.com/about/ and make its WebPage schema URL and @id page-specific.",
-    "source": "Live DOM, 2026-08-02"
+    "finding": "The LUFS guide stated that paid batch checkout remained unavailable.",
+    "evidence": "The article body contradicted the live Basic and Pro PayPal subscription checkout.",
+    "impact": "A high-intent article could discourage valid purchases and repeat stale payment information in search and AI results.",
+    "fix": "Update the article body, summary state, and last-modified date while preserving the separate public-downloader allowance boundary.",
+    "source": "Repository article audit, 2026-08-23"
   },
   {
-    "area": "Performance",
+    "area": "Metadata",
     "severity": "Warning",
     "confidence": "Confirmed",
-    "finding": "Mobile Core Web Vitals fail because INP is 259 ms.",
-    "evidence": "PageSpeed Insights field data for the latest 28-day period reported CWV Failed: LCP 1.7 s, INP 259 ms, CLS 0.03; FCP 1.8 s and TTFB 0.5 s.",
-    "impact": "Interaction responsiveness is outside the good threshold and can reduce UX and search performance at scale.",
-    "fix": "Profile interaction handlers and long tasks, especially search, locale menu, auth and animation code; reduce client JavaScript and verify INP by interaction type in Search Console/CrUX.",
-    "source": "PageSpeed Insights live report, 2026-08-02"
-  },
-  {
-    "area": "On-page SEO",
-    "severity": "Warning",
-    "confidence": "Confirmed",
-    "finding": "The blog index reuses the homepage title and description and has no page-specific structured data.",
-    "evidence": "Live /blog/ title was 'GeeksKai – Free Online Tools and Useful Utilities'; its 178-character description matched the homepage description; H1 was 'All Posts'; zero JSON-LD blocks were present.",
-    "impact": "The page has weak relevance for blog/editorial queries and may produce poor snippets or keyword cannibalization.",
-    "fix": "Use a blog-specific title and description, and add CollectionPage plus ItemList/BreadcrumbList JSON-LD with only visible articles.",
-    "source": "Live DOM, 2026-08-02"
-  },
-  {
-    "area": "On-page SEO",
-    "severity": "Warning",
-    "confidence": "Confirmed",
-    "finding": "Homepage metadata contains an overlong and grammatically incomplete description.",
-    "evidence": "Live homepage description was 178 characters and ended with 'Tools that your workflow'. The same text was reused in Open Graph and Twitter descriptions.",
-    "impact": "Search and social snippets may truncate or display unclear value messaging, lowering CTR.",
-    "fix": "Rewrite to roughly 140-160 characters with a complete sentence and a clear primary value proposition.",
-    "source": "Live DOM, 2026-08-02"
-  },
-  {
-    "area": "On-page SEO",
-    "severity": "Warning",
-    "confidence": "Confirmed",
-    "finding": "About-page metadata is generic and does not describe the author or editorial trust content.",
-    "evidence": "Live /about/ title was only 'About' and its 178-character description was the generic homepage tools description.",
-    "impact": "The primary E-E-A-T page has weak entity relevance and an unhelpful search snippet.",
-    "fix": "Write a distinct title and description naming Geeks Kai, expertise, editorial approach and site purpose.",
-    "source": "Live DOM, 2026-08-02"
-  },
-  {
-    "area": "On-page SEO",
-    "severity": "Warning",
-    "confidence": "Confirmed",
-    "finding": "The VIN Decoder title and description are longer than typical snippet ranges.",
-    "evidence": "Live /tools/vin-decoder/ title length was 66 characters and meta description length was 187 characters.",
-    "impact": "Important intent terms or the brand may be truncated in search results.",
-    "fix": "Shorten the title to about 50-60 characters and the description to about 140-160 while retaining 'VIN decoder' and 'vehicle lookup'.",
-    "source": "Live DOM, 2026-08-02"
+    "finding": "Pricing and Audio Toolkit inherited homepage social metadata.",
+    "evidence": "Pricing lacked an independent Twitter card and Audio Toolkit lacked independent Open Graph and Twitter definitions and product images.",
+    "impact": "Commercial URLs could render generic previews with weaker relevance and click-through intent.",
+    "fix": "Give each commercial page a canonical URL, distinct Open Graph and Twitter metadata, and a dedicated 1200 by 630 image route.",
+    "source": "Repository metadata audit, 2026-08-23"
   },
   {
     "area": "Schema",
     "severity": "Warning",
     "confidence": "Confirmed",
-    "finding": "Inner pages inherit homepage and collection schema that does not describe the current URL.",
-    "evidence": "Live /tools/vin-decoder/ included the homepage WebPage graph, a CollectionPage for /tools/, the page WebApplication, two BreadcrumbList blocks and two Organization blocks. Live /about/ included a homepage WebPage/Breadcrumb graph.",
-    "impact": "Conflicting entities and URLs reduce structured-data clarity and can make rich-result interpretation less reliable.",
-    "fix": "Render one site-level Organization/WebSite graph, then page-specific WebPage/WebApplication and exactly one page-specific BreadcrumbList. Do not inherit CollectionPage onto tool detail pages.",
-    "source": "Live JSON-LD, 2026-08-02"
-  },
-  {
-    "area": "Schema",
-    "severity": "Warning",
-    "confidence": "Confirmed",
-    "finding": "BlogPosting author.url points to an avatar image rather than an author profile.",
-    "evidence": "The live EHS article BlogPosting JSON-LD set author.name to 'Geeks Kai' and author.url to https://geekskai.com/static/images/avatar.jpg.",
-    "impact": "The author entity cannot resolve to a profile page with expertise and identity signals.",
-    "fix": "Point author.url to a stable author/About URL and add matching Person/ProfilePage schema linked by @id.",
-    "source": "Live JSON-LD, 2026-08-02"
-  },
-  {
-    "area": "Schema",
-    "severity": "Warning",
-    "confidence": "Confirmed",
-    "finding": "Tool-list schema contains repeated, low-information descriptions.",
-    "evidence": "Live /tools/ CollectionPage ItemList repeats phrases three times for entries such as SoundCloud to MP3, SoundCloud to WAV, Streaming Music Player, Chivalry Test, Print Test Page and SoundCloud Playlist Downloader.",
-    "impact": "Boilerplate weakens semantic precision and mirrors thin/templated copy to search and AI systems.",
-    "fix": "Replace repeated strings with unique task, input, output and constraint descriptions for each tool.",
-    "source": "Live JSON-LD, 2026-08-02"
-  },
-  {
-    "area": "Content quality",
-    "severity": "Warning",
-    "confidence": "Confirmed",
-    "finding": "The sampled EHS comparison article makes ranking claims without primary-source citations or vendor links.",
-    "evidence": "The 1,697-word article ranked ten products and named BIS #1, but its only external main-content links were the author X profile, Twitter discussion and GitHub source; there were no vendor or evidence citations and no comparison table.",
-    "impact": "Readers and AI systems cannot verify claims; this weakens trust, citability and defensibility for commercial comparison queries.",
-    "fix": "Add evaluation methodology, testing/selection criteria, first-party vendor/documentation citations, disclosed commercial relationships and a sourced comparison table.",
-    "source": "Live article DOM, 2026-08-02"
-  },
-  {
-    "area": "Content quality",
-    "severity": "Warning",
-    "confidence": "Confirmed",
-    "finding": "The sampled article is difficult to read and its main sections are not semantic headings.",
-    "evidence": "Readability analysis measured Flesch Reading Ease 5.2 and grade 17.7 with 33.1% complex words. Live DOM exposed no content H2/H3 headings for 'Top 10', product sections, conclusion or FAQ; headings were limited to site chrome and navigation labels.",
-    "impact": "The page is harder to scan for users and harder for search/answer engines to segment into citable passages.",
-    "fix": "Convert section labels to a logical H2/H3 hierarchy, shorten sentences, reduce jargon and add concise answer-first summaries.",
-    "source": "Bundled readability script plus live DOM, 2026-08-02"
+    "finding": "Inner pages inherited homepage or collection structured data and duplicate entities.",
+    "evidence": "The locale layout emitted a homepage WebPage and breadcrumb on every route, and the tools layout emitted CollectionPage schema on tool detail pages.",
+    "impact": "Conflicting canonical entities make page meaning and rich-result eligibility less clear.",
+    "fix": "Limit global schema to Organization and WebSite, then let each page own its WebPage subtype, breadcrumb, and product or application entity.",
+    "source": "Repository JSON-LD audit, 2026-08-23"
   },
   {
     "area": "International SEO",
     "severity": "Warning",
     "confidence": "Confirmed",
-    "finding": "The zh-CN homepage mixes translated chrome with English article cards.",
-    "evidence": "Live /zh-cn/ had lang='zh-cn' and a Chinese H1/description, but all six featured article titles remained English.",
-    "impact": "The page has mixed-language relevance and a weaker localized experience.",
-    "fix": "Either translate article cards and targets, or label the editorial section as English and link directly to canonical English articles.",
-    "source": "Live DOM, 2026-08-02"
+    "finding": "English-only commercial routes advertised redirecting localized hreflang targets.",
+    "evidence": "next-intl generated alternate links such as localized Pricing routes even though non-English entries redirect to English.",
+    "impact": "Search engines receive alternates that are not equivalent localized documents.",
+    "fix": "Disable framework-generated alternate Link headers and keep page-owned English and x-default alternates for English-only commercial pages.",
+    "source": "Production response and repository routing audit, 2026-08-23"
   },
   {
-    "area": "GEO",
+    "area": "On-page SEO",
     "severity": "Warning",
-    "confidence": "Likely",
-    "finding": "The llms.txt content is oriented toward repository documentation rather than concise user-facing answers and appears stale.",
-    "evidence": "Repository public/llms.txt describes GeeksKai as a 'Next.js blog template', claims '30+ utility tools', and prioritizes GitHub PRDs and API endpoints; the live tools ItemList declares 50 tools. The live /llms.txt endpoint could not be verified in this environment.",
-    "impact": "If deployed unchanged, AI agents receive a product identity that conflicts with the live site's user-facing tools brand and stale inventory signals.",
-    "fix": "Rewrite llms.txt around the live entity, top user tasks, canonical pages, authorship and concise citation-worthy descriptions; automate freshness checks.",
-    "source": "Repository evidence; live endpoint unknown, 2026-08-02"
+    "confidence": "Confirmed",
+    "finding": "Blog, About, and VIN metadata did not match their search intent.",
+    "evidence": "Blog reused homepage metadata, About had the title About and inherited the homepage graph, and VIN metadata exceeded typical snippet ranges.",
+    "impact": "Generic or truncated snippets weaken relevance, trust, and click-through rate.",
+    "fix": "Add page-specific titles, descriptions, canonical and social metadata, ProfilePage or CollectionPage schema, and concise VIN copy.",
+    "source": "Production and repository audit, 2026-08-23"
   },
   {
-    "area": "Images",
-    "severity": "Pass",
+    "area": "Schema",
+    "severity": "Warning",
     "confidence": "Confirmed",
-    "finding": "Sampled templates provide alt attributes and use responsive Next.js image delivery.",
-    "evidence": "Across homepage, blog index, EHS article, tools index, VIN tool, About, zh-CN homepage and sign-in samples, zero images lacked alt attributes; homepage images used /_next/image with explicit loading behavior and OG images were present.",
-    "impact": "This supports accessibility, image discovery and stable rendering.",
-    "fix": "Keep the current baseline and add CI checks; separately measure byte size and rendered-vs-intrinsic dimensions.",
-    "source": "Live DOM sample, 2026-08-02"
+    "finding": "BlogPosting author URLs resolved to avatar images instead of an author profile.",
+    "evidence": "BlogPosting constructed author.url from the avatar path.",
+    "impact": "Articles could not resolve their author to a stable Person or ProfilePage entity.",
+    "fix": "Link BlogPosting, About ProfilePage, Person, and Organization with stable IDs and use /about/ as the author URL.",
+    "source": "Repository JSON-LD audit, 2026-08-23"
   },
   {
-    "area": "Technical SEO",
-    "severity": "Pass",
+    "area": "Content quality",
+    "severity": "Warning",
     "confidence": "Confirmed",
-    "finding": "The sampled indexable pages use HTTPS, one H1, index/follow directives and mostly self-referencing canonicals.",
-    "evidence": "Homepage, blog, article, tools, VIN and zh-CN homepage all rendered over HTTPS with one H1; all except About had the expected self-canonical in the sample.",
-    "impact": "The baseline supports crawlability and page identity.",
-    "fix": "Preserve this behavior and add regression tests for every route template.",
-    "source": "Live DOM sample, 2026-08-02"
+    "finding": "The tools ItemList exposed repeated low-information descriptions.",
+    "evidence": "Six catalog entries repeated the same short phrase three times in data consumed by the tools CollectionPage.",
+    "impact": "Templated text weakens entity precision for search and AI systems.",
+    "fix": "Replace each placeholder with a distinct task, input, output, and constraint description.",
+    "source": "Repository tool catalog audit, 2026-08-23"
+  },
+  {
+    "area": "Measurement",
+    "severity": "Info",
+    "confidence": "Unknown",
+    "finding": "Current site-wide indexing and performance outcomes remain unverified.",
+    "evidence": "This implementation has no current GSC export, complete 661-URL crawl, server logs, or current 28-day CrUX sample. The older 259 ms INP measurement is not current evidence.",
+    "impact": "A current SEO score or claim of production success would be unsupported.",
+    "fix": "After deployment, crawl the sitemap and inspect GSC, logs, headers, rendered metadata, and 28-day CrUX before reprioritizing performance or content work.",
+    "source": "Audit access boundary, 2026-08-23"
   }
 ]

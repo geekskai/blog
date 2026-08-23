@@ -9,8 +9,14 @@ import siteMetadata from "@/data/siteMetadata"
 import { Metadata } from "next"
 import SiteFooter from "@/components/SiteFooter"
 import { NextIntlClientProvider } from "next-intl"
+import { buildSiteSchema, serializeJsonLd } from "@/lib/seo"
 
 export const revalidate = 604800 // 7 days
+
+const blogTitle = "Geekskai Blog | Practical Technology and Tool Guides"
+const blogDescription =
+  "Read practical Geekskai guides on web development, online tools, audio workflows, software, and production-focused engineering."
+const blogCanonical = `${siteMetadata.siteUrl}/blog/`
 
 export const generateMetadata = async (): Promise<Metadata> => {
   // const { locale } = await params
@@ -19,23 +25,23 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const metadata: Metadata = {
     metadataBase: new URL(siteMetadata.siteUrl),
     title: {
-      default: siteMetadata.title,
+      default: blogTitle,
       template: `%s`,
     },
-    description: siteMetadata.description,
+    description: blogDescription,
     openGraph: {
-      title: siteMetadata.title,
-      description: siteMetadata.description,
-      url: "./",
+      title: blogTitle,
+      description: blogDescription,
+      url: blogCanonical,
       siteName: siteMetadata.title,
       images: [siteMetadata.socialBanner],
       locale: "en_US",
       type: "website",
     },
     alternates: {
-      canonical: "./",
+      canonical: blogCanonical,
       languages: {
-        "x-default": "https://geekskai.com/blog/",
+        "x-default": blogCanonical,
       },
       types: {
         "application/rss+xml": `${siteMetadata.siteUrl}/feed.xml`,
@@ -53,7 +59,8 @@ export const generateMetadata = async (): Promise<Metadata> => {
       },
     },
     twitter: {
-      title: siteMetadata.title,
+      title: blogTitle,
+      description: blogDescription,
       card: "summary_large_image",
       images: [siteMetadata.socialBanner],
     },
@@ -63,6 +70,11 @@ export const generateMetadata = async (): Promise<Metadata> => {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const basePath = process.env.BASE_PATH || ""
+  const siteSchema = buildSiteSchema({
+    description: siteMetadata.description,
+    inLanguage: "en-US",
+    searchUrl: `${siteMetadata.siteUrl}/tools/`,
+  })
   return (
     <html lang="en" className={`scroll-smooth`} suppressHydrationWarning>
       <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/static/logos.png`} />
@@ -75,6 +87,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <meta name="msapplication-TileColor" content="#000000" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
       <body className="min-h-screen bg-gradient-to-b from-[#020617] via-[#0a0f1f] to-[#000D1A]/90 pl-[calc(100vw-100%)] text-white antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteSchema) }}
+        />
         <NextIntlClientProvider>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SectionContainer>

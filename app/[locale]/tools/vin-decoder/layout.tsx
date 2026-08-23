@@ -2,6 +2,8 @@ import { supportedLocales } from "app/i18n/routing"
 import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 import React from "react"
+import siteMetadata from "@/data/siteMetadata"
+import { buildPageSchema, SEO_ENTITY_IDS, serializeJsonLd } from "@/lib/seo"
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>
@@ -47,7 +49,7 @@ export async function generateMetadata(props: {
           alt: t("structured_data.name"),
         },
       ],
-      locale: "en_US",
+      locale: locale.replace("-", "_"),
     },
     twitter: {
       card: "summary_large_image",
@@ -95,15 +97,14 @@ export default async function VinDecoderLayout(props: {
   const t = await getTranslations({ locale, namespace: "VinDecoder" })
   const isDefaultLocale = locale === "en"
   const baseUrl = isDefaultLocale
-    ? "https://geekskai.com/tools/vin-decoder"
-    : `https://geekskai.com/${locale}/tools/vin-decoder`
+    ? `${siteMetadata.siteUrl}/tools/vin-decoder/`
+    : `${siteMetadata.siteUrl}/${locale}/tools/vin-decoder/`
 
   // Content freshness metadata - Update this monthly
   const lastModified = new Date("2026-05-26")
 
   // WebApplication Schema - Enhanced for AI SEO
   const webApplicationSchema = {
-    "@context": "https://schema.org",
     "@type": "WebApplication",
     name: t("structured_data.name"),
     description: t("structured_data.description"),
@@ -117,13 +118,7 @@ export default async function VinDecoderLayout(props: {
       availability: "https://schema.org/InStock",
     },
     provider: {
-      "@type": "Organization",
-      name: "GeeksKai",
-      url: "https://geekskai.com",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://geekskai.com/static/logos.png",
-      },
+      "@id": SEO_ENTITY_IDS.organization,
     },
     featureList: [
       t("structured_data.feature_instant"),
@@ -143,69 +138,27 @@ export default async function VinDecoderLayout(props: {
     dateModified: lastModified.toISOString().split("T")[0],
   }
 
-  // FAQ structured data
-
-  // Breadcrumb structured data - Fixed URL error
-  const breadcrumbStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: t("structured_data.breadcrumb_home"),
-        item: "https://geekskai.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: t("structured_data.breadcrumb_tools"),
-        item: "https://geekskai.com/tools",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: t("structured_data.breadcrumb_vin_decoder"),
-        item: baseUrl,
-      },
+  const pageSchema = buildPageSchema({
+    url: baseUrl,
+    name: t("structured_data.name"),
+    description: t("structured_data.description"),
+    inLanguage: locale,
+    breadcrumbs: [
+      { name: t("structured_data.breadcrumb_home"), url: `${siteMetadata.siteUrl}/` },
+      { name: t("structured_data.breadcrumb_tools"), url: `${siteMetadata.siteUrl}/tools/` },
+      { name: t("structured_data.breadcrumb_vin_decoder"), url: baseUrl },
     ],
-  }
-
-  // Organization Schema
-  const organizationSchema = {
+  })
+  const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "GeeksKai",
-    url: "https://geekskai.com",
-    logo: "https://geekskai.com/static/logos.png",
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer service",
-      email: "support@geekskai.com",
-    },
-    sameAs: [
-      "https://twitter.com/GeeksKai",
-      "https://github.com/geekskai",
-      "https://www.facebook.com/geekskai",
-      "https://www.linkedin.com/in/geekskai",
-    ],
+    "@graph": [...pageSchema["@graph"], webApplicationSchema],
   }
 
   return (
     <div className="min-h-screen">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbStructuredData),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
       {children}
     </div>

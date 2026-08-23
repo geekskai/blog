@@ -11,6 +11,7 @@ import { Metadata } from "next"
 import siteMetadata from "@/data/siteMetadata"
 import { notFound } from "next/navigation"
 import { Suspense } from "react"
+import { SEO_ENTITY_IDS, serializeJsonLd } from "@/lib/seo"
 
 function ArticleContentFallback() {
   return (
@@ -41,7 +42,6 @@ export async function generateMetadata(props: {
 
   const publishedAt = new Date(post.date).toISOString()
   const modifiedAt = new Date(post.lastmod || post.date).toISOString()
-  const authors = authorDetails.map((author) => author.name)
   let imageList = [siteMetadata.socialBanner]
   if (post.images) {
     imageList = typeof post.images === "string" ? [post.images] : post.images
@@ -51,6 +51,7 @@ export async function generateMetadata(props: {
       url: img.includes("http") ? img : siteMetadata.siteUrl + img,
     }
   })
+  const canonical = post.canonicalUrl || `${siteMetadata.siteUrl}/${post.path}/`
 
   return {
     title: post.title,
@@ -64,13 +65,12 @@ export async function generateMetadata(props: {
       type: "article",
       publishedTime: publishedAt,
       modifiedTime: modifiedAt,
-      url: "./",
+      url: canonical,
       images: ogImages,
-      authors: authors.length > 0 ? authors : [siteMetadata.author],
+      authors: [`${siteMetadata.siteUrl}/about/`],
     },
-    other: {
-      "last-modified": modifiedAt,
-      "application/ld+json": [JSON.stringify(post.structuredData)],
+    alternates: {
+      canonical,
     },
     twitter: {
       card: "summary_large_image",
@@ -104,20 +104,22 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
     return coreContent(authorResults as Authors)
   })
   const mainContent = coreContent(post)
-  const jsonLd = post.structuredData
-  jsonLd["author"] = authorDetails.map((author) => {
-    return {
+  const jsonLd = {
+    ...post.structuredData,
+    publisher: { "@id": SEO_ENTITY_IDS.organization },
+    author: authorDetails.map((author) => ({
       "@type": "Person",
+      "@id": SEO_ENTITY_IDS.author,
       name: author.name,
-      url: siteMetadata.siteUrl + author.avatar,
-    }
-  })
+      url: `${siteMetadata.siteUrl}/about/`,
+    })),
+  }
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <PostLayout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
         <Suspense fallback={<ArticleContentFallback />}>

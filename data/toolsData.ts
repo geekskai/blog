@@ -161,7 +161,7 @@ export const toolsData: ToolData[] = [
     id: "soundcloud-to-mp3",
     title: "SoundCloud to MP3 Converter",
     description:
-      "SoundCloud to MP3 converter for your SoundCloud. SoundCloud to MP3 converter for your SoundCloud. SoundCloud to MP3 converter for your SoundCloud.",
+      "Convert supported SoundCloud tracks to MP3 for authorized offline use, with a direct browser workflow and no software installation.",
     icon: Music,
     href: "/tools/soundcloud-to-mp3/",
     features: ["SoundCloud to MP3 Converter"],
@@ -174,7 +174,7 @@ export const toolsData: ToolData[] = [
     id: "soundcloud-to-wav",
     title: "SoundCloud to WAV Converter",
     description:
-      "SoundCloud to WAV converter for your SoundCloud. SoundCloud to WAV converter for your SoundCloud. SoundCloud to WAV converter for your SoundCloud.",
+      "Export supported SoundCloud tracks as WAV when you need an uncompressed file for authorized editing or archival workflows.",
     icon: Music,
     href: "/tools/soundcloud-to-wav/",
     features: ["SoundCloud to WAV Converter", "SoundCloud to MP3 Converter"],
@@ -434,7 +434,7 @@ export const toolsData: ToolData[] = [
     id: "streaming-music-player",
     title: "Streaming Music Player",
     description:
-      "Streaming Music Player for your streaming music. Streaming Music Player for your streaming music. Streaming Music Player for your streaming music.",
+      "Play supported streaming audio URLs in a focused browser player with playback controls and no desktop installation.",
     icon: Music,
     href: "/tools/streaming-music-player/",
     features: ["Streaming Music Player"],
@@ -874,7 +874,7 @@ export const toolsData: ToolData[] = [
     id: "chivalry-test",
     title: "Chivalry Test",
     description:
-      "Chivalry test for your chivalry. Chivalry test for your chivalry. Chivalry test for your chivalry.",
+      "Answer a short scenario-based quiz to compare modern etiquette and traditional chivalry, then share your result.",
     icon: Shield,
     href: "/tools/chivalry-test/",
     features: ["Chivalry Test"],
@@ -887,7 +887,7 @@ export const toolsData: ToolData[] = [
     id: "print-test-page",
     title: "Print Test Page",
     description:
-      "Print test page for your printer. Print test page for your printer. Print test page for your printer.",
+      "Generate color, grayscale, alignment, and ink-coverage test pages to diagnose common printer output problems.",
     icon: Printer,
     href: "/tools/print-test-page/",
     features: ["Print Test Page"],
@@ -900,7 +900,7 @@ export const toolsData: ToolData[] = [
     id: "soundcloud-playlist-downloader",
     title: "SoundCloud Playlist Downloader",
     description:
-      "SoundCloud Playlist Downloader for your SoundCloud. SoundCloud Playlist Downloader for your SoundCloud. SoundCloud Playlist Downloader for your SoundCloud.",
+      "Process supported SoundCloud playlist links into authorized track downloads with clear per-item status and error handling.",
     icon: Music,
     href: "/tools/soundcloud-playlist-downloader/",
     features: [
