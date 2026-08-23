@@ -1,7 +1,16 @@
 "use client"
 
 import { FormEvent, useEffect, useMemo, useState } from "react"
-import { Clock3, FolderPlus, HardDrive, Save, SlidersHorizontal, Trash2 } from "lucide-react"
+import {
+  Clock3,
+  FolderPlus,
+  HardDrive,
+  Save,
+  SlidersHorizontal,
+  Sparkles,
+  Trash2,
+  Waves,
+} from "lucide-react"
 import { trackClarityEvent } from "@/lib/analytics/clarity"
 import type { AccountPlanStatus } from "@/lib/billing/types"
 import AudioProcessorPanel from "./AudioProcessorPanel"
@@ -160,28 +169,44 @@ export default function DjWorkspace({
   }
 
   if (!workspace) {
-    return <div className="min-h-[60vh] animate-pulse rounded-2xl bg-slate-900/60" />
+    return (
+      <div className="min-h-[60vh] animate-pulse rounded-2xl border border-slate-800/80 bg-slate-950/50 motion-reduce:animate-none" />
+    )
   }
 
   return (
-    <div className="space-y-8 py-10">
-      <header className="space-y-3">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
+    <div className="relative space-y-6 py-8 sm:space-y-8 sm:py-10">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-56 bg-[radial-gradient(ellipse_80%_70%_at_50%_-20%,rgba(59,130,246,0.12),transparent)]"
+        aria-hidden
+      />
+
+      <header className="max-w-3xl">
+        <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-400 sm:text-xs">
+          <Waves className="h-3.5 w-3.5" aria-hidden />
           Geekskai Audio Toolkit
         </p>
-        <h1 className="text-3xl font-bold text-white md:text-4xl">Local audio preparation</h1>
-        <p className="max-w-3xl text-slate-300">
+        <h1 className="mt-2 text-[clamp(1.75rem,4vw,2.5rem)] font-bold tracking-tight text-white">
+          Local audio preparation
+        </h1>
+        <p className="mt-3 text-sm leading-6 text-slate-400 sm:text-base sm:leading-7">
           Normalize and convert audio files you own, then organize preparation projects and reuse
           format settings. Public downloader allowances remain separate from paid plans.
         </p>
       </header>
 
-      <section className="rounded-2xl border border-amber-400/30 bg-amber-400/10 p-5">
-        <div className="flex gap-3">
-          <HardDrive className="mt-0.5 h-5 w-5 shrink-0 text-amber-300" />
+      <section className="relative overflow-hidden rounded-xl border border-amber-500/25 bg-amber-950/25 p-4 sm:p-5">
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-amber-500/[0.06] to-transparent"
+          aria-hidden
+        />
+        <div className="relative flex gap-3 sm:gap-4">
+          <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-amber-400/25 bg-amber-500/10 text-amber-300">
+            <HardDrive className="h-5 w-5" aria-hidden />
+          </span>
           <div>
-            <h2 className="font-semibold text-amber-100">Stored on this device only</h2>
-            <p className="mt-1 text-sm leading-6 text-amber-100/75">
+            <h2 className="font-semibold text-amber-50">Stored on this device only</h2>
+            <p className="mt-1 text-sm leading-6 text-amber-100/70">
               Project metadata and presets stay in this browser. Audio files are never uploaded.
               Clearing browser data or changing devices removes this workspace; cloud sync is not
               part of this first phase.
@@ -197,11 +222,17 @@ export default function DjWorkspace({
         canRecordActivation={Boolean(userId)}
       />
 
-      <div className="grid gap-6 lg:grid-cols-2">
-        <section className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6">
+      <div className="grid gap-4 lg:grid-cols-2 lg:gap-5">
+        <section className="relative overflow-hidden rounded-2xl border border-sky-500/20 bg-slate-950/55 p-5 sm:p-6">
+          <div
+            className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-400/50 to-transparent"
+            aria-hidden
+          />
           <div className="mb-5 flex items-center gap-3">
-            <FolderPlus className="h-5 w-5 text-blue-400" />
-            <h2 className="text-xl font-semibold text-white">New project</h2>
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-sky-400/25 bg-sky-500/10 text-sky-300">
+              <FolderPlus className="h-4 w-4" aria-hidden />
+            </span>
+            <h2 className="text-lg font-semibold text-white sm:text-xl">New project</h2>
           </div>
           <form onSubmit={createProject} className="space-y-4">
             <label className="block text-sm text-slate-300">
@@ -210,7 +241,7 @@ export default function DjWorkspace({
                 value={projectName}
                 onChange={(event) => setProjectName(event.target.value)}
                 placeholder="Friday night set"
-                className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition focus:border-blue-500"
+                className="mt-2 min-h-11 w-full rounded-xl border border-slate-700/80 bg-slate-900/70 px-4 text-white outline-none transition-[border-color] duration-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20"
               />
             </label>
             <label className="block text-sm text-slate-300">
@@ -218,7 +249,7 @@ export default function DjWorkspace({
               <select
                 value={selectedPresetId}
                 onChange={(event) => setSelectedPresetId(event.target.value)}
-                className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition focus:border-blue-500"
+                className="mt-2 min-h-11 w-full rounded-xl border border-slate-700/80 bg-slate-900/70 px-4 text-white outline-none transition-[border-color] duration-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20"
               >
                 {workspace.presets.map((preset) => (
                   <option key={preset.id} value={preset.id}>
@@ -230,18 +261,24 @@ export default function DjWorkspace({
             <button
               type="submit"
               disabled={!projectName.trim()}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 font-semibold text-white transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
+              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-sky-600 px-4 text-sm font-semibold text-white transition-[background-color,opacity] duration-200 hover:bg-sky-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none"
             >
-              <FolderPlus className="h-4 w-4" />
+              <FolderPlus className="h-4 w-4" aria-hidden />
               Create project
             </button>
           </form>
         </section>
 
-        <section className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6">
+        <section className="relative overflow-hidden rounded-2xl border border-violet-500/20 bg-slate-950/55 p-5 sm:p-6">
+          <div
+            className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/50 to-transparent"
+            aria-hidden
+          />
           <div className="mb-5 flex items-center gap-3">
-            <SlidersHorizontal className="h-5 w-5 text-purple-400" />
-            <h2 className="text-xl font-semibold text-white">Save a preset</h2>
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-violet-400/25 bg-violet-500/10 text-violet-300">
+              <SlidersHorizontal className="h-4 w-4" aria-hidden />
+            </span>
+            <h2 className="text-lg font-semibold text-white sm:text-xl">Save a preset</h2>
           </div>
           <form onSubmit={createPreset} className="space-y-4">
             <input
@@ -249,14 +286,14 @@ export default function DjWorkspace({
               onChange={(event) => setPresetName(event.target.value)}
               placeholder="Warm-up set"
               aria-label="Preset name"
-              className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition focus:border-purple-500"
+              className="min-h-11 w-full rounded-xl border border-slate-700/80 bg-slate-900/70 px-4 text-white outline-none transition-[border-color] duration-200 focus:border-violet-400 focus:ring-2 focus:ring-violet-400/20"
             />
             <div className="grid grid-cols-2 gap-3">
               <select
                 value={presetFormat}
                 onChange={(event) => setPresetFormat(event.target.value as AudioFormat)}
                 aria-label="Audio format"
-                className="rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none"
+                className="min-h-11 rounded-xl border border-slate-700/80 bg-slate-900/70 px-4 text-white outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-400/20"
               >
                 <option value="wav">WAV</option>
                 <option value="mp3">MP3</option>
@@ -268,42 +305,47 @@ export default function DjWorkspace({
                 value={loudnessTarget}
                 onChange={(event) => setLoudnessTarget(Number(event.target.value))}
                 aria-label="Loudness target in LUFS"
-                className="rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none"
+                className="min-h-11 rounded-xl border border-slate-700/80 bg-slate-900/70 px-4 text-white outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-400/20"
               />
             </div>
-            <p className="text-xs text-slate-500">
+            <p className="text-xs leading-5 text-slate-500">
               Saved presets can be reused in the local audio processor above.
             </p>
             <button
               type="submit"
               disabled={!presetName.trim()}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-purple-600 px-4 py-3 font-semibold text-white transition hover:bg-purple-500 disabled:cursor-not-allowed disabled:opacity-50"
+              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-violet-600 px-4 text-sm font-semibold text-white transition-[background-color,opacity] duration-200 hover:bg-violet-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none"
             >
-              <Save className="h-4 w-4" />
+              <Save className="h-4 w-4" aria-hidden />
               Save preset
             </button>
           </form>
         </section>
       </div>
 
-      <section className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6">
-        <h2 className="text-xl font-semibold text-white">Projects ({workspace.projects.length})</h2>
+      <section className="rounded-2xl border border-slate-800/80 bg-slate-950/50 p-5 sm:p-6">
+        <div className="flex items-center justify-between gap-3">
+          <h2 className="text-lg font-semibold text-white sm:text-xl">
+            Projects ({workspace.projects.length})
+          </h2>
+          <Sparkles className="h-4 w-4 text-slate-600" aria-hidden />
+        </div>
         {workspace.projects.length === 0 ? (
-          <p className="mt-4 rounded-xl border border-dashed border-slate-700 p-6 text-center text-slate-400">
+          <p className="mt-4 rounded-xl border border-dashed border-slate-700/80 bg-slate-900/30 p-6 text-center text-sm text-slate-400">
             Create your first project to test whether this workspace is useful in your real flow.
           </p>
         ) : (
-          <div className="mt-4 grid gap-3 md:grid-cols-2">
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {workspace.projects.map((project) => {
               const preset = workspace.presets.find(({ id }) => id === project.presetId)
               return (
                 <article
                   key={project.id}
-                  className="rounded-xl border border-slate-800 bg-slate-950/70 p-4"
+                  className="rounded-xl border border-slate-800/80 bg-slate-900/40 p-4 transition-colors duration-200 hover:border-slate-700 hover:bg-slate-900/60 motion-reduce:transition-none"
                 >
                   <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h3 className="font-semibold text-white">{project.name}</h3>
+                    <div className="min-w-0">
+                      <h3 className="truncate font-semibold text-white">{project.name}</h3>
                       <p className="mt-1 text-sm text-slate-400">
                         {preset
                           ? `${preset.name} · ${preset.format.toUpperCase()} · ${preset.loudnessTarget} LUFS`
@@ -315,9 +357,9 @@ export default function DjWorkspace({
                       type="button"
                       onClick={() => deleteProject(project)}
                       aria-label={`Delete ${project.name}`}
-                      className="rounded-lg p-2 text-slate-500 transition hover:bg-red-500/10 hover:text-red-300"
+                      className="inline-flex min-h-9 min-w-9 shrink-0 items-center justify-center rounded-lg text-slate-500 transition-colors duration-200 hover:bg-rose-500/10 hover:text-rose-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 motion-reduce:transition-none"
                     >
-                      <Trash2 className="h-4 w-4" />
+                      <Trash2 className="h-4 w-4" aria-hidden />
                     </button>
                   </div>
                 </article>
@@ -327,28 +369,35 @@ export default function DjWorkspace({
         )}
       </section>
 
-      <section className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6">
+      <section className="rounded-2xl border border-slate-800/80 bg-slate-950/50 p-5 sm:p-6">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <Clock3 className="h-5 w-5 text-emerald-400" />
-            <h2 className="text-xl font-semibold text-white">Recent activity</h2>
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-emerald-400/25 bg-emerald-500/10 text-emerald-300">
+              <Clock3 className="h-4 w-4" aria-hidden />
+            </span>
+            <h2 className="text-lg font-semibold text-white sm:text-xl">Recent activity</h2>
           </div>
           <button
             type="button"
             onClick={clearWorkspace}
-            className="text-sm text-slate-500 transition hover:text-red-300"
+            className="min-h-9 rounded-lg px-2 text-xs font-medium text-slate-500 transition-colors duration-200 hover:bg-rose-500/10 hover:text-rose-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 motion-reduce:transition-none sm:text-sm"
           >
             Delete local data
           </button>
         </div>
-        <div className="mt-4 space-y-3">
+        <div className="mt-4 space-y-0">
           {workspace.activity.length === 0 ? (
             <p className="text-sm text-slate-500">No activity yet.</p>
           ) : (
-            workspace.activity.slice(0, 8).map((entry) => (
-              <div key={entry.id} className="flex justify-between gap-4 text-sm">
+            workspace.activity.slice(0, 8).map((entry, index) => (
+              <div
+                key={entry.id}
+                className={`flex justify-between gap-4 py-2.5 text-sm ${index > 0 ? "border-t border-slate-800/60" : ""}`}
+              >
                 <span className="text-slate-300">{entry.label}</span>
-                <time className="shrink-0 text-slate-600">{formatDate(entry.createdAt)}</time>
+                <time className="shrink-0 text-xs tabular-nums text-slate-600 sm:text-sm">
+                  {formatDate(entry.createdAt)}
+                </time>
               </div>
             ))
           )}

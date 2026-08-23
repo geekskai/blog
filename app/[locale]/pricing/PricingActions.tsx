@@ -7,11 +7,15 @@ import {
   BadgePercent,
   Check,
   Clock3,
+  Crown,
+  Layers,
   LoaderCircle,
   LockKeyhole,
   RefreshCw,
   ShieldCheck,
   Sparkles,
+  X,
+  Zap,
 } from "lucide-react"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { ANNUAL_SAVINGS, PACKAGE_CATALOG } from "@/lib/billing/catalog"
@@ -67,7 +71,37 @@ const paidPlans = {
 } as const
 
 const planCardBase =
-  "relative flex h-full flex-col overflow-hidden rounded-2xl border bg-slate-950/60 p-5 backdrop-blur-sm sm:p-6"
+  "relative flex h-full flex-col overflow-hidden rounded-2xl border p-5 transition-[border-color,box-shadow,opacity,transform] duration-300 sm:p-6 motion-reduce:transition-none"
+
+const paidTierThemes = {
+  basic: {
+    icon: Zap,
+    iconWrap: "border-sky-400/25 bg-sky-500/10 text-sky-300",
+    glow: "from-sky-500/[0.08] via-transparent to-transparent",
+    topLine: "via-sky-400/50",
+    border: "border-slate-800/80 hover:border-sky-500/35",
+    borderActive: "border-sky-400/60 ring-2 ring-sky-400/25 ring-offset-2 ring-offset-slate-950",
+    priceAccent: "text-sky-100",
+    check: "text-sky-400",
+    cta: "border border-sky-500/45 bg-sky-500/10 text-sky-50 hover:border-sky-400/70 hover:bg-sky-500/15",
+    summaryAccent: "border-sky-500/30 bg-sky-950/40",
+    summaryDot: "bg-sky-400",
+  },
+  pro: {
+    icon: Crown,
+    iconWrap: "border-violet-400/30 bg-violet-500/15 text-violet-200",
+    glow: "from-violet-500/[0.14] via-fuchsia-500/[0.06] to-transparent",
+    topLine: "via-violet-400/80",
+    border: "border-violet-500/45 shadow-lg shadow-violet-950/40",
+    borderActive:
+      "border-violet-300/70 ring-2 ring-violet-400/35 ring-offset-2 ring-offset-slate-950",
+    priceAccent: "text-white",
+    check: "text-violet-300",
+    cta: "bg-gradient-to-br from-violet-600 to-fuchsia-700 text-white shadow-md shadow-violet-900/45 hover:from-violet-500 hover:to-fuchsia-600",
+    summaryAccent: "border-violet-500/40 bg-violet-950/50",
+    summaryDot: "bg-violet-400",
+  },
+} as const
 
 export default function PricingActions({
   locale,
@@ -351,175 +385,217 @@ export default function PricingActions({
         </div>
       ) : null}
 
-      <section
-        className="mx-auto mt-8 grid max-w-6xl gap-4 sm:mt-10 md:grid-cols-3 md:gap-5"
-        aria-label="Pricing plans"
-      >
-        <article className={`${planCardBase} border-slate-800/80`}>
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-600/50 to-transparent" />
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
-              Starter
-            </p>
-            <h2 className="mt-1.5 text-xl font-bold text-white sm:text-2xl">Free</h2>
-            <div className="mt-4 flex items-baseline gap-1">
-              <p className="text-4xl font-bold tabular-nums tracking-tight text-white sm:text-[2.75rem]">
-                $0
-              </p>
-            </div>
-            <p className="mt-2 min-h-5 text-sm text-slate-400">For individual tracks</p>
-          </div>
-          <ul className="mt-6 space-y-2.5 border-t border-slate-800/80 pt-5 text-sm leading-6 text-slate-300">
-            {[
-              "1 file per local batch",
-              "MP3, WAV, FLAC, and M4A",
-              "Two-pass LUFS normalization",
-            ].map((feature) => (
-              <li key={feature} className="flex gap-2.5">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-slate-500" aria-hidden />
-                {feature}
-              </li>
-            ))}
-          </ul>
-          <div className="mt-auto pt-6">
-            <Link
-              href={`${prefix}/audio-toolkit/`}
-              onClick={() => trackClarityEvent("pricing_free_toolkit_clicked")}
-              className="inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-slate-700 bg-slate-900/60 px-4 text-sm font-semibold text-white transition-[background-color,border-color] duration-200 hover:border-slate-500 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
-            >
-              {currentTier === "free" ? "Current plan · Try one file" : "Try one file free"}
-            </Link>
-          </div>
-        </article>
-
-        {(["basic", "pro"] as const).map((tier) => {
-          const plan = paidPlans[tier]
-          const price = plan[interval]
-          const highlighted = tier === "pro"
-          const selectedForCheckout = paypalCheckout?.tier === tier
-          const canManageSubscription = currentTier === "basic" || currentTier === "pro"
-          return (
-            <article
-              key={tier}
-              className={`${planCardBase} transition-[border-color,box-shadow] duration-200 motion-reduce:transition-none ${
-                selectedForCheckout
-                  ? "border-violet-400/70 shadow-lg shadow-violet-900/30"
-                  : highlighted
-                    ? "border-violet-500/50 shadow-md shadow-violet-950/50"
-                    : "border-slate-800/80"
-              }`}
-            >
-              <div
-                className={`pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent ${
-                  highlighted ? "via-violet-400/80" : "via-violet-500/40"
-                } to-transparent`}
-              />
-              {highlighted ? (
-                <div className="mb-3 flex">
-                  <span className="inline-flex items-center rounded-full bg-violet-600 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white sm:text-[11px]">
-                    Recommended
-                  </span>
-                </div>
+      <section className="mx-auto mt-8 max-w-6xl sm:mt-10" aria-label="Pricing plans">
+        <div
+          className={`grid gap-4 md:grid-cols-3 md:gap-5 ${paypalCheckout ? "md:items-start" : "md:items-stretch"}`}
+        >
+          <article
+            className={`${planCardBase} border-slate-800/80 bg-slate-950/55 ${
+              paypalCheckout ? "opacity-45 saturate-50 md:opacity-40" : ""
+            }`}
+          >
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(100,116,139,0.08),transparent_55%)]" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-500/40 to-transparent" />
+            <div className="relative flex items-start justify-between gap-3">
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-700/80 bg-slate-900/80 text-slate-400">
+                <Layers className="h-5 w-5" aria-hidden />
+              </span>
+              {currentTier === "free" ? (
+                <span className="rounded-full border border-slate-600/60 bg-slate-800/80 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-300">
+                  Current
+                </span>
               ) : null}
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
-                  {tier === "basic" ? "For regular use" : "For power users"}
+            </div>
+            <div className="relative mt-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                Starter
+              </p>
+              <h2 className="mt-1 text-xl font-bold text-white sm:text-2xl">Free</h2>
+              <div className="mt-4 flex items-baseline gap-1">
+                <p className="text-4xl font-bold tabular-nums tracking-tight text-slate-100 sm:text-[2.75rem]">
+                  $0
                 </p>
-                <h2 className="mt-1.5 text-xl font-bold text-white sm:text-2xl">{plan.name}</h2>
-                <div className="mt-4 flex items-baseline gap-1">
-                  <p className="text-4xl font-bold tabular-nums tracking-tight text-white sm:text-[2.75rem]">
-                    {price.price}
-                  </p>
-                  <span className="text-sm font-medium text-slate-400 sm:text-base">
-                    {price.suffix}
-                  </span>
-                </div>
-                <p className="mt-1.5 text-xs leading-5 text-slate-400 sm:text-sm">{price.note}</p>
-                <p className="mt-2 min-h-5 text-sm font-medium text-slate-300">{plan.audience}</p>
               </div>
-              <ul className="mt-6 space-y-2.5 border-t border-slate-800/80 pt-5 text-sm leading-6 text-slate-300">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex gap-2.5">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-violet-400" aria-hidden />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-auto pt-6">
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (canManageSubscription) {
-                      window.location.assign(`${prefix}/account/billing/`)
-                    } else if (checkoutEnabled) {
-                      void startCheckout(tier)
-                    }
-                  }}
-                  aria-busy={busyAction?.tier === tier}
-                  aria-controls={selectedForCheckout ? "paypal-checkout-panel" : undefined}
-                  aria-describedby={`pricing-${tier}-refund${actionError?.tier === tier ? ` pricing-${tier}-error` : ""}`}
-                  disabled={
-                    !isLoaded ||
-                    (Boolean(isSignedIn) && accountStatus !== "ready") ||
-                    busyAction !== null ||
-                    paypalCheckout !== null ||
-                    (!checkoutEnabled && !canManageSubscription)
-                  }
-                  className={`group inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-xl px-4 text-sm font-bold transition-[background-color,border-color,box-shadow,opacity] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none sm:min-h-12 sm:px-5 ${
-                    highlighted
-                      ? "bg-gradient-to-br from-violet-600 to-fuchsia-700 text-white shadow-md shadow-violet-900/40 hover:from-violet-500 hover:to-fuchsia-600"
-                      : "border border-violet-500/40 bg-violet-500/10 text-violet-100 hover:border-violet-400/60 hover:bg-violet-500/15"
-                  }`}
-                >
-                  <span>
-                    {busyAction?.tier === tier
-                      ? "Preparing PayPal…"
-                      : selectedForCheckout
-                        ? "Checkout ready below"
-                        : Boolean(isSignedIn) && accountStatus === "loading"
-                          ? "Checking account…"
-                          : Boolean(isSignedIn) && accountStatus === "error"
-                            ? "Account check required"
-                            : currentTier === tier
-                              ? "Manage current plan"
-                              : currentTier === "basic" || currentTier === "pro"
-                                ? "Manage subscription"
-                                : !checkoutEnabled
-                                  ? "Payments pending approval"
-                                  : `Choose ${plan.name}`}
-                  </span>
-                  {busyAction?.tier === tier ? (
-                    <LoaderCircle
-                      className="h-4 w-4 animate-spin motion-reduce:animate-none"
-                      aria-hidden
-                    />
-                  ) : (
-                    <ArrowRight
-                      className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none"
-                      aria-hidden
-                    />
-                  )}
-                </button>
-                {actionError?.tier === tier ? (
-                  <p
-                    id={`pricing-${tier}-error`}
-                    role="alert"
-                    className="mt-3 rounded-lg border border-rose-400/30 bg-rose-950/40 p-3 text-sm leading-5 text-rose-100"
-                  >
-                    {actionError.message} Please try again or contact support@geekskai.com.
-                  </p>
+              <p className="mt-2 min-h-5 text-sm text-slate-400">For individual tracks</p>
+            </div>
+            <ul className="relative mt-6 space-y-2.5 border-t border-slate-800/80 pt-5 text-sm leading-6 text-slate-300">
+              {[
+                "1 file per local batch",
+                "MP3, WAV, FLAC, and M4A",
+                "Two-pass LUFS normalization",
+              ].map((feature) => (
+                <li key={feature} className="flex gap-2.5">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-slate-500" aria-hidden />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <div className="relative mt-auto pt-6">
+              <Link
+                href={`${prefix}/audio-toolkit/`}
+                onClick={() => trackClarityEvent("pricing_free_toolkit_clicked")}
+                className="inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-slate-700/90 bg-slate-900/70 px-4 text-sm font-semibold text-white transition-[background-color,border-color] duration-200 hover:border-slate-500 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
+              >
+                {currentTier === "free" ? "Current plan · Try one file" : "Try one file free"}
+              </Link>
+            </div>
+          </article>
+
+          {(["basic", "pro"] as const).map((tier) => {
+            const plan = paidPlans[tier]
+            const price = plan[interval]
+            const highlighted = tier === "pro"
+            const theme = paidTierThemes[tier]
+            const TierIcon = theme.icon
+            const selectedForCheckout = paypalCheckout?.tier === tier
+            const checkoutLocked = paypalCheckout !== null && !selectedForCheckout
+            const canManageSubscription = currentTier === "basic" || currentTier === "pro"
+            return (
+              <article
+                key={tier}
+                aria-current={selectedForCheckout ? "step" : undefined}
+                className={`${planCardBase} bg-slate-950/65 backdrop-blur-sm ${theme.border} ${
+                  selectedForCheckout ? theme.borderActive : ""
+                } ${checkoutLocked ? "saturate-75 opacity-45 md:opacity-50" : ""} ${
+                  highlighted && !paypalCheckout ? "md:-translate-y-1" : ""
+                }`}
+              >
+                <div
+                  className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${theme.glow}`}
+                />
+                <div
+                  className={`pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent ${theme.topLine} to-transparent`}
+                />
+                {selectedForCheckout ? (
+                  <div className="relative mb-3 flex items-center justify-between gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-emerald-200 sm:text-[11px]">
+                      <span className="relative flex h-2 w-2">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/70 motion-reduce:animate-none" />
+                        <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                      </span>
+                      Checkout active
+                    </span>
+                  </div>
+                ) : highlighted ? (
+                  <div className="relative mb-3 flex">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white sm:text-[11px]">
+                      <Sparkles className="h-3 w-3" aria-hidden />
+                      Recommended
+                    </span>
+                  </div>
                 ) : null}
-                <p
-                  id={`pricing-${tier}-refund`}
-                  className="mt-3 flex items-center justify-center gap-1.5 text-xs text-slate-500 sm:text-sm"
-                >
-                  <LockKeyhole className="h-3.5 w-3.5 shrink-0" aria-hidden />
-                  14-day first-payment refund
-                </p>
-              </div>
-            </article>
-          )
-        })}
+                <div className="relative flex items-start justify-between gap-3">
+                  <span
+                    className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border ${theme.iconWrap}`}
+                  >
+                    <TierIcon className="h-5 w-5" aria-hidden />
+                  </span>
+                  {currentTier === tier ? (
+                    <span className="rounded-full border border-violet-400/40 bg-violet-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-violet-200">
+                      Current
+                    </span>
+                  ) : null}
+                </div>
+                <div className="relative mt-4">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                    {tier === "basic" ? "For regular use" : "For power users"}
+                  </p>
+                  <h2 className="mt-1 text-xl font-bold text-white sm:text-2xl">{plan.name}</h2>
+                  <div className="mt-4 flex items-baseline gap-1">
+                    <p
+                      className={`text-4xl font-bold tabular-nums tracking-tight sm:text-[2.75rem] ${theme.priceAccent}`}
+                    >
+                      {price.price}
+                    </p>
+                    <span className="text-sm font-medium text-slate-400 sm:text-base">
+                      {price.suffix}
+                    </span>
+                  </div>
+                  <p className="mt-1.5 text-xs leading-5 text-slate-400 sm:text-sm">{price.note}</p>
+                  <p className="mt-2 min-h-5 text-sm font-medium text-slate-300">{plan.audience}</p>
+                </div>
+                <ul className="relative mt-6 space-y-2.5 border-t border-slate-800/80 pt-5 text-sm leading-6 text-slate-300">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex gap-2.5">
+                      <Check className={`mt-0.5 h-4 w-4 shrink-0 ${theme.check}`} aria-hidden />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <div className="relative mt-auto pt-6">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (canManageSubscription) {
+                        window.location.assign(`${prefix}/account/billing/`)
+                      } else if (checkoutEnabled) {
+                        void startCheckout(tier)
+                      }
+                    }}
+                    aria-busy={busyAction?.tier === tier}
+                    aria-controls={selectedForCheckout ? "paypal-checkout-panel" : undefined}
+                    aria-describedby={`pricing-${tier}-refund${actionError?.tier === tier ? ` pricing-${tier}-error` : ""}`}
+                    disabled={
+                      !isLoaded ||
+                      (Boolean(isSignedIn) && accountStatus !== "ready") ||
+                      busyAction !== null ||
+                      paypalCheckout !== null ||
+                      (!checkoutEnabled && !canManageSubscription)
+                    }
+                    className={`group inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-xl px-4 text-sm font-bold transition-[background-color,border-color,box-shadow,opacity] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none sm:min-h-12 sm:px-5 ${theme.cta}`}
+                  >
+                    <span>
+                      {busyAction?.tier === tier
+                        ? "Preparing PayPal…"
+                        : selectedForCheckout
+                          ? "Checkout ready below"
+                          : Boolean(isSignedIn) && accountStatus === "loading"
+                            ? "Checking account…"
+                            : Boolean(isSignedIn) && accountStatus === "error"
+                              ? "Account check required"
+                              : currentTier === tier
+                                ? "Manage current plan"
+                                : currentTier === "basic" || currentTier === "pro"
+                                  ? "Manage subscription"
+                                  : !checkoutEnabled
+                                    ? "Payments pending approval"
+                                    : `Choose ${plan.name}`}
+                    </span>
+                    {busyAction?.tier === tier ? (
+                      <LoaderCircle
+                        className="h-4 w-4 animate-spin motion-reduce:animate-none"
+                        aria-hidden
+                      />
+                    ) : selectedForCheckout ? (
+                      <Check className="h-4 w-4" aria-hidden />
+                    ) : (
+                      <ArrowRight
+                        className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none"
+                        aria-hidden
+                      />
+                    )}
+                  </button>
+                  {actionError?.tier === tier ? (
+                    <p
+                      id={`pricing-${tier}-error`}
+                      role="alert"
+                      className="mt-3 rounded-lg border border-rose-400/30 bg-rose-950/40 p-3 text-sm leading-5 text-rose-100"
+                    >
+                      {actionError.message} Please try again or contact support@geekskai.com.
+                    </p>
+                  ) : null}
+                  <p
+                    id={`pricing-${tier}-refund`}
+                    className="mt-3 flex items-center justify-center gap-1.5 text-xs text-slate-500 sm:text-sm"
+                  >
+                    <LockKeyhole className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                    14-day first-payment refund
+                  </p>
+                </div>
+              </article>
+            )
+          })}
+        </div>
       </section>
 
       {paypalCheckout && selectedCheckoutPlan && selectedCheckoutPrice ? (
@@ -528,51 +604,109 @@ export default function PricingActions({
           ref={checkoutPanelRef}
           tabIndex={-1}
           aria-labelledby="paypal-checkout-heading"
-          className="mx-auto mt-6 max-w-6xl scroll-mt-6 overflow-hidden rounded-2xl border border-violet-500/30 bg-slate-950/80 outline-none backdrop-blur-sm sm:mt-8"
+          className="animate-in fade-in slide-in-from-bottom-2 mx-auto mt-5 max-w-6xl scroll-mt-6 overflow-hidden rounded-2xl border border-violet-500/35 bg-slate-950/90 shadow-[0_24px_80px_-40px_rgba(139,92,246,0.55)] outline-none backdrop-blur-sm duration-300 motion-reduce:animate-none sm:mt-6"
         >
-          <div className="pointer-events-none h-px bg-gradient-to-r from-transparent via-violet-400/60 to-transparent" />
-          <div className="grid gap-6 p-5 sm:p-6 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,26rem)] lg:items-start lg:gap-8 lg:p-8">
-            <div className="max-w-xl">
+          <div className="flex items-center justify-between gap-3 border-b border-slate-800/80 bg-slate-900/50 px-4 py-3 sm:px-6">
+            <div className="flex min-w-0 flex-wrap items-center gap-2 sm:gap-3">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/25 bg-emerald-500/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-200 sm:text-[11px]">
+                <Check className="h-3 w-3" aria-hidden />
+                Plan selected
+              </span>
+              <span className="hidden text-slate-600 sm:inline" aria-hidden>
+                →
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-400/30 bg-violet-500/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-violet-200 sm:text-[11px]">
+                <LockKeyhole className="h-3 w-3" aria-hidden />
+                Complete payment
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={paypalCancelled}
+              className="inline-flex min-h-9 shrink-0 cursor-pointer items-center gap-1.5 rounded-lg border border-slate-700/80 px-2.5 text-xs font-semibold text-slate-300 transition-colors duration-200 hover:border-slate-500 hover:bg-slate-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 motion-reduce:transition-none sm:min-h-10 sm:px-3 sm:text-sm"
+            >
+              <X className="h-4 w-4" aria-hidden />
+              <span className="hidden sm:inline">Change plan</span>
+            </button>
+          </div>
+
+          <div className="pointer-events-none h-px bg-gradient-to-r from-transparent via-violet-400/50 to-transparent" />
+
+          <div className="grid gap-0 lg:grid-cols-[minmax(0,1.1fr)_minmax(18rem,24rem)] lg:items-stretch">
+            <div
+              className={`border-b border-slate-800/80 p-5 sm:p-6 lg:border-b-0 lg:border-r ${paidTierThemes[paypalCheckout.tier].summaryAccent}`}
+            >
               <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-violet-300 sm:text-xs">
-                Secure PayPal checkout
+                Order summary
               </p>
               <h2
                 id="paypal-checkout-heading"
                 className="mt-2 text-xl font-bold text-white sm:text-2xl"
               >
-                Complete your {selectedCheckoutPlan.name} subscription
+                {selectedCheckoutPlan.name} · {interval === "annual" ? "Annual" : "Monthly"}
               </h2>
-              <p className="mt-2 text-sm leading-6 text-slate-400 sm:text-base sm:leading-7">
-                {selectedCheckoutPrice.note}. Review the subscription details in PayPal before you
-                approve payment.
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2 text-xs sm:text-sm">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-800 bg-slate-900/60 px-2.5 py-1.5 text-slate-300">
-                  <LockKeyhole className="h-3.5 w-3.5 text-violet-400" aria-hidden />
-                  Secure payment
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-800 bg-slate-900/60 px-2.5 py-1.5 text-slate-300">
-                  <ShieldCheck className="h-3.5 w-3.5 text-violet-400" aria-hidden />
-                  No audio uploaded
+              <div className="mt-4 flex items-end gap-2">
+                <p className="text-4xl font-bold tabular-nums tracking-tight text-white">
+                  {selectedCheckoutPrice.price}
+                </p>
+                <span className="pb-1 text-sm font-medium text-slate-400">
+                  {selectedCheckoutPrice.suffix}
                 </span>
               </div>
+              <p className="mt-1 text-sm text-slate-400">{selectedCheckoutPrice.note}</p>
+
+              <ul className="mt-5 space-y-2 border-t border-white/[0.06] pt-5 text-sm text-slate-300">
+                {selectedCheckoutPlan.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2.5">
+                    <span
+                      className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${paidTierThemes[paypalCheckout.tier].summaryDot}`}
+                      aria-hidden
+                    />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-5 flex flex-wrap gap-2 text-xs sm:text-sm">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-700/80 bg-slate-950/50 px-2.5 py-1.5 text-slate-300">
+                  <ShieldCheck className="h-3.5 w-3.5 text-violet-400" aria-hidden />
+                  Local processing only
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-700/80 bg-slate-950/50 px-2.5 py-1.5 text-slate-300">
+                  <LockKeyhole className="h-3.5 w-3.5 text-violet-400" aria-hidden />
+                  14-day refund on first payment
+                </span>
+              </div>
+
+              <p className="mt-4 text-xs leading-5 text-slate-500 sm:text-sm">
+                Review subscription terms in PayPal before approving. You can cancel renewal anytime
+                from your Geekskai billing account.
+              </p>
+            </div>
+
+            <div className="flex flex-col bg-slate-950/60 p-5 sm:p-6 lg:p-7">
+              <div className="mb-4">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500 sm:text-xs">
+                  Payment method
+                </p>
+                <p className="mt-1 text-sm font-medium text-white">PayPal subscription</p>
+              </div>
+              <PayPalSubscriptionButton
+                clientId={paypalCheckout.clientId}
+                planId={paypalCheckout.planId}
+                customId={paypalCheckout.customId}
+                onApproved={paypalApproved}
+                onCancel={paypalCancelled}
+                onError={paypalFailed}
+              />
               <button
                 type="button"
                 onClick={paypalCancelled}
-                className="mt-5 inline-flex min-h-11 cursor-pointer items-center justify-center rounded-lg border border-slate-700 px-4 text-sm font-semibold text-slate-200 transition-colors duration-200 hover:border-slate-500 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 motion-reduce:transition-none"
+                className="mt-4 inline-flex min-h-11 w-full cursor-pointer items-center justify-center rounded-xl border border-slate-700/80 text-sm font-semibold text-slate-300 transition-colors duration-200 hover:border-slate-500 hover:bg-slate-900 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 motion-reduce:transition-none lg:hidden"
               >
                 Choose another plan
               </button>
             </div>
-
-            <PayPalSubscriptionButton
-              clientId={paypalCheckout.clientId}
-              planId={paypalCheckout.planId}
-              customId={paypalCheckout.customId}
-              onApproved={paypalApproved}
-              onCancel={paypalCancelled}
-              onError={paypalFailed}
-            />
           </div>
         </section>
       ) : null}
