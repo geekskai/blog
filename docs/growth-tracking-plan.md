@@ -12,7 +12,7 @@ Microsoft Clarity is the current client-side behavior tool. Events contain no fi
 | `pricing_free_toolkit_clicked`          | Free Toolkit CTA clicked                               | Measure free activation path         |
 | `pricing_cta_clicked_{tier}_{interval}` | Basic or Pro CTA clicked                               | Measure plan intent                  |
 | `pricing_signin_required_{tier}`        | Purchase intent reaches authentication                 | Find registration friction           |
-| `checkout_created_{tier}_{interval}`    | Checkout API returns a Creem URL                       | Measure valid checkout creation      |
+| `checkout_created_{tier}_{interval}`    | Server returns an allowed PayPal Plan and correlation  | Measure valid checkout preparation   |
 | `checkout_failed_{tier}_{interval}`     | Checkout creation fails                                | Detect billing funnel breakage       |
 | `audio_file_selected`                   | One local file selected                                | Measure single-file activation start |
 | `audio_files_selected_batch`            | Multiple local files selected                          | Measure paid batch intent            |
@@ -26,7 +26,7 @@ Microsoft Clarity is the current client-side behavior tool. Events contain no fi
 ## Interpretation rules
 
 - A pricing-page view is not activation.
-- A checkout URL is not payment; paid conversion comes from verified Creem webhook data.
+- PayPal approval is not payment or entitlement; paid conversion comes from verified PayPal lifecycle data.
 - Audio completion records only the outcome class. Audio, filenames, output settings, and media URLs remain local.
 - Review weekly by device class and landing page. Do not optimize from individual Clarity sessions alone.
 
@@ -57,6 +57,6 @@ The Audio Toolkit custom events were deployed on 2026-08-12 and were not yet ava
 
 - Recheck after 72 hours or after the first 100 pricing-page sessions, whichever comes later.
 - Confirm `pricing_viewed`, `pricing_free_toolkit_clicked`, `audio_file_selected`, `audio_processing_started`, and `audio_processing_completed` appear in Clarity before building the activation funnel.
-- Keep checkout and paid-conversion reporting disabled until Creem live payments are approved. A checkout URL is never counted as payment.
+- Keep checkout and paid-conversion reporting disabled until the PayPal Payment Launch Gate passes. Checkout preparation and approval are never counted as payment.
 - Investigate dead clicks and Core Web Vitals before investing in traffic that lands on the same affected pages.
 - Preserve the no-PII rule during every analytics change.

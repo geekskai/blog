@@ -1,17 +1,17 @@
 # Geekskai Growth Distribution Backlog
 
-Last updated: 2026-08-12
+Last updated: 2026-08-23
 
 ## Objective
 
 Acquire qualified users for Audio Toolkit and the developer-tool cluster while
-Creem review is pending. Distribution must describe the product accurately,
+PayPal live checkout remains behind the Payment Launch Gate. Distribution must describe the product accurately,
 respect community rules, and remain measurable through first-party events.
 
 ## Release gate
 
-- Do not promote paid checkout until Creem approves the payout account and a
-  production purchase/refund/webhook test passes.
+- Do not promote paid checkout until PayPal live subscription eligibility, tax
+  disclosures, and a production purchase/refund/webhook test pass.
 - Organic posts may link to the free Audio Toolkit experience and the LUFS
   guide while checkout is unavailable.
 - Read each community's current rules immediately before submitting. No
@@ -91,7 +91,7 @@ clicks.
 
 ## Next execution order
 
-1. Wait for Creem's account-review response and keep checkout disabled.
+1. Complete PayPal Sandbox lifecycle verification and keep checkout disabled.
 2. Confirm the newly deployed Audio events appear in Clarity after sufficient
    traffic and validate the pricing-to-toolkit funnel.
 3. Publish the LUFS guide and developer-tool cluster update.

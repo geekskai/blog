@@ -207,6 +207,23 @@ export const billingCustomers = pgTable(
   ]
 )
 
+export const billingCheckoutCorrelations = pgTable(
+  "billing_checkout_correlations",
+  {
+    id: uuid("id").primaryKey(),
+    clerkUserId: text("clerk_user_id").notNull(),
+    provider: text("provider").notNull(),
+    packageTier: text("package_tier", { enum: ["basic", "pro"] }).notNull(),
+    billingInterval: text("billing_interval", { enum: ["monthly", "annual"] }).notNull(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    consumedAt: timestamp("consumed_at", { withTimezone: true }),
+    ...timestamps,
+  },
+  (table) => [
+    index("billing_checkout_correlations_user_expiry_idx").on(table.clerkUserId, table.expiresAt),
+  ]
+)
+
 export const billingSubscriptions = pgTable(
   "billing_subscriptions",
   {
@@ -249,5 +266,26 @@ export const billingWebhookEvents = pgTable(
       table.provider,
       table.providerEventId
     ),
+  ]
+)
+
+export const billingPayments = pgTable(
+  "billing_payments",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    clerkUserId: text("clerk_user_id").notNull(),
+    provider: text("provider").notNull(),
+    providerPaymentId: text("provider_payment_id").notNull(),
+    providerSubscriptionId: text("provider_subscription_id"),
+    status: text("status").notNull(),
+    providerEventAt: timestamp("provider_event_at", { withTimezone: true }),
+    ...timestamps,
+  },
+  (table) => [
+    uniqueIndex("billing_payments_provider_payment_uidx").on(
+      table.provider,
+      table.providerPaymentId
+    ),
+    index("billing_payments_subscription_idx").on(table.provider, table.providerSubscriptionId),
   ]
 )

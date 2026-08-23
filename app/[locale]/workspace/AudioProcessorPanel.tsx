@@ -218,7 +218,7 @@ export default function AudioProcessorPanel({
           role="status"
           className="mt-5 rounded-xl border border-blue-400/30 bg-blue-400/10 p-4 text-sm text-blue-100"
         >
-          Confirming your subscription from the verified Creem webhook…
+          Confirming your subscription from the verified PayPal lifecycle…
         </div>
       )}
       {confirmationTimedOut && (

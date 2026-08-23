@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server"
-import { getCreemClient } from "@/lib/billing/creem"
+import { getPayPalClient } from "@/lib/billing/paypal"
 import {
-  listTrackedCreemSubscriptionIds,
-  processCreemWebhook,
+  deleteExpiredPayPalCheckoutCorrelations,
+  listTrackedPayPalSubscriptionIds,
+  processPayPalWebhook,
 } from "@/lib/billing/repository"
 
 export const runtime = "nodejs"
@@ -16,29 +17,40 @@ export async function GET(request: Request) {
 
   let reconciled = 0
   const failures: string[] = []
-  for (const subscriptionId of await listTrackedCreemSubscriptionIds()) {
+  const expiredCorrelationsDeleted = await deleteExpiredPayPalCheckoutCorrelations()
+  const client = getPayPalClient()
+  for (const subscriptionId of await listTrackedPayPalSubscriptionIds()) {
     try {
-      const subscription = await getCreemClient().subscriptions.get(subscriptionId)
-      const eventType = `subscription.${subscription.status}`
-      const rawPayload = JSON.stringify({
-        id: `reconcile:${subscription.id}:${subscription.updatedAt.toISOString()}`,
-        eventType,
-        createdAt: subscription.updatedAt.toISOString(),
-        object: subscription,
-      })
-      await processCreemWebhook(
-        {
-          id: `reconcile:${subscription.id}:${subscription.updatedAt.toISOString()}`,
-          eventType,
-          createdAt: subscription.updatedAt,
-          object: subscription as unknown as Record<string, unknown>,
-        },
-        rawPayload
-      )
+      const subscription = await client.getSubscription(subscriptionId)
+      const status =
+        typeof subscription.status === "string" ? subscription.status.toUpperCase() : "UNKNOWN"
+      const eventTypes: Record<string, string> = {
+        ACTIVE: "BILLING.SUBSCRIPTION.ACTIVATED",
+        SUSPENDED: "BILLING.SUBSCRIPTION.SUSPENDED",
+        CANCELLED: "BILLING.SUBSCRIPTION.CANCELLED",
+        EXPIRED: "BILLING.SUBSCRIPTION.EXPIRED",
+      }
+      const eventType = eventTypes[status] ?? "BILLING.SUBSCRIPTION.CREATED"
+      const occurredAt =
+        typeof subscription.status_update_time === "string"
+          ? subscription.status_update_time
+          : new Date().toISOString()
+      const payload = {
+        id: `reconcile:${subscriptionId}:${occurredAt}`,
+        event_type: eventType,
+        create_time: occurredAt,
+        resource: subscription,
+      }
+      await processPayPalWebhook(payload, JSON.stringify(payload))
       reconciled += 1
     } catch {
       failures.push(subscriptionId)
     }
   }
-  return NextResponse.json({ ok: failures.length === 0, reconciled, failures })
+  return NextResponse.json({
+    ok: failures.length === 0,
+    reconciled,
+    failures,
+    expiredCorrelationsDeleted,
+  })
 }

@@ -1,4 +1,5 @@
-import type { BillingInterval, PackageTier } from "./domain"
+import type { BillingInterval, CheckoutTier, PackageTier } from "./domain"
+import type { PayPalWebhookEvent } from "./paypal-event"
 
 export interface AccountPlanStatus {
   packageTier: PackageTier
@@ -10,9 +11,12 @@ export interface AccountPlanStatus {
   zipExport: boolean
 }
 
-export interface CreemWebhookPayload {
-  id: string
-  eventType: string
-  createdAt: Date
-  object: Record<string, unknown>
+export interface ManagedPayPalSubscription {
+  subscriptionId: string
+  status: string
+  currentPeriodEnd: string | null
+  packageTier: CheckoutTier
+  billingInterval: BillingInterval
 }
+
+export type { PayPalWebhookEvent }

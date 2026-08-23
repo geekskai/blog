@@ -8,7 +8,9 @@ import PricingActions from "./PricingActions"
 
 const pricingDescription =
   "Compare Geekskai Free, Basic, and Pro plans for private, local-first audio preparation."
-const checkoutEnabled = process.env.NEXT_PUBLIC_BILLING_CHECKOUT_ENABLED === "true"
+const checkoutEnabled =
+  process.env.BILLING_CHECKOUT_ENABLED === "true" &&
+  process.env.NEXT_PUBLIC_BILLING_CHECKOUT_ENABLED === "true"
 
 export function generateMetadata(): Metadata {
   const canonical = `${siteMetadata.siteUrl}/pricing/`
@@ -281,12 +283,12 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
             {
               icon: LockKeyhole,
               title: "Secure payments",
-              copy: "Creem handles checkout, payment details, invoices, and subscription management.",
+              copy: "PayPal processes checkout and payment details; manage renewal from Geekskai.",
             },
             {
               icon: ReceiptText,
               title: "Transparent pricing",
-              copy: "USD prices include applicable indirect taxes where supported.",
+              copy: "Displayed USD prices are the final amount charged at checkout.",
             },
           ].map(({ icon: Icon, title, copy }) => (
             <div key={title} className="flex gap-4 bg-slate-950 p-6">
@@ -335,7 +337,7 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
 
         <div className="mt-8 text-center text-sm leading-6 text-slate-400">
           <p>
-            Prices include applicable indirect taxes where supported. No free trial or usage
+            Displayed USD prices are final; no tax is added at checkout. No free trial or usage
             overages.
           </p>
           <p>

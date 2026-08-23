@@ -12,17 +12,24 @@ import {
   RefreshCw,
   ShieldCheck,
 } from "lucide-react"
-import { useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { ANNUAL_SAVINGS, PACKAGE_CATALOG } from "@/lib/billing/catalog"
 import { trackClarityEvent } from "@/lib/analytics/clarity"
 import type { PackageTier } from "@/lib/billing/domain"
 import type { AccountPlanStatus } from "@/lib/billing/types"
+import PayPalSubscriptionButton from "./PayPalSubscriptionButton"
 
 type BillingInterval = "monthly" | "annual"
 type CheckoutTier = "basic" | "pro"
 type AccountStatus = "loading" | "ready" | "error"
-type BusyAction = { kind: "checkout" | "portal"; tier: CheckoutTier } | null
+type BusyAction = { tier: CheckoutTier } | null
 type ActionError = { tier: CheckoutTier; message: string } | null
+type PayPalCheckout = {
+  tier: CheckoutTier
+  clientId: string
+  planId: string
+  customId: string
+}
 
 const checkoutEnabled = process.env.NEXT_PUBLIC_BILLING_CHECKOUT_ENABLED === "true"
 
@@ -64,6 +71,7 @@ export default function PricingActions({ locale }: { locale: string }) {
   const [interval, setInterval] = useState<BillingInterval>("annual")
   const [busyAction, setBusyAction] = useState<BusyAction>(null)
   const [actionError, setActionError] = useState<ActionError>(null)
+  const [paypalCheckout, setPayPalCheckout] = useState<PayPalCheckout | null>(null)
   const [currentTier, setCurrentTier] = useState<PackageTier | null>(null)
   const [accountStatus, setAccountStatus] = useState<AccountStatus>("loading")
   const [statusError, setStatusError] = useState<string | null>(null)
@@ -121,17 +129,30 @@ export default function PricingActions({ locale }: { locale: string }) {
       return
     }
 
-    setBusyAction({ kind: "checkout", tier })
+    setBusyAction({ tier })
     try {
       const response = await fetch("/api/billing/checkout/", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ tier, interval, locale, source: "pricing" }),
       })
-      const result = (await response.json()) as { url?: string; error?: string }
-      if (!response.ok || !result.url) throw new Error(result.error ?? "Checkout failed.")
+      const result = (await response.json()) as {
+        clientId?: string
+        planId?: string
+        customId?: string
+        error?: string
+      }
+      if (!response.ok || !result.clientId || !result.planId || !result.customId) {
+        throw new Error(result.error ?? "Checkout failed.")
+      }
       trackClarityEvent(`checkout_created_${tier}_${interval}`)
-      window.location.assign(result.url)
+      setPayPalCheckout({
+        tier,
+        clientId: result.clientId,
+        planId: result.planId,
+        customId: result.customId,
+      })
+      setBusyAction(null)
     } catch (checkoutError) {
       trackClarityEvent(`checkout_failed_${tier}_${interval}`)
       setActionError({
@@ -142,24 +163,23 @@ export default function PricingActions({ locale }: { locale: string }) {
     }
   }
 
-  const openPortal = async (tier: CheckoutTier) => {
-    setActionError(null)
-    setBusyAction({ kind: "portal", tier })
-    try {
-      const response = await fetch("/api/billing/portal/", { method: "POST" })
-      const result = (await response.json()) as { url?: string; error?: string }
-      if (!response.ok || !result.url) throw new Error(result.error ?? "Billing portal failed.")
-      trackClarityEvent("billing_portal_opened")
-      window.location.assign(result.url)
-    } catch (portalError) {
-      trackClarityEvent("billing_portal_failed")
-      setActionError({
-        tier,
-        message: portalError instanceof Error ? portalError.message : "Billing portal failed.",
-      })
-      setBusyAction(null)
-    }
-  }
+  const paypalApproved = useCallback(() => {
+    trackClarityEvent("paypal_subscription_approved")
+    window.location.assign(`${prefix}/audio-toolkit/?checkout=processing`)
+  }, [prefix])
+
+  const paypalCancelled = useCallback(() => {
+    trackClarityEvent("paypal_checkout_cancelled")
+    setPayPalCheckout(null)
+  }, [])
+
+  const paypalFailed = useCallback(
+    (message: string) => {
+      if (paypalCheckout) setActionError({ tier: paypalCheckout.tier, message })
+      setPayPalCheckout(null)
+    },
+    [paypalCheckout]
+  )
 
   return (
     <>
@@ -180,7 +200,7 @@ export default function PricingActions({ locale }: { locale: string }) {
           </p>
           <p className="mt-3 inline-flex items-center gap-2 text-sm text-slate-400">
             <ShieldCheck className="h-5 w-5 text-violet-400" aria-hidden />
-            Private by design · secure checkout by Creem
+            Private by design · secure checkout by PayPal
           </p>
         </section>
 
@@ -213,6 +233,7 @@ export default function PricingActions({ locale }: { locale: string }) {
                     tabIndex={selected ? 0 : -1}
                     onClick={() => {
                       setInterval(value)
+                      setPayPalCheckout(null)
                       trackClarityEvent(`pricing_interval_selected_${value}`)
                     }}
                     onKeyDown={(event) => {
@@ -222,6 +243,7 @@ export default function PricingActions({ locale }: { locale: string }) {
                       event.preventDefault()
                       const nextInterval = previousKeys.includes(event.key) ? "monthly" : "annual"
                       setInterval(nextInterval)
+                      setPayPalCheckout(null)
                       trackClarityEvent(`pricing_interval_selected_${nextInterval}`)
                       billingButtonRefs.current[nextInterval]?.focus()
                     }}
@@ -376,7 +398,7 @@ export default function PricingActions({ locale }: { locale: string }) {
                 type="button"
                 onClick={() => {
                   if (canManageSubscription) {
-                    void openPortal(tier)
+                    window.location.assign(`${prefix}/account/billing/`)
                   } else if (checkoutEnabled) {
                     void startCheckout(tier)
                   }
@@ -387,6 +409,7 @@ export default function PricingActions({ locale }: { locale: string }) {
                   !isLoaded ||
                   (Boolean(isSignedIn) && accountStatus !== "ready") ||
                   busyAction !== null ||
+                  paypalCheckout !== null ||
                   (!checkoutEnabled && !canManageSubscription)
                 }
                 className={`group mt-8 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl px-5 text-sm font-bold transition-[background-color,border-color,box-shadow,transform,opacity] duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 motion-reduce:transform-none motion-reduce:transition-none xl:mt-auto ${
@@ -407,9 +430,7 @@ export default function PricingActions({ locale }: { locale: string }) {
               >
                 <span>
                   {busyAction?.tier === tier
-                    ? busyAction.kind === "checkout"
-                      ? "Opening secure checkout…"
-                      : "Opening billing portal…"
+                    ? "Preparing PayPal…"
                     : Boolean(isSignedIn) && accountStatus === "loading"
                       ? "Checking account…"
                       : Boolean(isSignedIn) && accountStatus === "error"
@@ -434,6 +455,16 @@ export default function PricingActions({ locale }: { locale: string }) {
                   />
                 )}
               </button>
+              {paypalCheckout?.tier === tier ? (
+                <PayPalSubscriptionButton
+                  clientId={paypalCheckout.clientId}
+                  planId={paypalCheckout.planId}
+                  customId={paypalCheckout.customId}
+                  onApproved={paypalApproved}
+                  onCancel={paypalCancelled}
+                  onError={paypalFailed}
+                />
+              ) : null}
               {actionError?.tier === tier ? (
                 <p
                   id={`pricing-${tier}-error`}

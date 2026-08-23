@@ -1,14 +1,12 @@
 import { describe, expect, it } from "vitest"
 import { ANNUAL_SAVINGS, PACKAGE_CATALOG } from "./catalog"
 import {
-  classifyRefund,
   getAccessAction,
-  getBillingProductId,
-  getBillingProductSelection,
+  getBillingPlanId,
+  getBillingPlanSelection,
   getEntitlementSet,
   isCheckoutSelection,
   isPackageTier,
-  verifyCreemSignature,
 } from "./domain"
 
 describe("Geekskai package catalog", () => {
@@ -43,61 +41,41 @@ describe("Geekskai package catalog", () => {
     expect(isCheckoutSelection({ tier: "pro", interval: "prod_attacker_supplied" })).toBe(false)
   })
 
-  it("maps checkout selections and provider product IDs only on the server", () => {
+  it("maps checkout selections and PayPal plan IDs only on the server", () => {
     const env = {
-      CREEM_BASIC_MONTHLY_PRODUCT_ID: "prod_basic_monthly",
-      CREEM_BASIC_ANNUAL_PRODUCT_ID: "prod_basic_annual",
-      CREEM_PRO_MONTHLY_PRODUCT_ID: "prod_pro_monthly",
-      CREEM_PRO_ANNUAL_PRODUCT_ID: "prod_pro_annual",
+      PAYPAL_BASIC_MONTHLY_PLAN_ID: "P-basic-monthly",
+      PAYPAL_BASIC_ANNUAL_PLAN_ID: "P-basic-annual",
+      PAYPAL_PRO_MONTHLY_PLAN_ID: "P-pro-monthly",
+      PAYPAL_PRO_ANNUAL_PLAN_ID: "P-pro-annual",
     }
-    expect(getBillingProductId({ tier: "pro", interval: "annual" }, env)).toBe("prod_pro_annual")
-    expect(getBillingProductSelection("prod_basic_monthly", env)).toEqual({
+    expect(getBillingPlanId({ tier: "pro", interval: "annual" }, env)).toBe("P-pro-annual")
+    expect(getBillingPlanSelection("P-basic-monthly", env)).toEqual({
       tier: "basic",
       interval: "monthly",
     })
-    expect(getBillingProductSelection("prod_unknown", env)).toBeNull()
+    expect(getBillingPlanSelection("P-unknown", env)).toBeNull()
   })
 })
 
-describe("Creem subscription access", () => {
-  it("grants only from verified subscription lifecycle events", () => {
-    expect(getAccessAction("checkout.completed")).toBe("none")
-    expect(getAccessAction("subscription.active")).toBe("grant")
-    expect(getAccessAction("subscription.paid")).toBe("grant")
-    expect(getAccessAction("subscription.past_due")).toBe("retain")
-    expect(getAccessAction("subscription.scheduled_cancel")).toBe("retain")
-    expect(getAccessAction("subscription.expired")).toBe("revoke")
-    expect(getAccessAction("subscription.paused")).toBe("revoke")
-    expect(getAccessAction("dispute.created")).toBe("revoke")
-  })
-
-  it("revokes only full refunds", () => {
-    expect(getAccessAction("refund.created", { refundType: "full" })).toBe("revoke")
-    expect(getAccessAction("refund.created", { refundType: "partial" })).toBe("none")
-  })
-
-  it("classifies refunds from Creem totals without revoking on ambiguous data", () => {
-    expect(classifyRefund({ refundAmount: 500, transactionAmountPaid: 1210 })).toBe("partial")
-    expect(classifyRefund({ refundAmount: 1210, transactionAmountPaid: 1210 })).toBe("full")
-    expect(classifyRefund({ transactionRefundedAmount: 1210, transactionAmountPaid: 1210 })).toBe(
-      "full"
-    )
-    expect(classifyRefund({ subscriptionStatus: "canceled" })).toBe("full")
-    expect(classifyRefund({})).toBe("partial")
-  })
-})
-
-describe("Creem webhook signatures", () => {
-  it("compares the HMAC-SHA256 signature without trusting malformed input", () => {
-    const payload = '{"id":"evt_test"}'
-    const secret = "test_secret"
+describe("PayPal subscription access", () => {
+  it("does not grant from checkout approval and normalizes subscription states", () => {
+    expect(getAccessAction("BILLING.SUBSCRIPTION.CREATED")).toBe("none")
+    expect(getAccessAction("BILLING.SUBSCRIPTION.ACTIVATED")).toBe("grant")
+    expect(getAccessAction("BILLING.SUBSCRIPTION.PAYMENT.FAILED")).toBe("retain")
     expect(
-      verifyCreemSignature(
-        payload,
-        "2565b148f2f43bfe9e1c294b482a5f8f4bdb6071c09c154f8333f7f7eaa85cbb",
-        secret
-      )
-    ).toBe(true)
-    expect(verifyCreemSignature(payload, "not-a-signature", secret)).toBe(false)
+      getAccessAction("BILLING.SUBSCRIPTION.PAYMENT.FAILED", {
+        subscriptionStatus: "SUSPENDED",
+      })
+    ).toBe("revoke")
+    expect(getAccessAction("BILLING.SUBSCRIPTION.CANCELLED")).toBe("retain")
+    expect(getAccessAction("BILLING.SUBSCRIPTION.SUSPENDED")).toBe("revoke")
+    expect(getAccessAction("BILLING.SUBSCRIPTION.EXPIRED")).toBe("revoke")
+    expect(getAccessAction("CUSTOMER.DISPUTE.CREATED")).toBe("revoke")
+  })
+
+  it("revokes full refunds and reversals but retains partial refunds for review", () => {
+    expect(getAccessAction("PAYMENT.SALE.REFUNDED", { refundType: "full" })).toBe("revoke")
+    expect(getAccessAction("PAYMENT.SALE.REFUNDED", { refundType: "partial" })).toBe("none")
+    expect(getAccessAction("PAYMENT.SALE.REVERSED")).toBe("revoke")
   })
 })

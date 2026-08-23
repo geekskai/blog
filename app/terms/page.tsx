@@ -9,7 +9,7 @@ export const metadata = genPageMetadata({
 })
 
 const SITE_URL = "https://geekskai.com"
-const LAST_UPDATED = "August 9, 2026"
+const LAST_UPDATED = "August 23, 2026"
 
 export default function TermsOfServicePage() {
   return (
@@ -30,11 +30,10 @@ export default function TermsOfServicePage() {
               Public Tools and Audio Toolkit Plans
             </h2>
             <p className="mb-4 text-gray-700">
-              Geekskai&apos;s public tools use daily fair-use allowances. Free, Basic, Pro, and
-              Enterprise describe account access, while paid subscriptions currently cover only
-              local Audio Toolkit capabilities for files that You import and have the right to use.
-              Paid downloader allowances are not included unless Geekskai publishes a future
-              Creem-approved change.
+              Geekskai&apos;s public tools use daily fair-use allowances. Free, Basic, and Pro
+              describe Audio Toolkit access, while paid subscriptions cover only local Audio Toolkit
+              capabilities for files that You import and have the right to use. Paid downloader
+              allowances are not included.
             </p>
             <p className="text-sm text-gray-600">
               <strong>Support Contact:</strong>{" "}
@@ -184,12 +183,14 @@ export default function TermsOfServicePage() {
               6. Audio Toolkit Billing, Cancellation, and Refunds
             </h2>
             <p className="mb-4 text-gray-700">
-              Basic and Pro are billed by Creem, our merchant of record. Basic costs {"$"}
+              Geekskai is the seller of Basic and Pro subscriptions, and PayPal processes recurring
+              payments. Basic costs {"$"}
               {PACKAGE_CATALOG.basic.monthlyPrice} monthly or {"$"}
               {PACKAGE_CATALOG.basic.annualPrice} annually, and Pro costs {"$"}
               {PACKAGE_CATALOG.pro.monthlyPrice} monthly or {"$"}
-              {PACKAGE_CATALOG.pro.annualPrice} annually. Prices are in USD, include applicable
-              indirect tax where supported, and are shown before You authorize payment.
+              {PACKAGE_CATALOG.pro.annualPrice} annually. Prices are final USD amounts; Geekskai
+              does not add tax at checkout and determines any applicable indirect tax from the
+              displayed amount. Prices are shown before You authorize payment.
             </p>
             <ul className="mb-6 list-disc space-y-3 pl-6 text-gray-700">
               <li>
@@ -197,26 +198,30 @@ export default function TermsOfServicePage() {
                 overages, credits, or automatic pay-as-you-go charges.
               </li>
               <li>
-                <strong>Cancellation:</strong> You may cancel through the in-product Creem customer
-                portal. Scheduled cancellation keeps the current Package Tier until the paid period
-                ends.
+                <strong>Cancellation:</strong> You may stop future renewal from Your Geekskai
+                billing account. Cancellation keeps the current Package Tier until the paid period
+                ends, unless a full refund, reversal, dispute, or other terminal payment event ends
+                access earlier.
               </li>
               <li>
                 <strong>First-Payment Refund:</strong> Each account receives one refund window.
                 Contact support@geekskai.com within 14 calendar days of Your first successful
-                subscription payment to request a full refund. Renewals and upgrade charges do not
-                create a new window. We respond within three business days.
+                subscription payment to request a full refund. Renewals and later subscriptions do
+                not create a new window. We respond within three business days.
               </li>
               <li>
-                <strong>Payment Failures:</strong> Access may continue while Creem retries a failed
-                payment. Access ends when Creem concludes the subscription as canceled or paused, or
-                when it is disputed or refunded in full. A full refund immediately returns the
-                account to Free access.
+                <strong>Payment Failures:</strong> Access may continue while an Active PayPal
+                subscription retries one failed recurring payment. PayPal is configured to suspend
+                the subscription after two consecutive failures. Access ends after verified
+                suspension, expiration, reversal, dispute, or full refund. A partial refund is
+                reviewed manually.
               </li>
             </ul>
             <p className="rounded-md border border-gray-100 bg-gray-50 p-4 text-sm text-gray-600">
-              Creem issues receipts and invoices and handles payment methods, taxes, and
-              subscription billing. Geekskai does not store payment card details.
+              PayPal processes payment methods and may send standard payment or subscription
+              notifications. Geekskai remains responsible for the offer, tax treatment, refunds,
+              disputes, receipts or invoices, and payment support. Geekskai does not store payment
+              card details.
             </p>
           </section>
 

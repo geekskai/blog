@@ -13,7 +13,7 @@ const PrivacyPolicy = () => {
       <div className="mx-auto max-w-4xl overflow-hidden rounded-lg bg-white shadow-xl">
         <div className="px-6 py-8">
           <h1 className="mb-6 text-center text-3xl font-bold text-gray-900">Privacy Policy</h1>
-          <p className="mb-8 text-center text-sm text-gray-600">Last updated: August 9, 2026</p>
+          <p className="mb-8 text-center text-sm text-gray-600">Last updated: August 23, 2026</p>
           <div className="space-y-6 text-gray-700">
             <p>
               This Privacy Policy describes Our policies and procedures on the collection, use and
@@ -120,23 +120,24 @@ const PrivacyPolicy = () => {
             </li>
             <li>
               <p>
-                <strong>Creem</strong>
+                <strong>PayPal</strong>
                 <br />
-                1. Purpose: Checkout, recurring subscription billing, tax handling, receipts,
-                refunds, and customer billing portal
+                1. Purpose: Checkout, payment collection, recurring subscription processing, and
+                standard payment or subscription notifications
                 <br />
-                2. Data shared: Your account email, Geekskai account reference, selected plan, and
-                payment and billing information You provide directly to Creem. Geekskai does not
-                receive or store full payment card details.
+                2. Data shared: An opaque checkout correlation identifier and selected PayPal Plan.
+                Payment and billing information is provided by You directly to PayPal. Geekskai does
+                not send Your Clerk account identifier to PayPal and does not receive or store full
+                payment card details.
                 <br />
                 3. More information:{" "}
                 <Link
-                  href="https://www.creem.io/privacy"
+                  href="https://www.paypal.com/us/legalhub/paypal/privacy-full"
                   rel="external nofollow noopener"
                   target="_blank"
                   className="text-primary-500 hover:text-primary-400"
                 >
-                  Creem Privacy Policy
+                  PayPal Privacy Statement
                 </Link>
               </p>
             </li>
@@ -254,30 +255,32 @@ const PrivacyPolicy = () => {
             only whether an authenticated user completed their first single-file or batch task so we
             can measure activation. We do not send audio content, filenames, or processing settings
             with that event. Subscription status and capability entitlements are stored in our
-            database and synchronized from signed Creem webhooks.
+            database and synchronized only after PayPal verifies its webhook transmission or a
+            direct PayPal API reconciliation succeeds.
           </p>
 
           <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">
             Subscription Records, Retention, and Deletion
           </h2>
           <p className="mb-4 text-gray-700">
-            To provide and audit Basic, Pro, or manually granted Enterprise access, We store Your
-            Clerk account identifier, Creem customer and subscription references, Package Tier,
-            Billing Interval, selected product, subscription status, current period end,
-            cancellation state, capability entitlements, and timestamps. For webhook reliability, We
-            also store the Creem event identifier, event type, a payload hash, and processing
-            timestamps. Events that cannot be linked to an account or trusted Product ID keep a
-            short processing error code for billing-integrity monitoring. We do not store the full
-            webhook payload or full card details in Our application database.
+            To provide and audit Basic or Pro access, We store Your Clerk account identifier within
+            Geekskai, PayPal payer, subscription, payment, and Plan references, Package Tier,
+            Billing Interval, subscription status, current period end, cancellation state,
+            capability entitlements, and timestamps. PayPal receives an opaque checkout correlation
+            identifier, not Your Clerk account identifier. For webhook reliability, We store the
+            PayPal event identifier, event type, a payload hash, processing timestamps, and a short
+            processing error code when an event cannot be linked safely. We do not store the full
+            webhook payload or full card details in Our application database. Unused checkout
+            correlation records are removed after 30 days.
           </p>
           <p className="mb-4 text-gray-700">
             Active subscription and entitlement records are kept while needed to provide the
-            Service. After an account or subscription ends, limited billing records may be retained
-            for fraud prevention, dispute handling, accounting, tax, and other legal obligations.
-            Deleting Your Geekskai account does not automatically erase records that Creem must
-            retain as merchant of record. To request deletion of eligible Geekskai account data,
-            contact support@geekskai.com. For payment records controlled by Creem, use Creem's
-            privacy request process.
+            Service. Limited billing records may be retained for up to seven years after an account
+            or subscription ends where needed for fraud prevention, disputes, accounting, tax, or
+            other legal obligations. Deleting Your Geekskai account does not erase records Geekskai
+            must retain as the seller. To request deletion of eligible Geekskai account data,
+            contact support@geekskai.com. PayPal separately controls the payment-account data You
+            provide to PayPal; use PayPal&apos;s privacy request process for that data.
           </p>
 
           <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">
@@ -293,8 +296,8 @@ const PrivacyPolicy = () => {
             server-issued identity. For signed-in users, we store the Clerk account identifier, UTC
             allowance day, successful-download count, temporary download reservations, the
             applicable account allowance, and whether the daily share reward was used. Basic and Pro
-            download allowances remain disabled until Geekskai receives written Billing Provider
-            approval. To measure whether the registration flow helps people finish their task, we
+            subscriptions apply only to the local Audio Toolkit and never change public downloader
+            allowances. To measure whether the registration flow helps people finish their task, we
             also record a pseudonymous journey identifier, controlled event names, tool identifiers,
             and event timestamps. Shared links may contain a random attribution identifier valid for
             30 days. We do not include pasted media URLs, tool input, email addresses, or IP

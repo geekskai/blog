@@ -1,4 +1,3 @@
-import { createHmac, timingSafeEqual } from "node:crypto"
 import { PACKAGE_CATALOG } from "./catalog"
 
 export type PackageTier = "free" | "basic" | "pro"
@@ -12,35 +11,18 @@ export type EntitlementSet = {
   zipExport: boolean
 }
 
-export type BillingProductEnvironment = {
-  CREEM_BASIC_MONTHLY_PRODUCT_ID?: string
-  CREEM_BASIC_ANNUAL_PRODUCT_ID?: string
-  CREEM_PRO_MONTHLY_PRODUCT_ID?: string
-  CREEM_PRO_ANNUAL_PRODUCT_ID?: string
+export type BillingPlanEnvironment = {
+  PAYPAL_BASIC_MONTHLY_PLAN_ID?: string
+  PAYPAL_BASIC_ANNUAL_PLAN_ID?: string
+  PAYPAL_PRO_MONTHLY_PLAN_ID?: string
+  PAYPAL_PRO_ANNUAL_PLAN_ID?: string
 }
 
-const PRODUCT_ENV_KEYS: Record<
-  `${CheckoutTier}_${BillingInterval}`,
-  keyof BillingProductEnvironment
-> = {
-  basic_monthly: "CREEM_BASIC_MONTHLY_PRODUCT_ID",
-  basic_annual: "CREEM_BASIC_ANNUAL_PRODUCT_ID",
-  pro_monthly: "CREEM_PRO_MONTHLY_PRODUCT_ID",
-  pro_annual: "CREEM_PRO_ANNUAL_PRODUCT_ID",
-}
-
-export function classifyRefund(input: {
-  refundAmount?: number | null
-  transactionAmountPaid?: number | null
-  transactionRefundedAmount?: number | null
-  subscriptionStatus?: string | null
-}): "full" | "partial" {
-  if (input.subscriptionStatus === "canceled") return "full"
-  const total = input.transactionAmountPaid
-  const refunded = input.transactionRefundedAmount ?? input.refundAmount
-  return typeof total === "number" && total > 0 && typeof refunded === "number" && refunded >= total
-    ? "full"
-    : "partial"
+const PLAN_ENV_KEYS: Record<`${CheckoutTier}_${BillingInterval}`, keyof BillingPlanEnvironment> = {
+  basic_monthly: "PAYPAL_BASIC_MONTHLY_PLAN_ID",
+  basic_annual: "PAYPAL_BASIC_ANNUAL_PLAN_ID",
+  pro_monthly: "PAYPAL_PRO_MONTHLY_PLAN_ID",
+  pro_annual: "PAYPAL_PRO_ANNUAL_PLAN_ID",
 }
 
 export function isPackageTier(value: unknown): value is PackageTier {
@@ -64,23 +46,23 @@ export function getEntitlementSet(tier: PackageTier): EntitlementSet {
   }
 }
 
-export function getBillingProductId(selection: CheckoutSelection, env: BillingProductEnvironment) {
+export function getBillingPlanId(selection: CheckoutSelection, env: BillingPlanEnvironment) {
   const key = `${selection.tier}_${selection.interval}` as const
-  const productId = env[PRODUCT_ENV_KEYS[key]]
-  if (!productId?.trim()) {
-    throw new Error(`Creem ${selection.tier} ${selection.interval} product is not configured.`)
+  const planId = env[PLAN_ENV_KEYS[key]]
+  if (!planId?.trim()) {
+    throw new Error(`PayPal ${selection.tier} ${selection.interval} plan is not configured.`)
   }
-  return productId.trim()
+  return planId.trim()
 }
 
-export function getBillingProductSelection(
-  productId: string | null | undefined,
-  env: BillingProductEnvironment
+export function getBillingPlanSelection(
+  planId: string | null | undefined,
+  env: BillingPlanEnvironment
 ): CheckoutSelection | null {
-  const normalized = productId?.trim()
+  const normalized = planId?.trim()
   if (!normalized) return null
 
-  for (const [key, envKey] of Object.entries(PRODUCT_ENV_KEYS)) {
+  for (const [key, envKey] of Object.entries(PLAN_ENV_KEYS)) {
     if (env[envKey]?.trim() === normalized) {
       const [tier, interval] = key.split("_") as [CheckoutTier, BillingInterval]
       return { tier, interval }
@@ -91,26 +73,27 @@ export function getBillingProductSelection(
 
 export function getAccessAction(
   eventType: string,
-  options: { refundType?: "full" | "partial" } = {}
+  options: {
+    refundType?: "full" | "partial"
+    subscriptionStatus?: string | null
+  } = {}
 ): AccessAction {
-  if (eventType === "subscription.active" || eventType === "subscription.paid") return "grant"
-  if (eventType === "subscription.past_due" || eventType === "subscription.scheduled_cancel") {
+  if (options.subscriptionStatus?.toUpperCase() === "SUSPENDED") return "revoke"
+  if (eventType === "BILLING.SUBSCRIPTION.ACTIVATED") return "grant"
+  if (
+    eventType === "BILLING.SUBSCRIPTION.PAYMENT.FAILED" ||
+    eventType === "BILLING.SUBSCRIPTION.CANCELLED"
+  ) {
     return "retain"
   }
   if (
-    eventType === "subscription.expired" ||
-    eventType === "subscription.paused" ||
-    eventType === "subscription.canceled" ||
-    eventType === "dispute.created"
+    eventType === "BILLING.SUBSCRIPTION.EXPIRED" ||
+    eventType === "BILLING.SUBSCRIPTION.SUSPENDED" ||
+    eventType === "PAYMENT.SALE.REVERSED" ||
+    eventType === "CUSTOMER.DISPUTE.CREATED"
   ) {
     return "revoke"
   }
-  if (eventType === "refund.created" && options.refundType === "full") return "revoke"
+  if (eventType === "PAYMENT.SALE.REFUNDED" && options.refundType === "full") return "revoke"
   return "none"
-}
-
-export function verifyCreemSignature(payload: string, signature: string, secret: string) {
-  if (!/^[a-f\d]{64}$/i.test(signature)) return false
-  const expected = createHmac("sha256", secret).update(payload).digest("hex")
-  return timingSafeEqual(Buffer.from(expected, "hex"), Buffer.from(signature, "hex"))
 }

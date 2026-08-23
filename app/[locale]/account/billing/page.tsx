@@ -3,7 +3,7 @@ import Link from "next/link"
 import { redirect } from "next/navigation"
 import { Check, CreditCard, ShieldCheck } from "lucide-react"
 import { getAccountPlanStatus } from "@/lib/billing/repository"
-import BillingPortalButton from "./BillingPortalButton"
+import SubscriptionActions from "./SubscriptionActions"
 
 export default async function BillingPage({ params }: { params: Promise<{ locale: string }> }) {
   const [{ userId }, { locale }] = await Promise.all([auth(), params])
@@ -12,15 +12,14 @@ export default async function BillingPage({ params }: { params: Promise<{ locale
 
   const billing = await getAccountPlanStatus(userId)
   const tierName = billing.packageTier[0].toUpperCase() + billing.packageTier.slice(1)
-  const statusNeedsAttention =
-    billing.subscriptionStatus === "past_due" || billing.subscriptionStatus === "expired"
+  const statusNeedsAttention = billing.subscriptionStatus === "SUSPENDED"
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-14 text-white sm:py-16">
       <p className="text-xs font-bold uppercase tracking-[0.2em] text-violet-300">Account</p>
       <h1 className="mt-3 text-3xl font-bold sm:text-4xl">Billing and access</h1>
       <p className="mt-3 max-w-2xl leading-7 text-slate-400">
-        Review your effective package and manage recurring billing securely with Creem.
+        Review your effective package and manage recurring billing securely with PayPal.
       </p>
 
       <section className="mt-8 grid gap-5 md:grid-cols-[1.3fr_0.7fr]">
@@ -30,8 +29,8 @@ export default async function BillingPage({ params }: { params: Promise<{ locale
               role="status"
               className="mb-6 rounded-xl border border-amber-400/30 bg-amber-400/10 p-4 text-sm leading-6 text-amber-100"
             >
-              Creem is retrying a payment. Your current access is retained while the retry is in
-              progress; use the billing portal to review your payment method.
+              PayPal has suspended this subscription after repeated payment failures. Update your
+              payment method in PayPal or contact support before starting a new subscription.
             </div>
           ) : null}
           <div className="flex flex-wrap items-start justify-between gap-4">
@@ -64,7 +63,7 @@ export default async function BillingPage({ params }: { params: Promise<{ locale
             </li>
             <li className="flex gap-2">
               <CreditCard className="h-5 w-5 text-violet-400" />
-              Recurring billing managed securely by Creem
+              Recurring billing processed securely by PayPal
             </li>
           </ul>
 
@@ -86,9 +85,12 @@ export default async function BillingPage({ params }: { params: Promise<{ locale
           ) : null}
 
           <div className="mt-6 flex flex-wrap gap-3">
-            {(billing.packageTier === "basic" || billing.packageTier === "pro") &&
-            billing.subscriptionStatus ? (
-              <BillingPortalButton />
+            {billing.subscriptionStatus &&
+            ["APPROVAL_PENDING", "APPROVED", "ACTIVE", "SUSPENDED"].includes(
+              billing.subscriptionStatus
+            ) &&
+            !billing.cancellationScheduled ? (
+              <SubscriptionActions />
             ) : (
               <Link
                 href={`${prefix}/pricing/`}
@@ -109,8 +111,8 @@ export default async function BillingPage({ params }: { params: Promise<{ locale
         <aside className="rounded-2xl border border-slate-800 bg-slate-950/50 p-6">
           <h2 className="font-semibold">Need help?</h2>
           <p className="mt-3 text-sm leading-6 text-slate-400">
-            Cancel, update payment details, and access invoices through Creem. First payments have
-            one 14-day refund window per account.
+            Cancel future renewal here and manage payment details in PayPal. First payments have one
+            14-day refund window per account; contact support to request it.
           </p>
           <a
             href="mailto:support@geekskai.com"

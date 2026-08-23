@@ -1,10 +1,13 @@
-import { auth, currentUser } from "@clerk/nextjs/server"
+import { auth } from "@clerk/nextjs/server"
 import { NextRequest, NextResponse } from "next/server"
-import { defaultLocale, locales } from "@/app/i18n/routing"
-import { getCreemClient } from "@/lib/billing/creem"
-import { getBillingProductId, isCheckoutSelection } from "@/lib/billing/domain"
+import { getBillingPlanId, isCheckoutSelection } from "@/lib/billing/domain"
+import { getPayPalConfig } from "@/lib/billing/paypal"
 import { billingCheckoutEnabled } from "@/lib/billing/policy"
-import { getAccountPlanStatus } from "@/lib/billing/repository"
+import {
+  createPayPalCheckoutCorrelation,
+  getAccountPlanStatus,
+  getManagedPayPalSubscription,
+} from "@/lib/billing/repository"
 
 export async function POST(request: NextRequest) {
   if (!billingCheckoutEnabled()) {
@@ -19,15 +22,11 @@ export async function POST(request: NextRequest) {
   if (!isCheckoutSelection(selection)) {
     return NextResponse.json({ error: "Unknown billing plan." }, { status: 400 })
   }
-  const locale =
-    typeof body?.locale === "string" && locales.includes(body.locale) ? body.locale : defaultLocale
-  const localePrefix = locale === defaultLocale ? "" : `/${locale}`
-  const user = await currentUser()
-  const email = user?.primaryEmailAddress?.emailAddress
-  if (!email)
-    return NextResponse.json({ error: "A verified account email is required." }, { status: 400 })
-
-  if ((await getAccountPlanStatus(userId)).packageTier !== "free") {
+  const [accountPlan, managedSubscription] = await Promise.all([
+    getAccountPlanStatus(userId),
+    getManagedPayPalSubscription(userId),
+  ])
+  if (accountPlan.packageTier !== "free" || managedSubscription) {
     return NextResponse.json(
       { error: "Manage an existing subscription from your billing account." },
       { status: 409 }
@@ -35,26 +34,21 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const requestWindow = Math.floor(Date.now() / (5 * 60 * 1000))
-    const checkout = await getCreemClient().checkouts.create({
-      productId: getBillingProductId(selection, {
-        CREEM_BASIC_MONTHLY_PRODUCT_ID: process.env.CREEM_BASIC_MONTHLY_PRODUCT_ID,
-        CREEM_BASIC_ANNUAL_PRODUCT_ID: process.env.CREEM_BASIC_ANNUAL_PRODUCT_ID,
-        CREEM_PRO_MONTHLY_PRODUCT_ID: process.env.CREEM_PRO_MONTHLY_PRODUCT_ID,
-        CREEM_PRO_ANNUAL_PRODUCT_ID: process.env.CREEM_PRO_ANNUAL_PRODUCT_ID,
-      }),
-      requestId: `audio-toolkit:${userId}:${selection.tier}:${selection.interval}:${requestWindow}`,
-      customer: { email },
-      successUrl: `${request.nextUrl.origin}${localePrefix}/audio-toolkit/?checkout=success`,
-      metadata: {
-        referenceId: userId,
-        source: typeof body?.source === "string" ? body.source.slice(0, 64) : "pricing",
-      },
+    const config = getPayPalConfig()
+    const planId = getBillingPlanId(selection, {
+      PAYPAL_BASIC_MONTHLY_PLAN_ID: process.env.PAYPAL_BASIC_MONTHLY_PLAN_ID,
+      PAYPAL_BASIC_ANNUAL_PLAN_ID: process.env.PAYPAL_BASIC_ANNUAL_PLAN_ID,
+      PAYPAL_PRO_MONTHLY_PLAN_ID: process.env.PAYPAL_PRO_MONTHLY_PLAN_ID,
+      PAYPAL_PRO_ANNUAL_PLAN_ID: process.env.PAYPAL_PRO_ANNUAL_PLAN_ID,
     })
-    if (!checkout.checkoutUrl) throw new Error("Creem did not return a checkout URL.")
-    return NextResponse.json({ url: checkout.checkoutUrl })
+    const correlation = await createPayPalCheckoutCorrelation(userId, selection)
+    return NextResponse.json({
+      clientId: config.clientId,
+      planId,
+      customId: correlation.id,
+    })
   } catch (error) {
-    console.error("Creem checkout creation failed", error)
+    console.error("PayPal checkout preparation failed", error)
     return NextResponse.json({ error: "Checkout is temporarily unavailable." }, { status: 502 })
   }
 }

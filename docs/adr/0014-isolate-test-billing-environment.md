@@ -1,3 +1,8 @@
+---
+status: superseded
+superseded-by: 0022-isolate-and-verify-paypal-billing-environments
+---
+
 # Isolate test and production billing environments
 
 Creem Test Mode uses the fixed Preview branch `codex/creem-test-preview` through the Vercel branch alias `blog-git-codex-creem-test-preview-geekskais-projects.vercel.app`, the dedicated Neon child branch `creem-test`, and a dedicated Clerk Billing Test User. The Preview must use that Neon branch exclusively. We chose database-level isolation instead of adding an environment discriminator to every billing table because test Customers, Subscribers, webhook events, and Account Entitlements must never collide with or grant access in production.

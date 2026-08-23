@@ -17,8 +17,16 @@ The current Geekskai product phase in which public tools remain free and effort 
 _Avoid_: Payment launch, speculative tool expansion, paid downloader growth
 
 **Commercialization Pause**:
-The state in which no live payment provider is selected, checkout remains disabled, and no paid entitlement is granted. Existing billing work is dormant preparation rather than a production offer.
+The state in which no live Payment Processor is selected, checkout remains disabled, and no paid entitlement is granted. Existing billing work is dormant preparation rather than a production offer.
 _Avoid_: Failed launch, free trial, hidden checkout
+
+**Payment Launch Gate**:
+The evidence required to end the Commercialization Pause: verified PayPal Business and live subscription eligibility, an isolated Sandbox lifecycle test, accurate tax and refund disclosures, and production checkout verification. Passing code checks alone does not open paid access.
+_Avoid_: Account created, Sandbox success as live approval, deploy means launch
+
+**Hard Processor Cutover**:
+The one-time migration that removes the dormant Creem runtime and configuration before PayPal becomes the only Payment Processor. Provider-neutral billing tables remain, and the cutover must stop if preflight evidence reveals an existing Creem Subscriber or entitlement.
+_Avoid_: Dual-provider operation, rewriting Creem records as PayPal, deleting billing tables
 
 **Dormant Pricing Surface**:
 The retained but non-promoted Pricing implementation during the Commercialization Pause. Pricing is removed from primary navigation and the sitemap, carries `noindex`, and exposes no active checkout or acquisition call to action. Its code and package model remain available for a future explicit commercialization restart.
@@ -141,8 +149,8 @@ The source track's base filename and available descriptive metadata, including t
 _Avoid_: Metadata stripping, unrelated filename rewrite, full tag editor
 
 **Creator Batch Access**:
-The free per-batch access rule for DJ Preparation: a Visitor may process up to 3 local files, while a Registered User may process up to 10 and export the completed batch as a ZIP. Browser-local processing has no daily limit and does not consume Daily Download Allowance.
-_Avoid_: Paid batch tier, daily audio-processing credits, public downloader allowance
+The Audio Toolkit per-batch access rule: Free processes 1 local file without ZIP export, Basic processes up to 20 with ZIP export, and Pro processes up to 50 with ZIP export. Browser-local processing has no daily limit and does not consume Daily Download Allowance.
+_Avoid_: Visitor-versus-user batch limits, daily audio-processing credits, public downloader allowance
 
 **Local DJ Workspace**:
 The device-bound browser workspace that stores DJ project names, preparation presets, and recent activity without cloud synchronization. Audio, filenames, track lists, and workspace metadata are not uploaded; clearing browser data or changing devices loses the workspace.
@@ -157,11 +165,11 @@ A completed tool interaction that returns the usable result promised by that too
 _Avoid_: Tool-page visit, button click, attempt
 
 **Customer**:
-A Registered User who has created a verified billing relationship with an approved provider. Customer describes billing identity only and does not itself grant application access.
+A Registered User who has created a verified billing relationship through an approved Payment Processor. Customer describes billing identity only and does not itself grant application access.
 _Avoid_: Every Registered User, payment card holder, entitlement
 
 **Subscriber**:
-A Customer with a recurring Geekskai Basic or Pro agreement from an approved provider. Runtime access is still determined from the Effective Package and Account Entitlements.
+A Customer with a recurring Geekskai Basic or Pro agreement processed by an approved Payment Processor. Runtime access is still determined from the Effective Package and Account Entitlements.
 _Avoid_: `is_paid`, VIP, using subscription status directly as authorization
 
 **Package Tier**:
@@ -177,32 +185,92 @@ The stable Audio Toolkit capability values associated with a Package Tier: local
 _Avoid_: UI feature list as authorization, payment status as authorization
 
 **Account Plan Status**:
-The account's computed billing view containing its Effective Package, Billing Interval, provider lifecycle state, renewal date, and Entitlement Set. It is returned by the server and never accepted from the client.
+The account's computed billing view containing its Effective Package, Billing Interval, payment lifecycle state, renewal date, and Entitlement Set. It is returned by the server and never accepted from the client.
 _Avoid_: `is_paid`, client-selected Product ID
 
 **Effective Package**:
 The one Audio Toolkit Package Tier currently applied to a Registered User. A verified Basic or Pro subscription takes precedence over Free.
 _Avoid_: Additive plan stacking, merging multiple subscriptions
 
-**Billing Provider**:
-The externally approved authority for checkout, payment collection, recurring billing, tax, receipts, refunds, disputes, and subscription lifecycle. No live Billing Provider is selected during the Commercialization Pause.
-_Avoid_: Application authorization database, payment credentials stored by Geekskai
+**Merchant**:
+Geekskai as the direct seller of paid access, responsible for its offer, tax treatment, customer disclosures, receipts or invoices, refunds, disputes, and payment support.
+_Avoid_: Payment Processor, Merchant of Record
+
+**Payment Processor**:
+The approved external service that supplies checkout, payment collection, recurring billing, and payment lifecycle signals without becoming the Merchant. No live Payment Processor is selected during the Commercialization Pause.
+_Avoid_: Merchant of Record, application authorization database, payment credentials stored by Geekskai
+
+**Payment Approval**:
+The Customer's approval of a paid PayPal subscription during checkout. Approval begins server verification but never grants an Account Entitlement by itself.
+_Avoid_: Paid Activation, successful payment, checkout return as authorization
+
+**Opaque Billing Correlation ID**:
+A random, single-purpose identifier created by Geekskai to bind one checkout attempt to the correct Registered User without sending the raw Clerk user ID to PayPal. It expires when unused and cannot be treated as authentication or an Account Entitlement.
+_Avoid_: Clerk user ID in `custom_id`, email address as account binding, client-supplied identity
+
+**Webhook Postback Verification**:
+The v1 authenticity check in which Geekskai sends the received PayPal transmission metadata and event to PayPal's verification API and processes the event only after a verified response. HTTPS delivery, a matching event ID, or a successful JSON parse is not sufficient.
+_Avoid_: Trusting webhook headers without verification, checkout return as webhook proof, client-side verification
 
 **Billing Environment**:
-A mutually isolated billing context whose Customers, Subscribers, provider identifiers, events, and Account Entitlements belong exclusively to either testing or production. Test billing relationships never grant production access.
+A mutually isolated billing context whose Customers, Subscribers, processor identifiers, events, and Account Entitlements belong exclusively to either testing or production. Test billing relationships never grant production access.
 _Avoid_: Mixing test and production billing records, deployment environment
 
 **Billing Test User**:
 A Registered User reserved for validating checkout and subscription lifecycles inside the test Billing Environment. A Billing Test User is not a production Customer or Subscriber.
 _Avoid_: Personal account, production customer, real subscriber
 
+**PayPal Plan Catalog**:
+One PayPal product and four fixed-price recurring plans representing Basic monthly, Basic annual, Pro monthly, and Pro annual. The catalog is provisioned once per Billing Environment by a controlled setup operation; Free remains an internal Package Tier and runtime application startup never creates or mutates PayPal plans.
+_Avoid_: Creating plans during checkout, sharing Sandbox and Live plan IDs, PayPal plan for Free
+
+**Payment Failure Threshold**:
+The PayPal plan policy that permits one failed recurring payment recovery attempt and suspends the subscription after two consecutive payment failures. Geekskai retains Payment Retry Access while the subscription remains Active and revokes it only after the verified suspension or another Terminal Payment Event.
+_Avoid_: Immediate first-failure downgrade, unlimited retry access, local failure counter overriding PayPal state
+
+**Payment Record Retention**:
+The minimal local record needed to reconcile subscriptions, payments, refunds, disputes, and entitlement changes without storing card data or full PayPal webhook payloads. An unused Opaque Billing Correlation ID becomes invalid after 30 minutes and its record is removed after 30 days; the initial operational default retains necessary accounting records for seven years, subject to tax and legal confirmation before the Payment Launch Gate passes.
+_Avoid_: Raw webhook archive, card storage, deleting records needed for an open dispute, claiming the provisional period is legal advice
+
+**Processor Notification Boundary**:
+The v1 rule that PayPal sends its standard payment, renewal, and subscription messages while Geekskai shows the verified billing state in the account and handles support or refund correspondence. Geekskai does not operate a separate automated billing-email system in v1.
+_Avoid_: Duplicate automated receipts, silent account state, custom billing-email scope in the processor migration
+
+**Billing Release Control**:
+The independent server and interface gates that keep checkout unavailable until the Payment Launch Gate passes. `BILLING_CHECKOUT_ENABLED` is authoritative for billing APIs; `NEXT_PUBLIC_BILLING_CHECKOUT_ENABLED` only reveals the interface and can never enable checkout by itself. `BILLING_SCHEMA_V2_ENABLED` remains until billing migrations are verified.
+_Avoid_: Public flag as authorization, credentials imply launch, deployment automatically enables checkout
+
 **Paid Entitlement**:
-A future Audio Toolkit Account Entitlement synchronized from a verified Billing Provider event. Download-tool entitlements are not sold or synchronized from billing.
+A future Audio Toolkit Account Entitlement synchronized from a verified Payment Processor event. Download-tool entitlements are not sold or synchronized from billing.
 _Avoid_: Pro boolean on the user, checkout redirect as proof of access
 
 **Paid Activation**:
 A Subscriber who completes a batch of at least two local audio files within 24 hours of the first successful subscription payment. Audio, filenames, and processing settings are not recorded.
 _Avoid_: Checkout return, subscription created, pricing-page click
+
+**First-Payment Refund Window**:
+The one-time period ending 14 calendar days after an account's first successful subscription payment in which the Customer may request a full refund. Renewals, upgrades, and later subscriptions do not create another window.
+_Avoid_: Recurring refund window, automatic renewal refund, prorated refund promise
+
+**Paid-Through Access**:
+The period after a Subscriber stops future renewal but before the already-paid Billing Interval ends. The Effective Package remains paid during this period unless a full refund, reversal, dispute, or other terminal entitlement event ends it earlier.
+_Avoid_: Immediate downgrade on cancellation, continued renewal, permanent grace period
+
+**Payment Retry Access**:
+The temporary retention of the Effective Package after a failed recurring payment while PayPal still reports the subscription as Active and continues recovery. It ends when PayPal suspends the subscription or another Terminal Payment Event occurs.
+_Avoid_: Permanent grace period, first-failure downgrade, unpaid active plan
+
+**Terminal Payment Event**:
+A verified suspension, expiration, full refund, reversal, or dispute that ends paid entitlement immediately. Cancellation alone is not terminal while Paid-Through Access remains; a partial refund requires manual review.
+_Avoid_: Checkout cancellation, first payment failure, partial refund as automatic revocation
+
+**Plan Change Freeze**:
+The v1 rule that a Subscriber cannot directly switch Package Tier or Billing Interval. The Subscriber cancels renewal, keeps Paid-Through Access, and may choose a new paid package after the existing period ends.
+_Avoid_: Automatic proration, immediate upgrade, PayPal revise flow
+
+**Fixed Gross Price**:
+The final USD amount authorized by the Customer for a Package Tier and Billing Interval, with no additional tax added during checkout. Geekskai determines and absorbs any applicable indirect tax from that amount.
+_Avoid_: Tax-exclusive display, PayPal-calculated global tax, undisclosed checkout surcharge
 
 **Account Entitlement**:
 A time-bounded Audio Toolkit capability value assigned to a Registered User, identified by a stable key such as `workspace.batch_file_limit`, with its source and validity period. Free defaults remain application rules; only future paid Audio Toolkit additions require stored entitlements.
