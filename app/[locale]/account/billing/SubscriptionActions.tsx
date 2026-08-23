@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { readBillingJson } from "@/lib/billing/client-response"
 
 export default function SubscriptionActions() {
   const [error, setError] = useState<string | null>(null)
@@ -16,11 +17,14 @@ export default function SubscriptionActions() {
     }
     setBusy(true)
     setError(null)
-    const response = await fetch("/api/billing/subscription/cancel/", { method: "POST" })
-    const result = (await response.json()) as { error?: string }
-    if (response.ok) window.location.reload()
-    else {
-      setError(result.error ?? "Cancellation is temporarily unavailable.")
+    try {
+      const response = await fetch("/api/billing/subscription/cancel/", { method: "POST" })
+      const result = await readBillingJson<{ error?: string }>(response)
+      if (response.ok && result) window.location.reload()
+      else setError(result?.error ?? "Cancellation is temporarily unavailable.")
+    } catch {
+      setError("Cancellation is temporarily unavailable.")
+    } finally {
       setBusy(false)
     }
   }

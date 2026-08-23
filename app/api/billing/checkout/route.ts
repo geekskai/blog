@@ -1,7 +1,7 @@
 import { auth } from "@clerk/nextjs/server"
 import { NextRequest, NextResponse } from "next/server"
 import { getBillingPlanId, isCheckoutSelection } from "@/lib/billing/domain"
-import { getPayPalConfig } from "@/lib/billing/paypal"
+import { getPayPalConfig, isPayPalCheckoutConfigured } from "@/lib/billing/paypal"
 import { billingCheckoutEnabled } from "@/lib/billing/policy"
 import {
   createPayPalCheckoutCorrelation,
@@ -21,6 +21,10 @@ export async function POST(request: NextRequest) {
   const selection = { tier: body?.tier, interval: body?.interval }
   if (!isCheckoutSelection(selection)) {
     return NextResponse.json({ error: "Unknown billing plan." }, { status: 400 })
+  }
+  if (!isPayPalCheckoutConfigured()) {
+    console.error("PayPal checkout preparation failed: server configuration is incomplete.")
+    return NextResponse.json({ error: "Checkout is temporarily unavailable." }, { status: 503 })
   }
   const [accountPlan, managedSubscription] = await Promise.all([
     getAccountPlanStatus(userId),

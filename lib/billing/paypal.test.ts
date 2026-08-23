@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest"
-import { createPayPalClient, getPayPalConfig } from "./paypal"
+import { createPayPalClient, getPayPalConfig, isPayPalCheckoutConfigured } from "./paypal"
 
 const config = {
   clientId: "sandbox-client",
@@ -55,6 +55,63 @@ describe("PayPal webhook verification", () => {
 })
 
 describe("PayPal environment isolation", () => {
+  it("keeps checkout closed when a public flag is enabled without complete server configuration", () => {
+    expect(
+      isPayPalCheckoutConfigured({
+        PAYPAL_ENVIRONMENT: "sandbox",
+        PAYPAL_WEBHOOK_ID: "sandbox-webhook",
+        NEXT_PUBLIC_BILLING_CHECKOUT_ENABLED: "true",
+      })
+    ).toBe(false)
+
+    expect(
+      isPayPalCheckoutConfigured({
+        PAYPAL_ENVIRONMENT: "sandbox",
+        PAYPAL_CLIENT_ID: "client",
+        PAYPAL_CLIENT_SECRET: "secret",
+        PAYPAL_WEBHOOK_ID: "webhook",
+        PAYPAL_BASIC_MONTHLY_PLAN_ID: "P-basic-monthly",
+        PAYPAL_BASIC_ANNUAL_PLAN_ID: "P-basic-annual",
+        PAYPAL_PRO_MONTHLY_PLAN_ID: "P-pro-monthly",
+        PAYPAL_PRO_ANNUAL_PLAN_ID: "P-pro-annual",
+      })
+    ).toBe(true)
+  })
+
+  it("never allows Sandbox billing in Production or Live billing in Preview", () => {
+    const completeEnvironment = {
+      PAYPAL_CLIENT_ID: "client",
+      PAYPAL_CLIENT_SECRET: "secret",
+      PAYPAL_WEBHOOK_ID: "webhook",
+      PAYPAL_BASIC_MONTHLY_PLAN_ID: "P-basic-monthly",
+      PAYPAL_BASIC_ANNUAL_PLAN_ID: "P-basic-annual",
+      PAYPAL_PRO_MONTHLY_PLAN_ID: "P-pro-monthly",
+      PAYPAL_PRO_ANNUAL_PLAN_ID: "P-pro-annual",
+    }
+
+    expect(
+      isPayPalCheckoutConfigured({
+        ...completeEnvironment,
+        VERCEL_ENV: "production",
+        PAYPAL_ENVIRONMENT: "sandbox",
+      })
+    ).toBe(false)
+    expect(
+      isPayPalCheckoutConfigured({
+        ...completeEnvironment,
+        VERCEL_ENV: "preview",
+        PAYPAL_ENVIRONMENT: "live",
+      })
+    ).toBe(false)
+    expect(() =>
+      getPayPalConfig({
+        ...completeEnvironment,
+        VERCEL_ENV: "production",
+        PAYPAL_ENVIRONMENT: "sandbox",
+      })
+    ).toThrow("PayPal sandbox configuration is not allowed in this deployment.")
+  })
+
   it("selects the Sandbox API only from an explicit complete Sandbox configuration", () => {
     expect(
       getPayPalConfig({

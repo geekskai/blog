@@ -2,6 +2,7 @@
 
 import Script from "next/script"
 import { useEffect, useRef, useState } from "react"
+import { readBillingJson } from "@/lib/billing/client-response"
 
 type PayPalActions = {
   subscription: {
@@ -74,8 +75,10 @@ export default function PayPalSubscriptionButton({
           headers: { "content-type": "application/json" },
           body: JSON.stringify({ subscriptionId: data.subscriptionID }),
         })
-        const result = (await response.json()) as { error?: string }
-        if (!response.ok) throw new Error(result.error ?? "Subscription confirmation failed.")
+        const result = await readBillingJson<{ error?: string }>(response)
+        if (!response.ok || !result) {
+          throw new Error(result?.error ?? "Subscription confirmation is temporarily unavailable.")
+        }
         onApproved()
       },
       onCancel,

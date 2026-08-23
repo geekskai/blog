@@ -4,13 +4,15 @@ import { permanentRedirect } from "next/navigation"
 import { Check, ChevronDown, CircleHelp, LockKeyhole, ReceiptText, ShieldCheck } from "lucide-react"
 import siteMetadata from "@/data/siteMetadata"
 import { PACKAGE_CATALOG } from "@/lib/billing/catalog"
+import { isPayPalCheckoutConfigured } from "@/lib/billing/paypal"
 import PricingActions from "./PricingActions"
 
 const pricingDescription =
   "Compare Geekskai Free, Basic, and Pro plans for private, local-first audio preparation."
 const checkoutEnabled =
   process.env.BILLING_CHECKOUT_ENABLED === "true" &&
-  process.env.NEXT_PUBLIC_BILLING_CHECKOUT_ENABLED === "true"
+  process.env.NEXT_PUBLIC_BILLING_CHECKOUT_ENABLED === "true" &&
+  isPayPalCheckoutConfigured()
 
 export function generateMetadata(): Metadata {
   const canonical = `${siteMetadata.siteUrl}/pricing/`
@@ -178,7 +180,7 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
       />
       <div className="pointer-events-none absolute left-1/2 top-10 -z-10 h-[34rem] w-[70rem] -translate-x-1/2 rounded-full bg-violet-950/20 blur-3xl" />
       <div className="mx-auto max-w-7xl">
-        <PricingActions locale={locale} />
+        <PricingActions locale={locale} checkoutEnabled={checkoutEnabled} />
 
         <section className="mt-16 sm:mt-20" aria-labelledby="comparison-title">
           <p className="text-xs font-bold uppercase tracking-[0.23em] text-violet-300">

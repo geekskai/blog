@@ -15,6 +15,7 @@ import {
 import { useCallback, useEffect, useRef, useState } from "react"
 import { ANNUAL_SAVINGS, PACKAGE_CATALOG } from "@/lib/billing/catalog"
 import { trackClarityEvent } from "@/lib/analytics/clarity"
+import { readBillingJson } from "@/lib/billing/client-response"
 import type { PackageTier } from "@/lib/billing/domain"
 import type { AccountPlanStatus } from "@/lib/billing/types"
 import PayPalSubscriptionButton from "./PayPalSubscriptionButton"
@@ -30,8 +31,6 @@ type PayPalCheckout = {
   planId: string
   customId: string
 }
-
-const checkoutEnabled = process.env.NEXT_PUBLIC_BILLING_CHECKOUT_ENABLED === "true"
 
 const paidPlans = {
   basic: {
@@ -66,7 +65,13 @@ const paidPlans = {
   },
 } as const
 
-export default function PricingActions({ locale }: { locale: string }) {
+export default function PricingActions({
+  locale,
+  checkoutEnabled,
+}: {
+  locale: string
+  checkoutEnabled: boolean
+}) {
   const { isLoaded, isSignedIn } = useAuth()
   const [interval, setInterval] = useState<BillingInterval>("annual")
   const [busyAction, setBusyAction] = useState<BusyAction>(null)
@@ -104,8 +109,10 @@ export default function PricingActions({ locale }: { locale: string }) {
     setAccountStatus("loading")
     void fetch("/api/billing/status/", { cache: "no-store", signal: controller.signal })
       .then(async (response) => {
-        const result = (await response.json()) as AccountPlanStatus & { error?: string }
-        if (!response.ok) throw new Error(result.error ?? "Account plan is unavailable.")
+        const result = await readBillingJson<AccountPlanStatus & { error?: string }>(response)
+        if (!response.ok || !result) {
+          throw new Error(result?.error ?? "Account plan is unavailable.")
+        }
         setCurrentTier(result.packageTier)
         setAccountStatus("ready")
       })
@@ -136,14 +143,14 @@ export default function PricingActions({ locale }: { locale: string }) {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ tier, interval, locale, source: "pricing" }),
       })
-      const result = (await response.json()) as {
+      const result = await readBillingJson<{
         clientId?: string
         planId?: string
         customId?: string
         error?: string
-      }
-      if (!response.ok || !result.clientId || !result.planId || !result.customId) {
-        throw new Error(result.error ?? "Checkout failed.")
+      }>(response)
+      if (!response.ok || !result?.clientId || !result.planId || !result.customId) {
+        throw new Error(result?.error ?? "Checkout is temporarily unavailable.")
       }
       trackClarityEvent(`checkout_created_${tier}_${interval}`)
       setPayPalCheckout({

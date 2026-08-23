@@ -15,12 +15,46 @@ export type PayPalTransmission = {
 
 type Fetch = (input: string | URL | Request, init?: RequestInit) => Promise<Response>
 
+function isPayPalEnvironmentAllowedForDeployment(
+  environment: string | undefined,
+  vercelEnvironment: string | undefined
+) {
+  if (vercelEnvironment === "production") return environment === "live"
+  if (vercelEnvironment === "preview" || vercelEnvironment === "development") {
+    return environment === "sandbox"
+  }
+  return environment === "sandbox" || environment === "live"
+}
+
+const PAYPAL_CHECKOUT_ENV_KEYS = [
+  "PAYPAL_CLIENT_ID",
+  "PAYPAL_CLIENT_SECRET",
+  "PAYPAL_WEBHOOK_ID",
+  "PAYPAL_BASIC_MONTHLY_PLAN_ID",
+  "PAYPAL_BASIC_ANNUAL_PLAN_ID",
+  "PAYPAL_PRO_MONTHLY_PLAN_ID",
+  "PAYPAL_PRO_ANNUAL_PLAN_ID",
+] as const
+
+export function isPayPalCheckoutConfigured(
+  env: Record<string, string | undefined> = process.env
+) {
+  const environment = env.PAYPAL_ENVIRONMENT?.trim()
+  return (
+    isPayPalEnvironmentAllowedForDeployment(environment, env.VERCEL_ENV?.trim()) &&
+    PAYPAL_CHECKOUT_ENV_KEYS.every((key) => Boolean(env[key]?.trim()))
+  )
+}
+
 export function getPayPalConfig(
   env: Record<string, string | undefined> = process.env
 ): PayPalConfig {
   const environment = env.PAYPAL_ENVIRONMENT?.trim()
   if (environment !== "sandbox" && environment !== "live") {
     throw new Error("PAYPAL_ENVIRONMENT must be sandbox or live.")
+  }
+  if (!isPayPalEnvironmentAllowedForDeployment(environment, env.VERCEL_ENV?.trim())) {
+    throw new Error(`PayPal ${environment} configuration is not allowed in this deployment.`)
   }
   const clientId = env.PAYPAL_CLIENT_ID?.trim()
   const clientSecret = env.PAYPAL_CLIENT_SECRET?.trim()

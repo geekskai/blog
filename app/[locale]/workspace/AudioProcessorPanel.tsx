@@ -5,6 +5,7 @@ import { Archive, Crown, FileAudio, Loader2, Square, Upload } from "lucide-react
 import { saveAs } from "file-saver"
 import JSZip from "jszip"
 import Link from "next/link"
+import { readBillingJson } from "@/lib/billing/client-response"
 import type { AccountPlanStatus } from "@/lib/billing/types"
 import { trackClarityEvent } from "@/lib/analytics/clarity"
 import { getAudioSelectionIssue } from "@/lib/workspace/audio"
@@ -70,9 +71,9 @@ export default function AudioProcessorPanel({
       attempts += 1
       const response = await fetch("/api/billing/status/", { cache: "no-store" })
       if (response.ok) {
-        const next = (await response.json()) as AccountPlanStatus
-        setBilling(next)
-        if (next.packageTier !== "free") {
+        const next = await readBillingJson<AccountPlanStatus>(response)
+        if (next) setBilling(next)
+        if (next?.packageTier !== undefined && next.packageTier !== "free") {
           setConfirming(false)
           setConfirmationTimedOut(false)
           window.clearInterval(poll)
