@@ -1,46 +1,49 @@
-# Audio Toolkit PayPal release checklist
+# Audio Toolkit PayPal Live release checklist
 
-Free, Basic, and Pro apply only to the browser-local Audio Toolkit. Public third-party downloader allowances remain outside the paid product.
+Audio Credits apply only to browser-local Audio Toolkit processing. Public third-party downloader allowances remain outside the paid product.
 
 ## Current status
 
-PayPal migration is implemented behind Billing Release Control. Production checkout remains disabled until every Payment Launch Gate item below is verified. Code completion or deployment alone does not authorize live sales.
+Orders, subscriptions, Credit grants, and local-processing reservations are implemented behind Billing Release Control. Deployment alone does not authorize live sales.
 
 ## Zero-subscriber preflight
 
-- [ ] Query the production billing tables and confirm there are no Creem Subscribers or active Creem-sourced Account Entitlements.
-- [ ] Stop the hard cutover and make a migration decision if that premise is false.
-- [ ] Preserve the provider-neutral billing tables; never rewrite a Creem identifier as PayPal.
+- [ ] Query production billing tables for every active or suspended Creem or legacy PayPal Basic/Pro subscription.
+- [ ] Stop launch and make an explicit migration decision if any legacy subscriber exists.
+- [ ] Preserve provider identifiers and audit records; never rewrite an old subscription as a new Regular subscription.
 
-## PayPal Sandbox
+## Database and application
 
-- [ ] Create a dedicated Sandbox REST application and Webhook.
-- [ ] Run the controlled provisioning script once to create one Product plus Basic Monthly `$10`, Basic Annual `$96`, Pro Monthly `$25`, and Pro Annual `$240` Plans.
-- [ ] Configure Sandbox-only `PAYPAL_CLIENT_ID`, `PAYPAL_CLIENT_SECRET`, `PAYPAL_WEBHOOK_ID`, `PAYPAL_ENVIRONMENT=sandbox`, and the four Sandbox Plan IDs.
-- [ ] Apply migration `0008`, then keep `BILLING_SCHEMA_V2_ENABLED=true` only in the isolated test environment.
-- [ ] Verify Free and arbitrary Plan IDs are rejected and the raw Clerk user ID is absent from PayPal `custom_id`.
-- [ ] Verify approval alone does not grant access; `BILLING.SUBSCRIPTION.ACTIVATED` grants Basic or Pro entitlements.
-- [ ] Verify duplicate events are idempotent and invalid PayPal transmissions are rejected.
-- [ ] Verify one failed payment retains Active access, two failures suspend the PayPal subscription, and verified suspension revokes access.
-- [ ] Verify cancellation stops renewal and retains access through the stored paid period.
-- [ ] Verify expiration, reversal, dispute, and full refund revoke access; partial refund remains for manual review.
-- [ ] Verify the nightly reconciliation reads only Sandbox subscriptions and never changes production entitlements.
+- [ ] Back up production and apply migration `0009_nifty_proteus.sql` before setting `BILLING_RELEASE_STAGE=credits`.
+- [ ] Verify a signed-in account receives exactly 30 Free Credits per UTC day and a visitor cannot reserve Credits.
+- [ ] Verify combined duration is rounded up once per batch and reservation deduction order is Free, subscription, then PAYG.
+- [ ] Verify failed/cancelled work releases its reservation; partial success charges only successful-file duration.
+- [ ] Verify paid access allows at most 50 files, 200 MB per file, 500 MB per batch, and ZIP export.
+- [ ] Verify expired or abandoned reservations release safely and duplicate settlement is idempotent.
 
-## Merchant readiness
+## PayPal Live setup
 
-- [ ] Confirm the PayPal Business account can use Live REST Subscriptions and guest card funding where intended.
-- [ ] Obtain tax and legal confirmation for fixed gross prices, the provisional seven-year billing-record retention period, refund wording, and receipts or invoices.
-- [ ] Confirm `support@geekskai.com` is monitored for payment, refund, dispute, and invoice requests.
-- [ ] Review Pricing, Billing, Terms, Privacy, and the one-file free Audio Toolkit experience on mobile and desktop.
+- [ ] Confirm the PayPal Business account can use Live Orders, captures, Subscriptions, and the intended funding methods.
+- [ ] Create a dedicated Live REST application and webhook.
+- [ ] Run `PAYPAL_ENVIRONMENT=live PAYPAL_PROVISION_CONFIRM=CREATE_LIVE yarn paypal:provision` once to create the Audio Credits product and $29 Regular monthly plan.
+- [ ] Store `PAYPAL_CLIENT_ID`, `PAYPAL_CLIENT_SECRET`, `PAYPAL_WEBHOOK_ID`, `PAYPAL_ENVIRONMENT=live`, and `PAYPAL_REGULAR_MONTHLY_PLAN_ID` in production secrets.
+- [ ] Subscribe the webhook to capture completed/refunded/reversed, sale completed/refunded/reversed/denied, and subscription lifecycle events handled by the application.
+- [ ] Confirm the old Basic/Pro Plan IDs are not used by the deployed application.
 
-## PayPal Live
+## Controlled production smoke test
 
-- [ ] Create a separate Live REST application and Webhook; never reuse Sandbox credentials, Product, Plans, Customers, or events.
-- [ ] Run the provisioning script once against Live and store the four returned Live Plan IDs.
-- [ ] Apply migration `0008` before deploying code that creates billing correlations or payment records.
-- [ ] Configure Live PayPal credentials, Webhook ID, and four Live Plan IDs in Production while both checkout flags remain false.
-- [ ] Delete the five obsolete Creem production variables only after an action-time confirmation.
-- [ ] Verify `BILLING_CHECKOUT_ENABLED=false` keeps the server API closed even if the public interface flag is true.
-- [ ] Complete controlled Basic and Pro purchases, cancellation, payment failure, full refund, Webhook verification, entitlement, and reconciliation checks.
-- [ ] Set `BILLING_CHECKOUT_ENABLED=true` and `NEXT_PUBLIC_BILLING_CHECKOUT_ENABLED=true` only after every preceding gate passes.
-- [ ] Verify Basic and Pro accounts still receive the same public downloader rules as every other Registered User.
+- [ ] Keep `BILLING_RELEASE_STAGE=off` for the migration and configuration deployment.
+- [ ] Set `BILLING_SCHEMA_V2_ENABLED=true` after verifying the migration, then set `BILLING_RELEASE_STAGE=credits` to verify the ledger while checkout remains closed.
+- [ ] Set `BILLING_INTERNAL_TEST_USER_IDS` to the authorized Clerk user ID, then set `BILLING_RELEASE_STAGE=internal` for the controlled Live smoke test. Confirm every other account receives HTTP 503 from create, capture, and subscription-confirm endpoints.
+- [ ] Complete one real $14 PAYG purchase. Verify the server-created order, server capture, verified webhook, exactly 480 Credits, duplicate-event idempotency, and the one-year expiry.
+- [ ] Complete one real $29 Regular subscription payment. Verify approval alone grants nothing, the completed sale grants exactly 2,800 Credits, and the grant expires at the verified paid-period end.
+- [ ] Verify cancel-at-renewal, payment failure/suspension, full refund/reversal, and partial-refund review behavior.
+- [ ] Verify a refund is not issued when any Credit from its corresponding payment grant has been consumed.
+- [ ] Confirm Pricing, Billing, Terms, Privacy, and Audio Toolkit behavior on mobile and desktop.
+
+## Public launch
+
+- [ ] Confirm `support@geekskai.com` is monitored and tax, refund, record-retention, receipt/invoice, and dispute wording has received appropriate legal/accounting review.
+- [ ] Set `BILLING_RELEASE_STAGE=public` only after the internal smoke test passes; remove stale IDs from `BILLING_INTERNAL_TEST_USER_IDS` afterward.
+- [ ] Verify public HTTP behavior, PayPal Live environment, webhook delivery, Credit balances, logs, and machine-readable pricing after deployment.
+- [ ] Confirm paid Audio Credits do not change public downloader allowances.

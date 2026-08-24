@@ -5,15 +5,16 @@ import {
   ArrowRight,
   CalendarDays,
   Check,
+  Coins,
   CreditCard,
-  Crown,
   ExternalLink,
   Layers,
   LifeBuoy,
   ShieldCheck,
   Sparkles,
-  Zap,
 } from "lucide-react"
+import { getBillingDisplayName } from "@/lib/billing/domain"
+import { billingSchemaV2Enabled } from "@/lib/billing/policy"
 import { getAccountPlanStatus } from "@/lib/billing/repository"
 import SubscriptionActions from "./SubscriptionActions"
 
@@ -26,17 +27,9 @@ const tierThemes = {
     topLine: "via-slate-500/40",
     border: "border-slate-800/80",
   },
-  basic: {
-    icon: Zap,
-    label: "Regular use",
-    badge: "border-sky-500/40 bg-sky-500/10 text-sky-200",
-    accent: "from-sky-500/10 via-transparent to-transparent",
-    topLine: "via-sky-400/50",
-    border: "border-sky-500/25",
-  },
-  pro: {
-    icon: Crown,
-    label: "Power users",
+  regular: {
+    icon: Coins,
+    label: "Paid Audio Credits",
     badge: "border-violet-500/40 bg-violet-500/15 text-violet-200",
     accent: "from-violet-500/12 via-fuchsia-500/6 to-transparent",
     topLine: "via-violet-400/60",
@@ -62,12 +55,26 @@ export default async function BillingPage({ params }: { params: Promise<{ locale
   const prefix = locale === "en" ? "" : `/${locale}`
   if (!userId) redirect(`${prefix}/sign-in/?redirect_url=${prefix}/account/billing/`)
 
+  if (!billingSchemaV2Enabled()) {
+    return (
+      <main className="mx-auto max-w-3xl px-4 py-14">
+        <h1 className="text-3xl font-bold text-white">Billing is temporarily unavailable</h1>
+        <p className="mt-3 text-sm leading-6 text-slate-400">
+          Audio Credit balances and PayPal management are not enabled in this deployment.
+        </p>
+      </main>
+    )
+  }
+
   const billing = await getAccountPlanStatus(userId)
-  const tierName = billing.packageTier[0].toUpperCase() + billing.packageTier.slice(1)
+  const credits = billing.credits
+  const tierName = getBillingDisplayName(credits)
   const theme = tierThemes[billing.packageTier]
   const TierIcon = theme.icon
   const statusNeedsAttention = billing.subscriptionStatus === "SUSPENDED"
-  const statusLabel = billing.subscriptionStatus?.replaceAll("_", " ") ?? "Free"
+  const statusLabel =
+    billing.subscriptionStatus?.replaceAll("_", " ") ??
+    (credits.paidAccess ? "Credit balance" : "Free")
 
   return (
     <main className="relative mx-auto max-w-5xl px-4 py-10 sm:py-14">
@@ -84,7 +91,7 @@ export default async function BillingPage({ params }: { params: Promise<{ locale
         Billing and access
       </h1>
       <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-400 sm:text-base sm:leading-7">
-        Review your effective package and manage recurring billing securely with PayPal.
+        Review your Audio Credit balance and manage recurring billing securely with PayPal.
       </p>
 
       <section className="mt-8 grid gap-4 lg:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.65fr)] lg:gap-5">
@@ -138,6 +145,10 @@ export default async function BillingPage({ params }: { params: Promise<{ locale
             <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
               {[
                 {
+                  icon: Coins,
+                  text: `${credits.total.toLocaleString()} available Audio Credits`,
+                },
+                {
                   icon: Check,
                   text: `Up to ${billing.batchFileLimit} local audio files per batch`,
                 },
@@ -146,7 +157,10 @@ export default async function BillingPage({ params }: { params: Promise<{ locale
                   text: billing.zipExport ? "ZIP export included" : "Single-file downloads",
                 },
                 { icon: ShieldCheck, text: "Audio never leaves your device" },
-                { icon: CreditCard, text: "Recurring billing processed securely by PayPal" },
+                {
+                  icon: CreditCard,
+                  text: "One-time and recurring payments processed securely by PayPal",
+                },
               ].map(({ icon: Icon, text }) => (
                 <li
                   key={text}
@@ -159,8 +173,8 @@ export default async function BillingPage({ params }: { params: Promise<{ locale
             </ul>
 
             <div className="mt-5 rounded-xl border border-slate-800/80 bg-slate-950/50 px-4 py-3 text-sm leading-6 text-slate-400">
-              Public third-party downloader tools remain a separate free product. Basic and Pro never
-              increase downloader limits or concurrency.
+              Balance: {credits.free} daily · {credits.subscription} subscription · {credits.payg}{" "}
+              Pay As You Go. Public downloader limits remain a separate free-product rule.
             </div>
 
             {billing.currentPeriodEnd ? (
@@ -213,8 +227,8 @@ export default async function BillingPage({ params }: { params: Promise<{ locale
             </span>
             <h2 className="mt-4 font-semibold text-white">Need help?</h2>
             <p className="mt-2 text-sm leading-6 text-slate-400">
-              Cancel future renewal here and manage payment details in PayPal. First payments have
-              one 14-day refund window per account; contact support to request it.
+              Cancel future renewal here and manage payment details in PayPal. A payment can be
+              refunded within 14 days only when none of its Credits have been consumed.
             </p>
             <a
               href="mailto:support@geekskai.com"

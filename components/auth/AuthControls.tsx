@@ -50,14 +50,14 @@ export default function AuthControls({ mobile = false, onNavigate }: AuthControl
         </Link>
         <Link
           href="/sign-up/"
-          aria-label="Create free account"
+          aria-label="Sign up for free"
           data-auth-action="sign-up"
           className={`${linkClassName} ${authPrimaryCtaClassName} group ${mobile ? "justify-center" : "px-4"}`}
           style={authPrimaryCtaStyle}
           onClick={() => handleNavigate("auth_sign_up_clicked")}
         >
           <UserPlus className="relative h-4 w-4 transition-transform duration-200 group-hover:rotate-6" />
-          <span className="relative">Create free account</span>
+          <span className="relative">Sign up for free</span>
         </Link>
       </Show>
 

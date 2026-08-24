@@ -1,7 +1,7 @@
 ---
 title: "How to Normalize Audio Loudness with LUFS: A Two-Pass Guide"
 date: "2026-08-12"
-lastmod: "2026-08-23"
+lastmod: "2026-08-24"
 tags: ["Audio", "LUFS", "Audio Tools"]
 draft: false
 summary: "Learn what LUFS measures, why two-pass loudness normalization is useful for finished audio files, and how to normalize MP3, WAV, FLAC, or M4A locally in your browser."
@@ -32,7 +32,7 @@ faqs:
 
 The fastest repeatable workflow is to measure the entire file, choose the loudness target required by its destination, and run a second normalization pass using the measured integrated loudness, true peak, loudness range, and threshold. This is more predictable for finished files than adjusting only their highest peak.
 
-If you already own or have permission to process the file, the [Geekskai Audio Toolkit](https://geekskai.com/audio-toolkit/) performs this two-pass workflow locally in your browser. The free plan processes one file at a time without requiring an account.
+If you already own or have permission to process the file, the [Geekskai Audio Toolkit](https://geekskai.com/audio-toolkit/) performs this two-pass workflow locally in your browser. A signed-in account receives 30 Free Credits per UTC day and processes one file at a time.
 
 ## LUFS normalization versus peak normalization
 
@@ -64,7 +64,7 @@ The current Audio Toolkit accepts MP3, WAV, FLAC, and M4A input files up to 200 
 6. Start processing and keep the tab open until the result is ready.
 7. Download the normalized file and audition it before delivery.
 
-The toolkit's normalization pipeline performs an analysis pass, then applies the measured values during the second pass with a true-peak ceiling. The free plan is intentionally limited to one local file per batch. Basic and Pro recurring subscriptions are available through secure PayPal checkout for larger local batches and ZIP export. These plans apply only to Audio Toolkit features; public third-party downloader allowances remain separate free-product rules and do not change with a subscription.
+The toolkit's normalization pipeline performs an analysis pass, then applies the measured values during the second pass with a true-peak ceiling. One Credit covers one minute of combined input audio, rounded up once per batch. Pay As You Go and Regular monthly Credits are available through secure PayPal checkout for batches of up to 50 local files and ZIP export. Paid Credits apply only to Audio Toolkit processing; public third-party downloader allowances remain separate free-product rules.
 
 ## How to choose a loudness target
 

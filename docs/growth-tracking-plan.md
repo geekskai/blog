@@ -4,24 +4,22 @@ Microsoft Clarity is the current client-side behavior tool. Events contain no fi
 
 ## Audio Toolkit funnel
 
-| Event                                   | Trigger                                                | Decision supported                   |
-| --------------------------------------- | ------------------------------------------------------ | ------------------------------------ |
-| `pricing_viewed`                        | Pricing client loads                                   | Establish pricing traffic baseline   |
-| `pricing_interval_selected_monthly`     | Monthly selected                                       | Compare billing-cycle intent         |
-| `pricing_interval_selected_annual`      | Annual selected                                        | Compare billing-cycle intent         |
-| `pricing_free_toolkit_clicked`          | Free Toolkit CTA clicked                               | Measure free activation path         |
-| `pricing_cta_clicked_{tier}_{interval}` | Basic or Pro CTA clicked                               | Measure plan intent                  |
-| `pricing_signin_required_{tier}`        | Purchase intent reaches authentication                 | Find registration friction           |
-| `checkout_created_{tier}_{interval}`    | Server returns an allowed PayPal Plan and correlation  | Measure valid checkout preparation   |
-| `checkout_failed_{tier}_{interval}`     | Checkout creation fails                                | Detect billing funnel breakage       |
-| `audio_file_selected`                   | One local file selected                                | Measure single-file activation start |
-| `audio_files_selected_batch`            | Multiple local files selected                          | Measure paid batch intent            |
-| `audio_processing_started`              | Single-file processing starts                          | Measure core action starts           |
-| `audio_processing_started_batch`        | Batch processing starts                                | Measure paid workflow starts         |
-| `audio_processing_completed`            | At least one single-file result completes              | Measure core activation              |
-| `audio_processing_completed_batch`      | At least two results complete                          | Measure paid activation              |
-| `audio_processing_failed`               | One or more files fail and processing was not canceled | Find product reliability gaps        |
-| `audio_processing_canceled`             | User cancels local processing                          | Find performance or UX friction      |
+| Event                              | Trigger                                                | Decision supported                   |
+| ---------------------------------- | ------------------------------------------------------ | ------------------------------------ |
+| `pricing_viewed`                   | Pricing client loads                                   | Establish pricing traffic baseline   |
+| `pricing_free_toolkit_clicked`     | Free Toolkit CTA clicked                               | Measure free activation path         |
+| `pricing_cta_clicked_payg`         | 480-Credit one-time CTA clicked                        | Measure PAYG intent                  |
+| `pricing_cta_clicked_regular`      | Regular monthly CTA clicked                            | Measure recurring intent             |
+| `paypal_payg_approved`             | PayPal returns from approved PAYG checkout             | Diagnose pre-capture funnel          |
+| `paypal_regular_approved`          | PayPal returns from approved subscription checkout     | Diagnose pre-payment funnel          |
+| `audio_file_selected`              | One local file selected                                | Measure single-file activation start |
+| `audio_files_selected_batch`       | Multiple local files selected                          | Measure paid batch intent            |
+| `audio_processing_started`         | Single-file processing starts                          | Measure core action starts           |
+| `audio_processing_started_batch`   | Batch processing starts                                | Measure paid workflow starts         |
+| `audio_processing_completed`       | At least one single-file result completes              | Measure core activation              |
+| `audio_processing_completed_batch` | At least two results complete                          | Measure paid activation              |
+| `audio_processing_failed`          | One or more files fail and processing was not canceled | Find product reliability gaps        |
+| `audio_processing_canceled`        | User cancels local processing                          | Find performance or UX friction      |
 
 ## Interpretation rules
 

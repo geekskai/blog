@@ -2095,6 +2095,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@electric-sql/pglite@npm:^0.5.7":
+  version: 0.5.7
+  resolution: "@electric-sql/pglite@npm:0.5.7"
+  checksum: 3fd88a21eda81979a93e8ac4e371ea4bfc58403a8c1742a519b95003da05e2ec0a2a6f0238667639445889bd1c36b11f453030408f95768f9ebf297a5f371f7b
+  languageName: node
+  linkType: hard
+
 "@emnapi/core@npm:^1.4.3":
   version: 1.5.0
   resolution: "@emnapi/core@npm:1.5.0"
@@ -4489,6 +4496,38 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@paypal/paypal-js@npm:^10.1.0":
+  version: 10.1.0
+  resolution: "@paypal/paypal-js@npm:10.1.0"
+  dependencies:
+    promise-polyfill: ^8.3.0
+  checksum: e2467a9342f7e6ef074252371c4002d0e60849c499b8f7a8586f0d3d9f03b14f103113258aa479dfbef2b4b85a890ee879fafd5e6c11243f85c94f76c5b33323
+  languageName: node
+  linkType: hard
+
+"@paypal/react-paypal-js@npm:10.3.0":
+  version: 10.3.0
+  resolution: "@paypal/react-paypal-js@npm:10.3.0"
+  dependencies:
+    "@paypal/paypal-js": ^10.1.0
+    "@paypal/sdk-constants": ^1.0.122
+    server-only: ^0.0.1
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18 || ^19
+    react-dom: ^16.8.0 || ^17 || ^18 || ^19
+  checksum: 1f9be4876a8ac88f540a600cffdd0eee68325e0b3307fbc6269bbb6e84c4df369d9bef83c7ca5f6ab3b3176c6220f9a0d531dda444fe2f78c776c7396e37a535
+  languageName: node
+  linkType: hard
+
+"@paypal/sdk-constants@npm:^1.0.122":
+  version: 1.0.158
+  resolution: "@paypal/sdk-constants@npm:1.0.158"
+  dependencies:
+    hi-base32: ^0.5.0
+  checksum: 3887c992a697f9fdfcc09b7dc2122e81fd6dfa9dfbf429babccd5afe5bd38392631a0fd0fd1d30f248bbc56c10e6e55a60c6b6c7456b98e7fa4bed3b02da413b
+  languageName: node
+  linkType: hard
+
 "@pkgjs/parseargs@npm:^0.11.0":
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
@@ -6428,6 +6467,7 @@ __metadata:
   resolution: "blog@workspace:."
   dependencies:
     "@clerk/nextjs": latest
+    "@electric-sql/pglite": ^0.5.7
     "@eslint/eslintrc": latest
     "@eslint/js": latest
     "@ffmpeg/ffmpeg": ^0.12.15
@@ -6437,6 +6477,7 @@ __metadata:
     "@microsoft/clarity": ^1.0.2
     "@neondatabase/serverless": ^1.1.0
     "@next/bundle-analyzer": latest
+    "@paypal/react-paypal-js": 10.3.0
     "@shaggytools/nhtsa-api-wrapper": ^3.0.4
     "@svgr/webpack": ^8.0.1
     "@tailwindcss/forms": ^0.5.7
@@ -10150,6 +10191,13 @@ __metadata:
   dependencies:
     hermes-estree: 0.25.1
   checksum: 4edcfaa3030931343b540182b83c432aba4cdcb1925952521ab4cfb7ab90c2c1543dfcb042ccd51d5e81e4bfe2809420e85902c2ff95ef7c6c64644ce17138ea
+  languageName: node
+  linkType: hard
+
+"hi-base32@npm:^0.5.0":
+  version: 0.5.1
+  resolution: "hi-base32@npm:0.5.1"
+  checksum: 6655682b5796d75ed3068071e61d05a490e2086c4908af3b94a730059147b8a4a5e8870e656b828d0550dcc9988d8748bda54a53e428cbce28e0d7a785b2ffde
   languageName: node
   linkType: hard
 
@@ -13902,6 +13950,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"promise-polyfill@npm:^8.3.0":
+  version: 8.3.0
+  resolution: "promise-polyfill@npm:8.3.0"
+  checksum: 206373802076c77def0805758d0a8ece64120dfa6603f092404a1004211f8f2f67f33cadbc35953fc2a8ed0b0d38c774e88bdf01e20ce7a920723a60df84b7a5
+  languageName: node
+  linkType: hard
+
 "promise-retry@npm:^2.0.1":
   version: 2.0.1
   resolution: "promise-retry@npm:2.0.1"
@@ -15278,7 +15333,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"server-only@npm:0.0.1":
+"server-only@npm:0.0.1, server-only@npm:^0.0.1":
   version: 0.0.1
   resolution: "server-only@npm:0.0.1"
   checksum: c432348956641ea3f460af8dc3765f3a1bdbcf7a1e0205b0756d868e6e6fe8934cdee6bff68401a1dd49ba4a831c75916517a877446d54b334f7de36fa273e53

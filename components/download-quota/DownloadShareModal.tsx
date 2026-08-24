@@ -94,7 +94,7 @@ export default function DownloadShareModal({
             className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-pink-600 to-purple-600 px-4 text-sm font-semibold text-white transition hover:brightness-110"
           >
             <UserPlus className="h-4 w-4" aria-hidden />
-            Create free account — unlock 7 more today
+            Sign up for free — unlock 7 more today
           </button>
         ) : null}
 

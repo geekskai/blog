@@ -17,6 +17,10 @@ export type NormalizedPayPalEvent = {
   status: string | null
   currentPeriodEnd: Date | null
   saleId: string | null
+  orderId: string | null
+  captureId: string | null
+  amount: string | null
+  currency: string | null
 }
 
 const readObject = (value: unknown) =>
@@ -74,6 +78,16 @@ export function normalizePayPalEvent(value: unknown): NormalizedPayPalEvent {
     : []
   const disputedTransaction = readObject(disputedTransactions[0])
   const subscriptionEvent = eventType.startsWith("BILLING.SUBSCRIPTION.")
+  const supplementaryData = readObject(resource.supplementary_data)
+  const relatedIds = readObject(supplementaryData?.related_ids)
+  const amount = readObject(resource.amount)
+  const captureEvent = eventType.startsWith("PAYMENT.CAPTURE.")
+  const saleId =
+    eventType === "PAYMENT.SALE.REFUNDED" || eventType === "PAYMENT.SALE.REVERSED"
+      ? readString(resource.sale_id)
+      : eventType.startsWith("PAYMENT.SALE.")
+        ? readString(resource.id)
+        : readString(disputedTransaction?.seller_transaction_id)
 
   return {
     id,
@@ -88,8 +102,14 @@ export function normalizePayPalEvent(value: unknown): NormalizedPayPalEvent {
     payerId: readString(subscriber?.payer_id),
     status: readString(resource.status),
     currentPeriodEnd: readDate(billingInfo?.next_billing_time),
-    saleId: eventType.startsWith("PAYMENT.SALE.")
-      ? readString(resource.id)
-      : readString(disputedTransaction?.seller_transaction_id),
+    saleId,
+    orderId: readString(relatedIds?.order_id),
+    captureId: captureEvent
+      ? eventType === "PAYMENT.CAPTURE.COMPLETED"
+        ? readString(resource.id)
+        : readString(relatedIds?.capture_id)
+      : null,
+    amount: readString(amount?.value),
+    currency: readString(amount?.currency_code)?.toUpperCase() ?? null,
   }
 }

@@ -30,15 +30,10 @@ const PAYPAL_CHECKOUT_ENV_KEYS = [
   "PAYPAL_CLIENT_ID",
   "PAYPAL_CLIENT_SECRET",
   "PAYPAL_WEBHOOK_ID",
-  "PAYPAL_BASIC_MONTHLY_PLAN_ID",
-  "PAYPAL_BASIC_ANNUAL_PLAN_ID",
-  "PAYPAL_PRO_MONTHLY_PLAN_ID",
-  "PAYPAL_PRO_ANNUAL_PLAN_ID",
+  "PAYPAL_REGULAR_MONTHLY_PLAN_ID",
 ] as const
 
-export function isPayPalCheckoutConfigured(
-  env: Record<string, string | undefined> = process.env
-) {
+export function isPayPalCheckoutConfigured(env: Record<string, string | undefined> = process.env) {
   const environment = env.PAYPAL_ENVIRONMENT?.trim()
   return (
     isPayPalEnvironmentAllowedForDeployment(environment, env.VERCEL_ENV?.trim()) &&
@@ -145,10 +140,101 @@ export function createPayPalClient(config: PayPalConfig, fetchImpl: Fetch = fetc
       return result
     },
 
+    async createOrder(input: {
+      requestId: string
+      customId: string
+      amount: string
+      currency: string
+      productKey: string
+      description: string
+    }) {
+      const response = await authorizedRequest("/v2/checkout/orders", {
+        method: "POST",
+        headers: { "paypal-request-id": input.requestId },
+        body: JSON.stringify({
+          intent: "CAPTURE",
+          purchase_units: [
+            {
+              custom_id: input.customId,
+              invoice_id: input.requestId,
+              description: input.description,
+              amount: {
+                currency_code: input.currency,
+                value: input.amount,
+                breakdown: {
+                  item_total: { currency_code: input.currency, value: input.amount },
+                },
+              },
+              items: [
+                {
+                  name: input.description,
+                  sku: input.productKey,
+                  quantity: "1",
+                  unit_amount: { currency_code: input.currency, value: input.amount },
+                  category: "DIGITAL_GOODS",
+                },
+              ],
+            },
+          ],
+          payment_source: {
+            paypal: { experience_context: { shipping_preference: "NO_SHIPPING" } },
+          },
+        }),
+      })
+      const result = (await response.json().catch(() => null)) as Record<string, unknown> | null
+      if (!response.ok || !result) throw new Error("PayPal order creation failed.")
+      return result
+    },
+
+    async captureOrder(orderId: string, requestId: string) {
+      const response = await authorizedRequest(
+        `/v2/checkout/orders/${encodeURIComponent(orderId)}/capture`,
+        { method: "POST", headers: { "paypal-request-id": requestId }, body: "{}" }
+      )
+      const result = (await response.json().catch(() => null)) as Record<string, unknown> | null
+      if (!response.ok || !result) throw new Error("PayPal order capture failed.")
+      return result
+    },
+
+    async createSubscription(input: {
+      requestId: string
+      planId: string
+      customId: string
+      returnUrl: string
+      cancelUrl: string
+    }) {
+      const response = await authorizedRequest("/v1/billing/subscriptions", {
+        method: "POST",
+        headers: { "paypal-request-id": input.requestId },
+        body: JSON.stringify({
+          plan_id: input.planId,
+          custom_id: input.customId,
+          application_context: {
+            user_action: "SUBSCRIBE_NOW",
+            shipping_preference: "NO_SHIPPING",
+            return_url: input.returnUrl,
+            cancel_url: input.cancelUrl,
+          },
+        }),
+      })
+      const result = (await response.json().catch(() => null)) as Record<string, unknown> | null
+      if (!response.ok || !result) throw new Error("PayPal subscription creation failed.")
+      return result
+    },
+
     async getSale(saleId: string) {
       const response = await authorizedRequest(`/v1/payments/sale/${encodeURIComponent(saleId)}`)
       const result = (await response.json().catch(() => null)) as Record<string, unknown> | null
       if (!response.ok || !result) throw new Error("PayPal sale lookup failed.")
+      return result
+    },
+
+    async getCapture(captureId: string) {
+      const response = await authorizedRequest(
+        `/v2/payments/captures/${encodeURIComponent(captureId)}`
+      )
+      const result = (await response.json().catch(() => null)) as Record<string, unknown> | null
+      if (!response.ok || !result) throw new Error("PayPal capture lookup failed.")
       return result
     },
 

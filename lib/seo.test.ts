@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs"
 import { resolve } from "node:path"
 import { describe, expect, it } from "vitest"
-import { PACKAGE_CATALOG } from "./billing/catalog"
+import { CREDIT_CATALOG } from "./billing/catalog"
 import { buildPageSchema, buildSiteSchema, serializeJsonLd } from "./seo"
 
 const readProjectFile = (path: string) => readFileSync(resolve(process.cwd(), path), "utf8")
@@ -15,16 +15,16 @@ describe("commercial SEO content", () => {
     expect(combined).toContain("PayPal Business")
     expect(combined).not.toMatch(/checkout is (currently )?unavailable/i)
     expect(combined).not.toContain("payment onboarding and testing")
-    expect(pricing).toContain(`Monthly: $${PACKAGE_CATALOG.basic.monthlyPrice} per month`)
-    expect(pricing).toContain(`Annual: $${PACKAGE_CATALOG.basic.annualPrice} per year`)
-    expect(pricing).toContain(`Monthly: $${PACKAGE_CATALOG.pro.monthlyPrice} per month`)
-    expect(pricing).toContain(`Annual: $${PACKAGE_CATALOG.pro.annualPrice} per year`)
+    expect(pricing).toContain(`Price: $${CREDIT_CATALOG.payg480.price} one-time`)
+    expect(pricing).toContain(`Monthly: $${CREDIT_CATALOG.regularMonthly.price} per month`)
+    expect(pricing).toContain(`Credits: ${CREDIT_CATALOG.payg480.credits}`)
+    expect(pricing).toContain(`Credits: ${CREDIT_CATALOG.regularMonthly.credits.toLocaleString()}`)
   })
 
   it("keeps the LUFS guide aligned with the live PayPal offer boundary", () => {
     const article = readProjectFile("data/blog/audio/how-to-normalize-audio-loudness-lufs.mdx")
 
-    expect(article).toContain('lastmod: "2026-08-23"')
+    expect(article).toContain('lastmod: "2026-08-24"')
     expect(article).toContain("available through secure PayPal checkout")
     expect(article).toContain("public third-party downloader allowances remain separate")
     expect(article).not.toContain("paid batch checkout remains unavailable")

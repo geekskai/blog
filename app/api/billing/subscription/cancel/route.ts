@@ -1,6 +1,7 @@
 import { auth } from "@clerk/nextjs/server"
 import { NextResponse } from "next/server"
 import { getPayPalClient } from "@/lib/billing/paypal"
+import { billingSchemaV2Enabled } from "@/lib/billing/policy"
 import { getManagedPayPalSubscription, recordPayPalCancellation } from "@/lib/billing/repository"
 
 const readPeriodEnd = (resource: Record<string, unknown>) => {
@@ -17,6 +18,9 @@ const readPeriodEnd = (resource: Record<string, unknown>) => {
 export async function POST() {
   const { userId } = await auth()
   if (!userId) return NextResponse.json({ error: "Authentication required." }, { status: 401 })
+  if (!billingSchemaV2Enabled()) {
+    return NextResponse.json({ error: "Billing is temporarily unavailable." }, { status: 503 })
+  }
   const managed = await getManagedPayPalSubscription(userId)
   if (!managed) {
     return NextResponse.json({ error: "No cancellable subscription was found." }, { status: 404 })

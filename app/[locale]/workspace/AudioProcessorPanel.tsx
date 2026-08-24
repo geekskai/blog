@@ -4,22 +4,22 @@ import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react"
 import {
   Archive,
   ArrowRight,
+  Coins,
   Crown,
   FileAudio,
-  Layers,
   Loader2,
   Square,
   Upload,
   Waves,
-  Zap,
 } from "lucide-react"
 import { saveAs } from "file-saver"
 import JSZip from "jszip"
 import Link from "next/link"
 import { readBillingJson } from "@/lib/billing/client-response"
-import type { AccountPlanStatus } from "@/lib/billing/types"
+import type { AudioCreditBalance } from "@/lib/billing/types"
+import { creditsForDuration } from "@/lib/billing/domain"
 import { trackClarityEvent } from "@/lib/analytics/clarity"
-import { getAudioSelectionIssue } from "@/lib/workspace/audio"
+import { getAudioSelectionIssue, readLocalAudioDuration } from "@/lib/workspace/audio"
 import {
   cancelAudioProcessing,
   processAudioFile,
@@ -29,6 +29,7 @@ import {
 
 type QueueItem = {
   name: string
+  durationSeconds: number
   status: "waiting" | "processing" | "done" | "failed"
   progress: number
   error?: string
@@ -38,27 +39,21 @@ const outputName = (name: string, extension: string) =>
   `${name.replace(/\.[^.]+$/, "").replace(/[/\\?%*:|"<>]/g, "_")}-normalized.${extension}`
 const MOBILE_DEVICE_QUERY = "(max-width: 767px), (pointer: coarse) and (hover: none)"
 
-const tierBadgeStyles = {
-  free: "border-slate-600/50 bg-slate-800/70 text-slate-300",
-  basic: "border-sky-500/35 bg-sky-500/10 text-sky-200",
-  pro: "border-violet-500/35 bg-violet-500/10 text-violet-200",
-} as const
-
 const inputClass =
   "mt-2 min-h-11 w-full rounded-xl border border-slate-700/80 bg-slate-900/70 px-3 text-white outline-none transition-[border-color] duration-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 disabled:cursor-not-allowed disabled:opacity-60"
 
 export default function AudioProcessorPanel({
-  initialBillingStatus,
+  initialCredits,
   locale,
   checkoutSuccess,
-  canRecordActivation,
+  isSignedIn,
 }: {
-  initialBillingStatus: AccountPlanStatus
+  initialCredits: AudioCreditBalance | null
   locale: string
   checkoutSuccess: boolean
-  canRecordActivation: boolean
+  isSignedIn: boolean
 }) {
-  const [billing, setBilling] = useState(initialBillingStatus)
+  const [credits, setCredits] = useState(initialCredits)
   const [files, setFiles] = useState<File[]>([])
   const [format, setFormat] = useState<AudioOutputFormat>("wav")
   const [bitDepth, setBitDepth] = useState<WavBitDepth>(24)
@@ -70,7 +65,9 @@ export default function AudioProcessorPanel({
   const [confirmationTimedOut, setConfirmationTimedOut] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const canceledRef = useRef(false)
-  const effectiveBatchFileLimit = isMobile ? 1 : billing.batchFileLimit
+  const effectiveBatchFileLimit = isMobile ? 1 : (credits?.batchFileLimit ?? 1)
+  const totalDurationSeconds = queue.reduce((total, item) => total + item.durationSeconds, 0)
+  const estimatedCredits = creditsForDuration(totalDurationSeconds)
   const selectionIssue = useMemo(
     () => (files.length ? getAudioSelectionIssue(files, effectiveBatchFileLimit) : null),
     [effectiveBatchFileLimit, files]
@@ -89,11 +86,11 @@ export default function AudioProcessorPanel({
     let attempts = 0
     const poll = window.setInterval(async () => {
       attempts += 1
-      const response = await fetch("/api/billing/status/", { cache: "no-store" })
+      const response = await fetch("/api/audio-credits/", { cache: "no-store" })
       if (response.ok) {
-        const next = await readBillingJson<AccountPlanStatus>(response)
-        if (next) setBilling(next)
-        if (next?.packageTier !== undefined && next.packageTier !== "free") {
+        const next = await readBillingJson<AudioCreditBalance>(response)
+        if (next) setCredits(next)
+        if (next && next.paidAccess) {
           setConfirming(false)
           setConfirmationTimedOut(false)
           window.clearInterval(poll)
@@ -108,11 +105,33 @@ export default function AudioProcessorPanel({
     return () => window.clearInterval(poll)
   }, [confirming])
 
-  const chooseFiles = (event: ChangeEvent<HTMLInputElement>) => {
+  const chooseFiles = async (event: ChangeEvent<HTMLInputElement>) => {
     const next = Array.from(event.target.files ?? [])
     setFiles(next)
-    setQueue(next.map((file) => ({ name: file.name, status: "waiting", progress: 0 })))
-    setError(getAudioSelectionIssue(next, effectiveBatchFileLimit))
+    setQueue(
+      next.map((file) => ({ name: file.name, durationSeconds: 0, status: "waiting", progress: 0 }))
+    )
+    const issue = getAudioSelectionIssue(next, effectiveBatchFileLimit)
+    setError(issue)
+    if (!issue && next.length) {
+      try {
+        const durations = await Promise.all(next.map(readLocalAudioDuration))
+        setQueue(
+          next.map((file, index) => ({
+            name: file.name,
+            durationSeconds: durations[index],
+            status: "waiting",
+            progress: 0,
+          }))
+        )
+      } catch (durationError) {
+        setError(
+          durationError instanceof Error
+            ? durationError.message
+            : "Audio duration could not be read."
+        )
+      }
+    }
     if (next.length > 0) {
       trackClarityEvent(next.length > 1 ? "audio_files_selected_batch" : "audio_file_selected")
     }
@@ -121,6 +140,15 @@ export default function AudioProcessorPanel({
   const processFiles = async () => {
     const issue = getAudioSelectionIssue(files, effectiveBatchFileLimit)
     if (issue) return setError(issue)
+    if (!isSignedIn) {
+      window.location.assign(
+        `${locale === "en" ? "" : `/${locale}`}/sign-in/?redirect_url=${encodeURIComponent(`${locale === "en" ? "" : `/${locale}`}/audio-toolkit/`)}`
+      )
+      return
+    }
+    if (!totalDurationSeconds || estimatedCredits < 1) {
+      return setError("Wait until the selected audio duration is available.")
+    }
     canceledRef.current = false
     trackClarityEvent(
       files.length > 1 ? "audio_processing_started_batch" : "audio_processing_started"
@@ -128,75 +156,143 @@ export default function AudioProcessorPanel({
     setBusy(true)
     setError(null)
     const zip = new JSZip()
+    const zipExportAllowed = effectiveBatchFileLimit > 1
     let completed = 0
-    for (let index = 0; index < files.length; index += 1) {
-      if (canceledRef.current) break
-      const file = files[index]
-      setQueue((items) =>
-        items.map((item, itemIndex) =>
-          itemIndex === index ? { ...item, status: "processing", progress: 0 } : item
+    let completedDurationSeconds = 0
+    const completedOutputs: Array<{ name: string; blob: Blob }> = []
+    const operationId = crypto.randomUUID()
+    let heartbeat: number | null = null
+    try {
+      const reservationResponse = await fetch("/api/audio-credits/operations/", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          operationId,
+          totalDurationSeconds,
+          fileCount: files.length,
+        }),
+      })
+      const reservation = await readBillingJson<{
+        outcome?: string
+        balance?: AudioCreditBalance
+        error?: string
+      }>(reservationResponse)
+      if (
+        !reservationResponse.ok ||
+        !reservation ||
+        reservation.outcome === "insufficient_credits"
+      ) {
+        if (reservation?.balance) setCredits(reservation.balance)
+        throw new Error(
+          reservation?.outcome === "insufficient_credits"
+            ? `You need ${estimatedCredits} Credits for this batch.`
+            : (reservation?.error ?? "Credits could not be reserved.")
         )
-      )
-      try {
-        const blob = await processAudioFile(file, {
-          outputFormat: format,
-          wavBitDepth: bitDepth,
-          loudnessTarget: loudness,
-          onProgress: (progress) =>
-            setQueue((items) =>
-              items.map((item, itemIndex) =>
-                itemIndex === index ? { ...item, progress: Math.round(progress * 100) } : item
-              )
-            ),
-        })
-        const name = outputName(file.name, format)
-        if (files.length === 1) saveAs(blob, name)
-        else zip.file(name, blob)
-        completed += 1
+      }
+      if (reservation.balance) setCredits(reservation.balance)
+      heartbeat = window.setInterval(() => {
+        void fetch(`/api/audio-credits/operations/${operationId}/heartbeat/`, { method: "POST" })
+      }, 5 * 60_000)
+      for (let index = 0; index < files.length; index += 1) {
+        if (canceledRef.current) break
+        const file = files[index]
         setQueue((items) =>
           items.map((item, itemIndex) =>
-            itemIndex === index ? { ...item, status: "done", progress: 100 } : item
+            itemIndex === index ? { ...item, status: "processing", progress: 0 } : item
           )
         )
-      } catch (processingError) {
-        if (canceledRef.current) {
+        try {
+          const blob = await processAudioFile(file, {
+            outputFormat: format,
+            wavBitDepth: bitDepth,
+            loudnessTarget: loudness,
+            onProgress: (progress) =>
+              setQueue((items) =>
+                items.map((item, itemIndex) =>
+                  itemIndex === index ? { ...item, progress: Math.round(progress * 100) } : item
+                )
+              ),
+          })
+          const name = outputName(file.name, format)
+          completedOutputs.push({ name, blob })
+          completed += 1
+          completedDurationSeconds += queue[index]?.durationSeconds ?? 0
+          setQueue((items) =>
+            items.map((item, itemIndex) =>
+              itemIndex === index ? { ...item, status: "done", progress: 100 } : item
+            )
+          )
+        } catch (processingError) {
+          if (canceledRef.current) {
+            setQueue((items) =>
+              items.map((item, itemIndex) =>
+                itemIndex === index
+                  ? { ...item, status: "failed", progress: 0, error: "Canceled." }
+                  : item
+              )
+            )
+            break
+          }
+          const message =
+            processingError instanceof Error ? processingError.message : "Processing failed."
           setQueue((items) =>
             items.map((item, itemIndex) =>
               itemIndex === index
-                ? { ...item, status: "failed", progress: 0, error: "Canceled." }
+                ? { ...item, status: "failed", progress: 0, error: message }
                 : item
             )
           )
-          break
         }
-        const message =
-          processingError instanceof Error ? processingError.message : "Processing failed."
-        setQueue((items) =>
-          items.map((item, itemIndex) =>
-            itemIndex === index ? { ...item, status: "failed", progress: 0, error: message } : item
-          )
+      }
+      const completionResponse = await fetch(
+        `/api/audio-credits/operations/${operationId}/complete/`,
+        {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ completedDurationSeconds, completedFileCount: completed }),
+        }
+      )
+      const completion = await readBillingJson<{
+        status?: string
+        balance?: AudioCreditBalance
+        error?: string
+      }>(completionResponse)
+      if (!completionResponse.ok || !completion) {
+        throw new Error(completion?.error ?? "Credit settlement failed; no download was started.")
+      }
+      if (completed > 0 && completion.status !== "consumed") {
+        throw new Error("The Credit reservation expired; no download was started.")
+      }
+      if (completion.balance) setCredits(completion.balance)
+      if (completedOutputs.length === 1) {
+        saveAs(completedOutputs[0].blob, completedOutputs[0].name)
+      } else if (completedOutputs.length > 1 && zipExportAllowed) {
+        completedOutputs.forEach((output) => zip.file(output.name, output.blob))
+        saveAs(await zip.generateAsync({ type: "blob" }), "geekskai-audio-toolkit.zip")
+      }
+      if (completed > 0) {
+        void fetch("/api/workspace/activation/", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ kind: completed > 1 ? "batch" : "single" }),
+        })
+      }
+      if (completed > 0) {
+        trackClarityEvent(
+          completed > 1 ? "audio_processing_completed_batch" : "audio_processing_completed"
         )
       }
+      if (completed < files.length && !canceledRef.current) {
+        trackClarityEvent("audio_processing_failed")
+      }
+    } catch (processingError) {
+      if (heartbeat !== null) window.clearInterval(heartbeat)
+      void fetch(`/api/audio-credits/operations/${operationId}/release/`, { method: "POST" })
+      setError(processingError instanceof Error ? processingError.message : "Processing failed.")
+    } finally {
+      if (heartbeat !== null) window.clearInterval(heartbeat)
+      setBusy(false)
     }
-    if (completed > 1 && billing.zipExport) {
-      saveAs(await zip.generateAsync({ type: "blob" }), "geekskai-audio-toolkit.zip")
-    }
-    if (completed > 0 && canRecordActivation) {
-      void fetch("/api/workspace/activation/", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ kind: completed > 1 ? "batch" : "single" }),
-      })
-    }
-    if (completed > 0) {
-      trackClarityEvent(
-        completed > 1 ? "audio_processing_completed_batch" : "audio_processing_completed"
-      )
-    }
-    if (completed < files.length && !canceledRef.current) {
-      trackClarityEvent("audio_processing_failed")
-    }
-    setBusy(false)
   }
 
   const cancel = () => {
@@ -238,20 +334,10 @@ export default function AudioProcessorPanel({
               Desktop Chrome and Edge are supported; Safari is beta.
             </p>
           </div>
-          <span
-            className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold sm:text-sm ${tierBadgeStyles[billing.packageTier]}`}
-          >
-            {billing.packageTier === "pro" ? (
-              <Crown className="h-3.5 w-3.5" aria-hidden />
-            ) : billing.packageTier === "basic" ? (
-              <Zap className="h-3.5 w-3.5" aria-hidden />
-            ) : (
-              <Layers className="h-3.5 w-3.5" aria-hidden />
-            )}
-            {billing.packageTier[0].toUpperCase() + billing.packageTier.slice(1)} ·{" "}
-            {isMobile
-              ? "1 file on mobile"
-              : `${effectiveBatchFileLimit} file${effectiveBatchFileLimit === 1 ? "" : "s"}`}
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 text-xs font-semibold text-violet-100 sm:text-sm">
+            <Coins className="h-3.5 w-3.5" aria-hidden />
+            {isSignedIn ? `${credits?.total ?? 0} Credits` : "Sign in required"} ·{" "}
+            {isMobile ? "1 file on mobile" : `${effectiveBatchFileLimit} files per batch`}
           </span>
         </div>
 
@@ -264,7 +350,7 @@ export default function AudioProcessorPanel({
               className="mt-0.5 h-4 w-4 shrink-0 animate-spin motion-reduce:animate-none"
               aria-hidden
             />
-            Confirming your subscription from the verified PayPal lifecycle…
+            Confirming your PayPal payment and refreshing Audio Credits…
           </div>
         )}
         {confirmationTimedOut && (
@@ -287,7 +373,7 @@ export default function AudioProcessorPanel({
             >
               support@geekskai.com
             </a>
-            . Paid access stays locked until the verified payment event arrives.
+            . Credits remain locked until the verified payment event arrives.
           </div>
         )}
 
@@ -404,11 +490,28 @@ export default function AudioProcessorPanel({
           </div>
         )}
 
+        {files.length > 0 && totalDurationSeconds > 0 ? (
+          <div className="mt-5 flex flex-wrap items-center gap-2 rounded-xl border border-violet-400/20 bg-violet-500/[0.08] px-4 py-3 text-sm text-violet-100">
+            <Coins className="h-4 w-4" aria-hidden />
+            Estimated cost: <strong>{estimatedCredits} Credits</strong>
+            <span className="text-violet-200/70">
+              ({Math.round(totalDurationSeconds)} seconds across {files.length} file
+              {files.length === 1 ? "" : "s"})
+            </span>
+          </div>
+        ) : null}
+
         <div className="mt-6 flex flex-wrap gap-2.5">
           <button
             type="button"
             onClick={processFiles}
-            disabled={busy || files.length === 0 || Boolean(selectionIssue)}
+            disabled={
+              busy ||
+              files.length === 0 ||
+              Boolean(selectionIssue) ||
+              !totalDurationSeconds ||
+              Boolean(isSignedIn && credits && estimatedCredits > credits.total)
+            }
             className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-600 to-violet-600 px-5 text-sm font-semibold text-white transition-opacity duration-200 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none"
           >
             {busy ? (
@@ -416,7 +519,13 @@ export default function AudioProcessorPanel({
             ) : (
               <FileAudio className="h-4 w-4" aria-hidden />
             )}
-            {busy ? "Processing locally…" : "Process and download"}
+            {busy
+              ? "Processing locally…"
+              : !isSignedIn
+                ? "Sign in to process"
+                : credits && estimatedCredits > credits.total
+                  ? "Not enough Credits"
+                  : `Process for ${estimatedCredits || "—"} Credits`}
           </button>
           {busy && (
             <button
@@ -430,7 +539,7 @@ export default function AudioProcessorPanel({
           )}
         </div>
 
-        {billing.packageTier === "free" && (
+        {!credits?.paidAccess && (
           <div className="relative mt-6 overflow-hidden rounded-xl border border-violet-500/25 bg-violet-950/30 p-4 sm:p-5">
             <div
               className="pointer-events-none absolute inset-0 bg-gradient-to-br from-violet-500/[0.08] to-transparent"
@@ -441,12 +550,10 @@ export default function AudioProcessorPanel({
                 <Crown className="h-5 w-5" aria-hidden />
               </span>
               <div>
-                <h3 className="font-semibold text-white">
-                  Unlock larger local batches and ZIP export
-                </h3>
+                <h3 className="font-semibold text-white">Need more Audio Credits?</h3>
                 <p className="mt-1 text-sm leading-6 text-slate-400">
-                  Basic supports 20 files per batch and Pro supports 50. Subscriptions cover only
-                  audio you import and have the right to use.
+                  Buy 480 Credits once or subscribe for 2,800 monthly Credits. Both paid options
+                  unlock 50-file local batches and ZIP export.
                 </p>
                 <Link
                   href={`${locale === "en" ? "" : `/${locale}`}/pricing/`}
@@ -459,7 +566,7 @@ export default function AudioProcessorPanel({
             </div>
           </div>
         )}
-        {billing.zipExport && (
+        {credits?.zipExport && (
           <div className="mt-4 flex items-center gap-2 rounded-lg border border-violet-500/20 bg-violet-500/5 px-3 py-2 text-sm text-violet-200">
             <Archive className="h-4 w-4 shrink-0" aria-hidden />
             Multiple successful files are downloaded as one ZIP archive.

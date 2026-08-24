@@ -51,55 +51,52 @@ const paypalRequest = async (path, requestId, body) => {
 
 const product = await paypalRequest(
   "/v1/catalogs/products",
-  `gks-${environmentCode}-audio-product-v1`,
+  `gks-${environmentCode}-audio-credits-product-v1`,
   {
-    name: "Geekskai Audio Toolkit",
+    name: "Geekskai Audio Credits",
     description:
-      "Browser-local audio preparation with paid batch size and ZIP export capabilities.",
+      "Credits for browser-local audio preparation, paid batch processing, and ZIP export.",
     type: "DIGITAL",
     category: "SOFTWARE",
   }
 )
 
-const planDefinitions = [
-  { key: "BASIC_MONTHLY", name: "Basic Monthly", intervalUnit: "MONTH", price: "10.00" },
-  { key: "BASIC_ANNUAL", name: "Basic Annual", intervalUnit: "YEAR", price: "96.00" },
-  { key: "PRO_MONTHLY", name: "Pro Monthly", intervalUnit: "MONTH", price: "25.00" },
-  { key: "PRO_ANNUAL", name: "Pro Annual", intervalUnit: "YEAR", price: "240.00" },
-]
-
-const plans = {}
-for (const definition of planDefinitions) {
-  const plan = await paypalRequest(
-    "/v1/billing/plans",
-    `gks-${environmentCode}-${definition.key.toLowerCase().replace("_", "-")}-v1`,
-    {
-      product_id: product.id,
-      name: `Geekskai Audio Toolkit ${definition.name}`,
-      description: `${definition.name} recurring access. No trial or usage overages.`,
-      status: "ACTIVE",
-      billing_cycles: [
-        {
-          frequency: { interval_unit: definition.intervalUnit, interval_count: 1 },
-          tenure_type: "REGULAR",
-          sequence: 1,
-          total_cycles: 0,
-          pricing_scheme: {
-            fixed_price: { value: definition.price, currency_code: "USD" },
-          },
+const regularPlan = await paypalRequest(
+  "/v1/billing/plans",
+  `gks-${environmentCode}-regular-monthly-2800-v1`,
+  {
+    product_id: product.id,
+    name: "Geekskai Audio Credits Regular Monthly",
+    description: "2,800 Audio Credits after each successful $29 monthly payment.",
+    status: "ACTIVE",
+    billing_cycles: [
+      {
+        frequency: { interval_unit: "MONTH", interval_count: 1 },
+        tenure_type: "REGULAR",
+        sequence: 1,
+        total_cycles: 0,
+        pricing_scheme: {
+          fixed_price: { value: "29.00", currency_code: "USD" },
         },
-      ],
-      payment_preferences: {
-        auto_bill_outstanding: true,
-        setup_fee: { value: "0", currency_code: "USD" },
-        setup_fee_failure_action: "CANCEL",
-        payment_failure_threshold: 2,
       },
-    }
-  )
-  plans[`PAYPAL_${definition.key}_PLAN_ID`] = plan.id
-}
+    ],
+    payment_preferences: {
+      auto_bill_outstanding: true,
+      setup_fee: { value: "0", currency_code: "USD" },
+      setup_fee_failure_action: "CANCEL",
+      payment_failure_threshold: 2,
+    },
+  }
+)
 
 process.stdout.write(
-  `${JSON.stringify({ PAYPAL_ENVIRONMENT: environment, PAYPAL_PRODUCT_ID: product.id, ...plans }, null, 2)}\n`
+  `${JSON.stringify(
+    {
+      PAYPAL_ENVIRONMENT: environment,
+      PAYPAL_PRODUCT_ID: product.id,
+      PAYPAL_REGULAR_MONTHLY_PLAN_ID: regularPlan.id,
+    },
+    null,
+    2
+  )}\n`
 )

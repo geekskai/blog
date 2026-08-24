@@ -8,6 +8,6 @@ export default function Image() {
   return createProductOgImage({
     eyebrow: "Audio Toolkit pricing",
     title: "Prepare more tracks. Keep every file private.",
-    description: "Free, Basic, and Pro plans with secure PayPal subscription checkout.",
+    description: "Free, Pay As You Go, and Regular Audio Credits with secure PayPal checkout.",
   })
 }

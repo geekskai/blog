@@ -213,7 +213,7 @@ export const billingCheckoutCorrelations = pgTable(
     id: uuid("id").primaryKey(),
     clerkUserId: text("clerk_user_id").notNull(),
     provider: text("provider").notNull(),
-    packageTier: text("package_tier", { enum: ["basic", "pro"] }).notNull(),
+    packageTier: text("package_tier", { enum: ["basic", "pro", "regular"] }).notNull(),
     billingInterval: text("billing_interval", { enum: ["monthly", "annual"] }).notNull(),
     expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
     consumedAt: timestamp("consumed_at", { withTimezone: true }),
@@ -233,7 +233,7 @@ export const billingSubscriptions = pgTable(
     providerSubscriptionId: text("provider_subscription_id").notNull(),
     status: text("status").notNull(),
     productId: text("product_id"),
-    packageTier: text("package_tier", { enum: ["basic", "pro"] }),
+    packageTier: text("package_tier", { enum: ["basic", "pro", "regular"] }),
     billingInterval: text("billing_interval", { enum: ["monthly", "annual"] }),
     providerEventAt: timestamp("provider_event_at", { withTimezone: true }),
     currentPeriodEnd: timestamp("current_period_end", { withTimezone: true }),
@@ -288,4 +288,96 @@ export const billingPayments = pgTable(
     ),
     index("billing_payments_subscription_idx").on(table.provider, table.providerSubscriptionId),
   ]
+)
+
+export const billingOrders = pgTable(
+  "billing_orders",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    clerkUserId: text("clerk_user_id").notNull(),
+    provider: text("provider").notNull(),
+    productKey: text("product_key").notNull(),
+    providerOrderId: text("provider_order_id"),
+    providerCaptureId: text("provider_capture_id"),
+    status: text("status").notNull(),
+    amountMinor: integer("amount_minor").notNull(),
+    currency: text("currency").notNull(),
+    capturedAt: timestamp("captured_at", { withTimezone: true }),
+    refundedAt: timestamp("refunded_at", { withTimezone: true }),
+    ...timestamps,
+  },
+  (table) => [
+    uniqueIndex("billing_orders_provider_order_uidx").on(table.provider, table.providerOrderId),
+    uniqueIndex("billing_orders_provider_capture_uidx").on(table.provider, table.providerCaptureId),
+    index("billing_orders_user_status_idx").on(table.clerkUserId, table.status),
+  ]
+)
+
+export const audioCreditGrants = pgTable(
+  "audio_credit_grants",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    clerkUserId: text("clerk_user_id").notNull(),
+    source: text("source", {
+      enum: ["daily_free", "paypal_order", "paypal_subscription"],
+    }).notNull(),
+    sourceRef: text("source_ref").notNull(),
+    grantedCredits: integer("granted_credits").notNull(),
+    reservedCredits: integer("reserved_credits").default(0).notNull(),
+    consumedCredits: integer("consumed_credits").default(0).notNull(),
+    startsAt: timestamp("starts_at", { withTimezone: true }).notNull(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    revokedAt: timestamp("revoked_at", { withTimezone: true }),
+    ...timestamps,
+  },
+  (table) => [
+    uniqueIndex("audio_credit_grants_source_uidx").on(
+      table.clerkUserId,
+      table.source,
+      table.sourceRef
+    ),
+    index("audio_credit_grants_balance_idx").on(table.clerkUserId, table.expiresAt, table.source),
+  ]
+)
+
+export const audioCreditOperations = pgTable(
+  "audio_credit_operations",
+  {
+    id: uuid("id").primaryKey(),
+    clerkUserId: text("clerk_user_id").notNull(),
+    totalDurationSeconds: integer("total_duration_seconds").notNull(),
+    fileCount: integer("file_count").notNull(),
+    reservedCredits: integer("reserved_credits").notNull(),
+    consumedCredits: integer("consumed_credits").default(0).notNull(),
+    status: text("status", {
+      enum: ["reserved", "processing", "consumed", "released"],
+    }).notNull(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    consumedAt: timestamp("consumed_at", { withTimezone: true }),
+    releasedAt: timestamp("released_at", { withTimezone: true }),
+    ...timestamps,
+  },
+  (table) => [
+    index("audio_credit_operations_user_status_idx").on(
+      table.clerkUserId,
+      table.status,
+      table.expiresAt
+    ),
+  ]
+)
+
+export const audioCreditAllocations = pgTable(
+  "audio_credit_allocations",
+  {
+    operationId: uuid("operation_id")
+      .notNull()
+      .references(() => audioCreditOperations.id, { onDelete: "cascade" }),
+    grantId: uuid("grant_id")
+      .notNull()
+      .references(() => audioCreditGrants.id, { onDelete: "restrict" }),
+    reservedCredits: integer("reserved_credits").notNull(),
+    consumedCredits: integer("consumed_credits").default(0).notNull(),
+    ...timestamps,
+  },
+  (table) => [primaryKey({ columns: [table.operationId, table.grantId] })]
 )

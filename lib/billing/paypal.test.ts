@@ -55,12 +55,11 @@ describe("PayPal webhook verification", () => {
 })
 
 describe("PayPal environment isolation", () => {
-  it("keeps checkout closed when a public flag is enabled without complete server configuration", () => {
+  it("requires complete server configuration before checkout can open", () => {
     expect(
       isPayPalCheckoutConfigured({
         PAYPAL_ENVIRONMENT: "sandbox",
         PAYPAL_WEBHOOK_ID: "sandbox-webhook",
-        NEXT_PUBLIC_BILLING_CHECKOUT_ENABLED: "true",
       })
     ).toBe(false)
 
@@ -70,10 +69,7 @@ describe("PayPal environment isolation", () => {
         PAYPAL_CLIENT_ID: "client",
         PAYPAL_CLIENT_SECRET: "secret",
         PAYPAL_WEBHOOK_ID: "webhook",
-        PAYPAL_BASIC_MONTHLY_PLAN_ID: "P-basic-monthly",
-        PAYPAL_BASIC_ANNUAL_PLAN_ID: "P-basic-annual",
-        PAYPAL_PRO_MONTHLY_PLAN_ID: "P-pro-monthly",
-        PAYPAL_PRO_ANNUAL_PLAN_ID: "P-pro-annual",
+        PAYPAL_REGULAR_MONTHLY_PLAN_ID: "P-regular-monthly",
       })
     ).toBe(true)
   })
@@ -83,10 +79,7 @@ describe("PayPal environment isolation", () => {
       PAYPAL_CLIENT_ID: "client",
       PAYPAL_CLIENT_SECRET: "secret",
       PAYPAL_WEBHOOK_ID: "webhook",
-      PAYPAL_BASIC_MONTHLY_PLAN_ID: "P-basic-monthly",
-      PAYPAL_BASIC_ANNUAL_PLAN_ID: "P-basic-annual",
-      PAYPAL_PRO_MONTHLY_PLAN_ID: "P-pro-monthly",
-      PAYPAL_PRO_ANNUAL_PLAN_ID: "P-pro-annual",
+      PAYPAL_REGULAR_MONTHLY_PLAN_ID: "P-regular-monthly",
     }
 
     expect(
@@ -172,6 +165,102 @@ describe("PayPal environment isolation", () => {
     await expect(client.getSale("SALE-1")).resolves.toMatchObject({
       state: "refunded",
       billing_agreement_id: "I-subscription",
+    })
+  })
+
+  it("reads the original capture so cumulative refunds can be classified", async () => {
+    const requests: Array<{ url: string; init?: RequestInit }> = []
+    const responses = [
+      Response.json({ access_token: "token" }),
+      Response.json({
+        id: "CAPTURE-1",
+        status: "REFUNDED",
+        amount: { value: "14.00", currency_code: "USD" },
+      }),
+    ]
+    const client = createPayPalClient(config, async (url, init) => {
+      requests.push({ url: String(url), init })
+      return responses.shift() ?? Response.json({}, { status: 500 })
+    })
+
+    await expect(client.getCapture("CAPTURE-1")).resolves.toMatchObject({ status: "REFUNDED" })
+    expect(requests[1]?.url).toBe(
+      "https://api-m.sandbox.paypal.com/v2/payments/captures/CAPTURE-1"
+    )
+  })
+
+  it("creates and captures the fixed PAYG order on authenticated server endpoints", async () => {
+    const requests: Array<{ url: string; init?: RequestInit }> = []
+    const responses = [
+      Response.json({ access_token: "token-1" }),
+      Response.json({ id: "ORDER-1", status: "CREATED" }),
+      Response.json({ access_token: "token-2" }),
+      Response.json({ id: "ORDER-1", status: "COMPLETED" }),
+    ]
+    const client = createPayPalClient(config, async (url, init) => {
+      requests.push({ url: String(url), init })
+      return responses.shift() ?? Response.json({}, { status: 500 })
+    })
+
+    await client.createOrder({
+      requestId: "local-order-id",
+      customId: "local-order-id",
+      amount: "14.00",
+      currency: "USD",
+      productKey: "audio_credits_payg_480",
+      description: "480 Geekskai Audio Credits",
+    })
+    await client.captureOrder("ORDER-1", "local-order-id-capture")
+
+    expect(requests[1]?.url).toBe("https://api-m.sandbox.paypal.com/v2/checkout/orders")
+    expect(requests[1]?.init?.headers).toMatchObject({
+      "paypal-request-id": "local-order-id",
+    })
+    expect(JSON.parse(String(requests[1]?.init?.body))).toMatchObject({
+      intent: "CAPTURE",
+      purchase_units: [
+        {
+          custom_id: "local-order-id",
+          invoice_id: "local-order-id",
+          amount: { currency_code: "USD", value: "14.00" },
+          items: [{ sku: "audio_credits_payg_480", quantity: "1" }],
+        },
+      ],
+    })
+    expect(requests[3]?.url).toBe(
+      "https://api-m.sandbox.paypal.com/v2/checkout/orders/ORDER-1/capture"
+    )
+  })
+
+  it("creates the Regular subscription on the server with opaque correlation URLs", async () => {
+    const requests: Array<{ url: string; init?: RequestInit }> = []
+    const responses = [
+      Response.json({ access_token: "token" }),
+      Response.json({ id: "I-REGULAR", status: "APPROVAL_PENDING" }),
+    ]
+    const client = createPayPalClient(config, async (url, init) => {
+      requests.push({ url: String(url), init })
+      return responses.shift() ?? Response.json({}, { status: 500 })
+    })
+
+    await client.createSubscription({
+      requestId: "correlation-id",
+      planId: "P-REGULAR",
+      customId: "correlation-id",
+      returnUrl: "https://geekskai.com/audio-toolkit/?checkout=success",
+      cancelUrl: "https://geekskai.com/pricing/?checkout=cancelled",
+    })
+
+    expect(requests[1]?.url).toBe("https://api-m.sandbox.paypal.com/v1/billing/subscriptions")
+    expect(JSON.parse(String(requests[1]?.init?.body))).toEqual({
+      plan_id: "P-REGULAR",
+      custom_id: "correlation-id",
+      application_context: {
+        user_action: "SUBSCRIBE_NOW",
+        shipping_preference: "NO_SHIPPING",
+        return_url: "https://geekskai.com/audio-toolkit/?checkout=success",
+        cancel_url: "https://geekskai.com/pricing/?checkout=cancelled",
+      },
     })
   })
 })

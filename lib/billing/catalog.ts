@@ -1,28 +1,27 @@
-export const PACKAGE_CATALOG = {
-  free: {
-    monthlyPrice: 0,
-    annualPrice: 0,
-    audioBatchFileLimit: 1,
+export const CREDIT_CATALOG = {
+  freeDaily: {
+    key: "audio_credits_free_daily",
+    credits: 30,
+    price: 0,
+    validityDays: 1,
+    batchFileLimit: 1,
     zipExport: false,
-    support: "Documentation and community support",
   },
-  basic: {
-    monthlyPrice: 10,
-    annualPrice: 96,
-    audioBatchFileLimit: 20,
+  payg480: {
+    key: "audio_credits_payg_480",
+    credits: 480,
+    price: 14,
+    currency: "USD",
+    validityDays: 365,
+    batchFileLimit: 50,
     zipExport: true,
-    support: "Email response within 2 business days",
   },
-  pro: {
-    monthlyPrice: 25,
-    annualPrice: 240,
-    audioBatchFileLimit: 50,
+  regularMonthly: {
+    key: "audio_credits_regular_monthly_2800",
+    credits: 2800,
+    price: 29,
+    currency: "USD",
+    batchFileLimit: 50,
     zipExport: true,
-    support: "Priority response within 1 business day",
   },
-} as const
-
-export const ANNUAL_SAVINGS = {
-  basic: PACKAGE_CATALOG.basic.monthlyPrice * 12 - PACKAGE_CATALOG.basic.annualPrice,
-  pro: PACKAGE_CATALOG.pro.monthlyPrice * 12 - PACKAGE_CATALOG.pro.annualPrice,
 } as const

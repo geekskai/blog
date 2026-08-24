@@ -4,25 +4,27 @@ import { NextRequest } from "next/server"
 const mocks = vi.hoisted(() => ({
   auth: vi.fn(),
   billingCheckoutEnabled: vi.fn(),
+  billingSchemaV2Enabled: vi.fn(),
+  audioCreditsEnabled: vi.fn(),
   isPayPalCheckoutConfigured: vi.fn(),
-  getPayPalConfig: vi.fn(),
+  getPayPalClient: vi.fn(),
   createPayPalCheckoutCorrelation: vi.fn(),
-  getAccountPlanStatus: vi.fn(),
-  getManagedPayPalSubscription: vi.fn(),
+  hasManagedPayPalSubscription: vi.fn(),
 }))
 
 vi.mock("@clerk/nextjs/server", () => ({ auth: mocks.auth }))
 vi.mock("@/lib/billing/policy", () => ({
   billingCheckoutEnabled: mocks.billingCheckoutEnabled,
+  billingSchemaV2Enabled: mocks.billingSchemaV2Enabled,
+  audioCreditsEnabled: mocks.audioCreditsEnabled,
 }))
 vi.mock("@/lib/billing/paypal", () => ({
-  getPayPalConfig: mocks.getPayPalConfig,
+  getPayPalClient: mocks.getPayPalClient,
   isPayPalCheckoutConfigured: mocks.isPayPalCheckoutConfigured,
 }))
 vi.mock("@/lib/billing/repository", () => ({
   createPayPalCheckoutCorrelation: mocks.createPayPalCheckoutCorrelation,
-  getAccountPlanStatus: mocks.getAccountPlanStatus,
-  getManagedPayPalSubscription: mocks.getManagedPayPalSubscription,
+  hasManagedPayPalSubscription: mocks.hasManagedPayPalSubscription,
 }))
 
 import { POST } from "./route"
@@ -31,7 +33,10 @@ describe("PayPal checkout route", () => {
   beforeEach(() => {
     vi.clearAllMocks()
     mocks.billingCheckoutEnabled.mockReturnValue(true)
+    mocks.billingSchemaV2Enabled.mockReturnValue(true)
+    mocks.audioCreditsEnabled.mockReturnValue(true)
     mocks.auth.mockResolvedValue({ userId: "user_123" })
+    mocks.hasManagedPayPalSubscription.mockResolvedValue(false)
   })
 
   it("returns a JSON 503 before database work when PayPal configuration is incomplete", async () => {
@@ -42,7 +47,7 @@ describe("PayPal checkout route", () => {
       new NextRequest("https://geekskai.com/api/billing/checkout/", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ tier: "basic", interval: "annual" }),
+        body: JSON.stringify({ tier: "regular", interval: "monthly" }),
       })
     )
 
@@ -51,7 +56,6 @@ describe("PayPal checkout route", () => {
       error: "Checkout is temporarily unavailable.",
     })
     expect(response.headers.get("content-type")).toContain("application/json")
-    expect(mocks.getAccountPlanStatus).not.toHaveBeenCalled()
     expect(mocks.createPayPalCheckoutCorrelation).not.toHaveBeenCalled()
     consoleError.mockRestore()
   })

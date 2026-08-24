@@ -13,7 +13,7 @@ const PrivacyPolicy = () => {
       <div className="mx-auto max-w-4xl overflow-hidden rounded-lg bg-white shadow-xl">
         <div className="px-6 py-8">
           <h1 className="mb-6 text-center text-3xl font-bold text-gray-900">Privacy Policy</h1>
-          <p className="mb-8 text-center text-sm text-gray-600">Last updated: August 23, 2026</p>
+          <p className="mb-8 text-center text-sm text-gray-600">Last updated: August 24, 2026</p>
           <div className="space-y-6 text-gray-700">
             <p>
               This Privacy Policy describes Our policies and procedures on the collection, use and
@@ -252,26 +252,27 @@ const PrivacyPolicy = () => {
           </p>
           <p className="mb-4 text-gray-700">
             Audio conversion and loudness normalization also run locally in Your browser. We record
-            only whether an authenticated user completed their first single-file or batch task so we
-            can measure activation. We do not send audio content, filenames, or processing settings
-            with that event. Subscription status and capability entitlements are stored in our
-            database and synchronized only after PayPal verifies its webhook transmission or a
-            direct PayPal API reconciliation succeeds.
+            only aggregate input duration, file count, Credit reservation and settlement status, and
+            whether an authenticated user completed their first single-file or batch task. We do not
+            send audio content, filenames, or processing settings with those records. Credit grants
+            and subscription status are stored in our database only after a server-verified PayPal
+            capture or payment event.
           </p>
 
           <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">
-            Subscription Records, Retention, and Deletion
+            Payment and Audio Credit Records, Retention, and Deletion
           </h2>
           <p className="mb-4 text-gray-700">
-            To provide and audit Basic or Pro access, We store Your Clerk account identifier within
-            Geekskai, PayPal payer, subscription, payment, and Plan references, Package Tier,
-            Billing Interval, subscription status, current period end, cancellation state,
-            capability entitlements, and timestamps. PayPal receives an opaque checkout correlation
-            identifier, not Your Clerk account identifier. For webhook reliability, We store the
-            PayPal event identifier, event type, a payload hash, processing timestamps, and a short
-            processing error code when an event cannot be linked safely. We do not store the full
-            webhook payload or full card details in Our application database. Unused checkout
-            correlation records are removed after 30 days.
+            To provide and audit paid Audio Credits, We store Your Clerk account identifier within
+            Geekskai; PayPal payer, order, capture, subscription, payment, and Plan references;
+            amounts and currency; Credit grant source, remaining balance, validity period;
+            reservation and settlement records; subscription status; and timestamps. PayPal receives
+            an opaque order or checkout correlation identifier, not Your Clerk account identifier.
+            For webhook reliability, We store the PayPal event identifier, event type, a payload
+            hash, processing timestamps, and a short processing error code when an event cannot be
+            linked safely. We do not store the full webhook payload or full card details in Our
+            application database. Unused subscription checkout correlations are removed after 30
+            days.
           </p>
           <p className="mb-4 text-gray-700">
             Active subscription and entitlement records are kept while needed to provide the
@@ -295,8 +296,8 @@ const PrivacyPolicy = () => {
             compatibility fallback and to carry existing same-day Visitor usage into the
             server-issued identity. For signed-in users, we store the Clerk account identifier, UTC
             allowance day, successful-download count, temporary download reservations, the
-            applicable account allowance, and whether the daily share reward was used. Basic and Pro
-            subscriptions apply only to the local Audio Toolkit and never change public downloader
+            applicable account allowance, and whether the daily share reward was used. Paid Audio
+            Credits apply only to the local Audio Toolkit and never change public downloader
             allowances. To measure whether the registration flow helps people finish their task, we
             also record a pseudonymous journey identifier, controlled event names, tool identifiers,
             and event timestamps. Shared links may contain a random attribution identifier valid for

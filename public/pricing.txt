@@ -1,43 +1,48 @@
-# Geekskai Audio Toolkit Pricing
+# Geekskai Audio Credits Pricing
 
 Currency: USD
-Billing model: Flat subscription; no per-seat pricing
+Credit rate: 1 Credit per minute of combined input audio, rounded up once per batch
 Processing model: Audio processing runs locally in the user's browser
 Payment processor: PayPal Business
-Current purchase status: Basic and Pro recurring subscriptions are available through secure PayPal checkout
-Refund policy: One 14-day full-refund window applies to an account's first successful subscription payment; renewals and later subscriptions do not start a new window
+Current purchase status: PAYG and Regular monthly purchases use secure PayPal checkout
+Refund policy: Full refund within 14 days only when no Credits from that payment were consumed
 
 ## Free
 
 - Price: $0
+- Credits: 30 per UTC day
+- Expiry: Next 00:00 UTC; no rollover
 - Batch limit: 1 file
-- Formats: MP3, WAV, FLAC, and M4A
-- Includes: Two-pass LUFS normalization
 
-## Basic
+## Pay As You Go
 
-- Monthly: $10 per month
-- Annual: $96 per year, equivalent to $8 per month
-- Annual discount: 20% compared with 12 monthly payments
-- Batch limit: Up to 20 files
-- Includes: Everything in Free, ZIP export
-- Support: Email response within 2 business days
-
-## Pro
-
-- Monthly: $25 per month
-- Annual: $240 per year, equivalent to $20 per month
-- Annual discount: 20% compared with 12 monthly payments
+- Price: $14 one-time
+- Credits: 480
+- Expiry: 365 days after payment
 - Batch limit: Up to 50 files
-- Includes: Everything in Basic, ZIP export
-- Support: Priority response within 1 business day
+- Includes: ZIP export
+
+## Regular
+
+- Monthly: $29 per month
+- Credits: 2,800 after each successful monthly payment
+- Expiry: End of the current billing period; no rollover
+- Batch limit: Up to 50 files
+- Includes: ZIP export
+
+## Credit use
+
+- Daily Free Credits are consumed first, then subscription Credits, then Pay As You Go Credits.
+- Failed or cancelled processing consumes no Credits.
+- Partially successful batches consume only the rounded combined duration of successful files.
+- Public third-party downloader allowances remain separate and do not change after a Credit purchase.
 
 ## Links
 
 - Pricing page: https://geekskai.com/pricing/
-- Free Audio Toolkit: https://geekskai.com/audio-toolkit/
+- Audio Toolkit: https://geekskai.com/audio-toolkit/
 - Privacy Policy: https://geekskai.com/privacy/
 - Terms of Service: https://geekskai.com/terms/
 - Support: support@geekskai.com
 
-Last updated: 2026-08-23
+Last updated: 2026-08-24

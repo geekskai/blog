@@ -2,9 +2,8 @@ import { auth } from "@clerk/nextjs/server"
 import type { Metadata } from "next"
 import { permanentRedirect } from "next/navigation"
 import siteMetadata from "@/data/siteMetadata"
-import { getEntitlementSet } from "@/lib/billing/domain"
-import { getAccountPlanStatus } from "@/lib/billing/repository"
-import type { AccountPlanStatus } from "@/lib/billing/types"
+import { getAudioCreditBalance } from "@/lib/audio-credits/repository"
+import { audioCreditsEnabled, billingSchemaV2Enabled } from "@/lib/billing/policy"
 import { buildPageSchema, serializeJsonLd } from "@/lib/seo"
 import DjWorkspace from "../workspace/DjWorkspace"
 
@@ -51,17 +50,6 @@ const audioToolkitSchema = buildPageSchema({
   ],
 })
 
-const freeEntitlements = getEntitlementSet("free")
-const publicFreeStatus: AccountPlanStatus = {
-  packageTier: "free",
-  billingInterval: null,
-  subscriptionStatus: null,
-  currentPeriodEnd: null,
-  cancellationScheduled: false,
-  batchFileLimit: freeEntitlements.audioBatchFileLimit,
-  zipExport: freeEntitlements.zipExport,
-}
-
 export default async function AudioToolkitPage({
   params,
   searchParams,
@@ -81,8 +69,16 @@ export default async function AudioToolkitPage({
       <DjWorkspace
         userId={userId}
         locale={locale}
-        initialBillingStatus={userId ? await getAccountPlanStatus(userId) : publicFreeStatus}
-        checkoutSuccess={Boolean(userId) && query.checkout === "success"}
+        initialCredits={
+          userId &&
+          audioCreditsEnabled() &&
+          billingSchemaV2Enabled()
+            ? await getAudioCreditBalance(userId)
+            : null
+        }
+        checkoutSuccess={
+          Boolean(userId) && (query.checkout === "success" || query.checkout === "processing")
+        }
       />
     </>
   )

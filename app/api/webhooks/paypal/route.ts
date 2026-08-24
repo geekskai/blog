@@ -6,6 +6,7 @@ import {
 } from "@/lib/billing/paypal-event"
 import { getPayPalClient, type PayPalTransmission } from "@/lib/billing/paypal"
 import { processPayPalWebhook } from "@/lib/billing/repository"
+import { CREDIT_CATALOG } from "@/lib/billing/catalog"
 
 const getTransmission = (request: NextRequest): PayPalTransmission | null => {
   const transmission = {
@@ -20,6 +21,10 @@ const getTransmission = (request: NextRequest): PayPalTransmission | null => {
 
 const readString = (value: unknown) =>
   typeof value === "string" && value.trim() ? value.trim() : null
+const readObject = (value: unknown) =>
+  value && typeof value === "object" && !Array.isArray(value)
+    ? (value as Record<string, unknown>)
+    : null
 
 export async function POST(request: NextRequest) {
   const transmission = getTransmission(request)
@@ -44,6 +49,7 @@ export async function POST(request: NextRequest) {
     }
 
     let refundType: "full" | "partial" | undefined
+    let subscriptionPeriodEnd: Date | null | undefined
     const resource = payload.resource
     const normalized = normalizePayPalEvent(payload)
     const originalSaleId =
@@ -64,7 +70,43 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    const result = await processPayPalWebhook(payload, rawPayload, { refundType })
+    if (payload.event_type === "PAYMENT.CAPTURE.REFUNDED" && normalized.captureId) {
+      const capture = await client.getCapture(normalized.captureId)
+      const status = readString(capture.status)?.toUpperCase()
+      const amount = readObject(capture.amount)
+      const value = readString(amount?.value)
+      const currency = readString(amount?.currency_code)?.toUpperCase()
+      if (
+        (status !== "REFUNDED" && status !== "PARTIALLY_REFUNDED") ||
+        value !== CREDIT_CATALOG.payg480.price.toFixed(2) ||
+        currency !== CREDIT_CATALOG.payg480.currency
+      ) {
+        throw new Error("PayPal capture refund state does not match the PAYG product.")
+      }
+      refundType = status === "REFUNDED" ? "full" : "partial"
+    }
+
+    if (payload.event_type === "PAYMENT.SALE.COMPLETED" && normalized.subscriptionId) {
+      const subscription = await client.getSubscription(normalized.subscriptionId)
+      const billingInfo = readObject(subscription.billing_info)
+      const nextBillingTime = readString(billingInfo?.next_billing_time)
+      const parsedPeriodEnd = nextBillingTime ? new Date(nextBillingTime) : null
+      subscriptionPeriodEnd =
+        parsedPeriodEnd && !Number.isNaN(parsedPeriodEnd.getTime()) ? parsedPeriodEnd : null
+    }
+
+    const result = await processPayPalWebhook(payload, rawPayload, {
+      refundType,
+      subscriptionPeriodEnd,
+    })
+    if (
+      result.processingError === "unlinked_account" ||
+      result.processingError === "unlinked_order" ||
+      result.processingError === "unlinked_capture" ||
+      result.processingError === "invalid_billing_period"
+    ) {
+      throw new Error(`Retryable PayPal event: ${result.processingError}`)
+    }
     return NextResponse.json({ ok: true, duplicate: result.duplicate })
   } catch (error) {
     console.error("PayPal webhook processing failed", error)

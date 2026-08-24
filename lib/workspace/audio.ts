@@ -40,6 +40,36 @@ export function getAudioSelectionIssue(
   return null
 }
 
+export function readLocalAudioDuration(file: File): Promise<number> {
+  return new Promise((resolve, reject) => {
+    const audio = document.createElement("audio")
+    const objectUrl = URL.createObjectURL(file)
+    const timeout = window.setTimeout(
+      () => finish(new Error("Audio duration could not be read.")),
+      15_000
+    )
+    const cleanup = () => {
+      window.clearTimeout(timeout)
+      URL.revokeObjectURL(objectUrl)
+      audio.removeAttribute("src")
+      audio.load()
+    }
+    const finish = (error?: Error) => {
+      const duration = audio.duration
+      cleanup()
+      if (error || !Number.isFinite(duration) || duration <= 0) {
+        reject(error ?? new Error("Audio duration could not be read."))
+      } else {
+        resolve(duration)
+      }
+    }
+    audio.preload = "metadata"
+    audio.onloadedmetadata = () => finish()
+    audio.onerror = () => finish(new Error(`${file.name} metadata could not be read.`))
+    audio.src = objectUrl
+  })
+}
+
 export function parseLoudnormMeasurements(log: string): LoudnormMeasurements {
   const match = log.match(/\{[\s\S]*?"input_i"[\s\S]*?"target_offset"\s*:\s*"[^"]+"[\s\S]*?\}/)
   if (!match) throw new Error("FFmpeg did not return loudness measurements.")

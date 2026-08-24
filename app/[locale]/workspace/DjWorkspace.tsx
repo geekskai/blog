@@ -12,7 +12,7 @@ import {
   Waves,
 } from "lucide-react"
 import { trackClarityEvent } from "@/lib/analytics/clarity"
-import type { AccountPlanStatus } from "@/lib/billing/types"
+import type { AudioCreditBalance } from "@/lib/billing/types"
 import AudioProcessorPanel from "./AudioProcessorPanel"
 
 type AudioFormat = "wav" | "mp3"
@@ -67,12 +67,12 @@ const formatDate = (value: string) =>
 export default function DjWorkspace({
   userId,
   locale,
-  initialBillingStatus,
+  initialCredits,
   checkoutSuccess,
 }: {
   userId: string | null
   locale: string
-  initialBillingStatus: AccountPlanStatus
+  initialCredits: AudioCreditBalance | null
   checkoutSuccess: boolean
 }) {
   const storageKey = useMemo(() => `geekskai:dj-workspace:v1:${userId ?? "visitor"}`, [userId])
@@ -216,10 +216,10 @@ export default function DjWorkspace({
       </section>
 
       <AudioProcessorPanel
-        initialBillingStatus={initialBillingStatus}
+        initialCredits={initialCredits}
         locale={locale}
         checkoutSuccess={checkoutSuccess}
-        canRecordActivation={Boolean(userId)}
+        isSignedIn={Boolean(userId)}
       />
 
       <div className="grid gap-4 lg:grid-cols-2 lg:gap-5">

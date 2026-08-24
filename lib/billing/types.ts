@@ -1,5 +1,4 @@
 import type { BillingInterval, CheckoutTier, PackageTier } from "./domain"
-import type { PayPalWebhookEvent } from "./paypal-event"
 
 export interface AccountPlanStatus {
   packageTier: PackageTier
@@ -9,7 +8,21 @@ export interface AccountPlanStatus {
   cancellationScheduled: boolean
   batchFileLimit: number
   zipExport: boolean
+  credits: AudioCreditBalance
 }
+
+export type AudioCreditBalance = {
+  total: number
+  free: number
+  subscription: number
+  payg: number
+  paidAccess: boolean
+  batchFileLimit: number
+  zipExport: boolean
+  nextExpiry: string | null
+}
+
+export type AudioCreditOperationStatus = "reserved" | "processing" | "consumed" | "released"
 
 export interface ManagedPayPalSubscription {
   subscriptionId: string
@@ -18,5 +31,3 @@ export interface ManagedPayPalSubscription {
   packageTier: CheckoutTier
   billingInterval: BillingInterval
 }
-
-export type { PayPalWebhookEvent }

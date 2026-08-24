@@ -1,11 +1,16 @@
 import "server-only"
 import { createHash, randomUUID } from "node:crypto"
+import {
+  getAudioCreditBalance,
+  grantSubscriptionCredits,
+  revokePaidCreditGrant,
+  revokeSubscriptionCreditGrants,
+} from "@/lib/audio-credits/repository"
 import { getSqlClient } from "@/lib/db/client"
+import { completePaygOrderFromWebhook, markPaygCaptureRefunded } from "./orders"
 import {
   getAccessAction,
   getBillingPlanSelection,
-  getEntitlementSet,
-  isPackageTier,
   type BillingInterval,
   type BillingPlanEnvironment,
   type CheckoutSelection,
@@ -17,10 +22,6 @@ import { billingSchemaV2Enabled } from "./policy"
 import type { AccountPlanStatus, ManagedPayPalSubscription } from "./types"
 
 const PROVIDER = "paypal"
-const ACCOUNT_TIER_KEY = "account.package_tier"
-const BATCH_LIMIT_KEY = "workspace.batch_file_limit"
-const ZIP_EXPORT_KEY = "workspace.zip_export"
-
 type Row = Record<string, unknown>
 
 const readString = (value: unknown) =>
@@ -40,17 +41,12 @@ const readObject = (value: unknown) =>
     : null
 
 const planEnvironment = (): BillingPlanEnvironment => ({
-  PAYPAL_BASIC_MONTHLY_PLAN_ID: process.env.PAYPAL_BASIC_MONTHLY_PLAN_ID,
-  PAYPAL_BASIC_ANNUAL_PLAN_ID: process.env.PAYPAL_BASIC_ANNUAL_PLAN_ID,
-  PAYPAL_PRO_MONTHLY_PLAN_ID: process.env.PAYPAL_PRO_MONTHLY_PLAN_ID,
-  PAYPAL_PRO_ANNUAL_PLAN_ID: process.env.PAYPAL_PRO_ANNUAL_PLAN_ID,
+  PAYPAL_REGULAR_MONTHLY_PLAN_ID: process.env.PAYPAL_REGULAR_MONTHLY_PLAN_ID,
 })
 
-const isCheckoutTier = (value: unknown): value is CheckoutTier =>
-  value === "basic" || value === "pro"
+const isCheckoutTier = (value: unknown): value is CheckoutTier => value === "regular"
 
-const isBillingInterval = (value: unknown): value is BillingInterval =>
-  value === "monthly" || value === "annual"
+const isBillingInterval = (value: unknown): value is BillingInterval => value === "monthly"
 
 const statusForEvent = (eventType: string, resourceStatus: string | null) => {
   if (resourceStatus) return resourceStatus.toUpperCase()
@@ -66,35 +62,18 @@ const statusForEvent = (eventType: string, resourceStatus: string | null) => {
 
 export async function getAccountPlanStatus(clerkUserId: string): Promise<AccountPlanStatus> {
   const sql = getSqlClient()
-  const rows = (await sql`
-    SELECT
-      subscription.status,
-      subscription.current_period_end,
-      subscription.billing_interval,
-      COALESCE((
-        SELECT entitlement.value #>> '{}'
-        FROM account_entitlements entitlement
-        WHERE entitlement.clerk_user_id = ${clerkUserId}
-          AND entitlement.entitlement_key = ${ACCOUNT_TIER_KEY}
-          AND entitlement.effective_at <= now()
-          AND (entitlement.expires_at IS NULL OR entitlement.expires_at > now())
-        ORDER BY
-          CASE WHEN entitlement.source LIKE 'manual:%' THEN 0 ELSE 1 END,
-          entitlement.updated_at DESC
-        LIMIT 1
-      ), 'free') AS package_tier
-    FROM (SELECT 1) seed
-    LEFT JOIN LATERAL (
+  const [rows, credits] = await Promise.all([
+    sql`
       SELECT status, current_period_end, billing_interval
       FROM billing_subscriptions
       WHERE clerk_user_id = ${clerkUserId} AND provider = ${PROVIDER}
       ORDER BY updated_at DESC
       LIMIT 1
-    ) subscription ON true
-  `) as Row[]
+    ` as Promise<Row[]>,
+    getAudioCreditBalance(clerkUserId),
+  ])
   const row = rows[0] ?? {}
-  const packageTier: PackageTier = isPackageTier(row.package_tier) ? row.package_tier : "free"
-  const entitlements = getEntitlementSet(packageTier)
+  const packageTier: PackageTier = credits.paidAccess ? "regular" : "free"
   const billingInterval = readString(row.billing_interval)
   const subscriptionStatus = readString(row.status)
   const currentPeriodEnd = readDate(row.current_period_end)
@@ -106,8 +85,9 @@ export async function getAccountPlanStatus(clerkUserId: string): Promise<Account
     cancellationScheduled:
       subscriptionStatus === "CANCELLED" &&
       Boolean(currentPeriodEnd && currentPeriodEnd > new Date()),
-    batchFileLimit: entitlements.audioBatchFileLimit,
-    zipExport: entitlements.zipExport,
+    batchFileLimit: credits.batchFileLimit,
+    zipExport: credits.zipExport,
+    credits,
   }
 }
 
@@ -243,13 +223,26 @@ export async function getManagedPayPalSubscription(
   }
 }
 
+export async function hasManagedPayPalSubscription(clerkUserId: string) {
+  const sql = getSqlClient()
+  const rows = (await sql`
+    SELECT 1
+    FROM billing_subscriptions
+    WHERE clerk_user_id = ${clerkUserId}
+      AND provider = ${PROVIDER}
+      AND status IN ('APPROVAL_PENDING', 'APPROVED', 'ACTIVE', 'SUSPENDED')
+    LIMIT 1
+  `) as Row[]
+  return Boolean(rows[0])
+}
+
 export async function recordPayPalCancellation(
   clerkUserId: string,
   subscriptionId: string,
   currentPeriodEnd: Date | null
 ) {
   const sql = getSqlClient()
-  const subscriptionRows = (await sql`
+  await sql`
     UPDATE billing_subscriptions
     SET status = 'CANCELLED',
       current_period_end = COALESCE(${currentPeriodEnd}, current_period_end),
@@ -258,16 +251,7 @@ export async function recordPayPalCancellation(
     WHERE clerk_user_id = ${clerkUserId}
       AND provider = ${PROVIDER}
       AND provider_subscription_id = ${subscriptionId}
-    RETURNING current_period_end
-  `) as Row[]
-  const paidThrough = readDate(subscriptionRows[0]?.current_period_end)
-  if (paidThrough) {
-    await sql`
-      UPDATE account_entitlements
-      SET expires_at = ${paidThrough}, updated_at = now()
-      WHERE clerk_user_id = ${clerkUserId} AND source = ${`${PROVIDER}:${subscriptionId}`}
-    `
-  }
+  `
 }
 
 export async function listTrackedPayPalSubscriptionIds() {
@@ -299,7 +283,7 @@ export async function deleteExpiredPayPalCheckoutCorrelations() {
 export async function processPayPalWebhook(
   payload: PayPalWebhookEvent,
   rawPayload: string,
-  options: { refundType?: "full" | "partial" } = {}
+  options: { refundType?: "full" | "partial"; subscriptionPeriodEnd?: Date | null } = {}
 ) {
   if (!billingSchemaV2Enabled()) throw new Error("Billing schema v2 is not enabled.")
   const sql = getSqlClient()
@@ -314,6 +298,63 @@ export async function processPayPalWebhook(
     RETURNING processed_at
   `) as Row[]
   if (eventRows[0]?.processed_at) return { duplicate: true }
+
+  if (event.eventType === "PAYMENT.CAPTURE.COMPLETED" && event.orderId && event.captureId) {
+    const result = await completePaygOrderFromWebhook({
+      providerOrderId: event.orderId,
+      captureId: event.captureId,
+      amount: event.amount,
+      currency: event.currency,
+      occurredAt: event.occurredAt,
+    })
+    const retryable = result.processingError === "unlinked_order"
+    await sql`
+      UPDATE billing_webhook_events SET processed_at = ${retryable ? null : new Date()},
+        processing_error = ${result.processingError}
+      WHERE provider = ${PROVIDER} AND provider_event_id = ${event.id}
+    `
+    return { duplicate: false, action: "grant" as const, ...result }
+  }
+
+  if (
+    (event.eventType === "PAYMENT.CAPTURE.REFUNDED" ||
+      event.eventType === "PAYMENT.CAPTURE.REVERSED") &&
+    event.captureId
+  ) {
+    const fullRefund =
+      event.eventType === "PAYMENT.CAPTURE.REVERSED" || options.refundType === "full"
+    const clerkUserId = await markPaygCaptureRefunded(
+      event.captureId,
+      event.occurredAt,
+      fullRefund ? "REFUNDED" : "PARTIALLY_REFUNDED"
+    )
+    if (clerkUserId && fullRefund) {
+      await revokePaidCreditGrant(event.captureId, event.occurredAt)
+    }
+    const processingError = !clerkUserId
+      ? "unlinked_capture"
+      : fullRefund
+        ? null
+        : "partial_refund_review"
+    const retryable = !clerkUserId
+    if (processingError === "partial_refund_review") {
+      console.warn("PayPal PAYG partial refund requires review", {
+        providerEventId: event.id,
+        captureId: event.captureId,
+      })
+    }
+    await sql`
+      UPDATE billing_webhook_events SET processed_at = ${retryable ? null : new Date()},
+        processing_error = ${processingError}
+      WHERE provider = ${PROVIDER} AND provider_event_id = ${event.id}
+    `
+    return {
+      duplicate: false,
+      action: fullRefund ? ("revoke" as const) : ("review" as const),
+      linked: Boolean(clerkUserId),
+      processingError,
+    }
+  }
 
   let clerkUserId: string | null = null
   let linkedSelection: CheckoutSelection | null = null
@@ -379,7 +420,10 @@ export async function processPayPalWebhook(
       ? "unknown_plan"
       : action === "grant" && !planSelection
         ? "unknown_plan"
-        : null
+        : action === "grant" &&
+            (!options.subscriptionPeriodEnd || options.subscriptionPeriodEnd <= event.occurredAt)
+          ? "invalid_billing_period"
+          : null
 
   if (clerkUserId && event.payerId) {
     await sql`
@@ -439,42 +483,23 @@ export async function processPayPalWebhook(
   }
 
   if (clerkUserId && event.subscriptionId && subscriptionUpdated) {
-    const source = `${PROVIDER}:${event.subscriptionId}`
-    if (action === "grant" && planSelection && !processingError) {
-      const entitlements = getEntitlementSet(planSelection.tier)
-      await sql`
-        INSERT INTO account_entitlements (
-          clerk_user_id, entitlement_key, value, source, effective_at, expires_at, updated_at
-        ) VALUES
-          (${clerkUserId}, ${ACCOUNT_TIER_KEY}, ${JSON.stringify(planSelection.tier)}::jsonb, ${source}, now(), null, now()),
-          (${clerkUserId}, ${BATCH_LIMIT_KEY}, ${JSON.stringify(entitlements.audioBatchFileLimit)}::jsonb, ${source}, now(), null, now()),
-          (${clerkUserId}, ${ZIP_EXPORT_KEY}, ${JSON.stringify(entitlements.zipExport)}::jsonb, ${source}, now(), null, now())
-        ON CONFLICT (clerk_user_id, entitlement_key, source) DO UPDATE SET
-          value = EXCLUDED.value,
-          effective_at = EXCLUDED.effective_at,
-          expires_at = null,
-          updated_at = now()
-      `
-    } else if (event.eventType === "BILLING.SUBSCRIPTION.CANCELLED") {
-      const periodRows = (await sql`
-        SELECT current_period_end FROM billing_subscriptions
-        WHERE provider = ${PROVIDER} AND provider_subscription_id = ${event.subscriptionId}
-        LIMIT 1
-      `) as Row[]
-      const paidThrough = readDate(periodRows[0]?.current_period_end)
-      if (paidThrough) {
-        await sql`
-          UPDATE account_entitlements
-          SET expires_at = ${paidThrough}, updated_at = now()
-          WHERE clerk_user_id = ${clerkUserId} AND source = ${source}
-        `
-      }
+    if (
+      action === "grant" &&
+      planSelection &&
+      !processingError &&
+      event.saleId &&
+      options.subscriptionPeriodEnd &&
+      options.subscriptionPeriodEnd > event.occurredAt
+    ) {
+      await grantSubscriptionCredits({
+        clerkUserId,
+        paymentId: event.saleId,
+        startsAt: event.occurredAt,
+        expiresAt: options.subscriptionPeriodEnd,
+      })
     } else if (action === "revoke" || processingError === "unknown_plan") {
-      await sql`
-        UPDATE account_entitlements
-        SET expires_at = LEAST(COALESCE(expires_at, now()), now()), updated_at = now()
-        WHERE clerk_user_id = ${clerkUserId} AND source = ${source}
-      `
+      if (event.saleId) await revokePaidCreditGrant(event.saleId, event.occurredAt)
+      else await revokeSubscriptionCreditGrants(event.subscriptionId, event.occurredAt)
     }
   }
 
@@ -485,9 +510,11 @@ export async function processPayPalWebhook(
       processingError,
     })
   }
+  const retryable =
+    processingError === "unlinked_account" || processingError === "invalid_billing_period"
   await sql`
     UPDATE billing_webhook_events
-    SET processed_at = now(), processing_error = ${processingError}
+    SET processed_at = ${retryable ? null : new Date()}, processing_error = ${processingError}
     WHERE provider = ${PROVIDER} AND provider_event_id = ${event.id}
   `
   return { duplicate: false, action, linked: Boolean(clerkUserId), processingError }

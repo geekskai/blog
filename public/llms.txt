@@ -1,45 +1,36 @@
 # Geekskai
 
-> Geekskai is a browser-based collection of practical online tools and an Audio Toolkit for creators. The site publishes 50 utility tools across media, developer, finance, productivity, and everyday workflows.
+> Geekskai is a browser-based collection of practical online tools and a local-first Audio Toolkit.
 
-Geekskai tools are designed to work from the browser with clear task-focused interfaces. The Audio Toolkit processes audio locally in the user's browser; uploaded media is not sent to Geekskai servers for processing.
+The Audio Toolkit processes audio locally in the user's browser. Audio files and filenames are not sent to Geekskai for processing. Signed-in users receive Audio Credits, and the estimated Credit cost appears before a batch starts.
 
 ## Product
 
-- [Tools directory](https://geekskai.com/tools/): Browse all public online tools
-- [Audio Toolkit](https://geekskai.com/audio-toolkit/): Prepare one audio file locally for free, including format conversion and two-pass LUFS normalization
-- [Pricing](https://geekskai.com/pricing/): Compare Free, Basic, and Pro Audio Toolkit plans
-- [Machine-readable pricing](https://geekskai.com/pricing.txt): Plain-text plan prices, limits, and current checkout availability
+- [Tools directory](https://geekskai.com/tools/): Browse public online tools
+- [Audio Toolkit](https://geekskai.com/audio-toolkit/): Normalize and convert owned audio locally
+- [Pricing](https://geekskai.com/pricing/): Compare daily Free, Pay As You Go, and Regular monthly Credits
+- [Machine-readable pricing](https://geekskai.com/pricing.txt): Credit prices, expiry, and usage rules
 
-## Current Audio Toolkit Plans
+## Current Audio Credit offers
 
-- Free: $0; one file per local batch
-- Basic: $10 monthly or $96 annually; up to 20 files per local batch and ZIP export
-- Pro: $25 monthly or $240 annually; up to 50 files per local batch, ZIP export, and priority support
-- Annual Basic and Pro pricing is 20% lower than paying monthly for 12 months
-- Basic and Pro are recurring subscriptions available through secure PayPal Business checkout
-- Each account's first successful subscription payment has one 14-day full-refund window; renewals and later subscriptions do not start a new window
-- Public third-party downloader allowances remain separate free-product rules and do not change with an Audio Toolkit plan
+- Free: 30 Credits per UTC day; one file per local batch
+- Pay As You Go: 480 Credits for a $14 one-time payment; valid for 365 days
+- Regular: 2,800 Credits for $29 per month; Credits expire at the end of each billing period
+- 1 Credit covers one minute of combined input audio, rounded up once per batch
+- Both paid offers support up to 50 local files per batch and ZIP export
+- PayPal Business processes PAYG and recurring payments
+- A full refund is available within 14 days only when no Credits from that payment were consumed
+- Public downloader allowances remain separate free-product rules
 
-## Popular Tools
+## Trust and support
 
-- [VIN Decoder](https://geekskai.com/tools/vin-decoder/): Decode a vehicle identification number and view vehicle details
-- [Print Test Page](https://geekskai.com/tools/print-test-page/): Generate printer test pages for color and black-and-white checks
-- [Snow Day Calculator](https://geekskai.com/tools/snow-day-calculator/): Estimate the probability of a school snow day
-- [Job Worth Calculator](https://geekskai.com/tools/job-worth-calculator/): Evaluate compensation and job satisfaction factors
-- [SoundCloud to WAV](https://geekskai.com/tools/soundcloud-to-wav/): Convert supported SoundCloud tracks to WAV
-- [Random Number Generator](https://geekskai.com/tools/random-4-digit-number-generator/): Generate random four-digit numbers
-
-## Trust and Support
-
-- [Privacy Policy](https://geekskai.com/privacy/): How Geekskai handles account, payment, analytics, and local-processing data
-- [Terms of Service](https://geekskai.com/terms/): Product terms, acceptable use, subscriptions, and refunds
+- [Privacy Policy](https://geekskai.com/privacy/): Account, payment, analytics, and local-processing data
+- [Terms of Service](https://geekskai.com/terms/): Credits, acceptable use, subscriptions, and refunds
 - Support: support@geekskai.com
 
-## Technical Access
+## Technical access
 
-- [Sitemap](https://geekskai.com/sitemap.xml): Index of canonical public pages
+- [Sitemap](https://geekskai.com/sitemap.xml): Canonical public pages
 - [Robots](https://geekskai.com/robots.txt): Crawler access rules
-- AI search crawlers including GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended, and Bingbot are allowed by the current robots policy
 
-Last updated: 2026-08-23
+Last updated: 2026-08-24

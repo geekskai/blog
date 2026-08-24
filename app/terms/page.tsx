@@ -1,7 +1,7 @@
 import { genPageMetadata } from "app/seo"
 import React from "react"
 import Link from "@/components/Link"
-import { PACKAGE_CATALOG } from "@/lib/billing/catalog"
+import { CREDIT_CATALOG } from "@/lib/billing/catalog"
 
 export const metadata = genPageMetadata({
   title: "Geekskai Terms of Service | Public Tools and Audio Toolkit Plans",
@@ -9,7 +9,7 @@ export const metadata = genPageMetadata({
 })
 
 const SITE_URL = "https://geekskai.com"
-const LAST_UPDATED = "August 23, 2026"
+const LAST_UPDATED = "August 24, 2026"
 
 export default function TermsOfServicePage() {
   return (
@@ -30,10 +30,9 @@ export default function TermsOfServicePage() {
               Public Tools and Audio Toolkit Plans
             </h2>
             <p className="mb-4 text-gray-700">
-              Geekskai&apos;s public tools use daily fair-use allowances. Free, Basic, and Pro
-              describe Audio Toolkit access, while paid subscriptions cover only local Audio Toolkit
-              capabilities for files that You import and have the right to use. Paid downloader
-              allowances are not included.
+              Geekskai&apos;s public tools use separate fair-use allowances. Audio Credits apply
+              only to local Audio Toolkit processing for files that You import and have the right to
+              use. Paid Audio Credits do not increase public downloader allowances.
             </p>
             <p className="text-sm text-gray-600">
               <strong>Support Contact:</strong>{" "}
@@ -71,10 +70,10 @@ export default function TermsOfServicePage() {
               1. Description of Services
             </h2>
             <p className="mb-4 text-gray-700">
-              Geekskai provides public web tools and an authenticated Audio Toolkit. Free users may
-              process one local audio file at a time, Basic users may process up to twenty, and Pro
-              users may process up to fifty. ZIP export is available from Basic upward under the
-              limits shown on the pricing page.
+              Geekskai provides public web tools and an authenticated Audio Toolkit. Signed-in users
+              receive 30 Free Credits per UTC day and may process one local audio file at a time.
+              Customers with an unexpired paid Credit balance may process up to fifty files per
+              batch and use ZIP export, subject to the limits shown on the pricing page.
             </p>
             <p className="text-gray-700">
               We may change or discontinue features with reasonable notice where practical. Current
@@ -183,38 +182,49 @@ export default function TermsOfServicePage() {
               6. Audio Toolkit Billing, Cancellation, and Refunds
             </h2>
             <p className="mb-4 text-gray-700">
-              Geekskai is the seller of Basic and Pro subscriptions, and PayPal processes recurring
-              payments. Basic costs {"$"}
-              {PACKAGE_CATALOG.basic.monthlyPrice} monthly or {"$"}
-              {PACKAGE_CATALOG.basic.annualPrice} annually, and Pro costs {"$"}
-              {PACKAGE_CATALOG.pro.monthlyPrice} monthly or {"$"}
-              {PACKAGE_CATALOG.pro.annualPrice} annually. Prices are final USD amounts; Geekskai
-              does not add tax at checkout and determines any applicable indirect tax from the
-              displayed amount. Prices are shown before You authorize payment.
+              Geekskai is the seller of Audio Credits, and PayPal processes payments. Pay As You Go
+              costs {"$"}
+              {CREDIT_CATALOG.payg480.price} for {CREDIT_CATALOG.payg480.credits} Credits as a
+              one-time purchase. Regular costs {"$"}
+              {CREDIT_CATALOG.regularMonthly.price} per month and adds{" "}
+              {CREDIT_CATALOG.regularMonthly.credits.toLocaleString()} Credits after each verified
+              successful monthly payment. Prices are final USD amounts; Geekskai does not add tax at
+              checkout and determines any applicable indirect tax from the displayed amount.
             </p>
             <ul className="mb-6 list-disc space-y-3 pl-6 text-gray-700">
               <li>
-                <strong>No Trial or Overages:</strong> Paid plans do not include a free trial, usage
-                overages, credits, or automatic pay-as-you-go charges.
+                <strong>Credit calculation:</strong> One Credit covers one minute of combined input
+                audio. The total duration of a batch is rounded up once. Processing remains local;
+                Geekskai uses browser-reported duration and server-side reservations to maintain the
+                balance.
               </li>
               <li>
-                <strong>Cancellation:</strong> You may stop future renewal from Your Geekskai
-                billing account. Cancellation keeps the current Package Tier until the paid period
-                ends, unless a full refund, reversal, dispute, or other terminal payment event ends
-                access earlier.
+                <strong>Validity and use order:</strong> Free Credits expire at the end of their UTC
+                day. Regular Credits expire at the end of the paid billing period and do not roll
+                over. Pay As You Go Credits expire 365 days after purchase. We use Free Credits
+                first, then Regular Credits, then Pay As You Go Credits, with the earliest-expiring
+                grant used first within each group.
               </li>
               <li>
-                <strong>First-Payment Refund:</strong> Each account receives one refund window.
-                Contact support@geekskai.com within 14 calendar days of Your first successful
-                subscription payment to request a full refund. Renewals and later subscriptions do
-                not create a new window. We respond within three business days.
+                <strong>Failed and partial work:</strong> Failed or cancelled work consumes no
+                Credits when no output succeeds. If only part of a batch succeeds, Credits are
+                charged from the combined duration of the successful files.
               </li>
               <li>
-                <strong>Payment Failures:</strong> Access may continue while an Active PayPal
-                subscription retries one failed recurring payment. PayPal is configured to suspend
-                the subscription after two consecutive failures. Access ends after verified
-                suspension, expiration, reversal, dispute, or full refund. A partial refund is
+                <strong>Cancellation:</strong> You may stop future Regular renewal from Your
+                Geekskai billing account. Unused Regular Credits remain available only until the
+                current paid period ends. Cancellation does not extend or convert them.
+              </li>
+              <li>
+                <strong>Refunds:</strong> Contact support@geekskai.com within 14 calendar days of a
+                payment to request a full refund. A payment is eligible only when none of the Audio
+                Credits granted by that payment have been consumed. Partial refunds and disputes are
                 reviewed manually.
+              </li>
+              <li>
+                <strong>No overages:</strong> We do not automatically charge for extra usage. You
+                must make a separate one-time purchase or wait for another successful monthly
+                payment when the available balance is insufficient.
               </li>
             </ul>
             <p className="rounded-md border border-gray-100 bg-gray-50 p-4 text-sm text-gray-600">
