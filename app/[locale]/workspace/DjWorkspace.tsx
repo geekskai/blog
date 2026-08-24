@@ -76,7 +76,7 @@ export default function DjWorkspace({
   checkoutSuccess: boolean
 }) {
   const storageKey = useMemo(() => `geekskai:dj-workspace:v1:${userId ?? "visitor"}`, [userId])
-  const [workspace, setWorkspace] = useState<WorkspaceState | null>(null)
+  const [workspace, setWorkspace] = useState<WorkspaceState>(EMPTY_WORKSPACE)
   const [projectName, setProjectName] = useState("")
   const [selectedPresetId, setSelectedPresetId] = useState(DEFAULT_PRESETS[0].id)
   const [presetName, setPresetName] = useState("")
@@ -86,9 +86,9 @@ export default function DjWorkspace({
   useEffect(() => {
     try {
       const savedWorkspace = window.localStorage.getItem(storageKey)
-      setWorkspace(savedWorkspace ? JSON.parse(savedWorkspace) : EMPTY_WORKSPACE)
+      if (savedWorkspace) setWorkspace(JSON.parse(savedWorkspace) as WorkspaceState)
     } catch {
-      setWorkspace(EMPTY_WORKSPACE)
+      /* keep defaults */
     }
     trackClarityEvent("workspace_opened")
   }, [storageKey])
@@ -168,52 +168,27 @@ export default function DjWorkspace({
     trackClarityEvent("workspace_local_data_cleared")
   }
 
-  if (!workspace) {
-    return (
-      <div className="min-h-[60vh] animate-pulse rounded-2xl border border-slate-800/80 bg-slate-950/50 motion-reduce:animate-none" />
-    )
-  }
-
   return (
-    <div className="relative space-y-6 py-8 sm:space-y-8 sm:py-10">
+    <div className="relative space-y-5 pb-8 pt-4 sm:space-y-6 sm:pb-10 sm:pt-6">
       <div
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-56 bg-[radial-gradient(ellipse_80%_70%_at_50%_-20%,rgba(59,130,246,0.12),transparent)]"
         aria-hidden
       />
 
-      <header className="max-w-3xl">
-        <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-400 sm:text-xs">
-          <Waves className="h-3.5 w-3.5" aria-hidden />
-          Geekskai Audio Toolkit
-        </p>
-        <h1 className="mt-2 text-[clamp(1.75rem,4vw,2.5rem)] font-bold tracking-tight text-white">
-          Local audio preparation
-        </h1>
-        <p className="mt-3 text-sm leading-6 text-slate-400 sm:text-base sm:leading-7">
-          Normalize and convert audio files you own, then organize preparation projects and reuse
-          format settings. Public downloader allowances remain separate from paid plans.
+      <header className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div className="max-w-2xl">
+          <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 sm:text-xs">
+            <Waves className="h-3.5 w-3.5" aria-hidden />
+            Geekskai Audio Toolkit
+          </p>
+          <h1 className="mt-1.5 text-[clamp(1.5rem,3.5vw,2rem)] font-bold tracking-tight text-white">
+            Local audio preparation
+          </h1>
+        </div>
+        <p className="text-xs leading-5 text-slate-500 sm:text-right sm:text-sm sm:leading-6">
+          Normalize audio you own in-browser. Projects and presets stay on this device only.
         </p>
       </header>
-
-      <section className="relative overflow-hidden rounded-xl border border-amber-500/25 bg-amber-950/25 p-4 sm:p-5">
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-amber-500/[0.06] to-transparent"
-          aria-hidden
-        />
-        <div className="relative flex gap-3 sm:gap-4">
-          <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-amber-400/25 bg-amber-500/10 text-amber-300">
-            <HardDrive className="h-5 w-5" aria-hidden />
-          </span>
-          <div>
-            <h2 className="font-semibold text-amber-50">Stored on this device only</h2>
-            <p className="mt-1 text-sm leading-6 text-amber-100/70">
-              Project metadata and presets stay in this browser. Audio files are never uploaded.
-              Clearing browser data or changing devices removes this workspace; cloud sync is not
-              part of this first phase.
-            </p>
-          </div>
-        </div>
-      </section>
 
       <AudioProcessorPanel
         initialCredits={initialCredits}
@@ -221,6 +196,14 @@ export default function DjWorkspace({
         checkoutSuccess={checkoutSuccess}
         isSignedIn={Boolean(userId)}
       />
+
+      <section className="flex gap-3 rounded-xl border border-amber-500/20 bg-amber-950/20 px-3 py-2.5 sm:px-4 sm:py-3">
+        <HardDrive className="mt-0.5 h-4 w-4 shrink-0 text-amber-300" aria-hidden />
+        <p className="text-xs leading-5 text-amber-100/75 sm:text-sm sm:leading-6">
+          <span className="font-medium text-amber-50">Local storage only.</span> Audio files are
+          never uploaded. Clearing browser data removes projects and presets from this device.
+        </p>
+      </section>
 
       <div className="grid gap-4 lg:grid-cols-2 lg:gap-5">
         <section className="relative overflow-hidden rounded-2xl border border-sky-500/20 bg-slate-950/55 p-5 sm:p-6">

@@ -8,9 +8,20 @@ import {
   PayPalSubscriptionButton,
   usePayPal,
 } from "@paypal/react-paypal-js/sdk-v6"
-import { ArrowRight, Check, Clock3, Layers, LoaderCircle, ShieldCheck, Zap } from "lucide-react"
+import {
+  ArrowRight,
+  Check,
+  Clock3,
+  Layers,
+  LoaderCircle,
+  LockKeyhole,
+  ShieldCheck,
+  Sparkles,
+  X,
+  Zap,
+} from "lucide-react"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { trackClarityEvent } from "@/lib/analytics/clarity"
 import { CREDIT_CATALOG } from "@/lib/billing/catalog"
 import { readBillingJson } from "@/lib/billing/client-response"
@@ -51,6 +62,28 @@ const plans = [
   },
 ]
 
+const paidPlanThemes = {
+  payg: {
+    icon: Zap,
+    border: "border-sky-500/25 bg-slate-950/55",
+    borderActive: "border-sky-400/60 ring-2 ring-sky-400/25 ring-offset-2 ring-offset-slate-950",
+    iconWrap: "border-sky-400/25 bg-sky-500/10 text-sky-300",
+    topLine: "via-sky-400/50",
+    cta: "bg-gradient-to-r from-sky-600 to-cyan-600 hover:opacity-90",
+    summary: "border-sky-500/30 bg-sky-950/35",
+  },
+  regular: {
+    icon: Sparkles,
+    border: "border-violet-500/40 bg-violet-950/20",
+    borderActive:
+      "border-violet-300/70 ring-2 ring-violet-400/30 ring-offset-2 ring-offset-slate-950",
+    iconWrap: "border-violet-400/30 bg-violet-500/15 text-violet-200",
+    topLine: "via-violet-400/60",
+    cta: "bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:opacity-90",
+    summary: "border-violet-500/35 bg-violet-950/40",
+  },
+} as const
+
 function messageFromUnknown(value: unknown) {
   if (value instanceof Error) return value.message
   if (value && typeof value === "object" && "message" in value) return String(value.message)
@@ -72,13 +105,21 @@ function CheckoutButtons({
 
   if (loadingStatus === INSTANCE_LOADING_STATE.PENDING) {
     return (
-      <div className="flex min-h-16 items-center justify-center gap-2 text-sm text-slate-400">
-        <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden /> Loading PayPal…
+      <div className="space-y-2 py-4" aria-live="polite">
+        <div className="mx-auto h-11 w-full max-w-[16rem] animate-pulse rounded-lg bg-slate-100 motion-reduce:animate-none" />
+        <p className="flex items-center justify-center gap-2 text-center text-xs text-slate-500">
+          <LoaderCircle className="h-4 w-4 animate-spin motion-reduce:animate-none" aria-hidden />
+          Loading PayPal…
+        </p>
       </div>
     )
   }
   if (loadingStatus === INSTANCE_LOADING_STATE.REJECTED) {
-    return <p className="text-sm text-rose-200">{error?.message ?? "PayPal failed to load."}</p>
+    return (
+      <p className="rounded-lg border border-rose-200 bg-rose-50 p-3 text-sm text-rose-700">
+        {error?.message ?? "PayPal failed to load."}
+      </p>
+    )
   }
 
   if (kind === "payg") {
@@ -162,7 +203,10 @@ export default function PricingActions({
   const [checkout, setCheckout] = useState<CheckoutKind | null>(null)
   const [balance, setBalance] = useState<AudioCreditBalance | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const checkoutPanelRef = useRef<HTMLElement>(null)
   const prefix = locale === "en" ? "" : `/${locale}`
+  const selectedPlan = checkout ? plans.find((plan) => plan.key === checkout) : null
+  const selectedTheme = checkout ? paidPlanThemes[checkout] : null
 
   useEffect(() => {
     trackClarityEvent("pricing_viewed")
@@ -174,6 +218,17 @@ export default function PricingActions({
       .then((response) => (response.ok ? response.json() : null))
       .then((value) => value && setBalance(value as AudioCreditBalance))
   }, [isLoaded, isSignedIn])
+
+  useEffect(() => {
+    if (!checkout) return
+    const panel = checkoutPanelRef.current
+    if (!panel) return
+    panel.focus({ preventScroll: true })
+    panel.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      block: "start",
+    })
+  }, [checkout])
 
   const chooseCheckout = (kind: CheckoutKind) => {
     setError(null)
@@ -188,6 +243,10 @@ export default function PricingActions({
     setCheckout(kind)
   }
 
+  const closeCheckout = () => {
+    setCheckout(null)
+  }
+
   const completeCheckout = () => {
     trackClarityEvent(`paypal_${checkout}_approved`)
     window.location.assign(`${prefix}/audio-toolkit/?checkout=processing`)
@@ -196,13 +255,14 @@ export default function PricingActions({
   return (
     <>
       <header className="mx-auto max-w-7xl text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-300">
+        <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-violet-300">
+          <Sparkles className="h-3.5 w-3.5" aria-hidden />
           Audio Credits
         </p>
-        <h1 className="mt-3 text-[clamp(2rem,5vw,3.5rem)] font-bold tracking-tight text-white">
+        <h1 className="mt-3 text-[clamp(1.875rem,5vw,3.25rem)] font-bold tracking-tight text-white">
           Pay for the audio time you process.
         </h1>
-        <p className="mx-auto mt-4 max-w-6xl text-sm leading-7 text-slate-400 sm:text-base">
+        <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base">
           1 Credit covers 1 minute of input audio. See the exact batch cost before processing;
           failed or cancelled work does not consume Credits.
         </p>
@@ -221,44 +281,71 @@ export default function PricingActions({
       ) : null}
 
       <section
-        className="mx-auto mt-10 grid max-w-6xl gap-5 md:grid-cols-3"
+        className="mx-auto mt-8 grid max-w-6xl gap-4 md:grid-cols-3 md:gap-5"
         aria-label="Audio Credit plans"
       >
         {plans.map((plan) => {
           const selected = checkout === plan.key
+          const checkoutLocked = checkout !== null && plan.key !== "free" && !selected
           const highlighted = plan.key === "regular"
+          const paidTheme = plan.key !== "free" ? paidPlanThemes[plan.key] : null
+          const PlanIcon = plan.key === "free" ? Layers : (paidTheme?.icon ?? Zap)
+
           return (
             <article
               key={plan.key}
-              className={`relative flex flex-col overflow-hidden rounded-2xl border p-6 ${
-                selected
-                  ? "border-violet-300 ring-2 ring-violet-400/30"
-                  : highlighted
-                    ? "border-violet-500/45 bg-violet-950/25"
-                    : "border-slate-800 bg-slate-950/55"
+              aria-current={selected ? "step" : undefined}
+              className={`relative flex flex-col overflow-hidden rounded-2xl border p-5 transition-[border-color,box-shadow,opacity] duration-300 motion-reduce:transition-none sm:p-6 ${
+                plan.key === "free"
+                  ? "border-slate-800/80 bg-slate-950/55"
+                  : `${paidTheme?.border ?? ""} ${selected ? (paidTheme?.borderActive ?? "") : ""}`
+              } ${checkoutLocked ? "saturate-75 opacity-45" : ""} ${
+                highlighted && !checkout ? "md:-translate-y-0.5" : ""
               }`}
             >
-              {highlighted ? (
+              {plan.key !== "free" ? (
+                <div
+                  className={`pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent ${paidTheme?.topLine ?? ""} to-transparent`}
+                  aria-hidden
+                />
+              ) : null}
+              {selected ? (
+                <div className="relative mb-3">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-emerald-200">
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/70 motion-reduce:animate-none" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                    </span>
+                    Checkout active
+                  </span>
+                </div>
+              ) : highlighted ? (
                 <span className="absolute right-4 top-4 rounded-full bg-violet-500/20 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-violet-100">
                   Best value
                 </span>
               ) : null}
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-violet-400/20 bg-violet-500/10 text-violet-200">
-                {plan.key === "free" ? <Layers className="h-5 w-5" /> : <Zap className="h-5 w-5" />}
+              <span
+                className={`inline-flex h-10 w-10 items-center justify-center rounded-xl border ${
+                  plan.key === "free"
+                    ? "border-slate-700/80 bg-slate-900/70 text-slate-400"
+                    : (paidTheme?.iconWrap ?? "")
+                }`}
+              >
+                <PlanIcon className="h-5 w-5" aria-hidden />
               </span>
-              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+              <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                 {plan.eyebrow}
               </p>
-              <h2 className="mt-1 text-2xl font-bold text-white">{plan.name}</h2>
-              <p className="mt-4 text-4xl font-bold tabular-nums text-white">
+              <h2 className="mt-1 text-xl font-bold text-white sm:text-2xl">{plan.name}</h2>
+              <p className="mt-4 text-3xl font-bold tabular-nums text-white sm:text-4xl">
                 {plan.price}{" "}
                 <span className="text-sm font-medium text-slate-500">{plan.suffix}</span>
               </p>
-              <p className="mt-3 text-xl font-semibold text-violet-200">
+              <p className="mt-2 text-lg font-semibold text-violet-200 sm:text-xl">
                 {plan.credits.toLocaleString()} Credits
               </p>
-              <p className="mt-2 min-h-12 text-sm leading-6 text-slate-400">{plan.description}</p>
-              <ul className="mt-5 space-y-2 border-t border-slate-800 pt-5 text-sm text-slate-300">
+              <p className="mt-2 min-h-10 text-sm leading-6 text-slate-400">{plan.description}</p>
+              <ul className="mt-5 space-y-2 border-t border-slate-800/80 pt-5 text-sm text-slate-300">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex gap-2">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-violet-300" aria-hidden />
@@ -270,7 +357,7 @@ export default function PricingActions({
                 {plan.key === "free" ? (
                   <Link
                     href={`${prefix}/audio-toolkit/`}
-                    className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900 px-4 text-sm font-semibold text-white hover:bg-slate-800"
+                    className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-slate-700/80 bg-slate-900/70 px-4 text-sm font-semibold text-white transition-colors duration-200 hover:border-slate-500 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
                   >
                     Start free <ArrowRight className="h-4 w-4" aria-hidden />
                   </Link>
@@ -278,10 +365,21 @@ export default function PricingActions({
                   <button
                     type="button"
                     disabled={!checkoutEnabled || !clientId || !isLoaded}
+                    aria-controls={selected ? "paypal-checkout-panel" : undefined}
                     onClick={() => chooseCheckout(plan.key)}
-                    className="min-h-11 w-full rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-4 text-sm font-semibold text-white hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-45"
+                    className={`inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-4 text-sm font-semibold text-white transition-opacity duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none ${paidTheme?.cta ?? ""}`}
                   >
-                    {plan.key === "payg" ? "Buy Credits" : "Subscribe monthly"}
+                    {selected ? (
+                      <>
+                        Continue to payment
+                        <Check className="h-4 w-4" aria-hidden />
+                      </>
+                    ) : (
+                      <>
+                        {plan.key === "payg" ? "Buy Credits" : "Subscribe monthly"}
+                        <ArrowRight className="h-4 w-4" aria-hidden />
+                      </>
+                    )}
                   </button>
                 )}
               </div>
@@ -290,39 +388,133 @@ export default function PricingActions({
         })}
       </section>
 
-      {checkout && checkoutEnabled && clientId ? (
-        <section className="mx-auto mt-8 max-w-xl rounded-2xl border border-violet-400/30 bg-white p-5 text-slate-900 shadow-2xl shadow-violet-950/30">
-          <div className="mb-4 flex items-start justify-between gap-4 border-b border-slate-200 pb-4">
-            <div>
-              <p className="font-semibold">
-                {checkout === "payg" ? "480 Credits · $14 once" : "2,800 Credits · $29/month"}
-              </p>
-              <p className="mt-1 text-xs text-slate-500">Secure checkout powered by PayPal</p>
+      {checkout && checkoutEnabled && clientId && selectedPlan && selectedTheme ? (
+        <section
+          id="paypal-checkout-panel"
+          ref={checkoutPanelRef}
+          tabIndex={-1}
+          aria-labelledby="checkout-panel-heading"
+          className="animate-in fade-in slide-in-from-bottom-2 mx-auto mt-5 max-w-6xl scroll-mt-20 overflow-hidden rounded-2xl border border-violet-500/30 bg-slate-950/90 shadow-[0_24px_80px_-40px_rgba(139,92,246,0.55)] outline-none duration-300 motion-reduce:animate-none"
+        >
+          <div className="flex items-center justify-between gap-3 border-b border-slate-800/80 bg-slate-900/50 px-4 py-3 sm:px-6">
+            <div className="flex min-w-0 flex-wrap items-center gap-2 sm:gap-3">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/25 bg-emerald-500/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-200 sm:text-[11px]">
+                <Check className="h-3 w-3" aria-hidden />
+                Plan selected
+              </span>
+              <span className="hidden text-slate-600 sm:inline" aria-hidden>
+                →
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-400/30 bg-violet-500/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-violet-200 sm:text-[11px]">
+                <LockKeyhole className="h-3 w-3" aria-hidden />
+                Complete payment
+              </span>
             </div>
             <button
               type="button"
-              onClick={() => setCheckout(null)}
-              className="text-sm text-slate-500 underline"
+              onClick={closeCheckout}
+              className="inline-flex min-h-9 shrink-0 cursor-pointer items-center gap-1.5 rounded-lg border border-slate-700/80 px-2.5 text-xs font-semibold text-slate-300 transition-colors duration-200 hover:border-slate-500 hover:bg-slate-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 motion-reduce:transition-none sm:min-h-10 sm:px-3 sm:text-sm"
             >
-              Close
+              <X className="h-4 w-4" aria-hidden />
+              <span className="hidden sm:inline">Change plan</span>
             </button>
           </div>
-          <PayPalProvider
-            clientId={clientId}
-            environment={environment}
-            components={["paypal-payments", "paypal-subscriptions"]}
-            pageType="checkout"
-          >
-            <CheckoutButtons
-              kind={checkout}
-              onSuccess={completeCheckout}
-              onCancel={() => setCheckout(null)}
-              onError={(message) => {
-                setError(message)
-                setCheckout(null)
-              }}
-            />
-          </PayPalProvider>
+
+          <div className="pointer-events-none h-px bg-gradient-to-r from-transparent via-violet-400/50 to-transparent" />
+
+          <div className="grid gap-0 lg:grid-cols-[minmax(0,1.1fr)_minmax(18rem,24rem)] lg:items-stretch">
+            <div
+              className={`border-b border-slate-800/80 p-5 sm:p-6 lg:border-b-0 lg:border-r ${selectedTheme.summary}`}
+            >
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-violet-300 sm:text-xs">
+                Order summary
+              </p>
+              <h2
+                id="checkout-panel-heading"
+                className="mt-2 text-xl font-bold text-white sm:text-2xl"
+              >
+                {selectedPlan.name}
+              </h2>
+              <div className="mt-4 flex items-end gap-2">
+                <p className="text-3xl font-bold tabular-nums tracking-tight text-white sm:text-4xl">
+                  {selectedPlan.price}
+                </p>
+                <span className="pb-1 text-sm font-medium text-slate-400">
+                  {selectedPlan.suffix}
+                </span>
+              </div>
+              <p className="mt-1 text-lg font-semibold text-violet-200">
+                {selectedPlan.credits.toLocaleString()} Credits
+              </p>
+              <p className="mt-2 text-sm leading-6 text-slate-400">{selectedPlan.description}</p>
+
+              <ul className="mt-5 space-y-2 border-t border-white/[0.06] pt-5 text-sm text-slate-300">
+                {selectedPlan.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2.5">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-violet-300" aria-hidden />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <p className="mt-5 text-xs leading-5 text-slate-500 sm:text-sm">
+                {checkout === "payg"
+                  ? "You will complete a one-time PayPal payment. Credits stay valid for up to one year."
+                  : "You will approve a monthly PayPal subscription. Credits refresh after each successful payment."}
+              </p>
+            </div>
+
+            <div className="flex flex-col bg-slate-950/60 p-5 sm:p-6 lg:p-7">
+              <div className="mb-4">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500 sm:text-xs">
+                  Payment method
+                </p>
+                <p className="mt-1 text-sm font-medium text-white">
+                  {checkout === "payg" ? "PayPal one-time purchase" : "PayPal subscription"}
+                </p>
+              </div>
+
+              <div className="overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-sm">
+                <div className="flex items-center justify-between gap-2 border-b border-slate-100 bg-slate-50 px-3 py-2.5">
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-[#0070ba]/10 text-[#0070ba]">
+                      <LockKeyhole className="h-3.5 w-3.5" aria-hidden />
+                    </span>
+                    <div>
+                      <p className="text-xs font-semibold text-slate-800">PayPal Checkout</p>
+                      <p className="text-[10px] text-slate-500">Secure payment approval</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-3">
+                  <PayPalProvider
+                    clientId={clientId}
+                    environment={environment}
+                    components={["paypal-payments", "paypal-subscriptions"]}
+                    pageType="checkout"
+                  >
+                    <CheckoutButtons
+                      kind={checkout}
+                      onSuccess={completeCheckout}
+                      onCancel={closeCheckout}
+                      onError={(message) => {
+                        setError(message)
+                        setCheckout(null)
+                      }}
+                    />
+                  </PayPalProvider>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={closeCheckout}
+                className="mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-slate-700/80 text-sm font-semibold text-slate-300 transition-colors duration-200 hover:border-slate-500 hover:bg-slate-900 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 motion-reduce:transition-none lg:hidden"
+              >
+                Choose another plan
+              </button>
+            </div>
+          </div>
         </section>
       ) : null}
 

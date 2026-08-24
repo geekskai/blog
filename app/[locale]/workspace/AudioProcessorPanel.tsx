@@ -42,6 +42,8 @@ const MOBILE_DEVICE_QUERY = "(max-width: 767px), (pointer: coarse) and (hover: n
 const inputClass =
   "mt-2 min-h-11 w-full rounded-xl border border-slate-700/80 bg-slate-900/70 px-3 text-white outline-none transition-[border-color] duration-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 disabled:cursor-not-allowed disabled:opacity-60"
 
+const fieldLabelClass = "text-xs font-medium text-slate-400"
+
 export default function AudioProcessorPanel({
   initialCredits,
   locale,
@@ -302,92 +304,91 @@ export default function AudioProcessorPanel({
     setError("Processing canceled. Completed downloads remain on your device.")
   }
 
+  const canProcess =
+    !busy &&
+    files.length > 0 &&
+    !selectionIssue &&
+    Boolean(totalDurationSeconds) &&
+    !(isSignedIn && credits && estimatedCredits > credits.total)
+
   return (
     <section
-      className="relative overflow-hidden rounded-2xl border border-sky-500/25 bg-slate-950/60"
+      className="relative overflow-hidden rounded-2xl border border-sky-500/20 bg-slate-950/70"
       aria-labelledby="audio-processor-title"
     >
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-400/50 to-transparent"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(14,165,233,0.08),transparent_50%)]"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent"
         aria-hidden
       />
 
-      <div className="relative p-5 sm:p-6">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div className="max-w-2xl">
-            <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 sm:text-xs">
+      <div className="border-b border-slate-800/80 px-4 py-4 sm:px-5">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+          <div className="min-w-0">
+            <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-sky-400">
               <Waves className="h-3.5 w-3.5" aria-hidden />
               Local audio processing
             </p>
-            <h2
-              id="audio-processor-title"
-              className="mt-2 text-xl font-bold text-white sm:text-2xl"
-            >
-              Normalize and convert your own tracks
+            <h2 id="audio-processor-title" className="mt-1 text-lg font-bold text-white sm:text-xl">
+              Normalize and convert your tracks
             </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-400">
-              Two-pass LUFS processing runs in this browser. Audio and filenames are never uploaded.
-              Desktop Chrome and Edge are supported; Safari is beta.
+            <p className="mt-1 text-xs leading-5 text-slate-500 sm:text-sm">
+              Two-pass LUFS in-browser · Chrome & Edge · Safari beta
             </p>
           </div>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 text-xs font-semibold text-violet-100 sm:text-sm">
-            <Coins className="h-3.5 w-3.5" aria-hidden />
-            {isSignedIn ? `${credits?.total ?? 0} Credits` : "Sign in required"} ·{" "}
-            {isMobile ? "1 file on mobile" : `${effectiveBatchFileLimit} files per batch`}
-          </span>
+          <div className="flex flex-wrap gap-2">
+            <span className="inline-flex min-h-8 items-center gap-1.5 rounded-lg border border-violet-500/25 bg-violet-500/10 px-2.5 text-xs font-semibold text-violet-100">
+              <Coins className="h-3.5 w-3.5" aria-hidden />
+              {isSignedIn ? `${credits?.total ?? 0} Credits` : "Sign in required"}
+            </span>
+            <span className="inline-flex min-h-8 items-center rounded-lg border border-slate-700/80 bg-slate-900/60 px-2.5 text-xs font-medium text-slate-300">
+              {isMobile ? "1 file · mobile" : `${effectiveBatchFileLimit} files · batch`}
+            </span>
+          </div>
         </div>
+      </div>
 
-        {confirming && (
-          <div
-            role="status"
-            className="mt-5 flex items-start gap-3 rounded-xl border border-sky-400/25 bg-sky-950/40 p-4 text-sm text-sky-100"
-          >
-            <Loader2
-              className="mt-0.5 h-4 w-4 shrink-0 animate-spin motion-reduce:animate-none"
-              aria-hidden
-            />
-            Confirming your PayPal payment and refreshing Audio Credits…
-          </div>
-        )}
-        {confirmationTimedOut && (
-          <div
-            role="alert"
-            className="mt-5 rounded-xl border border-amber-400/25 bg-amber-950/35 p-4 text-sm text-amber-100"
-          >
-            Subscription confirmation is taking longer than expected.{" "}
-            <button
-              type="button"
-              onClick={() => window.location.reload()}
-              className="font-semibold underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
+      <div className="flex flex-col gap-0">
+        {/* Top · Upload */}
+        <div className="space-y-3 border-b border-slate-800/80 p-4 sm:p-5">
+          {confirming ? (
+            <div
+              role="status"
+              className="flex items-start gap-2.5 rounded-lg border border-sky-400/20 bg-sky-950/35 px-3 py-2.5 text-xs leading-5 text-sky-100 sm:text-sm"
             >
-              Refresh status
-            </button>{" "}
-            or contact{" "}
-            <a
-              href="mailto:support@geekskai.com"
-              className="font-semibold underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
+              <Loader2
+                className="mt-0.5 h-4 w-4 shrink-0 animate-spin motion-reduce:animate-none"
+                aria-hidden
+              />
+              Confirming PayPal payment and refreshing Credits…
+            </div>
+          ) : null}
+          {confirmationTimedOut ? (
+            <div
+              role="alert"
+              className="rounded-lg border border-amber-400/20 bg-amber-950/30 px-3 py-2.5 text-xs leading-5 text-amber-100 sm:text-sm"
             >
-              support@geekskai.com
-            </a>
-            . Credits remain locked until the verified payment event arrives.
-          </div>
-        )}
+              Payment confirmation is delayed.{" "}
+              <button
+                type="button"
+                onClick={() => window.location.reload()}
+                className="font-semibold underline underline-offset-2"
+              >
+                Refresh
+              </button>{" "}
+              or email support@geekskai.com.
+            </div>
+          ) : null}
 
-        <div className="mt-6 grid gap-3 md:grid-cols-4 md:gap-4">
-          <label className="group flex min-h-[7.5rem] cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-slate-600/80 bg-slate-900/40 px-4 py-6 text-center text-slate-300 transition-[border-color,background-color] duration-200 focus-within:border-sky-400 focus-within:ring-2 focus-within:ring-sky-400/20 hover:border-sky-500/50 hover:bg-slate-900/60 motion-reduce:transition-none md:col-span-2">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-sky-500/30 bg-sky-500/10 text-sky-300 transition-colors duration-200 group-hover:border-sky-400/50 group-hover:bg-sky-500/15 motion-reduce:transition-none">
-              <Upload className="h-5 w-5" aria-hidden />
+          <label className="group flex min-h-[7.5rem] cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-slate-600/70 bg-slate-900/35 px-4 py-4 text-center transition-[border-color,background-color] duration-200 focus-within:border-sky-400 focus-within:ring-2 focus-within:ring-sky-400/20 hover:border-sky-500/45 hover:bg-slate-900/55 motion-reduce:transition-none sm:min-h-[8rem]">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-sky-500/25 bg-sky-500/10 text-sky-300">
+              <Upload className="h-4 w-4" aria-hidden />
             </span>
             <span className="text-sm font-medium text-slate-200">
               {files.length
                 ? `${files.length} file${files.length === 1 ? "" : "s"} selected`
                 : "Choose MP3, WAV, FLAC, or M4A"}
             </span>
-            <span className="text-xs text-slate-500">Tap to browse · stays on device</span>
+            <span className="text-xs text-slate-500">Tap to browse · files stay on device</span>
             <input
               type="file"
               accept=".mp3,.wav,.flac,.m4a,audio/*"
@@ -397,181 +398,196 @@ export default function AudioProcessorPanel({
               disabled={busy}
             />
           </label>
-          <label className="text-sm text-slate-300">
-            Output
-            <select
-              value={format}
-              onChange={(event) => setFormat(event.target.value as AudioOutputFormat)}
-              disabled={busy}
-              className={inputClass}
-            >
-              <option value="wav">WAV</option>
-              <option value="mp3">MP3 · 320 kbps</option>
-            </select>
-          </label>
-          <label className="text-sm text-slate-300">
-            Target loudness
-            <input
-              type="number"
-              min={-24}
-              max={-5}
-              value={loudness}
-              onChange={(event) => setLoudness(Number(event.target.value))}
-              disabled={busy}
-              className={inputClass}
-            />
-          </label>
-        </div>
-        {format === "wav" && (
-          <label className="mt-4 block max-w-xs text-sm text-slate-300">
-            WAV bit depth
-            <select
-              value={bitDepth}
-              onChange={(event) => setBitDepth(Number(event.target.value) as WavBitDepth)}
-              disabled={busy}
-              className={inputClass}
-            >
-              <option value={16}>16-bit</option>
-              <option value={24}>24-bit</option>
-            </select>
-          </label>
-        )}
 
-        {(selectionIssue || error) && (
-          <p
-            role="alert"
-            className="mt-4 rounded-xl border border-amber-400/25 bg-amber-950/35 p-3 text-sm text-amber-100"
-          >
-            {error ?? selectionIssue}
-          </p>
-        )}
-
-        {queue.length > 0 && (
-          <div className="mt-5 space-y-2" aria-live="polite">
-            {queue.map((item) => (
-              <div
-                key={item.name}
-                className="rounded-xl border border-slate-800/70 bg-slate-900/40 p-3 text-sm"
-              >
-                <div className="flex items-center justify-between gap-4">
-                  <span className="flex min-w-0 items-center gap-2 text-slate-200">
-                    <FileAudio className="h-4 w-4 shrink-0 text-sky-400" aria-hidden />
-                    <span className="truncate">{item.name}</span>
-                  </span>
-                  <span
-                    className={`shrink-0 text-xs font-medium uppercase tracking-wide sm:text-sm sm:normal-case sm:tracking-normal ${
-                      item.status === "failed"
-                        ? "text-rose-300"
-                        : item.status === "done"
-                          ? "text-emerald-300"
-                          : "text-slate-400"
-                    }`}
-                  >
-                    {item.status === "processing" ? `${item.progress}%` : item.status}
-                  </span>
-                </div>
-                {item.status === "processing" ? (
-                  <div
-                    className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-800"
-                    role="progressbar"
-                    aria-valuenow={item.progress}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                  >
-                    <div
-                      className="h-full rounded-full bg-gradient-to-r from-sky-500 to-violet-500 transition-[width] duration-200 motion-reduce:transition-none"
-                      style={{ width: `${item.progress}%` }}
-                    />
-                  </div>
-                ) : null}
-                {item.error ? <p className="mt-1 text-xs text-rose-300">{item.error}</p> : null}
-              </div>
-            ))}
-          </div>
-        )}
-
-        {files.length > 0 && totalDurationSeconds > 0 ? (
-          <div className="mt-5 flex flex-wrap items-center gap-2 rounded-xl border border-violet-400/20 bg-violet-500/[0.08] px-4 py-3 text-sm text-violet-100">
-            <Coins className="h-4 w-4" aria-hidden />
-            Estimated cost: <strong>{estimatedCredits} Credits</strong>
-            <span className="text-violet-200/70">
-              ({Math.round(totalDurationSeconds)} seconds across {files.length} file
-              {files.length === 1 ? "" : "s"})
-            </span>
-          </div>
-        ) : null}
-
-        <div className="mt-6 flex flex-wrap gap-2.5">
-          <button
-            type="button"
-            onClick={processFiles}
-            disabled={
-              busy ||
-              files.length === 0 ||
-              Boolean(selectionIssue) ||
-              !totalDurationSeconds ||
-              Boolean(isSignedIn && credits && estimatedCredits > credits.total)
-            }
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-600 to-violet-600 px-5 text-sm font-semibold text-white transition-opacity duration-200 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none"
-          >
-            {busy ? (
-              <Loader2 className="h-4 w-4 animate-spin motion-reduce:animate-none" aria-hidden />
-            ) : (
-              <FileAudio className="h-4 w-4" aria-hidden />
-            )}
-            {busy
-              ? "Processing locally…"
-              : !isSignedIn
-                ? "Sign in to process"
-                : credits && estimatedCredits > credits.total
-                  ? "Not enough Credits"
-                  : `Process for ${estimatedCredits || "—"} Credits`}
-          </button>
-          {busy && (
-            <button
-              type="button"
-              onClick={cancel}
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-700/80 bg-slate-900/50 px-4 text-sm font-semibold text-slate-200 transition-colors duration-200 hover:border-slate-500 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 motion-reduce:transition-none"
-            >
-              <Square className="h-4 w-4" aria-hidden />
-              Cancel
-            </button>
-          )}
-        </div>
-
-        {!credits?.paidAccess && (
-          <div className="relative mt-6 overflow-hidden rounded-xl border border-violet-500/25 bg-violet-950/30 p-4 sm:p-5">
-            <div
-              className="pointer-events-none absolute inset-0 bg-gradient-to-br from-violet-500/[0.08] to-transparent"
-              aria-hidden
-            />
-            <div className="relative flex items-start gap-3">
-              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-violet-400/25 bg-violet-500/10 text-violet-300">
-                <Crown className="h-5 w-5" aria-hidden />
+          {files.length > 0 && totalDurationSeconds > 0 ? (
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-lg border border-violet-400/20 bg-violet-500/[0.07] px-3 py-2.5 text-xs text-violet-100 sm:text-sm">
+              <span className="inline-flex items-center gap-1.5 font-semibold">
+                <Coins className="h-3.5 w-3.5" aria-hidden />
+                {estimatedCredits} Credits
               </span>
-              <div>
-                <h3 className="font-semibold text-white">Need more Audio Credits?</h3>
-                <p className="mt-1 text-sm leading-6 text-slate-400">
-                  Buy 480 Credits once or subscribe for 2,800 monthly Credits. Both paid options
-                  unlock 50-file local batches and ZIP export.
-                </p>
-                <Link
-                  href={`${locale === "en" ? "" : `/${locale}`}/pricing/`}
-                  className="mt-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-lg bg-violet-600 px-4 text-sm font-semibold text-white transition-opacity duration-200 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 motion-reduce:transition-none"
-                >
-                  Compare plans
-                  <ArrowRight className="h-4 w-4" aria-hidden />
-                </Link>
+              <span className="text-violet-200/65">
+                · {Math.round(totalDurationSeconds)}s · {files.length} file
+                {files.length === 1 ? "" : "s"}
+              </span>
+            </div>
+          ) : files.length > 0 ? (
+            <p className="text-xs text-slate-500">Reading duration for credit estimate…</p>
+          ) : null}
+
+          {(selectionIssue || error) && (
+            <p
+              role="alert"
+              className="rounded-lg border border-amber-400/20 bg-amber-950/30 px-3 py-2.5 text-xs leading-5 text-amber-100 sm:text-sm"
+            >
+              {error ?? selectionIssue}
+            </p>
+          )}
+
+          {queue.length > 0 ? (
+            <div className="space-y-2" aria-live="polite">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                Queue ({queue.length})
+              </p>
+              <div className="max-h-40 space-y-1.5 overflow-y-auto pr-0.5 sm:max-h-48">
+                {queue.map((item) => (
+                  <div
+                    key={item.name}
+                    className="rounded-lg border border-slate-800/70 bg-slate-900/35 px-3 py-2 text-sm"
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="flex min-w-0 items-center gap-2 text-slate-200">
+                        <FileAudio className="h-3.5 w-3.5 shrink-0 text-sky-400" aria-hidden />
+                        <span className="truncate text-xs sm:text-sm">{item.name}</span>
+                      </span>
+                      <span
+                        className={`shrink-0 text-[11px] font-medium sm:text-xs ${
+                          item.status === "failed"
+                            ? "text-rose-300"
+                            : item.status === "done"
+                              ? "text-emerald-300"
+                              : "text-slate-400"
+                        }`}
+                      >
+                        {item.status === "processing" ? `${item.progress}%` : item.status}
+                      </span>
+                    </div>
+                    {item.status === "processing" ? (
+                      <div
+                        className="mt-1.5 h-1 overflow-hidden rounded-full bg-slate-800"
+                        role="progressbar"
+                        aria-valuenow={item.progress}
+                        aria-valuemin={0}
+                        aria-valuemax={100}
+                      >
+                        <div
+                          className="h-full rounded-full bg-gradient-to-r from-sky-500 to-violet-500 transition-[width] duration-200 motion-reduce:transition-none"
+                          style={{ width: `${item.progress}%` }}
+                        />
+                      </div>
+                    ) : null}
+                    {item.error ? (
+                      <p className="mt-1 text-[11px] text-rose-300">{item.error}</p>
+                    ) : null}
+                  </div>
+                ))}
               </div>
             </div>
+          ) : null}
+        </div>
+
+        {/* Middle · Options */}
+        <div className="border-b border-slate-800/80 p-4 sm:p-5">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+            Output settings
+          </p>
+          <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <label className="block">
+              <span className={fieldLabelClass}>Format</span>
+              <select
+                value={format}
+                onChange={(event) => setFormat(event.target.value as AudioOutputFormat)}
+                disabled={busy}
+                className={inputClass}
+              >
+                <option value="wav">WAV</option>
+                <option value="mp3">MP3 · 320 kbps</option>
+              </select>
+            </label>
+            <label className="block">
+              <span className={fieldLabelClass}>Target loudness (LUFS)</span>
+              <input
+                type="number"
+                min={-24}
+                max={-5}
+                value={loudness}
+                onChange={(event) => setLoudness(Number(event.target.value))}
+                disabled={busy}
+                className={inputClass}
+              />
+            </label>
+            {format === "wav" ? (
+              <label className="block sm:col-span-2 lg:col-span-1">
+                <span className={fieldLabelClass}>WAV bit depth</span>
+                <select
+                  value={bitDepth}
+                  onChange={(event) => setBitDepth(Number(event.target.value) as WavBitDepth)}
+                  disabled={busy}
+                  className={inputClass}
+                >
+                  <option value={16}>16-bit</option>
+                  <option value={24}>24-bit</option>
+                </select>
+              </label>
+            ) : null}
           </div>
-        )}
-        {credits?.zipExport && (
-          <div className="mt-4 flex items-center gap-2 rounded-lg border border-violet-500/20 bg-violet-500/5 px-3 py-2 text-sm text-violet-200">
-            <Archive className="h-4 w-4 shrink-0" aria-hidden />
-            Multiple successful files are downloaded as one ZIP archive.
+        </div>
+
+        {/* Bottom · Actions */}
+        <div className="space-y-3 p-4 sm:p-5">
+          <div className="flex flex-col gap-2.5 sm:flex-row">
+            <button
+              type="button"
+              onClick={processFiles}
+              disabled={!canProcess}
+              className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-600 to-violet-600 px-4 text-sm font-semibold text-white transition-opacity duration-200 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 disabled:cursor-not-allowed disabled:opacity-45 motion-reduce:transition-none"
+            >
+              {busy ? (
+                <Loader2 className="h-4 w-4 animate-spin motion-reduce:animate-none" aria-hidden />
+              ) : (
+                <FileAudio className="h-4 w-4" aria-hidden />
+              )}
+              {busy
+                ? "Processing locally…"
+                : !isSignedIn
+                  ? "Sign in to process"
+                  : credits && estimatedCredits > credits.total
+                    ? "Not enough Credits"
+                    : files.length === 0
+                      ? "Select files to continue"
+                      : !totalDurationSeconds
+                        ? "Waiting for duration…"
+                        : `Process for ${estimatedCredits} Credits`}
+            </button>
+            {busy ? (
+              <button
+                type="button"
+                onClick={cancel}
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-700/80 bg-slate-900/50 px-5 text-sm font-semibold text-slate-300 transition-colors duration-200 hover:border-slate-500 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 motion-reduce:transition-none sm:min-w-[8.5rem]"
+              >
+                <Square className="h-4 w-4" aria-hidden />
+                Cancel
+              </button>
+            ) : null}
           </div>
-        )}
+
+          {credits?.zipExport ? (
+            <p className="flex items-start gap-2 text-xs leading-5 text-violet-200/80">
+              <Archive className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
+              Multiple files download as one ZIP when processing succeeds.
+            </p>
+          ) : null}
+
+          {!credits?.paidAccess ? (
+            <div className="rounded-lg border border-violet-500/20 bg-violet-950/25 p-3">
+              <div className="flex items-start gap-2.5">
+                <Crown className="mt-0.5 h-4 w-4 shrink-0 text-violet-300" aria-hidden />
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-white">Need more Credits?</p>
+                  <p className="mt-0.5 text-xs leading-5 text-slate-400">
+                    Buy 480 once or subscribe for 2,800 monthly. Paid plans unlock 50-file batches.
+                  </p>
+                  <Link
+                    href={`${locale === "en" ? "" : `/${locale}`}/pricing/`}
+                    className="mt-2 inline-flex min-h-9 items-center gap-1.5 text-xs font-semibold text-violet-300 hover:text-violet-200"
+                  >
+                    Compare plans
+                    <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ) : null}
+        </div>
       </div>
     </section>
   )
