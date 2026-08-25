@@ -9,6 +9,7 @@ import {
   SHARE_UNLOCK_AMOUNT,
   VISITOR_DAILY_LIMIT,
 } from "@/lib/download-quota/domain"
+import { authUrlWithRedirect, quotaRegistrationReturnUrl } from "@/lib/auth/redirect"
 
 export type DownloadQuotaState = {
   date: string
@@ -391,8 +392,8 @@ export function useDownloadQuota({
   }, [persistQuota, quotaMode, syncDailyQuota, toolId, trackGrowthEvent])
 
   const startRegistration = useCallback(() => {
-    const returnUrl = window.location.pathname
-    const returnWithMarker = `${returnUrl}?quota_return=1`
+    const returnUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`
+    const returnWithMarker = quotaRegistrationReturnUrl(window.location)
     const saved: SavedRegistrationReturn = {
       toolId,
       returnUrl,
@@ -401,7 +402,7 @@ export function useDownloadQuota({
     }
     window.sessionStorage.setItem(REGISTRATION_RETURN_KEY, JSON.stringify(saved))
     void trackGrowthEvent("signup_started")
-    window.location.assign(`/sign-up/?redirect_url=${encodeURIComponent(returnWithMarker)}`)
+    window.location.assign(authUrlWithRedirect("/sign-up/", returnWithMarker))
   }, [toolId, trackGrowthEvent])
 
   const closeShareModal = useCallback(() => setShowShareModal(false), [])

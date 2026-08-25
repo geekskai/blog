@@ -1,12 +1,19 @@
 import { SignIn } from "@clerk/nextjs"
 import type { Metadata } from "next"
+import { authUrlWithRedirect, safeLocalRedirectUrl } from "@/lib/auth/redirect"
 
 export const metadata: Metadata = {
   title: "Sign in | GeeksKai",
   robots: { index: false, follow: false },
 }
 
-export default function SignInPage() {
+type SignInPageProps = {
+  searchParams: Promise<{ redirect_url?: string | string[] }>
+}
+
+export default async function SignInPage({ searchParams }: SignInPageProps) {
+  const redirectUrl = safeLocalRedirectUrl((await searchParams).redirect_url)
+
   return (
     <section className="flex min-h-[70vh] items-center justify-center py-12">
       <div className="space-y-5 text-center">
@@ -19,7 +26,11 @@ export default function SignInPage() {
             Your public tools remain free and do not require an account.
           </p>
         </div>
-        <SignIn fallbackRedirectUrl="/audio-toolkit/" />
+        <SignIn
+          forceRedirectUrl={redirectUrl}
+          fallbackRedirectUrl={redirectUrl}
+          signUpUrl={authUrlWithRedirect("/sign-up/", redirectUrl)}
+        />
       </div>
     </section>
   )

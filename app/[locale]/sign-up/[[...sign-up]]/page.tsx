@@ -1,6 +1,6 @@
 import { SignUp } from "@clerk/nextjs"
 import type { Metadata } from "next"
-import { safeLocalRedirectUrl } from "@/lib/auth/redirect"
+import { authUrlWithRedirect, safeLocalRedirectUrl } from "@/lib/auth/redirect"
 
 export const metadata: Metadata = {
   title: "Create a free account | GeeksKai",
@@ -31,7 +31,11 @@ export default async function SignUpPage({ searchParams }: SignUpPageProps) {
               : "Save project metadata and presets. Audio files are never uploaded."}
           </p>
         </div>
-        <SignUp forceRedirectUrl={redirectUrl} fallbackRedirectUrl={redirectUrl} />
+        <SignUp
+          forceRedirectUrl={redirectUrl}
+          fallbackRedirectUrl={redirectUrl}
+          signInUrl={authUrlWithRedirect("/sign-in/", redirectUrl)}
+        />
       </div>
     </section>
   )
