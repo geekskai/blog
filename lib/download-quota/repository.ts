@@ -36,6 +36,49 @@ type UsageRow = {
 const RESERVATION_TTL_MINUTES = 5
 const PROCESSING_TTL_MINUTES = 15
 
+export async function reconcileRegisteredReservationCounters(now = new Date()) {
+  const sql = getSqlClient()
+  const rows = (await sql`
+    WITH released AS (
+      UPDATE download_operations
+      SET status = 'released', released_at = ${now}, updated_at = ${now}
+      WHERE status IN ('reserved', 'processing') AND expires_at <= ${now}
+      RETURNING id
+    ),
+    active AS (
+      SELECT clerk_user_id, quota_day, COUNT(*)::integer AS active_count
+      FROM download_operations
+      WHERE status IN ('reserved', 'processing') AND expires_at > ${now}
+      GROUP BY clerk_user_id, quota_day
+    ),
+    corrected AS (
+      UPDATE daily_download_usage usage
+      SET reserved_downloads = COALESCE(active.active_count, 0), updated_at = ${now}
+      FROM (
+        SELECT
+          usage_row.clerk_user_id,
+          usage_row.quota_day,
+          active.active_count
+        FROM daily_download_usage usage_row
+        LEFT JOIN active
+          ON active.clerk_user_id = usage_row.clerk_user_id
+          AND active.quota_day = usage_row.quota_day
+      ) active
+      WHERE usage.clerk_user_id = active.clerk_user_id
+        AND usage.quota_day = active.quota_day
+        AND usage.reserved_downloads <> COALESCE(active.active_count, 0)
+      RETURNING usage.clerk_user_id
+    )
+    SELECT
+      (SELECT COUNT(*)::integer FROM released) AS expired_released,
+      (SELECT COUNT(*)::integer FROM corrected) AS counters_corrected
+  `) as { expired_released: number | string; counters_corrected: number | string }[]
+  return {
+    expiredReleased: Number(rows[0]?.expired_released ?? 0),
+    countersCorrected: Number(rows[0]?.counters_corrected ?? 0),
+  }
+}
+
 async function releaseExpiredReservations(clerkUserId: string, quotaDay: string, now: Date) {
   const sql = getSqlClient()
   await sql`

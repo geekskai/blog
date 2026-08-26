@@ -4,6 +4,7 @@ import { getAudioCreditBalance } from "@/lib/audio-credits/repository"
 import {
   completePaygOrder,
   getPaygOrderForCapture,
+  isPaygOrderCapturable,
   parseCompletedPayPalCapture,
 } from "@/lib/billing/orders"
 import { getPayPalClient } from "@/lib/billing/paypal"
@@ -39,6 +40,12 @@ export async function POST(
             })
           : await getAudioCreditBalance(userId)
       return NextResponse.json({ ok: true, duplicate: true, balance })
+    }
+    if (!isPaygOrderCapturable(localOrder)) {
+      return NextResponse.json(
+        { error: "This PayPal order expired. Start a new checkout." },
+        { status: 409 }
+      )
     }
     const localOrderId = String(localOrder.id)
     const resource = await getPayPalClient().captureOrder(orderId, `${localOrderId}-capture`)

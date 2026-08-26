@@ -7,6 +7,7 @@ import {
   revokeSubscriptionCreditGrants,
 } from "@/lib/audio-credits/repository"
 import { getSqlClient } from "@/lib/db/client"
+import { recordGrowthEventForUserSafely } from "@/lib/growth/events"
 import { completePaygOrderFromWebhook, markPaygCaptureRefunded } from "./orders"
 import {
   getAccessAction,
@@ -17,7 +18,11 @@ import {
   type CheckoutTier,
   type PackageTier,
 } from "./domain"
-import { normalizePayPalEvent, type PayPalWebhookEvent } from "./paypal-event"
+import {
+  normalizePayPalEvent,
+  normalizePayPalPaymentResource,
+  type PayPalWebhookEvent,
+} from "./paypal-event"
 import { billingSchemaV2Enabled } from "./policy"
 import type { AccountPlanStatus, ManagedPayPalSubscription } from "./types"
 
@@ -280,6 +285,64 @@ export async function deleteExpiredPayPalCheckoutCorrelations() {
   return rows.length
 }
 
+export async function listPayPalPaymentIdsForReconciliation() {
+  const sql = getSqlClient()
+  const rows = (await sql`
+    SELECT provider_payment_id
+    FROM billing_payments
+    WHERE provider = ${PROVIDER}
+      AND reconciliation_status = 'PENDING'
+    ORDER BY provider_event_at ASC NULLS FIRST
+    LIMIT 500
+  `) as Row[]
+  return rows.flatMap((row) => {
+    const id = readString(row.provider_payment_id)
+    return id ? [id] : []
+  })
+}
+
+export async function countPayPalPaymentsNeedingReview() {
+  const sql = getSqlClient()
+  const rows = (await sql`
+    SELECT COUNT(*)::integer AS count
+    FROM billing_payments
+    WHERE provider = ${PROVIDER} AND reconciliation_status = 'NEEDS_REVIEW'
+  `) as Row[]
+  return Number(rows[0]?.count ?? 0)
+}
+
+export async function reconcilePayPalSale(
+  providerPaymentId: string,
+  resource: Record<string, unknown>,
+  now = new Date()
+) {
+  const sql = getSqlClient()
+  const payment = normalizePayPalPaymentResource(resource)
+  const state =
+    readString(resource.state)?.toUpperCase() ?? readString(resource.status)?.toUpperCase()
+  const eventStatus = state ? `PAYMENT.SALE.${state}` : null
+  const reconciled =
+    Boolean(payment.currency && payment.amountMinor !== null) &&
+    Boolean(state && ["COMPLETED", "REFUNDED", "REVERSED", "DENIED"].includes(state))
+  const refundedMinor = state === "REFUNDED" || state === "REVERSED" ? payment.amountMinor : null
+  const rows = (await sql`
+    UPDATE billing_payments
+    SET status = COALESCE(${eventStatus}, status),
+      amount_minor = COALESCE(${payment.amountMinor}, amount_minor),
+      currency = COALESCE(${payment.currency}, currency),
+      fee_minor = COALESCE(${payment.feeMinor}, fee_minor),
+      net_minor = COALESCE(${payment.netMinor}, net_minor),
+      refunded_minor = COALESCE(${refundedMinor}, refunded_minor),
+      status_reason = COALESCE(${payment.statusReason}, status_reason),
+      reconciliation_status = ${reconciled ? "RECONCILED" : "NEEDS_REVIEW"},
+      reconciled_at = ${reconciled ? now : null},
+      updated_at = ${now}
+    WHERE provider = ${PROVIDER} AND provider_payment_id = ${providerPaymentId}
+    RETURNING id
+  `) as Row[]
+  return { linked: rows.length > 0, reconciled }
+}
+
 export async function processPayPalWebhook(
   payload: PayPalWebhookEvent,
   rawPayload: string,
@@ -313,6 +376,17 @@ export async function processPayPalWebhook(
         processing_error = ${result.processingError}
       WHERE provider = ${PROVIDER} AND provider_event_id = ${event.id}
     `
+    if (result.linked) {
+      const rows = (await sql`
+        SELECT clerk_user_id FROM billing_orders
+        WHERE provider = ${PROVIDER} AND provider_capture_id = ${event.captureId}
+        LIMIT 1
+      `) as Row[]
+      const paygUserId = readString(rows[0]?.clerk_user_id)
+      if (paygUserId) {
+        await recordGrowthEventForUserSafely(paygUserId, "billing_payment_completed_payg")
+      }
+    }
     return { duplicate: false, action: "grant" as const, ...result }
   }
 
@@ -466,18 +540,50 @@ export async function processPayPalWebhook(
   }
 
   if (clerkUserId && event.saleId) {
+    const refundEvent =
+      event.eventType === "PAYMENT.SALE.REFUNDED" ||
+      event.eventType === "PAYMENT.SALE.REVERSED" ||
+      event.eventType === "CUSTOMER.DISPUTE.CREATED"
+    const refundedMinor = refundEvent
+      ? options.refundType === "full"
+        ? event.amountMinor
+        : (event.amountMinor ?? 0)
+      : 0
     await sql`
       INSERT INTO billing_payments (
         clerk_user_id, provider, provider_payment_id, provider_subscription_id,
-        status, provider_event_at, updated_at
+        status, status_reason, amount_minor, currency, fee_minor, net_minor,
+        refunded_minor, reconciliation_status, provider_event_at, updated_at
       ) VALUES (
         ${clerkUserId}, ${PROVIDER}, ${event.saleId}, ${event.subscriptionId},
-        ${event.eventType}, ${event.occurredAt}, now()
+        ${event.eventType}, ${event.statusReason}, ${refundEvent ? null : event.amountMinor},
+        ${event.currency}, ${refundEvent ? null : event.feeMinor},
+        ${refundEvent ? null : event.netMinor}, ${refundedMinor},
+        ${refundEvent ? "NEEDS_REVIEW" : "PENDING"}, ${event.occurredAt}, now()
       )
       ON CONFLICT (provider, provider_payment_id) DO UPDATE SET
         provider_subscription_id = COALESCE(EXCLUDED.provider_subscription_id, billing_payments.provider_subscription_id),
-        status = EXCLUDED.status,
-        provider_event_at = EXCLUDED.provider_event_at,
+        status = CASE
+          WHEN billing_payments.provider_event_at IS NULL
+            OR billing_payments.provider_event_at <= EXCLUDED.provider_event_at
+          THEN EXCLUDED.status
+          ELSE billing_payments.status
+        END,
+        status_reason = COALESCE(EXCLUDED.status_reason, billing_payments.status_reason),
+        amount_minor = COALESCE(EXCLUDED.amount_minor, billing_payments.amount_minor),
+        currency = COALESCE(EXCLUDED.currency, billing_payments.currency),
+        fee_minor = COALESCE(EXCLUDED.fee_minor, billing_payments.fee_minor),
+        net_minor = COALESCE(EXCLUDED.net_minor, billing_payments.net_minor),
+        refunded_minor = GREATEST(billing_payments.refunded_minor, EXCLUDED.refunded_minor),
+        reconciliation_status = CASE
+          WHEN EXCLUDED.reconciliation_status = 'NEEDS_REVIEW' THEN 'NEEDS_REVIEW'
+          ELSE billing_payments.reconciliation_status
+        END,
+        reconciled_at = CASE
+          WHEN EXCLUDED.reconciliation_status = 'NEEDS_REVIEW' THEN NULL
+          ELSE billing_payments.reconciled_at
+        END,
+        provider_event_at = GREATEST(billing_payments.provider_event_at, EXCLUDED.provider_event_at),
         updated_at = now()
     `
   }
@@ -517,26 +623,88 @@ export async function processPayPalWebhook(
     SET processed_at = ${retryable ? null : new Date()}, processing_error = ${processingError}
     WHERE provider = ${PROVIDER} AND provider_event_id = ${event.id}
   `
+  if (clerkUserId && !processingError) {
+    if (event.eventType === "PAYMENT.SALE.COMPLETED" && action === "grant") {
+      await recordGrowthEventForUserSafely(
+        clerkUserId,
+        "billing_payment_completed_subscription",
+        event.occurredAt
+      )
+    } else if (event.eventType === "BILLING.SUBSCRIPTION.CANCELLED") {
+      await recordGrowthEventForUserSafely(
+        clerkUserId,
+        "billing_subscription_cancelled",
+        event.occurredAt
+      )
+    }
+  }
   return { duplicate: false, action, linked: Boolean(clerkUserId), processingError }
 }
 
-export async function recordWorkspaceActivation(clerkUserId: string, kind: "single" | "batch") {
+export async function recordWorkspaceActivation(
+  clerkUserId: string,
+  kind: "opened" | "single" | "batch",
+  now = new Date()
+) {
   const sql = getSqlClient()
-  const singleAt = kind === "single" ? new Date() : null
-  const batchAt = kind === "batch" ? new Date() : null
   await sql`
-    INSERT INTO workspace_activations (
-      clerk_user_id, first_single_completed_at, first_batch_completed_at, updated_at
-    ) VALUES (${clerkUserId}, ${singleAt}, ${batchAt}, now())
-    ON CONFLICT (clerk_user_id) DO UPDATE SET
-      first_single_completed_at = COALESCE(
-        workspace_activations.first_single_completed_at,
-        EXCLUDED.first_single_completed_at
-      ),
-      first_batch_completed_at = COALESCE(
-        workspace_activations.first_batch_completed_at,
-        EXCLUDED.first_batch_completed_at
-      ),
-      updated_at = now()
+    INSERT INTO workspace_activations (clerk_user_id, updated_at)
+    VALUES (${clerkUserId}, ${now})
+    ON CONFLICT (clerk_user_id) DO NOTHING
   `
+  if (kind === "single") {
+    await sql`
+      UPDATE workspace_activations
+      SET first_single_completed_at = COALESCE(first_single_completed_at, ${now}), updated_at = ${now}
+      WHERE clerk_user_id = ${clerkUserId}
+    `
+  } else if (kind === "batch") {
+    await sql`
+      UPDATE workspace_activations
+      SET first_batch_completed_at = COALESCE(first_batch_completed_at, ${now}), updated_at = ${now}
+      WHERE clerk_user_id = ${clerkUserId}
+    `
+  }
+
+  const milestoneRows =
+    kind === "opened"
+      ? ((await sql`
+          UPDATE workspace_activations
+          SET first_paid_opened_at = ${now}, updated_at = ${now}
+          WHERE clerk_user_id = ${clerkUserId}
+            AND first_paid_opened_at IS NULL
+            AND EXISTS (
+              SELECT 1 FROM audio_credit_grants
+              WHERE clerk_user_id = ${clerkUserId}
+                AND source IN ('paypal_order', 'paypal_subscription')
+                AND starts_at <= ${now}
+                AND expires_at > ${now}
+                AND revoked_at IS NULL
+                AND granted_credits - reserved_credits - consumed_credits > 0
+            )
+          RETURNING clerk_user_id
+        `) as Row[])
+      : ((await sql`
+          UPDATE workspace_activations
+          SET first_paid_completed_at = ${now}, updated_at = ${now}
+          WHERE clerk_user_id = ${clerkUserId}
+            AND first_paid_completed_at IS NULL
+            AND EXISTS (
+              SELECT 1 FROM audio_credit_grants
+              WHERE clerk_user_id = ${clerkUserId}
+                AND source IN ('paypal_order', 'paypal_subscription')
+                AND starts_at <= ${now}
+                AND expires_at > ${now}
+                AND revoked_at IS NULL
+                AND granted_credits - reserved_credits - consumed_credits > 0
+            )
+          RETURNING clerk_user_id
+        `) as Row[])
+  if (milestoneRows.length > 0) {
+    await recordGrowthEventForUserSafely(
+      clerkUserId,
+      kind === "opened" ? "paid_workspace_opened" : "first_paid_processing_completed",
+      now
+    )
+  }
 }

@@ -20,7 +20,20 @@ export type NormalizedPayPalEvent = {
   orderId: string | null
   captureId: string | null
   amount: string | null
+  amountMinor: number | null
   currency: string | null
+  feeMinor: number | null
+  netMinor: number | null
+  statusReason: string | null
+}
+
+export type NormalizedPayPalPayment = {
+  amount: string | null
+  amountMinor: number | null
+  currency: string | null
+  feeMinor: number | null
+  netMinor: number | null
+  statusReason: string | null
 }
 
 const readObject = (value: unknown) =>
@@ -42,10 +55,34 @@ const readMoney = (value: unknown) => {
   const amount = readObject(value)
   const raw = readString(amount?.total) ?? readString(amount?.value)
   const currency = readString(amount?.currency) ?? readString(amount?.currency_code)
-  const numeric = raw ? Number(raw) : Number.NaN
-  return Number.isFinite(numeric) && numeric >= 0 && currency
-    ? { value: numeric, currency: currency.toUpperCase() }
+  if (!raw || !currency || !/^\d+(?:\.\d{1,2})?$/.test(raw)) return null
+  const [whole, fraction = ""] = raw.split(".")
+  const minor = Number(whole) * 100 + Number(fraction.padEnd(2, "0"))
+  return Number.isSafeInteger(minor)
+    ? { raw, value: Number(raw), minor, currency: currency.toUpperCase() }
     : null
+}
+
+export function normalizePayPalPaymentResource(
+  resource: Record<string, unknown>
+): NormalizedPayPalPayment {
+  const receivable = readObject(resource.seller_receivable_breakdown)
+  const gross = readMoney(receivable?.gross_amount) ?? readMoney(resource.amount)
+  const fee = readMoney(receivable?.paypal_fee) ?? readMoney(resource.transaction_fee)
+  const net = readMoney(receivable?.net_amount) ?? readMoney(resource.receivable_amount)
+  const currency = gross?.currency ?? fee?.currency ?? net?.currency ?? null
+
+  return {
+    amount: gross?.raw ?? null,
+    amountMinor: gross?.minor ?? null,
+    currency,
+    feeMinor: fee?.currency === currency ? fee.minor : null,
+    netMinor: net?.currency === currency ? net.minor : null,
+    statusReason:
+      readString(resource.reason_code) ??
+      readString(resource.pending_reason) ??
+      readString(resource.status_details),
+  }
 }
 
 export function classifyPayPalRefund(
@@ -82,6 +119,7 @@ export function normalizePayPalEvent(value: unknown): NormalizedPayPalEvent {
   const relatedIds = readObject(supplementaryData?.related_ids)
   const amount = readObject(resource.amount)
   const captureEvent = eventType.startsWith("PAYMENT.CAPTURE.")
+  const payment = normalizePayPalPaymentResource(resource)
   const saleId =
     eventType === "PAYMENT.SALE.REFUNDED" || eventType === "PAYMENT.SALE.REVERSED"
       ? readString(resource.sale_id)
@@ -109,7 +147,11 @@ export function normalizePayPalEvent(value: unknown): NormalizedPayPalEvent {
         ? readString(resource.id)
         : readString(relatedIds?.capture_id)
       : null,
-    amount: readString(amount?.value),
-    currency: readString(amount?.currency_code)?.toUpperCase() ?? null,
+    amount: readString(amount?.value) ?? payment.amount,
+    amountMinor: payment.amountMinor,
+    currency: readString(amount?.currency_code)?.toUpperCase() ?? payment.currency,
+    feeMinor: payment.feeMinor,
+    netMinor: payment.netMinor,
+    statusReason: payment.statusReason,
   }
 }

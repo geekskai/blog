@@ -11,6 +11,7 @@ import {
   createPayPalCheckoutCorrelation,
   hasManagedPayPalSubscription,
 } from "@/lib/billing/repository"
+import { recordGrowthEventForUserSafely } from "@/lib/growth/events"
 
 export async function POST(request: NextRequest) {
   const { userId } = await auth()
@@ -50,6 +51,7 @@ export async function POST(request: NextRequest) {
     })
     const subscriptionId = typeof subscription.id === "string" ? subscription.id : null
     if (!subscriptionId) throw new Error("PayPal did not return a subscription ID.")
+    await recordGrowthEventForUserSafely(userId, "billing_checkout_started_subscription")
     return NextResponse.json({
       subscriptionId,
     })

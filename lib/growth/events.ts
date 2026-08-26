@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto"
 import { getSqlClient } from "@/lib/db/client"
 import type { QuotaToolId } from "@/lib/download-quota/config"
 
@@ -8,6 +9,13 @@ export const GROWTH_EVENT_NAMES = [
   "successful_download",
   "share_intent_opened",
   "share_landing",
+  "billing_checkout_started_payg",
+  "billing_checkout_started_subscription",
+  "billing_payment_completed_payg",
+  "billing_payment_completed_subscription",
+  "billing_subscription_cancelled",
+  "paid_workspace_opened",
+  "first_paid_processing_completed",
 ] as const
 
 export type GrowthEventName = (typeof GROWTH_EVENT_NAMES)[number]
@@ -164,6 +172,43 @@ export async function recordGrowthEvent({
     INSERT INTO growth_events (journey_id, clerk_user_id, event_name, tool_id, occurred_at)
     VALUES (${journeyId}::uuid, ${clerkUserId ?? null}, ${eventName}, ${toolId ?? null}, ${now})
   `
+}
+
+export async function recordGrowthEventForUser({
+  clerkUserId,
+  eventName,
+  now = new Date(),
+}: {
+  clerkUserId: string
+  eventName: GrowthEventName
+  now?: Date
+}) {
+  const sql = getSqlClient()
+  const rows = (await sql`
+    SELECT id
+    FROM growth_journeys
+    WHERE clerk_user_id = ${clerkUserId}
+    ORDER BY updated_at DESC
+    LIMIT 1
+  `) as { id: string }[]
+  await recordGrowthEvent({
+    journeyId: rows[0]?.id ?? randomUUID(),
+    clerkUserId,
+    eventName,
+    now,
+  })
+}
+
+export async function recordGrowthEventForUserSafely(
+  clerkUserId: string,
+  eventName: GrowthEventName,
+  now = new Date()
+) {
+  try {
+    await recordGrowthEventForUser({ clerkUserId, eventName, now })
+  } catch (error) {
+    console.warn("Growth event could not be recorded", { eventName, error })
+  }
 }
 
 export async function createShareAttribution({

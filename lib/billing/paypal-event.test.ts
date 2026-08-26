@@ -50,6 +50,39 @@ describe("PayPal event normalization", () => {
     ).toMatchObject({ saleId: "SALE-1", subscriptionId: null })
   })
 
+  it("normalizes gross, fee, and net amounts without deriving missing money fields", () => {
+    expect(
+      normalizePayPalEvent({
+        id: "WH-sale-money",
+        event_type: "PAYMENT.SALE.COMPLETED",
+        resource: {
+          id: "SALE-MONEY",
+          amount: { total: "29.00", currency: "USD" },
+          transaction_fee: { value: "1.46", currency: "USD" },
+          receivable_amount: { value: "27.54", currency: "USD" },
+        },
+      })
+    ).toMatchObject({
+      amount: "29.00",
+      amountMinor: 2900,
+      currency: "USD",
+      feeMinor: 146,
+      netMinor: 2754,
+    })
+
+    expect(
+      normalizePayPalEvent({
+        id: "WH-sale-no-net",
+        event_type: "PAYMENT.SALE.COMPLETED",
+        resource: {
+          id: "SALE-NO-NET",
+          amount: { total: "29.00", currency: "USD" },
+          transaction_fee: { value: "1.46", currency: "USD" },
+        },
+      }).netMinor
+    ).toBeNull()
+  })
+
   it("rejects events without a stable PayPal event identity", () => {
     expect(() => normalizePayPalEvent({ event_type: "BILLING.SUBSCRIPTION.ACTIVATED" })).toThrow(
       "Invalid PayPal webhook event."

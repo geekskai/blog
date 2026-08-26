@@ -43,10 +43,16 @@ import {
   releaseAudioCreditOperation,
   reserveAudioCredits,
 } from "@/lib/audio-credits/repository"
+import { reconcileRegisteredReservationCounters } from "@/lib/download-quota/repository"
 import { POST as captureOrder } from "@/app/api/billing/orders/[orderId]/capture/route"
 import { POST as receivePayPalWebhook } from "@/app/api/webhooks/paypal/route"
-import { completePaygOrder, getPaygOrderForCapture } from "./orders"
-import { processPayPalWebhook } from "./repository"
+import { completePaygOrder, expireStalePaygOrders, getPaygOrderForCapture } from "./orders"
+import {
+  getAccountPlanStatus,
+  processPayPalWebhook,
+  reconcilePayPalSale,
+  recordWorkspaceActivation,
+} from "./repository"
 
 const future = () => new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
 
@@ -103,6 +109,171 @@ describe("PayPal and Audio Credit state", () => {
 
     const order = await getPaygOrderForCapture("user_test", "ORDER-ATOMIC")
     expect(order?.status).toBe("CREATED")
+  })
+
+  it("expires abandoned PAYG orders without touching completed orders", async () => {
+    await testState.sql!`
+      INSERT INTO billing_orders (
+        id, clerk_user_id, provider, product_key, provider_order_id,
+        status, amount_minor, currency, expires_at
+      ) VALUES
+        (
+          '00000000-0000-4000-8000-000000000011', 'user_test', 'paypal',
+          'audio_credits_payg_480', 'ORDER-STALE', 'CREATED', 1400, 'USD',
+          now() - interval '1 minute'
+        ),
+        (
+          '00000000-0000-4000-8000-000000000012', 'user_test', 'paypal',
+          'audio_credits_payg_480', 'ORDER-COMPLETE', 'COMPLETED', 1400, 'USD',
+          now() - interval '1 minute'
+        )
+    `
+
+    expect(await expireStalePaygOrders()).toBe(1)
+    const rows = await testState.sql!`
+      SELECT provider_order_id, status FROM billing_orders
+      WHERE provider_order_id IN ('ORDER-STALE', 'ORDER-COMPLETE')
+      ORDER BY provider_order_id
+    `
+    expect(rows).toMatchObject([
+      { provider_order_id: "ORDER-COMPLETE", status: "COMPLETED" },
+      { provider_order_id: "ORDER-STALE", status: "EXPIRED" },
+    ])
+  })
+
+  it("reconciles PayPal sale gross, fee, and net fields from provider facts", async () => {
+    await testState.sql!`
+      INSERT INTO billing_payments (
+        clerk_user_id, provider, provider_payment_id, status
+      ) VALUES ('user_test', 'paypal', 'SALE-RECONCILE', 'PAYMENT.SALE.COMPLETED')
+    `
+
+    expect(
+      await reconcilePayPalSale("SALE-RECONCILE", {
+        state: "completed",
+        amount: { total: "29.00", currency: "USD" },
+        transaction_fee: { value: "1.46", currency: "USD" },
+        receivable_amount: { value: "27.54", currency: "USD" },
+      })
+    ).toEqual({ linked: true, reconciled: true })
+    const rows = await testState.sql!`
+      SELECT amount_minor, currency, fee_minor, net_minor, reconciliation_status, reconciled_at
+      FROM billing_payments WHERE provider_payment_id = 'SALE-RECONCILE'
+    `
+    expect(rows[0]).toMatchObject({
+      amount_minor: 2900,
+      currency: "USD",
+      fee_minor: 146,
+      net_minor: 2754,
+      reconciliation_status: "RECONCILED",
+    })
+    expect(rows[0]?.reconciled_at).toBeTruthy()
+  })
+
+  it("persists subscription payment money from the verified webhook", async () => {
+    await testState.sql!`
+      INSERT INTO billing_subscriptions (
+        clerk_user_id, provider, provider_subscription_id, status, product_id,
+        package_tier, billing_interval
+      ) VALUES (
+        'user_test', 'paypal', 'I-MONEY', 'ACTIVE', 'P-REGULAR',
+        'regular', 'monthly'
+      )
+    `
+    const payload = {
+      id: "WH-SALE-MONEY",
+      event_type: "PAYMENT.SALE.COMPLETED",
+      create_time: new Date().toISOString(),
+      resource: {
+        id: "SALE-MONEY",
+        billing_agreement_id: "I-MONEY",
+        amount: { total: "29.00", currency: "USD" },
+        transaction_fee: { value: "1.46", currency: "USD" },
+      },
+    }
+
+    await processPayPalWebhook(payload, JSON.stringify(payload), {
+      subscriptionPeriodEnd: future(),
+    })
+    const rows = await testState.sql!`
+      SELECT amount_minor, currency, fee_minor, net_minor, reconciliation_status
+      FROM billing_payments WHERE provider_payment_id = 'SALE-MONEY'
+    `
+    expect(rows[0]).toMatchObject({
+      amount_minor: 2900,
+      currency: "USD",
+      fee_minor: 146,
+      net_minor: null,
+      reconciliation_status: "PENDING",
+    })
+    expect((await getAudioCreditBalance("user_test")).subscription).toBe(2800)
+  })
+
+  it("reports paid-through access after future renewal is cancelled", async () => {
+    await testState.sql!`
+      INSERT INTO billing_subscriptions (
+        clerk_user_id, provider, provider_subscription_id, status,
+        package_tier, billing_interval, current_period_end
+      ) VALUES (
+        'user_test', 'paypal', 'I-PAID-THROUGH', 'CANCELLED',
+        'regular', 'monthly', ${future()}
+      )
+    `
+    await testState.sql!`
+      INSERT INTO audio_credit_grants (
+        clerk_user_id, source, source_ref, granted_credits, starts_at, expires_at
+      ) VALUES ('user_test', 'paypal_subscription', 'SALE-PAID-THROUGH', 2800, now(), ${future()})
+    `
+
+    const status = await getAccountPlanStatus("user_test")
+    expect(status).toMatchObject({
+      packageTier: "regular",
+      subscriptionStatus: "CANCELLED",
+      cancellationScheduled: true,
+    })
+    expect(status.credits.subscription).toBe(2800)
+  })
+
+  it("repairs stale reservation counters from active operations", async () => {
+    await testState.sql!`
+      INSERT INTO daily_download_usage (
+        clerk_user_id, quota_day, successful_downloads, reserved_downloads
+      ) VALUES ('user_test', '2026-08-06', 1, 3)
+    `
+
+    expect(await reconcileRegisteredReservationCounters()).toEqual({
+      expiredReleased: 0,
+      countersCorrected: 1,
+    })
+    const rows = await testState.sql!`
+      SELECT reserved_downloads FROM daily_download_usage
+      WHERE clerk_user_id = 'user_test' AND quota_day = '2026-08-06'
+    `
+    expect(rows[0]?.reserved_downloads).toBe(0)
+  })
+
+  it("records paid workspace milestones once without payment PII", async () => {
+    await testState.sql!`
+      INSERT INTO audio_credit_grants (
+        clerk_user_id, source, source_ref, granted_credits, starts_at, expires_at
+      ) VALUES ('user_test', 'paypal_order', 'CAPTURE-MILESTONE', 480, now(), ${future()})
+    `
+
+    await recordWorkspaceActivation("user_test", "opened")
+    await recordWorkspaceActivation("user_test", "opened")
+    await recordWorkspaceActivation("user_test", "single")
+    await recordWorkspaceActivation("user_test", "batch")
+    const rows = await testState.sql!`
+      SELECT event_name, COUNT(*)::integer AS count
+      FROM growth_events
+      WHERE clerk_user_id = 'user_test'
+      GROUP BY event_name
+      ORDER BY event_name
+    `
+    expect(rows).toMatchObject([
+      { event_name: "first_paid_processing_completed", count: 1 },
+      { event_name: "paid_workspace_opened", count: 1 },
+    ])
   })
 
   it("repairs a missing PAYG grant when a completed capture is retried", async () => {
@@ -182,9 +353,7 @@ describe("PayPal and Audio Credit state", () => {
         supplementary_data: { related_ids: { capture_id: "CAPTURE-MISSING" } },
       },
     }
-    const response = await receivePayPalWebhook(
-      webhookRequest(payload)
-    )
+    const response = await receivePayPalWebhook(webhookRequest(payload))
 
     expect(response.status).toBe(500)
   })

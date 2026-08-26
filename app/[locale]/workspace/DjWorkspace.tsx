@@ -91,7 +91,14 @@ export default function DjWorkspace({
       /* keep defaults */
     }
     trackClarityEvent("workspace_opened")
-  }, [storageKey])
+    if (userId) {
+      void fetch("/api/workspace/activation/", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ kind: "opened" }),
+      })
+    }
+  }, [storageKey, userId])
 
   useEffect(() => {
     if (workspace) {

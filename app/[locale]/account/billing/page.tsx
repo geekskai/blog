@@ -73,8 +73,15 @@ export default async function BillingPage({ params }: { params: Promise<{ locale
   const TierIcon = theme.icon
   const statusNeedsAttention = billing.subscriptionStatus === "SUSPENDED"
   const statusLabel =
-    billing.subscriptionStatus?.replaceAll("_", " ") ??
+    (billing.cancellationScheduled
+      ? "Renewal canceled"
+      : billing.subscriptionStatus?.replaceAll("_", " ")) ??
     (credits.paidAccess ? "Credit balance" : "Free")
+  const formattedPeriodEnd = billing.currentPeriodEnd
+    ? new Intl.DateTimeFormat(locale, { dateStyle: "medium" }).format(
+        new Date(billing.currentPeriodEnd)
+      )
+    : null
 
   return (
     <main className="relative mx-auto max-w-5xl px-4 py-10 sm:py-14">
@@ -115,6 +122,15 @@ export default async function BillingPage({ params }: { params: Promise<{ locale
               >
                 PayPal has suspended this subscription after repeated payment failures. Update your
                 payment method in PayPal or contact support before starting a new subscription.
+              </div>
+            ) : null}
+            {billing.cancellationScheduled && formattedPeriodEnd ? (
+              <div
+                role="status"
+                className="mb-5 rounded-xl border border-violet-400/30 bg-violet-950/40 p-4 text-sm leading-6 text-violet-100"
+              >
+                Renewal is canceled, so there will be no future automatic charge. Your current paid
+                Credits and features remain available through {formattedPeriodEnd}.
               </div>
             ) : null}
 
@@ -181,12 +197,9 @@ export default async function BillingPage({ params }: { params: Promise<{ locale
               <p className="mt-5 inline-flex items-center gap-2 text-sm text-slate-400">
                 <CalendarDays className="h-4 w-4 shrink-0 text-slate-500" aria-hidden />
                 {billing.cancellationScheduled
-                  ? "Cancellation takes effect"
+                  ? "Paid-through access ends"
                   : "Current period renews or ends"}{" "}
-                {new Intl.DateTimeFormat(locale, { dateStyle: "medium" }).format(
-                  new Date(billing.currentPeriodEnd)
-                )}
-                .
+                {formattedPeriodEnd}.
               </p>
             ) : null}
 

@@ -13,6 +13,10 @@ const readObject = (value: unknown) =>
     : null
 const readString = (value: unknown) =>
   typeof value === "string" && value.trim() ? value.trim() : null
+const readDate = (value: unknown) => {
+  const date = value instanceof Date ? value : new Date(String(value))
+  return Number.isNaN(date.getTime()) ? null : date
+}
 
 export async function createPendingPaygOrder(clerkUserId: string) {
   const sql = getSqlClient()
@@ -40,7 +44,7 @@ export async function attachPayPalOrder(localOrderId: string, providerOrderId: s
 export async function getPaygOrderForCapture(clerkUserId: string, providerOrderId: string) {
   const sql = getSqlClient()
   const rows = (await sql`
-    SELECT id, status, provider_capture_id, amount_minor, currency, product_key
+    SELECT id, status, provider_capture_id, amount_minor, currency, product_key, expires_at
     FROM billing_orders
     WHERE clerk_user_id = ${clerkUserId}
       AND provider = ${PROVIDER}
@@ -48,6 +52,25 @@ export async function getPaygOrderForCapture(clerkUserId: string, providerOrderI
     LIMIT 1
   `) as Row[]
   return rows[0] ?? null
+}
+
+export function isPaygOrderCapturable(order: Row, now = new Date()) {
+  const expiresAt = readDate(order.expires_at)
+  return order.status === "CREATED" && Boolean(expiresAt && expiresAt > now)
+}
+
+export async function expireStalePaygOrders(now = new Date()) {
+  const sql = getSqlClient()
+  const rows = (await sql`
+    UPDATE billing_orders
+    SET status = 'EXPIRED', updated_at = ${now}
+    WHERE provider = ${PROVIDER}
+      AND status = 'CREATED'
+      AND provider_capture_id IS NULL
+      AND expires_at <= ${now}
+    RETURNING id
+  `) as Row[]
+  return rows.length
 }
 
 export function parseCompletedPayPalCapture(

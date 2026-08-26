@@ -300,10 +300,13 @@ const PrivacyPolicy = () => {
             Credits apply only to the local Audio Toolkit and never change public downloader
             allowances. To measure whether the registration flow helps people finish their task, we
             also record a pseudonymous journey identifier, controlled event names, tool identifiers,
-            and event timestamps. Shared links may contain a random attribution identifier valid for
-            30 days. We do not include pasted media URLs, tool input, email addresses, or IP
-            addresses in these growth events. Linkable raw growth events are deleted after 90 days;
-            only de-identified daily totals may be retained for longer-term trend analysis.
+            and event timestamps. These controlled events can include checkout starts, verified
+            payment or cancellation milestones, and the first paid Workspace open or completed
+            processing task. Shared links may contain a random attribution identifier valid for 30
+            days. We do not include pasted media URLs, tool input, payment-account details, email
+            addresses, or IP addresses in these growth events. Linkable raw growth events are
+            deleted after 90 days; only de-identified daily totals may be retained for longer-term
+            trend analysis.
           </p>
 
           <h2 className="mb-4 mt-12 text-2xl font-semibold text-gray-900">Cookie Policy</h2>

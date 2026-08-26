@@ -1,10 +1,14 @@
 import { NextResponse } from "next/server"
 import { getPayPalClient } from "@/lib/billing/paypal"
 import {
+  countPayPalPaymentsNeedingReview,
   deleteExpiredPayPalCheckoutCorrelations,
+  listPayPalPaymentIdsForReconciliation,
   listTrackedPayPalSubscriptionIds,
   processPayPalWebhook,
+  reconcilePayPalSale,
 } from "@/lib/billing/repository"
+import { expireStalePaygOrders } from "@/lib/billing/orders"
 
 export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
@@ -18,6 +22,7 @@ export async function GET(request: Request) {
   let reconciled = 0
   const failures: string[] = []
   const expiredCorrelationsDeleted = await deleteExpiredPayPalCheckoutCorrelations()
+  const expiredOrders = await expireStalePaygOrders()
   const client = getPayPalClient()
   for (const subscriptionId of await listTrackedPayPalSubscriptionIds()) {
     try {
@@ -47,10 +52,24 @@ export async function GET(request: Request) {
       failures.push(subscriptionId)
     }
   }
+  let paymentsReconciled = 0
+  for (const paymentId of await listPayPalPaymentIdsForReconciliation()) {
+    try {
+      const result = await reconcilePayPalSale(paymentId, await client.getSale(paymentId))
+      if (result.reconciled) paymentsReconciled += 1
+      else failures.push(`payment:${paymentId}`)
+    } catch {
+      failures.push(`payment:${paymentId}`)
+    }
+  }
+  const paymentsNeedingReview = await countPayPalPaymentsNeedingReview()
   return NextResponse.json({
     ok: failures.length === 0,
     reconciled,
     failures,
     expiredCorrelationsDeleted,
+    expiredOrders,
+    paymentsReconciled,
+    paymentsNeedingReview,
   })
 }

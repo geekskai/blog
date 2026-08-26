@@ -3,6 +3,7 @@ import { NextResponse } from "next/server"
 import { CREDIT_CATALOG } from "@/lib/billing/catalog"
 import { attachPayPalOrder, createPendingPaygOrder } from "@/lib/billing/orders"
 import { getPayPalClient, isPayPalCheckoutConfigured } from "@/lib/billing/paypal"
+import { recordGrowthEventForUserSafely } from "@/lib/growth/events"
 import {
   audioCreditsEnabled,
   billingCheckoutEnabled,
@@ -33,6 +34,7 @@ export async function POST() {
     const orderId = typeof order.id === "string" ? order.id : null
     if (!orderId) throw new Error("PayPal did not return an order ID.")
     await attachPayPalOrder(localOrderId, orderId)
+    await recordGrowthEventForUserSafely(userId, "billing_checkout_started_payg")
     return NextResponse.json({ orderId })
   } catch (error) {
     console.error("PayPal PAYG order creation failed", error)

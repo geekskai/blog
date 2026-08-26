@@ -71,6 +71,13 @@
       "when": 1787583256919,
       "tag": "0009_nifty_proteus",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1787754572640,
+      "tag": "0010_messy_silver_samurai",
+      "breakpoints": true
     }
   ]
 }

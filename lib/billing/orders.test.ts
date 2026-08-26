@@ -4,7 +4,7 @@ vi.mock("server-only", () => ({}))
 vi.mock("@/lib/db/client", () => ({ getSqlClient: vi.fn() }))
 vi.mock("@/lib/audio-credits/repository", () => ({ getAudioCreditBalance: vi.fn() }))
 
-import { parseCompletedPayPalCapture } from "./orders"
+import { isPaygOrderCapturable, parseCompletedPayPalCapture } from "./orders"
 
 describe("PayPal PAYG capture validation", () => {
   const resource = {
@@ -55,5 +55,27 @@ describe("PayPal PAYG capture validation", () => {
         providerOrderId: "ORDER-1",
       })
     ).toThrow("does not match")
+  })
+
+  it("allows only unexpired CREATED orders to reach PayPal capture", () => {
+    const now = new Date("2026-08-26T12:00:00Z")
+    expect(
+      isPaygOrderCapturable(
+        { status: "CREATED", expires_at: new Date("2026-08-26T12:01:00Z") },
+        now
+      )
+    ).toBe(true)
+    expect(
+      isPaygOrderCapturable(
+        { status: "CREATED", expires_at: new Date("2026-08-26T11:59:00Z") },
+        now
+      )
+    ).toBe(false)
+    expect(
+      isPaygOrderCapturable(
+        { status: "COMPLETED", expires_at: new Date("2026-08-26T12:01:00Z") },
+        now
+      )
+    ).toBe(false)
   })
 })

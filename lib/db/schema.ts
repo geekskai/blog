@@ -11,6 +11,7 @@ import {
   uniqueIndex,
   uuid,
 } from "drizzle-orm/pg-core"
+import { sql } from "drizzle-orm"
 
 const timestamps = {
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
@@ -184,6 +185,8 @@ export const accountEntitlements = pgTable(
 
 export const workspaceActivations = pgTable("workspace_activations", {
   clerkUserId: text("clerk_user_id").primaryKey(),
+  firstPaidOpenedAt: timestamp("first_paid_opened_at", { withTimezone: true }),
+  firstPaidCompletedAt: timestamp("first_paid_completed_at", { withTimezone: true }),
   firstSingleCompletedAt: timestamp("first_single_completed_at", { withTimezone: true }),
   firstBatchCompletedAt: timestamp("first_batch_completed_at", { withTimezone: true }),
   ...timestamps,
@@ -278,6 +281,14 @@ export const billingPayments = pgTable(
     providerPaymentId: text("provider_payment_id").notNull(),
     providerSubscriptionId: text("provider_subscription_id"),
     status: text("status").notNull(),
+    statusReason: text("status_reason"),
+    amountMinor: integer("amount_minor"),
+    currency: text("currency"),
+    feeMinor: integer("fee_minor"),
+    netMinor: integer("net_minor"),
+    refundedMinor: integer("refunded_minor").default(0).notNull(),
+    reconciliationStatus: text("reconciliation_status").default("PENDING").notNull(),
+    reconciledAt: timestamp("reconciled_at", { withTimezone: true }),
     providerEventAt: timestamp("provider_event_at", { withTimezone: true }),
     ...timestamps,
   },
@@ -302,6 +313,9 @@ export const billingOrders = pgTable(
     status: text("status").notNull(),
     amountMinor: integer("amount_minor").notNull(),
     currency: text("currency").notNull(),
+    expiresAt: timestamp("expires_at", { withTimezone: true })
+      .default(sql`now() + interval '24 hours'`)
+      .notNull(),
     capturedAt: timestamp("captured_at", { withTimezone: true }),
     refundedAt: timestamp("refunded_at", { withTimezone: true }),
     ...timestamps,
