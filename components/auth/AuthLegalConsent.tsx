@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import Link from "next/link"
 
 type AuthLegalConsentProps = {
@@ -12,7 +13,7 @@ export default function AuthLegalConsent({ accepted, onAcceptedChange }: AuthLeg
 
   return (
     <div
-      className={`rounded-xl border p-3 transition-[border-color,box-shadow] duration-200 motion-reduce:transition-none md:p-3.5 ${
+      className={`rounded-lg border p-3 transition-[border-color,box-shadow] duration-200 motion-reduce:transition-none md:p-3.5 ${
         accepted
           ? "border-sky-400/15 bg-sky-950/20"
           : "border-amber-400/30 bg-amber-950/15 ring-2 ring-amber-400/10"

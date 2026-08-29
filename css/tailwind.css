@@ -63,34 +63,6 @@ input:-webkit-autofill:focus {
     color 600000s 0s;
 }
 
-/* Clerk themes fight custom radii. Auth controls stay at 8px. */
-[data-auth-panel] {
-  --clerk-border-radius: 8px;
-}
-
-[data-auth-panel] button,
-[data-auth-panel] [type="button"],
-[data-auth-panel] [type="submit"],
-[data-auth-panel] .cl-socialButtonsBlockButton,
-[data-auth-panel] .cl-formButtonPrimary {
-  border-radius: 16px !important;
-  overflow: hidden;
-}
-
-[data-auth-panel] .cl-formFieldInput,
-[data-auth-panel] .cl-formFieldInputGroup,
-[data-auth-panel] .cl-input,
-[data-auth-panel] .cl-phoneInputBox,
-[data-auth-panel] input:not([type="checkbox"]):not([type="radio"]),
-[data-auth-panel] textarea {
-  border-radius: 16px !important;
-}
-
-[data-auth-panel] button::before,
-[data-auth-panel] button::after,
-[data-auth-panel] button > * {
-  border-radius: inherit !important;
-}
 
 .katex-display {
   overflow: auto hidden;
@@ -136,4 +108,47 @@ input:-webkit-autofill:focus {
   to {
     opacity: 1;
   }
+}
+
+/* Clerk OTP cells default to faint circles; keep every box visible on dark auth pages. */
+.auth-clerk-form .cl-otpCodeFieldInputs {
+  display: flex !important;
+  width: 100% !important;
+  gap: 0.5rem !important;
+}
+
+.auth-clerk-form .cl-otpCodeFieldInput,
+.auth-clerk-form input.cl-otpCodeFieldInput,
+.auth-clerk-form .cl-formFieldInput[autocomplete="one-time-code"] {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  width: auto !important;
+  height: 3rem !important;
+  min-height: 3rem !important;
+  border-radius: 8px !important;
+  background-color: #1e293b !important;
+  border: 1.5px solid rgba(148, 163, 184, 0.72) !important;
+  color: #f8fafc !important;
+  font-size: 1.125rem !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  caret-color: #38bdf8 !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+}
+
+.auth-clerk-form .cl-otpCodeFieldInput:hover,
+.auth-clerk-form input.cl-otpCodeFieldInput:hover {
+  border-color: rgba(56, 189, 248, 0.7) !important;
+  background-color: #334155 !important;
+}
+
+.auth-clerk-form .cl-otpCodeFieldInput:focus,
+.auth-clerk-form .cl-otpCodeFieldInput:focus-visible,
+.auth-clerk-form .cl-otpCodeFieldInput[data-focus-within="true"],
+.auth-clerk-form input.cl-otpCodeFieldInput:focus,
+.auth-clerk-form input.cl-otpCodeFieldInput:focus-visible {
+  border-color: #38bdf8 !important;
+  background-color: #1e293b !important;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.22) !important;
 }

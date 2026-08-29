@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { SignIn, SignUp, useAuth } from "@clerk/nextjs"
 import Link from "next/link"
 import { useState } from "react"
@@ -19,7 +20,7 @@ function ClerkFormSkeleton({ showConsent }: { showConsent: boolean }) {
   return (
     <div aria-label="Loading sign-in options" aria-busy="true">
       {showConsent ? (
-        <div className="flex min-h-16 items-start gap-2.5 rounded-xl border border-slate-800/80 p-3 md:gap-3 md:p-3.5">
+        <div className="flex min-h-16 items-start gap-2.5 rounded-lg border border-slate-800/80 p-3 md:gap-3 md:p-3.5">
           <div className={`${pulse} h-[18px] w-[18px] shrink-0`} />
           <div className="flex-1">
             <div className={`${pulse} h-3.5 w-full`} />
@@ -65,7 +66,7 @@ export default function AuthClerkPanel({
   if (!isLoaded) return <ClerkFormSkeleton showConsent={isSignUp} />
 
   return (
-    <div className="flex w-full flex-col" data-auth-panel>
+    <div className="auth-clerk-form flex w-full flex-col">
       {isSignUp ? (
         <AuthLegalConsent accepted={legalAccepted} onAcceptedChange={setLegalAccepted} />
       ) : null}
