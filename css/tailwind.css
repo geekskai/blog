@@ -111,6 +111,13 @@ input:-webkit-autofill:focus {
 }
 
 /* Clerk OTP cells default to faint circles; keep every box visible on dark auth pages. */
+.auth-clerk-form .cl-otpCodeField,
+.auth-clerk-form .cl-otpCodeFieldInputContainer,
+.auth-clerk-form .cl-otpCodeField [data-input-otp-container="true"] {
+  width: 90% !important;
+  max-width: 90% !important;
+}
+
 .auth-clerk-form .cl-otpCodeFieldInputs {
   display: flex !important;
   width: 100% !important;

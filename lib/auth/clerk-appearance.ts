@@ -1,3 +1,5 @@
+import { boxShadow } from "html2canvas-pro/dist/types/css/property-descriptors/box-shadow"
+
 const controlRadius = "8px"
 
 export const authClerkAppearance = {
@@ -100,6 +102,13 @@ export const authClerkAppearance = {
     formFieldInputGroup: {
       borderRadius: `${controlRadius} !important`,
     },
+    otpCodeField: {
+      width: "90% !important",
+      maxWidth: "90%",
+    },
+    otpCodeFieldInputContainer: {
+      width: "90% !important",
+    },
     otpCodeFieldInputs: {
       display: "flex",
       width: "100%",
@@ -158,15 +167,14 @@ export const authClerkAppearance = {
     },
     formButtonPrimary: {
       minHeight: "3rem",
-      marginTop: "0.25rem",
       borderRadius: `${controlRadius} !important`,
       overflow: "hidden",
       color: "#ffffff",
       fontWeight: 700,
+      boxShadow: "none !important",
       backgroundColor: "#0284c7",
       backgroundImage: "linear-gradient(90deg, #0ea5e9 0%, #0284c7 52%, #7c3aed 100%)",
       border: "1px solid rgba(56, 189, 248, 0.35)",
-      boxShadow: "0 10px 28px -14px rgba(14, 165, 233, 0.65)",
       "&:hover": {
         backgroundImage: "linear-gradient(90deg, #38bdf8 0%, #0ea5e9 52%, #8b5cf6 100%)",
         transform: "translateY(-1px)",
