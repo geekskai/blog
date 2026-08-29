@@ -6,12 +6,21 @@ import {
   soundCloudToolLinks,
   type SoundCloudToolKey,
 } from "@/data/soundCloudGrowth"
-import { Download, FileAudio, ImageIcon, Layers3, ListMusic, Music2 } from "lucide-react"
+import {
+  Download,
+  FileAudio,
+  ImageIcon,
+  Layers3,
+  ListMusic,
+  Music2,
+  ArrowRight,
+} from "lucide-react"
 import { useLocale } from "next-intl"
 import type { ElementType } from "react"
 
 type SoundCloudToolSwitcherProps = {
   current: SoundCloudToolKey
+  showHeader?: boolean
 }
 
 type ToolCopy = {
@@ -196,28 +205,47 @@ const copyByLocale: Record<string, SwitcherCopy> = {
   },
 }
 
-export default function SoundCloudToolSwitcher({ current }: SoundCloudToolSwitcherProps) {
+export default function SoundCloudToolSwitcher({
+  current,
+  showHeader = true,
+}: SoundCloudToolSwitcherProps) {
   const locale = useLocale()
   const copy = copyByLocale[locale] || copyByLocale.en
 
   return (
-    <section className="mx-auto max-w-7xl rounded-2xl border border-cyan-400/20 bg-cyan-500/5 p-4 shadow-lg shadow-cyan-950/20 md:p-5">
-      <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-        <div>
-          <div className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300">
-            {copy.eyebrow}
+    <section
+      className={`mx-auto max-w-7xl rounded-2xl border border-sky-500/20 bg-slate-950/55 p-4 shadow-[0_24px_80px_-48px_rgba(14,165,233,0.45)] md:p-5 ${
+        showHeader ? "" : "border-slate-800/90"
+      }`}
+    >
+      {showHeader ? (
+        <>
+          <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-300 sm:text-xs">
+                {copy.eyebrow}
+              </p>
+              <h2 className="mt-2 text-[clamp(1.25rem,2.8vw,1.75rem)] font-bold leading-tight tracking-[-0.03em] text-white">
+                {copy.title}
+              </h2>
+            </div>
+            <Link
+              href={soundCloudHubPath}
+              prefetch={false}
+              className="inline-flex min-h-10 items-center gap-1.5 text-sm font-semibold text-sky-300 underline-offset-4 transition-colors hover:text-sky-200 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+            >
+              {copy.hubLabel}
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
           </div>
-          <h2 className="mt-2 text-xl font-bold text-white md:text-2xl">{copy.title}</h2>
-        </div>
-        <Link
-          href={soundCloudHubPath}
-          prefetch={false}
-          className="text-sm font-semibold text-cyan-300 underline-offset-4 hover:text-cyan-200 hover:underline"
-        >
-          {copy.hubLabel}
-        </Link>
-      </div>
-      <p className="mb-4 text-sm leading-6 text-slate-300 md:text-base">{copy.description}</p>
+          <p className="mb-5 text-sm leading-6 text-slate-300 md:text-base">{copy.description}</p>
+        </>
+      ) : (
+        <div
+          className="pointer-events-none mb-4 h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent"
+          aria-hidden
+        />
+      )}
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
         {soundCloudToolLinks.map((tool) => {
           const toolCopy = copy.tools[tool.key]
@@ -230,21 +258,46 @@ export default function SoundCloudToolSwitcher({ current }: SoundCloudToolSwitch
               href={tool.href}
               prefetch={false}
               aria-current={isCurrent ? "page" : undefined}
-              className={`group flex min-h-[132px] flex-col rounded-xl border p-4 transition-colors ${
+              className={`group relative flex min-h-[148px] flex-col overflow-hidden rounded-xl border p-4 transition-[border-color,background-color,box-shadow] duration-200 motion-reduce:transition-none ${
                 isCurrent
-                  ? "border-cyan-300/70 bg-cyan-400/15"
-                  : "border-white/10 bg-white/5 hover:border-cyan-300/50 hover:bg-cyan-400/10"
+                  ? "border-sky-400/55 bg-sky-500/15 shadow-[0_12px_40px_-24px_rgba(14,165,233,0.55)]"
+                  : "border-slate-800/90 bg-slate-900/45 hover:border-sky-400/35 hover:bg-sky-500/10"
               }`}
             >
-              <div className="mb-3 flex items-center gap-2">
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-950/70 text-cyan-200">
-                  <Icon className="h-4 w-4" />
+              {!isCurrent ? (
+                <div
+                  className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-400/30 to-transparent opacity-0 transition-opacity group-hover:opacity-100 motion-reduce:transition-none"
+                  aria-hidden
+                />
+              ) : (
+                <div
+                  className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-400/60 to-transparent"
+                  aria-hidden
+                />
+              )}
+              <div className="mb-3 flex items-start gap-2.5">
+                <span
+                  className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border ${
+                    isCurrent
+                      ? "border-sky-400/30 bg-sky-500/15 text-sky-200"
+                      : "border-slate-700/80 bg-slate-950/70 text-slate-300 group-hover:border-sky-400/25 group-hover:text-sky-300"
+                  }`}
+                >
+                  <Icon className="h-4 w-4" aria-hidden />
                 </span>
-                <span className="text-sm font-bold text-white">{toolCopy.label}</span>
+                <span className="pt-0.5 text-sm font-bold leading-snug text-white">
+                  {toolCopy.label}
+                </span>
               </div>
-              <span className="flex-1 text-xs leading-5 text-slate-300">{toolCopy.intent}</span>
-              <span className="mt-3 text-xs font-semibold text-cyan-300 group-hover:text-cyan-200">
+              <span className="flex-1 text-xs leading-5 text-slate-300 group-hover:text-slate-200">
+                {toolCopy.intent}
+              </span>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-sky-300 group-hover:text-sky-200">
                 {toolCopy.cta}
+                <ArrowRight
+                  className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 motion-reduce:transform-none"
+                  aria-hidden
+                />
               </span>
             </Link>
           )
