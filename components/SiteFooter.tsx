@@ -12,6 +12,10 @@ import { footerPopularTools } from "@/data/toolNavigation"
 import { usePathname } from "@/app/i18n/navigation"
 import { getChromeSurface } from "@/lib/chrome/surface"
 
+function MobileDockClearance() {
+  return <div className="h-[calc(4.25rem+env(safe-area-inset-bottom))] lg:hidden" aria-hidden />
+}
+
 function LegalFooter({ productLabel }: { productLabel?: string }) {
   return (
     <footer className="mt-20 border-t border-slate-800 bg-slate-950">
@@ -42,6 +46,7 @@ function LegalFooter({ productLabel }: { productLabel?: string }) {
           </a>
         </nav>
       </div>
+      <MobileDockClearance />
     </footer>
   )
 }
@@ -158,6 +163,7 @@ const SiteFooter = () => {
           </div>
         </div>
       </div>
+      <MobileDockClearance />
     </footer>
   )
 }

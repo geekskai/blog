@@ -409,17 +409,8 @@ export default function LanguageSelect({ compact = false }: { compact?: boolean 
     optionRefs.current[nextIndex]?.focus()
   }
 
-  // Don't render until mounted to avoid hydration mismatch
-  if (!isMounted) {
-    return (
-      <div
-        className={
-          compact
-            ? "h-11 w-11 animate-pulse rounded-lg bg-slate-700/50"
-            : "h-8 w-20 animate-pulse rounded-lg bg-slate-700/50"
-        }
-      />
-    )
+  if (!isMounted && !compact) {
+    return <div className="h-8 w-20 animate-pulse rounded-lg bg-slate-700/50" />
   }
 
   return isHiddenSwitchLang ? null : (
@@ -443,7 +434,7 @@ export default function LanguageSelect({ compact = false }: { compact?: boolean 
         }}
         className={
           compact
-            ? "group relative z-80 inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg border border-slate-700/70 bg-slate-800/50 text-slate-300 transition-[color,background-color,border-color] duration-200 hover:border-slate-500 hover:bg-slate-700/50 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none"
+            ? "group relative z-80 inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg border border-slate-600 bg-slate-800 text-slate-100 transition-[color,background-color,border-color] duration-200 hover:border-slate-400 hover:bg-slate-700 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none"
             : "group relative z-80 flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border border-slate-700/70 bg-slate-800/50 px-3 py-2 text-sm font-medium text-slate-300 transition-[color,background-color,border-color] duration-200 hover:border-slate-500 hover:bg-slate-700/50 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
         }
         aria-haspopup="listbox"

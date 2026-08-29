@@ -48,6 +48,9 @@ module.exports = () => {
     output,
     basePath,
     trailingSlash: true,
+    devIndicators: {
+      position: "top-right",
+    },
     reactStrictMode: true,
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
     images: {

@@ -7,12 +7,17 @@ import { Link } from "@/app/i18n/navigation"
 import { trackClarityEvent } from "@/lib/analytics/clarity"
 
 type AccountMenuVariant = "header" | "dock"
+type AccountMenuAlign = "center" | "end"
 
 export default function AccountMenu({
   variant = "header",
+  compact = false,
+  menuAlign = "end",
   onNavigate,
 }: {
   variant?: AccountMenuVariant
+  compact?: boolean
+  menuAlign?: AccountMenuAlign
   onNavigate?: () => void
 }) {
   const { isLoaded, isSignedIn } = useAuth()
@@ -39,26 +44,25 @@ export default function AccountMenu({
   }, [open])
 
   const signInClassName = isDock
-    ? "flex min-h-11 flex-1 flex-col items-center justify-center gap-0.5 text-[11px] font-semibold text-slate-300 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none"
-    : "inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold text-slate-300 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+    ? "flex h-full min-h-11 flex-1 flex-col items-center justify-center gap-0.5 px-1 text-[11px] font-semibold text-slate-200 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-pink-400 motion-reduce:transition-none"
+    : compact
+      ? "inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-600 bg-slate-800 text-slate-100 transition-colors duration-200 hover:border-slate-400 hover:bg-slate-700 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+      : "inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold text-slate-300 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
 
-  if (!isLoaded) {
-    return <div className={isDock ? "h-11 w-16" : "h-11 w-20"} aria-hidden />
-  }
-
-  if (!isSignedIn) {
+  if (!isLoaded || !isSignedIn) {
     return (
       <Link
         href="/sign-in/"
         data-auth-action="sign-in"
+        aria-label="Sign in"
         className={signInClassName}
         onClick={() => {
           trackClarityEvent("auth_sign_in_clicked")
           onNavigate?.()
         }}
       >
-        <LogIn className={isDock ? "h-5 w-5" : "mr-2 h-4 w-4"} aria-hidden />
-        Sign in
+        <LogIn className={isDock ? "h-5 w-5" : compact ? "h-4 w-4" : "mr-2 h-4 w-4"} aria-hidden />
+        {compact ? <span className="sr-only">Sign in</span> : "Sign in"}
       </Link>
     )
   }
@@ -69,38 +73,65 @@ export default function AccountMenu({
   ]
 
   return (
-    <div ref={rootRef} className={isDock ? "relative flex flex-1 justify-center" : "relative"} data-account-menu={variant}>
+    <div
+      ref={rootRef}
+      className={isDock ? "relative flex h-full flex-1 justify-center" : "relative"}
+      data-account-menu={variant}
+    >
       <button
         type="button"
+        aria-label="Account"
         aria-expanded={open}
         aria-haspopup="menu"
         onClick={() => setOpen((value) => !value)}
         className={
           isDock
-            ? "flex min-h-11 w-full flex-col items-center justify-center gap-0.5 text-[11px] font-semibold text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
-            : "inline-flex min-h-11 items-center gap-2 rounded-lg px-2 text-sm font-semibold text-slate-200 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+            ? "flex h-full min-h-11 w-full flex-col items-center justify-center gap-0.5 px-1 text-[11px] font-semibold text-slate-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-pink-400"
+            : compact
+              ? "inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-600 bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+              : "inline-flex min-h-11 items-center gap-2 rounded-lg px-2 text-sm font-semibold text-slate-200 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
         }
       >
         {user?.imageUrl ? (
           <img
             src={user.imageUrl}
             alt=""
-            width={28}
-            height={28}
-            className="h-7 w-7 rounded-full object-cover"
+            width={24}
+            height={24}
+            className={
+              isDock ? "h-6 w-6 rounded-full object-cover" : "h-7 w-7 rounded-full object-cover"
+            }
           />
         ) : (
-          <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-violet-500/30 text-xs font-bold text-white">
-            {(user?.firstName?.[0] ?? user?.primaryEmailAddress?.emailAddress?.[0] ?? "A").toUpperCase()}
+          <span
+            className={
+              isDock
+                ? "inline-flex h-6 w-6 items-center justify-center rounded-full bg-violet-500/30 text-[11px] font-bold text-white"
+                : "inline-flex h-7 w-7 items-center justify-center rounded-full bg-violet-500/30 text-xs font-bold text-white"
+            }
+          >
+            {(
+              user?.firstName?.[0] ??
+              user?.primaryEmailAddress?.emailAddress?.[0] ??
+              "A"
+            ).toUpperCase()}
           </span>
         )}
-        {isDock ? <span>Account</span> : <span className="hidden sm:inline">Account</span>}
+        {isDock ? (
+          <span>Account</span>
+        ) : compact ? null : (
+          <span className="hidden sm:inline">Account</span>
+        )}
       </button>
       {open ? (
         <div
           role="menu"
           className={`absolute z-80 w-52 overflow-hidden rounded-xl border border-slate-800 bg-slate-950 py-1 shadow-xl ${
-            isDock ? "bottom-full mb-2 left-1/2 -translate-x-1/2" : "right-0 top-full mt-2"
+            isDock
+              ? menuAlign === "end"
+                ? "bottom-[calc(100%+0.5rem)] right-2"
+                : "bottom-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2"
+              : "right-0 top-full mt-2"
           }`}
         >
           {menuItems.map(({ href, label, icon: Icon }) => (

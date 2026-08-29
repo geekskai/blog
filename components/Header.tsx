@@ -31,7 +31,7 @@ function BrandLink() {
     <Link
       href="/"
       aria-label={siteMetadata.headerTitle}
-      className="inline-flex min-h-11 items-center gap-1 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+      className="inline-flex min-h-11 min-w-0 items-center gap-1.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
     >
       <Image
         src="/static/logos.png"
@@ -39,10 +39,10 @@ function BrandLink() {
         width={44}
         height={36}
         loading="eager"
-        sizes="100%"
-        className="h-9 w-11"
+        sizes="44px"
+        className="h-8 w-10 shrink-0 sm:h-9 sm:w-11"
       />
-      <span className="hidden text-xl font-bold text-white sm:block">
+      <span className="truncate text-base font-bold text-white sm:text-xl">
         {siteMetadata.headerTitle}
       </span>
     </Link>
@@ -59,9 +59,10 @@ function AuthHeader() {
         <BrandLink />
         <LocaleLink
           href="/tools/"
-          className="inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+          className="inline-flex min-h-11 shrink-0 items-center rounded-lg px-2.5 text-sm font-semibold text-slate-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 sm:px-3"
         >
-          Back to tools
+          <span className="sm:hidden">Tools</span>
+          <span className="hidden sm:inline">Back to tools</span>
         </LocaleLink>
       </div>
     </header>
@@ -77,25 +78,34 @@ function WorkspaceHeader() {
         data-chrome-surface="workspace"
         className="sticky top-0 z-80 border-b border-slate-800/50 bg-slate-950/90 backdrop-blur-xl"
       >
-        <div className="mx-auto flex h-14 w-full max-w-7xl items-center gap-3 px-4 sm:px-6 2xl:px-0">
+        <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 2xl:px-0">
           <BrandLink />
-          <nav className="hidden items-center gap-1 lg:flex" aria-label="Audio Toolkit">
-            <LocaleLink
-              href="/audio-toolkit/"
-              aria-current={isCurrentPath(pathname, "/audio-toolkit/") ? "page" : undefined}
-              className={navLinkClass(isCurrentPath(pathname, "/audio-toolkit/"))}
-            >
-              Audio Toolkit
-            </LocaleLink>
+          <div className="hidden items-center gap-6 lg:flex">
+            <nav className="flex items-center" aria-label="Audio Toolkit">
+              <LocaleLink
+                href="/audio-toolkit/"
+                aria-current={isCurrentPath(pathname, "/audio-toolkit/") ? "page" : undefined}
+                className={navLinkClass(isCurrentPath(pathname, "/audio-toolkit/"))}
+              >
+                Audio Toolkit
+              </LocaleLink>
+              <LocaleLink
+                href="/tools/"
+                className={navLinkClass(isCurrentPath(pathname, "/tools/"))}
+              >
+                All tools
+              </LocaleLink>
+            </nav>
+            <AccountMenu />
+          </div>
+          <div className="flex shrink-0 items-center gap-1.5 lg:hidden">
             <LocaleLink
               href="/tools/"
-              className="inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold text-slate-400 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+              className="inline-flex min-h-11 items-center rounded-lg border border-slate-600 bg-slate-800 px-2.5 text-sm font-semibold text-white hover:border-slate-400 hover:bg-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
             >
               All tools
             </LocaleLink>
-          </nav>
-          <div className="ml-auto hidden lg:block">
-            <AccountMenu />
+            <AccountMenu compact />
           </div>
         </div>
       </header>
@@ -114,7 +124,7 @@ function AcquisitionHeader() {
         data-chrome-surface="acquisition"
         className="sticky top-0 z-80 border-b border-slate-800/50 bg-slate-950/90 backdrop-blur-xl"
       >
-        <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between px-4 sm:px-6 2xl:px-0">
+        <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 2xl:px-0">
           <BrandLink />
           <div className="hidden items-center gap-6 lg:flex">
             <nav className="flex items-center" aria-label="Primary">
@@ -135,8 +145,9 @@ function AcquisitionHeader() {
             <LanguageSelect />
             <AccountMenu />
           </div>
-          <div className="lg:hidden">
+          <div className="flex shrink-0 items-center gap-1.5 lg:hidden">
             <LanguageSelect compact />
+            <AccountMenu compact />
           </div>
         </div>
       </header>

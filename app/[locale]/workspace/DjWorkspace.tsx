@@ -171,7 +171,7 @@ export default function DjWorkspace({
   }
 
   return (
-    <div className="relative space-y-5 pb-8 pt-4 sm:space-y-6 sm:pb-10 sm:pt-6">
+    <div className="relative space-y-5 pb-[calc(5.5rem+env(safe-area-inset-bottom))] pt-4 sm:space-y-6 sm:pb-10 sm:pt-6 lg:pb-10">
       <div
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-56 bg-[radial-gradient(ellipse_80%_70%_at_50%_-20%,rgba(59,130,246,0.12),transparent)]"
         aria-hidden
