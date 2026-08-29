@@ -22,7 +22,6 @@ import rehypeCitation from "rehype-citation"
 import rehypePrismPlus from "rehype-prism-plus"
 import rehypePresetMinify from "rehype-preset-minify"
 import siteMetadata from "./data/siteMetadata"
-import { allCoreContent, sortPosts } from "pliny/utils/contentlayer.js"
 
 const root = process.cwd()
 const isProduction = process.env.NODE_ENV === "production"
@@ -75,19 +74,6 @@ function createTagCount(allBlogs) {
     }
   })
   writeFileSync("./app/tag-data.json", JSON.stringify(tagCount))
-}
-
-function createSearchIndex(allBlogs) {
-  if (
-    siteMetadata?.search?.provider === "kbar" &&
-    siteMetadata.search.kbarConfig.searchDocumentsPath
-  ) {
-    writeFileSync(
-      `public/${path.basename(siteMetadata.search.kbarConfig.searchDocumentsPath)}`,
-      JSON.stringify(allCoreContent(sortPosts(allBlogs)))
-    )
-    console.log("Local search index generated...")
-  }
 }
 
 export const Blog = defineDocumentType(() => ({
@@ -208,6 +194,5 @@ export default makeSource({
   onSuccess: async (importData) => {
     const { allBlogs } = await importData()
     createTagCount(allBlogs)
-    createSearchIndex(allBlogs)
   },
 })

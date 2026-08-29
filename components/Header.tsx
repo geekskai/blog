@@ -5,7 +5,6 @@ import siteMetadata from "@/data/siteMetadata"
 import headerNavLinks from "@/data/headerNavLinks"
 import Link from "./Link"
 import MobileNav from "./MobileNav"
-import SearchButton from "./SearchButton"
 import Image from "./Image"
 import { ChevronDown, Zap, Star, Sparkles } from "lucide-react"
 import { TOOL_COUNT } from "@/data/toolNavigation"
@@ -279,15 +278,11 @@ const Header = ({ authEnabled = false }: HeaderProps) => {
             <LanguageSelect />
           </nav>
 
-          <div className="flex items-center space-x-4">
-            <SearchButton />
-            {authEnabled && <AuthControls />}
-          </div>
+          {authEnabled ? <AuthControls /> : null}
         </div>
 
         {/* Mobile Navigation */}
         <div className="flex items-center space-x-4 lg:hidden">
-          <SearchButton />
           <MobileNav authEnabled={authEnabled} />
         </div>
       </div>

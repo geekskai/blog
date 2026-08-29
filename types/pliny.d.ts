@@ -18,19 +18,6 @@ declare module "pliny/analytics" {
   export const Analytics: any
 }
 
-declare module "pliny/search" {
-  export type SearchConfig = any
-  export const SearchProvider: any
-}
-
-declare module "pliny/search/AlgoliaButton" {
-  export const AlgoliaButton: any
-}
-
-declare module "pliny/search/KBarButton" {
-  export const KBarButton: any
-}
-
 declare module "pliny/ui/TOCInline" {
   const TOCInline: any
   export default TOCInline

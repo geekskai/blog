@@ -1,9 +1,7 @@
 import "css/tailwind.css"
-import "pliny/search/algolia.css"
 import "remark-github-blockquote-alert/alert.css"
 import React from "react"
 import { Analytics, AnalyticsConfig } from "pliny/analytics"
-import { SearchProvider, SearchConfig } from "pliny/search"
 import Header from "@/components/Header"
 import SectionContainer from "@/components/SectionContainer"
 import siteMetadata from "@/data/siteMetadata"
@@ -278,22 +276,20 @@ export default async function RootLayout({
             <ClarityTracker />
             <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
             <SectionContainer>
-              <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
-                <a
-                  href="#main-content"
-                  className="fixed left-4 top-4 z-[1000] -translate-y-24 rounded-lg bg-white px-4 py-3 font-semibold text-slate-950 shadow-xl transition-transform duration-200 focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-pink-500 motion-reduce:transition-none"
-                >
-                  Skip to main content
-                </a>
-                <Header authEnabled />
-                <main
-                  id="main-content"
-                  tabIndex={-1}
-                  className="mx-auto min-h-[54vh] max-w-7xl px-4 outline-none sm:px-6 xl:px-0"
-                >
-                  {children}
-                </main>
-              </SearchProvider>
+              <a
+                href="#main-content"
+                className="fixed left-4 top-4 z-[1000] -translate-y-24 rounded-lg bg-white px-4 py-3 font-semibold text-slate-950 shadow-xl transition-transform duration-200 focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-pink-500 motion-reduce:transition-none"
+              >
+                Skip to main content
+              </a>
+              <Header authEnabled />
+              <main
+                id="main-content"
+                tabIndex={-1}
+                className="mx-auto min-h-[54vh] max-w-7xl px-4 outline-none sm:px-6 xl:px-0"
+              >
+                {children}
+              </main>
               <SiteFooter />
             </SectionContainer>
           </NextIntlClientProvider>

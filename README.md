@@ -77,7 +77,6 @@ _Your next powerful, SEO-friendly, and lightning-fast blog template_
 - Multiple analytics options (Umami, Plausible, Google Analytics)
 - Comment systems (Giscus, Utterances, Disqus)
 - Newsletter integration (Mailchimp, Convertkit, etc.)
-- Command palette search (Kbar, Algolia)
 
 ### 📝 Content Creation
 
