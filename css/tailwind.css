@@ -116,6 +116,7 @@ input:-webkit-autofill:focus {
 .auth-clerk-form .cl-otpCodeField [data-input-otp-container="true"] {
   width: 90% !important;
   max-width: 90% !important;
+  margin: auto !important;
 }
 
 .auth-clerk-form .cl-otpCodeFieldInputs {

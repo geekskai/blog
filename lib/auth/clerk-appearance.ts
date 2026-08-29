@@ -105,6 +105,7 @@ export const authClerkAppearance = {
     otpCodeField: {
       width: "90% !important",
       maxWidth: "90%",
+      margin: "auto",
     },
     otpCodeFieldInputContainer: {
       width: "90% !important",
