@@ -1,5 +1,5 @@
 import type { ElementType } from "react"
-import { Monitor, Music, Search } from "lucide-react"
+import { Download, Image, ListMusic, Music } from "lucide-react"
 
 export const TOOL_COUNT = 51
 
@@ -12,27 +12,33 @@ export type FooterToolLink = {
 
 export const footerPopularTools: FooterToolLink[] = [
   {
-    id: "youtube-shorts-downloader",
-    title: "YouTube Shorts Downloader",
-    href: "/tools/youtube-shorts-downloader/",
-    icon: Monitor,
+    id: "soundcloud-downloader",
+    title: "SoundCloud Downloader",
+    href: "/tools/soundcloud-downloader/",
+    icon: Download,
   },
   {
-    id: "youtube-video-downloader",
-    title: "YouTube Video Downloader",
-    href: "/tools/youtube-video-downloader/",
-    icon: Monitor,
-  },
-  {
-    id: "youtube-audio-downloader",
-    title: "YouTube Audio Downloader",
-    href: "/tools/youtube-audio-downloader/",
+    id: "soundcloud-to-mp3",
+    title: "SoundCloud to MP3",
+    href: "/tools/soundcloud-to-mp3/",
     icon: Music,
   },
   {
-    id: "vin-decoder",
-    title: "VIN Decoder & Lookup",
-    href: "/tools/vin-decoder/",
-    icon: Search,
+    id: "soundcloud-to-wav",
+    title: "SoundCloud to WAV",
+    href: "/tools/soundcloud-to-wav/",
+    icon: Music,
+  },
+  {
+    id: "soundcloud-playlist-downloader",
+    title: "SoundCloud Playlist",
+    href: "/tools/soundcloud-playlist-downloader/",
+    icon: ListMusic,
+  },
+  {
+    id: "soundcloud-artwork-downloader",
+    title: "SoundCloud Artwork",
+    href: "/tools/soundcloud-artwork-downloader/",
+    icon: Image,
   },
 ]

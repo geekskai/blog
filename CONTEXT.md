@@ -12,6 +12,22 @@ _Avoid_: Guest account, anonymous user
 A person with an authenticated Geekskai account.
 _Avoid_: Member, subscriber, customer
 
+**Site Chrome**:
+The shared header, footer, and optional mobile dock around page content.
+_Avoid_: Commercial path, navbar theme, site chrome as page content
+
+**Acquisition Chrome**:
+The Site Chrome for public tools, the homepage, blog, pricing, and legal pages. Its job is task completion and discovery, not account promotion.
+_Avoid_: Commercial header, marketing shell, signup-first nav
+
+**Workspace Chrome**:
+The Site Chrome for Audio Toolkit and account billing routes. It keeps a path back to public tools.
+_Avoid_: Commercial path, logged-in theme, app shell for every signed-in page
+
+**Account Menu**:
+The Registered User control that opens Audio Toolkit, billing, and sign-out. It is not a primary header button on Acquisition Chrome.
+_Avoid_: Create free account header CTA, always-visible Audio Toolkit button on public tools
+
 **Acquisition-First Mode**:
 The current Geekskai product phase in which public tools remain free and effort is prioritized around measurable organic acquisition rather than payment conversion or a predetermined product vertical.
 _Avoid_: Payment launch, speculative tool expansion, paid downloader growth

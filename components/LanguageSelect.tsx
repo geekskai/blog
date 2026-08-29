@@ -339,7 +339,7 @@ export const getHreflangData = () => {
   }))
 }
 
-export default function LanguageSelect() {
+export default function LanguageSelect({ compact = false }: { compact?: boolean }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
@@ -411,7 +411,15 @@ export default function LanguageSelect() {
 
   // Don't render until mounted to avoid hydration mismatch
   if (!isMounted) {
-    return <div className="h-8 w-20 animate-pulse rounded-lg bg-slate-700/50"></div>
+    return (
+      <div
+        className={
+          compact
+            ? "h-11 w-11 animate-pulse rounded-lg bg-slate-700/50"
+            : "h-8 w-20 animate-pulse rounded-lg bg-slate-700/50"
+        }
+      />
+    )
   }
 
   return isHiddenSwitchLang ? null : (
@@ -433,19 +441,25 @@ export default function LanguageSelect() {
             })
           }
         }}
-        className="group relative z-80 flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border border-slate-700/70 bg-slate-800/50 px-3 py-2 text-sm font-medium text-slate-300 transition-[color,background-color,border-color] duration-200 hover:border-slate-500 hover:bg-slate-700/50 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
+        className={
+          compact
+            ? "group relative z-80 inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg border border-slate-700/70 bg-slate-800/50 text-slate-300 transition-[color,background-color,border-color] duration-200 hover:border-slate-500 hover:bg-slate-700/50 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none"
+            : "group relative z-80 flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border border-slate-700/70 bg-slate-800/50 px-3 py-2 text-sm font-medium text-slate-300 transition-[color,background-color,border-color] duration-200 hover:border-slate-500 hover:bg-slate-700/50 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
+        }
         aria-haspopup="listbox"
         aria-expanded={isOpen}
         aria-controls="language-options"
         aria-label="Select language"
       >
         <Languages className="h-4 w-4" aria-hidden />
-        <span>{currentLanguage?.nativeName}</span>
-        <ChevronDown
-          className={`h-3 w-3 transition-transform duration-200 motion-reduce:transform-none motion-reduce:transition-none ${
-            isOpen ? "rotate-180 text-blue-400" : "group-hover:text-blue-400"
-          }`}
-        />
+        {compact ? null : <span>{currentLanguage?.nativeName}</span>}
+        {compact ? null : (
+          <ChevronDown
+            className={`h-3 w-3 transition-transform duration-200 motion-reduce:transform-none motion-reduce:transition-none ${
+              isOpen ? "rotate-180 text-blue-400" : "group-hover:text-blue-400"
+            }`}
+          />
+        )}
       </button>
 
       {/* Dropdown Menu */}

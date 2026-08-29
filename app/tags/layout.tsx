@@ -8,6 +8,7 @@ import siteMetadata from "@/data/siteMetadata"
 import { Metadata } from "next"
 import SiteFooter from "@/components/SiteFooter"
 import { NextIntlClientProvider } from "next-intl"
+import ClerkAppProvider from "@/components/auth/ClerkAppProvider"
 
 export const revalidate = 604800 // 7 days
 
@@ -77,14 +78,16 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <meta name="msapplication-TileColor" content="#000000" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
       <body className="min-h-screen bg-gradient-to-b from-[#020617] via-[#0a0f1f] to-[#000D1A]/90 pl-[calc(100vw-100%)] text-white antialiased">
-        <NextIntlClientProvider>
-          <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
-          <SectionContainer>
-            <Header />
-            <main className="mx-auto min-h-[54vh] max-w-7xl px-4 sm:px-6 xl:px-0">{children}</main>
-            <SiteFooter />
-          </SectionContainer>
-        </NextIntlClientProvider>
+        <ClerkAppProvider>
+          <NextIntlClientProvider>
+            <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
+            <SectionContainer>
+              <Header />
+              <main className="mx-auto min-h-[54vh] max-w-7xl px-4 sm:px-6 xl:px-0">{children}</main>
+              <SiteFooter />
+            </SectionContainer>
+          </NextIntlClientProvider>
+        </ClerkAppProvider>
       </body>
     </html>
   )

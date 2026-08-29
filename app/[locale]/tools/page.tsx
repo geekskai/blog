@@ -132,17 +132,17 @@ export default function ToolsPage() {
               {/* Main Heading with Staggered Animation */}
               <div className="mb-6 space-y-2">
                 <h1 className="text-5xl font-bold tracking-tight text-white lg:text-7xl">
-                  <span className="block">{t("tools_tools_that")}</span>
-                  <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
-                    supercharge
-                  </span>
-                  <span className="block">{t("tools_your_workflow")}</span>
+                  <span>{t("tools_tools_that")}</span>{" "}
+                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
+                    {t("tools_supercharge")}
+                  </span>{" "}
+                  <span>{t("tools_your_workflow")}</span>
                 </h1>
               </div>
 
               {/* Enhanced Description */}
               <p className="mx-auto mb-10 max-w-3xl text-xl text-slate-300">
-                {t("tools_discover_powerful_free_online_tools_crafted_for")}
+                {t("tools_discover_powerful_free_online_tools_crafted_for")}{" "}
                 <span className="font-semibold text-blue-400">{t("tools_developers")}</span>,{" "}
                 <span className="font-semibold text-purple-400">{t("tools_creators")}</span>, and{" "}
                 <span className="font-semibold text-emerald-400">{t("tools_innovators")}</span>

@@ -4,95 +4,80 @@ import Link from "./Link"
 import React from "react"
 import SocialIcon from "./social-icons"
 import siteMetadata from "@/data/siteMetadata"
-// import Logo from "/public/static/logos.png"
 import Image from "./Image"
-import { Zap, Heart, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { useTranslations } from "next-intl"
 import LinkNext from "next/link"
 import { footerPopularTools } from "@/data/toolNavigation"
 import { usePathname } from "@/app/i18n/navigation"
+import { getChromeSurface } from "@/lib/chrome/surface"
+
+function LegalFooter({ productLabel }: { productLabel?: string }) {
+  return (
+    <footer className="mt-20 border-t border-slate-800 bg-slate-950">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-10 sm:px-6 lg:flex-row lg:items-center lg:justify-between 2xl:px-0">
+        <div>
+          <p className="font-semibold text-white">{productLabel ?? "Geekskai"}</p>
+          {productLabel ? (
+            <p className="mt-2 max-w-xl text-sm leading-6 text-slate-400">
+              Local browser audio processing. Files and filenames are never uploaded.
+            </p>
+          ) : null}
+        </div>
+        <nav
+          className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm"
+          aria-label="Product policies"
+        >
+          <LinkNext href="/pricing/" className="text-slate-300 hover:text-white">
+            Pricing
+          </LinkNext>
+          <LinkNext href="/terms/" className="text-slate-300 hover:text-white">
+            Terms
+          </LinkNext>
+          <LinkNext href="/privacy/" className="text-slate-300 hover:text-white">
+            Privacy
+          </LinkNext>
+          <a href={`mailto:${siteMetadata.email}`} className="text-violet-300 hover:text-violet-200">
+            {siteMetadata.email}
+          </a>
+        </nav>
+      </div>
+    </footer>
+  )
+}
 
 const SiteFooter = () => {
   const t = useTranslations("HomePage")
   const pathname = usePathname()
-  const isCommercialPath = [
-    "/pricing",
-    "/audio-toolkit",
-    "/account/billing",
-    "/sign-in",
-    "/sign-up",
-    "/terms",
-    "/privacy",
-  ].some((path) => pathname === path || pathname.startsWith(`${path}/`))
+  const surface = getChromeSurface(pathname)
 
-  if (isCommercialPath) {
-    return (
-      <footer className="mt-20 border-t border-slate-800 bg-slate-950">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-10 sm:px-6 lg:flex-row lg:items-center lg:justify-between 2xl:px-0">
-          <div>
-            <p className="font-semibold text-white">Geekskai Audio Toolkit</p>
-            <p className="mt-2 max-w-xl text-sm leading-6 text-slate-400">
-              Local browser audio processing. Files and filenames are never uploaded.
-            </p>
-          </div>
-          <nav
-            className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm"
-            aria-label="Product policies"
-          >
-            <LinkNext href="/pricing/" className="text-slate-300 hover:text-white">
-              Pricing
-            </LinkNext>
-            <LinkNext href="/terms/" className="text-slate-300 hover:text-white">
-              Terms
-            </LinkNext>
-            <LinkNext href="/privacy/" className="text-slate-300 hover:text-white">
-              Privacy
-            </LinkNext>
-            <a
-              href={`mailto:${siteMetadata.email}`}
-              className="text-violet-300 hover:text-violet-200"
-            >
-              {siteMetadata.email}
-            </a>
-          </nav>
-        </div>
-      </footer>
-    )
+  if (surface === "auth") return null
+  if (surface === "workspace") {
+    return <LegalFooter productLabel="Geekskai Audio Toolkit" />
   }
 
   return (
-    <footer className="mt-20 overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-black">
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        {/* Main Footer Content */}
-        <div className="grid gap-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-          {/* Brand Section */}
-          <div className="lg:col-span-1">
-            <div className="mb-6">
-              <Link href="/" className="group inline-flex min-h-11 items-center gap-1">
-                <Image
-                  src="/static/logos.png"
-                  alt="geekskai Logo"
-                  width={28}
-                  height={26}
-                  sizes="100%"
-                  className="h-7 w-8 transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="text-xl font-bold text-white">geekskai</div>
-              </Link>
-            </div>
-            <p className="mb-6 text-sm text-slate-400">{t("footer_description")}</p>
-            <div className="flex items-center gap-2 rounded-full bg-slate-800/50 px-4 py-2 backdrop-blur-sm">
-              <Zap className="h-4 w-4 text-emerald-400" />
-              <span className="text-sm font-medium text-emerald-300">
-                {t("footer_100_free_forever")}
-              </span>
-            </div>
+    <footer data-chrome-surface="acquisition" className="mt-20 overflow-hidden bg-slate-950">
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <Link href="/" className="group mb-6 inline-flex min-h-11 items-center gap-1">
+              <Image
+                src="/static/logos.png"
+                alt="geekskai Logo"
+                width={28}
+                height={26}
+                sizes="100%"
+                className="h-7 w-8"
+              />
+              <div className="text-xl font-bold text-white">geekskai</div>
+            </Link>
+            <p className="text-sm text-slate-400">{t("footer_description")}</p>
           </div>
 
-          {/* Popular Tools */}
-          <div className="lg:col-span-1">
-            <h3 className="mb-6 text-lg font-semibold text-white">{t("footer_popular_tools")}</h3>
-            <div className="space-y-3">
+          <div>
+            <h3 className="mb-4 text-lg font-semibold text-white">{t("footer_popular_tools")}</h3>
+            <div className="space-y-2">
               {footerPopularTools.map((tool) => {
                 const IconComponent = tool.icon
                 return (
@@ -100,22 +85,10 @@ const SiteFooter = () => {
                     key={tool.id}
                     href={tool.href}
                     prefetch={false}
-                    className="group flex items-center gap-3 rounded-lg bg-slate-800/30 p-3 transition-all duration-300 hover:scale-105 hover:bg-slate-700/50"
+                    className="group flex min-h-11 items-center gap-3 rounded-lg px-2 py-2 text-slate-300 transition-colors duration-200 hover:bg-slate-800/50 hover:text-white"
                   >
-                    <div className="flex-shrink-0 rounded-md bg-slate-700/50 p-2 transition-transform duration-300 group-hover:scale-110">
-                      <IconComponent className="h-4 w-4 text-slate-300 group-hover:text-white" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-slate-200 transition-colors duration-300 group-hover:text-white">
-                          {tool.title}
-                        </span>
-                        {/* <span className="ml-2 rounded-full bg-blue-500/20 px-2 py-0.5 text-xs font-medium text-blue-300">
-                          {tool.badge}
-                        </span> */}
-                      </div>
-                    </div>
-                    <ArrowRight className="h-3 w-3 text-slate-500 opacity-0 transition-all duration-300 group-hover:text-slate-300 group-hover:opacity-100" />
+                    <IconComponent className="h-4 w-4 shrink-0" />
+                    <span className="text-sm font-medium">{tool.title}</span>
                   </Link>
                 )
               })}
@@ -123,126 +96,64 @@ const SiteFooter = () => {
             <Link
               href="/tools"
               prefetch={false}
-              className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-blue-400 transition-colors duration-200 hover:text-blue-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none"
+              className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-blue-400 hover:text-blue-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
             >
               <span>{t("footer_view_all_tools")}</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
-          {/* Resources */}
-          <div className="lg:col-span-1">
-            <h3 className="mb-6 text-lg font-semibold text-white">{t("footer_resources")}</h3>
-            <div className="space-y-3">
-              <LinkNext
-                href="/blog/"
-                className="group flex min-h-11 items-center gap-2 text-slate-400 transition-[color,transform] duration-200 hover:translate-x-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transform-none motion-reduce:transition-none"
-              >
-                <div className="h-1 w-1 rounded-full bg-blue-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-blue-300"></div>
-                <span>{t("footer_blog")}</span>
-              </LinkNext>
-              <LinkNext
-                href="/about/"
-                className="group flex min-h-11 items-center gap-2 text-slate-400 transition-[color,transform] duration-200 hover:translate-x-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transform-none motion-reduce:transition-none"
-              >
-                <div className="h-1 w-1 rounded-full bg-blue-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-blue-300"></div>
-                <span>{t("footer_about")}</span>
-              </LinkNext>
-              <LinkNext
-                href="/pricing/"
-                className="group flex min-h-11 items-center gap-2 text-slate-400 transition-[color,transform] duration-200 hover:translate-x-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transform-none motion-reduce:transition-none"
-              >
-                <div className="h-1 w-1 rounded-full bg-purple-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-purple-300"></div>
-                <span>{t("footer_pricing")}</span>
-              </LinkNext>
-              <LinkNext
-                href="/tags/"
-                className="group flex min-h-11 items-center gap-2 text-slate-400 transition-[color,transform] duration-200 hover:translate-x-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transform-none motion-reduce:transition-none"
-              >
-                <div className="h-1 w-1 rounded-full bg-blue-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-blue-300"></div>
-                <span>{t("footer_tags")}</span>
-              </LinkNext>
-              <LinkNext
-                href="/projects/"
-                className="group flex min-h-11 items-center gap-2 text-slate-400 transition-[color,transform] duration-200 hover:translate-x-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transform-none motion-reduce:transition-none"
-              >
-                <div className="h-1 w-1 rounded-full bg-purple-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-purple-300"></div>
-                <span>{t("footer_projects")}</span>
-              </LinkNext>
-              <LinkNext
-                href="/privacy/"
-                className="group flex min-h-11 items-center gap-2 text-slate-400 transition-[color,transform] duration-200 hover:translate-x-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transform-none motion-reduce:transition-none"
-              >
-                <div className="h-1 w-1 rounded-full bg-emerald-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-emerald-300"></div>
-                <span>{t("footer_privacy_policy")}</span>
-              </LinkNext>
-
-              <LinkNext
-                href="/terms/"
-                className="group flex min-h-11 items-center gap-2 text-slate-400 transition-[color,transform] duration-200 hover:translate-x-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transform-none motion-reduce:transition-none"
-              >
-                <div className="h-1 w-1 rounded-full bg-emerald-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-emerald-300"></div>
-                <span>{t("footer_terms_of_service")}</span>
-              </LinkNext>
-              <LinkNext
-                href="/terms/#section-6"
-                className="group flex min-h-11 items-center gap-2 text-slate-400 transition-[color,transform] duration-200 hover:translate-x-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transform-none motion-reduce:transition-none"
-              >
-                <div className="h-1 w-1 rounded-full bg-emerald-400 transition-all duration-300 group-hover:scale-150 group-hover:bg-emerald-300"></div>
-                <span>{t("footer_refund_policy")}</span>
-              </LinkNext>
+          <div>
+            <h3 className="mb-4 text-lg font-semibold text-white">{t("footer_resources")}</h3>
+            <div className="space-y-1">
+              {[
+                { href: "/blog/", label: t("footer_blog") },
+                { href: "/about/", label: t("footer_about") },
+                { href: "/pricing/", label: t("footer_pricing") },
+                { href: "/tags/", label: t("footer_tags") },
+                { href: "/projects/", label: t("footer_projects") },
+                { href: "/privacy/", label: t("footer_privacy_policy") },
+                { href: "/terms/", label: t("footer_terms_of_service") },
+                { href: "/terms/#section-6", label: t("footer_refund_policy") },
+              ].map((item) => (
+                <LinkNext
+                  key={item.href}
+                  href={item.href}
+                  className="flex min-h-11 items-center text-slate-400 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+                >
+                  {item.label}
+                </LinkNext>
+              ))}
             </div>
           </div>
 
-          {/* Connect */}
-          <div className="lg:col-span-1">
-            <h3 className="mb-6 text-lg font-semibold text-white">{t("footer_connect_with_us")}</h3>
+          <div>
+            <h3 className="mb-4 text-lg font-semibold text-white">{t("footer_connect_with_us")}</h3>
             <div className="mb-6 grid grid-cols-4 gap-3">
-              <div className="rounded-xl bg-slate-800/50 backdrop-blur-sm transition-[background-color,transform] duration-200 hover:scale-105 hover:bg-slate-700 motion-reduce:transform-none motion-reduce:transition-none">
+              <div className="rounded-xl bg-slate-800/50">
                 <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
               </div>
-              <div className="rounded-xl bg-slate-800/50 backdrop-blur-sm transition-[background-color,transform] duration-200 hover:scale-105 hover:bg-slate-700 motion-reduce:transform-none motion-reduce:transition-none">
+              <div className="rounded-xl bg-slate-800/50">
                 <SocialIcon kind="github" href={siteMetadata.github} size={6} />
               </div>
-              <div className="rounded-xl bg-slate-800/50 backdrop-blur-sm transition-[background-color,transform] duration-200 hover:scale-105 hover:bg-slate-700 motion-reduce:transform-none motion-reduce:transition-none">
+              <div className="rounded-xl bg-slate-800/50">
                 <SocialIcon kind="twitter" href={siteMetadata.twitter} size={6} />
               </div>
-              <div className="rounded-xl bg-slate-800/50 backdrop-blur-sm transition-[background-color,transform] duration-200 hover:scale-105 hover:bg-slate-700 motion-reduce:transform-none motion-reduce:transition-none">
+              <div className="rounded-xl bg-slate-800/50">
                 <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
               </div>
-            </div>
-            <div className="rounded-xl border border-slate-700/50 bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-4 backdrop-blur-sm">
-              <div className="mb-2 flex items-center gap-2">
-                <Heart className="h-4 w-4 text-red-400" />
-                <span className="text-sm font-medium text-slate-200">
-                  {t("footer_built_with_love")}
-                </span>
-              </div>
-              <p className="text-xs text-slate-400">{t("footer_built_with_love_description")}</p>
             </div>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className=" mt-16 border-t border-slate-800/50 pt-8">
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <div className="flex flex-col items-center gap-2 md:flex-row md:gap-4">
-              <div className="flex items-center gap-2 text-slate-400">
-                <span>© {new Date().getFullYear()}</span>
-                <Link
-                  href="/"
-                  className="font-medium text-white transition-colors duration-300 hover:text-blue-300"
-                >
-                  geekskai
-                </Link>
-                <span>• {t("footer_all_rights_reserved")}</span>
-              </div>
-            </div>
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2 text-xs text-slate-500">
-                <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-400"></div>
-                <span>{t("footer_status_all_systems_operational")}</span>
-              </div>
+        <div className="mt-12 border-t border-slate-800/50 pt-6">
+          <div className="flex flex-col items-center justify-between gap-3 text-sm text-slate-400 md:flex-row">
+            <div>
+              © {new Date().getFullYear()}{" "}
+              <Link href="/" className="font-medium text-white hover:text-blue-300">
+                geekskai
+              </Link>
+              <span> • {t("footer_all_rights_reserved")}</span>
             </div>
           </div>
         </div>

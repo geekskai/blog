@@ -7,6 +7,7 @@ import siteMetadata from "@/data/siteMetadata"
 import { Metadata } from "next"
 import SiteFooter from "@/components/SiteFooter"
 import { NextIntlClientProvider } from "next-intl"
+import ClerkAppProvider from "@/components/auth/ClerkAppProvider"
 import { buildSiteSchema, serializeJsonLd } from "@/lib/seo"
 
 export const revalidate = 604800 // 7 days
@@ -89,14 +90,16 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteSchema) }}
         />
-        <NextIntlClientProvider>
-          <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
-          <SectionContainer>
-            <Header />
-            <main className="mx-auto min-h-[54vh] max-w-7xl px-4 sm:px-6 xl:px-0">{children}</main>
-            <SiteFooter />
-          </SectionContainer>
-        </NextIntlClientProvider>
+        <ClerkAppProvider>
+          <NextIntlClientProvider>
+            <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
+            <SectionContainer>
+              <Header />
+              <main className="mx-auto min-h-[54vh] max-w-7xl px-4 sm:px-6 xl:px-0">{children}</main>
+              <SiteFooter />
+            </SectionContainer>
+          </NextIntlClientProvider>
+        </ClerkAppProvider>
       </body>
     </html>
   )

@@ -1,293 +1,157 @@
 "use client"
-import React, { useEffect, useState } from "react"
-import dynamic from "next/dynamic"
+
 import siteMetadata from "@/data/siteMetadata"
 import headerNavLinks from "@/data/headerNavLinks"
 import Link from "./Link"
-import MobileNav from "./MobileNav"
 import Image from "./Image"
-import { ChevronDown, Zap, Star, Sparkles } from "lucide-react"
-import { TOOL_COUNT } from "@/data/toolNavigation"
 import LanguageSelect from "./LanguageSelect"
 import { useTranslations } from "next-intl"
-import LinkNext from "next/link"
-import AuthControls from "./auth/AuthControls"
-import { usePathname } from "@/app/i18n/navigation"
+import { Link as LocaleLink, usePathname } from "@/app/i18n/navigation"
+import { getChromeSurface, normalizeChromePath } from "@/lib/chrome/surface"
+import AccountMenu from "./chrome/AccountMenu"
+import MobileDock from "./chrome/MobileDock"
 
 interface HeaderProps {
   authEnabled?: boolean
 }
 
-const MegaMenu = dynamic(() => import("./MegaMenu"), {
-  ssr: false,
-  loading: () => <div className="h-[360px] rounded-xl bg-slate-800/40" aria-hidden="true" />,
-})
+const navLinkClass = (active: boolean) =>
+  `relative inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none ${
+    active
+      ? "text-white after:absolute after:inset-x-3 after:bottom-0 after:h-0.5 after:rounded-full after:bg-pink-400"
+      : "text-slate-300 hover:text-white"
+  }`
 
-const Header = ({ authEnabled = false }: HeaderProps) => {
-  const t = useTranslations("HomePage")
-  const tt = useTranslations("ToolsPage")
-  const pathname = usePathname()
-  const isCommercialPath = [
-    "/pricing",
-    "/audio-toolkit",
-    "/account/billing",
-    "/sign-in",
-    "/sign-up",
-    "/terms",
-    "/privacy",
-  ].some((path) => pathname === path || pathname.startsWith(`${path}/`))
-  const [hasHydrated, setHasHydrated] = useState(false)
-  const [toolsMenuOpen, setToolsMenuOpen] = useState(false)
-  const closeToolsMenuTimerRef = React.useRef<number | null>(null)
-  const isToolsMenuVisible = hasHydrated && toolsMenuOpen
+function isCurrentPath(pathname: string, href: string) {
+  return normalizeChromePath(pathname) === normalizeChromePath(href)
+}
 
-  const openToolsMenu = () => {
-    if (closeToolsMenuTimerRef.current != null) {
-      window.clearTimeout(closeToolsMenuTimerRef.current)
-      closeToolsMenuTimerRef.current = null
-    }
-    setToolsMenuOpen(true)
-  }
-
-  const scheduleCloseToolsMenu = () => {
-    if (closeToolsMenuTimerRef.current != null) {
-      window.clearTimeout(closeToolsMenuTimerRef.current)
-    }
-    closeToolsMenuTimerRef.current = window.setTimeout(() => {
-      setToolsMenuOpen(false)
-      closeToolsMenuTimerRef.current = null
-    }, 120)
-  }
-
-  useEffect(() => {
-    setHasHydrated(true)
-
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setToolsMenuOpen(false)
-      }
-    }
-
-    document.addEventListener("keydown", handleEscape)
-    return () => {
-      document.removeEventListener("keydown", handleEscape)
-      if (closeToolsMenuTimerRef.current != null) {
-        window.clearTimeout(closeToolsMenuTimerRef.current)
-      }
-    }
-  }, [])
-
-  if (isCommercialPath) {
-    return (
-      <header className="sticky top-0 z-80 border-b border-slate-800/50 bg-slate-950/90 shadow-xl backdrop-blur-xl">
-        <div className="mx-auto grid min-h-20 w-full max-w-7xl grid-cols-[auto_minmax(0,1fr)] items-center gap-x-3 gap-y-1 px-4 py-2 sm:flex sm:gap-4 sm:px-6 sm:py-0 2xl:px-0">
-          <Link
-            href="/"
-            aria-label={siteMetadata.headerTitle}
-            className="inline-flex min-h-11 items-center gap-1 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300"
-          >
-            <Image
-              src="/static/logos.png"
-              alt="geekskai Logo"
-              width={44}
-              height={36}
-              loading="eager"
-              sizes="100%"
-              className="h-10 w-12"
-            />
-            <span className="hidden text-xl font-bold text-white sm:block">geekskai</span>
-          </Link>
-          <nav
-            className="flex items-center gap-1 justify-self-end sm:ml-auto sm:gap-3"
-            aria-label="Audio Toolkit"
-          >
-            <LinkNext
-              href="/audio-toolkit/"
-              className="inline-flex min-h-11 items-center rounded-lg px-2 text-xs font-semibold text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 sm:px-3 sm:text-sm"
-            >
-              Audio Toolkit
-            </LinkNext>
-            <LinkNext
-              href="/pricing/"
-              className="inline-flex min-h-11 items-center rounded-lg px-2 text-xs font-semibold text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 sm:px-3 sm:text-sm"
-            >
-              Pricing
-            </LinkNext>
-            <LinkNext
-              href="/terms/"
-              className="hidden min-h-11 items-center rounded-lg px-3 text-sm font-semibold text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 sm:inline-flex"
-            >
-              Terms
-            </LinkNext>
-          </nav>
-          {authEnabled ? (
-            <div className="col-span-2 justify-self-center sm:col-span-1">
-              <AuthControls />
-            </div>
-          ) : null}
-        </div>
-      </header>
-    )
-  }
-
+function BrandLink() {
   return (
-    <header className="sticky top-0 z-80 border-b border-slate-800/50 bg-slate-950/80 shadow-xl backdrop-blur-xl">
-      <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6 2xl:px-0">
-        {/* Logo Section */}
-        <Link
-          href="/"
-          aria-label={siteMetadata.headerTitle}
-          className="inline-flex min-h-11 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+    <Link
+      href="/"
+      aria-label={siteMetadata.headerTitle}
+      className="inline-flex min-h-11 items-center gap-1 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+    >
+      <Image
+        src="/static/logos.png"
+        alt="geekskai Logo"
+        width={44}
+        height={36}
+        loading="eager"
+        sizes="100%"
+        className="h-9 w-11"
+      />
+      <span className="hidden text-xl font-bold text-white sm:block">
+        {siteMetadata.headerTitle}
+      </span>
+    </Link>
+  )
+}
+
+function AuthHeader() {
+  return (
+    <header
+      data-chrome-surface="auth"
+      className="sticky top-0 z-80 border-b border-slate-800/50 bg-slate-950/90 backdrop-blur-xl"
+    >
+      <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between px-4 sm:px-6 2xl:px-0">
+        <BrandLink />
+        <LocaleLink
+          href="/tools/"
+          className="inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold text-slate-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
         >
-          <div className="group flex items-center gap-1">
-            <Image
-              src="/static/logos.png"
-              alt="geekskai Logo"
-              width={44}
-              height={36}
-              loading="eager"
-              sizes="100%"
-              className="h-10 w-12 transition-transform duration-300 group-hover:scale-105"
-            />
-            {typeof siteMetadata.headerTitle === "string" ? (
-              <div className="hidden bg-gradient-to-r from-white to-slate-300 bg-clip-text text-2xl font-bold text-transparent sm:block">
-                {siteMetadata.headerTitle}
-              </div>
-            ) : (
-              siteMetadata.headerTitle
-            )}
-          </div>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <div className="hidden items-center space-x-8 lg:flex">
-          <nav className="flex items-center space-x-2">
-            {headerNavLinks.map((link) => (
-              <LinkNext
-                key={link.title}
-                href={link.href}
-                aria-current={
-                  pathname.replace(/\/+$/, "") === link.href.replace(/\/+$/, "")
-                    ? "page"
-                    : undefined
-                }
-                className={`group relative inline-flex min-h-11 items-center px-3 py-2 text-sm font-medium transition-[color,background-color] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none md:text-lg ${
-                  pathname.replace(/\/+$/, "") === link.href.replace(/\/+$/, "")
-                    ? "text-white after:absolute after:inset-x-3 after:bottom-0 after:h-0.5 after:rounded-full after:bg-pink-400"
-                    : "text-slate-300 hover:text-white"
-                }`}
-              >
-                {t(link.title)}
-              </LinkNext>
-            ))}
-
-            {/* Tools Dropdown */}
-            <div
-              data-dropdown
-              className="static"
-              onMouseEnter={openToolsMenu}
-              onMouseLeave={scheduleCloseToolsMenu}
-              onFocus={openToolsMenu}
-              onBlur={(event) => {
-                if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-                  setToolsMenuOpen(false)
-                }
-              }}
-            >
-              <button
-                type="button"
-                className={`flex min-h-11 cursor-pointer items-center gap-2 px-3 py-2 text-sm font-medium text-slate-300 transition-[color,background-color] duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none md:text-lg ${
-                  isToolsMenuVisible ? "text-white" : ""
-                }`}
-                aria-haspopup="true"
-                aria-expanded={isToolsMenuVisible}
-                aria-controls="desktop-tools-menu"
-                onClick={openToolsMenu}
-              >
-                {t("header_nav_tools")}
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform duration-300 ${
-                    isToolsMenuVisible ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-
-              {/* MegaMenu Dropdown - Centered relative to header container */}
-              <div
-                id="desktop-tools-menu"
-                onMouseEnter={openToolsMenu}
-                onMouseLeave={scheduleCloseToolsMenu}
-                className={`absolute inset-x-0 top-full z-50 -mt-4 flex w-full justify-center pt-4 shadow-xl backdrop-blur-xl transition-all duration-300 ${
-                  isToolsMenuVisible
-                    ? "visible opacity-100"
-                    : "pointer-events-none invisible opacity-0"
-                }`}
-              >
-                <div className="max-w-8xl w-[95vw]">
-                  {/* Subtle glow effect */}
-                  <div className="relative rounded-2xl border border-slate-700/50 bg-slate-900/95 p-10 shadow-2xl backdrop-blur-xl">
-                    {/* Header */}
-                    <div className="mb-8 flex items-center justify-between border-b border-slate-700/50 pb-4">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/20">
-                          <Zap className="h-6 w-6 text-blue-400" />
-                        </div>
-                        <div>
-                          <h2 className="text-xl font-bold text-white">{t("header_nav_tools")}</h2>
-                          <p className="text-sm text-slate-400">
-                            {tt(
-                              "tools_hand_picked_tools_designed_to_streamline_your_workflow_and_boost_productivity"
-                            )}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2">
-                        <Star className="h-4 w-4 text-blue-400" />
-                        <span className="text-sm font-semibold text-blue-300">
-                          {TOOL_COUNT} {t("header_nav_tools")}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* MegaMenu Content */}
-                    <div className="custom-scrollbar max-h-[60vh] overflow-y-auto pr-4">
-                      {isToolsMenuVisible && <MegaMenu closeMenu={() => setToolsMenuOpen(false)} />}
-                    </div>
-
-                    {/* Footer */}
-                    <div className="mt-8 flex items-center justify-between border-t border-slate-700/50 pt-6">
-                      <p className="text-sm italic text-slate-400">
-                        {tt("tools_no_signup_required_always_free_built_with_care")}
-                      </p>
-                      <Link
-                        href="/tools"
-                        className="group flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-blue-500/20 transition-all duration-300 hover:scale-105 hover:shadow-blue-500/40 active:scale-95"
-                      >
-                        <Sparkles className="h-4 w-4" />
-                        {t("header_nav_tools")}
-                        <ChevronDown className="h-4 w-4 rotate-[-90deg] transition-transform duration-300 group-hover:translate-x-1" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Language Select */}
-
-            <LanguageSelect />
-          </nav>
-
-          {authEnabled ? <AuthControls /> : null}
-        </div>
-
-        {/* Mobile Navigation */}
-        <div className="flex items-center space-x-4 lg:hidden">
-          <MobileNav authEnabled={authEnabled} />
-        </div>
+          Back to tools
+        </LocaleLink>
       </div>
     </header>
   )
+}
+
+function WorkspaceHeader() {
+  const pathname = usePathname()
+
+  return (
+    <>
+      <header
+        data-chrome-surface="workspace"
+        className="sticky top-0 z-80 border-b border-slate-800/50 bg-slate-950/90 backdrop-blur-xl"
+      >
+        <div className="mx-auto flex h-14 w-full max-w-7xl items-center gap-3 px-4 sm:px-6 2xl:px-0">
+          <BrandLink />
+          <nav className="hidden items-center gap-1 lg:flex" aria-label="Audio Toolkit">
+            <LocaleLink
+              href="/audio-toolkit/"
+              aria-current={isCurrentPath(pathname, "/audio-toolkit/") ? "page" : undefined}
+              className={navLinkClass(isCurrentPath(pathname, "/audio-toolkit/"))}
+            >
+              Audio Toolkit
+            </LocaleLink>
+            <LocaleLink
+              href="/tools/"
+              className="inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold text-slate-400 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+            >
+              All tools
+            </LocaleLink>
+          </nav>
+          <div className="ml-auto hidden lg:block">
+            <AccountMenu />
+          </div>
+        </div>
+      </header>
+      <MobileDock surface="workspace" />
+    </>
+  )
+}
+
+function AcquisitionHeader() {
+  const t = useTranslations("HomePage")
+  const pathname = usePathname()
+
+  return (
+    <>
+      <header
+        data-chrome-surface="acquisition"
+        className="sticky top-0 z-80 border-b border-slate-800/50 bg-slate-950/90 backdrop-blur-xl"
+      >
+        <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between px-4 sm:px-6 2xl:px-0">
+          <BrandLink />
+          <div className="hidden items-center gap-6 lg:flex">
+            <nav className="flex items-center" aria-label="Primary">
+              {headerNavLinks.map((link) => {
+                const active = isCurrentPath(pathname, link.href)
+                return (
+                  <LocaleLink
+                    key={link.href}
+                    href={link.href}
+                    aria-current={active ? "page" : undefined}
+                    className={navLinkClass(active)}
+                  >
+                    {t(link.title)}
+                  </LocaleLink>
+                )
+              })}
+            </nav>
+            <LanguageSelect />
+            <AccountMenu />
+          </div>
+          <div className="lg:hidden">
+            <LanguageSelect compact />
+          </div>
+        </div>
+      </header>
+      <MobileDock surface="acquisition" />
+    </>
+  )
+}
+
+const Header = (_props: HeaderProps) => {
+  const pathname = usePathname()
+  const surface = getChromeSurface(pathname)
+
+  if (surface === "auth") return <AuthHeader />
+  if (surface === "workspace") return <WorkspaceHeader />
+  return <AcquisitionHeader />
 }
 
 export default Header
