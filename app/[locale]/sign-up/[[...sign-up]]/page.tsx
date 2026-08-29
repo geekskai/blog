@@ -1,5 +1,6 @@
-import { SignUp } from "@clerk/nextjs"
 import type { Metadata } from "next"
+import AuthClerkPanel from "@/components/auth/AuthClerkPanel"
+import AuthPageShell from "@/components/auth/AuthPageShell"
 import { authUrlWithRedirect, safeLocalRedirectUrl } from "@/lib/auth/redirect"
 
 export const metadata: Metadata = {
@@ -16,27 +17,22 @@ export default async function SignUpPage({ searchParams }: SignUpPageProps) {
   const isQuotaReturn = redirectUrl.includes("quota_return=1")
 
   return (
-    <section className="flex min-h-[70vh] items-center justify-center py-12">
-      <div className="space-y-5 text-center">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
-            {isQuotaReturn ? "Free download allowance" : "Optional account"}
-          </p>
-          <h1 className="mt-2 text-3xl font-bold text-white">
-            {isQuotaReturn ? "Create a free account" : "Create your free workspace"}
-          </h1>
-          <p className="mt-2 text-sm text-slate-400">
-            {isQuotaReturn
-              ? "Increase today's allowance from 3 to 10 downloads, then return to your tool."
-              : "Save project metadata and presets. Audio files are never uploaded."}
-          </p>
-        </div>
-        <SignUp
-          forceRedirectUrl={redirectUrl}
-          fallbackRedirectUrl={redirectUrl}
-          signInUrl={authUrlWithRedirect("/sign-in/", redirectUrl)}
-        />
-      </div>
-    </section>
+    <AuthPageShell
+      eyebrow={isQuotaReturn ? "Free download allowance" : "Geekskai account"}
+      title={isQuotaReturn ? "Create a free" : "Create your free"}
+      titleAccent="account"
+      description={
+        isQuotaReturn
+          ? "Increase today's allowance from 3 to 10 downloads, then return to your tool."
+          : "Get 30 daily Audio Credits, billing access, and saved workspace settings."
+      }
+    >
+      <AuthClerkPanel
+        mode="sign-up"
+        redirectUrl={redirectUrl}
+        alternateAuthUrl={authUrlWithRedirect("/sign-in/", redirectUrl)}
+        alternateLabel="Already have an account? Sign in"
+      />
+    </AuthPageShell>
   )
 }

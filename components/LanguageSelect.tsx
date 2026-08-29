@@ -434,8 +434,8 @@ export default function LanguageSelect({ compact = false }: { compact?: boolean 
         }}
         className={
           compact
-            ? "group relative z-80 inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg border border-slate-600 bg-slate-800 text-slate-100 transition-[color,background-color,border-color] duration-200 hover:border-slate-400 hover:bg-slate-700 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none"
-            : "group relative z-80 flex min-h-11 cursor-pointer items-center gap-2 rounded-lg border border-slate-700/70 bg-slate-800/50 px-3 py-2 text-sm font-medium text-slate-300 transition-[color,background-color,border-color] duration-200 hover:border-slate-500 hover:bg-slate-700/50 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
+            ? "group relative z-80 inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-xl border border-slate-700/80 bg-slate-900/70 text-slate-100 transition-[color,background-color,border-color] duration-200 hover:border-sky-500/35 hover:bg-slate-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 motion-reduce:transition-none"
+            : "group relative z-80 flex min-h-11 cursor-pointer items-center gap-2 rounded-xl border border-slate-700/80 bg-slate-900/70 px-3 py-2 text-sm font-medium text-slate-300 transition-[color,background-color,border-color] duration-200 hover:border-sky-500/35 hover:bg-slate-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
         }
         aria-haspopup="listbox"
         aria-expanded={isOpen}
@@ -447,7 +447,7 @@ export default function LanguageSelect({ compact = false }: { compact?: boolean 
         {compact ? null : (
           <ChevronDown
             className={`h-3 w-3 transition-transform duration-200 motion-reduce:transform-none motion-reduce:transition-none ${
-              isOpen ? "rotate-180 text-blue-400" : "group-hover:text-blue-400"
+              isOpen ? "rotate-180 text-sky-300" : "group-hover:text-sky-300"
             }`}
           />
         )}
@@ -461,7 +461,7 @@ export default function LanguageSelect({ compact = false }: { compact?: boolean 
             : "pointer-events-none invisible -translate-y-2 opacity-0"
         }`}
       >
-        <div className="relative overflow-hidden rounded-xl border border-slate-700/50 bg-slate-900/95 shadow-2xl backdrop-blur-xl">
+        <div className="relative overflow-hidden rounded-xl border border-slate-800/90 bg-slate-950/95 shadow-[0_20px_60px_-30px_rgba(14,165,233,0.35)] backdrop-blur-xl">
           {/* Options List */}
           <div id="language-options" className="grid grid-cols-2 gap-2 px-4 py-3" role="listbox">
             {supportedLanguages.map((option, index) => {
@@ -476,10 +476,10 @@ export default function LanguageSelect({ compact = false }: { compact?: boolean 
                   onClick={() => handleLanguageChange(option.value)}
                   onKeyDown={(event) => moveOptionFocus(event, index)}
                   tabIndex={isSelected ? 0 : -1}
-                  className={`group flex min-h-11 w-full cursor-pointer items-center justify-between gap-1 rounded-md px-2 py-2 text-left transition-[color,background-color] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none ${
+                  className={`group flex min-h-11 w-full cursor-pointer items-center justify-between gap-1 rounded-lg px-2 py-2 text-left transition-[color,background-color] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 motion-reduce:transition-none ${
                     isSelected
-                      ? "bg-blue-500/20 text-blue-300"
-                      : "text-slate-300 hover:bg-slate-800/50 hover:text-white"
+                      ? "bg-sky-500/15 text-sky-200"
+                      : "text-slate-300 hover:bg-slate-900/70 hover:text-white"
                   }`}
                   role="option"
                   aria-selected={isSelected}
@@ -492,11 +492,11 @@ export default function LanguageSelect({ compact = false }: { compact?: boolean 
                   {/* Selected indicator */}
                   {isSelected ? (
                     <div className="flex items-center">
-                      <Check className="h-4 w-4 text-blue-400" />
+                      <Check className="h-4 w-4 text-sky-300" />
                     </div>
                   ) : (
                     <div className="opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      <div className="h-2 w-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
+                      <div className="h-2 w-2 rounded-full bg-gradient-to-r from-sky-400 to-violet-400" />
                     </div>
                   )}
                 </button>

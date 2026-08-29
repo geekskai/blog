@@ -63,6 +63,22 @@ input:-webkit-autofill:focus {
     color 600000s 0s;
 }
 
+/* Keep Clerk button borders and gradient layers on one radius. */
+[data-auth-panel] .cl-socialButtonsBlockButton,
+[data-auth-panel] .cl-formButtonPrimary {
+  border-radius: 0.75rem !important;
+  background-clip: padding-box;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+[data-auth-panel] .cl-socialButtonsBlockButton::before,
+[data-auth-panel] .cl-socialButtonsBlockButton::after,
+[data-auth-panel] .cl-formButtonPrimary::before,
+[data-auth-panel] .cl-formButtonPrimary::after {
+  border-radius: inherit !important;
+}
+
 .katex-display {
   overflow: auto hidden;
 }

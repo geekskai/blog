@@ -8,7 +8,7 @@ import { normalizeChromePath } from "@/lib/chrome/surface"
 import AccountMenu from "./AccountMenu"
 
 const dockItemClass =
-  "relative flex h-full min-h-11 flex-1 flex-col items-center justify-center gap-0.5 px-1 text-[11px] font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:ring-inset motion-reduce:transition-none"
+  "relative flex h-full min-h-11 flex-1 flex-col items-center justify-center gap-0.5 px-1 text-[11px] font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-inset motion-reduce:transition-none"
 
 function isActive(pathname: string, href: string) {
   const path = normalizeChromePath(pathname)
@@ -20,7 +20,7 @@ function isActive(pathname: string, href: string) {
 function dockLinkClass(active: boolean) {
   return `${dockItemClass} ${
     active
-      ? "text-white after:absolute after:bottom-1 after:h-0.5 after:w-5 after:rounded-full after:bg-pink-400"
+      ? "text-white after:absolute after:bottom-1 after:h-0.5 after:w-5 after:rounded-full after:bg-sky-400"
       : "text-slate-400 hover:text-white"
   }`
 }
@@ -43,13 +43,13 @@ function WorkspaceMore() {
       {open ? (
         <div
           role="menu"
-          className="absolute right-2 bottom-[calc(100%+0.5rem)] z-80 w-44 overflow-hidden rounded-xl border border-slate-800 bg-slate-950 py-1 shadow-xl"
+          className="absolute right-2 bottom-[calc(100%+0.5rem)] z-80 w-44 overflow-hidden rounded-xl border border-slate-800/90 bg-slate-950 py-1 shadow-[0_20px_60px_-30px_rgba(14,165,233,0.4)]"
         >
           <Link
             href="/tools/"
             role="menuitem"
             onClick={() => setOpen(false)}
-            className="flex min-h-11 items-center px-4 text-sm font-medium text-slate-200 hover:bg-slate-800"
+            className="flex min-h-11 items-center px-4 text-sm font-medium text-slate-200 transition-colors hover:bg-sky-500/10 hover:text-white"
           >
             All tools
           </Link>
@@ -57,7 +57,7 @@ function WorkspaceMore() {
             href="/terms/"
             role="menuitem"
             onClick={() => setOpen(false)}
-            className="flex min-h-11 items-center px-4 text-sm font-medium text-slate-200 hover:bg-slate-800"
+            className="flex min-h-11 items-center px-4 text-sm font-medium text-slate-200 transition-colors hover:bg-slate-800/80 hover:text-white"
           >
             Terms
           </Link>
@@ -65,7 +65,7 @@ function WorkspaceMore() {
             href="/privacy/"
             role="menuitem"
             onClick={() => setOpen(false)}
-            className="flex min-h-11 items-center px-4 text-sm font-medium text-slate-200 hover:bg-slate-800"
+            className="flex min-h-11 items-center px-4 text-sm font-medium text-slate-200 transition-colors hover:bg-slate-800/80 hover:text-white"
           >
             Privacy
           </Link>
@@ -84,6 +84,10 @@ export default function MobileDock({ surface }: { surface: Exclude<ChromeSurface
       aria-label="Mobile site navigation"
       className="fixed inset-x-0 bottom-0 z-80 border-t border-slate-800/80 bg-slate-950/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl lg:hidden"
     >
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-400/35 to-transparent"
+        aria-hidden
+      />
       <div className="mx-auto flex h-16 max-w-7xl items-stretch">
         {surface === "workspace" ? (
           <>

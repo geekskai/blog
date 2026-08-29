@@ -44,10 +44,10 @@ export default function AccountMenu({
   }, [open])
 
   const signInClassName = isDock
-    ? "flex h-full min-h-11 flex-1 flex-col items-center justify-center gap-0.5 px-1 text-[11px] font-semibold text-slate-200 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-pink-400 motion-reduce:transition-none"
+    ? "flex h-full min-h-11 flex-1 flex-col items-center justify-center gap-0.5 px-1 text-[11px] font-semibold text-slate-200 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-sky-400 motion-reduce:transition-none"
     : compact
-      ? "inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-600 bg-slate-800 text-slate-100 transition-colors duration-200 hover:border-slate-400 hover:bg-slate-700 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
-      : "inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold text-slate-300 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+      ? "inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-700/80 bg-slate-900/70 text-slate-100 transition-colors duration-200 hover:border-sky-500/35 hover:bg-slate-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+      : "inline-flex min-h-11 items-center rounded-xl border border-violet-400/25 bg-violet-500/10 px-3.5 text-sm font-semibold text-violet-100 transition-colors duration-200 hover:border-violet-400/40 hover:bg-violet-500/15 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300"
 
   if (!isLoaded || !isSignedIn) {
     return (
@@ -86,10 +86,10 @@ export default function AccountMenu({
         onClick={() => setOpen((value) => !value)}
         className={
           isDock
-            ? "flex h-full min-h-11 w-full flex-col items-center justify-center gap-0.5 px-1 text-[11px] font-semibold text-slate-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-pink-400"
+            ? "flex h-full min-h-11 w-full flex-col items-center justify-center gap-0.5 px-1 text-[11px] font-semibold text-slate-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-sky-400"
             : compact
-              ? "inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-600 bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
-              : "inline-flex min-h-11 items-center gap-2 rounded-lg px-2 text-sm font-semibold text-slate-200 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+              ? "inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-700/80 bg-slate-900/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+              : "inline-flex min-h-11 items-center gap-2 rounded-xl px-2 text-sm font-semibold text-slate-200 transition-colors hover:bg-slate-900/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
         }
       >
         {user?.imageUrl ? (
@@ -126,7 +126,7 @@ export default function AccountMenu({
       {open ? (
         <div
           role="menu"
-          className={`absolute z-80 w-52 overflow-hidden rounded-xl border border-slate-800 bg-slate-950 py-1 shadow-xl ${
+          className={`absolute z-80 w-52 overflow-hidden rounded-xl border border-slate-800/90 bg-slate-950 py-1 shadow-[0_20px_60px_-30px_rgba(14,165,233,0.45)] ${
             isDock
               ? menuAlign === "end"
                 ? "bottom-[calc(100%+0.5rem)] right-2"
@@ -139,7 +139,7 @@ export default function AccountMenu({
               key={href}
               href={href}
               role="menuitem"
-              className="flex min-h-11 items-center gap-2 px-4 text-sm font-medium text-slate-200 hover:bg-slate-800"
+              className="flex min-h-11 items-center gap-2 px-4 text-sm font-medium text-slate-200 transition-colors hover:bg-sky-500/10 hover:text-white"
               onClick={() => {
                 setOpen(false)
                 onNavigate?.()
@@ -152,7 +152,7 @@ export default function AccountMenu({
           <button
             type="button"
             role="menuitem"
-            className="flex min-h-11 w-full items-center gap-2 px-4 text-left text-sm font-medium text-slate-200 hover:bg-slate-800"
+            className="flex min-h-11 w-full items-center gap-2 px-4 text-left text-sm font-medium text-slate-200 transition-colors hover:bg-slate-800/80 hover:text-white"
             onClick={() => {
               setOpen(false)
               trackClarityEvent("auth_sign_out_clicked")

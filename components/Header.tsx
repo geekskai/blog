@@ -16,11 +16,14 @@ interface HeaderProps {
 }
 
 const navLinkClass = (active: boolean) =>
-  `relative inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 motion-reduce:transition-none ${
+  `relative inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 motion-reduce:transition-none ${
     active
-      ? "text-white after:absolute after:inset-x-3 after:bottom-0 after:h-0.5 after:rounded-full after:bg-pink-400"
+      ? "text-white after:absolute after:inset-x-3 after:bottom-0 after:h-0.5 after:rounded-full after:bg-sky-400"
       : "text-slate-300 hover:text-white"
   }`
+
+const headerShellClass =
+  "sticky top-0 z-80 border-b border-slate-800/60 bg-slate-950/90 backdrop-blur-xl"
 
 function isCurrentPath(pathname: string, href: string) {
   return normalizeChromePath(pathname) === normalizeChromePath(href)
@@ -31,7 +34,7 @@ function BrandLink() {
     <Link
       href="/"
       aria-label={siteMetadata.headerTitle}
-      className="inline-flex min-h-11 min-w-0 items-center gap-1.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+      className="inline-flex min-h-11 min-w-0 items-center gap-1.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
     >
       <Image
         src="/static/logos.png"
@@ -51,15 +54,16 @@ function BrandLink() {
 
 function AuthHeader() {
   return (
-    <header
-      data-chrome-surface="auth"
-      className="sticky top-0 z-80 border-b border-slate-800/50 bg-slate-950/90 backdrop-blur-xl"
-    >
+    <header data-chrome-surface="auth" className={`${headerShellClass} relative`}>
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-violet-400/35 to-transparent"
+        aria-hidden
+      />
       <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between px-4 sm:px-6 2xl:px-0">
         <BrandLink />
         <LocaleLink
           href="/tools/"
-          className="inline-flex min-h-11 shrink-0 items-center rounded-lg px-2.5 text-sm font-semibold text-slate-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 sm:px-3"
+          className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-xl border border-slate-700/80 bg-slate-900/70 px-3 text-sm font-semibold text-slate-100 transition-colors hover:border-sky-500/35 hover:bg-slate-800 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 sm:px-4"
         >
           <span className="sm:hidden">Tools</span>
           <span className="hidden sm:inline">Back to tools</span>
@@ -74,10 +78,11 @@ function WorkspaceHeader() {
 
   return (
     <>
-      <header
-        data-chrome-surface="workspace"
-        className="sticky top-0 z-80 border-b border-slate-800/50 bg-slate-950/90 backdrop-blur-xl"
-      >
+      <header data-chrome-surface="workspace" className={`${headerShellClass} relative`}>
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sky-400/35 to-transparent"
+          aria-hidden
+        />
         <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 2xl:px-0">
           <BrandLink />
           <div className="hidden items-center gap-6 lg:flex">
@@ -101,7 +106,7 @@ function WorkspaceHeader() {
           <div className="flex shrink-0 items-center gap-1.5 lg:hidden">
             <LocaleLink
               href="/tools/"
-              className="inline-flex min-h-11 items-center rounded-lg border border-slate-600 bg-slate-800 px-2.5 text-sm font-semibold text-white hover:border-slate-400 hover:bg-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+              className="inline-flex min-h-11 items-center rounded-xl border border-slate-700/80 bg-slate-900/70 px-3 text-sm font-semibold text-white transition-colors hover:border-sky-500/35 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
             >
               All tools
             </LocaleLink>
@@ -120,10 +125,11 @@ function AcquisitionHeader() {
 
   return (
     <>
-      <header
-        data-chrome-surface="acquisition"
-        className="sticky top-0 z-80 border-b border-slate-800/50 bg-slate-950/90 backdrop-blur-xl"
-      >
+      <header data-chrome-surface="acquisition" className={`${headerShellClass} relative`}>
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sky-400/30 to-transparent"
+          aria-hidden
+        />
         <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 2xl:px-0">
           <BrandLink />
           <div className="hidden items-center gap-6 lg:flex">
