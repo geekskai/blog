@@ -1,429 +1,281 @@
 "use client"
-// import { motion } from 'framer-motion'
-// import Link from 'next/link'
+
 import Link from "./Link"
-import siteMetadata from "@/data/siteMetadata"
-
-// import { skillsData } from '@/utils/data/skills'
-// import { skillsImage } from "@/utils/skill-image"
-// import Image from 'next/image'
-// import Marquee from "react-fast-marquee"
-
-import { ReactElement } from "react"
-// import { renderCanvas } from "./renderCanvas"
-// import Github from "./Github"
-
-// import Link from 'next/link'
-import { BsGithub, BsLinkedin } from "react-icons/bs"
-import { FaFacebook, FaTwitterSquare } from "react-icons/fa"
-import { MdDownload } from "react-icons/md"
-import { RiContactsFill } from "react-icons/ri"
-import { SiLeetcode } from "react-icons/si"
-
-// import { experiences } from '@/utils/data/experience'
-import Image from "next/image"
-// import { BsPersonWorkspace } from "react-icons/bs"
-// import experience from "../app/assets/lottie/code.json"
-// import AnimationLottie from "./helper/animation-lottie"
-// import GlowCard from "./helper/glow-card"
+import { TOOL_COUNT } from "@/data/toolNavigation"
+import {
+  ArrowRight,
+  AudioLines,
+  FileAudio,
+  Gauge,
+  Layers3,
+  ListMusic,
+  Music2,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react"
 import { useTranslations } from "next-intl"
 
-// const skillsData = [
-//   "HTML",
-//   "CSS",
-//   "Javascript",
-//   "Typescript",
-//   "React",
-//   "Next JS",
-//   "Tailwind",
-//   "MongoDB",
-//   "MySQL",
-//   "PostgreSQL",
-//   "Git",
-//   "AWS",
-//   "Bootstrap",
-//   "Docker",
-//   "Go",
-//   "Figma",
-//   "Firebase",
-//   "MaterialUI",
-//   "Nginx",
-//   "Strapi",
-// ]
+const featuredTasks = [
+  {
+    href: "/tools/soundcloud-to-mp3/",
+    icon: Music2,
+    titleKey: "home_soundcloud_mp3_title",
+    descriptionKey: "home_soundcloud_mp3_description",
+  },
+  {
+    href: "/tools/soundcloud-playlist-downloader/",
+    icon: ListMusic,
+    titleKey: "home_soundcloud_playlist_title",
+    descriptionKey: "home_soundcloud_playlist_description",
+  },
+  {
+    href: "/tools/soundcloud-to-wav/",
+    icon: FileAudio,
+    titleKey: "home_soundcloud_source_title",
+    descriptionKey: "home_soundcloud_source_description",
+  },
+] as const
 
-// export const experiences = [
-//   {
-//     id: 1,
-//     title: "Software Engineer I",
-//     company: "Teton Private Ltd.",
-//     duration: "(Jan 2022 - Present)",
-//   },
-//   {
-//     id: 2,
-//     title: "FullStack Developer",
-//     company: "Fiverr (freelance)",
-//     duration: "(Jun 2021 - Jan 2022)",
-//   },
-//   {
-//     id: 3,
-//     title: "Self Employed",
-//     company: "Code and build something in everyday.",
-//     duration: "(Jan 2018 - Present)",
-//   },
-// ]
+const accentGradient =
+  "bg-gradient-to-r from-sky-300 via-sky-400 to-violet-400 bg-clip-text text-transparent"
 
-function HeroSection() {
+export default function Hero() {
   const t = useTranslations("HomePage")
+  const titleLead = t.has("home_product_title_lead")
+    ? t("home_product_title_lead")
+    : t("home_product_title")
+  const titleAccent = t.has("home_product_title_accent") ? t("home_product_title_accent") : null
+  const tasksTitle = t("home_tasks_title")
+  const tasksAccent = t.has("home_tasks_title_accent") ? t("home_tasks_title_accent") : null
+  const tasksTitleLead =
+    tasksAccent && tasksTitle.includes(tasksAccent)
+      ? tasksTitle.slice(0, tasksTitle.indexOf(tasksAccent)).replace(/,\s*$/, "")
+      : tasksTitle
 
   return (
-    <section className="relative flex flex-col items-center justify-between py-4 lg:py-12">
-      <div className="grid grid-cols-1 items-start gap-y-8 lg:grid-cols-2 lg:gap-12">
-        <div className="order-2 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:order-1 lg:pt-10">
-          <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
-            {t("hero_hello")} <br />
-            {t.rich("hero_h1_0", {
-              name: siteMetadata.author,
-              rich: (chunks) => <span className="text-pink-500">{chunks}</span>,
-              rich1: (chunks) => <span className="text-[#16f2b3]">{chunks}</span>,
-            })}
-          </h1>
-
-          <div className="my-12 flex items-center gap-5">
-            <Link
-              href={siteMetadata.github}
-              target="_blank"
-              className="text-pink-500 transition-all duration-300 hover:scale-125"
-            >
-              <BsGithub size={30} />
-            </Link>
-            <Link
-              href={siteMetadata.linkedin || ""}
-              target="_blank"
-              className="text-pink-500 transition-all duration-300 hover:scale-125"
-            >
-              <BsLinkedin size={30} />
-            </Link>
-            <Link
-              href={siteMetadata.facebook || ""}
-              target="_blank"
-              className="text-pink-500 transition-all duration-300 hover:scale-125"
-            >
-              <FaFacebook size={30} />
-            </Link>
-            <Link
-              href={siteMetadata.leetcode}
-              target="_blank"
-              className="text-pink-500 transition-all duration-300 hover:scale-125"
-            >
-              <SiLeetcode size={30} />
-            </Link>
-            <Link
-              href={siteMetadata.x || ""}
-              target="_blank"
-              className="text-pink-500 transition-all duration-300 hover:scale-125"
-            >
-              <FaTwitterSquare size={30} />
-            </Link>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Link
-              href="/about"
-              className="rounded-full bg-gradient-to-r from-violet-600 to-pink-500 p-[1px] transition-all duration-300 hover:from-pink-500 hover:to-violet-600"
-            >
-              <button className="flex items-center gap-1 rounded-full border-none bg-[#0d1224] px-3 py-3 text-center text-xs font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  hover:gap-3 md:px-8 md:py-4 md:text-sm md:font-semibold">
-                <span>{t("hero_contact_me")}</span>
-                <RiContactsFill size={16} />
-              </button>
-            </Link>
-
-            <Link
-              className="flex items-center gap-1 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-3 py-3 text-center text-xs font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:gap-3 hover:text-white hover:no-underline md:px-8 md:py-4 md:text-sm md:font-semibold"
-              role="button"
-              target="_blank"
-              href="https://github.com/geekskai/geekskai"
-            >
-              <span>{t("hero_get_resume")}</span>
-              <MdDownload size={16} />
-            </Link>
-          </div>
+    <>
+      <section className="relative overflow-hidden border-b border-slate-800/80">
+        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+          <div className="absolute inset-x-0 top-0 h-[28rem] bg-[radial-gradient(ellipse_80%_60%_at_50%_-15%,rgba(14,165,233,0.18),transparent)]" />
+          <div className="absolute inset-x-0 top-0 h-[28rem] bg-[radial-gradient(ellipse_55%_45%_at_85%_5%,rgba(124,58,237,0.14),transparent)]" />
+          <div className="absolute left-[58%] top-[-16rem] h-[32rem] w-[32rem] rounded-full bg-sky-500/10 blur-[120px]" />
+          <div className="absolute bottom-[-18rem] left-[72%] h-[30rem] w-[30rem] rounded-full bg-violet-600/10 blur-[130px]" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.04)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_0%,black,transparent)]" />
         </div>
-        <div className="relative order-1 rounded-lg border border-[#1b2c68a0] bg-gradient-to-r from-[#0d1224] to-[#0a0d37] lg:order-2">
-          <div className="flex flex-row">
-            <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600"></div>
-            <div className="h-[1px] w-full bg-gradient-to-r from-violet-600 to-transparent"></div>
+
+        <div className="relative mx-auto grid w-full max-w-7xl gap-12 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,1.04fr)_minmax(29rem,0.96fr)] lg:items-center lg:gap-14 lg:py-24 2xl:px-0">
+          <div className="max-w-2xl">
+            {t.has("home_product_eyebrow") ? (
+              <p className="inline-flex items-center gap-2 rounded-full border border-sky-400/25 bg-sky-500/10 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-200 sm:text-xs">
+                <Sparkles className="h-3.5 w-3.5 text-sky-300" aria-hidden="true" />
+                {t("home_product_eyebrow")}
+              </p>
+            ) : null}
+
+            <h1 className="mt-5 text-balance text-[clamp(2rem,5.2vw,3.5rem)] font-bold leading-[1.05] tracking-[-0.035em]">
+              <span className="block text-white">{titleLead}</span>
+              {titleAccent ? (
+                <span className={`mt-1 block ${accentGradient}`}>{titleAccent}</span>
+              ) : null}
+            </h1>
+
+            <p className="mt-6 max-w-[56ch] text-pretty text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">
+              {t("home_product_description")}
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Link
+                href="/audio-toolkit/"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-sky-500 px-5 py-3 text-sm font-semibold text-white no-underline shadow-[0_12px_40px_-16px_rgba(14,165,233,0.75)] transition-[background-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-sky-400 hover:text-white hover:no-underline hover:shadow-[0_16px_48px_-14px_rgba(14,165,233,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transform-none motion-reduce:transition-none"
+              >
+                <AudioLines className="h-4 w-4" aria-hidden="true" />
+                {t("home_open_audio_toolkit")}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+              <Link
+                href="/tools/"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-600/80 bg-slate-900/70 px-5 py-3 text-sm font-semibold text-slate-100 no-underline transition-colors duration-200 hover:border-sky-500/40 hover:bg-slate-800 hover:text-white hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
+              >
+                {t("footer_view_all_tools")}
+              </Link>
+            </div>
+
+            <dl className="mt-8 grid grid-cols-3 gap-2 sm:gap-3">
+              <div className="rounded-xl border border-slate-800/90 bg-slate-950/60 p-3 sm:p-4">
+                <dt className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-slate-400 sm:text-[0.68rem]">
+                  {t("home_proof_tools")}
+                </dt>
+                <dd className="mt-2 text-xl font-bold tabular-nums text-sky-300 sm:text-2xl">
+                  {TOOL_COUNT}
+                </dd>
+              </div>
+              <div className="rounded-xl border border-slate-800/90 bg-slate-950/60 p-3 sm:p-4">
+                <dt className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-slate-400 sm:text-[0.68rem]">
+                  {t("home_proof_access")}
+                </dt>
+                <dd className="mt-2 text-sm font-semibold text-violet-200 sm:text-base">
+                  {t("home_proof_no_signup")}
+                </dd>
+              </div>
+              <div className="rounded-xl border border-emerald-500/20 bg-emerald-950/20 p-3 sm:p-4">
+                <dt className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-emerald-300/80 sm:text-[0.68rem]">
+                  {t("home_proof_audio")}
+                </dt>
+                <dd className="mt-2 flex items-center gap-1.5 text-sm font-semibold text-emerald-300 sm:text-base">
+                  <ShieldCheck className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  {t("home_audio_local_status")}
+                </dd>
+              </div>
+            </dl>
           </div>
-          <div className="px-4 py-5 lg:px-8">
-            <div className="flex flex-row space-x-2">
-              <div className="h-3 w-3 rounded-full bg-red-400"></div>
-              <div className="h-3 w-3 rounded-full bg-orange-400"></div>
-              <div className="h-3 w-3 rounded-full bg-green-200"></div>
+
+          <div
+            className="relative overflow-hidden rounded-2xl border border-sky-400/25 bg-slate-950/80 shadow-[0_28px_80px_-40px_rgba(14,165,233,0.55)]"
+            aria-label={t("home_audio_example_label")}
+          >
+            <div className="h-px bg-gradient-to-r from-transparent via-sky-300/80 to-transparent" />
+            <div className="flex flex-col gap-4 border-b border-slate-800/80 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+              <div className="flex min-w-0 items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-sky-400/20 bg-sky-500/15 text-sky-300">
+                  <AudioLines className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-white">Geekskai Audio Toolkit</p>
+                  <p className="mt-1 text-xs text-slate-400">{t("home_audio_example_label")}</p>
+                </div>
+              </div>
+              <span className="inline-flex w-fit items-center gap-2 rounded-lg border border-emerald-400/25 bg-emerald-400/10 px-3 py-1.5 text-xs font-semibold text-emerald-300">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" aria-hidden="true" />
+                {t("home_audio_local_status")}
+              </span>
+            </div>
+
+            <div className="px-5 py-6 sm:px-6 sm:py-7">
+              <div className="flex items-center justify-between gap-4 border-b border-slate-800 pb-5">
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-medium text-slate-100">podcast-intro.wav</p>
+                  <p className="mt-1 text-xs text-slate-400">48 kHz · Stereo · WAV</p>
+                </div>
+                <span className="shrink-0 rounded-lg bg-slate-900 px-2.5 py-1.5 text-xs text-slate-300">
+                  {t("home_audio_example_file")}
+                </span>
+              </div>
+
+              <dl className="grid gap-px overflow-hidden rounded-xl border border-slate-800 bg-slate-800 sm:grid-cols-3">
+                <div className="bg-slate-950/95 p-4">
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-sky-300">
+                    {t("home_audio_input")}
+                  </dt>
+                  <dd className="mt-2 text-sm font-semibold text-sky-100">WAV · 48 kHz</dd>
+                </div>
+                <div className="bg-slate-950/95 p-4">
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-violet-300">
+                    {t("home_audio_target")}
+                  </dt>
+                  <dd className="mt-2 text-sm font-semibold text-violet-100">MP3 · 192 kbps</dd>
+                </div>
+                <div className="bg-slate-950/95 p-4">
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-violet-300">
+                    {t("home_audio_normalize")}
+                  </dt>
+                  <dd className="mt-2 text-sm font-semibold text-violet-100">−14 LUFS</dd>
+                </div>
+              </dl>
+
+              <div className="mt-5 flex items-start gap-3 rounded-xl border border-violet-500/15 bg-violet-950/20 p-4">
+                <Gauge className="mt-0.5 h-5 w-5 shrink-0 text-violet-300" aria-hidden="true" />
+                <p className="text-sm leading-6 text-slate-200">{t("home_audio_local_note")}</p>
+              </div>
             </div>
           </div>
-          <div className="overflow-hidden border-t-[2px] border-indigo-900 px-4 py-4 lg:px-8 lg:py-8">
-            <code className="font-mono text-xs md:text-sm lg:text-base">
-              <div className="blink">
-                <span className="mr-2 text-pink-500">const</span>
-                <span className="mr-2 text-white">coder</span>
-                <span className="mr-2 text-pink-500">=</span>
-                <span className="text-gray-400">{"{"}</span>
-              </div>
-              <div>
-                <span className="ml-4 mr-2 text-white lg:ml-8">name:</span>
-                <span className="text-gray-400">{`'`}</span>
-                <span className="text-amber-300">Geeks Kai</span>
-                <span className="text-gray-400">{`',`}</span>
-              </div>
-              <div className="ml-4 mr-2 lg:ml-8">
-                <span className=" text-white">skills:</span>
-                <span className="text-gray-400">{`['`}</span>
-                <span className="text-amber-300">React</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">NextJS</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Redux</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Express</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">NestJS</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Rust</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">VueJS</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Docker</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Python</span>
-                <span className="text-gray-400">{"'],"}</span>
-              </div>
-              <div>
-                <span className="ml-4 mr-2 text-white lg:ml-8">hardWorker:</span>
-                <span className="text-orange-400">true</span>
-                <span className="text-gray-400">,</span>
-              </div>
-              <div>
-                <span className="ml-4 mr-2 text-white lg:ml-8">quickLearner:</span>
-                <span className="text-orange-400">true</span>
-                <span className="text-gray-400">,</span>
-              </div>
-              <div>
-                <span className="ml-4 mr-2 text-white lg:ml-8">problemSolver:</span>
-                <span className="text-orange-400">true</span>
-                <span className="text-gray-400">,</span>
-              </div>
-              <div>
-                <span className="ml-4 mr-2 text-green-400 lg:ml-8">hireable:</span>
-                <span className="text-orange-400">function</span>
-                <span className="text-gray-400">{"() {"}</span>
-              </div>
-              <div>
-                <span className="ml-8 mr-2 text-orange-400 lg:ml-16">return</span>
-                <span className="text-gray-400">{`(`}</span>
-              </div>
-              <div>
-                <span className="ml-12 text-cyan-400 lg:ml-24">this.</span>
-                <span className="mr-2 text-white">hardWorker</span>
-                <span className="text-amber-300">&amp;&amp;</span>
-              </div>
-              <div>
-                <span className="ml-12 text-cyan-400 lg:ml-24">this.</span>
-                <span className="mr-2 text-white">problemSolver</span>
-                <span className="text-amber-300">&amp;&amp;</span>
-              </div>
-              <div>
-                <span className="ml-12 text-cyan-400 lg:ml-24">this.</span>
-                <span className="mr-2 text-white">skills.length</span>
-                <span className="mr-2 text-amber-300">&gt;=</span>
-                <span className="text-orange-400">5</span>
-              </div>
-              <div>
-                <span className="ml-8 mr-2 text-gray-400 lg:ml-16">{`);`}</span>
-              </div>
-              <div>
-                <span className="ml-4 text-gray-400 lg:ml-8">{`};`}</span>
-              </div>
-              <div>
-                <span className="text-gray-400">{`};`}</span>
-              </div>
-            </code>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-20 2xl:px-0">
+        <div className="flex flex-col gap-5 border-b border-slate-800 pb-8 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-2xl">
+            {t.has("home_tasks_eyebrow") ? (
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-violet-300 sm:text-xs">
+                {t("home_tasks_eyebrow")}
+              </p>
+            ) : null}
+            <h2 className="mt-2 text-[clamp(1.625rem,3.5vw,2.25rem)] font-bold leading-tight tracking-[-0.03em]">
+              {tasksAccent ? (
+                <>
+                  <span className="text-white">{tasksTitleLead}</span>
+                  {tasksTitleLead ? ", " : null}
+                  <span className={accentGradient}>{tasksAccent}</span>
+                </>
+              ) : (
+                <span className="text-white">{tasksTitle}</span>
+              )}
+            </h2>
+            <p className="mt-4 max-w-[65ch] text-base leading-7 text-slate-300">
+              {t("home_tasks_description")}
+            </p>
+          </div>
+          <Link
+            href="/tools/"
+            className="inline-flex min-h-11 w-fit items-center gap-2 rounded-xl border border-sky-500/25 bg-sky-500/10 px-4 text-sm font-semibold text-sky-200 no-underline transition-colors hover:border-sky-400/40 hover:bg-sky-500/15 hover:text-sky-100 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 motion-reduce:transition-none"
+          >
+            {t("footer_view_all_tools")}
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        </div>
+
+        <div className="mt-8 grid overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/40 lg:grid-cols-[minmax(17rem,0.78fr)_minmax(0,1.22fr)]">
+          <Link
+            href="/tools/soundcloud/"
+            className="group relative flex min-h-72 flex-col justify-between overflow-hidden border-b border-slate-800 bg-sky-500/[0.08] p-6 no-underline transition-colors hover:bg-sky-500/[0.12] hover:text-white hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-sky-300 sm:p-8 lg:border-b-0 lg:border-r"
+          >
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-400/50 to-transparent" aria-hidden />
+            <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-sky-400/25 bg-sky-400/10 text-sky-300">
+              <Layers3 className="h-5 w-5" aria-hidden="true" />
+            </span>
+            <span className="mt-12 block">
+              <span className="block text-2xl font-bold tracking-[-0.025em] text-white sm:text-3xl">
+                {t("home_soundcloud_hub_title")}
+              </span>
+              <span className="mt-3 block max-w-[38ch] text-sm leading-6 text-slate-300 sm:text-base">
+                {t("home_soundcloud_hub_description")}
+              </span>
+              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-300">
+                {t("home_soundcloud_hub_cta")}
+                <ArrowRight
+                  className="h-4 w-4 transition-transform group-hover:translate-x-1 motion-reduce:transform-none"
+                  aria-hidden="true"
+                />
+              </span>
+            </span>
+          </Link>
+
+          <div className="divide-y divide-slate-800">
+            {featuredTasks.map(({ href, icon: Icon, titleKey, descriptionKey }) => (
+              <Link
+                key={href}
+                href={href}
+                className="group grid min-h-32 gap-5 p-6 no-underline transition-colors hover:bg-slate-900/65 hover:text-white hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-sky-300 sm:grid-cols-[3rem_minmax(0,1fr)] sm:items-center sm:gap-6 sm:px-8"
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-700/80 bg-slate-900 text-slate-300 transition-colors group-hover:border-sky-400/30 group-hover:text-sky-300">
+                  <Icon className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <span className="min-w-0">
+                  <span className="flex items-center gap-3 text-lg font-semibold text-white">
+                    {t(titleKey)}
+                    <ArrowRight
+                      className="h-4 w-4 shrink-0 text-slate-600 transition-[color,transform] group-hover:translate-x-1 group-hover:text-sky-300 motion-reduce:transform-none"
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <span className="mt-2 block max-w-[58ch] text-sm leading-6 text-slate-400 sm:text-base">
+                    {t(descriptionKey)}
+                  </span>
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
-      </div>
-    </section>
-  )
-}
-
-function AboutSection() {
-  const t = useTranslations("HomePage")
-  return (
-    <div id="about" className="relative my-12 lg:my-16">
-      <div className="absolute -right-8 top-16 hidden flex-col items-center lg:flex">
-        <h2 className="w-fit rotate-90 rounded-md bg-[#1a1443] p-2 px-5 text-xl text-white">
-          {t("hero_about_me")}
-        </h2>
-        <span className="h-36 w-[2px] bg-[#1a1443]"></span>
-      </div>
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
-        <div className="order-2 lg:order-1">
-          <p className="mb-5 text-xl font-medium uppercase text-[#16f2b3]">{t("hero_who_i_am")}</p>
-          <p className="text-sm text-gray-200 lg:text-lg">{t("hero_who_i_am_description")}</p>
-        </div>
-        <div className="order-1 flex justify-center lg:order-2">
-          <Image
-            loading="lazy"
-            src="/me.jpg"
-            width={280}
-            height={280}
-            sizes="(max-width: 1023px) 280px, 280px"
-            alt="geeksKai"
-            className="cursor-pointer rounded-lg grayscale transition-all duration-1000 hover:scale-110 hover:grayscale-0"
-          />
-        </div>
-      </div>
-    </div>
-  )
-}
-
-// function Experience() {
-//   const t = useTranslations("HomePage")
-//   return (
-//     <div id="experience" className="relative z-50 my-12 border-t border-[#25213b] lg:my-24">
-//       {/* <Image
-//         src="/section.svg"
-//         alt="Hero"
-//         width={1572}
-//         height={795}
-//         className="absolute top-0 -z-10"
-//       /> */}
-
-//       <div className="my-5 flex justify-center lg:py-8">
-//         <div className="flex  items-center">
-//           <span className="h-[2px] w-24 bg-[#1a1443]"></span>
-//           <span className="w-fit rounded-md bg-[#1a1443] p-2 px-5 text-xl text-white">
-//             {t("hero_experiences")}
-//           </span>
-//           <span className="h-[2px] w-24 bg-[#1a1443]"></span>
-//         </div>
-//       </div>
-
-//       <div className="py-8">
-//         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
-//           <div className="flex items-start justify-center">
-//             <div className="h-full w-full">
-//               <AnimationLottie animationPath={experience} />
-//             </div>
-//           </div>
-
-//           <div>
-//             <div className="flex flex-col gap-6">
-//               {experiences.map((experience) => (
-//                 <GlowCard key={experience.id} identifier={`experience-${experience.id}`}>
-//                   <div className="relative p-3">
-//                     {/* <Image
-//                       src="/blur-23.svg"
-//                       alt="Hero"
-//                       width={1080}
-//                       height={200}
-//                       className="absolute bottom-0 opacity-80"
-//                     /> */}
-//                     <div className="flex justify-center">
-//                       <p className="text-xs text-[#16f2b3] sm:text-sm">{experience.duration}</p>
-//                     </div>
-//                     <div className="flex items-center gap-x-8 px-3 py-5">
-//                       <div className="text-violet-500  transition-all duration-300 hover:scale-125">
-//                         <BsPersonWorkspace size={36} />
-//                       </div>
-//                       <div>
-//                         <p className="mb-2 text-base font-medium uppercase sm:text-xl">
-//                           {experience.title}
-//                         </p>
-//                         <p className="text-sm sm:text-base">{experience.company}</p>
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </GlowCard>
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
-
-// function Skills() {
-//   const t = useTranslations("HomePage")
-//   return (
-//     <div id="skills" className="relative z-10 my-12 border-t border-[#25213b] lg:my-24">
-//       {/* <div className="absolute left-[42%] top-6 h-[100px] w-[100px] translate-x-1/2 rounded-full bg-violet-100 opacity-20 blur-3xl  filter"></div> */}
-
-//       <div className="flex -translate-y-[1px] justify-center">
-//         <div className="w-3/4">
-//           <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-violet-500  to-transparent" />
-//         </div>
-//       </div>
-
-//       <div className="my-5 flex justify-center lg:py-8">
-//         <div className="flex  items-center">
-//           <span className="h-[2px] w-24 bg-[#1a1443]"></span>
-//           <span className="w-fit rounded-md bg-[#1a1443] p-2 px-5 text-xl text-white">
-//             {t("hero_skills")}
-//           </span>
-//           <span className="h-[2px] w-24 bg-[#1a1443]"></span>
-//         </div>
-//       </div>
-
-//       <div className="my-12 w-full">
-//         <Marquee
-//           gradient={false}
-//           speed={80}
-//           pauseOnHover={true}
-//           pauseOnClick={true}
-//           delay={0}
-//           play={true}
-//           direction="left"
-//         >
-//           {skillsData.map((skill, id) => (
-//             <div
-//               className="group relative m-3 flex h-fit w-36 min-w-fit cursor-pointer flex-col items-center justify-center rounded-lg transition-all duration-500 hover:scale-[1.15] sm:m-5"
-//               key={id}
-//             >
-//               <div className="h-full w-full rounded-lg border border-[#1f223c] bg-[#11152c] shadow-none shadow-gray-50 transition-all duration-500 group-hover:border-violet-500">
-//                 <div className="flex -translate-y-[1px] justify-center">
-//                   <div className="w-3/4">
-//                     <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-violet-500 to-transparent" />
-//                   </div>
-//                 </div>
-//                 <div className="flex flex-col items-center justify-center gap-3 p-6">
-//                   <div className="h-8 sm:h-10">
-//                     <Image
-//                       src={skillsImage(skill)}
-//                       alt={skill}
-//                       width={40}
-//                       height={40}
-//                       loading="lazy"
-//                       className="h-full w-auto rounded-lg"
-//                     />
-//                   </div>
-//                   <p className="text-sm text-white sm:text-lg">{skill}</p>
-//                 </div>
-//               </div>
-//             </div>
-//           ))}
-//         </Marquee>
-//       </div>
-//     </div>
-//   )
-// }
-
-export default function Hero(): ReactElement {
-  return (
-    <div>
-      <HeroSection />
-      <AboutSection />
-      {/* <Github />
-      <Experience />
-      <Skills /> */}
-    </div>
+      </section>
+    </>
   )
 }

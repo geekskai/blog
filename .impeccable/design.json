@@ -1,0 +1,236 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-29T11:07:27Z",
+  "title": "Design System: Geekskai",
+  "extensions": {
+    "colorMeta": {
+      "midnight-slate": {
+        "role": "neutral",
+        "displayName": "Midnight Slate",
+        "canonical": "#020617",
+        "tonalRamp": ["#020617", "#0f172a", "#1e293b", "#334155", "#64748b", "#94a3b8", "#e2e8f0", "#f8fafc"]
+      },
+      "midnight-gradient": {
+        "role": "neutral",
+        "displayName": "Midnight Gradient",
+        "canonical": "#0a0f1f",
+        "tonalRamp": ["#00050d", "#000d1a", "#0a0f1f", "#111c33", "#334155", "#64748b", "#cbd5e1", "#f1f5f9"]
+      },
+      "panel-slate": {
+        "role": "neutral",
+        "displayName": "Panel Slate",
+        "canonical": "#0f172a",
+        "tonalRamp": ["#020617", "#0f172a", "#1e293b", "#334155", "#475569", "#94a3b8", "#cbd5e1", "#f1f5f9"]
+      },
+      "border-slate": {
+        "role": "neutral",
+        "displayName": "Border Slate",
+        "canonical": "#1e293b",
+        "tonalRamp": ["#020617", "#0f172a", "#1e293b", "#334155", "#475569", "#64748b", "#cbd5e1", "#f1f5f9"]
+      },
+      "muted-slate": {
+        "role": "neutral",
+        "displayName": "Muted Slate",
+        "canonical": "#94a3b8",
+        "tonalRamp": ["#020617", "#0f172a", "#334155", "#475569", "#64748b", "#94a3b8", "#cbd5e1", "#f8fafc"]
+      },
+      "text-white": {
+        "role": "neutral",
+        "displayName": "Text White",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#0a0a0a", "#1a1a1a", "#2a2a2a", "#666666", "#8c8c8c", "#b3b3b3", "#d9d9d9", "#ffffff"]
+      },
+      "signal-sky": {
+        "role": "primary",
+        "displayName": "Signal Sky",
+        "canonical": "#0ea5e9",
+        "tonalRamp": ["#082f49", "#075985", "#0369a1", "#0284c7", "#0ea5e9", "#38bdf8", "#bae6fd", "#f0f9ff"]
+      },
+      "workflow-violet": {
+        "role": "secondary",
+        "displayName": "Workflow Violet",
+        "canonical": "#7c3aed",
+        "tonalRamp": ["#2e1065", "#4c1d95", "#5b21b6", "#6d28d9", "#7c3aed", "#a78bfa", "#ddd6fe", "#f5f3ff"]
+      },
+      "heritage-pink": {
+        "role": "secondary",
+        "displayName": "Heritage Pink",
+        "canonical": "#ec4899",
+        "tonalRamp": ["#500724", "#831843", "#9d174d", "#be185d", "#db2777", "#ec4899", "#f9a8d4", "#fdf2f8"]
+      },
+      "heritage-coral": {
+        "role": "tertiary",
+        "displayName": "Heritage Coral",
+        "canonical": "#ff6b6b",
+        "tonalRamp": ["#660a0a", "#8c2222", "#b33a3a", "#d95353", "#ff6b6b", "#ff817c", "#ffd5d3", "#ffeeed"]
+      },
+      "success-emerald": {
+        "role": "tertiary",
+        "displayName": "Success Emerald",
+        "canonical": "#34d399",
+        "tonalRamp": ["#022c22", "#064e3b", "#065f46", "#047857", "#059669", "#34d399", "#a7f3d0", "#ecfdf5"]
+      },
+      "caution-amber": {
+        "role": "tertiary",
+        "displayName": "Caution Amber",
+        "canonical": "#fcd34d",
+        "tonalRamp": ["#451a03", "#78350f", "#92400e", "#b45309", "#d97706", "#fbbf24", "#fde68a", "#fffbeb"]
+      },
+      "error-rose": {
+        "role": "tertiary",
+        "displayName": "Error Rose",
+        "canonical": "#fda4af",
+        "tonalRamp": ["#4c0519", "#881337", "#9f1239", "#be123c", "#e11d48", "#fb7185", "#fecdd3", "#fff1f2"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Workspace and product titles." },
+      "headline": { "displayName": "Headline", "purpose": "Major pricing and marketing section statements." },
+      "title": { "displayName": "Title", "purpose": "Cards, panels, and dialogs." },
+      "body": { "displayName": "Body", "purpose": "Instructions, explanations, and tool content." },
+      "label": { "displayName": "Operational Label", "purpose": "Eyebrows, field groups, queue labels, and metadata." }
+    },
+    "shadows": [
+      { "name": "card-hover", "value": "0 4px 12px rgba(0, 0, 0, 0.1)", "purpose": "Restrained lift for legacy hoverable cards." },
+      { "name": "sticky-chrome", "value": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)", "purpose": "Ambient separation for the sticky global header." },
+      { "name": "overlay", "value": "0 25px 50px -12px rgb(0 0 0 / 0.25)", "purpose": "Popover, calendar, selector, and dialog elevation." },
+      { "name": "auth-signal", "value": "0 12px 28px -16px rgba(236, 72, 153, 0.94)", "purpose": "Colored lift for the primary authentication action." },
+      { "name": "auth-panel", "value": "0 26px 70px -28px rgba(2, 6, 23, 0.95)", "purpose": "Large dark ambient separation for the authentication panel." }
+    ],
+    "motion": [
+      { "name": "fast-feedback", "value": "150ms cubic-bezier(0, 0, 0.2, 1)", "purpose": "Popover exit and very small state changes." },
+      { "name": "standard-state", "value": "200ms cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Borders, colors, opacity, progress, and focus-adjacent feedback." },
+      { "name": "expressive-hover", "value": "300ms cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Logo, icon, and legacy card hover transformations." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" },
+      { "name": "2xl", "value": "1536px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Audio Primary Button",
+      "kind": "button",
+      "refersTo": "audio-button-primary",
+      "description": "Primary action for local Audio Toolkit work.",
+      "html": "<button class=\"ds-btn-audio\">Process locally</button>",
+      "css": ".ds-btn-audio { min-height: 44px; padding: 0 16px; border: 0; border-radius: 12px; background: linear-gradient(90deg, #0284c7, #7c3aed); color: #fff; font: 600 14px/1 Inter, ui-sans-serif, system-ui, sans-serif; cursor: pointer; transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-audio:hover { opacity: 0.9; } .ds-btn-audio:focus-visible { outline: 2px solid #7dd3fc; outline-offset: 2px; } .ds-btn-audio:disabled { cursor: not-allowed; opacity: 0.45; }"
+    },
+    {
+      "name": "Authentication Primary Button",
+      "kind": "button",
+      "refersTo": "auth-button-primary",
+      "description": "Brand-forward primary action for sign-in and sign-up flows.",
+      "html": "<button class=\"ds-btn-auth\">Continue</button>",
+      "css": ".ds-btn-auth { min-height: 44px; padding: 0 16px; border: 1px solid rgba(244,114,182,.4); border-radius: 12px; background: linear-gradient(90deg, #ec4899 0%, #d946ef 48%, #7c3aed 100%); box-shadow: 0 12px 28px -16px rgba(236,72,153,.94); color: #fff; font: 700 14px/1 Inter, ui-sans-serif, system-ui, sans-serif; cursor: pointer; transition: filter 200ms, transform 200ms; } .ds-btn-auth:hover { filter: brightness(1.1); transform: translateY(-1px); } .ds-btn-auth:focus-visible { outline: 2px solid #f472b6; outline-offset: 2px; } .ds-btn-auth:active { transform: translateY(0); }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Neutral action that supports without competing with the primary task.",
+      "html": "<button class=\"ds-btn-secondary\">Cancel</button>",
+      "css": ".ds-btn-secondary { min-height: 44px; padding: 0 20px; border: 1px solid rgba(51,65,85,.8); border-radius: 12px; background: rgba(15,23,42,.7); color: #cbd5e1; font: 600 14px/1 Inter, ui-sans-serif, system-ui, sans-serif; cursor: pointer; transition: background 200ms, border-color 200ms, color 200ms; } .ds-btn-secondary:hover { border-color: #64748b; background: #1e293b; color: #fff; } .ds-btn-secondary:focus-visible { outline: 2px solid #94a3b8; outline-offset: 2px; }"
+    },
+    {
+      "name": "Tool Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Dark operational field with workflow-colored focus feedback.",
+      "html": "<label class=\"ds-field-label\">Target loudness<input class=\"ds-field\" value=\"-9\" /></label>",
+      "css": ".ds-field-label { display: grid; gap: 8px; color: #cbd5e1; font: 500 14px/1.4 Inter, ui-sans-serif, system-ui, sans-serif; } .ds-field { min-height: 44px; padding: 0 16px; border: 1px solid rgba(51,65,85,.8); border-radius: 12px; background: rgba(15,23,42,.7); color: #fff; font: 400 16px/1.5 Inter, ui-sans-serif, system-ui, sans-serif; outline: none; transition: border-color 200ms, box-shadow 200ms; } .ds-field:hover { border-color: #475569; } .ds-field:focus-visible { border-color: #38bdf8; box-shadow: 0 0 0 2px rgba(56,189,248,.2); }"
+    },
+    {
+      "name": "Credit Status Chip",
+      "kind": "chip",
+      "refersTo": "status-chip",
+      "description": "Compact status group for Credits and workflow capability.",
+      "html": "<span class=\"ds-chip-credit\">480 Credits</span>",
+      "css": ".ds-chip-credit { display: inline-flex; min-height: 32px; align-items: center; padding: 0 10px; border: 1px solid rgba(139,92,246,.25); border-radius: 8px; background: rgba(139,92,246,.1); color: #ede9fe; font: 600 12px/1 Inter, ui-sans-serif, system-ui, sans-serif; }"
+    },
+    {
+      "name": "Result Choice",
+      "kind": "button",
+      "refersTo": "result-choice",
+      "description": "Outcome-first workflow choice with its technical values kept secondary.",
+      "html": "<button class=\"ds-result-choice\" aria-pressed=\"true\"><span>Club / DJ</span><small>WAV · -9 LUFS · 44.1 kHz</small></button>",
+      "css": ".ds-result-choice { display: grid; width: 100%; min-height: 64px; gap: 4px; align-content: center; padding: 12px 16px; border: 1px solid rgba(14,165,233,.55); border-radius: 12px; background: rgba(14,165,233,.1); color: #fff; text-align: left; font-family: Inter, ui-sans-serif, system-ui, sans-serif; cursor: pointer; transition: background 200ms, border-color 200ms, box-shadow 200ms; } .ds-result-choice span { font-size: 14px; font-weight: 600; } .ds-result-choice small { color: #bae6fd; font-size: 12px; line-height: 1.4; } .ds-result-choice:hover { background: rgba(14,165,233,.16); } .ds-result-choice:focus-visible { outline: 2px solid #7dd3fc; outline-offset: 2px; } .ds-result-choice[aria-pressed='true'] { box-shadow: 0 0 0 1px rgba(56,189,248,.35); }"
+    },
+    {
+      "name": "Sticky Navigation",
+      "kind": "nav",
+      "refersTo": "sticky-navigation",
+      "description": "Translucent global chrome with restrained active-state emphasis.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-brand\" href=\"#\">geekskai</a><a class=\"ds-nav-link ds-nav-active\" href=\"#\">Tools</a><a class=\"ds-nav-link\" href=\"#\">Pricing</a></nav>",
+      "css": ".ds-nav { display: flex; min-height: 64px; align-items: center; gap: 12px; padding: 0 16px; border-bottom: 1px solid rgba(30,41,59,.5); background: rgba(2,6,23,.88); box-shadow: 0 20px 25px -5px rgb(0 0 0 / .1), 0 8px 10px -6px rgb(0 0 0 / .1); color: #fff; font-family: Inter, ui-sans-serif, system-ui, sans-serif; backdrop-filter: blur(20px); } .ds-nav-brand { margin-right: auto; color: #fff; font-size: 20px; font-weight: 700; text-decoration: none; } .ds-nav-link { position: relative; display: inline-flex; min-height: 44px; align-items: center; padding: 0 12px; border-radius: 8px; color: #cbd5e1; font-size: 14px; font-weight: 600; text-decoration: none; } .ds-nav-link:hover { color: #fff; } .ds-nav-link:focus-visible { outline: 2px solid #f472b6; outline-offset: 2px; } .ds-nav-active { color: #fff; } .ds-nav-active::after { content: ''; position: absolute; right: 12px; bottom: 4px; left: 12px; height: 2px; border-radius: 9999px; background: #f472b6; }"
+    },
+    {
+      "name": "Audio Upload Zone",
+      "kind": "custom",
+      "refersTo": "upload-zone",
+      "description": "Signature large-input surface for selecting on-device audio.",
+      "html": "<button class=\"ds-upload\"><span class=\"ds-upload-icon\">+</span><strong>Choose MP3, WAV, FLAC, or M4A</strong><small>Tap to browse · files stay on device</small></button>",
+      "css": ".ds-upload { display: flex; width: 100%; min-height: 128px; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 16px; border: 1px dashed rgba(71,85,105,.7); border-radius: 12px; background: rgba(15,23,42,.35); color: #e2e8f0; font-family: Inter, ui-sans-serif, system-ui, sans-serif; cursor: pointer; transition: background 200ms, border-color 200ms; } .ds-upload:hover { border-color: rgba(14,165,233,.45); background: rgba(15,23,42,.55); } .ds-upload:focus-visible { outline: 2px solid rgba(56,189,248,.8); outline-offset: 2px; } .ds-upload-icon { display: inline-flex; width: 40px; height: 40px; align-items: center; justify-content: center; border: 1px solid rgba(14,165,233,.25); border-radius: 9999px; background: rgba(14,165,233,.1); color: #7dd3fc; font-size: 20px; } .ds-upload strong { font-size: 14px; font-weight: 500; } .ds-upload small { color: #94a3b8; font-size: 14px; line-height: 1.4; }"
+    },
+    {
+      "name": "Audio Sign-In Gate",
+      "kind": "custom",
+      "refersTo": "upload-zone",
+      "description": "Unauthenticated alternate state of the upload slot that prevents a file selection from being lost during sign-in.",
+      "html": "<section class=\"ds-signin-gate\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-7 16a7 7 0 0 1 14 0v1H5v-1Z\"/></svg><strong>Sign in before choosing audio</strong><p>Your files stay on this device. Sign in first so your selection is not interrupted.</p><a href=\"#\">Sign in to continue</a></section>",
+      "css": ".ds-signin-gate { display: flex; min-height: 196px; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 24px; border: 1px solid rgba(14,165,233,.25); border-radius: 12px; background: rgba(14,165,233,.06); color: #fff; text-align: center; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-signin-gate svg { width: 40px; height: 40px; padding: 9px; border-radius: 9999px; background: rgba(14,165,233,.12); fill: #7dd3fc; } .ds-signin-gate strong { font-size: 16px; font-weight: 600; } .ds-signin-gate p { max-width: 32rem; margin: 0; color: #94a3b8; font-size: 14px; line-height: 1.5; } .ds-signin-gate a { display: inline-flex; min-height: 44px; align-items: center; margin-top: 4px; padding: 0 16px; border-radius: 12px; background: linear-gradient(90deg, #0284c7, #7c3aed); color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; } .ds-signin-gate a:focus-visible { outline: 2px solid #7dd3fc; outline-offset: 2px; }"
+    },
+    {
+      "name": "Batch Summary",
+      "kind": "card",
+      "refersTo": "batch-summary",
+      "description": "Semantic completion summary with nearby recovery and continuation actions.",
+      "html": "<section class=\"ds-batch-summary\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"m9.5 16.2-3.7-3.7-1.4 1.4 5.1 5.1L20 8.5l-1.4-1.4-9.1 9.1Z\"/></svg><div><strong>Batch complete</strong><p>8 processed · 0 failed · 96 Credits · WAV</p></div><button>Process another batch</button></section>",
+      "css": ".ds-batch-summary { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; padding: 16px; border: 1px solid rgba(52,211,153,.3); border-radius: 12px; background: rgba(6,78,59,.16); color: #fff; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-batch-summary svg { width: 32px; height: 32px; padding: 7px; border-radius: 9999px; background: rgba(52,211,153,.12); fill: #6ee7b7; } .ds-batch-summary strong { font-size: 16px; font-weight: 600; } .ds-batch-summary p { margin: 4px 0 0; color: #a7f3d0; font-size: 14px; line-height: 1.5; } .ds-batch-summary button { grid-column: 2; min-height: 44px; justify-self: start; padding: 0 16px; border: 1px solid rgba(52,211,153,.35); border-radius: 12px; background: rgba(2,44,34,.5); color: #ecfdf5; font: 600 14px/1 Inter, ui-sans-serif, system-ui, sans-serif; cursor: pointer; } .ds-batch-summary button:hover { background: rgba(6,78,59,.65); } .ds-batch-summary button:focus-visible { outline: 2px solid #6ee7b7; outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Midnight Utility Bench",
+    "overview": "Geekskai should feel like a dependable workbench used at night: dark, focused, and ready for a concrete task. The interface favors precise hierarchy, restrained decoration, and trustworthy status feedback over promotional spectacle. Depth comes from closely spaced slate surfaces, fine borders, and occasional ambient light. Bright colors behave like instrument signals: sky and violet identify Audio Toolkit workflows, while pink and coral preserve the wider Geekskai identity in authentication, editorial links, and selected brand moments. The system is compact without becoming cramped. Controls are tactile, rounded, and visibly stateful, but animation and glow remain subordinate to the task.",
+    "keyCharacteristics": [
+      "Midnight slate foundations with layered, translucent work surfaces.",
+      "Signal colors assigned to product meaning rather than used as general decoration.",
+      "Inter-led typography with compact uppercase labels and clear task headlines.",
+      "Mobile-first layouts, 44px action targets, and explicit focus states.",
+      "Fine borders and top-edge highlights before large shadows or ornamental effects."
+    ],
+    "rules": [
+      { "name": "The Two-Signal Rule", "body": "Use sky and violet for Audio Toolkit work; use pink and coral for global brand, authentication, and editorial emphasis. Do not make all four compete inside one control.", "section": "colors" },
+      { "name": "The Dark Foundation Rule", "body": "New product and tool interfaces start from the midnight slate foundation. Existing light legal pages are isolated reading surfaces, not authority for new tool UI.", "section": "colors" },
+      { "name": "The Semantic Color Rule", "body": "Emerald, amber, and rose communicate state. They are not decorative alternates for primary actions.", "section": "colors" },
+      { "name": "The Operational Label Rule", "body": "Uppercase tracking belongs to short navigation and state labels, never paragraphs or long button copy.", "section": "typography" },
+      { "name": "The One-Family Rule", "body": "Use Inter for the interface and reserve monospace for content that benefits from character alignment or code semantics.", "section": "typography" },
+      { "name": "The Outcome-First Grid Rule", "body": "The active tool or promised result occupies the strongest and widest region; supporting projects, presets, pricing, and explanation follow its hierarchy.", "section": "layout" },
+      { "name": "The Mobile Stack Rule", "body": "Collapse multi-panel layouts into a single reading and interaction order before reducing type or touch targets.", "section": "layout" },
+      { "name": "The Result-Before-Parameters Rule", "body": "Present an outcome-oriented choice before exposing raw technical controls; advanced settings disclose detail without replacing the recommended path.", "section": "layout" },
+      { "name": "The Layer Before Shadow Rule", "body": "First separate surfaces with value, border, and transparency. Add a shadow only when the element truly sits above the document plane.", "section": "elevation" },
+      { "name": "The Single Highlight Rule", "body": "A one-pixel gradient highlight may identify the top edge of an important work panel; do not surround the same surface with multiple glows.", "section": "elevation" },
+      { "name": "The Radius Follows Scale Rule", "body": "Increase corner radius with component size: 8px controls, 12px actions and fields, 16px work surfaces.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do begin new tool surfaces with the midnight foundation, layered slate panels, and one workflow signal family.",
+      "Do preserve 44px primary targets, visible keyboard focus, and motion-reduced alternatives.",
+      "Do use signal colors to explain product state and workflow ownership.",
+      "Do favor borders, transparency, and one-pixel highlights before adding shadows.",
+      "Do keep helper copy quieter than task labels while maintaining readable contrast.",
+      "Do reveal advanced controls after outcome-oriented choices when novices and experts share a tool.",
+      "Do place retry, remove, and clear actions next to the queue state they affect, with full touch targets."
+    ],
+    "donts": [
+      "Don't turn the system into a generic SaaS marketing template with interchangeable gradient heroes and decorative dashboard metrics.",
+      "Don't add neon glow, gradient text, or motion when it does not clarify hierarchy or state.",
+      "Don't combine sky, violet, pink, and coral as equal accents in one component.",
+      "Don't use success, warning, or error colors for ordinary calls to action.",
+      "Don't copy the isolated light legal-page treatment into new tool or workspace interfaces.",
+      "Don't present presets and projects as competing dashboard cards when a divided settings list communicates their supporting role."
+    ]
+  }
+}

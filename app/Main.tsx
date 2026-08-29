@@ -1,69 +1,31 @@
-// import siteMetadata from "@/data/siteMetadata"
-// import NewsletterForm from "pliny/ui/NewsletterForm"
 import Hero from "@/components/Hero"
 import ListLayout from "@/layouts/ListLayout"
-import { useTranslations } from "next-intl"
-import Link from "next/link"
-// import React from "react"
 
-const MAX_DISPLAY = 5
-const POSTS_PER_PAGE = 6
+const HOMEPAGE_POST_COUNT = 4
 
 export default function Home({ posts }) {
-  const t = useTranslations("HomePage")
-  const pageNumber = 1
-  const initialDisplayPosts = posts.slice(
-    POSTS_PER_PAGE * (pageNumber - 1),
-    POSTS_PER_PAGE * pageNumber
-  )
-  const pagination = {
-    currentPage: pageNumber,
-    totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
-  }
+  const homepagePosts = posts.slice(0, HOMEPAGE_POST_COUNT)
+
   return (
-    <>
+    <div className="selection:bg-sky-400/30 selection:text-white">
+      {/*
+        THESIS: Geekskai opens as a working utility bench, not a developer portfolio.
+        OWN-WORLD: Midnight slate layers, fine borders, sky for active work, violet for output.
+        STORY: Understand the result, trust local processing, open a tool, then learn more.
+        FIRST VIEWPORT: Outcome copy leads; an illustrative Audio Toolkit workflow proves the mechanism beside it.
+        FORM: Code-led, product-first homepage in the established Midnight Utility Bench system.
+        FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+      */}
       <Hero />
-      <div className="divide-y divide-stone-700">
-        <div className="flex -translate-y-[1px] justify-center">
-          <div className="w-full max-w-[85%] px-4 md:max-w-3xl md:px-0">
-            <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-violet-500 to-transparent" />
-          </div>
-        </div>
 
-        <div className="my-4 flex justify-center px-4 md:my-5 md:px-6 lg:py-8">
-          <div className="flex w-full max-w-fit items-center justify-center">
-            <span className="h-[2px] min-w-8 flex-1 bg-[#1a1443] md:min-w-24"></span>
-            <span className="mx-3 w-fit rounded-md bg-[#1a1443] px-3 py-2 text-base font-medium leading-6 text-white md:mx-4 md:px-5 md:text-xl">
-              {t("hero_blogs_list")}
-            </span>
-            <span className="h-[2px] min-w-8 flex-1 bg-[#1a1443] md:min-w-24"></span>
-          </div>
+      <section
+        aria-labelledby="home-guides-title"
+        className="border-t border-slate-800/80 bg-slate-950/45"
+      >
+        <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-20 2xl:px-0">
+          <ListLayout posts={homepagePosts} />
         </div>
-      </div>
-      <ListLayout
-        posts={posts.slice(0, MAX_DISPLAY)}
-        initialDisplayPosts={initialDisplayPosts}
-        pagination={pagination}
-        title={t("blog_all_posts")}
-      />
-
-      {posts.length > MAX_DISPLAY && (
-        <div className="flex justify-center px-4 pt-2 text-base font-medium md:px-6">
-          <Link
-            className="flex min-h-[44px] items-center justify-center gap-1 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-4 py-2.5 text-center text-xs font-medium uppercase tracking-[0.18em] text-white no-underline transition-all duration-200 ease-out hover:gap-3 hover:text-white hover:no-underline md:min-h-[52px] md:px-8 md:py-4 md:text-sm md:font-semibold"
-            role="button"
-            target="_blank"
-            href="/blog"
-          >
-            {t("blog_all_posts")} &rarr;
-          </Link>
-        </div>
-      )}
-      {/* {siteMetadata.newsletter?.provider && (
-        <div className="flex items-center justify-center px-4 pb-2 pt-6 md:px-6 md:pt-8">
-          <NewsletterForm />
-        </div>
-      )} */}
-    </>
+      </section>
+    </div>
   )
 }

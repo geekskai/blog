@@ -146,7 +146,8 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(pricingStructuredData) }}
       />
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(ellipse_75%_55%_at_50%_-10%,rgba(124,58,237,0.16),transparent)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[36rem] bg-[radial-gradient(ellipse_75%_55%_at_50%_-10%,rgba(124,58,237,0.2),transparent)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[36rem] bg-[radial-gradient(ellipse_50%_40%_at_90%_0%,rgba(14,165,233,0.12),transparent)]" />
       <PricingActions
         locale={locale}
         checkoutEnabled={checkoutEnabled}
@@ -156,58 +157,86 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
 
       <section className="mx-auto mt-16 max-w-6xl" aria-labelledby="credit-rules-title">
         <div className="text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-300">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-300 sm:text-xs">
             One balance
           </p>
-          <h2 id="credit-rules-title" className="mt-2 text-3xl font-bold text-white">
-            Simple rules, visible before processing
+          <h2
+            id="credit-rules-title"
+            className="mt-2 text-[clamp(1.5rem,3vw,2.25rem)] font-bold leading-tight tracking-[-0.03em]"
+          >
+            <span className="text-white">Simple rules, </span>
+            <span className="bg-gradient-to-r from-sky-300 to-violet-400 bg-clip-text text-transparent">
+              visible before processing
+            </span>
           </h2>
         </div>
-        <div className="mt-7 grid gap-4 md:grid-cols-3">
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
           {[
             {
               icon: ShieldCheck,
+              iconWrap: "border-emerald-400/25 bg-emerald-500/10 text-emerald-300",
+              topLine: "via-emerald-400/40",
               title: "Private by design",
               copy: "Audio and filenames stay on your device. Only duration totals and Credit operations reach Geekskai.",
             },
             {
               icon: ReceiptText,
+              iconWrap: "border-sky-400/25 bg-sky-500/10 text-sky-300",
+              topLine: "via-sky-400/40",
               title: "Predictable cost",
               copy: "The Audio Toolkit displays the exact reserved Credits before starting each local batch.",
             },
             {
               icon: LockKeyhole,
+              iconWrap: "border-violet-400/25 bg-violet-500/10 text-violet-300",
+              topLine: "via-violet-400/40",
               title: "Verified payments",
               copy: "PayPal processes payment details. Credits are issued only after a verified capture or recurring payment.",
             },
-          ].map(({ icon: Icon, title, copy }) => (
+          ].map(({ icon: Icon, iconWrap, topLine, title, copy }) => (
             <article
               key={title}
-              className="rounded-2xl border border-slate-800 bg-slate-950/55 p-5"
+              className="relative overflow-hidden rounded-2xl border border-slate-800/90 bg-slate-950/60 p-5"
             >
-              <Icon className="h-6 w-6 text-violet-300" aria-hidden />
-              <h3 className="mt-4 font-semibold text-white">{title}</h3>
-              <p className="mt-2 text-sm leading-6 text-slate-400">{copy}</p>
+              <div
+                className={`pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent ${topLine} to-transparent`}
+                aria-hidden
+              />
+              <span
+                className={`inline-flex h-11 w-11 items-center justify-center rounded-xl border ${iconWrap}`}
+              >
+                <Icon className="h-5 w-5" aria-hidden />
+              </span>
+              <h3 className="mt-4 text-lg font-semibold text-white">{title}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-300">{copy}</p>
             </article>
           ))}
         </div>
       </section>
 
       <section className="mx-auto mt-16 max-w-6xl" aria-labelledby="faq-title">
-        <h2 id="faq-title" className="text-center text-3xl font-bold text-white">
-          Audio Credit FAQ
-        </h2>
-        <div className="mt-6 space-y-3">
+        <div className="text-center">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-violet-300 sm:text-xs">
+            FAQ
+          </p>
+          <h2
+            id="faq-title"
+            className="mt-2 text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-[-0.03em] text-white"
+          >
+            Audio Credit FAQ
+          </h2>
+        </div>
+        <div className="mt-7 space-y-3">
           {faqs.map(({ question, answer }) => (
             <details
               key={question}
-              className="group rounded-xl border border-slate-800 bg-slate-950/55"
+              className="group rounded-xl border border-slate-800/90 bg-slate-950/60 transition-colors open:border-violet-500/25 open:bg-violet-950/15"
             >
-              <summary className="flex min-h-12 cursor-pointer list-none items-center gap-3 px-5 py-3 text-sm font-semibold text-white">
+              <summary className="flex min-h-12 cursor-pointer list-none items-center gap-3 px-5 py-3.5 text-sm font-semibold text-white sm:text-base">
                 <span className="flex-1">{question}</span>
-                <ChevronDown className="h-4 w-4 text-violet-300 transition-transform group-open:rotate-180" />
+                <ChevronDown className="h-4 w-4 shrink-0 text-slate-500 transition-[color,transform] group-open:rotate-180 group-open:text-violet-300 group-hover:text-violet-300" />
               </summary>
-              <p className="border-t border-slate-800 px-5 py-4 text-sm leading-6 text-slate-400">
+              <p className="border-t border-slate-800/90 px-5 py-4 text-sm leading-6 text-slate-300">
                 {answer}
               </p>
             </details>
@@ -215,14 +244,20 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
         </div>
       </section>
 
-      <section className="mx-auto mt-16 max-w-6xl rounded-2xl border border-violet-500/30 bg-violet-950/20 px-6 py-10 text-center">
-        <h2 className="text-2xl font-bold text-white">See the cost before you process.</h2>
-        <p className="mt-2 text-sm leading-6 text-slate-400">
+      <section className="relative mx-auto mt-16 max-w-6xl overflow-hidden rounded-2xl border border-sky-500/30 bg-gradient-to-br from-sky-950/40 via-slate-950/80 to-violet-950/30 px-6 py-10 text-center shadow-[0_24px_80px_-40px_rgba(14,165,233,0.45)]">
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-400/60 to-transparent"
+          aria-hidden
+        />
+        <h2 className="text-[clamp(1.375rem,2.8vw,1.75rem)] font-bold tracking-[-0.025em] text-white">
+          See the cost before you process.
+        </h2>
+        <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-sky-100 sm:text-base">
           Sign in for 30 daily Credits. No payment details required.
         </p>
         <Link
           href="/audio-toolkit/"
-          className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-xl bg-violet-600 px-6 text-sm font-semibold text-white hover:bg-violet-500"
+          className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-xl bg-sky-500 px-6 text-sm font-semibold text-white shadow-[0_12px_40px_-16px_rgba(14,165,233,0.75)] transition-[background-color,box-shadow] hover:bg-sky-400 hover:shadow-[0_16px_48px_-14px_rgba(14,165,233,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
         >
           Open Audio Toolkit <ArrowRight className="h-4 w-4" aria-hidden />
         </Link>
