@@ -9,12 +9,12 @@ const copyByLocale = {
     eyebrow: "SoundCloud toolkit",
     title: "SoundCloud downloader, converter, playlist, and artwork tools",
     intro:
-      "Start from the workflow that matches your task. The downloader handles mixed URLs, MP3 is for compatibility, WAV is for editing, playlist is for batches, and artwork is for cover images.",
+      "Start from the workflow that matches your task. Track pages disclose the available MP3 or M4A stream, playlists run sequentially, and artwork is handled separately.",
     quickTitle: "Which SoundCloud tool should I use?",
     quickItems: [
       "Use Downloader when you are not sure whether the URL is a track or playlist.",
-      "Use MP3 for smaller files and mobile playback.",
-      "Use WAV for editing, production, or higher-quality workflows.",
+      "Use MP3 to prefer a progressive MP3 while keeping a truthful M4A fallback.",
+      "Use WAV to inspect the available source format; it does not upconvert lossy audio.",
       "Use Playlist when the URL contains /sets/.",
       "Use Artwork when you only need the cover image.",
     ],
@@ -23,12 +23,12 @@ const copyByLocale = {
     eyebrow: "Outils SoundCloud",
     title: "Telechargeur, convertisseur, playlist et pochettes SoundCloud",
     intro:
-      "Choisissez le flux adapte a votre tache: Downloader pour les URL mixtes, MP3 pour la compatibilite, WAV pour l'edition, Playlist pour les lots et Artwork pour les pochettes.",
+      "Choisissez le flux adapte: les pages de pistes indiquent le vrai format MP3 ou M4A, les playlists sont traitees sequentiellement et les pochettes separent les images.",
     quickTitle: "Quel outil SoundCloud utiliser ?",
     quickItems: [
       "Downloader convient si vous ne savez pas si l'URL est une piste ou une playlist.",
-      "MP3 convient aux fichiers legers et a la lecture mobile.",
-      "WAV convient au montage, a la production et a la qualite audio.",
+      "MP3 priorise le flux MP3 progressif et conserve le vrai repli M4A.",
+      "WAV verifie le format source disponible sans convertir artificiellement le son.",
       "Playlist convient aux URL qui contiennent /sets/.",
       "Artwork convient si vous avez seulement besoin de la pochette.",
     ],
@@ -37,12 +37,12 @@ const copyByLocale = {
     eyebrow: "Herramientas SoundCloud",
     title: "Downloader, convertidor, playlist y caratulas de SoundCloud",
     intro:
-      "Elige el flujo correcto: Downloader para URLs mixtas, MP3 para compatibilidad, WAV para edicion, Playlist para lotes y Artwork para caratulas.",
+      "Elige el flujo correcto: las paginas de pistas muestran el formato MP3 o M4A real, las playlists se procesan en orden y Artwork gestiona las caratulas.",
     quickTitle: "Que herramienta SoundCloud usar?",
     quickItems: [
       "Downloader sirve cuando no sabes si la URL es una pista o playlist.",
-      "MP3 sirve para archivos ligeros y reproduccion movil.",
-      "WAV sirve para edicion, produccion y mejor calidad.",
+      "MP3 prioriza el flujo MP3 progresivo y conserva M4A como alternativa real.",
+      "WAV comprueba el formato disponible sin reconvertir audio con perdida.",
       "Playlist sirve si la URL contiene /sets/.",
       "Artwork sirve si solo necesitas la caratula.",
     ],
@@ -51,12 +51,12 @@ const copyByLocale = {
     eyebrow: "SoundCloud Werkzeuge",
     title: "SoundCloud Downloader, Converter, Playlist und Artwork Tools",
     intro:
-      "Starte mit dem passenden Workflow: Downloader fur gemischte URLs, MP3 fur Kompatibilitat, WAV fur Bearbeitung, Playlist fur Stapel und Artwork fur Coverbilder.",
+      "Starte mit dem passenden Workflow: Track-Seiten zeigen das echte MP3- oder M4A-Format, Playlists laufen nacheinander und Artwork behandelt Coverbilder separat.",
     quickTitle: "Welches SoundCloud Tool passt?",
     quickItems: [
       "Downloader passt, wenn unklar ist, ob die URL ein Track oder eine Playlist ist.",
-      "MP3 passt fur kleine Dateien und mobile Wiedergabe.",
-      "WAV passt fur Schnitt, Produktion und hohere Qualitat.",
+      "MP3 bevorzugt progressives MP3 und behalt den echten M4A-Fallback.",
+      "WAV pruft das verfugbare Quellformat ohne verlustbehaftetes Audio hochzukonvertieren.",
       "Playlist passt, wenn die URL /sets/ enthalt.",
       "Artwork passt, wenn nur das Coverbild benotigt wird.",
     ],

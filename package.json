@@ -10,6 +10,7 @@
     "indexnow": "node ./scripts/submit-indexnow.mjs",
     "indexnow:dry": "node ./scripts/submit-indexnow.mjs --dry-run",
     "indexnow:verbose": "node ./scripts/submit-indexnow.mjs --verbose",
+    "seo:sitemap-quality": "node ./scripts/sitemap-quality.mjs",
     "paypal:provision": "node ./scripts/paypal-provision.mjs",
     "serve": "next start",
     "test": "vitest run",

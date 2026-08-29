@@ -112,59 +112,6 @@ const getJsonLd = (t: any, locale: string) => ({
       ].join(", "),
     },
     {
-      "@type": "HowTo",
-      "@id": `https://geekskai.com/${locale}/tools/ccm-to-hp-converter/#howto`,
-      name: t("usage_guide.title"),
-      description: t("usage_guide.description"),
-      image: "https://geekskai.com/og-images/ccm-to-hp-converter.jpg",
-      totalTime: "PT2M",
-      estimatedCost: {
-        "@type": "MonetaryAmount",
-        currency: "USD",
-        value: "0",
-      },
-      supply: [
-        {
-          "@type": "HowToSupply",
-          name: t("converter_card.engine_displacement_label"),
-        },
-        {
-          "@type": "HowToSupply",
-          name: t("converter_card.engine_type_label"),
-        },
-        {
-          "@type": "HowToSupply",
-          name: t("converter_card.fuel_system_label"),
-        },
-      ],
-      step: [
-        {
-          "@type": "HowToStep",
-          name: t("usage_guide.step_1_title"),
-          text: t("usage_guide.step_1_description"),
-          image: "https://geekskai.com/images/ccm-input-step.jpg",
-        },
-        {
-          "@type": "HowToStep",
-          name: t("usage_guide.step_2_title"),
-          text: t("usage_guide.step_2_description"),
-          image: "https://geekskai.com/images/engine-type-step.jpg",
-        },
-        {
-          "@type": "HowToStep",
-          name: t("usage_guide.step_3_title"),
-          text: t("usage_guide.step_3_description"),
-          image: "https://geekskai.com/images/fuel-system-step.jpg",
-        },
-        {
-          "@type": "HowToStep",
-          name: t("usage_guide.step_4_title"),
-          text: t("usage_guide.step_4_description"),
-          image: "https://geekskai.com/images/results-step.jpg",
-        },
-      ],
-    },
-    {
       "@type": "BreadcrumbList",
       "@id": `https://geekskai.com/${locale}/tools/ccm-to-hp-converter/#breadcrumb`,
       itemListElement: [

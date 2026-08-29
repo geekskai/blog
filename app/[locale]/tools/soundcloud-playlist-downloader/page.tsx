@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useCallback, useEffect, useRef } from "react"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import dynamic from "next/dynamic"
 import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import SoundCloudToolSwitcher from "@/components/SoundCloudToolSwitcher"
@@ -9,16 +9,10 @@ import { useDownloadQuota } from "@/components/download-quota/useDownloadQuota"
 import PlaylistTracks from "./components/PlaylistTracks"
 import DownloadProgress from "./components/DownloadProgress"
 import TrackDownloadForm from "../soundcloud-downloader/components/TrackDownloadForm"
-import {
-  CoreFactsSection,
-  FAQSection,
-  HowToSection,
-  FormatComparisonSection,
-  UseCasesSection,
-  KeyFeaturesSection,
-} from "./SEOContent"
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
 import ShareButtons from "@/components/ShareButtons"
+import SoundCloudEvidenceContent from "@/components/SoundCloudEvidenceContent"
+import { getSoundCloudPageCopy, SOUNDCLOUD_SEO_UPDATED } from "@/data/soundCloudSeo"
 
 import type {
   PlaylistInfo,
@@ -37,6 +31,8 @@ const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnit
 
 export default function SoundCloudPlaylistDownloaderPage() {
   const t = useTranslations("SoundCloudPlaylistDownloader")
+  const locale = useLocale()
+  const copy = getSoundCloudPageCopy("playlist", locale)
   const [url, setUrl] = useState("")
   const [format, setFormat] = useState<DownloadFormat>("mp3")
   const [loadingState, setLoadingState] = useState<LoadingState>("idle")
@@ -218,7 +214,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
       <div className="relative mx-auto max-w-7xl space-y-2 px-4 py-2 sm:space-y-3 sm:px-6 sm:py-6 md:space-y-5 md:py-5">
         {/* Content Freshness Badge */}
         <ContentFreshnessBadge
-          lastModified={new Date("2026-07-02")}
+          lastModified={new Date(SOUNDCLOUD_SEO_UPDATED)}
           namespace="SoundCloudPlaylistDownloader"
         />
         {/* Header Section */}
@@ -235,18 +231,12 @@ export default function SoundCloudPlaylistDownloaderPage() {
 
           {/* Main Title */}
           <h1 className="my-2 bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-2xl font-bold leading-tight text-transparent sm:my-3 sm:text-3xl md:text-4xl lg:text-5xl lg:leading-snug">
-            {t("page_title")}
+            {copy.pageTitle}
           </h1>
 
           {/* Subtitle */}
           <p className="mx-auto mb-2 max-w-7xl px-1 text-sm text-slate-300 sm:mb-3 sm:text-base md:text-lg">
-            {t.rich("page_subtitle", {
-              mp3: (chunks) => <strong className="text-purple-400">{chunks}</strong>,
-              wav: (chunks) => <strong className="text-cyan-400">{chunks}</strong>,
-              free: (chunks) => <strong className="text-emerald-400">{chunks}</strong>,
-              fast: (chunks) => <strong className="text-blue-400">{chunks}</strong>,
-              no_registration: (chunks) => <strong className="text-pink-400">{chunks}</strong>,
-            })}
+            {copy.heroDescription}
           </p>
         </header>
 
@@ -316,100 +306,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
 
         <DeferredGoogleAdUnitWrap />
 
-        {/* SEO Content Sections */}
-        <div className="mx-auto max-w-7xl space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12">
-          {/* What is this tool section */}
-          <section className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur-md sm:rounded-3xl sm:p-6 md:p-8 lg:p-12">
-            <div className="relative z-10">
-              <h2 className="mb-5 text-2xl font-bold leading-tight text-white sm:mb-6 sm:text-3xl md:mb-8 lg:text-3xl">
-                {t("section_what_is_title")}
-              </h2>
-              <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10">
-                <div>
-                  <p className="mb-4 text-base text-slate-300 sm:mb-6 sm:text-lg">
-                    {t.rich("section_what_is_description_1", {
-                      strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
-                    })}
-                  </p>
-                  <p className="text-base text-slate-300 sm:text-lg">
-                    {t.rich("section_what_is_description_2", {
-                      strong: (chunks) => <strong className="text-purple-300">{chunks}</strong>,
-                    })}
-                  </p>
-                </div>
-                <div className="rounded-xl border border-white/20 bg-white/5 p-4 backdrop-blur-sm sm:rounded-2xl sm:p-6 md:p-8">
-                  <h3 className="mb-4 flex items-center text-lg font-semibold text-white sm:mb-5 sm:text-xl md:mb-6">
-                    <span className="mr-2 text-xl sm:mr-3 sm:text-2xl">✨</span>
-                    {t("section_what_is_key_benefits")}
-                  </h3>
-                  <ul className="space-y-2 text-sm text-slate-300 sm:space-y-3 sm:text-base">
-                    <li className="flex items-center gap-2 sm:gap-3">
-                      <div className="h-2 w-2 shrink-0 rounded-full bg-purple-400"></div>
-                      {t("section_what_is_benefit_1")}
-                    </li>
-                    <li className="flex items-center gap-2 sm:gap-3">
-                      <div className="h-2 w-2 shrink-0 rounded-full bg-pink-400"></div>
-                      {t("section_what_is_benefit_2")}
-                    </li>
-                    <li className="flex items-center gap-2 sm:gap-3">
-                      <div className="h-2 w-2 shrink-0 rounded-full bg-emerald-400"></div>
-                      {t("section_what_is_benefit_3")}
-                    </li>
-                    <li className="flex items-center gap-2 sm:gap-3">
-                      <div className="h-2 w-2 shrink-0 rounded-full bg-blue-400"></div>
-                      {t("section_what_is_benefit_4")}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Download SoundCloud Playlists Online Section */}
-          <section className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur-md sm:rounded-3xl sm:p-6 md:p-8 lg:p-12">
-            <h2 className="mb-4 text-2xl font-bold leading-tight text-white sm:mb-5 sm:text-3xl md:mb-6 lg:text-3xl">
-              {t("section_download_online_title")}
-            </h2>
-            <p className="text-base text-slate-300 sm:text-lg lg:leading-relaxed">
-              {t("section_download_online_description")}
-            </p>
-          </section>
-
-          {/* Core Facts Section */}
-          <CoreFactsSection />
-
-          {/* Key Features Section */}
-          <KeyFeaturesSection />
-
-          {/* How-to Guide Section */}
-          <HowToSection />
-
-          {/* Format Comparison Section */}
-          <FormatComparisonSection />
-
-          {/* Use Cases Section */}
-          <UseCasesSection />
-
-          {/* FAQ Section */}
-          <FAQSection />
-
-          {/* Legal and Ethical Section */}
-          <section className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur-md sm:rounded-3xl sm:p-6 md:p-8 lg:p-12">
-            <h2 className="mb-4 text-2xl font-bold leading-tight text-white sm:mb-5 sm:text-3xl md:mb-6 lg:text-3xl">
-              {t("section_legal_title")}
-            </h2>
-            <div className="prose prose-sm max-w-none text-slate-300 sm:prose-base md:prose-lg prose-headings:text-white prose-strong:font-bold prose-strong:text-orange-300 prose-ul:text-slate-300">
-              <p className="leading-relaxed">{t("section_legal_description")}</p>
-              <ul className="list-inside list-disc space-y-2 sm:space-y-3">
-                <li>{t("section_legal_point_1")}</li>
-                <li>{t("section_legal_point_2")}</li>
-                <li>{t("section_legal_point_3")}</li>
-                <li>{t("section_legal_point_4")}</li>
-              </ul>
-              <p className="mt-4 sm:mt-6">{t("section_legal_footer")}</p>
-            </div>
-          </section>
-        </div>
+        <SoundCloudEvidenceContent page="playlist" />
       </div>
       <DownloadShareModal
         isOpen={downloadQuota.showShareModal}

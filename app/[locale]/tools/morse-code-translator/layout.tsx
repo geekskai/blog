@@ -1,6 +1,7 @@
 import React from "react"
 import { Metadata } from "next"
-import { supportedLocales } from "app/i18n/routing"
+import { buildLanguageAlternates, getLocalizedUrl } from "@/app/i18n/urls"
+import { getIndexedToolLocales } from "@/app/sitemap-config"
 import { getTranslations } from "next-intl/server"
 
 const BASE_URL = "https://geekskai.com"
@@ -22,7 +23,7 @@ const FAQ_ITEM_KEYS = [
 ] as const
 
 function getCanonical(locale: string) {
-  return locale === "en" ? `${BASE_URL}${TOOL_PATH}` : `${BASE_URL}/${locale}${TOOL_PATH}`
+  return getLocalizedUrl(BASE_URL, locale, TOOL_PATH)
 }
 
 export async function generateMetadata(props: {
@@ -37,12 +38,9 @@ export async function generateMetadata(props: {
   const title = t("seo.title")
   const description = t("seo.description")
 
-  const languages: Record<string, string> = {
-    "x-default": `${BASE_URL}${TOOL_PATH}`,
-  }
-  supportedLocales.forEach((loc) => {
-    languages[loc] = loc === "en" ? `${BASE_URL}${TOOL_PATH}` : `${BASE_URL}/${loc}${TOOL_PATH}`
-  })
+  const languages = buildLanguageAlternates(BASE_URL, TOOL_PATH, [
+    ...getIndexedToolLocales(TOOL_PATH),
+  ])
 
   return {
     title,
@@ -167,42 +165,6 @@ export default async function MorseCodeGeneratorLayout(props: {
     ],
   }
 
-  const howToSchema = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: t("schema.howto_name"),
-    description: t("schema.howto_description"),
-    totalTime: "PT1M",
-    tool: [
-      {
-        "@type": "HowToTool",
-        name: t("schema.webapp_name"),
-      },
-    ],
-    step: [
-      {
-        "@type": "HowToStep",
-        name: t("schema.howto_step_1_name"),
-        text: t("schema.howto_step_1_text"),
-      },
-      {
-        "@type": "HowToStep",
-        name: t("schema.howto_step_2_name"),
-        text: t("schema.howto_step_2_text"),
-      },
-      {
-        "@type": "HowToStep",
-        name: t("schema.howto_step_3_name"),
-        text: t("schema.howto_step_3_text"),
-      },
-      {
-        "@type": "HowToStep",
-        name: t("schema.howto_step_4_name"),
-        text: t("schema.howto_step_4_text"),
-      },
-    ],
-  }
-
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -242,10 +204,6 @@ export default async function MorseCodeGeneratorLayout(props: {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
       />
       <script
         type="application/ld+json"

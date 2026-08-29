@@ -3,11 +3,7 @@ import React from "react"
 import type { ReactNode } from "react"
 import { supportedLocales } from "app/i18n/routing"
 import { getTranslations, setRequestLocale } from "next-intl/server"
-import {
-  AUDIO_LAST_MODIFIED_ISO,
-  buildDownloaderHowToInput,
-  generateAudioHowToSchema,
-} from "@/app/[locale]/tools/youtube-audio-downloader/audio-faq"
+import { AUDIO_LAST_MODIFIED_ISO } from "@/app/[locale]/tools/youtube-audio-downloader/audio-faq"
 
 type Props = {
   children: ReactNode
@@ -100,7 +96,6 @@ export default async function YouTubeAudioDownloaderLayout({ children, params }:
   const url = buildUrl(locale).replace(/\/$/, "")
   const title = t("seo_title")
   const description = t("seo_description")
-  const howToInput = buildDownloaderHowToInput((key) => t(key))
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -153,7 +148,6 @@ export default async function YouTubeAudioDownloaderLayout({ children, params }:
         url: `${BASE_URL}/`,
         logo: `${BASE_URL}/static/logos.png`,
       },
-      generateAudioHowToSchema(url, howToInput),
     ],
   }
 

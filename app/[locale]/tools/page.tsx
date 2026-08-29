@@ -1,6 +1,6 @@
 "use client"
 
-import { Link } from "app/i18n/navigation"
+import Link from "@/components/Link"
 import React, { useState, useMemo } from "react"
 import {
   Zap,
@@ -16,6 +16,7 @@ import {
 import { toolsData } from "@/data/toolsData"
 import { getLocalizedUrl } from "../../i18n/urls"
 import { SEO_ENTITY_IDS, serializeJsonLd } from "@/lib/seo"
+import { getToolLinkLocale } from "@/app/sitemap-config"
 import { useLocale, useTranslations } from "next-intl"
 
 export default function ToolsPage() {
@@ -71,7 +72,11 @@ export default function ToolsPage() {
               position: index + 1,
               name: tool.title,
               description: tool.description,
-              url: getLocalizedUrl(baseUrl, locale, tool.href),
+              url: getLocalizedUrl(
+                baseUrl,
+                getToolLinkLocale(tool.href, locale) ?? locale,
+                tool.href
+              ),
             })),
           },
           provider: { "@id": SEO_ENTITY_IDS.organization },

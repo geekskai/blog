@@ -110,19 +110,6 @@ export default async function Layout(props: {
     },
   }
 
-  // 2. HowTo Schema
-  const howToSchema = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: t("section_how_to_title"),
-    step: [1, 2, 3].map((i, idx) => ({
-      "@type": "HowToStep",
-      position: idx + 1,
-      name: t(`section_how_to_step_${i}_title`),
-      text: t(`section_how_to_step_${i}`),
-    })),
-  }
-
   // 4. Breadcrumb Schema
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -154,7 +141,7 @@ export default async function Layout(props: {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([webApplicationSchema, howToSchema, breadcrumbSchema]),
+          __html: JSON.stringify([webApplicationSchema, breadcrumbSchema]),
         }}
       />
       {children}

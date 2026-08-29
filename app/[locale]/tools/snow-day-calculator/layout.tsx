@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 import React from "react"
+import { SEO_ENTITY_IDS, serializeJsonLd } from "@/lib/seo"
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>
@@ -114,10 +115,7 @@ export default async function SnowDayCalculatorLayout(props: {
       priceValidUntil: "2026-12-31",
     },
     provider: {
-      "@type": "Organization",
-      name: "GeeksKai",
-      url: "https://www.geekskai.com",
-      logo: "https://www.geekskai.com/static/logos.png",
+      "@id": SEO_ENTITY_IDS.organization,
     },
     featureList: [
       t("json_ld.feature_list.realtime_api"),
@@ -129,14 +127,12 @@ export default async function SnowDayCalculatorLayout(props: {
       t("json_ld.feature_list.multiple_search"),
       t("json_ld.feature_list.search_history"),
     ].join(", "),
-    screenshot: "https://www.geekskai.com/tools/snow-day-calculator-screenshot.jpg",
+    screenshot: `${baseUrl}/tools/snow-day-calculator-screenshot.jpg`,
     softwareVersion: "1.0",
     datePublished: "2024-01-20",
     dateModified: "2025-01-24",
     author: {
-      "@type": "Organization",
-      name: "GeeksKai",
-      url: "https://www.geekskai.com",
+      "@id": SEO_ENTITY_IDS.organization,
     },
     audience: {
       "@type": "Audience",
@@ -171,42 +167,17 @@ export default async function SnowDayCalculatorLayout(props: {
     ],
   }
 
-  // Organization Schema for brand signals
-  const organizationStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "GeeksKai",
-    url: "https://www.geekskai.com",
-    logo: "https://www.geekskai.com/static/logos.png",
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer service",
-      email: "support@geekskai.com",
-    },
-    sameAs: [
-      "https://twitter.com/GeeksKai",
-      "https://github.com/geekskai",
-      "https://www.facebook.com/geekskai",
-      "https://www.linkedin.com/in/geekskai",
-    ],
-  }
-
   return (
     <>
       {/* WebApplication Schema */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
       {/* Breadcrumb Schema */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
-      />
-      {/* Organization Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationStructuredData) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbStructuredData) }}
       />
       {children}
     </>

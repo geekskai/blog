@@ -230,13 +230,16 @@ const inferPreferredFormat = (
   return "mp3"
 }
 
-const withFileExtension = (fileName: string, extension: SoundCloudDownloadFormat["extension"]) => {
+export const withSoundCloudFileExtension = (
+  fileName: string,
+  extension: SoundCloudDownloadFormat["extension"]
+) => {
   return /\.[^.]+$/.test(fileName)
     ? fileName.replace(/\.[^.]+$/, `.${extension}`)
     : `${fileName}.${extension}`
 }
 
-const pickDownloadFormat = (
+export const selectSoundCloudDownloadFormat = (
   formats: SoundCloudDownloadFormat[],
   preferredFormat: SoundCloudPreferredDownloadFormat
 ): SoundCloudDownloadFormat => {
@@ -268,8 +271,8 @@ export async function downloadSoundCloudTrack(
     options?.quotaToolId
   )
   const preferredFormat = inferPreferredFormat(fileName, options)
-  const selectedFormat = pickDownloadFormat(result.formats, preferredFormat)
-  const savedFileName = withFileExtension(fileName, selectedFormat.extension)
+  const selectedFormat = selectSoundCloudDownloadFormat(result.formats, preferredFormat)
+  const savedFileName = withSoundCloudFileExtension(fileName, selectedFormat.extension)
 
   if (selectedFormat.kind === "hls") {
     await downloadHlsAsM4a(selectedFormat.url, savedFileName, options)

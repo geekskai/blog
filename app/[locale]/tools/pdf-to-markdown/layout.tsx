@@ -1,7 +1,11 @@
 import { Metadata } from "next"
+import { buildLanguageAlternates } from "@/app/i18n/urls"
+import { getIndexedToolLocales } from "@/app/sitemap-config"
 
 // Content freshness - Update this monthly
 const lastModified = new Date("2026-05-26") // Update current date
+const BASE_URL = "https://geekskai.com"
+const TOOL_PATH = "/tools/pdf-to-markdown/"
 
 export const metadata: Metadata = {
   title: "PDF to Markdown Converter - Free Online PDF to MD Converter Tool",
@@ -34,7 +38,8 @@ export const metadata: Metadata = {
     description: "Convert PDF to MD format instantly with our free PDF to markdown converter.",
   },
   alternates: {
-    canonical: "https://geekskai.com/tools/pdf-to-markdown/",
+    canonical: `${BASE_URL}${TOOL_PATH}`,
+    languages: buildLanguageAlternates(BASE_URL, TOOL_PATH, [...getIndexedToolLocales(TOOL_PATH)]),
   },
   robots: {
     index: true,

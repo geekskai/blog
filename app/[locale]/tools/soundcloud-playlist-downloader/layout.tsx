@@ -1,33 +1,31 @@
 import { buildLanguageAlternates, getLocalizedUrl } from "@/app/i18n/urls"
-import { isSoundCloudGrowthLocale, soundCloudGrowthLocales } from "@/data/soundCloudGrowth"
+import { getIndexedToolLocales, isToolLocaleIndexed } from "@/app/sitemap-config"
+import { getSoundCloudPageCopy, SOUNDCLOUD_SEO_UPDATED } from "@/data/soundCloudSeo"
+import { SEO_ENTITY_IDS, serializeJsonLd } from "@/lib/seo"
 import type { Metadata } from "next"
-import React from "react"
+import type { ReactNode } from "react"
 import { getTranslations } from "next-intl/server"
 
 const SITE_URL = "https://geekskai.com"
 const TOOL_PATH = "/tools/soundcloud-playlist-downloader/"
 
-export async function generateMetadata(props: {
+export async function generateMetadata({
+  params,
+}: {
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
-  const params = await props.params
-
-  const { locale } = params
-
-  const t = await getTranslations({ locale, namespace: "SoundCloudPlaylistDownloader" })
+  const { locale } = await params
+  const copy = getSoundCloudPageCopy("playlist", locale)
   const canonical = getLocalizedUrl(SITE_URL, locale, TOOL_PATH)
-  const shouldIndex = isSoundCloudGrowthLocale(locale)
-
-  // Update this monthly
-  const lastModified = new Date("2026-07-02")
+  const indexedLocales = getIndexedToolLocales(TOOL_PATH)
+  const shouldIndex = isToolLocaleIndexed(TOOL_PATH, locale)
 
   return {
-    title: t("metadata_title"),
-    description: t("metadata_description"),
-    keywords: t("metadata_keywords").split(", "),
+    title: copy.metadataTitle,
+    description: copy.metadataDescription,
     openGraph: {
-      title: t("metadata_og_title"),
-      description: t("metadata_og_description"),
+      title: copy.metadataTitle,
+      description: copy.metadataDescription,
       type: "website",
       url: canonical,
       siteName: "GeeksKai",
@@ -36,19 +34,18 @@ export async function generateMetadata(props: {
           url: "/static/images/tools/soundcloud-playlist-downloader/soundcloud-playlist-downloader.png",
           width: 1200,
           height: 630,
-          alt: t("metadata_og_image_alt"),
+          alt: copy.pageTitle,
         },
       ],
-      locale: "en_US",
     },
     twitter: {
       card: "summary_large_image",
-      title: t("metadata_twitter_title"),
-      description: t("metadata_twitter_description"),
+      title: copy.metadataTitle,
+      description: copy.metadataDescription,
     },
     alternates: {
       canonical,
-      languages: buildLanguageAlternates(SITE_URL, TOOL_PATH, [...soundCloudGrowthLocales]),
+      languages: buildLanguageAlternates(SITE_URL, TOOL_PATH, [...indexedLocales]),
     },
     robots: {
       index: shouldIndex,
@@ -61,121 +58,62 @@ export async function generateMetadata(props: {
         "max-snippet": -1,
       },
     },
-    other: {
-      "last-modified": lastModified.toISOString(),
-      "update-frequency": "monthly",
-      "next-review": new Date(lastModified.getTime() + 30 * 24 * 60 * 60 * 1000).toISOString(),
-    },
+    other: { "last-modified": new Date(SOUNDCLOUD_SEO_UPDATED).toISOString() },
   }
 }
 
-export default async function Layout(props: {
-  children: React.ReactNode
+export default async function Layout({
+  children,
+  params,
+}: {
+  children: ReactNode
   params: Promise<{ locale: string }>
 }) {
-  const params = await props.params
-
-  const { locale } = params
-
-  const { children } = props
-
+  const { locale } = await params
+  const copy = getSoundCloudPageCopy("playlist", locale)
   const t = await getTranslations({ locale, namespace: "SoundCloudPlaylistDownloader" })
-  const baseUrl = getLocalizedUrl(SITE_URL, locale, TOOL_PATH).replace(/\/$/, "")
-
-  // WebApplication Schema
-  const webApplicationSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: t("schema_name"),
-    description: t("schema_description"),
-    url: baseUrl,
-    applicationCategory: "UtilityApplication",
-    operatingSystem: "Any",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
+  const canonical = getLocalizedUrl(SITE_URL, locale, TOOL_PATH)
+  const schemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "@id": `${canonical}#web-application`,
+      name: copy.pageTitle,
+      description: copy.metadataDescription,
+      url: canonical,
+      applicationCategory: "UtilityApplication",
+      operatingSystem: "Any",
+      isAccessibleForFree: true,
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      provider: { "@id": SEO_ENTITY_IDS.organization },
+      featureList: copy.facts,
+      dateModified: SOUNDCLOUD_SEO_UPDATED,
     },
-    provider: {
-      "@type": "Organization",
-      name: t("schema_provider_name"),
-      url: t("schema_provider_url"),
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: t("breadcrumb_home"), item: SITE_URL },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: t("breadcrumb_tools"),
+          item: getLocalizedUrl(SITE_URL, locale, "/tools/"),
+        },
+        { "@type": "ListItem", position: 3, name: copy.pageTitle, item: canonical },
+      ],
     },
-    featureList: [
-      t("schema_feature_1"),
-      t("schema_feature_2"),
-      t("schema_feature_3"),
-      t("schema_feature_4"),
-      t("schema_feature_5"),
-      t("schema_feature_6"),
-      t("schema_feature_7"),
-      t("schema_feature_8"),
-    ].join(", "),
-    browserRequirements: t("schema_browser_requirements"),
-    softwareVersion: t("schema_software_version"),
-  }
-
-  // Breadcrumb Schema
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: t("breadcrumb_home"),
-        item: "https://geekskai.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: t("breadcrumb_tools"),
-        item: "https://geekskai.com/tools",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: t("breadcrumb_title"),
-        item: baseUrl,
-      },
-    ],
-  }
-
-  // Organization Schema
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "GeeksKai",
-    url: "https://geekskai.com",
-    logo: "https://geekskai.com/static/logos.png",
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer service",
-      email: "support@geekskai.com",
-    },
-    sameAs: [
-      "https://twitter.com/GeeksKai",
-      "https://github.com/geekskai",
-      "https://www.facebook.com/geekskai",
-      "https://www.linkedin.com/in/geekskai",
-    ],
-  }
+  ]
 
   return (
     <div className="min-h-screen">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
+      {schemas.map((schema) => (
+        <script
+          key={schema["@type"]}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }}
+        />
+      ))}
       {children}
     </div>
   )

@@ -70,6 +70,27 @@ describe("structured data ownership", () => {
   it("escapes markup before embedding JSON-LD", () => {
     expect(serializeJsonLd({ value: "</script>" })).toContain("\\u003c/script>")
   })
+
+  it("does not emit deprecated HowTo JSON-LD or www schema identities", () => {
+    const schemaFiles = [
+      "app/[locale]/tools/morse-code-translator/layout.tsx",
+      "app/[locale]/tools/pixels-to-inches/layout.tsx",
+      "app/[locale]/tools/streaming-music-player/layout.tsx",
+      "app/[locale]/tools/cm-to-pm-converter/layout.tsx",
+      "app/[locale]/tools/ccm-to-hp-converter/layout.tsx",
+      "app/[locale]/tools/perm-processing-time-tracker/layout.tsx",
+      "app/[locale]/tools/youtube-audio-downloader/layout.tsx",
+      "app/[locale]/tools/youtube-video-downloader/layout.tsx",
+      "app/[locale]/tools/youtube-shorts-downloader/layout.tsx",
+      "app/[locale]/tools/snow-day-calculator/layout.tsx",
+      "lib/youtube-downloader-schema.ts",
+    ].map(readProjectFile)
+
+    expect(schemaFiles.join("\n")).not.toMatch(/"@type":\s*"HowTo(?:Step|Supply|Tool)?"/)
+    expect(readProjectFile("app/[locale]/tools/snow-day-calculator/layout.tsx")).not.toContain(
+      "www.geekskai.com"
+    )
+  })
 })
 
 describe("commercial metadata regressions", () => {

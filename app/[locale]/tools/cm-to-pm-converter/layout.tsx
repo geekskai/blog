@@ -165,55 +165,6 @@ async function getStructuredData(locale: string) {
   }
 }
 
-// 科学应用结构化数据
-async function getScientificApplicationData(locale: string) {
-  const t = await getTranslations({ locale, namespace: "CmToPmConverter" })
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: t("usage_guide.title"),
-    description: t("usage_guide.description"),
-    totalTime: "PT2M",
-    supply: [
-      {
-        "@type": "HowToSupply",
-        name: t("supply.converter_tool"),
-      },
-      {
-        "@type": "HowToSupply",
-        name: t("supply.measurement_value"),
-      },
-    ],
-    step: [
-      {
-        "@type": "HowToStep",
-        name: t("usage_guide.steps.step1.title"),
-        text: t("usage_guide.steps.step1.description"),
-        image: "https://geekskai.com/static/tools/cm-to-pm-step1.jpg",
-      },
-      {
-        "@type": "HowToStep",
-        name: t("usage_guide.steps.step2.title"),
-        text: t("usage_guide.steps.step2.description"),
-        image: "https://geekskai.com/static/tools/cm-to-pm-step2.jpg",
-      },
-      {
-        "@type": "HowToStep",
-        name: t("usage_guide.steps.step3.title"),
-        text: t("usage_guide.steps.step3.description"),
-        image: "https://geekskai.com/static/tools/cm-to-pm-step3.jpg",
-      },
-      {
-        "@type": "HowToStep",
-        name: t("usage_guide.steps.step4.title"),
-        text: t("usage_guide.steps.step4.description"),
-        image: "https://geekskai.com/static/tools/cm-to-pm-step4.jpg",
-      },
-    ],
-  }
-}
-
 export default async function CmToPmLayout(props: {
   children: React.ReactNode
   params: Promise<{ locale: string }>
@@ -225,7 +176,6 @@ export default async function CmToPmLayout(props: {
   const { children } = props
 
   const structuredData = await getStructuredData(locale)
-  const applicationData = await getScientificApplicationData(locale)
 
   return (
     <>
@@ -236,13 +186,6 @@ export default async function CmToPmLayout(props: {
           __html: JSON.stringify(structuredData),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(applicationData),
-        }}
-      />
-
       {/* 页面内容 */}
       {children}
     </>

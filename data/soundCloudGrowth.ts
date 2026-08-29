@@ -20,9 +20,3 @@ export const soundCloudHubPath = "/tools/soundcloud/"
 export function isSoundCloudToolPath(path: string) {
   return soundCloudToolLinks.some((tool) => path.includes(tool.href))
 }
-
-export function isSoundCloudGrowthLocale(
-  locale: string
-): locale is (typeof soundCloudGrowthLocales)[number] {
-  return soundCloudGrowthLocales.includes(locale as (typeof soundCloudGrowthLocales)[number])
-}

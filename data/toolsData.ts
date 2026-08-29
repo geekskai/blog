@@ -125,12 +125,12 @@ export const toolsData: ToolData[] = [
     id: "soundcloud-downloader",
     title: "SoundCloud Downloader (Track + Playlist)",
     description:
-      "Unified SoundCloud downloader that auto-detects track or playlist URLs. Fetch track info, load playlist items, and download in MP3 or WAV from one tool.",
+      "Unified SoundCloud downloader that detects track or playlist URLs and saves each accessible stream as its real MP3 or M4A format.",
     icon: Music,
     href: "/tools/soundcloud-downloader/",
     features: [
       "Auto-detect SoundCloud track or playlist URL",
-      "Single-track download (MP3/WAV)",
+      "Single-track download (MP3/M4A)",
       "Playlist fetch with single or bulk download",
       "One unified SoundCloud workflow",
     ],
@@ -159,12 +159,12 @@ export const toolsData: ToolData[] = [
   },
   {
     id: "soundcloud-to-mp3",
-    title: "SoundCloud to MP3 Converter",
+    title: "SoundCloud to MP3 Downloader",
     description:
-      "Convert supported SoundCloud tracks to MP3 for authorized offline use, with a direct browser workflow and no software installation.",
+      "Prefer the progressive MP3 exposed for an authorized public track, with a transparent M4A fallback when MP3 is unavailable.",
     icon: Music,
     href: "/tools/soundcloud-to-mp3/",
-    features: ["SoundCloud to MP3 Converter"],
+    features: ["Progressive MP3 preference", "True M4A fallback"],
     badge: "New",
     badgeColor: "bg-blue-500",
     gradient: gradients.creative,
@@ -172,12 +172,12 @@ export const toolsData: ToolData[] = [
   },
   {
     id: "soundcloud-to-wav",
-    title: "SoundCloud to WAV Converter",
+    title: "SoundCloud Source Format Checker",
     description:
-      "Export supported SoundCloud tracks as WAV when you need an uncompressed file for authorized editing or archival workflows.",
+      "Inspect and save the actual MP3 or M4A stream available for an authorized public track without fake WAV upconversion.",
     icon: Music,
     href: "/tools/soundcloud-to-wav/",
-    features: ["SoundCloud to WAV Converter", "SoundCloud to MP3 Converter"],
+    features: ["Source format disclosure", "MP3/M4A download"],
     badge: "New",
     badgeColor: "bg-blue-500",
     gradient: gradients.creative,

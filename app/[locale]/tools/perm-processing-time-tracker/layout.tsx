@@ -161,37 +161,6 @@ export default async function Layout(props: {
     sameAs: ["https://github.com/geekskai", "https://twitter.com/geekskai"],
   }
 
-  // HowTo结构化数据
-  const howToStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: t("how_it_works.title"),
-    description: t("seo_description"),
-    totalTime: "PT5M",
-    supply: ["PERM application submission date", "Case type information"],
-    tool: [t("title"), "Web browser"],
-    step: [
-      {
-        "@type": "HowToStep",
-        name: t("how_it_works.step1.title"),
-        text: t.raw("how_it_works.step1.description"),
-        url: "https://geekskai.com/tools/perm-processing-time-tracker/",
-      },
-      {
-        "@type": "HowToStep",
-        name: t("how_it_works.step2.title"),
-        text: t.raw("how_it_works.step2.description"),
-      },
-      {
-        "@type": "HowToStep",
-        name: t("how_it_works.step3.title"),
-        text: t.raw("how_it_works.step3.description"),
-      },
-    ],
-  }
-
-  // FAQ结构化数据
-
   // Breadcrumb结构化数据
   const breadcrumbStructuredData = {
     "@context": "https://schema.org",
@@ -223,10 +192,6 @@ export default async function Layout(props: {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToStructuredData) }}
       />
       <script
         type="application/ld+json"

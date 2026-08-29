@@ -4,11 +4,7 @@ import type { ReactNode } from "react"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 
 import { supportedLocales } from "../../../i18n/routing"
-import {
-  SHOTS_LAST_MODIFIED_ISO,
-  buildDownloaderHowToInput,
-  generateShotsHowToSchema,
-} from "./shots-faq"
+import { SHOTS_LAST_MODIFIED_ISO } from "./shots-faq"
 
 const BASE_URL = "https://geekskai.com"
 const TOOL_SLUG = "youtube-shorts-downloader"
@@ -105,7 +101,6 @@ export default async function YouTubeShortsDownloaderLayout(props: {
     t("schema_feature_3"),
     t("schema_feature_4"),
   ]
-  const howToInput = buildDownloaderHowToInput((key) => t(key))
 
   const webApplicationSchema = {
     "@context": "https://schema.org",
@@ -127,11 +122,6 @@ export default async function YouTubeShortsDownloaderLayout(props: {
       url: "https://geekskai.com",
     },
     featureList: schemaFeatureList,
-  }
-
-  const howToSchema = {
-    "@context": "https://schema.org",
-    ...generateShotsHowToSchema(baseUrl, howToInput),
   }
 
   const webPageSchema = {
@@ -178,10 +168,6 @@ export default async function YouTubeShortsDownloaderLayout(props: {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
       />
       <script
         type="application/ld+json"

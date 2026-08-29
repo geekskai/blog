@@ -2,6 +2,7 @@ import { clerkMiddleware } from "@clerk/nextjs/server"
 import createMiddleware from "next-intl/middleware"
 import { NextResponse } from "next/server"
 import { defaultLocale, locales, routing } from "./app/i18n/routing"
+import { getCanonicalToolRedirectPath } from "./app/sitemap-config"
 
 const intlMiddleware = createMiddleware(routing)
 const englishOnlyRoutes = new Set(["pricing", "audio-toolkit", "about"])
@@ -13,6 +14,15 @@ export default clerkMiddleware((_auth, request) => {
 
   if (pathname.startsWith("/api/") || pathname.startsWith("/__clerk/")) {
     return NextResponse.next()
+  }
+
+  const canonicalToolPath = getCanonicalToolRedirectPath(pathname)
+  if (canonicalToolPath) {
+    const canonicalToolUrl = request.nextUrl.clone()
+    canonicalToolUrl.pathname = canonicalToolPath
+    const response = NextResponse.redirect(canonicalToolUrl, 308)
+    response.cookies.set("NEXT_LOCALE", defaultLocale, { path: "/", sameSite: "lax" })
+    return response
   }
 
   const localizedPricing = pathname.match(/^\/([^/]+)\/pricing\/?$/)

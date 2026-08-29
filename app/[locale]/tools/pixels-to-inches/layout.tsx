@@ -177,38 +177,6 @@ export default async function PixelsToInchesLayout(props: {
     dateModified: new Date().toISOString().split("T")[0],
   }
 
-  // 动态生成 FAQ 结构化数据
-
-  // 动态生成 HowTo 结构化数据
-  const howToStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: t("usage_guide.title"),
-    description: t("usage_guide.description"),
-    step: [
-      {
-        "@type": "HowToStep",
-        name: t("usage_guide.step_1_title"),
-        text: t("usage_guide.step_1_description"),
-      },
-      {
-        "@type": "HowToStep",
-        name: t("usage_guide.step_2_title"),
-        text: t("usage_guide.step_2_description"),
-      },
-      {
-        "@type": "HowToStep",
-        name: t("usage_guide.step_3_title"),
-        text: t("usage_guide.step_3_description"),
-      },
-      {
-        "@type": "HowToStep",
-        name: t("usage_guide.step_4_title"),
-        text: t("usage_guide.step_4_description"),
-      },
-    ],
-  }
-
   // 动态生成 ConverterTool 结构化数据
   const converterToolStructuredData = {
     "@context": "https://schema.org",
@@ -268,12 +236,6 @@ export default async function PixelsToInchesLayout(props: {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(dynamicBreadcrumbStructuredData),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(howToStructuredData),
         }}
       />
       <script

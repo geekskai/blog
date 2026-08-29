@@ -1,9 +1,6 @@
 import { buildLanguageAlternates, getLocalizedUrl } from "@/app/i18n/urls"
-import {
-  soundCloudGrowthLocales,
-  soundCloudHubPath,
-  soundCloudToolLinks,
-} from "@/data/soundCloudGrowth"
+import { soundCloudHubPath, soundCloudToolLinks } from "@/data/soundCloudGrowth"
+import { getIndexedToolLocales, isToolLocaleIndexed } from "@/app/sitemap-config"
 import type { Metadata } from "next"
 import React from "react"
 
@@ -11,24 +8,24 @@ const siteUrl = "https://geekskai.com"
 
 const copyByLocale = {
   en: {
-    title: "SoundCloud Tools - Downloader, MP3, WAV, Playlist & Artwork",
+    title: "SoundCloud Tools - Track, MP3/M4A, Playlist & Artwork",
     description:
-      "Choose the right SoundCloud workflow: download tracks, convert to MP3 or WAV, save playlists, or fetch artwork from one focused toolkit.",
+      "Choose a truthful SoundCloud workflow for available MP3/M4A streams, public playlists, or artwork, with format and access limits disclosed.",
   },
   fr: {
-    title: "Outils SoundCloud - Downloader, MP3, WAV, playlists et pochettes",
+    title: "Outils SoundCloud - pistes MP3/M4A, playlists et pochettes",
     description:
-      "Choisissez le bon flux SoundCloud: telecharger des pistes, convertir en MP3 ou WAV, sauvegarder des playlists ou recuperer les pochettes.",
+      "Choisissez un flux SoundCloud clair pour les pistes MP3/M4A disponibles, les playlists publiques ou les pochettes, avec les limites indiquees.",
   },
   es: {
-    title: "Herramientas SoundCloud - Downloader, MP3, WAV, playlists y caratulas",
+    title: "Herramientas SoundCloud - pistas MP3/M4A, playlists y caratulas",
     description:
-      "Elige el flujo correcto: descarga pistas, convierte a MP3 o WAV, guarda playlists o consigue caratulas de SoundCloud.",
+      "Elige un flujo claro para pistas MP3/M4A disponibles, playlists publicas o caratulas, con limites de formato y acceso explicados.",
   },
   de: {
-    title: "SoundCloud Tools - Downloader, MP3, WAV, Playlists und Artwork",
+    title: "SoundCloud Tools - MP3/M4A Tracks, Playlists und Artwork",
     description:
-      "Wahle den passenden SoundCloud Workflow: Tracks laden, zu MP3 oder WAV konvertieren, Playlists speichern oder Coverbilder abrufen.",
+      "Wahle einen klaren Workflow fur verfugbare MP3/M4A-Streams, offentliche Playlists oder Coverbilder mit offengelegten Grenzen.",
   },
 } as const
 
@@ -38,17 +35,16 @@ export async function generateMetadata(props: {
   const { locale } = await props.params
   const copy = copyByLocale[locale as keyof typeof copyByLocale] || copyByLocale.en
   const canonical = getLocalizedUrl(siteUrl, locale, soundCloudHubPath)
-  const shouldIndex = soundCloudGrowthLocales.includes(
-    locale as (typeof soundCloudGrowthLocales)[number]
-  )
-  const lastModified = new Date("2026-07-02")
+  const indexedLocales = getIndexedToolLocales(soundCloudHubPath)
+  const shouldIndex = isToolLocaleIndexed(soundCloudHubPath, locale)
+  const lastModified = new Date("2026-08-29")
 
   return {
     title: copy.title,
     description: copy.description,
     alternates: {
       canonical,
-      languages: buildLanguageAlternates(siteUrl, soundCloudHubPath, [...soundCloudGrowthLocales]),
+      languages: buildLanguageAlternates(siteUrl, soundCloudHubPath, [...indexedLocales]),
     },
     openGraph: {
       title: copy.title,

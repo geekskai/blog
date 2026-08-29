@@ -4,12 +4,8 @@ import siteMetadata from "@/data/siteMetadata"
 import { toolsData } from "@/data/toolsData"
 import { supportedLocales } from "./i18n/routing"
 import { buildLanguageAlternates, getLocalizedUrl } from "./i18n/urls"
-import {
-  isSoundCloudToolPath,
-  soundCloudGrowthLocales,
-  soundCloudHubPath,
-} from "@/data/soundCloudGrowth"
-import { canonicalStaticRoutes } from "./sitemap-config"
+import { soundCloudHubPath } from "@/data/soundCloudGrowth"
+import { canonicalStaticRoutes, getIndexedToolLocales } from "./sitemap-config"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = siteMetadata.siteUrl
@@ -43,16 +39,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   })
 
-  const soundCloudHubRoutes = soundCloudGrowthLocales.map((locale) => ({
+  const soundCloudHubLocales = getIndexedToolLocales(soundCloudHubPath)
+  const soundCloudHubRoutes = soundCloudHubLocales.map((locale) => ({
     url: getLocalizedUrl(siteUrl, locale, soundCloudHubPath),
     alternates: {
-      languages: buildLanguageAlternates(siteUrl, soundCloudHubPath, [...soundCloudGrowthLocales]),
+      languages: buildLanguageAlternates(siteUrl, soundCloudHubPath, [...soundCloudHubLocales]),
     },
   }))
 
   // Generate tool routes for all locales
   const toolRoutes = toolsData.flatMap((tool) => {
-    const locales = isSoundCloudToolPath(tool.href) ? soundCloudGrowthLocales : supportedLocales
+    const locales = getIndexedToolLocales(tool.href)
 
     return locales.map((locale) => {
       // Extract the tool path from href (remove leading slash)

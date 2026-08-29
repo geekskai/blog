@@ -1,5 +1,5 @@
 import { buildLanguageAlternates, getLocalizedUrl } from "@/app/i18n/urls"
-import { isSoundCloudGrowthLocale, soundCloudGrowthLocales } from "@/data/soundCloudGrowth"
+import { getIndexedToolLocales, isToolLocaleIndexed } from "@/app/sitemap-config"
 import type { Metadata } from "next"
 import React from "react"
 import { getTranslations } from "next-intl/server"
@@ -16,7 +16,8 @@ export async function generateMetadata(props: {
 
   const t = await getTranslations({ locale, namespace: "SoundCloudArtworkDownloader" })
   const canonical = getLocalizedUrl(SITE_URL, locale, TOOL_PATH)
-  const shouldIndex = isSoundCloudGrowthLocale(locale)
+  const indexedLocales = getIndexedToolLocales(TOOL_PATH)
+  const shouldIndex = isToolLocaleIndexed(TOOL_PATH, locale)
 
   const lastModified = new Date("2026-06-19")
 
@@ -26,7 +27,7 @@ export async function generateMetadata(props: {
     keywords: t("metadata_keywords").split(", "),
     alternates: {
       canonical,
-      languages: buildLanguageAlternates(SITE_URL, TOOL_PATH, [...soundCloudGrowthLocales]),
+      languages: buildLanguageAlternates(SITE_URL, TOOL_PATH, [...indexedLocales]),
     },
     openGraph: {
       title: t("metadata_og_title"),

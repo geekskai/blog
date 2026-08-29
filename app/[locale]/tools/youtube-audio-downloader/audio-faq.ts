@@ -2,11 +2,8 @@ import { lastModifiedToIso } from "@/lib/youtube-downloader-schema"
 
 export {
   type DownloaderFaqItem as AudioFaqItem,
-  type DownloaderHowToSchemaInput as AudioHowToSchemaInput,
   buildDownloaderFaqItems,
   buildDownloaderFaqItemsWithIds,
-  buildDownloaderHowToInput,
-  generateDownloaderHowToSchema as generateAudioHowToSchema,
   lastModifiedToIso,
 } from "@/lib/youtube-downloader-schema"
 

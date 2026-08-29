@@ -209,7 +209,7 @@ export default function TrackDownloadForm(props: TrackDownloadFormProps) {
                     {t("form_select_format_mp3")}
                   </option>
                   <option value="wav" className="bg-slate-900">
-                    M4A/WAV
+                    {t("form_select_format_wav")}
                   </option>
                 </select>
               </div>
