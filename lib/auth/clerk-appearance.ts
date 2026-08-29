@@ -1,5 +1,6 @@
+const controlRadius = "8px"
+
 export const authClerkAppearance = {
-  theme: "simple" as const,
   variables: {
     colorPrimary: "#0ea5e9",
     colorPrimaryForeground: "#ffffff",
@@ -13,7 +14,7 @@ export const authClerkAppearance = {
     colorBorder: "rgba(148, 163, 184, 0.24)",
     colorRing: "rgba(14, 165, 233, 0.45)",
     colorShadow: "transparent",
-    borderRadius: "0.75rem",
+    borderRadius: controlRadius,
   },
   elements: {
     rootBox: {
@@ -40,14 +41,13 @@ export const authClerkAppearance = {
     headerSubtitle: {
       display: "none",
     },
+    button: {
+      borderRadius: `${controlRadius} !important`,
+    },
     socialButtonsBlockButton: {
       minHeight: "3rem",
-      borderTopLeftRadius: "0.75rem",
-      borderTopRightRadius: "0.75rem",
-      borderBottomRightRadius: "0.75rem",
-      borderBottomLeftRadius: "0.75rem",
+      borderRadius: `${controlRadius} !important`,
       overflow: "hidden",
-      backgroundClip: "padding-box",
       color: "#f8fafc",
       backgroundColor: "rgba(15, 23, 42, 0.85)",
       border: "1px solid rgba(148, 163, 184, 0.24)",
@@ -97,9 +97,13 @@ export const authClerkAppearance = {
     form: {
       gap: "1rem",
     },
+    formFieldInputGroup: {
+      borderRadius: `${controlRadius} !important`,
+      overflow: "hidden",
+    },
     formFieldInput: {
       minHeight: "3rem",
-      borderRadius: "0.75rem",
+      borderRadius: `${controlRadius} !important`,
       color: "#f8fafc !important",
       caretColor: "#38bdf8",
       backgroundColor: "rgba(2, 6, 23, 0.76) !important",
@@ -125,12 +129,8 @@ export const authClerkAppearance = {
     formButtonPrimary: {
       minHeight: "3rem",
       marginTop: "0.25rem",
-      borderTopLeftRadius: "0.75rem",
-      borderTopRightRadius: "0.75rem",
-      borderBottomRightRadius: "0.75rem",
-      borderBottomLeftRadius: "0.75rem",
+      borderRadius: `${controlRadius} !important`,
       overflow: "hidden",
-      backgroundClip: "padding-box",
       color: "#ffffff",
       fontWeight: 700,
       backgroundColor: "#0284c7",

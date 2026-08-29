@@ -29,8 +29,8 @@ function ClerkFormSkeleton({ showConsent }: { showConsent: boolean }) {
       ) : null}
       <div className={showConsent ? "mt-4 md:mt-5" : ""}>
         <div className="grid grid-cols-2 gap-2">
-          <div className={`${pulse} h-12 rounded-xl`} />
-          <div className={`${pulse} h-12 rounded-xl`} />
+          <div className={`${pulse} h-12 rounded-lg`} />
+          <div className={`${pulse} h-12 rounded-lg`} />
         </div>
         <div className="my-4 flex items-center gap-3">
           <div className={`${pulse} h-px flex-1`} />
@@ -40,10 +40,10 @@ function ClerkFormSkeleton({ showConsent }: { showConsent: boolean }) {
         {[0, 1].map((item) => (
           <div key={item} className={item === 0 ? "" : "mt-4"}>
             <div className={`${pulse} h-3.5 w-24`} />
-            <div className={`${pulse} mt-2 h-12 w-full rounded-xl`} />
+            <div className={`${pulse} mt-2 h-12 w-full rounded-lg`} />
           </div>
         ))}
-        <div className={`${pulse} mt-5 h-12 w-full rounded-xl`} />
+        <div className={`${pulse} mt-5 h-12 w-full rounded-lg`} />
         <div className="mt-6 border-t border-slate-800/70 pt-4">
           <div className={`${pulse} mx-auto h-3.5 w-48`} />
         </div>

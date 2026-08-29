@@ -7,7 +7,6 @@ export default function ClerkAppProvider({ children }: { children: ReactNode }) 
       signInUrl="/sign-in/"
       signUpUrl="/sign-up/"
       appearance={{
-        theme: "simple",
         variables: {
           colorPrimary: "#ec4899",
           colorPrimaryForeground: "#ffffff",
