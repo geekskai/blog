@@ -6,14 +6,6 @@ import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import { useLocale, useTranslations } from "next-intl"
 import Image from "next/image"
 
-// @ts-ignore
-import Color from "public/static/images/tools/print-test-page/color-print-colors-and-fonts.png"
-// @ts-ignore
-import BlackWhite from "public/static/images/tools/print-test-page/gray-print-colors-and-fonts.png"
-// @ts-ignore
-import CMYK from "public/static/images/tools/print-test-page/CMYK.png"
-
-// Public paths for print window (must use absolute paths)
 const PRINT_IMAGE_PATHS = {
   color: "/static/images/tools/print-test-page/color-print-colors-and-fonts.png",
   blackWhite: "/static/images/tools/print-test-page/gray-print-colors-and-fonts.png",
@@ -190,7 +182,7 @@ export default function PrintTestPage() {
             })}
           </p>
           {/* Content Freshness Badge */}
-          <ContentFreshnessBadge lastModified={new Date("2026-05-26")} namespace="PrintTestPage" />
+          <ContentFreshnessBadge lastModified={new Date("2026-08-29")} namespace="PrintTestPage" />
         </header>
 
         {/* Print Test Pages Section */}
@@ -213,7 +205,7 @@ export default function PrintTestPage() {
                   <div className="mb-3 flex items-center justify-center md:mb-4">
                     <div className="relative h-24 w-full overflow-hidden rounded-lg bg-white md:h-28 lg:h-32">
                       <Image
-                        src={Color}
+                        src={PRINT_IMAGE_PATHS.color}
                         alt={t("print_alt_color")}
                         fill
                         className="object-contain"
@@ -315,7 +307,7 @@ export default function PrintTestPage() {
                   <div className="mb-3 flex items-center justify-center md:mb-4">
                     <div className="relative h-24 w-full overflow-hidden rounded-lg bg-white md:h-28 lg:h-32">
                       <Image
-                        src={BlackWhite}
+                        src={PRINT_IMAGE_PATHS.blackWhite}
                         alt={t("print_alt_blackWhite")}
                         fill
                         className="object-contain"
@@ -417,7 +409,7 @@ export default function PrintTestPage() {
                   <div className="mb-3 flex items-center justify-center md:mb-4">
                     <div className="relative h-24 w-full overflow-hidden rounded-lg bg-white md:h-28 lg:h-32">
                       <Image
-                        src={CMYK}
+                        src={PRINT_IMAGE_PATHS.cmyk}
                         alt={t("print_alt_cmyk")}
                         fill
                         className="object-contain"
@@ -654,9 +646,7 @@ export default function PrintTestPage() {
       <div ref={printRef} className="hidden">
         {selectedType && (
           <Image
-            src={
-              selectedType === "color" ? Color : selectedType === "blackWhite" ? BlackWhite : CMYK
-            }
+            src={PRINT_IMAGE_PATHS[selectedType]}
             alt={t(`print_alt_${selectedType}`)}
             width={1200}
             height={1600}

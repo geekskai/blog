@@ -17,7 +17,7 @@ export async function generateMetadata(props: {
   const canonical = getLocalizedUrl(SITE_URL, locale, TOOL_PATH)
 
   // Update this monthly
-  const lastModified = new Date("2026-06-19") // Update current date
+  const lastModified = new Date("2026-08-29") // Update current date
 
   return {
     title: t("metadata_title"),
