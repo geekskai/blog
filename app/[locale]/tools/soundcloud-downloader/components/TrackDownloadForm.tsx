@@ -199,7 +199,7 @@ export default function TrackDownloadForm(props: TrackDownloadFormProps) {
             ) : null}
 
             {showFormatSelect ? (
-              <div className="flex w-full flex-col gap-3 md:w-32">
+              <div className="flex w-full flex-col gap-3 md:w-60">
                 <select
                   value={extension}
                   onChange={(e) => onExtensionChange(e.target.value as DownloadFormat)}

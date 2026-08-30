@@ -3,13 +3,14 @@ import { renderToStaticMarkup } from "react-dom/server"
 import { describe, expect, it } from "vitest"
 import DownloadShareModal from "./DownloadShareModal"
 
-function renderModal(canPromiseRegistrationBonus: boolean) {
+function renderModal(canPromiseRegistrationBonus: boolean, canRegister = true) {
   return renderToStaticMarkup(
     createElement(DownloadShareModal, {
       toolId: "soundcloud-track",
       isOpen: true,
       shareLink: "https://geekskai.com/tools/soundcloud-downloader/?ref=quota_share",
       canPromiseRegistrationBonus,
+      canRegister,
       onClose: () => undefined,
       onUnlock: () => undefined,
       onCreateAccount: () => undefined,
@@ -31,5 +32,15 @@ describe("DownloadShareModal registration action", () => {
 
     expect(markup).toContain("Create a free account")
     expect(markup).not.toContain("unlock 7 more today")
+  })
+
+  it("shows Pricing only to people who can create an account", () => {
+    const anonymousMarkup = renderModal(true)
+    const registeredMarkup = renderModal(true, false)
+
+    expect(anonymousMarkup).toContain('href="/pricing"')
+    expect(anonymousMarkup).toContain("Compare Audio Toolkit plans")
+    expect(registeredMarkup).not.toContain('href="/pricing"')
+    expect(registeredMarkup).not.toContain("Compare Audio Toolkit plans")
   })
 })

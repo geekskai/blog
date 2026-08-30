@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useEffect, useMemo, useState } from "react"
 import CopyAndTwitterShareButton from "@/components/CopyAndTwitterShareButton"
 import PostDownloadShareCard from "./PostDownloadShareCard"
@@ -136,6 +137,15 @@ export default function DownloadShareModal({
                 <Share2 className="h-4 w-4" aria-hidden />
                 Share on X — unlock {unlockAmount}
               </CopyAndTwitterShareButton>
+            ) : null}
+
+            {canRegister ? (
+              <Link
+                href="/pricing/"
+                className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-violet-400/30 px-4 text-sm font-semibold text-violet-200 transition hover:bg-violet-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+              >
+                Compare Audio Toolkit plans
+              </Link>
             ) : null}
 
             {errorMessage ? (

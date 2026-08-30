@@ -1,4 +1,4 @@
-export const SOUNDCLOUD_SEO_UPDATED = "2026-08-29"
+export const SOUNDCLOUD_SEO_UPDATED = "2026-08-30"
 
 export type SoundCloudEvidencePage = "wav" | "mp3" | "playlist"
 
@@ -25,7 +25,7 @@ type SoundCloudSectionCopy = {
 
 export const soundCloudSectionCopy: Record<string, SoundCloudSectionCopy> = {
   en: {
-    verified: "Current implementation reviewed on August 29, 2026",
+    verified: "Current implementation reviewed on August 30, 2026",
     directAnswer: "Direct answer",
     facts: "What the current downloader actually does",
     steps: "How the browser download works",
@@ -35,7 +35,7 @@ export const soundCloudSectionCopy: Record<string, SoundCloudSectionCopy> = {
       "This tool does not grant a license or bypass access controls. Download only audio you own, content the creator has made downloadable, or material you otherwise have permission to use.",
   },
   fr: {
-    verified: "Implémentation actuelle examinée le 29 août 2026",
+    verified: "Implémentation actuelle examinée le 30 août 2026",
     directAnswer: "Réponse directe",
     facts: "Ce que le téléchargeur fait réellement",
     steps: "Fonctionnement du téléchargement dans le navigateur",
@@ -45,7 +45,7 @@ export const soundCloudSectionCopy: Record<string, SoundCloudSectionCopy> = {
       "Cet outil n'accorde aucune licence et ne contourne aucun contrôle d'accès. Téléchargez seulement vos propres fichiers, les contenus rendus téléchargeables par leur auteur ou ceux pour lesquels vous avez une autorisation.",
   },
   es: {
-    verified: "Implementación actual revisada el 29 de agosto de 2026",
+    verified: "Implementación actual revisada el 30 de agosto de 2026",
     directAnswer: "Respuesta directa",
     facts: "Qué hace realmente el descargador",
     steps: "Cómo funciona la descarga en el navegador",
@@ -55,7 +55,7 @@ export const soundCloudSectionCopy: Record<string, SoundCloudSectionCopy> = {
       "Esta herramienta no concede licencias ni evita controles de acceso. Descarga únicamente audio propio, contenido que el creador permita descargar o material para el que tengas autorización.",
   },
   de: {
-    verified: "Aktuelle Implementierung am 29. August 2026 geprüft",
+    verified: "Aktuelle Implementierung am 30. August 2026 geprüft",
     directAnswer: "Direkte Antwort",
     facts: "Was der Downloader tatsächlich macht",
     steps: "So funktioniert der Browser-Download",

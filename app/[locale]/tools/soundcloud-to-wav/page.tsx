@@ -8,7 +8,6 @@ import SoundCloudToolSwitcher from "@/components/SoundCloudToolSwitcher"
 import DownloadShareModal from "@/components/download-quota/DownloadShareModal"
 import TrackDownloadForm from "../soundcloud-downloader/components/TrackDownloadForm"
 import { ContentFreshnessBadge } from "@/components/ContentFreshnessBadge"
-import ShareButtons from "@/components/ShareButtons"
 import { useSoundCloudTrackDownloadForm } from "../soundcloud-downloader/hooks/useSoundCloudTrackDownloadForm"
 import FreeWorkspacePrompt from "@/components/auth/FreeWorkspacePrompt"
 import SoundCloudEvidenceContent from "@/components/SoundCloudEvidenceContent"
@@ -96,17 +95,6 @@ export default function Page() {
           <p className="mx-auto mb-3 max-w-7xl text-base text-slate-300 md:text-lg">
             {copy.heroDescription}
           </p>
-
-          {/* <div className="mx-auto mt-5 max-w-4xl rounded-2xl border border-purple-500/20 bg-gradient-to-r from-purple-500/10 via-pink-500/5 to-indigo-500/10 p-4 text-left shadow-lg md:mt-7 md:border-purple-500/30 md:p-5 md:backdrop-blur-md">
-            <div className="flex flex-col gap-3 md:flex-row md:items-start md:gap-4">
-              <div className="inline-flex w-fit items-center rounded-full border border-purple-400/20 bg-purple-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-purple-200">
-                {t("section_convert_online_title")}
-              </div>
-              <p className="flex-1 text-sm leading-6 text-slate-200 md:text-[15px] md:leading-7">
-                {t("section_convert_online_description")}
-              </p>
-            </div>
-          </div> */}
         </header>
 
         {/* Input area card */}
@@ -177,22 +165,7 @@ export default function Page() {
 
         {hasCompletedDownload && <FreeWorkspacePrompt />}
 
-        <ShareButtons />
-
         <DeferredGoogleAdUnitWrap />
-
-        {/* Empty state message */}
-        {/* {loadingState === "idle" && !trackInfo && (
-          <div className="mx-auto max-w-6xl text-center">
-            <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-sm md:p-10">
-              <div className="mb-4 text-5xl md:mb-6 md:text-7xl">🎼</div>
-              <h2 className="mb-2 text-xl font-bold text-white md:mb-3 md:text-2xl">
-                {t("empty_state_title")}
-              </h2>
-              <p className="text-sm text-slate-300 md:text-base">{t("empty_state_description")}</p>
-            </div>
-          </div>
-        )} */}
 
         <SoundCloudEvidenceContent page="wav" />
       </div>

@@ -5,7 +5,6 @@ import dynamic from "next/dynamic"
 import { GoogleAdUnitPlaceholder } from "@/components/GoogleAdUnitPlaceholder"
 import { Home, ChevronRight, Shield, Zap, Download, Users, AlertTriangle } from "lucide-react"
 import { useTranslations } from "next-intl"
-// import ShareButtons from "@/components/ShareButtons"
 import LegalDisclaimer, { UsageRestrictions } from "./components/LegalDisclaimer"
 import SSNGeneratorComponent from "./components/SSNGenerator"
 import EducationalContent from "./components/EducationalContent"
@@ -60,16 +59,6 @@ export default function RandomSSNGenerator() {
           <p className="mx-auto max-w-3xl text-base text-slate-300 md:text-lg">
             {t("page_description")}
           </p>
-
-          {/* Share Component */}
-          {/* <div className="mt-6 flex justify-center">
-            <div className="rounded-lg bg-slate-800/50 p-4 backdrop-blur-sm">
-              <p className="mb-3 text-center text-sm font-medium text-slate-300">
-                {t("share_title")}
-              </p>
-              <ShareButtons />
-            </div>
-          </div> */}
         </div>
 
         {/* Main Content Grid */}
