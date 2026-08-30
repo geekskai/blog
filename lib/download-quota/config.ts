@@ -6,6 +6,7 @@ export const QUOTA_TOOL_IDS = [
   "soundcloud-playlist",
   "soundcloud-track",
   "youtube-audio",
+  "youtube-shorts",
   "youtube-video",
 ] as const
 

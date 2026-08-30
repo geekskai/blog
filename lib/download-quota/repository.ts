@@ -181,7 +181,7 @@ export async function getRegisteredUsage(
       usage.successful_downloads,
       usage.reserved_downloads,
       usage.share_unlocked,
-      ${REGISTERED_DAILY_LIMIT} AS daily_limit,
+      ${REGISTERED_DAILY_LIMIT}::integer AS daily_limit,
       1 AS concurrent_limit,
       true AS share_eligible
     FROM daily_download_usage usage
@@ -210,8 +210,8 @@ export async function reserveRegisteredDownload(
 
   await releaseExpiredReservations(clerkUserId, quotaDay, now)
 
-  const rows = (await sql`
-    WITH attempted AS (
+  const [, rows] = (await sql.transaction((transaction) => [
+    transaction`
       INSERT INTO download_operations (
         id, clerk_user_id, quota_day, tool_id, status, expires_at
       ) VALUES (
@@ -223,11 +223,11 @@ export async function reserveRegisteredDownload(
         ${expiresAt}
       )
       ON CONFLICT (id) DO NOTHING
-      RETURNING id
-    ),
-    entitlement AS (
+    `,
+    transaction`
+    WITH entitlement AS (
       SELECT
-        ${REGISTERED_DAILY_LIMIT} AS daily_limit,
+        ${REGISTERED_DAILY_LIMIT}::integer AS daily_limit,
         1 AS concurrent_limit,
         true AS share_eligible
     ),
@@ -237,10 +237,17 @@ export async function reserveRegisteredDownload(
       FROM entitlement
       WHERE usage.clerk_user_id = ${clerkUserId}
         AND usage.quota_day = ${quotaDay}
-        AND EXISTS (SELECT 1 FROM attempted)
+        AND EXISTS (
+          SELECT 1
+          FROM download_operations operation
+          WHERE operation.id = ${operationId}::uuid
+            AND operation.clerk_user_id = ${clerkUserId}
+            AND operation.status = 'released'
+        )
         AND usage.successful_downloads + usage.reserved_downloads <
           entitlement.daily_limit + CASE
-            WHEN entitlement.share_eligible AND usage.share_unlocked THEN ${SHARE_UNLOCK_AMOUNT}
+            WHEN entitlement.share_eligible AND usage.share_unlocked
+              THEN ${SHARE_UNLOCK_AMOUNT}::integer
             ELSE 0
           END
         AND usage.reserved_downloads < entitlement.concurrent_limit
@@ -256,7 +263,8 @@ export async function reserveRegisteredDownload(
       RETURNING operation.status
     )
     SELECT status FROM activated
-  `) as { status: DownloadOperationStatus }[]
+  `,
+  ])) as [unknown, { status: DownloadOperationStatus }[]]
 
   if (!rows[0]) {
     const existing = await getRegisteredDownloadOperation(clerkUserId, operationId)
@@ -293,7 +301,7 @@ export async function completeRegisteredDownload(
       WHERE id = ${operationId}::uuid
         AND clerk_user_id = ${clerkUserId}
         AND status IN ('reserved', 'processing')
-      RETURNING quota_day
+      RETURNING quota_day, status
     ),
     incremented AS (
       UPDATE daily_download_usage usage
@@ -304,14 +312,18 @@ export async function completeRegisteredDownload(
       FROM completed
       WHERE usage.clerk_user_id = ${clerkUserId}
         AND usage.quota_day = completed.quota_day
-      RETURNING usage.clerk_user_id
     )
+    SELECT status FROM completed
+  `) as { status: DownloadOperationStatus }[]
+
+  if (rows[0]) return rows[0].status
+
+  const existing = (await sql`
     SELECT status
     FROM download_operations
     WHERE id = ${operationId}::uuid AND clerk_user_id = ${clerkUserId}
   `) as { status: DownloadOperationStatus }[]
-
-  return rows[0]?.status ?? null
+  return existing[0]?.status ?? null
 }
 
 export async function getRegisteredDownloadOperation(
@@ -536,28 +548,34 @@ export async function reserveVisitorDownload(
     ON CONFLICT (anonymous_id, quota_day) DO NOTHING
   `
   await releaseExpiredVisitorReservations(anonymousId, quotaDay, now)
-  const rows = (await sql`
-    WITH attempted AS (
+  const [, rows] = (await sql.transaction((transaction) => [
+    transaction`
       INSERT INTO visitor_download_operations (
         id, anonymous_id, quota_day, tool_id, status, expires_at
       ) VALUES (
         ${operationId}::uuid, ${anonymousId}::uuid, ${quotaDay}, ${toolId}, 'released', ${expiresAt}
       )
       ON CONFLICT (id) DO NOTHING
-      RETURNING id
-    ),
-    held AS (
+    `,
+    transaction`
+    WITH held AS (
       UPDATE visitor_download_usage usage
       SET reserved_downloads = reserved_downloads + 1, updated_at = ${now}
       WHERE usage.anonymous_id = ${anonymousId}::uuid
         AND usage.quota_day = ${quotaDay}
-        AND EXISTS (SELECT 1 FROM attempted)
+        AND EXISTS (
+          SELECT 1
+          FROM visitor_download_operations operation
+          WHERE operation.id = ${operationId}::uuid
+            AND operation.anonymous_id = ${anonymousId}::uuid
+            AND operation.status = 'released'
+        )
         AND usage.successful_downloads + usage.reserved_downloads <
-          ${VISITOR_DAILY_LIMIT} + CASE WHEN EXISTS (
+          ${VISITOR_DAILY_LIMIT}::integer + CASE WHEN EXISTS (
             SELECT 1 FROM visitor_share_unlocks share
             WHERE share.anonymous_id = ${anonymousId}::uuid
               AND share.quota_day = ${quotaDay}
-          ) THEN ${SHARE_UNLOCK_AMOUNT} ELSE 0 END
+          ) THEN ${SHARE_UNLOCK_AMOUNT}::integer ELSE 0 END
         AND usage.reserved_downloads < 1
       RETURNING usage.anonymous_id
     ),
@@ -571,7 +589,8 @@ export async function reserveVisitorDownload(
       RETURNING operation.status
     )
     SELECT status FROM activated
-  `) as { status: DownloadOperationStatus }[]
+  `,
+  ])) as [unknown, { status: DownloadOperationStatus }[]]
 
   if (!rows[0]) {
     const existing = await getVisitorDownloadOperation(anonymousId, operationId)
@@ -602,7 +621,7 @@ export async function completeVisitorDownload(
       WHERE id = ${operationId}::uuid
         AND anonymous_id = ${anonymousId}::uuid
         AND status IN ('reserved', 'processing')
-      RETURNING quota_day
+      RETURNING quota_day, status
     ),
     incremented AS (
       UPDATE visitor_download_usage usage
@@ -613,13 +632,18 @@ export async function completeVisitorDownload(
       FROM completed
       WHERE usage.anonymous_id = ${anonymousId}::uuid
         AND usage.quota_day = completed.quota_day
-      RETURNING usage.anonymous_id
     )
+    SELECT status FROM completed
+  `) as { status: DownloadOperationStatus }[]
+
+  if (rows[0]) return rows[0].status
+
+  const existing = (await sql`
     SELECT status
     FROM visitor_download_operations
     WHERE id = ${operationId}::uuid AND anonymous_id = ${anonymousId}::uuid
   `) as { status: DownloadOperationStatus }[]
-  return rows[0]?.status ?? null
+  return existing[0]?.status ?? null
 }
 
 export async function getVisitorDownloadOperation(
@@ -673,7 +697,7 @@ export async function releaseVisitorDownload(
       WHERE id = ${operationId}::uuid
         AND anonymous_id = ${anonymousId}::uuid
         AND status IN ('reserved', 'processing')
-      RETURNING quota_day
+      RETURNING quota_day, status
     ),
     decremented AS (
       UPDATE visitor_download_usage usage
@@ -681,11 +705,16 @@ export async function releaseVisitorDownload(
       FROM released
       WHERE usage.anonymous_id = ${anonymousId}::uuid
         AND usage.quota_day = released.quota_day
-      RETURNING usage.anonymous_id
     )
+    SELECT status FROM released
+  `) as { status: DownloadOperationStatus }[]
+
+  if (rows[0]) return rows[0].status
+
+  const existing = (await sql`
     SELECT status
     FROM visitor_download_operations
     WHERE id = ${operationId}::uuid AND anonymous_id = ${anonymousId}::uuid
   `) as { status: DownloadOperationStatus }[]
-  return rows[0]?.status ?? null
+  return existing[0]?.status ?? null
 }

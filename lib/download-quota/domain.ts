@@ -2,6 +2,12 @@ export const VISITOR_DAILY_LIMIT = 3
 export const REGISTERED_DAILY_LIMIT = 10
 export const SHARE_UNLOCK_AMOUNT = 5
 
+export type QuotaRuntimeMode = "pending" | "local" | "server"
+
+export function growthExperimentsEnabled(mode: QuotaRuntimeMode): boolean {
+  return mode === "server"
+}
+
 type RegisteredQuotaUsage = {
   successfulDownloads: number
   activeReservations: number

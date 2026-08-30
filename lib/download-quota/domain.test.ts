@@ -2,12 +2,19 @@ import { describe, expect, it } from "vitest"
 import {
   getQuotaDay,
   getRegisteredQuotaSummary,
+  growthExperimentsEnabled,
   mergeVisitorUsageCarryover,
   normalizeVisitorShareCarryover,
   normalizeVisitorUsageCarryover,
 } from "./domain"
 
 describe("Daily Download Allowance", () => {
+  it("keeps growth experiments disabled outside trusted server mode", () => {
+    expect(growthExperimentsEnabled("pending")).toBe(false)
+    expect(growthExperimentsEnabled("local")).toBe(false)
+    expect(growthExperimentsEnabled("server")).toBe(true)
+  })
+
   it("uses the UTC calendar day", () => {
     expect(getQuotaDay(new Date("2026-08-05T23:59:59.999Z"))).toBe("2026-08-05")
     expect(getQuotaDay(new Date("2026-08-06T00:00:00.000Z"))).toBe("2026-08-06")

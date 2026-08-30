@@ -2,14 +2,17 @@
 
 import { useAuth } from "@clerk/nextjs"
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
-import type { GrowthEventName } from "@/lib/growth/events"
+import type { GrowthEventDimensions, GrowthEventName } from "@/lib/growth/events"
 import type { QuotaToolId } from "@/lib/download-quota/config"
 import {
   REGISTERED_DAILY_LIMIT,
   SHARE_UNLOCK_AMOUNT,
   VISITOR_DAILY_LIMIT,
+  growthExperimentsEnabled,
+  type QuotaRuntimeMode,
 } from "@/lib/download-quota/domain"
 import { authUrlWithRedirect, quotaRegistrationReturnUrl } from "@/lib/auth/redirect"
+import { cleanGrowthShareUrl } from "@/lib/growth/sharing"
 
 export type DownloadQuotaState = {
   date: string
@@ -52,6 +55,8 @@ type QuotaApiResponse = {
   status?: "reserved" | "processing" | "consumed" | "released" | null
   granted?: boolean
   shareId?: string
+  shareChannelsEnabled?: boolean
+  eventName?: "new_account_completed" | "signin_completed"
   error?: string
 }
 
@@ -109,17 +114,6 @@ function getVisitorCarryover(state: DownloadQuotaState | null) {
   }
 }
 
-function withShareId(url: string, shareId?: string) {
-  try {
-    const parsed = new URL(url)
-    parsed.searchParams.set("ref", "quota_share")
-    if (shareId) parsed.searchParams.set("share_id", shareId)
-    return parsed.toString()
-  } catch {
-    return "https://geekskai.com/?ref=quota_share"
-  }
-}
-
 async function quotaRequest(body: Record<string, unknown>): Promise<QuotaApiResponse> {
   const response = await fetch("/api/download-quota", {
     method: "POST",
@@ -131,6 +125,15 @@ async function quotaRequest(body: Record<string, unknown>): Promise<QuotaApiResp
   return data
 }
 
+function keepaliveQuotaRequest(body: Record<string, unknown>) {
+  return fetch("/api/download-quota", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+    keepalive: true,
+  })
+}
+
 export function useDownloadQuota({
   toolId,
   storageKey = DEFAULT_STORAGE_KEY,
@@ -140,13 +143,15 @@ export function useDownloadQuota({
   const { isLoaded, isSignedIn } = useAuth()
   const [quotaState, setQuotaState] = useState<DownloadQuotaState | null>(null)
   const [serverQuota, setServerQuota] = useState<ServerQuota | null>(null)
-  const [quotaMode, setQuotaMode] = useState<"pending" | "local" | "server">("pending")
+  const [quotaMode, setQuotaMode] = useState<QuotaRuntimeMode>("pending")
   const [storageAvailable, setStorageAvailable] = useState(true)
   const [showShareModal, setShowShareModal] = useState(false)
+  const [showPostDownloadShare, setShowPostDownloadShare] = useState(false)
   const [quotaMessage, setQuotaMessage] = useState<string | null>(null)
   const [unlockSuccessMessage, setUnlockSuccessMessage] = useState<string | null>(null)
   const [shareLink, setShareLink] = useState("https://geekskai.com/?ref=quota_share")
   const [shareLinkReady, setShareLinkReady] = useState(false)
+  const [shareChannelsEnabled, setShareChannelsEnabled] = useState(false)
   const interruptedStateRef = useRef(interruptedState)
   const registrationRestoredRef = useRef(false)
 
@@ -184,9 +189,9 @@ export function useDownloadQuota({
   }, [persistQuota, readQuota])
 
   const trackGrowthEvent = useCallback(
-    async (eventName: GrowthEventName) => {
+    async (eventName: GrowthEventName, dimensions: GrowthEventDimensions = {}) => {
       try {
-        await quotaRequest({ action: "event", eventName, toolId })
+        await quotaRequest({ action: "event", eventName, toolId, ...dimensions })
       } catch {
         // Analytics must never block the user's task.
       }
@@ -196,10 +201,11 @@ export function useDownloadQuota({
 
   useEffect(() => {
     if (typeof window === "undefined") return
-    setShareLink(withShareId(window.location.href))
+    setShareLink(cleanGrowthShareUrl(window.location.href))
     const localQuota = syncDailyQuota()
     if (!isLoaded) return
     setQuotaMode("pending")
+    setShareChannelsEnabled(false)
 
     const carryover = getVisitorCarryover(localQuota)
     void quotaRequest({
@@ -211,6 +217,7 @@ export function useDownloadQuota({
         if (data.mode === "server" && data.quota) {
           setQuotaMode("server")
           setServerQuota(data.quota)
+          setShareChannelsEnabled(data.shareChannelsEnabled === true)
         } else {
           setQuotaMode("local")
         }
@@ -221,18 +228,26 @@ export function useDownloadQuota({
   useEffect(() => {
     if (!isLoaded || !isSignedIn || registrationRestoredRef.current) return
     try {
+      const currentUrl = new URL(window.location.href)
+      if (currentUrl.searchParams.get("quota_return") !== "1") return
       const raw = window.sessionStorage.getItem(REGISTRATION_RETURN_KEY)
       if (!raw) return
       const saved = JSON.parse(raw) as SavedRegistrationReturn
-      if (saved.toolId !== toolId || Date.now() - saved.createdAt > 60 * 60_000) return
+      if (
+        saved.toolId !== toolId ||
+        saved.returnUrl !== currentUrl.pathname ||
+        Date.now() - saved.createdAt > 60 * 60_000
+      ) {
+        window.sessionStorage.removeItem(REGISTRATION_RETURN_KEY)
+        return
+      }
 
       registrationRestoredRef.current = true
       window.sessionStorage.removeItem(REGISTRATION_RETURN_KEY)
       onRegistrationReturn?.(saved.state)
-      void trackGrowthEvent("signup_completed")
-      const cleanUrl = new URL(window.location.href)
-      cleanUrl.searchParams.delete("quota_return")
-      window.history.replaceState({}, "", `${cleanUrl.pathname}${cleanUrl.search}${cleanUrl.hash}`)
+      void quotaRequest({ action: "registration_completed", toolId }).catch(() => undefined)
+      currentUrl.searchParams.delete("quota_return")
+      window.history.replaceState({}, "", `${currentUrl.pathname}${currentUrl.search}`)
     } catch {
       window.sessionStorage.removeItem(REGISTRATION_RETURN_KEY)
     }
@@ -247,25 +262,35 @@ export function useDownloadQuota({
 
   const prepareShareLink = useCallback(async () => {
     const currentUrl = window.location.href
-    const shareId = crypto.randomUUID()
-    const attributedLink = withShareId(currentUrl, shareId)
     setShareLinkReady(false)
-    setShareLink(attributedLink)
+    setShareLink(cleanGrowthShareUrl(currentUrl))
     try {
-      await quotaRequest({ action: "create_share", shareId, toolId })
+      const data = await quotaRequest({
+        action: "create_share",
+        toolId,
+        channel: "x",
+        surface: "quota_gate",
+        copyMode: "template",
+        copyVariant: "baseline",
+      })
+      const attributedLink = cleanGrowthShareUrl(currentUrl, data.shareId)
+      setShareLink(attributedLink)
+      return attributedLink
     } catch {
-      // Keep the opaque ID in the prepared URL even if attribution persistence is unavailable.
+      return cleanGrowthShareUrl(currentUrl)
     } finally {
       setShareLinkReady(true)
     }
-    return attributedLink
   }, [toolId])
 
   const openQuotaGate = useCallback(() => {
     setShowShareModal(true)
-    void trackGrowthEvent("quota_gate_viewed")
-    void prepareShareLink()
-  }, [prepareShareLink, trackGrowthEvent])
+    setShareLinkReady(true)
+    void trackGrowthEvent("quota_gate_viewed", {
+      copyMode: "template",
+      copyVariant: "baseline",
+    })
+  }, [trackGrowthEvent])
 
   const checkQuotaBeforeDownload = useCallback(async (): Promise<DownloadQuotaCheck> => {
     setQuotaMessage(null)
@@ -325,6 +350,7 @@ export function useDownloadQuota({
         const data = await quotaRequest({ action: "complete", operationId, toolId })
         if (data.quota) setServerQuota(data.quota)
         void trackGrowthEvent("successful_download")
+        if (shareChannelsEnabled) setShowPostDownloadShare(true)
       } else {
         const current = syncDailyQuota()
         if (current) {
@@ -333,7 +359,7 @@ export function useDownloadQuota({
         void trackGrowthEvent("successful_download")
       }
     },
-    [persistQuota, quotaMode, syncDailyQuota, toolId, trackGrowthEvent]
+    [persistQuota, quotaMode, shareChannelsEnabled, syncDailyQuota, toolId, trackGrowthEvent]
   )
 
   const releaseDownloadQuota = useCallback(
@@ -350,7 +376,18 @@ export function useDownloadQuota({
   )
 
   const handleShareUnlock = useCallback(async () => {
-    void trackGrowthEvent("share_intent_opened")
+    void trackGrowthEvent("share_intent_opened", {
+      channel: "x",
+      surface: "quota_gate",
+      copyMode: "template",
+      copyVariant: "baseline",
+    })
+    void trackGrowthEvent("share_channel_opened", {
+      channel: "x",
+      surface: "quota_gate",
+      copyMode: "template",
+      copyVariant: "baseline",
+    })
     if (quotaMode === "server") {
       try {
         const data = await quotaRequest({ action: "share_unlock", toolId })
@@ -392,7 +429,7 @@ export function useDownloadQuota({
   }, [persistQuota, quotaMode, syncDailyQuota, toolId, trackGrowthEvent])
 
   const startRegistration = useCallback(() => {
-    const returnUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`
+    const returnUrl = window.location.pathname
     const returnWithMarker = quotaRegistrationReturnUrl(window.location)
     const saved: SavedRegistrationReturn = {
       toolId,
@@ -401,9 +438,15 @@ export function useDownloadQuota({
       createdAt: Date.now(),
     }
     window.sessionStorage.setItem(REGISTRATION_RETURN_KEY, JSON.stringify(saved))
-    void trackGrowthEvent("signup_started")
+    void keepaliveQuotaRequest({
+      action: "event",
+      eventName: "signup_started",
+      toolId,
+      copyMode: "template",
+      copyVariant: "baseline",
+    }).catch(() => undefined)
     window.location.assign(authUrlWithRedirect("/sign-up/", returnWithMarker))
-  }, [toolId, trackGrowthEvent])
+  }, [toolId])
 
   const closeShareModal = useCallback(() => setShowShareModal(false), [])
   const visibleRemaining =
@@ -422,6 +465,7 @@ export function useDownloadQuota({
       maxDailyShareUnlocks: 1,
       storageAvailable,
       mode: quotaMode,
+      canPromiseRegistrationBonus: growthExperimentsEnabled(quotaMode),
       isRegistered: Boolean(isSignedIn),
       shareUnlockAvailable:
         shareLinkReady &&
@@ -448,6 +492,8 @@ export function useDownloadQuota({
     quotaState,
     quotaConfig,
     showShareModal,
+    showPostDownloadShare:
+      growthExperimentsEnabled(quotaMode) && shareChannelsEnabled && showPostDownloadShare,
     shareLink,
     quotaMessage,
     unlockSuccessMessage,
@@ -457,8 +503,10 @@ export function useDownloadQuota({
     consumeDownloadQuota,
     releaseDownloadQuota,
     handleShareUnlock,
+    prepareShareLink,
     startRegistration,
     closeShareModal,
+    dismissPostDownloadShare: () => setShowPostDownloadShare(false),
   }
 }
 
