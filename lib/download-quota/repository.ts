@@ -616,7 +616,7 @@ export async function completeVisitorDownload(
       WHERE id = ${operationId}::uuid
         AND anonymous_id = ${anonymousId}::uuid
         AND status IN ('reserved', 'processing')
-      RETURNING quota_day
+      RETURNING quota_day, status
     ),
     incremented AS (
       UPDATE visitor_download_usage usage
@@ -627,13 +627,18 @@ export async function completeVisitorDownload(
       FROM completed
       WHERE usage.anonymous_id = ${anonymousId}::uuid
         AND usage.quota_day = completed.quota_day
-      RETURNING usage.anonymous_id
     )
+    SELECT status FROM released
+  `) as { status: DownloadOperationStatus }[]
+
+  if (rows[0]) return rows[0].status
+
+  const existing = (await sql`
     SELECT status
     FROM visitor_download_operations
     WHERE id = ${operationId}::uuid AND anonymous_id = ${anonymousId}::uuid
   `) as { status: DownloadOperationStatus }[]
-  return rows[0]?.status ?? null
+  return existing[0]?.status ?? null
 }
 
 export async function getVisitorDownloadOperation(
