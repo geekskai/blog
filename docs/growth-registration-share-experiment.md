@@ -10,7 +10,7 @@ Post-download sharing may not run while `/api/download-quota` returns `mode: "lo
 
 Post-download sharing has one server-only kill switch and defaults to disabled even in server quota mode:
 
-- `GROWTH_SHARE_CHANNELS_ENABLED=true` enables the post-download share card, attribution, and its AI challenger eligibility.
+- `GROWTH_SHARE_CHANNELS_ENABLED=true` enables the post-download share card and attribution.
 
 Quota-gate X remains the existing rewarded secondary path and is not controlled by the post-download channel switch.
 
@@ -44,20 +44,9 @@ External share links contain only the current origin, locale/tool pathname, `ref
 
 The first release measures Referred Registration but provides no inviter or recipient reward. Reconsider a two-sided reward only after at least 100 referred New Account Completions; any later reward must require a Successful Download within 24 hours of registration.
 
-## Deferred AI copy challenger
+## Deferred AI copy
 
-The MVP UI ships only deterministic templates and does not request AI copy. The existing AI challenger endpoint remains dormant unless it is reconnected in a later, separately authorized phase with all of these server-only variables:
-
-- `GROWTH_SHARE_CHANNELS_ENABLED=true`
-- `GROWTH_SHARE_AI_ENABLED=true`
-- `GROWTH_SHARE_AI_MODEL=<evaluated model id ending in -free>`
-- `AI_GATEWAY_API_KEY=<dedicated key>`
-
-The code does not set Vercel budgets or purchase credits. Before activation, create a dedicated Gateway key, set a $1 monthly feature budget, disable automatic recharge, and run a fixed copy evaluation. On 2026-08-30, the Gateway directory exposed free-marked text candidates including `inclusionai/ling-3.0-flash-fin-free`, `minimax/minimax-m2.7-free`, `minimax/minimax-m3-free`, and `poolside/laguna-s-2.1-free`; this is a dated candidate list, not a selected model. Re-query the current model directory before configuration. If no candidate passes, leave the feature off.
-
-`/api/growth/share-copy` accepts only Tool ID, English locale, and Share Channel. The server supplies the approved benefit. It requires an active server-issued Growth Journey and permits at most one challenger attempt per journey, tool, and channel in 24 hours. It passes no media URL, title, user information, tool input, or result to the model and does not persist generated copy. The request has a 2.5-second timeout and zero retries. Disabled configuration, control assignment, timeout, 402, 429, provider error, or invalid output leaves the template in place.
-
-Do not activate the AI challenger as part of the template-sharing MVP. Re-evaluate its model, concurrency control, budget, and measurement plan before enabling it.
+The MVP ships deterministic templates only. It contains no AI copy endpoint, AI SDK dependency, Gateway configuration, or AI-specific growth events. Reconsider AI copy in a separately researched and authorized phase rather than activating it through environment variables.
 
 ## Minimum MVP verification
 

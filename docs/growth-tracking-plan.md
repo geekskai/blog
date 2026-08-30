@@ -15,8 +15,6 @@ The quota funnel uses first-party server events. Client behavior data must not s
 | `share_card_viewed`     | A Successful Download reveals the optional share card       | tool, surface, copy mode and variant                   |
 | `share_channel_opened`  | A real composer opens or Copy Link succeeds                 | tool, channel, surface, copy mode and variant          |
 | `share_landing`         | A valid unexpired `share_id` reaches a tool                 | persisted share dimensions                             |
-| `ai_copy_generated`     | AI challenger output passes validation                      | tool, channel, AI variant                              |
-| `ai_copy_failed`        | AI challenger times out, errors, or fails validation        | tool, channel, AI variant                              |
 
 Raw events retain no generated share copy. Long-term `daily_growth_channel_metrics` groups only date, tool, channel, surface, copy mode, and copy variant.
 

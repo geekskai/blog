@@ -320,12 +320,8 @@ _Avoid_: Share landing as registration, last-click overwrite, referral reward
 One of `x`, `whatsapp`, `telegram`, `reddit`, or `copy`, recorded only when the person selects that real channel action. Each selection receives an independent server-issued `share_id`; the value is a bounded analytics dimension, not proof that content was published.
 _Avoid_: Generic social event, platform account identity, verified publication
 
-**AI Copy Challenger**:
-An English-only, optional challenge variant for Safe Result Sharing. The template appears immediately; Vercel AI Gateway may replace it only when the feature flag, dedicated key, fixed free-model evaluation, and budget gate are all active. The model receives only Tool ID, locale, Share Channel, and an approved benefit; generated text is validated, never stored, and any timeout, payment, rate-limit, configuration, or validation failure silently retains the template.
-_Avoid_: AI dependency for sharing, media input in prompt, stored generated copy, evergreen free-cost claim
-
 **Growth Feature Kill Switch**:
-A server-only, independently authorized control. `GROWTH_SHARE_CHANNELS_ENABLED=true` enables Safe Result Sharing, post-download attribution, and AI Copy Challenger eligibility. It defaults to false and does not control the existing registration action or quota-gate X Share Unlock. Registration uses one fixed message rather than an A/B experiment.
+A server-only, independently authorized control. `GROWTH_SHARE_CHANNELS_ENABLED=true` enables Safe Result Sharing and post-download attribution. It defaults to false and does not control the existing registration action or quota-gate X Share Unlock. Registration uses one fixed message rather than an A/B experiment.
 _Avoid_: Public client flags, implicit activation from server quota mode, registration-copy bucketing
 
 **Growth Event Retention**:

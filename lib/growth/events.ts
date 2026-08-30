@@ -13,8 +13,6 @@ export const GROWTH_EVENT_NAMES = [
   "share_card_viewed",
   "share_channel_opened",
   "share_landing",
-  "ai_copy_generated",
-  "ai_copy_failed",
   "billing_checkout_started_payg",
   "billing_checkout_started_subscription",
   "billing_payment_completed_payg",
@@ -69,44 +67,6 @@ export async function ensureGrowthJourney({
       expires_at = GREATEST(growth_journeys.expires_at, EXCLUDED.expires_at),
       updated_at = ${now}
   `
-}
-
-export async function isActiveGrowthJourney(journeyId: string, now = new Date()) {
-  const sql = getSqlClient()
-  const rows = (await sql`
-    SELECT id
-    FROM growth_journeys
-    WHERE id = ${journeyId}::uuid
-      AND expires_at > ${now}
-    LIMIT 1
-  `) as { id: string }[]
-  return rows.length > 0
-}
-
-export async function hasRecentAiCopyAttempt({
-  journeyId,
-  toolId,
-  channel,
-  now = new Date(),
-}: {
-  journeyId: string
-  toolId: QuotaToolId
-  channel: ShareChannel
-  now?: Date
-}) {
-  const sql = getSqlClient()
-  const cutoff = new Date(now.getTime() - 24 * 60 * 60_000)
-  const rows = (await sql`
-    SELECT id
-    FROM growth_events
-    WHERE journey_id = ${journeyId}::uuid
-      AND tool_id = ${toolId}
-      AND share_channel = ${channel}
-      AND event_name IN ('ai_copy_generated', 'ai_copy_failed')
-      AND occurred_at >= ${cutoff}
-    LIMIT 1
-  `) as { id: string }[]
-  return rows.length > 0
 }
 
 export async function purgeExpiredGrowthData(now = new Date()) {

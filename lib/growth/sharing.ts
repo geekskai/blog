@@ -123,13 +123,3 @@ export function buildShareIntentUrl(
 
   return target.toString()
 }
-
-export function validateAiShareCopy(channel: ShareChannel, value: unknown) {
-  if (typeof value !== "string") return null
-  const text = value.trim()
-  const maxLength = channel === "x" ? 240 : 500
-  if (text.length < 20 || text.length > maxLength) return null
-  if (/https?:\/\/|www\./i.test(text)) return null
-  if (/\b(?:i|we)\s+(?:used|tried|tested|verified|downloaded|saved)\b/i.test(text)) return null
-  return text
-}

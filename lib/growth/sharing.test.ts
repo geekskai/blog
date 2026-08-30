@@ -5,7 +5,6 @@ import {
   cleanGrowthShareUrl,
   getTemplateShareCopy,
   isShareChannel,
-  validateAiShareCopy,
 } from "./sharing"
 
 describe("growth sharing", () => {
@@ -69,14 +68,5 @@ describe("growth sharing", () => {
     expect(telegram.origin + telegram.pathname).toBe("https://t.me/share/url")
     expect(telegram.searchParams.get("url")).toBe(shareUrl)
     expect(telegram.searchParams.get("text")).toBe(copy.text)
-  })
-
-  it("rejects unsafe or overlong AI challenger output", () => {
-    expect(validateAiShareCopy("x", "A concise, useful tool description.")).toBe(
-      "A concise, useful tool description."
-    )
-    expect(validateAiShareCopy("x", "I tested and verified this downloader.")).toBeNull()
-    expect(validateAiShareCopy("x", "Visit https://example.com now")).toBeNull()
-    expect(validateAiShareCopy("x", "x".repeat(241))).toBeNull()
   })
 })

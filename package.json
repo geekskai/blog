@@ -38,7 +38,6 @@
     "@tailwindcss/typography": "^0.5.12",
     "@types/cheerio": "^0.22.35",
     "@types/dom-to-image": "^2.6.0",
-    "ai": "^7.0.84",
     "autoprefixer": "^10.4.13",
     "bandcamp-scraper": "^1.5.0",
     "body-scroll-lock": "^4.0.0-beta.0",
