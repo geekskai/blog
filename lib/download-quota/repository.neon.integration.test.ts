@@ -1,6 +1,8 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest"
 import { getSqlClient } from "@/lib/db/client"
 import {
+  completeRegisteredDownload,
+  completeVisitorDownload,
   getRegisteredUsage,
   getVisitorUsage,
   releaseRegisteredDownload,
@@ -18,9 +20,11 @@ describeNeon("download quota reservations on Neon", () => {
   const anonymousId = crypto.randomUUID()
   const visitorOperationA = crypto.randomUUID()
   const visitorOperationB = crypto.randomUUID()
+  const visitorOperationC = crypto.randomUUID()
   const clerkUserId = `quota_integration_${crypto.randomUUID()}`
   const registeredOperationA = crypto.randomUUID()
   const registeredOperationB = crypto.randomUUID()
+  const registeredOperationC = crypto.randomUUID()
 
   beforeAll(async () => {
     const databaseUrl = process.env.DOWNLOAD_QUOTA_TEST_DATABASE_URL?.trim()
@@ -145,5 +149,43 @@ describeNeon("download quota reservations on Neon", () => {
       quota: { remaining: 9, activeReservations: 1 },
     })
     expect(await releaseRegisteredDownload(clerkUserId, registeredOperationB)).toBe("released")
+  })
+
+  it("returns the consumed Visitor status and settles its held allowance", async () => {
+    const reserved = await reserveVisitorDownload(
+      anonymousId,
+      visitorOperationC,
+      "soundcloud-artwork"
+    )
+    expect(reserved).toMatchObject({
+      outcome: "reserved",
+      quota: { remaining: 2, activeReservations: 1 },
+    })
+
+    expect(await completeVisitorDownload(anonymousId, visitorOperationC)).toBe("consumed")
+    expect(await getVisitorUsage(anonymousId)).toMatchObject({
+      remaining: 2,
+      successfulDownloads: 1,
+      activeReservations: 0,
+    })
+  })
+
+  it("returns the consumed Registered User status and settles its held allowance", async () => {
+    const reserved = await reserveRegisteredDownload(
+      clerkUserId,
+      registeredOperationC,
+      "youtube-shorts"
+    )
+    expect(reserved).toMatchObject({
+      outcome: "reserved",
+      quota: { remaining: 9, activeReservations: 1 },
+    })
+
+    expect(await completeRegisteredDownload(clerkUserId, registeredOperationC)).toBe("consumed")
+    expect(await getRegisteredUsage(clerkUserId)).toMatchObject({
+      remaining: 9,
+      successfulDownloads: 1,
+      activeReservations: 0,
+    })
   })
 })

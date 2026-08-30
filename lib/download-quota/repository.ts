@@ -300,7 +300,7 @@ export async function completeRegisteredDownload(
       WHERE id = ${operationId}::uuid
         AND clerk_user_id = ${clerkUserId}
         AND status IN ('reserved', 'processing')
-      RETURNING quota_day
+      RETURNING quota_day, status
     ),
     incremented AS (
       UPDATE daily_download_usage usage
@@ -311,14 +311,18 @@ export async function completeRegisteredDownload(
       FROM completed
       WHERE usage.clerk_user_id = ${clerkUserId}
         AND usage.quota_day = completed.quota_day
-      RETURNING usage.clerk_user_id
     )
+    SELECT status FROM completed
+  `) as { status: DownloadOperationStatus }[]
+
+  if (rows[0]) return rows[0].status
+
+  const existing = (await sql`
     SELECT status
     FROM download_operations
     WHERE id = ${operationId}::uuid AND clerk_user_id = ${clerkUserId}
   `) as { status: DownloadOperationStatus }[]
-
-  return rows[0]?.status ?? null
+  return existing[0]?.status ?? null
 }
 
 export async function getRegisteredDownloadOperation(
@@ -628,7 +632,7 @@ export async function completeVisitorDownload(
       WHERE usage.anonymous_id = ${anonymousId}::uuid
         AND usage.quota_day = completed.quota_day
     )
-    SELECT status FROM released
+    SELECT status FROM completed
   `) as { status: DownloadOperationStatus }[]
 
   if (rows[0]) return rows[0].status
@@ -692,7 +696,7 @@ export async function releaseVisitorDownload(
       WHERE id = ${operationId}::uuid
         AND anonymous_id = ${anonymousId}::uuid
         AND status IN ('reserved', 'processing')
-      RETURNING quota_day
+      RETURNING quota_day, status
     ),
     decremented AS (
       UPDATE visitor_download_usage usage
@@ -700,11 +704,16 @@ export async function releaseVisitorDownload(
       FROM released
       WHERE usage.anonymous_id = ${anonymousId}::uuid
         AND usage.quota_day = released.quota_day
-      RETURNING usage.anonymous_id
     )
+    SELECT status FROM released
+  `) as { status: DownloadOperationStatus }[]
+
+  if (rows[0]) return rows[0].status
+
+  const existing = (await sql`
     SELECT status
     FROM visitor_download_operations
     WHERE id = ${operationId}::uuid AND anonymous_id = ${anonymousId}::uuid
   `) as { status: DownloadOperationStatus }[]
-  return rows[0]?.status ?? null
+  return existing[0]?.status ?? null
 }
