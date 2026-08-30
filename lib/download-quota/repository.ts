@@ -210,8 +210,8 @@ export async function reserveRegisteredDownload(
 
   await releaseExpiredReservations(clerkUserId, quotaDay, now)
 
-  const rows = (await sql`
-    WITH attempted AS (
+  const [, rows] = (await sql.transaction((transaction) => [
+    transaction`
       INSERT INTO download_operations (
         id, clerk_user_id, quota_day, tool_id, status, expires_at
       ) VALUES (
@@ -223,9 +223,9 @@ export async function reserveRegisteredDownload(
         ${expiresAt}
       )
       ON CONFLICT (id) DO NOTHING
-      RETURNING id
-    ),
-    entitlement AS (
+    `,
+    transaction`
+    WITH entitlement AS (
       SELECT
         ${REGISTERED_DAILY_LIMIT} AS daily_limit,
         1 AS concurrent_limit,
@@ -237,7 +237,13 @@ export async function reserveRegisteredDownload(
       FROM entitlement
       WHERE usage.clerk_user_id = ${clerkUserId}
         AND usage.quota_day = ${quotaDay}
-        AND EXISTS (SELECT 1 FROM attempted)
+        AND EXISTS (
+          SELECT 1
+          FROM download_operations operation
+          WHERE operation.id = ${operationId}::uuid
+            AND operation.clerk_user_id = ${clerkUserId}
+            AND operation.status = 'released'
+        )
         AND usage.successful_downloads + usage.reserved_downloads <
           entitlement.daily_limit + CASE
             WHEN entitlement.share_eligible AND usage.share_unlocked THEN ${SHARE_UNLOCK_AMOUNT}
@@ -256,7 +262,8 @@ export async function reserveRegisteredDownload(
       RETURNING operation.status
     )
     SELECT status FROM activated
-  `) as { status: DownloadOperationStatus }[]
+  `,
+  ])) as [unknown, { status: DownloadOperationStatus }[]]
 
   if (!rows[0]) {
     const existing = await getRegisteredDownloadOperation(clerkUserId, operationId)
@@ -536,22 +543,28 @@ export async function reserveVisitorDownload(
     ON CONFLICT (anonymous_id, quota_day) DO NOTHING
   `
   await releaseExpiredVisitorReservations(anonymousId, quotaDay, now)
-  const rows = (await sql`
-    WITH attempted AS (
+  const [, rows] = (await sql.transaction((transaction) => [
+    transaction`
       INSERT INTO visitor_download_operations (
         id, anonymous_id, quota_day, tool_id, status, expires_at
       ) VALUES (
         ${operationId}::uuid, ${anonymousId}::uuid, ${quotaDay}, ${toolId}, 'released', ${expiresAt}
       )
       ON CONFLICT (id) DO NOTHING
-      RETURNING id
-    ),
-    held AS (
+    `,
+    transaction`
+    WITH held AS (
       UPDATE visitor_download_usage usage
       SET reserved_downloads = reserved_downloads + 1, updated_at = ${now}
       WHERE usage.anonymous_id = ${anonymousId}::uuid
         AND usage.quota_day = ${quotaDay}
-        AND EXISTS (SELECT 1 FROM attempted)
+        AND EXISTS (
+          SELECT 1
+          FROM visitor_download_operations operation
+          WHERE operation.id = ${operationId}::uuid
+            AND operation.anonymous_id = ${anonymousId}::uuid
+            AND operation.status = 'released'
+        )
         AND usage.successful_downloads + usage.reserved_downloads <
           ${VISITOR_DAILY_LIMIT} + CASE WHEN EXISTS (
             SELECT 1 FROM visitor_share_unlocks share
@@ -571,7 +584,8 @@ export async function reserveVisitorDownload(
       RETURNING operation.status
     )
     SELECT status FROM activated
-  `) as { status: DownloadOperationStatus }[]
+  `,
+  ])) as [unknown, { status: DownloadOperationStatus }[]]
 
   if (!rows[0]) {
     const existing = await getVisitorDownloadOperation(anonymousId, operationId)
