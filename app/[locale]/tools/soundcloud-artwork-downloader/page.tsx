@@ -304,7 +304,9 @@ export default function SoundCloudArtworkDownloaderPage() {
         </div>
       </div>
       <DownloadShareModal
+        toolId="soundcloud-artwork"
         isOpen={downloadQuota.showShareModal}
+        showPostDownloadShare={downloadQuota.showPostDownloadShare}
         shareLink={downloadQuota.shareLink}
         unlockAmount={downloadQuota.quotaConfig.shareBonusClicks}
         canRegister={!downloadQuota.quotaConfig.isRegistered}
@@ -312,10 +314,15 @@ export default function SoundCloudArtworkDownloaderPage() {
         used={downloadQuota.quotaConfig.used}
         limit={downloadQuota.quotaConfig.limit}
         remaining={downloadQuota.quotaConfig.remaining}
+        registrationVariant={downloadQuota.quotaConfig.registrationVariant}
+        registrationExperimentEnabled={downloadQuota.quotaConfig.registrationExperimentEnabled}
+        canPromiseRegistrationBonus={downloadQuota.quotaConfig.canPromiseRegistrationBonus}
         errorMessage={downloadQuota.quotaMessage}
         onClose={downloadQuota.closeShareModal}
         onUnlock={downloadQuota.handleShareUnlock}
+        onPrepareShareLink={downloadQuota.prepareShareLink}
         onCreateAccount={downloadQuota.startRegistration}
+        onDismissPostDownloadShare={downloadQuota.dismissPostDownloadShare}
       />
     </div>
   )

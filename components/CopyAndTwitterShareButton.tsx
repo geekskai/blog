@@ -3,11 +3,10 @@
 import { Copy } from "lucide-react"
 import type { ReactNode } from "react"
 
-export const DEFAULT_FISSION_SHARE_URL =
-  "https://geekskai.com/tools/soundcloud-downloader/?ref=fission_share"
+export const DEFAULT_FISSION_SHARE_URL = "https://geekskai.com/tools/?ref=fission_share"
 
 export const DEFAULT_FISSION_SHARE_TITLE =
-  "🔥 Check out this awesome SoundCloud downloader! Saved my day. Try it here: "
+  "Geekskai offers practical browser-based tools. Review the source and usage rights before downloading."
 
 type CopyAndTwitterShareButtonProps = {
   url?: string
@@ -19,6 +18,8 @@ type CopyAndTwitterShareButtonProps = {
   onCopied?: () => void
   /** Fires when clipboard copy fails — user can still share via the X dialog. */
   onCopyFailed?: () => void
+  /** Creates the final attributed URL after the user selects X. */
+  onPrepareUrl?: () => Promise<string>
   /** Fires on the same user gesture as copy + X popup (e.g. grant a share-intent reward). */
   onShareClick?: () => void
 }
@@ -40,6 +41,20 @@ async function copyShareLink(text: string) {
   document.body.removeChild(textarea)
 }
 
+export function openTwitterComposer(
+  url: string,
+  title: string,
+  openWindow: typeof window.open = window.open.bind(window)
+) {
+  const shareUrl = new URL("https://twitter.com/intent/tweet")
+  shareUrl.searchParams.set("url", url)
+  shareUrl.searchParams.set("text", title)
+  const popup = openWindow(shareUrl, "_blank", "width=720,height=640")
+  if (!popup) return false
+  popup.opener = null
+  return true
+}
+
 export default function CopyAndTwitterShareButton({
   url = DEFAULT_FISSION_SHARE_URL,
   title = DEFAULT_FISSION_SHARE_TITLE,
@@ -48,26 +63,29 @@ export default function CopyAndTwitterShareButton({
   children,
   onCopied,
   onCopyFailed,
+  onPrepareUrl,
   onShareClick,
 }: CopyAndTwitterShareButtonProps) {
   const handleClick = () => {
-    void copyShareLink(url)
-      .then(() => {
-        onCopied?.()
-        // toast("Link copied!")
-      })
-      .catch(() => {
-        onCopyFailed?.()
-      })
-
-    const shareUrl = new URL("https://twitter.com/intent/tweet")
-    shareUrl.searchParams.set("url", url)
-    shareUrl.searchParams.set("text", title)
-    const popup = window.open(shareUrl, "_blank", "width=720,height=640")
-    if (popup) {
-      popup.opener = null
-      onShareClick?.()
+    if (!onPrepareUrl) {
+      void copyShareLink(url).then(onCopied).catch(onCopyFailed)
+      if (openTwitterComposer(url, title)) onShareClick?.()
+      return
     }
+
+    const popup = window.open("about:blank", "_blank", "width=720,height=640")
+    if (!popup) return
+    popup.opener = null
+    void onPrepareUrl()
+      .then((preparedUrl) => {
+        void copyShareLink(preparedUrl).then(onCopied).catch(onCopyFailed)
+        const shareUrl = new URL("https://twitter.com/intent/tweet")
+        shareUrl.searchParams.set("url", preparedUrl)
+        shareUrl.searchParams.set("text", title)
+        popup.location.href = shareUrl.toString()
+        onShareClick?.()
+      })
+      .catch(() => popup.close())
   }
 
   return (

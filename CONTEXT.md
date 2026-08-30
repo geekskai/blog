@@ -129,8 +129,8 @@ An indexed acquisition page receives a 90-day observation window. If it produces
 _Avoid_: Permanent index bloat, 28-day deletion, URL removal without consolidation review
 
 **Safe Result Sharing**:
-An optional growth loop for tools whose completed result can be shared safely. A tool may create a clean share link or embed code using an opaque identifier that exposes neither raw input nor sensitive result data. Sharing is never required, rewarded, or treated as proof of publication.
-_Avoid_: Share wall, share-for-credits, raw input in URL, sensitive public result, claimed verified share
+An optional, unrewarded growth loop shown after a Successful Download. It creates a clean tool-path link with an opaque Share Attribution identifier and offers editable X, WhatsApp, Telegram, Reddit, and Copy Link actions without exposing raw input, media URLs, query parameters, hashes, or sensitive result data. Reddit never auto-selects a subreddit or publishes automatically.
+_Avoid_: Post-download reward, share wall, raw input in URL, sensitive public result, auto-post, claimed verified share
 
 **Outcome-Adjacent Recommendation**:
 The post-success navigation rule for ordinary acquisition tools. After a Successful Tool Outcome, the page may recommend one to three tools from the same cluster that represent a plausible next step in the Visitor's current task. Generic site-wide popularity does not determine this placement.
@@ -305,8 +305,28 @@ A unique Visitor who sees a Quota Gate, completes registration, and then complet
 _Avoid_: Registration count, sign-up click, account created
 
 **Growth Journey**:
-A first-party, pseudonymous sequence of quota-funnel events identified before registration by a server-issued opaque `journey_id` and associated with a Clerk user ID after registration. It records event names, tool identifiers, and timestamps, but never media URLs, tool input, or IP addresses.
+A first-party, pseudonymous sequence of quota-funnel events identified before registration by a server-issued opaque `journey_id` and associated with a Clerk user ID after registration. It records event names, tool identifiers, restricted Share Channel, surface, copy mode and variant dimensions, and timestamps, but never share-copy text, media URLs, tool input, or IP addresses.
 _Avoid_: Browser fingerprint, advertising identity, media history
+
+**New Account Completion**:
+A Registration Return in which the server confirms that the authenticated Clerk user's creation time belongs to the same recent `signup_started` Growth Journey. Returning with an existing account is recorded separately as `signin_completed` and never counted as a new account.
+_Avoid_: Client-reported signup, sign-in as signup, registration-page visit
+
+**Referred Registration**:
+A New Account Completion whose Growth Journey has a valid, unexpired 30-day first-touch Share Attribution. It is an attribution result only and grants no reward to the inviter or new account in the first release.
+_Avoid_: Share landing as registration, last-click overwrite, referral reward
+
+**Share Channel**:
+One of `x`, `whatsapp`, `telegram`, `reddit`, or `copy`, recorded only when the person selects that real channel action. Each selection receives an independent server-issued `share_id`; the value is a bounded analytics dimension, not proof that content was published.
+_Avoid_: Generic social event, platform account identity, verified publication
+
+**AI Copy Challenger**:
+An English-only, optional challenge variant for Safe Result Sharing. The template appears immediately; Vercel AI Gateway may replace it only when the feature flag, dedicated key, fixed free-model evaluation, and budget gate are all active. The model receives only Tool ID, locale, Share Channel, and an approved benefit; generated text is validated, never stored, and any timeout, payment, rate-limit, configuration, or validation failure silently retains the template.
+_Avoid_: AI dependency for sharing, media input in prompt, stored generated copy, evergreen free-cost claim
+
+**Growth Experiment Kill Switches**:
+Server-only, independently authorized controls. `GROWTH_REGISTRATION_EXPERIMENT_ENABLED=true` enables English journey-sticky registration-copy variants. `GROWTH_SHARE_CHANNELS_ENABLED=true` enables Safe Result Sharing, post-download attribution, and AI Copy Challenger eligibility. Both default to false and do not control the existing quota-gate X Share Unlock.
+_Avoid_: Public client flags, implicit activation from server quota mode, coupled rollout
 
 **Growth Event Retention**:
 The 90-day period during which raw Growth Journey events and their identity linkage remain available. Afterward, only de-identified daily aggregates remain; billing, entitlement, subscription, and payment-webhook records follow separate retention rules.
@@ -329,8 +349,8 @@ A short-lived, server-authoritative hold on one Registered User download slot, i
 _Avoid_: Client-side decrement, permanent failed attempt, duplicate retry charge
 
 **Share Unlock**:
-A once-per-Quota-Day reward of 5 additional downloads for a Visitor or Registered User who opens a prepared Geekskai share in X. It raises a Visitor's daily maximum to 8 and a Registered User's daily maximum to 15, but does not claim that the post was published or verified. Audio Toolkit Package Tier does not affect eligibility.
-_Avoid_: Verified share, published share, unlimited sharing, repeat share farming
+A once-per-Quota-Day reward of 5 additional downloads available only from the Quota Gate when a Visitor or Registered User successfully opens a prepared Geekskai X composer. It raises a Visitor's daily maximum to 8 and a Registered User's daily maximum to 15, but does not claim that the post was published or verified. Safe Result Sharing channels never grant allowance, and Audio Toolkit Package Tier does not affect eligibility.
+_Avoid_: Post-download reward, non-X reward, popup-blocked reward, verified share, unlimited sharing
 
 **Share Attribution**:
 A 30-day, first-touch association created when a recipient opens a Geekskai URL containing an opaque random `share_id`. It connects a share landing to later registration and Quota-Gate Activation without exposing the sharer's Clerk ID or personal data; it provides measurement only and grants no inviter reward in the first release.
@@ -341,7 +361,7 @@ The choice shown when a person's Daily Download Allowance reaches zero. Account 
 _Avoid_: Paywall, forced registration, share wall
 
 **Quota Tool Rollout**:
-The first release scope covering every downloader that already uses the shared download-quota controller, with an independent server-side enable switch per tool. Ordinary tools without download quotas remain outside the rollout.
+The first release scope covering every downloader that uses the shared download-quota controller, including YouTube Shorts after removal of its legacy local-only reward logic, with an independent server-side enable switch per tool. Ordinary tools without download quotas remain outside the rollout.
 _Avoid_: Site-wide tool gate, single irreversible launch
 
 **Registration Return**:

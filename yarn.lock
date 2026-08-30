@@ -5,6 +5,43 @@ __metadata:
   version: 6
   cacheKey: 8
 
+"@ai-sdk/gateway@npm:4.0.68":
+  version: 4.0.68
+  resolution: "@ai-sdk/gateway@npm:4.0.68"
+  dependencies:
+    "@ai-sdk/provider": 4.0.8
+    "@ai-sdk/provider-utils": 5.0.33
+    "@vercel/oidc": 3.2.0
+  peerDependencies:
+    zod: ^3.25.76 || ^4.1.8
+  checksum: 15c143796ab224611517fd70f1e3796abf4ab295f373d493bdf9e95abbf14e51927a4043dc696e0590279f1bfa0a9d303780d18fe067c5f62f825f1d72e04176
+  languageName: node
+  linkType: hard
+
+"@ai-sdk/provider-utils@npm:5.0.33":
+  version: 5.0.33
+  resolution: "@ai-sdk/provider-utils@npm:5.0.33"
+  dependencies:
+    "@ai-sdk/provider": 4.0.8
+    "@standard-schema/spec": ^1.1.0
+    "@workflow/serde": 4.1.0
+    eventsource-parser: ^3.0.8
+    undici: ^7.28.0
+  peerDependencies:
+    zod: ^3.25.76 || ^4.1.8
+  checksum: dfda655e25329f5473d3e1249bd693b40d8c4f15aa63727df70d46b574ecbf8699d4728587de5b2a25543f1888f70f096f1b8cef669ca995ef82410c99776c46
+  languageName: node
+  linkType: hard
+
+"@ai-sdk/provider@npm:4.0.8":
+  version: 4.0.8
+  resolution: "@ai-sdk/provider@npm:4.0.8"
+  dependencies:
+    json-schema: ^0.4.0
+  checksum: 1adb388522e109b9859447f2c1ff792af429028b997518929f1b18e8d0521237ad7019a8fb9994eabc79c512c634a107dcf7c6382e94a12d10e2d442476a374b
+  languageName: node
+  linkType: hard
+
 "@algolia/abtesting@npm:1.3.0":
   version: 1.3.0
   resolution: "@algolia/abtesting@npm:1.3.0"
@@ -5760,6 +5797,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vercel/oidc@npm:3.2.0":
+  version: 3.2.0
+  resolution: "@vercel/oidc@npm:3.2.0"
+  checksum: d005dd58b36bb32a419e6f910fb9a219ccf5aad303bf46ef0e588e22bc0d0c9f95e6584fc73bc1fd1e4aa5e37f3a77071d8a2927454db67eefd54d8659fbd95e
+  languageName: node
+  linkType: hard
+
 "@vitest/expect@npm:4.1.10":
   version: 4.1.10
   resolution: "@vitest/expect@npm:4.1.10"
@@ -5842,6 +5886,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@workflow/serde@npm:4.1.0":
+  version: 4.1.0
+  resolution: "@workflow/serde@npm:4.1.0"
+  checksum: eb07267e28d75ca86e8bb4186326b25e6bc50b78d324abdf3fbd8723c33b157655c0e30261f8f4e5c7a0fc68bf1182f263d2dbd85aa43e3cbab5825c462e88a3
+  languageName: node
+  linkType: hard
+
 "abab@npm:^1.0.0":
   version: 1.0.4
   resolution: "abab@npm:1.0.4"
@@ -5914,6 +5965,19 @@ __metadata:
   version: 7.1.4
   resolution: "agent-base@npm:7.1.4"
   checksum: 86a7f542af277cfbd77dd61e7df8422f90bac512953709003a1c530171a9d019d072e2400eab2b59f84b49ab9dd237be44315ca663ac73e82b3922d10ea5eafa
+  languageName: node
+  linkType: hard
+
+"ai@npm:^7.0.84":
+  version: 7.0.84
+  resolution: "ai@npm:7.0.84"
+  dependencies:
+    "@ai-sdk/gateway": 4.0.68
+    "@ai-sdk/provider": 4.0.8
+    "@ai-sdk/provider-utils": 5.0.33
+  peerDependencies:
+    zod: ^3.25.76 || ^4.1.8
+  checksum: 00b33df72559203627b335e1fc03699d2754b63f45411f0b75a0018afb70ca330123b4113a6695e65225e92e29ddc9cc271d13acff19cfe0b9b46fbf43ef66c2
   languageName: node
   linkType: hard
 
@@ -6490,6 +6554,7 @@ __metadata:
     "@types/react-dom": ^19
     "@typescript-eslint/eslint-plugin": latest
     "@typescript-eslint/parser": latest
+    ai: ^7.0.84
     autoprefixer: ^10.4.13
     bandcamp-scraper: ^1.5.0
     body-scroll-lock: ^4.0.0-beta.0
@@ -6559,6 +6624,7 @@ __metadata:
     typescript: ^5.1.3
     unist-util-visit: ^5.0.0
     vitest: ^4.1.10
+    zod: ^4.5.4
   languageName: unknown
   linkType: soft
 
@@ -9111,6 +9177,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eventsource-parser@npm:^3.0.8":
+  version: 3.1.1
+  resolution: "eventsource-parser@npm:3.1.1"
+  checksum: ab220722d2ae82818b92e0d92a2fd333102f384a0314190ad1d469dc9598ade8047bb83644e3b09f7766becbda9b84a265508b66272aa57d8c76d2afd5c29fa8
+  languageName: node
+  linkType: hard
+
 "execa@npm:7.2.0":
   version: 7.2.0
   resolution: "execa@npm:7.2.0"
@@ -11114,7 +11187,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-schema@npm:0.4.0":
+"json-schema@npm:0.4.0, json-schema@npm:^0.4.0":
   version: 0.4.0
   resolution: "json-schema@npm:0.4.0"
   checksum: 66389434c3469e698da0df2e7ac5a3281bcff75e797a5c127db7c5b56270e01ae13d9afa3c03344f76e32e81678337a8c912bdbb75101c62e487dc3778461d72
@@ -16650,6 +16723,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"undici@npm:^7.28.0":
+  version: 7.29.0
+  resolution: "undici@npm:7.29.0"
+  checksum: b3327e05259e66c61d3e05242bf63899c68d277302208f4fc1c7c0b880a9ba82651b8b3215584ffd424d8c8410f0114b6c3a89e6af604c703dc33009daa99ed3
+  languageName: node
+  linkType: hard
+
 "unicode-canonical-property-names-ecmascript@npm:^2.0.0":
   version: 2.0.1
   resolution: "unicode-canonical-property-names-ecmascript@npm:2.0.1"
@@ -17531,6 +17611,13 @@ __metadata:
   version: 4.3.6
   resolution: "zod@npm:4.3.6"
   checksum: 19cec761b46bae4b6e7e861ea740f3f248e50a6671825afc8a5758e27b35d6f20ccde9942422fd5cf6f8b697f18bd05ef8bb33f5f2db112ab25cc628de2fae47
+  languageName: node
+  linkType: hard
+
+"zod@npm:^4.5.4":
+  version: 4.5.4
+  resolution: "zod@npm:4.5.4"
+  checksum: cc9cb1892c3e79b2cc6af4ea0ff44a544895b3793db09055bdeb21e5ac41a48137f02a0a07828c7d50d71c55d9e376b137df710ca5c7631eb9a4e96c40e2af68
   languageName: node
   linkType: hard
 

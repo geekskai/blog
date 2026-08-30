@@ -108,6 +108,10 @@ export const shareAttributions = pgTable(
     shareId: uuid("share_id").primaryKey(),
     creatorClerkUserId: text("creator_clerk_user_id"),
     sourceToolId: text("source_tool_id").notNull(),
+    shareChannel: text("share_channel").notNull(),
+    shareSurface: text("share_surface").notNull(),
+    copyMode: text("copy_mode").notNull(),
+    copyVariant: text("copy_variant").notNull(),
     expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
     createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   },
@@ -138,6 +142,10 @@ export const growthEvents = pgTable(
     clerkUserId: text("clerk_user_id"),
     eventName: text("event_name").notNull(),
     toolId: text("tool_id"),
+    shareChannel: text("share_channel"),
+    shareSurface: text("share_surface"),
+    copyMode: text("copy_mode"),
+    copyVariant: text("copy_variant"),
     occurredAt: timestamp("occurred_at", { withTimezone: true }).defaultNow().notNull(),
   },
   (table) => [
@@ -156,6 +164,35 @@ export const dailyGrowthMetrics = pgTable("daily_growth_metrics", {
   shareLandings: integer("share_landings").default(0).notNull(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
 })
+
+export const dailyGrowthChannelMetrics = pgTable(
+  "daily_growth_channel_metrics",
+  {
+    metricDay: date("metric_day").notNull(),
+    toolId: text("tool_id").notNull(),
+    channel: text("channel").notNull(),
+    surface: text("surface").notNull(),
+    copyMode: text("copy_mode").notNull(),
+    copyVariant: text("copy_variant").notNull(),
+    shareCardViews: integer("share_card_views").default(0).notNull(),
+    channelOpens: integer("channel_opens").default(0).notNull(),
+    shareLandings: integer("share_landings").default(0).notNull(),
+    referredNewAccounts: integer("referred_new_accounts").default(0).notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+  },
+  (table) => [
+    primaryKey({
+      columns: [
+        table.metricDay,
+        table.toolId,
+        table.channel,
+        table.surface,
+        table.copyMode,
+        table.copyVariant,
+      ],
+    }),
+  ]
+)
 
 export const accountEntitlements = pgTable(
   "account_entitlements",

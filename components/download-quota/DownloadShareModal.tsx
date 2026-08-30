@@ -1,11 +1,14 @@
 "use client"
 
-import Link from "next/link"
 import { useEffect, useMemo, useState } from "react"
 import CopyAndTwitterShareButton from "@/components/CopyAndTwitterShareButton"
+import PostDownloadShareCard from "./PostDownloadShareCard"
 import { Share2, UserPlus, X } from "lucide-react"
+import type { QuotaToolId } from "@/lib/download-quota/config"
+import { getTemplateShareCopy, type RegistrationCopyVariant } from "@/lib/growth/sharing"
 
 type DownloadShareModalProps = {
+  toolId: QuotaToolId
   isOpen: boolean
   shareLink: string
   shareTitle?: string
@@ -15,13 +18,20 @@ type DownloadShareModalProps = {
   used?: number
   limit?: number
   remaining?: number
+  registrationVariant?: RegistrationCopyVariant
+  registrationExperimentEnabled?: boolean
+  canPromiseRegistrationBonus?: boolean
+  showPostDownloadShare?: boolean
   errorMessage?: string | null
   onClose: () => void
   onUnlock: () => void | Promise<void>
+  onPrepareShareLink?: () => Promise<string>
   onCreateAccount?: () => void
+  onDismissPostDownloadShare?: () => void
 }
 
 export default function DownloadShareModal({
+  toolId,
   isOpen,
   shareLink,
   shareTitle,
@@ -31,10 +41,16 @@ export default function DownloadShareModal({
   used = 0,
   limit = 0,
   remaining = 0,
+  registrationVariant = "A",
+  registrationExperimentEnabled = false,
+  canPromiseRegistrationBonus = false,
+  showPostDownloadShare = false,
   errorMessage,
   onClose,
   onUnlock,
+  onPrepareShareLink,
   onCreateAccount,
+  onDismissPostDownloadShare = () => undefined,
 }: DownloadShareModalProps) {
   const [now, setNow] = useState(() => Date.now())
   useEffect(() => {
@@ -57,87 +73,100 @@ export default function DownloadShareModal({
       countdown: hours > 0 ? `${hours}h ${remainingMinutes}m` : `${remainingMinutes}m`,
     }
   }, [now])
-  if (!isOpen) return null
+  const registrationButton =
+    registrationExperimentEnabled && registrationVariant === "B"
+      ? "Create a free account — keep your progress + 7 downloads today"
+      : registrationExperimentEnabled
+        ? "Sign up for free — unlock 7 more today"
+        : "Create a free account"
+  const preparedShareTitle = shareTitle ?? getTemplateShareCopy(toolId, "x", "quota_gate").text
 
   return (
-    <div className="fixed inset-0 z-[120] flex items-center justify-center bg-slate-950/80 px-4 backdrop-blur-sm">
-      <div className="w-full max-w-lg rounded-2xl border border-white/15 bg-slate-900 p-5 text-white shadow-2xl shadow-black/40 md:p-6">
-        <div className="mb-5 flex items-start justify-between gap-3">
-          <div>
-            <h2 className="text-xl font-bold md:text-2xl">Today's downloads are used up</h2>
-            <p className="mt-2 text-sm leading-6 text-slate-300">
-              {canRegister
-                ? "Create a free account to keep today's usage and unlock seven more downloads."
-                : canShare
-                  ? "Open a prepared X post to unlock five more downloads today."
-                  : "You've used today's account and share allowance. Please come back tomorrow."}
-            </p>
-            <p className="mt-2 text-xs text-slate-400">
-              {used} of {limit} used · {remaining} remaining · resets at {reset.localTime} (in{" "}
-              {reset.countdown})
-            </p>
+    <>
+      {isOpen ? (
+        <div className="fixed inset-0 z-[120] flex items-center justify-center bg-slate-950/80 px-4 backdrop-blur-sm">
+          <div className="w-full max-w-lg rounded-2xl border border-white/15 bg-slate-900 p-5 text-white shadow-2xl shadow-black/40 md:p-6">
+            <div className="mb-5 flex items-start justify-between gap-3">
+              <div>
+                <h2 className="text-xl font-bold md:text-2xl">Today's downloads are used up</h2>
+                <p className="mt-2 text-sm leading-6 text-slate-300">
+                  {canRegister
+                    ? canPromiseRegistrationBonus
+                      ? registrationVariant === "B" && registrationExperimentEnabled
+                        ? "Create an account, return to this tool, keep your progress, and unlock seven more downloads today."
+                        : "Create a free account and return to this tool to unlock seven more downloads today."
+                      : "Create a free account and return to this tool. Your current tool input will be restored."
+                    : canShare
+                      ? "Open a prepared X post to unlock five more downloads today."
+                      : "You've used today's account and share allowance. Please come back tomorrow."}
+                </p>
+                <p className="mt-2 text-xs text-slate-400">
+                  {used} of {limit} used · {remaining} remaining · resets at {reset.localTime} (in{" "}
+                  {reset.countdown})
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={onClose}
+                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 text-slate-300 transition hover:border-white/20 hover:bg-white/10"
+                aria-label="Close download allowance dialog"
+              >
+                <X className="h-4 w-4" aria-hidden />
+              </button>
+            </div>
+
+            {canRegister && onCreateAccount ? (
+              <button
+                type="button"
+                onClick={onCreateAccount}
+                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-pink-600 to-purple-600 px-4 text-sm font-semibold text-white transition hover:brightness-110"
+              >
+                <UserPlus className="h-4 w-4" aria-hidden />
+                {registrationButton}
+              </button>
+            ) : null}
+
+            {canRegister && canShare ? (
+              <div className="my-4 flex items-center gap-3 text-xs uppercase tracking-wide text-slate-500">
+                <span className="h-px flex-1 bg-white/10" />
+                or continue without an account
+                <span className="h-px flex-1 bg-white/10" />
+              </div>
+            ) : null}
+
+            {canShare ? (
+              <CopyAndTwitterShareButton
+                url={shareLink}
+                title={preparedShareTitle}
+                onPrepareUrl={onPrepareShareLink}
+                onShareClick={() => void onUnlock()}
+                className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.06] px-4 text-sm font-semibold text-white transition hover:bg-white/[0.1]"
+              >
+                <Share2 className="h-4 w-4" aria-hidden />
+                Share on X — unlock {unlockAmount}
+              </CopyAndTwitterShareButton>
+            ) : null}
+
+            {errorMessage ? (
+              <p role="alert" className="mt-3 text-center text-sm text-red-300">
+                {errorMessage}
+              </p>
+            ) : null}
+
+            {canShare ? (
+              <p className="mt-3 text-center text-xs leading-5 text-slate-400">
+                The reward is granted when the X share composer opens, once per UTC day. Geekskai
+                does not claim to verify publication.
+              </p>
+            ) : null}
           </div>
-          <button
-            type="button"
-            onClick={onClose}
-            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 text-slate-300 transition hover:border-white/20 hover:bg-white/10"
-            aria-label="Close download allowance dialog"
-          >
-            <X className="h-4 w-4" aria-hidden />
-          </button>
         </div>
-
-        {canRegister && onCreateAccount ? (
-          <button
-            type="button"
-            onClick={onCreateAccount}
-            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-pink-600 to-purple-600 px-4 text-sm font-semibold text-white transition hover:brightness-110"
-          >
-            <UserPlus className="h-4 w-4" aria-hidden />
-            Sign up for free — unlock 7 more today
-          </button>
-        ) : null}
-
-        {canRegister && canShare ? (
-          <div className="my-4 flex items-center gap-3 text-xs uppercase tracking-wide text-slate-500">
-            <span className="h-px flex-1 bg-white/10" />
-            or continue without an account
-            <span className="h-px flex-1 bg-white/10" />
-          </div>
-        ) : null}
-
-        {canShare ? (
-          <CopyAndTwitterShareButton
-            url={shareLink}
-            title={shareTitle}
-            onShareClick={() => void onUnlock()}
-            className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.06] px-4 text-sm font-semibold text-white transition hover:bg-white/[0.1]"
-          >
-            <Share2 className="h-4 w-4" aria-hidden />
-            Share on X — unlock {unlockAmount}
-          </CopyAndTwitterShareButton>
-        ) : null}
-
-        <Link
-          href="/pricing/"
-          className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-violet-400/30 px-4 text-sm font-semibold text-violet-200 transition hover:bg-violet-500/10"
-        >
-          Compare Audio Toolkit plans
-        </Link>
-
-        {errorMessage ? (
-          <p role="alert" className="mt-3 text-center text-sm text-red-300">
-            {errorMessage}
-          </p>
-        ) : null}
-
-        {canShare ? (
-          <p className="mt-3 text-center text-xs leading-5 text-slate-400">
-            The reward is granted when the X share composer opens, once per UTC day. Geekskai does
-            not claim to verify publication.
-          </p>
-        ) : null}
-      </div>
-    </div>
+      ) : null}
+      <PostDownloadShareCard
+        isOpen={showPostDownloadShare}
+        toolId={toolId}
+        onClose={onDismissPostDownloadShare}
+      />
+    </>
   )
 }

@@ -14,6 +14,7 @@ const MIGRATIONS = [
   "0008_amazing_the_santerians.sql",
   "0009_nifty_proteus.sql",
   "0010_messy_silver_samurai.sql",
+  "0011_growth_share_channels.sql",
 ] as const
 
 export type TestSql = (

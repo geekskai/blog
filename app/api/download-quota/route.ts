@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs/server"
+import { auth, currentUser } from "@clerk/nextjs/server"
 import { NextRequest, NextResponse } from "next/server"
 import {
   isQuotaToolId,
@@ -20,7 +20,21 @@ import {
   reserveRegisteredDownload,
   reserveVisitorDownload,
 } from "@/lib/download-quota/repository"
-import { createShareAttribution, isGrowthEventName, recordGrowthEvent } from "@/lib/growth/events"
+import {
+  createShareAttribution,
+  ensureGrowthJourney,
+  getValidShareAttribution,
+  isGrowthEventName,
+  recordAccountCompletion,
+  recordGrowthEvent,
+} from "@/lib/growth/events"
+import { getGrowthExperimentConfig } from "@/lib/growth/experiments"
+import {
+  isShareChannel,
+  isShareCopyMode,
+  isShareSurface,
+  registrationVariantForJourney,
+} from "@/lib/growth/sharing"
 
 export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
@@ -31,6 +45,10 @@ const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3
 
 function isUuid(value: unknown): value is string {
   return typeof value === "string" && UUID_PATTERN.test(value)
+}
+
+function optionalCopyVariant(value: unknown) {
+  return typeof value === "string" && value.length > 0 && value.length <= 64 ? value : null
 }
 
 function quotaDisabled() {
@@ -109,11 +127,32 @@ export async function POST(request: NextRequest) {
   const { userId } = await auth()
   const serverQuotaEnabled = isServerQuotaEnabled(toolId)
   if (!serverQuotaEnabled) return quotaDisabled()
+  const growthExperiments = getGrowthExperimentConfig()
 
   try {
     if (action === "event") {
       const eventName = (body as Record<string, unknown>).eventName
       if (!isGrowthEventName(eventName)) return errorResponse("Unknown growth event", 400)
+      if (eventName === "new_account_completed" || eventName === "signin_completed") {
+        return errorResponse("Account completion events are server-owned", 400)
+      }
+
+      const channelValue = (body as Record<string, unknown>).channel
+      const surfaceValue = (body as Record<string, unknown>).surface
+      const copyModeValue = (body as Record<string, unknown>).copyMode
+      const copyVariant = optionalCopyVariant((body as Record<string, unknown>).copyVariant)
+      if (channelValue != null && !isShareChannel(channelValue)) {
+        return errorResponse("Unknown share channel", 400)
+      }
+      if (surfaceValue != null && !isShareSurface(surfaceValue)) {
+        return errorResponse("Unknown share surface", 400)
+      }
+      if (copyModeValue != null && !isShareCopyMode(copyModeValue)) {
+        return errorResponse("Unknown share copy mode", 400)
+      }
+      if (surfaceValue === "post_download" && !growthExperiments.shareChannelsEnabled) {
+        return errorResponse("Post-download sharing is disabled", 403)
+      }
 
       const journeyId = getJourneyId(request)
       const firstShareId = request.cookies.get(SHARE_ATTRIBUTION_COOKIE)?.value
@@ -123,6 +162,10 @@ export async function POST(request: NextRequest) {
         eventName,
         toolId,
         firstShareId: isUuid(firstShareId) ? firstShareId : null,
+        channel: channelValue,
+        surface: surfaceValue,
+        copyMode: copyModeValue,
+        copyVariant,
       })
       const response = NextResponse.json({ ok: true })
       setJourneyCookie(response, journeyId)
@@ -133,19 +176,29 @@ export async function POST(request: NextRequest) {
       const shareId = (body as Record<string, unknown>).shareId
       if (!isUuid(shareId)) return errorResponse("Invalid share attribution", 400)
 
+      const attribution = await getValidShareAttribution(shareId)
+      if (!attribution) return errorResponse("Share attribution is missing or expired", 404)
+
       const journeyId = getJourneyId(request)
       const existingFirstTouch = request.cookies.get(SHARE_ATTRIBUTION_COOKIE)?.value
-      const firstShareId = isUuid(existingFirstTouch) ? existingFirstTouch : shareId
+      const existingAttribution = isUuid(existingFirstTouch)
+        ? await getValidShareAttribution(existingFirstTouch)
+        : null
+      const firstAttribution = existingAttribution ?? attribution
       await recordGrowthEvent({
         journeyId,
         clerkUserId: userId,
         eventName: "share_landing",
-        toolId,
-        firstShareId,
+        toolId: attribution.toolId,
+        firstShareId: firstAttribution.shareId,
+        channel: attribution.channel,
+        surface: attribution.surface,
+        copyMode: attribution.copyMode,
+        copyVariant: attribution.copyVariant,
       })
       const response = NextResponse.json({ ok: true })
       setJourneyCookie(response, journeyId)
-      if (!isUuid(existingFirstTouch)) {
+      if (!existingAttribution) {
         response.cookies.set(SHARE_ATTRIBUTION_COOKIE, shareId, {
           httpOnly: true,
           sameSite: "lax",
@@ -158,10 +211,49 @@ export async function POST(request: NextRequest) {
     }
 
     if (action === "create_share") {
-      const requestedShareId = (body as Record<string, unknown>).shareId
-      const shareId = isUuid(requestedShareId) ? requestedShareId : crypto.randomUUID()
-      await createShareAttribution({ shareId, creatorClerkUserId: userId, toolId })
+      const channel = (body as Record<string, unknown>).channel
+      const surface = (body as Record<string, unknown>).surface
+      const copyMode = (body as Record<string, unknown>).copyMode
+      const copyVariant = optionalCopyVariant((body as Record<string, unknown>).copyVariant)
+      if (!isShareChannel(channel)) return errorResponse("Unknown share channel", 400)
+      if (!isShareSurface(surface)) return errorResponse("Unknown share surface", 400)
+      if (!isShareCopyMode(copyMode)) return errorResponse("Unknown share copy mode", 400)
+      if (!copyVariant) return errorResponse("Invalid share copy variant", 400)
+      if (surface === "post_download" && !growthExperiments.shareChannelsEnabled) {
+        return errorResponse("Post-download sharing is disabled", 403)
+      }
+
+      const shareId = crypto.randomUUID()
+      await createShareAttribution({
+        shareId,
+        creatorClerkUserId: userId,
+        toolId,
+        channel,
+        surface,
+        copyMode,
+        copyVariant,
+      })
       return NextResponse.json({ shareId })
+    }
+
+    if (action === "registration_completed") {
+      if (!userId) return errorResponse("Authentication is required", 401)
+      const clerkUser = await currentUser()
+      if (!clerkUser || clerkUser.id !== userId) {
+        return errorResponse("Authenticated user could not be verified", 401)
+      }
+      const journeyId = getJourneyId(request)
+      const firstShareId = request.cookies.get(SHARE_ATTRIBUTION_COOKIE)?.value
+      const eventName = await recordAccountCompletion({
+        journeyId,
+        clerkUserId: userId,
+        userCreatedAt: new Date(clerkUser.createdAt),
+        toolId,
+        firstShareId: isUuid(firstShareId) ? firstShareId : null,
+      })
+      const response = NextResponse.json({ ok: true, eventName })
+      setJourneyCookie(response, journeyId)
+      return response
     }
 
     if (action === "share_unlock" && !userId) {
@@ -173,16 +265,25 @@ export async function POST(request: NextRequest) {
     }
 
     if (action === "initialize") {
+      const journeyId = getJourneyId(request)
+      const registrationVariant = growthExperiments.registrationCopyEnabled
+        ? registrationVariantForJourney(journeyId)
+        : "A"
+      await ensureGrowthJourney({ journeyId, clerkUserId: userId })
       if (!userId) {
         const visitor = getVisitorIdentity(request)
         const response = NextResponse.json({
           mode: "server",
+          registrationVariant,
+          registrationExperimentEnabled: growthExperiments.registrationCopyEnabled,
+          shareChannelsEnabled: growthExperiments.shareChannelsEnabled,
           quota: await initializeVisitorUsage(
             visitor.anonymousId,
             (body as Record<string, unknown>).visitorUsage
           ),
         })
         if (!visitor.hasCookie) setVisitorCookie(response, visitor.anonymousId)
+        setJourneyCookie(response, journeyId)
         return response
       }
       const visitor = getVisitorIdentity(request)
@@ -194,8 +295,11 @@ export async function POST(request: NextRequest) {
         serverSuccessfulDownloads: visitorQuota?.successfulDownloads,
         serverShareUnlocked: visitorQuota ? !visitorQuota.shareUnlockAvailable : false,
       })
-      return NextResponse.json({
+      const response = NextResponse.json({
         mode: "server",
+        registrationVariant,
+        registrationExperimentEnabled: growthExperiments.registrationCopyEnabled,
+        shareChannelsEnabled: growthExperiments.shareChannelsEnabled,
         quota: await initializeRegisteredUsage(
           userId,
           carryover.visitorUsage,
@@ -203,6 +307,8 @@ export async function POST(request: NextRequest) {
           carryover.visitorShareUsage
         ),
       })
+      setJourneyCookie(response, journeyId)
+      return response
     }
 
     if (action === "share_unlock") {

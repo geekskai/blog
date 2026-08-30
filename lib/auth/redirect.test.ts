@@ -14,14 +14,14 @@ describe("registration return redirect", () => {
     expect(safeLocalRedirectUrl("/\\evil.example/path")).toBe("/audio-toolkit/")
   })
 
-  it("preserves the tool URL while adding the quota return marker", () => {
+  it("keeps only the tool pathname while adding the quota return marker", () => {
     expect(
       quotaRegistrationReturnUrl({
         pathname: "/tools/example/",
         search: "?format=mp3",
         hash: "#download",
       })
-    ).toBe("/tools/example/?format=mp3&quota_return=1#download")
+    ).toBe("/tools/example/?quota_return=1")
   })
 
   it("carries the return target between authentication pages", () => {
