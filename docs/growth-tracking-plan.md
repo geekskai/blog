@@ -8,8 +8,8 @@ The quota funnel uses first-party server events. Client behavior data must not s
 
 | Event                   | Trigger                                                     | Restricted dimensions                                  |
 | ----------------------- | ----------------------------------------------------------- | ------------------------------------------------------ |
-| `quota_gate_viewed`     | Allowance reaches zero and the gate opens                   | tool, registration copy variant                        |
-| `signup_started`        | Primary account action is selected                          | tool, registration copy variant                        |
+| `quota_gate_viewed`     | Allowance reaches zero and the gate opens                   | tool                                                   |
+| `signup_started`        | Primary account action is selected                          | tool                                                   |
 | `new_account_completed` | Clerk creation time matches the recent signup journey       | tool; valid first-touch share dimensions when referred |
 | `signin_completed`      | An existing Clerk account returns through the quota journey | tool                                                   |
 | `share_card_viewed`     | A Successful Download reveals the optional share card       | tool, surface, copy mode and variant                   |

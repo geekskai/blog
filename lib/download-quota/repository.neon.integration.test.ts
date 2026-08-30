@@ -17,11 +17,13 @@ const productionBranchId = "br-solitary-wind-ay1sjees"
 
 describeNeon("download quota reservations on Neon", () => {
   let verifiedTestBranch = false
-  const anonymousId = crypto.randomUUID()
+  const reservationAnonymousId = crypto.randomUUID()
+  const completionAnonymousId = crypto.randomUUID()
   const visitorOperationA = crypto.randomUUID()
   const visitorOperationB = crypto.randomUUID()
   const visitorOperationC = crypto.randomUUID()
-  const clerkUserId = `quota_integration_${crypto.randomUUID()}`
+  const reservationClerkUserId = `quota_integration_${crypto.randomUUID()}`
+  const completionClerkUserId = `quota_integration_${crypto.randomUUID()}`
   const registeredOperationA = crypto.randomUUID()
   const registeredOperationB = crypto.randomUUID()
   const registeredOperationC = crypto.randomUUID()
@@ -53,23 +55,32 @@ describeNeon("download quota reservations on Neon", () => {
     if (!verifiedTestBranch) return
     const sql = getSqlClient()
     await sql.transaction([
-      sql`DELETE FROM visitor_download_operations WHERE anonymous_id = ${anonymousId}::uuid`,
-      sql`DELETE FROM visitor_share_unlocks WHERE anonymous_id = ${anonymousId}::uuid`,
-      sql`DELETE FROM visitor_download_usage WHERE anonymous_id = ${anonymousId}::uuid`,
-      sql`DELETE FROM download_operations WHERE clerk_user_id = ${clerkUserId}`,
-      sql`DELETE FROM daily_download_usage WHERE clerk_user_id = ${clerkUserId}`,
+      sql`DELETE FROM visitor_download_operations WHERE anonymous_id = ${reservationAnonymousId}::uuid`,
+      sql`DELETE FROM visitor_share_unlocks WHERE anonymous_id = ${reservationAnonymousId}::uuid`,
+      sql`DELETE FROM visitor_download_usage WHERE anonymous_id = ${reservationAnonymousId}::uuid`,
+      sql`DELETE FROM visitor_download_operations WHERE anonymous_id = ${completionAnonymousId}::uuid`,
+      sql`DELETE FROM visitor_share_unlocks WHERE anonymous_id = ${completionAnonymousId}::uuid`,
+      sql`DELETE FROM visitor_download_usage WHERE anonymous_id = ${completionAnonymousId}::uuid`,
+      sql`DELETE FROM download_operations WHERE clerk_user_id = ${reservationClerkUserId}`,
+      sql`DELETE FROM daily_download_usage WHERE clerk_user_id = ${reservationClerkUserId}`,
+      sql`DELETE FROM download_operations WHERE clerk_user_id = ${completionClerkUserId}`,
+      sql`DELETE FROM daily_download_usage WHERE clerk_user_id = ${completionClerkUserId}`,
     ])
   })
 
   it("keeps a Visitor reservation idempotent and releases its held allowance", async () => {
-    const first = await reserveVisitorDownload(anonymousId, visitorOperationA, "soundcloud-artwork")
+    const first = await reserveVisitorDownload(
+      reservationAnonymousId,
+      visitorOperationA,
+      "soundcloud-artwork"
+    )
     expect(first).toMatchObject({
       outcome: "reserved",
       quota: { remaining: 2, activeReservations: 1 },
     })
 
     const duplicate = await reserveVisitorDownload(
-      anonymousId,
+      reservationAnonymousId,
       visitorOperationA,
       "soundcloud-artwork"
     )
@@ -79,7 +90,7 @@ describeNeon("download quota reservations on Neon", () => {
     })
 
     const concurrent = await reserveVisitorDownload(
-      anonymousId,
+      reservationAnonymousId,
       visitorOperationB,
       "soundcloud-track"
     )
@@ -88,23 +99,27 @@ describeNeon("download quota reservations on Neon", () => {
       quota: { remaining: 2, activeReservations: 1 },
     })
 
-    expect(await releaseVisitorDownload(anonymousId, visitorOperationA)).toBe("released")
-    expect(await getVisitorUsage(anonymousId)).toMatchObject({
+    expect(await releaseVisitorDownload(reservationAnonymousId, visitorOperationA)).toBe("released")
+    expect(await getVisitorUsage(reservationAnonymousId)).toMatchObject({
       remaining: 3,
       activeReservations: 0,
     })
 
-    const retry = await reserveVisitorDownload(anonymousId, visitorOperationB, "soundcloud-track")
+    const retry = await reserveVisitorDownload(
+      reservationAnonymousId,
+      visitorOperationB,
+      "soundcloud-track"
+    )
     expect(retry).toMatchObject({
       outcome: "reserved",
       quota: { remaining: 2, activeReservations: 1 },
     })
-    expect(await releaseVisitorDownload(anonymousId, visitorOperationB)).toBe("released")
-  })
+    expect(await releaseVisitorDownload(reservationAnonymousId, visitorOperationB)).toBe("released")
+  }, 30_000)
 
   it("keeps a Registered User reservation idempotent and releases its held allowance", async () => {
     const first = await reserveRegisteredDownload(
-      clerkUserId,
+      reservationClerkUserId,
       registeredOperationA,
       "youtube-shorts"
     )
@@ -114,7 +129,7 @@ describeNeon("download quota reservations on Neon", () => {
     })
 
     const duplicate = await reserveRegisteredDownload(
-      clerkUserId,
+      reservationClerkUserId,
       registeredOperationA,
       "youtube-shorts"
     )
@@ -124,7 +139,7 @@ describeNeon("download quota reservations on Neon", () => {
     })
 
     const concurrent = await reserveRegisteredDownload(
-      clerkUserId,
+      reservationClerkUserId,
       registeredOperationB,
       "youtube-video"
     )
@@ -133,14 +148,16 @@ describeNeon("download quota reservations on Neon", () => {
       quota: { remaining: 9, activeReservations: 1 },
     })
 
-    expect(await releaseRegisteredDownload(clerkUserId, registeredOperationA)).toBe("released")
-    expect(await getRegisteredUsage(clerkUserId)).toMatchObject({
+    expect(await releaseRegisteredDownload(reservationClerkUserId, registeredOperationA)).toBe(
+      "released"
+    )
+    expect(await getRegisteredUsage(reservationClerkUserId)).toMatchObject({
       remaining: 10,
       activeReservations: 0,
     })
 
     const retry = await reserveRegisteredDownload(
-      clerkUserId,
+      reservationClerkUserId,
       registeredOperationB,
       "youtube-video"
     )
@@ -148,12 +165,14 @@ describeNeon("download quota reservations on Neon", () => {
       outcome: "reserved",
       quota: { remaining: 9, activeReservations: 1 },
     })
-    expect(await releaseRegisteredDownload(clerkUserId, registeredOperationB)).toBe("released")
-  })
+    expect(await releaseRegisteredDownload(reservationClerkUserId, registeredOperationB)).toBe(
+      "released"
+    )
+  }, 30_000)
 
   it("returns the consumed Visitor status and settles its held allowance", async () => {
     const reserved = await reserveVisitorDownload(
-      anonymousId,
+      completionAnonymousId,
       visitorOperationC,
       "soundcloud-artwork"
     )
@@ -162,17 +181,17 @@ describeNeon("download quota reservations on Neon", () => {
       quota: { remaining: 2, activeReservations: 1 },
     })
 
-    expect(await completeVisitorDownload(anonymousId, visitorOperationC)).toBe("consumed")
-    expect(await getVisitorUsage(anonymousId)).toMatchObject({
+    expect(await completeVisitorDownload(completionAnonymousId, visitorOperationC)).toBe("consumed")
+    expect(await getVisitorUsage(completionAnonymousId)).toMatchObject({
       remaining: 2,
       successfulDownloads: 1,
       activeReservations: 0,
     })
-  })
+  }, 30_000)
 
   it("returns the consumed Registered User status and settles its held allowance", async () => {
     const reserved = await reserveRegisteredDownload(
-      clerkUserId,
+      completionClerkUserId,
       registeredOperationC,
       "youtube-shorts"
     )
@@ -181,11 +200,13 @@ describeNeon("download quota reservations on Neon", () => {
       quota: { remaining: 9, activeReservations: 1 },
     })
 
-    expect(await completeRegisteredDownload(clerkUserId, registeredOperationC)).toBe("consumed")
-    expect(await getRegisteredUsage(clerkUserId)).toMatchObject({
+    expect(await completeRegisteredDownload(completionClerkUserId, registeredOperationC)).toBe(
+      "consumed"
+    )
+    expect(await getRegisteredUsage(completionClerkUserId)).toMatchObject({
       remaining: 9,
       successfulDownloads: 1,
       activeReservations: 0,
     })
-  })
+  }, 30_000)
 })

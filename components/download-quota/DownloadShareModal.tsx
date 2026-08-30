@@ -5,7 +5,7 @@ import CopyAndTwitterShareButton from "@/components/CopyAndTwitterShareButton"
 import PostDownloadShareCard from "./PostDownloadShareCard"
 import { Share2, UserPlus, X } from "lucide-react"
 import type { QuotaToolId } from "@/lib/download-quota/config"
-import { getTemplateShareCopy, type RegistrationCopyVariant } from "@/lib/growth/sharing"
+import { getTemplateShareCopy } from "@/lib/growth/sharing"
 
 type DownloadShareModalProps = {
   toolId: QuotaToolId
@@ -18,8 +18,6 @@ type DownloadShareModalProps = {
   used?: number
   limit?: number
   remaining?: number
-  registrationVariant?: RegistrationCopyVariant
-  registrationExperimentEnabled?: boolean
   canPromiseRegistrationBonus?: boolean
   showPostDownloadShare?: boolean
   errorMessage?: string | null
@@ -41,8 +39,6 @@ export default function DownloadShareModal({
   used = 0,
   limit = 0,
   remaining = 0,
-  registrationVariant = "A",
-  registrationExperimentEnabled = false,
   canPromiseRegistrationBonus = false,
   showPostDownloadShare = false,
   errorMessage,
@@ -73,12 +69,9 @@ export default function DownloadShareModal({
       countdown: hours > 0 ? `${hours}h ${remainingMinutes}m` : `${remainingMinutes}m`,
     }
   }, [now])
-  const registrationButton =
-    registrationExperimentEnabled && registrationVariant === "B"
-      ? "Create a free account — keep your progress + 7 downloads today"
-      : registrationExperimentEnabled
-        ? "Sign up for free — unlock 7 more today"
-        : "Create a free account"
+  const registrationButton = canPromiseRegistrationBonus
+    ? "Sign up for free — unlock 7 more today"
+    : "Create a free account"
   const preparedShareTitle = shareTitle ?? getTemplateShareCopy(toolId, "x", "quota_gate").text
 
   return (
@@ -92,9 +85,7 @@ export default function DownloadShareModal({
                 <p className="mt-2 text-sm leading-6 text-slate-300">
                   {canRegister
                     ? canPromiseRegistrationBonus
-                      ? registrationVariant === "B" && registrationExperimentEnabled
-                        ? "Create an account, return to this tool, keep your progress, and unlock seven more downloads today."
-                        : "Create a free account and return to this tool to unlock seven more downloads today."
+                      ? "Create a free account and return to this tool to unlock seven more downloads today."
                       : "Create a free account and return to this tool. Your current tool input will be restored."
                     : canShare
                       ? "Open a prepared X post to unlock five more downloads today."

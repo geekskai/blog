@@ -52,6 +52,25 @@ describe("growth sharing", () => {
     expect(parsed.searchParams.has("sr")).toBe(false)
   })
 
+  it("builds editable X, WhatsApp, and Telegram share intents", () => {
+    const shareUrl = "https://geekskai.com/tools/example/?ref=quota_share&share_id=share-123"
+    const copy = { text: "A concise and useful tool description." }
+
+    const x = new URL(buildShareIntentUrl("x", shareUrl, copy))
+    expect(x.origin + x.pathname).toBe("https://twitter.com/intent/tweet")
+    expect(x.searchParams.get("url")).toBe(shareUrl)
+    expect(x.searchParams.get("text")).toBe(copy.text)
+
+    const whatsapp = new URL(buildShareIntentUrl("whatsapp", shareUrl, copy))
+    expect(whatsapp.origin).toBe("https://wa.me")
+    expect(whatsapp.searchParams.get("text")).toBe(`${copy.text} ${shareUrl}`)
+
+    const telegram = new URL(buildShareIntentUrl("telegram", shareUrl, copy))
+    expect(telegram.origin + telegram.pathname).toBe("https://t.me/share/url")
+    expect(telegram.searchParams.get("url")).toBe(shareUrl)
+    expect(telegram.searchParams.get("text")).toBe(copy.text)
+  })
+
   it("rejects unsafe or overlong AI challenger output", () => {
     expect(validateAiShareCopy("x", "A concise, useful tool description.")).toBe(
       "A concise, useful tool description."

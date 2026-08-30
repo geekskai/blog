@@ -7,22 +7,13 @@ import {
   buildShareIntentUrl,
   cleanGrowthShareUrl,
   getTemplateShareCopy,
-  isEnglishPathname,
   type ShareChannel,
-  type ShareCopy,
-  type ShareCopyMode,
 } from "@/lib/growth/sharing"
 
 type PostDownloadShareCardProps = {
   isOpen: boolean
   toolId: QuotaToolId
   onClose: () => void
-}
-
-type AiCopyResponse = {
-  copy?: string
-  mode?: ShareCopyMode
-  variant?: string
 }
 
 const channelLabels: Record<ShareChannel, string> = {
@@ -63,18 +54,12 @@ export default function PostDownloadShareCard({
   onClose,
 }: PostDownloadShareCardProps) {
   const viewedRef = useRef(false)
-  const [aiCopy, setAiCopy] = useState<ShareCopy | null>(null)
-  const [copyMode, setCopyMode] = useState<ShareCopyMode>("template")
-  const [copyVariant, setCopyVariant] = useState("baseline")
   const [copied, setCopied] = useState(false)
   const templateCopy = useMemo(() => getTemplateShareCopy(toolId, "x", "post_download"), [toolId])
 
   useEffect(() => {
     if (!isOpen) {
       viewedRef.current = false
-      setAiCopy(null)
-      setCopyMode("template")
-      setCopyVariant("baseline")
       return
     }
     if (viewedRef.current) return
@@ -89,50 +74,15 @@ export default function PostDownloadShareCard({
     }).catch(() => undefined)
   }, [isOpen, toolId])
 
-  useEffect(() => {
-    if (!isOpen || !isEnglishPathname(window.location.pathname)) return
-    const controller = new AbortController()
-    void fetch("/api/growth/share-copy", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ toolId, locale: "en", channel: "x" }),
-      signal: controller.signal,
-    })
-      .then(async (response) => {
-        if (!response.ok) return null
-        return (await response.json()) as AiCopyResponse
-      })
-      .then((data) => {
-        if (!data?.mode || !data.variant) return
-        void postGrowth({
-          action: "event",
-          eventName: "share_card_viewed",
-          toolId,
-          channel: "x",
-          surface: "post_download",
-          copyMode: data.mode,
-          copyVariant: data.variant,
-        }).catch(() => undefined)
-        if (!data.copy || data.mode !== "ai") return
-        setAiCopy({ text: data.copy })
-        setCopyMode("ai")
-        setCopyVariant(data.variant)
-      })
-      .catch(() => undefined)
-    return () => controller.abort()
-  }, [isOpen, toolId])
-
   const openChannel = useCallback(
     async (channel: ShareChannel) => {
       const popup = channel === "copy" ? null : window.open("about:blank", "_blank")
       if (channel !== "copy" && !popup) return
       if (popup) popup.opener = null
 
-      const channelTemplate = getTemplateShareCopy(toolId, channel, "post_download")
-      const selectedCopy = channel === "x" && aiCopy ? aiCopy : channelTemplate
-      const selectedMode = channel === "x" ? copyMode : "template"
-      const selectedVariant = channel === "x" ? copyVariant : "baseline"
+      const selectedCopy = getTemplateShareCopy(toolId, channel, "post_download")
       let shareUrl = cleanGrowthShareUrl(window.location.href)
+      let hasAttribution = false
 
       try {
         const data = await postGrowth({
@@ -140,12 +90,13 @@ export default function PostDownloadShareCard({
           toolId,
           channel,
           surface: "post_download",
-          copyMode: selectedMode,
-          copyVariant: selectedVariant,
+          copyMode: "template",
+          copyVariant: "baseline",
         })
         shareUrl = cleanGrowthShareUrl(window.location.href, data.shareId)
+        hasAttribution = true
       } catch {
-        // Sharing remains available without attribution when server growth mode is unavailable.
+        // Sharing remains available, but unattributed actions stay out of growth metrics.
       }
 
       try {
@@ -156,25 +107,25 @@ export default function PostDownloadShareCard({
         } else if (popup) {
           popup.location.href = buildShareIntentUrl(channel, shareUrl, selectedCopy)
         }
-        void postGrowth({
-          action: "event",
-          eventName: "share_channel_opened",
-          toolId,
-          channel,
-          surface: "post_download",
-          copyMode: selectedMode,
-          copyVariant: selectedVariant,
-        }).catch(() => undefined)
+        if (hasAttribution) {
+          void postGrowth({
+            action: "event",
+            eventName: "share_channel_opened",
+            toolId,
+            channel,
+            surface: "post_download",
+            copyMode: "template",
+            copyVariant: "baseline",
+          }).catch(() => undefined)
+        }
       } catch {
         popup?.close()
       }
     },
-    [aiCopy, copyMode, copyVariant, toolId]
+    [toolId]
   )
 
   if (!isOpen) return null
-
-  const displayedCopy = aiCopy ?? templateCopy
 
   return (
     <aside className="fixed bottom-4 right-4 z-[110] w-[calc(100%-2rem)] max-w-md rounded-2xl border border-white/15 bg-slate-900/95 p-4 text-white shadow-2xl shadow-black/40 backdrop-blur md:bottom-6 md:right-6">
@@ -196,7 +147,7 @@ export default function PostDownloadShareCard({
       </div>
 
       <p className="mt-3 rounded-lg bg-white/[0.05] px-3 py-2 text-xs leading-5 text-slate-300">
-        {displayedCopy.text}
+        {templateCopy.text}
       </p>
 
       <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-5">

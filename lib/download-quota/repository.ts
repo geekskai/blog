@@ -181,7 +181,7 @@ export async function getRegisteredUsage(
       usage.successful_downloads,
       usage.reserved_downloads,
       usage.share_unlocked,
-      ${REGISTERED_DAILY_LIMIT} AS daily_limit,
+      ${REGISTERED_DAILY_LIMIT}::integer AS daily_limit,
       1 AS concurrent_limit,
       true AS share_eligible
     FROM daily_download_usage usage
@@ -227,7 +227,7 @@ export async function reserveRegisteredDownload(
     transaction`
     WITH entitlement AS (
       SELECT
-        ${REGISTERED_DAILY_LIMIT} AS daily_limit,
+        ${REGISTERED_DAILY_LIMIT}::integer AS daily_limit,
         1 AS concurrent_limit,
         true AS share_eligible
     ),
@@ -246,7 +246,8 @@ export async function reserveRegisteredDownload(
         )
         AND usage.successful_downloads + usage.reserved_downloads <
           entitlement.daily_limit + CASE
-            WHEN entitlement.share_eligible AND usage.share_unlocked THEN ${SHARE_UNLOCK_AMOUNT}
+            WHEN entitlement.share_eligible AND usage.share_unlocked
+              THEN ${SHARE_UNLOCK_AMOUNT}::integer
             ELSE 0
           END
         AND usage.reserved_downloads < entitlement.concurrent_limit
@@ -570,11 +571,11 @@ export async function reserveVisitorDownload(
             AND operation.status = 'released'
         )
         AND usage.successful_downloads + usage.reserved_downloads <
-          ${VISITOR_DAILY_LIMIT} + CASE WHEN EXISTS (
+          ${VISITOR_DAILY_LIMIT}::integer + CASE WHEN EXISTS (
             SELECT 1 FROM visitor_share_unlocks share
             WHERE share.anonymous_id = ${anonymousId}::uuid
               AND share.quota_day = ${quotaDay}
-          ) THEN ${SHARE_UNLOCK_AMOUNT} ELSE 0 END
+          ) THEN ${SHARE_UNLOCK_AMOUNT}::integer ELSE 0 END
         AND usage.reserved_downloads < 1
       RETURNING usage.anonymous_id
     ),

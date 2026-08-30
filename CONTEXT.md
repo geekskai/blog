@@ -324,9 +324,9 @@ _Avoid_: Generic social event, platform account identity, verified publication
 An English-only, optional challenge variant for Safe Result Sharing. The template appears immediately; Vercel AI Gateway may replace it only when the feature flag, dedicated key, fixed free-model evaluation, and budget gate are all active. The model receives only Tool ID, locale, Share Channel, and an approved benefit; generated text is validated, never stored, and any timeout, payment, rate-limit, configuration, or validation failure silently retains the template.
 _Avoid_: AI dependency for sharing, media input in prompt, stored generated copy, evergreen free-cost claim
 
-**Growth Experiment Kill Switches**:
-Server-only, independently authorized controls. `GROWTH_REGISTRATION_EXPERIMENT_ENABLED=true` enables English journey-sticky registration-copy variants. `GROWTH_SHARE_CHANNELS_ENABLED=true` enables Safe Result Sharing, post-download attribution, and AI Copy Challenger eligibility. Both default to false and do not control the existing quota-gate X Share Unlock.
-_Avoid_: Public client flags, implicit activation from server quota mode, coupled rollout
+**Growth Feature Kill Switch**:
+A server-only, independently authorized control. `GROWTH_SHARE_CHANNELS_ENABLED=true` enables Safe Result Sharing, post-download attribution, and AI Copy Challenger eligibility. It defaults to false and does not control the existing registration action or quota-gate X Share Unlock. Registration uses one fixed message rather than an A/B experiment.
+_Avoid_: Public client flags, implicit activation from server quota mode, registration-copy bucketing
 
 **Growth Event Retention**:
 The 90-day period during which raw Growth Journey events and their identity linkage remain available. Afterward, only de-identified daily aggregates remain; billing, entitlement, subscription, and payment-webhook records follow separate retention rules.

@@ -12,11 +12,7 @@ import {
   type QuotaRuntimeMode,
 } from "@/lib/download-quota/domain"
 import { authUrlWithRedirect, quotaRegistrationReturnUrl } from "@/lib/auth/redirect"
-import {
-  cleanGrowthShareUrl,
-  isEnglishPathname,
-  type RegistrationCopyVariant,
-} from "@/lib/growth/sharing"
+import { cleanGrowthShareUrl } from "@/lib/growth/sharing"
 
 export type DownloadQuotaState = {
   date: string
@@ -59,8 +55,6 @@ type QuotaApiResponse = {
   status?: "reserved" | "processing" | "consumed" | "released" | null
   granted?: boolean
   shareId?: string
-  registrationVariant?: RegistrationCopyVariant
-  registrationExperimentEnabled?: boolean
   shareChannelsEnabled?: boolean
   eventName?: "new_account_completed" | "signin_completed"
   error?: string
@@ -157,10 +151,7 @@ export function useDownloadQuota({
   const [unlockSuccessMessage, setUnlockSuccessMessage] = useState<string | null>(null)
   const [shareLink, setShareLink] = useState("https://geekskai.com/?ref=quota_share")
   const [shareLinkReady, setShareLinkReady] = useState(false)
-  const [registrationVariant, setRegistrationVariant] = useState<RegistrationCopyVariant>("A")
-  const [registrationExperimentEnabled, setRegistrationExperimentEnabled] = useState(false)
   const [shareChannelsEnabled, setShareChannelsEnabled] = useState(false)
-  const [isEnglishPage, setIsEnglishPage] = useState(false)
   const interruptedStateRef = useRef(interruptedState)
   const registrationRestoredRef = useRef(false)
 
@@ -210,12 +201,10 @@ export function useDownloadQuota({
 
   useEffect(() => {
     if (typeof window === "undefined") return
-    setIsEnglishPage(isEnglishPathname(window.location.pathname))
     setShareLink(cleanGrowthShareUrl(window.location.href))
     const localQuota = syncDailyQuota()
     if (!isLoaded) return
     setQuotaMode("pending")
-    setRegistrationExperimentEnabled(false)
     setShareChannelsEnabled(false)
 
     const carryover = getVisitorCarryover(localQuota)
@@ -228,8 +217,6 @@ export function useDownloadQuota({
         if (data.mode === "server" && data.quota) {
           setQuotaMode("server")
           setServerQuota(data.quota)
-          setRegistrationVariant(data.registrationVariant ?? "A")
-          setRegistrationExperimentEnabled(data.registrationExperimentEnabled === true)
           setShareChannelsEnabled(data.shareChannelsEnabled === true)
         } else {
           setQuotaMode("local")
@@ -301,9 +288,9 @@ export function useDownloadQuota({
     setShareLinkReady(true)
     void trackGrowthEvent("quota_gate_viewed", {
       copyMode: "template",
-      copyVariant: registrationVariant,
+      copyVariant: "baseline",
     })
-  }, [registrationVariant, trackGrowthEvent])
+  }, [trackGrowthEvent])
 
   const checkQuotaBeforeDownload = useCallback(async (): Promise<DownloadQuotaCheck> => {
     setQuotaMessage(null)
@@ -456,10 +443,10 @@ export function useDownloadQuota({
       eventName: "signup_started",
       toolId,
       copyMode: "template",
-      copyVariant: registrationVariant,
+      copyVariant: "baseline",
     }).catch(() => undefined)
     window.location.assign(authUrlWithRedirect("/sign-up/", returnWithMarker))
-  }, [registrationVariant, toolId])
+  }, [toolId])
 
   const closeShareModal = useCallback(() => setShowShareModal(false), [])
   const visibleRemaining =
@@ -478,10 +465,7 @@ export function useDownloadQuota({
       maxDailyShareUnlocks: 1,
       storageAvailable,
       mode: quotaMode,
-      registrationVariant,
       canPromiseRegistrationBonus: growthExperimentsEnabled(quotaMode),
-      registrationExperimentEnabled:
-        growthExperimentsEnabled(quotaMode) && registrationExperimentEnabled && isEnglishPage,
       isRegistered: Boolean(isSignedIn),
       shareUnlockAvailable:
         shareLinkReady &&
@@ -494,10 +478,7 @@ export function useDownloadQuota({
     }),
     [
       isSignedIn,
-      isEnglishPage,
       quotaMode,
-      registrationExperimentEnabled,
-      registrationVariant,
       quotaState?.sharesCountToday,
       serverQuota?.shareUnlockAvailable,
       shareLinkReady,

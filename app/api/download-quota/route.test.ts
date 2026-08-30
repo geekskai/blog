@@ -57,7 +57,6 @@ describe("download quota growth actions", () => {
     process.env.DOWNLOAD_QUOTA_SERVER_ENABLED = "true"
     process.env.DOWNLOAD_QUOTA_SCHEMA_READY = "true"
     process.env.DOWNLOAD_QUOTA_ENABLED_TOOLS = "*"
-    delete process.env.GROWTH_REGISTRATION_EXPERIMENT_ENABLED
     delete process.env.GROWTH_SHARE_CHANNELS_ENABLED
     mocks.auth.mockResolvedValue({ userId: null })
   })

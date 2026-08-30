@@ -33,7 +33,6 @@ import {
   isShareChannel,
   isShareCopyMode,
   isShareSurface,
-  registrationVariantForJourney,
 } from "@/lib/growth/sharing"
 
 export const runtime = "nodejs"
@@ -266,16 +265,11 @@ export async function POST(request: NextRequest) {
 
     if (action === "initialize") {
       const journeyId = getJourneyId(request)
-      const registrationVariant = growthExperiments.registrationCopyEnabled
-        ? registrationVariantForJourney(journeyId)
-        : "A"
       await ensureGrowthJourney({ journeyId, clerkUserId: userId })
       if (!userId) {
         const visitor = getVisitorIdentity(request)
         const response = NextResponse.json({
           mode: "server",
-          registrationVariant,
-          registrationExperimentEnabled: growthExperiments.registrationCopyEnabled,
           shareChannelsEnabled: growthExperiments.shareChannelsEnabled,
           quota: await initializeVisitorUsage(
             visitor.anonymousId,
@@ -297,8 +291,6 @@ export async function POST(request: NextRequest) {
       })
       const response = NextResponse.json({
         mode: "server",
-        registrationVariant,
-        registrationExperimentEnabled: growthExperiments.registrationCopyEnabled,
         shareChannelsEnabled: growthExperiments.shareChannelsEnabled,
         quota: await initializeRegisteredUsage(
           userId,

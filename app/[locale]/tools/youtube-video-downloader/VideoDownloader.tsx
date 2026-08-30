@@ -596,8 +596,6 @@ export default function VideoDownloader({
         used={downloadQuota.quotaConfig.used}
         limit={downloadQuota.quotaConfig.limit}
         remaining={downloadQuota.quotaConfig.remaining}
-        registrationVariant={downloadQuota.quotaConfig.registrationVariant}
-        registrationExperimentEnabled={downloadQuota.quotaConfig.registrationExperimentEnabled}
         canPromiseRegistrationBonus={downloadQuota.quotaConfig.canPromiseRegistrationBonus}
         errorMessage={downloadQuota.quotaMessage}
         onClose={downloadQuota.closeShareModal}

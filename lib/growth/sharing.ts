@@ -4,7 +4,6 @@ export const SHARE_CHANNELS = ["x", "whatsapp", "telegram", "reddit", "copy"] as
 export type ShareChannel = (typeof SHARE_CHANNELS)[number]
 export type ShareSurface = "quota_gate" | "post_download"
 export type ShareCopyMode = "template" | "ai"
-export type RegistrationCopyVariant = "A" | "B"
 
 export type ShareCopy = {
   title?: string
@@ -133,15 +132,4 @@ export function validateAiShareCopy(channel: ShareChannel, value: unknown) {
   if (/https?:\/\/|www\./i.test(text)) return null
   if (/\b(?:i|we)\s+(?:used|tried|tested|verified|downloaded|saved)\b/i.test(text)) return null
   return text
-}
-
-export function registrationVariantForJourney(journeyId: string): RegistrationCopyVariant {
-  const compact = journeyId.replace(/-/g, "")
-  const bucket = Number.parseInt(compact.slice(-2), 16)
-  return Number.isFinite(bucket) && bucket % 2 === 1 ? "B" : "A"
-}
-
-export function isEnglishPathname(pathname: string) {
-  const firstSegment = pathname.split("/").filter(Boolean)[0]
-  return !["ar", "de", "fr", "es", "ja", "ko", "no", "zh-cn", "da"].includes(firstSegment ?? "")
 }
