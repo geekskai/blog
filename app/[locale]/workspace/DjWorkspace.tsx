@@ -1,6 +1,6 @@
 "use client"
 
-import { FormEvent, useEffect, useMemo, useState } from "react"
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react"
 import {
   Clock3,
   FolderOpen,
@@ -43,11 +43,13 @@ export default function DjWorkspace({
   locale,
   initialCredits,
   checkoutSuccess,
+  setPrepEntry,
 }: {
   userId: string | null
   locale: string
   initialCredits: AudioCreditBalance | null
   checkoutSuccess: boolean
+  setPrepEntry: boolean
 }) {
   const storageKey = useMemo(() => `geekskai:dj-workspace:v1:${userId ?? "visitor"}`, [userId])
   const [workspace, setWorkspace] = useState<WorkspaceState>(EMPTY_WORKSPACE)
@@ -57,6 +59,14 @@ export default function DjWorkspace({
   const [projectName, setProjectName] = useState("")
   const [presetName, setPresetName] = useState("")
   const [settingsNotice, setSettingsNotice] = useState<string | null>(null)
+  const setPrepTracked = useRef(false)
+
+  useEffect(() => {
+    if (setPrepEntry && !setPrepTracked.current) {
+      setPrepTracked.current = true
+      trackClarityEvent("dj_set_prep_started")
+    }
+  }, [setPrepEntry])
 
   useEffect(() => {
     try {
@@ -108,7 +118,9 @@ export default function DjWorkspace({
       activity: [addActivity(`Created project “${name}”`), ...workspace.activity].slice(0, 20),
     })
     setProjectName("")
+    setSettingsNotice(`Saved “${name}” with the current output settings.`)
     trackClarityEvent("workspace_project_created")
+    if (setPrepEntry) trackClarityEvent("dj_set_prep_settings_saved")
   }
 
   const createPreset = (event: FormEvent<HTMLFormElement>) => {
@@ -129,6 +141,7 @@ export default function DjWorkspace({
     setPresetName("")
     setSettingsNotice(`Saved “${name}” from the current output settings.`)
     trackClarityEvent("workspace_preset_created")
+    if (setPrepEntry) trackClarityEvent("dj_set_prep_settings_saved")
   }
 
   const applySettings = (settings: AudioPreparationSettings, label: string) => {
@@ -179,24 +192,34 @@ export default function DjWorkspace({
 
       <header className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div className="max-w-2xl">
-          <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 sm:text-xs">
-            <Waves className="h-3.5 w-3.5" aria-hidden />
-            Geekskai Audio Toolkit
-          </p>
-          <h1 className="mt-1.5 text-[clamp(1.5rem,3.5vw,2rem)] font-bold tracking-tight text-white">
-            Local audio preparation
+          <h1 className="flex items-center gap-2 text-[clamp(1.5rem,3.5vw,2rem)] font-bold tracking-tight text-white">
+            <Waves className="h-5 w-5 text-sky-400" aria-hidden />
+            {setPrepEntry ? "Prepare files you own for a DJ set" : "Local audio preparation"}
           </h1>
         </div>
         <p className="text-sm leading-6 text-slate-400 sm:text-right">
-          Normalize audio you own in-browser. Projects and presets stay on this device only.
+          {setPrepEntry
+            ? "Add local files you own or are authorized to use. Nothing is uploaded or saved with your project."
+            : "Normalize audio you own in-browser. Projects and presets stay on this device only."}
         </p>
       </header>
+
+      {setPrepEntry ? (
+        <section className="rounded-xl bg-sky-950/25 px-4 py-3 sm:px-5">
+          <h2 className="font-semibold text-sky-100">Start with the output you need</h2>
+          <p className="mt-1 text-sm leading-6 text-sky-100/75">
+            Choose a Club / DJ or Streaming / portable starting point below, then review the format,
+            loudness, and WAV bit depth before local processing.
+          </p>
+        </section>
+      ) : null}
 
       <AudioProcessorPanel
         initialCredits={initialCredits}
         locale={locale}
         checkoutSuccess={checkoutSuccess}
         isSignedIn={Boolean(userId)}
+        setPrepEntry={setPrepEntry}
         settings={processorSettings}
         onSettingsChange={(settings) => {
           setProcessorSettings(settings)

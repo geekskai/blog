@@ -5,6 +5,7 @@ import siteMetadata from "@/data/siteMetadata"
 import { getAudioCreditBalance } from "@/lib/audio-credits/repository"
 import { audioCreditsEnabled, billingSchemaV2Enabled } from "@/lib/billing/policy"
 import { buildPageSchema, serializeJsonLd } from "@/lib/seo"
+import { isSoundCloudSetPrepEntry } from "@/lib/workspace/set-prep"
 import DjWorkspace from "../workspace/DjWorkspace"
 
 const canonical = `${siteMetadata.siteUrl}/audio-toolkit/`
@@ -55,7 +56,7 @@ export default async function AudioToolkitPage({
   searchParams,
 }: {
   params: Promise<{ locale: string }>
-  searchParams: Promise<{ checkout?: string }>
+  searchParams: Promise<{ checkout?: string; entry?: string }>
 }) {
   const [{ userId }, { locale }, query] = await Promise.all([auth(), params, searchParams])
   if (locale !== "en") permanentRedirect("/audio-toolkit/")
@@ -70,15 +71,14 @@ export default async function AudioToolkitPage({
         userId={userId}
         locale={locale}
         initialCredits={
-          userId &&
-          audioCreditsEnabled() &&
-          billingSchemaV2Enabled()
+          userId && audioCreditsEnabled() && billingSchemaV2Enabled()
             ? await getAudioCreditBalance(userId)
             : null
         }
         checkoutSuccess={
           Boolean(userId) && (query.checkout === "success" || query.checkout === "processing")
         }
+        setPrepEntry={isSoundCloudSetPrepEntry(query.entry)}
       />
     </>
   )

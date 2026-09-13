@@ -46,8 +46,11 @@ type BatchSummary = {
   status: "completed" | "partial" | "canceled"
   completed: number
   failed: number
+  canceled: number
   creditsUsed: number
   format: AudioOutputFormat
+  loudnessTarget: number
+  wavBitDepth: WavBitDepth
 }
 
 const outputName = (name: string, extension: string) =>
@@ -64,6 +67,7 @@ export default function AudioProcessorPanel({
   locale,
   checkoutSuccess,
   isSignedIn,
+  setPrepEntry,
   settings,
   onSettingsChange,
 }: {
@@ -71,6 +75,7 @@ export default function AudioProcessorPanel({
   locale: string
   checkoutSuccess: boolean
   isSignedIn: boolean
+  setPrepEntry: boolean
   settings: AudioPreparationSettings
   onSettingsChange: (settings: AudioPreparationSettings) => void
 }) {
@@ -209,6 +214,7 @@ export default function AudioProcessorPanel({
     const zip = new JSZip()
     const zipExportAllowed = effectiveBatchFileLimit > 1
     let completed = 0
+    let failed = 0
     let completedDurationSeconds = 0
     const completedOutputs: Array<{ name: string; blob: Blob }> = []
     const operationId = crypto.randomUUID()
@@ -286,6 +292,7 @@ export default function AudioProcessorPanel({
           }
           const message =
             processingError instanceof Error ? processingError.message : "Processing failed."
+          failed += 1
           setQueue((items) =>
             items.map((item, itemIndex) =>
               itemIndex === index
@@ -332,6 +339,7 @@ export default function AudioProcessorPanel({
         trackClarityEvent(
           completed > 1 ? "audio_processing_completed_batch" : "audio_processing_completed"
         )
+        if (setPrepEntry) trackClarityEvent("dj_set_prep_completed")
       }
       if (completed < activeFiles.length && !canceledRef.current) {
         trackClarityEvent("audio_processing_failed")
@@ -343,9 +351,12 @@ export default function AudioProcessorPanel({
             ? "completed"
             : "partial",
         completed,
-        failed: activeFiles.length - completed,
+        failed,
+        canceled: canceledRef.current ? activeFiles.length - completed - failed : 0,
         creditsUsed: creditsForDuration(completedDurationSeconds),
         format,
+        loudnessTarget: loudness,
+        wavBitDepth: bitDepth,
       })
     } catch (processingError) {
       if (heartbeat !== null) window.clearInterval(heartbeat)
@@ -359,10 +370,12 @@ export default function AudioProcessorPanel({
 
   const processFiles = () => void runProcessing(files, queue)
 
-  const retryFailed = () => {
-    const failedIndexes = queue.flatMap((item, index) => (item.status === "failed" ? [index] : []))
-    const retryFiles = failedIndexes.map((index) => files[index])
-    const retryQueue = failedIndexes.map((index) => ({
+  const retryIncomplete = () => {
+    const incompleteIndexes = queue.flatMap((item, index) =>
+      item.status !== "done" ? [index] : []
+    )
+    const retryFiles = incompleteIndexes.map((index) => files[index])
+    const retryQueue = incompleteIndexes.map((index) => ({
       ...queue[index],
       status: "waiting" as const,
       progress: 0,
@@ -399,15 +412,17 @@ export default function AudioProcessorPanel({
       <div className="border-b border-slate-800/80 px-4 py-4 sm:px-5">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div className="min-w-0">
-            <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-sky-400">
-              <Waves className="h-3.5 w-3.5" aria-hidden />
-              Local audio processing
-            </p>
-            <h2 id="audio-processor-title" className="mt-1 text-lg font-bold text-white sm:text-xl">
-              Normalize and convert your tracks
+            <h2
+              id="audio-processor-title"
+              className="flex items-center gap-2 text-lg font-bold text-white sm:text-xl"
+            >
+              <Waves className="h-4 w-4 text-sky-400" aria-hidden />
+              {setPrepEntry ? "Add local files for this set" : "Normalize and convert your tracks"}
             </h2>
             <p className="mt-1 text-sm leading-6 text-slate-400">
-              Two-pass LUFS in-browser · Chrome & Edge · Safari beta
+              {setPrepEntry
+                ? "Files stay in this browser. Choose the output settings before processing."
+                : "Two-pass LUFS in-browser · Chrome & Edge · Safari beta"}
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -464,7 +479,9 @@ export default function AudioProcessorPanel({
               <span className="text-sm font-medium text-slate-200">
                 {files.length
                   ? `${files.length} file${files.length === 1 ? "" : "s"} selected`
-                  : "Choose MP3, WAV, FLAC, or M4A"}
+                  : setPrepEntry
+                    ? "Add local audio files you own or are authorized to use"
+                    : "Choose MP3, WAV, FLAC, or M4A"}
               </span>
               <span className="text-sm text-slate-400">Tap to browse · files stay on device</span>
               <input
@@ -598,9 +615,7 @@ export default function AudioProcessorPanel({
 
         {/* Middle · Options */}
         <div className="border-b border-slate-800/80 p-4 sm:p-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
-            Choose the result you need
-          </p>
+          <p className="text-sm font-semibold text-slate-200">Choose the result you need</p>
           <div className="mt-3 grid gap-3 sm:grid-cols-2">
             <button
               type="button"
@@ -627,6 +642,12 @@ export default function AudioProcessorPanel({
               <span className="mt-1 block text-sm text-slate-300">MP3 · 320 kbps · −14 LUFS</span>
             </button>
           </div>
+          {setPrepEntry ? (
+            <p className="mt-3 text-sm leading-6 text-slate-400">
+              These are starting points, not universal standards. Adjust the format, loudness, or
+              WAV bit depth for the destination that applies to your files.
+            </p>
+          ) : null}
 
           <details className="group mt-4 border-t border-slate-800/80 pt-4">
             <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 rounded-lg px-2 text-sm font-semibold text-slate-200 hover:bg-slate-900/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 [&::-webkit-details-marker]:hidden">
@@ -708,27 +729,37 @@ export default function AudioProcessorPanel({
                 <div className="min-w-0 flex-1">
                   <p className="font-semibold text-white">
                     {batchSummary.status === "completed"
-                      ? "Batch complete"
+                      ? setPrepEntry
+                        ? "Set prep summary"
+                        : "Batch complete"
                       : batchSummary.status === "canceled"
-                        ? "Batch canceled"
-                        : "Batch finished with errors"}
+                        ? setPrepEntry
+                          ? "Set prep canceled"
+                          : "Batch canceled"
+                        : setPrepEntry
+                          ? "Set prep finished with errors"
+                          : "Batch finished with errors"}
                   </p>
                   <p className="mt-1 text-sm leading-6 text-emerald-100/80">
-                    {batchSummary.completed}/{batchSummary.completed + batchSummary.failed}{" "}
-                    completed
-                    {batchSummary.failed ? ` · ${batchSummary.failed} not completed` : ""} ·{" "}
-                    {batchSummary.creditsUsed} Credits used · {batchSummary.format.toUpperCase()}
+                    {batchSummary.completed} completed · {batchSummary.failed} failed ·{" "}
+                    {batchSummary.canceled} canceled · {batchSummary.creditsUsed} Credits used
+                  </p>
+                  <p className="mt-1 text-sm leading-6 text-emerald-100/80">
+                    Output: {batchSummary.format.toUpperCase()} · {batchSummary.loudnessTarget} LUFS
+                    {batchSummary.format === "wav" ? ` · ${batchSummary.wavBitDepth}-bit` : ""}
                   </p>
                   <div className="mt-3 flex flex-wrap gap-2">
-                    {batchSummary.status === "partial" &&
-                    queue.some((item) => item.status === "failed") ? (
+                    {batchSummary.status !== "completed" &&
+                    queue.some((item) => item.status !== "done") ? (
                       <button
                         type="button"
-                        onClick={retryFailed}
+                        onClick={retryIncomplete}
                         className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-emerald-400/25 px-3 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
                       >
                         <RotateCcw className="h-4 w-4" aria-hidden />
-                        Retry failed
+                        {batchSummary.status === "canceled"
+                          ? "Process remaining"
+                          : "Retry incomplete"}
                       </button>
                     ) : null}
                     <button
