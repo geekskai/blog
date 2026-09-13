@@ -23,6 +23,7 @@ import type {
 import { downloadSoundCloudTrack } from "../soundcloud-downloader/lib/download"
 import { getSafeFileName } from "./lib/utils"
 import { detectSoundCloudUrlKind } from "../soundcloud-downloader/lib/url"
+import { trackToolEvent } from "@/lib/analytics/tool-events"
 
 const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
   ssr: false,
@@ -48,14 +49,17 @@ export default function SoundCloudPlaylistDownloaderPage() {
   })
   const restoreRegistrationState = useCallback((state: Record<string, unknown>) => {
     if (typeof state.url === "string") setUrl(state.url)
-    if (state.format === "mp3" || state.format === "wav") setFormat(state.format)
+    if (state.format === "mp3" || state.format === "m4a") setFormat(state.format)
+    if (state.format === "wav") setFormat("m4a")
   }, [])
   const downloadQuota = useDownloadQuota({
     toolId: "soundcloud-playlist",
+    analyticsToolId: "soundcloud-playlist-downloader",
     interruptedState: { url, format },
     onRegistrationReturn: restoreRegistrationState,
   })
   const resultSectionRef = useRef<HTMLDivElement | null>(null)
+  const playlistDownloadInFlightRef = useRef(false)
 
   // Reset error message
   const resetError = useCallback(() => {
@@ -130,68 +134,104 @@ export default function SoundCloudPlaylistDownloaderPage() {
 
   // Download all tracks
   const handleDownloadAll = useCallback(async () => {
-    if (!playlistInfo || playlistInfo.tracks.length === 0) {
+    if (!playlistInfo || playlistInfo.tracks.length === 0 || playlistDownloadInFlightRef.current) {
       return
     }
+
+    playlistDownloadInFlightRef.current = true
 
     const tracks = playlistInfo.tracks
     const total = tracks.length
 
-    setDownloadProgress({
-      current: 0,
-      total,
-      currentTrack: "",
-      status: "downloading",
-    })
+    try {
+      setDownloadProgress({
+        current: 0,
+        total,
+        currentTrack: "",
+        status: "downloading",
+      })
+      trackToolEvent("tool_started", {
+        tool_id: "soundcloud-playlist-downloader",
+        action: "playlist_download",
+        format,
+        result_count: total,
+      })
 
-    let successCount = 0
-    let errorCount = 0
+      let successCount = 0
+      let errorCount = 0
 
-    // Download tracks sequentially to avoid overwhelming the browser
-    for (let index = 0; index < tracks.length; index++) {
-      const track = tracks[index]
+      // Download tracks sequentially to avoid overwhelming the browser.
+      for (let index = 0; index < tracks.length; index++) {
+        const track = tracks[index]
+
+        setDownloadProgress((prev) => ({
+          ...prev,
+          current: index,
+          currentTrack: track.title,
+        }))
+
+        const quotaCheck = await downloadQuota.checkQuotaBeforeDownload()
+        if (!quotaCheck.allowed) {
+          if (quotaCheck.message) setErrorMessage(quotaCheck.message)
+          trackToolEvent("quota_blocked", {
+            tool_id: "soundcloud-playlist-downloader",
+            action: "playlist_allowance",
+            format,
+          })
+          errorCount += tracks.length - index
+          break
+        }
+
+        let mediaSaved = false
+        try {
+          const fileName = getSafeFileName(track.title, format)
+          const result = await downloadSoundCloudTrack(track.url, fileName, {
+            preferredFormat: format,
+            operationId: quotaCheck.operationId,
+            quotaToolId: "soundcloud-playlist",
+          })
+          mediaSaved = true
+          setDownloadProgress((prev) => ({
+            ...prev,
+            lastSavedFormat: result.selectedFormat.extension,
+          }))
+          trackToolEvent("tool_succeeded", {
+            tool_id: "soundcloud-playlist-downloader",
+            action: "playlist_track_download",
+            format: result.selectedFormat.extension,
+            result_count: 1,
+          })
+          await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
+          successCount++
+        } catch (error) {
+          await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
+          if (!mediaSaved) {
+            trackToolEvent("tool_failed", {
+              tool_id: "soundcloud-playlist-downloader",
+              action: "playlist_track_download",
+              format,
+            })
+          }
+          errorCount++
+          console.error(`Failed to download track ${index + 1} (${track.title}):`, error)
+        }
+
+        // Small delay between downloads to avoid overwhelming the browser.
+        if (index < tracks.length - 1) {
+          await new Promise((resolve) => setTimeout(resolve, 500))
+        }
+      }
 
       setDownloadProgress((prev) => ({
         ...prev,
-        current: index,
-        currentTrack: track.title,
+        current: total,
+        status: errorCount > 0 ? "error" : "completed",
       }))
 
-      const quotaCheck = await downloadQuota.checkQuotaBeforeDownload()
-      if (!quotaCheck.allowed) {
-        if (quotaCheck.message) setErrorMessage(quotaCheck.message)
-        errorCount += tracks.length - index
-        break
-      }
-
-      try {
-        const fileName = getSafeFileName(track.title, format)
-        await downloadSoundCloudTrack(track.url, fileName, {
-          preferredFormat: format,
-          operationId: quotaCheck.operationId,
-          quotaToolId: "soundcloud-playlist",
-        })
-        await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
-        successCount++
-      } catch (error) {
-        await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
-        errorCount++
-        console.error(`Failed to download track ${index + 1} (${track.title}):`, error)
-      }
-
-      // Small delay between downloads to avoid overwhelming the browser
-      if (index < tracks.length - 1) {
-        await new Promise((resolve) => setTimeout(resolve, 500))
-      }
+      console.log(`Download completed: ${successCount} successful, ${errorCount} failed`)
+    } finally {
+      playlistDownloadInFlightRef.current = false
     }
-
-    setDownloadProgress((prev) => ({
-      ...prev,
-      current: total,
-      status: errorCount > 0 ? "error" : "completed",
-    }))
-
-    console.log(`Download completed: ${successCount} successful, ${errorCount} failed`)
   }, [downloadQuota, playlistInfo, format])
 
   useEffect(() => {
@@ -225,7 +265,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
               <div className="rounded-full bg-white/20 p-1">
                 <span className="text-sm sm:text-base md:text-lg">🎵</span>
               </div>
-              <span className="font-semibold">{t("tool_badge")}</span>
+              <span className="font-semibold">{copy.badgeLabel}</span>
             </div>
           </div>
 
@@ -254,9 +294,14 @@ export default function SoundCloudPlaylistDownloaderPage() {
             }}
             placeholder="https://soundcloud.com/username/sets/playlist-name"
             relatedToolHref="/tools/soundcloud-downloader/"
+            relatedToolText={copy.relatedToolText}
+            relatedToolLabel={copy.relatedToolLabel}
             extension={format}
             loadingState={loadingState}
             errorMessage={errorMessage}
+            quotaMessage={downloadQuota.quotaMessage}
+            quotaInitializationState={downloadQuota.quotaInitializationState}
+            onRetryQuota={() => void downloadQuota.retryQuotaInitialization()}
             isTrackError={isTrackError}
             onExtensionChange={setFormat}
             onSubmit={(e) => {

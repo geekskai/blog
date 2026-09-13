@@ -45,9 +45,10 @@ export default function Page() {
     handleGetInfo,
     handleDownload,
   } = useSoundCloudTrackDownloadForm<TrackInfo>({
-    initialExtension: "wav",
+    initialExtension: "m4a",
     t,
     invalidUrlLogPrefix: "soundcloud to wav",
+    analyticsToolId: "soundcloud-to-wav",
     getFileName,
   })
   const resultSectionRef = useRef<HTMLDivElement | null>(null)
@@ -83,7 +84,7 @@ export default function Page() {
             <div className="rounded-full bg-white/20 p-1">
               <span className="text-base md:text-lg">🎵</span>
             </div>
-            <span className="font-semibold">{t("tool_badge")}</span>
+            <span className="font-semibold">{copy.badgeLabel}</span>
           </div>
 
           {/* Main Title - H1 for SEO */}
@@ -101,7 +102,7 @@ export default function Page() {
         <div className="mx-auto max-w-7xl md:mb-8">
           <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
             <div className="border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 px-4 py-3">
-              <h2 className="text-lg font-semibold text-white md:text-2xl">{t("form_title")}</h2>
+              <h2 className="text-lg font-semibold text-white md:text-2xl">{copy.formTitle}</h2>
             </div>
             <TrackDownloadForm
               namespace="SoundCloudToWAV"
@@ -110,10 +111,15 @@ export default function Page() {
               url={url}
               placeholder="https://soundcloud.com/username/song-name"
               relatedToolHref="/tools/soundcloud-downloader/"
+              relatedToolText={copy.relatedToolText}
+              relatedToolLabel={copy.relatedToolLabel}
               extension={extension}
               loadingState={loadingState}
               downloading={downloading}
               errorMessage={errorMessage}
+              quotaMessage={downloadQuota.quotaMessage}
+              quotaInitializationState={downloadQuota.quotaInitializationState}
+              onRetryQuota={() => void downloadQuota.retryQuotaInitialization()}
               isPlaylistError={isPlaylistError}
               infoProgress={infoProgress}
               infoStatus={infoStatus}

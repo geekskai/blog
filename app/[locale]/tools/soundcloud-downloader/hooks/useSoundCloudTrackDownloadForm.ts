@@ -1,5 +1,6 @@
 import { FormEvent, useCallback, useState } from "react"
 import { useDownloadQuota } from "@/components/download-quota/useDownloadQuota"
+import { trackToolEvent } from "@/lib/analytics/tool-events"
 import { downloadSoundCloudTrack } from "../lib/download"
 import {
   isValidSoundCloudPlaylistUrl,
@@ -9,7 +10,7 @@ import {
 } from "../lib/url"
 
 export type LoadingState = "idle" | "loading" | "success" | "error"
-export type DownloadFormat = "mp3" | "wav"
+export type DownloadFormat = "mp3" | "m4a"
 
 interface SoundCloudTrackInfoLike {
   title?: string
@@ -17,8 +18,9 @@ interface SoundCloudTrackInfoLike {
 
 interface UseSoundCloudTrackDownloadFormOptions<TTrackInfo extends SoundCloudTrackInfoLike> {
   initialExtension: DownloadFormat
-  t: (key: string) => string
+  t: (key: string, values?: Record<string, string | number>) => string
   invalidUrlLogPrefix: string
+  analyticsToolId: string
   getFileName: (trackInfo: TTrackInfo | null, extension: DownloadFormat) => string
 }
 
@@ -30,6 +32,7 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
   initialExtension,
   t,
   invalidUrlLogPrefix,
+  analyticsToolId,
   getFileName,
 }: UseSoundCloudTrackDownloadFormOptions<TTrackInfo>) {
   const [url, setUrl] = useState("")
@@ -46,10 +49,12 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
   const [hasCompletedDownload, setHasCompletedDownload] = useState(false)
   const restoreRegistrationState = useCallback((state: Record<string, unknown>) => {
     if (typeof state.url === "string") setUrl(state.url)
-    if (state.extension === "mp3" || state.extension === "wav") setExtension(state.extension)
+    if (state.extension === "mp3" || state.extension === "m4a") setExtension(state.extension)
+    if (state.extension === "wav") setExtension("m4a")
   }, [])
   const downloadQuota = useDownloadQuota({
     toolId: "soundcloud-track",
+    analyticsToolId,
     interruptedState: { url, extension },
     onRegistrationReturn: restoreRegistrationState,
   })
@@ -194,6 +199,7 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
       return
     }
 
+    const safeExtension: DownloadFormat = extension === "m4a" ? "m4a" : "mp3"
     const quotaCheck = await downloadQuota.checkQuotaBeforeDownload()
     if (!quotaCheck.allowed) {
       if (quotaCheck.message) {
@@ -202,6 +208,14 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
       return
     }
 
+    trackToolEvent("tool_started", {
+      tool_id: analyticsToolId,
+      action: "download",
+      format: safeExtension,
+    })
+
+    let mediaSaved = false
+
     try {
       setDownloading(true)
       resetError()
@@ -209,7 +223,6 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
       setDownloadStatus(t("progress_sending_request"))
       setDownloadProgress(10)
 
-      const safeExtension: DownloadFormat = extension === "wav" ? "wav" : "mp3"
       const fileName = getFileName(trackInfo, safeExtension)
 
       setDownloadStatus(t("progress_server_processing"))
@@ -232,6 +245,13 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
           }
         },
       })
+      mediaSaved = true
+      trackToolEvent("tool_succeeded", {
+        tool_id: analyticsToolId,
+        action: "download",
+        format: result.selectedFormat.extension,
+        result_count: 1,
+      })
 
       if (result.info?.title) {
         setTrackInfo({
@@ -242,12 +262,21 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
       }
 
       setDownloadProgress(100)
-      setDownloadStatus(t("progress_saving_file"))
+      setDownloadStatus(
+        t("progress_saving_actual_format", { format: result.selectedFormat.extension.toUpperCase() })
+      )
       await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
       setHasCompletedDownload(true)
       setTimeout(resetDownloadState, 1000)
     } catch (error) {
       await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
+      if (!mediaSaved) {
+        trackToolEvent("tool_failed", {
+          tool_id: analyticsToolId,
+          action: "download",
+          format: safeExtension,
+        })
+      }
       console.error("Download error:", error)
       setErrorMessage(error instanceof Error ? error.message : t("error_download_failed"))
       resetDownloadState()
@@ -255,6 +284,7 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
   }, [
     downloadQuota,
     downloading,
+    analyticsToolId,
     extension,
     getFileName,
     resetDownloadProgress,

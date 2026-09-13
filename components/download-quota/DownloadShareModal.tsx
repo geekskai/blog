@@ -7,6 +7,7 @@ import PostDownloadShareCard from "./PostDownloadShareCard"
 import { Share2, UserPlus, X } from "lucide-react"
 import type { QuotaToolId } from "@/lib/download-quota/config"
 import { getTemplateShareCopy } from "@/lib/growth/sharing"
+import React from "react"
 
 type DownloadShareModalProps = {
   toolId: QuotaToolId

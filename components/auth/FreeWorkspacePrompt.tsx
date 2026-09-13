@@ -5,6 +5,7 @@ import { ArrowRight, FolderHeart } from "lucide-react"
 import { Link } from "@/app/i18n/navigation"
 import { trackClarityEvent } from "@/lib/analytics/clarity"
 import { authPrimaryCtaClassName, authPrimaryCtaStyle } from "./authStyles"
+import React from "react"
 
 export default function FreeWorkspacePrompt() {
   return (

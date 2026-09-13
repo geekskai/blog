@@ -1,12 +1,13 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import { useTranslations } from "next-intl"
 import type { PlaylistTrack, DownloadFormat } from "../types"
 import Image from "next/image"
 import { downloadSoundCloudTrack } from "../../soundcloud-downloader/lib/download"
 import { getSafeFileName } from "../lib/utils"
 import type { DownloadQuotaController } from "@/components/download-quota/useDownloadQuota"
+import { trackToolEvent } from "@/lib/analytics/tool-events"
 
 interface PlaylistTracksProps {
   tracks: PlaylistTrack[]
@@ -29,38 +30,70 @@ export default function PlaylistTracks({
 }: PlaylistTracksProps) {
   const t = useTranslations("SoundCloudPlaylistDownloader")
   const [downloadingTracks, setDownloadingTracks] = useState<TrackDownloadState>({})
+  const [savedFormats, setSavedFormats] = useState<Record<number | string, DownloadFormat>>({})
+  const downloadingTrackRefs = useRef(new Set<string>())
 
   const handleDownloadTrack = async (track: PlaylistTrack) => {
     const trackKey = track.id || track.url
 
-    // Prevent duplicate downloads
-    if (downloadingTracks[trackKey]) {
+    const operationKey = String(trackKey)
+    if (downloadingTrackRefs.current.has(operationKey)) {
       return
     }
-
-    const quotaCheck = await downloadQuota.checkQuotaBeforeDownload()
-    if (!quotaCheck.allowed) {
-      if (quotaCheck.message) {
-        alert(quotaCheck.message)
-      }
-      return
-    }
+    downloadingTrackRefs.current.add(operationKey)
 
     try {
+      const quotaCheck = await downloadQuota.checkQuotaBeforeDownload()
+      if (!quotaCheck.allowed) {
+        trackToolEvent("quota_blocked", {
+          tool_id: "soundcloud-playlist-downloader",
+          action: "playlist_allowance",
+          format,
+        })
+        if (quotaCheck.message) {
+          alert(quotaCheck.message)
+        }
+        return
+      }
+
       setDownloadingTracks((prev) => ({ ...prev, [trackKey]: true }))
+      trackToolEvent("tool_started", {
+        tool_id: "soundcloud-playlist-downloader",
+        action: "playlist_track_download",
+        format,
+      })
 
       const fileName = getSafeFileName(track.title, format)
-      await downloadSoundCloudTrack(track.url, fileName, {
-        preferredFormat: format,
-        operationId: quotaCheck.operationId,
-        quotaToolId: "soundcloud-playlist",
-      })
-      await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
-    } catch (error) {
-      await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
-      console.error(`Failed to download track (${track.title}):`, error)
-      alert(`${t("playlist_tracks_download")} ${track.title} ${t("error_network")}`)
+      let mediaSaved = false
+      try {
+        const result = await downloadSoundCloudTrack(track.url, fileName, {
+          preferredFormat: format,
+          operationId: quotaCheck.operationId,
+          quotaToolId: "soundcloud-playlist",
+        })
+        mediaSaved = true
+        setSavedFormats((prev) => ({ ...prev, [trackKey]: result.selectedFormat.extension }))
+        trackToolEvent("tool_succeeded", {
+          tool_id: "soundcloud-playlist-downloader",
+          action: "playlist_track_download",
+          format: result.selectedFormat.extension,
+          result_count: 1,
+        })
+        await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
+      } catch (error) {
+        await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
+        if (!mediaSaved) {
+          trackToolEvent("tool_failed", {
+            tool_id: "soundcloud-playlist-downloader",
+            action: "playlist_track_download",
+            format,
+          })
+        }
+        console.error(`Failed to download track (${track.title}):`, error)
+        alert(`${t("playlist_tracks_download")} ${track.title} ${t("error_network")}`)
+      }
     } finally {
+      downloadingTrackRefs.current.delete(operationKey)
       setDownloadingTracks((prev) => {
         const newState = { ...prev }
         delete newState[trackKey]
@@ -126,6 +159,7 @@ export default function PlaylistTracks({
         {tracks.map((track, index) => {
           const trackKey = track.id || track.url
           const isDownloadingTrack = downloadingTracks[trackKey] || false
+          const savedFormat = savedFormats[trackKey]
           const artworkUrl = track.artworkUrl?.replace("-large", "-t500x500") || ""
 
           return (
@@ -219,7 +253,11 @@ export default function PlaylistTracks({
                       )}
 
                       <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-slate-300 backdrop-blur-sm sm:px-3">
-                        {format.toUpperCase()}
+                        {savedFormat
+                          ? t("playlist_tracks_saved_format", {
+                              format: savedFormat.toUpperCase(),
+                            })
+                          : format.toUpperCase()}
                       </span>
                     </div>
                   </div>

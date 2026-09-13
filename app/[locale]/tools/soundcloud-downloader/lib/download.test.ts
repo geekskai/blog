@@ -30,12 +30,12 @@ describe("SoundCloud output format selection", () => {
   })
 
   it("prefers the available AAC/M4A stream for the source-oriented workflow", () => {
-    expect(selectSoundCloudDownloadFormat([progressiveMp3, hlsM4a], "wav")).toBe(hlsM4a)
+    expect(selectSoundCloudDownloadFormat([progressiveMp3, hlsM4a], "m4a")).toBe(hlsM4a)
   })
 
   it("falls back transparently without inventing a requested format", () => {
     expect(selectSoundCloudDownloadFormat([hlsM4a], "mp3")).toBe(hlsM4a)
-    expect(selectSoundCloudDownloadFormat([progressiveMp3], "wav")).toBe(progressiveMp3)
+    expect(selectSoundCloudDownloadFormat([progressiveMp3], "m4a")).toBe(progressiveMp3)
   })
 
   it("saves the file with the selected stream's real extension", () => {

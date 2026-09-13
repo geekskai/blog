@@ -48,6 +48,7 @@ export default function SoundCloudToMP3Page() {
     initialExtension: "mp3",
     t,
     invalidUrlLogPrefix: "soundcloud to mp3",
+    analyticsToolId: "soundcloud-to-mp3",
     getFileName,
   })
   const resultSectionRef = useRef<HTMLDivElement | null>(null)
@@ -91,7 +92,7 @@ export default function SoundCloudToMP3Page() {
         <div className="mx-auto max-w-7xl md:mb-8">
           <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-sm">
             <div className="border-b border-white/10 bg-gradient-to-r from-purple-900/20 to-indigo-900/20 px-4 py-3">
-              <h2 className="text-lg font-semibold text-white md:text-2xl">{t("form_title")}</h2>
+              <h2 className="text-lg font-semibold text-white md:text-2xl">{copy.formTitle}</h2>
             </div>
             <TrackDownloadForm
               namespace="SoundCloudToMP3"
@@ -100,10 +101,15 @@ export default function SoundCloudToMP3Page() {
               url={url}
               placeholder="https://soundcloud.com/username/your-song-name"
               relatedToolHref="/tools/soundcloud-downloader/"
+              relatedToolText={copy.relatedToolText}
+              relatedToolLabel={copy.relatedToolLabel}
               extension={extension}
               loadingState={loadingState}
               downloading={downloading}
               errorMessage={errorMessage}
+              quotaMessage={downloadQuota.quotaMessage}
+              quotaInitializationState={downloadQuota.quotaInitializationState}
+              onRetryQuota={() => void downloadQuota.retryQuotaInitialization()}
               isPlaylistError={isPlaylistError}
               infoProgress={infoProgress}
               infoStatus={infoStatus}

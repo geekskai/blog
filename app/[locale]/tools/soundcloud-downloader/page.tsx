@@ -66,6 +66,7 @@ export default function SoundCloudDownloaderPage() {
     initialExtension: "mp3",
     t: tTrack,
     invalidUrlLogPrefix: "soundcloud downloader",
+    analyticsToolId: "soundcloud-downloader",
     getFileName,
   })
 

@@ -16,9 +16,14 @@ interface BaseTrackDownloadFormProps {
   url: string
   placeholder: string
   relatedToolHref: string
+  relatedToolText?: string
+  relatedToolLabel?: string
   extension: DownloadFormat
   loadingState: LoadingState
   errorMessage: string
+  quotaMessage?: string | null
+  quotaInitializationState?: "waiting_for_auth" | "initializing" | "ready" | "failed"
+  onRetryQuota?: () => void
   showFormatSelect?: boolean
   onUrlChange: (newUrl: string) => void
   onExtensionChange: (format: DownloadFormat) => void
@@ -93,9 +98,14 @@ export default function TrackDownloadForm(props: TrackDownloadFormProps) {
     url,
     placeholder,
     relatedToolHref,
+    relatedToolText,
+    relatedToolLabel,
     extension,
     loadingState,
     errorMessage,
+    quotaMessage,
+    quotaInitializationState,
+    onRetryQuota,
     showFormatSelect = true,
     onUrlChange,
     onExtensionChange,
@@ -114,13 +124,13 @@ export default function TrackDownloadForm(props: TrackDownloadFormProps) {
               {t("form_label_soundcloud_link")}
             </span>
             <div className="flex flex-col gap-2 text-xs text-slate-400 md:flex-row md:gap-3 md:text-sm">
-              <span>{t("related_tool_text")} 👉</span>
+              <span>{relatedToolText ?? t("related_tool_text")} 👉</span>
               <Link
                 href={relatedToolHref}
                 target="_blank"
                 className="text-emerald-400 underline transition-colors hover:text-emerald-300"
               >
-                {t("related_tool_link")}
+                {relatedToolLabel ?? t("related_tool_link")}
               </Link>
             </div>
           </div>
@@ -208,7 +218,7 @@ export default function TrackDownloadForm(props: TrackDownloadFormProps) {
                   <option value="mp3" className="bg-slate-900">
                     {t("form_select_format_mp3")}
                   </option>
-                  <option value="wav" className="bg-slate-900">
+                  <option value="m4a" className="bg-slate-900">
                     {t("form_select_format_wav")}
                   </option>
                 </select>
@@ -243,6 +253,23 @@ export default function TrackDownloadForm(props: TrackDownloadFormProps) {
                 </Link>
               )}
             </div>
+          </div>
+        </div>
+      )}
+
+      {quotaMessage && quotaInitializationState === "failed" && (
+        <div className="mt-4 rounded-lg border border-amber-400/30 bg-amber-950/30 p-4 text-sm text-amber-100">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <p>{quotaMessage}</p>
+            {quotaInitializationState === "failed" && onRetryQuota && (
+              <button
+                type="button"
+                onClick={onRetryQuota}
+                className="min-h-[40px] rounded-lg border border-amber-300/40 px-3 py-2 font-medium text-amber-100 transition-colors hover:bg-amber-300/10"
+              >
+                {t("quota_retry")}
+              </button>
+            )}
           </div>
         </div>
       )}

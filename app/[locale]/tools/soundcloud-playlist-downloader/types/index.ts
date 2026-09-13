@@ -1,4 +1,4 @@
-export type DownloadFormat = "mp3" | "wav"
+export type DownloadFormat = "mp3" | "m4a"
 
 export type LoadingState = "idle" | "loading" | "success" | "error"
 
@@ -21,5 +21,6 @@ export interface DownloadProgress {
   current: number
   total: number
   currentTrack: string
+  lastSavedFormat?: DownloadFormat
   status: "idle" | "downloading" | "completed" | "error"
 }

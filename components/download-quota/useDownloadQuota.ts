@@ -12,6 +12,7 @@ import {
   type QuotaRuntimeMode,
 } from "@/lib/download-quota/domain"
 import { authUrlWithRedirect, quotaRegistrationReturnUrl } from "@/lib/auth/redirect"
+import { trackToolEvent } from "@/lib/analytics/tool-events"
 import { cleanGrowthShareUrl } from "@/lib/growth/sharing"
 
 export type DownloadQuotaState = {
@@ -22,12 +23,17 @@ export type DownloadQuotaState = {
 
 export type DownloadQuotaCheck =
   | { allowed: true; operationId?: string }
-  | { allowed: false; reason: "share_required" | "daily_limit_reached"; message?: string }
+  | {
+      allowed: false
+      reason: "share_required" | "daily_limit_reached" | "temporarily_unavailable"
+      message?: string
+    }
 
 type RegistrationReturnState = Record<string, unknown>
 
 type UseDownloadQuotaOptions = {
   toolId: QuotaToolId
+  analyticsToolId?: string
   storageKey?: string
   interruptedState?: RegistrationReturnState
   onRegistrationReturn?: (state: RegistrationReturnState) => void
@@ -71,6 +77,17 @@ const DEFAULT_STORAGE_KEY = "geekskai_daily_download_quota_v1"
 const REGISTRATION_RETURN_KEY = "geekskai_registration_return_v1"
 const exhaustedMessage = "Today's download allowance is used up. Please come back tomorrow."
 const unavailableMessage = "Your account allowance is temporarily unavailable. Please try again."
+const authLoadingMessage = "Authentication is still loading, so we cannot check your download allowance yet."
+const activeDownloadMessage = "A download is already starting. Please wait for it to finish."
+const QUOTA_INITIALIZATION_TIMEOUT_MS = 8_000
+const CLERK_LOADING_TIMEOUT_MS = 8_000
+
+type QuotaInitializationState = "waiting_for_auth" | "initializing" | "ready" | "failed"
+
+type ActiveQuotaOperation =
+  | { mode: "local" }
+  | { mode: "server"; operationId?: string }
+  | null
 
 function getTodayDateKey() {
   return new Date().toISOString().slice(0, 10)
@@ -114,11 +131,15 @@ function getVisitorCarryover(state: DownloadQuotaState | null) {
   }
 }
 
-async function quotaRequest(body: Record<string, unknown>): Promise<QuotaApiResponse> {
+async function quotaRequest(
+  body: Record<string, unknown>,
+  signal?: AbortSignal
+): Promise<QuotaApiResponse> {
   const response = await fetch("/api/download-quota", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
+    signal,
   })
   const data = (await response.json().catch(() => ({}))) as QuotaApiResponse
   if (!response.ok) throw new Error(data.error || unavailableMessage)
@@ -136,6 +157,7 @@ function keepaliveQuotaRequest(body: Record<string, unknown>) {
 
 export function useDownloadQuota({
   toolId,
+  analyticsToolId = toolId,
   storageKey = DEFAULT_STORAGE_KEY,
   interruptedState = {},
   onRegistrationReturn,
@@ -144,6 +166,8 @@ export function useDownloadQuota({
   const [quotaState, setQuotaState] = useState<DownloadQuotaState | null>(null)
   const [serverQuota, setServerQuota] = useState<ServerQuota | null>(null)
   const [quotaMode, setQuotaMode] = useState<QuotaRuntimeMode>("pending")
+  const [quotaInitializationState, setQuotaInitializationState] =
+    useState<QuotaInitializationState>("waiting_for_auth")
   const [storageAvailable, setStorageAvailable] = useState(true)
   const [showShareModal, setShowShareModal] = useState(false)
   const [showPostDownloadShare, setShowPostDownloadShare] = useState(false)
@@ -154,6 +178,14 @@ export function useDownloadQuota({
   const [shareChannelsEnabled, setShareChannelsEnabled] = useState(false)
   const interruptedStateRef = useRef(interruptedState)
   const registrationRestoredRef = useRef(false)
+  const initializationRequestRef = useRef<{
+    context: number
+    promise: Promise<QuotaRuntimeMode | null>
+  } | null>(null)
+  const initializationControllerRef = useRef<AbortController | null>(null)
+  const quotaContextRef = useRef(0)
+  const activeQuotaOperationRef = useRef<ActiveQuotaOperation>(null)
+  const serverQuotaRef = useRef<ServerQuota | null>(null)
 
   interruptedStateRef.current = interruptedState
 
@@ -199,31 +231,110 @@ export function useDownloadQuota({
     [toolId]
   )
 
+  const trackQuotaInitialization = useCallback(
+    (
+      eventName: "quota_initialization_failed" | "quota_initialization_succeeded",
+      action: string
+    ) => {
+      trackToolEvent(eventName, { tool_id: analyticsToolId, action })
+    },
+    [analyticsToolId]
+  )
+
+  const initializeQuota = useCallback(
+    async (
+      localQuota: DownloadQuotaState | null,
+      context = quotaContextRef.current,
+      attempt: "initial" | "retry" = "initial"
+    ) => {
+      const existing = initializationRequestRef.current
+      if (existing?.context === context) return existing.promise
+      if (!isLoaded) {
+        setQuotaInitializationState("failed")
+        setQuotaMode("pending")
+        setQuotaMessage(authLoadingMessage)
+        trackQuotaInitialization("quota_initialization_failed", `${attempt}_auth_pending`)
+        return null
+      }
+
+      initializationControllerRef.current?.abort()
+      const controller = new AbortController()
+      initializationControllerRef.current = controller
+      setQuotaInitializationState("initializing")
+      setQuotaMode("pending")
+      setQuotaMessage(null)
+
+      const timeoutId = window.setTimeout(() => controller.abort(), QUOTA_INITIALIZATION_TIMEOUT_MS)
+      const carryover = getVisitorCarryover(localQuota)
+      const promise = quotaRequest(
+        { action: "initialize", toolId, ...carryover },
+        controller.signal
+      )
+        .then((data) => {
+          if (quotaContextRef.current !== context) return null
+          if (data.mode === "server" && data.quota) {
+            setQuotaMode("server")
+            serverQuotaRef.current = data.quota
+            setServerQuota(data.quota)
+            setShareChannelsEnabled(data.shareChannelsEnabled === true)
+            setQuotaInitializationState("ready")
+            trackQuotaInitialization("quota_initialization_succeeded", attempt)
+            return "server" as const
+          }
+          if (data.mode === "local") {
+            // Local mode is only selected after the server explicitly reports it is disabled.
+            setQuotaMode("local")
+            setShareChannelsEnabled(false)
+            setQuotaInitializationState("ready")
+            trackQuotaInitialization("quota_initialization_succeeded", attempt)
+            return "local" as const
+          }
+          throw new Error(unavailableMessage)
+        })
+        .catch(() => {
+          if (quotaContextRef.current === context) {
+            setQuotaMode("pending")
+            setQuotaInitializationState("failed")
+            setQuotaMessage(unavailableMessage)
+            trackQuotaInitialization("quota_initialization_failed", attempt)
+          }
+          return null
+        })
+        .finally(() => {
+          window.clearTimeout(timeoutId)
+          if (initializationRequestRef.current?.context === context) {
+            initializationRequestRef.current = null
+          }
+        })
+
+      initializationRequestRef.current = { context, promise }
+      return promise
+    },
+    [isLoaded, toolId, trackQuotaInitialization]
+  )
+
   useEffect(() => {
     if (typeof window === "undefined") return
     setShareLink(cleanGrowthShareUrl(window.location.href))
     const localQuota = syncDailyQuota()
-    if (!isLoaded) return
-    setQuotaMode("pending")
     setShareChannelsEnabled(false)
+    const context = ++quotaContextRef.current
 
-    const carryover = getVisitorCarryover(localQuota)
-    void quotaRequest({
-      action: "initialize",
-      toolId,
-      ...carryover,
-    })
-      .then((data) => {
-        if (data.mode === "server" && data.quota) {
-          setQuotaMode("server")
-          setServerQuota(data.quota)
-          setShareChannelsEnabled(data.shareChannelsEnabled === true)
-        } else {
-          setQuotaMode("local")
+    if (!isLoaded) {
+      setQuotaMode("pending")
+      setQuotaInitializationState("waiting_for_auth")
+      const timeoutId = window.setTimeout(() => {
+        if (!isLoaded && quotaContextRef.current === context) {
+          setQuotaInitializationState("failed")
+          setQuotaMessage(authLoadingMessage)
+          trackQuotaInitialization("quota_initialization_failed", "auth_timeout")
         }
-      })
-      .catch(() => setQuotaMessage(unavailableMessage))
-  }, [isLoaded, isSignedIn, syncDailyQuota, toolId])
+      }, CLERK_LOADING_TIMEOUT_MS)
+      return () => window.clearTimeout(timeoutId)
+    }
+
+    void initializeQuota(localQuota, context)
+  }, [initializeQuota, isLoaded, isSignedIn, syncDailyQuota, toolId, trackQuotaInitialization])
 
   useEffect(() => {
     if (!isLoaded || !isSignedIn || registrationRestoredRef.current) return
@@ -296,39 +407,70 @@ export function useDownloadQuota({
     setQuotaMessage(null)
     setUnlockSuccessMessage(null)
 
-    if (quotaMode === "pending") {
-      setQuotaMessage(unavailableMessage)
-      return { allowed: false, reason: "daily_limit_reached", message: unavailableMessage }
+    if (activeQuotaOperationRef.current) {
+      setQuotaMessage(activeDownloadMessage)
+      return {
+        allowed: false,
+        reason: "temporarily_unavailable",
+        message: activeDownloadMessage,
+      }
     }
 
-    if (quotaMode === "server") {
-      if (!serverQuota || serverQuota.remaining <= 0) {
+    let resolvedMode = quotaMode
+    if (quotaMode === "pending") {
+      const initializedMode = await initializeQuota(syncDailyQuota())
+      if (!initializedMode) {
+        const message = isLoaded ? unavailableMessage : authLoadingMessage
+        setQuotaMessage(message)
+        return { allowed: false, reason: "temporarily_unavailable", message }
+      }
+      resolvedMode = initializedMode
+    }
+
+    if (resolvedMode === "server") {
+      const currentServerQuota = serverQuotaRef.current ?? serverQuota
+      if (!currentServerQuota || currentServerQuota.remaining <= 0) {
         openQuotaGate()
         return { allowed: false, reason: "share_required" }
       }
 
       const operationId = crypto.randomUUID()
+      const context = quotaContextRef.current
+      activeQuotaOperationRef.current = { mode: "server" }
       try {
         const data = await quotaRequest({ action: "reserve", operationId, toolId })
-        if (data.quota) setServerQuota(data.quota)
+        if (quotaContextRef.current !== context) {
+          activeQuotaOperationRef.current = null
+          return { allowed: false, reason: "temporarily_unavailable", message: unavailableMessage }
+        }
+        if (data.quota) {
+          serverQuotaRef.current = data.quota
+          setServerQuota(data.quota)
+        }
         if (data.outcome === "reserved" || data.outcome === "consumed") {
+          activeQuotaOperationRef.current = { mode: "server", operationId }
           return { allowed: true, operationId }
         }
+        activeQuotaOperationRef.current = null
         if (data.outcome === "concurrency_reached") {
           const message = `You already have ${data.quota?.concurrencyLimit ?? 1} active download task${(data.quota?.concurrencyLimit ?? 1) === 1 ? "" : "s"}. Finish one before starting another.`
           setQuotaMessage(message)
-          return { allowed: false, reason: "daily_limit_reached", message }
+          return { allowed: false, reason: "temporarily_unavailable", message }
         }
         openQuotaGate()
         return { allowed: false, reason: "share_required" }
       } catch {
+        activeQuotaOperationRef.current = null
         setQuotaMessage(unavailableMessage)
-        return { allowed: false, reason: "daily_limit_reached", message: unavailableMessage }
+        return { allowed: false, reason: "temporarily_unavailable", message: unavailableMessage }
       }
     }
 
     const current = syncDailyQuota()
-    if (!current) return { allowed: true }
+    if (!current) {
+      setQuotaMessage(unavailableMessage)
+      return { allowed: false, reason: "temporarily_unavailable", message: unavailableMessage }
+    }
     if (current.remainingClicks <= 0) {
       if (current.sharesCountToday >= 1) {
         setQuotaMessage(exhaustedMessage)
@@ -340,39 +482,75 @@ export function useDownloadQuota({
         message: current.sharesCountToday >= 1 ? exhaustedMessage : undefined,
       }
     }
+    activeQuotaOperationRef.current = { mode: "local" }
     return { allowed: true }
-  }, [openQuotaGate, quotaMode, serverQuota, syncDailyQuota, toolId])
+  }, [initializeQuota, isLoaded, openQuotaGate, quotaMode, serverQuota, syncDailyQuota, toolId])
 
   const consumeDownloadQuota = useCallback(
     async (operationId?: string) => {
-      if (quotaMode === "server") {
-        if (!operationId) return
-        const data = await quotaRequest({ action: "complete", operationId, toolId })
-        if (data.quota) setServerQuota(data.quota)
-        void trackGrowthEvent("successful_download")
-        if (shareChannelsEnabled) setShowPostDownloadShare(true)
-      } else {
-        const current = syncDailyQuota()
-        if (current) {
-          persistQuota({ ...current, remainingClicks: Math.max(0, current.remainingClicks - 1) })
+      if (activeQuotaOperationRef.current?.mode === "server") {
+        if (
+          !operationId ||
+          activeQuotaOperationRef.current?.mode !== "server" ||
+          activeQuotaOperationRef.current.operationId !== operationId
+        ) {
+          return
         }
-        void trackGrowthEvent("successful_download")
+        try {
+          const data = await quotaRequest({ action: "complete", operationId, toolId })
+          if (data.quota) {
+            serverQuotaRef.current = data.quota
+            setServerQuota(data.quota)
+          }
+          void trackGrowthEvent("successful_download")
+          if (shareChannelsEnabled) setShowPostDownloadShare(true)
+        } finally {
+          activeQuotaOperationRef.current = null
+        }
+      } else {
+        if (activeQuotaOperationRef.current?.mode !== "local") return
+        try {
+          const current = syncDailyQuota()
+          if (current) {
+            persistQuota({ ...current, remainingClicks: Math.max(0, current.remainingClicks - 1) })
+          }
+          void trackGrowthEvent("successful_download")
+        } finally {
+          activeQuotaOperationRef.current = null
+        }
       }
     },
-    [persistQuota, quotaMode, shareChannelsEnabled, syncDailyQuota, toolId, trackGrowthEvent]
+    [persistQuota, shareChannelsEnabled, syncDailyQuota, toolId, trackGrowthEvent]
   )
 
   const releaseDownloadQuota = useCallback(
     async (operationId?: string) => {
-      if (quotaMode !== "server" || !operationId) return
+      if (activeQuotaOperationRef.current?.mode === "local") {
+        activeQuotaOperationRef.current = null
+        return
+      }
+      if (!operationId) {
+        return
+      }
+      if (
+        activeQuotaOperationRef.current?.mode !== "server" ||
+        activeQuotaOperationRef.current.operationId !== operationId
+      ) {
+        return
+      }
       try {
         const data = await quotaRequest({ action: "release", operationId, toolId })
-        if (data.quota) setServerQuota(data.quota)
+        if (data.quota) {
+          serverQuotaRef.current = data.quota
+          setServerQuota(data.quota)
+        }
       } catch {
         // The reservation expires automatically if release cannot be delivered.
+      } finally {
+        activeQuotaOperationRef.current = null
       }
     },
-    [quotaMode, toolId]
+    [toolId]
   )
 
   const handleShareUnlock = useCallback(async () => {
@@ -391,7 +569,10 @@ export function useDownloadQuota({
     if (quotaMode === "server") {
       try {
         const data = await quotaRequest({ action: "share_unlock", toolId })
-        if (data.quota) setServerQuota(data.quota)
+        if (data.quota) {
+          serverQuotaRef.current = data.quota
+          setServerQuota(data.quota)
+        }
         setShowShareModal(false)
         setQuotaMessage(null)
         setUnlockSuccessMessage(
@@ -496,10 +677,13 @@ export function useDownloadQuota({
       growthExperimentsEnabled(quotaMode) && shareChannelsEnabled && showPostDownloadShare,
     shareLink,
     quotaMessage,
+    quotaInitializationState,
     unlockSuccessMessage,
     setQuotaMessage,
     setUnlockSuccessMessage,
     checkQuotaBeforeDownload,
+    retryQuotaInitialization: () =>
+      initializeQuota(syncDailyQuota(), quotaContextRef.current, "retry"),
     consumeDownloadQuota,
     releaseDownloadQuota,
     handleShareUnlock,

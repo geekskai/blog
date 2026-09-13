@@ -11,7 +11,7 @@ interface DownloadProgressProps {
 
 export default function DownloadProgress({ progress, className = "" }: DownloadProgressProps) {
   const t = useTranslations("SoundCloudPlaylistDownloader")
-  const { current, total, currentTrack, status } = progress
+  const { current, total, currentTrack, lastSavedFormat, status } = progress
 
   if (status === "idle") {
     return null
@@ -56,6 +56,12 @@ export default function DownloadProgress({ progress, className = "" }: DownloadP
               {t("download_progress_downloading")} {currentTrack}
             </span>
           </div>
+        )}
+
+        {lastSavedFormat && (
+          <p className="mt-2 text-xs font-medium text-emerald-300 sm:text-sm">
+            {t("download_progress_saved_format", { format: lastSavedFormat.toUpperCase() })}
+          </p>
         )}
 
         {status === "error" && (

@@ -8,6 +8,9 @@ export type ToolEventName =
   | "tool_failed"
   | "tool_result_copied"
   | "related_tool_clicked"
+  | "quota_initialization_failed"
+  | "quota_initialization_succeeded"
+  | "quota_blocked"
 
 export interface ToolEventProperties {
   tool_id: string

@@ -1,4 +1,4 @@
-export const SOUNDCLOUD_SEO_UPDATED = "2026-08-30"
+export const SOUNDCLOUD_SEO_UPDATED = "2026-09-13"
 
 export type SoundCloudEvidencePage = "wav" | "mp3" | "playlist"
 
@@ -7,6 +7,10 @@ type SoundCloudPageCopy = {
   metadataDescription: string
   pageTitle: string
   heroDescription: string
+  badgeLabel: string
+  formTitle: string
+  relatedToolText: string
+  relatedToolLabel: string
   directAnswer: string
   facts: readonly string[]
   steps: readonly string[]
@@ -75,6 +79,10 @@ const copyByLocale: Record<string, Record<SoundCloudEvidencePage, SoundCloudPage
       pageTitle: "SoundCloud to WAV: Download the Available Source Format",
       heroDescription:
         "Paste a public track URL to inspect it and save the browser-readable MP3 or M4A stream SoundCloud actually provides.",
+      badgeLabel: "Available source format",
+      formTitle: "Check the available format and download it",
+      relatedToolText: "Need a different SoundCloud download flow?",
+      relatedToolLabel: "Open SoundCloud Downloader",
       directAnswer:
         "This page does not synthesize a WAV file. It prefers SoundCloud's AAC/M4A stream for the WAV-oriented workflow, then falls back to progressive MP3, and saves the file with its true extension. Converting a lossy stream into a WAV container would make a larger file without restoring lost audio detail, so the downloader does not claim to do that.",
       facts: [
@@ -100,6 +108,10 @@ const copyByLocale: Record<string, Record<SoundCloudEvidencePage, SoundCloudPage
       pageTitle: "SoundCloud to MP3 Downloader",
       heroDescription:
         "Paste one public track URL. The downloader prefers a progressive MP3 stream and clearly reports when SoundCloud only provides AAC/M4A.",
+      badgeLabel: "Available source format",
+      formTitle: "Download the available source stream",
+      relatedToolText: "Need a different SoundCloud download flow?",
+      relatedToolLabel: "Open SoundCloud Downloader",
       directAnswer:
         "The downloader saves a progressive MP3 when SoundCloud exposes one. It does not re-encode audio to 320 kbps or improve the source stream. When a progressive MP3 is unavailable but a browser-readable AAC stream exists, it saves M4A instead of disguising that file as MP3.",
       facts: [
@@ -125,6 +137,10 @@ const copyByLocale: Record<string, Record<SoundCloudEvidencePage, SoundCloudPage
       pageTitle: "SoundCloud Playlist Downloader",
       heroDescription:
         "Load a public /sets/ playlist, review accessible tracks, and download them sequentially in each track's available MP3 or M4A format.",
+      badgeLabel: "Playlist downloader",
+      formTitle: "Load a public playlist",
+      relatedToolText: "Need a different SoundCloud download flow?",
+      relatedToolLabel: "Open SoundCloud Downloader",
       directAnswer:
         "The playlist tool fetches accessible tracks from a public SoundCloud /sets/ URL and downloads them sequentially in the browser. Each track is resolved separately, uses one download allowance, and may save as MP3 or M4A. A failed or restricted track is counted without changing the format of successful files.",
       facts: [
@@ -140,7 +156,7 @@ const copyByLocale: Record<string, Record<SoundCloudEvidencePage, SoundCloudPage
       limits: [
         "Private playlists, private tracks, empty sets, and removed tracks are unavailable.",
         "Browsers may ask permission for multiple downloads and signed URLs can expire.",
-        "A partial failure does not mean the entire playlist was saved successfully.",
+        "Each accessible track uses one daily download allowance. If the allowance runs out, the batch stops and files already saved remain available.",
       ],
     },
   },
@@ -152,6 +168,10 @@ const copyByLocale: Record<string, Record<SoundCloudEvidencePage, SoundCloudPage
       pageTitle: "SoundCloud vers WAV : télécharger le format réellement disponible",
       heroDescription:
         "Collez l'URL d'une piste publique pour inspecter et enregistrer le flux MP3 ou M4A réellement fourni par SoundCloud.",
+      badgeLabel: "Format source disponible",
+      formTitle: "Vérifier le format disponible et le télécharger",
+      relatedToolText: "Besoin d'un autre parcours de téléchargement SoundCloud ?",
+      relatedToolLabel: "Ouvrir le téléchargeur SoundCloud",
       directAnswer:
         "Cette page ne fabrique pas de fichier WAV. Pour le flux orienté qualité, elle préfère l'AAC/M4A fourni par SoundCloud puis utilise le MP3 progressif en repli, toujours avec la bonne extension. Transformer un flux compressé en WAV créerait un fichier plus lourd sans restaurer les détails perdus.",
       facts: [
@@ -177,6 +197,10 @@ const copyByLocale: Record<string, Record<SoundCloudEvidencePage, SoundCloudPage
       pageTitle: "Téléchargeur SoundCloud vers MP3",
       heroDescription:
         "Collez l'URL d'une piste publique : le téléchargeur préfère le MP3 progressif et signale clairement le repli AAC/M4A.",
+      badgeLabel: "Format source disponible",
+      formTitle: "Télécharger le flux source disponible",
+      relatedToolText: "Besoin d'un autre parcours de téléchargement SoundCloud ?",
+      relatedToolLabel: "Ouvrir le téléchargeur SoundCloud",
       directAnswer:
         "Le téléchargeur enregistre un MP3 progressif lorsque SoundCloud en fournit un. Il ne réencode pas le son en 320 kbit/s et n'améliore pas le flux source. Si seul un flux AAC lisible dans le navigateur est disponible, il enregistre un fichier M4A au lieu de le présenter comme un MP3.",
       facts: [
@@ -202,6 +226,10 @@ const copyByLocale: Record<string, Record<SoundCloudEvidencePage, SoundCloudPage
       pageTitle: "Téléchargeur de playlists SoundCloud",
       heroDescription:
         "Chargez une playlist /sets/ publique, vérifiez les pistes accessibles et téléchargez-les séquentiellement en MP3 ou M4A.",
+      badgeLabel: "Téléchargeur de playlists",
+      formTitle: "Charger une playlist publique",
+      relatedToolText: "Besoin d'un autre parcours de téléchargement SoundCloud ?",
+      relatedToolLabel: "Ouvrir le téléchargeur SoundCloud",
       directAnswer:
         "L'outil charge les pistes accessibles d'une URL SoundCloud publique contenant /sets/ puis les télécharge une par une dans le navigateur. Chaque piste est résolue séparément, utilise une autorisation de téléchargement et peut être enregistrée en MP3 ou M4A. Les échecs partiels sont comptabilisés.",
       facts: [
@@ -217,7 +245,7 @@ const copyByLocale: Record<string, Record<SoundCloudEvidencePage, SoundCloudPage
       limits: [
         "Les playlists privées, pistes privées, listes vides et pistes supprimées sont indisponibles.",
         "Le navigateur peut demander l'autorisation pour plusieurs fichiers et les URL peuvent expirer.",
-        "Un échec partiel signifie que la playlist n'a pas été entièrement enregistrée.",
+        "Chaque piste accessible utilise une autorisation quotidienne. Si elle est épuisée, le lot s'arrête et les fichiers déjà enregistrés restent disponibles.",
       ],
     },
   },
@@ -229,6 +257,10 @@ const copyByLocale: Record<string, Record<SoundCloudEvidencePage, SoundCloudPage
       pageTitle: "SoundCloud a WAV: descarga el formato realmente disponible",
       heroDescription:
         "Pega la URL de una pista pública para inspeccionar y guardar el flujo MP3 o M4A que SoundCloud ofrece realmente.",
+      badgeLabel: "Formato fuente disponible",
+      formTitle: "Comprobar el formato disponible y descargarlo",
+      relatedToolText: "¿Necesitas otro flujo de descarga de SoundCloud?",
+      relatedToolLabel: "Abrir SoundCloud Downloader",
       directAnswer:
         "Esta página no crea un archivo WAV. Para el flujo orientado a calidad, prefiere AAC/M4A y usa MP3 progresivo como alternativa, siempre con la extensión correcta. Convertir un flujo con pérdida a WAV solo produciría un archivo mayor sin recuperar detalle de audio, por eso no se promete esa conversión.",
       facts: [
@@ -254,6 +286,10 @@ const copyByLocale: Record<string, Record<SoundCloudEvidencePage, SoundCloudPage
       pageTitle: "Descargador de SoundCloud a MP3",
       heroDescription:
         "Pega una pista pública: el descargador prioriza MP3 progresivo e informa cuando solo existe AAC/M4A.",
+      badgeLabel: "Formato fuente disponible",
+      formTitle: "Descargar el flujo fuente disponible",
+      relatedToolText: "¿Necesitas otro flujo de descarga de SoundCloud?",
+      relatedToolLabel: "Abrir SoundCloud Downloader",
       directAnswer:
         "El descargador guarda un MP3 progresivo cuando SoundCloud lo ofrece. No recodifica el audio a 320 kbps ni mejora el flujo original. Si no hay MP3 progresivo pero existe AAC compatible con el navegador, guarda M4A en lugar de presentar ese archivo como MP3.",
       facts: [
@@ -279,6 +315,10 @@ const copyByLocale: Record<string, Record<SoundCloudEvidencePage, SoundCloudPage
       pageTitle: "Descargador de playlists de SoundCloud",
       heroDescription:
         "Carga una playlist pública /sets/, revisa las pistas accesibles y descárgalas una a una como MP3 o M4A.",
+      badgeLabel: "Descargador de playlists",
+      formTitle: "Cargar una playlist pública",
+      relatedToolText: "¿Necesitas otro flujo de descarga de SoundCloud?",
+      relatedToolLabel: "Abrir SoundCloud Downloader",
       directAnswer:
         "La herramienta obtiene las pistas accesibles de una URL pública /sets/ y las descarga secuencialmente en el navegador. Cada pista se resuelve por separado, consume una autorización de descarga y puede guardarse como MP3 o M4A. Las pistas restringidas y los fallos parciales se contabilizan.",
       facts: [
@@ -294,7 +334,7 @@ const copyByLocale: Record<string, Record<SoundCloudEvidencePage, SoundCloudPage
       limits: [
         "No se admiten playlists privadas, pistas privadas, listas vacías ni pistas eliminadas.",
         "El navegador puede pedir permiso para varias descargas y las URL pueden caducar.",
-        "Un fallo parcial significa que la playlist no se guardó completamente.",
+        "Cada pista accesible usa una cuota diaria de descarga. Si se agota, el lote se detiene y los archivos ya guardados siguen disponibles.",
       ],
     },
   },
@@ -306,6 +346,10 @@ const copyByLocale: Record<string, Record<SoundCloudEvidencePage, SoundCloudPage
       pageTitle: "SoundCloud zu WAV: das tatsächlich verfügbare Format laden",
       heroDescription:
         "Füge die URL eines öffentlichen Tracks ein und speichere den von SoundCloud bereitgestellten MP3- oder M4A-Stream.",
+      badgeLabel: "Verfügbares Quellformat",
+      formTitle: "Verfügbares Format prüfen und herunterladen",
+      relatedToolText: "Du brauchst einen anderen SoundCloud-Downloadablauf?",
+      relatedToolLabel: "SoundCloud Downloader öffnen",
       directAnswer:
         "Diese Seite erzeugt keine WAV-Datei. Für den qualitätsorientierten Ablauf bevorzugt sie AAC/M4A und nutzt progressives MP3 als Alternative, jeweils mit korrekter Dateiendung. Ein verlustbehafteter Stream würde durch eine WAV-Hülle nur größer; verlorene Audiodetails kämen nicht zurück.",
       facts: [
@@ -331,6 +375,10 @@ const copyByLocale: Record<string, Record<SoundCloudEvidencePage, SoundCloudPage
       pageTitle: "SoundCloud-zu-MP3-Downloader",
       heroDescription:
         "Füge einen öffentlichen Track ein. Progressives MP3 wird bevorzugt; AAC/M4A wird transparent als Alternative gespeichert.",
+      badgeLabel: "Verfügbares Quellformat",
+      formTitle: "Verfügbaren Quellstream herunterladen",
+      relatedToolText: "Du brauchst einen anderen SoundCloud-Downloadablauf?",
+      relatedToolLabel: "SoundCloud Downloader öffnen",
       directAnswer:
         "Der Downloader speichert progressives MP3, wenn SoundCloud einen solchen Stream bereitstellt. Er kodiert Audio nicht auf 320 kbit/s neu und verbessert die Quelle nicht. Ist nur browserlesbares AAC verfügbar, wird M4A gespeichert, statt die Datei als MP3 auszugeben.",
       facts: [
@@ -356,6 +404,10 @@ const copyByLocale: Record<string, Record<SoundCloudEvidencePage, SoundCloudPage
       pageTitle: "SoundCloud-Playlist-Downloader",
       heroDescription:
         "Öffentliche /sets/-Playlist laden, zugängliche Tracks prüfen und nacheinander als MP3 oder M4A speichern.",
+      badgeLabel: "Playlist-Downloader",
+      formTitle: "Öffentliche Playlist laden",
+      relatedToolText: "Du brauchst einen anderen SoundCloud-Downloadablauf?",
+      relatedToolLabel: "SoundCloud Downloader öffnen",
       directAnswer:
         "Das Tool lädt zugängliche Tracks einer öffentlichen SoundCloud-/sets/-URL nacheinander im Browser. Jeder Track wird separat aufgelöst, nutzt eine Download-Freigabe und kann als MP3 oder M4A gespeichert werden. Eingeschränkte Tracks und Teilfehler werden gezählt.",
       facts: [
@@ -371,7 +423,7 @@ const copyByLocale: Record<string, Record<SoundCloudEvidencePage, SoundCloudPage
       limits: [
         "Private Playlists, private Tracks, leere Sets und gelöschte Tracks sind nicht verfügbar.",
         "Der Browser kann mehrere Downloads bestätigen müssen; signierte URLs können ablaufen.",
-        "Bei Teilfehlern wurde die Playlist nicht vollständig gespeichert.",
+        "Jeder zugängliche Track verbraucht eine tägliche Download-Freigabe. Ist sie aufgebraucht, stoppt der Durchlauf; bereits gespeicherte Dateien bleiben erhalten.",
       ],
     },
   },

@@ -4,6 +4,8 @@ import { NextRequest } from "next/server"
 const mocks = vi.hoisted(() => ({
   auth: vi.fn(),
   currentUser: vi.fn(),
+  ensureGrowthJourney: vi.fn(),
+  initializeVisitorUsage: vi.fn(),
   createShareAttribution: vi.fn(),
   getValidShareAttribution: vi.fn(),
   recordAccountCompletion: vi.fn(),
@@ -19,6 +21,7 @@ vi.mock("@/lib/growth/events", async (importOriginal) => {
     getValidShareAttribution: mocks.getValidShareAttribution,
     recordAccountCompletion: mocks.recordAccountCompletion,
     recordGrowthEvent: mocks.recordGrowthEvent,
+    ensureGrowthJourney: mocks.ensureGrowthJourney,
   }
 })
 vi.mock("@/lib/download-quota/repository", () => ({
@@ -29,7 +32,7 @@ vi.mock("@/lib/download-quota/repository", () => ({
   grantRegisteredShareUnlock: vi.fn(),
   grantVisitorShareUnlock: vi.fn(),
   initializeRegisteredUsage: vi.fn(),
-  initializeVisitorUsage: vi.fn(),
+  initializeVisitorUsage: mocks.initializeVisitorUsage,
   releaseRegisteredDownload: vi.fn(),
   releaseVisitorDownload: vi.fn(),
   reserveRegisteredDownload: vi.fn(),
@@ -181,5 +184,37 @@ describe("download quota growth actions", () => {
         userCreatedAt: new Date(1788084000000),
       })
     )
+  })
+
+  it("uses local mode only when the server-side quota flags explicitly disable it", async () => {
+    process.env.DOWNLOAD_QUOTA_SERVER_ENABLED = "false"
+
+    const response = await POST(request({ action: "initialize", toolId: "soundcloud-track" }))
+
+    expect(response.status).toBe(200)
+    await expect(response.json()).resolves.toEqual({ mode: "local" })
+    expect(mocks.initializeVisitorUsage).not.toHaveBeenCalled()
+  })
+
+  it("initializes an anonymous server quota before allowing a download", async () => {
+    const visitorQuota = {
+      limit: 3,
+      remaining: 3,
+      successfulDownloads: 0,
+      activeReservations: 0,
+      concurrencyLimit: 1,
+      shareUnlockAvailable: true,
+    }
+    mocks.initializeVisitorUsage.mockResolvedValue(visitorQuota)
+
+    const response = await POST(
+      request({ action: "initialize", toolId: "soundcloud-track", visitorUsage: 0 })
+    )
+
+    expect(response.status).toBe(200)
+    await expect(response.json()).resolves.toEqual(
+      expect.objectContaining({ mode: "server", quota: visitorQuota })
+    )
+    expect(mocks.initializeVisitorUsage).toHaveBeenCalledWith(expect.any(String), 0)
   })
 })

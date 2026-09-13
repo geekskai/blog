@@ -9,7 +9,7 @@ export interface SoundCloudDirectDownloadInfo {
   id?: number
 }
 
-export type SoundCloudPreferredDownloadFormat = "mp3" | "wav"
+export type SoundCloudPreferredDownloadFormat = "mp3" | "m4a"
 
 export interface SoundCloudDownloadFormat {
   kind: "progressive" | "hls"
@@ -30,6 +30,11 @@ export interface SoundCloudDirectDownloadResult {
   selectedFormat?: SoundCloudDownloadFormat
   savedFileName?: string
   info: SoundCloudDirectDownloadInfo
+}
+
+export interface SoundCloudDownloadedResult extends SoundCloudDirectDownloadResult {
+  selectedFormat: SoundCloudDownloadFormat
+  savedFileName: string
 }
 
 interface DownloadOptions {
@@ -225,8 +230,8 @@ const inferPreferredFormat = (
   options?: Pick<DownloadOptions, "preferredFormat" | "mimeType">
 ): SoundCloudPreferredDownloadFormat => {
   if (options?.preferredFormat) return options.preferredFormat
-  if (options?.mimeType === "audio/wav") return "wav"
-  if (fileName.toLowerCase().endsWith(".wav")) return "wav"
+  if (options?.mimeType === "audio/mp4") return "m4a"
+  if (fileName.toLowerCase().endsWith(".m4a")) return "m4a"
   return "mp3"
 }
 
@@ -251,8 +256,7 @@ export const selectSoundCloudDownloadFormat = (
     )
   }
 
-  // There is no real WAV output in the low-server-cost path. Prefer browser-readable AAC/HLS
-  // for WAV requests, then fall back to MP3, and save with the true extension.
+  // Prefer browser-readable AAC/HLS for the source-stream workflow, then fall back to MP3.
   return (
     formats.find((format) => format.kind === "hls" && format.extension === "m4a") ??
     formats.find((format) => format.kind === "progressive" && format.extension === "mp3") ??
@@ -264,7 +268,7 @@ export async function downloadSoundCloudTrack(
   trackUrl: string,
   fileName: string,
   options?: DownloadOptions
-): Promise<SoundCloudDirectDownloadResult> {
+): Promise<SoundCloudDownloadedResult> {
   const result = await resolveSoundCloudDirectUrl(
     trackUrl,
     options?.operationId,
