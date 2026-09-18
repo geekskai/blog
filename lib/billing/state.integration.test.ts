@@ -24,6 +24,7 @@ vi.mock("@/lib/db/client", () => ({
   },
 }))
 vi.mock("@/lib/billing/paypal", () => ({
+  getPayPalErrorLogFields: vi.fn(() => ({ errorCode: null, paypalDebugId: null })),
   getPayPalClient: () => ({
     verifyWebhook: vi.fn(async () => true),
     getCapture: vi.fn(async () => ({

@@ -28,6 +28,59 @@ import { readBillingJson } from "@/lib/billing/client-response"
 import type { AudioCreditBalance } from "@/lib/billing/types"
 
 type CheckoutKind = "payg" | "regular"
+type PaygConfirmationState = "idle" | "confirming" | "retry"
+
+type PaygCaptureResponse = {
+  ok?: boolean
+  status?: string
+  code?: string
+  retryable?: boolean
+  error?: string
+}
+
+const PENDING_PAYPAL_ORDER_KEY = "geekskai.paypal.pending-order.v1"
+const PAYPAL_ORDER_ID_PATTERN = /^[A-Z0-9-]{3,64}$/i
+
+class PaygCaptureError extends Error {
+  code: string | null
+
+  constructor(message: string, code?: string | null) {
+    super(message)
+    this.name = "PaygCaptureError"
+    this.code = code ?? null
+  }
+}
+
+function readPendingPayPalOrder() {
+  const orderId = window.sessionStorage.getItem(PENDING_PAYPAL_ORDER_KEY)
+  return orderId && PAYPAL_ORDER_ID_PATTERN.test(orderId) ? orderId : null
+}
+
+function clearPendingPayPalOrder() {
+  window.sessionStorage.removeItem(PENDING_PAYPAL_ORDER_KEY)
+}
+
+function setCheckoutUrl(kind: CheckoutKind | null) {
+  const url = new URL(window.location.href)
+  if (kind) url.searchParams.set("checkout", kind)
+  else url.searchParams.delete("checkout")
+  url.searchParams.delete("paypal_return")
+  url.searchParams.delete("paypal_cancel")
+  window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`)
+}
+
+async function capturePaygOrder(orderId: string) {
+  const response = await fetch(`/api/billing/orders/${encodeURIComponent(orderId)}/capture/`, {
+    method: "POST",
+  })
+  const result = await readBillingJson<PaygCaptureResponse>(response)
+  if (!response.ok || !result?.ok) {
+    throw new PaygCaptureError(
+      result?.error ?? "Payment confirmation is temporarily unavailable. Retry this order.",
+      result?.code
+    )
+  }
+}
 
 const paygAudioHours = CREDIT_CATALOG.payg480.credits / 60
 const paygCostPerAudioHour = (CREDIT_CATALOG.payg480.price * 60) / CREDIT_CATALOG.payg480.credits
@@ -124,11 +177,21 @@ function messageFromUnknown(value: unknown) {
 
 function CheckoutButtons({
   kind,
+  locale,
+  pendingOrderId,
+  disabled,
+  onPaygOrderCreated,
+  onPaygApprove,
   onSuccess,
   onCancel,
   onError,
 }: {
   kind: CheckoutKind
+  locale: string
+  pendingOrderId: string | null
+  disabled: boolean
+  onPaygOrderCreated: (orderId: string) => void
+  onPaygApprove: (orderId: string) => Promise<void>
   onSuccess: () => void
   onCancel: () => void
   onError: (message: string) => void
@@ -155,33 +218,33 @@ function CheckoutButtons({
   }
 
   if (kind === "payg") {
+    const callbacks = {
+      type: "buynow" as const,
+      presentationMode: "redirect" as const,
+      disabled,
+      onApprove: async ({ orderId }: { orderId: string }) => onPaygApprove(orderId),
+      onCancel,
+      onError: (value: unknown) => onError(messageFromUnknown(value)),
+    }
+    if (pendingOrderId) {
+      return <PayPalOneTimePaymentButton {...callbacks} orderId={pendingOrderId} />
+    }
     return (
       <PayPalOneTimePaymentButton
-        type="buynow"
-        presentationMode="redirect"
+        {...callbacks}
         createOrder={async () => {
-          const response = await fetch("/api/billing/orders/", { method: "POST" })
+          const response = await fetch("/api/billing/orders/", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ locale }),
+          })
           const result = await readBillingJson<{ orderId?: string; error?: string }>(response)
           if (!response.ok || !result?.orderId) {
             throw new Error(result?.error ?? "PayPal order could not be created.")
           }
+          onPaygOrderCreated(result.orderId)
           return { orderId: result.orderId }
         }}
-        onApprove={async ({ orderId }) => {
-          const response = await fetch(
-            `/api/billing/orders/${encodeURIComponent(orderId)}/capture/`,
-            {
-              method: "POST",
-            }
-          )
-          const result = await readBillingJson<{ ok?: boolean; error?: string }>(response)
-          if (!response.ok || !result?.ok) {
-            throw new Error(result?.error ?? "PayPal payment could not be captured.")
-          }
-          onSuccess()
-        }}
-        onCancel={onCancel}
-        onError={(value) => onError(messageFromUnknown(value))}
       />
     )
   }
@@ -235,7 +298,11 @@ export default function PricingActions({
   const [checkout, setCheckout] = useState<CheckoutKind | null>(null)
   const [balance, setBalance] = useState<AudioCreditBalance | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [notice, setNotice] = useState<string | null>(null)
+  const [pendingOrderId, setPendingOrderId] = useState<string | null>(null)
+  const [paygConfirmationState, setPaygConfirmationState] = useState<PaygConfirmationState>("idle")
   const checkoutPanelRef = useRef<HTMLElement>(null)
+  const confirmationInFlightRef = useRef(false)
   const prefix = locale === "en" ? "" : `/${locale}`
   const selectedPlan = checkout ? plans.find((plan) => plan.key === checkout) : null
   const selectedTheme = checkout ? paidPlanThemes[checkout] : null
@@ -252,6 +319,43 @@ export default function PricingActions({
   }, [isLoaded, isSignedIn])
 
   useEffect(() => {
+    if (!isLoaded) return
+    const params = new URLSearchParams(window.location.search)
+    const selected = params.get("checkout")
+    const returnFromPayPal = params.get("paypal_return") === "1"
+    const cancelledByPayPal = params.get("paypal_cancel") === "1"
+    const storedOrderId = readPendingPayPalOrder()
+    setPendingOrderId(storedOrderId)
+
+    if (cancelledByPayPal) {
+      clearPendingPayPalOrder()
+      setPendingOrderId(null)
+      setCheckout(null)
+      setPaygConfirmationState("idle")
+      setError(null)
+      setNotice("PayPal checkout was cancelled. No charge was made.")
+      setCheckoutUrl(null)
+      return
+    }
+    if (selected !== "payg" && selected !== "regular") return
+
+    const returnPath = `${prefix}/pricing/?checkout=${selected}${
+      returnFromPayPal ? "&paypal_return=1" : ""
+    }`
+    if (!isSignedIn) {
+      window.location.assign(`${prefix}/sign-in/?redirect_url=${encodeURIComponent(returnPath)}`)
+      return
+    }
+
+    setCheckout(selected)
+    setNotice(null)
+    if (selected === "payg" && returnFromPayPal) {
+      setPaygConfirmationState("confirming")
+      trackClarityEvent("paypal_payg_session_resumed")
+    }
+  }, [isLoaded, isSignedIn, prefix])
+
+  useEffect(() => {
     if (!checkout) return
     const panel = checkoutPanelRef.current
     if (!panel) return
@@ -264,24 +368,80 @@ export default function PricingActions({
 
   const chooseCheckout = (kind: CheckoutKind) => {
     setError(null)
+    setNotice(null)
     trackClarityEvent(`pricing_cta_clicked_${kind}`)
     if (!isLoaded) return
     if (!isSignedIn) {
-      window.location.assign(
-        `${prefix}/sign-in/?redirect_url=${encodeURIComponent(`${prefix}/pricing/`)}`
-      )
+      const returnPath = `${prefix}/pricing/?checkout=${kind}`
+      window.location.assign(`${prefix}/sign-in/?redirect_url=${encodeURIComponent(returnPath)}`)
       return
     }
+    setCheckoutUrl(kind)
+    if (kind === "payg") setPendingOrderId(readPendingPayPalOrder())
     setCheckout(kind)
   }
 
   const closeCheckout = () => {
     setCheckout(null)
+    setPaygConfirmationState("idle")
+    setCheckoutUrl(null)
+  }
+
+  const cancelCheckout = () => {
+    clearPendingPayPalOrder()
+    setPendingOrderId(null)
+    setCheckout(null)
+    setPaygConfirmationState("idle")
+    setError(null)
+    setNotice("PayPal checkout was cancelled. No charge was made.")
+    setCheckoutUrl(null)
+    trackClarityEvent("paypal_payg_cancelled")
   }
 
   const completeCheckout = () => {
     trackClarityEvent(`paypal_${checkout}_approved`)
+    if (checkout === "payg") {
+      clearPendingPayPalOrder()
+      setPendingOrderId(null)
+      setPaygConfirmationState("idle")
+    }
     window.location.assign(`${prefix}/audio-toolkit/?checkout=processing`)
+  }
+
+  const confirmPaygOrder = async (orderId: string) => {
+    if (confirmationInFlightRef.current) return
+    confirmationInFlightRef.current = true
+    setError(null)
+    setNotice(null)
+    setPaygConfirmationState("confirming")
+    trackClarityEvent("paypal_payg_capture_started")
+    try {
+      await capturePaygOrder(orderId)
+      trackClarityEvent("paypal_payg_capture_completed")
+      completeCheckout()
+    } catch (value) {
+      const captureError = value instanceof PaygCaptureError ? value : null
+      const message = messageFromUnknown(value)
+      if (captureError?.code === "order_expired") {
+        clearPendingPayPalOrder()
+        setPendingOrderId(null)
+        setPaygConfirmationState("idle")
+      } else {
+        const storedOrderId = readPendingPayPalOrder() ?? orderId
+        window.sessionStorage.setItem(PENDING_PAYPAL_ORDER_KEY, storedOrderId)
+        setPendingOrderId(storedOrderId)
+        setPaygConfirmationState("retry")
+      }
+      setError(message)
+      trackClarityEvent(`paypal_payg_capture_failed_${captureError?.code ?? "unknown"}`)
+      if (captureError?.code === "authentication_required") {
+        const returnPath = `${prefix}/pricing/?checkout=payg&paypal_return=1`
+        window.location.assign(`${prefix}/sign-in/?redirect_url=${encodeURIComponent(returnPath)}`)
+      }
+      throw value
+    } finally {
+      confirmationInFlightRef.current = false
+    }
   }
 
   return (
@@ -563,6 +723,18 @@ export default function PricingActions({
                   </div>
                 </div>
                 <div className="p-3">
+                  {checkout === "payg" && paygConfirmationState === "confirming" ? (
+                    <p
+                      className="mb-3 flex items-center justify-center gap-2 rounded-lg border border-sky-200 bg-sky-50 p-3 text-sm font-medium text-sky-800"
+                      aria-live="polite"
+                    >
+                      <LoaderCircle
+                        className="h-4 w-4 animate-spin motion-reduce:animate-none"
+                        aria-hidden
+                      />
+                      Confirming your PayPal payment…
+                    </p>
+                  ) : null}
                   <PayPalProvider
                     clientId={clientId}
                     environment={environment}
@@ -571,16 +743,42 @@ export default function PricingActions({
                   >
                     <CheckoutButtons
                       kind={checkout}
+                      locale={locale}
+                      pendingOrderId={checkout === "payg" ? pendingOrderId : null}
+                      disabled={paygConfirmationState === "confirming"}
+                      onPaygOrderCreated={(orderId) => {
+                        window.sessionStorage.setItem(PENDING_PAYPAL_ORDER_KEY, orderId)
+                        trackClarityEvent("paypal_payg_order_created")
+                      }}
+                      onPaygApprove={confirmPaygOrder}
                       onSuccess={completeCheckout}
-                      onCancel={closeCheckout}
+                      onCancel={checkout === "payg" ? cancelCheckout : closeCheckout}
                       onError={(message) => {
                         setError(message)
-                        setCheckout(null)
+                        if (checkout === "payg") {
+                          const storedOrderId = readPendingPayPalOrder()
+                          setPendingOrderId(storedOrderId)
+                          setPaygConfirmationState(storedOrderId ? "retry" : "idle")
+                        } else {
+                          setCheckout(null)
+                        }
                       }}
                     />
                   </PayPalProvider>
                 </div>
               </div>
+
+              {checkout === "payg" && paygConfirmationState === "retry" && pendingOrderId ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    void confirmPaygOrder(pendingOrderId).catch(() => undefined)
+                  }}
+                  className="mt-4 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-violet-600 px-4 text-sm font-semibold text-white transition-colors duration-200 hover:bg-violet-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 motion-reduce:transition-none"
+                >
+                  Retry payment confirmation
+                </button>
+              ) : null}
 
               <button
                 type="button"
@@ -600,6 +798,15 @@ export default function PricingActions({
           className="mx-auto mt-5 max-w-xl rounded-xl border border-rose-400/30 bg-rose-950/40 p-4 text-sm text-rose-100"
         >
           {error}
+        </p>
+      ) : null}
+
+      {notice ? (
+        <p
+          role="status"
+          className="mx-auto mt-5 max-w-xl rounded-xl border border-sky-400/30 bg-sky-950/40 p-4 text-sm text-sky-100"
+        >
+          {notice}
         </p>
       ) : null}
 

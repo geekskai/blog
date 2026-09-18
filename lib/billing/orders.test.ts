@@ -4,7 +4,13 @@ vi.mock("server-only", () => ({}))
 vi.mock("@/lib/db/client", () => ({ getSqlClient: vi.fn() }))
 vi.mock("@/lib/audio-credits/repository", () => ({ getAudioCreditBalance: vi.fn() }))
 
-import { isPaygOrderCapturable, parseCompletedPayPalCapture } from "./orders"
+import {
+  isExpectedPaygOrder,
+  isExpectedPayPalOrder,
+  isPaygOrderCapturable,
+  parseCompletedPayPalCapture,
+  readPayPalOrderStatus,
+} from "./orders"
 
 describe("PayPal PAYG capture validation", () => {
   const resource = {
@@ -59,23 +65,99 @@ describe("PayPal PAYG capture validation", () => {
 
   it("allows only unexpired CREATED orders to reach PayPal capture", () => {
     const now = new Date("2026-08-26T12:00:00Z")
+    const expectedOrder = {
+      product_key: "audio_credits_payg_480",
+      amount_minor: 1400,
+      currency: "USD",
+    }
     expect(
       isPaygOrderCapturable(
-        { status: "CREATED", expires_at: new Date("2026-08-26T12:01:00Z") },
+        {
+          ...expectedOrder,
+          status: "CREATED",
+          expires_at: new Date("2026-08-26T12:01:00Z"),
+        },
         now
       )
     ).toBe(true)
     expect(
       isPaygOrderCapturable(
-        { status: "CREATED", expires_at: new Date("2026-08-26T11:59:00Z") },
+        {
+          ...expectedOrder,
+          status: "CREATED",
+          expires_at: new Date("2026-08-26T11:59:00Z"),
+        },
         now
       )
     ).toBe(false)
     expect(
       isPaygOrderCapturable(
-        { status: "COMPLETED", expires_at: new Date("2026-08-26T12:01:00Z") },
+        {
+          ...expectedOrder,
+          status: "COMPLETED",
+          expires_at: new Date("2026-08-26T12:01:00Z"),
+        },
         now
       )
     ).toBe(false)
+  })
+
+  it("rejects a locally mismatched product before contacting PayPal capture", () => {
+    expect(
+      isExpectedPaygOrder({
+        product_key: "audio_credits_payg_480",
+        amount_minor: 1400,
+        currency: "USD",
+      })
+    ).toBe(true)
+    expect(
+      isExpectedPaygOrder({
+        product_key: "audio_credits_payg_480",
+        amount_minor: 140000,
+        currency: "USD",
+      })
+    ).toBe(false)
+  })
+
+  it("rejects a provider order mismatch before capture", () => {
+    expect(
+      isExpectedPayPalOrder(
+        {
+          id: "ORDER-1",
+          purchase_units: [
+            {
+              custom_id: "f5703a0e-60e2-4eed-92ad-1c165a312b39",
+              amount: { value: "14.00", currency_code: "USD" },
+            },
+          ],
+        },
+        {
+          localOrderId: "f5703a0e-60e2-4eed-92ad-1c165a312b39",
+          providerOrderId: "ORDER-1",
+        }
+      )
+    ).toBe(true)
+    expect(
+      isExpectedPayPalOrder(
+        {
+          id: "ORDER-1",
+          purchase_units: [
+            {
+              custom_id: "f5703a0e-60e2-4eed-92ad-1c165a312b39",
+              amount: { value: "1400.00", currency_code: "USD" },
+            },
+          ],
+        },
+        {
+          localOrderId: "f5703a0e-60e2-4eed-92ad-1c165a312b39",
+          providerOrderId: "ORDER-1",
+        }
+      )
+    ).toBe(false)
+  })
+
+  it("normalizes PayPal order statuses used by the capture state machine", () => {
+    expect(readPayPalOrderStatus({ status: "approved" })).toBe("APPROVED")
+    expect(readPayPalOrderStatus({})).toBeNull()
   })
 })

@@ -56,7 +56,38 @@ export async function getPaygOrderForCapture(clerkUserId: string, providerOrderI
 
 export function isPaygOrderCapturable(order: Row, now = new Date()) {
   const expiresAt = readDate(order.expires_at)
-  return order.status === "CREATED" && Boolean(expiresAt && expiresAt > now)
+  return (
+    isExpectedPaygOrder(order) &&
+    order.status === "CREATED" &&
+    Boolean(expiresAt && expiresAt > now)
+  )
+}
+
+export function isExpectedPaygOrder(order: Row) {
+  return (
+    order.product_key === CREDIT_CATALOG.payg480.key &&
+    Number(order.amount_minor) === CREDIT_CATALOG.payg480.price * 100 &&
+    readString(order.currency)?.toUpperCase() === CREDIT_CATALOG.payg480.currency
+  )
+}
+
+export function readPayPalOrderStatus(resource: Record<string, unknown>) {
+  return readString(resource.status)?.toUpperCase() ?? null
+}
+
+export function isExpectedPayPalOrder(
+  resource: Record<string, unknown>,
+  expected: { localOrderId: string; providerOrderId: string }
+) {
+  const purchaseUnits = Array.isArray(resource.purchase_units) ? resource.purchase_units : []
+  const unit = readObject(purchaseUnits[0])
+  const amount = readObject(unit?.amount)
+  return (
+    readString(resource.id) === expected.providerOrderId &&
+    readString(unit?.custom_id) === expected.localOrderId &&
+    readString(amount?.value) === CREDIT_CATALOG.payg480.price.toFixed(2) &&
+    readString(amount?.currency_code)?.toUpperCase() === CREDIT_CATALOG.payg480.currency
+  )
 }
 
 export async function expireStalePaygOrders(now = new Date()) {
@@ -130,7 +161,7 @@ export async function completePaygOrder(input: {
         AND product_key = ${CREDIT_CATALOG.payg480.key}
         AND amount_minor = ${CREDIT_CATALOG.payg480.price * 100}
         AND currency = ${CREDIT_CATALOG.payg480.currency}
-        AND status IN ('CREATED', 'COMPLETED')
+        AND status IN ('CREATED', 'COMPLETED', 'EXPIRED')
       RETURNING clerk_user_id, captured_at
     )
     INSERT INTO audio_credit_grants (

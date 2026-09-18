@@ -15,6 +15,43 @@ export type PayPalTransmission = {
 
 type Fetch = (input: string | URL | Request, init?: RequestInit) => Promise<Response>
 
+export class PayPalApiError extends Error {
+  status: number
+  code: string | null
+  debugId: string | null
+
+  constructor(
+    message: string,
+    details: { status: number; code?: string | null; debugId?: string | null }
+  ) {
+    super(message)
+    this.name = "PayPalApiError"
+    this.status = details.status
+    this.code = details.code ?? null
+    this.debugId = details.debugId ?? null
+  }
+}
+
+const readString = (value: unknown) =>
+  typeof value === "string" && value.trim() ? value.trim() : null
+
+async function readPayPalResponse(response: Response, errorMessage: string) {
+  const result = (await response.json().catch(() => null)) as Record<string, unknown> | null
+  if (!response.ok || !result) {
+    throw new PayPalApiError(errorMessage, {
+      status: response.status,
+      code: readString(result?.name),
+      debugId: readString(result?.debug_id) ?? response.headers.get("paypal-debug-id"),
+    })
+  }
+  return result
+}
+
+export function getPayPalErrorLogFields(error: unknown) {
+  if (!(error instanceof PayPalApiError)) return { errorCode: null, paypalDebugId: null }
+  return { errorCode: error.code, paypalDebugId: error.debugId }
+}
+
 function isPayPalEnvironmentAllowedForDeployment(
   environment: string | undefined,
   vercelEnvironment: string | undefined
@@ -135,9 +172,7 @@ export function createPayPalClient(config: PayPalConfig, fetchImpl: Fetch = fetc
       const response = await authorizedRequest(
         `/v1/billing/subscriptions/${encodeURIComponent(subscriptionId)}`
       )
-      const result = (await response.json().catch(() => null)) as Record<string, unknown> | null
-      if (!response.ok || !result) throw new Error("PayPal subscription lookup failed.")
-      return result
+      return readPayPalResponse(response, "PayPal subscription lookup failed.")
     },
 
     async createOrder(input: {
@@ -147,6 +182,8 @@ export function createPayPalClient(config: PayPalConfig, fetchImpl: Fetch = fetc
       currency: string
       productKey: string
       description: string
+      returnUrl: string
+      cancelUrl: string
     }) {
       const response = await authorizedRequest("/v2/checkout/orders", {
         method: "POST",
@@ -177,13 +214,23 @@ export function createPayPalClient(config: PayPalConfig, fetchImpl: Fetch = fetc
             },
           ],
           payment_source: {
-            paypal: { experience_context: { shipping_preference: "NO_SHIPPING" } },
+            paypal: {
+              experience_context: {
+                shipping_preference: "NO_SHIPPING",
+                user_action: "PAY_NOW",
+                return_url: input.returnUrl,
+                cancel_url: input.cancelUrl,
+              },
+            },
           },
         }),
       })
-      const result = (await response.json().catch(() => null)) as Record<string, unknown> | null
-      if (!response.ok || !result) throw new Error("PayPal order creation failed.")
-      return result
+      return readPayPalResponse(response, "PayPal order creation failed.")
+    },
+
+    async getOrder(orderId: string) {
+      const response = await authorizedRequest(`/v2/checkout/orders/${encodeURIComponent(orderId)}`)
+      return readPayPalResponse(response, "PayPal order lookup failed.")
     },
 
     async captureOrder(orderId: string, requestId: string) {
@@ -191,9 +238,7 @@ export function createPayPalClient(config: PayPalConfig, fetchImpl: Fetch = fetc
         `/v2/checkout/orders/${encodeURIComponent(orderId)}/capture`,
         { method: "POST", headers: { "paypal-request-id": requestId }, body: "{}" }
       )
-      const result = (await response.json().catch(() => null)) as Record<string, unknown> | null
-      if (!response.ok || !result) throw new Error("PayPal order capture failed.")
-      return result
+      return readPayPalResponse(response, "PayPal order capture failed.")
     },
 
     async createSubscription(input: {
@@ -217,25 +262,19 @@ export function createPayPalClient(config: PayPalConfig, fetchImpl: Fetch = fetc
           },
         }),
       })
-      const result = (await response.json().catch(() => null)) as Record<string, unknown> | null
-      if (!response.ok || !result) throw new Error("PayPal subscription creation failed.")
-      return result
+      return readPayPalResponse(response, "PayPal subscription creation failed.")
     },
 
     async getSale(saleId: string) {
       const response = await authorizedRequest(`/v1/payments/sale/${encodeURIComponent(saleId)}`)
-      const result = (await response.json().catch(() => null)) as Record<string, unknown> | null
-      if (!response.ok || !result) throw new Error("PayPal sale lookup failed.")
-      return result
+      return readPayPalResponse(response, "PayPal sale lookup failed.")
     },
 
     async getCapture(captureId: string) {
       const response = await authorizedRequest(
         `/v2/payments/captures/${encodeURIComponent(captureId)}`
       )
-      const result = (await response.json().catch(() => null)) as Record<string, unknown> | null
-      if (!response.ok || !result) throw new Error("PayPal capture lookup failed.")
-      return result
+      return readPayPalResponse(response, "PayPal capture lookup failed.")
     },
 
     async cancelSubscription(subscriptionId: string, reason: string) {

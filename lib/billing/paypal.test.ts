@@ -184,9 +184,7 @@ describe("PayPal environment isolation", () => {
     })
 
     await expect(client.getCapture("CAPTURE-1")).resolves.toMatchObject({ status: "REFUNDED" })
-    expect(requests[1]?.url).toBe(
-      "https://api-m.sandbox.paypal.com/v2/payments/captures/CAPTURE-1"
-    )
+    expect(requests[1]?.url).toBe("https://api-m.sandbox.paypal.com/v2/payments/captures/CAPTURE-1")
   })
 
   it("creates and captures the fixed PAYG order on authenticated server endpoints", async () => {
@@ -209,6 +207,8 @@ describe("PayPal environment isolation", () => {
       currency: "USD",
       productKey: "audio_credits_payg_480",
       description: "480 Geekskai Audio Credits",
+      returnUrl: "https://preview.example.com/pricing/?checkout=payg&paypal_return=1",
+      cancelUrl: "https://preview.example.com/pricing/?checkout=payg&paypal_cancel=1",
     })
     await client.captureOrder("ORDER-1", "local-order-id-capture")
 
@@ -226,10 +226,33 @@ describe("PayPal environment isolation", () => {
           items: [{ sku: "audio_credits_payg_480", quantity: "1" }],
         },
       ],
+      payment_source: {
+        paypal: {
+          experience_context: {
+            return_url: "https://preview.example.com/pricing/?checkout=payg&paypal_return=1",
+            cancel_url: "https://preview.example.com/pricing/?checkout=payg&paypal_cancel=1",
+          },
+        },
+      },
     })
     expect(requests[3]?.url).toBe(
       "https://api-m.sandbox.paypal.com/v2/checkout/orders/ORDER-1/capture"
     )
+  })
+
+  it("retrieves the PayPal order before deciding whether capture is safe", async () => {
+    const requests: Array<{ url: string; init?: RequestInit }> = []
+    const responses = [
+      Response.json({ access_token: "token" }),
+      Response.json({ id: "ORDER-1", status: "APPROVED" }),
+    ]
+    const client = createPayPalClient(config, async (url, init) => {
+      requests.push({ url: String(url), init })
+      return responses.shift() ?? Response.json({}, { status: 500 })
+    })
+
+    await expect(client.getOrder("ORDER-1")).resolves.toMatchObject({ status: "APPROVED" })
+    expect(requests[1]?.url).toBe("https://api-m.sandbox.paypal.com/v2/checkout/orders/ORDER-1")
   })
 
   it("creates the Regular subscription on the server with opaque correlation URLs", async () => {
