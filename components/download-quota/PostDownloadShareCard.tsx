@@ -223,10 +223,10 @@ export default function PostDownloadShareCard({
         </span>
         <div className="min-w-0 flex-1">
           <h2 id={headingId} className="text-sm font-semibold tracking-tight text-white">
-            Download complete
+            Download complete 🎉
           </h2>
           <p className="mt-1 text-sm leading-5 text-slate-400">
-            Sharing is optional and does not change your allowance.
+            Enjoying this tool? Share it with someone who might find it useful.
           </p>
         </div>
         <button
