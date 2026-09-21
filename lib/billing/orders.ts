@@ -204,7 +204,7 @@ export async function completePaygOrderFromWebhook(input: {
         AND product_key = ${CREDIT_CATALOG.payg480.key}
         AND amount_minor = ${CREDIT_CATALOG.payg480.price * 100}
         AND currency = ${CREDIT_CATALOG.payg480.currency}
-        AND status IN ('CREATED', 'COMPLETED')
+        AND status IN ('CREATED', 'COMPLETED', 'EXPIRED')
       RETURNING clerk_user_id, captured_at
     )
     INSERT INTO audio_credit_grants (

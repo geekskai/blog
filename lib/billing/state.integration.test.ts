@@ -298,6 +298,121 @@ describe("PayPal and Audio Credit state", () => {
     expect(body.balance.payg).toBe(480)
   })
 
+  it("restores an expired PAYG order from a verified completed-capture webhook", async () => {
+    await testState.sql!`
+      INSERT INTO billing_orders (
+        id, clerk_user_id, provider, product_key, provider_order_id,
+        status, amount_minor, currency, expires_at
+      ) VALUES (
+        '00000000-0000-4000-8000-000000000021', 'user_test', 'paypal',
+        'audio_credits_payg_480', 'ORDER-LATE-WEBHOOK', 'EXPIRED', 1400, 'USD',
+        now() - interval '1 minute'
+      )
+    `
+    const payload = {
+      id: "WH-LATE-CAPTURE",
+      event_type: "PAYMENT.CAPTURE.COMPLETED",
+      create_time: "2026-09-20T12:00:00Z",
+      resource: {
+        id: "CAPTURE-LATE",
+        status: "COMPLETED",
+        amount: { value: "14.00", currency_code: "USD" },
+        supplementary_data: { related_ids: { order_id: "ORDER-LATE-WEBHOOK" } },
+      },
+    }
+
+    const response = await receivePayPalWebhook(webhookRequest(payload))
+    const orders = await testState.sql!`
+      SELECT status, provider_capture_id FROM billing_orders
+      WHERE provider_order_id = 'ORDER-LATE-WEBHOOK'
+    `
+
+    expect(response.status).toBe(200)
+    expect(orders[0]).toMatchObject({ status: "COMPLETED", provider_capture_id: "CAPTURE-LATE" })
+    expect((await getAudioCreditBalance("user_test")).payg).toBe(480)
+
+    const duplicateResponse = await receivePayPalWebhook(webhookRequest(payload))
+    const grants = await testState.sql!`
+      SELECT COUNT(*)::integer AS count FROM audio_credit_grants
+      WHERE clerk_user_id = 'user_test' AND source_ref = 'CAPTURE-LATE'
+    `
+    expect(duplicateResponse.status).toBe(200)
+    expect(grants[0]?.count).toBe(1)
+  })
+
+  it("does not reactivate a refunded order from a late completed webhook", async () => {
+    await testState.sql!`
+      INSERT INTO billing_orders (
+        id, clerk_user_id, provider, product_key, provider_order_id, provider_capture_id,
+        status, amount_minor, currency, captured_at
+      ) VALUES (
+        '00000000-0000-4000-8000-000000000022', 'user_test', 'paypal',
+        'audio_credits_payg_480', 'ORDER-REFUNDED-LATE', 'CAPTURE-REFUNDED-LATE',
+        'REFUNDED', 1400, 'USD', now()
+      )
+    `
+    const payload = {
+      id: "WH-REFUNDED-LATE",
+      event_type: "PAYMENT.CAPTURE.COMPLETED",
+      resource: {
+        id: "CAPTURE-REFUNDED-LATE-OTHER",
+        amount: { value: "14.00", currency_code: "USD" },
+        supplementary_data: { related_ids: { order_id: "ORDER-REFUNDED-LATE" } },
+      },
+    }
+
+    const response = await receivePayPalWebhook(webhookRequest(payload))
+    const orders = await testState.sql!`
+      SELECT status, provider_capture_id FROM billing_orders
+      WHERE provider_order_id = 'ORDER-REFUNDED-LATE'
+    `
+
+    expect(response.status).toBe(500)
+    expect(orders[0]).toMatchObject({
+      status: "REFUNDED",
+      provider_capture_id: "CAPTURE-REFUNDED-LATE",
+    })
+    expect((await getAudioCreditBalance("user_test")).payg).toBe(0)
+  })
+
+  it("keeps an expired order uncompleted when webhook Credit persistence fails", async () => {
+    await testState.sql!`
+      INSERT INTO billing_orders (
+        id, clerk_user_id, provider, product_key, provider_order_id,
+        status, amount_minor, currency
+      ) VALUES (
+        '00000000-0000-4000-8000-000000000023', 'user_test', 'paypal',
+        'audio_credits_payg_480', 'ORDER-LATE-ATOMIC', 'EXPIRED', 1400, 'USD'
+      )
+    `
+    const baseSql = testState.sql!
+    testState.sql = ((strings: TemplateStringsArray, ...values: unknown[]) => {
+      if (strings.join("").includes("INSERT INTO audio_credit_grants")) {
+        throw new Error("simulated webhook grant persistence failure")
+      }
+      return baseSql(strings, ...values)
+    }) as TestSql
+
+    const payload = {
+      id: "WH-LATE-ATOMIC",
+      event_type: "PAYMENT.CAPTURE.COMPLETED",
+      resource: {
+        id: "CAPTURE-LATE-ATOMIC",
+        amount: { value: "14.00", currency_code: "USD" },
+        supplementary_data: { related_ids: { order_id: "ORDER-LATE-ATOMIC" } },
+      },
+    }
+
+    const response = await receivePayPalWebhook(webhookRequest(payload))
+    const orders = await baseSql`
+      SELECT status, provider_capture_id FROM billing_orders
+      WHERE provider_order_id = 'ORDER-LATE-ATOMIC'
+    `
+
+    expect(response.status).toBe(500)
+    expect(orders[0]).toMatchObject({ status: "EXPIRED", provider_capture_id: null })
+  })
+
   it("blocks PAYG capture when checkout is not released to the user", async () => {
     process.env.BILLING_RELEASE_STAGE = "credits"
     await testState.sql!`
