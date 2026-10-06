@@ -25,10 +25,7 @@
       "css/*": ["./css/*"],
       "app/*": ["./app/*"],
       "contentlayer/generated": ["./.contentlayer/generated"],
-      "pliny/analytics": ["./node_modules/pliny/analytics/index.js"],
-      "soundcloud-downloader": ["./types/soundcloud-downloader"],
-      "soundcloud-downloader/dist/info": ["./types/soundcloud-downloader"],
-      "soundcloud-downloader/dist/download": ["./types/soundcloud-downloader"]
+      "pliny/analytics": ["./node_modules/pliny/analytics/index.js"]
     },
     "plugins": [
       {

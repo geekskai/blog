@@ -1,295 +1,144 @@
-import { saveAs } from "file-saver"
+import { z } from "zod"
+import {
+  assertSoundCloudAvailable,
+  readSoundCloudFailure,
+  soundCloudFailure,
+} from "@/lib/soundcloud/client-errors"
 import type { QuotaToolId } from "@/lib/download-quota/config"
+import {
+  fileSchema,
+  progressSchema,
+  type DownloadProgress,
+  type OutputFormat,
+} from "@/lib/soundcloud/contracts"
 
-export const SOUNDCLOUD_DOWNLOAD_API = "/api/download-soundcloud/"
-
-export interface SoundCloudDirectDownloadInfo {
-  title?: string
-  duration?: number
-  id?: number
-}
-
-export type SoundCloudPreferredDownloadFormat = "mp3" | "m4a"
-
-export interface SoundCloudDownloadFormat {
-  kind: "progressive" | "hls"
-  extension: "mp3" | "m4a"
-  mimeType: "audio/mpeg" | "audio/mp4"
-  sourceMimeType: string
-  preset?: string
-  isLegacy: boolean
-  url: string
-}
-
-export interface SoundCloudDirectDownloadResult {
-  success: true
-  directUrl?: string
-  directUrlType?: "progressive" | "hls"
-  recommended?: "progressive" | "hls"
-  formats: SoundCloudDownloadFormat[]
-  selectedFormat?: SoundCloudDownloadFormat
-  savedFileName?: string
-  info: SoundCloudDirectDownloadInfo
-}
-
-export interface SoundCloudDownloadedResult extends SoundCloudDirectDownloadResult {
-  selectedFormat: SoundCloudDownloadFormat
-  savedFileName: string
-}
-
+const JOB_API = "/api/soundcloud-download-job"
+const PREPARATION_TIMEOUT_MS = 13 * 60_000
+const REQUEST_TIMEOUT_MS = 30_000
+export type SoundCloudPreferredDownloadFormat = "mp3" | "m4a" | "wav"
 interface DownloadOptions {
   preferredFormat?: SoundCloudPreferredDownloadFormat
-  mimeType?: string
   operationId?: string
   quotaToolId?: QuotaToolId
-  onProgress?: (loadedBytes: number, totalBytes: number | null) => void
+  onProgress?: (progress: DownloadProgress) => void
 }
-
-export async function resolveSoundCloudDirectUrl(
-  trackUrl: string,
-  operationId?: string,
-  quotaToolId: QuotaToolId = "soundcloud-track"
-): Promise<SoundCloudDirectDownloadResult> {
-  const response = await fetch(SOUNDCLOUD_DOWNLOAD_API, {
+const statusSchema = z.object({
+  status: z.enum(["queued", "preparing", "ready", "failed", "cancelled", "expired"]),
+  progress: progressSchema.optional(),
+  error: z.object({ code: z.string().optional(), message: z.string() }).optional(),
+})
+async function requestJson({
+  path,
+  body,
+  headers = {},
+}: {
+  path: string
+  body: unknown
+  headers?: Record<string, string>
+}) {
+  const response = await fetch(path, {
     method: "POST",
+    headers: { "Content-Type": "application/json", ...headers },
+    body: JSON.stringify(body),
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+  })
+  const payload: unknown = await response.json()
+  if (!response.ok) {
+    throw readSoundCloudFailure(response, payload)
+  }
+  return payload
+}
+async function waitForFile(token: string, onProgress?: DownloadOptions["onProgress"]) {
+  const deadline = Date.now() + PREPARATION_TIMEOUT_MS
+  while (Date.now() < deadline) {
+    const payload = await requestJson({ path: JOB_API, body: { token, action: "status" } })
+    const job = statusSchema.parse(payload)
+    if (job.progress) {
+      onProgress?.(job.progress)
+    }
+    if (job.status === "ready") {
+      return
+    }
+    if (job.status !== "queued" && job.status !== "preparing") {
+      throw soundCloudFailure({
+        code: job.error?.code ?? "download_failed",
+        message: job.error?.message || "Download preparation ended. Please try again.",
+      })
+    }
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+  }
+  throw new Error("Download preparation timed out. Please try again.")
+}
+export async function downloadSoundCloudFile({
+  url,
+  format,
+  operationId,
+  quotaToolId,
+  onProgress,
+}: {
+  url: string
+  format: OutputFormat
+  operationId?: string
+  quotaToolId: QuotaToolId
+  onProgress?: DownloadOptions["onProgress"]
+}) {
+  assertSoundCloudAvailable()
+  const path =
+    format === "artwork" ? "/api/download-soundcloud-artwork" : "/api/download-soundcloud/"
+  const created = await requestJson({
+    path,
+    body: { url: url.trim(), format },
     headers: {
-      "Content-Type": "application/json",
       ...(operationId ? { "X-Download-Operation-Id": operationId } : {}),
       "X-Quota-Tool-Id": quotaToolId,
     },
-    body: JSON.stringify({ url: trackUrl.trim(), directUrl: true }),
   })
-
-  const data = await response.json().catch(() => ({}))
-
-  if (!response.ok || !data.success || !Array.isArray(data.formats) || data.formats.length === 0) {
-    throw new Error(data.error || `Failed to resolve download URL (${response.status})`)
-  }
-
-  return data as SoundCloudDirectDownloadResult
-}
-
-const fetchMedia = async (url: string): Promise<Response> => {
+  const { token } = z.object({ token: z.string() }).parse(created)
   try {
-    const response = await fetch(url, {
-      method: "GET",
-      mode: "cors",
-      credentials: "omit",
-    })
-
-    if (!response.ok) {
-      throw new Error(`Failed to download file (${response.status})`)
+    await waitForFile(token, onProgress)
+    const payload = await requestJson({ path: JOB_API, body: { token, action: "ticket" } })
+    const ticket = z.object({ url: z.url(), file: fileSchema }).parse(payload)
+    if (ticket.file.format !== format || new URL(ticket.url).protocol !== "https:") {
+      throw new Error("Invalid download file response.")
     }
-
-    return response
-  } catch (error) {
-    if (error instanceof TypeError) {
-      throw new Error(
-        "The browser could not fetch this SoundCloud media URL. The signed URL may have expired or CORS may be blocked."
-      )
+    const link = document.createElement("a")
+    link.href = ticket.url
+    link.rel = "noreferrer"
+    // Content-Disposition on the VPS starts a native download; audio never crosses Next.js.
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+    return ticket.file
+  } catch (error: unknown) {
+    try {
+      await requestJson({ path: JOB_API, body: { token, action: "cancel" } })
+    } catch (cancelError: unknown) {
+      console.warn("SoundCloud task cancellation failed", { failed: cancelError instanceof Error })
     }
     throw error
   }
 }
-
-const looksLikeHlsPlaylist = async (blob: Blob, contentType: string | null): Promise<boolean> => {
-  if (contentType?.includes("mpegurl") || contentType?.includes("vnd.apple.mpegurl")) {
-    return true
-  }
-
-  if (blob.size > 256 * 1024) {
-    return false
-  }
-
-  const prefix = await blob
-    .slice(0, 32)
-    .text()
-    .catch(() => "")
-  return prefix.startsWith("#EXTM3U")
-}
-
-export async function downloadFileFromUrl(
-  fileUrl: string,
-  fileName: string,
-  options?: {
-    mimeType?: string
-    onProgress?: (loadedBytes: number, totalBytes: number | null) => void
-  }
-): Promise<void> {
-  const response = await fetchMedia(fileUrl)
-  const contentLength = response.headers.get("Content-Length")
-  const totalBytes = contentLength ? parseInt(contentLength, 10) : null
-
-  if (!response.body) {
-    const blob = await response.blob()
-    if (await looksLikeHlsPlaylist(blob, response.headers.get("Content-Type"))) {
-      throw new Error("SoundCloud returned an HLS playlist instead of a direct audio file.")
-    }
-    saveAs(blob, fileName)
-    options?.onProgress?.(blob.size, totalBytes)
-    return
-  }
-
-  const reader = response.body.getReader()
-  const chunks: BlobPart[] = []
-  let loadedBytes = 0
-
-  while (true) {
-    const { done, value } = await reader.read()
-    if (done) break
-
-    chunks.push(value)
-    loadedBytes += value.length
-    options?.onProgress?.(loadedBytes, totalBytes)
-  }
-
-  const blob = new Blob(chunks, {
-    type: options?.mimeType || response.headers.get("Content-Type") || "audio/mpeg",
-  })
-
-  if (await looksLikeHlsPlaylist(blob, response.headers.get("Content-Type"))) {
-    throw new Error("SoundCloud returned an HLS playlist instead of a direct audio file.")
-  }
-
-  saveAs(blob, fileName)
-}
-
-const resolveHlsUri = (uri: string, baseUrl: string): string => {
-  return new URL(uri.trim(), baseUrl).toString()
-}
-
-const parseHlsManifest = (manifest: string, manifestUrl: string) => {
-  const segmentUrls: string[] = []
-  let initUrl: string | null = null
-
-  for (const rawLine of manifest.split(/\r?\n/)) {
-    const line = rawLine.trim()
-    if (!line) continue
-
-    const mapMatch = line.match(/^#EXT-X-MAP:.*URI="([^"]+)"/)
-    if (mapMatch?.[1]) {
-      initUrl = resolveHlsUri(mapMatch[1], manifestUrl)
-      continue
-    }
-
-    if (!line.startsWith("#")) {
-      segmentUrls.push(resolveHlsUri(line, manifestUrl))
-    }
-  }
-
-  return {
-    initUrl,
-    segmentUrls,
-  }
-}
-
-const fetchArrayBuffer = async (url: string): Promise<ArrayBuffer> => {
-  const response = await fetchMedia(url)
-  return response.arrayBuffer()
-}
-
-async function downloadHlsAsM4a(
-  manifestUrl: string,
-  fileName: string,
-  options?: Pick<DownloadOptions, "onProgress">
-): Promise<void> {
-  const manifestResponse = await fetchMedia(manifestUrl)
-  const manifest = await manifestResponse.text()
-
-  if (!manifest.startsWith("#EXTM3U")) {
-    throw new Error("SoundCloud returned an invalid HLS playlist.")
-  }
-
-  const { initUrl, segmentUrls } = parseHlsManifest(manifest, manifestUrl)
-
-  if (segmentUrls.length === 0) {
-    throw new Error("No downloadable HLS audio segments were found.")
-  }
-
-  const parts: BlobPart[] = []
-  let loadedBytes = 0
-  const pushPart = (buffer: ArrayBuffer) => {
-    parts.push(buffer)
-    loadedBytes += buffer.byteLength
-    options?.onProgress?.(loadedBytes, null)
-  }
-
-  if (initUrl) {
-    pushPart(await fetchArrayBuffer(initUrl))
-  }
-
-  for (const segmentUrl of segmentUrls) {
-    pushPart(await fetchArrayBuffer(segmentUrl))
-  }
-
-  saveAs(new Blob(parts, { type: "audio/mp4" }), fileName)
-}
-
-const inferPreferredFormat = (
-  fileName: string,
-  options?: Pick<DownloadOptions, "preferredFormat" | "mimeType">
-): SoundCloudPreferredDownloadFormat => {
-  if (options?.preferredFormat) return options.preferredFormat
-  if (options?.mimeType === "audio/mp4") return "m4a"
-  if (fileName.toLowerCase().endsWith(".m4a")) return "m4a"
-  return "mp3"
-}
-
-export const withSoundCloudFileExtension = (
-  fileName: string,
-  extension: SoundCloudDownloadFormat["extension"]
-) => {
-  return /\.[^.]+$/.test(fileName)
-    ? fileName.replace(/\.[^.]+$/, `.${extension}`)
-    : `${fileName}.${extension}`
-}
-
-export const selectSoundCloudDownloadFormat = (
-  formats: SoundCloudDownloadFormat[],
-  preferredFormat: SoundCloudPreferredDownloadFormat
-): SoundCloudDownloadFormat => {
-  if (preferredFormat === "mp3") {
-    return (
-      formats.find((format) => format.kind === "progressive" && format.extension === "mp3") ??
-      formats.find((format) => format.kind === "hls" && format.extension === "m4a") ??
-      formats[0]
-    )
-  }
-
-  // Prefer browser-readable AAC/HLS for the source-stream workflow, then fall back to MP3.
-  return (
-    formats.find((format) => format.kind === "hls" && format.extension === "m4a") ??
-    formats.find((format) => format.kind === "progressive" && format.extension === "mp3") ??
-    formats[0]
-  )
-}
-
 export async function downloadSoundCloudTrack(
   trackUrl: string,
   fileName: string,
   options?: DownloadOptions
-): Promise<SoundCloudDownloadedResult> {
-  const result = await resolveSoundCloudDirectUrl(
-    trackUrl,
-    options?.operationId,
-    options?.quotaToolId
-  )
-  const preferredFormat = inferPreferredFormat(fileName, options)
-  const selectedFormat = selectSoundCloudDownloadFormat(result.formats, preferredFormat)
-  const savedFileName = withSoundCloudFileExtension(fileName, selectedFormat.extension)
-
-  if (selectedFormat.kind === "hls") {
-    await downloadHlsAsM4a(selectedFormat.url, savedFileName, options)
-  } else {
-    await downloadFileFromUrl(selectedFormat.url, savedFileName, {
-      mimeType: selectedFormat.mimeType,
-      onProgress: options?.onProgress,
-    })
+) {
+  let format: SoundCloudPreferredDownloadFormat = "mp3"
+  if (fileName.endsWith(".wav")) {
+    format = "wav"
   }
-
+  if (fileName.endsWith(".m4a")) {
+    format = "m4a"
+  }
+  const file = await downloadSoundCloudFile({
+    url: trackUrl,
+    format: options?.preferredFormat || format,
+    operationId: options?.operationId,
+    quotaToolId: options?.quotaToolId || "soundcloud-track",
+    onProgress: options?.onProgress,
+  })
   return {
-    ...result,
-    selectedFormat,
-    savedFileName,
+    selectedFormat: { extension: file.format as SoundCloudPreferredDownloadFormat },
+    savedFileName: file.fileName,
   }
 }

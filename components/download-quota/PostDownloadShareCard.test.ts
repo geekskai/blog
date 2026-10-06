@@ -18,7 +18,7 @@ describe("PostDownloadShareCard", () => {
     const markup = renderCard(true)
 
     expect(markup).toContain("Download complete")
-    expect(markup).toContain("Sharing is optional and does not change your allowance.")
+    expect(markup).toContain("Enjoying this tool? Share it with someone who might find it useful.")
     expect(markup).toContain("Dismiss share options")
     expect(markup).toContain("Share via X")
     expect(markup).toContain("Share via WhatsApp")

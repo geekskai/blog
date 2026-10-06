@@ -1,5 +1,9 @@
 "use client"
 
+import SoundCloudCooldownNotice, {
+  useSoundCloudCooldown,
+} from "@/components/SoundCloudCooldownNotice"
+
 import { Link } from "@/app/i18n/navigation"
 import { useTranslations } from "next-intl"
 import type { FormEventHandler } from "react"
@@ -112,11 +116,13 @@ export default function TrackDownloadForm(props: TrackDownloadFormProps) {
     onSubmit,
   } = props
   const t = useTranslations(namespace)
+  const cooldownSeconds = useSoundCloudCooldown()
   const isTrackMode = variant === "track"
   const isLoading = loadingState === "loading"
 
   return (
     <div className="space-y-2">
+      <SoundCloudCooldownNotice />
       <form id={formId} onSubmit={onSubmit} className="space-y-2 p-4">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col-reverse justify-between gap-3 text-xs text-slate-400 md:flex-row md:text-sm">
@@ -154,7 +160,7 @@ export default function TrackDownloadForm(props: TrackDownloadFormProps) {
             <div className="flex flex-1 flex-col gap-3">
               <button
                 type="submit"
-                disabled={isLoading || !url.trim()}
+                disabled={isLoading || !url.trim() || cooldownSeconds > 0}
                 className="group overflow-hidden rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-2 py-1 text-base font-medium text-white shadow-lg transition-all hover:from-blue-700 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-50 md:px-6 md:py-3 md:text-lg"
               >
                 <span className="flex items-center justify-center gap-2">
@@ -185,7 +191,7 @@ export default function TrackDownloadForm(props: TrackDownloadFormProps) {
                 <button
                   type="button"
                   onClick={props.onDownload}
-                  disabled={props.downloading || !url.trim() || isLoading}
+                  disabled={props.downloading || !url.trim() || isLoading || cooldownSeconds > 0}
                   className="group overflow-hidden rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 px-2 py-1 text-base font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:cursor-not-allowed disabled:opacity-50 md:px-6 md:py-3 md:text-lg"
                 >
                   <span className="flex items-center justify-center gap-2">
@@ -219,7 +225,10 @@ export default function TrackDownloadForm(props: TrackDownloadFormProps) {
                     {t("form_select_format_mp3")}
                   </option>
                   <option value="m4a" className="bg-slate-900">
-                    {t("form_select_format_wav")}
+                    M4A
+                  </option>
+                  <option value="wav" className="bg-slate-900">
+                    WAV
                   </option>
                 </select>
               </div>

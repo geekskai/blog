@@ -1,5 +1,9 @@
 "use client"
 
+import SoundCloudCooldownNotice, {
+  useSoundCloudCooldown,
+} from "@/components/SoundCloudCooldownNotice"
+
 import React from "react"
 import { Link } from "@/app/i18n/navigation"
 import { useTranslations } from "next-intl"
@@ -79,11 +83,13 @@ export default function ArtworkDownloadForm({
   onDownload,
 }: ArtworkDownloadFormProps) {
   const t = useTranslations("SoundCloudArtworkDownloader")
+  const cooldownSeconds = useSoundCloudCooldown()
   const isLoading = loadingState === "loading"
 
   return (
     <div className="space-y-2">
       <form id={formId} onSubmit={onSubmit} className="space-y-2 p-4">
+        <SoundCloudCooldownNotice />
         <div className="flex flex-col gap-4">
           <div className="flex flex-col-reverse justify-between gap-3 text-xs text-slate-400 md:flex-row md:text-sm">
             <span className="text-sm font-semibold text-white/90 md:text-base">
@@ -120,7 +126,7 @@ export default function ArtworkDownloadForm({
             <div className="flex flex-1 flex-col gap-3">
               <button
                 type="submit"
-                disabled={isLoading || !url.trim()}
+                disabled={isLoading || !url.trim() || cooldownSeconds > 0}
                 className="group overflow-hidden rounded-lg bg-gradient-to-r from-fuchsia-600 to-pink-600 px-2 py-1 text-base font-medium text-white shadow-lg transition-all hover:from-fuchsia-700 hover:to-pink-700 disabled:cursor-not-allowed disabled:opacity-50 md:px-6 md:py-3 md:text-lg"
               >
                 <span className="flex items-center justify-center gap-2">
@@ -144,7 +150,9 @@ export default function ArtworkDownloadForm({
               <button
                 type="button"
                 onClick={onDownload}
-                disabled={downloading || !url.trim() || isLoading || !canDownload}
+                disabled={
+                  downloading || !url.trim() || isLoading || !canDownload || cooldownSeconds > 0
+                }
                 className="group overflow-hidden rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 px-2 py-1 text-base font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:cursor-not-allowed disabled:opacity-50 md:px-6 md:py-3 md:text-lg"
               >
                 <span className="flex items-center justify-center gap-2">
