@@ -7,12 +7,7 @@ export default function robots(): MetadataRoute.Robots {
   const localeDisallowPaths = supportedLocales.flatMap((locale) =>
     englishOnlySections.map((section) => `/${locale}/${section}`)
   )
-  const commonDisallow = [
-    "/*/feed.xml",
-    "/api/",
-    "/admin/",
-    ...localeDisallowPaths,
-  ]
+  const commonDisallow = ["/api/", "/admin/", ...localeDisallowPaths]
 
   return {
     rules: [
@@ -25,56 +20,56 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "Googlebot",
         allow: "/",
-        disallow: ["/*/feed.xml", "/api/", "/admin/", ...localeDisallowPaths],
+        disallow: ["/api/", "/admin/", ...localeDisallowPaths],
         crawlDelay: 0,
       },
       {
         userAgent: "Bingbot",
         allow: "/",
-        disallow: ["/*/feed.xml", "/api/", "/admin/", ...localeDisallowPaths],
+        disallow: ["/api/", "/admin/", ...localeDisallowPaths],
         crawlDelay: 0,
       },
       // AI Crawlers - Critical for AI visibility
       {
         userAgent: "GPTBot",
         allow: "/",
-        disallow: ["/*/feed.xml", "/api/", "/admin/", ...localeDisallowPaths],
+        disallow: ["/api/", "/admin/", ...localeDisallowPaths],
         crawlDelay: 0,
       },
       {
         userAgent: "ChatGPT-User",
         allow: "/",
-        disallow: ["/*/feed.xml", "/api/", "/admin/", ...localeDisallowPaths],
+        disallow: ["/api/", "/admin/", ...localeDisallowPaths],
         crawlDelay: 0,
       },
       {
         userAgent: "OAI-SearchBot",
         allow: "/",
-        disallow: ["/*/feed.xml", "/api/", "/admin/", ...localeDisallowPaths],
+        disallow: ["/api/", "/admin/", ...localeDisallowPaths],
         crawlDelay: 0,
       },
       {
         userAgent: "ClaudeBot",
         allow: "/",
-        disallow: ["/*/feed.xml", "/api/", "/admin/", ...localeDisallowPaths],
+        disallow: ["/api/", "/admin/", ...localeDisallowPaths],
         crawlDelay: 0,
       },
       {
         userAgent: "Claude-SearchBot",
         allow: "/",
-        disallow: ["/*/feed.xml", "/api/", "/admin/", ...localeDisallowPaths],
+        disallow: ["/api/", "/admin/", ...localeDisallowPaths],
         crawlDelay: 0,
       },
       {
         userAgent: "PerplexityBot",
         allow: "/",
-        disallow: ["/*/feed.xml", "/api/", "/admin/", ...localeDisallowPaths],
+        disallow: ["/api/", "/admin/", ...localeDisallowPaths],
         crawlDelay: 0,
       },
       {
         userAgent: "Google-Extended",
         allow: "/",
-        disallow: ["/*/feed.xml", "/api/", "/admin/", ...localeDisallowPaths],
+        disallow: ["/api/", "/admin/", ...localeDisallowPaths],
         crawlDelay: 0,
       },
     ],

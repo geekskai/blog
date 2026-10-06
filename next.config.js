@@ -19,11 +19,6 @@ module.exports = () => {
     async redirects() {
       return [
         {
-          source: "/:path*/feed.xml/",
-          destination: "/:path*/feed.xml",
-          permanent: true,
-        },
-        {
           source: "/tools/youtube-shots-downloader/",
           destination: "/tools/youtube-shorts-downloader/",
           permanent: true,

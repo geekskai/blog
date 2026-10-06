@@ -257,7 +257,7 @@ export default function SoundCloudDownloaderPage() {
     <div className="min-h-screen bg-slate-950">
       <div className="relative mx-auto max-w-7xl space-y-4 p-4">
         <ContentFreshnessBadge
-          lastModified={new Date("2026-07-02")}
+          lastModified={new Date("2026-10-06")}
           namespace="SoundCloudDownloader"
         />
 

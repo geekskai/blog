@@ -44,9 +44,6 @@ export async function generateMetadata(props: {
       languages: {
         "x-default": `https://geekskai.com/tags/${tag}/`,
       },
-      types: {
-        "application/rss+xml": `${siteMetadata.siteUrl}/tags/${tag}/feed.xml`,
-      },
     },
     other: {
       "last-modified": new Date().toISOString(),

@@ -37,9 +37,6 @@ export const generateMetadata = async (): Promise<Metadata> => {
         "x-default": "https://geekskai.com/tags/",
       },
       canonical: "./",
-      types: {
-        "application/rss+xml": `${siteMetadata.siteUrl}/feed.xml`,
-      },
     },
     robots: {
       index: true,
@@ -76,7 +73,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <meta name="google-adsense-account" content="ca-pub-2108246014001009"></meta>
       <meta name="google-site-verification" content="QBYZptmNADcvd2h8ZZVSZIJUlv5RnI8yYmHtEld1mKk" />
       <meta name="msapplication-TileColor" content="#000000" />
-      <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
       <body className="min-h-screen bg-gradient-to-b from-[#020617] via-[#0a0f1f] to-[#000D1A]/90 pl-[calc(100vw-100%)] text-white antialiased">
         <ClerkAppProvider>
           <NextIntlClientProvider>

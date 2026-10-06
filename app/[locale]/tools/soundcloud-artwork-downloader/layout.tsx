@@ -19,7 +19,7 @@ export async function generateMetadata(props: {
   const indexedLocales = getIndexedToolLocales(TOOL_PATH)
   const shouldIndex = isToolLocaleIndexed(TOOL_PATH, locale)
 
-  const lastModified = new Date("2026-06-19")
+  const lastModified = new Date("2026-10-06")
 
   return {
     title: t("metadata_title"),

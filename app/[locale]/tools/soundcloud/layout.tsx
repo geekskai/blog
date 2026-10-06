@@ -37,7 +37,7 @@ export async function generateMetadata(props: {
   const canonical = getLocalizedUrl(siteUrl, locale, soundCloudHubPath)
   const indexedLocales = getIndexedToolLocales(soundCloudHubPath)
   const shouldIndex = isToolLocaleIndexed(soundCloudHubPath, locale)
-  const lastModified = new Date("2026-08-29")
+  const lastModified = new Date("2026-10-06")
 
   return {
     title: copy.title,
