@@ -1,5 +1,6 @@
 "use client"
 
+import { useSoundCloudCooldown } from "@/components/SoundCloudCooldownNotice"
 import React, { useRef, useState } from "react"
 import { useTranslations } from "next-intl"
 import type { PlaylistTrack, DownloadFormat } from "../types"
@@ -12,6 +13,7 @@ import { trackToolEvent } from "@/lib/analytics/tool-events"
 interface PlaylistTracksProps {
   tracks: PlaylistTrack[]
   onDownloadAll: () => void
+  canResume?: boolean
   isDownloading: boolean
   format: DownloadFormat
   downloadQuota: DownloadQuotaController
@@ -25,10 +27,13 @@ export default function PlaylistTracks({
   tracks,
   onDownloadAll,
   isDownloading,
+  canResume = false,
   format,
   downloadQuota,
 }: PlaylistTracksProps) {
   const t = useTranslations("SoundCloudPlaylistDownloader")
+  const serviceText = useTranslations("SoundCloudService")
+  const cooldownSeconds = useSoundCloudCooldown()
   const [downloadingTracks, setDownloadingTracks] = useState<TrackDownloadState>({})
   const [savedFormats, setSavedFormats] = useState<Record<number | string, DownloadFormat>>({})
   const downloadingTrackRefs = useRef(new Set<string>())
@@ -64,14 +69,14 @@ export default function PlaylistTracks({
       })
 
       const fileName = getSafeFileName(track.title, format)
-      let mediaSaved = false
+      let downloadLaunched = false
       try {
         const result = await downloadSoundCloudTrack(track.url, fileName, {
           preferredFormat: format,
           operationId: quotaCheck.operationId,
           quotaToolId: "soundcloud-playlist",
         })
-        mediaSaved = true
+        downloadLaunched = true
         setSavedFormats((prev) => ({ ...prev, [trackKey]: result.selectedFormat.extension }))
         trackToolEvent("tool_succeeded", {
           tool_id: "soundcloud-playlist-downloader",
@@ -81,8 +86,10 @@ export default function PlaylistTracks({
         })
         await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
       } catch (error) {
-        await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
-        if (!mediaSaved) {
+        if (!downloadLaunched) {
+          await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
+        }
+        if (!downloadLaunched) {
           trackToolEvent("tool_failed", {
             tool_id: "soundcloud-playlist-downloader",
             action: "playlist_track_download",
@@ -90,7 +97,7 @@ export default function PlaylistTracks({
           })
         }
         console.error(`Failed to download track (${track.title}):`, error)
-        alert(`${t("playlist_tracks_download")} ${track.title} ${t("error_network")}`)
+        alert(error instanceof Error ? error.message : t("error_network"))
       }
     } finally {
       downloadingTrackRefs.current.delete(operationKey)
@@ -117,7 +124,7 @@ export default function PlaylistTracks({
         </div>
         <button
           onClick={onDownloadAll}
-          disabled={isDownloading}
+          disabled={isDownloading || cooldownSeconds > 0}
           className="group shrink-0 overflow-hidden rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:cursor-not-allowed disabled:opacity-50 sm:rounded-lg sm:px-6 sm:py-3 sm:text-base md:min-h-[44px] md:px-8 md:py-4"
         >
           <span className="relative flex items-center justify-center gap-2">
@@ -148,7 +155,9 @@ export default function PlaylistTracks({
             ) : (
               <>
                 <span className="text-lg sm:text-xl">⬇️</span>
-                <span>{t("playlist_tracks_download_all")}</span>
+                <span>
+                  {canResume ? serviceText("resume_playlist") : t("playlist_tracks_download_all")}
+                </span>
               </>
             )}
           </span>
@@ -203,7 +212,7 @@ export default function PlaylistTracks({
                     <div className="mt-3 flex flex-wrap items-center gap-2 sm:mt-4 sm:gap-3">
                       <button
                         onClick={() => handleDownloadTrack(track)}
-                        disabled={isDownloadingTrack || isDownloading}
+                        disabled={isDownloadingTrack || isDownloading || cooldownSeconds > 0}
                         className="group min-h-[40px] overflow-hidden rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 px-3 py-2 text-xs font-medium text-white shadow-lg transition-all hover:from-emerald-700 hover:to-teal-700 disabled:cursor-not-allowed disabled:opacity-50 sm:px-4 sm:py-2 sm:text-sm md:min-h-[44px]"
                       >
                         <span className="relative flex items-center gap-2">

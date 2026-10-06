@@ -1,3 +1,4 @@
+import { readSoundCloudFailure } from "@/lib/soundcloud/client-errors"
 import { FormEvent, useCallback, useState } from "react"
 import { useDownloadQuota } from "@/components/download-quota/useDownloadQuota"
 import { trackToolEvent } from "@/lib/analytics/tool-events"
@@ -10,7 +11,7 @@ import {
 } from "../lib/url"
 
 export type LoadingState = "idle" | "loading" | "success" | "error"
-export type DownloadFormat = "mp3" | "m4a"
+export type DownloadFormat = "mp3" | "m4a" | "wav"
 
 interface SoundCloudTrackInfoLike {
   title?: string
@@ -22,10 +23,6 @@ interface UseSoundCloudTrackDownloadFormOptions<TTrackInfo extends SoundCloudTra
   invalidUrlLogPrefix: string
   analyticsToolId: string
   getFileName: (trackInfo: TTrackInfo | null, extension: DownloadFormat) => string
-}
-
-const formatFileSize = (bytes: number): string => {
-  return (bytes / 1024 / 1024).toFixed(2)
 }
 
 export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrackInfoLike>({
@@ -50,7 +47,7 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
   const restoreRegistrationState = useCallback((state: Record<string, unknown>) => {
     if (typeof state.url === "string") setUrl(state.url)
     if (state.extension === "mp3" || state.extension === "m4a") setExtension(state.extension)
-    if (state.extension === "wav") setExtension("m4a")
+    if (state.extension === "wav") setExtension("wav")
   }, [])
   const downloadQuota = useDownloadQuota({
     toolId: "soundcloud-track",
@@ -160,14 +157,8 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
         setInfoProgress(90)
 
         if (!response.ok) {
-          let errorMsg = t("error_get_info_failed")
-          try {
-            const errorData = await response.json()
-            errorMsg = errorData.error || errorMsg
-          } catch {
-            errorMsg = `${t("error_get_info_failed")} (${response.status})`
-          }
-          throw new Error(errorMsg)
+          const failurePayload: unknown = await response.json()
+          throw readSoundCloudFailure(response, failurePayload)
         }
 
         const data = await response.json()
@@ -199,7 +190,7 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
       return
     }
 
-    const safeExtension: DownloadFormat = extension === "m4a" ? "m4a" : "mp3"
+    const safeExtension: DownloadFormat = extension
     const quotaCheck = await downloadQuota.checkQuotaBeforeDownload()
     if (!quotaCheck.allowed) {
       if (quotaCheck.message) {
@@ -214,7 +205,7 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
       format: safeExtension,
     })
 
-    let mediaSaved = false
+    let downloadLaunched = false
 
     try {
       setDownloading(true)
@@ -232,20 +223,18 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
         preferredFormat: safeExtension,
         operationId: quotaCheck.operationId,
         quotaToolId: "soundcloud-track",
-        onProgress: (loadedBytes, totalBytes) => {
-          if (totalBytes && totalBytes > 0) {
-            const progress = Math.round((loadedBytes / totalBytes) * 70 + 20)
-            setDownloadProgress(progress)
-            const loadedMB = formatFileSize(loadedBytes)
-            const totalMB = formatFileSize(totalBytes)
-            setDownloadStatus(`${t("progress_downloading_file")}: ${loadedMB}MB / ${totalMB}MB`)
-          } else {
-            setDownloadStatus(t("progress_downloading_file"))
-            setDownloadProgress((prev) => Math.min(prev + 2, 90))
-          }
+        onProgress: (progress) => {
+          setDownloadProgress(progress.percent ?? 0)
+          setDownloadStatus(
+            t(
+              progress.phase === "downloading"
+                ? "progress_downloading_file"
+                : "progress_server_processing"
+            )
+          )
         },
       })
-      mediaSaved = true
+      downloadLaunched = true
       trackToolEvent("tool_succeeded", {
         tool_id: analyticsToolId,
         action: "download",
@@ -253,24 +242,20 @@ export function useSoundCloudTrackDownloadForm<TTrackInfo extends SoundCloudTrac
         result_count: 1,
       })
 
-      if (result.info?.title) {
-        setTrackInfo({
-          ...(trackInfo ?? {}),
-          ...result.info,
-          downloadable: true,
-        } as unknown as TTrackInfo)
-      }
-
       setDownloadProgress(100)
       setDownloadStatus(
-        t("progress_saving_actual_format", { format: result.selectedFormat.extension.toUpperCase() })
+        t("progress_saving_actual_format", {
+          format: result.selectedFormat.extension.toUpperCase(),
+        })
       )
       await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
       setHasCompletedDownload(true)
       setTimeout(resetDownloadState, 1000)
     } catch (error) {
-      await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
-      if (!mediaSaved) {
+      if (!downloadLaunched) {
+        await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
+      }
+      if (!downloadLaunched) {
         trackToolEvent("tool_failed", {
           tool_id: analyticsToolId,
           action: "download",

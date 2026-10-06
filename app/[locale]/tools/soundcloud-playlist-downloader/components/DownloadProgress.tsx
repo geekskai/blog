@@ -11,6 +11,7 @@ interface DownloadProgressProps {
 
 export default function DownloadProgress({ progress, className = "" }: DownloadProgressProps) {
   const t = useTranslations("SoundCloudPlaylistDownloader")
+  const serviceText = useTranslations("SoundCloudService")
   const { current, total, currentTrack, lastSavedFormat, status } = progress
 
   if (status === "idle") {
@@ -49,7 +50,10 @@ export default function DownloadProgress({ progress, className = "" }: DownloadP
           </div>
         </div>
 
-        {currentTrack && (
+        {status === "paused" && (
+          <p className="text-sm text-amber-200">{serviceText("playlist_paused")}</p>
+        )}
+        {currentTrack && status !== "paused" && (
           <div className="flex min-w-0 items-center gap-2 text-xs text-slate-300 sm:text-sm">
             <span className="shrink-0 text-base sm:text-xl">🎵</span>
             <span className="min-w-0 truncate">

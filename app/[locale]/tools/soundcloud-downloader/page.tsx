@@ -195,6 +195,7 @@ export default function SoundCloudDownloaderPage() {
         break
       }
 
+      let downloadLaunched = false
       try {
         const fileName = getSafeFileName(track.title, format)
         await downloadSoundCloudTrack(track.url, fileName, {
@@ -202,9 +203,13 @@ export default function SoundCloudDownloaderPage() {
           operationId: quotaCheck.operationId,
           quotaToolId: "soundcloud-track",
         })
+        downloadLaunched = true
         await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
-      } catch {
-        await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
+      } catch (error: unknown) {
+        console.error("Playlist download failed", error)
+        if (!downloadLaunched) {
+          await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
+        }
         errorCount++
       }
 

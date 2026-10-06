@@ -1,4 +1,5 @@
 "use client"
+import { readSoundCloudFailure } from "@/lib/soundcloud/client-errors"
 
 import { FormEvent, useCallback, useMemo, useState } from "react"
 import { useDownloadQuota } from "@/components/download-quota/useDownloadQuota"
@@ -8,7 +9,7 @@ import {
   isValidSoundCloudTrackUrl,
   normalizeSoundCloudUrl,
 } from "../../soundcloud-downloader/lib/url"
-import { createDownloadLink, getSafeFileName } from "../../soundcloud-playlist-downloader/lib/utils"
+import { downloadSoundCloudFile } from "../../soundcloud-downloader/lib/download"
 
 export type LoadingState = "idle" | "loading" | "success" | "error"
 
@@ -26,39 +27,6 @@ export interface ArtworkTrackInfo {
   likes_count?: number
   playback_count?: number
   user?: ArtworkUserInfo
-}
-
-const formatFileSize = (bytes: number): string => {
-  return (bytes / 1024 / 1024).toFixed(2)
-}
-
-const extractFileNameFromDisposition = (contentDisposition: string | null): string | null => {
-  if (!contentDisposition) {
-    return null
-  }
-
-  const utf8Match = contentDisposition.match(/filename\*=UTF-8''([^;]+)/i)
-  if (utf8Match?.[1]) {
-    return decodeURIComponent(utf8Match[1])
-  }
-
-  const asciiMatch = contentDisposition.match(/filename="?([^"]+)"?/i)
-  return asciiMatch?.[1] ?? null
-}
-
-const getFileExtensionFromContentType = (contentType: string | null): string => {
-  const normalizedType = contentType?.split(";")[0].trim().toLowerCase()
-  switch (normalizedType) {
-    case "image/png":
-      return "png"
-    case "image/webp":
-      return "webp"
-    case "image/gif":
-      return "gif"
-    case "image/jpeg":
-    default:
-      return "jpg"
-  }
 }
 
 export const getPreviewArtworkUrl = (artworkUrl?: string): string => {
@@ -195,7 +163,7 @@ export function useSoundCloudArtworkDownloadForm(t: (key: string) => string) {
           const errorData = await response.json().catch(() => ({
             error: t("error_get_info_failed"),
           }))
-          throw new Error(errorData.error || t("error_get_info_failed"))
+          throw readSoundCloudFailure(response, errorData)
         }
 
         const data = await response.json()
@@ -237,81 +205,33 @@ export function useSoundCloudArtworkDownloadForm(t: (key: string) => string) {
       return
     }
 
+    let downloadLaunched = false
     try {
       setDownloading(true)
       resetError()
       setDownloadProgress(5)
       setDownloadStatus(t("progress_sending_request"))
 
-      const response = await fetch("/api/download-soundcloud-artwork", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          ...(quotaCheck.operationId
-            ? { "X-Download-Operation-Id": quotaCheck.operationId }
-            : {}),
-          "X-Quota-Tool-Id": "soundcloud-artwork",
+      await downloadSoundCloudFile({
+        url,
+        format: "artwork",
+        operationId: quotaCheck.operationId,
+        quotaToolId: "soundcloud-artwork",
+        onProgress: (progress) => {
+          setDownloadProgress(progress.percent ?? 0)
+          setDownloadStatus(t("progress_downloading_file"))
         },
-        body: JSON.stringify({ url: url.trim() }),
       })
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({
-          error: t("error_download_failed"),
-        }))
-        throw new Error(errorData.error || t("error_download_failed"))
-      }
-
-      setDownloadStatus(t("progress_downloading_file"))
-      setDownloadProgress(15)
-
-      if (!response.body) {
-        throw new Error("Response body is null")
-      }
-
-      const reader = response.body.getReader()
-      const chunks: BlobPart[] = []
-      const totalBytes = Number.parseInt(response.headers.get("Content-Length") || "0", 10)
-      let loadedBytes = 0
-
-      while (true) {
-        const { done, value } = await reader.read()
-        if (done) {
-          break
-        }
-
-        chunks.push(value)
-        loadedBytes += value.length
-
-        if (totalBytes > 0) {
-          const progress = Math.round((loadedBytes / totalBytes) * 80 + 15)
-          setDownloadProgress(progress)
-          setDownloadStatus(
-            `${t("progress_downloading_file")}: ${formatFileSize(loadedBytes)}MB / ${formatFileSize(totalBytes)}MB`
-          )
-        } else {
-          setDownloadProgress((prev) => Math.min(prev + 10, 95))
-        }
-      }
-
+      downloadLaunched = true
       setDownloadProgress(100)
       setDownloadStatus(t("progress_saving_file"))
-
-      const contentType = response.headers.get("Content-Type")
-      const fileName =
-        extractFileNameFromDisposition(response.headers.get("Content-Disposition")) ||
-        getSafeFileName(
-          `${trackInfo.title || "soundcloud"}-artwork`,
-          getFileExtensionFromContentType(contentType)
-        )
-
-      const blob = new Blob(chunks, { type: contentType || "image/jpeg" })
-      createDownloadLink(blob, fileName.toLowerCase())
       await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
 
       setTimeout(resetDownloadState, 1000)
     } catch (error) {
-      await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
+      if (!downloadLaunched) {
+        await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
+      }
       console.error("Artwork download error:", error)
       setErrorMessage(error instanceof Error ? error.message : t("error_download_failed"))
       resetDownloadState()

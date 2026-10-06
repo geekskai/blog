@@ -1,4 +1,9 @@
 "use client"
+import {
+  SoundCloudDownloadError,
+  getSoundCloudCooldown,
+  readSoundCloudFailure,
+} from "@/lib/soundcloud/client-errors"
 import React, { useState, useCallback, useEffect, useRef } from "react"
 import { useLocale, useTranslations } from "next-intl"
 import dynamic from "next/dynamic"
@@ -23,6 +28,7 @@ import type {
 import { downloadSoundCloudTrack } from "../soundcloud-downloader/lib/download"
 import { getSafeFileName } from "./lib/utils"
 import { detectSoundCloudUrlKind } from "../soundcloud-downloader/lib/url"
+import { isSoundCloudRateLimit } from "@/lib/soundcloud/retry-after"
 import { trackToolEvent } from "@/lib/analytics/tool-events"
 
 const DeferredGoogleAdUnitWrap = dynamic(() => import("@/components/GoogleAdUnitWrap"), {
@@ -41,6 +47,13 @@ export default function SoundCloudPlaylistDownloaderPage() {
   // is track error means the url is a single track url
   const [isTrackError, setIsTrackError] = useState<boolean>(false)
   const [playlistInfo, setPlaylistInfo] = useState<PlaylistInfo | null>(null)
+  const pausedBatchRef = useRef<{
+    index: number
+    successCount: number
+    errorCount: number
+    playlist: PlaylistInfo
+    format: DownloadFormat
+  } | null>(null)
   const [downloadProgress, setDownloadProgress] = useState<DownloadProgressType>({
     current: 0,
     total: 0,
@@ -50,7 +63,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
   const restoreRegistrationState = useCallback((state: Record<string, unknown>) => {
     if (typeof state.url === "string") setUrl(state.url)
     if (state.format === "mp3" || state.format === "m4a") setFormat(state.format)
-    if (state.format === "wav") setFormat("m4a")
+    if (state.format === "wav") setFormat("wav")
   }, [])
   const downloadQuota = useDownloadQuota({
     toolId: "soundcloud-playlist",
@@ -111,7 +124,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({ error: t("error_fetch_failed") }))
-        setErrorMessage(errorData.error || t("error_fetch_failed"))
+        setErrorMessage(readSoundCloudFailure(response, errorData).message)
         setLoadingState("error")
         return
       }
@@ -138,14 +151,21 @@ export default function SoundCloudPlaylistDownloaderPage() {
       return
     }
 
+    if (getSoundCloudCooldown() > 0) {
+      return
+    }
     playlistDownloadInFlightRef.current = true
+    const pausedBatch = pausedBatchRef.current
+    const canResume = pausedBatch?.playlist === playlistInfo && pausedBatch?.format === format
+    const startIndex = canResume ? pausedBatch.index : 0
+    setErrorMessage("")
 
     const tracks = playlistInfo.tracks
     const total = tracks.length
 
     try {
       setDownloadProgress({
-        current: 0,
+        current: startIndex,
         total,
         currentTrack: "",
         status: "downloading",
@@ -157,11 +177,12 @@ export default function SoundCloudPlaylistDownloaderPage() {
         result_count: total,
       })
 
-      let successCount = 0
-      let errorCount = 0
+      let successCount = canResume ? pausedBatch.successCount : 0
+      let errorCount = canResume ? pausedBatch.errorCount : 0
+      pausedBatchRef.current = null
 
       // Download tracks sequentially to avoid overwhelming the browser.
-      for (let index = 0; index < tracks.length; index++) {
+      for (let index = startIndex; index < tracks.length; index++) {
         const track = tracks[index]
 
         setDownloadProgress((prev) => ({
@@ -182,7 +203,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
           break
         }
 
-        let mediaSaved = false
+        let downloadLaunched = false
         try {
           const fileName = getSafeFileName(track.title, format)
           const result = await downloadSoundCloudTrack(track.url, fileName, {
@@ -190,7 +211,7 @@ export default function SoundCloudPlaylistDownloaderPage() {
             operationId: quotaCheck.operationId,
             quotaToolId: "soundcloud-playlist",
           })
-          mediaSaved = true
+          downloadLaunched = true
           setDownloadProgress((prev) => ({
             ...prev,
             lastSavedFormat: result.selectedFormat.extension,
@@ -204,16 +225,35 @@ export default function SoundCloudPlaylistDownloaderPage() {
           await downloadQuota.consumeDownloadQuota(quotaCheck.operationId)
           successCount++
         } catch (error) {
-          await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
-          if (!mediaSaved) {
+          if (!downloadLaunched) {
+            await downloadQuota.releaseDownloadQuota(quotaCheck.operationId)
+          }
+          if (!downloadLaunched) {
             trackToolEvent("tool_failed", {
               tool_id: "soundcloud-playlist-downloader",
               action: "playlist_track_download",
               format,
             })
           }
-          errorCount++
           console.error(`Failed to download track ${index + 1} (${track.title}):`, error)
+          if (
+            !downloadLaunched &&
+            error instanceof SoundCloudDownloadError &&
+            isSoundCloudRateLimit(error.code)
+          ) {
+            // Release happened above. Resume obtains a fresh reservation for this same track.
+            pausedBatchRef.current = {
+              index,
+              successCount,
+              errorCount,
+              playlist: playlistInfo,
+              format,
+            }
+            setErrorMessage(error.message)
+            setDownloadProgress((previous) => ({ ...previous, current: index, status: "paused" }))
+            return
+          }
+          errorCount++
         }
 
         // Small delay between downloads to avoid overwhelming the browser.
@@ -326,6 +366,11 @@ export default function SoundCloudPlaylistDownloaderPage() {
               tracks={playlistInfo.tracks}
               onDownloadAll={handleDownloadAll}
               isDownloading={downloadProgress.status === "downloading"}
+              canResume={
+                downloadProgress.status === "paused" &&
+                pausedBatchRef.current?.playlist === playlistInfo &&
+                pausedBatchRef.current?.format === format
+              }
               format={format}
               downloadQuota={downloadQuota}
             />

@@ -45,7 +45,7 @@ export default function Page() {
     handleGetInfo,
     handleDownload,
   } = useSoundCloudTrackDownloadForm<TrackInfo>({
-    initialExtension: "m4a",
+    initialExtension: "wav",
     t,
     invalidUrlLogPrefix: "soundcloud to wav",
     analyticsToolId: "soundcloud-to-wav",

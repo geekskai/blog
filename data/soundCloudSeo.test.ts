@@ -36,8 +36,8 @@ describe("SoundCloud evidence copy", () => {
     const wav = getSoundCloudPageCopy("wav", "en")
     const mp3 = getSoundCloudPageCopy("mp3", "en")
 
-    expect(wav.directAnswer).toContain("does not synthesize a WAV")
-    expect(mp3.directAnswer).toContain("does not re-encode audio to 320 kbps")
+    expect(wav.directAnswer).toContain("real PCM WAV")
+    expect(mp3.directAnswer).toContain("does not improve the source quality")
     expect(`${wav.metadataDescription} ${mp3.metadataDescription}`).not.toMatch(
       /lossless|highest quality|guaranteed/i
     )
