@@ -1,252 +1,103 @@
-# ✨ Next.js Tailwind 博客模板 | 如果该项目对您有帮助，请给个 ⭐️谢谢！
+# GeeksKai Tools
 
 <div align="center">
 
-![geekskai-blog](/public/static/images/geekskai-blog.png)
+[![GeeksKai](public/static/images/og/geekskai-home.png)](https://geekskai.com/)
 
-[![GitHub stars](https://img.shields.io/github/stars/geekskai/blog.svg?style=social&label=Stars)](https://github.com/geekskai/blog)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/geekskai/blog)
+**面向开发者和创作者的免费在线工具，以及本地优先的音频工作区。**
 
-[在线演示](https://geekskai.com/) | [English Docs](https://github.com/geekskai/blog/blob/main/README.md)
+[在线站点](https://geekskai.com/) · [English README](README.md) · [GitHub](https://github.com/geekskai/blog)
 
-_下一代高性能、SEO友好的博客解决方案_
-
-</div>
-
-<div align="center">
-
-⭐ 如果这个项目对你有帮助，请给我们一个星星，这是对我们最大的鼓励！
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black.svg)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-ready-blue.svg)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4.svg)](https://tailwindcss.com/)
 
 </div>
 
-## 🎯 为什么选择这个模板？
+GeeksKai 是一个基于 Next.js 的多语言应用，包含实用的浏览器工具、面向搜索的内容系统，以及 Geekskai Audio Toolkit 本地优先的批量音频处理工作区。
 
-- 🚀 **技术栈强大**：基于 Next.js 13+ 和 React Server Components 构建
-- ⚡ **极致性能**：首次加载仅 85kB，Lighthouse 跑分接近满分
-- 📱 **响应式设计**：完美适配移动端，支持亮色/暗色主题
-- 🔍 **SEO 优化**：内置 SEO 最佳实践，自动生成站点地图
-- 📝 **丰富内容**：支持 MDX、数学公式、引用系统等
-- 🎨 **精美设计**：3种文章布局，2种列表样式，可自定义主题
+## 产品模块
 
-## 💫 效果预览
+- **在线工具**：文本、图片、文档、开发、金融、媒体、VIN 等工具类别。
+- **SoundCloud 工具**：单曲下载准备、MP3、WAV、播放列表和封面工具，并提供多语言 SEO 页面。
+- **Audio Toolkit**：面向私密批量处理流程的本地优先音频工作区。
+- **博客和指南**：基于 MDX，包含搜索 metadata、结构化数据和站点地图。
+- **多语言路由**：支持 `/en/`、`/fr/`、`/es/`、`/de/`、`/ja/`、`/ko/`、`/no/`、`/zh-cn/` 等路径。
 
-<div align="center">
-<table>
-<tr>
-<td>
-<strong>桌面端展示</strong><br/>
-<img src="/public/static/images/geekskai-blog-list.png" alt="Desktop View" width="600"/>
-</td>
-<td>
-<strong>移动端展示</strong><br/>
-<img src="/public/static/images/geekskai-blog-detail-mobile.png" alt="Mobile View" width="200"/>
-</td>
-</tr>
-</table>
-</div>
+## 项目截图
 
-## 🚀 性能表现
+仓库中的产品截图位于 [`screenshots/`](screenshots/)。
 
-<div align="center">
+| 首页桌面端 | 首页移动端 |
+| --- | --- |
+| ![GeeksKai 首页桌面端](screenshots/01-home-desktop.png) | ![GeeksKai 首页移动端](screenshots/02-home-mobile.png) |
 
-![Performance](/public/static/images/performance.png)
+首页 OG 图片是 [`public/static/images/og/geekskai-home.png`](public/static/images/og/geekskai-home.png)。站点和博客共用的默认社交分享图片是 [`public/static/images/geekskai-blog.png`](public/static/images/geekskai-blog.png)。
 
-_Lighthouse 性能评分 - 展现卓越的性能指标_
+## Open Graph 与 SEO
 
-</div>
+OG metadata 按路由维护，使标题、描述、canonical URL 和语言保持一致。
 
-## 🛠️ 技术特点
+- 站点默认 metadata 和共享社交图片：[`data/siteMetadata.js`](data/siteMetadata.js)
+- 多语言首页 metadata 与 OG 图片：[`app/[locale]/layout.tsx`](app/[locale]/layout.tsx)
+- 工具页 metadata 和 Twitter Card：[`app/[locale]/tools/`](app/[locale]/tools/) 下各工具的 `layout.tsx`
+- SoundCloud metadata 与 JSON-LD：[`data/soundCloudSeo.ts`](data/soundCloudSeo.ts) 以及 SoundCloud 工具布局
+- OG 图片资源：[`public/static/images/og/`](public/static/images/og/)
+- canonical URL、robots 和 sitemap：[`app/robots.ts`](app/robots.ts)、[`app/sitemap.ts`](app/sitemap.ts)、[`app/sitemap-config.ts`](app/sitemap-config.ts)
 
-- **Next.js 13+** 配合 TypeScript，享受最新特性
-- **Tailwind CSS 3.0** 轻松实现自定义样式
-- **Contentlayer** 强大的内容管理系统
-- **MDX** 让你的博客文章更具互动性
-- **Pliny** 整合分析、评论等功能
-- **Next/Font** 字体加载优化
-- **Next/Image** 图片自动优化
+新增页面时，应提供稳定的 canonical URL、本地化标题和描述、带有明确 alt 文本的 OG 图片，以及匹配的 Twitter Card metadata。
 
-## 📦 核心特性
+## 技术栈
 
-### 📊 数据分析与互动
+Next.js App Router、TypeScript、React、Tailwind CSS、Contentlayer 2、MDX、next-intl、Pliny 和 Vitest。项目还包含可选的 Neon、PayPal 和 Clerk 集成。
 
-- 多种数据分析方案（支持 Umami、Plausible、百度统计等）
-- 评论系统集成（支持 Giscus、Utterances、Disqus）
-- 订阅集成（支持主流邮件订阅服务）
-- 搜索功能（支持 Kbar、Algolia）
+## 本地开发
 
-### 📝 内容创作增强
-
-- 服务端代码高亮
-- KaTeX 数学公式渲染
-- 文献引用与参考书目
-- GitHub 风格提示框
-- 图片自动优化
-- 多作者支持
-- 文章嵌套路由
-
-## ⚡ 快速开始
-
-# 克隆项目
+需要 Node.js、Yarn；生成源码归档时还需要 Python 3。
 
 ```bash
-npx degit 'geekskai/blog'
-```
-
-# 安装依赖
-
-```bash
+git clone https://github.com/geekskai/blog.git
+cd blog
 yarn
-```
-
-请注意，如果您使用的是 Windows 操作系统，每次启动之前，需要提前运行：
-
-```bash
-$env:PWD = $(Get-Location).Path
-```
-
-# 启动开发服务器
-
-```bash
 yarn dev
 ```
 
-## 🎨 个性化配置
-
-1. 修改 `siteMetadata.js` 配置网站信息
-2. 调整 `next.config.js` 配置安全策略
-3. 修改 `authors/default.md` 设置作者信息
-4. 编辑 `projectsData.ts` 更新项目展示
-5. 自定义 `headerNavLinks.ts` 配置导航菜单
-
-## 📝 创建文章
-
-在 `data/blog` 目录下创建 `.md` 或 `.mdx` 文件：
-
-```md
----
-title: "文章标题"
-date: "2024-02-11"
-tags: ["next-js", "tailwind", "教程"]
-draft: false
-summary: "文章摘要"
----
-
-文章内容...
-```
-
-## 🚀 部署指南
-
-### Vercel 部署
-
-部署到 Vercel需要在 Vercel [environment variables](https://vercel.com/geekskais-projects/blog/settings/environment-variables)中配置 `.env` 的环境变量：
+常用检查：
 
 ```bash
-# visit https://giscus.app to get your Giscus ids
-NEXT_PUBLIC_GISCUS_REPO=
-NEXT_PUBLIC_GISCUS_REPOSITORY_ID=
-NEXT_PUBLIC_GISCUS_CATEGORY=
-NEXT_PUBLIC_GISCUS_CATEGORY_ID=
-NEXT_PUBLIC_UTTERANCES_REPO=
-NEXT_PUBLIC_DISQUS_SHORTNAME=
-
-MAILCHIMP_API_KEY=
-MAILCHIMP_API_SERVER=
-MAILCHIMP_AUDIENCE_ID=
-
-BUTTONDOWN_API_KEY=
-
-CONVERTKIT_API_KEY=
-# curl https://api.convertkit.com/v3/forms?api_key=<your_public_api_key> to get your form ID
-CONVERTKIT_FORM_ID=
-
-KLAVIYO_API_KEY=
-KLAVIYO_LIST_ID=
-
-REVUE_API_KEY=
-
-# Create EmailOctopus API key at https://emailoctopus.com/api-documentation
-EMAILOCTOPUS_API_KEY=
-# List ID can be found in the URL as a UUID after clicking a list on https://emailoctopus.com/lists
-# or the settings page of your list https://emailoctopus.com/lists/{UUID}/settings
-EMAILOCTOPUS_LIST_ID=
-
-# Create Beehive API key at https://developers.beehiiv.com/docs/v2/bktd9a7mxo67n-create-an-api-key
-BEEHIVE_API_KEY=
-BEEHIVE_PUBLICATION_ID=# visit https://giscus.app to get your Giscus ids
-NEXT_PUBLIC_GISCUS_REPO=
-NEXT_PUBLIC_GISCUS_REPOSITORY_ID=
-NEXT_PUBLIC_GISCUS_CATEGORY=
-NEXT_PUBLIC_GISCUS_CATEGORY_ID=
-NEXT_PUBLIC_UTTERANCES_REPO=
-NEXT_PUBLIC_DISQUS_SHORTNAME=
-
-
-MAILCHIMP_API_KEY=
-MAILCHIMP_API_SERVER=
-MAILCHIMP_AUDIENCE_ID=
-
-BUTTONDOWN_API_KEY=
-
-CONVERTKIT_API_KEY=
-# curl https://api.convertkit.com/v3/forms?api_key=<your_public_api_key> to get your form ID
-CONVERTKIT_FORM_ID=
-
-KLAVIYO_API_KEY=
-KLAVIYO_LIST_ID=
-
-REVUE_API_KEY=
-
-# Create EmailOctopus API key at https://emailoctopus.com/api-documentation
-EMAILOCTOPUS_API_KEY=
-# List ID can be found in the URL as a UUID after clicking a list on https://emailoctopus.com/lists
-# or the settings page of your list https://emailoctopus.com/lists/{UUID}/settings
-EMAILOCTOPUS_LIST_ID=
-
-# Create Beehive API key at https://developers.beehiiv.com/docs/v2/bktd9a7mxo67n-create-an-api-key
-BEEHIVE_API_KEY=
-BEEHIVE_PUBLICATION_ID=
+yarn typecheck
+yarn test
+yarn build
 ```
 
-- Netlify: [![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/geekskai/blog)
+`yarn build` 会执行 Contentlayer 构建和 Next.js 生产构建。RSS 生成功能已经从构建流程中移除。
 
-### 静态部署
+## 目录说明
+
+```text
+app/                  Next.js 路由、多语言工具页和 metadata
+components/           共用 UI 和产品组件
+data/                 站点 metadata、工具数据和 MDX 内容
+layouts/              博客和内容布局
+lib/                  领域逻辑、SEO 辅助函数和集成
+public/static/        Logo、截图和 OG 图片资源
+scripts/              维护和索引工具
+screenshots/          项目文档使用的产品截图
+```
+
+博客文章放在 `data/blog/`，front matter 应包含 `title`、`date`、`tags`、`draft` 和 `summary`。
+
+将 `.env.example` 中需要的配置复制到本地 `.env`，不要提交密钥。项目可以部署到 Vercel 或其他兼容 Next.js 的平台；部署后请检查多语言 metadata、OG 图片、sitemap 和依赖第三方服务的功能。
+
+生成可分享的源码归档：
 
 ```bash
-$ EXPORT=1 UNOPTIMIZED=1 yarn build
+yarn archive:source
 ```
 
-## 🤝 参与贡献
+提交 Issue 或 Pull Request 时，请保持改动范围清晰，遵循现有路由和 metadata 约定，并运行相关类型检查和测试。
 
-欢迎所有形式的贡献：
+## 开源协议
 
-- 🐛 问题修复
-- ✨ 新功能提案
-- 📚 文档改进
-- 🎨 界面优化
-
-## 💖 支持项目
-
-如果这个项目对你有帮助：
-
-- ⭐ 给项目一个 Star
-- 🐦 在社交媒体分享你的使用经验
-- 💝 考虑[赞助](https://github.com/sponsors/geekskai)项目
-
-## 📱 联系我们
-
-- [博客](https://geekskai.com/)
-- [邮箱](support@geekskai.com)
-
-## 📄 开源协议
-
-[MIT](https://github.com/geekskai/blog/blob/main/LICENSE) © [geeks kai](https://geekskai.com)
-
----
-
-<div align="center">
-
-由 [geeks kai](https://geekskai.com) 用 ❤️ 打造
-
-⭐ 如果这个项目对你有帮助，请给我们一个星星，这是对我们最大的鼓励！
-
-</div>
+[MIT](LICENSE) © [GeeksKai](https://geekskai.com)
