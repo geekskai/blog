@@ -10046,6 +10046,10 @@
     "schema_feature_4": "Fonctionne sur navigateurs desktop et mobile"
   },
   "SoundCloudService": {
+    "concurrency_title": "Un téléchargement est déjà en cours",
+    "concurrency_message": "Vous avez déjà {count} téléchargement(s) actif(s). Attendez la fin, puis réessayez. Si la page précédente a été fermée ou interrompue, réessayez plus tard.",
+    "concurrency_retry": "Réessayer le téléchargement",
+    "concurrency_retrying": "Vérification…",
     "retry_after": "Le service est occupé. Réessayez dans {seconds} secondes.",
     "resume_playlist": "Reprendre les titres restants",
     "playlist_paused": "Liste en pause. Après le délai, reprenez à partir de ce titre."

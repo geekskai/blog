@@ -340,8 +340,10 @@ export default function SoundCloudPlaylistDownloaderPage() {
             loadingState={loadingState}
             errorMessage={errorMessage}
             quotaMessage={downloadQuota.quotaMessage}
+            concurrencyLimit={downloadQuota.concurrencyLimit}
             quotaInitializationState={downloadQuota.quotaInitializationState}
             onRetryQuota={() => void downloadQuota.retryQuotaInitialization()}
+            onRetryConcurrency={() => void handleDownloadAll()}
             isTrackError={isTrackError}
             onExtensionChange={setFormat}
             onSubmit={(e) => {

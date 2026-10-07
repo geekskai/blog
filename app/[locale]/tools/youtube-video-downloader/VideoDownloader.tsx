@@ -23,6 +23,7 @@ import {
 } from "@/components/downloader/shared"
 import { useDownloadRetryCooldown } from "@/components/downloader/useDownloadRetryCooldown"
 import DownloadShareModal from "@/components/download-quota/DownloadShareModal"
+import DownloadConcurrencyNotice from "@/components/download-quota/DownloadConcurrencyNotice"
 import { useDownloadQuota } from "@/components/download-quota/useDownloadQuota"
 import { parseYouTubeUrl } from "@/app/lib/youtube/parse-url"
 
@@ -177,6 +178,8 @@ type DownloadFeedbackProps = {
   downloadSuccess: string | null
   downloadProgress: number
   t: VideoDownloaderT
+  concurrencyLimit?: number | null
+  onRetryConcurrency: () => void
 }
 
 function DownloadFeedback({
@@ -188,6 +191,8 @@ function DownloadFeedback({
   downloadSuccess,
   downloadProgress,
   t,
+  concurrencyLimit,
+  onRetryConcurrency,
 }: DownloadFeedbackProps) {
   return (
     <div className="mb-3.5 md:mb-4" aria-live="polite" aria-busy={loading || downloading}>
@@ -202,6 +207,14 @@ function DownloadFeedback({
             {errorExtra}
           </p>
         </div>
+      ) : null}
+
+      {concurrencyLimit ? (
+        <DownloadConcurrencyNotice
+          limit={concurrencyLimit}
+          busy={downloading}
+          onRetry={onRetryConcurrency}
+        />
       ) : null}
 
       {loading ? (
@@ -486,6 +499,8 @@ export default function VideoDownloader({
           downloadSuccess={downloadSuccess || downloadQuota.unlockSuccessMessage}
           downloadProgress={downloadProgress}
           t={t}
+          concurrencyLimit={downloadQuota.concurrencyLimit}
+          onRetryConcurrency={() => void handleDownload()}
         />
 
         <form onSubmit={handleSubmit}>

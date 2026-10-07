@@ -7,6 +7,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest"
 const mocks = vi.hoisted(() => ({ useAuth: vi.fn(), trackToolEvent: vi.fn() }))
 
 vi.mock("@clerk/nextjs", () => ({ useAuth: mocks.useAuth }))
+vi.mock("next-intl", () => ({ useTranslations: () => (key: string) => key }))
 vi.mock("@/lib/analytics/tool-events", () => ({ trackToolEvent: mocks.trackToolEvent }))
 
 import { useDownloadQuota, type DownloadQuotaController } from "./useDownloadQuota"
@@ -159,6 +160,33 @@ describe("useDownloadQuota initialization", () => {
     expect(fetch).toHaveBeenCalledTimes(1)
     expect(controller?.quotaInitializationState).toBe("ready")
     expect(controller?.quotaConfig.mode).toBe("server")
+  })
+
+  it("exposes concurrency reached separately from generic quota errors", async () => {
+    vi.mocked(fetch)
+      .mockResolvedValueOnce(response({ mode: "server", quota: serverQuota }))
+      .mockResolvedValueOnce(
+        response({
+          mode: "server",
+          outcome: "concurrency_reached",
+          quota: { ...serverQuota, activeReservations: 1 },
+        })
+      )
+    render()
+    await act(async () => undefined)
+
+    let check: Awaited<ReturnType<DownloadQuotaController["checkQuotaBeforeDownload"]>>
+    await act(async () => {
+      check = await controller!.checkQuotaBeforeDownload()
+    })
+
+    expect(check!).toEqual({
+      allowed: false,
+      reason: "concurrency_reached",
+      message: "concurrency_message",
+    })
+    expect(controller?.concurrencyLimit).toBe(1)
+    expect(controller?.quotaMessage).toBe("concurrency_message")
   })
 })
 

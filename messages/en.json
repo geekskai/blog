@@ -9859,6 +9859,10 @@
     "schema_feature_4": "Works on desktop and mobile browsers"
   },
   "SoundCloudService": {
+    "concurrency_title": "A download is already in progress",
+    "concurrency_message": "You already have {count} active download(s). Wait for it to finish, then try again. If the earlier page was closed or interrupted, try again later.",
+    "concurrency_retry": "Try download again",
+    "concurrency_retrying": "Checking availability…",
     "retry_after": "The download service is busy. You can retry in {seconds} seconds.",
     "resume_playlist": "Resume remaining tracks",
     "playlist_paused": "Playlist paused. Resume after the cooldown to continue from this track."

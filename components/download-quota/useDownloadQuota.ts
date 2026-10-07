@@ -1,6 +1,7 @@
 "use client"
 
 import { useAuth } from "@clerk/nextjs"
+import { useTranslations } from "next-intl"
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import type { GrowthEventDimensions, GrowthEventName } from "@/lib/growth/events"
 import type { QuotaToolId } from "@/lib/download-quota/config"
@@ -25,7 +26,11 @@ export type DownloadQuotaCheck =
   | { allowed: true; operationId?: string }
   | {
       allowed: false
-      reason: "share_required" | "daily_limit_reached" | "temporarily_unavailable"
+      reason:
+        | "share_required"
+        | "daily_limit_reached"
+        | "concurrency_reached"
+        | "temporarily_unavailable"
       message?: string
     }
 
@@ -163,6 +168,7 @@ export function useDownloadQuota({
   onRegistrationReturn,
 }: UseDownloadQuotaOptions) {
   const { isLoaded, isSignedIn } = useAuth()
+  const tQuota = useTranslations("SoundCloudService")
   const [quotaState, setQuotaState] = useState<DownloadQuotaState | null>(null)
   const [serverQuota, setServerQuota] = useState<ServerQuota | null>(null)
   const [quotaMode, setQuotaMode] = useState<QuotaRuntimeMode>("pending")
@@ -172,6 +178,7 @@ export function useDownloadQuota({
   const [showShareModal, setShowShareModal] = useState(false)
   const [showPostDownloadShare, setShowPostDownloadShare] = useState(false)
   const [quotaMessage, setQuotaMessage] = useState<string | null>(null)
+  const [concurrencyLimit, setConcurrencyLimit] = useState<number | null>(null)
   const [unlockSuccessMessage, setUnlockSuccessMessage] = useState<string | null>(null)
   const [shareLink, setShareLink] = useState("https://geekskai.com/?ref=quota_share")
   const [shareLinkReady, setShareLinkReady] = useState(false)
@@ -405,6 +412,7 @@ export function useDownloadQuota({
 
   const checkQuotaBeforeDownload = useCallback(async (): Promise<DownloadQuotaCheck> => {
     setQuotaMessage(null)
+    setConcurrencyLimit(null)
     setUnlockSuccessMessage(null)
 
     if (activeQuotaOperationRef.current) {
@@ -453,9 +461,11 @@ export function useDownloadQuota({
         }
         activeQuotaOperationRef.current = null
         if (data.outcome === "concurrency_reached") {
-          const message = `You already have ${data.quota?.concurrencyLimit ?? 1} active download task${(data.quota?.concurrencyLimit ?? 1) === 1 ? "" : "s"}. Finish one before starting another.`
+          const limit = data.quota?.concurrencyLimit ?? 1
+          setConcurrencyLimit(limit)
+          const message = tQuota("concurrency_message", { count: limit })
           setQuotaMessage(message)
-          return { allowed: false, reason: "temporarily_unavailable", message }
+          return { allowed: false, reason: "concurrency_reached", message }
         }
         openQuotaGate()
         return { allowed: false, reason: "share_required" }
@@ -484,7 +494,7 @@ export function useDownloadQuota({
     }
     activeQuotaOperationRef.current = { mode: "local" }
     return { allowed: true }
-  }, [initializeQuota, isLoaded, openQuotaGate, quotaMode, serverQuota, syncDailyQuota, toolId])
+  }, [initializeQuota, isLoaded, openQuotaGate, quotaMode, serverQuota, syncDailyQuota, tQuota, toolId])
 
   const consumeDownloadQuota = useCallback(
     async (operationId?: string) => {
@@ -677,6 +687,7 @@ export function useDownloadQuota({
       growthExperimentsEnabled(quotaMode) && shareChannelsEnabled && showPostDownloadShare,
     shareLink,
     quotaMessage,
+    concurrencyLimit,
     quotaInitializationState,
     unlockSuccessMessage,
     setQuotaMessage,

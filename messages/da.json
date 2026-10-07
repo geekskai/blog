@@ -9695,6 +9695,10 @@
     "schema_feature_4": "Virker i desktop- og mobilbrowsere"
   },
   "SoundCloudService": {
+    "concurrency_title": "En download er allerede i gang",
+    "concurrency_message": "Du har allerede {count} aktive downloads. Vent, til den er færdig, og prøv igen. Hvis den tidligere side blev lukket eller afbrudt, så prøv igen senere.",
+    "concurrency_retry": "Prøv download igen",
+    "concurrency_retrying": "Kontrollerer…",
     "retry_after": "Downloadtjenesten er optaget. Prøv igen om {seconds} sekunder.",
     "resume_playlist": "Fortsæt de resterende numre",
     "playlist_paused": "Afspilningslisten er sat på pause. Fortsæt fra dette nummer efter ventetiden."

@@ -9982,6 +9982,10 @@
     "schema_feature_4": "Funciona en navegadores de escritorio y móvil"
   },
   "SoundCloudService": {
+    "concurrency_title": "Ya hay una descarga en curso",
+    "concurrency_message": "Ya tienes {count} descargas activas. Espera a que terminen y vuelve a intentarlo. Si la página anterior se cerró o se interrumpió, inténtalo más tarde.",
+    "concurrency_retry": "Reintentar descarga",
+    "concurrency_retrying": "Comprobando…",
     "retry_after": "El servicio está ocupado. Puedes reintentar en {seconds} segundos.",
     "resume_playlist": "Continuar las pistas restantes",
     "playlist_paused": "Lista en pausa. Tras la espera, continúa desde esta pista."

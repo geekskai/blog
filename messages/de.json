@@ -9978,6 +9978,10 @@
     "schema_feature_4": "Funktioniert in Desktop- und mobilen Browsern"
   },
   "SoundCloudService": {
+    "concurrency_title": "Ein Download läuft bereits",
+    "concurrency_message": "Du hast bereits {count} aktive Downloads. Warte, bis sie abgeschlossen sind, und versuche es erneut. Wenn die vorherige Seite geschlossen oder unterbrochen wurde, versuche es später erneut.",
+    "concurrency_retry": "Download erneut versuchen",
+    "concurrency_retrying": "Verfügbarkeit wird geprüft…",
     "retry_after": "Der Download-Dienst ist ausgelastet. In {seconds} Sekunden erneut versuchen.",
     "resume_playlist": "Verbleibende Titel fortsetzen",
     "playlist_paused": "Playlist pausiert. Nach der Wartezeit bei diesem Titel fortsetzen."

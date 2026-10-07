@@ -9835,6 +9835,10 @@
     "schema_feature_4": "Fungerer i desktop- og mobilnettlesere"
   },
   "SoundCloudService": {
+    "concurrency_title": "En nedlasting pågår allerede",
+    "concurrency_message": "Du har allerede {count} aktive nedlastinger. Vent til den er ferdig, og prøv igjen. Hvis den forrige siden ble lukket eller avbrutt, kan du prøve igjen senere.",
+    "concurrency_retry": "Prøv nedlasting på nytt",
+    "concurrency_retrying": "Kontrollerer…",
     "retry_after": "Nedlastingstjenesten er opptatt. Prøv igjen om {seconds} sekunder.",
     "resume_playlist": "Fortsett med resten av sporene",
     "playlist_paused": "Spillelisten er satt på pause. Fortsett fra dette sporet etter ventetiden."

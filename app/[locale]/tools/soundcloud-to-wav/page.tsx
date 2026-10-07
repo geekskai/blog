@@ -118,8 +118,10 @@ export default function Page() {
               downloading={downloading}
               errorMessage={errorMessage}
               quotaMessage={downloadQuota.quotaMessage}
+              concurrencyLimit={downloadQuota.concurrencyLimit}
               quotaInitializationState={downloadQuota.quotaInitializationState}
               onRetryQuota={() => void downloadQuota.retryQuotaInitialization()}
+              onRetryConcurrency={() => void handleDownload()}
               isPlaylistError={isPlaylistError}
               infoProgress={infoProgress}
               infoStatus={infoStatus}

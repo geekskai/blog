@@ -10068,6 +10068,10 @@
     "schema_feature_4": "デスクトップ・モバイルブラウザで利用可能"
   },
   "SoundCloudService": {
+    "concurrency_title": "ダウンロードは処理中です",
+    "concurrency_message": "現在 {count} 件のダウンロードが進行中です。完了してから再試行してください。前のページを閉じた、または中断した場合は、しばらくしてから再試行してください。",
+    "concurrency_retry": "ダウンロードを再試行",
+    "concurrency_retrying": "確認中…",
     "retry_after": "ダウンロードサービスが混雑しています。{seconds} 秒後に再試行できます。",
     "resume_playlist": "残りの曲を再開",
     "playlist_paused": "プレイリストは一時停止中です。待機時間後にこの曲から再開できます。"

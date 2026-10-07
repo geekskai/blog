@@ -9889,6 +9889,10 @@
     "schema_feature_4": "데스크톱 및 모바일 브라우저에서 작동"
   },
   "SoundCloudService": {
+    "concurrency_title": "다운로드가 이미 진행 중입니다",
+    "concurrency_message": "현재 {count}개의 다운로드가 진행 중입니다. 완료될 때까지 기다린 후 다시 시도하세요. 이전 페이지를 닫았거나 중단했다면 잠시 후 다시 시도하세요.",
+    "concurrency_retry": "다운로드 다시 시도",
+    "concurrency_retrying": "확인 중…",
     "retry_after": "다운로드 서비스가 혼잡합니다. {seconds}초 후 다시 시도하세요.",
     "resume_playlist": "남은 트랙 계속 다운로드",
     "playlist_paused": "재생목록이 일시 중지되었습니다. 대기 후 이 트랙부터 계속할 수 있습니다."

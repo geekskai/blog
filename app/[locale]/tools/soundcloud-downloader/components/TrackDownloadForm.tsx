@@ -6,6 +6,7 @@ import SoundCloudCooldownNotice, {
 
 import { Link } from "@/app/i18n/navigation"
 import { useTranslations } from "next-intl"
+import DownloadConcurrencyNotice from "@/components/download-quota/DownloadConcurrencyNotice"
 import type { FormEventHandler } from "react"
 import type { DownloadFormat, LoadingState } from "../hooks/useSoundCloudTrackDownloadForm"
 
@@ -26,6 +27,8 @@ interface BaseTrackDownloadFormProps {
   loadingState: LoadingState
   errorMessage: string
   quotaMessage?: string | null
+  concurrencyLimit?: number | null
+  onRetryConcurrency?: () => void
   quotaInitializationState?: "waiting_for_auth" | "initializing" | "ready" | "failed"
   onRetryQuota?: () => void
   showFormatSelect?: boolean
@@ -108,6 +111,8 @@ export default function TrackDownloadForm(props: TrackDownloadFormProps) {
     loadingState,
     errorMessage,
     quotaMessage,
+    concurrencyLimit,
+    onRetryConcurrency,
     quotaInitializationState,
     onRetryQuota,
     showFormatSelect = true,
@@ -282,6 +287,13 @@ export default function TrackDownloadForm(props: TrackDownloadFormProps) {
           </div>
         </div>
       )}
+      {concurrencyLimit && onRetryConcurrency ? (
+        <DownloadConcurrencyNotice
+          limit={concurrencyLimit}
+          busy={"downloading" in props ? props.downloading : loadingState === "loading"}
+          onRetry={onRetryConcurrency}
+        />
+      ) : null}
     </div>
   )
 }

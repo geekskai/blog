@@ -322,6 +322,7 @@ export default function SoundCloudDownloaderPage() {
                 loadingState={loadingState}
                 downloading={downloading}
                 errorMessage={errorMessage}
+                concurrencyLimit={downloadQuota.concurrencyLimit}
                 isPlaylistError={isPlaylistError}
                 infoProgress={infoProgress}
                 infoStatus={infoStatus}
@@ -331,6 +332,7 @@ export default function SoundCloudDownloaderPage() {
                 onExtensionChange={setExtension}
                 onSubmit={handleUnifiedSubmit}
                 onDownload={handleDownload}
+                onRetryConcurrency={() => void handleDownload()}
               />
             )}
           </div>

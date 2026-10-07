@@ -9982,6 +9982,10 @@
     "schema_feature_4": "支持桌面与移动浏览器"
   },
   "SoundCloudService": {
+    "concurrency_title": "已有下载正在处理",
+    "concurrency_message": "当前已有 {count} 个下载任务。请等待任务完成后重试；如果之前的页面已关闭或任务中断，请稍后再试。",
+    "concurrency_retry": "重新尝试下载",
+    "concurrency_retrying": "正在检查…",
     "retry_after": "下载服务繁忙，{seconds} 秒后可以重试。",
     "resume_playlist": "继续下载剩余曲目",
     "playlist_paused": "歌单已暂停。冷却结束后点击继续，将从当前曲目接着下载。"

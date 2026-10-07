@@ -22,6 +22,7 @@ import {
   type DownloaderApiErrorCode,
 } from "@/components/downloader/shared"
 import DownloadShareModal from "@/components/download-quota/DownloadShareModal"
+import DownloadConcurrencyNotice from "@/components/download-quota/DownloadConcurrencyNotice"
 import { useDownloadQuota } from "@/components/download-quota/useDownloadQuota"
 import { parseYouTubeUrl } from "@/app/lib/youtube/parse-url"
 
@@ -366,6 +367,14 @@ export default function AudioDownloader({
               <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-orange-300" aria-hidden />
               <p>{downloadFeedbackMessage}</p>
             </div>
+          ) : null}
+
+          {downloadQuota.concurrencyLimit ? (
+            <DownloadConcurrencyNotice
+              limit={downloadQuota.concurrencyLimit}
+              busy={downloading}
+              onRetry={() => void handleDownload()}
+            />
           ) : null}
 
           {downloadQuota.unlockSuccessMessage ? (
