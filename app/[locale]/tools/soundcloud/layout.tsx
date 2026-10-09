@@ -27,6 +27,30 @@ const copyByLocale = {
     description:
       "Lade zugängliche SoundCloud-Tracks als MP3, M4A oder konvertierte PCM-WAV-Datei herunter. Dazu gibt es Playlist- und Artwork-Tools mit klaren Quellen- und Zugriffshinweisen.",
   },
+  ar: {
+    title: "أدوات SoundCloud - تنزيل MP3 وM4A وWAV وقوائم التشغيل والصور",
+    description: "نزّل مقاطع SoundCloud المتاحة بصيغ MP3 أو M4A أو WAV بصيغة PCM محوّلة. استعرض أدوات قوائم التشغيل والصور مع توضيح قيود المصدر والوصول.",
+  },
+  ja: {
+    title: "SoundCloud ツール - MP3、M4A、WAV、プレイリスト、アートワーク",
+    description: "アクセス可能な SoundCloud トラックを MP3、M4A、変換した PCM WAV としてダウンロードします。プレイリストやアートワークのツールと、ソースおよびアクセスの制限を確認できます。",
+  },
+  ko: {
+    title: "SoundCloud 도구 - MP3, M4A, WAV 다운로드와 플레이리스트·아트워크",
+    description: "접근 가능한 SoundCloud 트랙을 MP3, M4A 또는 변환된 PCM WAV로 다운로드하세요. 플레이리스트와 아트워크 도구도 제공하며 소스와 접근 제한을 설명합니다.",
+  },
+  no: {
+    title: "SoundCloud-verktøy – MP3-, M4A- og WAV-nedlasting, spillelister og artwork",
+    description: "Last ned tilgjengelige SoundCloud-spor som MP3, M4A eller konvertert PCM WAV. Finn også verktøy for spillelister og artwork, med forklaringer på kilde- og tilgangsbegrensninger.",
+  },
+  "zh-cn": {
+    title: "SoundCloud 工具 - MP3、M4A、WAV 下载、播放列表与封面",
+    description: "将可访问的 SoundCloud 曲目下载为 MP3、M4A 或转换后的 PCM WAV。页面也提供播放列表和封面工具，并说明来源与访问限制。",
+  },
+  da: {
+    title: "SoundCloud-værktøjer – MP3-, M4A- og WAV-downloads, playlister og artwork",
+    description: "Download tilgængelige SoundCloud-numre som MP3, M4A eller konverteret PCM WAV. Find også værktøjer til playlister og artwork med forklaringer på kilde- og adgangsbegrænsninger.",
+  },
 } as const
 
 export async function generateMetadata(props: {
@@ -37,7 +61,7 @@ export async function generateMetadata(props: {
   const canonical = getLocalizedUrl(siteUrl, locale, soundCloudHubPath)
   const indexedLocales = getIndexedToolLocales(soundCloudHubPath)
   const shouldIndex = isToolLocaleIndexed(soundCloudHubPath, locale)
-  const lastModified = new Date("2026-10-06")
+  const lastModified = new Date("2026-10-09")
 
   return {
     title: copy.title,

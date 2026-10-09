@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 import { buildLanguageAlternates, getLocalizedUrl } from "app/i18n/urls"
+import { supportedLocales } from "app/i18n/routing"
 
 const VIN_SEO_SHARED = {
   siteUrl: "https://geekskai.com",
@@ -8,7 +9,7 @@ const VIN_SEO_SHARED = {
   category: "Automotive Tools",
   ogImage: "/static/images/og/vin-decoder.png",
   publishedAt: "2026-03-07T00:00:00.000Z",
-  lastModifiedAt: "2026-05-26T12:00:00.000Z",
+  lastModifiedAt: "2026-10-09T00:00:00.000Z",
 }
 
 function getVinSeoLocale(locale: string) {
@@ -16,7 +17,7 @@ function getVinSeoLocale(locale: string) {
 }
 
 function getVinSeoIndexing(locale: string) {
-  const index = locale === "en"
+  const index = supportedLocales.includes(locale)
   return {
     index,
     follow: true,
@@ -35,7 +36,7 @@ function getVinSeoOther(locale: string, lastModified: Date) {
     "last-modified": lastModified.toISOString(),
     "update-frequency": "monthly",
     "next-review": new Date(lastModified.getTime() + 30 * 24 * 60 * 60 * 1000).toISOString(),
-    "content-language-status": locale === "en" ? "primary-en" : "fallback-en",
+    "content-language-status": "localized",
     "geo-compliance-version": "2026-03-v1",
   }
 }
@@ -78,9 +79,7 @@ export function generateComparePageMetadata({
 }: CompareMetadataInput): Metadata {
   const path = "/tools/vin-decoder/vin-decoder-vs-vin-check/"
   const canonical = getLocalizedUrl(VIN_SEO_SHARED.siteUrl, locale, path)
-  const languages = locale === "en"
-    ? buildLanguageAlternates(VIN_SEO_SHARED.siteUrl, path, ["en"])
-    : undefined
+  const languages = buildLanguageAlternates(VIN_SEO_SHARED.siteUrl, path, [...supportedLocales])
   const ogLocale = getVinSeoLocale(locale)
   const lastModified = new Date(VIN_SEO_SHARED.lastModifiedAt)
 
@@ -248,7 +247,7 @@ export async function generateComparePageData(locale: string) {
   const lastModified = new Date(VIN_SEO_SHARED.lastModifiedAt)
   const isDefaultLocale = locale === "en"
   const baseUrl = isDefaultLocale ? VIN_SEO_SHARED.siteUrl : `${VIN_SEO_SHARED.siteUrl}/${locale}`
-  const pageUrl = `${baseUrl}/tools/vin-decoder/vin-decoder-vs-vin-check`
+  const pageUrl = `${baseUrl}/tools/vin-decoder/vin-decoder-vs-vin-check/`
 
   const faqItems = [
     {

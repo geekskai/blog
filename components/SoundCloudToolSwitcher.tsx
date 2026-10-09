@@ -205,12 +205,39 @@ const copyByLocale: Record<string, SwitcherCopy> = {
   },
 }
 
+const additionalCopyByLocale: Record<string, SwitcherCopy> = {
+  ar: {
+    eyebrow: "مجموعة أدوات SoundCloud", title: "اختر مسار SoundCloud المناسب", description: "تنقّل بين تنزيلات المقاطع بصيغ MP3 وM4A وWAV المحوّلة، وقوائم التشغيل والصور من دون بدء بحث جديد.", hubLabel: "عرض جميع أدوات SoundCloud",
+    tools: { hub: { label: "أدوات SoundCloud", intent: "جميع مسارات تنزيل SoundCloud المدعومة في مكان واحد.", cta: "فتح المجموعة" }, downloader: { label: "منزّل SoundCloud", intent: "مناسب عندما قد يكون الرابط مقطعًا واحدًا أو قائمة تشغيل.", cta: "استخدام المنزّل" }, mp3: { label: "SoundCloud إلى MP3", intent: "يفضّل MP3 التدريجي ويحافظ على M4A عندما يكون هو البث المتاح.", cta: "فحص MP3" }, wav: { label: "SoundCloud إلى WAV", intent: "يجهّز WAV بصيغة PCM من مصدر MP3 أو AAC/M4A المتاح دون استعادة التفاصيل المفقودة.", cta: "تجهيز WAV" }, playlist: { label: "منزّل قوائم التشغيل", intent: "مناسب للمجموعات والألبومات وروابط SoundCloud متعددة المقاطع.", cta: "تنزيل القائمة" }, artwork: { label: "منزّل الصور", intent: "مناسب عندما تحتاج فقط إلى صورة غلاف المقطع أو القائمة.", cta: "الحصول على الصورة" } },
+  },
+  ja: {
+    eyebrow: "SoundCloud ツールキット", title: "目的に合う SoundCloud ツールを選択", description: "MP3、M4A、変換した WAV のトラック、プレイリスト、アートワークを新しい検索なしで切り替えられます。", hubLabel: "SoundCloud ツールをすべて表示",
+    tools: { hub: { label: "SoundCloud ツール", intent: "対応している SoundCloud のダウンロード方法をまとめて確認できます。", cta: "ハブを開く" }, downloader: { label: "SoundCloud ダウンローダー", intent: "URL がトラックかプレイリストか分からない場合に適しています。", cta: "ダウンローダーを使用" }, mp3: { label: "SoundCloud to MP3", intent: "プログレッシブ MP3 を優先し、利用可能なストリームが M4A の場合は M4A を保持します。", cta: "MP3 を確認" }, wav: { label: "SoundCloud to WAV", intent: "利用可能な MP3 または AAC/M4A ソースから PCM WAV を準備します。失われた音声の詳細は復元しません。", cta: "WAV を準備" }, playlist: { label: "プレイリストダウンローダー", intent: "セット、アルバム、複数トラックの SoundCloud URL に適しています。", cta: "プレイリストをダウンロード" }, artwork: { label: "アートワークダウンローダー", intent: "トラックやプレイリストのカバー画像だけが必要な場合に適しています。", cta: "アートワークを取得" } },
+  },
+  ko: {
+    eyebrow: "SoundCloud 도구 모음", title: "알맞은 SoundCloud 도구 선택", description: "새로 검색하지 않고 MP3, M4A, 변환된 WAV 트랙 다운로드와 플레이리스트 및 아트워크 도구 사이를 이동하세요.", hubLabel: "모든 SoundCloud 도구 보기",
+    tools: { hub: { label: "SoundCloud 도구", intent: "지원되는 모든 SoundCloud 다운로드 흐름을 한곳에서 확인합니다.", cta: "허브 열기" }, downloader: { label: "SoundCloud 다운로더", intent: "URL이 단일 트랙인지 플레이리스트인지 모를 때 적합합니다.", cta: "다운로더 사용" }, mp3: { label: "SoundCloud to MP3", intent: "프로그레시브 MP3를 우선하고 가능한 스트림이 M4A이면 M4A를 유지합니다.", cta: "MP3 확인" }, wav: { label: "SoundCloud to WAV", intent: "사용 가능한 MP3 또는 AAC/M4A 소스에서 PCM WAV를 준비하며 손실된 음질을 복원하지 않습니다.", cta: "WAV 준비" }, playlist: { label: "플레이리스트 다운로더", intent: "세트, 앨범, 여러 트랙이 포함된 SoundCloud URL에 적합합니다.", cta: "플레이리스트 다운로드" }, artwork: { label: "아트워크 다운로더", intent: "트랙이나 플레이리스트의 커버 이미지만 필요할 때 적합합니다.", cta: "아트워크 받기" } },
+  },
+  no: {
+    eyebrow: "SoundCloud-verktøy", title: "Velg riktig SoundCloud-verktøy", description: "Bytt mellom MP3-, M4A- og konverterte WAV-nedlastinger, spillelister og artwork uten å starte et nytt søk.", hubLabel: "Se alle SoundCloud-verktøy",
+    tools: { hub: { label: "SoundCloud-verktøy", intent: "Alle støttede SoundCloud-nedlastinger samlet på ett sted.", cta: "Åpne oversikten" }, downloader: { label: "SoundCloud-nedlaster", intent: "Best når URL-en kan være et enkelt spor eller en spilleliste.", cta: "Bruk nedlasteren" }, mp3: { label: "SoundCloud til MP3", intent: "Foretrekker progressiv MP3 og beholder M4A når det er den tilgjengelige strømmen.", cta: "Sjekk MP3" }, wav: { label: "SoundCloud til WAV", intent: "Klargjør PCM WAV fra tilgjengelig MP3- eller AAC/M4A-kilde uten å gjenopprette tapte detaljer.", cta: "Klargjør WAV" }, playlist: { label: "Spillelistedownloader", intent: "Best for sett, album og SoundCloud-URL-er med flere spor.", cta: "Last ned spilleliste" }, artwork: { label: "Artwork-nedlaster", intent: "Best når du bare trenger coverbildet til et spor eller en spilleliste.", cta: "Hent artwork" } },
+  },
+  "zh-cn": {
+    eyebrow: "SoundCloud 工具集", title: "选择合适的 SoundCloud 工具", description: "无需重新搜索，即可在 MP3、M4A、转换后的 WAV 曲目下载，以及播放列表和封面工具之间切换。", hubLabel: "查看全部 SoundCloud 工具",
+    tools: { hub: { label: "SoundCloud 工具", intent: "在一个页面查看所有支持的 SoundCloud 下载流程。", cta: "打开工具集" }, downloader: { label: "SoundCloud 下载器", intent: "适合不确定 URL 是单曲还是播放列表的情况。", cta: "使用下载器" }, mp3: { label: "SoundCloud 转 MP3", intent: "优先使用渐进式 MP3；可用流只有 M4A 时则保留真实的 M4A 格式。", cta: "检查 MP3" }, wav: { label: "SoundCloud 转 WAV", intent: "从可用的 MP3 或 AAC/M4A 源准备 PCM WAV，不会恢复已丢失的音频细节。", cta: "准备 WAV" }, playlist: { label: "播放列表下载器", intent: "适合完整歌单、专辑和包含多个曲目的 SoundCloud URL。", cta: "下载播放列表" }, artwork: { label: "封面下载器", intent: "只需要曲目或播放列表封面图时使用。", cta: "获取封面" } },
+  },
+  da: {
+    eyebrow: "SoundCloud-værktøjer", title: "Vælg det rigtige SoundCloud-værktøj", description: "Skift mellem MP3-, M4A- og konverterede WAV-downloads, playlister og artwork uden at starte en ny søgning.", hubLabel: "Se alle SoundCloud-værktøjer",
+    tools: { hub: { label: "SoundCloud-værktøjer", intent: "Alle understøttede SoundCloud-downloadflows samlet ét sted.", cta: "Åbn oversigten" }, downloader: { label: "SoundCloud-downloader", intent: "Bedst når URL’en kan være et enkelt nummer eller en playliste.", cta: "Brug downloader" }, mp3: { label: "SoundCloud til MP3", intent: "Prioriterer progressiv MP3 og beholder M4A, når det er den tilgængelige stream.", cta: "Tjek MP3" }, wav: { label: "SoundCloud til WAV", intent: "Forbereder PCM WAV fra den tilgængelige MP3- eller AAC/M4A-kilde uden at genskabe tabte detaljer.", cta: "Forbered WAV" }, playlist: { label: "Playlist-downloader", intent: "Bedst til sæt, albummer og SoundCloud-URL’er med flere numre.", cta: "Download playliste" }, artwork: { label: "Artwork-downloader", intent: "Bedst når du kun har brug for coverbilledet til et nummer eller en playliste.", cta: "Hent artwork" } },
+  },
+}
+
 export default function SoundCloudToolSwitcher({
   current,
   showHeader = true,
 }: SoundCloudToolSwitcherProps) {
   const locale = useLocale()
-  const copy = copyByLocale[locale] || copyByLocale.en
+  const copy = additionalCopyByLocale[locale] || copyByLocale[locale] || copyByLocale.en
 
   return (
     <section

@@ -7,11 +7,7 @@ import { isSoundCloudToolPath } from "./data/soundCloudGrowth"
 
 const intlMiddleware = createMiddleware(routing)
 const englishOnlyRoutes = new Set(["pricing", "audio-toolkit", "about"])
-const hreflangRestrictedToolPaths = new Set([
-  "/tools/pdf-to-markdown/",
-  "/tools/morse-code-translator/",
-  "/tools/vin-decoder/vin-decoder-vs-vin-check/",
-])
+const hreflangRestrictedToolPaths = new Set<string>()
 
 // Authentication is intentionally public-first. Individual protected pages call
 // auth() themselves so the existing tools and API routes remain anonymous.

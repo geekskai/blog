@@ -1728,22 +1728,12 @@
         "standards_section": {
           "title": "北欧测量标准",
           "description": "我们的厘米转Tommer转换器遵循丹麦、挪威和国际贸易中使用的官方北欧测量标准。该工具提供精确转换，对建筑、制造和国际贸易中的专业应用至关重要。",
-          "features": [
-            "官方北欧测量标准",
-            "建筑行业合规性",
-            "国际贸易规格",
-            "质量控制测量"
-          ]
+          "features": ["官方北欧测量标准", "建筑行业合规性", "国际贸易规格", "质量控制测量"]
         },
         "features_section": {
           "title": "专业转换功能",
           "description": "专为需要准确可靠tommer转换的专业人士设计，用于商业应用。我们的工具支持各种精度级别，并提供即时结果以实现高效的工作流程集成。",
-          "features": [
-            "精度控制（0-3位小数）",
-            "即时转换结果",
-            "复制粘贴功能",
-            "移动友好界面"
-          ]
+          "features": ["精度控制（0-3位小数）", "即时转换结果", "复制粘贴功能", "移动友好界面"]
         }
       }
     },
@@ -2159,12 +2149,7 @@
         }
       ]
     },
-    "feature_list": [
-      "经典删除线效果",
-      "波浪下划线效果",
-      "一键复制粘贴流程",
-      "快速浏览器转换"
-    ],
+    "feature_list": ["经典删除线效果", "波浪下划线效果", "一键复制粘贴流程", "快速浏览器转换"],
     "feature_list_schemas": [
       "删除线文本转换",
       "波浪下划线文本转换",
@@ -2184,12 +2169,7 @@
     "best_for": "迷因创作者、恐怖主题帖子和游戏社区",
     "key_benefit": "快速生成故障文本，并提供更安全的可读备选项",
     "default_input": "SYSTEM ERROR // REALITY COLLAPSE",
-    "use_cases": [
-      "恐怖和怪异的社交标题",
-      "迷因和反应文本",
-      "游戏和直播公告样式",
-      "实验性视觉排版"
-    ],
+    "use_cases": ["恐怖和怪异的社交标题", "迷因和反应文本", "游戏和直播公告样式", "实验性视觉排版"],
     "boundaries": [
       "密集的组合字符可能会损害可读性和辅助功能。",
       "某些应用可能会规范化或抑制极端的组合序列。",
@@ -2257,12 +2237,7 @@
       "一键复制输出",
       "仅限浏览器的转换工作流"
     ],
-    "feature_list_schemas": [
-      "故障组合字符",
-      "多种变形预设",
-      "复制并粘贴输出",
-      "迷因和社交用例"
-    ]
+    "feature_list_schemas": ["故障组合字符", "多种变形预设", "复制并粘贴输出", "迷因和社交用例"]
   },
   "VaporwaveTextGenerator": {
     "seo_title": "蒸汽波文本生成器 (2026) - 全角美学文字",
@@ -2276,12 +2251,7 @@
     "best_for": "美学创作者、复古风格个人资料和短篇标题",
     "key_benefit": "无需外部应用程序即可即时实现全角样式",
     "default_input": "美学互联网档案",
-    "use_cases": [
-      "美学个人简介",
-      "复古标题样式",
-      "表情包文本装饰",
-      "创意标题格式化"
-    ],
+    "use_cases": ["美学个人简介", "复古标题样式", "表情包文本装饰", "创意标题格式化"],
     "boundaries": [
       "并非所有标点符号和符号都有全角版本。",
       "某些平台在某些情况下会标准化间距。",
@@ -2343,18 +2313,8 @@
         }
       ]
     },
-    "feature_list": [
-      "全角转换",
-      "美学文本样式",
-      "复制并粘贴输出",
-      "基于浏览器的流程"
-    ],
-    "feature_list_schemas": [
-      "全角蒸汽波输出",
-      "简单的一键复制",
-      "易读的美学样式",
-      "社交媒体用例"
-    ]
+    "feature_list": ["全角转换", "美学文本样式", "复制并粘贴输出", "基于浏览器的流程"],
+    "feature_list_schemas": ["全角蒸汽波输出", "简单的一键复制", "易读的美学样式", "社交媒体用例"]
   },
   "CursedTextGenerator": {
     "seo_title": "诅咒文本生成器 (2026) - 损坏和故障 Unicode 文本",
@@ -2625,18 +2585,8 @@
         }
       ]
     },
-    "feature_list": [
-      "多种 Unicode 字体样式",
-      "一键复制",
-      "样式组合",
-      "社交媒体就绪输出"
-    ],
-    "feature_list_schemas": [
-      "手写体和粗体样式",
-      "德文尖角体和空心体",
-      "复制粘贴输出",
-      "可组合效果"
-    ]
+    "feature_list": ["多种 Unicode 字体样式", "一键复制", "样式组合", "社交媒体就绪输出"],
+    "feature_list_schemas": ["手写体和粗体样式", "德文尖角体和空心体", "复制粘贴输出", "可组合效果"]
   },
   "DiscordFontGenerator": {
     "seo_title": "Discord 字体生成器 (2026) - 复制并粘贴时尚的 Discord 文本",
@@ -2650,12 +2600,7 @@
     "best_for": "Discord 社区、游戏玩家标签和服务器个人资料自定义",
     "key_benefit": "具有即时复制工作流程的 Discord 专用样式预设",
     "default_input": "今晚突袭 20:00 UTC",
-    "use_cases": [
-      "Discord 昵称样式",
-      "个人资料简介装饰",
-      "服务器公告格式化",
-      "游戏身份自定义"
-    ],
+    "use_cases": ["Discord 昵称样式", "个人资料简介装饰", "服务器公告格式化", "游戏身份自定义"],
     "boundaries": [
       "无法绕过服务器审核或阻止的字符策略。",
       "某些频道或机器人可能会对特殊字符进行规范化处理。",
@@ -2717,12 +2662,7 @@
         }
       ]
     },
-    "feature_list": [
-      "Discord 友好型 Unicode 样式",
-      "昵称和消息场景",
-      "一键复制",
-      "可组合效果"
-    ],
+    "feature_list": ["Discord 友好型 Unicode 样式", "昵称和消息场景", "一键复制", "可组合效果"],
     "feature_list_schemas": [
       "昵称就绪型文本样式",
       "消息格式变体",
@@ -8782,15 +8722,15 @@
   },
   "MorseCodeTranslator": {
     "seo": {
-      "title": "Morse Code Translator & Generator",
-      "description": "Free online Morse Code Translator & Generator to encode text, decode Morse code, and play Morse audio instantly in your browser.",
+    "title": "摩斯密码翻译器与生成器",
+    "description": "免费的在线摩斯密码翻译与生成工具，可将文本编码为摩斯密码、解码摩斯密码，并在浏览器中即时播放摩斯音频。",
       "keywords": "morse code translator, morse code generator, morse code generator online, text to morse code, morse code to text, morse code decoder, what is morse code, how does morse code work, how to read morse code, how to learn morse code, morse code alphabet, morse code chart, morse code converter, morse code converter online, sos in morse code, what is sos in morse code, who invented morse code, when was morse code invented, morse code sound",
-      "og_alt": "Morse Code Translator on GeeksKai"
+    "og_alt": "GeeksKai 摩斯密码翻译器"
     },
     "breadcrumb": {
-      "home": "Home",
-      "tools": "Tools",
-      "current": "Morse Code Translator"
+    "home": "首页",
+    "tools": "工具",
+    "current": "摩斯密码翻译器"
     },
     "defaults": {
       "input_text": "HELLO WORLD",
@@ -8801,32 +8741,32 @@
       "decode": "Use . and -, space between letters, / between words"
     },
     "header": {
-      "title": "Morse Code Translator",
-      "quick_answer": "<strong>Quick answer:</strong> This page provides a free online <blue>Morse code translator</blue> for <cyan>text to Morse</cyan>, <purple>Morse to text</purple>, plus browser audio playback with no account needed."
+    "title": "摩斯密码翻译器",
+    "quick_answer": "<strong>简要说明：</strong>这是一个免费的在线<blue>摩斯密码翻译器</blue>，支持<cyan>文本转摩斯密码</cyan>、<purple>摩斯密码转文本</purple>，并可在无需账号的情况下直接在浏览器中播放音频。"
     },
     "core_facts": {
-      "title": "Core Facts",
-      "pricing_label": "Pricing",
-      "pricing_value": "<strong>Free</strong>, no sign-up.",
-      "features_label": "Main Features",
-      "features_value": "<strong>Encode</strong>, <strong>decode</strong>, and <strong>audio playback</strong>.",
-      "positioning_label": "Positioning",
-      "positioning_value": "Fast, browser-native Morse utility for learning and practical conversion.",
-      "users_label": "Target Users",
-      "users_value": "Students, ham radio users, puzzle makers, developers."
+    "title": "核心信息",
+    "pricing_label": "价格",
+    "pricing_value": "<strong>免费</strong>，无需注册。",
+    "features_label": "主要功能",
+    "features_value": "<strong>编码</strong>、<strong>解码</strong>和<strong>音频播放</strong>。",
+    "positioning_label": "工具定位",
+    "positioning_value": "快速、基于浏览器的摩斯密码工具，适合学习和实际转换。",
+    "users_label": "适用人群",
+    "users_value": "学生、业余无线电爱好者、谜题创作者和开发者。"
     },
     "overview": {
-      "title": "What is Morse code?",
-      "description": "<strong>Direct answer:</strong> Morse code is a communication system that encodes letters and numbers with <blue>dots</blue> and <cyan>dashes</cyan>. It is still useful for learning signal timing, emergency patterns, and radio basics.",
-      "card_1_title": "How Morse code works",
-      "card_1_desc": "Each character maps to a unique dot-dash sequence, for example <strong>A = .-</strong> and <strong>B = -...</strong>.",
-      "card_2_title": "How to read Morse code",
-      "card_2_desc": "Read short signals as dots and long signals as dashes, then split by letter spaces and word separators.",
-      "card_3_title": "How to learn Morse code",
-      "card_3_desc": "Practice 5-10 minutes daily with common letters, then train listening speed using flash and audio playback."
+      "title": "什么是摩斯密码？",
+      "description": "<strong>直接回答：</strong>摩斯密码是一种用<blue>点</blue>和<cyan>划</cyan>表示字母与数字的通信系统。它仍适合学习信号节奏、紧急信号模式和无线电基础。",
+      "card_1_title": "摩斯密码的工作方式",
+      "card_1_desc": "每个字符对应唯一的点划组合，例如 <strong>A = .-</strong>、<strong>B = -...</strong>。",
+      "card_2_title": "如何阅读摩斯密码",
+      "card_2_desc": "将短信号读作点、长信号读作划，再根据字母间空格和单词分隔符进行拆分。",
+      "card_3_title": "如何学习摩斯密码",
+      "card_3_desc": "每天用5到10分钟练习常见字母，再通过闪烁和音频播放训练听辨速度。"
     },
     "tool": {
-      "mode_label": "Mode",
+      "mode_label": "模式",
       "mode_encode": "Text to Morse",
       "mode_decode": "Morse to Text",
       "input_text_label": "Input text",
@@ -8834,142 +8774,142 @@
       "output_morse": "Morse output",
       "output_text": "Decoded text",
       "output_placeholder": "Output will appear here.",
-      "signal_playing": "Morse flashlight is blinking by signal timing",
-      "signal_preview": "Signal lamp preview",
-      "no_signal": "No signal to preview.",
-      "stop_playback": "Stop playback",
-      "play_audio_flash": "Play audio + flash",
-      "play_flash": "Play flash",
-      "audio_title_on": "Audio and flash enabled",
-      "audio_title_off": "Flash-only mode enabled",
-      "audio_on": "Audio on",
-      "flash_only": "Flash only",
-      "copied": "Copied",
-      "copy_output": "Copy output"
+      "signal_playing": "摩斯闪光灯正在按照信号节奏闪烁",
+      "signal_preview": "信号灯预览",
+      "no_signal": "没有可预览的信号。",
+      "stop_playback": "停止播放",
+      "play_audio_flash": "播放音频和闪光",
+      "play_flash": "播放闪光",
+      "audio_title_on": "音频和闪光已启用",
+      "audio_title_off": "仅闪光模式已启用",
+      "audio_on": "音频开启",
+      "flash_only": "仅闪光",
+      "copied": "已复制",
+      "copy_output": "复制输出"
     },
     "how_to": {
-      "title": "How to use this Morse code translator (step-by-step)",
-      "step_1_title": "1) Normalize input",
-      "step_1_desc": "Text is uppercased for consistent mapping; Morse input is split by spaces and `/`.",
-      "step_2_title": "2) Convert by dictionary",
-      "step_2_desc": "Characters map to dots and dashes using the ITU-style Morse table; unknown tokens return `?`.",
-      "step_3_title": "3) Render and playback",
-      "step_3_desc": "The output is shown as plain text and can be played as short/long tones in the browser audio engine."
+      "title": "如何使用摩斯密码翻译器（分步说明）",
+      "step_1_title": "1）规范化输入",
+      "step_1_desc": "文本会转换为大写，以便统一匹配；摩斯密码输入会按空格和 `/` 拆分。",
+      "step_2_title": "2）通过密码表转换",
+      "step_2_desc": "使用 ITU 风格的摩斯密码表将字符对应为点和划；未知内容会返回 `?`。",
+      "step_3_title": "3）显示并播放",
+      "step_3_desc": "结果会以纯文本显示，也可以通过浏览器音频引擎播放为短音和长音。"
     },
     "boundaries": {
-      "title": "Boundaries and limitations",
-      "can_do": "<strong>Can do:</strong> text and Morse conversion, browser playback, quick educational reference.",
-      "cannot_do": "<strong>Cannot do:</strong> advanced radio protocol timing, signal-noise simulation, or long-form transmission logging.",
-      "input_scope": "<strong>Input scope:</strong> A-Z, 0-9, spaces, and standard Morse separators."
+      "title": "功能范围与限制",
+      "can_do": "<strong>可以：</strong>文本与摩斯密码转换、浏览器播放和快速学习参考。",
+      "cannot_do": "<strong>不能：</strong>高级无线电协议计时、信号噪声模拟或长时间传输记录。",
+      "input_scope": "<strong>输入范围：</strong>A-Z、0-9、空格和标准摩斯密码分隔符。"
     },
     "sos": {
-      "title": "SOS in Morse code",
-      "text_label": "Text",
-      "morse_label": "Morse",
-      "use_case_label": "Use case",
-      "use_case_desc": "A standard emergency signal. You can paste it into Morse input and play flash or audio instantly."
+      "title": "摩斯密码中的 SOS",
+      "text_label": "文本",
+      "morse_label": "摩斯密码",
+      "use_case_label": "使用场景",
+      "use_case_desc": "这是一种标准紧急信号。你可以将它粘贴到摩斯密码输入框中，并立即播放闪光或音频。"
     },
     "history": {
-      "title": "Who invented Morse code and when?",
-      "description": "<strong>Short answer:</strong> Samuel Morse and Alfred Vail developed Morse code in the <amber>1830s</amber>, and it was adopted in practical telegraph systems during the <amber>1840s</amber>."
+      "title": "谁在什么时候发明了摩斯密码？",
+      "description": "<strong>简要回答：</strong>塞缪尔·莫尔斯和阿尔弗雷德·维尔在<amber>19世纪30年代</amber>开发了摩斯密码，并在<amber>19世纪40年代</amber>被实际电报系统采用。"
     },
     "guide": {
-      "title": "Complete Morse code guide for beginners",
-      "p1": "<strong>Direct answer:</strong> Morse code is a practical signal language where each letter or number is represented by a sequence of dots and dashes. If your goal is to <cyan>translate text to Morse</cyan>, <blue>decode Morse to text</blue>, or simply learn the alphabet quickly, this page combines all three in one place: real-time conversion, flash rhythm playback, and an alphabet chart for fast lookup.",
-      "p2": "Many users search phrases like <strong>what is morse code</strong>, <strong>how to read morse code</strong>, and <strong>how to learn morse code</strong> because they need both a tool and a clear explanation. The fastest way to read Morse is to treat it as sound and timing patterns rather than visual symbols only. A dot is a short signal and a dash is a longer signal; letters are separated by short gaps and words are separated by longer breaks. Once this rhythm is clear, decoding speed improves quickly.",
-      "p3": "If you are practicing from scratch, start with a small set of high-frequency letters such as <strong>E, T, A, N, I, M, S, O</strong>. Then type simple words in the converter and switch between both modes to reinforce memory from both directions. For emergency awareness, memorize <rose>SOS = ... --- ...</rose> first. That one sequence appears in many learning resources and is one of the easiest Morse patterns to recognize at speed.",
-      "p4": "Historically, Morse code was developed by Samuel Morse and Alfred Vail in the 1830s and became widely used through telegraph networks in the 1840s. Today, people still use it for radio training, education, puzzle design, and creative projects like jewelry pattern encoding. In short, a modern <strong>morse code generator</strong> should do more than output symbols: it should help users understand meaning, timing, and practical use.",
-      "quick_a": "A in Morse code",
-      "quick_b": "B in Morse code",
-      "quick_c": "C in Morse code",
-      "quick_e": "E in Morse code",
-      "quick_s": "S in Morse code",
-      "quick_o": "O in Morse code"
+      "title": "初学者完整摩斯密码指南",
+      "p1": "<strong>直接回答：</strong>摩斯密码是一种实用的信号语言，用点和划的序列表示每个字母或数字。如果你想<cyan>将文本转换为摩斯密码</cyan>、<blue>将摩斯密码解码为文本</blue>或快速学习字母表，本页面将实时转换、闪光节奏播放和字母表查询集中在一起。",
+      "p2": "很多人会搜索什么是摩斯密码、如何阅读摩斯密码以及如何学习摩斯密码，因为他们既需要工具，也需要清晰的解释。阅读摩斯密码时，最好将其理解为声音和时间模式，而不只是视觉符号。点是短信号，划是长信号；字母之间有较短间隔，单词之间有更长停顿。掌握节奏后，解码速度会逐渐提高。",
+      "p3": "如果从零开始练习，可以先学习 <strong>E、T、A、N、I、M、S、O</strong> 等高频字母。然后在转换器中输入简单单词，并在两种模式之间切换，以同时强化两个方向的记忆。为了识别紧急信号，建议先记住 <rose>SOS = ... --- ...</rose>。",
+      "p4": "从历史上看，摩斯密码由塞缪尔·莫尔斯和阿尔弗雷德·维尔在19世纪30年代开发，并在19世纪40年代通过电报网络广泛使用。如今它仍用于无线电训练、教育、谜题设计和首饰图案等创意项目。现代<strong>摩斯密码生成器</strong>不应只输出符号，还应帮助用户理解含义、节奏和实际用途。",
+      "quick_a": "摩斯密码中的 A",
+      "quick_b": "摩斯密码中的 B",
+      "quick_c": "摩斯密码中的 C",
+      "quick_e": "摩斯密码中的 E",
+      "quick_s": "摩斯密码中的 S",
+      "quick_o": "摩斯密码中的 O"
     },
     "alphabet_chart": {
-      "title": "Morse code alphabet chart (A-Z and 0-9)"
+      "title": "摩斯密码字母表（A-Z 和 0-9）"
     },
     "faq": {
-      "title": "Morse code translator FAQ"
+      "title": "摩斯密码翻译器常见问题"
     },
     "faq_1": {
-      "question": "What is a Morse code translator and how does it work?",
-      "answer": "A Morse code translator converts text to Morse code and Morse code back to text in seconds. This page also provides browser-based Morse audio and flash playback for timing practice."
+      "question": "什么是摩斯密码翻译器？它如何工作？",
+      "answer": "摩斯密码翻译器可以在几秒内将文本转换为摩斯密码，也可以将摩斯密码还原为文本。本页面还提供浏览器音频和闪光播放，用于练习信号节奏。"
     },
     "faq_2": {
-      "question": "How do I convert text to Morse code online for free?",
-      "answer": "Use Text to Morse mode, type your message, and copy the generated Morse output instantly. The converter is free, browser-based, and requires no sign-up."
+      "question": "如何免费在线将文本转换为摩斯密码？",
+      "answer": "选择“文本转摩斯密码”模式，输入消息，然后立即复制生成的摩斯密码结果。该转换器免费、基于浏览器运行且无需注册。"
     },
     "faq_3": {
-      "question": "How do I decode Morse code to text correctly?",
-      "answer": "Use one space between Morse letters and a slash `/` between words for accurate decoding. Then switch to Morse to Text mode; example input is `... --- ... / .... . .-.. .--.`."
+      "question": "如何正确将摩斯密码解码为文本？",
+      "answer": "在摩斯字母之间使用一个空格，在单词之间使用斜杠 `/`，即可更准确地解码。然后切换到“摩斯密码转文本”模式；示例输入为 `... --- ... / .... . .-.. .--.`。"
     },
     "faq_4": {
-      "question": "Where can I find a Morse code alphabet chart for letters and numbers?",
-      "answer": "Open the Morse code alphabet chart section on this page to view A-Z and 0-9 mappings. It works as a quick reference while translating or learning Morse."
+      "question": "在哪里可以查看字母和数字的摩斯密码表？",
+      "answer": "打开本页面的摩斯密码字母表部分，即可查看 A-Z 和 0-9 的对应关系。翻译或学习摩斯密码时，它可以作为快速参考。"
     },
     "faq_5": {
-      "question": "What is SOS in Morse code?",
-      "answer": "SOS in Morse code is `... --- ...`. You can copy it directly into the Morse input field and play it with audio or flash timing."
+      "question": "摩斯密码中的 SOS 是什么？",
+      "answer": "摩斯密码中的 SOS 是 `... --- ...`。你可以将它直接复制到摩斯密码输入框中，并通过音频或闪光节奏播放。"
     },
     "faq_6": {
-      "question": "Can this Morse code converter handle invalid Morse symbols?",
-      "answer": "Yes. Unknown or malformed Morse tokens are shown as `?`, so you can quickly identify where the Morse sequence needs correction."
+      "question": "这个摩斯密码转换器能处理无效符号吗？",
+      "answer": "可以。未知或格式错误的摩斯片段会显示为 `?`，方便你快速找到需要修正的位置。"
     },
     "faq_7": {
-      "question": "Can I use this Morse code translator without sending data to a server?",
-      "answer": "Yes. Translation and playback run locally in your browser, helping protect privacy and keeping the converter fast."
+      "question": "不向服务器发送数据也能使用这个摩斯密码翻译器吗？",
+      "answer": "可以。翻译和播放都在浏览器本地运行，有助于保护隐私并保持转换速度。"
     },
     "faq_8": {
-      "question": "Who should use this Morse code generator and decoder?",
-      "answer": "It is useful for students, radio hobbyists, puzzle creators, and developers who need fast text-to-Morse and Morse-to-text conversion in one place."
+      "question": "谁适合使用这个摩斯密码生成器和解码器？",
+      "answer": "它适合学生、无线电爱好者、谜题创作者和需要在一个地方快速进行文本与摩斯密码互转的开发者。"
     },
     "faq_9": {
-      "question": "How often is this Morse translator page updated for accuracy?",
-      "answer": "The page follows a 30-90 day GEO review cycle and displays a last updated date to provide freshness and confidence signals."
+      "question": "这个摩斯密码页面多久更新一次？",
+      "answer": "页面遵循每30到90天一次的 GEO 审核周期，并显示最近更新时间，以提供时效性参考。"
     },
     "faq_10": {
-      "question": "What is Morse code?",
-      "answer": "Morse code is a character encoding system that represents letters and numbers using short and long signals known as dots and dashes."
+      "question": "什么是摩斯密码？",
+      "answer": "摩斯密码是一种字符编码系统，用称为点和划的短信号与长信号来表示字母和数字。"
     },
     "faq_11": {
-      "question": "How can I learn Morse code quickly?",
-      "answer": "Start with high-frequency letters, practice daily with short sessions, and use audio or flash playback to train rhythm recognition."
+      "question": "如何快速学习摩斯密码？",
+      "answer": "从高频字母开始，每天进行短时间练习，并使用音频或闪光播放来训练节奏识别。"
     },
     "faq_12": {
-      "question": "Who invented Morse code and when was it invented?",
-      "answer": "Samuel Morse and Alfred Vail developed Morse code in the 1830s, and it became widely used in telegraph communication in the 1840s."
+      "question": "谁在什么时候发明了摩斯密码？",
+      "answer": "塞缪尔·莫尔斯和阿尔弗雷德·维尔在19世纪30年代开发了摩斯密码，并在19世纪40年代的电报通信中得到广泛应用。"
     },
     "sources": {
-      "title": "Data sources and trust signals",
-      "item_1": "<strong>ITU-R M.1677-1:</strong> International Morse code reference for letters, digits, and transmission pattern.",
-      "item_2": "<strong>Web Audio API:</strong> Browser-side audio generation used for dot/dash playback.",
-      "last_updated": "Last updated: <strong>{date}</strong> (review cycle: every 30-90 days)."
+      "title": "数据来源与可信度说明",
+      "item_1": "<strong>ITU-R M.1677-1：</strong>关于字母、数字和传输模式的国际摩斯密码参考标准。",
+      "item_2": "<strong>Web Audio API：</strong>用于播放点划信号的浏览器端音频生成接口。",
+      "last_updated": "最后更新：<strong>{date}</strong>（审核周期：每30至90天）。"
     },
     "hidden_seo": {
-      "title": "Morse code generator vs translator",
-      "description": "A Morse code generator takes plain text input and encodes it into Morse symbols, while a Morse code translator typically supports both directions: encode text to Morse and decode Morse to readable text. This page includes both generator and translator behavior, plus audio playback for signal timing practice."
+      "title": "摩斯密码生成器与翻译器的区别",
+      "description": "摩斯密码生成器接收纯文本并将其编码为摩斯符号，而摩斯密码翻译器通常支持双向转换：将文本编码为摩斯密码，以及将摩斯密码解码为可读文本。本页面同时提供这两种功能和用于练习信号节奏的音频播放。"
     },
     "schema": {
-      "webapp_name": "Morse Code Translator",
-      "alternate_names": "Morse Code Generator, Morse Code Decoder, Morse Code Converter",
-      "feature_1": "Text to Morse conversion",
-      "feature_2": "Morse to text decoding",
-      "feature_3": "Morse code alphabet chart",
-      "feature_4": "SOS in Morse code quick reference",
-      "feature_5": "Morse audio playback",
-      "feature_6": "Reference table",
-      "feature_7": "No registration required",
-      "howto_name": "How to translate text and Morse code online",
-      "howto_description": "Use this step-by-step guide to encode text to Morse code, decode Morse to text, and play Morse audio.",
-      "howto_step_1_name": "Choose conversion mode",
-      "howto_step_1_text": "Select Text to Morse to encode plain text, or Morse to Text to decode Morse signals.",
-      "howto_step_2_name": "Paste your content",
-      "howto_step_2_text": "Enter text, or provide Morse with spaces between letters and slash between words.",
-      "howto_step_3_name": "Copy or play Morse output",
-      "howto_step_3_text": "Copy the generated result, or click play to hear and visualize Morse timing.",
-      "howto_step_4_name": "Use the alphabet chart and SOS reference",
-      "howto_step_4_text": "Open the Morse code alphabet chart and SOS example section to read or learn Morse patterns faster.",
+      "webapp_name": "摩斯密码翻译器",
+      "alternate_names": "摩斯密码生成器、摩斯密码解码器、摩斯密码转换器",
+      "feature_1": "文本转摩斯密码",
+      "feature_2": "摩斯密码转文本",
+      "feature_3": "摩斯密码字母表",
+      "feature_4": "摩斯密码 SOS 快速参考",
+      "feature_5": "摩斯音频播放",
+      "feature_6": "参考表",
+      "feature_7": "无需注册",
+      "howto_name": "如何在线转换文本和摩斯密码",
+      "howto_description": "按照本分步指南，将文本编码为摩斯密码、将摩斯密码解码为文本，并播放摩斯音频。",
+      "howto_step_1_name": "选择转换模式",
+      "howto_step_1_text": "选择“文本转摩斯密码”来编码普通文本，或选择“摩斯密码转文本”来解码摩斯信号。",
+      "howto_step_2_name": "粘贴内容",
+      "howto_step_2_text": "输入文本，或输入字母之间用空格、单词之间用斜杠分隔的摩斯密码。",
+      "howto_step_3_name": "复制或播放摩斯密码结果",
+      "howto_step_3_text": "复制生成的结果，或点击播放来听取并查看摩斯密码的节奏。",
+      "howto_step_4_name": "使用字母表和 SOS 参考",
+      "howto_step_4_text": "打开摩斯密码字母表和 SOS 示例部分，更快地阅读或学习摩斯密码模式。",
       "itemlist_name": "Morse code alphabet chart",
       "itemlist_1": "A .-",
       "itemlist_2": "B -...",
@@ -9989,5 +9929,68 @@
     "retry_after": "下载服务繁忙，{seconds} 秒后可以重试。",
     "resume_playlist": "继续下载剩余曲目",
     "playlist_paused": "歌单已暂停。冷却结束后点击继续，将从当前曲目接着下载。"
+  },
+  "PdfToMarkdown": {
+    "eyebrow": "PDF 转 Markdown",
+    "title": "PDF 转 Markdown 转换器",
+    "intro": "在浏览器中将文本型 PDF 转换为可编辑的 Markdown。文件在本地处理，不会上传到我们的服务器。",
+    "breadcrumb": { "tools": "工具", "current": "PDF 转 Markdown" },
+    "upload": {
+      "title": "上传 PDF 进行转换",
+      "drop": "选择 PDF 文件或拖放到这里",
+      "limit": "仅支持 PDF 文件。扫描 PDF 不支持 OCR。"
+    },
+    "status": {
+      "loading": "正在加载 PDF…",
+      "metadata": "正在读取文档…",
+      "page": "正在读取第 {current}/{total} 页…",
+      "converting": "正在转换为 Markdown…",
+      "progress": "已完成 {progress}%"
+    },
+    "errors": { "invalidType": "请选择有效的 PDF 文件。", "processing": "无法处理该 PDF。" },
+    "success": {
+      "title": "转换完成",
+      "description": "已从 {pages} 页提取文本。请在下方检查并编辑 Markdown。"
+    },
+    "actions": {
+      "another": "转换另一个 PDF",
+      "download": "下载 Markdown",
+      "edit": "编辑",
+      "preview": "预览",
+      "placeholder": "转换后的 Markdown 将显示在这里…"
+    },
+    "stats": { "pages": "页数", "words": "字数", "characters": "字符数", "size": "大小" },
+    "about": {
+      "heading": "工具说明",
+      "description": "此工具提取文本型 PDF 中的文字并转换为 Markdown。PDF.js 在浏览器中运行，文件不会上传。复杂布局可能需要手动编辑。"
+    },
+    "steps": {
+      "heading": "使用方法",
+      "one": "选择或拖放 PDF 文件。",
+      "two": "等待浏览器读取每一页。",
+      "three": "检查生成的 Markdown。",
+      "four": "下载编辑后的 Markdown 文件。"
+    },
+    "faq": {
+      "heading": "常见问题",
+      "local": {
+        "question": "PDF 会上传吗？",
+        "answer": "不会。转换在浏览器中进行，PDF.js 在本地读取文件。"
+      },
+      "scanned": {
+        "question": "支持扫描 PDF 或 OCR 吗？",
+        "answer": "不支持。当前实现提取 PDF 中嵌入的文本，不包含 OCR。"
+      },
+      "limit": {
+        "question": "有文件大小限制吗？",
+        "answer": "界面没有设置单独的文件大小限制，实际限制取决于浏览器和文档。"
+      }
+    },
+    "accessibility": {
+      "breadcrumb": "面包屑导航",
+      "home": "首页",
+      "tabs": "Markdown 视图",
+      "editor": "Markdown 编辑器"
+    }
   }
 }

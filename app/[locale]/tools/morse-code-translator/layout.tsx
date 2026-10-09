@@ -6,7 +6,7 @@ import { getTranslations } from "next-intl/server"
 
 const BASE_URL = "https://geekskai.com"
 const TOOL_PATH = "/tools/morse-code-translator/"
-const LAST_MODIFIED = new Date("2026-05-26")
+const LAST_MODIFIED = new Date("2026-10-09")
 const FAQ_ITEM_KEYS = [
   "faq_1",
   "faq_2",

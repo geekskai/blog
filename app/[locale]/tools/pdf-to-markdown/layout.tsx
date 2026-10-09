@@ -1,167 +1,23 @@
 import { Metadata } from "next"
-import { buildLanguageAlternates } from "@/app/i18n/urls"
+import { getTranslations } from "next-intl/server"
+import { buildLanguageAlternates, getLocalizedUrl } from "@/app/i18n/urls"
 import { getIndexedToolLocales } from "@/app/sitemap-config"
 
-// Content freshness - Update this monthly
-const lastModified = new Date("2026-05-26") // Update current date
-const BASE_URL = "https://geekskai.com"
+const SITE_URL = "https://geekskai.com"
 const TOOL_PATH = "/tools/pdf-to-markdown/"
 
-export const metadata: Metadata = {
-  title: "PDF to Markdown Converter - Free Online PDF to MD Converter Tool",
-  description:
-    "Best free PDF to Markdown converter online. Convert PDF to MD format instantly with our PDF markdown converter. Extract text from PDF documents and transform to clean Markdown files. No registration required.",
-  keywords: [
-    "pdf to markdown converter",
-    "pdf to md converter",
-    "convert pdf to markdown",
-    "pdf to markdown",
-    "pdf to md",
-  ],
-  openGraph: {
-    title: "Free PDF to Markdown Converter - Convert PDF to MD Online",
-    description:
-      "Professional PDF to Markdown converter. Transform PDF documents into clean MD format instantly. Free, secure, and accurate PDF to markdown conversion.",
-    type: "website",
-    images: [
-      {
-        url: "/static/images/og/geekskai-home.png",
-        width: 1200,
-        height: 630,
-        alt: "PDF to Markdown Converter Tool - Convert PDF to MD",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Free PDF to Markdown Converter Online",
-    description: "Convert PDF to MD format instantly with our free PDF to markdown converter.",
-  },
-  alternates: {
-    canonical: `${BASE_URL}${TOOL_PATH}`,
-    languages: buildLanguageAlternates(BASE_URL, TOOL_PATH, [...getIndexedToolLocales(TOOL_PATH)]),
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  other: {
-    "last-modified": lastModified.toISOString(),
-    "update-frequency": "monthly",
-    "next-review": new Date(lastModified.getTime() + 30 * 24 * 60 * 60 * 1000).toISOString(),
-  },
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: "PdfToMarkdown" })
+  const canonical = getLocalizedUrl(SITE_URL, locale, TOOL_PATH)
+  return { title: t("title"), description: t("intro"), keywords: ["PDF to Markdown", "PDF to MD", "Markdown converter"], alternates: { canonical, languages: buildLanguageAlternates(SITE_URL, TOOL_PATH, [...getIndexedToolLocales(TOOL_PATH)]) }, openGraph: { type: "website", title: t("title"), description: t("intro"), url: canonical, siteName: "GeeksKai", locale }, twitter: { card: "summary_large_image", title: t("title"), description: t("intro") }, robots: { index: true, follow: true } }
 }
 
-// JSON-LD Structured Data - Enhanced for AI search optimization
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "PDF to Markdown Converter",
-  description:
-    "Professional free online PDF to Markdown converter tool. Convert PDF documents to MD format with formatting preserved. Best PDF to markdown conversion solution.",
-  url: "https://geekskai.com/tools/pdf-to-markdown",
-  applicationCategory: "UtilityApplication",
-  operatingSystem: "Any",
-  permissions: "none",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-    availability: "https://schema.org/InStock",
-  },
-  featureList: [
-    "Convert PDF to Markdown format instantly",
-    "Preserve document formatting and structure",
-    "Browser-based PDF to MD conversion",
-    "No file upload to servers required",
-    "Free unlimited PDF to markdown conversion",
-    "Support for large PDF files up to 50MB",
-    "Extract text from PDF to clean markdown",
-    "Professional PDF markdown converter",
-    "Smart header and list detection",
-    "Real-time markdown preview",
-    "Privacy-first local processing",
-    "Multiple page support",
-  ].join(", "),
-  softwareRequirements: "Modern web browser with JavaScript enabled",
-  provider: {
-    "@type": "Organization",
-    name: "GeeksKai",
-    url: "https://geekskai.com",
-    sameAs: ["https://github.com/geekskai", "https://twitter.com/geekskai"],
-  },
-  keywords: "pdf to markdown converter, pdf to md, convert pdf to markdown, pdf markdown converter",
-  educationalUse:
-    "Documentation, Content Management, GitHub Integration, Technical Writing, Blog Publishing, Documentation Platforms",
-  targetAudience: {
-    "@type": "Audience",
-    audienceType:
-      "Developers, Technical Writers, Content Creators, Documentation Teams, Students, Researchers, Bloggers, Markdown Users",
-  },
-  potentialAction: [
-    {
-      "@type": "ConvertAction",
-      name: "Convert PDF to Markdown",
-      description: "Convert PDF documents to Markdown format with preserved formatting",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: "https://geekskai.com/tools/pdf-to-markdown/",
-        actionPlatform: [
-          "http://schema.org/DesktopWebPlatform",
-          "http://schema.org/MobileWebPlatform",
-        ],
-      },
-    },
-  ],
-}
-
-// Breadcrumb Schema
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://geekskai.com/",
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Tools",
-      item: "https://geekskai.com/tools/",
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "PDF to Markdown Converter",
-      item: "https://geekskai.com/tools/pdf-to-markdown/",
-    },
-  ],
-}
-
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="min-h-screen">
-      {/* WebApplication Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      {/* Breadcrumb Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      {children}
-    </div>
-  )
+export default async function Layout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: "PdfToMarkdown" })
+  const url = getLocalizedUrl(SITE_URL, locale, TOOL_PATH)
+  const jsonLd = { "@context": "https://schema.org", "@type": "WebApplication", name: t("title"), description: t("intro"), url, applicationCategory: "UtilityApplication", operatingSystem: "Any", isAccessibleForFree: true, inLanguage: locale, featureList: [t("about.description"), t("faq.local.answer"), t("faq.scanned.answer")] }
+  const breadcrumb = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: t("accessibility.home"), item: getLocalizedUrl(SITE_URL, locale, "/") }, { "@type": "ListItem", position: 2, name: t("breadcrumb.tools"), item: getLocalizedUrl(SITE_URL, locale, "/tools/") }, { "@type": "ListItem", position: 3, name: t("breadcrumb.current"), item: url }] }
+  return <div className="min-h-screen"><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />{children}</div>
 }

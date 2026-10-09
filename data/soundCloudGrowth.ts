@@ -1,4 +1,6 @@
-export const soundCloudGrowthLocales = ["en", "fr", "es", "de"] as const
+import { supportedLocales } from "@/app/i18n/routing"
+
+export const soundCloudGrowthLocales = supportedLocales
 
 export type SoundCloudToolKey = "hub" | "downloader" | "mp3" | "wav" | "playlist" | "artwork"
 

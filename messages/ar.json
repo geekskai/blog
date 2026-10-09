@@ -8759,15 +8759,15 @@
   },
   "MorseCodeTranslator": {
     "seo": {
-      "title": "Morse Code Translator & Generator",
-      "description": "Free online Morse Code Translator & Generator to encode text, decode Morse code, and play Morse audio instantly in your browser.",
+    "title": "مترجم ومولّد شفرة مورس",
+    "description": "أداة مجانية عبر الإنترنت لترميز النص إلى شفرة مورس، وفك شفرة مورس، وتشغيل صوت مورس فورًا في المتصفح.",
       "keywords": "morse code translator, morse code generator, morse code generator online, text to morse code, morse code to text, morse code decoder, what is morse code, how does morse code work, how to read morse code, how to learn morse code, morse code alphabet, morse code chart, morse code converter, morse code converter online, sos in morse code, what is sos in morse code, who invented morse code, when was morse code invented, morse code sound",
-      "og_alt": "Morse Code Translator on GeeksKai"
+    "og_alt": "مترجم شفرة مورس على GeeksKai"
     },
     "breadcrumb": {
-      "home": "Home",
-      "tools": "Tools",
-      "current": "Morse Code Translator"
+    "home": "الرئيسية",
+    "tools": "الأدوات",
+    "current": "مترجم شفرة مورس"
     },
     "defaults": {
       "input_text": "HELLO WORLD",
@@ -8778,32 +8778,32 @@
       "decode": "Use . and -, space between letters, / between words"
     },
     "header": {
-      "title": "Morse Code Translator",
-      "quick_answer": "<strong>Quick answer:</strong> This page provides a free online <blue>Morse code translator</blue> for <cyan>text to Morse</cyan>, <purple>Morse to text</purple>, plus browser audio playback with no account needed."
+    "title": "مترجم شفرة مورس",
+    "quick_answer": "<strong>إجابة سريعة:</strong> توفر هذه الصفحة <blue>مترجم شفرة مورس</blue> مجانيًا عبر الإنترنت لتحويل <cyan>النص إلى مورس</cyan> و<purple>مورس إلى نص</purple>، مع تشغيل الصوت في المتصفح دون الحاجة إلى حساب."
     },
     "core_facts": {
-      "title": "Core Facts",
-      "pricing_label": "Pricing",
-      "pricing_value": "<strong>Free</strong>, no sign-up.",
-      "features_label": "Main Features",
-      "features_value": "<strong>Encode</strong>, <strong>decode</strong>, and <strong>audio playback</strong>.",
-      "positioning_label": "Positioning",
-      "positioning_value": "Fast, browser-native Morse utility for learning and practical conversion.",
-      "users_label": "Target Users",
-      "users_value": "Students, ham radio users, puzzle makers, developers."
+    "title": "المعلومات الأساسية",
+    "pricing_label": "السعر",
+    "pricing_value": "<strong>مجاني</strong>، دون تسجيل.",
+    "features_label": "الميزات الرئيسية",
+    "features_value": "<strong>الترميز</strong> و<strong>فك الترميز</strong> و<strong>تشغيل الصوت</strong>.",
+    "positioning_label": "الوصف",
+    "positioning_value": "أداة مورس سريعة تعمل في المتصفح للتعلم والتحويل العملي.",
+    "users_label": "المستخدمون المستهدفون",
+    "users_value": "الطلاب، وهواة الراديو، وصانعو الألغاز، والمطورون."
     },
     "overview": {
-      "title": "What is Morse code?",
-      "description": "<strong>Direct answer:</strong> Morse code is a communication system that encodes letters and numbers with <blue>dots</blue> and <cyan>dashes</cyan>. It is still useful for learning signal timing, emergency patterns, and radio basics.",
-      "card_1_title": "How Morse code works",
-      "card_1_desc": "Each character maps to a unique dot-dash sequence, for example <strong>A = .-</strong> and <strong>B = -...</strong>.",
-      "card_2_title": "How to read Morse code",
-      "card_2_desc": "Read short signals as dots and long signals as dashes, then split by letter spaces and word separators.",
-      "card_3_title": "How to learn Morse code",
-      "card_3_desc": "Practice 5-10 minutes daily with common letters, then train listening speed using flash and audio playback."
+      "title": "ما هي شفرة مورس؟",
+      "description": "<strong>الإجابة المباشرة:</strong> شفرة مورس نظام اتصال يرمّز الحروف والأرقام باستخدام <blue>النقاط</blue> و<cyan>الشرطات</cyan>. ولا تزال مفيدة لتعلم توقيت الإشارات وأنماط الطوارئ وأساسيات الراديو.",
+      "card_1_title": "كيف تعمل شفرة مورس",
+      "card_1_desc": "يرتبط كل حرف بتسلسل فريد من النقاط والشرطات، مثل <strong>A = .-</strong> و<strong>B = -...</strong>.",
+      "card_2_title": "كيفية قراءة شفرة مورس",
+      "card_2_desc": "اقرأ الإشارات القصيرة كنقاط والطويلة كشرطات، ثم افصل بين الحروف والكلمات باستخدام المسافات والفواصل.",
+      "card_3_title": "كيفية تعلم شفرة مورس",
+      "card_3_desc": "تدرّب من 5 إلى 10 دقائق يوميًا على الحروف الشائعة، ثم درّب سرعة الاستماع باستخدام الوميض والصوت."
     },
     "tool": {
-      "mode_label": "Mode",
+      "mode_label": "الوضع",
       "mode_encode": "Text to Morse",
       "mode_decode": "Morse to Text",
       "input_text_label": "Input text",
@@ -8811,142 +8811,142 @@
       "output_morse": "Morse output",
       "output_text": "Decoded text",
       "output_placeholder": "Output will appear here.",
-      "signal_playing": "Morse flashlight is blinking by signal timing",
-      "signal_preview": "Signal lamp preview",
-      "no_signal": "No signal to preview.",
-      "stop_playback": "Stop playback",
-      "play_audio_flash": "Play audio + flash",
-      "play_flash": "Play flash",
-      "audio_title_on": "Audio and flash enabled",
-      "audio_title_off": "Flash-only mode enabled",
-      "audio_on": "Audio on",
-      "flash_only": "Flash only",
-      "copied": "Copied",
-      "copy_output": "Copy output"
+      "signal_playing": "يومض مصباح مورس وفق توقيت الإشارة",
+      "signal_preview": "معاينة مصباح الإشارة",
+      "no_signal": "لا توجد إشارة للمعاينة.",
+      "stop_playback": "إيقاف التشغيل",
+      "play_audio_flash": "تشغيل الصوت والوميض",
+      "play_flash": "تشغيل الوميض",
+      "audio_title_on": "تم تفعيل الصوت والوميض",
+      "audio_title_off": "تم تفعيل وضع الوميض فقط",
+      "audio_on": "الصوت مفعّل",
+      "flash_only": "الوميض فقط",
+      "copied": "تم النسخ",
+      "copy_output": "نسخ الناتج"
     },
     "how_to": {
-      "title": "How to use this Morse code translator (step-by-step)",
-      "step_1_title": "1) Normalize input",
-      "step_1_desc": "Text is uppercased for consistent mapping; Morse input is split by spaces and `/`.",
-      "step_2_title": "2) Convert by dictionary",
-      "step_2_desc": "Characters map to dots and dashes using the ITU-style Morse table; unknown tokens return `?`.",
-      "step_3_title": "3) Render and playback",
-      "step_3_desc": "The output is shown as plain text and can be played as short/long tones in the browser audio engine."
+      "title": "كيفية استخدام مترجم شفرة مورس (خطوة بخطوة)",
+      "step_1_title": "1) توحيد الإدخال",
+      "step_1_desc": "يُحوّل النص إلى أحرف كبيرة لتوحيد المطابقة، وتُقسّم شفرة مورس عند المسافات والرمز `/`.",
+      "step_2_title": "2) التحويل باستخدام القاموس",
+      "step_2_desc": "تُطابق الأحرف مع النقاط والشرطات باستخدام جدول مورس بأسلوب ITU؛ وتُعرض العناصر غير المعروفة كـ `?`.",
+      "step_3_title": "3) العرض والتشغيل",
+      "step_3_desc": "يظهر الناتج كنص عادي ويمكن تشغيله كنغمات قصيرة وطويلة عبر محرك الصوت في المتصفح."
     },
     "boundaries": {
-      "title": "Boundaries and limitations",
-      "can_do": "<strong>Can do:</strong> text and Morse conversion, browser playback, quick educational reference.",
-      "cannot_do": "<strong>Cannot do:</strong> advanced radio protocol timing, signal-noise simulation, or long-form transmission logging.",
-      "input_scope": "<strong>Input scope:</strong> A-Z, 0-9, spaces, and standard Morse separators."
+      "title": "النطاق والقيود",
+      "can_do": "<strong>يمكنه:</strong> تحويل النص ومورس، والتشغيل في المتصفح، وتوفير مرجع تعليمي سريع.",
+      "cannot_do": "<strong>لا يمكنه:</strong> توقيت بروتوكولات الراديو المتقدمة، أو محاكاة ضوضاء الإشارة، أو تسجيل عمليات الإرسال الطويلة.",
+      "input_scope": "<strong>نطاق الإدخال:</strong> A-Z و0-9 والمسافات وفواصل مورس القياسية."
     },
     "sos": {
-      "title": "SOS in Morse code",
-      "text_label": "Text",
-      "morse_label": "Morse",
-      "use_case_label": "Use case",
-      "use_case_desc": "A standard emergency signal. You can paste it into Morse input and play flash or audio instantly."
+      "title": "SOS في شفرة مورس",
+      "text_label": "النص",
+      "morse_label": "مورس",
+      "use_case_label": "حالة الاستخدام",
+      "use_case_desc": "إشارة طوارئ قياسية. يمكنك لصقها في إدخال مورس وتشغيلها فورًا بالوميض أو الصوت."
     },
     "history": {
-      "title": "Who invented Morse code and when?",
-      "description": "<strong>Short answer:</strong> Samuel Morse and Alfred Vail developed Morse code in the <amber>1830s</amber>, and it was adopted in practical telegraph systems during the <amber>1840s</amber>."
+      "title": "من اخترع شفرة مورس ومتى؟",
+      "description": "<strong>إجابة مختصرة:</strong> طوّر صمويل مورس وألفريد فيل شفرة مورس في <amber>ثلاثينيات القرن التاسع عشر</amber>، واعتمدتها أنظمة التلغراف العملية في <amber>أربعينيات القرن التاسع عشر</amber>."
     },
     "guide": {
-      "title": "Complete Morse code guide for beginners",
-      "p1": "<strong>Direct answer:</strong> Morse code is a practical signal language where each letter or number is represented by a sequence of dots and dashes. If your goal is to <cyan>translate text to Morse</cyan>, <blue>decode Morse to text</blue>, or simply learn the alphabet quickly, this page combines all three in one place: real-time conversion, flash rhythm playback, and an alphabet chart for fast lookup.",
-      "p2": "Many users search phrases like <strong>what is morse code</strong>, <strong>how to read morse code</strong>, and <strong>how to learn morse code</strong> because they need both a tool and a clear explanation. The fastest way to read Morse is to treat it as sound and timing patterns rather than visual symbols only. A dot is a short signal and a dash is a longer signal; letters are separated by short gaps and words are separated by longer breaks. Once this rhythm is clear, decoding speed improves quickly.",
-      "p3": "If you are practicing from scratch, start with a small set of high-frequency letters such as <strong>E, T, A, N, I, M, S, O</strong>. Then type simple words in the converter and switch between both modes to reinforce memory from both directions. For emergency awareness, memorize <rose>SOS = ... --- ...</rose> first. That one sequence appears in many learning resources and is one of the easiest Morse patterns to recognize at speed.",
-      "p4": "Historically, Morse code was developed by Samuel Morse and Alfred Vail in the 1830s and became widely used through telegraph networks in the 1840s. Today, people still use it for radio training, education, puzzle design, and creative projects like jewelry pattern encoding. In short, a modern <strong>morse code generator</strong> should do more than output symbols: it should help users understand meaning, timing, and practical use.",
-      "quick_a": "A in Morse code",
-      "quick_b": "B in Morse code",
-      "quick_c": "C in Morse code",
-      "quick_e": "E in Morse code",
-      "quick_s": "S in Morse code",
-      "quick_o": "O in Morse code"
+      "title": "دليل شامل لشفرة مورس للمبتدئين",
+      "p1": "<strong>الإجابة المباشرة:</strong> شفرة مورس لغة إشارات عملية يمثل فيها كل حرف أو رقم بسلسلة من النقاط والشرطات. إذا كان هدفك <cyan>تحويل النص إلى مورس</cyan> أو <blue>فك مورس إلى نص</blue> أو تعلم الأبجدية بسرعة، تجمع هذه الصفحة الوظائف الثلاث في مكان واحد: التحويل الفوري، وتشغيل الإيقاع بالوميض، وجدول الأبجدية.",
+      "p2": "يبحث كثير من المستخدمين عن ماهية شفرة مورس وكيفية قراءتها وتعلمها لأنهم يحتاجون إلى أداة وشرح واضح معًا. وأسرع طريقة لقراءة مورس هي فهمها كنمط من الصوت والتوقيت، لا كرموز مرئية فقط. النقطة إشارة قصيرة والشرطة إشارة أطول، وتفصل بين الحروف فجوات قصيرة وبين الكلمات فواصل أطول.",
+      "p3": "إذا كنت تبدأ من الصفر، فابدأ بمجموعة صغيرة من الحروف الشائعة مثل <strong>E وT وA وN وI وM وS وO</strong>. اكتب بعد ذلك كلمات بسيطة في المحوّل وبدّل بين الوضعين لتعزيز الذاكرة في الاتجاهين. وللتعرف على إشارات الطوارئ، احفظ أولًا <rose>SOS = ... --- ...</rose>.",
+      "p4": "طوّر صمويل مورس وألفريد فيل شفرة مورس في ثلاثينيات القرن التاسع عشر، وانتشر استخدامها عبر شبكات التلغراف في أربعينياته. وما زالت تُستخدم اليوم في تدريب الراديو والتعليم وتصميم الألغاز والمشروعات الإبداعية. يجب أن يساعد <strong>مولّد شفرة مورس</strong> الحديث المستخدم على فهم المعنى والتوقيت والاستخدام العملي، لا أن يعرض الرموز فقط.",
+      "quick_a": "A في شفرة مورس",
+      "quick_b": "B في شفرة مورس",
+      "quick_c": "C في شفرة مورس",
+      "quick_e": "E في شفرة مورس",
+      "quick_s": "S في شفرة مورس",
+      "quick_o": "O في شفرة مورس"
     },
     "alphabet_chart": {
-      "title": "Morse code alphabet chart (A-Z and 0-9)"
+      "title": "جدول أبجدية شفرة مورس (A-Z و0-9)"
     },
     "faq": {
-      "title": "Morse code translator FAQ"
+      "title": "الأسئلة الشائعة حول مترجم شفرة مورس"
     },
     "faq_1": {
-      "question": "What is a Morse code translator and how does it work?",
-      "answer": "A Morse code translator converts text to Morse code and Morse code back to text in seconds. This page also provides browser-based Morse audio and flash playback for timing practice."
+      "question": "ما هو مترجم شفرة مورس وكيف يعمل؟",
+      "answer": "يحوّل مترجم شفرة مورس النص إلى شفرة مورس ويحوّل شفرة مورس إلى نص خلال ثوانٍ. كما توفر هذه الصفحة تشغيل صوت مورس والوميض عبر المتصفح للتدرب على التوقيت."
     },
     "faq_2": {
-      "question": "How do I convert text to Morse code online for free?",
-      "answer": "Use Text to Morse mode, type your message, and copy the generated Morse output instantly. The converter is free, browser-based, and requires no sign-up."
+      "question": "كيف أحوّل النص إلى شفرة مورس مجانًا عبر الإنترنت؟",
+      "answer": "اختر وضع النص إلى مورس، واكتب رسالتك، ثم انسخ الناتج فورًا. المحوّل مجاني ويعمل في المتصفح ولا يتطلب التسجيل."
     },
     "faq_3": {
-      "question": "How do I decode Morse code to text correctly?",
-      "answer": "Use one space between Morse letters and a slash `/` between words for accurate decoding. Then switch to Morse to Text mode; example input is `... --- ... / .... . .-.. .--.`."
+      "question": "كيف أفك شفرة مورس إلى نص بشكل صحيح؟",
+      "answer": "استخدم مسافة واحدة بين أحرف مورس وشرطة مائلة `/` بين الكلمات. ثم انتقل إلى وضع مورس إلى نص؛ مثال الإدخال هو `... --- ... / .... . .-.. .--.`."
     },
     "faq_4": {
-      "question": "Where can I find a Morse code alphabet chart for letters and numbers?",
-      "answer": "Open the Morse code alphabet chart section on this page to view A-Z and 0-9 mappings. It works as a quick reference while translating or learning Morse."
+      "question": "أين أجد جدول شفرة مورس للحروف والأرقام؟",
+      "answer": "افتح قسم جدول أبجدية شفرة مورس في هذه الصفحة لعرض مطابقة A-Z و0-9. ويمكن استخدامه كمرجع سريع أثناء الترجمة أو تعلم مورس."
     },
     "faq_5": {
-      "question": "What is SOS in Morse code?",
-      "answer": "SOS in Morse code is `... --- ...`. You can copy it directly into the Morse input field and play it with audio or flash timing."
+      "question": "ما هي SOS في شفرة مورس؟",
+      "answer": "تُكتب SOS في شفرة مورس هكذا `... --- ...`. يمكنك نسخها مباشرة إلى حقل إدخال مورس وتشغيلها بالصوت أو الوميض."
     },
     "faq_6": {
-      "question": "Can this Morse code converter handle invalid Morse symbols?",
-      "answer": "Yes. Unknown or malformed Morse tokens are shown as `?`, so you can quickly identify where the Morse sequence needs correction."
+      "question": "هل يتعامل محوّل شفرة مورس هذا مع الرموز غير الصالحة؟",
+      "answer": "نعم. تظهر عناصر مورس غير المعروفة أو غير الصحيحة كـ `?`، لتتمكن من تحديد موضع التصحيح بسرعة."
     },
     "faq_7": {
-      "question": "Can I use this Morse code translator without sending data to a server?",
-      "answer": "Yes. Translation and playback run locally in your browser, helping protect privacy and keeping the converter fast."
+      "question": "هل يمكنني استخدام مترجم مورس دون إرسال البيانات إلى خادم؟",
+      "answer": "نعم. تعمل الترجمة والتشغيل محليًا في متصفحك، مما يساعد على حماية الخصوصية والحفاظ على سرعة المحوّل."
     },
     "faq_8": {
-      "question": "Who should use this Morse code generator and decoder?",
-      "answer": "It is useful for students, radio hobbyists, puzzle creators, and developers who need fast text-to-Morse and Morse-to-text conversion in one place."
+      "question": "من الذي ينبغي أن يستخدم مولّد ومفكك شفرة مورس؟",
+      "answer": "يفيد الطلاب وهواة الراديو وصانعي الألغاز والمطورين الذين يحتاجون إلى تحويل سريع بين النص ومورس في مكان واحد."
     },
     "faq_9": {
-      "question": "How often is this Morse translator page updated for accuracy?",
-      "answer": "The page follows a 30-90 day GEO review cycle and displays a last updated date to provide freshness and confidence signals."
+      "question": "كم مرة يتم تحديث صفحة مترجم مورس هذه؟",
+      "answer": "تتبع الصفحة دورة مراجعة GEO كل 30 إلى 90 يومًا، وتعرض تاريخ آخر تحديث لتوضيح حداثة المحتوى."
     },
     "faq_10": {
-      "question": "What is Morse code?",
-      "answer": "Morse code is a character encoding system that represents letters and numbers using short and long signals known as dots and dashes."
+      "question": "ما هي شفرة مورس؟",
+      "answer": "شفرة مورس نظام لترميز الأحرف، ويمثل الحروف والأرقام بإشارات قصيرة وطويلة تُعرف بالنقاط والشرطات."
     },
     "faq_11": {
-      "question": "How can I learn Morse code quickly?",
-      "answer": "Start with high-frequency letters, practice daily with short sessions, and use audio or flash playback to train rhythm recognition."
+      "question": "كيف أتعلم شفرة مورس بسرعة؟",
+      "answer": "ابدأ بالحروف الأكثر شيوعًا، وتدرّب يوميًا في جلسات قصيرة، واستخدم الصوت أو الوميض لتدريب التعرف على الإيقاع."
     },
     "faq_12": {
-      "question": "Who invented Morse code and when was it invented?",
-      "answer": "Samuel Morse and Alfred Vail developed Morse code in the 1830s, and it became widely used in telegraph communication in the 1840s."
+      "question": "من اخترع شفرة مورس ومتى؟",
+      "answer": "طوّر صمويل مورس وألفريد فيل شفرة مورس في ثلاثينيات القرن التاسع عشر، وانتشر استخدامها في اتصالات التلغراف في أربعينيات القرن التاسع عشر."
     },
     "sources": {
-      "title": "Data sources and trust signals",
-      "item_1": "<strong>ITU-R M.1677-1:</strong> International Morse code reference for letters, digits, and transmission pattern.",
-      "item_2": "<strong>Web Audio API:</strong> Browser-side audio generation used for dot/dash playback.",
-      "last_updated": "Last updated: <strong>{date}</strong> (review cycle: every 30-90 days)."
+      "title": "مصادر البيانات وإشارات الثقة",
+      "item_1": "<strong>ITU-R M.1677-1:</strong> مرجع دولي لشفرة مورس للحروف والأرقام وأنماط الإرسال.",
+      "item_2": "<strong>Web Audio API:</strong> توليد صوتي داخل المتصفح يُستخدم لتشغيل النقاط والشرطات.",
+      "last_updated": "آخر تحديث: <strong>{date}</strong> (دورة المراجعة: كل 30 إلى 90 يومًا)."
     },
     "hidden_seo": {
-      "title": "Morse code generator vs translator",
-      "description": "A Morse code generator takes plain text input and encodes it into Morse symbols, while a Morse code translator typically supports both directions: encode text to Morse and decode Morse to readable text. This page includes both generator and translator behavior, plus audio playback for signal timing practice."
+      "title": "الفرق بين مولّد شفرة مورس ومترجمها",
+      "description": "يأخذ مولّد شفرة مورس نصًا عاديًا ويحوّله إلى رموز مورس، بينما يدعم مترجم شفرة مورس عادةً الاتجاهين: ترميز النص إلى مورس وفك مورس إلى نص مقروء. تتضمن هذه الصفحة الوظيفتين وتشغيل الصوت للتدرب على توقيت الإشارات."
     },
     "schema": {
-      "webapp_name": "Morse Code Translator",
-      "alternate_names": "Morse Code Generator, Morse Code Decoder, Morse Code Converter",
-      "feature_1": "Text to Morse conversion",
-      "feature_2": "Morse to text decoding",
-      "feature_3": "Morse code alphabet chart",
-      "feature_4": "SOS in Morse code quick reference",
-      "feature_5": "Morse audio playback",
-      "feature_6": "Reference table",
-      "feature_7": "No registration required",
-      "howto_name": "How to translate text and Morse code online",
-      "howto_description": "Use this step-by-step guide to encode text to Morse code, decode Morse to text, and play Morse audio.",
-      "howto_step_1_name": "Choose conversion mode",
-      "howto_step_1_text": "Select Text to Morse to encode plain text, or Morse to Text to decode Morse signals.",
-      "howto_step_2_name": "Paste your content",
-      "howto_step_2_text": "Enter text, or provide Morse with spaces between letters and slash between words.",
-      "howto_step_3_name": "Copy or play Morse output",
-      "howto_step_3_text": "Copy the generated result, or click play to hear and visualize Morse timing.",
-      "howto_step_4_name": "Use the alphabet chart and SOS reference",
-      "howto_step_4_text": "Open the Morse code alphabet chart and SOS example section to read or learn Morse patterns faster.",
+      "webapp_name": "مترجم شفرة مورس",
+      "alternate_names": "مولّد شفرة مورس، مفكك شفرة مورس، محوّل شفرة مورس",
+      "feature_1": "تحويل النص إلى مورس",
+      "feature_2": "فك مورس إلى نص",
+      "feature_3": "جدول أبجدية شفرة مورس",
+      "feature_4": "مرجع سريع لـ SOS في مورس",
+      "feature_5": "تشغيل صوت مورس",
+      "feature_6": "جدول مرجعي",
+      "feature_7": "لا يتطلب التسجيل",
+      "howto_name": "كيفية تحويل النص وشفرة مورس عبر الإنترنت",
+      "howto_description": "استخدم هذا الدليل خطوة بخطوة لترميز النص إلى شفرة مورس، وفك مورس إلى نص، وتشغيل صوت مورس.",
+      "howto_step_1_name": "اختيار وضع التحويل",
+      "howto_step_1_text": "اختر النص إلى مورس لترميز النص العادي، أو مورس إلى نص لفك إشارات مورس.",
+      "howto_step_2_name": "لصق المحتوى",
+      "howto_step_2_text": "أدخل النص أو شفرة مورس مع مسافات بين الحروف وشرطة مائلة بين الكلمات.",
+      "howto_step_3_name": "نسخ ناتج مورس أو تشغيله",
+      "howto_step_3_text": "انسخ النتيجة التي تم إنشاؤها، أو اضغط على التشغيل لسماع توقيت مورس ورؤيته.",
+      "howto_step_4_name": "استخدام جدول الأبجدية ومرجع SOS",
+      "howto_step_4_text": "افتح جدول أبجدية مورس وقسم مثال SOS لقراءة أنماط مورس أو تعلمها بسرعة أكبر.",
       "itemlist_name": "Morse code alphabet chart",
       "itemlist_1": "A .-",
       "itemlist_2": "B -...",
@@ -9967,4 +9967,6 @@
     "resume_playlist": "متابعة المقاطع المتبقية",
     "playlist_paused": "تم إيقاف القائمة مؤقتًا. بعد الانتظار، تابع من هذا المقطع."
   }
+,
+  "PdfToMarkdown": {"eyebrow":"PDF إلى Markdown","title":"محول PDF إلى Markdown","intro":"حوّل مستندات PDF النصية إلى Markdown قابل للتحرير داخل متصفحك. تتم معالجة الملف محليًا ولا يُرفع إلى خادمنا.","breadcrumb":{"tools":"الأدوات","current":"PDF إلى Markdown"},"upload":{"title":"ارفع ملف PDF للتحويل","drop":"اختر ملف PDF أو اسحبه هنا","limit":"ملفات PDF فقط. لا يدعم ملفات PDF الممسوحة ضوئيًا OCR."},"status":{"loading":"جارٍ تحميل PDF…","metadata":"جارٍ قراءة المستند…","page":"جارٍ قراءة الصفحة {current} من {total}…","converting":"جارٍ التحويل إلى Markdown…","progress":"اكتمل {progress}%"},"errors":{"invalidType":"يرجى اختيار ملف PDF صالح.","processing":"تعذرت معالجة ملف PDF."},"success":{"title":"اكتمل التحويل","description":"تم استخراج النص من {pages} صفحات. راجع Markdown وعدّله أدناه."},"actions":{"another":"تحويل PDF آخر","download":"تنزيل Markdown","edit":"تحرير","preview":"معاينة","placeholder":"سيظهر Markdown هنا…"},"stats":{"pages":"الصفحات","words":"الكلمات","characters":"الأحرف","size":"الحجم"},"about":{"heading":"ما الذي تفعله الأداة","description":"تستخرج الأداة النص من ملفات PDF النصية وتحوله إلى Markdown. تستخدم PDF.js داخل المتصفح ولا ترفع الملفات. قد تحتاج التخطيطات المعقدة إلى تعديل يدوي."},"steps":{"heading":"طريقة الاستخدام","one":"اختر ملف PDF أو اسحبه.","two":"انتظر حتى يقرأ المتصفح كل صفحة.","three":"راجع Markdown الناتج في المحرر أو المعاينة.","four":"نزّل ملف Markdown المعدل."},"faq":{"heading":"الأسئلة الشائعة","local":{"question":"هل يُرفع ملف PDF؟","answer":"لا. تتم المعالجة في متصفحك ويقرأ PDF.js الملف محليًا."},"scanned":{"question":"هل يدعم ملفات PDF الممسوحة ضوئيًا أو OCR؟","answer":"لا. يستخرج التنفيذ الحالي النص المضمّن ولا يتضمن OCR."},"limit":{"question":"هل يوجد حد لحجم الملف؟","answer":"لا تحدد الواجهة حدًا مستقلًا لحجم الملف؛ تعتمد الحدود العملية على المتصفح والمستند."}},"accessibility":{"breadcrumb":"مسار التنقل","home":"الرئيسية","tabs":"عرض Markdown","editor":"محرر Markdown"}}
 }

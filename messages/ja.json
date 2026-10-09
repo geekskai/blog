@@ -8868,195 +8868,195 @@
   },
   "MorseCodeTranslator": {
     "seo": {
-      "title": "Morse Code Translator & Generator",
-      "description": "Free online Morse Code Translator & Generator to encode text, decode Morse code, and play Morse audio instantly in your browser.",
+    "title": "モールス信号変換・生成ツール",
+    "description": "テキストをモールス信号に変換し、モールス信号を解読して、ブラウザですぐに音声再生できる無料のオンラインツールです。",
       "keywords": "morse code translator, morse code generator, morse code generator online, text to morse code, morse code to text, morse code decoder, what is morse code, how does morse code work, how to read morse code, how to learn morse code, morse code alphabet, morse code chart, morse code converter, morse code converter online, sos in morse code, what is sos in morse code, who invented morse code, when was morse code invented, morse code sound",
-      "og_alt": "Morse Code Translator on GeeksKai"
+    "og_alt": "GeeksKaiのモールス信号変換ツール"
     },
     "breadcrumb": {
-      "home": "Home",
-      "tools": "Tools",
-      "current": "Morse Code Translator"
+    "home": "ホーム",
+    "tools": "ツール",
+    "current": "モールス信号変換ツール"
     },
     "defaults": {
-      "input_text": "HELLO WORLD",
+      "input_text": "こんにちは 世界",
       "morse_sos": "... --- ..."
     },
     "placeholders": {
-      "encode": "Type message, e.g. HELLO WORLD",
-      "decode": "Use . and -, space between letters, / between words"
+      "encode": "メッセージを入力（例：HELLO WORLD）",
+      "decode": ". と - を使い、文字間は空白、単語間は / で区切ります"
     },
     "header": {
-      "title": "Morse Code Translator",
-      "quick_answer": "<strong>Quick answer:</strong> This page provides a free online <blue>Morse code translator</blue> for <cyan>text to Morse</cyan>, <purple>Morse to text</purple>, plus browser audio playback with no account needed."
+    "title": "モールス信号変換ツール",
+    "quick_answer": "<strong>簡単に言うと：</strong>このページでは、<cyan>テキストからモールス信号</cyan>、<purple>モールス信号からテキスト</purple>への変換と、アカウント不要のブラウザ音声再生ができる無料の<blue>モールス信号変換ツール</blue>を提供します。"
     },
     "core_facts": {
-      "title": "Core Facts",
-      "pricing_label": "Pricing",
-      "pricing_value": "<strong>Free</strong>, no sign-up.",
-      "features_label": "Main Features",
-      "features_value": "<strong>Encode</strong>, <strong>decode</strong>, and <strong>audio playback</strong>.",
-      "positioning_label": "Positioning",
-      "positioning_value": "Fast, browser-native Morse utility for learning and practical conversion.",
-      "users_label": "Target Users",
-      "users_value": "Students, ham radio users, puzzle makers, developers."
+    "title": "基本情報",
+    "pricing_label": "料金",
+    "pricing_value": "<strong>無料</strong>、登録不要。",
+    "features_label": "主な機能",
+    "features_value": "<strong>符号化</strong>、<strong>解読</strong>、<strong>音声再生</strong>。",
+    "positioning_label": "特徴",
+    "positioning_value": "学習や実用的な変換に使える、高速でブラウザ上で動作するモールス信号ツールです。",
+    "users_label": "対象ユーザー",
+    "users_value": "学生、アマチュア無線家、パズル制作者、開発者。"
     },
     "overview": {
-      "title": "What is Morse code?",
-      "description": "<strong>Direct answer:</strong> Morse code is a communication system that encodes letters and numbers with <blue>dots</blue> and <cyan>dashes</cyan>. It is still useful for learning signal timing, emergency patterns, and radio basics.",
-      "card_1_title": "How Morse code works",
-      "card_1_desc": "Each character maps to a unique dot-dash sequence, for example <strong>A = .-</strong> and <strong>B = -...</strong>.",
-      "card_2_title": "How to read Morse code",
-      "card_2_desc": "Read short signals as dots and long signals as dashes, then split by letter spaces and word separators.",
-      "card_3_title": "How to learn Morse code",
-      "card_3_desc": "Practice 5-10 minutes daily with common letters, then train listening speed using flash and audio playback."
+      "title": "モールス信号とは？",
+      "description": "<strong>直接の答え：</strong>モールス信号は、<blue>短点</blue>と<cyan>長点</cyan>で文字や数字を表す通信方式です。信号のリズム、緊急パターン、無線の基礎を学ぶのに今も役立ちます。",
+      "card_1_title": "モールス信号の仕組み",
+      "card_1_desc": "各文字は固有の短点・長点の並びに対応します。たとえば <strong>A = .-</strong>、<strong>B = -...</strong> です。",
+      "card_2_title": "モールス信号の読み方",
+      "card_2_desc": "短い信号を短点、長い信号を長点として読み、文字間の空白と単語区切りで分けます。",
+      "card_3_title": "モールス信号の学び方",
+      "card_3_desc": "よく使う文字を毎日5〜10分練習し、その後フラッシュと音声再生で聞き取りの速度を鍛えます。"
     },
     "tool": {
-      "mode_label": "Mode",
-      "mode_encode": "Text to Morse",
-      "mode_decode": "Morse to Text",
-      "input_text_label": "Input text",
-      "input_morse_label": "Input Morse code",
-      "output_morse": "Morse output",
-      "output_text": "Decoded text",
-      "output_placeholder": "Output will appear here.",
-      "signal_playing": "Morse flashlight is blinking by signal timing",
-      "signal_preview": "Signal lamp preview",
-      "no_signal": "No signal to preview.",
-      "stop_playback": "Stop playback",
-      "play_audio_flash": "Play audio + flash",
-      "play_flash": "Play flash",
-      "audio_title_on": "Audio and flash enabled",
-      "audio_title_off": "Flash-only mode enabled",
-      "audio_on": "Audio on",
-      "flash_only": "Flash only",
-      "copied": "Copied",
-      "copy_output": "Copy output"
+      "mode_label": "モード",
+      "mode_encode": "テキストからモールス信号",
+      "mode_decode": "モールス信号からテキスト",
+      "input_text_label": "入力テキスト",
+      "input_morse_label": "入力モールス信号",
+      "output_morse": "モールス信号の出力",
+      "output_text": "解読したテキスト",
+      "output_placeholder": "ここに結果が表示されます。",
+      "signal_playing": "信号のタイミングに合わせてモールスのライトが点滅しています",
+      "signal_preview": "信号ランプのプレビュー",
+      "no_signal": "プレビューできる信号がありません。",
+      "stop_playback": "再生を停止",
+      "play_audio_flash": "音声とフラッシュを再生",
+      "play_flash": "フラッシュを再生",
+      "audio_title_on": "音声とフラッシュを有効化",
+      "audio_title_off": "フラッシュのみのモードを有効化",
+      "audio_on": "音声オン",
+      "flash_only": "フラッシュのみ",
+      "copied": "コピーしました",
+      "copy_output": "出力をコピー"
     },
     "how_to": {
-      "title": "How to use this Morse code translator (step-by-step)",
-      "step_1_title": "1) Normalize input",
-      "step_1_desc": "Text is uppercased for consistent mapping; Morse input is split by spaces and `/`.",
-      "step_2_title": "2) Convert by dictionary",
-      "step_2_desc": "Characters map to dots and dashes using the ITU-style Morse table; unknown tokens return `?`.",
-      "step_3_title": "3) Render and playback",
-      "step_3_desc": "The output is shown as plain text and can be played as short/long tones in the browser audio engine."
+      "title": "モールス信号変換ツールの使い方（手順）",
+      "step_1_title": "1）入力を整える",
+      "step_1_desc": "文字を大文字に統一して変換します。モールス信号の入力は空白と `/` で分割されます。",
+      "step_2_title": "2）辞書で変換する",
+      "step_2_desc": "ITU形式のモールス信号表を使って文字を短点と長点に対応させます。不明な要素は `?` になります。",
+      "step_3_title": "3）表示して再生する",
+      "step_3_desc": "結果は通常のテキストで表示され、ブラウザの音声機能で短音・長音として再生できます。"
     },
     "boundaries": {
-      "title": "Boundaries and limitations",
-      "can_do": "<strong>Can do:</strong> text and Morse conversion, browser playback, quick educational reference.",
-      "cannot_do": "<strong>Cannot do:</strong> advanced radio protocol timing, signal-noise simulation, or long-form transmission logging.",
-      "input_scope": "<strong>Input scope:</strong> A-Z, 0-9, spaces, and standard Morse separators."
+      "title": "できることと制限",
+      "can_do": "<strong>できること：</strong>テキストとモールス信号の変換、ブラウザ再生、学習用の簡易リファレンス。",
+      "cannot_do": "<strong>できないこと：</strong>高度な無線プロトコルのタイミング、信号ノイズのシミュレーション、長時間の送信記録。",
+      "input_scope": "<strong>入力範囲：</strong>A-Z、0-9、空白、標準的なモールス信号の区切り記号。"
     },
     "sos": {
-      "title": "SOS in Morse code",
-      "text_label": "Text",
-      "morse_label": "Morse",
-      "use_case_label": "Use case",
-      "use_case_desc": "A standard emergency signal. You can paste it into Morse input and play flash or audio instantly."
+      "title": "モールス信号のSOS",
+      "text_label": "テキスト",
+      "morse_label": "モールス信号",
+      "use_case_label": "用途",
+      "use_case_desc": "標準的な緊急信号です。モールス信号の入力欄に貼り付けて、フラッシュまたは音声ですぐに再生できます。"
     },
     "history": {
-      "title": "Who invented Morse code and when?",
-      "description": "<strong>Short answer:</strong> Samuel Morse and Alfred Vail developed Morse code in the <amber>1830s</amber>, and it was adopted in practical telegraph systems during the <amber>1840s</amber>."
+      "title": "モールス信号を発明したのは誰で、いつですか？",
+      "description": "<strong>簡単な答え：</strong>サミュエル・モールスとアルフレッド・ヴェイルが<amber>1830年代</amber>にモールス信号を開発し、<amber>1840年代</amber>に実用的な電信システムで採用されました。"
     },
     "guide": {
-      "title": "Complete Morse code guide for beginners",
-      "p1": "<strong>Direct answer:</strong> Morse code is a practical signal language where each letter or number is represented by a sequence of dots and dashes. If your goal is to <cyan>translate text to Morse</cyan>, <blue>decode Morse to text</blue>, or simply learn the alphabet quickly, this page combines all three in one place: real-time conversion, flash rhythm playback, and an alphabet chart for fast lookup.",
-      "p2": "Many users search phrases like <strong>what is morse code</strong>, <strong>how to read morse code</strong>, and <strong>how to learn morse code</strong> because they need both a tool and a clear explanation. The fastest way to read Morse is to treat it as sound and timing patterns rather than visual symbols only. A dot is a short signal and a dash is a longer signal; letters are separated by short gaps and words are separated by longer breaks. Once this rhythm is clear, decoding speed improves quickly.",
-      "p3": "If you are practicing from scratch, start with a small set of high-frequency letters such as <strong>E, T, A, N, I, M, S, O</strong>. Then type simple words in the converter and switch between both modes to reinforce memory from both directions. For emergency awareness, memorize <rose>SOS = ... --- ...</rose> first. That one sequence appears in many learning resources and is one of the easiest Morse patterns to recognize at speed.",
-      "p4": "Historically, Morse code was developed by Samuel Morse and Alfred Vail in the 1830s and became widely used through telegraph networks in the 1840s. Today, people still use it for radio training, education, puzzle design, and creative projects like jewelry pattern encoding. In short, a modern <strong>morse code generator</strong> should do more than output symbols: it should help users understand meaning, timing, and practical use.",
-      "quick_a": "A in Morse code",
-      "quick_b": "B in Morse code",
-      "quick_c": "C in Morse code",
-      "quick_e": "E in Morse code",
-      "quick_s": "S in Morse code",
-      "quick_o": "O in Morse code"
+      "title": "初心者向けモールス信号完全ガイド",
+      "p1": "<strong>直接の答え：</strong>モールス信号は、文字や数字を短点と長点の並びで表す実用的な信号言語です。<cyan>テキストをモールス信号に変換</cyan>したり、<blue>モールス信号をテキストに解読</blue>したり、アルファベットを学んだりするために、リアルタイム変換、フラッシュ再生、アルファベット表を1か所で利用できます。",
+      "p2": "多くの人がモールス信号の意味や読み方、学び方を検索するのは、ツールと分かりやすい説明の両方が必要だからです。モールス信号は視覚記号だけでなく、音とタイミングのパターンとして捉えると読みやすくなります。短点は短い信号、長点は長い信号で、文字間は短く、単語間は長く区切られます。",
+      "p3": "初めて練習するなら、<strong>E、T、A、N、I、M、S、O</strong>など頻出文字から始めましょう。変換ツールで簡単な単語を入力し、2つのモードを切り替えると両方向の記憶を強化できます。緊急信号としては、まず <rose>SOS = ... --- ...</rose> を覚えるとよいでしょう。",
+      "p4": "モールス信号はサミュエル・モールスとアルフレッド・ヴェイルが1830年代に開発し、1840年代に電信網で広く使われました。現在も無線訓練、教育、パズル制作、ジュエリーのパターンなどに使われています。現代の<strong>モールス信号生成ツール</strong>は記号を出すだけでなく、意味やタイミング、実用例を理解できるようにするべきです。",
+      "quick_a": "モールス信号のA",
+      "quick_b": "モールス信号のB",
+      "quick_c": "モールス信号のC",
+      "quick_e": "モールス信号のE",
+      "quick_s": "モールス信号のS",
+      "quick_o": "モールス信号のO"
     },
     "alphabet_chart": {
-      "title": "Morse code alphabet chart (A-Z and 0-9)"
+      "title": "モールス信号アルファベット表（A-Z、0-9）"
     },
     "faq": {
-      "title": "Morse code translator FAQ"
+      "title": "モールス信号変換ツール FAQ"
     },
     "faq_1": {
-      "question": "What is a Morse code translator and how does it work?",
-      "answer": "A Morse code translator converts text to Morse code and Morse code back to text in seconds. This page also provides browser-based Morse audio and flash playback for timing practice."
+      "question": "モールス信号変換ツールとは何ですか？どのように動作しますか？",
+      "answer": "モールス信号変換ツールは、テキストをモールス信号に、モールス信号をテキストに数秒で変換します。このページでは、タイミング練習のためのブラウザ音声とフラッシュ再生も利用できます。"
     },
     "faq_2": {
-      "question": "How do I convert text to Morse code online for free?",
-      "answer": "Use Text to Morse mode, type your message, and copy the generated Morse output instantly. The converter is free, browser-based, and requires no sign-up."
+      "question": "無料でオンラインのテキストをモールス信号に変換するには？",
+      "answer": "「テキストからモールス」モードを選び、メッセージを入力して生成された結果をコピーします。無料でブラウザ上で動作し、登録は不要です。"
     },
     "faq_3": {
-      "question": "How do I decode Morse code to text correctly?",
-      "answer": "Use one space between Morse letters and a slash `/` between words for accurate decoding. Then switch to Morse to Text mode; example input is `... --- ... / .... . .-.. .--.`."
+      "question": "モールス信号を正しくテキストに解読するには？",
+      "answer": "モールス文字の間に空白を1つ、単語の間にスラッシュ `/` を使います。その後「モールスからテキスト」モードに切り替えます。入力例は `... --- ... / .... . .-.. .--.` です。"
     },
     "faq_4": {
-      "question": "Where can I find a Morse code alphabet chart for letters and numbers?",
-      "answer": "Open the Morse code alphabet chart section on this page to view A-Z and 0-9 mappings. It works as a quick reference while translating or learning Morse."
+      "question": "文字と数字のモールス信号表はどこで確認できますか？",
+      "answer": "このページのモールス信号アルファベット表を開くと、A-Zと0-9の対応を確認できます。変換や学習時の簡易リファレンスとして利用できます。"
     },
     "faq_5": {
-      "question": "What is SOS in Morse code?",
-      "answer": "SOS in Morse code is `... --- ...`. You can copy it directly into the Morse input field and play it with audio or flash timing."
+      "question": "モールス信号のSOSとは何ですか？",
+      "answer": "モールス信号のSOSは `... --- ...` です。モールス入力欄に直接コピーして、音声またはフラッシュで再生できます。"
     },
     "faq_6": {
-      "question": "Can this Morse code converter handle invalid Morse symbols?",
-      "answer": "Yes. Unknown or malformed Morse tokens are shown as `?`, so you can quickly identify where the Morse sequence needs correction."
+      "question": "このモールス信号変換ツールは無効な記号に対応していますか？",
+      "answer": "はい。不明または不正なモールス要素は `?` と表示されるため、どこを修正すべきかすぐに確認できます。"
     },
     "faq_7": {
-      "question": "Can I use this Morse code translator without sending data to a server?",
-      "answer": "Yes. Translation and playback run locally in your browser, helping protect privacy and keeping the converter fast."
+      "question": "サーバーにデータを送信せずに使えますか？",
+      "answer": "はい。変換と再生はブラウザ内でローカルに実行されるため、プライバシー保護に役立ち、変換も速く行えます。"
     },
     "faq_8": {
-      "question": "Who should use this Morse code generator and decoder?",
-      "answer": "It is useful for students, radio hobbyists, puzzle creators, and developers who need fast text-to-Morse and Morse-to-text conversion in one place."
+      "question": "このモールス信号生成・解読ツールは誰に向いていますか？",
+      "answer": "学生、無線愛好家、パズル制作者、テキストとモールス信号をすばやく変換したい開発者に役立ちます。"
     },
     "faq_9": {
-      "question": "How often is this Morse translator page updated for accuracy?",
-      "answer": "The page follows a 30-90 day GEO review cycle and displays a last updated date to provide freshness and confidence signals."
+      "question": "このページはどのくらいの頻度で更新されますか？",
+      "answer": "30〜90日のGEO確認サイクルに従い、更新日を表示して情報の新しさを示しています。"
     },
     "faq_10": {
-      "question": "What is Morse code?",
-      "answer": "Morse code is a character encoding system that represents letters and numbers using short and long signals known as dots and dashes."
+      "question": "モールス信号とは何ですか？",
+      "answer": "モールス信号は、短い信号と長い信号、つまり短点と長点で文字や数字を表す符号化方式です。"
     },
     "faq_11": {
-      "question": "How can I learn Morse code quickly?",
-      "answer": "Start with high-frequency letters, practice daily with short sessions, and use audio or flash playback to train rhythm recognition."
+      "question": "モールス信号を早く学ぶには？",
+      "answer": "よく使う文字から始め、毎日短時間練習し、音声やフラッシュ再生でリズム認識を鍛えましょう。"
     },
     "faq_12": {
-      "question": "Who invented Morse code and when was it invented?",
-      "answer": "Samuel Morse and Alfred Vail developed Morse code in the 1830s, and it became widely used in telegraph communication in the 1840s."
+      "question": "モールス信号を発明したのは誰で、いつですか？",
+      "answer": "サミュエル・モールスとアルフレッド・ヴェイルが1830年代に開発し、1840年代に電信通信で広く使われるようになりました。"
     },
     "sources": {
-      "title": "Data sources and trust signals",
-      "item_1": "<strong>ITU-R M.1677-1:</strong> International Morse code reference for letters, digits, and transmission pattern.",
-      "item_2": "<strong>Web Audio API:</strong> Browser-side audio generation used for dot/dash playback.",
-      "last_updated": "Last updated: <strong>{date}</strong> (review cycle: every 30-90 days)."
+      "title": "データソースと信頼性の根拠",
+      "item_1": "<strong>ITU-R M.1677-1：</strong>文字、数字、送信パターンに関する国際モールス信号リファレンス。",
+      "item_2": "<strong>Web Audio API：</strong>短点・長点の再生に使うブラウザ側の音声生成機能。",
+      "last_updated": "最終更新日：<strong>{date}</strong>（確認周期：30〜90日ごと）。"
     },
     "hidden_seo": {
-      "title": "Morse code generator vs translator",
-      "description": "A Morse code generator takes plain text input and encodes it into Morse symbols, while a Morse code translator typically supports both directions: encode text to Morse and decode Morse to readable text. This page includes both generator and translator behavior, plus audio playback for signal timing practice."
+      "title": "モールス信号生成ツールと変換ツールの違い",
+      "description": "モールス信号生成ツールはテキストをモールス記号に変換し、モールス信号変換ツールはテキストからモールス信号への変換と、モールス信号から読みやすいテキストへの解読の両方に対応します。このページでは両方の機能と、信号のタイミング練習用の音声再生を提供します。"
     },
     "schema": {
-      "webapp_name": "Morse Code Translator",
-      "alternate_names": "Morse Code Generator, Morse Code Decoder, Morse Code Converter",
-      "feature_1": "Text to Morse conversion",
-      "feature_2": "Morse to text decoding",
-      "feature_3": "Morse code alphabet chart",
-      "feature_4": "SOS in Morse code quick reference",
-      "feature_5": "Morse audio playback",
-      "feature_6": "Reference table",
-      "feature_7": "No registration required",
-      "howto_name": "How to translate text and Morse code online",
-      "howto_description": "Use this step-by-step guide to encode text to Morse code, decode Morse to text, and play Morse audio.",
-      "howto_step_1_name": "Choose conversion mode",
-      "howto_step_1_text": "Select Text to Morse to encode plain text, or Morse to Text to decode Morse signals.",
-      "howto_step_2_name": "Paste your content",
-      "howto_step_2_text": "Enter text, or provide Morse with spaces between letters and slash between words.",
-      "howto_step_3_name": "Copy or play Morse output",
-      "howto_step_3_text": "Copy the generated result, or click play to hear and visualize Morse timing.",
-      "howto_step_4_name": "Use the alphabet chart and SOS reference",
-      "howto_step_4_text": "Open the Morse code alphabet chart and SOS example section to read or learn Morse patterns faster.",
-      "itemlist_name": "Morse code alphabet chart",
+      "webapp_name": "モールス信号変換ツール",
+      "alternate_names": "モールス信号生成ツール、モールス信号解読ツール、モールス信号コンバーター",
+      "feature_1": "テキストからモールス信号への変換",
+      "feature_2": "モールス信号からテキストへの解読",
+      "feature_3": "モールス信号アルファベット表",
+      "feature_4": "モールス信号のSOS簡易リファレンス",
+      "feature_5": "モールス音声再生",
+      "feature_6": "リファレンス表",
+      "feature_7": "登録不要",
+      "howto_name": "テキストとモールス信号をオンラインで変換する方法",
+      "howto_description": "この手順ガイドを使って、テキストをモールス信号に変換し、モールス信号をテキストに解読して、モールス音声を再生します。",
+      "howto_step_1_name": "変換モードを選ぶ",
+      "howto_step_1_text": "通常のテキストを変換するには「テキストからモールス」、信号を解読するには「モールスからテキスト」を選びます。",
+      "howto_step_2_name": "内容を入力する",
+      "howto_step_2_text": "テキストを入力するか、文字間を空白、単語間をスラッシュで区切ったモールス信号を入力します。",
+      "howto_step_3_name": "結果をコピーまたは再生する",
+      "howto_step_3_text": "生成された結果をコピーするか、再生ボタンでモールスのタイミングを音声と表示で確認します。",
+      "howto_step_4_name": "アルファベット表とSOSを使う",
+      "howto_step_4_text": "モールス信号表とSOSの例を開いて、信号パターンをより速く読んだり学んだりします。",
+      "itemlist_name": "モールス信号アルファベット表",
       "itemlist_1": "A .-",
       "itemlist_2": "B -...",
       "itemlist_3": "C -.-.",
@@ -10076,4 +10076,6 @@
     "resume_playlist": "残りの曲を再開",
     "playlist_paused": "プレイリストは一時停止中です。待機時間後にこの曲から再開できます。"
   }
+,
+  "PdfToMarkdown": {"eyebrow":"PDF to Markdown","title":"PDF to Markdown コンバーター","intro":"テキストベースの PDF を、ブラウザー上で編集可能な Markdown に変換します。ファイルはローカルで処理され、サーバーにはアップロードされません。","breadcrumb":{"tools":"ツール","current":"PDF to Markdown"},"upload":{"title":"変換する PDF をアップロード","drop":"PDF を選択するか、ここにドラッグしてください","limit":"PDF のみ対応。スキャン PDF の OCR には対応していません。"},"status":{"loading":"PDF を読み込んでいます…","metadata":"文書を読み取っています…","page":"{total} ページ中 {current} ページを読み取っています…","converting":"Markdown に変換しています…","progress":"{progress}% 完了"},"errors":{"invalidType":"有効な PDF ファイルを選択してください。","processing":"PDF を処理できませんでした。"},"success":{"title":"変換完了","description":"{pages} ページからテキストを抽出しました。下の Markdown を確認・編集してください。"},"actions":{"another":"別の PDF を変換","download":"Markdown をダウンロード","edit":"編集","preview":"プレビュー","placeholder":"変換された Markdown がここに表示されます…"},"stats":{"pages":"ページ","words":"単語","characters":"文字","size":"サイズ"},"about":{"heading":"このツールについて","description":"テキストベースの PDF からテキストを抽出し、Markdown に変換します。PDF.js がブラウザー内で動作するため、ファイルはアップロードされません。複雑なレイアウトは編集が必要な場合があります。"},"steps":{"heading":"使い方","one":"PDF を選択またはドラッグします。","two":"ブラウザーが各ページを読み取るまで待ちます。","three":"生成された Markdown を確認します。","four":"編集した Markdown ファイルをダウンロードします。"},"faq":{"heading":"よくある質問","local":{"question":"PDF はアップロードされますか？","answer":"いいえ。変換はブラウザー内で行われ、PDF.js がファイルをローカルで読み取ります。"},"scanned":{"question":"スキャン PDF や OCR に対応していますか？","answer":"いいえ。現在の実装は埋め込みテキストを抽出しますが、OCR は搭載していません。"},"limit":{"question":"ファイルサイズの制限はありますか？","answer":"画面上で個別のサイズ制限は設定していません。実際の制限はブラウザーと文書によって異なります。"}},"accessibility":{"breadcrumb":"パンくずリスト","home":"ホーム","tabs":"Markdown 表示","editor":"Markdown エディター"}}
 }

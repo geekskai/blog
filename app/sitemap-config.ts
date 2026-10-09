@@ -29,20 +29,12 @@ const defaultToolLocalePolicy: ToolLocalePolicy = {
   unsupportedLocale: "redirect-to-default",
 }
 
-const englishOnlyToolLocalePolicy: ToolLocalePolicy = {
-  indexedLocales: [defaultLocale],
-  unsupportedLocale: "redirect-to-default",
-}
-
 const soundCloudToolLocalePolicy: ToolLocalePolicy = {
   indexedLocales: soundCloudGrowthLocales,
   unsupportedLocale: "redirect-to-default",
 }
 
-const toolLocalePolicies: Record<string, ToolLocalePolicy> = {
-  "/tools/pdf-to-markdown/": englishOnlyToolLocalePolicy,
-  "/tools/morse-code-translator/": englishOnlyToolLocalePolicy,
-}
+const toolLocalePolicies: Record<string, ToolLocalePolicy> = {}
 
 function normalizeToolPath(path: string) {
   const withLeadingSlash = path.startsWith("/") ? path : `/${path}`

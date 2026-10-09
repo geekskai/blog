@@ -72,10 +72,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   })
 
   const vinComparePath = "/tools/vin-decoder/vin-decoder-vs-vin-check/"
-  const vinCompareRoute = {
-    url: getLocalizedUrl(siteUrl, "en", vinComparePath),
-    alternates: { languages: buildLanguageAlternates(siteUrl, vinComparePath, ["en"]) },
-  }
+  const vinCompareRoutes = supportedLocales.map((locale) => ({
+    url: getLocalizedUrl(siteUrl, locale, vinComparePath),
+    alternates: { languages: buildLanguageAlternates(siteUrl, vinComparePath, [...supportedLocales]) },
+  }))
 
   // Generate tool routes for all locales
   const toolRoutes = toolsData.flatMap((tool) => {
@@ -105,7 +105,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...pixelsToInchesRoutes,
     ...vinBrandRoutes,
     ...vinVehicleTypeRoutes,
-    vinCompareRoute,
+    ...vinCompareRoutes,
   ]
 
   // Remove duplicates and sort by priority

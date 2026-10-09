@@ -2,8 +2,8 @@
 
 import {
   getSoundCloudPageCopy,
+  getSoundCloudSectionCopy,
   SOUNDCLOUD_SEO_UPDATED,
-  soundCloudSectionCopy,
   type SoundCloudEvidencePage,
 } from "@/data/soundCloudSeo"
 import { useLocale } from "next-intl"
@@ -11,7 +11,7 @@ import { useLocale } from "next-intl"
 export default function SoundCloudEvidenceContent({ page }: { page: SoundCloudEvidencePage }) {
   const locale = useLocale()
   const copy = getSoundCloudPageCopy(page, locale)
-  const section = soundCloudSectionCopy[locale] ?? soundCloudSectionCopy.en
+  const section = getSoundCloudSectionCopy(locale)
 
   return (
     <article className="mx-auto max-w-7xl space-y-6 md:space-y-8">

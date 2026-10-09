@@ -8633,195 +8633,195 @@
   },
   "MorseCodeTranslator": {
     "seo": {
-      "title": "Morse Code Translator & Generator",
-      "description": "Free online Morse Code Translator & Generator to encode text, decode Morse code, and play Morse audio instantly in your browser.",
+    "title": "Morsekode-oversetter og generator",
+    "description": "Gratis nettbasert verktøy for å kode tekst til morsekode, dekode morsekode og spille av morse-lyd direkte i nettleseren.",
       "keywords": "morse code translator, morse code generator, morse code generator online, text to morse code, morse code to text, morse code decoder, what is morse code, how does morse code work, how to read morse code, how to learn morse code, morse code alphabet, morse code chart, morse code converter, morse code converter online, sos in morse code, what is sos in morse code, who invented morse code, when was morse code invented, morse code sound",
-      "og_alt": "Morse Code Translator on GeeksKai"
+    "og_alt": "Morsekode-oversetter på GeeksKai"
     },
     "breadcrumb": {
-      "home": "Home",
-      "tools": "Tools",
-      "current": "Morse Code Translator"
+    "home": "Hjem",
+    "tools": "Verktøy",
+    "current": "Morsekode-oversetter"
     },
     "defaults": {
-      "input_text": "HELLO WORLD",
+      "input_text": "HEI VERDEN",
       "morse_sos": "... --- ..."
     },
     "placeholders": {
-      "encode": "Type message, e.g. HELLO WORLD",
-      "decode": "Use . and -, space between letters, / between words"
+      "encode": "Skriv inn en melding, f.eks. HELLO WORLD",
+      "decode": "Bruk . og -, mellomrom mellom bokstaver og / mellom ord"
     },
     "header": {
-      "title": "Morse Code Translator",
-      "quick_answer": "<strong>Quick answer:</strong> This page provides a free online <blue>Morse code translator</blue> for <cyan>text to Morse</cyan>, <purple>Morse to text</purple>, plus browser audio playback with no account needed."
+    "title": "Morsekode-oversetter",
+    "quick_answer": "<strong>Kort svar:</strong> Denne siden tilbyr en gratis nettbasert <blue>morsekode-oversetter</blue> for <cyan>tekst til morsekode</cyan> og <purple>morsekode til tekst</purple>, samt lydavspilling i nettleseren uten konto."
     },
     "core_facts": {
-      "title": "Core Facts",
-      "pricing_label": "Pricing",
-      "pricing_value": "<strong>Free</strong>, no sign-up.",
-      "features_label": "Main Features",
-      "features_value": "<strong>Encode</strong>, <strong>decode</strong>, and <strong>audio playback</strong>.",
-      "positioning_label": "Positioning",
-      "positioning_value": "Fast, browser-native Morse utility for learning and practical conversion.",
-      "users_label": "Target Users",
-      "users_value": "Students, ham radio users, puzzle makers, developers."
+    "title": "Kjernefakta",
+    "pricing_label": "Pris",
+    "pricing_value": "<strong>Gratis</strong>, ingen registrering.",
+    "features_label": "Hovedfunksjoner",
+    "features_value": "<strong>Kode</strong>, <strong>dekode</strong> og <strong>lydavspilling</strong>.",
+    "positioning_label": "Beskrivelse",
+    "positioning_value": "Et raskt, nettleserbasert morseverktøy for læring og praktisk konvertering.",
+    "users_label": "Målgrupper",
+    "users_value": "Studenter, radioamatører, puslespilldesignere og utviklere."
     },
     "overview": {
-      "title": "What is Morse code?",
-      "description": "<strong>Direct answer:</strong> Morse code is a communication system that encodes letters and numbers with <blue>dots</blue> and <cyan>dashes</cyan>. It is still useful for learning signal timing, emergency patterns, and radio basics.",
-      "card_1_title": "How Morse code works",
-      "card_1_desc": "Each character maps to a unique dot-dash sequence, for example <strong>A = .-</strong> and <strong>B = -...</strong>.",
-      "card_2_title": "How to read Morse code",
-      "card_2_desc": "Read short signals as dots and long signals as dashes, then split by letter spaces and word separators.",
-      "card_3_title": "How to learn Morse code",
-      "card_3_desc": "Practice 5-10 minutes daily with common letters, then train listening speed using flash and audio playback."
+      "title": "Hva er morsekode?",
+      "description": "<strong>Direkte svar:</strong> Morsekode er et kommunikasjonssystem som koder bokstaver og tall med <blue>prikker</blue> og <cyan>streker</cyan>. Det er fortsatt nyttig for å lære signalrytme, nødmønstre og grunnleggende radio.",
+      "card_1_title": "Slik fungerer morsekode",
+      "card_1_desc": "Hvert tegn tilsvarer en unik kombinasjon av prikker og streker, for eksempel <strong>A = .-</strong> og <strong>B = -...</strong>.",
+      "card_2_title": "Slik leser du morsekode",
+      "card_2_desc": "Les korte signaler som prikker og lange signaler som streker, og skill deretter med mellomrom mellom bokstaver og ord.",
+      "card_3_title": "Slik lærer du morsekode",
+      "card_3_desc": "Øv 5–10 minutter daglig med vanlige bokstaver, og tren deretter lyttehastigheten med blink og lydavspilling."
     },
     "tool": {
-      "mode_label": "Mode",
-      "mode_encode": "Text to Morse",
-      "mode_decode": "Morse to Text",
-      "input_text_label": "Input text",
-      "input_morse_label": "Input Morse code",
-      "output_morse": "Morse output",
-      "output_text": "Decoded text",
-      "output_placeholder": "Output will appear here.",
-      "signal_playing": "Morse flashlight is blinking by signal timing",
-      "signal_preview": "Signal lamp preview",
-      "no_signal": "No signal to preview.",
-      "stop_playback": "Stop playback",
-      "play_audio_flash": "Play audio + flash",
-      "play_flash": "Play flash",
-      "audio_title_on": "Audio and flash enabled",
-      "audio_title_off": "Flash-only mode enabled",
-      "audio_on": "Audio on",
-      "flash_only": "Flash only",
-      "copied": "Copied",
-      "copy_output": "Copy output"
+      "mode_label": "Modus",
+      "mode_encode": "Tekst til morse",
+      "mode_decode": "Morse til tekst",
+      "input_text_label": "Tekst inn",
+      "input_morse_label": "Morsekode inn",
+      "output_morse": "Morse-resultat",
+      "output_text": "Dekodet tekst",
+      "output_placeholder": "Resultatet vises her.",
+      "signal_playing": "Morseblitsen blinker etter signalets rytme",
+      "signal_preview": "Forhåndsvisning av signallampe",
+      "no_signal": "Ingen signaler å forhåndsvise.",
+      "stop_playback": "Stopp avspilling",
+      "play_audio_flash": "Spill av lyd og blink",
+      "play_flash": "Spill av blink",
+      "audio_title_on": "Lyd og blink aktivert",
+      "audio_title_off": "Kun blink-modus aktivert",
+      "audio_on": "Lyd på",
+      "flash_only": "Kun blink",
+      "copied": "Kopiert",
+      "copy_output": "Kopier resultatet"
     },
     "how_to": {
-      "title": "How to use this Morse code translator (step-by-step)",
-      "step_1_title": "1) Normalize input",
-      "step_1_desc": "Text is uppercased for consistent mapping; Morse input is split by spaces and `/`.",
-      "step_2_title": "2) Convert by dictionary",
-      "step_2_desc": "Characters map to dots and dashes using the ITU-style Morse table; unknown tokens return `?`.",
-      "step_3_title": "3) Render and playback",
-      "step_3_desc": "The output is shown as plain text and can be played as short/long tones in the browser audio engine."
+      "title": "Slik bruker du denne morsekode-oversetteren (trinn for trinn)",
+      "step_1_title": "1) Normaliser inndata",
+      "step_1_desc": "Tekst gjøres om til store bokstaver for jevn kobling; morseinndata deles ved mellomrom og `/`.",
+      "step_2_title": "2) Konverter med ordboken",
+      "step_2_desc": "Tegn kobles til prikker og streker med en ITU-basert morsekodetabell; ukjente elementer gir `?`.",
+      "step_3_title": "3) Vis og spill av",
+      "step_3_desc": "Resultatet vises som ren tekst og kan spilles av som korte eller lange toner i nettleserens lydmotor."
     },
     "boundaries": {
-      "title": "Boundaries and limitations",
-      "can_do": "<strong>Can do:</strong> text and Morse conversion, browser playback, quick educational reference.",
-      "cannot_do": "<strong>Cannot do:</strong> advanced radio protocol timing, signal-noise simulation, or long-form transmission logging.",
-      "input_scope": "<strong>Input scope:</strong> A-Z, 0-9, spaces, and standard Morse separators."
+      "title": "Grenser og begrensninger",
+      "can_do": "<strong>Kan gjøre:</strong> konvertere tekst og morse, spille av i nettleseren og fungere som en rask læringsreferanse.",
+      "cannot_do": "<strong>Kan ikke gjøre:</strong> avansert tidsstyring av radioprotokoller, simulering av signalstøy eller logging av lange overføringer.",
+      "input_scope": "<strong>Inndata:</strong> A-Z, 0-9, mellomrom og standard morsekodeskillemerker."
     },
     "sos": {
-      "title": "SOS in Morse code",
-      "text_label": "Text",
+      "title": "SOS i morsekode",
+      "text_label": "Tekst",
       "morse_label": "Morse",
-      "use_case_label": "Use case",
-      "use_case_desc": "A standard emergency signal. You can paste it into Morse input and play flash or audio instantly."
+      "use_case_label": "Bruksområde",
+      "use_case_desc": "Et standard nødsignal. Du kan lime det inn i morseinndata og spille det av med blink eller lyd med én gang."
     },
     "history": {
-      "title": "Who invented Morse code and when?",
-      "description": "<strong>Short answer:</strong> Samuel Morse and Alfred Vail developed Morse code in the <amber>1830s</amber>, and it was adopted in practical telegraph systems during the <amber>1840s</amber>."
+      "title": "Hvem oppfant morsekode, og når?",
+      "description": "<strong>Kort svar:</strong> Samuel Morse og Alfred Vail utviklet morsekode på <amber>1830-tallet</amber>, og den ble tatt i bruk i praktiske telegrafsystemer på <amber>1840-tallet</amber>."
     },
     "guide": {
-      "title": "Complete Morse code guide for beginners",
-      "p1": "<strong>Direct answer:</strong> Morse code is a practical signal language where each letter or number is represented by a sequence of dots and dashes. If your goal is to <cyan>translate text to Morse</cyan>, <blue>decode Morse to text</blue>, or simply learn the alphabet quickly, this page combines all three in one place: real-time conversion, flash rhythm playback, and an alphabet chart for fast lookup.",
-      "p2": "Many users search phrases like <strong>what is morse code</strong>, <strong>how to read morse code</strong>, and <strong>how to learn morse code</strong> because they need both a tool and a clear explanation. The fastest way to read Morse is to treat it as sound and timing patterns rather than visual symbols only. A dot is a short signal and a dash is a longer signal; letters are separated by short gaps and words are separated by longer breaks. Once this rhythm is clear, decoding speed improves quickly.",
-      "p3": "If you are practicing from scratch, start with a small set of high-frequency letters such as <strong>E, T, A, N, I, M, S, O</strong>. Then type simple words in the converter and switch between both modes to reinforce memory from both directions. For emergency awareness, memorize <rose>SOS = ... --- ...</rose> first. That one sequence appears in many learning resources and is one of the easiest Morse patterns to recognize at speed.",
-      "p4": "Historically, Morse code was developed by Samuel Morse and Alfred Vail in the 1830s and became widely used through telegraph networks in the 1840s. Today, people still use it for radio training, education, puzzle design, and creative projects like jewelry pattern encoding. In short, a modern <strong>morse code generator</strong> should do more than output symbols: it should help users understand meaning, timing, and practical use.",
-      "quick_a": "A in Morse code",
-      "quick_b": "B in Morse code",
-      "quick_c": "C in Morse code",
-      "quick_e": "E in Morse code",
-      "quick_s": "S in Morse code",
-      "quick_o": "O in Morse code"
+      "title": "Komplett morsekodeguide for nybegynnere",
+      "p1": "<strong>Direkte svar:</strong> Morsekode er et praktisk signalspråk der hver bokstav og hvert tall representeres av prikker og streker. Hvis du vil <cyan>konvertere tekst til morse</cyan>, <blue>dekode morse til tekst</blue> eller lære alfabetet raskt, finner du alt her: konvertering i sanntid, blinkende rytme og en alfabetreferanse.",
+      "p2": "Mange søker etter hva morsekode er, hvordan den leses og hvordan den læres, fordi de trenger både et verktøy og en tydelig forklaring. Den raskeste måten å lese morse på er å forstå den som lyd- og tidsmønstre, ikke bare visuelle symboler. En prikk er et kort signal og en strek et lengre signal; bokstaver og ord skilles med pauser av ulik lengde.",
+      "p3": "Når du begynner, kan du starte med vanlige bokstaver som <strong>E, T, A, N, I, M, S, O</strong>. Skriv deretter enkle ord i konverteren og bytt mellom modusene for å styrke hukommelsen i begge retninger. For nødsituasjoner bør du først lære <rose>SOS = ... --- ...</rose>.",
+      "p4": "Samuel Morse og Alfred Vail utviklet morsekode på 1830-tallet, og den ble utbredt gjennom telegraflinjer på 1840-tallet. I dag brukes den fortsatt i radiotrening, undervisning, puslespill og kreative prosjekter som mønstre i smykker. En moderne <strong>morsekodegenerator</strong> bør derfor hjelpe brukere å forstå mening, rytme og praktisk bruk – ikke bare vise symboler.",
+      "quick_a": "A i morsekode",
+      "quick_b": "B i morsekode",
+      "quick_c": "C i morsekode",
+      "quick_e": "E i morsekode",
+      "quick_s": "S i morsekode",
+      "quick_o": "O i morsekode"
     },
     "alphabet_chart": {
-      "title": "Morse code alphabet chart (A-Z and 0-9)"
+      "title": "Morsekode-alfabet (A–Z og 0–9)"
     },
     "faq": {
-      "title": "Morse code translator FAQ"
+      "title": "Vanlige spørsmål om morsekode-oversetteren"
     },
     "faq_1": {
-      "question": "What is a Morse code translator and how does it work?",
-      "answer": "A Morse code translator converts text to Morse code and Morse code back to text in seconds. This page also provides browser-based Morse audio and flash playback for timing practice."
+      "question": "Hva er en morsekode-oversetter, og hvordan fungerer den?",
+      "answer": "En morsekode-oversetter konverterer tekst til morsekode og morsekode tilbake til tekst på sekunder. Siden tilbyr også nettleserbasert morse-lyd og blinkavspilling for å øve på rytme."
     },
     "faq_2": {
-      "question": "How do I convert text to Morse code online for free?",
-      "answer": "Use Text to Morse mode, type your message, and copy the generated Morse output instantly. The converter is free, browser-based, and requires no sign-up."
+      "question": "Hvordan konverterer jeg tekst til morsekode gratis på nettet?",
+      "answer": "Velg Tekst til morse, skriv inn meldingen og kopier resultatet med én gang. Konverteren er gratis, nettleserbasert og krever ingen registrering."
     },
     "faq_3": {
-      "question": "How do I decode Morse code to text correctly?",
-      "answer": "Use one space between Morse letters and a slash `/` between words for accurate decoding. Then switch to Morse to Text mode; example input is `... --- ... / .... . .-.. .--.`."
+      "question": "Hvordan dekoder jeg morsekode til tekst på riktig måte?",
+      "answer": "Bruk ett mellomrom mellom morsebokstaver og en skråstrek `/` mellom ord. Bytt deretter til Morse til tekst; eksempel på inndata er `... --- ... / .... . .-.. .--.`."
     },
     "faq_4": {
-      "question": "Where can I find a Morse code alphabet chart for letters and numbers?",
-      "answer": "Open the Morse code alphabet chart section on this page to view A-Z and 0-9 mappings. It works as a quick reference while translating or learning Morse."
+      "question": "Hvor finner jeg en morsekodetabell for bokstaver og tall?",
+      "answer": "Åpne morsekodealfabetet på denne siden for å se koblingene for A–Z og 0–9. Det fungerer som en rask referanse når du oversetter eller lærer morse."
     },
     "faq_5": {
-      "question": "What is SOS in Morse code?",
-      "answer": "SOS in Morse code is `... --- ...`. You can copy it directly into the Morse input field and play it with audio or flash timing."
+      "question": "Hva er SOS i morsekode?",
+      "answer": "SOS i morsekode er `... --- ...`. Du kan kopiere det direkte til morsefeltet og spille det av med lyd eller blink."
     },
     "faq_6": {
-      "question": "Can this Morse code converter handle invalid Morse symbols?",
-      "answer": "Yes. Unknown or malformed Morse tokens are shown as `?`, so you can quickly identify where the Morse sequence needs correction."
+      "question": "Kan denne morsekodekonverteren håndtere ugyldige symboler?",
+      "answer": "Ja. Ukjente eller feilformede morseelementer vises som `?`, slik at du raskt kan finne hvor sekvensen må korrigeres."
     },
     "faq_7": {
-      "question": "Can I use this Morse code translator without sending data to a server?",
-      "answer": "Yes. Translation and playback run locally in your browser, helping protect privacy and keeping the converter fast."
+      "question": "Kan jeg bruke morsekode-oversetteren uten å sende data til en server?",
+      "answer": "Ja. Oversettelse og avspilling kjører lokalt i nettleseren, noe som bidrar til å beskytte personvernet og holde konverteringen rask."
     },
     "faq_8": {
-      "question": "Who should use this Morse code generator and decoder?",
-      "answer": "It is useful for students, radio hobbyists, puzzle creators, and developers who need fast text-to-Morse and Morse-to-text conversion in one place."
+      "question": "Hvem bør bruke denne morsekodegeneratoren og dekoderen?",
+      "answer": "Den er nyttig for studenter, radioamatører, puslespilldesignere og utviklere som trenger rask konvertering mellom tekst og morse på ett sted."
     },
     "faq_9": {
-      "question": "How often is this Morse translator page updated for accuracy?",
-      "answer": "The page follows a 30-90 day GEO review cycle and displays a last updated date to provide freshness and confidence signals."
+      "question": "Hvor ofte oppdateres denne morsekodesiden?",
+      "answer": "Siden følger en GEO-gjennomgang hver 30.–90. dag og viser datoen for siste oppdatering."
     },
     "faq_10": {
-      "question": "What is Morse code?",
-      "answer": "Morse code is a character encoding system that represents letters and numbers using short and long signals known as dots and dashes."
+      "question": "Hva er morsekode?",
+      "answer": "Morsekode er et tegnkodingssystem som representerer bokstaver og tall med korte og lange signaler, kjent som prikker og streker."
     },
     "faq_11": {
-      "question": "How can I learn Morse code quickly?",
-      "answer": "Start with high-frequency letters, practice daily with short sessions, and use audio or flash playback to train rhythm recognition."
+      "question": "Hvordan kan jeg lære morsekode raskt?",
+      "answer": "Start med vanlige bokstaver, øv daglig i korte økter og bruk lyd eller blink for å trene på å kjenne igjen rytmen."
     },
     "faq_12": {
-      "question": "Who invented Morse code and when was it invented?",
-      "answer": "Samuel Morse and Alfred Vail developed Morse code in the 1830s, and it became widely used in telegraph communication in the 1840s."
+      "question": "Hvem oppfant morsekode, og når?",
+      "answer": "Samuel Morse og Alfred Vail utviklet morsekode på 1830-tallet, og den ble utbredt i telegrafkommunikasjon på 1840-tallet."
     },
     "sources": {
-      "title": "Data sources and trust signals",
-      "item_1": "<strong>ITU-R M.1677-1:</strong> International Morse code reference for letters, digits, and transmission pattern.",
-      "item_2": "<strong>Web Audio API:</strong> Browser-side audio generation used for dot/dash playback.",
-      "last_updated": "Last updated: <strong>{date}</strong> (review cycle: every 30-90 days)."
+      "title": "Datakilder og tillitssignaler",
+      "item_1": "<strong>ITU-R M.1677-1:</strong> Internasjonal referanse for morsekode, bokstaver, sifre og overføringsmønstre.",
+      "item_2": "<strong>Web Audio API:</strong> Nettleserbasert lydgenerering som brukes til avspilling av prikker og streker.",
+      "last_updated": "Sist oppdatert: <strong>{date}</strong> (gjennomgang hver 30.–90. dag)."
     },
     "hidden_seo": {
-      "title": "Morse code generator vs translator",
-      "description": "A Morse code generator takes plain text input and encodes it into Morse symbols, while a Morse code translator typically supports both directions: encode text to Morse and decode Morse to readable text. This page includes both generator and translator behavior, plus audio playback for signal timing practice."
+      "title": "Morsekodegenerator eller oversetter",
+      "description": "En morsekodegenerator tar inn ren tekst og koder den til morsesymboler, mens en morsekode-oversetter vanligvis støtter begge retninger: kode tekst til morse og dekode morse til lesbar tekst. Denne siden har begge funksjonene samt lydavspilling for trening på signalrytme."
     },
     "schema": {
-      "webapp_name": "Morse Code Translator",
-      "alternate_names": "Morse Code Generator, Morse Code Decoder, Morse Code Converter",
-      "feature_1": "Text to Morse conversion",
-      "feature_2": "Morse to text decoding",
-      "feature_3": "Morse code alphabet chart",
-      "feature_4": "SOS in Morse code quick reference",
-      "feature_5": "Morse audio playback",
-      "feature_6": "Reference table",
-      "feature_7": "No registration required",
-      "howto_name": "How to translate text and Morse code online",
-      "howto_description": "Use this step-by-step guide to encode text to Morse code, decode Morse to text, and play Morse audio.",
-      "howto_step_1_name": "Choose conversion mode",
-      "howto_step_1_text": "Select Text to Morse to encode plain text, or Morse to Text to decode Morse signals.",
-      "howto_step_2_name": "Paste your content",
-      "howto_step_2_text": "Enter text, or provide Morse with spaces between letters and slash between words.",
-      "howto_step_3_name": "Copy or play Morse output",
-      "howto_step_3_text": "Copy the generated result, or click play to hear and visualize Morse timing.",
-      "howto_step_4_name": "Use the alphabet chart and SOS reference",
-      "howto_step_4_text": "Open the Morse code alphabet chart and SOS example section to read or learn Morse patterns faster.",
-      "itemlist_name": "Morse code alphabet chart",
+      "webapp_name": "Morsekode-oversetter",
+      "alternate_names": "Morsekodegenerator, morsekodedekoder, morsekodekonverterer",
+      "feature_1": "Konvertering fra tekst til morse",
+      "feature_2": "Dekoding fra morse til tekst",
+      "feature_3": "Morsekodealfabet",
+      "feature_4": "Rask referanse for SOS i morse",
+      "feature_5": "Morse-lydavspilling",
+      "feature_6": "Referansetabell",
+      "feature_7": "Ingen registrering nødvendig",
+      "howto_name": "Slik oversetter du tekst og morsekode på nettet",
+      "howto_description": "Bruk denne trinnvise veiledningen til å kode tekst til morse, dekode morse til tekst og spille av morse-lyd.",
+      "howto_step_1_name": "Velg konverteringsmodus",
+      "howto_step_1_text": "Velg Tekst til morse for å kode ren tekst, eller Morse til tekst for å dekode morsesignaler.",
+      "howto_step_2_name": "Lim inn innholdet",
+      "howto_step_2_text": "Skriv inn tekst eller morse med mellomrom mellom bokstaver og skråstrek mellom ord.",
+      "howto_step_3_name": "Kopier eller spill av morseresultatet",
+      "howto_step_3_text": "Kopier resultatet eller trykk på avspillingsknappen for å høre og se morserytmen.",
+      "howto_step_4_name": "Bruk alfabetet og SOS-referansen",
+      "howto_step_4_text": "Åpne morsekodealfabetet og SOS-eksempelet for å lese eller lære morsemønstre raskere.",
+      "itemlist_name": "Morsekodealfabet",
       "itemlist_1": "A .-",
       "itemlist_2": "B -...",
       "itemlist_3": "C -.-.",
@@ -9842,5 +9842,71 @@
     "retry_after": "Nedlastingstjenesten er opptatt. Prøv igjen om {seconds} sekunder.",
     "resume_playlist": "Fortsett med resten av sporene",
     "playlist_paused": "Spillelisten er satt på pause. Fortsett fra dette sporet etter ventetiden."
+  },
+  "PdfToMarkdown": {
+    "eyebrow": "PDF til Markdown",
+    "title": "PDF til Markdown-konverter",
+    "intro": "Gjør tekstbaserte PDF-dokumenter om til redigerbar Markdown i nettleseren. Filen behandles lokalt og lastes ikke opp til serveren vår.",
+    "breadcrumb": { "tools": "Verktøy", "current": "PDF til Markdown" },
+    "upload": {
+      "title": "Last opp en PDF for konvertering",
+      "drop": "Velg en PDF eller dra den hit",
+      "limit": "Bare PDF-filer. Skannede PDF-filer støttes ikke med OCR."
+    },
+    "status": {
+      "loading": "Laster inn PDF…",
+      "metadata": "Leser dokumentet…",
+      "page": "Leser side {current} av {total}…",
+      "converting": "Konverterer til Markdown…",
+      "progress": "{progress}% fullført"
+    },
+    "errors": {
+      "invalidType": "Velg en gyldig PDF-fil.",
+      "processing": "PDF-filen kunne ikke behandles."
+    },
+    "success": {
+      "title": "Konverteringen er fullført",
+      "description": "Hentet ut tekst fra {pages} sider. Se gjennom og rediger Markdown nedenfor."
+    },
+    "actions": {
+      "another": "Konverter en annen PDF",
+      "download": "Last ned Markdown",
+      "edit": "Rediger",
+      "preview": "Forhåndsvisning",
+      "placeholder": "Markdown vises her…"
+    },
+    "stats": { "pages": "Sider", "words": "Ord", "characters": "Tegn", "size": "Størrelse" },
+    "about": {
+      "heading": "Hva verktøyet gjør",
+      "description": "Verktøyet henter tekst fra tekstbaserte PDF-filer og gjør den om til Markdown. PDF.js kjører i nettleseren, og filer lastes ikke opp. Komplekse oppsett kan trenge redigering."
+    },
+    "steps": {
+      "heading": "Slik bruker du verktøyet",
+      "one": "Velg eller dra inn en PDF.",
+      "two": "Vent mens nettleseren leser sidene.",
+      "three": "Kontroller den genererte Markdown.",
+      "four": "Last ned den redigerte Markdown-filen."
+    },
+    "faq": {
+      "heading": "Vanlige spørsmål",
+      "local": {
+        "question": "Lastes PDF-filen opp?",
+        "answer": "Nei. Konverteringen skjer i nettleseren, og PDF.js leser filen lokalt."
+      },
+      "scanned": {
+        "question": "Støttes skannede PDF-filer eller OCR?",
+        "answer": "Nei. Den nåværende implementeringen henter ut innebygd PDF-tekst og har ikke OCR."
+      },
+      "limit": {
+        "question": "Finnes det en filstørrelsesgrense?",
+        "answer": "Grensesnittet angir ingen egen filstørrelsesgrense. Praktiske grenser avhenger av nettleser og dokument."
+      }
+    },
+    "accessibility": {
+      "breadcrumb": "Brødsmulesti",
+      "home": "Hjem",
+      "tabs": "Markdown-visning",
+      "editor": "Markdown-redigering"
+    }
   }
 }

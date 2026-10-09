@@ -8778,195 +8778,195 @@
   },
   "MorseCodeTranslator": {
     "seo": {
-      "title": "Morse Code Translator & Generator",
-      "description": "Free online Morse Code Translator & Generator to encode text, decode Morse code, and play Morse audio instantly in your browser.",
+    "title": "Morsecode-Übersetzer und -Generator",
+    "description": "Kostenloser Online-Morsecode-Übersetzer und -Generator zum Codieren von Text, Decodieren von Morsecode und sofortigen Abspielen von Morsezeichen-Audio im Browser.",
       "keywords": "morse code translator, morse code generator, morse code generator online, text to morse code, morse code to text, morse code decoder, what is morse code, how does morse code work, how to read morse code, how to learn morse code, morse code alphabet, morse code chart, morse code converter, morse code converter online, sos in morse code, what is sos in morse code, who invented morse code, when was morse code invented, morse code sound",
-      "og_alt": "Morse Code Translator on GeeksKai"
+    "og_alt": "Morsecode-Übersetzer auf GeeksKai"
     },
     "breadcrumb": {
-      "home": "Home",
-      "tools": "Tools",
-      "current": "Morse Code Translator"
+    "home": "Startseite",
+    "tools": "Werkzeuge",
+    "current": "Morsecode-Übersetzer"
     },
     "defaults": {
-      "input_text": "HELLO WORLD",
+      "input_text": "HALLO WELT",
       "morse_sos": "... --- ..."
     },
     "placeholders": {
-      "encode": "Type message, e.g. HELLO WORLD",
-      "decode": "Use . and -, space between letters, / between words"
+      "encode": "Nachricht eingeben, z. B. HALLO WELT",
+      "decode": "Punkte und Striche verwenden; Leerzeichen zwischen Buchstaben, / zwischen Wörtern"
     },
     "header": {
-      "title": "Morse Code Translator",
-      "quick_answer": "<strong>Quick answer:</strong> This page provides a free online <blue>Morse code translator</blue> for <cyan>text to Morse</cyan>, <purple>Morse to text</purple>, plus browser audio playback with no account needed."
+    "title": "Morsecode-Übersetzer",
+    "quick_answer": "<strong>Kurzantwort:</strong> Diese Seite bietet einen kostenlosen Online-<blue>Morsecode-Übersetzer</blue> für <cyan>Text zu Morsecode</cyan> und <purple>Morsecode zu Text</purple> sowie Audio-Wiedergabe im Browser ohne Konto."
     },
     "core_facts": {
-      "title": "Core Facts",
-      "pricing_label": "Pricing",
-      "pricing_value": "<strong>Free</strong>, no sign-up.",
-      "features_label": "Main Features",
-      "features_value": "<strong>Encode</strong>, <strong>decode</strong>, and <strong>audio playback</strong>.",
-      "positioning_label": "Positioning",
-      "positioning_value": "Fast, browser-native Morse utility for learning and practical conversion.",
-      "users_label": "Target Users",
-      "users_value": "Students, ham radio users, puzzle makers, developers."
+    "title": "Kernfakten",
+    "pricing_label": "Preis",
+    "pricing_value": "<strong>Kostenlos</strong>, keine Anmeldung erforderlich.",
+    "features_label": "Hauptfunktionen",
+    "features_value": "<strong>Codieren</strong>, <strong>Decodieren</strong> und <strong>Audio-Wiedergabe</strong>.",
+    "positioning_label": "Einordnung",
+    "positioning_value": "Schnelles, browserbasiertes Morsewerkzeug zum Lernen und für praktische Umwandlungen.",
+    "users_label": "Zielgruppen",
+    "users_value": "Schüler, Amateurfunker, Rätselmacher und Entwickler."
     },
     "overview": {
-      "title": "What is Morse code?",
-      "description": "<strong>Direct answer:</strong> Morse code is a communication system that encodes letters and numbers with <blue>dots</blue> and <cyan>dashes</cyan>. It is still useful for learning signal timing, emergency patterns, and radio basics.",
-      "card_1_title": "How Morse code works",
-      "card_1_desc": "Each character maps to a unique dot-dash sequence, for example <strong>A = .-</strong> and <strong>B = -...</strong>.",
-      "card_2_title": "How to read Morse code",
-      "card_2_desc": "Read short signals as dots and long signals as dashes, then split by letter spaces and word separators.",
-      "card_3_title": "How to learn Morse code",
-      "card_3_desc": "Practice 5-10 minutes daily with common letters, then train listening speed using flash and audio playback."
+      "title": "Was ist Morsecode?",
+      "description": "<strong>Direkte Antwort:</strong> Morsecode ist ein Kommunikationssystem, das Buchstaben und Zahlen mit <blue>Punkten</blue> und <cyan>Strichen</cyan> codiert. Er eignet sich weiterhin zum Lernen von Signalrhythmen, Notfallmustern und Funkgrundlagen.",
+      "card_1_title": "So funktioniert Morsecode",
+      "card_1_desc": "Jedes Zeichen wird einer eindeutigen Punkt-Strich-Folge zugeordnet, zum Beispiel <strong>A = .-</strong> und <strong>B = -...</strong>.",
+      "card_2_title": "Morsecode lesen",
+      "card_2_desc": "Lies kurze Signale als Punkte und lange als Striche; trenne anschließend anhand von Buchstabenabständen und Worttrennern.",
+      "card_3_title": "Morsecode lernen",
+      "card_3_desc": "Übe täglich 5–10 Minuten mit häufigen Buchstaben und trainiere danach die Hörgeschwindigkeit mit Blitz- und Audiowiedergabe."
     },
     "tool": {
-      "mode_label": "Mode",
-      "mode_encode": "Text to Morse",
-      "mode_decode": "Morse to Text",
-      "input_text_label": "Input text",
-      "input_morse_label": "Input Morse code",
-      "output_morse": "Morse output",
-      "output_text": "Decoded text",
-      "output_placeholder": "Output will appear here.",
-      "signal_playing": "Morse flashlight is blinking by signal timing",
-      "signal_preview": "Signal lamp preview",
-      "no_signal": "No signal to preview.",
-      "stop_playback": "Stop playback",
-      "play_audio_flash": "Play audio + flash",
-      "play_flash": "Play flash",
-      "audio_title_on": "Audio and flash enabled",
-      "audio_title_off": "Flash-only mode enabled",
-      "audio_on": "Audio on",
-      "flash_only": "Flash only",
-      "copied": "Copied",
-      "copy_output": "Copy output"
+      "mode_label": "Modus",
+      "mode_encode": "Text zu Morsecode",
+      "mode_decode": "Morsecode zu Text",
+      "input_text_label": "Texteingabe",
+      "input_morse_label": "Morsecode-Eingabe",
+      "output_morse": "Morsecode-Ausgabe",
+      "output_text": "Decodierter Text",
+      "output_placeholder": "Die Ausgabe erscheint hier.",
+      "signal_playing": "Die Morseblitzlampe blinkt im Signalrhythmus",
+      "signal_preview": "Vorschau der Signallampe",
+      "no_signal": "Kein Signal für die Vorschau.",
+      "stop_playback": "Wiedergabe stoppen",
+      "play_audio_flash": "Audio und Blitz abspielen",
+      "play_flash": "Blitz abspielen",
+      "audio_title_on": "Audio und Blitz aktiviert",
+      "audio_title_off": "Nur-Blitz-Modus aktiviert",
+      "audio_on": "Audio ein",
+      "flash_only": "Nur Blitz",
+      "copied": "Kopiert",
+      "copy_output": "Ausgabe kopieren"
     },
     "how_to": {
-      "title": "How to use this Morse code translator (step-by-step)",
-      "step_1_title": "1) Normalize input",
-      "step_1_desc": "Text is uppercased for consistent mapping; Morse input is split by spaces and `/`.",
-      "step_2_title": "2) Convert by dictionary",
-      "step_2_desc": "Characters map to dots and dashes using the ITU-style Morse table; unknown tokens return `?`.",
-      "step_3_title": "3) Render and playback",
-      "step_3_desc": "The output is shown as plain text and can be played as short/long tones in the browser audio engine."
+      "title": "Morsecode-Übersetzer verwenden (Schritt für Schritt)",
+      "step_1_title": "1) Eingabe normalisieren",
+      "step_1_desc": "Text wird für eine einheitliche Zuordnung in Großbuchstaben umgewandelt; Morsecode wird an Leerzeichen und `/` getrennt.",
+      "step_2_title": "2) Mit dem Wörterbuch umwandeln",
+      "step_2_desc": "Zeichen werden anhand der Morse-Tabelle nach ITU-Art Punkten und Strichen zugeordnet; unbekannte Token ergeben `?`.",
+      "step_3_title": "3) Anzeigen und abspielen",
+      "step_3_desc": "Die Ausgabe wird als Klartext angezeigt und kann im Browser-Audio als kurze oder lange Töne abgespielt werden."
     },
     "boundaries": {
-      "title": "Boundaries and limitations",
-      "can_do": "<strong>Can do:</strong> text and Morse conversion, browser playback, quick educational reference.",
-      "cannot_do": "<strong>Cannot do:</strong> advanced radio protocol timing, signal-noise simulation, or long-form transmission logging.",
-      "input_scope": "<strong>Input scope:</strong> A-Z, 0-9, spaces, and standard Morse separators."
+      "title": "Grenzen und Einschränkungen",
+      "can_do": "<strong>Möglich:</strong> Text- und Morsecode-Umwandlung, Wiedergabe im Browser und schnelle Lernreferenz.",
+      "cannot_do": "<strong>Nicht möglich:</strong> fortgeschrittene Zeitsteuerung von Funkprotokollen, Signal-Rausch-Simulation oder Protokollierung langer Übertragungen.",
+      "input_scope": "<strong>Eingabebereich:</strong> A-Z, 0-9, Leerzeichen und standardmäßige Morsecode-Trennzeichen."
     },
     "sos": {
-      "title": "SOS in Morse code",
+      "title": "SOS im Morsecode",
       "text_label": "Text",
-      "morse_label": "Morse",
-      "use_case_label": "Use case",
-      "use_case_desc": "A standard emergency signal. You can paste it into Morse input and play flash or audio instantly."
+      "morse_label": "Morsecode",
+      "use_case_label": "Anwendungsfall",
+      "use_case_desc": "Ein standardmäßiges Notsignal. Du kannst es in die Morsecode-Eingabe einfügen und sofort als Blitz oder Audio abspielen."
     },
     "history": {
-      "title": "Who invented Morse code and when?",
-      "description": "<strong>Short answer:</strong> Samuel Morse and Alfred Vail developed Morse code in the <amber>1830s</amber>, and it was adopted in practical telegraph systems during the <amber>1840s</amber>."
+      "title": "Wer hat den Morsecode wann erfunden?",
+      "description": "<strong>Kurzantwort:</strong> Samuel Morse und Alfred Vail entwickelten den Morsecode in den <amber>1830er-Jahren</amber>; in praktischen Telegrafiesystemen wurde er in den <amber>1840er-Jahren</amber> eingesetzt."
     },
     "guide": {
-      "title": "Complete Morse code guide for beginners",
-      "p1": "<strong>Direct answer:</strong> Morse code is a practical signal language where each letter or number is represented by a sequence of dots and dashes. If your goal is to <cyan>translate text to Morse</cyan>, <blue>decode Morse to text</blue>, or simply learn the alphabet quickly, this page combines all three in one place: real-time conversion, flash rhythm playback, and an alphabet chart for fast lookup.",
-      "p2": "Many users search phrases like <strong>what is morse code</strong>, <strong>how to read morse code</strong>, and <strong>how to learn morse code</strong> because they need both a tool and a clear explanation. The fastest way to read Morse is to treat it as sound and timing patterns rather than visual symbols only. A dot is a short signal and a dash is a longer signal; letters are separated by short gaps and words are separated by longer breaks. Once this rhythm is clear, decoding speed improves quickly.",
-      "p3": "If you are practicing from scratch, start with a small set of high-frequency letters such as <strong>E, T, A, N, I, M, S, O</strong>. Then type simple words in the converter and switch between both modes to reinforce memory from both directions. For emergency awareness, memorize <rose>SOS = ... --- ...</rose> first. That one sequence appears in many learning resources and is one of the easiest Morse patterns to recognize at speed.",
-      "p4": "Historically, Morse code was developed by Samuel Morse and Alfred Vail in the 1830s and became widely used through telegraph networks in the 1840s. Today, people still use it for radio training, education, puzzle design, and creative projects like jewelry pattern encoding. In short, a modern <strong>morse code generator</strong> should do more than output symbols: it should help users understand meaning, timing, and practical use.",
-      "quick_a": "A in Morse code",
-      "quick_b": "B in Morse code",
-      "quick_c": "C in Morse code",
-      "quick_e": "E in Morse code",
-      "quick_s": "S in Morse code",
-      "quick_o": "O in Morse code"
+      "title": "Vollständiger Morsecode-Leitfaden für Anfänger",
+      "p1": "<strong>Direkte Antwort:</strong> Morsecode ist eine praktische Signalsprache, in der jeder Buchstabe und jede Zahl durch eine Folge aus Punkten und Strichen dargestellt wird. Wenn du <cyan>Text in Morsecode übersetzen</cyan>, <blue>Morsecode in Text decodieren</blue> oder das Alphabet schnell lernen möchtest, findest du hier alles an einem Ort: Umwandlung in Echtzeit, rhythmische Blitzwiedergabe und eine Alphabet-Tabelle.",
+      "p2": "Viele suchen nach Begriffen wie <strong>Was ist Morsecode?</strong>, <strong>Wie liest man Morsecode?</strong> und <strong>Wie lernt man Morsecode?</strong>, weil sie sowohl ein Werkzeug als auch eine klare Erklärung brauchen. Am schnellsten liest du Morsecode, wenn du ihn als Klang- und Zeitmuster statt nur als visuelle Symbole betrachtest. Ein Punkt ist ein kurzes Signal, ein Strich ein längeres; Buchstaben werden durch kurze Abstände und Wörter durch längere Pausen getrennt. Sobald dieser Rhythmus klar ist, steigt die Decodiergeschwindigkeit schnell.",
+      "p3": "Beginne beim Üben mit häufigen Buchstaben wie <strong>E, T, A, N, I, M, S, O</strong>. Gib anschließend einfache Wörter in den Konverter ein und wechsle zwischen beiden Modi, um das Gedächtnis in beide Richtungen zu trainieren. Für Notfälle solltest du zuerst <rose>SOS = ... --- ...</rose> auswendig lernen. Diese Folge ist leicht zu erkennen und in vielen Lernmaterialien enthalten.",
+      "p4": "Historisch wurde der Morsecode in den 1830er-Jahren von Samuel Morse und Alfred Vail entwickelt und in den 1840er-Jahren über Telegrafennetze weit verbreitet. Heute wird er weiterhin für Funkausbildung, Bildung, Rätseldesign und kreative Projekte wie Schmuckmuster verwendet. Ein moderner <strong>Morsecode-Generator</strong> sollte daher mehr leisten als Symbole auszugeben: Er sollte Bedeutung, Timing und praktische Anwendung verständlich machen.",
+      "quick_a": "A im Morsecode",
+      "quick_b": "B im Morsecode",
+      "quick_c": "C im Morsecode",
+      "quick_e": "E im Morsecode",
+      "quick_s": "S im Morsecode",
+      "quick_o": "O im Morsecode"
     },
     "alphabet_chart": {
-      "title": "Morse code alphabet chart (A-Z and 0-9)"
+      "title": "Morsecode-Alphabet-Tabelle (A-Z und 0-9)"
     },
     "faq": {
-      "title": "Morse code translator FAQ"
+      "title": "FAQ zum Morsecode-Übersetzer"
     },
     "faq_1": {
-      "question": "What is a Morse code translator and how does it work?",
-      "answer": "A Morse code translator converts text to Morse code and Morse code back to text in seconds. This page also provides browser-based Morse audio and flash playback for timing practice."
+      "question": "Was ist ein Morsecode-Übersetzer und wie funktioniert er?",
+      "answer": "Ein Morsecode-Übersetzer wandelt Text in Sekunden in Morsecode und Morsecode zurück in Text um. Diese Seite bietet außerdem Morsecode-Audio und Blitzwiedergabe im Browser zum Üben des Timings."
     },
     "faq_2": {
-      "question": "How do I convert text to Morse code online for free?",
-      "answer": "Use Text to Morse mode, type your message, and copy the generated Morse output instantly. The converter is free, browser-based, and requires no sign-up."
+      "question": "Wie wandle ich Text kostenlos online in Morsecode um?",
+      "answer": "Wähle den Modus Text zu Morsecode, gib deine Nachricht ein und kopiere die erzeugte Ausgabe sofort. Der Konverter ist kostenlos, browserbasiert und erfordert keine Anmeldung."
     },
     "faq_3": {
-      "question": "How do I decode Morse code to text correctly?",
-      "answer": "Use one space between Morse letters and a slash `/` between words for accurate decoding. Then switch to Morse to Text mode; example input is `... --- ... / .... . .-.. .--.`."
+      "question": "Wie decodiere ich Morsecode richtig in Text?",
+      "answer": "Verwende ein Leerzeichen zwischen Morsebuchstaben und einen Schrägstrich `/` zwischen Wörtern. Wechsle anschließend in den Modus Morsecode zu Text; ein Beispiel ist `... --- ... / .... . .-.. .--.`."
     },
     "faq_4": {
-      "question": "Where can I find a Morse code alphabet chart for letters and numbers?",
-      "answer": "Open the Morse code alphabet chart section on this page to view A-Z and 0-9 mappings. It works as a quick reference while translating or learning Morse."
+      "question": "Wo finde ich eine Morsecode-Alphabet-Tabelle für Buchstaben und Zahlen?",
+      "answer": "Öffne auf dieser Seite den Bereich zur Morsecode-Alphabet-Tabelle, um die Zuordnungen für A-Z und 0-9 zu sehen. Sie dient beim Übersetzen oder Lernen als schnelle Referenz."
     },
     "faq_5": {
-      "question": "What is SOS in Morse code?",
-      "answer": "SOS in Morse code is `... --- ...`. You can copy it directly into the Morse input field and play it with audio or flash timing."
+      "question": "Was bedeutet SOS im Morsecode?",
+      "answer": "SOS lautet im Morsecode `... --- ...`. Du kannst es direkt in das Morsecode-Eingabefeld kopieren und mit Audio oder Blitzrhythmus abspielen."
     },
     "faq_6": {
-      "question": "Can this Morse code converter handle invalid Morse symbols?",
-      "answer": "Yes. Unknown or malformed Morse tokens are shown as `?`, so you can quickly identify where the Morse sequence needs correction."
+      "question": "Kann dieser Morsecode-Konverter ungültige Symbole verarbeiten?",
+      "answer": "Ja. Unbekannte oder fehlerhafte Morse-Token werden als `?` angezeigt, sodass du schnell erkennst, wo die Sequenz korrigiert werden muss."
     },
     "faq_7": {
-      "question": "Can I use this Morse code translator without sending data to a server?",
-      "answer": "Yes. Translation and playback run locally in your browser, helping protect privacy and keeping the converter fast."
+      "question": "Kann ich diesen Morsecode-Übersetzer nutzen, ohne Daten an einen Server zu senden?",
+      "answer": "Ja. Übersetzung und Wiedergabe laufen lokal im Browser, wodurch die Privatsphäre geschützt wird und der Konverter schnell bleibt."
     },
     "faq_8": {
-      "question": "Who should use this Morse code generator and decoder?",
-      "answer": "It is useful for students, radio hobbyists, puzzle creators, and developers who need fast text-to-Morse and Morse-to-text conversion in one place."
+      "question": "Für wen eignet sich dieser Morsecode-Generator und -Decoder?",
+      "answer": "Er eignet sich für Schüler, Funkbegeisterte, Rätselmacher und Entwickler, die Text und Morsecode schnell an einem Ort umwandeln möchten."
     },
     "faq_9": {
-      "question": "How often is this Morse translator page updated for accuracy?",
-      "answer": "The page follows a 30-90 day GEO review cycle and displays a last updated date to provide freshness and confidence signals."
+      "question": "Wie oft wird diese Morsecode-Seite auf ihre Genauigkeit geprüft?",
+      "answer": "Die Seite folgt einem GEO-Prüfzyklus von 30–90 Tagen und zeigt ein Aktualisierungsdatum an, um Aktualität und Vertrauen zu vermitteln."
     },
     "faq_10": {
-      "question": "What is Morse code?",
-      "answer": "Morse code is a character encoding system that represents letters and numbers using short and long signals known as dots and dashes."
+      "question": "Was ist Morsecode?",
+      "answer": "Morsecode ist ein Zeichencodierungssystem, das Buchstaben und Zahlen durch kurze und lange Signale, sogenannte Punkte und Striche, darstellt."
     },
     "faq_11": {
-      "question": "How can I learn Morse code quickly?",
-      "answer": "Start with high-frequency letters, practice daily with short sessions, and use audio or flash playback to train rhythm recognition."
+      "question": "Wie kann ich Morsecode schnell lernen?",
+      "answer": "Beginne mit häufigen Buchstaben, übe täglich in kurzen Einheiten und nutze Audio- oder Blitzwiedergabe, um die Rhythmuserkennung zu trainieren."
     },
     "faq_12": {
-      "question": "Who invented Morse code and when was it invented?",
-      "answer": "Samuel Morse and Alfred Vail developed Morse code in the 1830s, and it became widely used in telegraph communication in the 1840s."
+      "question": "Wer hat den Morsecode wann erfunden?",
+      "answer": "Samuel Morse und Alfred Vail entwickelten den Morsecode in den 1830er-Jahren; in der Telegrafie wurde er in den 1840er-Jahren weit verbreitet."
     },
     "sources": {
-      "title": "Data sources and trust signals",
-      "item_1": "<strong>ITU-R M.1677-1:</strong> International Morse code reference for letters, digits, and transmission pattern.",
-      "item_2": "<strong>Web Audio API:</strong> Browser-side audio generation used for dot/dash playback.",
-      "last_updated": "Last updated: <strong>{date}</strong> (review cycle: every 30-90 days)."
+      "title": "Datenquellen und Vertrauenssignale",
+      "item_1": "<strong>ITU-R M.1677-1:</strong> Internationale Referenz für Morsecode-Buchstaben, Ziffern und Übertragungsmuster.",
+      "item_2": "<strong>Web Audio API:</strong> Browserseitige Audiogenerierung für die Wiedergabe von Punkten und Strichen.",
+      "last_updated": "Zuletzt aktualisiert: <strong>{date}</strong> (Prüfzyklus: alle 30–90 Tage)."
     },
     "hidden_seo": {
-      "title": "Morse code generator vs translator",
-      "description": "A Morse code generator takes plain text input and encodes it into Morse symbols, while a Morse code translator typically supports both directions: encode text to Morse and decode Morse to readable text. This page includes both generator and translator behavior, plus audio playback for signal timing practice."
+      "title": "Morsecode-Generator oder -Übersetzer",
+      "description": "Ein Morsecode-Generator nimmt Klartext entgegen und codiert ihn als Morsesymbole. Ein Morsecode-Übersetzer unterstützt normalerweise beide Richtungen: Text in Morsecode codieren und Morsecode in lesbaren Text decodieren. Diese Seite bietet beide Funktionen sowie Audio-Wiedergabe zum Üben des Signalrhythmus."
     },
     "schema": {
-      "webapp_name": "Morse Code Translator",
-      "alternate_names": "Morse Code Generator, Morse Code Decoder, Morse Code Converter",
-      "feature_1": "Text to Morse conversion",
-      "feature_2": "Morse to text decoding",
-      "feature_3": "Morse code alphabet chart",
-      "feature_4": "SOS in Morse code quick reference",
-      "feature_5": "Morse audio playback",
-      "feature_6": "Reference table",
-      "feature_7": "No registration required",
-      "howto_name": "How to translate text and Morse code online",
-      "howto_description": "Use this step-by-step guide to encode text to Morse code, decode Morse to text, and play Morse audio.",
-      "howto_step_1_name": "Choose conversion mode",
-      "howto_step_1_text": "Select Text to Morse to encode plain text, or Morse to Text to decode Morse signals.",
-      "howto_step_2_name": "Paste your content",
-      "howto_step_2_text": "Enter text, or provide Morse with spaces between letters and slash between words.",
-      "howto_step_3_name": "Copy or play Morse output",
-      "howto_step_3_text": "Copy the generated result, or click play to hear and visualize Morse timing.",
-      "howto_step_4_name": "Use the alphabet chart and SOS reference",
-      "howto_step_4_text": "Open the Morse code alphabet chart and SOS example section to read or learn Morse patterns faster.",
-      "itemlist_name": "Morse code alphabet chart",
+      "webapp_name": "Morsecode-Übersetzer",
+      "alternate_names": "Morsecode-Generator, Morsecode-Decoder, Morsecode-Konverter",
+      "feature_1": "Text-zu-Morsecode-Umwandlung",
+      "feature_2": "Decodierung von Morsecode zu Text",
+      "feature_3": "Morsecode-Alphabet-Tabelle",
+      "feature_4": "Schnellreferenz für SOS im Morsecode",
+      "feature_5": "Morsecode-Audio-Wiedergabe",
+      "feature_6": "Referenztabelle",
+      "feature_7": "Keine Registrierung erforderlich",
+      "howto_name": "Text und Morsecode online übersetzen",
+      "howto_description": "Verwende diese Schritt-für-Schritt-Anleitung, um Text in Morsecode zu codieren, Morsecode in Text zu decodieren und Morsecode-Audio abzuspielen.",
+      "howto_step_1_name": "Umwandlungsmodus auswählen",
+      "howto_step_1_text": "Wähle Text zu Morsecode zum Codieren von Klartext oder Morsecode zu Text zum Decodieren von Morsesignalen.",
+      "howto_step_2_name": "Inhalt einfügen",
+      "howto_step_2_text": "Gib Text ein oder füge Morsecode mit Leerzeichen zwischen Buchstaben und einem Schrägstrich zwischen Wörtern ein.",
+      "howto_step_3_name": "Morsecode-Ausgabe kopieren oder abspielen",
+      "howto_step_3_text": "Kopiere das Ergebnis oder klicke auf Abspielen, um den Morsecode-Rhythmus zu hören und zu sehen.",
+      "howto_step_4_name": "Alphabet-Tabelle und SOS-Referenz verwenden",
+      "howto_step_4_text": "Öffne die Morsecode-Alphabet-Tabelle und den SOS-Beispielbereich, um Morsezeichen schneller zu lesen oder zu lernen.",
+      "itemlist_name": "Morsecode-Alphabet-Tabelle",
       "itemlist_1": "A .-",
       "itemlist_2": "B -...",
       "itemlist_3": "C -.-.",
@@ -9986,4 +9986,6 @@
     "resume_playlist": "Verbleibende Titel fortsetzen",
     "playlist_paused": "Playlist pausiert. Nach der Wartezeit bei diesem Titel fortsetzen."
   }
+,
+  "PdfToMarkdown": {"eyebrow":"PDF zu Markdown","title":"PDF-zu-Markdown-Konverter","intro":"Wandle Text aus PDF-Dokumenten direkt im Browser in bearbeitbares Markdown um. Die Datei wird lokal verarbeitet und nicht auf unseren Server hochgeladen.","breadcrumb":{"tools":"Werkzeuge","current":"PDF zu Markdown"},"upload":{"title":"PDF zum Konvertieren hochladen","drop":"PDF auswählen oder hierher ziehen","limit":"Nur PDF-Dateien. Gescannte PDFs werden nicht per OCR unterstützt."},"status":{"loading":"PDF wird geladen…","metadata":"Dokument wird gelesen…","page":"Seite {current} von {total} wird gelesen…","converting":"Wird in Markdown konvertiert…","progress":"{progress}% abgeschlossen"},"errors":{"invalidType":"Bitte eine gültige PDF-Datei auswählen.","processing":"Die PDF konnte nicht verarbeitet werden."},"success":{"title":"Konvertierung abgeschlossen","description":"Text aus {pages} Seiten extrahiert. Prüfe und bearbeite das Markdown unten."},"actions":{"another":"Weitere PDF konvertieren","download":"Markdown herunterladen","edit":"Bearbeiten","preview":"Vorschau","placeholder":"Dein Markdown erscheint hier…"},"stats":{"pages":"Seiten","words":"Wörter","characters":"Zeichen","size":"Größe"},"about":{"heading":"Was dieses Tool macht","description":"Das Tool extrahiert Text aus textbasierten PDFs und wandelt ihn in Markdown um. PDF.js läuft im Browser; Dateien werden nicht hochgeladen. Komplexe Layouts müssen eventuell nachbearbeitet werden."},"steps":{"heading":"So funktioniert es","one":"PDF auswählen oder hineinziehen.","two":"Warten, bis der Browser die Seiten liest.","three":"Markdown im Editor oder in der Vorschau prüfen.","four":"Bearbeitete Markdown-Datei herunterladen."},"faq":{"heading":"FAQ","local":{"question":"Wird meine PDF hochgeladen?","answer":"Nein. Die Konvertierung läuft im Browser und PDF.js liest die Datei lokal."},"scanned":{"question":"Werden gescannte PDFs oder OCR unterstützt?","answer":"Nein. Die aktuelle Implementierung extrahiert eingebetteten PDF-Text und enthält kein OCR."},"limit":{"question":"Gibt es eine Dateigrößenbegrenzung?","answer":"Die Oberfläche legt keine eigene Dateigröße fest. Praktische Grenzen hängen von Browser und Dokument ab."}},"accessibility":{"breadcrumb":"Brotkrümelnavigation","home":"Startseite","tabs":"Markdown-Ansicht","editor":"Markdown-Editor"}}
 }

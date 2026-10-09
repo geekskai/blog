@@ -8689,195 +8689,195 @@
   },
   "MorseCodeTranslator": {
     "seo": {
-      "title": "Morse Code Translator & Generator",
-      "description": "Free online Morse Code Translator & Generator to encode text, decode Morse code, and play Morse audio instantly in your browser.",
+    "title": "모스 부호 번역기 및 생성기",
+    "description": "텍스트를 모스 부호로 변환하고 모스 부호를 해독하며 브라우저에서 모스 오디오를 바로 재생할 수 있는 무료 온라인 도구입니다.",
       "keywords": "morse code translator, morse code generator, morse code generator online, text to morse code, morse code to text, morse code decoder, what is morse code, how does morse code work, how to read morse code, how to learn morse code, morse code alphabet, morse code chart, morse code converter, morse code converter online, sos in morse code, what is sos in morse code, who invented morse code, when was morse code invented, morse code sound",
-      "og_alt": "Morse Code Translator on GeeksKai"
+    "og_alt": "GeeksKai 모스 부호 번역기"
     },
     "breadcrumb": {
-      "home": "Home",
-      "tools": "Tools",
-      "current": "Morse Code Translator"
+    "home": "홈",
+    "tools": "도구",
+    "current": "모스 부호 번역기"
     },
     "defaults": {
-      "input_text": "HELLO WORLD",
+      "input_text": "안녕하세요 세계",
       "morse_sos": "... --- ..."
     },
     "placeholders": {
-      "encode": "Type message, e.g. HELLO WORLD",
-      "decode": "Use . and -, space between letters, / between words"
+      "encode": "메시지를 입력하세요(예: HELLO WORLD)",
+      "decode": ".와 -를 사용하고 문자 사이에는 공백, 단어 사이에는 /를 사용하세요"
     },
     "header": {
-      "title": "Morse Code Translator",
-      "quick_answer": "<strong>Quick answer:</strong> This page provides a free online <blue>Morse code translator</blue> for <cyan>text to Morse</cyan>, <purple>Morse to text</purple>, plus browser audio playback with no account needed."
+    "title": "모스 부호 번역기",
+    "quick_answer": "<strong>간단한 답변:</strong> 이 페이지는 <cyan>텍스트를 모스로</cyan>, <purple>모스를 텍스트로</purple> 변환하고 계정 없이 브라우저에서 오디오를 재생할 수 있는 무료 온라인 <blue>모스 부호 번역기</blue>를 제공합니다."
     },
     "core_facts": {
-      "title": "Core Facts",
-      "pricing_label": "Pricing",
-      "pricing_value": "<strong>Free</strong>, no sign-up.",
-      "features_label": "Main Features",
-      "features_value": "<strong>Encode</strong>, <strong>decode</strong>, and <strong>audio playback</strong>.",
-      "positioning_label": "Positioning",
-      "positioning_value": "Fast, browser-native Morse utility for learning and practical conversion.",
-      "users_label": "Target Users",
-      "users_value": "Students, ham radio users, puzzle makers, developers."
+    "title": "핵심 정보",
+    "pricing_label": "요금",
+    "pricing_value": "<strong>무료</strong>, 가입 불필요.",
+    "features_label": "주요 기능",
+    "features_value": "<strong>인코딩</strong>, <strong>디코딩</strong>, <strong>오디오 재생</strong>.",
+    "positioning_label": "특징",
+    "positioning_value": "학습과 실용적인 변환을 위한 빠른 브라우저 기반 모스 도구입니다.",
+    "users_label": "대상 사용자",
+    "users_value": "학생, 아마추어 무선 사용자, 퍼즐 제작자, 개발자."
     },
     "overview": {
-      "title": "What is Morse code?",
-      "description": "<strong>Direct answer:</strong> Morse code is a communication system that encodes letters and numbers with <blue>dots</blue> and <cyan>dashes</cyan>. It is still useful for learning signal timing, emergency patterns, and radio basics.",
-      "card_1_title": "How Morse code works",
-      "card_1_desc": "Each character maps to a unique dot-dash sequence, for example <strong>A = .-</strong> and <strong>B = -...</strong>.",
-      "card_2_title": "How to read Morse code",
-      "card_2_desc": "Read short signals as dots and long signals as dashes, then split by letter spaces and word separators.",
-      "card_3_title": "How to learn Morse code",
-      "card_3_desc": "Practice 5-10 minutes daily with common letters, then train listening speed using flash and audio playback."
+      "title": "모스 부호란 무엇인가요?",
+      "description": "<strong>직접적인 답변:</strong> 모스 부호는 <blue>점</blue>과 <cyan>선</cyan>으로 문자와 숫자를 표현하는 통신 체계입니다. 신호 타이밍, 긴급 패턴, 무선 통신의 기초를 배우는 데 여전히 유용합니다.",
+      "card_1_title": "모스 부호의 작동 방식",
+      "card_1_desc": "각 문자는 고유한 점과 선의 조합에 대응합니다. 예를 들어 <strong>A = .-</strong>, <strong>B = -...</strong>입니다.",
+      "card_2_title": "모스 부호 읽는 법",
+      "card_2_desc": "짧은 신호는 점, 긴 신호는 선으로 읽은 다음 문자 사이의 공백과 단어 구분자로 나눕니다.",
+      "card_3_title": "모스 부호 학습법",
+      "card_3_desc": "자주 쓰이는 문자를 매일 5~10분 연습한 뒤 플래시와 오디오 재생으로 듣기 속도를 훈련하세요."
     },
     "tool": {
-      "mode_label": "Mode",
-      "mode_encode": "Text to Morse",
-      "mode_decode": "Morse to Text",
-      "input_text_label": "Input text",
-      "input_morse_label": "Input Morse code",
-      "output_morse": "Morse output",
-      "output_text": "Decoded text",
-      "output_placeholder": "Output will appear here.",
-      "signal_playing": "Morse flashlight is blinking by signal timing",
-      "signal_preview": "Signal lamp preview",
-      "no_signal": "No signal to preview.",
-      "stop_playback": "Stop playback",
-      "play_audio_flash": "Play audio + flash",
-      "play_flash": "Play flash",
-      "audio_title_on": "Audio and flash enabled",
-      "audio_title_off": "Flash-only mode enabled",
-      "audio_on": "Audio on",
-      "flash_only": "Flash only",
-      "copied": "Copied",
-      "copy_output": "Copy output"
+      "mode_label": "모드",
+      "mode_encode": "텍스트를 모스로",
+      "mode_decode": "모스를 텍스트로",
+      "input_text_label": "입력 텍스트",
+      "input_morse_label": "입력 모스 부호",
+      "output_morse": "모스 출력",
+      "output_text": "디코딩된 텍스트",
+      "output_placeholder": "여기에 결과가 표시됩니다.",
+      "signal_playing": "신호 타이밍에 맞춰 모스 플래시가 깜박이고 있습니다",
+      "signal_preview": "신호 램프 미리보기",
+      "no_signal": "미리 볼 신호가 없습니다.",
+      "stop_playback": "재생 중지",
+      "play_audio_flash": "오디오와 플래시 재생",
+      "play_flash": "플래시 재생",
+      "audio_title_on": "오디오와 플래시 활성화",
+      "audio_title_off": "플래시 전용 모드 활성화",
+      "audio_on": "오디오 켜짐",
+      "flash_only": "플래시만",
+      "copied": "복사됨",
+      "copy_output": "출력 복사"
     },
     "how_to": {
-      "title": "How to use this Morse code translator (step-by-step)",
-      "step_1_title": "1) Normalize input",
-      "step_1_desc": "Text is uppercased for consistent mapping; Morse input is split by spaces and `/`.",
-      "step_2_title": "2) Convert by dictionary",
-      "step_2_desc": "Characters map to dots and dashes using the ITU-style Morse table; unknown tokens return `?`.",
-      "step_3_title": "3) Render and playback",
-      "step_3_desc": "The output is shown as plain text and can be played as short/long tones in the browser audio engine."
+      "title": "모스 부호 번역기 사용법(단계별)",
+      "step_1_title": "1) 입력 정규화",
+      "step_1_desc": "일관된 변환을 위해 텍스트를 대문자로 바꾸며, 모스 입력은 공백과 `/`를 기준으로 나눕니다.",
+      "step_2_title": "2) 사전으로 변환",
+      "step_2_desc": "ITU 방식의 모스 표를 사용해 문자를 점과 선에 대응시킵니다. 알 수 없는 항목은 `?`로 표시됩니다.",
+      "step_3_title": "3) 표시 및 재생",
+      "step_3_desc": "결과는 일반 텍스트로 표시되며 브라우저 오디오 엔진에서 짧은 음과 긴 음으로 재생할 수 있습니다."
     },
     "boundaries": {
-      "title": "Boundaries and limitations",
-      "can_do": "<strong>Can do:</strong> text and Morse conversion, browser playback, quick educational reference.",
-      "cannot_do": "<strong>Cannot do:</strong> advanced radio protocol timing, signal-noise simulation, or long-form transmission logging.",
-      "input_scope": "<strong>Input scope:</strong> A-Z, 0-9, spaces, and standard Morse separators."
+      "title": "범위와 제한 사항",
+      "can_do": "<strong>가능:</strong> 텍스트와 모스 변환, 브라우저 재생, 빠른 학습용 참고.",
+      "cannot_do": "<strong>불가능:</strong> 고급 무선 프로토콜 타이밍, 신호 잡음 시뮬레이션, 장시간 전송 기록.",
+      "input_scope": "<strong>입력 범위:</strong> A-Z, 0-9, 공백 및 표준 모스 구분 기호."
     },
     "sos": {
-      "title": "SOS in Morse code",
-      "text_label": "Text",
-      "morse_label": "Morse",
-      "use_case_label": "Use case",
-      "use_case_desc": "A standard emergency signal. You can paste it into Morse input and play flash or audio instantly."
+      "title": "모스 부호의 SOS",
+      "text_label": "텍스트",
+      "morse_label": "모스",
+      "use_case_label": "사용 사례",
+      "use_case_desc": "표준 긴급 신호입니다. 모스 입력란에 붙여 넣고 플래시나 오디오로 바로 재생할 수 있습니다."
     },
     "history": {
-      "title": "Who invented Morse code and when?",
-      "description": "<strong>Short answer:</strong> Samuel Morse and Alfred Vail developed Morse code in the <amber>1830s</amber>, and it was adopted in practical telegraph systems during the <amber>1840s</amber>."
+      "title": "모스 부호는 누가 언제 발명했나요?",
+      "description": "<strong>간단한 답변:</strong> 새뮤얼 모스와 앨프리드 베일이 <amber>1830년대</amber>에 모스 부호를 개발했으며, <amber>1840년대</amber>에 실용적인 전신 시스템에 채택되었습니다."
     },
     "guide": {
-      "title": "Complete Morse code guide for beginners",
-      "p1": "<strong>Direct answer:</strong> Morse code is a practical signal language where each letter or number is represented by a sequence of dots and dashes. If your goal is to <cyan>translate text to Morse</cyan>, <blue>decode Morse to text</blue>, or simply learn the alphabet quickly, this page combines all three in one place: real-time conversion, flash rhythm playback, and an alphabet chart for fast lookup.",
-      "p2": "Many users search phrases like <strong>what is morse code</strong>, <strong>how to read morse code</strong>, and <strong>how to learn morse code</strong> because they need both a tool and a clear explanation. The fastest way to read Morse is to treat it as sound and timing patterns rather than visual symbols only. A dot is a short signal and a dash is a longer signal; letters are separated by short gaps and words are separated by longer breaks. Once this rhythm is clear, decoding speed improves quickly.",
-      "p3": "If you are practicing from scratch, start with a small set of high-frequency letters such as <strong>E, T, A, N, I, M, S, O</strong>. Then type simple words in the converter and switch between both modes to reinforce memory from both directions. For emergency awareness, memorize <rose>SOS = ... --- ...</rose> first. That one sequence appears in many learning resources and is one of the easiest Morse patterns to recognize at speed.",
-      "p4": "Historically, Morse code was developed by Samuel Morse and Alfred Vail in the 1830s and became widely used through telegraph networks in the 1840s. Today, people still use it for radio training, education, puzzle design, and creative projects like jewelry pattern encoding. In short, a modern <strong>morse code generator</strong> should do more than output symbols: it should help users understand meaning, timing, and practical use.",
-      "quick_a": "A in Morse code",
-      "quick_b": "B in Morse code",
-      "quick_c": "C in Morse code",
-      "quick_e": "E in Morse code",
-      "quick_s": "S in Morse code",
-      "quick_o": "O in Morse code"
+      "title": "초보자를 위한 완전한 모스 부호 가이드",
+      "p1": "<strong>직접적인 답변:</strong> 모스 부호는 각 문자와 숫자를 점과 선의 조합으로 표현하는 실용적인 신호 언어입니다. <cyan>텍스트를 모스로 변환</cyan>하거나 <blue>모스를 텍스트로 디코딩</blue>하고 알파벳을 빠르게 배우려는 사용자를 위해 실시간 변환, 플래시 리듬 재생, 알파벳 표를 한곳에 제공합니다.",
+      "p2": "많은 사용자가 모스 부호가 무엇인지, 어떻게 읽고 배우는지를 검색합니다. 모스는 시각 기호만이 아니라 소리와 타이밍의 패턴으로 이해하면 더 빠르게 읽을 수 있습니다. 점은 짧은 신호이고 선은 긴 신호이며, 문자 사이에는 짧은 간격, 단어 사이에는 더 긴 간격이 있습니다.",
+      "p3": "처음 연습한다면 <strong>E, T, A, N, I, M, S, O</strong>처럼 자주 쓰이는 문자부터 시작하세요. 변환기에 간단한 단어를 입력하고 두 모드를 번갈아 사용하면 양방향 기억을 강화할 수 있습니다. 긴급 신호를 위해 먼저 <rose>SOS = ... --- ...</rose>를 외워 두세요.",
+      "p4": "모스 부호는 새뮤얼 모스와 앨프리드 베일이 1830년대에 개발했으며 1840년대에 전신망을 통해 널리 사용되었습니다. 오늘날에도 무선 훈련, 교육, 퍼즐 제작, 보석 패턴 같은 창작 프로젝트에 활용됩니다. 현대적인 <strong>모스 부호 생성기</strong>는 기호를 출력하는 것에서 그치지 않고 의미와 타이밍, 실제 활용법을 이해하도록 도와야 합니다.",
+      "quick_a": "모스 부호의 A",
+      "quick_b": "모스 부호의 B",
+      "quick_c": "모스 부호의 C",
+      "quick_e": "모스 부호의 E",
+      "quick_s": "모스 부호의 S",
+      "quick_o": "모스 부호의 O"
     },
     "alphabet_chart": {
-      "title": "Morse code alphabet chart (A-Z and 0-9)"
+      "title": "모스 부호 알파벳 표(A-Z 및 0-9)"
     },
     "faq": {
-      "title": "Morse code translator FAQ"
+      "title": "모스 부호 번역기 FAQ"
     },
     "faq_1": {
-      "question": "What is a Morse code translator and how does it work?",
-      "answer": "A Morse code translator converts text to Morse code and Morse code back to text in seconds. This page also provides browser-based Morse audio and flash playback for timing practice."
+      "question": "모스 부호 번역기란 무엇이며 어떻게 작동하나요?",
+      "answer": "모스 부호 번역기는 몇 초 만에 텍스트를 모스로, 모스를 텍스트로 변환합니다. 이 페이지에서는 타이밍 연습을 위한 브라우저 기반 모스 오디오와 플래시 재생도 제공합니다."
     },
     "faq_2": {
-      "question": "How do I convert text to Morse code online for free?",
-      "answer": "Use Text to Morse mode, type your message, and copy the generated Morse output instantly. The converter is free, browser-based, and requires no sign-up."
+      "question": "온라인에서 무료로 텍스트를 모스 부호로 변환하려면 어떻게 하나요?",
+      "answer": "텍스트를 모스로 모드를 선택하고 메시지를 입력한 뒤 생성된 결과를 바로 복사하세요. 무료이며 브라우저에서 작동하고 가입이 필요하지 않습니다."
     },
     "faq_3": {
-      "question": "How do I decode Morse code to text correctly?",
-      "answer": "Use one space between Morse letters and a slash `/` between words for accurate decoding. Then switch to Morse to Text mode; example input is `... --- ... / .... . .-.. .--.`."
+      "question": "모스 부호를 텍스트로 정확하게 디코딩하려면 어떻게 하나요?",
+      "answer": "모스 문자 사이에는 공백 하나를, 단어 사이에는 슬래시 `/`를 사용하세요. 그런 다음 모스를 텍스트로 모드로 전환합니다. 입력 예시는 `... --- ... / .... . .-.. .--.`입니다."
     },
     "faq_4": {
-      "question": "Where can I find a Morse code alphabet chart for letters and numbers?",
-      "answer": "Open the Morse code alphabet chart section on this page to view A-Z and 0-9 mappings. It works as a quick reference while translating or learning Morse."
+      "question": "문자와 숫자의 모스 부호 표는 어디에서 볼 수 있나요?",
+      "answer": "이 페이지의 모스 부호 알파벳 표를 열어 A-Z와 0-9의 대응을 확인하세요. 모스를 번역하거나 학습할 때 빠른 참고 자료로 사용할 수 있습니다."
     },
     "faq_5": {
-      "question": "What is SOS in Morse code?",
-      "answer": "SOS in Morse code is `... --- ...`. You can copy it directly into the Morse input field and play it with audio or flash timing."
+      "question": "모스 부호에서 SOS는 무엇인가요?",
+      "answer": "모스 부호의 SOS는 `... --- ...`입니다. 모스 입력란에 바로 복사한 뒤 오디오나 플래시로 재생할 수 있습니다."
     },
     "faq_6": {
-      "question": "Can this Morse code converter handle invalid Morse symbols?",
-      "answer": "Yes. Unknown or malformed Morse tokens are shown as `?`, so you can quickly identify where the Morse sequence needs correction."
+      "question": "이 모스 부호 변환기는 잘못된 기호를 처리할 수 있나요?",
+      "answer": "예. 알 수 없거나 잘못된 모스 요소는 `?`로 표시되므로 수정해야 할 위치를 빠르게 찾을 수 있습니다."
     },
     "faq_7": {
-      "question": "Can I use this Morse code translator without sending data to a server?",
-      "answer": "Yes. Translation and playback run locally in your browser, helping protect privacy and keeping the converter fast."
+      "question": "서버로 데이터를 보내지 않고 이 모스 번역기를 사용할 수 있나요?",
+      "answer": "예. 번역과 재생은 브라우저에서 로컬로 실행되어 개인정보 보호에 도움이 되며 변환도 빠르게 처리됩니다."
     },
     "faq_8": {
-      "question": "Who should use this Morse code generator and decoder?",
-      "answer": "It is useful for students, radio hobbyists, puzzle creators, and developers who need fast text-to-Morse and Morse-to-text conversion in one place."
+      "question": "이 모스 부호 생성기와 디코더는 누가 사용하면 좋나요?",
+      "answer": "학생, 무선 통신 취미 사용자, 퍼즐 제작자, 텍스트와 모스를 빠르게 변환해야 하는 개발자에게 유용합니다."
     },
     "faq_9": {
-      "question": "How often is this Morse translator page updated for accuracy?",
-      "answer": "The page follows a 30-90 day GEO review cycle and displays a last updated date to provide freshness and confidence signals."
+      "question": "이 모스 번역기 페이지는 얼마나 자주 업데이트되나요?",
+      "answer": "페이지는 30~90일 GEO 검토 주기를 따르며 최신 업데이트 날짜를 표시합니다."
     },
     "faq_10": {
-      "question": "What is Morse code?",
-      "answer": "Morse code is a character encoding system that represents letters and numbers using short and long signals known as dots and dashes."
+      "question": "모스 부호란 무엇인가요?",
+      "answer": "모스 부호는 점과 선이라고 부르는 짧고 긴 신호로 문자와 숫자를 표현하는 문자 인코딩 체계입니다."
     },
     "faq_11": {
-      "question": "How can I learn Morse code quickly?",
-      "answer": "Start with high-frequency letters, practice daily with short sessions, and use audio or flash playback to train rhythm recognition."
+      "question": "모스 부호를 빠르게 배우려면 어떻게 해야 하나요?",
+      "answer": "자주 쓰이는 문자부터 시작하고 매일 짧게 연습하며 오디오나 플래시 재생으로 리듬 인식을 훈련하세요."
     },
     "faq_12": {
-      "question": "Who invented Morse code and when was it invented?",
-      "answer": "Samuel Morse and Alfred Vail developed Morse code in the 1830s, and it became widely used in telegraph communication in the 1840s."
+      "question": "모스 부호는 누가 언제 발명했나요?",
+      "answer": "새뮤얼 모스와 앨프리드 베일이 1830년대에 개발했으며 1840년대에 전신 통신에서 널리 사용되었습니다."
     },
     "sources": {
-      "title": "Data sources and trust signals",
-      "item_1": "<strong>ITU-R M.1677-1:</strong> International Morse code reference for letters, digits, and transmission pattern.",
-      "item_2": "<strong>Web Audio API:</strong> Browser-side audio generation used for dot/dash playback.",
-      "last_updated": "Last updated: <strong>{date}</strong> (review cycle: every 30-90 days)."
+      "title": "데이터 출처와 신뢰 신호",
+      "item_1": "<strong>ITU-R M.1677-1:</strong> 문자, 숫자 및 전송 패턴을 위한 국제 모스 부호 참고 자료입니다.",
+      "item_2": "<strong>Web Audio API:</strong> 점과 선을 재생하는 데 사용하는 브라우저 측 오디오 생성 기능입니다.",
+      "last_updated": "최종 업데이트: <strong>{date}</strong>(검토 주기: 30~90일마다)."
     },
     "hidden_seo": {
-      "title": "Morse code generator vs translator",
-      "description": "A Morse code generator takes plain text input and encodes it into Morse symbols, while a Morse code translator typically supports both directions: encode text to Morse and decode Morse to readable text. This page includes both generator and translator behavior, plus audio playback for signal timing practice."
+      "title": "모스 부호 생성기와 번역기의 차이",
+      "description": "모스 부호 생성기는 일반 텍스트를 모스 기호로 인코딩하고, 모스 부호 번역기는 텍스트를 모스로 인코딩하거나 모스를 읽을 수 있는 텍스트로 디코딩하는 양방향 기능을 제공합니다. 이 페이지는 두 기능과 신호 타이밍 연습을 위한 오디오 재생을 제공합니다."
     },
     "schema": {
-      "webapp_name": "Morse Code Translator",
-      "alternate_names": "Morse Code Generator, Morse Code Decoder, Morse Code Converter",
-      "feature_1": "Text to Morse conversion",
-      "feature_2": "Morse to text decoding",
-      "feature_3": "Morse code alphabet chart",
-      "feature_4": "SOS in Morse code quick reference",
-      "feature_5": "Morse audio playback",
-      "feature_6": "Reference table",
-      "feature_7": "No registration required",
-      "howto_name": "How to translate text and Morse code online",
-      "howto_description": "Use this step-by-step guide to encode text to Morse code, decode Morse to text, and play Morse audio.",
-      "howto_step_1_name": "Choose conversion mode",
-      "howto_step_1_text": "Select Text to Morse to encode plain text, or Morse to Text to decode Morse signals.",
-      "howto_step_2_name": "Paste your content",
-      "howto_step_2_text": "Enter text, or provide Morse with spaces between letters and slash between words.",
-      "howto_step_3_name": "Copy or play Morse output",
-      "howto_step_3_text": "Copy the generated result, or click play to hear and visualize Morse timing.",
-      "howto_step_4_name": "Use the alphabet chart and SOS reference",
-      "howto_step_4_text": "Open the Morse code alphabet chart and SOS example section to read or learn Morse patterns faster.",
-      "itemlist_name": "Morse code alphabet chart",
+      "webapp_name": "모스 부호 번역기",
+      "alternate_names": "모스 부호 생성기, 모스 부호 디코더, 모스 부호 변환기",
+      "feature_1": "텍스트를 모스로 변환",
+      "feature_2": "모스를 텍스트로 디코딩",
+      "feature_3": "모스 부호 알파벳 표",
+      "feature_4": "모스 부호 SOS 빠른 참고",
+      "feature_5": "모스 오디오 재생",
+      "feature_6": "참고 표",
+      "feature_7": "등록 불필요",
+      "howto_name": "온라인에서 텍스트와 모스 부호를 변환하는 방법",
+      "howto_description": "이 단계별 가이드를 사용해 텍스트를 모스로 인코딩하고 모스를 텍스트로 디코딩하며 모스 오디오를 재생하세요.",
+      "howto_step_1_name": "변환 모드 선택",
+      "howto_step_1_text": "일반 텍스트를 인코딩하려면 텍스트를 모스로, 모스 신호를 디코딩하려면 모스를 텍스트로 선택하세요.",
+      "howto_step_2_name": "내용 붙여넣기",
+      "howto_step_2_text": "텍스트를 입력하거나 문자 사이에는 공백, 단어 사이에는 슬래시를 넣은 모스를 입력하세요.",
+      "howto_step_3_name": "모스 결과 복사 또는 재생",
+      "howto_step_3_text": "생성된 결과를 복사하거나 재생을 눌러 모스 타이밍을 듣고 확인하세요.",
+      "howto_step_4_name": "알파벳 표와 SOS 참고 사용",
+      "howto_step_4_text": "모스 부호 표와 SOS 예시를 열어 모스 패턴을 더 빠르게 읽거나 학습하세요.",
+      "itemlist_name": "모스 부호 알파벳 표",
       "itemlist_1": "A .-",
       "itemlist_2": "B -...",
       "itemlist_3": "C -.-.",
@@ -9897,4 +9897,6 @@
     "resume_playlist": "남은 트랙 계속 다운로드",
     "playlist_paused": "재생목록이 일시 중지되었습니다. 대기 후 이 트랙부터 계속할 수 있습니다."
   }
+,
+  "PdfToMarkdown": {"eyebrow":"PDF to Markdown","title":"PDF를 Markdown으로 변환","intro":"텍스트 기반 PDF 문서를 브라우저에서 편집 가능한 Markdown으로 변환합니다. 파일은 로컬에서 처리되며 서버에 업로드되지 않습니다.","breadcrumb":{"tools":"도구","current":"PDF to Markdown"},"upload":{"title":"변환할 PDF 업로드","drop":"PDF를 선택하거나 여기에 끌어 놓으세요","limit":"PDF 파일만 지원합니다. 스캔 PDF의 OCR은 지원하지 않습니다."},"status":{"loading":"PDF를 불러오는 중…","metadata":"문서를 읽는 중…","page":"{total}페이지 중 {current}페이지 읽는 중…","converting":"Markdown으로 변환하는 중…","progress":"{progress}% 완료"},"errors":{"invalidType":"유효한 PDF 파일을 선택하세요.","processing":"PDF를 처리할 수 없습니다."},"success":{"title":"변환 완료","description":"{pages}페이지에서 텍스트를 추출했습니다. 아래 Markdown을 확인하고 편집하세요."},"actions":{"another":"다른 PDF 변환","download":"Markdown 다운로드","edit":"편집","preview":"미리보기","placeholder":"변환된 Markdown이 여기에 표시됩니다…"},"stats":{"pages":"페이지","words":"단어","characters":"문자","size":"크기"},"about":{"heading":"이 도구의 기능","description":"텍스트 기반 PDF에서 텍스트를 추출해 Markdown으로 변환합니다. PDF.js가 브라우저에서 실행되므로 파일은 업로드되지 않습니다. 복잡한 레이아웃은 수정이 필요할 수 있습니다."},"steps":{"heading":"사용 방법","one":"PDF를 선택하거나 끌어 놓습니다.","two":"브라우저가 각 페이지를 읽을 때까지 기다립니다.","three":"생성된 Markdown을 확인합니다.","four":"편집한 Markdown 파일을 다운로드합니다."},"faq":{"heading":"자주 묻는 질문","local":{"question":"PDF가 업로드되나요?","answer":"아니요. 변환은 브라우저에서 실행되며 PDF.js가 파일을 로컬에서 읽습니다."},"scanned":{"question":"스캔 PDF나 OCR을 지원하나요?","answer":"아니요. 현재 구현은 포함된 PDF 텍스트를 추출하며 OCR은 포함하지 않습니다."},"limit":{"question":"파일 크기 제한이 있나요?","answer":"화면에서 별도의 파일 크기 제한을 정하지 않습니다. 실제 한도는 브라우저와 문서에 따라 다릅니다."}},"accessibility":{"breadcrumb":"탐색 경로","home":"홈","tabs":"Markdown 보기","editor":"Markdown 편집기"}}
 }
