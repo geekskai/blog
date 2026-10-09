@@ -60,7 +60,7 @@ function AuthHeader() {
         className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-violet-400/35 to-transparent"
         aria-hidden
       />
-      <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between px-4 sm:px-6 2xl:px-0">
+      <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-10 2xl:px-12">
         <BrandLink />
         <LocaleLink
           href="/tools/"
@@ -84,7 +84,7 @@ function WorkspaceHeader() {
           className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sky-400/35 to-transparent"
           aria-hidden
         />
-        <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 2xl:px-0">
+        <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-3 px-6 sm:px-8 lg:px-10 2xl:px-12">
           <BrandLink />
           <div className="hidden items-center gap-6 lg:flex">
             <nav className="flex items-center" aria-label="Audio Toolkit">
@@ -131,7 +131,7 @@ function AcquisitionHeader() {
           className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-sky-400/30 to-transparent"
           aria-hidden
         />
-        <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 2xl:px-0">
+        <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-3 px-6 sm:px-8 lg:px-10 2xl:px-12">
           <BrandLink />
           <div className="hidden items-center gap-6 lg:flex">
             <nav className="flex items-center" aria-label="Primary">

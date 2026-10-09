@@ -63,7 +63,7 @@ export default function Hero() {
           <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.04)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_0%,black,transparent)]" />
         </div>
 
-        <div className="relative mx-auto grid w-full max-w-7xl gap-12 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,1.04fr)_minmax(29rem,0.96fr)] lg:items-center lg:gap-14 lg:py-24 2xl:px-0">
+        <div className="relative mx-auto grid w-full max-w-7xl gap-12 px-6 py-14 sm:px-8 sm:py-20 lg:grid-cols-[minmax(0,1.04fr)_minmax(29rem,0.96fr)] lg:items-center lg:gap-14 lg:py-24 2xl:px-12">
           <div className="max-w-2xl">
             {t.has("home_product_eyebrow") ? (
               <p className="inline-flex items-center gap-2 rounded-full border border-sky-400/25 bg-sky-500/10 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-200 sm:text-xs">
@@ -191,7 +191,7 @@ export default function Hero() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-20 2xl:px-0">
+      <section className="mx-auto w-full max-w-7xl px-6 py-16 sm:px-8 sm:py-20 lg:px-10 2xl:px-12">
         <div className="flex flex-col gap-5 border-b border-slate-800 pb-8 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             {t.has("home_tasks_eyebrow") ? (

@@ -22,7 +22,7 @@ export default function Home({ posts }) {
         aria-labelledby="home-guides-title"
         className="border-t border-slate-800/80 bg-slate-950/45"
       >
-        <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-20 2xl:px-0">
+        <div className="mx-auto w-full max-w-7xl px-6 py-16 sm:px-8 sm:py-20 lg:px-10 2xl:px-12">
           <ListLayout posts={homepagePosts} />
         </div>
       </section>
