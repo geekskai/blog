@@ -1,7 +1,19 @@
 import fs from "node:fs/promises"
 import path from "node:path"
+import { pathToFileURL } from "node:url"
 
 import * as cheerio from "cheerio"
+import {
+  assessRoute,
+  classifyUrl,
+  compareAlternateChannels,
+  isBlockedResponse,
+  noindexHreflangStatus,
+  normalizeUrl,
+  parseHttpLinkAlternates,
+  parseRobotsTxt,
+  parseSitemapEntries,
+} from "./sitemap-quality-utils.mjs"
 
 const DEFAULT_SITEMAP = "https://geekskai.com/sitemap.xml"
 const DEFAULT_OUTPUT = "reports/seo/sitemap-quality.csv"
@@ -15,56 +27,78 @@ const LANGUAGE_WORDS = {
   pt: new Set(["o", "a", "os", "para", "com", "uma", "que", "dos", "das", "este"]),
 }
 
-const args = parseArgs(process.argv.slice(2))
-const sitemapUrl = args.sitemap || DEFAULT_SITEMAP
-const outputPath = path.resolve(args.output || DEFAULT_OUTPUT)
-const gscRows = args["gsc-csv"] ? await loadGscCsv(path.resolve(args["gsc-csv"])) : new Map()
-const routeListPath = args.routes ? path.resolve(args.routes) : null
-
-console.log(`Fetching sitemap: ${sitemapUrl}`)
-const sourceUrls = routeListPath
-  ? await loadRouteList(routeListPath)
-  : await loadSitemapUrls(sitemapUrl)
-const sitemapUrlSet = new Set(await loadSitemapUrls(sitemapUrl).catch(() => []))
-const sitemapUrls = [...new Set(sourceUrls)]
-console.log(`Auditing ${sitemapUrls.length} unique URLs with concurrency ${args.concurrency || 8}`)
-
-const rows = await mapConcurrent(sitemapUrls, Number(args.concurrency || 8), async (url, index) => {
-  const row = await auditUrl(url, sitemapUrlSet)
-  if ((index + 1) % 25 === 0 || index + 1 === sitemapUrls.length) {
-    console.log(`Audited ${index + 1}/${sitemapUrls.length}`)
-  }
-  return row
-})
-
-const extraHreflangRows = await auditMissingHreflangTargets(rows, Number(args.concurrency || 8))
-enrichCrossPageChecks(rows, extraHreflangRows)
-for (const row of rows) {
-  const gsc = gscRows.get(normalizeUrl(row.url)) || {}
-  row.gsc_clicks = gsc.clicks || ""
-  row.gsc_impressions = gsc.impressions || ""
-  row.gsc_last_crawled = gsc.lastCrawled || ""
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((error) => {
+    console.error(error)
+    process.exitCode = 1
+  })
 }
 
-await fs.mkdir(path.dirname(outputPath), { recursive: true })
-await fs.writeFile(outputPath, toCsv(rows), "utf8")
+async function main() {
+  const args = parseArgs(process.argv.slice(2))
+  const sitemapUrl = args.sitemap || DEFAULT_SITEMAP
+  const outputPath = path.resolve(args.output || DEFAULT_OUTPUT)
+  const gscRows = args["gsc-csv"] ? await loadGscCsv(path.resolve(args["gsc-csv"])) : new Map()
+  const routeListPath = args.routes ? path.resolve(args.routes) : null
 
-const summary = rows.reduce(
-  (result, row) => {
-    result.total += 1
-    if (row.indexable === "yes") result.indexable += 1
-    if (row.status !== 200) result.non200 += 1
-    if (row.self_canonical !== "yes") result.nonSelfCanonical += 1
-    if (row.hreflang_targets_200 === "no" || row.hreflang_reciprocal === "no") {
-      result.hreflangIssues += 1
+  console.log(`Fetching sitemap: ${sitemapUrl}`)
+  const sitemapData = await loadSitemapData(sitemapUrl, { allowFailure: Boolean(routeListPath) })
+  const routeEntries = routeListPath
+    ? await loadRouteList(routeListPath)
+    : [...sitemapData.entries.values()].map((entry) => ({ url: entry.url, expected: {} }))
+  const uniqueRoutes = [
+    ...new Map(routeEntries.map((route) => [normalizeUrl(route.url), route])).values(),
+  ]
+  console.log(
+    `Auditing ${uniqueRoutes.length} unique URLs with concurrency ${args.concurrency || 8}`
+  )
+
+  const robotsCache = new Map()
+  const rows = await mapConcurrent(
+    uniqueRoutes,
+    Number(args.concurrency || 8),
+    async (route, index) => {
+      const row = await auditUrl(route, sitemapData, robotsCache)
+      if ((index + 1) % 25 === 0 || index + 1 === uniqueRoutes.length) {
+        console.log(`Audited ${index + 1}/${uniqueRoutes.length}`)
+      }
+      return row
     }
-    return result
-  },
-  { total: 0, indexable: 0, non200: 0, nonSelfCanonical: 0, hreflangIssues: 0 }
-)
+  )
 
-console.log(`Wrote ${outputPath}`)
-console.log(JSON.stringify(summary, null, 2))
+  const extraHreflangRows = await auditMissingHreflangTargets(
+    rows,
+    sitemapData,
+    robotsCache,
+    Number(args.concurrency || 8)
+  )
+  enrichCrossPageChecks(rows, extraHreflangRows)
+  for (const row of rows) {
+    const gsc = gscRows.get(normalizeUrl(row.url)) || {}
+    row.gsc_clicks = gsc.clicks || ""
+    row.gsc_impressions = gsc.impressions || ""
+    row.gsc_last_crawled = gsc.lastCrawled || ""
+  }
+
+  await fs.mkdir(path.dirname(outputPath), { recursive: true })
+  await fs.writeFile(outputPath, toCsv(rows), "utf8")
+
+  const summary = rows.reduce(
+    (result, row) => {
+      result.total += 1
+      if (row.indexable === "yes") result.indexable += 1
+      if (row.status !== 200) result.non200 += 1
+      if (row.self_canonical !== "yes") result.nonSelfCanonical += 1
+      if (row.hreflang_targets_200 === "no" || row.hreflang_reciprocal === "no")
+        result.hreflangIssues += 1
+      return result
+    },
+    { total: 0, indexable: 0, non200: 0, nonSelfCanonical: 0, hreflangIssues: 0 }
+  )
+
+  console.log(`Wrote ${outputPath}`)
+  console.log(JSON.stringify(summary, null, 2))
+}
 
 function parseArgs(values) {
   const parsed = {}
@@ -87,16 +121,35 @@ async function fetchText(url) {
   return response.text()
 }
 
-async function loadSitemapUrls(url, seen = new Set()) {
-  if (seen.has(url)) return []
+async function loadSitemapData(url, { seen = new Set(), allowFailure = false } = {}) {
+  if (seen.has(url)) return { entries: new Map(), status: "PASS" }
   seen.add(url)
-  const xml = await fetchText(url)
-  const locations = [...xml.matchAll(/<loc>([\s\S]*?)<\/loc>/gi)].map((match) =>
-    decodeXml(match[1].trim())
-  )
-  if (!/<sitemapindex[\s>]/i.test(xml)) return locations
-  const nested = await Promise.all(locations.map((location) => loadSitemapUrls(location, seen)))
-  return nested.flat()
+  try {
+    const xml = await fetchText(url)
+    if (/<sitemapindex[\s>]/i.test(xml)) {
+      const children = [...xml.matchAll(/<loc>([\s\S]*?)<\/loc>/gi)].map((match) =>
+        decodeXml(match[1].trim())
+      )
+      const nested = await Promise.all(
+        children.map((location) => loadSitemapData(location, { seen, allowFailure }))
+      )
+      return {
+        entries: new Map(nested.flatMap((result) => [...result.entries])),
+        status: nested.some((result) => result.status === "BLOCKED") ? "BLOCKED" : "PASS",
+      }
+    }
+    const entries = new Map(
+      parseSitemapEntries(xml, url).map((entry) => [normalizeUrl(entry.url), entry])
+    )
+    return { entries, status: "PASS" }
+  } catch (error) {
+    if (!allowFailure) throw error
+    return {
+      entries: new Map(),
+      status: "BLOCKED",
+      error: error instanceof Error ? error.message : String(error),
+    }
+  }
 }
 
 function decodeXml(value) {
@@ -110,17 +163,36 @@ function decodeXml(value) {
 
 async function loadRouteList(filePath) {
   const raw = await fs.readFile(filePath, "utf8")
+  let values
   if (filePath.endsWith(".json")) {
     const value = JSON.parse(raw)
-    return Array.isArray(value) ? value : value.urls || value.routes || []
+    values = Array.isArray(value) ? value : value.urls || value.routes || []
+  } else {
+    values = raw
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter((line) => line && !line.startsWith("#"))
   }
-  return raw.split(/\r?\n/).map((line) => line.trim()).filter((line) => line && !line.startsWith("#"))
+  return values
+    .map((value) =>
+      typeof value === "string"
+        ? { url: value, expected: {} }
+        : {
+            url: value.url,
+            expected: value.expected || value.expect || {},
+          }
+    )
+    .filter((route) => route.url)
 }
 
-async function auditUrl(url, sitemapUrlSet = new Set()) {
+async function auditUrl(route, sitemapData, robotsCache = new Map()) {
+  const url = typeof route === "string" ? route : route.url
+  const expected = typeof route === "string" ? {} : route.expected || {}
+  const sitemapEntry = sitemapData.entries.get(normalizeUrl(url))
   const base = {
     content_type: classifyUrl(url),
     url,
+    first_status: "",
     status: "",
     redirect_chain: "",
     final_url: "",
@@ -129,11 +201,20 @@ async function auditUrl(url, sitemapUrlSet = new Set()) {
     canonical: "",
     html_alternates: "",
     http_alternates: "",
+    first_hop_http_alternates: "",
     sitemap_alternates: "",
-    in_sitemap: sitemapUrlSet.has(normalizeUrl(url)) ? "yes" : "no",
-    sitemap_alternates_expected: "unknown",
+    in_sitemap: sitemapEntry ? "yes" : "no",
+    sitemap_alternates_expected:
+      sitemapData.status === "BLOCKED"
+        ? "BLOCKED"
+        : expected.sitemap === undefined
+          ? "unspecified"
+          : expected.sitemap
+            ? "yes"
+            : "no",
+    hreflang_channels_consistent: "unknown",
     hreflang_noindex_target: "unknown",
-    robots_txt: "unknown",
+    robots_txt: "BLOCKED",
     verdict: "BLOCKED",
     self_canonical: "no",
     declared_language: "",
@@ -154,23 +235,35 @@ async function auditUrl(url, sitemapUrlSet = new Set()) {
 
   try {
     const chain = []
-    let response = await fetch(url, {
-      redirect: "manual",
-      headers: { "user-agent": "GeekskaiSitemapQualityAudit/1.0" },
-      signal: AbortSignal.timeout(20_000),
-    })
+    const requestPage = (requestUrl) =>
+      fetch(requestUrl, {
+        redirect: "manual",
+        headers: { "user-agent": "GeekskaiSitemapQualityAudit/1.0" },
+        signal: AbortSignal.timeout(20_000),
+      })
+    let response = await requestPage(url)
+    const firstResponse = response
     chain.push(`${response.status} ${url}`)
     let finalUrl = url
-    for (let hop = 0; response.status >= 300 && response.status < 400 && response.headers.get("location") && chain.length < 10; hop += 1) {
+    while (
+      response.status >= 300 &&
+      response.status < 400 &&
+      response.headers.get("location") &&
+      chain.length < 10
+    ) {
       finalUrl = new URL(response.headers.get("location"), finalUrl).toString()
-      response = await fetch(finalUrl, { redirect: "manual", headers: { "user-agent": "GeekskaiSitemapQualityAudit/1.0" }, signal: AbortSignal.timeout(20_000) })
+      response = await requestPage(finalUrl)
       chain.push(`${response.status} ${finalUrl}`)
     }
     const finalResponse = response
     const html = await finalResponse.text()
-    const $ = cheerio.load(html)
+    const contentType = finalResponse.headers.get("content-type") || ""
+    const isHtml =
+      contentType.toLowerCase().includes("text/html") || /<html[\s>]/i.test(html.slice(0, 500))
+    const $ = cheerio.load(isHtml ? html : "")
     $("script, style, noscript, svg, nav, footer").remove()
     const robots = [
+      firstResponse.headers.get("x-robots-tag") || "",
       finalResponse.headers.get("x-robots-tag") || "",
       $('meta[name="robots"]').attr("content") || "",
       $('meta[name="googlebot"]').attr("content") || "",
@@ -178,60 +271,139 @@ async function auditUrl(url, sitemapUrlSet = new Set()) {
       .filter(Boolean)
       .join("; ")
       .toLowerCase()
+    const noindex = /\bnoindex\b/.test(robots)
     const canonicalHref = $('link[rel="canonical"]').attr("href") || ""
-    const canonical = canonicalHref ? new URL(canonicalHref, finalResponse.url).toString() : ""
-    const hreflangs = $('link[rel="alternate"][hreflang]')
+    const canonical = canonicalHref ? new URL(canonicalHref, finalUrl).toString() : ""
+    const htmlAlternates = $('link[rel="alternate"][hreflang]')
       .map((_, element) => ({
         language: $(element).attr("hreflang") || "",
-        url: new URL($(element).attr("href") || "", finalResponse.url).toString(),
+        url: new URL($(element).attr("href") || "", finalUrl).toString(),
       }))
       .get()
+    const firstHopHttpAlternates = parseHttpLinkAlternates(firstResponse.headers.get("link"), url)
+    const httpAlternates = parseHttpLinkAlternates(finalResponse.headers.get("link"), finalUrl)
+    const sitemapAlternates = sitemapEntry?.alternates || []
     const text = ($("main").text() || $("article").text() || $("body").text())
       .replace(/\s+/g, " ")
       .trim()
     const wordCount = tokenize(text).length
     const selfCanonical = Boolean(canonical) && normalizeUrl(canonical) === normalizeUrl(url)
+    const robotsInfo = await getRobotsInfo(url, robotsCache)
+    const firstStatus = firstResponse.status
+    const status = finalResponse.status
+    const routeVerdict = assessRoute({
+      firstStatus,
+      finalStatus: status,
+      finalUrl,
+      expected,
+      isHtml,
+      noindex,
+      selfCanonical,
+    })
+    const redirectHttpAlternates = firstStatus !== status ? firstHopHttpAlternates : []
+    const channels = {
+      html: htmlAlternates,
+      http: httpAlternates,
+      sitemap: sitemapAlternates,
+      redirectHttp: redirectHttpAlternates,
+    }
+    let verdict = routeVerdict
+    if (expected.status !== undefined && status !== expected.status) verdict = "FAIL"
+    if (
+      expected.canonical &&
+      normalizeUrl(canonical) !== normalizeUrl(new URL(expected.canonical, url).toString())
+    )
+      verdict = "FAIL"
+    if (expected.sitemap !== undefined && (sitemapEntry !== undefined) !== expected.sitemap)
+      verdict = "FAIL"
+    if (expected.hreflang === false && Object.values(channels).some((items) => items.length))
+      verdict = "FAIL"
+    if (expected.hreflangTargets) {
+      const actual = htmlAlternates
+        .map((item) => `${item.language}:${normalizeUrl(item.url)}`)
+        .sort()
+      const wanted = expected.hreflangTargets
+        .map((item) => `${item.language}:${normalizeUrl(new URL(item.url, url).toString())}`)
+        .sort()
+      if (actual.join("|") !== wanted.join("|")) verdict = "FAIL"
+    }
+    if (expected.robotsAllowed !== undefined) {
+      if (robotsInfo.googlebotAllowed !== expected.robotsAllowed)
+        verdict = robotsInfo.status === "BLOCKED" ? "BLOCKED" : "FAIL"
+    } else if (!robotsInfo.googlebotAllowed) {
+      verdict = "FAIL"
+    }
+    const channelsConsistency = compareAlternateChannels(channels)
+    if (channelsConsistency === "inconsistent") verdict = "FAIL"
+    if (
+      robotsInfo.status === "BLOCKED" ||
+      isBlockedResponse(firstStatus) ||
+      isBlockedResponse(status)
+    )
+      verdict = "BLOCKED"
 
     return {
       ...base,
-      status: finalResponse.status,
+      first_status: firstStatus,
+      status,
       redirect_chain: chain.join(" -> "),
-      final_url: finalResponse.url,
-      indexable: finalResponse.status === 200 && !/\bnoindex\b/.test(robots) && selfCanonical ? "yes" : "no",
+      final_url: finalUrl,
+      indexable:
+        status === 200 && !noindex && selfCanonical && robotsInfo.googlebotAllowed ? "yes" : "no",
       robots: robots || "index,follow (implicit)",
       canonical,
       self_canonical: selfCanonical ? "yes" : "no",
+      robots_txt:
+        robotsInfo.status === "BLOCKED"
+          ? "BLOCKED"
+          : `Googlebot:${robotsInfo.googlebotAllowed ? "allowed" : "blocked"}; GPTBot:${robotsInfo.gptbotAllowed ? "allowed" : "blocked"}; PerplexityBot:${robotsInfo.perplexityAllowed ? "allowed" : "blocked"}`,
       declared_language: $("html").attr("lang") || "",
       body_language_heuristic: detectLanguage(text),
-      hreflang_count: hreflangs.length,
-      hreflang_targets: hreflangs.map((item) => `${item.language}:${item.url}`).join(" | "),
-      html_alternates: hreflangs.map((item) => `${item.language}:${item.url}`).join(" | "),
-      http_alternates: finalResponse.headers.get("link") || "",
-      sitemap_alternates: sitemapUrlSet.has(normalizeUrl(url)) ? "see-sitemap-entry" : "",
-      hreflang_noindex_target: hreflangs.length ? "requires-target-response-check" : "none",
-      robots_txt: "requires-robots-fetch",
-      verdict: finalResponse.status === 200 && !/\bnoindex\b/.test(robots) && selfCanonical ? "PASS" : "FAIL",
+      hreflang_count: htmlAlternates.length,
+      hreflang_targets: htmlAlternates.map((item) => `${item.language}:${item.url}`).join(" | "),
+      html_alternates: htmlAlternates.map((item) => `${item.language}:${item.url}`).join(" | "),
+      http_alternates: httpAlternates.map((item) => `${item.language}:${item.url}`).join(" | "),
+      first_hop_http_alternates: firstHopHttpAlternates
+        .map((item) => `${item.language}:${item.url}`)
+        .join(" | "),
+      sitemap_alternates: sitemapAlternates
+        .map((item) => `${item.language}:${item.url}`)
+        .join(" | "),
+      hreflang_channels_consistent: channelsConsistency,
+      hreflang_noindex_target: "pending-target-check",
+      verdict,
       word_count: wordCount,
+      _firstStatus: firstStatus,
+      _noindex: noindex,
+      _channels: channels,
       _text: text,
-      _hreflangs: hreflangs,
+      _hreflangs: [
+        ...htmlAlternates,
+        ...httpAlternates,
+        ...sitemapAlternates,
+        ...redirectHttpAlternates,
+      ],
     }
   } catch (error) {
-    return { ...base, error: error instanceof Error ? error.message : String(error) }
+    const message = error instanceof Error ? error.message : String(error)
+    return { ...base, error: message, verdict: "BLOCKED" }
   }
 }
 
-async function auditMissingHreflangTargets(rows, concurrency) {
-  const sitemapUrls = new Set(rows.map((row) => normalizeUrl(row.url)))
+async function auditMissingHreflangTargets(rows, sitemapData, robotsCache, concurrency) {
+  const sourceUrls = new Set(rows.map((row) => normalizeUrl(row.url)))
   const missingUrls = [
     ...new Set(
       rows
         .flatMap((row) => row._hreflangs.map((item) => item.url))
-        .filter((url) => !sitemapUrls.has(normalizeUrl(url)))
+        .filter((url) => !sourceUrls.has(normalizeUrl(url)))
     ),
   ]
   if (missingUrls.length === 0) return []
-  console.log(`Auditing ${missingUrls.length} hreflang targets outside the sitemap`)
-  return mapConcurrent(missingUrls, concurrency, auditUrl)
+  console.log(`Auditing ${missingUrls.length} language targets outside the route list`)
+  return mapConcurrent(missingUrls, concurrency, (url) =>
+    auditUrl({ url, expected: {} }, sitemapData, robotsCache)
+  )
 }
 
 function enrichCrossPageChecks(rows, extraHreflangRows = []) {
@@ -245,12 +417,31 @@ function enrichCrossPageChecks(rows, extraHreflangRows = []) {
   for (const row of rows) {
     if (row._hreflangs.length > 0) {
       const targets = row._hreflangs.map((item) => byUrl.get(normalizeUrl(item.url)))
-      row.hreflang_targets_200 = targets.every((target) => target?.status === 200) ? "yes" : "no"
+      row.hreflang_targets_200 = targets.every(
+        (target) => target?.status >= 200 && target?.status < 300
+      )
+        ? "yes"
+        : targets.some((target) => !target || target.verdict === "BLOCKED")
+          ? "BLOCKED"
+          : "no"
       row.hreflang_reciprocal = targets.every((target) =>
         target?._hreflangs?.some((item) => normalizeUrl(item.url) === normalizeUrl(row.url))
       )
         ? "yes"
         : "no"
+      row.hreflang_noindex_target = noindexHreflangStatus(row._hreflangs, byUrl)
+      if (
+        row.hreflang_noindex_target === "yes" ||
+        row.hreflang_targets_200 === "no" ||
+        row.hreflang_reciprocal === "no"
+      ) {
+        row.verdict = "FAIL"
+      } else if (
+        row.hreflang_noindex_target === "BLOCKED" ||
+        row.hreflang_targets_200 === "BLOCKED"
+      ) {
+        row.verdict = "BLOCKED"
+      }
     }
 
     const { locale, template } = getLocaleTemplate(row.url)
@@ -263,6 +454,41 @@ function enrichCrossPageChecks(rows, extraHreflangRows = []) {
   for (const row of rows) {
     delete row._text
     delete row._hreflangs
+    delete row._firstStatus
+    delete row._noindex
+    delete row._channels
+  }
+}
+
+async function getRobotsInfo(url, cache) {
+  const parsed = new URL(url)
+  const robotsUrl = `${parsed.origin}/robots.txt`
+  if (!cache.has(parsed.origin)) {
+    cache.set(
+      parsed.origin,
+      (async () => {
+        try {
+          const response = await fetch(robotsUrl, {
+            redirect: "follow",
+            signal: AbortSignal.timeout(20_000),
+          })
+          if (isBlockedResponse(response.status)) return { status: "BLOCKED" }
+          if (response.status === 404) return { status: "PASS", text: "" }
+          if (!response.ok) return { status: "BLOCKED" }
+          return { status: "PASS", text: await response.text() }
+        } catch {
+          return { status: "BLOCKED" }
+        }
+      })()
+    )
+  }
+  const result = await cache.get(parsed.origin)
+  if (result.status === "BLOCKED") return result
+  return {
+    status: "PASS",
+    googlebotAllowed: parseRobotsTxt(result.text, parsed.pathname, "Googlebot"),
+    gptbotAllowed: parseRobotsTxt(result.text, parsed.pathname, "GPTBot"),
+    perplexityAllowed: parseRobotsTxt(result.text, parsed.pathname, "PerplexityBot"),
   }
 }
 
@@ -271,26 +497,6 @@ function getLocaleTemplate(value) {
   const parts = url.pathname.split("/").filter(Boolean)
   const locale = LOCALES.has(parts[0]) ? parts.shift() : "en"
   return { locale, template: `/${parts.join("/")}/` }
-}
-
-function classifyUrl(value) {
-  const pathname = new URL(value).pathname
-  if (/^\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?blog\//.test(pathname)) return "blog"
-  if (/^\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?tools\//.test(pathname)) return "tool"
-  return "site-page"
-}
-
-function normalizeUrl(value) {
-  try {
-    const url = new URL(value)
-    url.hash = ""
-    url.search = ""
-    url.hostname = url.hostname.toLowerCase()
-    url.pathname = url.pathname === "/" ? "/" : `${url.pathname.replace(/\/+$/, "")}/`
-    return url.toString()
-  } catch {
-    return value
-  }
 }
 
 function tokenize(text) {
@@ -401,3 +607,5 @@ function toCsv(rows) {
     .map((row) => headers.map((header) => escape(row[header])).join(","))
     .join("\n")}\n`
 }
+
+export { auditUrl, enrichCrossPageChecks }

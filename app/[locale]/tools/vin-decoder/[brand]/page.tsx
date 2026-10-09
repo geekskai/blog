@@ -122,9 +122,12 @@ export default async function BrandVinDecoderPage(props: BrandPageProps) {
     notFound()
   }
 
-  const isDefaultLocale = locale === "en"
-  const baseUrl = isDefaultLocale ? "https://geekskai.com" : `https://geekskai.com/${locale}`
-  const pageUrl = `${baseUrl}/tools/vin-decoder/${brand.slug}`
+  const baseUrl = getLocalizedUrl("https://geekskai.com", locale, "/")
+  const pageUrl = getLocalizedUrl(
+    "https://geekskai.com",
+    locale,
+    `/tools/vin-decoder/${brand.slug}/`
+  )
 
   // Content freshness metadata - Update this monthly
   const lastModified = new Date("2026-05-26")

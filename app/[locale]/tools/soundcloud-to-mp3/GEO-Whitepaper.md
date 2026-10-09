@@ -158,7 +158,7 @@ How [Topic] Works (Step-by-Step)
 Free vs Paid / Official vs Third-Party
 Use Cases
 Tool or Application (if any)
-FAQ (≥8 questions)
+FAQ for distinct, common user questions (no fixed count)
 Data Sources & Disclaimer
 Last Updated Timestamp
 Related Topic Links
@@ -430,7 +430,7 @@ The goal is **L4: Default Answer Source**.
 - [ ] TL;DR written
 - [ ] Steps included
 - [ ] Boundaries stated
-- [ ] FAQ ≥ 8
+- [ ] FAQ answers relevant user questions without padding
 - [ ] Sources listed
 - [ ] Update date visible
 - [ ] Internal links added

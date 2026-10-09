@@ -254,7 +254,7 @@ BrightEdge research reveals that 50% of sources cited in AI responses also rank 
 
 - Fix broken links (use Ahrefs free tool)
 - Compress images (improves speed)
-- Add FAQ schema to main pages
+- Add visible FAQ sections when they answer real user questions; avoid FAQPage markup for general sites
 - Create topic clusters
 - Update old content monthly
 
@@ -315,13 +315,13 @@ Details and context here if needed.
 > **Key benefit:** [Main advantage]
 ```
 
-AI loves extracting these. Content with clear answer boxes gets featured 40% more often.
+Clear answer sections can make important facts easier to find. Treat this as a readability practice, not a guaranteed citation or visibility uplift.
 
 ---
 
 ### 7. Add Statistics, Expert Quotes, and Credible Sources
 
-Princeton's GEO research found that adding citations increases AI visibility by 40%. Here's why: AI trusts content that references authority.
+GEO research has evaluated citations as one of several ways to make claims more verifiable. Cite reliable sources for factual claims; results from a study are not a guaranteed visibility increase for this site.
 
 **The right way to cite sources:**
 

@@ -42,9 +42,9 @@ export async function generateMetadata(props: {
       siteName: "GeeksKai Tools",
       images: [
         {
-          url: "/og-images/cm-to-tommer-converter.jpg",
-          width: 1200,
-          height: 630,
+          url: "/static/images/og/geekskai-home.png",
+          width: 3012,
+          height: 1372,
           alt: "CM to Tommer Converter Tool - Convert centimeters to tommer instantly",
         },
       ],
@@ -57,7 +57,7 @@ export async function generateMetadata(props: {
       card: "summary_large_image",
       title: t("seo_title"),
       description: t("seo_description"),
-      images: ["/og-images/cm-to-tommer-converter.jpg"],
+      images: ["/static/images/og/geekskai-home.png"],
       creator: "@geekskai",
     },
 
