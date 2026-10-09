@@ -51,7 +51,7 @@ const copyByLocale: Record<string, SwitcherCopy> = {
     eyebrow: "SoundCloud toolkit",
     title: "Choose the right SoundCloud workflow",
     description:
-      "Move between track downloads, source-format checks, playlists, and artwork without starting a new search.",
+      "Move between MP3, M4A, and converted WAV track downloads, playlists, and artwork without starting a new search.",
     hubLabel: "View all SoundCloud tools",
     tools: {
       hub: {
@@ -71,8 +71,8 @@ const copyByLocale: Record<string, SwitcherCopy> = {
       },
       wav: {
         label: "SoundCloud to WAV",
-        intent: "Checks the actual MP3 or M4A source without fake WAV upconversion.",
-        cta: "Check source format",
+        intent: "Prepares a PCM WAV from the available MP3 or AAC/M4A source without restoring lost audio detail.",
+        cta: "Prepare WAV",
       },
       playlist: {
         label: "Playlist Downloader",
@@ -90,7 +90,7 @@ const copyByLocale: Record<string, SwitcherCopy> = {
     eyebrow: "Outils SoundCloud",
     title: "Choisissez le bon flux SoundCloud",
     description:
-      "Passez du telechargement aux formats source, playlists et pochettes sans refaire une recherche.",
+      "Passez des téléchargements MP3, M4A ou WAV converti aux playlists et pochettes sans refaire une recherche.",
     hubLabel: "Voir tous les outils SoundCloud",
     tools: {
       hub: {
@@ -110,8 +110,8 @@ const copyByLocale: Record<string, SwitcherCopy> = {
       },
       wav: {
         label: "SoundCloud vers WAV",
-        intent: "Verifie le vrai flux MP3 ou M4A sans fausse conversion WAV.",
-        cta: "Verifier le format",
+        intent: "Prépare un WAV PCM depuis la source MP3 ou AAC/M4A disponible, sans restaurer les détails audio perdus.",
+        cta: "Préparer WAV",
       },
       playlist: {
         label: "Telechargeur de playlists",
@@ -129,7 +129,7 @@ const copyByLocale: Record<string, SwitcherCopy> = {
     eyebrow: "Herramientas SoundCloud",
     title: "Elige el flujo correcto de SoundCloud",
     description:
-      "Cambia entre descargas, formatos de origen, playlists y caratulas sin empezar otra busqueda.",
+      "Cambia entre descargas MP3, M4A o WAV convertido, playlists y carátulas sin empezar otra búsqueda.",
     hubLabel: "Ver todas las herramientas SoundCloud",
     tools: {
       hub: {
@@ -149,8 +149,8 @@ const copyByLocale: Record<string, SwitcherCopy> = {
       },
       wav: {
         label: "SoundCloud a WAV",
-        intent: "Comprueba el flujo MP3 o M4A real sin falsa conversion WAV.",
-        cta: "Comprobar formato",
+        intent: "Prepara un WAV PCM desde la fuente MP3 o AAC/M4A disponible, sin recuperar detalles de audio perdidos.",
+        cta: "Preparar WAV",
       },
       playlist: {
         label: "Playlist Downloader",
@@ -168,7 +168,7 @@ const copyByLocale: Record<string, SwitcherCopy> = {
     eyebrow: "SoundCloud Werkzeuge",
     title: "Wahle den passenden SoundCloud Workflow",
     description:
-      "Wechsle zwischen Downloads, Quellformaten, Playlists und Coverbildern ohne neue Suche.",
+      "Wechsle zwischen MP3-, M4A- und konvertierten WAV-Downloads, Playlists und Coverbildern ohne neue Suche.",
     hubLabel: "Alle SoundCloud Tools anzeigen",
     tools: {
       hub: {
@@ -188,8 +188,8 @@ const copyByLocale: Record<string, SwitcherCopy> = {
       },
       wav: {
         label: "SoundCloud zu WAV",
-        intent: "Prüft den echten MP3- oder M4A-Stream ohne falsche WAV-Konvertierung.",
-        cta: "Quellformat prufen",
+        intent: "Erstellt PCM-WAV aus der verfügbaren MP3- oder AAC/M4A-Quelle, ohne verlorene Audiodetails wiederherzustellen.",
+        cta: "WAV vorbereiten",
       },
       playlist: {
         label: "Playlist Downloader",

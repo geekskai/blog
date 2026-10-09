@@ -2,7 +2,7 @@ import React from "react"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { getTranslations } from "next-intl/server"
-import { supportedLocales } from "app/i18n/routing"
+import { buildLanguageAlternates, getLocalizedUrl } from "app/i18n/urls"
 import { getBrandWithTranslations, SUPPORTED_BRAND_SLUGS } from "../types"
 import VinDecoderClient from "./VinDecoderClient"
 
@@ -36,17 +36,9 @@ export async function generateMetadata(props: BrandPageProps): Promise<Metadata>
   }
 
   // Generate alternate language URLs
-  const languages: Record<string, string> = {
-    "x-default": `https://geekskai.com/tools/vin-decoder/${brand.slug}`,
-  }
-
-  supportedLocales.forEach((loc) => {
-    languages[loc] = `https://geekskai.com/${loc}/tools/vin-decoder/${brand.slug}`
-  })
-
-  const pageUrl = isDefaultLocale
-    ? `https://geekskai.com/tools/vin-decoder/${brand.slug}`
-    : `https://geekskai.com/${locale}/tools/vin-decoder/${brand.slug}`
+  const brandPath = `/tools/vin-decoder/${brand.slug}/`
+  const languages = buildLanguageAlternates("https://geekskai.com", brandPath)
+  const pageUrl = getLocalizedUrl("https://geekskai.com", locale, brandPath)
 
   const title = tSeo("title", { brand: brand.name })
   const description = tSeo("description", {

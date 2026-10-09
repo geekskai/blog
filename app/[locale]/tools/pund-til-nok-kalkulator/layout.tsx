@@ -61,7 +61,7 @@ export async function generateMetadata(props: {
       siteName: t("structured_data.site_name"),
       images: [
         {
-          url: "/static/tools/pund-til-nok-kalkulator-og.jpg",
+          url: "/static/images/og/geekskai-home.png",
           width: 1200,
           height: 630,
           alt: t("structured_data.name"),
@@ -76,7 +76,7 @@ export async function generateMetadata(props: {
       card: "summary_large_image",
       title: t("structured_data.name"),
       description: t("structured_data.description"),
-      images: ["/static/tools/pund-til-nok-kalkulator-twitter.jpg"],
+      images: ["/static/images/og/geekskai-home.png"],
       creator: "@geekskai",
     },
 

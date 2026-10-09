@@ -1,4 +1,4 @@
-export const SOUNDCLOUD_SEO_UPDATED = "2026-10-06"
+export const SOUNDCLOUD_SEO_UPDATED = "2026-10-09"
 
 export type SoundCloudEvidencePage = "wav" | "mp3" | "playlist"
 

@@ -55,7 +55,7 @@ export async function generateMetadata(props: {
       siteName: "GeeksKai Tools",
       images: [
         {
-          url: "/static/tools/board-foot-calculator-og.jpg",
+          url: "/static/images/og/geekskai-home.png",
           width: 1200,
           height: 630,
           alt: t("seo_title"),
@@ -70,7 +70,7 @@ export async function generateMetadata(props: {
       card: "summary_large_image",
       title: t("seo_title"),
       description: t("seo_description"),
-      images: ["/static/tools/board-foot-calculator-twitter.jpg"],
+      images: ["/static/images/og/geekskai-home.png"],
       creator: "@geekskai",
     },
 

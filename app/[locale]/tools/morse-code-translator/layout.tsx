@@ -65,7 +65,7 @@ export async function generateMetadata(props: {
       siteName: "GeeksKai Tools",
       images: [
         {
-          url: "/static/og-images/tools.jpg",
+          url: "/static/images/og/geekskai-home.png",
           width: 1200,
           height: 630,
           alt: t("seo.og_alt"),
@@ -76,7 +76,7 @@ export async function generateMetadata(props: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/static/og-images/tools.jpg"],
+      images: ["/static/images/og/geekskai-home.png"],
       creator: "@geekskai",
     },
     alternates: {

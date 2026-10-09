@@ -1,0 +1,28 @@
+{
+  "monthly_clicks": {
+    "previous": 7898,
+    "current": 1573,
+    "change_pct": -80.08356545961003
+  },
+  "monthly_impressions": {
+    "previous": 90722,
+    "current": 6707,
+    "change_pct": -92.60708538171556
+  },
+  "fortnight_clicks": {
+    "previous": 1340,
+    "current": 233,
+    "change_pct": -82.61194029850746
+  },
+  "wav_fortnight": {
+    "previous": 1212,
+    "current": 122,
+    "share_of_property_net_loss_pct": 98.46431797651309
+  },
+  "two_queries_loss_share_pct": 92.41192411924119,
+  "monthly_page_sums": {
+    "previous": 7919,
+    "current": 1578
+  },
+  "index_change_pct": -21.503131524008346
+}

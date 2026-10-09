@@ -49,7 +49,7 @@ export async function generateMetadata(props: {
       siteName: "GeeksKai Tools",
       images: [
         {
-          url: "/tools/snow-day-calculator-og.jpg",
+          url: "/static/images/og/geekskai-home.png",
           width: 1200,
           height: 630,
           alt: t("og_image_alt"),
@@ -60,7 +60,7 @@ export async function generateMetadata(props: {
       card: "summary_large_image",
       title: t("seo_title"),
       description: description,
-      images: ["/tools/snow-day-calculator-og.jpg"],
+      images: ["/static/images/og/geekskai-home.png"],
       creator: "@geekskai",
     },
     alternates: {

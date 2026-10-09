@@ -3,6 +3,7 @@
 import siteMetadata from "@/data/siteMetadata"
 import headerNavLinks from "@/data/headerNavLinks"
 import Link from "./Link"
+import NextLink from "next/link"
 import Image from "./Image"
 import LanguageSelect from "./LanguageSelect"
 import { useTranslations } from "next-intl"
@@ -136,15 +137,16 @@ function AcquisitionHeader() {
             <nav className="flex items-center" aria-label="Primary">
               {headerNavLinks.map((link) => {
                 const active = isCurrentPath(pathname, link.href)
+                const NavLink = link.href === "/blog/" ? NextLink : LocaleLink
                 return (
-                  <LocaleLink
+                  <NavLink
                     key={link.href}
                     href={link.href}
                     aria-current={active ? "page" : undefined}
                     className={navLinkClass(active)}
                   >
                     {t(link.title)}
-                  </LocaleLink>
+                  </NavLink>
                 )
               })}
             </nav>

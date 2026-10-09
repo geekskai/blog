@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import React from "react"
 import { getTranslations } from "next-intl/server"
+import { buildLanguageAlternates, getLocalizedUrl } from "app/i18n/urls"
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>
@@ -18,18 +19,8 @@ export async function generateMetadata(props: {
 
   const baseUrl = "https://geekskai.com"
   const toolPath = "/tools/random-4-digit-number-generator/"
-  const canonicalUrl = isDefaultLocale ? `${baseUrl}${toolPath}` : `${baseUrl}/${locale}${toolPath}`
-
-  // Generate language alternates for better international SEO
-  const languages: Record<string, string> = {
-    "x-default": `${baseUrl}${toolPath}`,
-    en: `${baseUrl}${toolPath}`,
-    ja: `${baseUrl}/ja${toolPath}`,
-    ko: `${baseUrl}/ko${toolPath}`,
-    no: `${baseUrl}/no${toolPath}`,
-    da: `${baseUrl}/da${toolPath}`,
-    "zh-CN": `${baseUrl}/zh-cn${toolPath}`,
-  }
+  const canonicalUrl = getLocalizedUrl(baseUrl, locale, toolPath)
+  const languages = buildLanguageAlternates(baseUrl, toolPath)
 
   return {
     title,

@@ -49,7 +49,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       locale: locale,
       images: [
         {
-          url: "/static/images/job-worth-calculator-og.png",
+          url: "/static/images/og/geekskai-home.png",
           width: 1200,
           height: 630,
           alt: t("title"),
@@ -60,7 +60,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: t("seo_title"),
       description: t("seo_description"),
-      images: ["/static/images/job-worth-calculator-twitter.png"],
+      images: ["/static/images/og/geekskai-home.png"],
     },
     alternates: {
       canonical: isDefaultLocale

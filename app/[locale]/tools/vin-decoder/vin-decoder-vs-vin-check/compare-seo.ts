@@ -1,6 +1,6 @@
-import { supportedLocales } from "app/i18n/routing"
 import { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
+import { buildLanguageAlternates, getLocalizedUrl } from "app/i18n/urls"
 
 const VIN_SEO_SHARED = {
   siteUrl: "https://geekskai.com",
@@ -9,24 +9,6 @@ const VIN_SEO_SHARED = {
   ogImage: "/static/images/og/vin-decoder.png",
   publishedAt: "2026-03-07T00:00:00.000Z",
   lastModifiedAt: "2026-05-26T12:00:00.000Z",
-}
-
-function buildLocalizedUrl(path: string, locale: string) {
-  const normalizedPath = path.replace(/^\/+/, "")
-  return `${VIN_SEO_SHARED.siteUrl}${locale === "en" ? "" : `/${locale}`}/${normalizedPath}`
-}
-
-function buildLanguageAlternates(path: string) {
-  const normalizedPath = path.replace(/^\/+/, "")
-  const languages: Record<string, string> = {
-    "x-default": `${VIN_SEO_SHARED.siteUrl}/${normalizedPath}`,
-  }
-
-  supportedLocales.forEach((locale) => {
-    languages[locale] = buildLocalizedUrl(normalizedPath, locale)
-  })
-
-  return languages
 }
 
 function getVinSeoLocale(locale: string) {
@@ -94,8 +76,11 @@ export function generateComparePageMetadata({
   twitterTitle,
   twitterDescription,
 }: CompareMetadataInput): Metadata {
-  const canonical = buildLocalizedUrl("tools/vin-decoder/vin-decoder-vs-vin-check/", locale)
-  const languages = buildLanguageAlternates("tools/vin-decoder/vin-decoder-vs-vin-check/")
+  const path = "/tools/vin-decoder/vin-decoder-vs-vin-check/"
+  const canonical = getLocalizedUrl(VIN_SEO_SHARED.siteUrl, locale, path)
+  const languages = locale === "en"
+    ? buildLanguageAlternates(VIN_SEO_SHARED.siteUrl, path, ["en"])
+    : undefined
   const ogLocale = getVinSeoLocale(locale)
   const lastModified = new Date(VIN_SEO_SHARED.lastModifiedAt)
 
@@ -107,7 +92,7 @@ export function generateComparePageMetadata({
     keywords,
     alternates: {
       canonical,
-      languages,
+      ...(languages ? { languages } : {}),
     },
     robots: getVinSeoIndexing(locale),
     openGraph: {
@@ -155,8 +140,9 @@ export function generateVehicleTypePageMetadata({
   keywords,
   ogImageAlt,
 }: VehicleTypeMetadataInput): Metadata {
-  const canonical = buildLocalizedUrl(`tools/vin-decoder/vehicle-types/${typeSlug}/`, locale)
-  const languages = buildLanguageAlternates(`tools/vin-decoder/vehicle-types/${typeSlug}/`)
+  const path = `/tools/vin-decoder/vehicle-types/${typeSlug}/`
+  const canonical = getLocalizedUrl(VIN_SEO_SHARED.siteUrl, locale, path)
+  const languages = buildLanguageAlternates(VIN_SEO_SHARED.siteUrl, path)
   const ogLocale = getVinSeoLocale(locale)
   const lastModified = new Date(VIN_SEO_SHARED.lastModifiedAt)
 

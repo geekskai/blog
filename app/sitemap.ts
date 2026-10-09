@@ -6,10 +6,12 @@ import { supportedLocales } from "./i18n/routing"
 import { buildLanguageAlternates, getLocalizedUrl } from "./i18n/urls"
 import { soundCloudHubPath } from "@/data/soundCloudGrowth"
 import { canonicalStaticRoutes, getIndexedToolLocales } from "./sitemap-config"
+import { SUPPORTED_BRAND_SLUGS } from "./[locale]/tools/vin-decoder/types"
+
+const VIN_VEHICLE_TYPE_SLUGS = ["motorcycle", "rv", "trailer", "classic-car"] as const
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = siteMetadata.siteUrl
-  // const VIN_VEHICLE_TYPES = ["motorcycle", "rv", "trailer", "classic-car"] as const
 
   // Generate blog routes for all locales
   const blogRoutes = allBlogs
@@ -47,6 +49,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   }))
 
+  const pixelsToInchesPath = "/tools/pixels-to-inches/"
+  const pixelsToInchesRoutes = supportedLocales.map((locale) => ({
+    url: getLocalizedUrl(siteUrl, locale, pixelsToInchesPath),
+    alternates: { languages: buildLanguageAlternates(siteUrl, pixelsToInchesPath) },
+  }))
+
+  const vinBrandRoutes = SUPPORTED_BRAND_SLUGS.flatMap((brand) => {
+    const path = `/tools/vin-decoder/${brand}/`
+    return supportedLocales.map((locale) => ({
+      url: getLocalizedUrl(siteUrl, locale, path),
+      alternates: { languages: buildLanguageAlternates(siteUrl, path) },
+    }))
+  })
+
+  const vinVehicleTypeRoutes = VIN_VEHICLE_TYPE_SLUGS.flatMap((type) => {
+    const path = `/tools/vin-decoder/vehicle-types/${type}/`
+    return supportedLocales.map((locale) => ({
+      url: getLocalizedUrl(siteUrl, locale, path),
+      alternates: { languages: buildLanguageAlternates(siteUrl, path) },
+    }))
+  })
+
+  const vinComparePath = "/tools/vin-decoder/vin-decoder-vs-vin-check/"
+  const vinCompareRoute = {
+    url: getLocalizedUrl(siteUrl, "en", vinComparePath),
+    alternates: { languages: buildLanguageAlternates(siteUrl, vinComparePath, ["en"]) },
+  }
+
   // Generate tool routes for all locales
   const toolRoutes = toolsData.flatMap((tool) => {
     const locales = getIndexedToolLocales(tool.href)
@@ -72,6 +102,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...toolRoutes,
     ...staticRoutes,
     ...soundCloudHubRoutes,
+    ...pixelsToInchesRoutes,
+    ...vinBrandRoutes,
+    ...vinVehicleTypeRoutes,
+    vinCompareRoute,
   ]
 
   // Remove duplicates and sort by priority

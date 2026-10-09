@@ -2287,28 +2287,28 @@
     ]
   },
   "CursedTextGenerator": {
-    "seo_title": "Cursed Text Generator (2026) - Corrupted and Glitch Unicode Text",
-    "seo_description": "Create cursed text with glitchy Unicode effects like zalgo, lightning marks, and distorted styles. Copy and paste instantly.",
-    "seo_keywords": "cursed text generator, corrupted text generator, glitch text, cursed unicode text, zalgo style text",
-    "page_title": "Cursed Text Generator",
-    "page_subtitle": "Corrupted and Glitch Unicode Text",
-    "badge_text": "Cursed Text Tool",
+    "seo_title": "呪われたテキストジェネレーター (2026) - 文字化け・グリッチUnicode",
+    "seo_description": "ザルゴ、稲妻記号、歪んだスタイルなどのグリッチ効果で呪われたテキストを作成。すぐにコピーして使えます。",
+    "seo_keywords": "呪われたテキストジェネレーター, 文字化けテキスト, グリッチテキスト, 呪いUnicode, ザルゴ",
+    "page_title": "呪われたテキストジェネレーター",
+    "page_subtitle": "文字化け・グリッチUnicodeテキスト",
+    "badge_text": "呪われたテキストツール",
     "tldr": "結合文字の混沌 Unicode。ミームやホラー系キャプション向け。",
-    "keyword_label": "cursed text generator",
-    "best_for": "Meme creators, horror content, gaming communities, and chaotic aesthetics",
-    "key_benefit": "Generate high-impact cursed text variants with one-click copy",
+    "keyword_label": "呪われたテキストジェネレーター",
+    "best_for": "ミーム制作者、ホラーコンテンツ、ゲームコミュニティ、混沌とした表現",
+    "key_benefit": "印象的な呪われたテキストを生成し、ワンクリックでコピー",
     "default_input": "THE SIGNAL IS CURSED",
     "use_cases": [
-      "Horror and spooky social captions",
-      "Meme reaction text and cursed comments",
-      "Gaming stream titles and event messages",
-      "Experimental typography and visual storytelling"
+      "ホラーや不気味なSNSキャプション",
+      "ミームのリアクション文や呪われたコメント",
+      "ゲーム配信のタイトルやイベントメッセージ",
+      "実験的なタイポグラフィと視覚表現"
     ],
     "boundaries": [
-      "Heavy distortion can hurt readability and accessibility.",
-      "Some platforms may normalize or strip complex combining marks.",
-      "Cursed text is decorative and not suitable for formal communication.",
-      "Always preview before posting to avoid broken rendering."
+      "強い歪みは読みやすさやアクセシビリティを損なう場合があります。",
+      "複雑な結合文字は、プラットフォームによって正規化または削除されることがあります。",
+      "装飾用のテキストです。正式な連絡には適しません。",
+      "表示崩れを避けるため、投稿前に必ずプレビューしてください。"
     ],
     "related_tools": {
       "zalgo": {

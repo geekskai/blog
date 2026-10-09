@@ -3,9 +3,15 @@ import createMiddleware from "next-intl/middleware"
 import { NextResponse } from "next/server"
 import { defaultLocale, locales, routing } from "./app/i18n/routing"
 import { getCanonicalToolRedirectPath } from "./app/sitemap-config"
+import { isSoundCloudToolPath } from "./data/soundCloudGrowth"
 
 const intlMiddleware = createMiddleware(routing)
 const englishOnlyRoutes = new Set(["pricing", "audio-toolkit", "about"])
+const hreflangRestrictedToolPaths = new Set([
+  "/tools/pdf-to-markdown/",
+  "/tools/morse-code-translator/",
+  "/tools/vin-decoder/vin-decoder-vs-vin-check/",
+])
 
 // Authentication is intentionally public-first. Individual protected pages call
 // auth() themselves so the existing tools and API routes remain anonymous.
@@ -44,7 +50,13 @@ export default clerkMiddleware((_auth, request) => {
 
   // These pages redirect every non-English locale. Their metadata owns the valid
   // `en` and `x-default` alternates, so remove next-intl's redirecting Link targets.
-  if (routeSegment && englishOnlyRoutes.has(routeSegment)) {
+  const localizedPath = locales.includes(pathSegments[0])
+    ? `/${pathSegments.slice(1).join("/")}/`
+    : `/${pathSegments.join("/")}/`
+  const restrictedToolPath =
+    hreflangRestrictedToolPaths.has(localizedPath) || isSoundCloudToolPath(localizedPath)
+
+  if ((routeSegment && englishOnlyRoutes.has(routeSegment)) || restrictedToolPath) {
     response.headers.delete("Link")
   }
 

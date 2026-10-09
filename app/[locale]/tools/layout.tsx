@@ -54,7 +54,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
       siteName: "GeeksKai Tools",
       images: [
         {
-          url: "/static/og-images/tools.jpg",
+          url: "/static/images/og/geekskai-home.png",
           width: 1200,
           height: 630,
           alt: "GeeksKai Tools - Free Online Tools",
@@ -68,7 +68,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
       card: "summary_large_image",
       title: `${title} | ${t("tools_free_tools")}`,
       description,
-      images: ["/static/og-images/tools.jpg"],
+      images: ["/static/images/og/geekskai-home.png"],
       creator: "@geekskai",
     },
 

@@ -19,13 +19,18 @@ const args = parseArgs(process.argv.slice(2))
 const sitemapUrl = args.sitemap || DEFAULT_SITEMAP
 const outputPath = path.resolve(args.output || DEFAULT_OUTPUT)
 const gscRows = args["gsc-csv"] ? await loadGscCsv(path.resolve(args["gsc-csv"])) : new Map()
+const routeListPath = args.routes ? path.resolve(args.routes) : null
 
 console.log(`Fetching sitemap: ${sitemapUrl}`)
-const sitemapUrls = [...new Set(await loadSitemapUrls(sitemapUrl))]
+const sourceUrls = routeListPath
+  ? await loadRouteList(routeListPath)
+  : await loadSitemapUrls(sitemapUrl)
+const sitemapUrlSet = new Set(await loadSitemapUrls(sitemapUrl).catch(() => []))
+const sitemapUrls = [...new Set(sourceUrls)]
 console.log(`Auditing ${sitemapUrls.length} unique URLs with concurrency ${args.concurrency || 8}`)
 
 const rows = await mapConcurrent(sitemapUrls, Number(args.concurrency || 8), async (url, index) => {
-  const row = await auditUrl(url)
+  const row = await auditUrl(url, sitemapUrlSet)
   if ((index + 1) % 25 === 0 || index + 1 === sitemapUrls.length) {
     console.log(`Audited ${index + 1}/${sitemapUrls.length}`)
   }
@@ -103,15 +108,33 @@ function decodeXml(value) {
     .replaceAll("&apos;", "'")
 }
 
-async function auditUrl(url) {
+async function loadRouteList(filePath) {
+  const raw = await fs.readFile(filePath, "utf8")
+  if (filePath.endsWith(".json")) {
+    const value = JSON.parse(raw)
+    return Array.isArray(value) ? value : value.urls || value.routes || []
+  }
+  return raw.split(/\r?\n/).map((line) => line.trim()).filter((line) => line && !line.startsWith("#"))
+}
+
+async function auditUrl(url, sitemapUrlSet = new Set()) {
   const base = {
     content_type: classifyUrl(url),
     url,
     status: "",
+    redirect_chain: "",
     final_url: "",
     indexable: "no",
     robots: "",
     canonical: "",
+    html_alternates: "",
+    http_alternates: "",
+    sitemap_alternates: "",
+    in_sitemap: sitemapUrlSet.has(normalizeUrl(url)) ? "yes" : "no",
+    sitemap_alternates_expected: "unknown",
+    hreflang_noindex_target: "unknown",
+    robots_txt: "unknown",
+    verdict: "BLOCKED",
     self_canonical: "no",
     declared_language: "",
     body_language_heuristic: "unknown",
@@ -130,16 +153,25 @@ async function auditUrl(url) {
   }
 
   try {
-    const response = await fetch(url, {
-      redirect: "follow",
+    const chain = []
+    let response = await fetch(url, {
+      redirect: "manual",
       headers: { "user-agent": "GeekskaiSitemapQualityAudit/1.0" },
       signal: AbortSignal.timeout(20_000),
     })
-    const html = await response.text()
+    chain.push(`${response.status} ${url}`)
+    let finalUrl = url
+    for (let hop = 0; response.status >= 300 && response.status < 400 && response.headers.get("location") && chain.length < 10; hop += 1) {
+      finalUrl = new URL(response.headers.get("location"), finalUrl).toString()
+      response = await fetch(finalUrl, { redirect: "manual", headers: { "user-agent": "GeekskaiSitemapQualityAudit/1.0" }, signal: AbortSignal.timeout(20_000) })
+      chain.push(`${response.status} ${finalUrl}`)
+    }
+    const finalResponse = response
+    const html = await finalResponse.text()
     const $ = cheerio.load(html)
     $("script, style, noscript, svg, nav, footer").remove()
     const robots = [
-      response.headers.get("x-robots-tag") || "",
+      finalResponse.headers.get("x-robots-tag") || "",
       $('meta[name="robots"]').attr("content") || "",
       $('meta[name="googlebot"]').attr("content") || "",
     ]
@@ -147,11 +179,11 @@ async function auditUrl(url) {
       .join("; ")
       .toLowerCase()
     const canonicalHref = $('link[rel="canonical"]').attr("href") || ""
-    const canonical = canonicalHref ? new URL(canonicalHref, response.url).toString() : ""
+    const canonical = canonicalHref ? new URL(canonicalHref, finalResponse.url).toString() : ""
     const hreflangs = $('link[rel="alternate"][hreflang]')
       .map((_, element) => ({
         language: $(element).attr("hreflang") || "",
-        url: new URL($(element).attr("href") || "", response.url).toString(),
+        url: new URL($(element).attr("href") || "", finalResponse.url).toString(),
       }))
       .get()
     const text = ($("main").text() || $("article").text() || $("body").text())
@@ -162,10 +194,10 @@ async function auditUrl(url) {
 
     return {
       ...base,
-      status: response.status,
-      final_url: response.url,
-      indexable:
-        response.status === 200 && !/\bnoindex\b/.test(robots) && selfCanonical ? "yes" : "no",
+      status: finalResponse.status,
+      redirect_chain: chain.join(" -> "),
+      final_url: finalResponse.url,
+      indexable: finalResponse.status === 200 && !/\bnoindex\b/.test(robots) && selfCanonical ? "yes" : "no",
       robots: robots || "index,follow (implicit)",
       canonical,
       self_canonical: selfCanonical ? "yes" : "no",
@@ -173,6 +205,12 @@ async function auditUrl(url) {
       body_language_heuristic: detectLanguage(text),
       hreflang_count: hreflangs.length,
       hreflang_targets: hreflangs.map((item) => `${item.language}:${item.url}`).join(" | "),
+      html_alternates: hreflangs.map((item) => `${item.language}:${item.url}`).join(" | "),
+      http_alternates: finalResponse.headers.get("link") || "",
+      sitemap_alternates: sitemapUrlSet.has(normalizeUrl(url)) ? "see-sitemap-entry" : "",
+      hreflang_noindex_target: hreflangs.length ? "requires-target-response-check" : "none",
+      robots_txt: "requires-robots-fetch",
+      verdict: finalResponse.status === 200 && !/\bnoindex\b/.test(robots) && selfCanonical ? "PASS" : "FAIL",
       word_count: wordCount,
       _text: text,
       _hreflangs: hreflangs,
@@ -237,8 +275,8 @@ function getLocaleTemplate(value) {
 
 function classifyUrl(value) {
   const pathname = new URL(value).pathname
-  if (/\/(?:[a-z]{2}\/)?blog\//.test(pathname)) return "blog"
-  if (/\/(?:[a-z]{2}\/)?tools\//.test(pathname)) return "tool"
+  if (/^\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?blog\//.test(pathname)) return "blog"
+  if (/^\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?tools\//.test(pathname)) return "tool"
   return "site-page"
 }
 

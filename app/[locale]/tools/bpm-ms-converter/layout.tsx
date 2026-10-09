@@ -38,7 +38,7 @@ export async function generateMetadata(props: {
         : `https://geekskai.com/${locale}/tools/bpm-ms-converter`,
       images: [
         {
-          url: "/static/images/tools/bpm-ms-converter-og.png",
+          url: "/static/images/og/geekskai-home.png",
           width: 1200,
           height: 630,
           alt: t("page_title"),
@@ -49,7 +49,7 @@ export async function generateMetadata(props: {
       card: "summary_large_image",
       title: t("seo_title"),
       description: t("page_description"),
-      images: ["/static/images/tools/bpm-ms-converter-twitter.png"],
+      images: ["/static/images/og/geekskai-home.png"],
     },
     alternates: {
       canonical: isDefaultLocale

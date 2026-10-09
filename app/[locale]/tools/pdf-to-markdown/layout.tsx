@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/static/images/pdf-to-markdown-converter.png",
+        url: "/static/images/og/geekskai-home.png",
         width: 1200,
         height: 630,
         alt: "PDF to Markdown Converter Tool - Convert PDF to MD",

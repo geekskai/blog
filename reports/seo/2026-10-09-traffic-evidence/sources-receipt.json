@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "wav-loss",
+      "title": "最近一次断崖主要集中于 WAV 页",
+      "queries": [
+        {
+          "id": "gsc-fortnight",
+          "source": {
+            "label": "Google Search Console",
+            "files": [
+              {
+                "label": "gsc-14d-comparison Pages.csv / Queries.csv"
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "点击贡献",
+                "definition": "比较两个等长 14 天窗口中的 Web 搜索点击与曝光。"
+              }
+            ],
+            "filters": [
+              "资源：geekskai.com 域资源",
+              "搜索类型：Web",
+              "国家与设备：全部"
+            ],
+            "caveats": [
+              "页面、查询和属性聚合口径不同；98.5% 是页面损失相对属性净损失的近似贡献。两个查询与页面属于同一流量，不能相加。"
+            ]
+          },
+          "reportingPeriod": "2026-09-09–09-22 与 2026-09-23–10-06",
+          "columns": [
+            "对象",
+            "前期点击",
+            "后期点击",
+            "前期曝光",
+            "后期曝光"
+          ],
+          "rows": [
+            {
+              "对象": "https://geekskai.com/tools/soundcloud-to-wav/",
+              "前期点击": 1212,
+              "后期点击": 122,
+              "前期曝光": 4750,
+              "后期曝光": 550
+            },
+            {
+              "对象": "https://geekskai.com/tools/soundcloud-playlist-downloader/",
+              "前期点击": 78,
+              "后期点击": 76,
+              "前期曝光": 548,
+              "后期曝光": 430
+            },
+            {
+              "对象": "soundcloud to wav",
+              "前期点击": 396,
+              "后期点击": 33,
+              "前期曝光": 1500,
+              "后期曝光": 76
+            },
+            {
+              "对象": "soundcloud to wav converter",
+              "前期点击": 662,
+              "后期点击": 2,
+              "前期曝光": 2678,
+              "后期曝光": 7
+            }
+          ],
+          "preview": {
+            "kind": "partial",
+            "note": "只展示核心页面及两个查询。"
+          },
+          "methods": [
+            {
+              "language": "calculation",
+              "code": "全站净损失 = 1340 - 233 = 1107\nWAV 页净损失 = 1212 - 122 = 1090\n1090 / 1107 × 100 = 98.46%\n两个查询净损失 = (662 - 2) + (396 - 33) = 1023\n1023 / 1107 × 100 = 92.41%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "algorithm-timing",
+      "title": "8 月首次断崖与官方算法更新时间一致",
+      "queries": [
+        {
+          "id": "daily-gsc",
+          "source": {
+            "label": "GSC 三个月日数据",
+            "files": [
+              {
+                "label": "gsc-90d Chart.csv"
+              }
+            ],
+            "filters": [
+              "搜索类型：Web",
+              "资源：geekskai.com 域资源"
+            ],
+            "caveats": [
+              "时间吻合属于相关证据，不能证明具体内容违规。9 月下滑开始于官方 9/24 更新之前。"
+            ]
+          },
+          "reportingPeriod": "2026-08-17–08-18",
+          "columns": [
+            "日期",
+            "点击",
+            "曝光"
+          ],
+          "rows": [
+            {
+              "日期": "2026-08-17",
+              "点击": 566,
+              "曝光": 11160
+            },
+            {
+              "日期": "2026-08-18",
+              "点击": 215,
+              "曝光": 617
+            }
+          ]
+        },
+        {
+          "id": "official-updates",
+          "source": {
+            "label": "Google Search Status Dashboard",
+            "links": [
+              {
+                "label": "August 2026 spam update",
+                "href": "https://status.search.google.com/incidents/LEubPCm2octf2uMqCFKE"
+              },
+              {
+                "label": "September 2026 spam update",
+                "href": "https://status.search.google.com/incidents/XhUDXP7A67iHCD2kmbVu"
+              }
+            ]
+          },
+          "summary": "8 月更新 8/18 开始；9 月更新 9/24 开始。"
+        },
+        {
+          "id": "bing-comparison",
+          "source": {
+            "label": "Bing Webmaster Tools",
+            "filters": [
+              "站点：https://geekskai.com/",
+              "汇总：Web and Chat"
+            ],
+            "caveats": [
+              "卡片为缩写近似值；前期比 Google 的月比较错开一天，不合并两者总量。"
+            ]
+          },
+          "reportingPeriod": "界面实际显示：2026-08-11–09-07 与 2026-09-09–10-06",
+          "columns": [
+            "指标",
+            "前期",
+            "后期"
+          ],
+          "rows": [
+            {
+              "指标": "点击",
+              "前期": "约 19K",
+              "后期": "约 21.4K"
+            },
+            {
+              "指标": "曝光",
+              "前期": "约 198K",
+              "后期": "约 188.7K"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "index-coverage",
+      "title": "Google 索引覆盖继续缩小",
+      "queries": [
+        {
+          "id": "gsc-index",
+          "source": {
+            "label": "GSC 页面索引",
+            "files": [
+              {
+                "label": "gsc-index Chart.csv"
+              },
+              {
+                "label": "gsc-crawled-not-indexed Table.csv"
+              }
+            ],
+            "filters": [
+              "All known pages"
+            ],
+            "caveats": [
+              "634 个未收录地址含 106 个静态资源和 122 个标签页，不等于 634 篇低质量文章。核心 WAV 和 MP3 页于 10/9 检查时均已收录且 canonical 正确。"
+            ]
+          },
+          "reportingPeriod": "索引报告截至 2026-10-04",
+          "columns": [
+            "日期",
+            "已收录"
+          ],
+          "rows": [
+            {
+              "日期": "2026-09-08",
+              "已收录": 479
+            },
+            {
+              "日期": "2026-09-19",
+              "已收录": 464
+            },
+            {
+              "日期": "2026-09-22",
+              "已收录": 376
+            },
+            {
+              "日期": "2026-10-04",
+              "已收录": 376
+            }
+          ],
+          "methods": [
+            {
+              "language": "calculation",
+              "code": "(376 / 479 - 1) × 100 = -21.50%"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

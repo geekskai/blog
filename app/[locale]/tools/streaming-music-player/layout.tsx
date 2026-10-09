@@ -40,7 +40,7 @@ export async function generateMetadata(props: {
       siteName: "GeeksKai",
       images: [
         {
-          url: "/static/images/tools/streaming-music-player/streaming-music-player.png",
+          url: "/static/images/og/geekskai-home.png",
           width: 1200,
           height: 630,
           alt: t("metadata_og_image_alt"),

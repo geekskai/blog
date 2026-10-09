@@ -1,0 +1,10 @@
+Reason,Source,Validation,Pages
+Page with redirect,Website,Failed,137
+Redirect error,Website,Failed,7
+Blocked by robots.txt,Website,Not Started,75
+Excluded by ‘noindex’ tag,Website,Not Started,32
+Not found (404),Website,Not Started,19
+Alternate page with proper canonical tag,Website,Not Started,8
+"Duplicate, Google chose different canonical than user",Google systems,Not Started,2
+Crawled - currently not indexed,Google systems,Started,634
+Discovered - currently not indexed,Google systems,Passed,61

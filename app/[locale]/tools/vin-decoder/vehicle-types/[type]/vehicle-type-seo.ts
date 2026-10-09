@@ -13,7 +13,7 @@ const VIN_SEO_SHARED = {
   lastModifiedAt: "2026-05-26T12:00:00.000Z",
 }
 
-type VehicleTypeSlug = "motorcycle" | "rv" | "trailer" | "classic-car"
+export type VehicleTypeSlug = "motorcycle" | "rv" | "trailer" | "classic-car"
 
 export interface VehicleTypeConfig {
   slug: VehicleTypeSlug

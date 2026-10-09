@@ -38,7 +38,7 @@ export async function generateMetadata(props: {
       type: "website",
       images: [
         {
-          url: "/static/images/chromakopia-name-generator.png",
+          url: "/static/images/og/geekskai-home.png",
           width: 1200,
           height: 630,
           alt: t("page_title"),

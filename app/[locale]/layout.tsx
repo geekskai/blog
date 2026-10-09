@@ -108,6 +108,10 @@ export default async function RootLayout({
     no: "nb-NO",
     "zh-cn": "zh-CN",
     da: "da-DK",
+    ar: "ar",
+    de: "de-DE",
+    fr: "fr-FR",
+    es: "es-ES",
   }
 
   const inLanguage = localeMap[locale] || "en-US"

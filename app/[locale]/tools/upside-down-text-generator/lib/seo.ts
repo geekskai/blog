@@ -1,5 +1,5 @@
-import { supportedLocales } from "app/i18n/routing"
 import type { Metadata } from "next"
+import { buildLanguageAlternates, getLocalizedUrl } from "app/i18n/urls"
 
 export interface UnicodeToolSeoConfig {
   slug: string
@@ -14,17 +14,9 @@ export interface UnicodeToolSeoConfig {
 export function buildUnicodeToolMetadata(config: UnicodeToolSeoConfig): Metadata {
   const { slug, locale, title, description, keywords, lastModified } = config
   const isDefaultLocale = locale === "en"
-  const canonical = isDefaultLocale
-    ? `https://geekskai.com/tools/${slug}/`
-    : `https://geekskai.com/${locale}/tools/${slug}/`
-
-  const languages: Record<string, string> = {
-    "x-default": `https://geekskai.com/tools/${slug}/`,
-  }
-
-  supportedLocales.forEach((loc) => {
-    languages[loc] = `https://geekskai.com/${loc}/tools/${slug}/`
-  })
+  const path = `/tools/${slug}/`
+  const canonical = getLocalizedUrl("https://geekskai.com", locale, path)
+  const languages = buildLanguageAlternates("https://geekskai.com", path)
 
   return {
     title,

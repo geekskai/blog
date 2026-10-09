@@ -34,4 +34,10 @@ describe("tool locale indexing policy", () => {
     expect(getToolLinkLocale("/tools/morse-code-translator/", "en")).toBeUndefined()
     expect(getToolLinkLocale("/tools/html-to-markdown/", "ko")).toBeUndefined()
   })
+
+  it("keeps the newly enumerated VIN and pixels routes in all supported locales", () => {
+    expect(getIndexedToolLocales("/tools/pixels-to-inches/")).toHaveLength(10)
+    expect(getIndexedToolLocales("/tools/vin-decoder/bmw/")).toHaveLength(10)
+    expect(getIndexedToolLocales("/tools/vin-decoder/vehicle-types/rv/")).toHaveLength(10)
+  })
 })

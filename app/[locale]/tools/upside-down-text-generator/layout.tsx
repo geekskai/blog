@@ -49,7 +49,7 @@ export async function generateMetadata(props: {
       siteName: "GeeksKai",
       images: [
         {
-          url: "/static/images/og/upside-down-text-generator.png",
+          url: "/static/images/og/geekskai-home.png",
           width: 1200,
           height: 630,
           alt: "Upside down text generator interface preview",

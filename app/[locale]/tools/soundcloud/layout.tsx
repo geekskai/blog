@@ -8,24 +8,24 @@ const siteUrl = "https://geekskai.com"
 
 const copyByLocale = {
   en: {
-    title: "SoundCloud Tools - Track, MP3/M4A, Playlist & Artwork",
+    title: "SoundCloud Tools - MP3, M4A & WAV Downloads, Playlists & Artwork",
     description:
-      "Choose a truthful SoundCloud workflow for available MP3/M4A streams, public playlists, or artwork, with format and access limits disclosed.",
+      "Download accessible SoundCloud tracks as MP3, M4A, or converted PCM WAV. Browse playlist and artwork tools, with source and access limits explained.",
   },
   fr: {
-    title: "Outils SoundCloud - pistes MP3/M4A, playlists et pochettes",
+    title: "Outils SoundCloud - téléchargements MP3, M4A et WAV, playlists et pochettes",
     description:
-      "Choisissez un flux SoundCloud clair pour les pistes MP3/M4A disponibles, les playlists publiques ou les pochettes, avec les limites indiquees.",
+      "Téléchargez les pistes SoundCloud accessibles en MP3, M4A ou WAV PCM converti. Retrouvez aussi les outils pour playlists et pochettes, avec les limites de source et d'accès expliquées.",
   },
   es: {
-    title: "Herramientas SoundCloud - pistas MP3/M4A, playlists y caratulas",
+    title: "Herramientas SoundCloud - descargas MP3, M4A y WAV, playlists y carátulas",
     description:
-      "Elige un flujo claro para pistas MP3/M4A disponibles, playlists publicas o caratulas, con limites de formato y acceso explicados.",
+      "Descarga pistas accesibles de SoundCloud en MP3, M4A o WAV PCM convertido. También hay herramientas para playlists y carátulas, con límites de origen y acceso explicados.",
   },
   de: {
-    title: "SoundCloud Tools - MP3/M4A Tracks, Playlists und Artwork",
+    title: "SoundCloud Tools - MP3-, M4A- und WAV-Downloads, Playlists und Artwork",
     description:
-      "Wahle einen klaren Workflow fur verfugbare MP3/M4A-Streams, offentliche Playlists oder Coverbilder mit offengelegten Grenzen.",
+      "Lade zugängliche SoundCloud-Tracks als MP3, M4A oder konvertierte PCM-WAV-Datei herunter. Dazu gibt es Playlist- und Artwork-Tools mit klaren Quellen- und Zugriffshinweisen.",
   },
 } as const
 
