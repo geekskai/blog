@@ -9,6 +9,7 @@ import { LearnMoreSection } from "./components/LearnMoreSection"
 import { useEmotionTest } from "./hooks"
 import { ChevronLeft, Home } from "lucide-react"
 import { Link } from "@/app/i18n/navigation"
+import NextLink from "next/link"
 import { useTranslations } from "next-intl"
 
 type AppState = "start" | "testing" | "results"
@@ -468,18 +469,18 @@ const EmotionPhoneTest: React.FC = () => {
             <div className="text-center">
               <p className="text-sm text-slate-400">{t("footer_inspired")}</p>
               <div className="mt-4 flex justify-center space-x-6">
-                <Link
+                <NextLink
                   href="/tools/"
                   className="text-sm text-slate-400 transition-colors hover:text-white"
                 >
                   {t("footer_more_tools")}
-                </Link>
-                <Link
-                  href="/privacy"
+                </NextLink>
+                <NextLink
+                  href="/privacy/"
                   className="text-sm text-slate-400 transition-colors hover:text-white"
                 >
                   {t("footer_privacy")}
-                </Link>
+                </NextLink>
                 <a
                   href="https://github.com/geekskai"
                   target="_blank"

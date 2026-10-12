@@ -1,17 +1,18 @@
 "use client"
-import Image from "@/components/Image"
-import { usePathname } from "next/navigation"
-import { formatDate } from "pliny/utils/formatDate"
-import { coreContent, CoreContent } from "pliny/utils/contentlayer"
+import Image from "../components/Image"
+import { formatDate } from "pliny/utils/formatDate.js"
+import { coreContent, CoreContent } from "pliny/utils/contentlayer.js"
 import { allAuthors, Authors, type Blog } from "contentlayer/generated"
-import Link from "@/components/Link"
-import Tag from "@/components/Tag"
-import siteMetadata from "@/data/siteMetadata"
+import Link from "../components/Link"
+import Tag from "../components/Tag"
+import siteMetadata from "../data/siteMetadata"
 import React from "react"
+import { getPaginationHref } from "./pagination"
 
 interface PaginationProps {
   totalPages: number
   currentPage: number
+  basePath: string
 }
 interface ListLayoutProps {
   posts: CoreContent<Blog>[]
@@ -22,9 +23,7 @@ interface ListLayoutProps {
   children?: React.ReactNode
 }
 
-function Pagination({ totalPages, currentPage }: PaginationProps) {
-  const pathname = usePathname()
-  const basePath = pathname.split("/")[1]
+function Pagination({ totalPages, currentPage, basePath }: PaginationProps) {
   const prevPage = currentPage - 1 > 0
   const nextPage = currentPage + 1 <= totalPages
 
@@ -38,7 +37,7 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
         )}
         {prevPage && (
           <Link
-            href={currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`}
+            href={getPaginationHref(basePath, currentPage - 1)}
             rel="prev"
             className="rounded-full border border-stone-700 px-3 py-2 transition-colors hover:border-primary-500 hover:text-primary-400"
           >
@@ -55,7 +54,7 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
         )}
         {nextPage && (
           <Link
-            href={`/${basePath}/page/${currentPage + 1}`}
+            href={getPaginationHref(basePath, currentPage + 1)}
             rel="next"
             className="rounded-full border border-stone-700 px-3 py-2 transition-colors hover:border-primary-500 hover:text-primary-400"
           >
@@ -63,6 +62,29 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
           </Link>
         )}
       </nav>
+      <details className="text-center text-sm">
+        <summary className="cursor-pointer text-stone-300 underline-offset-4 hover:text-white hover:underline">
+          All pages
+        </summary>
+        <nav aria-label="All blog pages" className="mt-3 flex flex-wrap justify-center gap-2">
+          {Array.from({ length: totalPages }, (_, index) => {
+            const page = index + 1
+            const href = getPaginationHref(basePath, page)
+            return (
+              <Link
+                key={page}
+                href={href}
+                aria-current={page === currentPage ? "page" : undefined}
+                className={`rounded-full border px-3 py-1 transition-colors hover:border-primary-500 hover:text-primary-400 ${
+                  page === currentPage ? "border-primary-500 text-primary-400" : "border-stone-700"
+                }`}
+              >
+                {page}
+              </Link>
+            )
+          })}
+        </nav>
+      </details>
     </div>
   )
 }
@@ -153,7 +175,11 @@ export default function ListLayoutWithTags({
             })}
           </div>
           {pagination && pagination.totalPages > 1 && (
-            <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
+            <Pagination
+              currentPage={pagination.currentPage}
+              totalPages={pagination.totalPages}
+              basePath={pagination.basePath}
+            />
           )}
         </div>
       </div>

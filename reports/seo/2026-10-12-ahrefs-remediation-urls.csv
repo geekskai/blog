@@ -1,0 +1,10 @@
+task,source_url,target_url,current_evidence,status,owner_layer,expected_result,priority
+P1-A,,https://geekskai.com/{locale}/tools/inside-out-2-glued-to-phone-test,Privacy link now uses native next/link with fixed /privacy/; language variants remain localized,LOCAL PASS,application,all locale variants emit /privacy/,P1
+P1-B,,https://geekskai.com/blog/react/react-js-interview-questions-core-react,Missing vdom1.png vdom2.png vdom3.png in repository; no equivalent source verified,BLOCKED,content/assets,original images supplied and return 200,P1
+P1-B,,https://geekskai.com/blog/react/react-js-interview-questions-react-miscellaneous,Missing error_boundary.png in repository; no equivalent source verified,BLOCKED,content/assets,original image supplied and returns 200,P1
+P1-B,,https://geekskai.com/blog/technology/10-best-video-to-video-ai-tools-for-creators-working-with-existing-footage,Historical Ahrefs report unavailable in mapped checkout; current image source needs live verification,BLOCKED,content/assets,all referenced images verified in browser,P1
+P1-B,,https://geekskai.com/blog/what-is-me-engineer,Missing M&E cover and body image files referenced by front matter/MDX,BLOCKED,content/assets,one approved consistent asset used by card cover body and schema,P1
+P1-C,,https://www.geekskai.com/robots.txt,No DNS/CDN/provider access performed; no configuration values guessed,BLOCKED,hosting/config,permanent redirect and normal robots response verified,P1
+P2-A,https://geekskai.com/blog/,https://geekskai.com/blog/page/{N},All pages are rendered under details; page URL helper tests cover /blog/, /blog/page/2 and /blog/page/18,LOCAL PASS,application,any valid page reachable in one link,P2
+P2-B,https://geekskai.com/blog/{long-article},,No byte decomposition or historical report available in mapped checkout,BLOCKED,application,blog HTML under 2 MB or explicit follow-up,P2
+P2-C,,https://geekskai.com/,,Cloudflare configuration not accessed; no obfuscation change made,BLOCKED,hosting/config,static mailto links verified after approved host rule,P2

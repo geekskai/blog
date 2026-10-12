@@ -607,6 +607,7 @@ export default function MorseCodeGenerator() {
           <p className="mb-6 text-slate-300">
             {t.rich("guide.p4", {
               strong: (chunks) => <strong className="text-white">{chunks}</strong>,
+              amber: (chunks) => <strong className="text-amber-300">{chunks}</strong>,
             })}
           </p>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

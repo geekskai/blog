@@ -6,7 +6,7 @@
 
 你负责调查 geekskai.com 的 Google 流量下滑，修复有证据支持的当前缺陷，并交付可复核结果。执行顺序：**WAV 核心页 → 历史发布与内容对照 → 有历史流量的未收录页面 → 其余 SEO 问题**。
 
-- 工作目录：`/Users/channelwill/Downloads/geekskai`。本文代码路径均相对此目录。
+- 工作目录：`/Users/gankai/Desktop/geekskai`。本文代码路径均相对此目录。
 - 本方案允许本地调查、最小代码修复、测试和文档更新。先读取适用的 `AGENTS.md`，保护用户已有改动，不升级依赖、不做无关重构。
 - 不自动提交 Git、部署、修改生产配置/密钥、修改额度或账单、提交 IndexNow/GSC 重新索引、批量删除内容或更改全站索引策略。完成本地可审查结果后，列出需要用户授权的具体发布动作。
 - 复用用户指定的内置浏览器 GSC/Bing 登录会话；只读检查，结束后恢复临时筛选。无法访问时使用现有导出，注明截止日期，不虚构新数据。
@@ -105,7 +105,7 @@
 根据修改范围选择测试组，未改动的功能不为凑覆盖率新增测试：
 
 ```sh
-cd /Users/channelwill/Downloads/geekskai
+cd /Users/gankai/Desktop/geekskai
 
 # 修改文案来源、metadata 或索引规则时
 yarn test data/soundCloudSeo.test.ts lib/seo.test.ts app/sitemap.test.ts app/sitemap-config.test.ts

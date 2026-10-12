@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useMemo, useState } from "react"
-import { formatDate } from "pliny/utils/formatDate"
+import { formatDate } from "pliny/utils/formatDate.js"
 import { CoreContent } from "pliny/utils/contentlayer"
 import type { Blog } from "contentlayer/generated"
 import Tag from "@/components/Tag"

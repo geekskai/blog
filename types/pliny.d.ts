@@ -9,7 +9,18 @@ declare module "pliny/utils/contentlayer" {
   export const allCoreContent: any
 }
 
+declare module "pliny/utils/contentlayer.js" {
+  export type CoreContent<T = any> = any
+  export const sortPosts: any
+  export const coreContent: any
+  export const allCoreContent: any
+}
+
 declare module "pliny/utils/formatDate" {
+  export const formatDate: any
+}
+
+declare module "pliny/utils/formatDate.js" {
   export const formatDate: any
 }
 

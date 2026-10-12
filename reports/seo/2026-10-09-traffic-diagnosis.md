@@ -86,13 +86,13 @@ Google 使用域资源 geekskai.com、Web 搜索，无页面、国家或设备�
 
 ## 可复核证据
 
-- [原始 Google 导出 CSV 目录](/Users/channelwill/Downloads/geekskai/reports/seo/2026-10-09-traffic-evidence)
-- [两周页面比较](/Users/channelwill/Downloads/geekskai/reports/seo/2026-10-09-traffic-evidence/gsc-14d-comparison/Pages.csv)
-- [两周关键词比较](/Users/channelwill/Downloads/geekskai/reports/seo/2026-10-09-traffic-evidence/gsc-14d-comparison/Queries.csv)
-- [三个月日级数据](/Users/channelwill/Downloads/geekskai/reports/seo/2026-10-09-traffic-evidence/gsc-90d/Chart.csv)
-- [索引历史](/Users/channelwill/Downloads/geekskai/reports/seo/2026-10-09-traffic-evidence/gsc-index/Chart.csv)
-- [634 个已抓取未收录地址](/Users/channelwill/Downloads/geekskai/reports/seo/2026-10-09-traffic-evidence/gsc-crawled-not-indexed/Table.csv)
-- [计算结果](/Users/channelwill/Downloads/geekskai/reports/seo/2026-10-09-traffic-evidence/calculations.json)
+- [原始 Google 导出 CSV 目录](/Users/gankai/Desktop/geekskai/reports/seo/2026-10-09-traffic-evidence)
+- [两周页面比较](/Users/gankai/Desktop/geekskai/reports/seo/2026-10-09-traffic-evidence/gsc-14d-comparison/Pages.csv)
+- [两周关键词比较](/Users/gankai/Desktop/geekskai/reports/seo/2026-10-09-traffic-evidence/gsc-14d-comparison/Queries.csv)
+- [三个月日级数据](/Users/gankai/Desktop/geekskai/reports/seo/2026-10-09-traffic-evidence/gsc-90d/Chart.csv)
+- [索引历史](/Users/gankai/Desktop/geekskai/reports/seo/2026-10-09-traffic-evidence/gsc-index/Chart.csv)
+- [634 个已抓取未收录地址](/Users/gankai/Desktop/geekskai/reports/seo/2026-10-09-traffic-evidence/gsc-crawled-not-indexed/Table.csv)
+- [计算结果](/Users/gankai/Desktop/geekskai/reports/seo/2026-10-09-traffic-evidence/calculations.json)
 - [GSC 两周比较](https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Ageekskai.com&start_date=20260923&end_date=20261006&compare_start_date=20260909&compare_end_date=20260922)
 - [Bing 搜索表现](https://www.bing.com/webmasters/searchperf?siteUrl=https://geekskai.com/)
 - [Google 官方流量下降诊断方法](https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops)
